@@ -4,7 +4,7 @@ When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingre
 
 ## Getting started {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `editor`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
+1. [Create a service account](../../iam/operations/sa/create.md) with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -50,6 +50,8 @@ When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingre
 
 ## External network load balancer {#external}
 
+To create a network load balancer, the service account linked to your {{ managed-k8s-name }} cluster must have the `load-balancer.admin` role.
+
 An external network load balancer is created when installing an NGINX Ingress controller in a standard configuration:
 
 ```bash
@@ -71,6 +73,8 @@ You can watch the status by running 'kubectl --namespace default get services -o
 
 ## Internal network load balancer {#internal}
 
+To create a network load balancer, the service account linked to your {{ managed-k8s-name }} cluster must have the `load-balancer.admin` role.
+
 To install an internal network load balancer:
 1. [Configure the controller](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml). To do this, create a configuration file named `values.yaml` and specify in it the ID of the [subnet](../../vpc/concepts/network.md#subnet) the network load balancer should operate in:
 
@@ -86,7 +90,7 @@ To install an internal network load balancer:
            yandex.cloud/subnet-id: <subnet_ID>
    ```
 
-1. Install a NGINX Ingress controller using the `values.yaml` configuration file:
+1. Install an NGINX Ingress controller using the `values.yaml` configuration file:
 
    ```bash
    helm install ingress-nginx -f values.yaml ingress-nginx/ingress-nginx

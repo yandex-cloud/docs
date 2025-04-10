@@ -17,11 +17,8 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
-
-
 * [{#T}](metrics-server.md)
 * [{#T}](load-testing-grpc-autoscaling.md)
-
 
 ## Installing NGINX {#nginx}
 
@@ -45,11 +42,7 @@ To learn about installing the NGINX Ingress controller using {{ marketplace-full
 ## Continuous integration with {{ GL }} {#gitlab}
 
 * [{#T}](gitlab-containers.md)
-
-
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
-
-
 * [{#T}](ci-cd-serverless.md)
 
 ## Working with DNS {#dns}

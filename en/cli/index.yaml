@@ -1,19 +1,19 @@
 title: Command line interface
 description:
   - >-
-    The Yandex Cloud CLI provides downloadable software for managing your cloud
-    resources from the command line.
+    The Yandex Cloud CLI is downloadable software you can use to manage your
+    cloud resources through the command line interface.
 meta:
-  title: Yandex Cloud CLI
+  title: CLI Yandex Cloud
   description: >-
-    The Yandex Cloud CLI provides downloadable software for managing your cloud
-    resources from the command line.
+    The Yandex Cloud CLI is software you can download to manage your cloud
+    resources using the command line.
 links:
   - title: Getting started
     description: Install the CLI and run your first command
     href: quickstart
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+  - title: Step-by-step guides
+    description: How to perform routine operations
     href: operations/
   - title: How to work with the CLI
     description: Running commands, working with profiles, and configuring the CLI
@@ -24,6 +24,6 @@ links:
   - title: Troubleshooting
     description: Find out how to collect diagnostic information
     href: error
-  - title: CLI reference
+  - title: CLI reference (in English)
     description: CLI command tree
     href: cli-ref/

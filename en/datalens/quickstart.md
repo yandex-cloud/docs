@@ -7,6 +7,7 @@ description: In this tutorial, you will connect to a data source, create your fi
 
 
 
+
 This section outlines how to connect to a data source, create your first [dataset](dataset/index.md), build multiple [charts](concepts/chart/index.md) for data visualization, and place them on a [dashboard](concepts/dashboard.md).
 
 
@@ -71,7 +72,7 @@ To create a dataset based on the `Sample ClickHouse` connection:
 
    ![drag-table](../_assets/datalens/quickstart/drag-table.png)
 
-1. Go to the **Fields** tab.
+1. Navigate to the **Fields** tab.
 
 
 
@@ -269,7 +270,7 @@ You can grant access to your dashboard to other users:
 1. [Add](./security/add-new-user.md) users with a Yandex account to {{ datalens-short-name }}:
 
    1. In the left-hand panel, select ![image](../_assets/console-icons/sliders.svg) **Service settings**.
-   1. Under **Manage users**, click **Invite users**.
+   1. Under **User management**, click **Invite users**.
 
       ![service-settings](../_assets/datalens/quickstart/service-settings.png)
 

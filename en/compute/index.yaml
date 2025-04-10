@@ -15,13 +15,13 @@ description:
   - >-
     The Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
+    pursuant to the Russian Federal Law 152-FZ on personal data.
   - >-
-    The service is subject to a <a
+    This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>.  The
     service level is set out in the document titled <a
-    href="https://yandex.ru/legal/cloud_sla_compute">Service level for Yandex
-    Compute Cloud</a>.
+    href="https://yandex.ru/legal/cloud_sla_compute">Yandex Compute Cloud
+    Service Level</a>.
 meta:
   title: Yandex Compute Cloud
   description: >-

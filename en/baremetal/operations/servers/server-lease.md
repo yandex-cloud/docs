@@ -28,7 +28,13 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
 
         1. Click **{{ ui-key.yacloud.common.save }}**.
   
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select one of the OS images available in Marketplace. Alternatively, you can lease a server without an OS, [upload an image of your own](../image-upload.md), and install the OS from it using KVM.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select:
+  
+      * `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}`: To install one of the available public OS images on the server in {{ marketplace-full-name }}.
+      * `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`: To lease a server without an OS.
+      
+          You can [install](./reinstall-os-from-own-image.md) the OS from your own ISO image later.
+
   1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**:
 
      1. Specify the number of servers you want to lease.
@@ -48,13 +54,18 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
         * `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`: To assign a random IP address.
         * `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`: Not to assign a public IP address.
 
-  1. {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
+  1. If you are installing an OS on the server from a public image in {{ marketplace-name }}, set the server access settings under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+
+      {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
+
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
 
      1. Enter the server name in the **{{ ui-key.yacloud.baremetal.field_name }}** field.
-     1. Optionally, add **{{ ui-key.yacloud.baremetal.field_description }}** to the server.
+     1. (Optional) Add **{{ ui-key.yacloud.baremetal.field_description }}** to the server.
      1. Optionally, set **{{ ui-key.yacloud.component.label-set.label_labels }}**.
   
   1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 {% endlist %}
+
+Once you lease a server, you can install or re-install an OS on it at any time from a public image in {{ marketplace-name }} or your own ISO image. For more information, see [{#T}](./reinstall-os-from-marketplace.md) and [{#T}](./reinstall-os-from-own-image.md).

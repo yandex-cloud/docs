@@ -5,6 +5,10 @@ description: This section contains {{ dataproc-name }} release notes.
 
 # {{ dataproc-full-name }} release notes
 
+## December 2024 {#dec-2024}
+
+When creating or editing a cluster, you can now select the [environment](../concepts/environment.md#environment): `PRODUCTION` or `PRESTABLE`.
+
 ## September 2024 {#sep-2024}
 
 {{ metastore-name }} clusters are now part of {{ metadata-hub-full-name }}. For information on {{ metastore-name }} clusters, see the [{{ metadata-hub-name }} documentation](../../metadata-hub/concepts/metastore.md).

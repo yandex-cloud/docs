@@ -43,6 +43,7 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](route-switcher.md)
 * [{#T}](site-to-site-openvpn.md)
 * [{#T}](mlflow-datasphere.md)
+* [{#T}](mgp-config-server-for-s3.md)
 
 ## {{ coi }} {#coi}
 

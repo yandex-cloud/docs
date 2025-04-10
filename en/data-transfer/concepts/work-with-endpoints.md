@@ -76,7 +76,7 @@ When transferring [partitioned tables](https://www.postgresql.org/docs/current/d
     * At the replication stage, data will automatically be placed into the required child tables or the parent table if inheritance is not used for partitioning.
     * If the child tables are created on the source after the transfer has entered the replication stage, you need to transfer them to the target manually.
 
-    When migrating a database from {{ PG }} to another DBMS, the user can enable the [Merge inherited tables](../operations/endpoint/source/postgresql#additional-settings) option in the source endpoint. In this case:
+    When migrating a database from {{ PG }} to another DBMS, the user can enable the [Merge inherited tables](../operations/endpoint/source/postgresql#additional-settings) option in the source endpoint. In which case:
 
     * Only the parent table will be transferred to the target, and it will contain the data of those child tables which were explicitly specified in the list of tables to be transferred.
     * The user can still speed up the transfer because child tables from the source are concurrently copied to the common table on the target. To speed up the transfer, enable [parallel copy](sharded.md).

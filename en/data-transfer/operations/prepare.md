@@ -118,7 +118,6 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 {% include [prepare postgresql db](../../_includes/data-transfer/endpoints/targets/pg-prepare.md) %}
 
 
-
 ### {{ ydb-full-name }} target {#target-ydb}
 
 {% include [prepare ydb db](../../_includes/data-transfer/endpoints/targets/ydb-prepare.md) %}
@@ -127,6 +126,5 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

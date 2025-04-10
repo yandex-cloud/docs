@@ -6,6 +6,7 @@ description: In this tutorial, you will learn about {{ datalens-short-name }} ac
 # Managing access to {{ datalens-short-name }}
 
 
+
 Access to {{ datalens-full-name }} is managed by assigning permissions via the [organization's](../concepts/organizations.md) service.
 
 When using a firewall, allow access to external resources required to run {{ datalens-short-name }}:
@@ -43,3 +44,5 @@ To learn about {{ datalens-name }} access management, see:
   * [{#T}](../operations/permission/request.md)
 
 * [Access to data rows](../security/row-level-security.md)
+
+

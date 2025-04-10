@@ -15,6 +15,8 @@ description: This page provides a list of step-by-step guides for {{ backup-name
 * [{#T}](refresh-connection.md)
 * [{#T}](update-backup-agent.md)
 * [{#T}](refresh-connection-oslogin-linux.md)
+* [{#T}](get-connection-status.md)
+* [{#T}](get-journal.md)
 * [{#T}](delete-vm.md)
 
 ## Managing {{ baremetal-name }} servers in {{ backup-name }} {#connect-baremetal}

@@ -23,26 +23,29 @@ Lease your first physical server and connect to it. All the leased server's reso
   1. Select the `{{ region-id }}-m` [availability zone](../overview/concepts/geo-scope.md).
   1. Select the `{{ region-id }}-m3` pool.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
-  
+
      1. Select the `BA-i103-S-10G` server configuration.
      1. (Optional) Configure disk partitioning:
 
         1. Click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
         1. Specify the layout parameters and click **{{ ui-key.yacloud.common.save }}**.
-  
+
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 22.04 LTS` image.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, specify:
 
      1. **{{ ui-key.yacloud.baremetal.field_server-count }}**: `1`
      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}**: `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`
-  
+
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
      1. In the **Private subnet** field, click **{{ ui-key.yacloud.common.create }}**.
      1. Enter `bm-subnetwork` for the subnet name and click **Create subnet**.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
-  
-  1. {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
+
+  1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+
+      {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
+
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, enter the server **{{ ui-key.yacloud.baremetal.field_name }}**: `bm-server`.
   1. Click **Order server**.
 
@@ -83,7 +86,7 @@ Lease your first physical server and connect to it. All the leased server's reso
 
   To establish a server connection, specify its public IP address which can be found in the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
 
-  Make sure the Windows account has read permissions for the folder containing the keys.
+  Make sure the Windows account has read permissions for the directory containing the keys.
 
   To connect to the server, run the following command in the command line:
 

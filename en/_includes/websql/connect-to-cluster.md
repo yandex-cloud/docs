@@ -1,6 +1,12 @@
 Before creating a connection, make sure that you have selected the required folder. If you have access to {{ PG }}, {{ CH }}, {{ MY }}, {{ VLK }}, or {{ MG }} clusters previously created in that folder, they will automatically appear in the **{{ yandex-cloud }} connections** subsection. You will only need to create a connection to the appropriate database in the cluster.
 
-Connections to clusters created in {{ metadata-hub-full-name }} {{ connection-manager-name }} will also be displayed automatically, provided you have [roles](../../metadata-hub/security/index.md#service-roles) to manage these connections in {{ connection-manager-name }}.
+{% note info %}
+
+[{{ mtr-full-name }}](../../managed-trino/) is at the [Preview](../../overview/concepts/launch-stages.md) stage. Currently, you cannot create connections to {{ mtr-full-name }} in the {{ websql-full-name }} interface. However, if the current folder has a {{ mtr-full-name }} cluster and the user can access it, the connection will be displayed in {{ websql-name }}, available for use. 
+
+{% endnote %}
+
+Connections to clusters created in {{ metadata-hub-full-name }} {{ connection-manager-name }} will also be displayed automatically provided you have [roles](../../metadata-hub/security/index.md#service-roles) to manage these connections in {{ connection-manager-name }}.
 
 To create a connection to a managed database cluster:
 

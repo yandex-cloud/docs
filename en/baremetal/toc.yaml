@@ -24,6 +24,8 @@ items:
             items:
               - name: Reinstalling OS from a Marketplace image
                 href: operations/servers/reinstall-os-from-marketplace.md
+              - name: Reinstalling OS from your ISO image
+                href: operations/servers/reinstall-os-from-own-image.md
           - name: Connecting to the KVM console
             href: operations/servers/server-kvm.md
           - name: Replacing a disk in a RAID array
@@ -74,6 +76,8 @@ items:
         href: operations/backup-baremetal.md
       - name: Configuring VRRP for a {{ baremetal-name }} server cluster
         href: tutorials/bms-vrf-routing.md
+      - name: Setting up network connectivity in a {{ baremetal-name }} subnet
+        href: tutorials/bms-simple-subnet.md
   - name: API reference
     items:
       - name: Authentication

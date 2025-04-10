@@ -40,6 +40,12 @@ By using archives, you can [delete](../operations/backup-vm/batch-delete.md) bac
 
 ## File-by-file recovery {#file-by-file}
 
-With {{ backup-name }}, you can restore individual files and directories from a backup to any VM [connected](vm-connection.md) to the service. For more information, see [{#T}](../operations/backup-vm/recover-file-by-file.md).
+With {{ backup-name }}, you can restore individual files and directories from a backup to any VM [connected](vm-connection.md) to the service. To learn more, see [{#T}](../operations/backup-vm/recover-file-by-file.md).
 
 File-by-file recovery to {{ baremetal-name }} servers is currently not available.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/backup-baremetal.md)
+* [{#T}](../tutorials/vm-with-backup-policy/index.md)

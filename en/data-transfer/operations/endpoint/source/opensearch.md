@@ -1,6 +1,6 @@
 ---
 title: How to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to configure a {{ OS }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
 ---
 # Transferring data from an {{ OS }} source endpoint
 
@@ -8,7 +8,7 @@ description: In this tutorial, you will learn how to set up an {{ OS }} source e
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ OS }}](#prepare) database for the transfer.
-1. [Set up an endpoint source](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
 1. Perform required operations with the database and [control the transfer](../../monitoring.md).
@@ -24,7 +24,7 @@ description: In this tutorial, you will learn how to set up an {{ OS }} source e
 
 * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Preparing the source database {#prepare}
 
@@ -43,10 +43,9 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mos.viewer }}` role](../../../../managed-opensearch/security/index.md#mos-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#mos-viewer) role or the [`viewer`](../../../../iam/roles-reference.md#viewer) primitive role assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
-
 
 Connection with the cluster ID specified in {{ yandex-cloud }}.
 
@@ -54,7 +53,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-   {% include [Managed OpenSearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-opensearch.md) %}
+    {% include [Managed OpenSearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-opensearch.md) %}
 
 {% endlist %}
 
@@ -67,7 +66,7 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 - Management console {#console}
 
-   {% include [On premise OpenSearch UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-opensearch.md) %}
+    {% include [On premise OpenSearch UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-opensearch.md) %}
 
 {% endlist %}
 
@@ -77,9 +76,9 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
 - Management console {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.dump_index_with_mapping.title }}**: Select this option to move data types from a source to a target before a transfer is started. If the option is disabled and no index schema is set on the target, data types on the target will be identified automatically during a transfer.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.dump_index_with_mapping.title }}**: Select this option to move data types from a source to a target before a transfer is started. If the option is disabled and no index schema is set on the target, data types on the target will be identified automatically during a transfer.
 
-   {% include [dump-index-warning](../../../../_includes/data-transfer/necessary-settings/ui/dump-index-warning.md) %}
+    {% include [dump-index-warning](../../../../_includes/data-transfer/necessary-settings/ui/dump-index-warning.md) %}
 
 {% endlist %}
 
@@ -96,7 +95,7 @@ Configure the target endpoint:
 * [{{ KF }}](../target/kafka.md)
 * [{{ DS }}](../target/data-streams.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
@@ -105,7 +104,7 @@ After configuring the data source and target, [create and start the transfer](..
 * [Transfer failure](#ambiguous-resolution-os)
 * [Document duplication on the target](#duplication)
 
-See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [ambiguous-object-resolution-os](../../../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-os.md) %}
 

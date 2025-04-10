@@ -1,30 +1,31 @@
 title: Yandex Cloud CDN
 description:
   - >-
-    Yandex Cloud CDN lets you organize the delivery of content to your end users
+    Yandex Cloud CDN allows you to organize content delivery to your end users
     using a content delivery network (CDN).
-  - >-
-    This helps you: <ul> <li>Shift part of the load from content origins to CDN
-    servers by employing caching.</li> <li>Decrease content waiting time for the
-    end user.</li> </ul>
+  - |-
+    This will allow you to: <ul>
+      <li>Use caching to partially shift loads from data origins to CDN servers.</li>
+      <li>Reduce content waiting time for the end user.</li>
+    </ul>
   - You can manage the service using the management console.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_cdn">Service Level for Yandex Cloud
-    CDN</a>.
+    The service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.com/legal/cloud_sla_cdn">Yandex Cloud CDN Service
+    Level</a>.
 meta:
   title: Yandex Cloud CDN
   description: >-
-    Yandex Cloud CDN lets you organize the delivery of content to your end users
+    Yandex Cloud CDN allows you to organize content delivery to your end users
     using a content delivery network (CDN).
 links:
   - title: Getting started
     description: How to get started with CDN content delivery
     href: quickstart
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+  - title: Step-by-step guides
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: CDN operation and basic terminology
@@ -33,10 +34,10 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Troubleshooting
-    description: Common errors and how to fix them
-    href: troubleshooting/
+    description: Common issues and how to fix them
+    href: troubleshooting
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

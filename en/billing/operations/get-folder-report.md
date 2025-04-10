@@ -37,7 +37,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 
 1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, or `billing.accounts.editor`.
 
-### Get expense details {#download-detail}
+### Get the expense details {#download-detail}
 
 {% list tabs group=instructions %}
 
@@ -115,7 +115,6 @@ The table contains the following columns:
 * `locale`: Language of each exported line. This field's value determines the `sku_name` column language. The possible values are `en` and `ru`.
 * `updated_at`: Date and time of the last line update in [Unix Timestamp](https://www.unixtimestamp.com) format.
 * `exported_at`: Date and time when the line was added to the details file.
-
 
 {% cut "Deprecated parameters" %}
 

@@ -35,6 +35,8 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
   * [Visualizing {{ monitoring-full-name }} data](data-from-monitoring-visualization.md)
   * [Visualizing {{ ytsaurus-name }} CHYT data](data-from-ch-over-yt.md)
   * [Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}](events-from-postbox-to-yds.md)
+  * [{#T}](forms-and-datalens-integration/index.md)
+  * [{#T}](bigquery-to-clickhouse.md)
 
 * Functional
 

@@ -47,6 +47,7 @@ description: Различные сценарии использования {{ c
 * [{#T}](install-gitlab-runner.md)
 * [{#T}](mgp-config-server-for-s3.md)
 * [{#T}](bm-vrf-and-vpc-interconnect.md)
+* [{#T}](pvc-snapshot-restore.md)
 
 ## {{ coi }} {#coi}
 

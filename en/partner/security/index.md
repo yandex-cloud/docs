@@ -1,13 +1,13 @@
 ---
-title: Access management in {{ yandex-cloud }} partner program
-description: In this article, you will learn about the service roles and primitive roles in {{ yandex-cloud }} partner program, and take a look at the operations available for roles of each type.
+title: Managing access in the {{ yandex-cloud }} partner program
+description: In this article, you will learn about the service roles and primitive roles in the {{ yandex-cloud }} partner program as well as take a look at the operations available for each role type.
 ---
 
 # Access management
 
 {% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -101,14 +101,14 @@ The tables below provide a list of operations available to each role type. Full 
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/yes.svg) ||
-|| Activate the paid version |
+|| Activating the paid version |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) ||
-|| Delete a billing account |
+|| Deleting a billing account |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) |

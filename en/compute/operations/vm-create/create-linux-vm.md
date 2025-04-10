@@ -53,12 +53,12 @@ description: Use this tutorial to create a Linux VM.
        --name first-instance \
        --zone {{ region-id }}-a \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<key_ID> \
+       --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<key_ID>,auto-delete=true \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
      Where:
-     * `--name`: VM name. The naming requirements are as follows:
+     * `--name`: VM name. Follow these naming requirements:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -72,6 +72,7 @@ description: Use this tutorial to create a Linux VM.
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
      * `--create-boot-disk`: VM boot disk settings:
+         * `auto-delete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
          * `image-family`: [Image family](../../concepts/image.md#family), e.g., `centos-7`. This option allows you to install the latest version of the OS from the specified family.
          * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
 
@@ -85,7 +86,7 @@ description: Use this tutorial to create a Linux VM.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-         If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in the `--metadata-from-file` parameter. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
+         If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in the `--metadata-from-file` parameter. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -116,6 +117,7 @@ description: Use this tutorial to create a Linux VM.
        }
 
        boot_disk {
+         auto_delete = true
          disk_id = yandex_compute_disk.boot-disk.id
        }
 
@@ -157,14 +159,15 @@ description: Use this tutorial to create a Linux VM.
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
        * `zone`: Availability zone the VM will reside in.
        * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-       * `boot_disk`: Boot disk settings. Specify the disk ID. 
+       * `boot_disk`: Boot disk settings. Specify the disk ID.
+       * `auto_delete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
        * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
        * `metadata`: In the metadata, provide the public SSH key for VM access. For more information, see [{#T}](../../concepts/vm-metadata.md).
 
-           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
+           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
      * `yandex_vpc_network`: Cloud network description.
      * `yandex_vpc_subnet`: Description of the subnet to connect your VM to.
 
@@ -252,8 +255,9 @@ description: Use this tutorial to create a Linux VM.
          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
        },
        "bootDiskSpec": {
+         "autoDelete": true,
          "diskSpec": {
-           "size": "2621440000",
+           "size": "8589934592",
            "imageId": "fd8rc75pn12f********"
          }
        },
@@ -278,11 +282,12 @@ description: Use this tutorial to create a Linux VM.
      * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
      * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
      * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size.
+     * `autoDelete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
 
        {% include [id-info](../../../_includes/compute/id-info.md) %}
 
        The disk size must not be less than the minimum value specified in the image info.
-     * `networkInterfaceSpecs`: VM [network interface](../../concepts/network.md) settings.
+     * `networkInterfaceSpecs`: VM [network interface](../../concepts/network.md) settings:
        * `subnetId`: ID of the selected subnet.
        * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP address](../../../vpc/concepts/address.md#public-addresses) to your VM, specify the following:
 

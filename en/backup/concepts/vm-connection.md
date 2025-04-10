@@ -111,7 +111,7 @@ For the {{ backup-name }} agent to be able to exchange data with the [backup pr
 
 {% list tabs group=traffic %}
 
-- Egress traffic {#outgoing}
+- Outgoing traffic {#outgoing}
 
   {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %}
 
@@ -134,3 +134,12 @@ To provide network access:
   Make sure the sever network settings do not block outgoing traffic to the specified resources.
 
 {% endlist %}
+
+## VM connection statuses {#statuses}
+
+{% include [connection-statuses](../../_includes/backup/connection-statuses.md) %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/backup-baremetal.md)
+* [{#T}](../tutorials/vm-with-backup-policy/index.md)

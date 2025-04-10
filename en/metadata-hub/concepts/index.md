@@ -14,7 +14,6 @@ description: In this tutorial, you will learn about connection and schema regist
 * Creating and managing {{ metastore-full-name }} clusters.
 * Search and visualization of meta information about data storages and links between them.
 
-
 ## Connection management {#connection-manager}
 
 {% include [connection](../../_includes/metadata-hub/connection-definition.md) %}

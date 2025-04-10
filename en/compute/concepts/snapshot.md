@@ -20,7 +20,7 @@ If you need to create multiple disks with the same content, you can use [images]
 
 {% endnote %}
 
-A disk snapshot only contains the data that had already been written to the disk when the snapshot was created. If the disk is attached to a running VM, the OS and app cache will not be included in the snapshot. For more information about preparing a VM for disk snapshot creation and ensuring the integrity of the snapshot data, see [this guide](../operations/disk-control/create-snapshot.md#prepare).
+A disk snapshot only contains the data that was written to the disk at the time its snapshot was created. If the disk is attached to a running VM, the OS and app cache will not be included in the snapshot. For more information about preparing a VM for disk snapshot creation and ensuring the integrity of the snapshot data, see [this guide](../operations/disk-control/create-snapshot.md#prepare).
 
 You can create disk snapshots both manually and automatically, based on a [schedule](snapshot-schedule.md).
 
@@ -52,7 +52,7 @@ To test disk recovery from a snapshot, [create a VM with a snapshot disk](../ope
 
 To protect critical data in {{ compute-name }}, we recommend encrypting snapshots with [{{ kms-full-name }}](../../kms/) keys.
 
-For more information, see [{#T}](encryption.md).
+To learn more, see [{#T}](encryption.md).
 
 
 #### See also {#see-also}

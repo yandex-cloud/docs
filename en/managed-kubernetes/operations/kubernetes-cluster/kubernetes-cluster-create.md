@@ -17,18 +17,14 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 - Management console {#console}
 
   1. Go to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
-
-  
   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../../../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
-
-
   1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
   1. Make sure that the [account](../../../iam/concepts/users/accounts.md) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
   1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
   1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
   1. Create [service accounts](../../../iam/operations/sa/create.md):
-     * Service account with the `k8s.clusters.agent` [role](../../security/index.md#yc-api) for the folder where your {{ managed-k8s-name }} cluster will reside. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+     * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles for the folder](../../security/index.md#yc-api) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
      * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/registry.md) [registry](../../../container-registry/concepts/docker-image.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
      You can use the same service account for both operations.
@@ -74,6 +70,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
        --service-account-name default-sa \
        --node-service-account-name default-sa \
        --daily-maintenance-window start=22:00,duration=10h
+       --labels <cloud_label_name=cloud_label_value>
      ```
 
      Where:
@@ -102,9 +99,10 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create {{ managed-k8s-name }} cluster resources.
+     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
      * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will pull the required [Docker images](../../../container-registry/concepts/registry.md) from the [registry](../../../container-registry/concepts/docker-image.md) on behalf of this account.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
+     * `--labels`: [Cloud labels](../../concepts/index.md#cluster-labels) for the cluster.
 
      Result:
 
@@ -185,7 +183,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      * [Subnets](../../../vpc/concepts/network.md#subnet): Description of the subnets to connect the {{ managed-k8s-name }} cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
      * [Service account](#before-you-begin) for the {{ managed-k8s-name }} cluster and [nodes](../../concepts/index.md#node-group) and [role settings]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) for this account. Create separate [service accounts](../../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and nodes, as required. If you already have a suitable service account, you do not need to describe it again.
 
-     >Here is an example of the configuration file structure:
+     >Here is the configuration file example:
      >
      >```hcl
      >resource "yandex_kubernetes_cluster" "<Managed_Service_for_Kubernetes_cluster_name>" {
@@ -199,11 +197,14 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      >  service_account_id      = yandex_iam_service_account.<service_account_name>.id
      >  node_service_account_id = yandex_iam_service_account.<service_account_name>.id
      >    depends_on = [
-     >      yandex_resourcemanager_folder_iam_member.editor,
+     >      yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
+     >      yandex_resourcemanager_folder_iam_member.vpc-public-admin,
      >      yandex_resourcemanager_folder_iam_member.images-puller
      >    ]
      > }
-     >
+     >  labels {
+     >    "<cloud_label_name>"="<cloud_label_value>"
+     >  }
      >resource "yandex_vpc_network" "<network_name>" { name = "<network_name>" }
      >
      >resource "yandex_vpc_subnet" "<subnet_name>" {
@@ -217,10 +218,17 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      >  description = "<service_account_description>"
      >}
      >
-     >resource "yandex_resourcemanager_folder_iam_member" "editor" {
-     >  # The service account gets the editor role.
+     >resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
+     >  # The service account gets the "k8s.clusters.agent" role.
      >  folder_id = "<folder_ID>"
-     >  role      = "editor"
+     >  role      = "k8s.clusters.agent"
+     >  member    = "serviceAccount:${yandex_iam_service_account.<service_account_name>.id}"
+     >}
+     >
+     >resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
+     >  # The service account gets the "vpc.publicAdmin" role.
+     >  folder_id = "<folder_ID>"
+     >  role      = "vpc.publicAdmin"
      >  member    = "serviceAccount:${yandex_iam_service_account.<service_account_name>.id}"
      >}
      >
@@ -231,6 +239,12 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      >  member    = "serviceAccount:${yandex_iam_service_account.<service_account_name>.id}"
      >}
      >```
+
+     {% note info %}
+     
+      Cloud labels for a {{ k8s }} cluster are composed according to certain [rules](../../concepts/index.md#cluster-labels).
+
+     {% endnote %}
 
      To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), add the `master_logging` section to the {{ managed-k8s-name }} cluster description:
 
@@ -258,6 +272,8 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   To use a [{{ kms-full-name }}](../../concepts/encryption.md) encryption key to protect secrets, provide its ID in the `kmsProvider.keyId` parameter.
 
   To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `masterSpec.masterLogging` parameter.
+
+  To add a [cloud label](../../concepts/index.md#cluster-labels), provide its name and value in the `labels` parameter.
 
 {% endlist %}
 
@@ -437,7 +453,7 @@ Create a {{ managed-k8s-name }} cluster and a network for it with the following 
     * Range: `10.7.0.0/16`.
 
   * Service account: `regional-k8s-account`.
-  * Service account roles: `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` and `kms.keys.encrypterDecrypter`.
+  * Service account roles: `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.keys.encrypterDecrypter`.
   * {{ kms-full-name }} [encryption key](../../concepts/encryption.md): `kms-key`.
   * Security group: `regional-k8s-sg`. It contains [rules for service traffic](../connect/security-groups.md#rules-internal).
 

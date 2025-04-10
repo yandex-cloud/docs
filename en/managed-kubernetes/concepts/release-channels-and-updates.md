@@ -35,6 +35,8 @@ When an update appears on a release channel, the corresponding information is di
 
 Read more about [{{ k8s }} version support termination](#unsupported) and the [{{ managed-k8s-name }} cluster component update process](#cluster-upd).
 
+{% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
+
 ### {{ k8s }} version support termination {#unsupported}
 
 When upgrading from a deprecated {{ k8s }} version:

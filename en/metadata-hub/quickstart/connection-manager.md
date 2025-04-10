@@ -7,6 +7,7 @@ description: Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, and {{ RD }}, a
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+
 Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, and {{ TR }} data sources using {{ connection-manager-full-name }}.
 
 ## Integrating with managed database services {#mdb-integration}
@@ -30,7 +31,7 @@ In the connection list, you can view the connections created for your clusters a
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Enter a name and database type for the connection.
-  1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+  1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
   1. Specify connection parameters depending on the selected database:
      * [Connecting to a managed database in a cluster](../operations/create-connection.md#mdb-connection)
      * [Connecting to a user database installation](../operations/create-connection.md#on-premise-connection)
@@ -47,7 +48,7 @@ In the connection list, you can view the connections created for your clusters a
 
 {% endlist %}
 
-Once you created a connection, you can [view its settings](../operations/update-connection.md#list-connections) in the connection list, [modify them](../operations/update-connection.md#update-connections), and [manage access](../operations/connection-access.md) to that connection.
+Once you create a connection, you can [view its settings](../operations/update-connection.md#list-connections) in the connection list and [modify them](../operations/update-connection.md#update-connections), as well as [manage access](../operations/connection-access.md) to that connection.
 
 
 ## What's next {#what-is-next}

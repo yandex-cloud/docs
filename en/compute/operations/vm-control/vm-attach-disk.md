@@ -8,13 +8,11 @@ You can attach a secondary [disk](../../concepts/disk.md) to [either a running o
 
 ## Attaching a disk {#attach}
 
-
 {% note info %}
 
 You can only attach a local disk to a VM on a [dedicated host](../../concepts/dedicated-host.md) while creating it. For more information, see [these guides](../index.md#dedicated-host).
 
 {% endnote %}
-
 
 {% list tabs group=instructions %}
 
@@ -27,11 +25,7 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
   1. Next to the disk you want to attach, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-attach }}**.
   1. In the window that opens:
      * In the **{{ ui-key.yacloud.compute.attach-disk.field_instance }}** field, select the virtual machine you want to attach your disk to.
-
-     
      * To attach an [encrypted](../../concepts/encryption.md) disk, select a [service account](../../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../../kms/security/index.md#kms-keys-encrypterDecrypter) for the [{{ kms-short-name }} key](../../../kms/concepts/key.md) that was used to encrypt the disk.
-
-
      * Enter the device name.
      * Enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, if required.
   1. Click **{{ ui-key.yacloud.compute.attach-disk.button_attach }}**.
@@ -255,7 +249,7 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
      * Network disks have links in `virtio-<disk_ID>` format. For example, `virtio-fhm1dn62tm5d******** -> ../../vdc` means that an unpartitioned disk with the `fhm1dn62tm5d********` ID is labeled `vdc`.
      * On [dedicated hosts](../../concepts/dedicated-host.md), local disks have links in `virtio-nvme-disk-<disk_number>` format (if you attached the disks to the VM when creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled `vda`.
 
-  1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en)on the disk using the `cfdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), the `fdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or the `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
+  1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) on the disk using the `cfdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), the `fdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or the `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
      Run commands as a superuser. To do this, use `sudo` in each command, or before you start, run the `sudo su -` command to switch your terminal to superuser mode. For example, let's create partitions using `fdisk`:
 
@@ -298,7 +292,7 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
      Filesystem UUID: 584a800c-e1fc-4f66-9228-a444f2d7440d
      Superblock backups stored on blocks:
              32768, 98304, 163840, 229376
-
+     
      Allocating group tables: done
      Writing inode tables: done
      Creating journal (4096 blocks): done

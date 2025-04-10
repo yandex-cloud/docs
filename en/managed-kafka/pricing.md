@@ -11,7 +11,7 @@ In this section, you can find the {{ mkf-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=285af0b6c6a6#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=285af0b6c6a6#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
 
 
 
@@ -32,7 +32,7 @@ Prices are applied differently depending on the cluster status:
 
 ## What goes into the cost of using {{ mkf-short-name }} {#rules}
 
-The {{ mkf-name }} usage cost is based on:
+The {{ mkf-name }} usage cost includes:
 
 * Disk type and storage size.
 
@@ -48,7 +48,7 @@ Host operation cost is charged per hour based on what computing resources you al
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts based on the expected replication load. The presence of {{ ZK }} hosts depends on the cluster configuration:
 
-* {{ ZK }} hosts are added to the cluster if it contains more than one {{ KF }} host and uses {{ KF }} 3.5 or lower.
+* {{ ZK }} hosts are added to the cluster if it contains more than one {{ KF }} host and uses {{ KF }} 3.5.
 * {{ ZK }} hosts are not added to the cluster if it contains a broker host or uses {{ KF }} 3.6 or higher.
 
 

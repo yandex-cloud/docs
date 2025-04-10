@@ -1,5 +1,7 @@
-`tlsMode`: Parameters for encryption of transmitted data if it is required, e.g., to comply with the PCI DSS requirements.
+`tlsMode`: Parameters for encrypting the data to transfer, if required, e.g., for compliance with the PCI DSS requirements.
 
 * `disabled`: Disabled.
 * `enabled`: Enabled.
     * `caCertificate`: CA certificate.
+
+      {% include [certificate](../../../../../_includes/data-transfer/fields/certificate-needed.md) %}

@@ -249,6 +249,8 @@ items:
         href: archive/replicate-logs-to-storage-via-data-streams.md
       - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
         href: archive/replicate-logs-to-storage.md
+      - name: Using {{ objstorage-name }} in {{ dataproc-name }}
+        href: archive/copy-files-from-object-storage.md
   - name: Development and testing
     items:
       - name: All tutorials
@@ -263,8 +265,6 @@ items:
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
-      - name: '{{ GL }} integration with {{ tracker-name }}'
-        href: dev/gitlab-tracker-integration.md
       - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
       - name: Load testing a gRPC service
@@ -1114,6 +1114,8 @@ items:
         href: routing/pub-add.md
       - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
         href: routing/bms-vrf-routing.md
+      - name: Setting up network connectivity in a {{ baremetal-full-name }} subnet
+        href: routing/bms-simple-subnet.md
   - name: Data analysis and visualization
     items:
       - name: All tutorials

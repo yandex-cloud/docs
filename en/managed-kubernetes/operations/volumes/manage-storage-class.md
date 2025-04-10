@@ -14,7 +14,6 @@ The storage usage cost depends on its [disk](../../../compute/concepts/disk.md) 
 
 {% endnote %}
 
-
 {{ managed-k8s-name }} has the following storage classes available that differ by the [disk type](../../../compute/concepts/disk.md#disks_types):
 * `yc-network-hdd` (default): Network HDD storage (`network-hdd`).
 * `yc-network-ssd`: Network SSD storage (`network-ssd`).

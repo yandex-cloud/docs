@@ -70,7 +70,7 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
     To increase the hosts' storage size:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -178,11 +178,11 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
             Specify the relevant parameters:
             * `configSpec.kafka.resources.diskSize`: To change the broker host storage size.
-            * `configSpec.zookeeper.resources.diskSize`: To change the {{ ZK }} host storage size. Use only for clusters with {{ KF }} 3.5 or lower.
+            * `configSpec.zookeeper.resources.diskSize`: To change the {{ ZK }} host storage size. Use only for {{ KF }} 3.5 clusters.
         * `configSpec.kafka.resources.diskSize`: Broker host storage size in bytes.
-        * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size in bytes. Use only for clusters with {{ KF }} 3.5 or lower.
+        * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size in bytes. Use only for {{ KF }} 3.5 clusters.
 
-        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -236,11 +236,11 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
             Specify the relevant parameters:
             * `config_spec.kafka.resources.disk_size`: To change the broker host storage size.
-            * `config_spec.brokers_count`: To change the {{ ZK }} host storage size. Use only for clusters with {{ KF }} 3.5 or lower.
+            * `config_spec.brokers_count`: To change the {{ ZK }} host storage size. Use only for {{ KF }} 3.5 clusters.
         * `config_spec.kafka.resources.disk_size`: Broker host storage size in bytes.
-        * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size in bytes. Use only for clusters with {{ KF }} 3.5 or lower.
+        * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size in bytes. Use only for {{ KF }} 3.5 clusters.
 
-        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -264,7 +264,7 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) that will trigger an increase in storage size when reached: 
     
-        {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
+        {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}        
 
 * CLI {#cli}
 
@@ -274,7 +274,7 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
 
     To set up automatic increase of storage size:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help

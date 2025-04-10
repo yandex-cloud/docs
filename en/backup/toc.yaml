@@ -28,6 +28,10 @@ items:
             href: operations/update-backup-agent.md
           - name: Updating a Linux VM connection with {{ oslogin }}
             href: operations/refresh-connection-oslogin-linux.md
+          - name: Viewing VM connection status
+            href: operations/get-connection-status.md
+          - name: Viewing backup log
+            href: operations/get-journal.md
           - name: Deleting a VM from {{ backup-name }}
             href: operations/delete-vm.md
       - name: '{{ baremetal-name }} in {{ backup-name }}'

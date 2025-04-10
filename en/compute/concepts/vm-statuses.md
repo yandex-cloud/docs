@@ -20,6 +20,10 @@ A VM can have one of the following statuses:
 - `ERROR`: Fatal error; the VM cannot be recovered.
 - `DELETING`: VM is being deleted.
 
+### VM connection statuses to {{ backup-name }} {#statuses}
+
+{% include [connection-statuses](../../_includes/backup/connection-statuses.md) %}
+
 ## Operations on a VM {#operations-on-VM}
 
 The diagram below shows only switching statuses under normal operation during the following actions:

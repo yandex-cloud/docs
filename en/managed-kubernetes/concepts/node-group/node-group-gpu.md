@@ -18,6 +18,7 @@ You can create [{{ managed-k8s-name }} cluster](../index.md#kubernetes-cluster) 
 
   When requesting a GPU quota, keep in mind which zones you are going to run your {{ k8s }} clusters in.
 
+
 ## Pricing {#pricing}
 
 To run node groups with GPUs, you need a {{ managed-k8s-name }} cluster, a VM with a GPU, and traffic. Therefore, billing consists of the following parts:

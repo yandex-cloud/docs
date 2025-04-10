@@ -1,9 +1,10 @@
 ---
-title: Setting up access in {{ datalens-full-name }} workbooks and collections
+title: Setting up access in workbooks and collections {{ datalens-full-name }}
 description: You can grant users or user groups permissions to each workbook and collection. Permissions determine what you can do with a workbook or collection.
 ---
 
-# Setting up access in {{ datalens-short-name }} workbooks and collections
+# Setting up access in workbooks and collections {{ datalens-short-name }}
+
 
 You can assign access permissions to users and [user groups](../../iam/operations/groups/create.md) for each workbook and collection. [Access permissions](../security/roles.md#workbooks-collections-roles) determine what you can do with a workbook or collection. Permissions are inherited as follows:
 
@@ -55,3 +56,5 @@ To revoke access permissions to a workbook or collection:
    {% endnote %}
 
 1. In the window that opens, click **Revoke role**.
+
+

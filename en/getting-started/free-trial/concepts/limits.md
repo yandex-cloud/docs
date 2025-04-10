@@ -77,11 +77,9 @@ Quotas and limits for {{ yandex-cloud }} services during the trial period are li
 {% include [mpg-limits.md](../../../_includes/mdb/mpg-limits.md) %}
 
 
-
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../../_includes/mdb/mrd-limits.md) %}
-
 
 
 ### {{ message-queue-full-name }} {#mq}
@@ -99,11 +97,8 @@ Quotas and limits for {{ yandex-cloud }} services during the trial period are li
 {% include [translate-limits](../../../_includes/translate-limits.md) %}
 
 
-
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../../_includes/vision-limits.md) %}
-
-
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

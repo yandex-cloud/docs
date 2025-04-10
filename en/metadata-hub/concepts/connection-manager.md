@@ -5,9 +5,12 @@ description: With {{ connection-manager-full-name }}, you can manage database co
 
 # Connection
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+
 {% include [connection](../../_includes/metadata-hub/connection-definition.md) %}
+
 
 ![backups](../../_assets/metadata-hub/conn-man-diagramm.svg)
 

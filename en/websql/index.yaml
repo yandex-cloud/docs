@@ -13,7 +13,8 @@ description:
     Yandex WebSQL supports the following DB versions: <ul> <li>PostgreSQL: 12
     and higher</li> <li>MySQL: 5 and higher</li> <li>ClickHouse®: 23 and
     higher</li> <li>Redis/Valkey™ (non-sharded clusters only): 6 and higher</li>
-    <li>MongoDB: 6 and higher</li> </ul>
+    <li>MongoDB: 6 and higher</li> <li>Yandex Managed Service for Trino: 454 and
+    higher</li> </ul>
 meta:
   title: Yandex WebSQL
 links:

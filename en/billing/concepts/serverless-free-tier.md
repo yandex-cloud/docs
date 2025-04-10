@@ -12,7 +12,7 @@ Some {{ yandex-cloud }} services offer special plans where certain amounts of se
 
 {% note info %}
 
-Free tier applies to billing accounts. If multiple organizations or clouds are linked to a billing account, the tag counts all the resources they consume.
+Free tier applies to billing accounts. If multiple organizations or clouds are linked to a billing account, the tag counts all the resources they consume. 
 
 For example, Cloud-1 and Cloud-2 are linked to a billing account. Cloud-1 has consumed 500,000 function calls, and Cloud-2 600,000 function calls a month. For function calls, free tier is 1,000,000. This is our calculation of the number of billable function calls:
 
@@ -150,7 +150,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ foundation-models-full-name }} {#foundation-models}
 
-[{{ foundation-models-full-name }}](../../foundation-models/index.yaml) is a service that provides large generative models for businesses. {{ yandex-cloud }} offers the {{ yagpt-name }} and {{ yandexart-name }} neural networks for your business apps and web services.
+[{{ foundation-models-full-name }}](../../foundation-models/index.yaml) provides large generative models for businesses. {{ yandex-cloud }} offers the {{ gpt-lite }}, {{ gpt-pro }}, and {{ yandexart-name }} neural networks for your business apps and web services.
 
 {% include [not-charged-foundation-models](../../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
@@ -206,7 +206,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ objstorage-full-name }} {#objstorage}
 
-[{{ objstorage-full-name }}](../../storage/quickstart.md) is a universal scalable solution for data storage. It is equally suited for high-load services requiring reliable and fast access to data and for projects with moderate storage infrastructure requirements.
+[{{ objstorage-full-name }}](../../storage/quickstart.md) is a universal scalable solution for data storage. It is equally effective for high-load services requiring reliable and fast access to data as well as for projects that do not need any complex storage infrastructure.
 
 {% include [not-charged-storage.md](../../_includes/pricing/price-formula/not-charged-storage.md) %}
 

@@ -7,6 +7,8 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 1. Enter a name and description for the {{ managed-k8s-name }} node group.
 1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select a {{ k8s }} version for {{ managed-k8s-name }} nodes.
 1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** field, select `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.
+1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, add the [node cloud labels](../../managed-kubernetes/concepts/index.md#node-labels).
+
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**, select its type:
    * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}`: Number of {{ managed-k8s-name }} nodes in the group remains constant. Specify the number of {{ managed-k8s-name }} nodes in the group.
 
@@ -26,10 +28,10 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [VM instances](../../compute/concepts/vm.md) by which you can exceed and reduce the size of the {{ managed-k8s-name }} node group.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-   * Choose a [platform](../../compute/concepts/vm-platforms.md).
+   * Select a [platform](../../compute/concepts/vm-platforms.md).
    * Enter the required number of [GPUs](../../compute/concepts/gpus.md) and vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of RAM.
-   * (Optional) Specify that the VM must be [preemptible](../../compute/concepts/preemptible-vm.md).
-   * (Optional) Enable a [software-accelerated network](../../compute/concepts/software-accelerated-network.md).
+   * Optionally, make the VM instance [preemptible](../../compute/concepts/preemptible-vm.md) by checking the relevant box.
+   * Optionally, enable a [software-accelerated network](../../compute/concepts/software-accelerated-network.md).
 
      {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}
 
@@ -43,9 +45,9 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 1. (Optional) Under **{{ ui-key.yacloud.k8s.node-group.overview.section_placement-policy }}**, enter a name for the {{ managed-k8s-name }} node [placement group](../../compute/concepts/placement-groups.md). This setting cannot be changed after the {{ managed-k8s-name }} node group is created.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
    * Specify the {{ managed-k8s-name }} node **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}**:
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: [Standard network drive](../../compute/concepts/disk.md#disks-types); network block storage on an HDD.
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; network block storage on an SSD.
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: [Standard network drive](../../compute/concepts/disk.md#disks-types); HDD network block storage.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; SSD network block storage.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by eliminating redundancy. You can only change the size of this type of disk in 93 GB increments.
 
        {% include [nrd-no-backup-note](nrd-no-backup-note.md) %}
 
@@ -53,7 +55,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
    * Specify the {{ managed-k8s-name }} node disk size.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
-   * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, choose a method for assigning an IP address:
+   * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP address pool.
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Not to assign a public IP address.
    * Select [security groups](../../vpc/concepts/security-groups.md).
@@ -74,7 +76,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
     * To connect to nodes using SSH keys, specify the required details:
 
-        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username.
 
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys) file.
 

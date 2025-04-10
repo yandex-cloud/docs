@@ -91,7 +91,6 @@ To increase [volume](../../concepts/volume.md) size for the StatefulSet controll
 
    Result:
 
-   
    ```text
    +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
    |          ID          |                       NAME                       |    SIZE    |        ZONE       | STATUS |     INSTANCE IDS     | DESCRIPTION |
@@ -186,7 +185,6 @@ To increase [volume](../../concepts/volume.md) size for the StatefulSet controll
 
    Result:
 
-   
    ```text
    NAME                                      CAPACITY  ACCESS MODES  RECLAIM POLICY  STATUS  CLAIM                              STORAGECLASS    REASON  AGE
    pvc-603ac129-fe56-400a-8481-feaa********  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-0  yc-network-hdd          11m

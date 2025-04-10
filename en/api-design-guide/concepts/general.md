@@ -14,7 +14,7 @@ APIs of most {{ yandex-cloud }} services use a resource-based approach. How it w
 
    {% include [method-sets](../_includes/method-sets.md) %}
 
-- Any operations that change the state of a resource are asynchronous signature operations. When they are called, the server returns the [Operation](operation.md) object. This object contains the state of the operation and the ID of the resource the operation is being performed on.
+- All operations that change the state of a resource are asynchronous signature operations. When these operations are called, the server returns the [Operation](operation.md) object. This object contains the state of the operation and the ID of the resource the operation is being performed on.
 
 - Operations for creating, updating, and deleting resources support [idempotency](idempotency.md).
 
@@ -22,7 +22,7 @@ APIs of most {{ yandex-cloud }} services use a resource-based approach. How it w
 #### Exceptions for the resource-based approach {#exceptions}
 
 - [{{ objstorage-full-name }} API](../../storage/s3/index.md). Its architecture is compatible with the Amazon S3 API, so the {{ objstorage-name }} API operating principles do not always match those of the resource-based approach. For more information, see the documentation on the service.
-- [{{ yagpt-full-name }}](../../foundation-models/concepts/api.md), [{{ speechkit-full-name }}](../../speechkit/concepts/api.md), [{{ translate-full-name }}](../../translate/api-ref/grpc/), and [{{ vision-full-name }}](../../vision/vision/api-ref/grpc/) AI service API. The API of these services does not use {{ yandex-cloud }} resources and API requests are not idempotent.
+- [{{ foundation-models-full-name }}](../../foundation-models/concepts/api.md), [{{ speechkit-full-name }}](../../speechkit/concepts/api.md), [{{ translate-full-name }}](../../translate/api-ref/grpc/), and [{{ vision-full-name }}](../../vision/vision/api-ref/grpc/) AI service API. The API of these services does not use {{ yandex-cloud }} resources and API requests are not idempotent.
 
 
 #### See also {#see-also}

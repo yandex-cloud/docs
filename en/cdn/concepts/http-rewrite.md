@@ -44,6 +44,13 @@ Flags allow you to stop further processing of `Rewrite` directives or return `re
 
 {% include [rewrite-flag-list](../../_includes/cdn/rewrite-flag-list.md) %}
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/migrate-to-yc-cdn.md)
+
+
 #### See also {#see-also}
 
 * [Guide for enabling request redirection](../operations/resources/setup-http-rewrite.md)

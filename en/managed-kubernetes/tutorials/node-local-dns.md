@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Manually {#manual}
 
   1. Create a [cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
-  1. Create a [service account](../../iam/operations/sa/create.md) with the `editor` [role](../../iam/concepts/access-control/roles.md).
+  1. Create a [service account](../../iam/operations/sa/create.md) with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md).
 
   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
@@ -50,7 +50,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-  1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud-examples/yc-mk8s-node-local-dns-cache/blob/main/k8s-node-local-dns.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
+  1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud-examples/yc-mk8s-node-local-dns-cache/blob/main/k8s-node-local-dns.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. This file describes:
      * [Network](../../vpc/concepts/network.md#network).
      * [Subnet](../../vpc/concepts/network.md#subnet).
      * {{ managed-k8s-name }} cluster.
@@ -79,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-### Prepare the environment {#prepare-env}
+### Set up your environment {#prepare-env}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -91,11 +91,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% list tabs group=instructions %}
 
-
 - {{ marketplace-full-name }} {#marketplace}
 
   Install [NodeLocal DNS](/marketplace/products/yc/node-local-dns) using {{ marketplace-name }} as described in this [guide](../operations/applications/node-local-dns.md#marketplace-install).
-
 
 - Manually {#manual}
 

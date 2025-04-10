@@ -85,8 +85,6 @@ To get started with the AWS CLI:
 
 ## Install and configure the AWS CLI {#cli-setup}
 
-{% include [note-aws-cli-versions](../../_includes/aws-tools/note-aws-cli-versions.md) %}
-
 1. Install the AWS CLI:
 
     {% list tabs group=operating_system %}
@@ -121,7 +119,7 @@ To get started with the AWS CLI:
 
     {% endlist %}
 
-    {% include [install-aws-cli-versions](../../_includes/aws-tools/install-aws-cli-versions.md) %}
+    For more information about installing the AWS CLI, see the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
 1. Configure the AWS CLI:
 

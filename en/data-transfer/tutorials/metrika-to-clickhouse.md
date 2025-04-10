@@ -1,6 +1,7 @@
 ---
-title: How to upload data from {{ metrika } to a {{ CH }} data mart
+title: How to load data from {{ metrika }} to a {{ CH }} data mart
 description: Follow this guide to migrate data from a {{ metrika }} tag to a {{ CH }} cluster.
+canonical: '{{ link-docs }}/tutorials/dataplatform/metrika-to-clickhouse'
 noIndex: true
 ---
 

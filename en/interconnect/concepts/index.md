@@ -2,8 +2,7 @@
 
 {{ interconnect-name }} is designed to set up IP network connectivity between customer on-premise infrastructure resources and {{ yandex-cloud }} resources.
 
-Here is an example of how to set up connectivity:
-
+Example of setting up IP network connectivity as part of {{ interconnect-name }}:
 
 ![interconnect](../../_assets/interconnect/interconnect.svg)
 
@@ -29,3 +28,25 @@ Once these steps are complete, your infrastructure resources and {{ yandex-cloud
 For tutorials on how to enable and manage {{ interconnect-name }}, follow [this link](../tutorials/).
 
 {% endnote %}
+
+## Scopes of responsibility {#scopes}
+
+{{ yandex-cloud }} provides the {{ interconnect-name }} service in cooperation with other parties, each with its own area of responsibility:
+* [Points of presence](./pops.md):
+  * Provide customers with the services of setting up and switching `cross connections` (optical fiber pairs) between the customer (telecom operator) equipment and {{ yandex-cloud }} equipment.
+  * Provide customers with the services of placing the customer equipment at the point of presence.
+* `Telecom operators`:
+  * Provide customers with the services of setting up communication channels between the customer infrastructure and {{ yandex-cloud }} equipment at the points of presence.
+  * Provide customers with IP services when connected to {{ interconnect-name }}.
+
+{% note info %}
+
+Services provided by the points of presence or telecom operators are not included in the [cost of {{ interconnect-name }}](../pricing.md).
+
+{% endnote %}
+
+{{ yandex-cloud }} **does not provide** any [point of presence](./pops.md) or `telecom operator` services to customers, including the following:
+* Setting up and switching cross connections at the points of presence.
+* Organizing communication channels at the points of presence.
+* Placement of equipment at the points of presence.
+

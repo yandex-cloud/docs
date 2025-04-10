@@ -49,7 +49,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * Set a password for the admin user. The password must be not less than 8 characters long and contain at least:
             * One uppercase letter
             * One lowercase letter
-            * One digit
+            * One number
             * One special character
 
            {% note info %}
@@ -64,13 +64,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
 
-      * [Availability zones](../../overview/concepts/geo-scope) for the cluster
-      * Cloud network
-      * Subnet in each of the selected availability zones
+      * [Availability zones](../../overview/concepts/geo-scope) for the cluster.
+      * Cloud network.
+      * Subnet in each of the selected availability zones.
 
         {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
-      * [Security group](../concepts/network.md#security-groups) for the cluster network traffic
+      * [Security group](../concepts/network.md#security-groups) for the cluster network traffic.
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
@@ -116,7 +116,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
   1. Optionally, under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
   
-      * Specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties, e.g., `api.maximum_page_limit` as a key and `150` as its value.
+      * Specify [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties, e.g., `api.maximum_page_limit` as a key and `150` as its value.
 
         Fill in the fields manually or import the settings from a configuration file (see [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
@@ -349,7 +349,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `codeSync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            Even if enabled, one can still connect to the cluster manually and delete it.
+            Even if it is enabled, one can still connect to the cluster manually and delete it.
 
         * `serviceAccountId`: Service account ID.
 
@@ -366,7 +366,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * One uppercase letter
             * One lowercase letter
-            * One digit
+            * One number
             * One special character
 
             {% note info %}
@@ -527,7 +527,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            Even if enabled, one can still connect to the cluster manually and delete it.
+            Even if it is enabled, one can still connect to the cluster manually and delete it.
 
         * `service_account_id`: Service account ID.
 
@@ -544,7 +544,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * One uppercase letter
             * One lowercase letter
-            * One digit
+            * One number
             * One special character
 
             {% note info %}

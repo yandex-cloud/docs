@@ -1,6 +1,8 @@
 # Cleaning up full instance disk space
 
-A {{ GL }} instance can run out of disk space. This is indicated by the `500 Internal Server Error` HTTP status code. In which case you will not be able to access the {{ GL }} instance. To clean up the disk and recover access to the {{ GL }} instance, contact [technical support]({{ link-console-support }}).
+A {{ GL }} instance can run out of disk space. This is indicated by the `500 Internal Server Error` HTTP status code. In which case you will not be able to access the {{ GL }} instance.
+
+You can [increase the instance disk space yourself](instance-update.md).
 
 To reduce the probability of running out of disk space in future:
 
@@ -16,6 +18,6 @@ To reduce the probability of running out of disk space in future:
 
 You can use any of the following options:
 
-* [Set the expiration time for build artifacts]({{ gl.docs }}/ee/administration/settings/continuous_integration.html#default-artifacts-expiration) at the instance level. Its default value is 30 days.
-* [Create and configure a tag cleanup policy]({{ gl.docs }}/ee/user/packages/container_registry/reduce_container_registry_storage.html#create-a-cleanup-policy) at the level of individual projects utilizing {{ GL }} Container Registry.
+* [Set the expiration time for job artifacts]({{ gl.docs }}/ee/administration/settings/continuous_integration.html#default-artifacts-expiration) at the instance level. Its default value is 30 days.
+* [Create and enable a tag cleanup policy]({{ gl.docs }}/ee/user/packages/container_registry/reduce_container_registry_storage.html#create-a-cleanup-policy) for separate projects utilizing {{ GL }} Container Registry.
 * If you are using a [{{ container-registry-full-name }} integration](../../tutorials/image-storage.md), create and configure a [Docker image cleanup policy](../../../container-registry/concepts/lifecycle-policy.md) for {{ container-registry-full-name }}.

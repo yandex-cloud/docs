@@ -7,29 +7,29 @@ description: Access management in {{ websql-name }}, a service for working with 
 
 In this section, you will learn:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#required-roles) for particular actions.
+* [What resources you can assign a role for](#resources).
+* [Roles existing in this service](#roles-list).
+* [What roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `websql.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user needs the `websql.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 You can also assign roles in the [{{ websql-name }} interface]({{ websql-link }}) for [saved](../concepts/index.md#saved-queries) and [historical queries](../concepts/index.md#query-log) you published.
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
 You can use {{ websql-full-name }} roles (_service roles_) and {{ yandex-cloud }} roles (_primitive roles_) to manage query access permissions.
 
 ### Service roles {#service-roles}
 
-The list below shows all roles considered when verifying access permissions in {{ websql-name }}.
+The list below shows {{ websql-name }} roles.
 
 #### websql.executedQueries.auditor {#websql-executedQueries-auditor}
 
@@ -114,6 +114,7 @@ Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an or
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ mtr-full-name }} connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Viewing metadata of published queries | `websql.auditor` for an organization, cloud, or folder
 Viewing published queries | `websql.viewer` for an organization, cloud, or folder
 **Viewing and running queries** |
@@ -123,7 +124,9 @@ Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an or
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ mtr-full-name }} connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Making queries | `websql.user` for an organization, cloud, or folder
+Making {{ mtr-full-name }} queries | `managed-trino.user` for an organization, cloud, or folder
 **Viewing, running, and publishing queries** |
 Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection
 Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder
@@ -131,7 +134,9 @@ Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an or
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ mtr-full-name }} connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Running, publishing, and editing queries | `websql.editor` for an organization, cloud, or folder
+Making {{ mtr-full-name }} queries | `managed-trino.user` for an organization, cloud, or folder
 **Managing queries** |
 Using a database connection | `{{ roles-connection-manager-user }}` for an organization, cloud, folder, or connection
 Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an organization, cloud, or folder
@@ -139,7 +144,9 @@ Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an or
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ mtr-full-name }} connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Running, publishing, and editing queries and managing access permissions to them | `websql.admin` for an organization, cloud, or folder
+Making {{ mtr-full-name }} queries | `managed-trino.user` for an organization, cloud, or folder
 
 ## What's next {#whats-next}
 

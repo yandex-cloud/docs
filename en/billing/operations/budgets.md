@@ -7,7 +7,6 @@ Available budget types:
 * _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}_: Notification is sent when the cost of resources, with discounts and active promo codes applied, exceeds a specified usage limit.
 * _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}_: Notification is sent when the personal account balance falls below a specified threshold.
 
-
 {% note info %}
 
 You can create a trigger that will invoke a [function](../../functions/concepts/function.md) in {{ sf-name }} or run a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} when threshold values are exceeded. Read more about [triggers for budgets](../../functions/operations/trigger/budget-trigger-create.md).

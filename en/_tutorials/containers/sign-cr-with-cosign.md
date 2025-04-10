@@ -12,14 +12,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
   1. [Create service accounts](../../iam/operations/sa/create.md):
-     * [Service account](../../iam/concepts/users/service-accounts.md) for resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+     * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
      You can use the same service account for both operations.
@@ -55,7 +55,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      * {{ managed-k8s-name }} cluster CIDR.
      * Name of the cluster service account.
      * Name of the {{ container-registry-name }} registry.
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate
@@ -169,7 +169,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
      Where:
      * `<key_pair_ID>`: ID of the signature key pair you got in the previous step.
-     * `<registry_ID>`: [ID of the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-list.md#registry-list) the image for signing is in.
+     * `<registry_ID>`: ID of the {{ container-registry-name }} [registry](../../container-registry/operations/registry/registry-list.md#registry-list) the image for signing is in.
      * `<Docker_image_name>`: Name of the [Docker image](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) you are signing in {{ container-registry-name }}.
      * `<tag>`: Tag of the image version to sign.
 
@@ -383,7 +383,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% endnote %}
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       kubectl apply -f ./policy.yaml

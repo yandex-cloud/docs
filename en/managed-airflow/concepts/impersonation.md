@@ -30,7 +30,7 @@ By default, {{ AF }} stores sensitive data in a metadata storage. In this case, 
 
 To use {{ lockbox-name }} features in an {{ AF }} cluster, [create a secret](../../lockbox/operations/secret-create.md) with the required data and [provide the permission to access it](../../lockbox/operations/secret-access.md) to the service account attached to the cluster. After that, you will be able to use data from the secret in the cluster's DAG files.
 
-For an integration example, see [{#T}](../tutorials/lockbox-secrets-in-maf-cluster.md).
+For an integration example, see [{#T}](../operations/lockbox-secrets-in-maf-cluster.md).
 
 ## Tools available for integration with {{ yandex-cloud }} {#instruments}
 

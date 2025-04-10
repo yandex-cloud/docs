@@ -78,6 +78,19 @@ items:
               Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
               and analyzing them using {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
+          - name: >-
+              Delivering data from {{ forms-full-name }} to {{
+              datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name
+              }}
+            items:
+              - name: Overview
+                href: tutorials/forms-and-datalens-integration/index.md
+              - name: Management console
+                href: tutorials/forms-and-datalens-integration/console.md
+              - name: Terraform
+                href: tutorials/forms-and-datalens-integration/terraform.md
+          - name: Migrating databases from Google BigQuery to {{ mch-name }}
+            href: tutorials/bigquery-to-clickhouse.md
       - name: Functional
         items:
           - name: Using parameters
@@ -144,6 +157,9 @@ items:
                 href: concepts/datalens-usage-analytics.md
               - name: Connection
                 href: operations/connection/create-usage-tracking.md
+          - name: Creating an API Connector connection
+            href: operations/connection/create-api-connector.md
+            hidden: true
       - name: Partner connections
         items:
           - name: Creating a 1C Extractor connection
@@ -598,11 +614,11 @@ items:
             href: function-ref/availability.md
       - name: Examples of using functions
         items:
-          - name: Aggregate functions
+          - name: Aggregation functions
             href: concepts/aggregation-tutorial.md
           - name: Window functions
             href: concepts/window-function-tutorial.md
-          - name: LOD expressions and filtering in aggregate functions
+          - name: LOD expressions and filtering in aggregation functions
             href: concepts/lod-aggregation.md
           - name: Functions for time series
             href: concepts/time-series-functions.md

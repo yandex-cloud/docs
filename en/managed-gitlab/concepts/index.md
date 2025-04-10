@@ -1,6 +1,6 @@
 # Resource relationships in {{ mgl-name }}
 
-[{{ GL }}](https://about.gitlab.com/) is an open-source web-based DevOps lifecycle tool. It is a system for managing code repositories for [Git](https://git-scm.com/) with error tracking, a [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline, a dedicated Wiki, and other functionality.
+[{{ GL }}](https://about.gitlab.com/) is an open-source web-based DevOps lifecycle tool. It is a code repository management system for [Git](https://git-scm.com/) with error tracking, [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline, dedicated Wiki, and other features.
 
 {{ mgl-name }} helps configure application deployment to [{{ compute-full-name }}](../../compute/) [virtual machines](../../compute/concepts/vm.md) and supports integration with [{{ container-registry-full-name }}](../../container-registry/) and [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 
@@ -15,15 +15,23 @@ A {{ GL }} _instance_ is the service's primary entity. It is a VM deployed in {{
 ## Instance configuration {#config}
 
 When creating an instance, you specify:
-* Instance type: [The number of vCPUs and the amount of RAM](../../compute/concepts/vm-platforms.md). After creating an instance, you can change its type only by contacting [support]({{ link-console-support }}).
+* Instance type: [The number of vCPUs and the amount of RAM](../../compute/concepts/vm-platforms.md). After you create an instance, you can [change its type](../operations/instance/instance-update.md) to a higher performing one.
 * [Subnet](../../vpc/concepts/network.md#subnet).
 
   {% include [GL CIDR Warning](../../_includes/managed-gitlab/cidr-note.md) %}
 
-* Storage size. After creating an instance, you can increase its storage space only by contacting support. It is not possible to reduce storage size.
+* Disk size. After you create an instance, [you can increase](../operations/instance/instance-update.md) its disk size.
 * Name in the `.gitlab.yandexcloud.net` domain: Your {{ GL }} instance's internet address.
 * Administrator information:
   * Email.
   * Login.
 
 {% include [HTTPS info](../../_includes/managed-gitlab/note-https.md) %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/gitlab-lockbox-integration.md)
+* [{#T}](../tutorials/ci-cd-serverless.md)
+* [{#T}](../tutorials/install-gitlab-runner.md)
+* [{#T}](../tutorials/gitlab-containers.md)

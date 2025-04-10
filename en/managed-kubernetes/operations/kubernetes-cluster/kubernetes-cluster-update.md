@@ -134,7 +134,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
 
 ## Managing {{ managed-k8s-name }} cluster cloud labels {#manage-label}
 
-You can perform the following actions with [{{ managed-k8s-name }} cluster cloud labels](../../concepts/index.md#node-labels):
+You can perform the following actions with [{{ managed-k8s-name }} cluster cloud labels](../../concepts/index.md#cluster-labels):
 
 * [Add](#add-label)
 * [Edit](#update-label)
@@ -143,6 +143,15 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 ### Adding a cloud label {#add-label}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
+    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. Enter the key and the value, and press **Enter**.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -170,6 +179,17 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 ### Updating a cloud label {#update-label}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  To update a cloud label, you will need to delete and re-create it:
+
+    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
+    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to delete it.
+    1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a key and/or value for the new label.
+    1. Press **Enter**, then click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -199,6 +219,14 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 ### Deleting a cloud label {#remove-label}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
+    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

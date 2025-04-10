@@ -22,4 +22,6 @@ description: Из статьи вы узнаете про завершение �
 
 Вы также можете прекратить пользоваться ресурсами {{ yandex-cloud }} до окончания пробного периода.
 
-{% include [delete-account](../../../_includes/billing/billing-delete-account.md) %}
+{% include [billing-delete-account](../../../_includes/billing/billing-delete-account.md) %}
+
+{% include [billing-delete-account-see-also](../../../_includes/billing/billing-delete-account-see-also.md) %}

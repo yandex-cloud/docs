@@ -36,7 +36,7 @@ Regularly check the specified files. Download them only via HTTPS after verifyin
 
 {% note info %}
 
-How a serial console works depends on how the operating system is set up. {{ compute-name }} provides a communication channel between the user and VM's COM port; however, it does not guarantee that the console works properly on your OS.
+How a serial console works depends on how the operating system is set up. {{ compute-name }} provides a communication channel between the user and the VM COM port; however, it does not guarantee that the console works properly on your OS.
 
 {% endnote %}
 
@@ -55,7 +55,7 @@ Some operating systems may prompt you for your user credentials to access the VM
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Create a local user password on the VM:
-      1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
+      1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Disconnect from the VM. To do this, enter the `logout` command.
 
@@ -97,7 +97,7 @@ Some operating systems may prompt you for your user credentials to access the VM
 
   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
-  1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate, specifying your organization [ID](../../../organization/operations/organization-get-id.md):
+  1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate by specifying your organization [ID](../../../organization/operations/organization-get-id.md):
 
       ```bash
       yc compute ssh certificate export \

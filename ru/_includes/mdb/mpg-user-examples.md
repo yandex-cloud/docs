@@ -4,7 +4,7 @@
 
 {% list tabs group=instructions %}
 
-- SQL
+- SQL {#sql}
 
     {% note alert %}
 
@@ -16,34 +16,45 @@
 
     1. [Создайте пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) с именем `user2`. При этом выберите базы данных, к которым должен иметь доступ пользователь.
     1. [Подключитесь](../../managed-postgresql/operations/connect.md#connection-string) к базе данных `db1` с помощью учетной записи владельца БД.
-    1. Чтобы выдать права доступа только к таблице `Products` в схеме по умолчанию `public`, выполните команду:
+    1. Выдайте пользователю `user2` нужные права доступа.
 
-        ```sql
-        GRANT SELECT ON public.Products TO user2;
-        ```
+        Примеры:
 
-    1. Чтобы выдать доступ ко всем таблицам схемы `myschema`, выполните команду:
+        * Разрешить доступ только к таблице `Products` в схеме по умолчанию `public`:
 
-        ```sql
-        GRANT SELECT ON ALL TABLES IN SCHEMA myschema TO user2;
-        GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA myschema to user2;
-        ```
+            ```sql
+            GRANT SELECT ON public.Products TO user2;
+            ```
 
-    1. (Опционально) Чтобы изменить привилегии по умолчанию, выполните команду:
+        * Разрешить доступ к объектам схемы `myschema`:
 
-        ```sql
-        ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT SELECT ON TABLES TO user2;
-        ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT USAGE, SELECT ON SEQUENCES TO user2;
-        ```
+            ```sql
+            GRANT USAGE ON SCHEMA myschema TO user2;
+            ```
 
-    Для отзыва выданных привилегий выполните команды:
+        * Разрешить доступ ко всем таблицам и последовательностям схемы `myschema`:
 
-    ```sql
-    REVOKE SELECT ON public.Products FROM user2;
+            ```sql
+            GRANT SELECT ON ALL TABLES IN SCHEMA myschema TO user2;
+            GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA myschema to user2;
+            ```
 
-    REVOKE SELECT ON ALL TABLES IN SCHEMA myschema FROM user2;
-    REVOKE USAGE ON SCHEMA myschema FROM user2;
-    ```
+        * Разрешить вызов функции `my_function` в схеме `myschema`:
+
+            ```sql
+            GRANT EXECUTE ON FUNCTION myschema.my_function TO user2;
+            ```
+
+        * Изменить привилегии по умолчанию для таблиц и последовательностей схемы `myschema`:
+
+            ```sql
+            ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT SELECT ON TABLES TO user2;
+            ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT USAGE, SELECT ON SEQUENCES TO user2;
+            ```
+
+            Команды `ALTER DEFAULT PRIVILEGES` позволяют изменить права доступа к объектам (в данном случае — к таблицам и последовательностям схемы `myschema`), которые будут созданы в будущем, но не затрагивают права, назначенные уже существующим объектам.
+
+            Чтобы изменить привилегии существующих объектов, используйте команды `GRANT` и `REVOKE`.
 
 - {{ TF }} {#tf}
 
@@ -116,13 +127,74 @@
         ```
 
     1. Проверьте корректность настроек.
-  
+
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
     1. Подтвердите изменение ресурсов.
-  
+
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Чтобы отозвать выданную привилегию, удалите ее из списка `privileges` и подтвердите изменение ресурсов.
+{% endlist %}
+
+### Отозвать права доступа {#revoke-access}
+
+{% list tabs group=instructions %}
+
+- SQL {#sql}
+
+    1. [Подключитесь](../../managed-postgresql/operations/connect.md#connection-string) к базе данных `db1` с помощью учетной записи владельца БД.
+    1. Отзовите у пользователя `user2` нужные права доступа.
+
+        Примеры:
+
+        1. Отозвать все привилегии для таблиц схемы `myschema`:
+
+            ```sql
+            REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA myschema FROM user2;
+            ```
+
+        1. Отозвать доступ к таблице `Products` в схеме по умолчанию `public`:
+
+            ```sql
+            REVOKE SELECT ON public.Products FROM user2;
+            ```
+
+        1. Отозвать доступ ко всем таблицам схемы `myschema`:
+
+            ```sql
+            REVOKE SELECT ON ALL TABLES IN SCHEMA myschema FROM user2;
+            ```
+
+        1. Отозвать доступ к объектам схемы `myschema`:
+
+            ```sql
+            REVOKE USAGE ON SCHEMA myschema FROM user2;
+            ```
+
+- {{ TF }} {#tf}
+
+    1. Откройте конфигурационный файл {{ TF }}, с помощью которого [назначались привилегии](#user-readonly).
+
+    1. В блоке `postgresql_grant` удалите привилегию, которую хотите отозвать, из параметра `privileges`.
+
+        Чтобы отозвать все привилегии, оставьте массив `privileges` пустым или удалите ресурс `postgresql_grant` целиком.
+
+        ```hcl
+        resource "postgresql_grant" "readonly_tables" {
+          database          = yandex_mdb_postgresql_database.db1.name
+          role              = yandex_mdb_postgresql_user.user2.name
+          object_type       = "table"
+          privileges        = []
+          schema            = "public"
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 {% endlist %}

@@ -6,7 +6,15 @@ editable: false
 
 
 
-In the {{ baremetal-name }} service, you pay for the rental period of a server with a specific configuration.
+{% note warning %}
+
+The prices will apply starting April 1, 2025.
+
+Yandex BareMetal is at the [Preview](../overview/concepts/launch-stages) stage.
+
+{% endnote %}
+
+In {{ baremetal-name }}, you pay for leasing a server of a certain configuration.
 
 ## Prices for the Russia region {#prices}
 

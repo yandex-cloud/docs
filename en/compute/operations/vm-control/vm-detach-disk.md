@@ -2,13 +2,11 @@
 
 You can detach a disk from either a running or a stopped VM. 
 
-
 {% note info %}
 
-You cannot detach a boot disk from a VM, nor can you detach a local disk from a VM on a [dedicated host](../../concepts/dedicated-host.md).
+You cannot detach a boot disk from a VM. You cannot detach a local disk from a VM running on a [dedicated host](../../concepts/dedicated-host.md).
 
 {% endnote %}
-
 
 To successfully detach a disk from a running VM, the operating system must be ready to handle detach disk commands. Before detaching a disk, make sure the OS is booted up or stop the VM; otherwise the operation will fail. If an error occurs, stop the VM and try again. 
 
@@ -18,7 +16,7 @@ To detach a disk from a VM:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+  1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
   1. Next to the disk in question, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-detach }}**.
@@ -40,7 +38,7 @@ To detach a disk from a VM:
   
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
   
-  1. Select `ID` or `NAME` of the VM you need, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
   
   1. Get a list of disks attached to the VM:
   

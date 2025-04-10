@@ -10,9 +10,7 @@ This section describes the log fields delivered by a bucket.
 
 {{ objstorage-name }} logs are stored in JSON format. A single log entry represents one request to a bucket.
 
-
 For more information, see [{#T}](concepts/server-logs.md).
-
 
 ## Log fields {#log-fields}
 
@@ -40,7 +38,7 @@ Field | Type | Description
 `timestamp` | String | Date and time of the bucket operation in `YYYY-MM-DDTHH:MM:MMZ` format.
 `user_agent` | String | Client application (user agent) that run the request.
 `version_id` | String | Object version.
-`vhost` | String | Virtual host of the request.<br>The possible values are:<br>– `{{ s3-storage-host }}`<br>– `<bucket_name>.{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`<br> – `<bucket_name>.{{ s3-web-host }}`.
+`vhost` | String | Virtual host of the request.<br>The possible values are:<br>– `{{ s3-storage-host }}`.<br>– `<bucket_name>.{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<bucket_name>.{{ s3-web-host }}`.
 
 ## Bucket request methods {#bucket-methods}
 
@@ -82,7 +80,7 @@ Field | Type | Description
 | `DELETE` | `BUCKET_TAGGING` | Deleting bucket labels. |
 | `PUT` | `OBJECT` | Uploading an object and its metadata to a bucket. |
 | `POST` | `OBJECT` | Uploading an object and its metadata to a bucket via an HTML form. |
-| `POST` | `OBJECT_RESTORE` | Restoring a bucket object from an archive; not supported by {{ objstorage-name }}. |
+| `POST` | `OBJECT_RESTORE` | Restoring a bucket object from an archive. {{ objstorage-name }} is not supported. |
 | `PUT` | `OBJECT_COPY` | Creating a bucket object copy. |
 | `DELETE` | `OBJECT` | Deleting an object. |
 | `DELETE` | `MULTIPLE_OBJECTS` | Deleting objects based on a list of keys provided in a request. |

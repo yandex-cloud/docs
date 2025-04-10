@@ -1,5 +1,5 @@
 ---
-title: Connecting to a {{ KF }} cluster in {{ mkf-full-name }}
+title: Connecting to an {{ KF }} cluster in {{ mkf-full-name }}
 description: Follow this guide to connect to {{ KF }} cluster hosts using command line tools and from a Docker container.
 ---
 
@@ -41,6 +41,12 @@ Before connecting, install the following dependencies:
 ```bash
 sudo apt update && sudo apt install -y kafkacat
 ```
+
+{% note info %}
+
+On Ubuntu 24.04 and higher, use `kcat`.
+
+{% endnote %}
 
 {% list tabs group=connection %}
 

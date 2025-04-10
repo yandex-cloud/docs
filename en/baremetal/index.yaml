@@ -1,5 +1,8 @@
 title: Yandex BareMetal
 description:
+  - >-
+    <i>Yandex BareMetal is at the <a
+    href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
   - With Yandex BareMetal, you can lease a complete physical server.
 meta:
   title: Yandex BareMetal

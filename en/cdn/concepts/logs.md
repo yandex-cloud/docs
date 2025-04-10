@@ -12,6 +12,12 @@ Do not configure an [access policy](../../storage/concepts/policy.md) that denie
 
 Log export is a paid feature. See [{#T}](../pricing.md) for billing information.
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/prefetch.md)
+
+
 #### See also {#see-also}
 
 * [Export setup instructions](../operations/resources/configure-logs.md).

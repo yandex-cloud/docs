@@ -7,7 +7,7 @@ description: In this article, you will learn about the ways to transfer metadata
 
 You can provide [metadata](../vm-metadata.md) to a VM when [creating](../../operations/index.md#vm-create) or [updating](../../operations/vm-control/vm-update.md#change-metadata) it. Data for connection to a VM can only be provided when creating the VM; moreover, in a [VM running Linux](../../operations/vm-create/create-linux-vm.md), a public SSH key must be provided for each user.
 
-You can update VM metadata only in the [user-data](./directories.md#dir-user) folder. To learn more about updating VM metadata, see [{#T}](../../operations/vm-metadata/update-vm-metadata.md).
+You can only update VM metadata in the [user-data](./directories.md#dir-user) folder and in the `instance/attributes/*` path of the [computeMetadata](./directories.md#dir-compute) folder. To learn more about updating VM metadata, see [{#T}](../../operations/vm-metadata/update-vm-metadata.md).
 
 {% note warning %}
 
@@ -25,7 +25,7 @@ With the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), you can provide both
 
   To provide the values of local variables to the VM metadata, specify them in the `user-data` key in `$<variable_name>` format. When executing a CLI command, the values of these variables will be substituted into the `cloud-init` configuration from the environment the command is executed in.
 
-  Here is an example:
+  For example:
 
   ```yaml
   ...
@@ -46,7 +46,7 @@ With the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), you can provide both
 
   To provide the names of variables instead of values to the metadata in `$<variable_name>` format, use the two-dollar syntax.
 
-  Here is an example:
+  For example:
 
   ```bash
   ...

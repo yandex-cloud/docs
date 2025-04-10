@@ -25,6 +25,22 @@ Resource | Amount | Comment
 Subnet | 2 | {{ k8s }} reserves IP address ranges to be used for pods and services.
 Public IP | N | N includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address for **each** node in the group if you use one-to-one NAT.
 
+### Cluster metrics {#cluster-labels}
+
+To break {{ k8s }} into logical groups, use [cloud labels](../../resource-manager/concepts/labels.md).
+
+Cloud labels for {{ k8s }} clusters are subject to the following rules:
+
+  {% include [cloud-labels-restrictions-cluster](../../_includes/managed-kubernetes/cloud-labels-restrictions-cluster.md) %}
+
+Learn more about managing cloud labels in [Updating a cluster](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-label).
+
+{% note info %}
+
+You cannot assign [{{ k8s }} labels]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) to a cluster.
+
+{% endnote %}
+
 ## Master {#master}
 
 A _master_ is a component that manages a {{ k8s }} cluster.
@@ -146,42 +162,38 @@ For more information about taints and tolerations, see the [{{ k8s }} documentat
 
 ### Node labels {#node-labels}
 
-_Node labels_ is a mechanism for grouping nodes in {{ managed-k8s-name }}. There are different types of labels:
+_Node labels_ is a mechanism for grouping nodes in {{ managed-k8s-name }}. There are two types of node labels:
 
-* [Node group cloud labels](../../resource-manager/concepts/labels.md) are used to logically separate and label resources. For example, you can use cloud labels to [track your expenses](../../billing/operations/get-folder-report.md#format) for different node groups. They are indicated as `template-labels` in the CLI and as `labels` in {{ TF }}.
+* [Cloud labels](../../resource-manager/concepts/labels.md) are used for logical separation and labeling of resources. For example, you can use cloud labels to [track how much you spend](../../billing/operations/get-folder-report.md#format) on different node groups. They are designated as `template-labels` in the CLI and as `labels` in {{ TF }}.
 
-* [{{ k8s }} node labels]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) are used to group {{ k8s }} objects and [distribute pods across cluster nodes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes). They are indicated as `node-labels` in the CLI and as `node_labels` in {{ TF }}.
+  Cloud labels for nodes are subject to the following rules:
+
+    {% include [cloud-labels-restrictions-nodes](../../_includes/managed-kubernetes/cloud-labels-restrictions-nodes.md) %}
+
+  Learn more about managing cloud labels in [Updating a node group](../operations/node-group/node-group-update.md#manage-label).
+
+* [{{ k8s }} labels]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) are used to group {{ k8s }} objects and [distribute pods across cluster nodes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes). They are designated as `node-labels` in the CLI and as `node_labels` in {{ TF }}.
 
   When setting {{ k8s }} labels, specify the node characteristics to group objects by. You can find sample {{ k8s }} labels in the [{{ k8s }} documentation]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/#motivation).
 
-You can use both types of labels at the same time, e.g., when [creating a node group](../operations/node-group/node-group-create.md) in the CLI or {{ TF }}.
+  You can define a set of `key: value` {{ k8s }} labels for every object. All of its keys must be unique.
+
+  {% include [k8s-labels-restrictions-nodes](../../_includes/managed-kubernetes/k8s-labels-restrictions-nodes.md) %}
 
 You can use the [{{ managed-k8s-name }} API](../managed-kubernetes/api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. Their features:
 
-* {{ k8s }} labels added via the {{ k8s }} API may be lost because, when [updating or modifying a node group](../operations/node-group/node-group-update.md), some nodes are recreated with different names and some of the old ones are deleted.
-* If {{ k8s }} labels are created via the {{ managed-k8s-name }} API, you cannot delete them using the {{ k8s }} API. Otherwise, the labels will be restored once they are deleted.
+  * {{ k8s }} labels added via the {{ k8s }} API may be lost because, when [updating or modifying a node group](../operations/node-group/node-group-update.md), some nodes are recreated with different names and some of the old ones are deleted.
+  * If {{ k8s }} labels are created via the {{ managed-k8s-name }} API, you cannot delete them using the {{ k8s }} API. Otherwise, the labels will be restored once they are deleted.
 
-{% note warning %}
+  {% note warning %}
 
-To make sure no labels are lost, use the {{ managed-k8s-name }} API.
+  To make sure no labels are lost, use the {{ managed-k8s-name }} API.
 
-{% endnote %}
+  {% endnote %}
 
-You can define a set of `key: value` {{ k8s }} labels for every object. All of its keys must be unique.
+  For more information about adding and deleting {{ k8s }} labels, see [{#T}](../operations/node-group/node-label-management.md). Adding or deleting a label will not result in the node group recreation.
 
-{{ k8s }} label keys may consist of two parts separated by `/`: prefix and name.
-
-A prefix is an optional part of a key. The prefix requirements are as follows:
-* It must be a DNS subdomain, i.e., a series of DNS tags separated by `.`.
-* It may be up to 253 characters long.
-* The last character must be followed by `/`.
-
-A name is a required part of a key. The naming requirements are as follows:
-* May be up to 63 characters long.
-* It may contain lowercase Latin letters, numbers, hyphens, underscores, and periods.
-* Use a letter or number for the first and last characters.
-
-For more information about adding and deleting {{ k8s }} labels, see [{#T}](../operations/node-group/node-label-management.md). Adding or deleting a label will not result in the node group recreation.
+You can use both types of labels at the same time, e.g., when [creating a node group](../operations/node-group/node-group-create.md) in the CLI or {{ TF }}.
 
 ## Pod {#pod}
 

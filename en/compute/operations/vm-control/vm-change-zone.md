@@ -42,7 +42,7 @@ Repeat the steps above to create snapshots of all the disks.
 
 ### Create a VM in a different availability zone with the disks from the snapshots {#create-vm}
 
-To [create](../vm-create/create-from-snapshots.md) a VM in a different availability zone with the disks from the snapshots:
+To [create](../vm-create/create-from-snapshots.md) a VM in a different availability zone with disks from snapshots:
 
 {% include [create-from-snapshot](../../../_includes/compute/create-from-snapshot.md) %}
 
