@@ -409,7 +409,7 @@ items:
             href: tutorials/vm-autoscale/console.md
           - name: '{{ TF }}'
             href: tutorials/vm-autoscale/terraform.md
-      - name: Scheduled scaling of instance groups
+      - name: Scheduled instance group scaling
         items:
           - name: Overview
             href: tutorials/vm-scale-scheduled/index.md
@@ -417,7 +417,7 @@ items:
             href: tutorials/vm-scale-scheduled/console.md
           - name: '{{ TF }}'
             href: tutorials/vm-scale-scheduled/terraform.md
-      - name: Autoscaling a group of instances to process messages from a queue
+      - name: Autoscaling an instance group to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
@@ -495,7 +495,7 @@ items:
         href: tutorials/ha-regional-glusterfs.md
       - name: Deploying GlusterFS in high performance mode
         href: tutorials/ha-regional-glusterfs-high-performance.md
-      - name: Backing up to {{ objstorage-name }} via Bacula
+      - name: Backing up to {{ objstorage-name }} with Bacula
         href: tutorials/backup-with-bacula.md
       - name: Creating an L7 load balancer with DDoS protection
         items:
@@ -526,6 +526,10 @@ items:
       - name: ViPNet Coordinator in {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
         hidden: true
+      - name: >-
+          Creating an external table from a {{ objstorage-name }} bucket table
+          using a configuration file
+        href: tutorials/mgp-config-server-for-s3.md
       - name: '{{ coi }}'
         items:
           - name: Creating a VM from a {{ coi }}
@@ -550,7 +554,7 @@ items:
             href: tutorials/coi-with-terraform.md
       - name: Microsoft products in {{ yandex-cloud }}
         items:
-          - name: Deploying Active Directory
+          - name: Secure password transmission to an initialization script
             href: tutorials/secure-password-script.md
           - name: Deploying Active Directory
             href: tutorials/active-directory.md

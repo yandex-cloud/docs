@@ -39,7 +39,6 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 * [{{ mmg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
-
 ### {{ mmg-name }} cluster {#managed-service}
 
 
@@ -48,7 +47,6 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../managed-mongodb/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
-
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
@@ -70,7 +68,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -128,7 +126,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
     {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl

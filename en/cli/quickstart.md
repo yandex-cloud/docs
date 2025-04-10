@@ -9,7 +9,7 @@ description: Follow this guide to learn how to use the command line interface.
 The _{{ yandex-cloud }} command line interface (CLI)_ is downloadable software you can use to manage your cloud resources via the command line.
 
 
-## Installing {#install}
+## Installation {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
@@ -147,3 +147,7 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
    yc vpc network delete my-yc-network
    ```
 
+
+## See also {#see-also}
+
+* [{#T}](operations/update-cli.md)

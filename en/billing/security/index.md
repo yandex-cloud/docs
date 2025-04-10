@@ -7,7 +7,7 @@ description: Billing account access is provided through {{ billing-name }}. The 
 
 ## Billing account access {#billing-account}
 
-Access to the [billing account](../concepts/billing-account.md) can be provided via the [{{ billing-name }} interface]({{ link-console-billing }}) or the [{{ yandex-cloud }} API](../api-ref/authentication.md). A billing account can be created by users with a registered Yandex or Yandex 360 account:
+[Access](../concepts/billing-account.md) to the billing account can be provided via the [{{ billing-name }} interface]({{ link-console-billing }})or the [{{ yandex-cloud }} API](../api-ref/authentication.md). A billing account can be created by users with a registered Yandex or Yandex 360 account:
 
 * If you or your employee have no account yet, create one on [Yandex](https://passport.yandex.ru/registration) or [Yandex 360](https://yandex.com/support/business/add-users.html).
 * If using a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
@@ -20,7 +20,7 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 {% endnote %}
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -138,7 +138,7 @@ The steps for assigning a billing account role depend on whether this billing ac
 
 - For accounts added to an organization
 
-  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account within the same organization. To do this:
+  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account within the same organization. Proceed as follows:
 
   1. [Make sure](../../organization/operations/users-get.md) that the user you need belongs to your organization. If not, [add them](../../organization/operations/add-account.md).
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
@@ -158,7 +158,7 @@ The steps for assigning a billing account role depend on whether this billing ac
 
 - For accounts not added to an organization
 
-  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list. To do this:
+  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list. Proceed as follows:
  
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
@@ -182,7 +182,7 @@ The steps for revoking a billing account role depend on whether this billing acc
 
 - For accounts added to an organization
 
-  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account in their organization at any time. To do this:
+  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account in their organization at any time. Proceed as follows:
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
@@ -195,7 +195,7 @@ The steps for revoking a billing account role depend on whether this billing acc
 
 - For accounts not added to an organization
 
-  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account on the list at any time. To do this:
+  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account on the list at any time. Proceed as follows:
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
@@ -216,7 +216,7 @@ The steps for revoking a billing account role depend on whether this billing acc
 
 ## Deleting a user {#delete-user}
 
-You can only delete users from those billing accounts that are not added to an organization. To do this:
+You can only delete users from those billing accounts that are not added to an organization. Proceed as follows:
 
 1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 1. Select a billing account.

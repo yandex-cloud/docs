@@ -1,10 +1,9 @@
 ---
 title: Guides on using Billing
-description: In this article, you will learn how to work with the {{ billing-name }} service in {{ yandex-cloud }}, activate the paid version, purchase a committed volume of services (CVoS), activate a promo code, top up your account, and more.
+description: In this article, you will learn how to work with {{ billing-name }} in {{ yandex-cloud }}, activate the paid version, purchase a committed volume of services (CVoS), activate a promo code, top up your account, and more.
 ---
 
 # All {{ billing-name }} guides
-
 
 ## Working with documents {#docs}
 
@@ -21,20 +20,25 @@ description: In this article, you will learn how to work with the {{ billing-nam
 * [{#T}](delete-account.md)
 * [{#T}](activate-commercial.md)
 
+
 ## Managing payment methods {#payment-methods}
 
 * [{#T}](pin-card.md)
 * [{#T}](change-payment-method.md)
+
 
 ## Cost optimization {#cost-optimization}
 
 * [{#T}](budgets.md)
 * [{#T}](purchase-cvos.md)
 
+
 ## Paying for services {#payment}
 
 * [{#T}](activate-promocode.md)
 * [{#T}](pay-the-bill.md)
+* [{#T}](get-offers.md)
+
 
 ## Analyzing {{ yandex-cloud }} service usage {#details}
 

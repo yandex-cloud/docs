@@ -248,6 +248,8 @@ items:
                     href: concepts/workflows/yawl/management/noop.md
                   - name: Wait
                     href: concepts/workflows/yawl/management/wait.md
+                  - name: While
+                    href: concepts/workflows/yawl/management/while.md
           - name: Шаблонизация
             href: concepts/workflows/templating.md
       - name: '{{ er-name }}'

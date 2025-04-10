@@ -5,7 +5,7 @@ items:
     items:
       - name: Step 1. Registration
         href: individuals/registration.md
-      - name: Step 2. Payment
+      - name: Step 2. Billing
         href: individuals/payments.md
       - name: Step 3. Resource hierarchy
         href: individuals/resources-hierarchy.md
@@ -19,13 +19,13 @@ items:
     items:
       - name: Step 1. Registration
         href: legal-entity/registration.md
-      - name: Step 2. Payment
+      - name: Step 2. Billing
         href: legal-entity/payments.md
       - name: Step 3. Creating an organization
         href: legal-entity/create-organization.md
       - name: Step 4. Selecting a service plan
         href: legal-entity/service-plan.md
-      - name: Step 5. Managing users
+      - name: Step 5. User management
         href: legal-entity/manage-users.md
       - name: Step 6. Resource hierarchy
         href: legal-entity/resources-hierarchy.md

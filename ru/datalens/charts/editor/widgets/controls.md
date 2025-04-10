@@ -136,7 +136,7 @@ module.exports = {
 
 Кроме общих полей контролов доступно:
 
-* `theme` — тема кнопки. Необязательное поле, тип значения строка из возможных значений: см. [возможные значения](https://preview.gravity-ui.com/uikit/?path=/story/components-inputs-button--view) поля view компоненты Button из дизайн системы Gravity-ui. Значение по умолчанию: `action`. [Пример внешнего вида](https://datalens.yandex/uw4m2h7evlwog?tab=jEx#Селектор%20с%20кнопкой%2C%20выбор%20внешнего%20вида)
+* `theme` — тема кнопки. Необязательное поле. Тип значения — строка из [возможных значений](https://preview.gravity-ui.com/uikit/?path=/story/components-inputs-button--view) поля `view` компоненты `Button` из дизайн-системы Gravity UI. Значение по умолчанию — `action`. [Пример внешнего вида](https://datalens.yandex/uw4m2h7evlwog?tab=jEx#Селектор%20с%20кнопкой%2C%20выбор%20внешнего%20вида).
 * `onClick` — действие по клику на кнопку. Обязательное поле, тип объект:
 
   ```json

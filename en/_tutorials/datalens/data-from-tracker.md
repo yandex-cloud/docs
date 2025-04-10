@@ -9,7 +9,7 @@ To visualize data from {{ tracker-short-name }} to {{ datalens-short-name }}:
 
 To visualize the data, follow these steps:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a DB for storing the {{ tracker-short-name }} data](#database-create).
 1. [Create an OAuth token for {{ tracker-short-name }} access](#oauth-token).
 1. [Create a {{ sf-name }} function for importing the data](#function-import).
@@ -41,7 +41,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a DB for storing the {{ tracker-short-name }} data {#database-create}
 
-1. Go to the [management console]({{ link-console-main }}).
+1. Navigate to the [management console]({{ link-console-main }}).
 1. In the top-left corner, click ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Select **Data platform** → **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
@@ -92,7 +92,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a {{ sf-name }} function for importing the data {#function-import}
 
-1. Go to the [management console]({{ link-console-main }}).
+1. Navigate to the [management console]({{ link-console-main }}).
 1. In the top-left corner, click ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Select **Serverless computing** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.

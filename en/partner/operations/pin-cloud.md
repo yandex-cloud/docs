@@ -10,8 +10,8 @@ A cloud not linked to the customer subaccount will not refer to the partner. The
 
 You can link a customer's cloud to a partner subaccount on the partner portal or using the management console. To create a link, you will need the following roles:
 
-* For the [billing account](../../billing/security/index.md#roles-list): `billing.accounts.owner`, `admin`, or `editor`.
-* For a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud): `resource-manager.clouds.owner`.
+* `billing.accounts.owner`, `admin`, or `editor` for the [billing account](../../billing/security/index.md#roles-list).
+* `resource-manager.clouds.owner` for the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 
 {% list tabs group=instructions %}
 
@@ -36,7 +36,7 @@ You can link a customer's cloud to a partner subaccount on the partner portal or
 
    To link a cloud using the customer billing account:
 
-   1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID to which your partner account in {{ yandex-cloud }} is linked.
+   1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID linked to your partner account in {{ yandex-cloud }}.
    1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
    1. Select the customer's account from the list and click it.
    1. Under **Clouds**, click ![icon](../../_assets/console-icons/arrow-shape-turn-up-right.svg) **Link cloud** and select a cloud from the list.

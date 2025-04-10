@@ -10,7 +10,6 @@ You can also view out-of-the-box images in [{{ marketplace-full-name }}](/market
 
 You can use your own file with a Linux [VM](../../concepts/vm.md) [disk](../../concepts/disk.md) [image](../../concepts/image.md). Once your image is prepared, [upload it](upload.md) to {{ compute-name }}.
 
-
 If you have developed software that might be helpful to others, consider [listing](../../../marketplace/operations/create-product.md) it in {{ marketplace-full-name }}.
 
 
@@ -165,7 +164,7 @@ To enable serial console access to your VM, configure the image to use `ttyS0` (
 
 1. Reboot the OS.
 
-After [creating a VM from your image](upload.md#create-vm-from-user-image), you need to additionally [configure it for using the serial console](../serial-console/index.md).
+After [creating a VM from your image](upload.md#create-vm-from-user-image), you need to additionally [configure it for using the serial console](../serial-console/index.md). 
 
 ## Disabling cloud platform verification when creating an image in Amazon EC2 {#ec2}
 

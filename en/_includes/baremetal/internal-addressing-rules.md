@@ -1,0 +1,1 @@
+For subnet addressing purposes, you can use any CIDR in the ranges reserved for private networks: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`. The subnet must include at least eight addresses (the maximum CIDR prefix length is `/29`).

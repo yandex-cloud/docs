@@ -80,14 +80,24 @@ items:
                 href: operations/delete-subject.md
   - name: Tutorials
     items:
-      - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
-        href: tutorials/sharing-tables.md
-      - name: >-
-          Transferring metadata between {{ dataproc-name }} clusters using {{
-          metastore-name }}
-        href: tutorials/metastore-import.md
-      - name: Using {{ schema-registry-name }} with {{ mkf-full-name }}
-        href: tutorials/managed-schema-registry.md
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: '{{ metastore-name }}'
+        items:
+          - name: >-
+              Shared use of {{ dataproc-name }} tables through {{ metastore-name
+              }}
+            href: tutorials/sharing-tables.md
+          - name: >-
+              Transferring metadata between {{ dataproc-name }} clusters using
+              {{ metastore-name }}
+            href: tutorials/metastore-import.md
+      - name: '{{ schema-registry-name }}'
+        items:
+          - name: Using {{ schema-registry-name }} with {{ mkf-name }}
+            href: tutorials/managed-schema-registry.md
+          - name: Delivering data in Debezium CDC format from {{ KF }}
+            href: tutorials/schema-registry-cdc-debezium-kafka.md
   - name: Concepts
     items:
       - name: About {{ metadata-hub-full-name }}
@@ -130,9 +140,11 @@ items:
         href: api-ref/authentication.md
       - name: Schema Registry
         href: api-ref/schema-registry/index.md
-  - name: Release notes
-    href: release-notes/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Public materials
+    href: public-talks.md
+  - name: Release notes
+    href: release-notes/index.md
   - name: FAQ
     href: qa/index.md

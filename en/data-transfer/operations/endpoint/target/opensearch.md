@@ -67,7 +67,6 @@ To create or edit an endpoint of a managed database, you need to have the [`{{ r
 
 {% endnote %}
 
-
 Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}

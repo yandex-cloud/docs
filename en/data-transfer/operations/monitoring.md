@@ -6,17 +6,15 @@ Transfer status details are available in the management console:
 
 You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you will receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
 
-
 You can also use the {{ yandex-cloud }} [mobile app](/mobile-app) to monitor transfer statuses and get their logs.
-
 
 
 ## Errors displayed on the transfer timeline {#errors-timeline}
 
 Some errors you may see on the selected transfer timeline:
 
-  * The transfer does not write all the data it reads. There are fewer events written to the target than read from the source. This may indicate low throughput of the target.
-  * Transfer time has increased or is too long. If a transfer takes longer time to process data, this may suggest that the data stream from the source has increased or the target’s throughput is low.
+  * The transfer does not write all the data it reads. There are fewer events written to the target than read from the source. This may indicate insufficient throughput of the target.
+  * Transfer time has increased or is too long. If a transfer takes longer time to process data, this may suggest that the data stream from the source has increased or there are issues with the target’s throughput.
   * Replication lag is increasing. The lag may increase if the source starts sending more events or due to data target issues, insufficient resources, or operational errors.
   * Replication restarts frequently. Frequent replication restarts can signify an issue in the data source or target, as well as a memory shortage.
 

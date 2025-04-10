@@ -7,7 +7,7 @@ description: To perform operations through the API in {{ data-transfer-name }}, 
 
 
 
-To perform operations via the API, get an [IAM token](../../iam/concepts/authorization/iam-token.md):
+To perform operations via the API, you need to get an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
 * [How to get a token](../../iam/operations/iam-token/create.md) for a Yandex account.
 * [How to get a token](../../iam/operations/iam-token/create-for-sa.md) for a service account.

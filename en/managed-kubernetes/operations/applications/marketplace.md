@@ -5,14 +5,7 @@ description: Follow this guide to learn how to interact with {{ marketplace-name
 
 # Getting started with {{ marketplace-name }}
 
-
 {{ managed-k8s-name }} enables you to use applications from [{{ marketplace-full-name }}](/marketplace) in clusters.
-
-{% note info %}
-
-{{ marketplace-name }} access is at the [Preview](../../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
 
 ## Retrieving a list of installed applications {#list-apps}
 
@@ -81,5 +74,21 @@ To deploy applications, you need at least one [active node group](../node-group/
   1. Click the cluster name and open the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
   1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the app to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
+
+{% endlist %}
+
+## Statistics collection {#statics}
+
+To collect app usage statistics, {{ marketplace-full-name }} reviews user resources in all {{ k8s }} clusters, including {{ k8s }} [secrets](../../concepts/encryption.md#k8s-secrets-encryption) labeled with `owner: helm`. To do this, the `k8s-marketplace-analytics` and `k8s-marketplace-distributor` [service accounts](../../../iam/concepts/users/service-accounts.md) are used. Statistics are collected every 15 minutes.
+
+If you want to disable statistics collection for your {{ k8s }} cluster:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the cluster name and open the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/ban.svg) **{{ ui-key.yacloud.marketplace-v2.button_disallow-analytics-scanning }}**.
 
 {% endlist %}

@@ -1,4 +1,5 @@
 ---
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-processing-to-data-processing'
 noIndex: true
 ---
 

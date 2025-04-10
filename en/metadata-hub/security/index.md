@@ -10,17 +10,17 @@ description: Access management in {{ metadata-hub-full-name }}. This section des
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `connection-manager.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user needs the `connection-manager.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 You can assign a role for an [organization](../../organization/quickstart.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [connection](../concepts/connection-manager.md). The roles assigned for organizations, clouds, or folders also apply to nested resources.
 
 You can assign a role for a connection in the [management console]({{ link-console-main }}).
 
-## Which roles exist in {{ metadata-hub-name }} {#roles-list}
+## Roles existing in {{ metadata-hub-name }} {#roles-list}
 
 You can use {{ metadata-hub-name }} roles (_service roles_) and {{ yandex-cloud }} roles (_primitive roles_) to manage access permissions.
 
@@ -42,3 +42,4 @@ You can use {{ metadata-hub-name }} roles (_service roles_) and {{ yandex-cloud 
 
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+

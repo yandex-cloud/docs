@@ -15,3 +15,4 @@ description: Various {{ dns-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](tls-termination/index.md)
 * [{#T}](storage-vpc-access.md)
 * [{#T}](vpc-cr-access.md)
+* [{#T}](reconnect-network.md)

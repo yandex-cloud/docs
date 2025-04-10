@@ -180,7 +180,6 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
   Type of limit | Value
   --- | ---
-  Total number of ultra high-speed network storages with three replicas (SSD) per placement group | 8
   Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 10,000
   Maximum^4^ IOPS per VM | 100,000
   Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s

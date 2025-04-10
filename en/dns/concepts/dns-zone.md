@@ -13,7 +13,7 @@ If a public zone is registered in {{ yandex-cloud }}:
 * To manage a subzone and its records, no rights to the parent zone are required.
 
 This prevents the creation of subzones for the zones registered in {{ yandex-cloud }} that users have no access to.
-You can create zones and subzones in different folders. To do this, assign the `editor` role for the folder the parent zone is in to a user or [service account](../../iam/concepts/users/service-accounts.md). For more information, see [{#T}](../security/index.md).
+You can create zones and subzones in different folders. To do this, assign the `editor` role for the folder the parent zone is in to a user or [service account](../../iam/concepts/users/service-accounts.md). To learn more, see [{#T}](../security/index.md).
 
 For example, the `example.com.` parent zone is in the folder named `my-folder`. If you have the permissions to manage this zone, you can create the `test.example.com.` and `production.example.com.` subzones in the folders named `my-test-folder` and `my-production-folder`, respectively.
 
@@ -32,11 +32,11 @@ Make sure to transfer resource records (A, CNAME, TXT, etc., except for NS) from
 
 {% endnote %}
 
-You cannot create top-level domain (TLD) zones.
+You cannot create top-level domain ([TLD](https://en.wikipedia.org/wiki/Top-level_domain)) zones, such as `ru.`, `com.`, `org.`, etc.
 
 For security reasons, nested public zones can only be created by users and service accounts with the `dns.editor`, `dns.admin`, `editor`, or `admin` role for the folder the parent public zone is in. Remember this when organizing the structure of your domain names. For more complex scenarios, contact [support](../../support/overview.md).
 
-The service does not require confirmation of domain ownership. You can use a domain zone even though it is not registered to you. If you delegated your domain to {{ dns-name }} without creating a respective public DNS zone in {{ dns-name }}, this zone can be used by someone else. Therefore, we recommend that you first create a public DNS zone in {{ dns-name }} and then delegate your domain.
+The service does not require confirmation of domain ownership. You can use a domain zone even though it is not registered to you. If you delegated your domain to {{ dns-name }} without creating a respective public DNS zone in {{ dns-name }}, this zone can be used by someone else. Therefore, we recommend that you first create a public DNS zone in {{ dns-name }} and then delegate your domain. 
 
 {% note info %}
 

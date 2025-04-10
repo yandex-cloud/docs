@@ -9,9 +9,7 @@ description: This page covers FAQ about {{ ca-name }}.
 
 ### What is the current name of the service? {#rebranding}
 
-The service is now part of [{{ src-full-name }}]({{ link-src-main }}). Therefore, the full name of **Yandex Code Assistant** has been changed to **{{ ca-full-name }}**. However, its current features are still the same.
-
-{{ ca-name }} is now also available in the built-in {{ src-name }} code editor.
+{% include [rebranding](../_includes/code-assistant/rebranding.md) %}
 
 ### Does the service have any usage limitations? {#limits}
 

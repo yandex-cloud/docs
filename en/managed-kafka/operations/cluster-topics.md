@@ -191,7 +191,7 @@ While running, {{ mkf-name }} is able to create [service topics](../concepts/top
 
 You cannot reduce the number of partitions in {{ mkf-name }} topics. You cannot create new partitions if there is not enough storage space.
 
-For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
+To learn more, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 {% list tabs group=instructions %}
 
@@ -284,12 +284,6 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
                  "topicSpec": {
                    "partitions": "<number_of_partitions>",
                    "replicationFactor": "<replication_factor>",
-                   "topicConfig_2_8": {
-                     "<setting_1_for_{{ KF }}_2.8_topic>": "<value_1>",
-                     "<setting_2_for_{{ KF }}_2.8_topic>": "<value_2>",
-                     ...
-                     "<setting_N_for_{{ KF }}_2.8_topic>": "<value_N>"
-                   },
                    "topicConfig_3": {
                      "<setting_1_for_{{ KF }}_3.x_topic>": "<value_1>",
                      "<setting_2_for_{{ KF }}_3.x_topic>": "<value_2>",
@@ -354,12 +348,6 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
                   "replication_factor": {
                     "value": "<replication_factor>"
                   },
-                  "topic_config_2_8": {
-                     "<setting_1_for_{{ KF }}_2.8_topic>": "<value_1>",
-                     "<setting_2_for_{{ KF }}_2.8_topic>": "<value_2>",
-                     ...
-                     "<setting_N_for_{{ KF }}_2.8_topic>": "<value_N>"
-                   },
                    "topic_config_3": {
                      "<setting_1_for_{{ KF }}_3.x_topic>": "<value_1>",
                      "<setting_2_for_{{ KF }}_3.x_topic>": "<value_2>",

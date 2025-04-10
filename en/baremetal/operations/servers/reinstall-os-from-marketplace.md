@@ -5,7 +5,7 @@ description: Follow this guide to reinstall a {{ baremetal-full-name }} server O
 
 # Reinstalling an OS from a {{ marketplace-full-name }} image
 
-{{ baremetal-full-name }} allows you to reinstall a server OS from a {{ marketplace-full-name }} public image. During reinstallation, you can select any OS available in {{ marketplace-name }} for {{ baremetal-name }} servers, as well as redistribute disk space, rebuild RAIDs, and reconfigure root user access parameters.
+{{ baremetal-full-name }} allows you to reinstall a server OS from a [{{ marketplace-full-name }}](/marketplace) public image. During reinstallation, you can select any OS available in {{ marketplace-name }} for {{ baremetal-name }} servers, as well as redistribute disk space, rebuild RAIDs, and reconfigure root user access parameters.
 
 To reinstall a {{ baremetal-name }} server OS:
 
@@ -33,7 +33,10 @@ To reinstall a {{ baremetal-name }} server OS:
           1. Click **{{ ui-key.yacloud.common.save }}**.
 
           If you do not make any changes to the disk partitioning, the server will retain the previous RAID and disk space allocation settings.
-      1. {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
+      1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+
+          {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
+
       1. Click **{{ ui-key.yacloud.baremetal.action_reinstall-server-os }}** and wait until the server OS is reinstalled.
 
 {% endlist %}

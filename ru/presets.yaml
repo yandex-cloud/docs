@@ -481,6 +481,7 @@ default:
     docs: https://docs.microsoft.com/ru-ru
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
+  mtr-short-name: Managed Service for Trino
   my:
     docs: https://dev.mysql.com/doc
   MY: MySQL®
@@ -2383,6 +2384,128 @@ default:
     used_space:
       v1|month|number: 4.2
       v1|month|string: "4,20\_₽"
+  sku|RUB|baremetal:
+    server:
+      ba_i100_h:
+        1_day|string: "18\_200,00\_₽"
+        1_month|string: "17\_654,00\_₽"
+        12_month|string: "18\_200,00\_₽"
+        3_month|string: "17\_290,00\_₽"
+        6_month|string: "16\_926,00\_₽"
+      ba_i101_h:
+        1_day|string: "18\_500,00\_₽"
+        1_month|string: "17\_945,00\_₽"
+        12_month|string: "15\_725,00\_₽"
+        3_month|string: "17\_575,00\_₽"
+        6_month|string: "17\_205,00\_₽"
+      ba_i102_s:
+        1_day|string: "18\_900,00\_₽"
+        1_month|string: "18\_333,00\_₽"
+        12_month|string: "16\_065,00\_₽"
+        3_month|string: "17\_955,00\_₽"
+        6_month|string: "17\_577,00\_₽"
+      ba_i103_s_10g:
+        1_day|string: "22\_400,00\_₽"
+        1_month|string: "21\_728,00\_₽"
+        12_month|string: "19\_040,00\_₽"
+        3_month|string: "21\_280,00\_₽"
+        6_month|string: "20\_832,00\_₽"
+      ba_i104_sh:
+        1_day|string: "20\_900,00\_₽"
+        1_month|string: "20\_273,00\_₽"
+        12_month|string: "17\_765,00\_₽"
+        3_month|string: "19\_855,00\_₽"
+        6_month|string: "19\_437,00\_₽"
+      ba_i105_sh:
+        1_day|string: "29\_600,00\_₽"
+        1_month|string: "28\_712,00\_₽"
+        12_month|string: "25\_160,00\_₽"
+        3_month|string: "28\_120,00\_₽"
+        6_month|string: "27\_528,00\_₽"
+      ba_i106_sh_10g:
+        1_day|string: "33\_500,00\_₽"
+        1_month|string: "32\_495,00\_₽"
+        12_month|string: "28\_475,00\_₽"
+        3_month|string: "31\_825,00\_₽"
+        6_month|string: "31\_155,00\_₽"
+      ba_i111_8s_10g:
+        1_day|string: "99\_800,00\_₽"
+        1_month|string: "96\_806,00\_₽"
+        12_month|string: "84\_830,00\_₽"
+        3_month|string: "94\_810,00\_₽"
+        6_month|string: "92\_814,00\_₽"
+      ba_i200_h:
+        1_day|string: "18\_600,00\_₽"
+        1_month|string: "18\_042,00\_₽"
+        12_month|string: "15\_810,00\_₽"
+        3_month|string: "17\_670,00\_₽"
+        6_month|string: "17\_298,00\_₽"
+      ba_i201_h:
+        1_day|string: "19\_100,00\_₽"
+        1_month|string: "18\_527,00\_₽"
+        12_month|string: "16\_235,00\_₽"
+        3_month|string: "18\_145,00\_₽"
+        6_month|string: "17\_763,00\_₽"
+      ba_i202_s:
+        1_day|string: "19\_500,00\_₽"
+        1_month|string: "18\_915,00\_₽"
+        12_month|string: "16\_575,00\_₽"
+        3_month|string: "18\_525,00\_₽"
+        6_month|string: "18\_135,00\_₽"
+      ba_i203_s_10g:
+        1_day|string: "22\_200,00\_₽"
+        1_month|string: "21\_534,00\_₽"
+        12_month|string: "18\_870,00\_₽"
+        3_month|string: "21\_090,00\_₽"
+        6_month|string: "20\_646,00\_₽"
+      ba_i204_sh:
+        1_day|string: "21\_300,00\_₽"
+        1_month|string: "20\_661,00\_₽"
+        12_month|string: "18\_105,00\_₽"
+        3_month|string: "20\_235,00\_₽"
+        6_month|string: "19\_809,00\_₽"
+      ba_i205_sh:
+        1_day|string: "30\_400,00\_₽"
+        1_month|string: "29\_488,00\_₽"
+        12_month|string: "25\_840,00\_₽"
+        3_month|string: "28\_880,00\_₽"
+        6_month|string: "28\_272,00\_₽"
+      ba_i206_sh_10g:
+        1_day|string: "33\_800,00\_₽"
+        1_month|string: "32\_786,00\_₽"
+        12_month|string: "28\_730,00\_₽"
+        3_month|string: "32\_110,00\_₽"
+        6_month|string: "31\_434,00\_₽"
+      ba_i207_h:
+        1_day|string: "53\_100,00\_₽"
+        1_month|string: "51\_507,00\_₽"
+        12_month|string: "45\_135,00\_₽"
+        3_month|string: "50\_445,00\_₽"
+        6_month|string: "49\_383,00\_₽"
+      ba_i208_s_10g:
+        1_day|string: "91\_500,00\_₽"
+        1_month|string: "88\_755,00\_₽"
+        12_month|string: "77\_775,00\_₽"
+        3_month|string: "86\_925,00\_₽"
+        6_month|string: "85\_095,00\_₽"
+      ba_i211_8s_10g:
+        1_day|string: "99\_900,00\_₽"
+        1_month|string: "96\_903,00\_₽"
+        12_month|string: "84\_915,00\_₽"
+        3_month|string: "94\_905,00\_₽"
+        6_month|string: "92\_907,00\_₽"
+      ba_i407_s_10g:
+        1_day|string: "86\_200,00\_₽"
+        1_month|string: "83\_614,00\_₽"
+        12_month|string: "73\_270,00\_₽"
+        3_month|string: "81\_890,00\_₽"
+        6_month|string: "80\_166,00\_₽"
+      ha_i302_s_10g:
+        1_day|string: "91\_800,00\_₽"
+        1_month|string: "89\_046,00\_₽"
+        12_month|string: "78\_030,00\_₽"
+        3_month|string: "87\_210,00\_₽"
+        6_month|string: "85\_374,00\_₽"
   sku|RUB|cdn:
     api:
       network:
@@ -6767,7 +6890,6 @@ default:
             label_title: Изменение группы виртуальных машин
           overview:
             label_instance-address: Публичный IP-адрес
-            section_base: Общая информация
             section_instances-state: Состояния виртуальных машин
           switch_instances: Виртуальные машины
         groups:

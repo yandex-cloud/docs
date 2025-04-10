@@ -5,7 +5,9 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 
 # Viewing connection information
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 To view created connections:
 
@@ -22,13 +24,15 @@ To view created connections:
 
 For the selected connection, you can view information about its dependencies on other services and the history of operations.
 
+
 You can open the selected connection in [{{ websql-full-name }}](../../websql/concepts/index.md) to make database requests. Click the **{{ ui-key.yacloud.connection-manager.label_open-websql }}** link in the top-right corner.
 
 {% note info %}
 
-The connection list only shows those connections for which the user has access permissions (the [`connection-manager.auditor`](../security/connection-manager-roles.md#connection-manager-auditor) or [`connection-manager.viewer` role](../security/connection-manager-roles.md#connection-manager-viewer)). A user with access permissions for a folder will be able to view all connections in that folder.
+The connection list only shows those connections for which the user has access permissions (the [`connection-manager.auditor`](../security/connection-manager-roles.md#connection-manager-auditor) or [`connection-manager.viewer`](../security/connection-manager-roles.md#connection-manager-viewer) role). A user with access permissions for a folder will be able to view all connections in that folder.
 
 {% endnote %}
+
 
 ## Viewing connection dependencies {#dependencies}
 

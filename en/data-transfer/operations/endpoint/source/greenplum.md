@@ -41,7 +41,6 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 * [Additional parameters](#additional-settings).
 
 
-
 ### {{ mgp-name }} cluster {#managed-service}
 
 
@@ -61,7 +60,6 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
 {% endlist %}
-
 
 
 ### Custom installation {#on-premise}
@@ -126,7 +124,7 @@ With parallel copy disabled, a transfer will move data from these {{ GP }} objec
 
 When you start a transfer with parallel copy off (default), the service interacts only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md) when copying data. The tables being copied are accessed in `ACCESS SHARE` [lock mode]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
 
-When you start a transfer with parallel copy on, the service interacts both with the master host and the {{ GP }} cluster's [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode. The tables being copied are accessed in `ACCESS SHARE` or `SHARE` lock mode, depending on the snapshot consistency setting.
+When you start a transfer with parallel copy on, the service interacts with both the master host and the {{ GP }} cluster's [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode. The tables being copied are accessed in `ACCESS SHARE` or `SHARE` lock mode, depending on the snapshot consistency setting.
 
 To guarantee snapshot consistency, a transfer with parallel copy on has to ensure the data in the tables remains static. With `ACCESS SHARE` (default), the service is unable to guarantee that the data will remain static, so this must be ensured externally. With `SHARE`, the {{ GP }} mechanisms are there to guarantee that data in the source tables remains static.
 

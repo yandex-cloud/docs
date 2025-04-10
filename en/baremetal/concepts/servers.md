@@ -2,15 +2,11 @@
 
 A {{ baremetal-name }} server is a fully [configured](./server-configurations.md) physical server connected to the [network](./network.md) via two 1 Gbps or 10 Gbps network interfaces. Its hardware and network resources are physically isolated and can be accessed only by the user leasing the server.
 
-{% note warning %}
-
-Default BIOS settings are optimal for a {{ baremetal-name }} server. We do not recommend changing them.
-
-{% endnote %}
+{% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
 
 ## Server lease {#server-lease}
 
-You can lease a server for 1, 3, 6 months or 1 year. You can view the configurations available for lease in each pool when ordering a server in the management console. 
+You can lease a server for one day, one month, three months, six months, or one year. You can view the configurations available for lease in each pool when ordering a server in the management console. 
 
 ## Server access {#server-access}
 

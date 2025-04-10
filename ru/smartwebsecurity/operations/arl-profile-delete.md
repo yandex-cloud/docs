@@ -23,6 +23,59 @@ description: Следуя данной инструкции, вы сможете
   1. Вернитесь на страницу профиля ARL, который вы хотите удалить.
   1. Справа сверху нажмите ![recycle-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы удалить [профиль ARL](../concepts/arl.md), созданный с помощью {{ TF }}:
+
+  1. Откройте файл конфигураций {{ TF }} и удалите фрагмент с описанием ресурса `yandex_sws_advanced_rate_limiter_profile`:
+
+      {% cut "Пример описания профиля ARL в конфигурации {{ TF }}" %}
+      
+      ```hcl
+      # Профиль ARL
+
+      resource "yandex_sws_advanced_rate_limiter_profile" "arl-profile" {
+        name        = "<имя_профиля>"
+        description = "<описание_профиля>"
+
+        # Правило 1
+
+        advanced_rate_limiter_rule {
+          name        = "<имя_правила>"
+          priority    = <приоритет_правила>
+          description = "<описание_правила>"
+          dry_run     = true
+
+          static_quota {
+            action = "DENY"
+            limit  = <лимит_правила>
+            period = <период_правила>
+            condition {
+              request_uri {
+                path {
+                  exact_match = "/api"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
+
+      {% endcut %}
+
+  1. Примените изменения:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+       Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}).
+
 - API {#api}
 
   Воспользуйтесь методом REST API [delete](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/delete.md) для ресурса [AdvancedRateLimiterProfile](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md) или вызовом gRPC API [AdvancedRateLimiterProfile/Delete](../advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/delete.md).

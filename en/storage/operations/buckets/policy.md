@@ -9,6 +9,8 @@ description: Follow this guide to learn how to manage an {{ objstorage-name }} b
 
 [Bucket policies](../../concepts/policy.md) set permissions for operations with [buckets](../../concepts/bucket.md), [objects](../../concepts/object.md), and object groups.
 
+For examples of bucket policies for specific use cases, see [Configuration examples](../../concepts/policy.md#config-examples).
+
 
 {% note warning %}
 
@@ -307,7 +309,7 @@ To apply or update a bucket policy:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -456,3 +458,7 @@ To delete a bucket policy:
   Use the [DeleteBucketPolicy](../../s3/api-ref/policy/delete.md) S3 API method.
 
 {% endlist %}
+
+## See also {#see-also}
+
+* [{#T}](../../concepts/policy.md#config-examples)

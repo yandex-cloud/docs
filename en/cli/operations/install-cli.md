@@ -1,6 +1,6 @@
 # CLI installation
 
-You can install the CLI in different modes:
+You can install the CLI in different modes: 
 - [Interactive CLI installation](#interactive)
 - [Non-interactive CLI installation](#non-interactive)
 
@@ -48,3 +48,6 @@ To use the CLI in scripts, you can use flags for a non-interactive installation:
 
 {% endlist %}
 
+## See also {#see-also}
+
+* [{#T}](update-cli.md)

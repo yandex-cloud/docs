@@ -8,14 +8,14 @@ description: Follow this guide to upgrade your {{ mkf-name }} cluster.
 
 {% note info %}
 
-Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 will be discontinued, so you will not be able to create a cluster with these versions. We recommend that you upgrade your clusters to version 3.5 beforehand.
+Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions. We recommend that you upgrade your clusters to version 3.5.
 
 {% endnote %}
 
 
 You can upgrade a {{ mkf-name }} cluster to version 3.5 or lower. Upgrading to 3.6 or higher is not supported; however, you can [create a cluster](cluster-create.md#create-cluster) with one of these versions.
 
-We recommend updating {{ KF }} step by step without skipping any versions. For example, the upgrade sequence from version 2.8 to 3.1 is: 2.8 → 3.0 → 3.1.
+We recommend updating {{ KF }} step by step without skipping any versions. For example, the upgrade sequence from version 3.1 to 3.5 is: 3.1 → 3.2 → 3.3 → 3.4 → 3.5.
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 

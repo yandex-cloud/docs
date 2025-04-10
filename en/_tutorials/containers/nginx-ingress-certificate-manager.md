@@ -19,7 +19,7 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
 
 1. [Create service accounts](../../iam/operations/sa/create.md):
    * `eso-service-account` for interaction between the External Secrets Operator and {{ certificate-manager-name }}.
-   * `k8s-sa` with the `editor`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) resources and pull [Docker images](../../container-registry/concepts/docker-image.md). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
+   * `k8s-sa` with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) resources and pull [Docker images](../../container-registry/concepts/docker-image.md). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
 1. Create an [authorized key](../../iam/concepts/authorization/access-key.md) for the [service account](../../iam/concepts/users/service-accounts.md) and save it to a file named `authorized-key.json`:
 
    ```bash

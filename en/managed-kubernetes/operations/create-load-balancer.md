@@ -64,7 +64,7 @@ Prepare the required infrastructure:
 - Manually {#manual}
 
   1. Create a [cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
-  1. Create a [service account](../../iam/operations/sa/create.md) with the `editor` [role](../../iam/concepts/access-control/roles.md).
+  1. Create a [service account](../../iam/operations/sa/create.md) with the `k8s.clusters.agent`, `vpc.publicAdmin`, and `load-balancer.admin` [role](../../iam/concepts/access-control/roles.md). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -208,7 +208,7 @@ When you create a `LoadBalancer` type service, the {{ yandex-cloud }} controller
 
 {% note warning %}
 
-* You will be charged for the network load balancer you created based on the [pricing rules](../../network-load-balancer/pricing.md).
+* You will be charged for the network load balancer you created based on the [pricing policy](../../network-load-balancer/pricing.md).
 * Do not modify or delete the network load balancer and the target groups that are automatically created in your folder after creating a `LoadBalancer` type service.
 
 {% endnote %}

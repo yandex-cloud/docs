@@ -5,7 +5,7 @@ description: Follow this guide to create and set up an {{ KF }} cluster.
 
 # Getting started with {{ mkf-name }}
 
-To get started with the service:
+To get started:
 1. [Create a cluster](#cluster-create).
 1. [Create a topic](#topic-create).
 1. [Create a user](#account-create).
@@ -43,6 +43,8 @@ To get started with the service:
    ```bash
    sudo apt-get install kafkacat
    ```
+
+   Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 
 ## Create a cluster {#cluster-create}

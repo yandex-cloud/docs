@@ -75,11 +75,81 @@ A VM must have a boot disk attached. You can also attach extra disks to your VM.
 
 {% include [attach-empty-disk](../_includes_service/attach-empty-disk.md) %}
 
-When selecting a disk to attach to your VM, you can specify whether to delete that disk when deleting the VM. This option is available when you create a VM, reconfigure it, or attach a new disk to it.
+## Disk auto-deletion {#autodelete-disks}
 
-If a VM had any previously created disks attached, they will be detached when you delete the VM. The data on the disk will be still there, and you will be able to attach the disk to a different VM later.
+{{ compute-name }} supports auto-deletion of disks together with VMs. The **default** auto-deletion settings differ for boot and secondary disks. The behavior will also vary depending on the interface used to create your VM:
 
-If you would like to delete a disk with a VM, specify this option when creating the VM, reconfiguring it, or attaching the disk. Such disks will be deleted along with the VM.
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  * **Boot disk**
+
+    * If you created a disk together with a VM, auto-deletion is _enabled_.
+    * If you connected an existing disk to a VM, auto-deletion is _disabled_.
+
+    {% note info %}
+
+    The [management console]({{ link-console-main }}) does not support updating the boot disk auto-deletion settings. Use such tools as the {{ yandex-cloud }} CLI, {{ TF }}, or API. For examples, see [{#T}](../operations/vm-create/create-linux-vm.md).
+
+    {% endnote %}
+
+  * **Secondary disk**
+
+    Auto-deletion of secondary disks is _disabled_ by default. 
+    
+    To enable auto-deletion, when creating or updating a VM, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** in the **{{ ui-key.yacloud.compute.field_additional }}** field in the disk parameters.
+
+- CLI {#cli}
+
+  * **Boot disk**
+
+    * If you created a disk together with a VM, auto-deletion is _enabled_.
+    * If you connected an existing disk to a VM, auto-deletion is _disabled_.
+  * **Secondary disk**
+
+    Auto-deletion of secondary disks is _disabled_ by default.
+
+  You can set the auto-deletion configuration both when creating or updating a VM using the `auto-delete` parameter, which can either be `true` or `false`. You can use this parameter in the following flags:
+  * `--create-disk`: To create a secondary disk.
+  * `--attach-disk`: To attach an existing disk as a secondary disk.
+  * `--create-boot-disk`: To create a boot disk.
+  * `--use-boot-disk`: To use an existing boot disk.
+
+- {{ TF }} {#tf}
+
+  * **Boot disk**
+
+    * If you created a disk together with a VM, auto-deletion is _enabled_.
+    * If you connected an existing disk to a VM, auto-deletion is _enabled_.
+  
+    {% note warning %}
+
+    By default, the boot disk will be deleted along with the VM regardless of whether it was created using {{ TF }} or another interface and whether it remains in the manifest as a separate resource or not.
+
+    {% endnote %}
+
+  * **Secondary disk**
+
+    Auto-deletion of secondary disks is _disabled_ by default.
+
+  You can set the auto-deletion configuration both when creating or updating a VM by adding the `auto_delete` parameter, which can be either `true` or `false`, to the `boot_disk` or `secondary_disk` resource description.
+
+- API {#api}
+
+  * **Boot disk**
+
+    * If you created a disk together with a VM, auto-deletion is _disabled_.
+    * If you connected an existing disk to a VM, auto-deletion is _disabled_.
+  * **Secondary disk**
+
+    Auto-deletion of secondary disks is _disabled_ by default.
+  
+  You can set the auto-deletion configuration both when creating or updating a VM by adding the `autoDelete` parameter, which can be either `true` or `false`, to the request body in the boot disk (`bootDiskSpec`) or secondary disk (`secondaryDiskSpecs`) description.
+
+{% endlist %}
+
+For interface-specific examples of auto-delete configuration, see [{#T}](../operations/vm-create/create-linux-vm.md).
 
 ## Backups {#backup}
 
@@ -101,7 +171,7 @@ For general recommendations on backing up and restoring VMs, see [{#T}](backups.
 
 To protect critical data in {{ compute-name }}, we recommend encrypting disks with [{{ kms-full-name }}](../../kms/) keys.
 
-For more information, see [{#T}](encryption.md).
+To learn more, see [{#T}](encryption.md).
 
 
 #### See also {#see-also}

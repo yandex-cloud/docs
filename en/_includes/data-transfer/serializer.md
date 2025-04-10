@@ -7,7 +7,7 @@
       * Select the message value schema (matches the `value.converter` Debezium parameter).
       * If required, specify [**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}**](../../data-transfer/concepts/serializer.md#debezium) in `Parameter`-`Value` format.
 
-If you want to use JSON schemas in {{ schema-registry-full-name }} and need to keep them compatible while adding optional parameters, specify these settings:
+If you want to use JSON schemas in {{ schema-registry-full-name }} and need to keep them compatible while adding and deleting optional fields, specify these settings:
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}**.
 * To use {{ schema-registry-name }} for keys, select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.key_converter_settings.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**. To use {{ schema-registry-name }} for values, select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.value_converter_settings.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**.

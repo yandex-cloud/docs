@@ -1,6 +1,6 @@
 # Deploying {{ GLR }} on a {{ compute-full-name }} virtual machine
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} CI/CD jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} both in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on the {{ compute-name }} virtual machine, which is easier and cheaper.
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that executes {{ GL }} CI/CD pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} either in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or a {{ compute-name }} virtual machine, which is an easier and cheaper option.
 
 {{ compute-name }} offers two ways to work with {{ GLR }}: You can:
 
@@ -9,14 +9,21 @@
 
 To get started with {{ GLR }} using {{ compute-name }}:
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Get a {{ GLR }} token](#gitlab-token).
 1. [Install the {{ GLR }} agent on the {{ compute-full-name }} VM](#install) or [create a runner using the management console](#create-runner).
 1. [Create a test scenario](#example).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare the infrastructure {#infra}
+## Required paid resources {#paid-resources}
+
+The infrastructure support cost includes:
+
+* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+## Set up your infrastructure {#infra}
 
 1. [Create and activate](../../managed-gitlab/operations/instance/instance-create.md) a {{ mgl-name }} instance.
 1. [Create a {{ GL }}]({{ gl.docs }}/ee/user/project/) project.

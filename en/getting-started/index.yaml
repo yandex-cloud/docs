@@ -1,43 +1,30 @@
 title: Getting started
 description:
   - >-
-    When you create a billing account in Yandex Cloud, you are given an <a
-    href="/docs/getting-started/usage-grant\">initial grant</a> which you can
-    spend in the following 60 days.*
+    When creating their first billing account, new Yandex Cloud customers
+    receive the <a href="usage-grant">initial grant</a>, which expires in 60
+    days. The grant terms of use are different for individual and business
+    accounts.
   - >-
-    By starting a trial period, you can use your grant to cover the costs of the
-    resources you consume as you try out the platform, without committing to use
-    the paid version later. You then have up until thirty days after the end of
-    the trial period to decide whether to switch to the paid version.
+    In addition, new customers who are legal entities can make use of a trial
+    period. The trial period allows you to get hands-on experience with Yandex
+    Cloud by using the initial grant to pay for the resources you consume. You
+    can upgrade to the paid version at any time during the trial period or 60
+    days after it expires, without losing any data.
   - >-
-    *Terms differ for individual accounts and business accounts. Clients outside
-    Russia and Kazakhstan can only register business accounts.
+    Both residents and non-residents of Russia can sign up with Yandex Cloud.
+    Non-residents of Russia and Kazakhstan can only register business accounts.
 meta:
   title: Getting started
   description: >-
-    Step-by-step instructions for a comfortable start and exploring the
-    possibilities of Yandex Cloud.
+    See our step-by-step guides to get started with ease and discover Yandex
+    Cloud features.
 links:
-  - title: Information for individuals
+  - title: Getting started for individuals
     description: >-
-      Step-by-step instructions for a comfortable start and exploring the
-      possibilities of {{ yandex-cloud }}
+      Step-by-step guides to get started with ease and discover {{ yandex-cloud
+      }} features
     href: individuals/registration
-  - title: Instructions for businesses
-    description: Step-by-step deployment of an organization in {{ yandex-cloud }}
+  - title: Getting started for businesses and individual entrepreneurs
+    description: Staged deployment of an organization in {{ yandex-cloud }}
     href: legal-entity/registration
-  - title: How does the trial period work
-    description: How to use Yandex Cloud during the trial period and who can access it
-    href: free-trial/concepts/quickstart
-  - title: Trial period restrictions
-    description: Usage limits during the trial period
-    href: free-trial/concepts/limits
-  - title: Initial grant terms of use
-    description: How to use the initial grant and who can use it
-    href: usage-grant
-  - title: End of trial period
-    description: What happens when the trial period ends
-    href: free-trial/concepts/trial-ending
-  - title: Upgrading to the paid version
-    description: How and when to upgrade to the paid version
-    href: free-trial/concepts/upgrade-to-paid

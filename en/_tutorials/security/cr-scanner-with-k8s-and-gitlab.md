@@ -18,9 +18,20 @@ To set up the vulnerability scanner:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+## Required paid resources {#paid-resources}
+
+The infrastructure support cost includes:
+
+* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for storing the created Docker images and for the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* Fee for using the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
 ## Getting started {#before-begin}
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
+
+Additionally, [assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `container-registry.images.scanner` role to the service account for the nodes. This role allows scanning Docker images for vulnerabilities.
 
 {% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
 

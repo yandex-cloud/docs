@@ -16,7 +16,7 @@ If a {{ mkf-name }} cluster is an endpoint in {{ data-transfer-full-name }}, res
 
 There are several ways to perform the migration:
 
-* [Use the {{ yandex-cloud }} interfaces](#interfaces). In this case, the availability zone in the cluster's configuration will be updated. You do not need to create an additional cluster.
+* [Use the {{ yandex-cloud }} interfaces](#yandex-cloud-interfaces). In this case, the availability zone in the cluster's configuration will be updated. You do not need to create an additional cluster.
 
    This option is easier to implement; however, the cluster will remain idle during migration while its availability zone is updating. This may take several minutes.
 
@@ -131,7 +131,7 @@ To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cl
           * `subnetIds`: Array of strings. Each string is a subnet ID. If there is only one subnet in the new availability zone, you do not need to specify the `subnetIds` parameter.
           * `zoneId`: New cluster availability zone.
 
-          You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+          You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -185,7 +185,7 @@ To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cl
             * `subnet_ids`: Array of strings. Each string is a subnet ID. If there is only one subnet in the new availability zone, you do not need to specify the `subnet_ids` parameter.
             * `zone_id`: New cluster availability zone.
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -221,15 +221,15 @@ To move a {{ mkf-name }} host to a different availability zone in an {{ KF }} cl
 
 {% note info %}
 
-[Clusters running {{ KF }} version 3.6 or higher](../concepts/index.md#kraft) do not use {{ ZK }} hosts. Migration is only possible for configurations with three brokers in the same availability zone.
+[Clusters running {{ KF }} 3.6 or higher](../concepts/index.md#kraft) do not use {{ ZK }} hosts. Migration is only possible for configurations with three brokers in the same availability zone.
 
 {% endnote %}
 
-If you create an {{ KF }} cluster version 3.5 or lower out of more than one broker host, three dedicated {{ ZK }} hosts will be automatically added to the cluster. Each host is assigned a subnet from different availability zones. After you create a cluster, you cannot change its subnet in an availability zone.
+If you create an {{ KF }} 3.5 cluster out of more than one broker host, three dedicated {{ ZK }} hosts will be automatically added to the cluster. Each host is assigned a subnet from different availability zones. After you create a cluster, you cannot change its subnet in an availability zone.
 
-The migration process of an {{ KF }} cluster version 3.5 or lower depends on which availability zones {{ KF }} and {{ ZK }} hosts initially reside in and the number of subnets in each availability zone. See these [examples](#examples) to better understand how migration works.
+The migration process of an {{ KF }} 3.5 cluster depends on what availability zones {{ KF }} and {{ ZK }} hosts reside in prior to migration and how many subnets there are in each availability zone. See these [examples](#examples) to better understand how migration works.
 
-To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster version 3.5 or lower:
+To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 cluster:
 
 1. Find out in which availability zones {{ KF }} and {{ ZK }} hosts reside:
 
@@ -238,7 +238,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-      1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab. The **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** column lists the availability zones for each host.
 
    - CLI {#cli}
@@ -268,7 +268,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/hosts'
            ```
 
-           You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+           You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure the request was successful. The availability zone is specified in the response under `hosts[].zoneId`.
 
@@ -296,7 +296,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
                yandex.cloud.mdb.kafka.v1.ClusterService.ListHosts
            ```
 
-           You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+           You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. View the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure the request was successful. The availability zone is specified in the response under `hosts[].zone_id`.
 
@@ -382,7 +382,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
          * You are migrating {{ KF }} hosts to an availability zone where {{ ZK }} hosts were not previously placed.
          * The target availability zone has more than one subnet.
 
-         If the cluster hosts are placed in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
+         If the cluster hosts are placed in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones, and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
 
          ```hcl
          resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -441,10 +441,10 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
             * You are migrating {{ KF }} hosts to an availability zone where {{ ZK }} hosts were not previously placed.
             * The target availability zone has more than one subnet.
 
-            If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
+            If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones, and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
           * `zoneId`: New set of cluster availability zones. Their number must not decrease.
 
-          You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+          You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -494,10 +494,10 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
              * You are migrating {{ KF }} hosts to an availability zone where {{ ZK }} hosts were not previously placed.
              * The target availability zone has more than one subnet.
 
-             If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
+             If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones, and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
            * `zone_id`: New set of cluster availability zones. Their number must not decrease.
 
-           You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+           You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -596,7 +596,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
           * `subnetIds`: Array of strings. Each string is a subnet ID. Specify only the subnet in the target availability zone.
           * `zoneId`: New set of cluster availability zones. Specify only the target availability zone.
 
-          You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+          You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -643,7 +643,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
            * `subnetIds`: Array of strings. Each string is a subnet ID. Specify only the subnet in the target availability zone.
            * `zoneId`: New set of cluster availability zones. Specify only the target availability zone.
 
-           You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+           You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -657,7 +657,7 @@ To find out the FQDN, get a list of hosts in the cluster:
 
 ### Examples of migrating a multi-host cluster {#examples}
 
-The examples below provide insight into situations where you need to specify a subnet to migrate a {{ mkf-name }} multi-host cluster version 3.5 or lower to a different availability zone.
+The examples below provide insight into situations where you need to specify a subnet to migrate a {{ mkf-name }} 3.5 multi-host cluster to a different availability zone.
 
 #### A {{ ZK }} host already resides in the target availability zone {#already-located}
 

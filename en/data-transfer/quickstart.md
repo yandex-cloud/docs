@@ -6,7 +6,7 @@ See the [full list of endpoints](transfer-matrix.md) and possible transfers betw
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register a new account.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register a new account.
 1. Go to [{{ billing-name }}]({{ link-console-billing }}) and make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its [status](../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../billing/quickstart/index.md) and [link](../billing/operations/pin-cloud.md) a cloud to it.
 1. Navigate to the {{ yandex-cloud }} [console]({{ link-console-main }}) and select a folder you are going to operate in. If there is no such folder, [create it](../resource-manager/operations/folder/create.md).
 1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher for the desired folder or the cloud that the folder belongs to.
@@ -22,15 +22,17 @@ When creating an endpoint, you can select a cluster from a different folder only
 For more information about the roles required to use {{ data-transfer-name }}, see [Required roles](security/index.md#required-roles).
 
 
+To use the service, in the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**. 
+
 ## Configure the source and the target {#db-settings}
 
 Different systems can act as a source and as a target.
 
-### Compatibility of sources and targets {#connectivity-matrix}
+### Check the compatibility of sources and targets {#connectivity-matrix}
 
 {% include [include](../_includes/data-transfer/connectivity-marix.md) %}
 
-### Preparing sources and targets {#prepare-source-and-target}
+### Get the sources and targets ready {#prepare-source-and-target}
 
 Prepare the source for sending data:
 
@@ -69,56 +71,80 @@ Prepare the target for receiving the data:
 
 ## Creating an endpoint for the source {#source}
 
-1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-1. Click **Create endpoint**.
-1. Make sure that the **Direction** field is set to `Source`.
-1. Enter a name for the endpoint.
-1. In the **Database type** field, select the type of the DBMS to transfer data from.
-1. Specify endpoint parameters in the corresponding settings section.
-1. Click **Create**.
+{% list tabs group=instructions %}
 
-For more information, see [{#T}](operations/endpoint/index.md).
+- Management console {#console}
+
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. Make sure the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field is set to `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+  1. Enter a name for the endpoint.
+  1. In the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** field, select the type of the DBMS to transfer data from.
+  1. Specify endpoint parameters in the corresponding settings section.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
+
+To learn more, see [{#T}](operations/endpoint/index.md).
 
 ## Creating an endpoint for the target {#target}
 
-1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-1. Click **Create endpoint**.
-1. Make sure that the **Direction** field is set to `Target`.
-1. Enter a name for the endpoint.
-1. In the **Database type** field, select the type of DBMS that you want to transfer data to.
-1. Specify endpoint parameters in the corresponding settings section.
-1. Click **Create**.
+{% list tabs group=instructions %}
 
-For more information, see [{#T}](./operations/endpoint/index.md).
+- Management console {#console}
+
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. Make sure the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field is set to `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+  1. Enter a name for the endpoint.
+  1. In the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** field, select the type of the DBMS you want to transfer data to.
+  1. Specify endpoint parameters in the corresponding settings section.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
+
+To learn more, see [{#T}](./operations/endpoint/index.md).
 
 ## Create a transfer {#create-transfer}
 
-1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Transfers**.
-1. Click **Create transfer**.
-1. Enter a name for the transfer.
-1. (Optional) Add a transfer description.
-1. Select the endpoint for the source and the endpoint for the target.
-1. Select the [type of transfer](./concepts/index.md#transfer-type.md):
-    * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#select-transfer-type).
-        If you need to create a full copy of the data at specific intervals, enable **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}**.
-    * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
-    * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
-1. Click **Create**.
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
+  1. Enter a name for the transfer.
+  1. (Optional) Add a transfer description.
+  1. Select the endpoint for the source and the endpoint for the target.
+  1. Select the [type of transfer](./concepts/index.md#transfer-type.md):
+     * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#select-transfer-type).
+       If you need to create a full copy of the data at specific intervals, enable **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}**.
+     * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
+     * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
 
 For more information, see [Types of transfers](./concepts/transfer-lifecycle.md#transfer-types).
 
 ## Activate the transfer {#activate}
 
-1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Transfers**.
-1. Click ![ellipsis](../_assets/console-icons/ellipsis.svg) next to the transfer name and select **Activate**.
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Click ![ellipsis](../_assets/console-icons/ellipsis.svg) next to the transfer name and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+
+{% endlist %}
 
 The data transfer process will begin.
 
-For more information, see [{#T}](operations/transfer.md).
+To learn more, see [{#T}](operations/transfer.md).
 
 ## What's next {#whats-next}
 

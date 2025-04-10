@@ -13,6 +13,12 @@ If you close a thread manually, it will be created again. If a merge request is 
 
 For more information about working with approval rules, see [Setting up approval rules](../operations/approval-rules.md).
 
+
+## Use cases {#examples-mgl}
+
+* [{#T}](../tutorials/gitlab-lockbox-integration.md)
+
+
 ## {{ GL }} Token {#gitlab-token}
 
 You need a _[{{ GL }} token]({{ gl.docs }}/ee/user/profile/personal_access_tokens.html)_ to set up approval rules. A token is requested for authorization when working with the repository: this is how the {{ GL }} API is accessed.
@@ -22,6 +28,12 @@ A {{ GL }} token has a lifetime, which is set when [creating the token](../opera
 One day before the expiration date, {{ GL }} sends a notification that the token is about to expire. The notification is emailed to the account by which the token was created.
 
 Issue a new token and add it to your {{ GL }} instance settings before the previous token expires. Otherwise, {{ mgl-name }} will not operate correctly.
+
+
+### Use cases {#examples-token}
+
+* [{#T}](../tutorials/install-gitlab-runner.md)
+
 
 ## Available configurations {#packages}
 
@@ -35,7 +47,7 @@ You can choose a suitable configuration based on your team's objectives:
 
 See the table below for a more detailed comparison of what different configurations provide:
 
-| Functionality                  | Description | Basic<br>configuration | Standard<br>configuration | Advanced<br>configuration |
+| Features                  | Description | Basic<br>configuration | Standard<br>configuration | Advanced<br>configuration |
 |:----------------------------------|:---------|:------------------------------------:|:---------------------------------------:|:------------------------------------:|
 | One approval rule per project      | You can assign reviewers, one of whom must review new commits before merging branches. | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)    | ![yes](../../_assets/common/yes.svg) |
 | Protected branches                  | You can select the branches for which the approval rules will apply. | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)    | ![yes](../../_assets/common/yes.svg) |

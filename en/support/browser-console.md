@@ -4,11 +4,9 @@ If there is a problem when working with pages and interactive elements in the {{
 
 {% list tabs group=web_browsers %}
 
-
 - Yandex Browser {#yandex}
 
   {% include [browser-console-yandex](../_includes/support/browser-console-yandex.md) %}
-
 
 - Google Chrome {#chrome}
 

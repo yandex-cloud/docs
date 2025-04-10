@@ -1,13 +1,13 @@
 ---
 title: Resource relationships in {{ mkf-full-name }}
-description: '{{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle. With {{ mkf-full-name }}, you can deploy and maintain clusters of {{ KF }} servers (versions 2.8, 3.0, and 3.2) in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts, where topics and topic partitions are located.'
+description: '{{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle. With {{ mkf-full-name }}, you can deploy and maintain {{ KF }} {{ versions.console.str }} server clusters in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts, where topics and topic partitions are located.'
 ---
 
 # Resource relationships in {{ mkf-name }}
 
 {{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle.
 
-{{ mkf-full-name }} helps you deploy and maintain clusters of {{ KF }}server versions 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, and 3.6 in the {{ yandex-cloud }} infrastructure.
+{{ mkf-full-name }} helps you deploy and maintain clusters of {{ versions.console.str }} {{ KF }} servers in the {{ yandex-cloud }} infrastructure.
 
 
 Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), where [topics](topics.md) and topic partitions are located. Cluster hosts may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
@@ -70,7 +70,7 @@ VMs for cluster hosts can be hosted on:
 
   This placement option ensures physical isolation of the VMs. A {{ mkf-name }} cluster using dedicated hosts includes all features of a regular cluster.
 
-  For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
+  To learn more, see [{#T}](../../compute/concepts/dedicated-host.md).
 
 
 For more information, see the [{{ KF }} documentation](https://kafka.apache.org/intro).

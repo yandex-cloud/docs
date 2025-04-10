@@ -62,7 +62,6 @@ To create or edit an endpoint of a managed database, you will need the [`{{ role
 
 {% endnote %}
 
-
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
@@ -83,7 +82,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed MongodDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -141,7 +140,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
     {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl

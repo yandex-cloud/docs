@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: CLI installation
         href: operations/install-cli.md
+      - name: CLI update
+        href: operations/update-cli.md
       - name: Authentication
         items:
           - name: Authenticating as a user

@@ -65,7 +65,7 @@ items:
         href: tutorials/mdb-dns-peering.md
       - name: Creating an ACME resolver webhook for responses to DNS01 checks
         href: tutorials/cert-manager-webhook.md
-      - name: Assigning a domain name to a VM with a web server
+      - name: Assigning a domain name to a web server VM
         items:
           - name: Overview
             href: tutorials/bind-domain-vm/index.md
@@ -87,6 +87,10 @@ items:
         href: tutorials/storage-vpc-access.md
       - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
         href: tutorials/vpc-cr-access.md
+      - name: >-
+          Reconfiguring a network connection when recreating a {{ dataproc-name
+          }} cluster
+        href: tutorials/reconnect-network.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

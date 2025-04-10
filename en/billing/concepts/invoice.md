@@ -3,8 +3,8 @@ title: Tax invoice
 description: In this tutorial, you will learn about a tax invoice, how it is formed, and the taxes and fees it includes.
 ---
 
-# Tax invoice
 
+# Tax invoice
 
 
 An invoice is a tax document that Yandex issues to residents of Russia under the Tax Code of the Russian Federation.
@@ -19,9 +19,7 @@ A service [report](../concepts/act.md) and invoice are issued at the end of a re
 
 {% include [act-invoice-note](../_includes/act-invoice-note.md) %}
 
-
 {% include [act-invoice-examples](../_includes/act-invoice-examples.md) %}
-
 
 
 ## Taxes and fees {#nds}
@@ -34,6 +32,5 @@ A service [report](../concepts/act.md) and invoice are issued at the end of a re
     No invoice will be issued for non-residents of Russia and Kazakhstan.
     
 {% endlist %}
-
 
 {% include [get-invoice-notice](../../_includes/billing/get-invoice-notice.md) %}

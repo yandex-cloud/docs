@@ -2,7 +2,6 @@
 
 A payment invoice is a document issued for you to pay for the resources consumed. A payment invoice is issued in your [billing account](billing-account.md) and contains aggregate data on all the services used within a single cloud.
 
-
 The relationship between the payment invoice, billing account, and cloud is shown in the diagram below.
 
 ![image](../../_assets/billing/1-1-cloud.png)
@@ -14,7 +13,7 @@ A payment invoice is generated automatically and issued at the beginning of the 
 * The selected payment method is [Transfer from bank account](../payment/payment-methods-business.md).
 * [Total invoice amount](#payment-amount) is greater than zero.
 
-Payment invoices are sent only to the email address of the user who created the [billing account](billing-account.md). You cannot change the email address, but you can configure message forwarding. For more information, see [Yandex Mail Help](https://yandex.com/support/mail/web/preferences/filters/forwarding.html).
+Payment invoices are sent only to the email address of the user who created the [billing account](billing-account.md). You cannot change the email address but you can configure message forwarding. For more information, see [Yandex Mail Help](https://yandex.com/support/mail/web/preferences/filters/forwarding.html).
 
 {% note info %}
 
@@ -31,7 +30,6 @@ A payment invoice is not a primary accounting document. There are no special leg
 ## Invoice amount {#payment-amount}
 
 {% include [bill-amount](../_includes/bill-amount.md) %}
-
 
 ![image](../../_assets/billing/formula.png)
 

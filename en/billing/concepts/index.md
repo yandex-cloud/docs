@@ -1,6 +1,6 @@
 ---
 title: Billing basic concepts
-description: '{{ yandex-cloud }} Billing uses the following key terms: a grant, an agreement, a billing threshold, an account, a billing account, a promo code, and a committed volume of services (CVoS).'
+description: '{{ yandex-cloud }} Billing uses the following key terms: grant, agreement, billing threshold, personal account, billing account, promo code, and committed volume of services (CVoS).'
 ---
 
 # All concepts

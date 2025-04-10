@@ -306,6 +306,9 @@ When editing a chart in the wizard or a [QL chart](./ql-charts.md), you can now 
 
 Unsaved changes in the current version are reset:
 
+
 * When refreshing the page.
 * When saving a chart.
 * When switching to another [version](./versioning.md).
+
+

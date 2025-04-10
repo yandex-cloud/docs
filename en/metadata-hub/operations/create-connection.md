@@ -5,7 +5,9 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 
 # Creating a connection
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 You can create connections of the following types:
 * [To a cluster with a managed database](#mdb-connection):

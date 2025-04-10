@@ -54,6 +54,8 @@ After solving the problem, depending on the status of the transfer, activate it 
 
 {% include [unable-to-parse-obj](../../_includes/data-transfer/troubles/unable-to-parse-obj.md) %}
 
+{% include [failed-to-connect](../../_includes/data-transfer/troubles/failed-to-connect.md) %}
+
 ### Decrease in transfer speed {#speed-degrade}
 
 **Issue**:
@@ -225,7 +227,6 @@ Error example:
 
 {% include [generated-columns](../../_includes/data-transfer/troubles/generated-columns.md) %}
 
-
 ## {{ ydb-full-name }} {#ydb}
 
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
@@ -235,7 +236,6 @@ Error example:
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
 
 {% include [redirects](../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
-
 
 
 ## Who to report your problem to {#support}

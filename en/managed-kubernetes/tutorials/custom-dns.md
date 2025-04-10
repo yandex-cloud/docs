@@ -10,8 +10,8 @@ To integrate a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-
 
 1. [Configure the DNS server](#setup-dns).
 1. [Specify a corporate DNS zone](#setup-zone).
-1. [Create a `dns-utils` pod](#create-pod).
-1. [Verify DNS integration](#verify-dns).
+1. [Create a dns-utils pod](#create-pod).
+1. [Check DNS integration](#verify-dns).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
+     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. This file describes:
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * {{ managed-k8s-name }} cluster.
@@ -49,7 +49,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
-     1. Check that the {{ TF }} configuration files are correct using this command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -137,7 +137,7 @@ When configuring, it is important to achieve IP connectivity between the {{ mana
    ...
    ```
 
-## Verify DNS integration {#verify-dns}
+## Check DNS integration {#verify-dns}
 
 Run the `nslookup` command in the active container:
 
@@ -156,7 +156,7 @@ Address:  10.129.0.3
 
 {% note info %}
 
-If the corporate DNS zone is unavailable, [make sure](../operations/connect/security-groups.md) that the security groups for the {{ managed-k8s-name }} cluster and its node groups are configured correctly. If any rule is missing, [add it](../../vpc/operations/security-group-add-rule.md). The rules must allow access to resources from the cluster.
+If the corporate DNS zone is unavailable, [make sure](../operations/connect/security-groups.md) that the security groups for the {{ managed-k8s-name }} cluster and its node groups are configured correctly. If a rule is missing, [add it](../../vpc/operations/security-group-add-rule.md). The rules must allow access to resources from the cluster.
 
 {% endnote %}
 
