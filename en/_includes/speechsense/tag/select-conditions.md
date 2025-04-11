@@ -24,7 +24,7 @@
 
 * Under **{{ ui-key.yc-ui-talkanalytics.tags.exceptions }}**:
 
-    * In the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, list [exclusion phrases](../../../speechsense/concepts/tags.md#exclusion-phrases). Use a separate line for each one. If the dialog contains an exclusion phrase, the tag will not trigger.
+    * In the **{{ ui-key.yc-ui-talkanalytics.tags.exceptions-keywords }}** field, list [exclusion phrases](../../../speechsense/concepts/tags.md#exclusion-phrases). Use a separate line for each one. If the dialog contains an exclusion phrase, the tag will not trigger.
 
         {% cut "Example" %}
 

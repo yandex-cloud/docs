@@ -1,6 +1,6 @@
 # TagQueue
 
-Method for getting [queue labels](../../concepts/tags.md). Updating labels can take up to 60 seconds.
+This is a method for setting [queue labels](../../concepts/tags.md). Updating labels can take up to 60 seconds.
 
 A new label with a key identical to that of the existing label replaces the existing label.
 
@@ -10,8 +10,8 @@ A new label with a key identical to that of the existing label replaces the exis
 
 Parameter | Type | Required parameter | Description
 ----- | ----- | ----- | -----
-`QueueUrl` | **string** | Yes | URL of a queue
-`Tags.N.*` | [List of labels](#tags) | Yes | List of queue labels
+`QueueUrl` | **string** | Yes | URL of a queue.
+`Tags.N.*` | [List of labels](#tags) | Yes | List of queue labels.
 
 #### Labels {#tags}
 

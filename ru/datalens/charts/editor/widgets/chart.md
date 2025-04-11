@@ -62,12 +62,12 @@ module.exports = {
 
 ## Примеры {#gravity-charts-examples}
 
-[Столбчатая диаграмма](https://datalens.yandex/uw4m2h7evlwog?tab=Gy9#Столбчатая%20диаграмма)
-[Линейчатая диаграмма](https://datalens.yandex/uw4m2h7evlwog?tab=Gy9#Линейчатая%20диаграмма)
-[Линейная диаграмма](https://datalens.yandex/uw4m2h7evlwog?tab=Gy9#Линейная%20диаграмма)
-[Диаграмма с областями](https://datalens.yandex/uw4m2h7evlwog?tab=Gy9#Диаграмма%20с%20областями)
-[Круговая диаграмма](https://datalens.yandex/uw4m2h7evlwog?tab=Gy9#Круговая%20диаграмма)
-[Кольцевая диаграмма](https://datalens.yandex/uw4m2h7evlwog?tab=Gy9#Кольцевая%20диаграмма)
-[Точечная диаграмма](https://datalens.yandex/uw4m2h7evlwog?tab=Gy9#Точечная%20диаграмма)
-[Древовидная диаграмма](https://datalens.yandex/uw4m2h7evlwog?tab=Gy9#Древовидная%20диаграмма)
-[Каскадная диаграмма (Waterfall)](https://datalens.yandex/uw4m2h7evlwog?tab=Gy9#Каскадная%20диаграмма%20(Waterfall))
+* [Столбчатая диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Столбчатая%20диаграмма)
+* [Линейчатая диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Линейчатая%20диаграмма)
+* [Линейная диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Линейная%20диаграмма)
+* [Диаграмма с областями](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Диаграмма%20с%20областями)
+* [Круговая диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Круговая%20диаграмма)
+* [Кольцевая диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Кольцевая%20диаграмма)
+* [Точечная диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Точечная%20диаграмма)
+* [Древовидная диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Древовидная%20диаграмма)
+* [Каскадная диаграмма (Waterfall)](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Каскадная%20диаграмма%20(Waterfall))

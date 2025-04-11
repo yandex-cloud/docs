@@ -7,10 +7,6 @@ import uuid
 from yandex_cloud_ml_sdk import YCloudML
 
 
-def local_path(path: str) -> pathlib.Path:
-    return pathlib.Path(__file__).parent / path
-
-
 def main():
     sdk = YCloudML(
         folder_id="<folder_ID>",
@@ -27,20 +23,21 @@ def main():
 
     # Defining minimum parameters
     # To control more parameters, use `base_model.tune_deferred()`
+    # Starting the tuning
     tuned_model = base_model.tune(
         train_dataset, name=str(uuid.uuid4()), classification_type="<classification_type>"
     )
     print(f"Resulting {tuned_model}")
 
-    # Starting the tuning
-    classification_result = tuned_model.run("hey!")
+    # You can access the fine-tuned model using the run() method
+    classification_result = tuned_model.run("Wow!")
     print(f"{classification_result=}")
 
-    # Saving the URI of the tuned model
+    # Or you can save the URI of the fine-tuned model
+    # And call the fine-tuned model by its URI
     tuned_uri = tuned_model.uri
     model = sdk.models.text_classifiers(tuned_uri)
-
-    classification_result = model.run("hey!")
+    classification_result = model.run("Cool!")
     print(f"{classification_result=}")
 
 

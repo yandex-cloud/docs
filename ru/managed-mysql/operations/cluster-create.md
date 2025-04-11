@@ -178,12 +178,13 @@ description: Следуя данной инструкции, вы сможете
      * `backup-retain-period-days` — срок хранения автоматических резервных копий в днях.
      * `datalens-access` — разрешает доступ из {{ datalens-full-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
      * `websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
-     * `deletion-protection` — защита от удаления кластера.
+     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
      * `performance-diagnostics` — активация сбора статистики для [диагностики производительности кластера](performance-diagnostics.md). Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
 
      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
-
-     {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -222,7 +223,7 @@ description: Следуя данной инструкции, вы сможете
        network_id          = "<идентификатор_сети>"
        version             = "<версия_{{ MY }}>"
        security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
-       deletion_protection = <защита_от_удаления_кластера>
+       deletion_protection = <защита_кластера_от_удаления>
 
        resources {
          resource_preset_id = "<класс_хоста>"
@@ -269,12 +270,13 @@ description: Следуя данной инструкции, вы сможете
 
      * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
      * `version` — версия {{ MY }}: `{{ versions.tf.str }}`.
-     * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+     * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
      * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
      * `priority` — приоритет при выборе нового хоста-мастера: от `0` до `100`.
      * `backup_priority` — приоритет для резервного копирования: от `0` до `100`.
-
-     {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -360,7 +362,7 @@ description: Следуя данной инструкции, вы сможете
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletionProtection": <защита_от_удаления:_true_или_false>,
+          "deletionProtection": <защита_кластера_от_удаления:_true_или_false>,
           "configSpec": {
               "version": "<версия_{{ MY }}>",
               "resources": {
@@ -429,7 +431,10 @@ description: Следуя данной инструкции, вы сможете
       * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-      * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+      * `deletionProtection` — защита кластера от непреднамеренного удаления.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
       * `configSpec` — настройки кластера:
 
           * `version` — версия {{ MY }}.
@@ -509,7 +514,7 @@ description: Следуя данной инструкции, вы сможете
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletion_protection": <защита_от_удаления:_true_или_false>,
+          "deletion_protection": <защита_кластера_от_удаления:_true_или_false>,
           "config_spec": {
               "version": "<версия_{{ MY }}>",
               "resources": {
@@ -572,7 +577,10 @@ description: Следуя данной инструкции, вы сможете
       * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-      * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
+      * `deletion_protection` — защита кластера от непреднамеренного удаления.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
       * `config_spec` — настройки кластера:
 
           * `version` — версия {{ MY }}.
@@ -738,7 +746,7 @@ description: Следуя данной инструкции, вы сможете
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
   * С одним пользователем (`user1`), с паролем `user1user1`.
   * С одной БД `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
-  * С защитой от случайного удаления кластера.
+  * С защитой от непреднамеренного удаления.
 
 
   1. Запустите команду создания кластера {{ mmy-name }}:
@@ -789,7 +797,7 @@ description: Следуя данной инструкции, вы сможете
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * С одним пользователем (`user1`), с паролем `user1user1`.
     * С одной БД `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
-    * С защитой от случайного удаления кластера {{ mmy-name }}.
+    * С защитой от непреднамеренного удаления.
 
   Конфигурационный файл для такого кластера {{ mmy-name }} выглядит так:
 

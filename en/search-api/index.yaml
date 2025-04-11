@@ -12,12 +12,11 @@ description:
     natively integrated into the {{ yandex-cloud }} ecosystem, and the original
     Yandex XML-compatible API v1.
   - >-
-    The service is subject to the <a
-    href="https://yandex.ru/legal/cloud_sla">service level agreement</a>.
-     The service level is set out in
-    in the document titled <a
-    href="https://yandex.ru/legal/cloud_sla_search_api"> {{ search-api-full-name
-    }} Service Level</a>.
+    The service is subject to a <a
+    href="https://yandex.ru/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.ru/legal/cloud_sla_search_api">{{ search-api-full-name
+    }}</a> Service Level.
   - <h2>Terms of Use and License Agreement</h2>
   - >-
     In addition to the {{ yandex-cloud }} Terms of Use, the following Terms of

@@ -90,4 +90,4 @@ In the example, the `doc_texts` array contains the source data for vectorization
 #### See also {#see-also}
 
 * [{#T}](../../concepts/embeddings.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)

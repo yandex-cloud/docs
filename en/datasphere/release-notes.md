@@ -2,7 +2,6 @@
 
 This section shows what changed in {{ ml-platform-full-name }}.
 
-
 {% note tip %}
 
 To keep up to date with the latest changes and updates, subscribe to our [{{ ml-platform-full-name }} Community](https://t.me/yandex_datasphere) news channel on Telegram.
@@ -171,4 +170,3 @@ Greatly improved the Apache Spark™ cluster functionality:
 Meet our large {{ ml-platform-name }} update: new interface, communities, resources, and many other features for ML development.
 
 {% include [old-releases](../_includes/datasphere/migration/release-notes-old.md) %}
-

@@ -38,7 +38,11 @@ Create a tuning dataset:
      Result:
 
      ```text
-     new dataset=AsyncDataset(id='fds7a7ieb0dh********', folder_id='b1gt6g8ht345********', name='YandexGPT tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 16, 19, 33), updated_at=datetime.datetime(2025, 1, 20, 16, 20, 19), labels=None, status=<DatasetStatus.READY: 3>, task_type='<classification_type>', rows=0, size_bytes=5679)
+     new tuning_dataset=Dataset(id='fds6vl5ttl0n********', folder_id='b1gt6g8ht345********', name='YandexGPT 
+     Lite tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.
+     datetime(2025, 3, 13, 8, 12, 43), updated_at=datetime.datetime(2025, 3, 13, 8, 13, 17), labels=None, 
+     allow_data_logging=False, status=<DatasetStatus.READY: 3>, task_type='TextClassificationMulticlass', 
+     rows=4, size_bytes=5679, validation_errors=())
      ```
 
      Save the new dataset's ID (the `id` field value): you will need it when fine-tuning the model.
@@ -64,7 +68,7 @@ Create a tuning dataset:
      Where:
      * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account you got [before you started](#before-begin).
      * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) you are creating the dataset in.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for using the new dataset. The possible values are as follows:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for using the new dataset. The possible values are:
 
          * `TextClassificationMultilabel`: Binary classification or multi-label classification.
          * `TextClassificationMulticlass`: Multi-class classification.
@@ -108,7 +112,7 @@ Create a tuning dataset:
 
   1. Create a file named `start-tuning.py` and add the following code to it:
 
-     {% include [sdk-tuning](../../../_includes/foundation-models/examples/tuning-sdk-cls.md) %}
+     {% include [tuning-sdk-cls](../../../_includes/foundation-models/examples/tuning-sdk-cls.md) %}
 
      Where:
 
@@ -117,7 +121,7 @@ Create a tuning dataset:
 
          {% include [sdk-auth-details-paragraph](../../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
      * `<dataset_ID>`: The new dataset's ID you saved in the previous step.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are as follows:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are:
 
          * `binary`: Binary classification.
          * `multilabel`: Multi-label classification.
@@ -132,9 +136,19 @@ Create a tuning dataset:
      Result:
 
      ```text
-     Resulting TextClassifiersModel(uri=cls://b1gt6g8ht345********/yandexgpt-lite/latest@tamrjs1t1368c********, config=TextClassifiersModelConfig(task_description=None, labels=None, samples=None))
-     classification_result=TextClassifiersModelResult(predictions=(TextClassificationLabel(label='anger', confidence=0.5534219145774841), TextClassificationLabel(label='sadness', confidence=0.00046947275404818356), TextClassificationLabel(label='joy', confidence=0.12941128015518188), TextClassificationLabel(label='fear', confidence=0.3008902668952942), TextClassificationLabel(label='surprise', confidence=0.015807058662176132)), model_version='')
-     classification_result=TextClassifiersModelResult(predictions=(TextClassificationLabel(label='anger', confidence=0.5534219145774841), TextClassificationLabel(label='sadness', confidence=0.00046947275404818356), TextClassificationLabel(label='joy', confidence=0.12941128015518188), TextClassificationLabel(label='fear', confidence=0.3008902668952942), TextClassificationLabel(label='surprise', confidence=0.015807058662176132)), model_version='')
+     Resulting TextClassifiersModel(uri=cls://b1gt6g8ht345********/yandexgpt-lite/
+     latest@tamrqj184r59v********, config=TextClassifiersModelConfig(task_description=None, labels=None, 
+     samples=None))
+     classification_result=TextClassifiersModelResult(predictions=(TextClassificationLabel(label='anger', 
+     confidence=0.0026986361481249332), TextClassificationLabel(label='sadness', confidence=0.
+     0013768149074167013), TextClassificationLabel(label='joy', confidence=0.00017048732843250036), 
+     TextClassificationLabel(label='fear', confidence=0.9950377345085144), TextClassificationLabel
+     (label='surprise', confidence=0.0007163778645917773)), model_version='')
+     classification_result=TextClassifiersModelResult(predictions=(TextClassificationLabel(label='anger', 
+     confidence=0.00042847482836805284), TextClassificationLabel(label='sadness', confidence=1.
+     9441255062702112e-05), TextClassificationLabel(label='joy', confidence=2.6669084718378144e-07), 
+     TextClassificationLabel(label='fear', confidence=0.999543309211731), TextClassificationLabel
+     (label='surprise', confidence=8.627005627204198e-06)), model_version='')
      ```
 
      Model tuning may take up to one day depending on the dataset size and the system load.
@@ -171,7 +185,7 @@ Create a tuning dataset:
      * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account you got [before you started](#before-begin).
      * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) you are fine-tuning the model in.
      * `<dataset_ID>`: Dataset ID you saved in the previous step.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are as follows:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are:
 
          * `text_classification_multilabel`: Binary classification or multi-label classification.
          * `text_classification_multiclass`: Multi-class classification.
@@ -248,4 +262,5 @@ Once the model is fine-tuned, save its URI in this format: `cls://<base_model_UR
 
 #### See also {#see-also}
 
-For more examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).
+* [{#T}](../../tutorials/models-fine-tuning.md).
+* For more examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).

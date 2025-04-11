@@ -40,7 +40,7 @@ To use the examples:
   * Example 1: A simple request of one text description.
   * Example 2: A request of two text descriptions with the result saved to a file named `./image.jpeg`.
   * Example 3: A request of two text descriptions with weight specified.
-  * Example 4: A combination of a request to a [{{ yagpt-full-name }} model](../../../foundation-models/concepts/yandexgpt/models.md) (to generate an extended prompt) and a request to a {{ yandexart-name }} model (to generate an image based on that prompt).
+  * Example 4: A combination of a request to a [{{ gpt-pro }} model](../../../foundation-models/concepts/yandexgpt/models.md) (to generate an extended prompt) and a request to a {{ yandexart-name }} model (to generate an image based on that prompt).
 
   The code in the example does not return an [operation object](../../../api-design-guide/concepts/operation.md) but waits for the models to execute their requests and stores the result in the `result` variable.
 
@@ -144,4 +144,4 @@ To use the examples:
 #### See also {#see-also}
 
 * [{#T}](../../concepts/yandexart/index.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/image_generation)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/image_generation)

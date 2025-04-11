@@ -2,43 +2,43 @@
 #!/usr/bin/env python3
 
 from __future__ import annotations
-import asyncio
+
 import pathlib
-from yandex_cloud_ml_sdk import AsyncYCloudML
-from yandex_cloud_ml_sdk.auth import YandexCloudCLIAuth
+
+from yandex_cloud_ml_sdk import YCloudML
+from yandex_cloud_ml_sdk.exceptions import DatasetValidationError
 
 
-def local_path(path: str) -> pathlib.Path:
-    return pathlib.Path(__file__).parent / path
+def main() -> None:
 
-
-async def main():
-
-    sdk = AsyncYCloudML(
+    sdk = YCloudML(
         folder_id="<folder_ID>",
         auth="<API_key>",
     )
 
-    # Creating a tuning dataset for the {{ gpt-lite }} base model
-    dataset_draft = sdk.datasets.draft_from_path(
-        task_type="TextToTextGeneration",
-        path="<path_to_file>",
-        upload_format="jsonlines",
-        name="YandexGPT Lite tuning",
-    )
-
-    # Waiting for the data to be uploaded and the dataset to be created
-    operation = await dataset_draft.upload_deferred()
-    tuning_dataset = await operation
-    print(f"new {tuning_dataset=}")
-
-    # Viewing the list of all uploaded datasets
+    # Viewing the list of all previously uploaded datasets
     for dataset in sdk.datasets.list():
         print(f"List of existing datasets {dataset=}")
 
+    # Deleting all previously uploaded datasets
+    for dataset in sdk.datasets.list():
+        dataset.delete()
+
+    # Creating a tuning dataset for the {{ gpt-lite }} base model
+    dataset_draft = sdk.datasets.draft_from_path(
+        task_type="TextToTextGeneration",
+        path="<file_path>",
+        upload_format="jsonlines",
+        name="{{ gpt-lite }} tuning",
+    )
+
+    # Waiting for the data to be uploaded and the dataset to be created
+    operation = dataset_draft.upload_deferred()
+    tuning_dataset = operation.wait()
+    print(f"new {tuning_dataset=}")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
 ```
 
 Where:

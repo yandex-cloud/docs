@@ -5,7 +5,8 @@
 
 * {% include [Deletion protection](../console/deletion-protection.md) %}
 
-    {% include [Ограничения защиты от удаления кластера](../deletion-protection-limits-data.md) %}
+    Включенная защита кластера от удаления не помешает удалить пользователя или топик, а также подключиться вручную и удалить данные.
+
 * Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md), включите настройку **{{ ui-key.yacloud.kafka.field_schema-registry }}**.
 
     {% include [mkf-schema-registry-alert](schema-registry-alert.md) %}

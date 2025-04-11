@@ -10,11 +10,11 @@ Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags
 
 {% endnote %}
 
-The **Comparison** report allows you to display several parameters in a single chart and see how they correlate. For example, you can create a report that shows how the flaws in the agent’s speech, e.g., hesitation, poor articulation, or silence, affect the decision not to buy a service or product. You can use system tags as parameters for such a report: `Refused to buy`, `Agent’s hesitation`, `Stop words`, `Filler words`, etc.
+The **{{ ui-key.yc-ui-talkanalytics.reports.comparison-key-value }}** report allows you to display several parameters in a single chart and see how they correlate. For example, you can create a report that shows how the flaws in the agent’s speech, e.g., hesitation, poor articulation, or silence, affect the decision not to buy a service or product. You can use system tags as parameters for such a report: `Refused to buy`, `Agent’s hesitation`, `Stop words`, `Filler words`, etc.
 
 ## How to build a report {#form}
 
-To generate a **Comparison** report, specify these settings:
+To generate a **{{ ui-key.yc-ui-talkanalytics.reports.comparison-key-value }}** report, you need to specify these settings:
 
 * [Evaluation parameters](#parameter): The report will reflect the changes in these parameters.
 * [Filters](#filters): Filters applied to dialogs in the report.
@@ -43,11 +43,11 @@ In the report, you can select one of these evaluation parameter types:
 
 The report provides quantitative agent performance characteristics. You can view the report in the {{ speechsense-name }} web interface in chart and table form or download it in CSV format.
 
-The available **Comparison** report formats include:
+The available **{{ ui-key.yc-ui-talkanalytics.reports.comparison-key-value }}** report formats include:
 
-* **Chart**: Allows you to visualize the evaluation parameter values at different points in time and their correlation. Each parameter has its own scale of measurement. To get detailed information about single parameter values, you can click the parameter on the legend, and the chart will display only this parameter. Clicking the legend again will bring all the parameters back to the chart.
+* **{{ ui-key.yc-ui-talkanalytics.reports.barchart }}**: Allows you to visualize the evaluation parameter values at different points in time and their correlation. Each parameter has its own scale of measurement. To get detailed information about single parameter values, you can click the parameter on the legend, and the chart will display only this parameter. Clicking the legend again will bring all the parameters back to the chart.
 
     On the chart, you can set the report generation period as well as the data detail level. As a result, you can get values for different time intervals: from an hour to a quarter.
 
-* **Table**: Shows the numerical value of the evaluation parameter for the specified period. The values are broken down by the customized data grouping.
+* **{{ ui-key.yc-ui-talkanalytics.reports.table-key-value }}**: Shows the numerical value of the evaluation parameter for the specified period. The values are broken down by the customized data grouping.
 * **CSV file**: Contains the same table as in the {{ speechsense-name }} web interface. Use the CSV format to save the report locally.

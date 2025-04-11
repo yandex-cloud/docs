@@ -925,7 +925,7 @@ description: Из статьи вы узнаете, как изменить на
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -961,7 +961,7 @@ description: Из статьи вы узнаете, как изменить на
                           "hour": "<час>"
                         }
                       },
-                      "deletionProtection": <защита_от_удаления_кластера>
+                      "deletionProtection": <защита_кластера_от_удаления>
                     }'
         ```
 
@@ -986,9 +986,9 @@ description: Из статьи вы узнаете, как изменить на
                 * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
                 * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
 
-        * `deletionProtection` — защита от удаления кластера: `true` или `false`.
+        * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1036,7 +1036,7 @@ description: Из статьи вы узнаете, как изменить на
                       "hour": "<час>"
                     }
                   },
-                  "deletion_protection": <защита_от_удаления_кластера>
+                  "deletion_protection": <защита_кластера_от_удаления>
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
@@ -1063,9 +1063,9 @@ description: Из статьи вы узнаете, как изменить на
                 * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
                 * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
 
-        * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

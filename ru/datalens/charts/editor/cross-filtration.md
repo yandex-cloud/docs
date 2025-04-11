@@ -23,8 +23,8 @@ description: Из статьи вы узнаете, как настроить ф
 
 #### Пример {#example}
 
-* [Фильтрация для визуализации Таблица](https://datalens.yandex/uw4m2h7evlwog?tab=Ow#Таблица)
+* [Фильтрация для визуализации Таблица](https://datalens.yandex/nvkfwnekf9xy9?tab=Ow#Таблица)
 
-* [Фильтрация для визуализации График (Gravity Charts)](https://datalens.yandex/uw4m2h7evlwog?tab=Ow#График%20Gravity%20Сharts)
+* [Фильтрация для визуализации График (Gravity Charts)](https://datalens.yandex/nvkfwnekf9xy9?tab=Ow#График%20Gravity%20Сharts)
 
-* [Фильтрация для визуализации Advanced-чарт](https://datalens.yandex/uw4m2h7evlwog?tab=Ow#Advanced%20чарт)
+* [Фильтрация для визуализации Advanced-чарт](https://datalens.yandex/nvkfwnekf9xy9?tab=Ow#Advanced%20чарт)

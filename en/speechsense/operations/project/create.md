@@ -16,9 +16,9 @@ Before creating a project, make sure to [create a connection](../connection/crea
 To create a project:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the appropriate space.
-1. Click ![create](../../../_assets/console-icons/folder-plus.svg) **Create project**.
+1. Go to the space of your choice.
+1. Click ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
 1. Name the project and, optionally, enter a description.
-1. Under **Connection**, click **Add connection** and select one from the list.
+1. Under **{{ ui-key.yc-ui-talkanalytics.connections.connection }}**, click **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** and select the required item from the list.
 1. (Optional) Add rules for filtering dialogs based on the connection's metadata. Filtering is not supported for fields of the **Date** type.
-1. Click **Create project**.
+1. Click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.

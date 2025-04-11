@@ -5,6 +5,6 @@ To remove users from a space, you need the `{{ roles-speechsense-admin }}` role 
 To remove a user from a space:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space you need and select the **Team** tab.
-1. In the line with the username, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **Delete**.
+1. Go to the space of interest and select the **{{ ui-key.yc-ui-talkanalytics.team.team }}** tab.
+1. In the user's line, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-talkanalytics.common.delete-key-value }}**.
 1. Confirm user deletion.

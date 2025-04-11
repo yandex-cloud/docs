@@ -17,7 +17,6 @@ You can use the following normalization levels:
 * Formatting phone numbers, e.g., `7(999)123-45-67` instead of `7 999 123 45 67`.
 * Adding punctuation marks.
 
-
 {% note warning %}
 
 Rules for the presentation of normalized text may change. Please consider this during integration and stay tuned for [updates](../release-notes-stt.md).
@@ -26,7 +25,6 @@ Rules for the presentation of normalized text may change. Please consider this d
 
 
 ## Managing normalization parameters {#control}
-
 
 
 ### API v1 {#api-v1}
@@ -56,7 +54,6 @@ Rules for the presentation of normalized text may change. Please consider this d
 | Capitalizing the beginning of a sentence and proper nouns. Adding punctuation marks | `config.specification.literature_text=true` |
 
 ### API v3 {#api-v3}
-
 
 To enable normalization, set the `text_normalization=TEXT_NORMALIZATION_ENABLED` parameter in the [API](../stt-v3/api-ref/grpc/Recognizer/index.md). Some options are activated by additional parameters if you set `text_normalization=TEXT_NORMALIZATION_ENABLED`.
 

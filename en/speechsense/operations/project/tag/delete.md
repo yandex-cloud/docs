@@ -15,7 +15,7 @@ To delete a tag:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab.
+1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab.
 1. In the line with the tag, click ![icon](../../../../_assets/console-icons/ellipsis.svg) and then ![icon](../../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-talkanalytics.common.delete-key-value }}**.
 1. Confirm tag deletion.
 
@@ -25,6 +25,6 @@ To delete a dependent tag:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. Go to the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab and select the main tag you need to delete. The drop-down list will show its dependent tags.
+1. Go to the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab and select the main tag you need to delete. The drop-down list will show its dependent tags.
 1. In the line with the tag, click ![icon](../../../../_assets/console-icons/ellipsis.svg) and then ![icon](../../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-talkanalytics.common.delete-key-value }}**.
 1. Confirm tag deletion.

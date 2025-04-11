@@ -38,7 +38,11 @@ Create a tuning dataset:
      Result:
 
      ```text
-     new dataset=AsyncDataset(id='fdsfehj6grsu********', folder_id='b1gt6g8ht345********', name='YandexGPT Lite tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 11, 38, 19), updated_at=datetime.datetime(2025, 1, 20, 11, 39, 4), labels=None, status=<DatasetStatus.READY: 3>, task_type='TextToTextGeneration', rows=0, size_bytes=3514)
+     new tuning_dataset=Dataset(id='fdsv21bmp09v********', folder_id='b1gt6g8ht345********', name=
+     'YandexGPT Lite tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', 
+     created_at=datetime.datetime(2025, 3, 12, 19, 31, 44), updated_at=datetime.datetime(2025, 3, 
+     12, 19, 32, 20), labels=None, allow_data_logging=False, status=<DatasetStatus.READY: 3>, 
+     task_type='TextToTextGeneration', rows=3, size_bytes=3514, validation_errors=())
      ```
 
      Save the new dataset's ID (the `id` field value): you will need it when fine-tuning the model.
@@ -123,8 +127,14 @@ Create a tuning dataset:
      Result:
 
      ```text
-     Resulting GPTModelResult(alternatives=(Alternative(role='assistant', text='I'm Gene. My full name is Eugene Neuron.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=14, completion_tokens=11, total_tokens=25), model_version='23.10.2024') 
-     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='From Perm', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=13, completion_tokens=2, total_tokens=15), model_version='23.10.2024') 
+     Resulting GPTModel(uri=gpt://b1gt6g8ht345********/yandexgpt-lite/latest@tamrmgia22979********, 
+     config=GPTModelConfig(temperature=None, max_tokens=None, reasoning_mode=None, response_format=None))
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hi! How's it going?', 
+     status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=5, 
+     total_tokens=17), model_version='23.10.2024')
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hello! I'm 
+     fine, thank you. How are you doing?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage
+     (input_text_tokens=13, completion_tokens=13, total_tokens=26), model_version='23.10.2024')
      ```
 
      Model tuning may take up to 1 day depending on the size of the dataset and the system load.
@@ -235,4 +245,5 @@ Once the model is fine-tuned, save its URI in `gpt://<base_model_URI>/<version>@
 
 * [{#T}](../../concepts/tuning/index.md)
 * [{#T}](./tune-classifiers.md)
+* [{#T}](../../tutorials/models-fine-tuning.md)
 * For more SDK examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).

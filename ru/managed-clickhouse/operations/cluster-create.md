@@ -201,9 +201,9 @@ description: Следуя данной инструкции, вы сможете
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
-      * `--deletion-protection` — защита от удаления кластера.
+      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Пользователями и базами данных в кластере можно управлять через SQL.
 
@@ -319,7 +319,7 @@ description: Следуя данной инструкции, вы сможете
 
              Через интерфейсы {{ yandex-cloud }} можно управлять ограниченным набором настроек. С помощью SQL-запросов можно [установить настройки {{ CH }} на уровне запроса](change-query-level-settings.md).
 
-          * Включите защиту от удаления.
+          * Включите защиту кластера от непреднамеренного удаления.
 
              {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -332,7 +332,7 @@ description: Следуя данной инструкции, вы сможете
          environment         = "<окружение>"
          network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
          security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
-         deletion_protection = <защита_от_удаления_кластера>
+         deletion_protection = <защита_кластера_от_удаления>
 
          clickhouse {
            resources {
@@ -366,14 +366,13 @@ description: Следуя данной инструкции, вы сможете
 
        Где:
 
-       * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
        * `user` — блок с данными о пользователе. Содержит имя (`name`) и пароль (`password`) пользователя {{ CH }}, а также список БД, к которым пользователь должен иметь доступ, в блоке `permission`.
 
          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
        * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.     
-
-       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
        1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
@@ -529,7 +528,7 @@ description: Следуя данной инструкции, вы сможете
                 { ... },
                 { <аналогичный_набор_настроек_для_хоста_N> }
               ],
-              "deletionProtection": <защита_от_удаления>
+              "deletionProtection": <защита_кластера_от_удаления>
             }
             ```
 
@@ -603,7 +602,7 @@ description: Следуя данной инструкции, вы сможете
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
-            * `deletionProtection` — защитить кластер, его базы данных и пользователей от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+            * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -725,7 +724,7 @@ description: Следуя данной инструкции, вы сможете
                 { ... },
                 { <аналогичный_набор_настроек_для_хоста_N> }
               ],
-              "deletion_protection": <защита_от_удаления>
+              "deletion_protection": <защита_кластера_от_удаления>
             }
             ```
 
@@ -801,7 +800,7 @@ description: Следуя данной инструкции, вы сможете
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
-            * `deletion_protection` — защитить кластер, его базы данных и пользователей от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+            * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -935,7 +934,7 @@ description: Следуя данной инструкции, вы сможете
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.
   * Один пользователь `user1` с паролем `user1user1`.
   * Одна база данных `db1`.
-  * Защита от случайного удаления кластера.
+  * Защита от непреднамеренного удаления.
 
 
   Выполните следующую команду:

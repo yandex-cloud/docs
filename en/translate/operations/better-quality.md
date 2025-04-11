@@ -1,5 +1,5 @@
 ---
-title: How to improve translation accuracy in {{ translate-full-name }}
+title: How to increase translation accuracy in {{ translate-full-name }}
 description: In this article, you will learn how to improve translation accuracy.
 ---
 
@@ -40,20 +40,21 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
     Where:
 
-    * `folderId`: Folder ID received [before starting](#before-begin).
-    * `texts`: Text to translate as a list of strings.
+    * `folderId`: Folder ID you got [before you started](#before-begin).
+    * `texts`: Text to translate, as a list of strings.
     * `targetLanguageCode`: Target [language](../concepts/supported-languages.md). You can get the language code together with a [list of supported languages](list.md).
     * `sourceLanguageCode`: Source language.
 
-    Save the request body to a file (for example, `body.json`) and submit the file using the [translate](../api-ref/Translation/translate) method:
+    Save the request body to a file (for example, `body.json`) and provide the file to the model using the [translate](../api-ref/Translation/translate) method:
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
+    Where `IAM_TOKEN` is the IAM token you got [before you started](#before-begin).
 
     This returns a translation from the correct language:
 
     {% include [with-source-language](../../_untranslatable/translate/with-source-language.md) %}
+
 
 {% endlist %}
 
@@ -61,7 +62,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
 A word can be translated different ways. For example, the English word _oil_ can be translated into Russian as _масло_ or _нефть_. To improve the accuracy of translations, use a [glossary](../concepts/glossary.md) of your terms and phrases with a single translation.
 
-Specify the glossary in the `glossaryConfig` field. Currently, you can only pass a glossary as an array of text pairs.
+Specify the glossary in the `glossaryConfig` field. Currently, you can only provide a glossary as an array of text pairs.
 
 In the `sourceLanguageCode` field, specify the source language. This field is required when you use glossaries:
 
@@ -75,14 +76,14 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
     * `sourceLanguageCode`: Source [language](../concepts/supported-languages.md). You can get the language code together with a [list of supported languages](list.md).
     * `targetLanguageCode`: Target language.
-    * `texts`: Text to translate as a list of strings.
-    * `folderId`: Folder ID received [before starting](#before-begin).
+    * `texts`: Text to translate, as a list of strings.
+    * `folderId`: Folder ID you got [before you started](#before-begin).
 
-    Save the request body to a file (for example, `body.json`) and submit the file using the [translate](../api-ref/Translation/translate) method:
+    Save the request body to a file (for example, `body.json`) and provide the file to the model using the [translate](../api-ref/Translation/translate) method:
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
+    Where `IAM_TOKEN` is the IAM token you got [before you started](#before-begin).
 
     The response will contain a translation based on the terms from your glossary:
 
@@ -96,43 +97,43 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
 ## Escaping text {#screen}
 
-To skip translation of certain text fragments, specify the `HTML` text format in the request body and escape the fragments that do not require translation using the `<span>` tag with the `translate=no` attribute. For example:
+For particular text fragments to remain untranslated, specify the `HTML` text format in the request body and escape those fragments using the `<span>` tag with the `translate=no` attribute. For example:
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
-   ```json
-   {
-       "format": "HTML",
-       "texts": [
-           "The e-mail has been changed. The new password is **<span translate=no>**%\$Qvd14aa2NMc**</span>**"
-       ]
-   }
-   ```
+  ```json
+  {
+      "format": "HTML",
+      "texts": [
+          "The e-mail has been changed. The new password is **<span translate=no>**%\$Qvd14aa2NMc**</span>**"
+      ]
+  }
+  ```
 
-   Where:
+  Where:
 
-   * `format`: Text format.
-   * `texts`: Text to translate as a list of strings.
+  * `format`: Text format.
+  * `texts`: Text to translate, as a list of strings.
 
-   The response will contain untranslated text inside the `<span>` tag:
+  In the response, the text inside the `<span>` tag will remain untranslated:
 
-   ```json
-   {
-       "translations": [
-           {
-               "text": "L'e-mail a été modifié. Le nouveau mot de passe est **<span translate="no">**%\$Qvd14aa2NMc**</span>**"
-           }
-       ]
-   }
-   ```
+  ```json
+  {
+      "translations": [
+          {
+              "text": "L'e-mail a été modifié. Le nouveau mot de passe est **<span translate="no">**%\$Qvd14aa2NMc**</span>**"
+          }
+      ]
+  }
+  ```
 
 {% endlist %}
 
 ## Checking words for typos {#with-speller}
 
-Misspelled words may be translated incorrectly or transliterated. For example, the word <q>hellas</q> is translated as <q>эллада</q>. If the same word is misspelled, let's say as <q>helas</q>, it will be translated as <q>хелас</q>. To check spelling, use the `speller` parameter:
+Misspelled words may be translated incorrectly or transliterated. For example, the word <q>hellas</q> is translated as <q>эллада</q>. If the same word is misspelled, let's say as <q>helas</q>, it will be translated as <q>хелас</q>. Use the `speller` parameter to run a spellcheck:
 
 {% list tabs group=programming_language %}
 
@@ -152,23 +153,23 @@ Misspelled words may be translated incorrectly or transliterated. For example, t
 
     Where:
 
-    * `sourceLanguageCode`: Source [language](../concepts/supported-languages.md). You can get the language code with a [list of supported languages](list.md).
+    * `sourceLanguageCode`: Source [language](../concepts/supported-languages.md). You can get the language code together with a [list of supported languages](list.md).
     * `targetLanguageCode`: Target language.
-    * `texts`: Text to translate as a list of strings.
-    * `folderId`: Folder ID received [before starting](#before-begin).
-    * `speller`: Parameter that enables a spelling check.
+    * `texts`: Text to translate, as a list of strings.
+    * `folderId`: Folder ID you got [before you started](#before-begin).
+    * `speller`: Parameter that activates the spell checker.
 
-    Save the request body to a file (for example, `body.json`) and submit the file using the [translate](../api-ref/Translation/translate) method:
+    Save the request body to a file (for example, `body.json`) and provide the file to the model using the [translate](../api-ref/Translation/translate) method:
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
+    Where `IAM_TOKEN` is the IAM token you got [before you started](#before-begin).
 
-    The response will contain a translation of the word checked for spelling:
-
+    The response will contain a spell-checked translation of the word:
+    
     {% include [with-speller-ans1](../../_untranslatable/translate/with-speller-ans1.md) %}
 
-    If no spelling check is enabled (`"speller": false`), the word will be translated as follows:
+    If the spell checker is not enabled (`"speller": false`), the word will be translated as follows:
 
     {% include [with-speller-ans2](../../_untranslatable/translate/with-speller-ans2.md) %}
 

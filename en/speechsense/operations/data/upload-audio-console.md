@@ -1,17 +1,17 @@
 ---
-title: Uploading audio data via the management console
-description: Follow this guide to upload audio data to {{ speechsense-name }} using the management console.
+title: Uploading audio data via the interface
+description: Follow this guide to upload audio data directly via the {{ speechsense-name }} interface.
 ---
 
-# Uploading audio data via the {{ speechsense-name }} management console
+# Uploading audio data via the {{ speechsense-name }} interface
 
-This guide will help you upload audio data to {{ speechsense-name }} via the management console. Use this option to quickly upload data and get started with {{ speechsense-name }}. Use the [API](upload-data.md) to fully upload your data.
+This guide will help you upload audio data to {{ speechsense-name }} via its interface. Use this option to quickly upload data and get started with {{ speechsense-name }}. Use the [API](upload-data.md) to fully upload your data.
 
 If you want to upload the chat text instead of voice call audio, follow [this guide](upload-chat-text.md).
 
 ## Getting started {#before-you-begin}
 
-1. [Create a connection](../connection/create.md#create-audio-connection) of the **Two-channel audio** type.
+1. [Create a connection](../connection/create.md#create-audio-connection) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** type.
 1. [Create a project](../project/create.md) with the new connection.
 
    Voice call recordings will be uploaded to the project and connection you created.
@@ -24,11 +24,11 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
 1. In the window that opens, select files to upload by doing one of the following:
 
     * Select one or more files in the file manager and drag them to the {{ speechsense-name }} area marked by the dotted line.
-    * Click **Add files** and select one or more files.
+    * Click **Select files** and select one or more files.
 
     {% note info %}
 
-    Via the management console, you can only upload [MP3](../../concepts/formats.md) audio files. Use the API to upload audio files in other formats supported by {{ speechsense-name }}.
+    Via the interface, you can only upload [MP3](../../concepts/formats.md) audio files. Use the API to upload audio files in other formats supported by {{ speechsense-name }}.
 
     {% endnote %}
 
@@ -37,10 +37,10 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
 1. Fill in the metadata for each file:
 
     * **Start date**: Specify the dialog start date.
-    * **Original direction**:
+    * **{{ ui-key.yc-ui-talkanalytics.dialogs.direction-key-value }}**:
 
-        * Select **Yes** if the dialog was initiated by the agent.
-        * Select **No** if the dialog was initiated by the customer.
+        * Select **{{ ui-key.yc-ui-talkanalytics.dialogs.direction.outgoing }}** if the dialog was initiated by the agent.
+        * Select **{{ ui-key.yc-ui-talkanalytics.dialogs.direction.incoming }}** if the dialog was initiated by the customer.
 
     * **Language**: Specify language.
     * **Agent**: Enter the agent's name.

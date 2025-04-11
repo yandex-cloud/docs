@@ -14,7 +14,7 @@ If you want to upload the voice call audio instead of chat text, follow [this gu
 
 Prepare to upload a chat conversation:
 
-1. [Create a connection](../connection/create.md#create-chat-connection) of the **Chat** type.
+1. [Create a connection](../connection/create.md#create-chat-connection) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** type.
 
    If you want to upload [linked conversations](../../concepts/dialogs.md#related-dialogs), add the `ticket_id` string key in the general metadata for your connection. The chats will be linked by this key.
 
@@ -117,7 +117,7 @@ Prepare to upload a chat conversation:
 
    Set the `date` field value in `YYYY-MM-DDTHH:MM:SS.SSS` format.
 
-   The file's fields must match the parameters of the connection you are uploading text messages to. The template above shows the required fields for **Chat** type connections. If you added other parameters to the connection, specify them in the `metadata.json` file; e.g., to upload linked chats, add the following parameter to your file:
+   The file's fields must match the parameters of the connection you are uploading text messages to. The template above shows the required fields for **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** type connections. If you added other parameters to the connection, specify them in the `metadata.json` file; e.g., to upload linked chats, add the following parameter to your file:
 
    ```json
    {
@@ -166,4 +166,4 @@ Prepare to upload a chat conversation:
    * `--connection-id`: ID of the connection you upload the data to.
    * `--key`: API key for authentication. If using an IAM token, specify the `IAM_TOKEN` environment variable instead of `API_KEY`.
 
-1. From the {{ speechsense-name }} [home page]({{ link-speechsense-main }}), go to the page of the project you created for text messages. Make sure that you can see the uploaded conversation in the **Dialogs** tab.
+1. From the {{ speechsense-name }} [home page]({{ link-speechsense-main }}), go to the page of the project you created for text messages. Make sure you can see the uploaded conversation in the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** tab.

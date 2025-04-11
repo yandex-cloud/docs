@@ -105,6 +105,8 @@ items:
             href: operations/spec-constructor/datasphere.md
           - name: '{{ foundation-models-full-name }}'
             href: operations/spec-constructor/yagpt.md
+          - name: '{{ sw-full-name }}'
+            href: operations/spec-constructor/workflows.md
       - name: Просмотр операций с ресурсами сервиса
         href: operations/operation-logs.md
   - name: Практические руководства

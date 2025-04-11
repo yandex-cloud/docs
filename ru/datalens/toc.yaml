@@ -802,6 +802,8 @@ items:
             href: operations/dashboard/add-support-message.md
           - name: Добавление сообщения при ошибке доступа
             href: operations/dashboard/add-access-message.md
+          - name: Настройка связей на дашборде
+            href: operations/dashboard/dashboard-links.md
           - name: Создание алиаса
             href: operations/dashboard/create-alias.md
           - name: Удаление алиаса

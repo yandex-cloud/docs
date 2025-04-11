@@ -2,19 +2,19 @@
 
 _Tags_ are created and configured at the project level. Different projects can have different tags.
 
-{{ speechsense-name }} automatically detects whether the dialog contains specific key phrases or phrases with similar meaning and tags it. For example, there are tags that show the agent has thanked the customer for waiting or that the customer has contacted support for the second time.
+{{ speechsense-name }} automatically detects whether the dialog contains specific key phrases or phrases with similar meaning and tags it. For example, there are tags that show the agent has thanked the customer for waiting or that the customer has contacted support for a second time.
 
 To be assigned to a dialog, tags need to be activated. The activation takes place automatically as soon as you create a tag. With the tag activated, {{ speechsense-name }} analyses the dialogs and assigns the tag if the dialog meets the specified conditions.
 
 {% note info %}
 
-The tagging analysis is performed for dialogs that are less than 60 days old. The period is counted starting from the current day.
+The tagging analysis is performed for dialogues that are less than 60 days old. The period is counted starting from the current day.
 
 {% endnote %}
 
 There are the following tag types in {{ speechsense-name }}:
 
-* [Semantic tags](#sense-tags) are based on dialog analysis with the help of [semantic attributes](reports/sense-attributes.md) you address search queries to.
+* [Semantic tags](#sense-tags) rely on dialog analysis with the help of [semantic attributes](reports/sense-attributes.md) you address search queries to.
 * [Dictionary tags](#dictionary-tags) are based on searching for specific words and phrases in the dialogs.
 
 For more info on creating, updating, and deleting tags, see [these guides](../operations/index.md#tag).
@@ -33,17 +33,17 @@ Semantic tags rely on dialog analysis with the help of [semantic attributes](rep
 
 To manage tagging with more accuracy, set the minimum probability of the dialog satisfying the specified conditions. Only the dialogs for which that probability equals or exceeds the specified level will be tagged.
 
-> For example, you select **Topics** as the semantic attribute, `Vacation in Sochi` as your search query, and set `90%` probability. {{ speechsense-name }} will tag the dialogs with topics semantically related to `Vacation in Sochi` with a probability of at least 90%.
+> For example, you select **{{ ui-key.yc-ui-talkanalytics.neuro-tags.themes-key-value }}** as the semantic attribute, `Vacation in Sochi` as your search query, and set `90%` probability. {{ speechsense-name }} will tag the dialogs with topics semantically related to `Vacation in Sochi` with a probability of at least 90%.
 
 {{ speechsense-name }} operates the following semantic attributes:
 
-* Topics
-* Reasons
-* Summaries
-* Issues
-* Agent keywords
-* Customer keywords
-* General questions: Preset questions of universal applicability
+* **{{ ui-key.yc-ui-talkanalytics.neuro-tags.themes-key-value }}**.
+* **{{ ui-key.yc-ui-talkanalytics.neuro-tags.reasons-key-value }}**.
+* **{{ ui-key.yc-ui-talkanalytics.neuro-tags.results-key-value }}**.
+* **{{ ui-key.yc-ui-talkanalytics.statements.problems }}**.
+* **{{ ui-key.yc-ui-talkanalytics.statements.operator_keywords }}**.
+* **{{ ui-key.yc-ui-talkanalytics.statements.client_keywords }}**.
+* **{{ ui-key.yc-ui-talkanalytics.statements.common_question }}**: Preset questions of universal applicability.
 
 By default, semantic tags get the `Agent` and `Customer` channels assigned at the same time, and this cannot be changed.
 
@@ -56,7 +56,7 @@ When [creating a semantic tag](../operations/project/tag/create-sense-tag.md#new
 
 When generating suggestions, {{ speechsense-name }} analyzes the selection and generates possible key phrases for the specified semantic attribute. This requires at least 100 dialogs; otherwise, {{ speechsense-name }} will not be able to conduct a reliable analysis. There are no restrictions on the maximum number; however, if your selection contains more than 1,000 dialogs, {{ speechsense-name }} will randomly select only 1,000 dialogs for analysis.
 
-If there are more than 1,000 dialogs in the selection and you are not satisfied with the suggestions that were generated, click **Refresh list** for {{ speechsense-name }} to re-select 1,000 dialogs at random and generate new suggestions.
+If there are more than 1,000 dialogs in the selection and you are not satisfied with the suggestions that were generated, click **{{ ui-key.yc-ui-talkanalytics.neuro-tags.refresh-suggestions }}** for {{ speechsense-name }} to re-select 1,000 dialogs at random and generate new suggestions.
 
 ### Testing semantic tags {#test-sense-tags}
 

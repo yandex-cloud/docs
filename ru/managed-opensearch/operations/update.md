@@ -462,7 +462,7 @@ keywords:
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+            Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -495,9 +495,9 @@ keywords:
 
             Возможные значения параметра `weekday`: `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`. В параметре `hour` укажите, во сколько должно завершиться техническое обслуживание. Например, если указать `14`, техническое обслуживание будет проходить с 13:00 до 14:00 по UTC.
 
-    * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем.
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
 
     * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
@@ -536,9 +536,9 @@ keywords:
         }
         ```
 
-        Где `deletion_protection` — защита от удаления кластера.
+        Где `deletion_protection` — защита кластера от непреднамеренного удаления.
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
     1. Проверьте корректность настроек.
 
@@ -573,7 +573,7 @@ keywords:
                                 "serverless": <доступ_из_Serverless_Containers:_true_или_false>
                             }
                         },
-                        "deletionProtection": <защита_от_удаления:_true_или_false>,
+                        "deletionProtection": <защита_кластера_от_удаления:_true_или_false>,
                         "maintenanceWindow": {
                             "weeklyMaintenanceWindow": {
                                 "day": "<день_недели>",
@@ -595,9 +595,9 @@ keywords:
             * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
 
 
-        * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+        * `deletionProtection` — защита кластера от непреднамеренного удаления.
 
-            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
         * `maintenanceWindow.weeklyMaintenanceWindow` — расписание окна технического обслуживания:
 
@@ -642,7 +642,7 @@ keywords:
                             "serverless": <доступ_из_Serverless_Containers:_true_или_false>
                         }
                     },
-                    "deletion_protection": <защита_от_удаления:_true_или_false>,
+                    "deletion_protection": <защита_кластера_от_удаления:_true_или_false>,
                     "maintenance_window": {
                         "weekly_maintenance_window": {
                             "day": "<день_недели>",
@@ -668,9 +668,9 @@ keywords:
             * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
 
 
-        * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
+        * `deletion_protection` — защита кластера от непреднамеренного удаления.
 
-            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
         * `maintenance_window.weekly_maintenance_window` — расписание окна технического обслуживания:
 

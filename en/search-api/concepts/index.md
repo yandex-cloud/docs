@@ -40,4 +40,3 @@ With API v2, you set the search type directly in the [body](./web-search.md#para
 With {{ search-api-name }} v2, you can choose between default search and search optimized for [mobile devices](../operations/v2-mobile.md).
 
 You can also use API v2 for text search in combination with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative features. This gets you a single concise and coherent [generative response](./generative-response.md) to produce which the neural network analyzes the relevant results of the {{ search-api-name }}'s text search across websites.
-

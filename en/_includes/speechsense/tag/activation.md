@@ -6,8 +6,8 @@ To activate or deactivate a tag:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab.
-1. In the line with the tag you need, enable **Use in projects** to activate the tag. Disable to deactivate the tag.
+1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab.
+1. In the line with the tag you need, enable **{{ ui-key.yc-ui-talkanalytics.tags.tag-using-key-value }}** to activate the tag. Disable to deactivate the tag.
 
 These changes apply to the following dialogs:
 

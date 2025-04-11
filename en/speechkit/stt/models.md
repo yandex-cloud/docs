@@ -25,7 +25,7 @@ You can also use the `deferred-general` tag for asynchronous recognition with th
 
 ## Supported recognition languages {#languages}
 
-Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.html) format. All available language code values are case insensitive.
+Use a recognition language code from the table below. All available code values are case insensitive.
 
 | Code | Language                                                        |
 |-------------------------------------------------------------|---|
@@ -35,7 +35,7 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 | `es-ES` | Spanish                                                   |
 | `fi-FI` | Finnish                                                     |
 | `fr-FR` | French                                                 |
-| `he-HE` | Hebrew                                                       |
+| `he-IL` | Hebrew                                                       |
 | `it-IT` | Italian                                                 |
 | `kk-KZ` | Kazakh                                                   |
 | `nl-NL` | Dutch                                                 |
@@ -45,11 +45,13 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 | `ru-RU` | Russian (default)                                 |
 | `sv-SE` | Swedish                                                    |
 | `tr-TR` | Turkish                                                    |
-| `uz-UZ` | Uzbek (Latin script) |
+| `uz-UZ` | Uzbek (Latin script)                                        |
+
 
 ## Recognition accuracy {#speed_and_accuracy}
 
 {% include [accuracy](../../_includes/speechkit/accuracy.md)%}
+
 
 #### See also {#see-also}
 

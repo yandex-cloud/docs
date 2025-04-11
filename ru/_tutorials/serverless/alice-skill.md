@@ -27,12 +27,12 @@
 
 - Python {#python}
 
-    1. Скачайте с GitHub файл с примером: [parrot.py](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/python/parrot/parrot.py).
+    1. Скачайте с GitHub файл с примером: [parrot.py](https://github.com/yandex-cloud-examples/yc-alice-skill-python/blob/main/parrot/parrot.py).
     1. Создайте ZIP-архив `parrot-py.zip` с файлом `parrot.py`.
 
 - Node.js {#node}
 
-    1. Скачайте с GitHub файл с примером: [index.js](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/nodejs/parrot/index.js).
+    1. Скачайте с GitHub файл с примером: [index.js](https://github.com/yandex-cloud-examples/yc-alice-skill-node/blob/main/parrot/index.js).
     1. Создайте ZIP-архив `parrot-js.zip` с файлом `index.js`.
 
 {% endlist %}

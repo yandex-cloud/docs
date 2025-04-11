@@ -1,5 +1,5 @@
 ---
-title: Creating a dictionary tag
+title: Changing a dictionary tag
 description: Follow this guide to change a dictionary tag.
 ---
 
@@ -44,8 +44,8 @@ To change a project tag, you need either the `{{ roles-speechsense-admin }}` or 
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab.
-1. In the line with the tag, click ![icon](../../../../_assets/console-icons/ellipsis.svg) and then ![icon](../../../../_assets/console-icons/arrow-right-arrow-left.svg) **Change channel**.
+1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab.
+1. In the line with the tag, click ![icon](../../../../_assets/console-icons/ellipsis.svg) and then ![icon](../../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yc-ui-talkanalytics.tags.change-channel }}**.
 1. Specify the channel based on where you want {{ speechsense-name }} to look for the tag keywords:
 
     * **{{ ui-key.yc-ui-talkanalytics.tags.channel.operator-and-client }}**: Whole dialog.
@@ -60,7 +60,7 @@ You can change the channel for multiple tags at the same time:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. Go to the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab and select the tags you need.
+1. Go to the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab and select the tags you need.
 1. In the pop-up window, click ![icon](../../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yc-ui-talkanalytics.tags.change-channel }}**.
 1. Specify the channel for each tag. If you need the same channel for all tags, select it in the **{{ ui-key.yc-ui-talkanalytics.tags.new-channel }}** field above the tag list.
 1. Click **{{ ui-key.yc-ui-talkanalytics.common.save }}**.
