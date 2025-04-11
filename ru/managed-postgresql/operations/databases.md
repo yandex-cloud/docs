@@ -220,7 +220,7 @@
                        "version": "<версия_расширения>"
                      }
                    ],
-                   "deletionProtection": <защита_от_удаления:_true_или_false>
+                   "deletionProtection": <защита_от_удаления>
                  }
                }'
      ```
@@ -241,7 +241,7 @@
 
        Указывайте имя и версию в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](extensions/cluster-extensions.md#postgresql).
 
-     * `deletionProtection` — защита от удаления БД.
+     * `deletionProtection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -276,7 +276,7 @@
                    "version": "<версия_расширения>"
                  }
                ],
-               "deletion_protection": <защита_от_удаления:_true_или_false>
+               "deletion_protection": <защита_от_удаления>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
@@ -299,7 +299,7 @@
 
        Указывайте имя и версию в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](extensions/cluster-extensions.md#postgresql).
 
-     * `deletion_protection` — защита от удаления БД.
+     * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -478,7 +478,7 @@
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>' \
        --data '{
                  "updateMask": "deletionProtection",
-                 "deletionProtection": <защита_от_удаления:_true_или_false>
+                 "deletionProtection": <защита_от_удаления>
                }'
      ```
 
@@ -488,7 +488,7 @@
 
        В данном случае передается только один параметр.
 
-     * `deletionProtection` — защита от удаления БД.
+     * `deletionProtection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 
@@ -520,7 +520,7 @@
                  "deletion_protection"
                ]
              },
-             "deletion_protection": <защита_от_удаления:_true_или_false>
+             "deletion_protection": <защита_от_удаления>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Update
@@ -532,7 +532,7 @@
 
        В данном случае передается только один параметр.
 
-     * `deletion_protection` — защита от удаления БД.
+     * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 

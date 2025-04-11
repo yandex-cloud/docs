@@ -8,12 +8,9 @@ The service is available at `{{ api-host-sk-stt }}:443`.
 
 You can also work with {{ speechkit-name }} using the [Python SDK](../sdk/python/index.md). It is implemented based on the [{{ speechkit-name }} API v3](../stt-v3/api-ref/grpc/).
 
-
 {% include [try-speechkit](../../_includes/speechkit/try-speechkit.md) %}
 
-
 ## Recognition methods {#stt-ways}
-
 
 {{ speechkit-name }} provides two ways of improving the quality of speech recognition:
 
@@ -23,13 +20,12 @@ You can also work with {{ speechkit-name }} using the [Python SDK](../sdk/python
    * Asynchronous mode can process multi-channel audio fragments. Maximum recording duration: {{ stt-long-audioLength }}.
 
 
-
 ### Which recognition to choose {#choose-stt}
 
 
 |  | [Streaming recognition](streaming.md) | [Synchronous recognition](request.md) | [Asynchronous recognition](transcribation.md) |
 |---|---------|----------------------|----------------------|
-| **Use cases** | Telephone assistants and robots </br> Virtual assistants         | Virtual assistants </br> Voice control </br> Recognition of short voice messages in messengers | Transcription of audio calls and presentations </br> Subtitling </br> Ensuring script adherence in call centers </br> Identifying successful scripts </br> Evaluating performance of call center operators. |
+| **Use cases** | Phone assistants and robots </br> Virtual assistants         | Virtual assistants </br> Voice control </br> Speech recognition of short voice messages in messengers | Transcribing audio calls and presentations </br> Subtitling </br> Call center script compliance monitoring </br> Identifying successful scripts </br> Evaluating performance of call center agents |
 | **Input data** | Real-time voice | Pre-recorded short single-channel audio files | Pre-recorded multi-channel and long audio files |
 | **How it works** | Exchanging messages with the server over a single connection | Request — quick response | Request — delayed response |
 | **Supported APIs** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/) | [REST v1](api/request-api.md) | [REST v2](api/transcribation-api.md) </br> [gRPC v3](api/transcribation-api-v3.md) |

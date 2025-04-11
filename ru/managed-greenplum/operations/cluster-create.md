@@ -81,7 +81,7 @@
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. (Опционально) Задайте режим работы и параметры [менеджера подключений](../concepts/pooling.md) в блоке **{{ ui-key.yacloud.mdb.forms.section_pooler }}**:
 
@@ -195,10 +195,10 @@
         * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
         * `--assign-public-ip` — флаг, который указывается, если для хостов нужен [публичный доступ](../concepts/network.md#public-access-to-a-host): `true` или `false`.
         * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
-        * `--deletion-protection` — защита от удаления кластера.
+        * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. Чтобы задать время начала резервного копирования, передайте нужное значение в формате `HH:MM:SS` в параметре `--backup-window-start`:
 
@@ -301,7 +301,7 @@
         zone                = "<зона_доступности>"
         subnet_id           = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
         assign_public_ip    = <публичный_доступ_к_хостам_кластера>
-        deletion_protection = <защита_от_удаления_кластера>
+        deletion_protection = <защита_кластера_от_удаления>
         version             = "<версия_Greenplum>"
         master_host_count   = <количество_хостов_мастеров>
         segment_host_count  = <количество_хостов_сегментов>
@@ -339,9 +339,9 @@
       Где:
 
       * `assign_public_ip` — публичный доступ к хостам кластера: `true` или `false`.
-      * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-          Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
+          {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       * `version` — версия {{ GP }}.
       * `master_host_count` — количество хостов-мастеров: 2.
@@ -438,7 +438,7 @@
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletionProtection": <защита_от_удаления_кластера>,
+          "deletionProtection": <защита_кластера_от_удаления>,
           "configSpec": {
             "pool": {
               "mode": "<режим_работы>",
@@ -502,9 +502,9 @@
         * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-        * `deletionProtection` — защита от удаления кластера: `true` или `false`.
+        * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `configSpec.pool` — настройки [менеджера подключений](../concepts/pooling.md):
 
@@ -593,7 +593,7 @@
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletion_protection": <защита_от_удаления_кластера>
+          "deletion_protection": <защита_кластера_от_удаления>
           "config_spec": {
             "pool": {
               "mode": "<режим_работы>",
@@ -657,9 +657,9 @@
         * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-        * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `config_spec.pool` — настройки [менеджера подключений](../concepts/pooling.md):
 
@@ -800,7 +800,7 @@
     * В зоне доступности `{{ region-id }}-a`, в подсети `{{ subnet-id }}`.
     * С публичным доступом к хостам.
     * В группе безопасности `{{ security-group }}`.
-    * С защитой от случайного удаления кластера.
+    * С защитой от непреднамеренного удаления.
 
 
     Выполните следующую команду:

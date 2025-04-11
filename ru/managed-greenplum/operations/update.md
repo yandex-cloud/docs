@@ -311,7 +311,7 @@ description: Следуя данной инструкции, вы сможете
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** — включает [гибридное хранилище](../concepts/hybrid-storage.md).
 
@@ -377,7 +377,7 @@ description: Следуя данной инструкции, вы сможете
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -410,7 +410,7 @@ description: Следуя данной инструкции, вы сможете
             yandex_query = <доступ_из_Yandex_Query>
           }
 
-          deletion_protection = <защита_от_удаления>
+          deletion_protection = <защита_кластера_от_удаления>
 
           cloud_storage {
             enable = <использование_гибридного_хранилища>
@@ -446,7 +446,7 @@ description: Следуя данной инструкции, вы сможете
 
 
 
-        * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей: `true` или `false`.
+        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
             {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -508,7 +508,7 @@ description: Следуя данной инструкции, вы сможете
               "hour": "<час>"
             }
           },
-          "deletionProtection": <защита_от_удаления_кластера>,
+          "deletionProtection": <защита_кластера_от_удаления>,
           "configSpec": {
             "pool": {
               "mode": "<режим_работы>",
@@ -556,9 +556,9 @@ description: Следуя данной инструкции, вы сможете
                 * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
                 * `hour` — час дня по UTC от `1` до `24`.
 
-        * `deletionProtection` — защита от удаления кластера: `true` или `false`.
+        * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `configSpec.pool` — настройки [менеджера подключений](../concepts/pooling.md):
 
@@ -636,7 +636,7 @@ description: Следуя данной инструкции, вы сможете
               "hour": "<час>"
             }
           },
-          "deletion_protection": <защита_от_удаления_кластера>,
+          "deletion_protection": <защита_кластера_от_удаления>,
           "config_spec": {
             "pool": {
               "mode": "<режим_работы>",
@@ -684,9 +684,9 @@ description: Следуя данной инструкции, вы сможете
                 * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
                 * `hour` — час дня по UTC от `1` до `24`.
 
-        * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `config_spec.pool` — настройки [менеджера подключений](../concepts/pooling.md):
 

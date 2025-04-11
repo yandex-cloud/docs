@@ -2,6 +2,7 @@
 
 {% include [ip-intro](../../_includes/public-ip/ip-intro.md) %}
 
+
 ## IP addresses of {{ yandex-cloud }} resources available to customers {#yandex-resource-ips}
 
 ### {{ vpc-name }}
@@ -19,19 +20,23 @@ For example, the resources assigned such IP address ranges are:
 * {{ network-load-balancer-name }} and {{ alb-name }} load balancers
 
 
+
 ### {{ baremetal-name }}
 
 {% include [baremetal-ip-ru](../../_includes/public-ip/ru/baremetal.md) %}
 
+
 ### {{ cdn-name }}
 
 {% include [cdn-ip-ru](../../_includes/public-ip/ru/cdn.md) %}
+
 
 ### {{ captcha-name }} {#smartcaptcha-ips}
 
 {% include [smartcaptcha-ip-list](../../_includes/smartcaptcha-ips.md) %}
 
 These IP addresses cannot be assigned to user resources. They serve to ensure an API request sent to `/validate` works correctly.
+
 
 
 ## IP addresses used by {{ yandex-cloud }} for its services {#yandex-cloud-ips}
@@ -44,6 +49,7 @@ The following IP address ranges are assigned to the resources that support {{ ya
 
 
 These IP address ranges are not available to users.
+
 
 #### See also {#see-also}
 

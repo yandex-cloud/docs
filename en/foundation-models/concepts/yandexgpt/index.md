@@ -10,13 +10,13 @@
 
 ## Interfaces for working with models {#interfaces}
 
-To interact with text generation models in {{ yandex-cloud }}, there are two interfaces available. You can submit requests to [{{ ai-playground }}]({{ link-console-main }}/link/foundation-models/) or integrate the model into your applications using the API. You can use the [REST](../../text-generation/api-ref/index.md) and [gRPC](../../text-generation/api-ref/grpc/index.md) interfaces for integration. You can also use the API to work with models in [asynchronous mode](../index.md#working-mode). You can view the examples of working with {{ yagpt-name }} via the API in [Step-by-step guides for {{ yagpt-full-name }}](../../operations/index.md#yandexgpt-api).
+To interact with text generation models in {{ yandex-cloud }}, there are two interfaces available. You can submit requests to [{{ ai-playground }}]({{ link-console-main }}/link/foundation-models/) or integrate the model into your applications using the API. You can use the [REST](../../text-generation/api-ref/index.md) and [gRPC](../../text-generation/api-ref/grpc/index.md) interfaces for integration. You can also use the API to work with models in [asynchronous mode](../index.md#working-mode). You can view the examples of working with {{ yagpt-name }} via the API in [Step-by-step guides for {{ foundation-models-full-name }}](../../operations/index.md#yandexgpt-api).
 
 {{ ai-playground }} is a good option for introduction and testing: use it to submit synchronous requests to different models, set up parameters, and choose prompts. When communicating, the model saves the dialog context, but you can also create a new experiment if you need to change the context. Additionally, {{ yagpt-name }} Playground interfaces in chat format or prompt mode are available in the left-hand navigation menu. Use them when you need to fully repeat the model's behavior via the API and you do not want to save the results of the dialog. 
 
 To use the {{ yagpt-name }} models, you need the `ai.languageModels.user` [role](../../security/index.md#languageModels-user) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-To learn more about the {{ yagpt-full-name }} models, see [{#T}](models.md).
+To learn more about available models, see [{#T}](models.md).
 
 ## Formatting of model responses {#answers-formatting}
 

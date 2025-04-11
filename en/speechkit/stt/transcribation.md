@@ -69,4 +69,3 @@ The {{ speechkit-name }} API v2 and v3 are used for asynchronous speech recognit
 * [{#T}](api/transcribation-ogg.md).
 * [{#T}](api/transcribation-api-v3.md).
 * [{#T}](api/batch-transcribation.md).
-

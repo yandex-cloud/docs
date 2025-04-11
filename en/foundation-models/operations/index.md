@@ -5,7 +5,7 @@ description: This page presents all the guides on how to use {{ foundation-model
 
 # Step-by-step guides for {{ foundation-models-full-name }}
 
-## Step-by-step guides for {{ yagpt-full-name }} {#yandexgpt-api}
+## Step-by-step guides for text generation models {#yandexgpt-api}
 
 * [{#T}](./yandexgpt/evaluate-request.md)
 * [{#T}](./yandexgpt/create-prompt.md)
@@ -30,6 +30,7 @@ description: This page presents all the guides on how to use {{ foundation-model
 
 * [{#T}](./assistant/create.md)
 * [{#T}](./assistant/create-with-searchindex.md)
+* [{#T}](./assistant/request-chunked-response.md)
 
 ## {{ foundation-models-name }} model tuning {#tuning}
 

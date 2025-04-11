@@ -59,7 +59,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ lockbox-full-name }}](../lockbox/release-notes.md)
 * [{{ captcha-full-name }}](../smartcaptcha/release-notes.md)
 
-## Resource monitoring and management {#resources-operations}
+## Monitoring and resource management {#resources-operations}
 
 * [{{ org-full-name }}](../organization/release-notes.md)
 * [{{ iam-full-name }}](../iam/release-notes.md)

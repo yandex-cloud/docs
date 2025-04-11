@@ -207,4 +207,4 @@ The sum of the `confidence` values for all classes is always `1`.
 #### See also {#see-also}
 
 * [{#T}](../../concepts/classifier/index.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_classifiers)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_classifiers)

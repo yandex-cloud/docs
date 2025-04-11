@@ -627,7 +627,7 @@ JSON-объект вида:
 
 #### Примеры чартов {#get-action-params-chart-examples}
 
-[Пример кросс-фильтрации](https://datalens.yandex/uw4m2h7evlwog#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args)) — клик по Advanced-чарту слева фильтрует Markdown справа.
+[Пример кросс-фильтрации](https://datalens.yandex/nvkfwnekf9xy9#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args)) — клик по Advanced-чарту слева фильтрует Markdown справа.
 
 ## Editor.getCurrentPage() {#get-current-page}
 
@@ -891,7 +891,7 @@ JSON-объект вида:
 
 #### Примеры чартов {#get-loaded-data-charts-example}
 
-[Пример использования Editor.getLoadedData() в таблице с источником на основе датасета](https://datalens.yandex/uw4m2h7evlwog#Editor.getLoadedData())
+[Пример использования Editor.getLoadedData() в таблице с источником на основе датасета](https://datalens.yandex/nvkfwnekf9xy9#Editor.getLoadedData())
 
 ## Editor.getParam(name) {#get-param}
 
@@ -946,7 +946,7 @@ JSON-объект вида:
 
 #### Примеры чартов {#get-param-charts-example}
 
-[Пример чарта с обращением к параметру по имени](https://datalens.yandex/uw4m2h7evlwog#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args))
+[Пример чарта с обращением к параметру по имени](https://datalens.yandex/nvkfwnekf9xy9#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args))
 
 ## Editor.getParams() {#get-params}
 
@@ -1021,7 +1021,7 @@ JSON-объект вида:
 
 #### Примеры чартов {#get-params-charts-example}
 
-[Пример использования функции получения всех примененных параметров](https://datalens.yandex/uw4m2h7evlwog#Editor.getParams())
+[Пример использования функции получения всех примененных параметров](https://datalens.yandex/nvkfwnekf9xy9#Editor.getParams())
 
 ## Editor.getWidgetConfig() {#get-widget-config}
 
@@ -1423,7 +1423,7 @@ const params = Editor.getParams();
 
 #### Примеры чартов {#set-insights-charts-example}
 
-[Пример чарта с уведомлениями](https://datalens.yandex/uw4m2h7evlwog#Editor.%20setChartsInsights(args)) 
+[Пример чарта с уведомлениями](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args)) 
 
 ## Editor.updateActionParams() {#update-action-params}
 
@@ -1497,7 +1497,7 @@ JSON-объект вида:
 
 #### Примеры чартов {#get-action-params-chart-examples}
 
-[Пример кросс-фильтрации](https://datalens.yandex/uw4m2h7evlwog#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args)) — клик по Advanced-чарту слева фильтрует Markdown справа.
+[Пример кросс-фильтрации](https://datalens.yandex/nvkfwnekf9xy9#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args)) — клик по Advanced-чарту слева фильтрует Markdown справа.
 
 ## Editor.updateParams(params) {#update-params}
 
@@ -1635,4 +1635,4 @@ libs: [lib1, …, libN],
 
 #### Примеры чартов {#wrap-charts-example}
 
-[Вариант использования с подключением d3 библиотеки на примере визуализации Advanced-чарт](https://datalens.yandex/uw4m2h7evlwog#Editor.%20wrapFn(args))
+[Вариант использования с подключением d3 библиотеки на примере визуализации Advanced-чарт](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20wrapFn(args))

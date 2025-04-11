@@ -223,4 +223,4 @@ Here is an example of creating a vector search for a single file:
 #### Use cases {#eamples}
 
 * [{#T}](../../operations/assistant/create-with-searchindex.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

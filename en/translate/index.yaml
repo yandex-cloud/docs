@@ -3,22 +3,22 @@ description:
   - >-
     Use this service to integrate <a href="https://translate.yandex.ru/">Yandex
     Translate</a> algorithms into end-user applications or web projects. Yandex
-    Translate can translate individual words and complete texts, supporting over
-    100 languages.
+    Translate can translate individual words and complete texts in over 100
+    supported languages.
   - >-
     You can access Yandex Translate via the <a
-    href=api-ref/authentication>API</a>.
+    href="api-ref/authentication">API</a>.
   - >-
     The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is
-    protected</a> in accordance with the Russian Federal Law "On Personal Data"
-    152-FZ.
+    protected</a> pursuant to the Russian Federal Law No. 152-FZ on Personal
+    Data.
   - >-
-    The service is subject to the <a
+    The service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
-    service level is set out in <a
-    href="https://yandex.ru/legal/cloud_sla_translate">Yandex Translate service
-    level document</a>.
+    service level is set out in the document titled <a
+    href="https://yandex.ru/legal/cloud_sla_translate">Yandex Translate Service
+    Level</a>.
 meta:
   title: Yandex Translate
   description: >-
@@ -38,10 +38,10 @@ links:
     description: HTTP API method descriptions
     href: api-ref/authentication
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access permissions to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

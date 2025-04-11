@@ -199,7 +199,9 @@ description: Следуя данной инструкции, вы сможете
 
 
       * `--backup-window-start` — время начала резервного копирования в формате `ЧЧ:ММ:СС`.
-      * `--deletion-protection` — защита от удаления кластера.
+      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       * `--announce-hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
@@ -208,8 +210,6 @@ description: Следуя данной инструкции, вы сможете
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
-
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Если вы создаёте шардированный кластер с типом диска **local-ssd**, укажите в команде не менее двух хостов на шард.
 
@@ -246,7 +246,7 @@ description: Следуя данной инструкции, вы сможете
          network_id          = "<идентификатор_сети>"
          security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
          tls_enabled         = true
-         deletion_protection = <защита_от_удаления>
+         deletion_protection = <защита_кластера_от_удаления>
          announce_hostnames  = <использование_FQDN_вместо_IP-адресов>
 
          config {
@@ -281,7 +281,10 @@ description: Следуя данной инструкции, вы сможете
 
        Где:
        * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
-       * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
        * `announce_hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
@@ -294,8 +297,6 @@ description: Следуя данной инструкции, вы сможете
          * `replica_priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
 
        {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
-
-       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
        Если вы создаёте шардированный кластер с типом диска **local-ssd**, укажите в конфигурационном файле не менее двух хостов на шард.
 
@@ -364,7 +365,7 @@ description: Следуя данной инструкции, вы сможете
             "<идентификатор_группы_безопасности_N>"
           ],
           "tlsEnabled": <поддержка_шифрованных_TLS-соединений>,
-          "deletionProtection": <защита_от_удаления_кластера>,
+          "deletionProtection": <защита_кластера_от_удаления>,
           "announceHostnames": <использование_FQDN_вместо_IP-адресов>
         }
         ```
@@ -424,9 +425,9 @@ description: Следуя данной инструкции, вы сможете
 
             {% endnote %}
 
-        * `deletionProtection` — защита от удаления кластера: `true` или `false`.
+        * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-            Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `announceHostnames` — [использование FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
@@ -496,7 +497,7 @@ description: Следуя данной инструкции, вы сможете
             "<идентификатор_группы_безопасности_N>"
           ],
           "tls_enabled": <поддержка_шифрованных_TLS-соединений>,
-          "deletion_protection": <защита_от_удаления_кластера>,
+          "deletion_protection": <защита_кластера_от_удаления>,
           "announce_hostnames": <использование_FQDN_вместо_IP-адресов>
         }
         ```
@@ -556,9 +557,9 @@ description: Следуя данной инструкции, вы сможете
 
             {% endnote %}
 
-        * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-            Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `announce_hostnames` — [использование FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
@@ -688,7 +689,7 @@ description: Следуя данной инструкции, вы сможете
   * С поддержкой SSL-соединений.
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
   * Пароль `user1user1`.
-  * С защитой от случайного удаления кластера.
+  * С защитой от непреднамеренного удаления.
 
   Выполните следующую команду:
 
@@ -725,7 +726,7 @@ description: Следуя данной инструкции, вы сможете
     * С поддержкой SSL-соединений.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
     * Пароль `user1user1`.
-    * С защитой от случайного удаления кластера.
+    * С защитой от непреднамеренного удаления.
 
   Конфигурационный файл для такого кластера выглядит так:
 
@@ -796,7 +797,7 @@ description: Следуя данной инструкции, вы сможете
   * Окружение `production`.
   * С включенным шардированием.
   * С поддержкой SSL-соединений.
-  * С защитой от случайного удаления кластера.
+  * С защитой от непреднамеренного удаления.
   * Сеть `default`.
   * Группа безопасности с идентификатором `{{ security-group }}`.
   * Класс хостов `{{ mrd-host-class }}`.
@@ -834,7 +835,7 @@ description: Следуя данной инструкции, вы сможете
   * Окружение `PRODUCTION`.
   * С включенным шардированием.
   * С поддержкой SSL-соединений.
-  * С защитой от случайного удаления кластера.
+  * С защитой от непреднамеренного удаления.
   * Новая сеть `mynet`, которая будет состоять из одной подсети. Эта новая подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
   * Новая группа безопасности `redis-sg`, разрешающая подключения через порт `{{ port-mrd-tls }}` с любых адресов подсети `mysubnet`.
   * Класс хостов `{{ mrd-host-class }}`.
@@ -923,7 +924,7 @@ description: Следуя данной инструкции, вы сможете
     * Новая группа безопасности `redis-sg`, разрешающая подключения через порты `{{ port-mrd }}` и `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](./connect/index.md)) с любых адресов подсетей.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
     * Пароль `user1user1`.
-    * С защитой от случайного удаления кластера.
+    * С защитой от непреднамеренного удаления.
 
     Конфигурационный файл для такого кластера выглядит так:
 

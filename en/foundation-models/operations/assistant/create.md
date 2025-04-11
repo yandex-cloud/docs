@@ -84,10 +84,17 @@ This example shows how to create an [assistant](../../concepts/assistant/index.m
 
       {% endcut %}
 
+      {% note info %}
+
+      When making requests to the assistant, you can [get](./request-chunked-response.md) intermediate generation results before the model completes generating the final response.
+
+      {% endnote %}
 
 {% endlist %}
 
 #### See also {#see-also}
 
 * [{#T}](./create-with-searchindex.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants) 
+* [{#T}](./request-chunked-response.md)
+* [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

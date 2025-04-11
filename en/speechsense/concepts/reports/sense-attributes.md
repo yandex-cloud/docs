@@ -15,17 +15,17 @@ In a report, a _semantic attribute_ is the dialog's feature that sets the contex
 
 {{ speechsense-name }} operates the following semantic attributes:
 
-* Topics
-* Reasons
-* Summaries
-* Issues
-* Agent keywords
-* Customer keywords
-* General questions: Preset questions of universal applicability
+* **{{ ui-key.yc-ui-talkanalytics.neuro-tags.themes-key-value }}**.
+* **{{ ui-key.yc-ui-talkanalytics.neuro-tags.reasons-key-value }}**.
+* **{{ ui-key.yc-ui-talkanalytics.neuro-tags.results-key-value }}**.
+* **{{ ui-key.yc-ui-talkanalytics.statements.problems }}**.
+* **{{ ui-key.yc-ui-talkanalytics.statements.operator_keywords }}**.
+* **{{ ui-key.yc-ui-talkanalytics.statements.client_keywords }}**.
+* **{{ ui-key.yc-ui-talkanalytics.statements.common_question }}**: Preset questions of universal applicability.
 
 {{ speechsense-name }} presents two groups of dialogs in the report: those that do and do not conform to the specified conditions. You choose which one to use in your report. 
 
-> For example, you select the **Topics** semantic attribute and specify `Vacation in Sochi` as your search query. {{ speechsense-name }} will analyze your dialogs and divide them into two groups depending on whether their topic is aligned semantically with the `Vacation in Sochi` search query.
+> For example, you selected the **{{ ui-key.yc-ui-talkanalytics.neuro-tags.themes-key-value }}** semantic attribute and specified `Vacation in Sochi` as your search query. {{ speechsense-name }} will analyze your dialogs and divide them into two groups depending on whether their topic is aligned semantically with the `Vacation in Sochi` search query.
 
 The semantic attribute application method depends on the report type:
 

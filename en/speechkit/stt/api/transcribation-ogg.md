@@ -127,6 +127,8 @@ For two-channel OggOpus audio files, do not specify the number of channels using
       }
       ```
 
+      {% include [absent-chunks-notice](../../../_includes/speechkit/absent-chunks-notice.md) %}
+
 - Python 3 {#python}
 
   1. Use the [pip package](https://pip.pypa.io/en/stable/) manager to install the `requests` package:

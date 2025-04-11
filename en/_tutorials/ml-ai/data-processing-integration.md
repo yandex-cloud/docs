@@ -2,7 +2,7 @@
 
 You can use the Apache Spark™ clusters deployed in {{ dataproc-full-name }}, in your {{ ml-platform-full-name }} projects. To set up integration with {{ dataproc-name }} in {{ ml-platform-name }}:
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Create a bucket](#create-bucket).
 1. [Create a {{ dataproc-name }} cluster](#create-cluster).
 1. [Set up the {{ ml-platform-name }} project](#project).
@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The {{ dataproc-name }} cluster support cost covers the computing resources of the cluster and the storage size (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
 
-## Prepare the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -33,7 +33,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Name your folder, e.g., `data-folder`.
+   1. Give your folder a name, e.g., `data-folder`.
    1. Select **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. This will create a [network](../../vpc/concepts/network.md#network) with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -68,7 +68,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. In the row with the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-   1. In the window that opens, select the created table from the list.
+   1. In the window that opens, select your route table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 {% endlist %}
@@ -79,8 +79,8 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
 - Management console {#console}
 
-   1. Go to `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Navigate to `data-folder`.
+   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-data-proc`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
@@ -138,8 +138,8 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -160,6 +160,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
    1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** from the drop-down list.
    1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** field, select `PRODUCTION`.
    1. In the **{{ ui-key.yacloud.mdb.forms.config_field_version }}** field, select `2.0`.
    1. In the **{{ ui-key.yacloud.mdb.forms.config_field_services }}** field, select `LIVY`, `SPARK`, `YARN`, and `HDFS`.
    1. Enter the public part of your SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field.
@@ -243,7 +244,7 @@ The {{ dataproc-name }} cluster you created will be added to your {{ ml-platform
 1. Write data to S3 by specifying the bucket name:
 
    ```python
-   #!spark
+   #!spark 
    data = [[1, "tiger"], [2, "lion"], [3, "snow leopard"]]
    df = spark.createDataFrame(df, schema="id LONG, name STRING")
    df.repartition(1).write.option("header", True).csv("s3://<bucket_name>/")

@@ -239,7 +239,7 @@ Authentication is performed under a service account using an [API key](../../../
 
 #### The script is run with no speech recognized {#no-recognition}
 
-Possible causes:
+The possible causes include:
 
 * The script is run in the terminal embedded in an IDE. This terminal might have no microphone access. Run the script in an external terminal.
 * The script is run on macOS and the terminal is not allowed to access the microphone. Open the system settings of the OS and make sure the terminal has the appropriate access permission.

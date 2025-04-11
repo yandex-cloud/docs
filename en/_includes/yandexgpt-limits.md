@@ -53,7 +53,8 @@ Maximum number of threads | 10,000
 Maximum number of users | 10,000
 Maximum number of files to upload | 10,000
 Maximum file size | 128 MB
-Maximum number of files per search index | 100
+Number of files per upload | 100
+Maximum number of files per search index | 10,000
 Maximum number of messages per thread | 100,000
 Maximum number of search indexes | 1,000
 Maximum number of indexing operations to run | 10

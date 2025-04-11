@@ -17,7 +17,7 @@ When creating a dictionary tag, the following options are available:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. In the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab, click ![icon](../../../../_assets/console-icons/tag.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
+1. In the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab, click ![icon](../../../../_assets/console-icons/tag.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
 1. Select the tag type: **{{ ui-key.yc-ui-talkanalytics.tags.tags-type.dictionary-key-value }}**.
 1. Set the tag parameters:
 
@@ -44,7 +44,7 @@ To duplicate a tag:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab.
+1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab.
 1. In the line with the tag you need to duplicate, click ![icon](../../../../_assets/console-icons/ellipsis.svg) and then ![icon](../../../../_assets/console-icons/copy.svg) **{{ ui-key.yc-ui-talkanalytics.common.duplicate }}**.
 
     In the window that opens, you will see that the new tag uses the source tag settings as default values. The default name of the new tag is `<source_tag_name> copy`.

@@ -18,7 +18,7 @@ To change a project tag, you need either the `{{ roles-speechsense-admin }}` or 
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. In the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab, select the tag you need and click **{{ ui-key.yc-ui-talkanalytics.common.edit }}**.
+1. In the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab, select the tag you need and click **{{ ui-key.yc-ui-talkanalytics.common.edit }}**.
 1. In the window that opens, update the settings as needed:
 
     * Enter a name and description for the tag.

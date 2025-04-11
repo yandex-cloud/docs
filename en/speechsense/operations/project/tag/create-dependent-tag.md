@@ -9,7 +9,7 @@ For any tag in your project, you can create a [dependent tag](../../../concepts/
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. In the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab, select a tag and click ![icon](../../../../_assets/console-icons/ellipsis.svg).
+1. In the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab, select a tag and click ![icon](../../../../_assets/console-icons/ellipsis.svg).
 1. From the drop-down list, select ![icon](../../../../_assets/console-icons/link.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-dependent-tag }}**.
 1. Depending on the type of the tag you are creating, configure the [semantic](create-sense-tag.md#new-tag) or [dictionary](create-dictionary-tag.md#new-tag) tag and click **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
 

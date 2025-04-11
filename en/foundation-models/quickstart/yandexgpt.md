@@ -1,10 +1,10 @@
-# Getting started with {{ yagpt-full-name }}
+# Getting started with {{ gpt-lite }} and {{ gpt-pro }}
 
-In this section, you will learn how to use the {{ yagpt-name }} neural network to generate text in [synchronous mode](../concepts/index.md#working-mode) without adding context. For other examples, see [Guides on how to use {{ yagpt-full-name }}](../operations/index.md#yandexgpt-api)
+In this section, you will learn how to use the {{ yagpt-name }} model to generate texts in [synchronous mode](../concepts/index.md#working-mode) without adding context. For other examples, see [Guides on how to use {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api)
 
 The [management console]({{ link-console-main }}/link/foundation-models/yandexgpt) provides a quick and easy way for new users without a [billing account](../../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free prompts per hour. To access the API and increase usage [quotas](../concepts/limits.md), [link](../../billing/operations/pin-cloud.md) your billing account to your cloud.
 
-For information about {{ yagpt-full-name }} pricing, see [{#T}](../pricing.md).
+For information about {{ foundation-models-full-name }} pricing, see [{#T}](../pricing.md).
 
 ## Getting started {#before-begin}
 
@@ -28,13 +28,13 @@ To get started in {{ yandex-cloud }}:
 
 - API {#api}
 
-  To run sample requests using the API, install [cURL](https://curl.haxx.se).
+  To run sample requests using the API, install [cURL](https://curl.haxx.se). 
 
   To work with the {{ yagpt-name }} API, you need to get authenticated using your account:
 
   1. Get an IAM token: see the guide for a [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yagpt-user }}` role or higher.
-  1. When accessing {{ yagpt-full-name }} via the API, provide the received parameters:
+  1. When accessing {{ gpt-lite }} or {{ gpt-pro }} via the API, provide the received parameters:
 
      * In the request file, specify the folder ID in the `modelUri` parameter.
      * In the request, specify the IAM token in the `Authorization` header.
@@ -56,7 +56,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-  1. In the list of services, select **{{ foundation-models-name }}**.
+  1. From the list of services, select **{{ foundation-models-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.yagpt.label_promt }}**.
 
      ![screen01](../../_assets/foundation-models/quickstart/yandexgpt/screen01.png)
@@ -150,6 +150,6 @@ To get started in {{ yandex-cloud }}:
 
 #### What's next {#what-is-next}
 
-* [Learn more about {{ yagpt-full-name }}](../concepts/index.md)
+* [Learn more about the service](../concepts/index.md)
 * [Learn about API authentication methods](../api-ref/authentication.md)
 * 

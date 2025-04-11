@@ -6,9 +6,7 @@ _Speech synthesis_ in {{ speechkit-full-name }} allows you to convert any text t
 
 The service is available at `{{ api-host-sk-tts }}:443`.
 
-
 {% include [try-speechkit](../../_includes/speechkit/try-speechkit.md) %}
-
 
 
 ## Synthesis options {#features}
@@ -24,7 +22,7 @@ The service is available at `{{ api-host-sk-tts }}:443`.
 | Selecting voice                                       | `voice` parameter | `hints: voice` parameter                      |
 | Selecting language                                        | Depends on the voice </br>`lang` parameter | Depends on the voice, not specified explicitly in the request |
 | Specifying role                                     | Depends on the voice </br>`emotion` parameter | Depends on the voice </br>`hints: role` parameter |
-| [Voice tone management](#pitch)               | No | `hints: pitchShift` parameter |
+| [Voice tone management](#pitch)               | No | `hints: pitch_shift` parameter |
 | [Controlling pronunciation](#markup)                | SSML </br> TTS | TTS                                         |
 | [Pronunciation speed](#speed)                    | `speed` parameter | `hints: speed` parameter                      |
 | [Adjusting volume](#volume)                     | No | `loudness_normalization_type` parameter      |
@@ -33,7 +31,6 @@ The service is available at `{{ api-host-sk-tts }}:443`.
 | [Audio pattern-based synthesis](templates.md)            | No | `text_template` parameter                   |
 | [Pricing method](../pricing.md#rules-tts)      | Total number of characters in the requests | By request   |
 | Automatic splitting of long phrases              | Not required | `unsafe_mode` parameter  |
-
 
 {% note info %}
 
@@ -55,7 +52,7 @@ The synthesized speech will sound differently depending on the selected role. Ro
 
 ### Voice tone {#pitch}
 
-Each {{ speechkit-name }} voice has a certain pitch. In API v3, you can change the voice by specifying a shift from its base tone. The shift is specified in the `hints: pitchShift` parameter in the range `[-1000;1000]` (in Hz). The default value is `0`. Positive `hints: pitchShift` values make the voice higher, negative ones make it lower.
+Each {{ speechkit-name }} voice has a certain pitch. In API v3, you can change the voice by specifying a shift from its base tone. The shift is specified in the `hints: pitch_shift` parameter in the range `[-1000;1000]` (in Hz). The default value is `0`. Positive `hints: pitch_shift` values make the voice higher, negative ones make it lower.
 
 ## Controlling pronunciation {#markup}
 

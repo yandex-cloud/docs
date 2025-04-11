@@ -60,7 +60,7 @@ To send a request to the classifier:
       ```json
       {
         "modelUri": "cls://<basic_model_URI>/<version>@<tuning_suffix>",
-        "text": "<prompt_text>"
+        "text": "<request_text>"
       }
       ```
   
@@ -85,7 +85,7 @@ To send a request to the classifier:
       
       The `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` endpoint only works with fine-tuned classifiers. For [prompt-based classifiers](readymade.md), use `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`.
       
-      {% endnote %}
+      {% endnote %}      
   
       In response, the service will return the classification results with the `confidence` values for the probability of classifying the query text into each class:
   
@@ -119,4 +119,4 @@ In multi-label classification, the `confidence` value for each class is calculat
 #### See also {#see-also}
 
 * [{#T}](../../concepts/classifier/index.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_classifiers)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_classifiers)

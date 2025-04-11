@@ -58,7 +58,7 @@ You can access text vector representation models in a number of ways.
 
   To [access](../operations/embeddings/search.md) a model via the [REST API](../embeddings/api-ref/index.md) or [gRPC API](../embeddings/api-ref/grpc/index.md), specify the model's [URI](#yandexgpt-embeddings) containing the [folder ID](../../resource-manager/operations/folder/get-id.md) in the `modelUri` field of the request body. The `/latest` segment indicates the model version and is optional.
 
-  **Example:**
+  **Example**:
 
   ```json
   {
@@ -68,7 +68,7 @@ You can access text vector representation models in a number of ways.
   }
   ```
 
-  To access the `Latest` version, you do not need to specify the model version explicitly because `Latest` is used by default.
+  To access the `Latest` version, you do not need to specify the model version explicitly, since the `Latest` version is used by default.
 
 {% endlist %}
 
@@ -115,4 +115,4 @@ This primitive example demonstrates how you can use embeddings to find the close
 #### See also {#see-also}
 
 * [Using embeddings to search through the knowledge base](../operations/embeddings/search.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)

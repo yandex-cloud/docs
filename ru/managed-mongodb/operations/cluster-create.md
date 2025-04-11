@@ -163,7 +163,10 @@ description: Следуя данной инструкции, вы сможете
 
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.
-      * `--deletion-protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Включенная защита не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
+      
+      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -262,7 +265,10 @@ description: Следуя данной инструкции, вы сможете
          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
          * `secondary_delay_secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
-     * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Включенная защита не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
+     * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
      * `version` — версия {{ MG }}: {{ versions.tf.str }}.
 
      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
@@ -389,7 +395,9 @@ description: Следуя данной инструкции, вы сможете
         * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-        * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Включенная защита не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
+        * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+          {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
         * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
 
@@ -571,7 +579,9 @@ description: Следуя данной инструкции, вы сможете
         * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Включенная защита не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
+        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+          {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
         * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
 

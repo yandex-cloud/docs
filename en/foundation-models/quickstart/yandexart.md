@@ -8,7 +8,7 @@ In the [management console]({{ link-console-main }}/link/foundation-models/yande
 
 To get started in {{ yandex-cloud }}:
 
-1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
@@ -22,7 +22,16 @@ To get started in {{ yandex-cloud }}:
 
   To use the examples of requests using SDK:
 
-  {% include [yandexart-sdk-before-start](../../_includes/foundation-models/yandexart/yandexart-sdk-before-start.md) %}
+  1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `ai.imageGeneration.user` role to it.
+
+  1. [Get](../../iam/operations/authentication/manage-api-keys.md#create-api-key) the service account API key and save it.
+
+      {% include [sdk-auth-details-paragraph](../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
+  1. Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the {{ ml-sdk-name }} library:
+
+      ```bash
+      pip install yandex-cloud-ml-sdk
+      ```
 
 - API {#api}
 
@@ -58,7 +67,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `{{ roles-yaart-user }}` role or higher.
-  1. In the list of services, select **{{ foundation-models-name }}**.
+  1. From the list of services, select **{{ foundation-models-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/palette.svg) **{{ yandexart-name }}**.
   1. In the input field, describe the image you want to generate. You should use vivid and detailed descriptions, specify styles if you want your image styled in a certain way.
   1. Leave the [**seed**](../concepts/yandexart/index.md) parameter random or specify any value.
@@ -162,5 +171,5 @@ To get started in {{ yandex-cloud }}:
 
 #### What's next {#what-is-next}
 
-* [Learn more about {{ yagpt-full-name }}](../concepts/index.md)
+* [Learn more about the service](../concepts/index.md)
 * [Learn about API authentication methods](../api-ref/authentication.md)

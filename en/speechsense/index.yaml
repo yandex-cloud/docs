@@ -6,14 +6,14 @@ description:
   - >-
     {{ speechsense-full-name }} is built around Yandex's Cloud ML technologies:
     {{ speechkit-full-name }} will perform speech recognition, collect dialog
-    statistics, and identify keywords, whereas {{ yagpt-full-name }} will help
-    summarize the data.
+    statistics, and identify keywords, whereas {{ gpt-pro }} will help summarize
+    the data.
   - >-
-    {{ speechsense-full-name }} is subject to a <a
-    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. {{
-    speechsense-full-name }} service level is detailed in the <a
+    The service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_speechsense/">{{
-    speechsense-full-name }} Service Level</a> document.
+    speechsense-full-name }} Service Level</a>.
   - >-
     For terms of use, see the <a
     href="https://yandex.com/legal/cloud_terms_speechsense">{{
@@ -33,8 +33,11 @@ links:
     description: Learn about basic concepts and how the service works
     href: concepts/resources-hierarchy
   - title: Access management
-    description: Set up access permissions to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+  - title: Release notes
+    description: Releases and updates
+    href: release-notes/

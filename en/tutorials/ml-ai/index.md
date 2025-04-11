@@ -13,6 +13,7 @@ description: Various use cases for machine learning and artificial intelligence 
 * [{#T}](batch-code-execution.md)
 * [{#T}](s3-to-datasphere.md)
 * [{#T}](mlflow-datasphere.md)
+* [{#T}](models-fine-tuning.md)
 
 
 ## Deployment in {{ ml-platform-full-name }} {#datasphere-deployment}
@@ -37,3 +38,7 @@ description: Various use cases for machine learning and artificial intelligence 
 
 * [{#T}](archive-from-vision-to-object-storage.md)
 * [{#T}](recognizer-bot.md)
+
+## Using {{ foundation-models-full-name }} generative neural networks {#generative-neuronets}
+
+* [{#T}](pdf-searchindex-ai-assistant.md)

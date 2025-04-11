@@ -4,13 +4,11 @@ With pattern-based synthesis, you can synthesize speech based on pre-edited phra
 
 Pattern-based synthesis is only available for [{{ brand-voice-name }}](brand-voice/index.md) voices.
 
-
 {% note warning %}
 
-Access to the {{ brand-voice-name }} service is available on request. To get access to the technology, [fill out this form](#contact-form).
+Access to the {{ brand-voice-name }} service is available on request. To access the technology, [fill out this form](#contact-form).
 
 {% endnote %}
-
 
 Currently, this feature works only for Russian.
 
@@ -58,7 +56,7 @@ The pattern must match the desired script.
 
 The pattern must contain one or more variables to replace. The length of the variable portion must match the sample in the pattern. If the audio length of variable parts may vary substantially, we recommend recording several patterns with examples of different lengths. The normalized text of the variable part of the phrase cannot be longer than 25% of the pattern length. The same restriction applies to the duration of the variable part relative to the duration of the final audio.
 
-> For example, if in the pattern `Hi, my name is Iris, I work at {company}.`, the length of the `company` variable may vary substantially (e.g., `Thunderclouds`, `Reliable Bank`, `a regional office of a well-known international company`), you will need to record two patterns: for short and for long values. Use a suitable pattern depending on the placeholder value length. This way, you can keep your synthesized speech natural.
+> For example, if in the pattern `Hi, my name is Iris, I work at {company}.`, the length of the `company` variable may vary substantially (e.g., `Thunderclouds`, `Reliable Bank`, `a regional office of a well-known international company`), you will need to record two patterns: for short and long values. Use a suitable pattern depending on the placeholder value length. This way, you can keep your synthesized speech natural.
 
 Divide long utterances into independent sentences and different patterns. The synthesized phrase cannot exceed {{ tts-v3-time }} and {{ tts-v3-count }}.
 

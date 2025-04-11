@@ -22,7 +22,7 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
 
 To prepare for uploading audio recordings:
 
-1. [Create a connection](../connection/create.md#create-audio-connection) of the **Two-channel audio** type.
+1. [Create a connection](../connection/create.md#create-audio-connection) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** type.
 1. [Create a project](../project/create.md) with the new connection.
 
    Voice call recordings will be uploaded to the project and connection you created.

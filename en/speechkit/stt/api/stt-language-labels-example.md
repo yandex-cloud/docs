@@ -4,7 +4,7 @@ The example shows how you can recognize speech in LPCM format in real time using
 
 The example uses the following parameters:
 
-* [Recognition language](../models#languages): `Auto` (automatic language detection).
+* [Recognition language](../models#languages): `auto` (automatic language detection).
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
 * [Number of audio channels](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio): 1 (default).
 * Other parameters are left at their defaults.
@@ -15,7 +15,7 @@ The example uses the following parameters:
 
 ## Prepare the required resources {#preparations}
 
-1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-speechkit-stt }}` role.
+1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-stt }}` role to it.
 1. [Get](../../../iam/operations/iam-token/create-for-sa.md#via-cli) an IAM token for the service account and save it.
 1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition or [generate](../../tts/api/tts-examples-v3.md) your own one.
 
@@ -44,7 +44,7 @@ To implement an example from this section:
         1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository, create a folder named `output`, and generate the client interface code there:
 
             ```bash
-            cd <path_to_cloudapi_directory>
+            cd <path_to_cloudapi_folder>
             mkdir output
             python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
                 --python_out=output \
@@ -59,7 +59,7 @@ To implement an example from this section:
                 yandex/cloud/ai/stt/v3/stt.proto
             ```
 
-            As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, will be created in the `output` folder.
+            This will create the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, in the `output` folder.
 
         1. Create a file (e.g., `test.py`) in the `output` folder root, and add the following code to it:
 
@@ -90,7 +90,7 @@ To implement an example from this section:
                             restriction_type=stt_pb2.LanguageRestrictionOptions.WHITELIST,
                             language_code=['auto']
                         ),
-                        # Select a recognition model: streaming recognition.
+                        # Select the streaming recognition model.
                         audio_processing_type=stt_pb2.RecognitionModelOptions.REAL_TIME
                     )
                 )
@@ -105,7 +105,7 @@ To implement an example from this section:
                         yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                         data = f.read(CHUNK_SIZE)
 
-            # When authorizing with an API key, provide api_key instead of iam_token.
+            # Provide api_key instead of iam_token when authenticating with an API key
             # as a service account.
             # def run(api_key, audio_file_name):
             def run(iam_token, audio_file_name):
@@ -177,7 +177,7 @@ To implement an example from this section:
     python3 output/test.py --token ${IAM_TOKEN} --path <path_to_speech.pcm_file>
     ```
 
-   Where `--path` is the path to the audio file to recognize:
+    Where `--path` is the path to the audio file for recognition.
 
     Result:
 
@@ -185,7 +185,7 @@ To implement an example from this section:
     type=status_code, alternatives=None
     type=partial, alternatives=None
     type=partial, alternatives=['hello']
-    type=final, alternatives=[hello world]
+    type=final, alternatives=['hello world']
     Language guess:
         language_code: "ru-RU"  probability: 1
     type=final_refinement, alternatives=['hello world']

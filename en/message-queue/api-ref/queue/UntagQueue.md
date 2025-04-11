@@ -1,6 +1,6 @@
 # UntagQueue
 
-Method for getting [queue labels](../../concepts/tags.md). Updating labels can take up to 60 seconds.
+This is a method for deleting [queue labels](../../concepts/tags.md). Updating labels can take up to 60 seconds.
 
 ## Request {#request}
 
@@ -8,8 +8,8 @@ Method for getting [queue labels](../../concepts/tags.md). Updating labels can t
 
 Parameter | Type | Required parameter | Description
 ----- | ----- | ----- | -----
-`QueueUrl` | **string** | Yes | URL of a queue
-`TagKeys.N` | **array** | Yes | List of keys
+`QueueUrl` | **string** | Yes | URL of a queue.
+`TagKeys.N` | **array** | Yes | Key list.
 
 #### List of keys {#tag-keys}
 
@@ -38,7 +38,7 @@ Action=UntagQueue
 &TagKey.1=environment
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more information about formatting your requests, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

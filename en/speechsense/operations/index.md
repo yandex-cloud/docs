@@ -9,9 +9,9 @@ description: This page presents all the guides on how to use {{ speechsense-name
 
 * Uploading data:
 
-* [{#T}](data/upload-audio-console.md)
-* [{#T}](data/upload-data.md)
-* [{#T}](data/upload-chat-text.md)
+  * [{#T}](data/upload-audio-console.md)
+  * [{#T}](data/upload-data.md)
+  * [{#T}](data/upload-chat-text.md)
 
 * Searching data:
 

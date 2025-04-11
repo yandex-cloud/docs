@@ -1,3 +1,8 @@
+---
+title: Creating an assistant with a search index
+description: Follow this guide to create a personalized assistant using {{ assistant-api }} to implement a generative response scenario with access to information from external sources (RAG).
+---
+
 # Creating an assistant with a search index
 
 {% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}
@@ -49,39 +54,41 @@ To use the examples:
 
       The example implements the simplest chat possible: enter your requests to the assistant from your keyboard and get answers. To end the dialog, enter `exit`.
 
-      {% cut "Estimated result" %}
+      {% cut "Approximate result" %}
 
       ```text
-      Enter your question to the assistant: How much is a visa to Bali?
-      Answer: 300 rubles.
-      Enter your question to the assistant: Do I need a visa to enter Kazakhstan?
-      Answer: The text above says that a passport is required to enter Kazakhstan from Russia. It does not mention a visa in the context of traveling to Kazakhstan.
+      Enter your question to the assistant ("exit" to end the dialog): How much is a visa to Bali?
+      Response:  300 rubles.
+      * Contents of fragment No. 1: ('* Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website before your trip. The visa fee is 300 rubles. Don't miss your chance to visit this beautiful island and create unforgettable memories. Book your Bali vacation today. **We look forward to seeing you!**',)
+      * Search index ID in fragment No. 1: fvtm4k885t5d********
+      * Search index type settings in fragment No. 1: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
+      * Source file ID for fragment No. 1: fvtki306biri********
+      * Source file MIME type for fragment No. 1: text/plain
 
-      Answer: the given context provides no information about the cost and necessity of a visa to enter Kazakhstan, but it specifies that a valid passport is required.
-      Enter your question to the assistant: Thank you!
-      Answer: You are welcome! Is there anything else I can help you with?
-      Enter your question to the assistant: exit
-      Outputting the whole message history when exiting the chat:
-          message=Message(id='fvtaegenk534********', parts=('You are welcome! Is there anything else I can help you with?',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 23, 15, 874678), labels=None, author=Author(id='fvtdo7i9cjot********', role='ASSISTANT'))
-          message.text='You are welcome! Is there anything else I can help you with?'
+      * Contents of fragment No. 2: ('**What do I need for the trip?** To enter Indonesia, you must have a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website before your trip. The visa fee is 300 rubles.',)
+      * Search index ID in fragment No. 2: fvtm4k885t5d********
+      * Search index type settings in fragment No. 2: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
+      * Source file ID for fragment No. 2: fvtki306biri********
+      * Source file MIME type for fragment No. 2: text/plain
 
-          message=Message(id='fvtrpbdnn8ar********', parts=('Thank you!',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 23, 14, 896935), labels=None, author=Author(id='fvtjg25ejkk0********', role='USER'))
-          message.text='Thank you!'
+      * Contents of fragment No. 3: ('**Bali is a tropical paradise full of unforgettable experiences.**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Discover breathtaking landscapes, taste delicious local dishes, and make new friends. **What do I need for the trip?** To enter Indonesia, you must have a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements.',)
+      * Search index ID in fragment No. 3: fvtm4k885t5d********
+      * Search index type settings in fragment No. 3: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
+      * Source file ID for fragment No. 3: fvtki306biri********
+      * Source file MIME type for fragment No. 3: text/plain
 
-          message=Message(id='fvt1jbftbspp********', parts=('The text above says that a passport is required to enter Kazakhstan from Russia. It does not mention a visa in the context of traveling to Kazakhstan.\n\nAnswer: the given context provides no information about the cost and necessity of a visa to enter Kazakhstan, but it specifies that a valid passport is required.' that a valid passport is required.',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 22, 42, 310047), labels=None, author=Author(id='fvtdo7i9cjot********', role='ASSISTANT'))
-          message.text='The text above says that a passport is required to enter Kazakhstan from Russia. It does not mention a visa in the context of traveling to Kazakhstan.\n\nAnswer: the given context provides no information about the cost and necessity of a visa to enter Kazakhstan, but it specifies that a valid passport is required.'
+      * Contents of fragment No. 4: ('**Kazakhstan: Journey to the heart of Eurasia**\n\nDiscover Kazakhstan, a fascinating country where East meets West. Enjoy its endless steppes, majestic mountains, historical landmarks, and the warm hospitality of its people. **What do I need for the trip?** To enter Kazakhstan from Russia, you will need the following documents:\n* Passport valid for at least 3 months beyond your trip. * Migration card (provided in-flight or at the border). * Medical insurance (optional but recommended). Don't miss your chance to visit this beautiful country and create unforgettable memories.',)
+      * Search index ID in fragment No. 4: fvtm4k885t5d********
+      * Search index type settings in fragment No. 4: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
+      * Source file ID for fragment No. 4: fvtu162cbdfq********
+      * Source file MIME type for fragment No. 4: text/plain
 
-          message=Message(id='fvt1ugupmhe4********', parts=('Do I need a visa to enter Kazakhstan?',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 22, 39, 789471), labels=None, author=Author(id='fvtjg25ejkk0********', role='USER'))
-          message.text='Do I need a visa to enter Kazakhstan?'
-
-          message=Message(id='fvtif8psp9ve363c5irj', parts=('300 rubles.',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 22, 27, 546395), labels=None, author=Author(id='fvtdo7i9cjot********', role='ASSISTANT'))
-          message.text='300 rubles.'
-
-          message=Message(id='fvt82ggg27ui********', parts=('How much is a visa to Bali?',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 22, 26, 794009), labels=None, author=Author(id='fvtjg25ejkk0********', role='USER'))
-          message.text='How much is a visa to Bali?'
+      Enter your question to the assistant ("exit" to end the dialog): exit
       ```
 
       {% endcut %}
+
+      In the `run.text` property, the AI assistant returned the model-generated response based on the uploaded knowledge base. The `run.citations` property contains [source citations](../../concepts/assistant/index.md#citations), listing the knowledge base files and their fragments used to generate the response.
 
 - cURL {#curl}
 
@@ -452,7 +459,8 @@ To use the examples:
                 }
               ]
             },
-            "status": "COMPLETED"
+            "status": "COMPLETED",
+            "citations": []
           }
           ```
   1. Run the assistant with the message you created earlier:
@@ -495,20 +503,21 @@ To use the examples:
             },
             "usage": null,
             "custom_prompt_truncation_options": null,
-            "custom_completion_options": null
+            "custom_completion_options": null,
+            "tools": []
           }
           ```
 
-          {{ assistant-api }} has returned the launch information: the launch is in `PENDING` status. Save the launch ID (`id` field value). You will need it in the next step.
+          {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
 
-      1. Get the launch outcome with the assistant's response. To do this, run a request by specifying the launch ID you got earlier:
+      1. Get the run outcome with the assistant's response. To do this, make a request by specifying the run ID you got earlier:
 
           ```bash
           curl \
             --request GET \
             --header "Authorization: Bearer ${IAM_TOKEN}" \
             --silent \
-            "https://rest-assistant.{{ api-host }}/assistants/v1/runs/<launch_ID>" | \
+            "https://rest-assistant.{{ api-host }}/assistants/v1/runs/<execution_ID>" | \
             jq
           ```
 
@@ -543,26 +552,106 @@ To use the examples:
                     }
                   ]
                 },
-                "status": "COMPLETED"
+                "status": "COMPLETED",
+                "citations": [
+                  {
+                    "sources": [
+                      {
+                        "chunk": {
+                          "search_index": {
+                            "id": "fvtudtudvqpf********",
+                            "folder_id": "b1gt6g8ht345********",
+                            "name": "",
+                            "description": "",
+                            "created_by": "ajeol2afu1js********",
+                            "created_at": "2025-03-15T20:47:48.256866Z",
+                            "updated_by": "ajeol2afu1js********",
+                            "updated_at": "2025-03-15T20:47:50.064687Z",
+                            "expiration_config": {
+                              "expiration_policy": "SINCE_LAST_ACTIVE",
+                              "ttl_days": "7"
+                            },
+                            "expires_at": "2025-03-22T20:47:48.256866Z",
+                            "labels": {},
+                            "hybrid_search_index": {
+                              "text_search_index": {
+                                "chunking_strategy": null
+                              },
+                              "vector_search_index": {
+                                "doc_embedder_uri": "emb://yc.ml.rag-prod.common/text-search-doc/latest",
+                                "query_embedder_uri": "emb://yc.ml.rag-prod.common/text-search-query/latest",
+                                "chunking_strategy": null
+                              },
+                              "chunking_strategy": {
+                                "static_strategy": {
+                                  "max_chunk_size_tokens": "800",
+                                  "chunk_overlap_tokens": "400"
+                                }
+                              },
+                              "normalization_strategy": "MIN_MAX",
+                              "combination_strategy": {
+                                "mean_combination": {
+                                  "mean_evaluation_technique": "ARITHMETIC",
+                                  "weights": [
+                                    0.5,
+                                    0.5
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "source_file": {
+                            "id": "fvtfu1n4p2bj********",
+                            "folder_id": "b1gt6g8ht345********",
+                            "name": "",
+                            "description": "",
+                            "mime_type": "text/markdown",
+                            "created_by": "ajeol2afu1js********",
+                            "created_at": "2025-03-15T20:45:51.079978Z",
+                            "updated_by": "ajeol2afu1js********",
+                            "updated_at": "2025-03-15T20:45:51.079978Z",
+                            "expiration_config": {
+                              "expiration_policy": "SINCE_LAST_ACTIVE",
+                              "ttl_days": "7"
+                            },
+                            "expires_at": "2025-03-22T20:47:48.268776Z",
+                            "labels": {}
+                          },
+                          "content": {
+                            "content": [
+                              {
+                                "text": {
+                                  "content": "**Bali is a tropical paradise full of unforgettable experiences.**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Discover breathtaking landscapes, taste delicious local dishes, and make new friends. **What do I need for the trip?** To enter Indonesia, you must have a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website before your trip. The visa fee is 300 rubles. Don't miss your chance to visit this beautiful island and create unforgettable memories. Book your Bali vacation today. **We look forward to seeing you!**"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "usage": {
-              "prompt_tokens": "306",
+              "prompt_tokens": "236",
               "completion_tokens": "11",
-              "total_tokens": "317"
+              "total_tokens": "247"
             },
             "custom_prompt_truncation_options": null,
-            "custom_completion_options": null
+            "custom_completion_options": null,
+            "tools": []
           }
           ```
 
           {% endcut %}
 
-          In the `content` field, the AI ​​assistant has returned a response to the model based on the uploaded knowledge base.
+          In the `content` field, the AI assistant returned the model-generated response based on the uploaded knowledge base. The `citations` section contains [source citations](../../concepts/assistant/index.md#citations), listing the knowledge base files and their fragments used to generate the response.
 
 {% endlist %}
 
 #### See also {#see-also}
 
 * [{#T}](./create.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

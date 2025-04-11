@@ -10,11 +10,11 @@ Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags
 
 {% endnote %}
 
-The **Details** report shows how the values of the evaluation parameter change over time for each data cross-section. For example, you can build a report based on average dialog duration, group the duration values by departments, and specify the period of one year. As a result, the report will demonstrate how average dialog duration evolved in the course of the year for each department.
+The **{{ ui-key.yc-ui-talkanalytics.reports.details-key-value }}** report shows how the values of the evaluation parameter change over time for each data cross-section. For example, you can build a report based on average dialog duration, group the duration values by departments, and specify the period of one year. As a result, the report will demonstrate how average dialog duration evolved in the course of the year for each department.
 
 ## How to build a report {#form}
 
-To generate the **Details** report, specify the following settings:
+To generate a **{{ ui-key.yc-ui-talkanalytics.reports.details-key-value }}** report, specify these settings:
 
 * [Evaluation parameter](#parameter): The report will reflect the changes in this parameter.
 * [Filters](#filters): Filters applied to dialogs in the report.
@@ -43,8 +43,8 @@ In the report, you can select an evaluation parameter of one of the following ty
 
 The report provides quantitative agent performance characteristics. You can view the report in the {{ speechsense-name }} web interface in chart and table form or download it in CSV format.
 
-The available **Details** report formats include:
+The available **{{ ui-key.yc-ui-talkanalytics.reports.details-key-value }}** report formats include:
 
-* **Chart**: Allows you to visualize the evaluation parameter values at different points in time. On the chart, you can set the report generation period as well as the data detail level. As a result, you can get values for different time intervals: from an hour to a quarter.
-* **Table**: Shows the numerical value of the evaluation parameter for the specified period. The values are broken down by the customized data grouping.
+* **{{ ui-key.yc-ui-talkanalytics.reports.barchart }}**: Allows you to visualize the evaluation parameter values at different points in time. On the chart, you can set the report generation period as well as the data detail level. As a result, you can get values for different time intervals: from an hour to a quarter.
+* **{{ ui-key.yc-ui-talkanalytics.reports.table-key-value }}**: Shows the numerical value of the evaluation parameter for the specified period. The values are broken down by the customized data grouping.
 * **CSV file**: Contains the same table as in the {{ speechsense-name }} web interface. Use the CSV format to save the report locally.
