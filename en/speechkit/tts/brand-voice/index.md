@@ -5,7 +5,6 @@ description: 'In this article, you will learn about the {{ brand-voice-name }} t
 
 # {{ brand-voice-full-name }}
 
-
 The {{ brand-voice-name }} technology allows you to create unique voices for your speech synthesis model. It can synthesize both plain text and [pattern-based text](../templates.md). Patterns contain phrases with _variables_ that are replaced with prepared text. To cover different practical uses of trained models, {{ yandex-cloud }} offers three types of {{ brand-voice-name }}.
 
 | | [{{ brand-voice-premium }}](#premium) | [{{ brand-voice-core }}](#ss) | [{{ brand-voice-cc }}](#cc) |
@@ -84,4 +83,3 @@ Data logging may prove useful if synthesis errors occur. If you do not want to l
 * [{{ brand-voice-name }} API](../../tts-v3/api-ref/grpc/)
 * [{#T}](../templates.md)
 * [{#T}](../api/tts-templates.md)
-

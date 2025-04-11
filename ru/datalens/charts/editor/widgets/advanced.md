@@ -237,4 +237,4 @@ events: {
 
 ## Примеры {#examples}
 
-Примеры на [демонстрационном дашборде](https://datalens.yandex/zw66fn54nvb6l?tab=Az) на вкладке Advanced.
+Примеры на [демонстрационном дашборде](https://datalens.yandex/2aztx9jtm06ko?tab=Az) на вкладке Advanced.

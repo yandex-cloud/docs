@@ -6,10 +6,10 @@ Dictionaries allow you to reuse a group of keywords in multiple tags. This way, 
 
 {{ speechsense-name }} has three dictionary groups:
 
-* _System dictionaries_: Preset dictionaries. Each project has the same system dictionaries. You can only change their activation status. You cannot create, edit, or delete system dictionaries.
-* _Space dictionaries_: Dictionaries the user creates and configures at the space level. If activated, such dictionaries are available in all projects within the space.
+* _System dictionaries_: Preset dictionaries. Each project has the same system dictionaries. You cannot create, edit, or delete system dictionaries.
+* _Space dictionaries_: Dictionaries the user creates and configures at the space level. These are available in all projects within the space.
 * _Project dictionaries_: Dictionaries the user creates and configures at the project level. Different projects can have different dictionaries.
 
-System dictionaries can be viewed by all users. To view space and project dictionaries, users need the `{{ roles-speechsense-viewer }}` role or higher in a space or project.
+While all users can see system dictionaries, they cannot view their contents. To view space and project dictionaries, users need the `{{ roles-speechsense-viewer }}` role or higher in a space or project.
 
 To create, edit, or delete dictionaries, follow [this guide](../operations/index.md#dictionary).

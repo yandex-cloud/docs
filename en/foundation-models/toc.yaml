@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-      - name: Getting started with {{ yagpt-full-name }}
+      - name: Getting started with {{ yagpt-name }}
         href: quickstart/yandexgpt.md
       - name: Getting started with {{ yandexart-name }}
         href: quickstart/yandexart.md
@@ -45,6 +45,8 @@ items:
             href: operations/assistant/create.md
           - name: Creating a search assistant
             href: operations/assistant/create-with-searchindex.md
+          - name: Getting intermediate response generation results
+            href: operations/assistant/request-chunked-response.md
       - name: Model tuning in {{ foundation-models-name }}
         items:
           - name: Fine-tuning text generation models
@@ -648,6 +650,14 @@ items:
                     href: tuning/api-ref/grpc/Tuning/listErrors.md
   - name: '{{ ml-sdk-full-name }}'
     href: sdk/index.md
+  - name: Tutorials
+    items:
+      - name: >-
+          Implementing an AI assistant with search through PDF files with
+          complex formatting
+        href: tutorials/pdf-searchindex-ai-assistant.md
+      - name: Model tuning in {{ ml-platform-name }}
+        href: tutorials/models-fine-tuning.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -660,5 +670,7 @@ items:
     items:
       - name: FAQ
         href: qa/index.md
+      - name: External errors when working with models
+        href: troubleshooting/known-issues.md
       - name: Error codes
         href: troubleshooting/error-codes.md

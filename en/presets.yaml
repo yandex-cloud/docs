@@ -6712,6 +6712,7 @@ default:
           label_time-min_zero: minutes
           label_time-sec_many: seconds
         unspecified: Not specified
+        update: Update
         value: Value
       component:
         acl-dialog:
@@ -10424,6 +10425,7 @@ default:
         delete-key-value: Delete
         duplicate: Duplicate
         edit: Edit
+        filters: Filters
         more: More
         'no': 'No'
         period: Period
@@ -10447,6 +10449,8 @@ default:
           chat-key-value: Сhat
           two-channel-key-value: Two-channel audio
       dialogs:
+        all-participants: All participants
+        analysis: Analysis
         bot: Bot
         classifier:
           appreciation-key-value: Appreciation
@@ -10460,8 +10464,17 @@ default:
         direction:
           incoming: Incoming
           outgoing: Outgoing
+        exact-match-by-key-phrases: Exact match by key phrases
         open-dialog: Open dialog
         operator: Agent
+        operator-tags: 'Agent tags '
+        search:
+          dictionary:
+            title: Dictionary
+          neuro:
+            title: Semantic
+          text:
+            title: Full-text
         speech-statistics: Conversation statistics
         system-meta:
           talk:

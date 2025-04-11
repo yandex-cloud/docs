@@ -812,7 +812,7 @@ description: Следуя данной инструкции, вы сможете
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
-          deletion_protection = <защита_от_удаления_кластера>
+          deletion_protection = <защита_кластера_от_удаления>
         }
         ```
 
@@ -869,7 +869,7 @@ description: Следуя данной инструкции, вы сможете
                   "hour": "<час_дня_по_UTC>"
                 }
               },
-              "deletionProtection": <защита_от_удаления>
+              "deletionProtection": <защита_кластера_от_удаления>
             }
             ```
 
@@ -891,7 +891,7 @@ description: Следуя данной инструкции, вы сможете
                     * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
                     * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
 
-            * `deletionProtection` — защитить кластер, его базы данных и пользователей от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+            * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -956,7 +956,7 @@ description: Следуя данной инструкции, вы сможете
                   "hour": "<час_дня_по_UTC>"
                 }
               },
-              "deletion_protection": <защита_от_удаления>
+              "deletion_protection": <защита_кластера_от_удаления>
             }
             ```
 
@@ -978,7 +978,7 @@ description: Следуя данной инструкции, вы сможете
                     * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
                     * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
 
-            * `deletion_protection` — защитить кластер, его базы данных и пользователей от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+            * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

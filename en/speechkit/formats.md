@@ -39,10 +39,8 @@ For [MP3](https://en.wikipedia.org/wiki/MP3), data is encoded using the MPEG-1/2
 
 {{ speechkit-short-name }} recognizes MP3 without audio file quality and header restrictions.
 
-
 {% note warning %}
 
 The MP3 format is not supported in the API v1 for [synchronous](./stt/api/request-api.md) recognition and API v2 for [streaming](./stt/api/streaming-api.md) recognition.
 
 {% endnote %}
-

@@ -11,8 +11,8 @@ To delete a dictionary:
 
    To delete a project dictionary, select the project.
 
-1. Go to the **Dictionaries** tab.
-1. In the line with the dictionary, click ![icon](../../../_assets/console-icons/ellipsis.svg) and then ![icon](../../../_assets/console-icons/trash-bin.svg) **Delete**.
+1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.dictionaries.dictionaries }}** tab.
+1. In the dictionary row, click ![icon](../../../_assets/console-icons/ellipsis.svg), then click ![icon](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-talkanalytics.common.delete-key-value }}**.
 1. Confirm dictionary deletion.
 
 If you did not remove the dictionary from the tag before deleting it, you will still see that dictionary on the tag page, marked as deleted. The tag with the dictionary will apply to the already uploaded conversations but not the new ones.

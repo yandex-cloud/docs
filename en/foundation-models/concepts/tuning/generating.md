@@ -7,7 +7,7 @@ description: In {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} a
 
 _Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage._
 
-In {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} and {{ llama }} 8b^1^ text generation models.
+In {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} and {{ llama }} 8B^1^ text generation models.
 
 {% include [logging](../../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}
 
@@ -30,5 +30,6 @@ To send API requests in [{{ ml-platform-name }}]({{ link-datasphere-main }}) not
 ## Examples {#examples}
 
 [{#T}](../../operations/tuning/create.md)
+[{#T}](../../tutorials/models-fine-tuning.md)
 
 ^1^ {{ meta-disclaimer }}

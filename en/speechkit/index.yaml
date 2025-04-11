@@ -1,7 +1,7 @@
 title: '{{ speechkit-full-name }}'
 description:
   - >-
-    With {{ speechkit-full-name }}, app developers can implement Yandex speech
+    With {{ speechkit-full-name }}, app developers can implement Yandex's speech
     recognition (Speech-to-Text) and speech synthesis (Text-to-Speech)
     technologies.
   - To access {{ speechkit-name }}, use the API.

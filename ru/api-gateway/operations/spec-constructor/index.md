@@ -19,3 +19,4 @@ description: Из статьи вы узнаете, как работать с �
 * [{{ ydb-name }}](ydb.md)
 * [{{ ml-platform-name }}](datasphere.md)
 * [{{ foundation-models-full-name }}](yagpt.md)
+* [{{ sw-full-name }}](workflows.md)

@@ -7,8 +7,8 @@ description:
     is called <i>cloud computing</i>.
   - >-
     Cloud computing can replace or supplement traditional data centers and local
-    on-premise servers. Yandex Cloud assumes full responsibility for maintaining
-    the health and performance of the cloud platform's hardware and software.
+    on-premise servers. Yandex Cloud will handle maintaining the health and
+    performance of cloud platform hardware and software.
   - >-
     Yandex Cloud offers different categories of cloud resources, e.g., virtual
     machines, disks, and databases. You can manage the resources under each

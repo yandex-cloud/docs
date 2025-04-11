@@ -1,6 +1,6 @@
 # Translation of special characters and HTML markup
 
-The {{ translate-name }} API returns the response body in JSON format. Therefore, when translating text that contains HTML markup and other special characters, some of these characters may be converted to [Unicode](https://datatracker.ietf.org/doc/html/rfc7159#section-7). For example, to prevent the double quote (`"`) from marking the end of the text, it is replaced with the six-character sequence: `\u0022`.
+The {{ translate-name }} API returns the response body in JSON format. Therefore, when translating text that contains HTML markup and other special characters, some of these characters may be converted to [Unicode](https://datatracker.ietf.org/doc/html/rfc7159#section-7). For example, to prevent the double quote (`"`) from marking the end of the text, it is replaced with this six-character sequence: `\u0022`.
 
 If you send the following request to the model:
 

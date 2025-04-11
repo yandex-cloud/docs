@@ -6,7 +6,7 @@ From a [related dialog](../../concepts/dialogs.md#related-dialogs), you can go t
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. On the **Dialogs** tab, [find](manage-dialogs.md#filters-dialogs) the dialog you need.
+1. On the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** tab, [find](manage-dialogs.md#filters-dialogs) the dialog you need.
 1. Navigate to related dialogs using one of these methods:
 
     * In the list of dialogs, click the link in the field with the task number.
@@ -20,14 +20,14 @@ From a [related dialog](../../concepts/dialogs.md#related-dialogs), you can go t
 ## Viewing information about a related dialog {#view}
 
 1. Navigate to related dialogs.
-1. To view metadata about the required dialog (for example, the start date or the direction of the dialog), click the **General metadata** section.
+1. To view metadata about the required dialog, such as its the start date or direction, click the **{{ ui-key.yc-ui-talkanalytics.dialogs.common-metadata }}** section.
 1. To view the metadata of a client, agent, or bot, click the relevant section.
 1. To view information about a dialog, select the one you need.
 
     Within a single dialog, you can search by text and view the dialog tags.
 
-1. To view the semantic analysis for a dialog, click the **{{ yagpt-name }} analysis** tab.
+1. To view the semantic analysis of a dialog, click the **{{ ui-key.yc-ui-talkanalytics.projects.sumarization }}** tab.
 
 ## Navigating to the individual dialog view
 
-To switch from the related dialogs page to the single dialog view page, click ![image](../../../_assets/console-icons/arrow-up-right-from-square.svg) for the dialog of interest on either the **Dialogs** or **{{ yagpt-name }} analysis** tab.
+To switch from the related dialogs page to the single dialog view page, click ![image](../../../_assets/console-icons/arrow-up-right-from-square.svg) for the dialog at hand on either the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** or **{{ ui-key.yc-ui-talkanalytics.projects.sumarization }}** tab.

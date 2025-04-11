@@ -211,7 +211,7 @@ description: Из статьи вы узнаете, как добавлять и
                      }
                    ],
                    "connLimit": "<максимальное_количество_подключений_к_БД>",
-                   "deletionProtection": <защита_от_удаления:_true_или_false>
+                   "deletionProtection": <защита_от_удаления>
                  }
                }'
      ```
@@ -225,7 +225,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      * `permissions.databaseName` — массив баз данных, к которым должен иметь доступ пользователь. Каждый элемент массива соответствует отдельной БД.
      * `connLimit` — максимальное количество подключений к БД для пользователя.
-     * `deletionProtection` — защита от удаления БД.
+     * `deletionProtection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -258,7 +258,7 @@ description: Из статьи вы узнаете, как добавлять и
                  }
                ],
                "conn_limit": "<максимальное_количество_подключений_к_БД>",
-               "deletion_protection": <защита_от_удаления:_true_или_false>
+               "deletion_protection": <защита_от_удаления>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
@@ -274,7 +274,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      * `permissions.database_name` — массив баз данных, к которым должен иметь доступ пользователь. Каждый элемент массива соответствует отдельной БД.
      * `conn_limit` — максимальное количество подключений к БД для пользователя.
-     * `deletion_protection` — защита от удаления БД.
+     * `deletion_protection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -643,7 +643,7 @@ description: Из статьи вы узнаете, как добавлять и
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-  1. Настройте защиту от удаления пользователя. Для этого выберите нужное значение в поле **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
+  1. Настройте защиту пользователя от удаления. Для этого выберите нужное значение в поле **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - {{ TF }} {#tf}
@@ -688,7 +688,7 @@ description: Из статьи вы узнаете, как добавлять и
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
        --data '{
                  "updateMask": "deletionProtection",
-                 "deletionProtection": <защита_от_удаления:_true_или_false>
+                 "deletionProtection": <защита_от_удаления>
                  }
                }'
      ```
@@ -701,7 +701,7 @@ description: Из статьи вы узнаете, как добавлять и
 
        В данном случае передается только один параметр.
 
-     * `deletionProtection` — защита от удаления БД.
+     * `deletionProtection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
@@ -733,7 +733,7 @@ description: Из статьи вы узнаете, как добавлять и
                  "deletion_protection"
                ]
              },
-             "deletion_protection": <защита_от_удаления:_true_или_false>
+             "deletion_protection": <защита_от_удаления>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.UserService.Update
@@ -745,7 +745,7 @@ description: Из статьи вы узнаете, как добавлять и
 
        В данном случае передается только один параметр.
 
-     * `deletion_protection` — защита от удаления БД.
+     * `deletion_protection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 

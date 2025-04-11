@@ -1,11 +1,11 @@
 ---
-title: How to send multiple requests in chat mode to {{ yagpt-full-name }}
-description: Follow this guide to learn how to use {{ yagpt-full-name }} in chat mode.
+title: How to send multiple requests in chat mode to {{ gpt-lite }} or {{ gpt-pro }}
+description: Follow this guide to learn how to use {{ gpt-lite }} and {{ gpt-pro }} in chat mode.
 ---
 
-# How to create a chat with {{ yagpt-name }}
+# How to build a chat with {{ gpt-lite }} or {{ gpt-pro }}
 
-{{ yagpt-full-name }} models do not retain the context of previous messages, so to have a continuous dialog with a model, you need to save the message history on your device and send it each time you are requesting the model. The [chat](../../concepts/yandexgpt/index.md) available in {{ foundation-models-name }} Playground consists of multiple prompts where the context of each new request includes the model's responses to previous ones. {{ yagpt-full-name }} models can work with context of up to {{ yagpt-max-tokens }} [tokens](../../concepts/yandexgpt/tokens.md).
+{{ gpt-lite }} and {{ gpt-pro }} models do not retain the context of previous messages, so to have a continuous dialog with a selected model, you need to save the message history on your device and send it each time you are addressing the model. The [chat](../../concepts/yandexgpt/index.md) available in the management console consists of multiple prompts where the context of each new text query includes the model's responses to previous ones. The text generation models are subject to context length [limits](../../concepts/limits.md).
 
 {% note tip %}
 
@@ -229,7 +229,7 @@ To create a chat with a model in your application and avoid delays in responses,
 
       {% include notitle [create-chat-step-4](../../../_includes/foundation-models/yandexgpt/create-chat-step-4.md) %}
 
-  1. Send a new request to the model repeating Step 2 of this guide. In response to your request, the model will again return the generated text:
+  1. Send a new request to the model by repeating Step 2 of this guide. In response to your request, the model will again return the generated text:
 
       {% include notitle [create-chat-step-5](../../../_includes/foundation-models/yandexgpt/create-chat-step-5.md) %}
 
@@ -315,7 +315,7 @@ To create a chat with a model in your application and avoid delays in responses,
 
       {% include notitle [create-chat-step-4](../../../_includes/foundation-models/yandexgpt/create-chat-step-4.md) %}
 
-  1. Send a new request to the model repeating Step `2.3` of this guide. In response to your request, the model will again return the generated text:
+  1. Send a new request to the model by repeating Step `2.3` of this guide. In response to your request, the model will again return the generated text:
 
       {% include notitle [create-chat-step-5](../../../_includes/foundation-models/yandexgpt/create-chat-step-5.md) %}
 
@@ -328,4 +328,4 @@ To create a chat with a model in your application and avoid delays in responses,
 #### See also {#see-also}
 
 * [{#T}](../../concepts/yandexgpt/index.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)

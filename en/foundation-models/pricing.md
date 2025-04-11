@@ -24,8 +24,8 @@ editable: false
 
 Text generation cost is based on the total number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the parameters of your request to the generative model. Namely, the cost depends on the following:
 
-* [Model](concepts/yandexgpt/models.md) that gets a request.
-* Model [working mode](concepts/index.md#working-mode).
+* [Model](concepts/yandexgpt/models.md) that gets the request.
+* The model's [operating mode](concepts/index.md#working-mode).
 
 The number of [prompt](concepts/yandexgpt/tokens.md) and response [tokens](concepts/index.md) for the same text may vary depending on model.
 
@@ -109,13 +109,13 @@ You are charged for each generation request in {{ yandexart-name }}. The request
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
 
 
-## Examples of {{ yagpt-full-name }} usage cost calculation {#price-examples}
+## Examples of {{ gpt-lite }} and {{ gpt-pro }} usage cost calculation {#price-examples}
 
 ### Calculating text generation cost {#price-example-generating}
 
 #### Example 1 {#example-generating-1}
 
-Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
+Cost of using {{ gpt-lite }} for text generation with the following parameters:
 
 * Number of prompt tokens: 225
 * Number of response tokens: 525
@@ -127,7 +127,7 @@ Cost of using {{ yagpt-full-name }} for text generation with the following param
 
 #### Example 2 {#example-generating-2}
 
-Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
+Cost of using {{ gpt-pro }} for text generation with the following parameters:
 
 * Number of prompt tokens: 115
 * Number of response tokens: 1,500
@@ -141,7 +141,7 @@ Cost of using {{ yagpt-full-name }} for text generation with the following param
 
 #### Example 3 {#example-generating-3}
 
-Cost of using {{ yagpt-full-name }} for text generation with the following parameters:
+Cost of using {{ gpt-pro }} and {{ ml-platform-name }} for text generation with the following parameters:
 
 * Number of prompt tokens: 1,020
 * Number of response tokens: 30
@@ -155,7 +155,7 @@ Cost of using {{ yagpt-full-name }} for text generation with the following param
 
 ### Calculating text vectorization cost {#price-example-embedding}
 
-Cost of using {{ yagpt-full-name }} for text vectorization with the following parameter:
+Cost of using {{ foundation-models-full-name }} for text vectorization with the following parameter:
 
 * Number of tokens in the request: 2,000
 

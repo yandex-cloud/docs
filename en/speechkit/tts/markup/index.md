@@ -12,9 +12,7 @@ For Russian and Kazakh, {{ speechkit-full-name }} supports the synthesis of norm
 
 {% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}
 
-
 In {{ speechkit-name }}, there are two markup formats:
 
 * [TTS](tts-markup.md): For API v1 and API v3.
 * [SSML](ssml.md): For API v1 only.
-

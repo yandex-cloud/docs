@@ -21,8 +21,8 @@ To manage a billing account, you must have a [Yandex account](../../../iam/conce
 ## How to link a billing account {#how-to}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the appropriate space.
-1. Under **Space not linked to a billing account**, click **Link**.
+1. Go to the space of your choice.
+1. Under **{{ ui-key.yc-ui-talkanalytics.spaces.error.billing.title }}**, click **{{ ui-key.yc-ui-talkanalytics.common.bind }}**.
 
    The **Create billing account** window will open. If you already created an account, it will automatically appear in the **Billing account** field in the window that opens.
 
@@ -37,7 +37,7 @@ To manage a billing account, you must have a [Yandex account](../../../iam/conce
 1. In the **Contact details** section, provide your email and phone number.
 1. Click **Link**.
 
-After that, the warning that you need to link your billing account will disappear. The information about the linked billing account is available on the space page, on the **Settings** tab.
+After that, the warning that you need to link your billing account will disappear. The information about the linked billing account is available in the **{{ ui-key.yc-ui-talkanalytics.common.settings }}** tab on the space page.
 
 ## What's next {#whats-next}
 

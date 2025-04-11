@@ -1,20 +1,22 @@
 # Creating a service agent
 
-With a [service agent](../../../iam/concepts/service-control.md#service-agent), you can work with other services, e.g. refresh your authorization tokens for {{ ml-platform-name }} notebooks.
+With a [service agent](../../../iam/concepts/service-control.md#service-agent), you will be able to work with other services, e.g., refresh your authorization tokens for {{ ml-platform-name }} notebooks.
 
 A service agent is a special service account under which {{ ml-platform-name }} projects will perform actions in other {{ yandex-cloud }} services. Once enabled in a community, a service agent will be available for all the projects in that community.
+
+You can also [manage a service agent](../projects/jobs-with-ssa.md) from [{{ ds-jobs }}](../../concepts/jobs/index.md).
 
 {% note info %}
 
 To enable a service agent in a {{ ml-platform-name }} community, you need the `{{ roles-datasphere-communities-editor }}` [role](../../security/index.md) or higher.
 
-You need the [admin](../../../resource-manager/security/index.md#resource-manager-admin) or [owner](../../../resource-manager/security/index.md#resource-manager-clouds-owner) role for the cloud to manage access of services to resources.
+You need the [admin](../../../resource-manager/security/index.md#resource-manager-admin) or [owner](../../../resource-manager/security/index.md#resource-manager-clouds-owner) role for the cloud to manage service access to resources.
 
 {% endnote %}
 
 {% include [cli-install](../../../_includes/cli-install.md) %}
 
-1. To allow a service agent to operate in {{ ml-platform-name }}, ask your cloud's admin or owner to execute the following command in the {{ yandex-cloud }} CLI:
+1. To allow a service agent to operate in {{ ml-platform-name }}, ask your cloud admin or owner to run the following command in the {{ yandex-cloud }} CLI:
 
    ```bash
    yc iam service-control enable datasphere --cloud-id <cloud_ID>
@@ -34,6 +36,6 @@ You need the [admin](../../../resource-manager/security/index.md#resource-manage
 
 {% note info %}
 
-To manage a community via API, [add](add-user.md) the service account to the community member list. To send requests to a node from a notebook or interact with a project via API, add the service account to the member lists of the community and the [project](../projects/add-user.md).
+To manage a community via the API, [add](add-user.md) the service account to the community member list. To send requests to a node from a notebook or access a project via the API, add the service account to the community and [project](../projects/add-user.md) member lists.
 
 {% endnote %}

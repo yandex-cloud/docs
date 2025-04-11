@@ -22,8 +22,8 @@ def main():
 
     paths = pathlib.Path(mypath).iterdir()
 
-    # Uploading files with examples
-    # The files will be stored for five days
+    # Uploading files with examples.
+    # The files will be stored for five days.
     files = []
     for path in paths:
         file = sdk.files.upload(
@@ -33,8 +33,8 @@ def main():
         )
         files.append(file)
 
-    # Creating an index for full-text search through the uploaded files
-    # The maximum fragment size is 700 tokens, with a 300-token overlap
+    # Let’s create an index for full-text search through the uploaded files.
+    # The maximum fragment size is 700 tokens, with a 300-token overlap.
     operation = sdk.search_indexes.create_deferred(
         files,
         index_type=TextSearchIndexType(
@@ -45,42 +45,67 @@ def main():
         ),
     )
 
-    # Waiting until the search index is created
+    # Waiting until the search index is created.
     search_index = operation.wait()
 
-    # Creating a tool to work with the search index
+    # Let’s create a tool to work with the search index.
     # or multiple search indexes if that was the case
     tool = sdk.tools.search_index(search_index)
 
-    # Creating an assistant for the Latest {{ gpt-pro }} model
-    # It will use the search index tool
+    # Let’s create an assistant for the Latest {{ gpt-pro }} model.
+    # It will use the search index tool.
     assistant = sdk.assistants.create("yandexgpt", tools=[tool])
     thread = sdk.threads.create()
 
-    input_text = ""
+    input_text = input(
+        'Enter your question to the assistant ("exit" to end the dialog): '
+    )
 
-    while input_text != "exit":
-        print("Enter your question to the assistant:")
-        input_text = input()
-        if input_text != "exit":
-            thread.write(input_text)
+    while input_text.lower() != "exit":
+        thread.write(input_text)
 
-            # Providing the model with the whole thread contents
-            run = assistant.run(thread)
+        # Let’s give the entirety of the tread to the model.
+        run = assistant.run(thread)
 
-            # To get the result, wait until the run is complete
-            result = run.wait()
+        # To get the result, wait until the run is complete.
+        result = run.wait()
 
-            # Displaying the response
-            print(f"Answer: {result.text}")
+        # Let’s display the response.
+        print("Response: ", result.text)
 
-    # You can view all the messages stored in the thread
-    print("Outputting the whole message history when exiting the chat:")
-    for message in thread:
-        print(f"    {message=}")
-        print(f"    {message.text=}\n")
+        # Let’s display part of the _citations_ property’s attributes: information about used fragments created from source files.
+        # 
+        # To display the entire contents of the _citations_ property, run this command: print(result.citations)
+        # 
+        count = 1
+        for citation in result.citations:
+            for source in citation.sources:
+                if source.type != "filechunk":
+                    continue
+                print(
+                    f"* Contents of fragment No.{count}: {source.parts}"
+                )
+                print(
+                    f"* Search index ID in fragment No.{count}: {source.search_index.id}"
+                )
+                print(
+                    f"* Search index type settings in fragment No.{count}: {source.search_index.index_type}"
+                )
+                print(
+                    f"* Source file ID for fragment No.{count}: {source.file.id}"
+                )
+                print(
+                    f"* Source file MIME type for fragment No.{count}: {source.file.mime_type}"
+                )
+                print()
 
-    # Deleting everything you no longer need
+            count += 1
+
+        input_text = input(
+            'Enter your question to the assistant ("exit" to end the dialog): '
+        )
+
+    # Delete everything you no longer need.
     search_index.delete()
     thread.delete()
     assistant.delete()

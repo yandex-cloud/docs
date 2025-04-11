@@ -20,7 +20,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
 ## Set up your environment {#set-space}
 
-1. Create a [space](concepts/resources-hierarchy.md#space) where all your [projects](concepts/resources-hierarchy.md#project) will be stored: select **Create space**, enter a name, add a description (optional), and click **Create**.
+1. Create a [space](concepts/resources-hierarchy.md#space) to store all your [projects](concepts/resources-hierarchy.md#project): select **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**, enter a name, add a description if required, and click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
 1. [Link a billing account](operations/space/link-ba.md) to the space. This account will be debited for the use of {{ speechsense-name }}.
 
    {% note tip %}
@@ -29,12 +29,12 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
    {% endnote %}
 
-1. Go to the **Connections** tab and create a [connection](concepts/resources-hierarchy.md#connection) based on metainformation of your audio recordings or text chats:
+1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and create a [connection](concepts/resources-hierarchy.md#connection) based on the metainformation of your audio recordings or text chats:
 
-   1. Enter the **Connection name**.
-   1. Select the **Two-channel audio** or **Chat** data type.
+   1. Enter **{{ ui-key.yc-ui-talkanalytics.connections.connection-name }}**.
+   1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** or **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
    1. Set the connection parameters. For more information, see [Creating a connection](operations/connection/create.md).
-   1. Click **Create connection**.
+   1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 
    {% cut "Example of metadata.json for loading audio data" %}
 
@@ -53,7 +53,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
    {% endcut %}
 
-1. Create a project: on the space page, click **Create project**, enter a project name, and add a connection to the project. For each connection, you can select filtering rules based on its metainformation and the {{ yagpt-full-name }} criteria. With filters, you can ensure that only the dialogs you need are added to the project. Once you are done adding connections and configuring filters, click **Create project**.
+1. Create a project by clicking **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}** on the space page, entering a name for the project, and adding a connection to it. For each connection, you can select filtering rules based on its metainformation and the [{{ gpt-pro }}](../foundation-models/concepts/yandexgpt/index.md) criteria. With filters, you can ensure that only the dialogs you need are added to the project. After adding all required connections and configuring filters, click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
 
 ## Upload your data {#upload-data}
 

@@ -1,6 +1,6 @@
 ---
-title: How to send a request in prompt mode to {{ yagpt-full-name }}
-description: Follow this guide to learn how to use {{ yagpt-full-name }} in prompt mode.
+title: How to send a request in promt mode to {{ gpt-lite }} or {{ gpt-pro }}
+description: Follow this tutorial to learn how to use {{ gpt-lite }} and {{ gpt-pro }} in prompt mode.
 ---
 
 # Sending a request in prompt mode
@@ -435,4 +435,4 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 #### See also {#see-also}
 
 * [{#T}](../../concepts/yandexgpt/index.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)

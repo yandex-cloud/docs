@@ -36,4 +36,4 @@ description: Из статьи вы узнаете про уведомления
 
 #### Пример {#notification-example}
 
-[Пример чарта с уведомлениями](https://datalens.yandex/uw4m2h7evlwog#Editor.%20setChartsInsights(args))
+[Пример чарта с уведомлениями](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args))

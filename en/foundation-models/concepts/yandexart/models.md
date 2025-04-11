@@ -49,7 +49,7 @@ You can access image generation models of in a number of ways.
 
   To [access](../../operations/yandexart/request.md) a model via the [REST API](../../image-generation/api-ref/index.md) or [gRPC API](../../image-generation/api-ref/grpc/index.md), specify the model's URI containing the [folder ID](../../../resource-manager/operations/folder/get-id.md) in the `modelUri` field of the request body. The `/latest` segment indicates the model version and is optional.
 
-  **Example:**
+  **Example**:
 
   ```json
   {

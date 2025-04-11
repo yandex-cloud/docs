@@ -23,10 +23,10 @@ To get information about a dialog via the {{ yandex-cloud }} REST API: 
       "spaceId": "<space_ID>",
       "connectionId": "<connection_ID>",
       "projectId": "<project_ID>",
-      "talk_ids": [
+      "talkIds": [
         "<dialog_ID>"
       ],
-      "results_mask": {
+      "resultsMask": {
         "paths": [
           "<requested_field_keys>"
         ]
@@ -34,20 +34,20 @@ To get information about a dialog via the {{ yandex-cloud }} REST API: 
     }
     ```
 
-    Where: 
+    Where:
 
     {% include [id-parameters](../../../_includes/speechsense/data/api-id-parameters.md) %}
 
-    * `talk_ids`: IDs of the dialogs you want to get information about. To find out the dialog IDs, use a [search query](#search-query). 
-    * `results_mask`: Result mask. If this parameter is not provided, you will get the full information about the dialog, whereas if the parameter is provided with an empty `paths` list, you will get only the basic information about the dialog, such as the IDs of the project, connection, and space, information about when and by whom the dialog was created or modified, and the metadata added when uploading the dialog. To unload individual fields with data, provide the keys of the required fields in the `paths` list to the mask: 
+    * `talkIds`: IDs of the dialogs you want to get information about. To find out the dialog IDs, use a [search query](#search-query).
+    * `resultsMask`: Result mask. If this parameter is not provided, you will get the full information about the dialog, whereas if the parameter is provided with an empty `paths` list, you will get only the basic information about the dialog, such as the IDs of the project, connection, and space, information about when and by whom the dialog was created or modified, and the metadata added when uploading the dialog. To unload individual fields with data, provide the keys of the required fields in the `paths` list to the mask:
 
-      * `transcription`: Audio text transcript or chat text messages. 
-      * `speech_statistics`: Speech statistics. 
-      * `silence_statistics`: Statistics of pauses in the dialog. 
-      * `interrupts_statistics`: Statistics of dialog partner interruptions. 
-      * `conversation_statistics`: Dialog statistics. 
-      * `points`: Dialog summary. 
-      * `text_classifiers`: Statistics for classifiers (tags). 
+      * `transcription`: Audio text transcript or chat text messages.
+      * `speechStatistics`: Speech statistics.
+      * `silenceStatistics`: Statistics of pauses in the dialog.
+      * `interruptsStatistics`: Statistics of dialog partner interruptions.
+      * `conversationStatistics`: Dialog statistics.
+      * `points`: Dialog summary.
+      * `textClassifiers`: Statistics for classifiers (tags).
 
     For more information about GET request parameters, see the [API reference](../../api-ref/Talk/get.md).  
 
@@ -60,15 +60,15 @@ To get information about a dialog via the {{ yandex-cloud }} REST API: 
        -d @get.json
     ```
 
-    Where `Api-Key` is the API key for authentication. If using an IAM token, specify `Bearer ${IAM_TOKEN}` instead of `Api-Key ${API_KEY}`. 
+    Where `Api-Key` is the API key for authentication. If using an IAM token, specify `Bearer ${IAM_TOKEN}` instead of `Api-Key ${API_KEY}`.
 
-    The results will be output to the terminal in JSON format. 
+    The results will be output to the terminal in JSON format.
 
 ## Request body example for getting information about a dialog {#get-chat-info-example}
 
-For example, you need to get a summary of a dialog with technical support where the agent proposed filing a ticket for a technician's visit. To get the ID of the dialog, use [this request example for full-text search](#full-text-search-example). 
+For example, you need to get a summary of a dialog with technical support where the agent proposed filing a ticket for a technician's visit. To get the ID of the dialog, use [this request example for full-text search](#full-text-search-example).
 
-Your JSON file with the request parameters will look as follows: 
+Your JSON file with the request parameters will look as follows:
 
 ```json
 {
@@ -76,8 +76,8 @@ Your JSON file with the request parameters will look as follows: 
   "spaceId": "f3fuclf1kufs********",
   "connectionId": "eag0u346n4hn********",
   "projectId": "eag9t3rm3o43********",
-  "talk_ids": ["aud95sn63lra********"],
-  "results_mask": {
+  "talkIds": ["aud95sn63lra********"],
+  "resultsMask": {
     "paths": ["points"]
   }
 }
@@ -90,17 +90,17 @@ Your JSON file with the request parameters will look as follows: 
   "talk": [
     {
       "id": "aud95sn63lra********",
-      "organization_id": "yc.organization****************",
-      "space_id": "f3fuclf1kufs********",
-      "connection_id": "eag0u346n4hn********",
-      "project_ids": [
+      "organizationId": "yc.organization****************",
+      "spaceId": "f3fuclf1kufs********",
+      "connectionId": "eag0u346n4hn********",
+      "projectIds": [
         "eag9t3rm3o43********"
       ],
-      "created_by": "ajeugoqa16o5********",
-      "created_at": "2024-09-24T08:53:09.932Z",
-      "modified_by": "CLASSIFIER",
-      "modified_at": "2024-09-24T18:06:08.299Z",
-      "talk_fields": [
+      "createdBy": "ajeugoqa16o5********",
+      "createdAt": "2024-09-24T08:53:09.932Z",
+      "modifiedBy": "CLASSIFIER",
+      "modifiedAt": "2024-09-24T18:06:08.299Z",
+      "talkFields": [
         {
           "name": "operator_name",
           "value": "Agent",
@@ -148,10 +148,10 @@ Your JSON file with the request parameters will look as follows: 
         }
       ],
       "transcription": null,
-      "speech_statistics": null,
-      "silence_statistics": null,
-      "interrupts_statistics": null,
-      "conversation_statistics": null,
+      "speechStatistics": null,
+      "silenceStatistics": null,
+      "interruptsStatistics": null,
+      "conversationStatistics": null,
       "points": {
         "quiz": [
           {
@@ -206,7 +206,7 @@ Your JSON file with the request parameters will look as follows: 
           }
         ]
       },
-      "text_classifiers": null
+      "textClassifiers": null
     }
   ]
 }

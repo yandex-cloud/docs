@@ -1,11 +1,11 @@
 ---
-title: How to send asynchronous requests to {{ yagpt-full-name }}
-description: Follow this guide to learn how to send asynchronous requests to models in {{ yagpt-full-name }}.
+title: How to send asynchronous requests to the text generation API
+description: Follow this tutorial to learn how to send asynchronous requests to models in {{ gpt-lite }} and {{ gpt-pro }}.
 ---
 
 # Sending an asynchronous request
 
-You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concepts/index.md#working-mode). In response to an asynchronous request, the model will return an [operation object](../../../api-design-guide/concepts/operation.md) containing the operation ID you can use to [follow up the operation's progress](../../../api-design-guide/concepts/operation.md#monitoring) and get the result once the generation is complete. Use this mode if you do not need an urgent response, since asynchronous requests take longer to complete than [synchronous](./create-prompt.md) ones.
+You can send requests to text generation models in [asynchronous mode](../../concepts/index.md#working-mode). In response to an asynchronous request, the model will return an [operation object](../../../api-design-guide/concepts/operation.md) containing the operation ID you can use to [follow up the operation's progress](../../../api-design-guide/concepts/operation.md#monitoring) and get the result once the generation is complete. Use this mode if you do not need an urgent response, since asynchronous requests take longer to complete than [synchronous](./create-prompt.md) ones.
 
 ## Getting started {#before-begin}
 
@@ -190,4 +190,4 @@ You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concep
 #### See also {#see-also}
 
 * [{#T}](../../concepts/yandexgpt/index.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)

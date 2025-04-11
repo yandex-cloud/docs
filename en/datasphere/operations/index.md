@@ -81,6 +81,7 @@ description: This page presents all the guides on how to use {{ ml-platform-full
 * [{#T}](projects/work-with-jobs.md)
 * [{#T}](projects/jobs-toolkit.md)
 * [{#T}](projects/use-job-results.md)
+* [{#T}](projects/jobs-with-ssa.md)
 
 ## Shared access to resources, projects, and computation results {#share}
 
@@ -97,4 +98,3 @@ description: This page presents all the guides on how to use {{ ml-platform-full
 ## Additional {{ ml-platform-name }} features {#additional-feature}
 
 * [{#T}](migration.md)
-

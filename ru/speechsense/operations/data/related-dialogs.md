@@ -6,7 +6,7 @@
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите нужный проект.
-1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** [найдите](manage-dialogs.md#filters-dialogs) нужный диалог.
+1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** [найдите](manage-dialogs.md#search-dialogs) нужный диалог.
 1. Перейдите к связанным диалогам одним из способов:
 
     * В списке диалогов [отобразите колонку](../data/manage-dialogs.md#set-columns) с [номерами задач](../../concepts/dialogs.md#related-dialogs). Затем нажмите на номер задачи в строке с нужным диалогом.

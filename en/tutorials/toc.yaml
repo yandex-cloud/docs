@@ -1294,6 +1294,8 @@ items:
             href: ml-ai/s3-to-datasphere.md
           - name: Creating an MLFlow server for logging experiments and artifacts
             href: ml-ai/mlflow-datasphere.md
+          - name: Model tuning in {{ ml-platform-name }}
+            href: ml-ai/models-fine-tuning.md
       - name: Usage {{ ml-platform-name }}
         items:
           - name: Deploying a service in {{ ml-platform-name }} from an ONNX model
@@ -1326,3 +1328,9 @@ items:
             href: ml-ai/archive-from-vision-to-object-storage.md
           - name: Developing a Telegram bot for text and audio recognition
             href: ml-ai/recognizer-bot.md
+      - name: Using {{ foundation-models-full-name }} generative models
+        items:
+          - name: >-
+              Implementing an AI assistant with search through PDF files with
+              complex formatting
+            href: ml-ai/pdf-searchindex-ai-assistant.md

@@ -5,16 +5,13 @@ description:
     databases in the Yandex Cloud infrastructure.
   - >-
     <a href="https://ydb.tech/en">YDB</a> is a distributed fault-tolerant SQL
-    DBMS.
-     YDB provides high availability, horizontal scalability, as well as strict consistency and support for ACID transactions.
-
-     Queries are made using an SQL dialect (<a
-    href="https://ydb.tech/docs/en/yql/reference/">YQL</a>).
+    DBMS. YDB provides high availability, horizontal scalability, as well as
+    strict consistency and support for ACID transactions. Queries are made using
+    an SQL dialect (<a href="https://ydb.tech/docs/en/yql/reference/">YQL</a>).
   - >-
-    The Yandex Cloud infrastructure is <a
+    The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">is
-    protected</a> pursuant to the Russian Federal Law No. 152-FZ on Personal
-    Data.
+    protected</a> pursuant to Russian Federal Law No. 152-FZ on Personal Data.
 meta:
   title: Yandex Managed Service for YDB
   description: >-
@@ -37,10 +34,10 @@ links:
     description: HTTP API method descriptions
     href: docapi/api-ref/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Identity and access management
-    description: Set up access permissions to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

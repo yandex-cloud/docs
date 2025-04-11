@@ -265,7 +265,7 @@
         * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** оставьте значение по умолчанию: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
 
     1. Создайте файл `myfunction.py`.
-    1. В области редактирования файла вставьте код функции, размещенный на [Github](https://github.com/yandex-cloud/examples/blob/master/iot/Samples/PostgreSQL/myfunction.py).
+    1. В области редактирования файла вставьте код функции, размещенный на [Github](https://github.com/yandex-cloud-examples/yc-iot-postgresql/blob/main/myfunction.py).
 
         {% note info %}
 

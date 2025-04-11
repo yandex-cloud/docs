@@ -24,7 +24,7 @@
     * `model`: Speech recognition model.
     * `container_audio_type`: Audio container format.
 
-1. Run the request using one of the service account authentication methods:
+1. Run the request using one of the service account authentication methods:    
     * With an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
       ```bash
@@ -65,7 +65,7 @@
 
     Save the recognition operation `id` you get in the response.
 
-1. Wait until the recognition is completed. It takes about 10 seconds to recognize one minute of audio.
+1. Wait until the recognition is complete. It takes about 10 seconds to recognize one minute of audio.
 1. [Request information](../../api-design-guide/concepts/operation.md#monitoring) about the operation:
 
     * Authentication with an IAM token:

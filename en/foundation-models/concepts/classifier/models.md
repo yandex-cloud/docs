@@ -54,7 +54,7 @@ You can access classifier models in a number of ways.
 
   To [access](../../operations/classifier/readymade.md) a model via the [REST API](../../text-classification/api-ref/TextClassification/fewShotClassify.md) or [gRPC API](../../text-classification/api-ref/grpc/TextClassification/fewShotClassify.md), specify the model's URI containing the [folder ID](../../../resource-manager/operations/folder/get-id.md) in the `modelUri` field of the request body. The `/latest` segment indicates the model version and is optional. To access a {{ yagpt-name }}-based classifier model, use the `fewShotClassify` Text Classification API method/call.
 
-  **Example:**
+  **Example**:
 
   ```json
   {

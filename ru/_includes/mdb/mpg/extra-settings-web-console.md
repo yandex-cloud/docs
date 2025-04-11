@@ -40,10 +40,10 @@
 
 - **{{ ui-key.yacloud.postgresql.cluster.additional-field-pooling_mode }}** — выберите один из [режимов работы менеджера подключений](../../../managed-postgresql/concepts/pooling.md).
 
-- {% include [Deletion protection](../console/deletion-protection.md) %}
+- **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита от удаления кластера, его баз данных и пользователей.
 
     По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](../../../managed-postgresql/operations/cluster-users.md) и [Управление БД](../../../managed-postgresql/operations/databases.md).
     
     Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
 
-    {% include [Ограничения защиты от удаления](../deletion-protection-limits-db.md) %}
+    {% include [Ограничения защиты от удаления кластера](../../../_includes/mdb/deletion-protection-limits-data.md) %}

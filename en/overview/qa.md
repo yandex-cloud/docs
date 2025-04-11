@@ -66,7 +66,6 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
   
 
-
 ### Serverless computing {#serverless}
 
 * [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
@@ -77,7 +76,6 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ message-queue-full-name }}](../message-queue/qa/index.md)
 * [{{ objstorage-full-name }}](../storage/qa.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
-
 
 
 ### Security {#security}
@@ -101,7 +99,6 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ resmgr-full-name }}](../resource-manager/qa/index.md)
 
 
-
 ### Machine learning {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
@@ -112,14 +109,10 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ vision-full-name }}](../vision/qa/index.md)
 
 
-
-
 ### Business tools {#business-tools}
 
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ video-full-name }}](../video/troubleshooting.md)
-
-
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
 

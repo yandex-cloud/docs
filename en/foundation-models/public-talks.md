@@ -9,6 +9,10 @@ description: Videos of conferences and webinars dedicated to {{ foundation-model
 
 ### 2025 {#2025}
 
+* How to fine-tune LLMs using LoRA. [Click here to view the video](https://www.youtube.com/watch?v=PVeuQu1j6Y4).
+
+* Deep-dive for developers: creating AI assistants. [Click here to view the video](https://www.youtube.com/watch?v=Xjutc_T0p8s).
+
 * {{ yandexart-name }} for businesses. Watch the video on [YouTube](https://www.youtube.com/watch?v=I9Fpsxv8Hlc) or [Yandex](https://runtime.strm.yandex.ru/player/episode/vplefdetiqv7tasxrbyk).
 
 ### 2024 {#2024}

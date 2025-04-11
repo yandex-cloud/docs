@@ -87,6 +87,12 @@ items:
             href: operations/dictionary/add.md
           - name: Removing a dictionary
             href: operations/dictionary/delete.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Uploading data automatically using {{ sw-full-name }}
+        href: tutorials/auto-upload.md
   - name: Concepts
     items:
       - name: Resource hierarchy
@@ -187,5 +193,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Release notes
+    href: release-notes/index.md
   - name: FAQ
     href: qa/index.md

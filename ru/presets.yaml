@@ -6717,6 +6717,7 @@ default:
           label_time-min_zero: минут
           label_time-sec_many: секунд
         unspecified: Не задано
+        update: Обновить
         value: Значение
       component:
         acl-dialog:
@@ -10429,6 +10430,7 @@ default:
         delete-key-value: Удалить
         duplicate: Дублировать
         edit: Редактировать
+        filters: Фильтры
         more: Еще
         'no': Нет
         period: Период
@@ -10452,6 +10454,8 @@ default:
           chat-key-value: Чат
           two-channel-key-value: Двухканальное аудио
       dialogs:
+        all-participants: Все участники
+        analysis: Анализ
         bot: Бот
         classifier:
           appreciation-key-value: Благодарность
@@ -10465,8 +10469,17 @@ default:
         direction:
           incoming: Входящий
           outgoing: Исходящий
+        exact-match-by-key-phrases: Точное совпадение по ключевым фразам
         open-dialog: Перейти в диалог
         operator: Оператор
+        operator-tags: Теги оператора
+        search:
+          dictionary:
+            title: Словарный
+          neuro:
+            title: Смысловой
+          text:
+            title: Полнотекстовый
         speech-statistics: Статистики речи
         system-meta:
           talk:
