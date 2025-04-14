@@ -215,7 +215,7 @@
 
 {% note info %}
 
-Примечание: по умолчанию доступ по HTTP(S) в Gitlab может быть выключен. В таком случае вы получите ошибку `FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed` при подключении репозитория. Чтобы включить доступ, в вашем Gitlab откройте **Admin → Settings → General**, найдите настройки **Visibility and access controls → Enabled Git access protocols**, в выпадающем списке выберите любую настройку, включающую доступ к репозиториям через HTTP(S). Сохраните изменения.
+По умолчанию доступ по HTTP(S) в Gitlab может быть выключен. В таком случае вы получите ошибку `FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed` при подключении репозитория. Чтобы включить доступ, в вашем Gitlab откройте **Admin → Settings → General**, найдите настройки **Visibility and access controls → Enabled Git access protocols**, в выпадающем списке выберите любую настройку, включающую доступ к репозиториям через HTTP(S). Сохраните изменения.
 
 {% endnote %}
 
