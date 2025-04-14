@@ -211,7 +211,7 @@
 1. Нажмите кнопку **Create project access token**.
 1. Скопируйте значение созданного токена.
 1. В консоли Argo CD перейдите в раздел **Settings** → **Repositories**.
-1. Нажмите кнопку **Connect Repo Using HTTPS**.
+1. Нажмите кнопку **Connect Repo Using HTTPS**.  Примечание: по умолчанию доступ по HTTP(S) в Gitlab может быть выключен. В таком случае вы получите ошибку `FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed` при подключении репозитория. Чтобы включить доступ, в вашем Gitlab откройте **Admin → Settings → General**, найдите настройки **Visibility and access controls → Enabled Git access protocols**, в выпадающем списке выберите любую настройку, включающую доступ к репозиториям через HTTP(S). Сохраните изменения.
 1. В открывшейся форме задайте параметры:
    * **Repository URL** — URL репозитория вида `https://<имя_инстанса_{{ GL }}>.gitlab.yandexcloud.net/<имя_пользователя-администратора>/gitlab-test.git`.
    * **Username** — `gitlab-ci-token`.
