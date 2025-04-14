@@ -20,7 +20,10 @@
 
 Подробнее об особенностях каждого формата смотрите в разделе [Поддерживаемые форматы аудио](../../speechkit/formats.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](api/request-examples.md)
+
 #### См. также {#see-also}
 
 * [{#T}](api/request-api.md)
-* [{#T}](api/request-examples.md)

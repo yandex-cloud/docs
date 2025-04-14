@@ -21,8 +21,6 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Дообучение моделей
-        href: concepts/trainings-of-models.md
       - name: Поддерживаемые языки
         href: concepts/supported-languages.md
       - name: Глоссарии

@@ -47,6 +47,8 @@ description: Пошаговые инструкции по управлению �
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
 - [Перевыпуск IAM-токена](compromised-credentials.md#iam-reissue)
+- [{#T}](refresh-token/list.md)
+- [{#T}](refresh-token/revoke.md)
 - [{#T}](authentication/manage-access-keys.md)
 - [{#T}](authentication/manage-api-keys.md)
 - [{#T}](authentication/manage-authorized-keys.md)

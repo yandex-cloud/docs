@@ -10,8 +10,8 @@ Follow this guide to create and test different types of extensions. First, you w
 ## Getting started {#before-you-begin}
 
 To get started in {{ yandex-cloud }}:
-1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an API gateway {#create-api-gw}
@@ -21,9 +21,9 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, enter `numbers`.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, specify `numbers`.
   1. (Optional) In the **{{ ui-key.yacloud.common.description }}** field, enter a description.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
 
@@ -76,7 +76,7 @@ To get started in {{ yandex-cloud }}:
 ## Access the API gateway {#api-gw-test}
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and click the name of the created API gateway.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and click the name of the API gateway you created.
 1. Save the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field.
 1. Install [curl](https://curl.haxx.se).
 1. Access the API gateway using curl with one of the commands:
@@ -91,7 +91,7 @@ To get started in {{ yandex-cloud }}:
 
     Where `<service_domain>` is the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field you saved earlier.
 
-    For example:
+    Here is an example:
     
     ```bash
     curl https://{{ api-host-apigw }}/hello?user=API
@@ -111,7 +111,7 @@ To get started in {{ yandex-cloud }}:
 
 ### Create a function {#function}
 
-Create a [function](../../functions/concepts/function.md) to get a list of numbers. Read more about functions in the [{{ sf-full-name }}](../../functions/) documentation.
+Create a [function](../../functions/concepts/function.md) to get a list of numbers. Read more about functions in the [{{ sf-full-name }} documentation](../../functions/).
 
 {% list tabs group=instructions %}
 
@@ -122,20 +122,20 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
       1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
       1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
-      1. In the **{{ ui-key.yacloud.common.name }}** field, enter `list`.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `list`.
       1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Create a function version:
       1. Select the `nodejs18` runtime environment.
-      1. Enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
+      1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** in the editor below.
           1. In the window that opens, enter `index.js` for the file name.
           1. Click **{{ ui-key.yacloud.common.create }}**.
-      1. Copy the following code to `index.js`:
+      1. Paste the following code to `index.js`:
 
           ```js
-          module.exports.handler = async (event) => {
+          module.exports.handler = async (event) = {
             return {
               "statusCode": 200,
               "headers": {"content-type": "application/json"},
@@ -144,7 +144,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
           };
           ```
 
-      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, enter `index.handler`.
+      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `index.handler`.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
   1. [Make](../../functions/operations/function/function-public.md) your function public.
 
@@ -164,7 +164,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
         };
         ```
 
-     1. Add the `index.js` file into the `hello-js.zip` archive.
+     1. Add the `index.js` file to the `hello-js.zip` archive.
   1. Describe the parameters of the `yandex_function` resource in the configuration file:
 
      ```hcl
@@ -192,22 +192,22 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
      * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
      * `memory`: Amount of memory allocated for the function, in MB.
      * `execution_timeout`: Function execution timeout.
-     * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) to call the function under.
+     * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) to invoke the function under.
      * `tags`: Function tags.
      * `content`: Function source code.
      * `content.0.zip_filename`: Path to the ZIP archive containing the function source code.
 
-     For more information about the `yandex_function` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
+     For more information about the `yandex_function` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
@@ -216,7 +216,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/) commands:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/) commands:
 
         ```bash
         yc serverless function list
@@ -298,7 +298,7 @@ Add function information to the API gateway specification.
   To add function information to the API gateway specification:
   1. Open the {{ TF }} configuration file and add the `/numbers` method which uses the `x-yc-apigateway-integration` extension of the `cloud_functions` type to invoke a function by ID. In the `spec` section, update the API gateway specification by providing the following parameters:
      * `function_id`: Function ID.
-     * `service_account_id`: ID of the service account with the permissions to invoke the function.
+     * `service_account_id`: ID of the service account with permissions to invoke the function.
 
      Extended API gateway specification:
 
@@ -358,17 +358,17 @@ Add function information to the API gateway specification.
      }
      ```
 
-     For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/api_gateway).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
@@ -377,7 +377,7 @@ Add function information to the API gateway specification.
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these CLI commands:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these CLI commands:
 
         ```bash
         yc serverless api-gateway get <API_gateway_name>

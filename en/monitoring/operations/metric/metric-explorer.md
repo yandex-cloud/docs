@@ -90,8 +90,8 @@ To view the legend and statistics for a time interval:
 1. Select the metrics and [build a chart](#add-graph).
 1. Under the chart, click **{{ ui-key.yacloud_monitoring.wizard.button.top-by }}**.
 1. Select the parameters you want plotted:
-   * **{{ ui-key.yacloud_monitoring.wizard.group-by.chart-for }}**: Parameter for additional charts. These can be charts for different services, hosts, or processors (i.e., the tokens selected in the request).
-   * **{{ ui-key.yacloud_monitoring.wizard.group-by.limit }}**: Number of high values and low values on the chart.
+   * **{{ ui-key.yacloud_monitoring.wizard.group-by.label-field-title }}**: Parameter for additional charts. These can be charts for different services, hosts, or processors (i.e., the tokens selected in the request).
+   * **{{ ui-key.yacloud_monitoring.wizard.group-by.limit-field-title }}**: Number of high values and low values on the chart.
    * **{{ ui-key.yacloud_monitoring.wizard.group-by.sort-by }}**: Sorting by minimum, maximum, or average value of the selected parameter.
    * **{{ ui-key.yacloud_monitoring.wizard.group-by.charts-count }}**: Number of charts in one line.
 1. Click **{{ ui-key.yacloud_monitoring.wizard.group-by.execute }}**.

@@ -1,6 +1,6 @@
 ---
 title: '{{ dataproc-full-name }} metrics'
-description: In this article, you will learn about {{ dataproc-name }} metrics.
+description: In this tutorial, you will learn about {{ dataproc-name }} metrics.
 editable: false
 ---
 

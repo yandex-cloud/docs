@@ -1,25 +1,25 @@
 ---
 title: Access management in {{ cloud-desktop-full-name }}
-description: 'Access management in {{ cloud-desktop-full-name }}. Permissions are granted when assigning a role. You can assign a role for an organization, folder, or cloud: all permissions from a cloud or organization are inherited.'
+description: 'Access management in {{ cloud-desktop-full-name }}. Permissions are granted when assigning a role. You can assign a role for an organization, folder, or cloud: all permissions for a cloud or organization are inherited.'
 ---
 
 # Access management in {{ cloud-desktop-full-name }}
 
-In {{ cloud-desktop-name }}, access control is achieved by using {{ iam-full-name }} roles and [access control lists (ACL)](../concepts/acl.md). See the [example of using access control mechanisms](../concepts/acl.md#example).
+{{ cloud-desktop-name }} leverages {{ iam-full-name }} roles and [access control lists (ACLs)](../concepts/acl.md) to manage access. [This example](../concepts/acl.md#example) shows how access management works in {{ cloud-desktop-name }}.
 
 In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [What roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [desktop group](../concepts/desktops-and-groups.md) via the management console, {{ yandex-cloud }} [CLI](../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md), or [API](../api-ref/authentication.md).
+You can assign a role for a [desktop group](../concepts/desktops-and-groups.md) via the [management console]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md), or [API](../api-ref/authentication.md).
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
 ### Service roles {#service-roles}
 

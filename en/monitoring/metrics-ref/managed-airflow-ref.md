@@ -1,6 +1,6 @@
 ---
-title: Metrics of {{ maf-full-name }}
-description: In this article, you will learn about {{ maf-name }} metrics.
+title: '{{ maf-full-name }} metrics'
+description: In this tutorial, you will learn about {{ maf-name }} metrics.
 editable: false
 ---
 

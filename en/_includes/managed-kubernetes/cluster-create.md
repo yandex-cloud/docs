@@ -25,9 +25,9 @@
      {% include [write-once-settings](write-once-setting.md) %}
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** field, select the {{ managed-k8s-name }} master type:
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}`: Master created in a [subnet](../../vpc/concepts/network.md#subnet) in one [availability zone](../../overview/concepts/geo-scope.md).
+     * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}`: Master created in a [subnet](../../vpc/concepts/network.md#subnet) in one [availability zone](../../overview/concepts/geo-scope.md).
 
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`: Master created in a distributed manner in three subnets in each availability zone.
+     * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`: Master created in a distributed manner in three subnets in each availability zone.
    * Select the availability zone to create a {{ managed-k8s-name }} master in.
 
      This step is only available for the {{ managed-k8s-name }} zonal master.

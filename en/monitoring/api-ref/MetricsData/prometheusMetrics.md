@@ -3,7 +3,7 @@ editable: false
 ---
 
 # prometheusMetrics method
-Exports service metrics in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/). All the metrics from the folder are exported.
+Exports all service metrics from a folder in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/).
 
 ## HTTP request {#https-request}
 ```
@@ -12,21 +12,21 @@ Authorization: Bearer <API_key>
 ```
 
 ## Headers {#headers}
-| Header | Description |
+Header | Description
 --- | ---
-| Authorization | Service account API key. Use `Bearer` rather than `Api-Key` as the prefix. |
+Authorization | Service account API key. Use `Bearer` rather than `Api-Key` as the prefix.
 
 ## Query parameters {#query_params}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| folderId | This is a required field. ID of the folder you want to export metrics from. The maximum string length is 50 characters. |
-| service | This is a required field. [ID](../../operations/metric/prometheusExport.md) of the service you want to export metrics from. |
+folderId | This is a required field. ID of the folder containing metrics you want to export. The maximum string length is 50 characters.
+service | This is a required field. [ID](../../operations/metric/prometheusExport.md) of the service you want to monitor by exporting its metrics.
 
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 
-Metrics from the service in Prometheus format.
+Service metrics in Prometheus format.
 
 ```bash
 # TYPE disk_flush_ops_failed gauge

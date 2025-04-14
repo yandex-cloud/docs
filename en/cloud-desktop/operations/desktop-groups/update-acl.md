@@ -1,9 +1,9 @@
 ---
-title: How to change access permissions for a desktop group in {{ cloud-desktop-full-name }}
+title: How to change desktop group access permissions in {{ cloud-desktop-full-name }}
 description: In this tutorial, you will learn how to change access permissions for a desktop group in {{ cloud-desktop-full-name }}.
 ---
 
-# Changing desktop group permissions
+# Changing desktop group access permissions
 
 {% include [access-options](../../../_includes/cloud-desktop/access-options.md) %}
 
@@ -11,10 +11,10 @@ description: In this tutorial, you will learn how to change access permissions f
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the desktop group is in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the desktop group you want to change access permissions for and select **Configure ACL**.
-  1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the desktop group.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the desktop group whose access permissions you want to change, then select **Configure ACL**.
+  1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens, grant or revoke the permissions as you see fit.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -26,11 +26,11 @@ description: In this tutorial, you will learn how to change access permissions f
 
   {% note alert %}
 
-  The `set-access-binding` command completely rewrites access permissions for a desktop group. All current group roles will be deleted.
+  The `set-access-binding` command will rewrite all desktop group access permissions, deleting existing group roles.
 
   {% endnote %}
 
-  1. Make sure the desktop group has no roles assigned that you would not want to lose:
+  1. Make sure the desktop group has no roles you want to keep:
 
      ```bash
      yc desktops group list-access-bindings <desktop_group_name_or_ID>
@@ -50,12 +50,12 @@ description: In this tutorial, you will learn how to change access permissions f
         --access-binding role=<role>,<subject_type>=<subject_ID>
       ```
 
-      Where `--access-binding` is used to provide the parameters for setting access permissions:
+      Where `--access-binding` contains access permission settings:
 
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `role`: [Role](../../security/index.md#roles-list).
+      * `subject`: Type and ID of the [entity](../../../iam/concepts/access-control/index.md#subject) assigned the role.
 
-      For example, assign roles to multiple users and a service account:
+      For example, the following command will assign roles to multiple users and a single service account:
 
       ```bash
       yc desktops group set-access-bindings my-desktop-group \
@@ -64,7 +64,7 @@ description: In this tutorial, you will learn how to change access permissions f
         --access-binding role=editor,serviceAccount=ajel6l0jcb9s********
       ```
 
-      To assign a role to a subject without rewriting its other roles, use the `yc desktops group add-access-bindings` [command](../../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md). For example, to assign a role to a service account:
+      To assign a role to an entity without rewriting its other roles, use the `yc desktops group add-access-bindings` [command](../../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md). For example, the following command will assign a role to a service account:
 
       ```bash
       yc desktops group add-access-bindings \

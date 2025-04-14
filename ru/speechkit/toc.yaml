@@ -233,6 +233,10 @@ items:
           Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
           speechkit-name }}
         href: tutorials/speechkit-integrarion-via-agi-gw.md
+      - name: >-
+          Регулярное асинхронное распознавание аудиофайлов из {{ objstorage-name
+          }}
+        href: tutorials/batch-recognition-stt.md
   - name: Поддерживаемые форматы аудио
     href: formats.md
   - name: Интеграция телефонии

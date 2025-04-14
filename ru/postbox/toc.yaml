@@ -31,6 +31,8 @@ items:
         href: concepts/notification.md
       - name: Термины и определения
         href: concepts/glossary.md
+      - name: Ограничения на вложения в письмах
+        href: concepts/restrictions.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Практические руководства

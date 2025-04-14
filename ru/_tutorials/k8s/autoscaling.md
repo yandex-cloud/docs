@@ -54,7 +54,7 @@
    * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** — `k8s-symetric-key`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_release-channel }}** — `RAPID`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** — `k8s-network`.
    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика и для доступа к API {{ k8s }}.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}** — `{{ ui-key.yacloud.common.enabled }}`.

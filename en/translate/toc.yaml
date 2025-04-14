@@ -21,8 +21,6 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Model tuning
-        href: concepts/trainings-of-models.md
       - name: Supported languages
         href: concepts/supported-languages.md
       - name: Glossaries

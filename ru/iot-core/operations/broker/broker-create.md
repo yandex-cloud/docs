@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-      * (Опционально) Для присвоения брокеру метки заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.iot.button_add-label }}**.
+      * (Опционально) Для присвоения брокеру метки заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
 
   1. (Опционально) Добавьте [сертификат](../certificates/create-certificates.md):
 

@@ -82,6 +82,15 @@ OCR (Optical Character Recognition) – это оптическое распоз
 * Измените настройки обработчика изображений так, чтобы при просмотре учитывался заданный в секции `exif` угол поворота.
 * При передаче в сервис удалите из секции `exif` изображения атрибут `Orientation`, либо установите для него значение `0`.
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/archive-from-vision-to-object-storage.md)
+* [{#T}](../../tutorials/recognizer-bot.md)
+* [{#T}](../../operations/ocr/text-detection-image.md)
+* [{#T}](../../operations/ocr/text-detection-pdf.md)
+* [{#T}](../../operations/ocr/text-detection-handwritten.md)
+* [{#T}](../../operations/ocr/text-detection-table.md)
+
 #### Что дальше {#what-is-next}
 
 * [Посмотрите список поддерживаемых языков](supported-languages.md).

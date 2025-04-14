@@ -1,6 +1,6 @@
 ---
 title: '{{ mmg-full-name }} metrics'
-description: In this article, you will learn about {{ mmg-name }} metrics.
+description: In this tutorial, you will learn about {{ mmg-name }} metrics.
 editable: false
 ---
 

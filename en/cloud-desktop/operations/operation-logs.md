@@ -1,6 +1,6 @@
-# Viewing operations with {{ cloud-desktop-name }} resources
+# Viewing {{ cloud-desktop-name }} resource operations
 
-All actions with {{ cloud-desktop-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ cloud-desktop-name }} resources in an operation list. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,15 +8,15 @@ All actions with {{ cloud-desktop-name }} resources are logged as a list of oper
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a [desktop](../concepts/desktops-and-groups.md). The same steps apply to other service resources.
+  You can get a list of operations for a specific resource. The steps below explain how to do this for a [desktop](../concepts/desktops-and-groups.md). The same steps apply to other resources as well.
 
-  1. In the [management console]({{ link-console-main }}), open the folder the desktop is in.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the desktop.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. Select the desktop you need.
-  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected desktop.
+  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected desktop.
 
-     You will see a list of operations with the selected desktop.
+     You will see its list of operations.
 
 - CLI {#cli}
 
@@ -24,7 +24,7 @@ All actions with {{ cloud-desktop-name }} resources are logged as a list of oper
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ cloud-desktop-name }} resource, run this command:
+  To get a list of operations for the {{ cloud-desktop-name }} resource, run this command:
 
   ```bash
   yc desktops <resource_type> list-operations <resource_name_or_ID>
@@ -49,7 +49,7 @@ All actions with {{ cloud-desktop-name }} resources are logged as a list of oper
   +----------------------+---------------------+----------------------+---------------------+---------+-----------------+
   ```
 
-  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc desktops desktop list-operations e3v7nfkhn0q4******** --format yaml

@@ -1,7 +1,6 @@
 ---
 title: Как начать работать с {{ cloud-shell-full-name }}
 description: С помощью {{ cloud-shell-name }} вы можете пользоваться CLI {{ yandex-cloud }} и другими терминальными инструментами без предварительной настройки прямо в браузере.
-noIndex: true
 ---
 
 # Начало работы с {{ cloud-shell-full-name }}

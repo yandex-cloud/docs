@@ -1,23 +1,23 @@
 # Overview
 
-This API reference is organized by resource. To perform an operation on a resource, make a remote procedure call (RPC). For more information, see the documentation on the [{{ yandex-cloud }} API concepts](../../../api-design-guide/).
+This API reference is organized by resource. To perform an operation on a resource, make an RPC call. For more information, see the [{{ yandex-cloud }} API guidelines](../../../api-design-guide/).
 
 Service|Description|Use cases
 ------|--------|--------
-[DashboardService](DashboardService.md) | Set of methods for managing dashboards |[grpcurl](../../operations/dashboard/api-examples.md)
+[DashboardService](DashboardService.md) | Methods for managing dashboards |[grpcurl](../../operations/dashboard/api-examples.md)
 
-## Processing responses of mutating operations {#mutating-operations}
+## Processing mutating operation responses {#mutating-operations}
 
-Any operations that change the state of a resource are asynchronous signature operations. When they are called, the server returns the [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto) object.
+Any operation changing a resource state has an asynchronous signature. When these operations are called, the server returns the [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto) object.
 
-The `Operation` object contains information about the operation: its status, ID, creation date, etc. You can use this object for operation status monitoring. The operation status is displayed in the `done` field. Once the operation is completed, the `done` field value changes to `true`. Currently, all operations are synchronous and return `done=true` or an error.
+The `Operation` object contains operation data, e.g., its status, ID, creation date, etc. You can use it for operation status monitoring by checking the `done` field that changes to `true` once the operation is completed. Currently, all operations are synchronous, returning `done=true` or an error.
 
-If an error occurs while performing an asynchronous operation, the server aborts all running procedures. The `error` field describing the error is added to the `Operation` object.
+An error during an asynchronous operation causes the server to abort all running procedures and add the `error` description field to the `Operation` object.
 
-If the `Operation` object is returned in response to your request, proceed as follows:
+If in response to your request, you receive an `Operation` object, proceed as follows:
 * Check that `done=true`.
-* Check that the `error` field contains no errors.
-* Get a response from the `response` field.
+* Check that the `error` field is empty.
+* Get the value of the `response` field.
 
 Error example:
 ```text
@@ -25,16 +25,16 @@ code: 6
 message: "ALREADY_EXISTS: Name must be uniq in parentId"
 ```
 
-## Handling errors {#error-handling}
+## Error handling {#error-handling}
 
-If an error occurs, the {{ monitoring-name }} API returns the gRPC `status != OK`. The response body contains a detailed error description in the following format:
+If an error occurs, the {{ monitoring-name }} API returns the gRPC `status != OK`. The response body contains an error description in the following format:
 
 ```text
 code: <number> error code
 message: <string>  error message
 ```
 
-Sample error message:
+Error description example:
 ```text
 code: 6
 message: "ALREADY_EXISTS: Name must be uniq in parentId"
@@ -44,12 +44,12 @@ Currently, there is no fixed list of error codes, so the `code` field is reserve
 
 {% note tip %}
 
-We recommend logging error messages. This will help the support team understand what caused the issue.
+We recommend logging error messages, which will help the support team understand the problems’s cause.
 
 {% endnote %}
 
 ### Object update conflicts {#conflicts-resolution}
 
-To resolve conflicts that may occur while updating objects, the optional `etag` field is used. You can provide it in mutating operations and get it using the `Get` method. An object will be modified if, during the request, it is not updated by another concurrent request, and the operation's `etag` matches the server value. If an error occurs, get a new `etag` and retry the operation.
+To resolve conflicts when updating objects, use the optional `etag` field that you can provide to the mutating operations and retrieve using the `Get` method. An object will be updated if it is not modified by another concurrent request, and the operation's `etag` matches the server value. If an error occurs, get a new `etag` and retry the operation.
 
-`etag`: Optional field. If it is not provided, the `last-write-wins` policy applies.
+`etag`: Optional field. If it is not provided, the `last-write-wins` policy will be in effect.

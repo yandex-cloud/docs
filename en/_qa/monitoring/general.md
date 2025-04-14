@@ -2,16 +2,16 @@
 
 {% include [logs](../logs.md) %}
 
-#### How do I view service dashboards? {#dont-see-dashboards}
+#### How can I see the service dashboards? {#dont-see-dashboards}
 
-Service dashboards are created automatically after resources are created in {{ yandex-cloud }}. Add a resource and update the {{ monitoring-name }} [homepage]({{ link-monitoring }}).
+Service dashboards appear automatically when you create {{ yandex-cloud }} resources. Add a resource and refresh the {{ monitoring-name }} [homepage]({{ link-monitoring }}).
 
 #### The old data in {{ monitoring-name }} charts has disappeared. Why? {#lost-data-graphs}
 
-Metrics for which no new values have been received for 30 days are automatically deleted from {{ monitoring-name }}. For {{ managed-prometheus-name }}, this period is 60 days; for {{ compute-full-name }}, 7 days. For more information, see [{#T}](../../monitoring/concepts/ttl.md).
+If a metric has not received new data for 30 days, it is automatically deleted from {{ monitoring-name }}. This period is 60 days for {{ managed-prometheus-name }} and 7 days for {{ compute-full-name }}. For more information, see [{#T}](../../monitoring/concepts/ttl.md).
 
-There is also a non-configurable [decimation mechanism](../../monitoring/concepts/decimation.md) that decreases the amount of stored data.
+There is also a non-configurable [decimation mechanism](../../monitoring/concepts/decimation.md) reducing the amount of stored data.
 
-#### In {{ prometheus-name }}, metrics are not delivered, and I cannot create a workspace. Why? {#prometheus-trouble}
+#### My metrics are not reported and I cannot create a {{ prometheus-name }} workspace. Why? {#prometheus-trouble}
 
-This may happen if none of your cloud [resources](../../overview/roles-and-resources.md#resources) are sending monitoring data. Start using a resource and wait for the metrics to show up in {{ monitoring-name }}.
+This can happen if you do not have monitoring data-providing [resources](../../overview/roles-and-resources.md#resources) in your cloud. Start using any resource and wait for the metrics to show up in {{ monitoring-name }}.

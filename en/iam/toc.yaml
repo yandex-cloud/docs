@@ -67,6 +67,12 @@ items:
                 href: operations/iam-token/create-for-federation.md
               - name: Revoking an IAM token
                 href: operations/iam-token/revoke-iam-token.md
+              - name: Refresh tokens
+                items:
+                  - name: Getting a list of refresh tokens
+                    href: operations/refresh-token/list.md
+                  - name: Revoking a refresh token
+                    href: operations/refresh-token/revoke.md
           - name: Managing static access keys
             href: operations/authentication/manage-access-keys.md
           - name: Managing API keys
@@ -145,6 +151,8 @@ items:
             href: concepts/authorization/iam-token.md
           - name: ID token
             href: concepts/authorization/id-token.md
+          - name: Refresh token
+            href: concepts/authorization/refresh-token.md
           - name: OAuth token
             href: concepts/authorization/oauth-token.md
           - name: API key

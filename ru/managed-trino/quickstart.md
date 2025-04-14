@@ -54,12 +54,12 @@ noIndex: true
 
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `test`.
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `PostgreSQL`.
-           * **{{ ui-key.yacloud.trino.catalogs.label_url }}** — `jdbc:postgresql://<FQDN_хоста_кластера_{{ PG }}>:6432/<имя_базы_данных>?ssl=true&sslmode=verify-full`.
+           * **URL** — `jdbc:postgresql://<FQDN_хоста_кластера_{{ PG }}>:6432/<имя_базы_данных>?ssl=true&sslmode=verify-full`.
 
                Подробнее о получении FQDN хоста в кластере {{ mpg-name }} см. в [инструкции](../managed-postgresql/operations/connect.md#fqdn).
 
-           * **{{ ui-key.yacloud.trino.catalogs.label_userName }}** — имя пользователя в кластере {{ mpg-name }}.
-           * **{{ ui-key.yacloud.trino.catalogs.label_password }}** — пароль пользователя.
+           * **Имя пользователя** — имя пользователя в кластере {{ mpg-name }}.
+           * **Пароль** — пароль пользователя.
 
         1. Для тестовых данных со следующими параметрами:
 

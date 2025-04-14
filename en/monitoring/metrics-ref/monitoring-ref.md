@@ -4,7 +4,7 @@ editable: false
 
 # {{ monitoring-full-name }} metrics
 
-This section describes the {{ monitoring-name }} metrics delivered to it.
+This section describes metrics delivered to {{ monitoring-name }}.
 
 {% include [monitoring.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
 

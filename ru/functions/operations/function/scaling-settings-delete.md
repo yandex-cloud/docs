@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}** наведите курсор на тег версии функции (например, ![image](../../../_assets/console-icons/gear.svg) `$latest`), для которой хотите удалить настройки масштабирования.
-    1. Во всплывающем окне нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_edit-tag }}**.
+    1. Во всплывающем окне нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_edit-scale-settings }}**.
     1. Чтобы удалить настройку масштабирования, сделайте ее значение равным нулю.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

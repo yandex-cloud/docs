@@ -55,12 +55,12 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         1. Specify a name for the folder. The name must be unique within the cloud.
         1. Select **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**.
-        1. Under **{{ ui-key.yacloud.trino.catalogs.section_catalog }}**, set the parameters depending on the selected type:
+        1. Under **Catalog settings**, set the parameters depending on the selected type:
 
             * For Hive, Iceberg, and Delta Lake connectors:
 
-                * **{{ ui-key.yacloud.trino.catalogs.label_uri }}** to connect to the Metastore cluster in this format: `thrift://<IP_address>:<port>`.
-                * **{{ ui-key.yacloud.trino.catalogs.label_filesystem }}**: Select the file storage type: **{{ ui-key.yacloud.trino.catalogs.label_s3 }}** or **{{ ui-key.yacloud.trino.catalogs.label_external-s3 }}**. For external storage, specify the following settings:
+                * **URI** to connect to the Metastore cluster in this format: `thrift://<IP_address>:<port>`.
+                * **File storage**: Select the file storage type: **Yandex Object Storage** or **External storage**. For external storage, specify the following settings:
                     * AWS-compatible static access key ID.
                     * AWS-compatible static access key secret key.
                     * File storage endpoint, such as `{{ s3-storage-host }}`.
@@ -68,9 +68,9 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * For {{ PG }} and {{ CH }} connectors:
 
-                * **{{ ui-key.yacloud.trino.catalogs.label_url }}** to connect to a cluster in this format: `jdbc:<DBMS>://<host_address>:<port>/<DB_name>`, where `DBMS` is `postgresql` or `clickhouse`.
-                * **{{ ui-key.yacloud.trino.catalogs.label_userName }}** to connect to a cluster.
-                * User **{{ ui-key.yacloud.trino.catalogs.label_password }}**.
+                * **URL** to connect to a cluster in this format: `jdbc:<DBMS>://<host_address>:<port>/<DB_name>`, where `DBMS` is `postgresql` or `clickhouse`.
+                * **User name** to connect to a cluster.
+                * User **Password**.
 
             * [TPC-H](https://trino.io/docs/current/connector/tpch.html) and [TPC-DS](https://trino.io/docs/current/connector/tpcds.html) connectors provide access to test data and do not require configuration.
 
