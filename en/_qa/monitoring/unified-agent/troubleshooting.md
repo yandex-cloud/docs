@@ -1,14 +1,14 @@
-# {{ unified-agent-full-name }} possible errors
+# Possible errors {{ unified-agent-full-name }}
 
-This section describes typical problems that may arise when using {{ unified-agent-short-name }} and the relevant solutions.
+This section describes typical problems occurring when using {{ unified-agent-short-name }} and their solutions.
 
-If you encounter any errors, make sure you have the latest {{ unified-agent-short-name }} version installed. To install the latest agent version, follow [this guide](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup).
+In case of an error, make sure you have the latest {{ unified-agent-short-name }} version installed. To install the latest agent version, follow [this guide](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup).
 
-{{ unified-agent-short-name }} errors related to data retrieval and transmission fall under two categories:
+{{ unified-agent-short-name }} data retrieval and transmission errors fall under two categories:
 
-* `ERROR agent/[plugin_id]...`: Errors when retrieving metrics from the data source app. `plugin_id`: ID of the [plugin](../../../monitoring/concepts/data-collection/unified-agent/inputs.md) the agent uses to retrieve data.
+* `ERROR agent/[plugin_id]...`: Errors that occur when retrieving metrics from the data source app. `plugin_id`: ID of the agent’s data retrieval [plugin](../../../monitoring/concepts/data-collection/unified-agent/inputs.md).
 
-* `ERROR agent/output-yc_metrics...`: Errors when sending metrics to {{ monitoring-name }}.
+* `ERROR agent/output-yc_metrics...`: Errors that occur when sending metrics to {{ monitoring-name }}.
 
 #### Message size [value] is greater than inflight limit [value], message dropped {#message-size-error}
 
@@ -28,12 +28,12 @@ If the error persists, contact [support]({{ link-console-support }}).
 
 #### 500 Internal server error {#internal-error}
 
-The server got an internal error preventing proper processing of the request. Try again.
+An internal server error occured, preventing request processing. Try again.
 
 If the error persists, contact [support]({{ link-console-support }}).
 
 #### SSL library returned error {#ssl-error}
 
-Wrong [TLS certificate](../../../certificate-manager/concepts/index.md) or error establishing a secure connection. Try again.
+Wrong [TLS certificate](../../../certificate-manager/concepts/index.md) or error when establishing a secure connection. Try again.
 
 If the error persists, contact [support]({{ link-console-support }}).

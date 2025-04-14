@@ -48,7 +48,7 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}**: `k8s-symetric-key`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_release-channel }}**: `RAPID`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}**: `k8s-network`.
    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the previously created security groups containing the rules for service traffic and {{ k8s }} API access.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**: `{{ ui-key.yacloud.common.enabled }}`.

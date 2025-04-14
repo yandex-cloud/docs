@@ -72,6 +72,15 @@
 * `vi`, `en`, `ru` — вьетнамский.
 * `zh`, `en`, `ru` — китайский.
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/archive-from-vision-to-object-storage.md)
+* [{#T}](../../tutorials/recognizer-bot.md)
+* [{#T}](../../operations/ocr/text-detection-image.md)
+* [{#T}](../../operations/ocr/text-detection-pdf.md)
+* [{#T}](../../operations/ocr/text-detection-handwritten.md)
+* [{#T}](../../operations/ocr/text-detection-table.md)
+
 #### Что дальше {#what-is-next}
 
 * [Посмотрите известные ограничения в текущей версии](known-issues.md)

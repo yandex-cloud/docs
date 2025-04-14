@@ -1,6 +1,6 @@
 ---
 title: '{{ monitoring-full-name }} pricing policy'
-description: This article provides the {{ monitoring-name }} pricing policy.
+description: This article explains the {{ monitoring-name }} pricing policy.
 editable: false
 ---
 
@@ -10,17 +10,17 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-## What goes into the cost of using {{ monitoring-short-name }} {#rules}
+## What goes into the cost of {{ monitoring-short-name }} {#rules}
 
-Currently, {{ monitoring-short-name }} charges for writing custom metrics via the [{{ monitoring-short-name }} API](api-ref/index.md) and writing any metrics via the [{{ prometheus-name }} Remote API](operations/prometheus/index.md), as well as reading any metrics via the [{{ monitoring-short-name }} API](api-ref/index.md).
+At present, you will be charged for writing custom metrics via the [{{ monitoring-short-name }} API](api-ref/index.md) and writing any metrics via the [{{ prometheus-name }} Remote API](operations/prometheus/index.md), as well as reading any metrics via the [{{ monitoring-short-name }} API](api-ref/index.md).
 
 Reading metrics via the {{ prometheus-name }} Remote API is not yet billable.
 
 Pricing features:
-* After writing or reading the first 50 million values via the {{ monitoring-short-name }} API, the writing charge is reduced. See .
+* After writing or reading the first 50 million metric values via the {{ monitoring-short-name }} API, the writing fee is reduced. See .
 * There is no charge for writing {{ yandex-cloud }} resource metrics collected automatically.
 * There is no charge for reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console.
-* There is no charge for incoming and outgoing traffic in {{ monitoring-short-name }}.
+* There is no charge for {{ monitoring-short-name }} incoming and outgoing traffic.
 
 ### Cost calculation example {#example}
 

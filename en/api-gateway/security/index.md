@@ -5,13 +5,13 @@ description: Access management in {{ api-gw-full-name }}, an API gateway service
 
 # Access management in {{ api-gw-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. As long as a user has no roles assigned, almost all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. With no roles assigned, a user cannot perform most operations.
 
 To allow access to {{ api-gw-name }} resources (API gateways), assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `api-gateway.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `api-gateway.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -29,15 +29,15 @@ To assign a user a role for the cloud:
 
 For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 You can assign a role for an [API gateway](../concepts/index.md) via the {{ yandex-cloud }} [CLI](../../cli/cli-ref/serverless/cli-ref/api-gateway/add-access-binding.md) or [API](../api-ref/apigateway/authentication.md).
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
-The list below shows all roles considered when verifying access permissions in {{ api-gw-name }}.
+The list below shows {{ api-gw-name }} roles.
 
 ### Service roles {#service-roles}
 

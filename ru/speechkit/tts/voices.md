@@ -60,3 +60,10 @@ description: Из статьи вы узнаете, какие голоса до
 Если существующие голоса не подходят для вашего проекта, {{ speechkit-name }} может создать голос специально для вас. Подробнее о создании уникальных голосов см. в разделе [{{ brand-voice-full-name }}](brand-voice/index.md).
 
 {% endnote %}
+
+## Примеры использования {#examples}
+
+* [{#T}](api/tts-examples-v3.md)
+* [{#T}](api/tts-v3-rest.md)
+* [{#T}](api/tts-wav.md)
+* [{#T}](api/tts-ogg.md)

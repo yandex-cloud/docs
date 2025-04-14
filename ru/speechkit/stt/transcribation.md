@@ -63,9 +63,9 @@ description: Асинхронное распознавание позволяе�
    Результаты содержат распознанный текст целиком и список распознанных слов.
 
 
-## Примеры использования API асинхронного распознавания {#examples}
+## Примеры использования {#examples}
 
-* [{#T}](api/transcribation-lpcm.md).
-* [{#T}](api/transcribation-ogg.md).
-* [{#T}](api/transcribation-api-v3.md).
-* [{#T}](api/batch-transcribation.md).
+* [{#T}](api/transcribation-lpcm.md)
+* [{#T}](api/transcribation-ogg.md)
+* [{#T}](api/transcribation-api-v3.md)
+* [{#T}](api/batch-transcribation.md)

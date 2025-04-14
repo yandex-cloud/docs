@@ -3,9 +3,9 @@ editable: false
 ---
 
 # {{ yandex-cloud }} Monitoring API
-This API reference is organized by resource. All actions are performed by sending HTTP requests to resource URLs. For more information about {{ yandex-cloud }} API architecture, see [{{ yandex-cloud }} API Concepts](../../api-design-guide/index.yaml).
+This API reference is organized by resource. To perform an operation on a resource, send an HTTP-request to the appropriate URL. For more information about API architecture, see [{{ yandex-cloud }} API Concepts](../../api-design-guide/index.yaml).
 
-| Resource | Description |
+Resource | Description
 --- | ---
-| [MetricsData](MetricsData/index.md) | A set of methods for managing data on metrics. |
-| [MetricsMeta](MetricsMeta/index.md) | A set of methods for getting information about metric metadata. |
+[MetricsData](MetricsData/index.md) | Methods for managing metric data.
+[MetricsMeta](MetricsMeta/index.md) | Methods for getting metric metadata information.

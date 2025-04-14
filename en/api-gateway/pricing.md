@@ -18,11 +18,11 @@ In {{ api-gw-name }}, you are charged for the number of requests to the created 
 
 {% note warning %}
 
-{{ api-gw-name }} only handles HTTPS requests. The service automatically redirects all requests to API gateways over HTTP to their HTTPS versions. 
+{{ api-gw-name }} only handles HTTPS requests. All requests to API gateways over HTTP are redirected automatically to their HTTPS versions. 
 
 {% endnote %}
 
-### Pricing formula {#price-formula}
+### Cost calculation formula {#price-formula}
 
 
 

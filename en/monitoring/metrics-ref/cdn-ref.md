@@ -1,6 +1,6 @@
 ---
-title: Metrics of {{ cdn-full-name }}
-description: In this tutorial, you will learn about the {{ cdn-name }} metrics.
+title: '{{ cdn-full-name }} metrics'
+description: In this tutorial, you will learn about {{ cdn-name }} metrics.
 editable: false
 ---
 

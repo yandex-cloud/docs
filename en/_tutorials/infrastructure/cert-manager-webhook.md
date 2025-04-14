@@ -63,8 +63,8 @@ To create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations
      * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: Select the [IP address](../../vpc/concepts/address.md) assignment method:
        * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
      * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: Select the master type:
-       * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}`: To create a single master host in the selected availability zone. Specify a cloud network and select a subnet for the master host.
-       * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`: To create a single master host in each availability zone. Specify a cloud network and subnet for each availability zone.
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}`: To create a single master host in the selected availability zone. Specify a cloud network and select a subnet for the master host.
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`: To create a single master host in each availability zone. Specify a cloud network and subnet for each availability zone.
      * Select [security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
   1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
      * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: Specify an IP range to allocate addresses to [pods](../../managed-kubernetes/concepts/index.md#pod) from.

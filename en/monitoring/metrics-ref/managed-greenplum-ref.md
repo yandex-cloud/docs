@@ -1,6 +1,6 @@
 ---
-title: Metrics of {{ mgp-full-name }}
-description: In this article, you will learn about {{ mgp-name }} metrics.
+title: '{{ mgp-full-name }} metrics'
+description: In this tutorial, you will learn about {{ mgp-name }} metrics.
 editable: false
 ---
 

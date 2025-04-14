@@ -67,6 +67,12 @@ items:
                 href: operations/iam-token/create-for-federation.md
               - name: Отзыв IAM-токена
                 href: operations/iam-token/revoke-iam-token.md
+              - name: Refresh-токены
+                items:
+                  - name: Получение списка refresh-токенов
+                    href: operations/refresh-token/list.md
+                  - name: Отзыв refresh-токена
+                    href: operations/refresh-token/revoke.md
           - name: Управление статическими ключами доступа
             href: operations/authentication/manage-access-keys.md
           - name: Управление API-ключами
@@ -155,6 +161,8 @@ items:
             href: concepts/authorization/id-token.md
           - name: Cookie
             href: concepts/authorization/cookie.md
+          - name: Refresh-токен
+            href: concepts/authorization/refresh-token.md
       - name: Доступ сервисов к ресурсам пользователя
         stage: preview
         href: concepts/service-control.md

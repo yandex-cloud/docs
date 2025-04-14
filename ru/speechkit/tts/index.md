@@ -95,12 +95,18 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 
 Полный список доступных форматов и их характеристики см. в разделе [{#T}](../formats.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/recognizer-bot.md)
+* [{#T}](../tutorials/speechkit-integrarion-via-agi-gw.md)
+* [{#T}](api/tts-examples-v3.md)
+* [{#T}](api/tts-v3-rest.md)
+* [{#T}](api/tts-ogg.md)
+* [{#T}](api/tts-wav.md)
+* [{#T}](api/tts-ssml.md)
+
 #### См. также {#see-also}
 
 * Попробуйте синтез речи с помощью демо на [странице сервиса](/services/speechkit#demo).
 * Ознакомьтесь с параметрами метода [API v1](request.md) и запросов [API v3](../tts-v3/api-ref/grpc/).
-* Посмотрите примеры использования API {{ speechkit-name }}:
-  * [{#T}](api/tts-ogg.md)
-  * [{#T}](api/tts-wav.md)
-  * [{#T}](api/tts-ssml.md)
 

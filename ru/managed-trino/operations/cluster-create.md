@@ -55,12 +55,12 @@ noIndex: true
 
         1. Задайте имя каталога. Имя должно быть уникальным в рамках облака.
         1. Выберите **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**.
-        1. В блоке **{{ ui-key.yacloud.trino.catalogs.section_catalog }}** задайте параметры в зависимости от выбранного типа:
+        1. В блоке **Настройки каталога** задайте параметры в зависимости от выбранного типа:
 
             * Для коннекторов Hive, Iceberg и Delta Lake:
 
-                * **{{ ui-key.yacloud.trino.catalogs.label_uri }}** для подключения к кластеру Metastore в формате `thrift://<IP-адрес>:<порт>`.
-                * **{{ ui-key.yacloud.trino.catalogs.label_filesystem }}** — выберите тип файлового хранилища: **{{ ui-key.yacloud.trino.catalogs.label_s3 }}** или **{{ ui-key.yacloud.trino.catalogs.label_external-s3 }}**. Для внешнего хранилища задайте следующие настройки:
+                * **URI** для подключения к кластеру Metastore в формате `thrift://<IP-адрес>:<порт>`.
+                * **Файловое хранилище** — выберите тип файлового хранилища: **Yandex Object Storage** или **Внешнее хранилище**. Для внешнего хранилища задайте следующие настройки:
                     * Идентификатор AWS-совместимого статического ключа доступа.
                     * Секретный ключ AWS-совместимого статического ключа доступа.
                     * Эндпоинт файлового хранилища, например `{{ s3-storage-host }}`.
@@ -68,9 +68,9 @@ noIndex: true
 
             * Для коннекторов {{ PG }} и {{ CH }}:
 
-                * **{{ ui-key.yacloud.trino.catalogs.label_url }}** для подключения к кластеру в формате `jdbc:<СУБД>://<адрес_хоста>:<порт>/<имя_базы_данных>`, где `СУБД` — `postgresql` или `clickhouse`.
-                * **{{ ui-key.yacloud.trino.catalogs.label_userName }}** для подключения к кластеру.
-                * **{{ ui-key.yacloud.trino.catalogs.label_password }}** пользователя.
+                * **URL** для подключения к кластеру в формате `jdbc:<СУБД>://<адрес_хоста>:<порт>/<имя_базы_данных>`, где `СУБД` — `postgresql` или `clickhouse`.
+                * **Имя пользователя** для подключения к кластеру.
+                * **Пароль** пользователя.
 
             * Коннекторы [TPC-H](https://trino.io/docs/current/connector/tpch.html) и [TPC-DS](https://trino.io/docs/current/connector/tpcds.html) предоставляют доступ к тестовым данным и не нуждаются в настройке.
 

@@ -53,6 +53,13 @@ _[Распознавание речи](../../glossary/transcribation.md) (speech
 * разборчивость и темп речи;
 * сложность фраз и их длина.
 
+## Примеры использования {#examples}
+
+* [{#T}](api/streaming-examples-v3.md)
+* [{#T}](api/stt-language-labels-example.md)
+* [{#T}](api/transcribation-api-v3.md)
+* [{#T}](api/request-examples.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../formats.md)
