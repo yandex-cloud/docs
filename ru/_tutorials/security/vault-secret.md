@@ -14,7 +14,7 @@
 
 1. Скачайте последнюю версию docker-образа, используйте команду:
 
-   ```bash
+      ```bash
    docker pull {{ registry }}/yc/vault
    ```
 

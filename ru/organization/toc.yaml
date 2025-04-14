@@ -72,6 +72,8 @@ items:
         items:
           - name: Добавить SSH-ключ
             href: operations/add-ssh.md
+          - name: Включить refresh-токены
+            href: operations/enable-refresh-tokens.md
           - name: Работа с {{ oslogin }}
             items:
               - name: Включить доступ по {{ oslogin }}

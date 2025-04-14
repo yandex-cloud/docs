@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating them, specify the security groups prepared earlier.
 1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following settings:
-   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
+   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.compute.components.PlatformField.value_platform-tab-gpu_hGyQ8 }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
    * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: Specify the required number of GPUs.
    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the security groups created earlier.
 

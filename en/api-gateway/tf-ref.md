@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ api-gw-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ api-gw-name }}.
+description: This guide provides information about {{ TF }} resources and data sources supported by {{ api-gw-name }}.
 ---
 
 # {{ TF }} reference for {{ api-gw-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ api-gw-name }}:
+{{ api-gw-name }} supports the following {{ TF }} resources :
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -17,7 +17,7 @@ The following {{ TF }} provider resources are supported for {{ api-gw-name }}:
 
 ## Data sources {#data-sources}
 
-{{ api-gw-name }} supports the following {{ TF }} provider data sources:
+{{ api-gw-name }} supports the following {{ TF }} data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |

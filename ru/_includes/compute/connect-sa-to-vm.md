@@ -52,7 +52,7 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} измениn все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
+     {{ TF }} изменит все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
   Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_instance).
 

@@ -54,12 +54,12 @@ To get started:
 
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `test`
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `PostgreSQL`
-           * **{{ ui-key.yacloud.trino.catalogs.label_url }}**: `jdbc:postgresql://<FQDN_of_host_of_Managed_Service_for_Postgresql>:6432/<DB_name>?ssl=true&sslmode=verify-full`
+           * **URL**: `jdbc:postgresql://<FQDN_of_host_of_Managed_Service_for_Postgresql>:6432/<DB_name>?ssl=true&sslmode=verify-full`
 
                To learn how to get the FQDN of a host in a {{ mpg-name }} cluster, see [this guide](../managed-postgresql/operations/connect.md#fqdn).
 
-           * **{{ ui-key.yacloud.trino.catalogs.label_userName }}**: Username in the {{ mpg-name }} cluster.
-           * **{{ ui-key.yacloud.trino.catalogs.label_password }}**: User password.
+           * **User name**: Username in the {{ mpg-name }} cluster.
+           * **Password**: User password.
 
         1. For test data, with the following properties:
 

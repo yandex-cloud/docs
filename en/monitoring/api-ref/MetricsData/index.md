@@ -1,13 +1,13 @@
 ---
 editable: false
 ---
-# MetricsData
 
-A set of methods for managing data on metrics.
+# MetricsData
+Methods for managing metric data.
 
 ## Methods {#methods}
-| Method | Description |
+Method | Description
 --- | ---
-| [read](read.md) | Returns data on metrics. |
-| [write](write.md) | Writes data about metrics. |
-| [prometheusMetrics](prometheusMetrics.md) | Exports metrics in Prometheus format. |
+[read](read.md) | Returns metric data.
+[write](write.md) | Writes metric data.
+[prometheusMetrics](prometheusMetrics.md) | Exports metrics in Prometheus format.

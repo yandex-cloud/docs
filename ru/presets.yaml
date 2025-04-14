@@ -479,6 +479,8 @@ default:
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/ru-ru
+  msp-full-name: Yandex Managed Service for Apache Spark™
+  msp-name: Managed Service for Apache Spark™
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -5837,10 +5839,10 @@ default:
           repeatByParam: Повторение по параметру
           repeatSettings: Повторение графиков
         group-by:
-          chart-for: График для
           charts-count: Кол-во графиков в ряд
           execute: Выполнить
-          limit: Лимит
+          label-field-title: Разбить по метке
+          limit-field-title: Показать
           sort-by: Сортировать по
         legend:
           copy-as-csv: Копировать CSV
@@ -6762,7 +6764,6 @@ default:
             label_tab-custom: Своя конфигурация
             label_tab-gpu: GPU
             label_tab-standard: Standard
-            value_platform-tab-gpu: Есть GPU
         condition-column:
           condition_and: и
           condition_full-trafic: Весь трафик
@@ -6860,6 +6861,9 @@ default:
         component:
           instance-storage-dialog:
             button_add-disk: Добавить диск
+        components:
+          PlatformField:
+            value_platform-tab-gpu_hGyQ8: Есть GPU
         disk-form:
           field_size: Размер
           field_type: Тип
@@ -7548,7 +7552,6 @@ default:
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
-        button_add-label: Добавить метку
         button_add-password: Добавить пароль
         button_add-yds-export: Добавить экспорт
         button_create-broker: Создать брокер
@@ -7611,13 +7614,13 @@ default:
             label_stream-cluster-autoscaler: Логи Cluster Autoscaler
             label_stream-events: Логи событий
             label_stream-kube-apiserver: Логи API-сервера Kubernetes
+            option_master-type-basic: Базовый
+            option_master-type-highly-available: Высокодоступный
             section_allocation: Сетевые настройки кластера
             section_main-cluster: Конфигурация мастера
             section_maintenance: Настройки окна обновлений
             switch_auto: Автоматически
             switch_none: Без адреса
-            switch_region: Региональный
-            switch_zone: Зональный
             value_maintenance-anytime: В любое время
             value_maintenance-daily: Ежедневно
             value_maintenance-disabled: Отключено
@@ -8460,7 +8463,7 @@ default:
             value_method-storage: Object Storage
             value_method-zip-file: ZIP-архив
           overview:
-            button_edit-tag: Изменить
+            button_edit-scale-settings: Настройки масштабирования
             button_editor-create: Создать в редакторе
             label_all-users-invoke: Публичная функция
             label_invoke-link: Ссылка для вызова
@@ -8855,14 +8858,6 @@ default:
         catalogs:
           field_catalog-name: Имя каталога
           field_catalog-type: Тип коннектора
-          label_external-s3: Внешнее хранилище
-          label_filesystem: Файловое хранилище
-          label_password: Пароль
-          label_s3: Yandex Object Storage
-          label_uri: URI
-          label_url: URL
-          label_userName: Имя пользователя
-          section_catalog: Настройки каталога
         overview:
           title_resource-coordinator: Координатор
         title_catalogs: Каталоги
@@ -10469,7 +10464,7 @@ default:
         direction:
           incoming: Входящий
           outgoing: Исходящий
-        exact-match-by-key-phrases: Точное совпадение по ключевым фразам
+        exact-match-by-key-phrases: Точное совпадение ключевых фраз
         open-dialog: Перейти в диалог
         operator: Оператор
         operator-tags: Теги оператора
@@ -10479,7 +10474,7 @@ default:
           neuro:
             title: Смысловой
           text:
-            title: Полнотекстовый
+            title: Текстовый
         speech-statistics: Статистики речи
         system-meta:
           talk:
@@ -10777,7 +10772,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.21
+        tag: v0.2.23
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

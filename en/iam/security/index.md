@@ -88,6 +88,13 @@ For some services, e.g., [{{ ig-name }}](../../compute/concepts/instance-groups/
 
 {% include [iam.workloadIdentityFederations.admin](../../_roles/iam/workloadIdentityFederations/admin.md) %}
 
+#### iam.userAccounts.refreshTokenViewer {#iam-userAccounts-refreshTokenViewer}
+
+{% include [iam.userAccounts.refreshTokenViewer](../../_roles/iam/userAccounts/refreshTokenViewer.md) %}
+
+#### iam.userAccounts.refreshTokenRevoker {#iam-userAccounts-refreshTokenRevoker}
+
+{% include [iam.userAccounts.refreshTokenRevoker](../../_roles/iam/userAccounts/refreshTokenRevoker.md) %}
 
 #### iam.auditor {#iam-auditor}
 

@@ -32,7 +32,7 @@
 
 1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
 1. [Создайте группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-create.md) с настройками:
-   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}** — выберите `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
+   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}** — выберите `{{ ui-key.yacloud.compute.components.PlatformField.value_platform-tab-gpu_hGyQ8 }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
    * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}** — укажите нужное количество GPU.
    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности.
 

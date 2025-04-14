@@ -1,6 +1,6 @@
 ---
-title: Metrics of {{ sws-full-name }}
-description: In this article, you will learn about {{ sws-name }} metrics.
+title: '{{ sws-full-name }} metrics'
+description: In this tutorial, you will learn about {{ sws-name }} metrics.
 editable: false
 ---
 

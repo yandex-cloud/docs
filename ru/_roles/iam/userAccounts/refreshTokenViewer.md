@@ -1,0 +1,1 @@
+Роль `iam.userAccounts.refreshTokenViewer` позволяет просматривать списки refresh-токенов федеративных пользователей. Роль назначается на [организацию](../../../organization/concepts/organization.md).

@@ -1,6 +1,6 @@
 ---
-title: Metrics of {{ captcha-full-name }}
-description: In this article, you will learn about {{ captcha-name }} metrics.
+title: '{{ captcha-full-name }} metrics'
+description: In this tutorial, you will learn about {{ captcha-name }} metrics.
 editable: false
 ---
 

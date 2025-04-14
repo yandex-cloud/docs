@@ -1,9 +1,9 @@
 ---
-title: Questions and answers about {{ monitoring-full-name }}
-description: This page provides answers to questions about {{ monitoring-name }}.
+title: FAQ about {{ monitoring-full-name }}
+description: This page covers FAQ about {{ monitoring-name }}.
 ---
 
-# Questions and answers about {{ monitoring-name }}
+# FAQ about {{ monitoring-name }}
 
 ## General questions {#general}
 
@@ -13,7 +13,7 @@ description: This page provides answers to questions about {{ monitoring-name }}
 
 {% include notitle [navigation](../../_qa/monitoring/navigation.md) %}
 
-## Metric collection and export {#metrics-export}
+## Collecting and exporting metrics {#metrics-export}
 
 {% include notitle [metrics-export](../../_qa/monitoring/metrics-export.md) %}
 
@@ -21,6 +21,6 @@ description: This page provides answers to questions about {{ monitoring-name }}
 
 {% include notitle [metrics-measure](../../_qa/monitoring/metrics-measure.md) %}
 
-## Alerts/notifications {#alerts}
+## Alerts and notifications {#alerts}
 
 {% include notitle [alerts](../../_qa/monitoring/alerts.md) %}

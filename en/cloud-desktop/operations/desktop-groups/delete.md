@@ -9,9 +9,9 @@ description: In this tutorial, you will learn how to delete a desktop group in {
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the desktop group is in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the desktop group you want to delete and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your desktop group.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the desktop group you want to delete, then select **{{ ui-key.yacloud.common.delete }}**.
   
       {% note tip %}
 
@@ -27,7 +27,7 @@ description: In this tutorial, you will learn how to delete a desktop group in {
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/index.yaml) command to delete a [desktop group](../../../cloud-desktop/concepts/desktops-and-groups.md):
+  1. See the [CLI](../../../cli/index.yaml) command for the [desktop group](../../../cloud-desktop/concepts/desktops-and-groups.md) deletion:
 
       ```bash
       yc desktops group delete --help
@@ -37,7 +37,7 @@ description: In this tutorial, you will learn how to delete a desktop group in {
 
       {% include [desktops-group-list](../../../_includes/cloud-desktop/desktops-group-list.md) %}
 
-  1. Select the desktop group `ID` or `NAME`, for example, `my-desktop-group`.
+  1. Select the desktop group `ID` or `NAME`, e.g., `my-desktop-group`.
   1. Delete the desktop group:
 
      ```bash

@@ -475,6 +475,8 @@ default:
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/en-us
+  msp-full-name: Yandex Managed Service for Apache Spark™
+  msp-name: Managed Service for Apache Spark™
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -5682,11 +5684,11 @@ default:
           dashboards:
             title: Dashboards
           escalations:
-            title: Escalation Policies
+            title: Escalation policies
           explorer:
             title: Metrics
           notification-feed:
-            title: Notification Feed
+            title: Notification feed
           prometheus:
             title: Prometheus
       channel:
@@ -5832,10 +5834,10 @@ default:
           repeatByParam: Repeat by parameter
           repeatSettings: Repeat graphs
         group-by:
-          chart-for: Chart for
           charts-count: Number of graphs in a row
           execute: Execute
-          limit: Limit
+          label-field-title: Split by label
+          limit-field-title: Display
           sort-by: Sort by
         legend:
           copy-as-csv: Copy as CSV
@@ -6691,7 +6693,7 @@ default:
           button_assign-binding: Edit roles
           button_configure-access: Configure access
           button_invite-users: Invite users
-          button_new-bindings: Assign bindings
+          button_new-bindings: Assign roles
           button_remove-bindings: Remove bindings
           label_access-bindings: Access bindings
           label_bindings: Roles
@@ -6757,7 +6759,6 @@ default:
             label_tab-custom: Custom
             label_tab-gpu: GPU
             label_tab-standard: Standard
-            value_platform-tab-gpu: With GPU
         condition-column:
           condition_and: and
           condition_full-trafic: All traffic
@@ -6855,6 +6856,9 @@ default:
         component:
           instance-storage-dialog:
             button_add-disk: Add disk
+        components:
+          PlatformField:
+            value_platform-tab-gpu_hGyQ8: With GPU
         disk-form:
           field_size: Size
           field_type: Type
@@ -7541,7 +7545,6 @@ default:
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
-        button_add-label: Add label
         button_add-password: Add password
         button_add-yds-export: Add export
         button_create-broker: Create broker
@@ -7604,13 +7607,13 @@ default:
             label_stream-cluster-autoscaler: Cluster Autoscaler logs
             label_stream-events: Event logs
             label_stream-kube-apiserver: Kubernetes API server logs
+            option_master-type-basic: Basic
+            option_master-type-highly-available: Highly available
             section_allocation: Cluster network settings
             section_main-cluster: Master configuration
             section_maintenance: Maintenance window settings
             switch_auto: Auto
             switch_none: No address
-            switch_region: Regional
-            switch_zone: Zonal
             value_maintenance-anytime: Anytime
             value_maintenance-daily: Daily
             value_maintenance-disabled: Disable
@@ -8453,7 +8456,7 @@ default:
             value_method-storage: Object Storage
             value_method-zip-file: ZIP archive
           overview:
-            button_edit-tag: Edit
+            button_edit-scale-settings: Scaling settings
             button_editor-create: Сreate in editor
             label_all-users-invoke: Public function
             label_invoke-link: Link to invoke
@@ -8848,14 +8851,6 @@ default:
         catalogs:
           field_catalog-name: Catalog name
           field_catalog-type: Connector type
-          label_external-s3: External storage
-          label_filesystem: File storage
-          label_password: Password
-          label_s3: Yandex Object Storage
-          label_uri: URI
-          label_url: URL
-          label_userName: User name
-          section_catalog: Catalog settings
         overview:
           title_resource-coordinator: Coordinator
         title_catalogs: Catalogs
@@ -10464,7 +10459,7 @@ default:
         direction:
           incoming: Incoming
           outgoing: Outgoing
-        exact-match-by-key-phrases: Exact match by key phrases
+        exact-match-by-key-phrases: Exact match by keywords
         open-dialog: Open dialog
         operator: Agent
         operator-tags: 'Agent tags '
@@ -10474,7 +10469,7 @@ default:
           neuro:
             title: Semantic
           text:
-            title: Full-text
+            title: Text
         speech-statistics: Conversation statistics
         system-meta:
           talk:
@@ -10772,7 +10767,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.21
+        tag: v0.2.23
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [password-save](../../../_includes/iot-core/password-save.md) %}
 
-      * (Опционально) Для присвоения реестру метки заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.iot.button_add-label }}**.
+      * (Опционально) Для присвоения реестру метки заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
 
   1. (Опционально) Добавьте [сертификат](../certificates/create-certificates.md):
 

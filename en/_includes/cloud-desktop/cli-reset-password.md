@@ -9,4 +9,4 @@ yc desktops desktop reset-password \
 Where:
 
 * `--id`: Desktop ID.
-* `--user-account-id`: ID of the user the desktop is created for.
+* `--user-account-id`: Desktop user ID.

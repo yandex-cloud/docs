@@ -21,7 +21,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
 
           {% include [password-save](../../../_includes/iot-core/password-save.md) %}
 
-      * (Optional) To assign a label to the registry, fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
+      * (Optional) To assign a label to the registry, fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
 
   1. (Optional) Add a [certificate](../certificates/create-certificates.md):
 

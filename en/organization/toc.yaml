@@ -72,6 +72,8 @@ items:
         items:
           - name: Adding an SSH key
             href: operations/add-ssh.md
+          - name: Enabling refresh tokens
+            href: operations/enable-refresh-tokens.md
           - name: Working with {{ oslogin }}
             items:
               - name: Enabling access via {{ oslogin }}

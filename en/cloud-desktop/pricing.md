@@ -13,10 +13,10 @@ editable: false
 The {{ cloud-desktop-name }} usage cost includes:
 
 * Computing resources:
-  * Number of vCPUs.
-  * Amount of RAM.
-* Disk type and size.
-* Amount of outgoing traffic.
+  * Number of vCPUs
+  * Amount of RAM
+* Disk type and size
+* Amount of outgoing traffic
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -58,7 +58,7 @@ Here is an example of calculating the cost of using {{ cloud-desktop-name }} for
 
 * Computing resources: 2 x 50% vCPUs and 2 GB of RAM.
 * Boot disk: 50 GB SSD.
-* Working disk: 30 GB HDD.
+* Data disk: 30 GB HDD.
 * Total operating time of all desktops over the month: 1,000 hours.
 
 

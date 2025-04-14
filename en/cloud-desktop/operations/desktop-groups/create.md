@@ -1,6 +1,6 @@
 ---
 title: How to create a desktop group
-description: This guide describes how you can create a desktop group.
+description: In this tutorial, we will create a desktop group.
 ---
 
 # Creating a desktop group

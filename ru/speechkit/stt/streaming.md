@@ -101,12 +101,17 @@
    * `chunk` — звук, который распознается как тишина.
    * `silence_chunk` — длительность тишины в миллисекундах. Параметр позволяет уменьшить размер пакета с аудио и не передавать в нем тишину, которую не нужно распознавать.
 
+## Примеры использования {#examples}
+
+* [{#T}](api/streaming-examples-v3.md)
+* [{#T}](api/microphone-streaming.md)
+* [{#T}](api/stt-language-labels-example.md)
+* [{#T}](api/streaming-examples.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](../concepts/auth.md)
-* [Справочник API v3](../stt-v3/api-ref/grpc/stt_service)
-* [{#T}](api/streaming-examples-v3.md)
 * [{#T}](api/streaming-api.md)
-* [{#T}](api/streaming-examples.md)
+* [Справочник API v3](../stt-v3/api-ref/grpc/stt_service)
