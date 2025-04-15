@@ -120,7 +120,7 @@ description: Следуя данной инструкции, вы сможете
 
   ### Фильтры для правил в режиме логирования {#dry-run-filters}
 
-  * Показать запросы, для которых сработали правила [Smart Protection] с отправкой на капчу:
+  * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
     ```
     json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
     ```

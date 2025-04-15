@@ -9,6 +9,21 @@ description:
 meta:
   title: Yandex Lockbox
   description: Yandex Lockbox — сервис для хранения секретов.
+  keywords:
+    - keyword: lockbox
+    - keyword: секрет
+    - keyword: секрет {{ yandex-cloud }}
+    - keyword: '{{ lockbox-name }}'
+    - keyword: сервис {{ lockbox-name }}
+    - keyword: '{{ lockbox-name }} в {{ yandex-cloud }}'
+    - keyword: секрет {{ lockbox-name }}
+    - keyword: генерируемый секрет
+    - keyword: генерируемый секрет {{ lockbox-name }}
+    - keyword: пользовательский секрет
+    - keyword: пользовательский секрет {{ lockbox-name }}
+    - keyword: secret
+    - keyword: yandex secret
+    - keyword: '{{ lockbox-name }} secret'
 links:
   - title: Начало работы
     description: Создайте свой первый секрет

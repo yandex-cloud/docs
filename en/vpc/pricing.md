@@ -20,7 +20,7 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-After deleting or stopping resources, you will continue to pay for the reserved public IP addresses. If you no longer need the IP addresses, delete them.
+After deleting or stopping resources, you will continue to pay for the reserved public IP addresses. To avoid it, delete the IP addresses you no longer need.
 
 
 ## Prices for the Russia region {#prices}
@@ -34,10 +34,10 @@ After deleting or stopping resources, you will continue to pay for the reserved 
 
 #### Public IP addresses {#prices-public-ip}
 
-A public IP address can be in one of the following two states:
+A public IP address can have one of the two statuses:
 
-1. **Active**: When a _dynamic_ or _static_ public IP address is linked to a running cloud resource.
-1. **Inactive**: When a _static_ public IP address is not linked to a cloud resource or is linked to a stopped resource.
+1. **Active**: When a _dynamic_ or _static_ public IP address is associated with a running cloud resource.
+1. **Inactive**: When a _static_ public IP address is not associated with a cloud resource or it is associated with a stopped resource.
 
 
 All prices are net of VAT.
@@ -49,7 +49,7 @@ All prices are net of VAT.
 {% include [usd-ip.md](../_pricing/vpc/usd-ip.md) %}
 
 
-The cost of an inactive public static address is calculated by adding the cost of a public IP address to the cost of reserving an inactive public static IP address.
+The cost of an inactive public static address includes the cost of a public IP address plus the cost of reserving an inactive public static IP address.
 
 For example, the cost of an inactive public static address will be:
 
@@ -93,9 +93,9 @@ The minimum charging unit is 1 MB.
 
 #### Using security groups {#prices-security-groups}
 
-[Security groups](concepts/security-groups.md) can be used free of charge.
+You can use [security groups](concepts/security-groups.md) free of charge.
 
-#### Egress traffic {#prices-traffic}
+#### Outgoing traffic {#prices-traffic}
 
 {% include notitle [note-public-ip-traffic.md](../_includes/pricing/note-public-ip-traffic.md) %}
 
@@ -107,36 +107,36 @@ The minimum charging unit is 1 MB.
 
 
 
-All prices below do not include VAT.
+All prices are net of VAT.
 
 {% include [usd-ddos](../_pricing/vpc/usd-ddos.md) %}
 
 
-Filtered traffic is incoming traffic that the DDoS Protection filtering system passes to the user's cloud resources. Only filtered traffic is charged.
+Legitimate traffic is incoming traffic that passes through the DDoS Protection system to the user's cloud resources. You are only charged for the legitimate traffic.
 
-For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded to the VM 2 GB of relevant files from the internet. When the attack ended, the user downloaded another 2 GB of relevant files.
+For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded to the VM 2 GB of legitimate files from the internet. When the attack ended, the user downloaded another 2 GB of legitimate files.
 
-In which case the user will be charged only for the 4 GB of relevant traffic: the 2 GB that DDoS Protection had allowed to reach the cloud resources during the attack and the 2 GB downloaded when no attack was ongoing. Malicious traffic will be filtered at no charge to the user.
+In which case the user will be charged only for these 4 GB of legitimate traffic: 2 GB that passed through DDoS Protection to the cloud resources during the attack and 2 GB downloaded after the attack ended. Malicious traffic is filtered at no charge to the user.
 
 ### {{ adv-ddos-protection }} {#prices-ddos-advanced}
 
-The {{ adv-ddos-protection }} service is activated upon request through the [form](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
+{{ adv-ddos-protection }} is activated upon request via the [form](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
 {% note warning "Important" %}
 
-Please note that the subscription fee for the {{ adv-ddos-protection }} and Managed Web Application Firewall services is charged for the whole month and is not in proportion to the number of days. For example, if you activate or deactivate the services mid-month you will still be charged the full subscription fee.
+Please note that the subscription fee for {{ adv-ddos-protection }} and Managed Web Application Firewall is charged for the whole month and is not calculated in proportion to the number of days. For example, if you activate or deactivate the services mid-month you will still be charged the full subscription fee.
 
 Usage beyond the subscription fee is billed in the next reporting month. For example, services consumed in July will be included into the August bill.
 
 {% endnote %}
 
-The prevailing traffic bandwidth for the billing period is calculated as a one-minute average of the highest traffic between the site's incoming and outgoing traffic filtered by the network. At the end of the billing period, 90 recorded maximum traffic values are discarded, and the maximum remaining value is rounded down to the nearest whole number of Mbps. The resulting number represents the prevailing traffic bandwidth for the purpose of calculating the traffic fee.
+The prevailing traffic bandwidth for the billing period is calculated as a one-minute average of the highest traffic between the site's incoming and outgoing traffic filtered by the network. At the end of the billing period, 90 recorded maximum traffic values are discarded, and the maximum remaining value is rounded down to the nearest whole number of Mbps. This number is considered the prevailing traffic bandwidth for the purpose of calculating the traffic fee.
 
 The excess is calculated by multiplying 1 Mbps of traffic by the prevailing traffic bandwidth.
 
 
 
-All prices below do not include VAT.
+All prices are net of VAT.
 
 {% include [usd-advanced-ddos](../_pricing/vpc/usd-advanced-ddos.md) %}
 
@@ -150,7 +150,7 @@ All prices below do not include VAT.
 | Billable traffic | Legitimate | Legitimate | Legitimate | Legitimate |
 | HTTPS traffic filtering using customer's private keys | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Let's Encrypt® certificate | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Active availability testing of customer's platform | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Active availability testing of customer's platforms | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | HTTPS filtering without private keys | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | API access | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 
@@ -160,7 +160,7 @@ With the {{ adv-ddos-protection }} service plan, you can additionally activate t
 
 
 
-All prices below do not include VAT.
+All prices are net of VAT.
 
 {% include [usd-advanced-ddos-services](../_pricing/vpc/usd-advanced-ddos-services.md) %}
 
@@ -169,7 +169,7 @@ All prices below do not include VAT.
 
 
 
-All prices below do not include VAT.
+All prices are net of VAT.
 
 {% include [usd-waf](../_pricing/vpc/usd-waf.md) %}
 

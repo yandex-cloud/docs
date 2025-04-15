@@ -7774,7 +7774,7 @@ default:
           button_empty-create: Создать ключ
       load-balancer:
         network-load-balancer:
-          button_add-listener: Добавить обработчик
+          button_add-listener: Создать обработчик
           button_attach-tg: Подключить целевую группу
           button_create: Создать сетевой балансировщик
           column_ip-address: IP-адрес
@@ -8612,7 +8612,6 @@ default:
           label_arl-profile: Профиль ARL
           label_default-action: Действие для базового правила по умолчанию
           section_security-rules: Правила безопасности
-        label_profiles-list: Профили безопасности
         label_search-rule-type: 'Тип правила:'
         match-lists:
           label_match-lists: Списки

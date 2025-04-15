@@ -7,6 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 В {{ postbox-name }} отправить письмо можно с помощью [AWS CLI](#aws-cli-send) или из почтового клиента по [протоколу SMTP](#smtp-send).
 
+{% include [tls](../../_includes/postbox/tls.md) %}
 
 ## Перед началом работы {#before-begin}
 

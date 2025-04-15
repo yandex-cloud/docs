@@ -27,6 +27,22 @@ meta:
   description: >-
     Yandex Cloud Desktop — сервис для управления виртуальной инфраструктурой
     рабочих столов на базе Linux.
+  keywords:
+    - keyword: desktop
+    - keyword: рабочий стол {{ cloud-desktop-name }}
+    - keyword: рабочий стол в {{ yandex-cloud }}
+    - keyword: Desktop в {{ yandex-cloud }}
+    - keyword: desktop group
+    - keyword: '{{ cloud-desktop-name }}'
+    - keyword: '{{ cloud-desktop-name }} в {{ yandex-cloud }}'
+    - keyword: remote desktop в {{ yandex-cloud }}
+    - keyword: BYOD
+    - keyword: сервис {{ cloud-desktop-name }}
+    - keyword: RDP в {{ cloud-desktop-name }}
+    - keyword: RDP в {{ yandex-cloud }}
+    - keyword: ACL {{ cloud-desktop-name }}
+    - keyword: ACL
+    - keyword: clouddesktop
 links:
   - title: Начало работы
     description: Создайте рабочий стол и подключитесь к нему

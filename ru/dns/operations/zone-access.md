@@ -85,15 +85,15 @@ description: Следуя данной инструкции, вы настрои
 
       * `dns_zone_id` — идентификатор зоны DNS.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Более подробную информацию о параметрах ресурса `yandex_dns_zone_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+       Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов с помощью команды [CLI](../../cli/):
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно с помощью команды [CLI](../../cli/):
 
       ```bash
       yc dns zone list-access-bindings <идентификатор_зоны>
@@ -186,9 +186,9 @@ description: Следуя данной инструкции, вы настрои
 
       * `dns_zone_id` — идентификатор зоны DNS.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Более подробную информацию о параметрах ресурса `yandex_dns_zone_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+      Подробнее о параметрах ресурса `yandex_dns_zone_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Создайте ресурсы:
 
@@ -261,7 +261,7 @@ description: Следуя данной инструкции, вы настрои
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы отозвать роль, назначенную на зону DNS с помощью {{ TF }}:
+  Чтобы отозвать роль, назначенную на зону DNS:
 
   1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием роли:
 

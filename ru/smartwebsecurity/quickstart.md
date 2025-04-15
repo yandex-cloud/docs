@@ -170,7 +170,7 @@ WAF позволяет использовать наборы правил для
 
 - Консоль управления {#console}
 
-  1. Перейдите на вкладку ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.label_profiles-list }}**.
+  1. Перейдите на вкладку ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. В списке выберите профиль безопасности, к которому вы хотите подключить профиль WAF, например `test-sp1`.
   1. Нажмите ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `waf-rule-1`.

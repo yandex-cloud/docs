@@ -14,6 +14,22 @@ meta:
     сертификатов, которые можно использовать для доступа к сайтам, шлюзам API
     Gateway и ресурсам Cloud CDN по протоколу HTTPS, а также для обработки
     TLS-трафика в Application Load Balancer.
+  keywords:
+    - keyword: сертификаты в {{ yandex-cloud }}
+    - keyword: TLS сертификат
+    - keyword: SSL сертификат
+    - keyword: TLS сертификат в {{ certificate-manager-name }}
+    - keyword: сертификат в {{ certificate-manager-name }}
+    - keyword: '{{ certificate-manager-name }} в {{ yandex-cloud }}'
+    - keyword: Encrypt в {{ yandex-cloud }}
+    - keyword: Let's Encrypt в {{ certificate-manager-name }}
+    - keyword: Let's Encrypt certificate
+    - keyword: '{{ certificate-manager-full-name }}'
+    - keyword: '{{ certificate-manager-name }}'
+    - keyword: сервис {{ certificate-manager-name }}
+    - keyword: сертификат безопасности в {{ yandex-cloud }}
+    - keyword: валидация в {{ certificate-manager-name }}
+    - keyword: терминирование в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый сертификат

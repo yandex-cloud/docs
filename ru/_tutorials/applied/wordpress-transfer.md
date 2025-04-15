@@ -139,17 +139,10 @@
 	 Текст файла должен содержать данные:
 
 	 ```text
-	 MYSQL_PASS=DOEC21WECnhF1
 	 MYSQL_ROOT_PASS=KjZKrQV7efFGk
-	 MYSQL_USER=wordpress
-	 MYSQL_DB=wordpress
-
-	 Apache Web Auth:
-	 login: admin
-	 password: ***************
 	 ```
 
-	 Скопируйте и сохраните содержимое файла `default_passwords.txt` себе на компьютер.
+	 Скопируйте и сохраните пароль `MYSQL_ROOT_PASS`. Он понадобится далее.
   1. Включите расширение `mbstring` для PHP:
 
      ```bash
@@ -168,7 +161,7 @@
 
 	 ```text
 	 Пользователь: root
-	 Пароль: сгенерированный системой (из файла default_passwords.txt)
+	 Пароль: сгенерированный системой (MYSQL_ROOT_PASS из файла default_passwords.txt)
 	 ```
 
 {% endlist %}

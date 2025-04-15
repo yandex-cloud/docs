@@ -7767,8 +7767,8 @@ default:
           button_empty-create: Create key
       load-balancer:
         network-load-balancer:
-          button_add-listener: Add listener
-          button_attach-tg: Attach
+          button_add-listener: Create listener
+          button_attach-tg: Attach target group
           button_create: Create a network load balancer
           column_ip-address: IP address
           form:
@@ -8605,7 +8605,6 @@ default:
           label_arl-profile: ARL profile
           label_default-action: Action for the default base rule
           section_security-rules: Security rules
-        label_profiles-list: Security profiles
         label_search-rule-type: 'Rule type:'
         match-lists:
           label_match-lists: Lists
