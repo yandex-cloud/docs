@@ -170,7 +170,7 @@ WAF allows using rule sets to protect web applications from various information 
 
 - Management console {#console}
 
-  1. Navigate to the ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.label_profiles-list }}** tab.
+  1. Navigate to the ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** tab.
   1. From the list, select the security profile you want to connect your WAF profile to, e.g., `test-sp1`.
   1. Click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `waf-rule-1`.

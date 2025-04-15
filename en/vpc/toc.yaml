@@ -136,7 +136,7 @@ items:
             href: tutorials/ipsec/sgw.md
       - name: Installing the Cisco CSR 1000v virtual router
         href: tutorials/cisco.md
-      - name: Installing a Mikrotik CHR virtual router
+      - name: Installing the Mikrotik CHR virtual router
         href: tutorials/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: tutorials/openvpn.md
@@ -410,7 +410,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: REST
         items:

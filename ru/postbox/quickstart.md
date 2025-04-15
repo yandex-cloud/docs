@@ -50,6 +50,8 @@
 
 Отправить проверочное письмо можно с помощью [AWS CLI](#aws-cli-send) или из почтового клиента по [протоколу SMTP](#smtp-send).
 
+{% include [tls](../_includes/postbox/tls.md) %}
+
 ### AWS CLI {#aws-cli-send}
 
 {% include [send-email-aws](../_includes/postbox/send-email-aws.md) %}
