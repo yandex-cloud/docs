@@ -19,26 +19,24 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт для работы с API {{ speechkit-short-name }}.
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `{{ roles-speechkit-stt }}` или выше на каталог, в котором он был создан.
-1. Получите [API-ключ](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) или [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
-1. Скачайте [пример](https://{{ s3-storage-host }}/speechkit/speech.pcm) аудиофайла для распознавания или используйте свой аудиофайл.
-1. Создайте клиентское приложение:
+1. Настройте окружение и создайте клиентское приложение:
 
     {% list tabs group=programming_language %}
 
     - Python 3 {#python}
 
+      1. Получите [API-ключ](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) или [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
+      1. Скачайте [пример](https://{{ s3-storage-host }}/speechkit/speech.pcm) аудиофайла для распознавания или используйте свой аудиофайл.
       1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
 
          ```bash
          git clone https://github.com/yandex-cloud/cloudapi
          ```
-
       1. Установите пакет `grpcio-tools` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 
          ```bash
          pip install grpcio-tools
          ```
-
       1. Перейдите в папку со склонированным репозиторием {{ yandex-cloud }} API, создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
 
          ```bash
@@ -58,7 +56,6 @@ description: Следуя данной инструкции, вы сможете
          ```
 
          В результате в папке `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
-
       1. Создайте файл в корне папки `output`, например `test.py`, и добавьте в него следующий код:
 
          ```python
@@ -154,13 +151,13 @@ description: Следуя данной инструкции, вы сможете
          * `profanity_filter` — [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
          * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
          * `language_code` — [язык](../index.md#langs), для которого будет выполнено распознавание.
-
-      1. Задайте [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта:
+      1. Сохраните полученный ранее [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта в переменную окружения `IAM_TOKEN`:
 
          ```bash
          export IAM_TOKEN=<IAM-токен_сервисного_аккаунта>
          ```
 
+         Чтобы аутентифицироваться в API {{ speechkit-name }} с помощью API-ключа, сохраните API-ключ в переменную окружения `API_KEY` и измените файл `test.py` в соответствии с комментариями в коде.
       1. Выполните созданный файл:
 
          ```bash
@@ -184,50 +181,49 @@ description: Следуя данной инструкции, вы сможете
 
     - Java {#java}
 
+      1. [Создайте](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ сервисного аккаунта.
       1. Установите зависимости:
 
           ```bash
-          sudo apt update && sudo apt install --yes default-jdk maven
+          sudo apt update && sudo apt install --yes openjdk-21-jre-headless maven
           ```
 
+          Для корректной сборки проекта требуется Java версии `17` и выше.
       1. Склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-speechkit-stt-java) с конфигурацией для приложения на Java:
 
           ```bash
           git clone https://github.com/yandex-cloud-examples/yc-speechkit-stt-java
           ```
-
       1. Перейдите в папку репозитория:
 
           ```bash
           cd yc-speechkit-stt-java
           ```
-
-      1. Скачайте [пример](https://{{ s3-storage-host }}/doc-files/speech.wav) аудиофайла в [формате WAV](https://ru.wikipedia.org/wiki/WAV). Разместите аудиофайл в папке репозитория.
       1. Скомпилируйте проект в этой папке:
 
           ```bash
           mvn clean install
           ```
-
       1. Перейдите в созданную папку `target`:
 
           ```bash
           cd target
           ```
-
-      1. Задайте [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта:
+      1. Сохраните [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта в переменную окружения `API_KEY`:
 
           ```bash
           export API_KEY=<API-ключ>
-            ```
+          ```
+      1. Скачайте [пример](https://{{ s3-storage-host }}/doc-files/speech.wav) аудиофайла в [формате WAV](https://ru.wikipedia.org/wiki/WAV):
 
+          ```bash
+          wget https://{{ s3-storage-host }}/doc-files/speech.wav
+          ```
       1. Запустите программу Java для распознавания речи:
 
           ```bash
-          java -cp speechkit_examples-1.0-SNAPSHOT.jar yandex.cloud.speechkit.examples.SttV3Client <путь_к_аудиофайлу>
+          java -cp speechkit_examples-1.0-SNAPSHOT.jar yandex.cloud.speechkit.examples.SttV3Client speech.wav
           ```
-
-          В команде укажите абсолютный путь к скачанному примеру аудиофайла.
 
           Результат:
 

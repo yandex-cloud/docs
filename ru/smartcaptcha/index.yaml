@@ -8,6 +8,20 @@ meta:
   description: >-
     Yandex SmartCaptcha позволяет определить, кем является пользователь системы:
     человеком или компьютером.
+  keywords:
+    - keyword: captcha
+    - keyword: captcha {{ captcha-name }}
+    - keyword: капча
+    - keyword: капча в {{ captcha-name }}
+    - keyword: smartcaptcha
+    - keyword: виджет капча
+    - keyword: сервис {{ captcha-name }}
+    - keyword: виджет {{ captcha-name }}
+    - keyword: валидация пользователя
+    - keyword: валидация {{ captcha-name }}
+    - keyword: капча в {{ yandex-cloud }}
+    - keyword: '{{ captcha-name }} в {{ yandex-cloud }}'
+    - keyword: human verification {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Настройте первый виджет и проверьте пользователя

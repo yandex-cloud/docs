@@ -1,27 +1,27 @@
 ---
 title: Access management in {{ vpc-full-name }} ({{ vpc-short-name }})
-description: Access management within the cloud network service (private cloud), communications of cloud resources between themselves and with the internet – {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management within the cloud network (private cloud) service, communications of cloud resources between themselves and with the internet – {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ vpc-name }}
 
-{{ vpc-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+{{ vpc-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
 
 In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#choosing-roles) for particular actions.
+* [What resources you can assign a role for](#resources).
+* [What roles exist in the service](#roles-list).
+* [What roles are required](#choosing-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -106,29 +106,29 @@ The table below lists the roles required to perform a particular action. You can
 Action | Methods | Required roles
 ----- | ----- | -----
 **Viewing data** | |
-Viewing information about any resource | `get`, `list`, `listOperations` | `vpc.viewer` or `viewer` for the resource
-List subnets in the network | `listSubnets` | `vpc.viewer` or `viewer` for the network
+View information about any resource. | `get`, `list`, `listOperations` | `vpc.viewer` or `viewer` for the resource
+List subnets in the network. | `listSubnets` | `vpc.viewer` or `viewer` for the network
 **Use of resources** | |
-Assign {{ vpc-short-name }} resources to other {{ yandex-cloud }} resources (for example, assigning an address to an interface or connecting a network interface to a subnet) | Various | `vpc.user` for the resource, and the permission to change the receiving object if the resource assignment operation is mutating
-Assign or delete the public address of an interface | various | `vpc.publicAdmin` for the network
-Creating a VM connected to multiple networks | `create` | `vpc.publicAdmin` for each network the VM connects to
+Assign {{ vpc-short-name }} resources to other {{ yandex-cloud }} resources, e.g., assigning an address to an interface or connecting a network interface to a subnet. | Various | `vpc.user` for the resource, and the permission to change the receiving object if the resource assignment operation is mutating.
+Assign or delete the public address of an interface. | various | `vpc.publicAdmin` for the network
+Create a VM connected to multiple networks. | `create` | `vpc.publicAdmin` for each network the VM connects to
 **Managing resources** | |
-[Create networks in a folder](../operations/network-create.md) | `create` | `vpc.privateAdmin` or `editor` for the folder
-[Update](../operations/network-update.md), and [delete networks](../operations/network-delete.md) | `update`, `delete` | `vpc.privateAdmin` or `editor` for the network
-[Create subnets in a folder](../operations/subnet-create.md) | `create` | `vpc.privateAdmin` or `editor` for the folder and network
-[Update](../operations/subnet-update.md) and [delete subnets](../operations/subnet-delete.md) | `update`, `delete` | `vpc.privateAdmin` or `editor` for the folder
-[Creating a route table](../operations/static-route-create.md) | `create` | `vpc.privateAdmin` or `editor` for the folder
-Update or delete a route table | `update`, `delete` | `vpc.privateAdmin` or `editor` for the route table
-[Create public addresses](../operations/get-static-ip.md) | `create` | `vpc.publicAdmin` or `editor` for the folder
-[Delete public addresses](../operations/address-delete.md) | `delete` | `vpc.publicAdmin` or `editor` for the address
-[Create a gateway](../operations/create-nat-gateway.md) | `create` | `vpc.gateways.editor`
-Enable the gateway in a route table | `create`, `update` |  `vpc.gateways.user`
-Create security groups | `create` | `vpc.securityGroups.admin` or `editor` for the folder and network
-Update and delete security groups | `update`, `delete` | `vpc.securityGroups.admin` or `editor` for the network and security group
+[Create networks in a folder](../operations/network-create.md). | `create` | `vpc.privateAdmin` or `editor` for the folder
+[Update](../operations/network-update.md) and [delete networks](../operations/network-delete.md). | `update`, `delete` | `vpc.privateAdmin` or `editor` for the network
+[Create subnets in a folder](../operations/subnet-create.md). | `create` | `vpc.privateAdmin` or `editor` for the folder and network
+[Update](../operations/subnet-update.md) and [delete subnets](../operations/subnet-delete.md). | `update`, `delete` | `vpc.privateAdmin` or `editor` for the folder
+[Create a route table](../operations/static-route-create.md). | `create` | `vpc.privateAdmin` or `editor` for the folder
+Update or delete a route table. | `update`, `delete` | `vpc.privateAdmin` or `editor` for the route table
+[Create public addresses](../operations/get-static-ip.md). | `create` | `vpc.publicAdmin` or `editor` for the folder
+[Delete public addresses](../operations/address-delete.md). | `delete` | `vpc.publicAdmin` or `editor` for the address
+[Create a gateway](../operations/create-nat-gateway.md). | `create` | `vpc.gateways.editor`
+Associate a gateway with a route table. | `create`, `update` |  `vpc.gateways.user`
+Create security groups. | `create` | `vpc.securityGroups.admin` or `editor` for the folder and network
+Update and delete security groups. | `update`, `delete` | `vpc.securityGroups.admin` or `editor` for the network and security group
 **Resource access management** | |
-[Granting a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md), and viewing roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
+[Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the resource. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
 
-To create a [NAT gateway](../concepts/gateways.md) and connect it to a route table, the `vpc.gateways.editor` and `vpc.gateways.user` roles are required. Currently, you cannot use reserved public IP addresses for gateways, so the `vpc.admin` role will not be enough.
+To create a [NAT gateway](../concepts/gateways.md) and associate it with a route table, you need the `vpc.gateways.editor` and `vpc.gateways.user` roles. Currently, you cannot use reserved public IP addresses for gateways, so the `vpc.admin` role will not be enough.
 
 #### What's next {#what-is-next}
 

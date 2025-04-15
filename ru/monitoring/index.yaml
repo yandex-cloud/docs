@@ -13,6 +13,21 @@ meta:
   description: >-
     Yandex Monitoring позволяет собирать и хранить метрики, а также отображать
     их в виде графиков на дашбордах.
+  keywords:
+    - keyword: monitoring
+    - keyword: мониторинг
+    - keyword: метрика {{ monitoring-name }}
+    - keyword: сервис {{ monitoring-name }}
+    - keyword: '{{ monitoring-name }}'
+    - keyword: алертинг
+    - keyword: временной ряд в {{ monitoring-name }}
+    - keyword: дашборд в {{ monitoring-name }}
+    - keyword: '{{ monitoring-name }} в {{ yandex-cloud }}'
+    - keyword: агент сбора метрик
+    - keyword: '{{ unified-agent-short-name }}'
+    - keyword: '{{ unified-agent-full-name }}'
+    - keyword: '{{ prometheus-name }}'
+    - keyword: канал уведомлений в {{ monitoring-name }}
 links:
   - title: Начало работы
     description: Начните отслеживание ваших метрик

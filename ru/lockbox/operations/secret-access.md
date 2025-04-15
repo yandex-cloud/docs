@@ -60,10 +60,10 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле параметры прав доступа к секрету:
+  1. Опишите права доступа к секрету в конфигурационном файле {{ TF }}:
 
       ```hcl
-      resource "yandex_lockbox_secret_iam_binding" "secret-viewer" {
+      resource "yandex_lockbox_secret_iam_member" "secret-viewer" {
         secret_id = "<идентификатор_секрета>"
         role      = "<роль>"
 
@@ -78,9 +78,9 @@ description: Следуя данной инструкции, вы сможете
 
       * `secret_id` — идентификатор секрета.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `members` — идентификаторы [пользователей](../../iam/operations/users/get), групп или [сервисных аккаунтов](../../iam/operations/sa/get-id.md), которым будет присвоена роль.
+      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding).
+      Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
 
   1. Создайте ресурсы
 

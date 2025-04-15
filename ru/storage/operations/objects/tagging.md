@@ -13,6 +13,19 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Нажмите на имя нужного объекта.
+  1. Нажмите на кнопку **Добавить метку**.
+  1. Через двоеточие введите ключ и значение метки (ключ:значение).
+
+  Если вы хотите изменить метку:
+  
+  1. Нажмите на кнопку **Добавить метку**.
+  1. Введите ключ метки, которую вы хотите изменить, и новое значение.
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -129,6 +142,15 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  Вы можете посмотреть метки в списке объектов бакета и на странице отдельного объекта.
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Нажмите на имя нужного объекта.
+
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -226,6 +248,13 @@ description: Следуя данной инструкции, вы сможете
 ## Удалить метки {#delete-tag}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Нажмите на имя нужного объекта.
+  1. Нажмите на крестик рядом с меткой, которую вы хотите удалить.
 
 - {{ yandex-cloud }} CLI {#cli}
 
