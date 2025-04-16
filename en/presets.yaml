@@ -476,7 +476,6 @@ default:
   ms:
     docs: https://docs.microsoft.com/en-us
   msp-full-name: Yandex Managed Service for Apache Spark™
-  msp-name: Managed Service for Apache Spark™
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -1901,7 +1900,6 @@ default:
     check:
       requests:
         v1|pricingRate:
-          250|number: 500
           250|string: ₸500.00
         v1|string: Free
   sku|KZT|speechkit:
@@ -3455,7 +3453,6 @@ default:
     check:
       requests:
         v1|pricingRate:
-          250|number: 100
           250|string: ₽100.00
         v1|string: Free
   sku|RUB|speechkit:
@@ -4854,7 +4851,6 @@ default:
     check:
       requests:
         v1|pricingRate:
-          250|number: 0.8
           250|string: $0.800000
         v1|string: Free
   sku|USD|speechkit:
@@ -7133,6 +7129,7 @@ default:
         value_disk-type-network-ssd-nonreplicated: Non-replicated SSD
       connection-manager:
         label_connection-type: Connection type
+        label_connections: Connections
         label_create-connection-action: Create connection
         label_dependences: Dependencies
         label_open-websql: Open in WebSQL
@@ -7893,6 +7890,7 @@ default:
         label_secret-versions-section: Versions
         label_section-overview: Overview
         label_section-secrets: Secrets
+        label_version-current: Current
         label_version-dialog-title: Version
       logging:
         button_create-group: Create group
@@ -8051,6 +8049,7 @@ default:
             button_action-password: Change password
             button_action-update: Configure
             button_advanced-settings: Additional settings
+            label_go-to-password: View password
             popup-add_button_add: Create
             popup-button_add: Create
             popup-button_save: Save
@@ -8090,6 +8089,7 @@ default:
           popup-confirm-switch-master_label-title: Switch master host
         forms:
           additional-field-cloud-storage: Hybrid storage
+          additional-field-connman: Use Connection Manager
           additional-field-datalens: DataLens access
           additional-field-datatransfer: Access from Data Transfer
           additional-field-metrika: Access from Metrica and AppMetrica
@@ -8764,6 +8764,7 @@ default:
             field_user: User
             field_value: Value
             label_if-exists: Apply if the field exists
+            label_select-users: Select users
           popup-create-folder_button_create: Create
           popup-create-folder_field_name: Folder name
           settings:

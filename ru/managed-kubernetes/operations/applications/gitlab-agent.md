@@ -56,7 +56,7 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [{{ GL }} Agent](/marketplace/products/yc/gitlab-agent) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `gitlab-agent-space`). Если вы оставите пространство имен по умолчанию, {{ GL }} Agent может работать некорректно.
    * **Название приложения** — укажите название приложения, например `gitlab-agent`.
    * **Имя домена {{ GL }}** — укажите имя вашего домена {{ GL }}, например `gitlab-test.gitlab.yandexcloud.net`.
    * **Токен доступа агента** — скопируйте в это поле токен доступа {{ GL }}, [полученный ранее](#before-you-begin).
@@ -83,6 +83,8 @@ description: Следуя данной инструкции, вы сможете
    ```
 
    Эта команда также создаст новое пространство имен, необходимое для работы приложения.
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, {{ GL }} Agent может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `gitlab-agent-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

@@ -78,6 +78,8 @@ description: Следуя данной инструкции, вы сможете
 
      * `--location` — [зона доступности](../../../overview/concepts/geo-scope.md) и [подсеть](../../../vpc/concepts/network.md#subnet), в которых будут расположены узлы {{ managed-k8s-name }}. Можно указать несколько вариантов, но нельзя указывать несколько подсетей для одной зоны. Для каждой зоны доступности следует использовать отдельный параметр `--location`.
 
+       {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
        Если в одной команде передать параметры `--location`, `--network-interface` и `--public-ip`, [возникнет ошибка](../../qa/troubleshooting.md#conflicting-flags). Расположение группы узлов {{ managed-k8s-name }} достаточно указать в `--location` или `--network-interface`.
 
        {% include [assign-public-ip-addresses](../../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
@@ -184,6 +186,12 @@ description: Следуя данной инструкции, вы сможете
        scale_policy {
          <настройки_масштабирования_группы_узлов>
        }
+       ...
+       allocation_policy {
+         location {
+           zone = "<зона_доступности>"
+         }
+       }
      }
      ```
 
@@ -209,11 +217,9 @@ description: Следуя данной инструкции, вы сможете
 
          Тип масштабирования нельзя изменить после создания группы узлов.
 
-     {% note warning %}
+       * `allocation_policy` — настройки размещения. Содержат блок `location` с параметром `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой вы хотите разместить узлы группы. Вы можете разместить узлы группы с фиксированным типом масштабирования в нескольких зонах доступности, для этого укажите каждую зону доступности в отдельном блоке `location`.
 
-     Файл с описанием группы узлов {{ managed-k8s-name }} должен находиться в одном каталоге с [файлом описания кластера](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
-
-     {% endnote %}
+         {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
      * Чтобы создать группу с фиксированным количеством узлов, добавьте блок `fixed_scale`:
 
@@ -309,6 +315,9 @@ description: Следуя данной инструкции, вы сможете
   
     Тип масштабирования нельзя изменить после создания группы узлов.
   * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов {{ managed-k8s-name }} в параметрах `allocationPolicy`.
+
+    {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
 

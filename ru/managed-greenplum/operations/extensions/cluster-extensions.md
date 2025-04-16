@@ -83,7 +83,7 @@ CREATE EXTENSION <имя_расширения>;
 || [postgres_fdw]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-modules-postgres_fdw.html)
 Добавляет оболочку для обращений к удаленным базам данных {{ PG }}.
 | 1.0 ||
-|| [pxf]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/intro_pxf.html)
+|| [pxf]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/intro_pxf.html)
 Позволяет работать с гетерогенными источниками данных.
 | 2.0 ||
 || uuid-cb

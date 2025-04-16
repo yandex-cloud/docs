@@ -48,8 +48,6 @@ ACL, загруженный для объектов, применяется мг
 
   Для получения идентификатора перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
 
-  Задать группу пользователей можно с помощью {{ yandex-cloud }} CLI, AWS CLI, {{ TF }} и API. Подробнее см. на страницах [Редактирование ACL бакета](../../../storage/operations/buckets/edit-acl.md) и [Редактирование ACL объекта](../../../storage/operations/objects/edit-acl.md).
-
 ## Операции с ACL {#acl-operations}
 
 * В консоли управления вы можете редактировать ACL для [бакетов](../../../storage/operations/buckets/edit-acl.md) и [объектов](../../../storage/operations/objects/edit-acl.md).

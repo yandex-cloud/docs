@@ -35,7 +35,7 @@
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
 
-   * **Пространство имен** — выберите [пространство имен](../../managed-kubernetes/concepts/index.md#namespace), отличное от `default`, или создайте новое. Если вы выберете пространство имен по умолчанию, ALB Ingress Controller может работать некорректно.
+   * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) (например, `alb-ingress-controller-space`). Если вы оставите пространство имен по умолчанию, ALB Ingress Controller может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Идентификатор каталога** — укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
    * **Идентификатор кластера** — укажите [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
@@ -80,7 +80,7 @@
 
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   Если вы укажете в параметре `namespace` пространство имен по умолчанию, ALB Ingress Controller может работать некорректно. Рекомендуем указывать значение, отличное от `default`.
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, ALB Ingress Controller может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `alb-ingress-controller-space`).
 
    Параметр `enableDefaultHealthChecks` включает проверки состояния приложений в кластере. Для этого Ingress-контроллер устанавливает ресурс [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) в сети группы узлов.
 

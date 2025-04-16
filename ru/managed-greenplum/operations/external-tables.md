@@ -1,6 +1,6 @@
 # Работа с PXF
 
-Протокол [{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/intro_pxf.html) (PXF) используется для доступа к данным во внешних СУБД.
+Протокол [{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/intro_pxf.html) (PXF) используется для доступа к данным во внешних СУБД.
 
 Допустим, есть таблица, которая отражает данные по продажам за несколько лет. В ней есть три вида данных:
 

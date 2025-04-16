@@ -66,6 +66,8 @@
    * Укажите [зону доступности](../../overview/concepts/geo-scope.md) и [подсеть](../../vpc/concepts/network.md#subnet), в которых вы хотите разместить узлы группы.
    * (Опционально) Вы можете разместить узлы группы с фиксированным типом масштабирования в нескольких зонах доступности, для этого нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** и укажите дополнительную зону доступности и подсеть.
 
+   {% include [autoscaled-node-group-restriction](autoscaled-node-group-restriction.md) %}
+
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** настройте один из способов подключения к узлам в группе узлов {{ managed-k8s-name }}:
 
     * Чтобы подключаться к узлам через {{ oslogin }}, выберите опцию **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.

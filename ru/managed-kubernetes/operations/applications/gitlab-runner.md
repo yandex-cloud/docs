@@ -35,7 +35,7 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [{{ GLR }}](/marketplace/products/yc/gitlab-runner) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для {{ GLR }} или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `gitlab-runner-space`). Если вы оставите пространство имен по умолчанию, {{ GLR }} может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Имя домена {{ GL }}** — укажите домен вашего инстанса {{ GL }}.
    * **Регистрационный токен** — укажите токен, [полученный ранее](#before-you-begin).
@@ -71,6 +71,8 @@ description: Следуя данной инструкции, вы сможете
      --set runnerRegistrationToken=<ранее_полученный_токен> \
      gitlab-runner ./gitlab-runner/
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, {{ GLR }} может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `gitlab-runner-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

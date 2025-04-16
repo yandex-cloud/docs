@@ -480,7 +480,6 @@ default:
   ms:
     docs: https://docs.microsoft.com/ru-ru
   msp-full-name: Yandex Managed Service for Apache Spark™
-  msp-name: Managed Service for Apache Spark™
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -1906,7 +1905,6 @@ default:
     check:
       requests:
         v1|pricingRate:
-          250|number: 500
           250|string: "500,00\_₸"
         v1|string: Не тарифицируется
   sku|KZT|speechkit:
@@ -3460,7 +3458,6 @@ default:
     check:
       requests:
         v1|pricingRate:
-          250|number: 100
           250|string: "100,00\_₽"
         v1|string: Не тарифицируется
   sku|RUB|speechkit:
@@ -4859,7 +4856,6 @@ default:
     check:
       requests:
         v1|pricingRate:
-          250|number: 0.8
           250|string: "0,800000\_$"
         v1|string: Не тарифицируется
   sku|USD|speechkit:
@@ -7140,6 +7136,7 @@ default:
         value_disk-type-network-ssd-nonreplicated: Нереплицируемый SSD
       connection-manager:
         label_connection-type: Тип подключения
+        label_connections: Подключения
         label_create-connection-action: Создать подключение
         label_dependences: Зависимости
         label_open-websql: Открыть в WebSQL
@@ -7900,6 +7897,7 @@ default:
         label_secret-versions-section: Версии
         label_section-overview: Обзор
         label_section-secrets: Секреты
+        label_version-current: Текущая
         label_version-dialog-title: Версия
       logging:
         button_create-group: Создать группу
@@ -8058,6 +8056,7 @@ default:
             button_action-password: Изменить пароль
             button_action-update: Настроить
             button_advanced-settings: Дополнительные настройки
+            label_go-to-password: Посмотреть пароль
             popup-add_button_add: Создать
             popup-button_add: Создать
             popup-button_save: Сохранить
@@ -8097,6 +8096,7 @@ default:
           popup-confirm-switch-master_label-title: Переключение мастера
         forms:
           additional-field-cloud-storage: Гибридное хранилище
+          additional-field-connman: Использовать Connection Manager
           additional-field-datalens: Доступ из DataLens
           additional-field-datatransfer: Доступ из Data Transfer
           additional-field-metrika: Доступ из Метрики и AppMetrica
@@ -8771,6 +8771,7 @@ default:
             field_user: Пользователь
             field_value: Значение
             label_if-exists: Применить, если поле существует
+            label_select-users: Выбрать пользователей
           popup-create-folder_button_create: Создать
           popup-create-folder_field_name: Имя папки
           settings:

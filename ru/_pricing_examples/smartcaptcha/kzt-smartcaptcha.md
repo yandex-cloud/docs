@@ -1,3 +1,7 @@
-Например, если цена за 1&nbsp;000 запросов в месяц составляет {{ sku|KZT|smart_captcha.check.requests.v1|pricingRate.250|string }}, а за месяц был сделан 250&nbsp;001 запрос, стоимость за месяц составит:
+Например, если в месяц было 50 000 корректных запросов, стоимость за месяц составит:
 
-> (250&nbsp;001 - 250&nbsp;000) / 1&nbsp;000 × {{ sku|KZT|smart_captcha.check.requests.v1|pricingRate.250|string }} = {% calc [currency=KZT] (250001 - 250000) / 1000 × {{ sku|KZT|smart_captcha.check.requests.v1|pricingRate.250|number }} %}
+> (50 000 - 10 000) / 1 000 × 540,00 ₸ = {% calc [currency=KZT] (50000 - 10000) / 1000 × 540 %}
+
+Если в месяц был 100 001 корректный запрос, стоимость за месяц составит:
+
+> (100 001 - 10 000) / 1 000 × 378,00 ₸ = {% calc [currency=KZT] (100001 - 10000) / 1000 × 378 %}

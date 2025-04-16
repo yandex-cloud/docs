@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Chaos Mesh](/marketplace/products/yc/chaos-mesh) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
 
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Chaos Mesh или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `chaos-mech-space`). Если вы оставите пространство имен по умолчанию, Chaos Mesh может работать некорректно.
    * **Название приложения** — укажите название приложения.
 
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -51,6 +51,8 @@ description: Следуя данной инструкции, вы сможете
      --create-namespace \
      chaos-mesh ./chaos-mesh/
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Chaos Mesh может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `chaos-mesh-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
