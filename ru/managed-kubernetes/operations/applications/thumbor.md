@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите на имя нужного кластера {{ k8s }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Thumbor](/marketplace/products/yc/thumbor) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Thumbor или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `thumbor-space`). Если вы оставите пространство имен по умолчанию, Thumbor может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Имя бакета** — укажите [имя бакета](#before-you-begin), созданного ранее.
    * **Статический ключ для доступа к {{ objstorage-name }}** — вставьте содержимое файла `sa-key.json`.
@@ -80,6 +80,8 @@ description: Следуя данной инструкции, вы сможете
       thumbor ./thumbor
      ```
 
+     Если вы укажете в параметре `namespace` пространство имен по умолчанию, Thumbor может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `thumbor-space`).
+
      {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
    - URL без подписи запрещены
@@ -98,6 +100,8 @@ description: Следуя данной инструкции, вы сможете
        --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor/
      ```
+
+     Если вы укажете в параметре `namespace` пространство имен по умолчанию, Thumbor может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `thumbor-space`).
 
      {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

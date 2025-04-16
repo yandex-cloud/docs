@@ -1,6 +1,6 @@
 # Изменение настроек PXF
 
-Настройки [PXF](../external-tables.md), которые можно задать средствами {{ yandex-cloud }}, совпадают с настройками в конфигурационном файле {{ GP }} [pxf-application.properties]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/config_files.html#pxfapplicationproperties-1). Он описывает свойства протокола PXF. В кластере {{ GP }} для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов {{ yandex-cloud }} вместо правки файла.
+Настройки [PXF](../external-tables.md), которые можно задать средствами {{ yandex-cloud }}, совпадают с настройками в конфигурационном файле {{ GP }} [pxf-application.properties]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfapplicationproperties-1). Он описывает свойства протокола PXF. В кластере {{ GP }} для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов {{ yandex-cloud }} вместо правки файла.
 
 {% list tabs group=instructions %}
 
@@ -17,7 +17,7 @@
         * **Upload Timeout** — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись. Диапазон значений: от `5` до `600` секунд. Значение можно указать в разных единицах времени.
         * **Max Threads** — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * **Pool Allow Core Thread Timeout** — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads).
         * **Pool Core Size** — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.
@@ -63,7 +63,7 @@
         * `pxf-upload-timeout` — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись (в секундах). Диапазон значений: от `5` до `600`.
         * `pxf-max-threads` — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `pxf-pool-allow-core-thread-timeout` — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads). Значение по умолчанию: `false`.
         * `pxf-poll-core-size` — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.
@@ -109,7 +109,7 @@
         * `upload_timeout` — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись (в секундах). Диапазон значений: от `5` до `600`.
         * `max_threads` — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `pool_allow_core_thread_timeout` — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads). Значение по умолчанию: `false`.
         * `pool_core_size` — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.
@@ -167,7 +167,7 @@
         * `uploadTimeout` — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись (в секундах). Диапазон значений: от `5` до `600`.
         * `maxThreads` — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `poolAllowCoreThreadTimeout` — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads). Значение по умолчанию: `false`.
         * `poolCoreSize` — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.
@@ -239,7 +239,7 @@
         * `upload_timeout` — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись (в секундах). Диапазон значений: от `5` до `600`.
         * `max_threads` — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `pool_allow_core_thread_timeout` — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads). Значение по умолчанию: `false`.
         * `pool_core_size` — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.

@@ -46,13 +46,13 @@ description: Следуя данной инструкции, вы сможете
  * `<kafka-api-endpoint>` — [эндпоинт](#endpoint).
  * `<stream-name>` — имя [потока данных](../concepts/glossary.md#stream-concepts).
 
-1. Установите SSL-сертификат:
+1. Установите SSL-сертификат, если используете Dedicated базу:
 
    ```bash
-    mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-    wget "https://crls.yandex.net/YandexInternalRootCA.crt" \
+    sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
+    wget "{{ crt-web-path }}" \
      --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-    chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+    sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
 
    Сертификат будет сохранен в файле `/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt`.
@@ -65,31 +65,59 @@ description: Следуя данной инструкции, вы сможете
 
 1. Запустите команду получения сообщений из потока:
 
-    ```ini
-    kcat -C \
+    {% list tabs %}
+    - Serverless база
+      ```bash
+      kcat -C \
+        -b <kafka-api-endpoint> \
+        -t <stream-name> \
+        -X security.protocol=SASL_SSL \
+        -X sasl.mechanism=PLAIN \
+        -X sasl.username="<sasl.username>" \
+        -X sasl.password="<sasl.password>"
+      ```
+    - Dedicated база
+      ```bash
+      kcat -C \
         -b <kafka-api-endpoint> \
         -t <stream-name> \
         -X security.protocol=SASL_SSL \
         -X sasl.mechanism=PLAIN \
         -X sasl.username="<sasl.username>" \
         -X sasl.password="<sasl.password>" \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
-    ```
+        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+    {% endlist %}
 
     Команда будет непрерывно считывать новые сообщения из потока.
 
 1. В отдельном терминале запустите команду отправки сообщения в поток:
 
-    ```ini
-    echo "test message" | kcat -P \
-        -b <kafka-api-endpoint> \
-        -t <stream-name> \
-        -k key \
-        -X security.protocol=SASL_SSL \
-        -X sasl.mechanism=PLAIN \
-        -X sasl.username="<sasl.username>" \
-        -X sasl.password="<sasl.password>" \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
-    ```
+    {% list tabs %}
+    - Serverless база
+      ```bash
+      echo "test message" | kcat -P \
+          -b <kafka-api-endpoint> \
+          -t <stream-name> \
+          -k key \
+          -X security.protocol=SASL_SSL \
+          -X sasl.mechanism=PLAIN \
+          -X sasl.username="<sasl.username>" \
+          -X sasl.password="<sasl.password>"
+      ```
+    - Dedicated база
+      ```bash
+      echo "test message" | kcat -P \
+          -b <kafka-api-endpoint> \
+          -t <stream-name> \
+          -k key \
+          -X security.protocol=SASL_SSL \
+          -X sasl.mechanism=PLAIN \
+          -X sasl.username="<sasl.username>" \
+          -X sasl.password="<sasl.password>" \
+          -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+    {% endlist %}
+
 
 Основную документацию по работе с {{ yds-name }} через Kafka API и больше примеров см. в [документации YDB]({{ ydb.docs }}/reference/kafka-api).

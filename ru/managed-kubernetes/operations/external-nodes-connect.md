@@ -249,7 +249,7 @@ kubectl -n yandex-system create secret generic <имя_секрета> --from-fi
 Если информации недостаточно, обратитесь к логам системных компонентов на соответствующем подключаемом сервере:
 
 ```bash
-journalctl -u maintainer
+journalctl -u yandex-maintainer
 journalctl -u kubelet
 ```
 

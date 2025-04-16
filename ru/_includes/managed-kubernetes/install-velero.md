@@ -13,6 +13,12 @@
 
     {% endnote %}
 
+    {% note info %}
+
+    Плагин restic для создания снимков томов [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальных](https://kubernetes.io/docs/concepts/storage/volumes/#local) и любых других типов томов без встроенной поддержки моментальных снимков, не включен в приложение Velero.
+
+    {% endnote %}
+
 
 - Вручную {#manual}
 
@@ -63,7 +69,7 @@
         * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
         * `--features` — список активных функциональных возможностей.
         * `--snapshot-location-config` — зона доступности, в которой будут размещены снимки дисков.
-        * (опционально) `--uploader-type=restic` — включение плагина restic.
+        * (опционально) `--uploader-type=restic` — включение плагина restic для создания снимков томов [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальных](https://kubernetes.io/docs/concepts/storage/volumes/#local) и любых других типов томов без встроенной поддержки моментальных снимков.
 
         Результат:
 

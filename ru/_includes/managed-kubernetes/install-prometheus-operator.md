@@ -31,7 +31,7 @@
 1. Нажмите на имя нужного кластера {{ k8s }} и выберите вкладку ![image](../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [{{ prometheus-name }} Operator с поддержкой {{ monitoring-full-name }}](/marketplace/products/yc/prometheus-operator) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) (например, `prometheus-operator-space`). Если вы оставите пространство имен по умолчанию, {{ prometheus-name }} Operator может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **{{ prometheus-name }} Workspace** — выберите нужный воркспейс {{ prometheus-name }}.
    * **API-ключ** — укажите содержимое файла `sa-key.json`, полученного ранее.
@@ -61,6 +61,8 @@
    ```
 
    Эта команда также создаст новое пространство имен для работы {{ prometheus-name }} Operator.
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, {{ prometheus-name }} Operator может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `prometheus-operator-space`).
 
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

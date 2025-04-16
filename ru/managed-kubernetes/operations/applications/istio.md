@@ -41,7 +41,7 @@ Istio обеспечивает:
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Istio](/marketplace/products/yc/istio) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Istio или создайте новое. Не рекомендуется устанавливать приложение в пространство имен `default`.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `istio-space`). Если вы оставите пространство имен по умолчанию, Istio может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Установка дополнений** — выберите эту опцию, чтобы автоматически установить дополнения: консоль управления [Kiali](https://kiali.io/), компоненты Grafana, Prometheus, [Jaeger](/marketplace/products/yc/jaeger-ydb-store) и [Loki](/marketplace/products/yc/loki).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -62,6 +62,8 @@ Istio обеспечивает:
      --create-namespace \
    istio ./istio/
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Istio может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `istio-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

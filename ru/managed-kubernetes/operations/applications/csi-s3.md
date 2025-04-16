@@ -32,6 +32,9 @@ description: Следуя данной инструкции, вы сможете
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Container Storage Interface для S3](/marketplace/products/yc/csi-s3) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) `kube-system`.
+
+      {% include [Namespace warning](../../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
+
    * **Название приложения** — укажите название приложения, например `csi-s3`.
    * **Создать класс хранения** — выберите эту опцию, чтобы создать новый [класс хранилища](../volumes/manage-storage-class.md) при развертывании приложения.
    * **Создать секрет** — выберите эту опцию, чтобы создать новый секрет для класса хранилища при установке приложения.

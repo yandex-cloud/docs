@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Loki](/marketplace/products/yc/loki) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
 
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Loki или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `loki-space`). Если вы оставите пространство имен по умолчанию, Loki может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Имя бакета** — укажите имя [бакета](../../../storage/concepts/bucket.md) в {{ objstorage-name }}.
    * **Статический ключ для доступа** — скопируйте содержимое файла `sa-key.json`.
@@ -66,6 +66,8 @@ description: Следуя данной инструкции, вы сможете
       --set-file global.serviceaccountawskeyvalue=<путь_к_файлу_sa-key.json> \
       loki ./loki/
     ```
+
+    Если вы укажете в параметре `namespace` пространство имен по умолчанию, Loki может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `loki-space`).
 
     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

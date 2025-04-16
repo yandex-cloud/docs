@@ -24,7 +24,7 @@
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Kyverno или создайте новое. В нем не должны находиться какие-либо приложения или объекты, иначе Kyverno будет работать некорректно.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `kyverno-space`). Если вы оставите пространство имен по умолчанию, Kyverno может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Включение Kyverno Policies** — выберите, чтобы установить расширение Kyverno Policies.
    * **Pod Security Standard profile** — выберите [профиль Pod Security Standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/):
@@ -55,7 +55,7 @@
      multi-kyverno ./multi-kyverno/
    ```
 
-   Выберите пространство имен, в котором нет каких-либо приложений или объектов, иначе Kyverno будет работать некорректно.
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Kyverno может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `kyverno-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

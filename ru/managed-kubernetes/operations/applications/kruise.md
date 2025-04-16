@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Kruise](/marketplace/products/yc/kruise) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
 
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Kruise или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `kruise-space`). Если вы оставите пространство имен по умолчанию, Kruise может работать некорректно.
    * **Название приложения** — укажите название приложения.
 
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -43,6 +43,8 @@ description: Следуя данной инструкции, вы сможете
      --create-namespace \
      kruise ./kruise/
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Kruise может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `kruise-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
