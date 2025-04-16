@@ -48,7 +48,7 @@ Examples of {{ captcha-name }} usage cost calculation:
 
 ## Prices for the Russia region {#prices}
 
-{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+{% include [pricing-diff-regions-info](../_includes/pricing-diff-regions-info.md) %}
 
 
 

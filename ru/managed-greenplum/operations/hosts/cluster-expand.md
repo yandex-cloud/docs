@@ -252,7 +252,7 @@
 
         {% include [sql-redistribution-status](../../../_includes/mdb/mgp/expand/sql-redistribution-status.md) %}
 
-    Результат запроса будет содержать [различную информацию]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) о ходе процесса перераспределения данных. В столбце `status` будет указан текущий статус обработки конкретных таблиц:
+    Результат запроса будет содержать [различную информацию]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) о ходе процесса перераспределения данных. В столбце `status` будет указан текущий статус обработки конкретных таблиц:
 
     * `NOT STARTED` — запланировано перераспределение данных таблицы, таблица находится в очереди на перераспределение.
 
@@ -290,7 +290,7 @@
     WHERE fq_name IN (<список_полных_имен_таблиц>);
     ```
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
 
 ### Запустить перераспределение данных вручную {#start-redistribute}
 
@@ -322,7 +322,7 @@
     * `relname` — имя таблицы;
     * `numsegment` — количество сегментов, по которым размещены данные.
 
-    Подробнее см. в документации {{ GP }}, посвященной таблице [gp_distribution_policy]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html).
+    Подробнее см. в документации {{ GP }}, посвященной таблице [gp_distribution_policy]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html).
 
 1. Запустите перераспределение данных, пользуясь информацией, полученной ранее.
 
@@ -334,7 +334,7 @@
         ALTER TABLE ONLY <имя_таблицы> EXPAND TABLE;
         ```
 
-    * Для [партиционированной]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-ddl-ddl-partition.html#about-table-partitioning) таблицы:
+    * Для [партиционированной]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-ddl-ddl-partition.html#about-table-partitioning) таблицы:
 
         ```sql
         ALTER TABLE <имя_таблицы>

@@ -5,7 +5,7 @@
 
 Вы можете создавать резервные копии данных из групп узлов кластера {{ managed-k8s-name }} с помощью инструмента [Velero](https://velero.io/). Этот инструмент поддерживает работу с [дисками](../../compute/concepts/disk.md) {{ yandex-cloud }} с помощью CSI-драйвера {{ k8s }}, и позволяет создавать моментальные [снимки дисков](../../compute/concepts/snapshot.md) [томов](../../managed-kubernetes/concepts/volume.md).
 
-При работе с Velero, установленным вручную, вы можете использовать [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальный](https://kubernetes.io/docs/concepts/storage/volumes/#local) или любой другой тип тома, в котором нет встроенной поддержки моментальных снимков. Чтобы использовать такой тип тома, задействуйте [плагин restic](https://velero.io/docs/v1.8/restic/) при установке Velero. Velero, установленный из [{{ marketplace-name }}](/marketplace/products/yc/velero-yc-csi), плагин restic не включает.
+При работе с Velero, установленным вручную, вы можете использовать [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальный](https://kubernetes.io/docs/concepts/storage/volumes/#local) или любой другой тип тома, в котором нет встроенной поддержки моментальных снимков. Чтобы использовать такой тип тома, задействуйте [плагин restic](https://velero.io/docs/v1.8/restic/) при установке Velero. Плагин restic не включен в Velero, установленный из [{{ marketplace-name }}](/marketplace/products/yc/velero-yc-csi).
 
 Из этой статьи вы узнаете, как создать резервную копию группы узлов одного кластера {{ managed-k8s-name }} с помощью Velero, сохранить ее в {{ objstorage-name }}, а затем восстановить в группе узлов другого кластера:
 1. [Создайте резервную копию группы узлов {{ managed-k8s-name }}](#backup).
@@ -136,6 +136,7 @@
    {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
+1. Убедитесь, что квот на количество снимков дисков и их объем достаточно для создания резервной копии данных. Для этого можно использовать [сервис проверки квот](../../quota-manager/operations/read-quotas.md).
 1. Выполните резервное копирование данных с группы узлов кластера {{ managed-k8s-name }}:
 
    ```bash
