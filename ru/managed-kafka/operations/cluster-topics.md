@@ -16,6 +16,7 @@ description: 'Следуя данной инструкции, вы сможет�
     * [получить список топиков в кластере](#list-topics);
     * [получить детальную информацию о топике](#get-topic);
     * [импортировать топик в {{ TF }}](#import-topic);
+    * [перенести информацию о созданных топиках в файл состояния {{ TF }}](#move-info-topic);
     * [удалить топик](#delete-topic).
 
 * С помощью [Admin API {{ KF }}](#admin-api). Способ подходит, если вы хотите использовать уже существующее у вас решение для управления топиками и разделами.
@@ -539,6 +540,158 @@ description: 'Следуя данной инструкции, вы сможет�
         ```
 
         Подробнее об импорте топиков см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic#import).
+
+{% endlist %}
+
+### Перенести информацию о созданных топиках в файл состояния {{ TF }} {#move-info-topic}
+
+При переходе на новую версию Terraform-провайдера между файлом состояния и конфигурационным файлом могут возникнуть расхождения по созданным топикам: устаревшие атрибуты `topic` и новые ресурсы `yandex_mdb_kafka_topic`. Чтобы убрать расхождения, необходимо удалить атрибуты `topic` и перенести информацию о созданных ресурсах `yandex_mdb_kafka_topic` в файл состояния `.tfstate` одним из двух способов.
+
+#### Первый способ {#first}
+
+{% list tabs %}
+
+- {{ TF }} {#tf}
+
+  1. Удалите информацию о кластере из файла состояния `.tfstate`, используя команду:
+
+     ```bash
+     terraform state rm yandex_mdb_kafka_cluster.<имя_кластера>
+     ```
+
+  1. Отредактируйте конфигурационный файл Terraform:
+     * удалите атрибуты `topic` из ресурса `yandex_mdb_kafka_cluster`;
+     * [добавьте новые ресурсы]({{ tf-provider-resources-link }}/mdb_kafka_topic) `yandex_mdb_kafka_topic`.
+
+      {% cut "Пример обновленного конфигурационного файла" %}
+        
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "this" {
+        name = "terraform-test"
+        environment = "PRODUCTION"
+        network_id = data.yandex_vpc_network.this.id
+
+        config {
+          version = "3.4"
+          brokers_count = 1
+          zones = ["ru-central1-a"]
+          kafka {
+            resources {
+              resource_preset_id = "s2.small"
+              disk_size = 30
+              disk_type_id = "network-ssd"
+            }
+            kafka_config {
+              log_segment_bytes = 104857600
+            }
+          }
+        }
+      }
+
+      resource "yandex_mdb_kafka_topic" "topic1" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic1"
+        partitions = 3
+        replication_factor = 1
+      }
+
+
+      resource "yandex_mdb_kafka_topic" "topic2" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic2"
+        partitions = 3
+        replication_factor = 1
+      }
+      ```
+        
+      {% endcut %}
+        
+  1. Выполните импорт кластера и топиков:
+
+     ```bash
+     terraform import yandex_mdb_kafka_cluster.<имя_кластера> <идентификатор_кластера>
+     terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+     terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+     ```
+    
+  1. {% include [terraform-plan](../../_includes/mdb/terraform/plan.md) %}
+
+{% endlist %}
+
+#### Второй способ {#second}
+
+{% list tabs %}
+
+- {{ TF }} {#tf}
+
+  1. Скачайте файл состояния `.tfstate`, используя команду:
+
+     ```bash
+     terraform state pull
+     ```
+    
+  1. Откройте скачанный файл в любом текстовом редакторе и удалите атрибуты `topic` из ресурса `yandex_mdb_kafka_cluster`.
+  1. Отправьте обновленный файл состояния, используя команду:
+
+     ```bash
+     terraform state push
+     ```
+    
+  1. Отредактируйте конфигурационный файл Terraform:
+     * удалите атрибуты `topic` из ресурса `yandex_mdb_kafka_cluster`;
+     * [добавьте новые ресурсы]({{ tf-provider-resources-link }}/mdb_kafka_topic) `yandex_mdb_kafka_topic`.
+
+      {% cut "Пример обновленного конфигурационного файла" %}
+        
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "this" {
+        name = "terraform-test"
+        environment = "PRODUCTION"
+        network_id = data.yandex_vpc_network.this.id
+
+        config {
+          version = "3.4"
+          brokers_count = 1
+          zones = ["ru-central1-a"]
+          kafka {
+            resources {
+              resource_preset_id = "s2.small"
+              disk_size = 30
+              disk_type_id = "network-ssd"
+            }
+            kafka_config {
+              log_segment_bytes = 104857600
+            }
+          }
+        }
+      }
+
+      resource "yandex_mdb_kafka_topic" "topic1" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic1"
+        partitions = 3
+        replication_factor = 1
+      }
+
+
+      resource "yandex_mdb_kafka_topic" "topic2" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic2"
+        partitions = 3
+        replication_factor = 1
+      }
+      ```
+        
+      {% endcut %}
+
+  1. Выполните импорт топиков:
+
+     ```bash
+     terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+     terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+     ``` 
+    
+  1. {% include [terraform-plan](../../_includes/mdb/terraform/plan.md) %}
 
 {% endlist %}
 

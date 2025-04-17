@@ -12,7 +12,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an HTTP router.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Enter the HTTP router name.
@@ -95,6 +95,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        --http-router-name <HTTP_router_name> \
        --authority your-domain.foo.com \
        --modify-request-header name=Accept-Language,append=ru-RU \
+       --rate-limit rps=100,all-requests \
        --security-profile-id <security_profile_ID>
      ```
 
@@ -104,7 +105,11 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      * `--modify-request-header`: Request header modification settings:
        * `name`: Name of the header being modified.
        * `append`: String to add to the header value.
-     * `--security-profile-id` (optional): ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+     * `--rate-limit`: Request rate limit. This is an optional setting.
+       * `rps` or `rpm`: Number of allowed incoming requests per second or per minute.
+       * `all-requests`: Limits all incoming requests.
+       * `requests-per-ip` Limits the total number of requests per IP address. That is, for each IP address, only the specified number of requests is allowed per unit of time.
+     * `--security-profile-id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). This is an optional setting. A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Result:
@@ -112,10 +117,15 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      ```text
      name: test-virtual-host
      authority:
-     - your-domain.foo.com
+       - your-domain.foo.com
      modify_request_headers:
-     - name: Accept-Language
-       append: ru-RU
+       - name: Accept-Language
+         append: ru-RU
+     route_options:
+       security_profile_id: fevcifh6tr**********
+     rate_limit:
+       all_requests:
+         per_second: "100"
      ```
 
   1. View a description of the CLI command for adding a host:
@@ -134,6 +144,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        --backend-group-name <backend_group_name> \
        --request-timeout <request_timeout>s \
        --request-idle-timeout <request_idle_timeout>s
+       --rate-limit rps=<request_limit>,requests-per-ip
      ```
 
      Where:
@@ -147,6 +158,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
      * `--request-timeout`: Request timeout in seconds.
      * `--request-max-timeout`: Maximum request idle timeout in seconds.
+     * `--rate-limit`: Request rate limit.
 
      For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
@@ -210,13 +222,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
      Where:
      * `yandex_alb_http_router`: HTTP router description.
-       * `name`: HTTP router name. The name should match the following format:
+       * `name`: HTTP router name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
        * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
      * `yandex_alb_virtual_host`: Virtual host description:
-       * `name`: Virtual host name. The name should match the following format:
+       * `name`: Virtual host name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -227,13 +239,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
            * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
            * `timeout`: Maximum request idle timeout in seconds.
        * `authority`: Domains for the `Host` headers for HTTP/1.1 or `authority` for HTTP/2 that will be associated with this virtual host. This parameter supports wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional parameter.
-       * `route_options` (optional): Additional parameters of the virtual host:
+       * `route_options` (optional): Additional virtual host parameters:
            * `security_profile_id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
   
 
-     For more information about the properties of {{ TF }} resources, see these {{ TF }} guides:
-     * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router).
-     * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+     Learn more about the properties of {{ TF }} resources in the {{ TF }} documentation:
+     * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
+     * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

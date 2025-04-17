@@ -73,7 +73,16 @@ items:
         href: operations/configure-logging.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Создание L7-балансировщика с профилем безопасности
+        items:
+          - name: Обзор
+            href: tutorials/balancer-with-sws-profile/index.md
+          - name: Консоль управления
+            href: tutorials/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: tutorials/balancer-with-sws-profile/terraform.md
         href: tutorials/balancer-with-sws-profile.md
       - name: >-
           Создание L7-балансировщика с профилем безопасности через

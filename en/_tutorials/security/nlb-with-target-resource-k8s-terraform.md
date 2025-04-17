@@ -1,4 +1,4 @@
-# Migrating services from an NLB load balancer with a {{ managed-k8s-full-name }} cluster as a target to an L7 ALB load balancer using {{ TF }}
+# Migrating services from an NLB with a {{ managed-k8s-full-name }} cluster as a target to an L7 ALB using {{ TF }}
 
 
 To migrate a service from a network load balancer to an L7 load balancer:
@@ -22,7 +22,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 1. Download a configuration file to the same working directory based on the protocol you are using:
     * `HTTP`: [alb-k8s-http.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-k8s-migration/blob/main/alb-k8s-http.tf) configuration file.
-    * `HTTPS`: [alb-k8s-https.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-k8s-migration/blob/main/alb-k8s-https.tf]) configuration file.
+    * `HTTPS`: [alb-k8s-https.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-k8s-migration/blob/main/alb-k8s-https.tf) configuration file.
 
     These files describe:
 

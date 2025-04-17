@@ -6494,11 +6494,6 @@ default:
         action_import: User certificate
         action_request: Let's Encrypt certificate
         button_empty-action: Add certificate
-        domain:
-          form:
-            button_bind: Link
-            field_certificate: Certificate
-            field_domain: Domain
         import:
           button_add-certificate: Add certificate
           button_add-chain: Add chain

@@ -10,7 +10,7 @@ description: Follow this guide to update an endpoint.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing your endpoint.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select a push notification channel.
   1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the endpoint and select **{{ ui-key.yacloud.common.edit }}**.
@@ -36,7 +36,7 @@ description: Follow this guide to update an endpoint.
 
       For more information about the `aws sns set-endpoint-attributes` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
 
-- AWS SDK for Python (boto3) {#python}
+- AWS SDK for Python {#python}
 
   1. If you do not have the AWS SDK for Python (boto3) yet, [install and configure it](../../tools/sdk-python.md#aws-sdk).
   1. To update an endpoint, use the following code:
@@ -76,7 +76,7 @@ description: Follow this guide to update an endpoint.
       echo "Endpoint attributes updated successfully.\n";
       ```
 
-      * `EndpointArn` is the endpoint ID (ARN).
+      * `EndpointArn`: Endpoint ID (ARN).
       * `Attributes` are comma-separated parameters you want to edit, in `'<parameter>' => '<new_value>'` format.
 
 

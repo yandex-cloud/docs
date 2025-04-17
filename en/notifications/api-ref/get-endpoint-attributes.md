@@ -10,11 +10,11 @@ POST https://{{ cns-host }}/
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `Action` | **string**<br/>Required field.<br/>Parameter to indicate the operation type.<br/>Value: `GetEndpointAttributes`. |
-| `EndpointArn` | **string**<br/>Required field.<br/>Mobile endpoint ID (ARN).<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`. |
-| `ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (by default)</li><li>`JSON`.</li></ul> |
+`Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `GetEndpointAttributes`.
+`EndpointArn` | **string**<br/>Required field.<br/>Endpoint ID (ARN).<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`</li></ul>
 
 ## Response {#response}
 
@@ -30,41 +30,41 @@ Data schema:
 
 - XML
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <GetEndpointAttributesResponse>
-   	  <ResponseMetadata>
-   		  <RequestId>string</RequestId>
-   	  </ResponseMetadata>
-   	  <CustomUserData>string</CustomUserData>
-   	  <Enabled>true</Enabled>
-   </GetEndpointAttributesResponse>
-   ```
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <GetEndpointAttributesResponse>
+	  <ResponseMetadata>
+		  <RequestId>string</RequestId>
+	  </ResponseMetadata>
+	  <CustomUserData>string</CustomUserData>
+	  <Enabled>true</Enabled>
+  </GetEndpointAttributesResponse>
+  ```
 
 - JSON
 
-   ```json
-   {
-     "ResponseMetadata": {
-       "RequestId": "string"
-     },
-     "CustomUserData": "string",
-     "Enabled": true
-   }
-   ```
+  ```json
+  {
+    "ResponseMetadata": {
+      "RequestId": "string"
+    },
+    "CustomUserData": "string",
+    "Enabled": true
+  }
+  ```
 
 {% endlist %}
 
 Where:
 * `RequestId`: Request ID.
-* `CustomUserData`: Other user data that is stored with the endpoint. {{ cns-name }} does not use this data in any way.
+* `CustomUserData`: Other user data stored together with the endpoint. {{ cns-name }} does not use this data in any way.
 * `Enabled`: Attribute for enabling and disabling endpoint notifications, currently not supported. It always returns `true`.
 
-   {% note info %}
+  {% note info %}
 
-   The `Token` attribute is not output for additional data protection.
+  For data protection purposes, you can not output the `Token` attribute.
 
-   {% endnote %}
+  {% endnote %}
 
 ### Error response {#response-4xx}
 

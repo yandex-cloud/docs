@@ -50,14 +50,14 @@ noIndex: true
             Сервисному аккаунту должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`.
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
-    1. Задайте конфигурацию координатора и воркеров.
-    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте необходимые каталоги. Вы можете сделать это как при создании кластера, так и позже.
+    1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
+    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте необходимые [каталоги](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже.
 
         1. Задайте имя каталога. Имя должно быть уникальным в рамках облака.
         1. Выберите **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**.
         1. В блоке **Настройки каталога** задайте параметры в зависимости от выбранного типа:
 
-            * Для коннекторов Hive, Iceberg и Delta Lake:
+            * Для [коннекторов](../concepts/index.md#connector) Hive, Iceberg и Delta Lake:
 
                 * **URI** для подключения к кластеру Metastore в формате `thrift://<IP-адрес>:<порт>`.
                 * **Файловое хранилище** — выберите тип файлового хранилища: **Yandex Object Storage** или **Внешнее хранилище**. Для внешнего хранилища задайте следующие настройки:

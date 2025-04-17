@@ -238,7 +238,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 * [{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}. In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
 * [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Curator. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
-* [Advanced](/services/ddos-protection) DDoS protection operates at Levels 3, 4, and 7 of the OSI model. You can also track load and attack metrics and enable Solidwall WAF in your Curator account. To enable advanced protection, contact your manager or technical support.
+* [Advanced](/services/ddos-protection) DDoS protection is available at OSI layers 3, 4, and 7. You can also track load and attack metrics and enable Solidwall WAF in your Curator account. To enable advanced protection, contact your manager or technical support.
 
 {% list tabs group=instructions %}
 
@@ -340,7 +340,7 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
 
 Possible options for setting up outbound internet access:
 * [Public IP address](../../../vpc/concepts/address.md#public-addresses). Assigned to a VM according to the one-to-one NAT rule.
-* [Egress NAT (NAT gateway)](../../../vpc/operations/create-nat-gateway.md). Enables internet access for a subnet through a shared pool of {{ yandex-cloud }} public IP addresses. We do not recommend using Egress NAT for critical interactions, since the NAT gateway's IP address might be used by multiple clients at the same time. This feature must be taken into account when modeling threats for your infrastructure.
+* [Egress NAT (NAT gateway)](../../../vpc/operations/create-nat-gateway.md). Enables internet access for a subnet through a shared pool of {{ yandex-cloud }} public IP addresses. We do not recommend using an Egress NAT for critical interactions because the NAT gateway's IP address can be used by several clients at the same time. This feature must be taken into account when modeling threats for your infrastructure.
 * [NAT instance](../../../tutorials/routing/nat-instance/index.md). The NAT function is performed by a separate VM. You can create this VM using a [NAT instance]({{ link-cloud-marketplace }}/products/yc/nat-instance-ubuntu-18-04-lts) image from {{ marketplace-name }}.
 
 **Comparison of internet access methods**:

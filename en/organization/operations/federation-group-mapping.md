@@ -16,10 +16,10 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
 
     Identity providers offer guides on how to set up group mapping:
 
-   * [{{ keycloak }}](../tutorials/federations/group-mapping/keycloak.md).
-   * [{{ microsoft-idp.adfs-full }}](../tutorials/federations/group-mapping/adfs.md).
-   * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/group-mapping/entra-id.md).
-   * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU).
+   * [{{ keycloak }}](../tutorials/federations/group-mapping/keycloak.md)
+   * [{{ microsoft-idp.adfs-full }}](../tutorials/federations/group-mapping/adfs.md)
+   * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/group-mapping/entra-id.md)
+   * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU)
 
 1. Set up user group mapping in the federation settings:
 
@@ -43,5 +43,52 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
       1. Repeat the previous step for each group you want to map.
 
       1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+    - {{ TF }} {#tf}
+
+      {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+      {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+      1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+
+          ```hcl
+          # Enabling federated user group mapping
+
+          resource "yandex_organizationmanager_group_mapping" "my_group_map" {
+           federation_id = "<federation_ID>"
+           enabled       = true
+          }
+
+          # Configuring a federated user group mapping
+
+          resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item" {
+            federation_id     = "<federation_ID>"
+            internal_group_id = "<Cloud_Organization_group>"
+            external_group_id = "<identity_provider_group>"
+
+          depends_on = [yandex_organizationmanager_group_mapping.my_group_map]
+          }
+
+          resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item-2" {
+            federation_id     = "<federation_ID>"
+            internal_group_id = "<Cloud_Organization_group>"
+            external_group_id = "<identity_provider_group>"
+
+          depends_on = [yandex_organizationmanager_group_mapping.my_group_map]
+          }
+          ```
+
+          Where:
+          * `federation_id`: Federation ID.
+          * `internal_group_id`: {{ org-name }} group name.
+          * `external_group_id`: Name of an identity provider group.
+
+          For more information about the `yandex_organizationmanager_group_mapping_item` resource parameters, see the [relevant {{ TF }} documentation]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
+      1. Create the resources:
+
+          {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+          {{ TF }} will create all the required resources. You can check resource availability in [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
     {% endlist %}

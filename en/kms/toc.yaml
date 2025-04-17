@@ -97,6 +97,8 @@ items:
         href: tutorials/vault-secret.md
       - name: Secure password transmission to an initialization script
         href: tutorials/secure-password-script.md
+      - name: Server-side encryption for an {{ objstorage-name }} bucket
+        href: tutorials/server-side-encryption.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

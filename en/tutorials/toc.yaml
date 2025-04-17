@@ -19,15 +19,15 @@ items:
           Creating an L7 load balancer with a {{ sws-name }} security profile
           through an {{ alb-name }} Ingress controller
         href: security/alb-ingress-with-sws-profile.md
-      - name: Centralized online publication and DDoS protection of applications
+      - name: Centralized online publication and app protection against DDoS attacks
         href: security/different-folders-services.md
       - name: >-
-          Migrating services from a NLB load balancer to an L7 ALB load balancer
-          for DDoS protection using {{ sws-name }}
+          Migrating services from an NLB to L7 ALB for DDoS protection using {{
+          sws-name }}
         items:
           - name: Overview
             href: security/migration-from-nlb-to-alb/index.md
-          - name: NLB load balancer with VMs as targets
+          - name: NLB with VMs as targets
             items:
               - name: Overview
                 href: >-
@@ -38,7 +38,7 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
-          - name: NLB load balancer with a VM group as a target
+          - name: NLB with an instance group as a target
             items:
               - name: Overview
                 href: >-
@@ -49,9 +49,7 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
-          - name: >-
-              NLB load balancer with a {{ managed-k8s-name }} cluster as a
-              target
+          - name: NLB with a {{ managed-k8s-name }} cluster as a target
             items:
               - name: Overview
                 href: >-
@@ -62,7 +60,7 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
-          - name: NLB load balancer as a target for an ALB
+          - name: NLB as a target for ALB
             items:
               - name: Overview
                 href: >-
@@ -182,10 +180,12 @@ items:
             href: security/encrypt/aws-encryption-sdk.md
           - name: Encrypting data using Google Tink
             href: security/encrypt/google-tink.md
-      - name: Managing KMS keys with {{ TF-full }}
-        href: security/terraform-key.md
+      - name: Server-side encryption for an {{ objstorage-name }} bucket
+        href: security/server-side-encryption.md
       - name: Encrypting secrets in {{ TF-full }}
         href: security/terraform-secret.md
+      - name: Managing KMS keys with {{ TF-full }}
+        href: security/terraform-key.md
       - name: Auto Unseal in Hashicorp Vault
         href: security/vault-secret.md
       - name: Integrations of workload identity federations
@@ -611,7 +611,7 @@ items:
         items:
           - name: Creating a skill for Alice
             href: serverless/alice-skill.md
-          - name: Creating a skill for Alice and a website with authorization
+          - name: Developing a skill for Alice and a website with authorization
             href: serverless/alice-shareable-todolist.md
       - name: Other
         items:
@@ -758,9 +758,9 @@ items:
       - name: Data resharding in a {{ mch-name }} cluster
         href: dataplatform/mch-mch-resharding.md
       - name: >-
-          Loading data from {{ yandex-direct }} to a {{ mch-name }} data mart
-          using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name
-          }}
+          Loading data from {{ yandex-direct }} to a data mart enabled by {{
+          mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
           Loading data from {{ objstorage-name }} to {{ mch-name }} using {{
@@ -913,7 +913,7 @@ items:
         href: dataplatform/opensearch-yandex-lemmer.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
-      - name: Identifying {{ mpg-name }} cluster performance issues
+      - name: Searching for the {{ mpg-name }} cluster performance issues
         href: dataplatform/mpg-performance-problems.md
       - name: '{{ mpg-name }} performance analysis and tuning'
         href: dataplatform/mpg-profiling.md
@@ -1114,8 +1114,12 @@ items:
         href: routing/pub-add.md
       - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
         href: routing/bms-vrf-routing.md
-      - name: Setting up network connectivity in a {{ baremetal-full-name }} subnet
+      - name: Configuring network connectivity in the {{ baremetal-name }} subnet
         href: routing/bms-simple-subnet.md
+      - name: >-
+          Setting up network connectivity between {{ baremetal-name }} and {{
+          vpc-name }} subnets
+        href: routing/bm-vrf-and-vpc-interconnect.md
   - name: Data analysis and visualization
     items:
       - name: All tutorials
@@ -1261,11 +1265,11 @@ items:
           yagpt-name }}, and {{ postbox-name }}
         href: serverless/tracker-yandexgpt-postbox-integrations.md
       - name: >-
-          Developing functions in Functions Framework and deploying them in {{
+          Developing functions in Functions Framework and deploying them to {{
           serverless-containers-full-name }}
         href: serverless/functions-framework-to-container.md
       - name: >-
-          Delivering data from {{ forms-name }} to {{ datalens-name }} using {{
+          Migrating data from {{ forms-name }} to {{ datalens-name }} using {{
           sf-name }} and {{ yq-name }}
         items:
           - name: Overview
@@ -1331,6 +1335,6 @@ items:
       - name: Using {{ foundation-models-full-name }} generative models
         items:
           - name: >-
-              Implementing an AI assistant with search through PDF files with
-              complex formatting
+              Implementing an AI assistant with search capabilities for PDF
+              files with complex formatting
             href: ml-ai/pdf-searchindex-ai-assistant.md

@@ -47,8 +47,8 @@ noIndex: true
     1. Задайте имя кластера.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите созданный ранее сервисный аккаунт.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../vpc/operations/network-create.md), [подсеть](../vpc/operations/subnet-create.md) и [группу безопасности](../vpc/concepts/security-groups.md) для кластера.
-    1. Задайте конфигурацию координатора и воркеров.
-    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте каталоги:
+    1. Задайте конфигурацию [координатора](concepts/index.md#coordinator) и [воркеров](concepts/index.md#workers).
+    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте [каталоги](concepts/index.md#catalog):
 
         1. Для кластера {{ mpg-name }} со следующими параметрами:
 
@@ -155,4 +155,5 @@ SELECT COUNT(*) FROM tpch_postgresql.customers;
 
 # Что дальше {#whats-next}
 
+* Изучите [взаимосвязь ресурсов сервиса](concepts/index.md).
 * Ознакомьтесь с другими [способами подключения к кластеру {{ mtr-name }}](operations/connect.md).

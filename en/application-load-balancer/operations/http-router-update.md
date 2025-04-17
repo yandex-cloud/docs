@@ -5,7 +5,7 @@ description: Follow this guide to update parameters of an HTTP router.
 
 # Updating HTTP router parameters
 
-To update the HTTP router parameters:
+To update HTTP router parameters:
 
 {% list tabs group=instructions %}
 
@@ -81,7 +81,7 @@ To update the HTTP router parameters:
      ...
      ```
 
-     For more information about the `yandex_alb_http_router` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_http_router).
+     For more information about `yandex_alb_http_router` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_http_router).
 
   1. To add, update, or delete HTTP router virtual hosts, use the `yandex_alb_virtual_host` resource indicating the router in the `http_router_id` field:
 
@@ -101,7 +101,7 @@ To update the HTTP router parameters:
      }
      ```
 
-     For more information about the `yandex_alb_virtual_host` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more information about `yandex_alb_virtual_host` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Check the configuration using this command:
 
@@ -131,7 +131,7 @@ To update the HTTP router parameters:
      
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the HTTP router update using the [management console]({{ link-console-main }}) or this CLI](../../cli/quickstart.md) command:
+     You can check the HTTP router update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb http-router get <HTTP_router_ID>
@@ -194,7 +194,8 @@ To add a new route to an HTTP router's virtual host:
            --exact-path-match / \
            --backend-group-name <backend_group_name> \
            --request-timeout <request_timeout>s \
-           --request-idle-timeout <request_idle_timeout>s
+           --request-idle-timeout <request_idle_timeout>s \
+           --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
          For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
@@ -237,7 +238,8 @@ To add a new route to an HTTP router's virtual host:
            --exact-path-match / \
            --backend-group-name <backend_group_name> \
            --request-timeout <request_timeout>s \
-           --request-idle-timeout <request_idle_timeout>s
+           --request-idle-timeout <request_idle_timeout>s \
+           --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
          For more information about the `yc alb virtual-host prepend-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
@@ -283,7 +285,8 @@ To add a new route to an HTTP router's virtual host:
            --exact-path-match / \
            --backend-group-name <backend_group_name> \
            --request-timeout <request_timeout>s \
-           --request-idle-timeout <request_idle_timeout>s
+           --request-idle-timeout <request_idle_timeout>s \
+           --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
          For more information about the `yc alb virtual-host insert-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
@@ -331,7 +334,8 @@ To add a new route to an HTTP router's virtual host:
              --exact-path-match / \
              --backend-group-name <backend_group_name> \
              --request-timeout <request_timeout>s \
-             --request-idle-timeout <request_idle_timeout>s
+             --request-idle-timeout <request_idle_timeout>s \
+             --rate-limit rps=<request_limit>,requests-per-ip
            ```
 
            For more information about the `yc alb virtual-host insert-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
@@ -378,7 +382,8 @@ To add a new route to an HTTP router's virtual host:
            --http-router-name <HTTP_router_name> \
            --prefix-fqmn-match /<first_word_of_service_name> \
            --backend-group-name <backend_group_name> \
-           --request-max-timeout <timeout>s 
+           --request-max-timeout <timeout>s \
+           --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
          For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
@@ -419,7 +424,8 @@ To add a new route to an HTTP router's virtual host:
            --http-router-name <HTTP_router_name> \
            --prefix-fqmn-match /<first_word_of_service_name> \
            --backend-group-name <backend_group_name> \
-           --request-max-timeout <timeout>s  
+           --request-max-timeout <timeout>s \
+           --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
          For more information about the `yc alb virtual-host prepend-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
@@ -461,7 +467,8 @@ To add a new route to an HTTP router's virtual host:
            --http-router-name <HTTP_router_name> \
            --prefix-fqmn-match /<first_word> \
            --backend-group-name <backend_group_name> \
-           --request-max-timeout <timeout>s  
+           --request-max-timeout <timeout>s \
+           --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
           Where:
@@ -513,7 +520,8 @@ To add a new route to an HTTP router's virtual host:
             --http-router-name <HTTP_router_name> \
             --prefix-fqmn-match /<first_word> \
             --backend-group-name <backend_group_name> \
-            --request-max-timeout <timeout>s  
+            --request-max-timeout <timeout>s \
+            --rate-limit rps=<request_limit>,requests-per-ip
           ```
 
           Where:
@@ -571,7 +579,7 @@ To add a new route to an HTTP router's virtual host:
      }
      ```
 
-     For more information about the `yandex_alb_virtual_host` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more information about `yandex_alb_virtual_host` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
 
      The sequence of routes inside a virtual host description matters. For more information, see the [concept](../../application-load-balancer/concepts/http-router.md#virtual-host).
 

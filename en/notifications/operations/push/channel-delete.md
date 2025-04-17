@@ -25,7 +25,7 @@ description: Follow this guide to delete a push notification channel.
 
       For more information about the `aws sns delete-platform-application` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-platform-application.html).
 
-- AWS SDK for Python (boto3) {#python}
+- AWS SDK for Python {#python}
 
   1. If you do not have the AWS SDK for Python (boto3) yet, [install and configure it](../../tools/sdk-python.md#aws-sdk).
   1. To delete a push notification channel, use the following code:

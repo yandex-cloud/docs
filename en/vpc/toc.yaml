@@ -194,6 +194,10 @@ items:
       - name: ViPNet Coordinator in {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
         hidden: true
+      - name: >-
+          Setting up network connectivity between {{ baremetal-name }} and {{
+          vpc-name }} subnets
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
   - name: Concepts
     items:
       - name: Resource relationships

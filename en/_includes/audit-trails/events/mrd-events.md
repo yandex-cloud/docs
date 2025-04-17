@@ -4,6 +4,7 @@ Event name | Description
 `AddClusterShard` | Adding a shard to a cluster
 `BackupCluster` | Creating backups
 `CreateCluster` | Creating a cluster
+`DeleteBackup` | Deleting backups
 `DeleteCluster` | Deleting a cluster
 `DeleteClusterHosts` | Deleting hosts from a cluster
 `DeleteClusterShard` | Deleting a shard from a cluster

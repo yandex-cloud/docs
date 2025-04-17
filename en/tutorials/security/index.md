@@ -65,3 +65,4 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [{#T}](encrypt/aws-encryption-sdk.md)
 * [{#T}](encrypt/google-tink.md)
 * [{#T}](wlif-github-integration.md)
+* [{#T}](server-side-encryption.md)
