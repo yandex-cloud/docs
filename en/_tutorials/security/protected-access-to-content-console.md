@@ -7,7 +7,7 @@ To configure secure access to content in {{ cdn-name }}:
 1. [Create and configure a public DNS zone](#configure-dns).
 1. [Add a TLS certificate to {{ certificate-manager-full-name }}](#issue-certificate).
 1. [Prepare a source bucket for the CDN resource](#setup-bucket-origin).
-1. [Create a CDN resource](#setup-cdn-resource).
+1. [Create a CDN](#setup-cdn-resource).
 1. [Create a CNAME resource record for the CDN resource](#create-cdn-cname-record).
 1. [Publish the webiste on the web server](#publish-website).
 1. [Test secure access to files](#check).
@@ -793,7 +793,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     {% endlist %}
 
 
-## Create a CDN resource {#setup-cdn-resource}
+## Create a CDN {#setup-cdn-resource}
 
 {% list tabs group=instructions %}
 

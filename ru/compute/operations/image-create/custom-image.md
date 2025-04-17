@@ -12,6 +12,11 @@
 
 Если вы подготовили программное обеспечение, которое может быть полезно другим, [предложите](../../../marketplace/operations/create-product.md) его в {{ marketplace-full-name }}.
 
+{% note warning %}
+
+Образы с [UEFI/EFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface)-загрузчиком не совместимы с {{ compute-name }}. Чтобы загрузиться с дисков объемом более 2 ТБ с разметкой [GUID Partition Table (GPT)](https://ru.wikipedia.org/wiki/Таблица_разделов_GUID), используйте загрузчик [GRUB 2](https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html).
+
+{% endnote %}
 
 ## Настройте ОС в соответствии с требованиями {#requirements}
 

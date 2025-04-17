@@ -1,6 +1,6 @@
 # GetPlatformApplicationAttributes
 
-Gets parameters of the [mobile push notification channel](../concepts/push.md).
+Gets the [mobile push notification channel](../concepts/push.md) or [in-browser push notification channel](../concepts/browser.md) parameters.
 
 ## HTTP request {#request}
 
@@ -12,9 +12,9 @@ POST https://{{ cns-host }}/
 
 Parameter | Description
 --- | ---
-`Action` | **string**<br/>This is a required field.<br/>Parameter that indicates the type of operation.<br/>Value: `GetPlatformApplicationAttributes`.
-`PlatformApplicationArn` | **string**<br/>This is a required field.<br/>ID of a mobile push notification channel. <br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
-`ResponseFormat` | **string**<br/>Response format.<br/>Possible values:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
+`Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `GetPlatformApplicationAttributes`.
+`PlatformApplicationArn` | **string**<br/>Required field.<br/>Push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`</li></ul>
 
 ## Response {#response}
 
@@ -48,7 +48,7 @@ Data schema:
   ```
 
   Where:
-  * `RequestId`: Request ID
+  * `RequestId`: Request ID.
   * `Attributes`: Notification channel attributes. The following attributes are supported:
     * `ApplePlatformTeamID`: Developer ID, only when using a token.
     * `ApplePlatformBundleID`: App ID (bundle ID), only when using a token.
@@ -70,7 +70,7 @@ Data schema:
   ```
 
   Where:
-  * `RequestId`: Request ID
+  * `RequestId`: Request ID.
   * `Attributes`: Notification channel attributes. The following attributes are supported:
     * `ApplePlatformTeamID`: Developer ID, only when using a token.
     * `ApplePlatformBundleID`: App ID (bundle ID), only when using a token.
@@ -82,6 +82,7 @@ Data schema:
       * `APNS_SANDBOX`: Apple Push Notification service for app testing.
       * `FCM`: [Firebase Cloud Messaging](https://firebase.google.com/).
       * `HMS`: [Huawei Mobile Services](https://developer.huawei.com/consumer/).
+      * `WEB`: [In-browser push notifications](https://developer.mozilla.org/en-US/docs/Web/API/Push_API).
     * `CreatedAt`: Date and time when the mobile push notification channel was created.
 
 {% endlist %}

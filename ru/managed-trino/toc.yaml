@@ -19,6 +19,10 @@ items:
         href: operations/connect.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+  - name: Концепции
+    items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

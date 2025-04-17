@@ -1,10 +1,13 @@
 # Connecting to {{ container-registry-name }} from {{ vpc-name }}
 
 
-To work with [{{ container-registry-name }}](../../container-registry/), cloud resources require internet access. Follow this guide to deploy a cloud infrastructure in {{ yandex-cloud }} to set up access to {{ container-registry-name }} for resources that are hosted in the [{{ vpc-name }}](../../vpc/concepts/) cloud network and have no public IP addresses or access to the internet through a [NAT gateway](../../vpc/concepts/gateways).
+To work with [{{ container-registry-name }}](../../container-registry/), cloud resources require internet access. In this tutorial, we will create a {{ yandex-cloud }} infrastructure providing access to {{ container-registry-name }} for the [{{ vpc-name }}](../../vpc/concepts/)-hosted resources with no internet access.
 
 {{ container-registry-short-name }} uses [{{ objstorage-name }}](../../storage/) to store Docker images. This solution also provides {{ objstorage-name }} access for {{ vpc-name }} resources.
 
+You can see the solution structure in the diagram below.
+
+![image](../../_assets/tutorials/cr-hld.svg)
 
 While deploying this {{ yandex-cloud }} infrastructure, you will create the following resources:
 
@@ -26,7 +29,7 @@ While deploying this {{ yandex-cloud }} infrastructure, you will create the foll
 `*` *You can also specify an existing cloud network.*
 
 We will use [{{ dns-name }}](../../dns/concepts/) zones to provide access to the Container Registry and Object Storage for our cloud network VMs:
-* `{{ registry }}.`: DNS A resource record mapping the {{ container-registry-name }} `{{ registry }}` domain name to the `cr-nlb` [load balancer](../../network-load-balancer/concepts/nlb-types) IP address. 
+* `{{ registry }}.`: DNS A resource record mapping the {{ container-registry-name }} `{{ registry }}` domain name to the `cr-nlb` [load balancer](../../network-load-balancer/concepts/nlb-types.md) IP address. 
 * `{{ s3-storage-host }}.`: DNS A resource record mapping the {{ objstorage-short-name }} `{{ s3-storage-host }}` domain name to the `s3-nlb` load balancer IP address. 
 
 These records will direct traffic coming from your cloud network and aimed at {{ container-registry-short-name }} and {{ objstorage-short-name }} to internal load balancers that will in turn distribute it across NAT instances.
@@ -102,7 +105,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Specify the service account name, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -155,7 +158,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 
    - API {#api}
 
-      To assigna role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -251,11 +254,11 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 
    {% cut "terraform.tfvars variable description" %}
 
-   | Name<br>name | Needs<br>editing | Description | Type | Example |
+   | Parameter<br>name | Change<br>required | Description | Type | Example |
    | --- | --- | --- | --- | --- |
    | `folder_id` | Yes | Solution components folder ID | `string` | `b1gentmqf1ve9uc54nfh` |
    | `vpc_id` | - | ID of your cloud network with access to {{ container-registry-short-name }}. If left empty, {{ TF }} will create a new network. | `string` | `enp48c1ndilt42veuw4x` |
-   | `yc_availability_zones` | - | List of NAT instance [availability zones](../../overview/concepts/geo-scope)  | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
+   | `yc_availability_zones` | - | List of NAT instance [availability zones](../../overview/concepts/geo-scope.md)  | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
    | `subnet_prefix_list` | - | List of NAT instance subnets corresponding to availability zones from the `yc_availability_zones` list | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
    | `nat_instances_count` | - | Number of NAT instances. We recommend using an even number of VMs to evenly distribute them between availability zones. | `number` | `2` |
    | `registry_private_access` | - | Limits access to the registry to NAT instance IP addresses. You can remove this limitation by specifying `false`. | `bool` | `true` |
@@ -395,7 +398,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 
 1. Make sure the `hello-world` repository with the Docker image appears in the registry.
 
-## Tips for production deployment {#deployment-requirements}
+## Tips for solution deployment in the production environment {#deployment-requirements}
 
 * When deploying NAT instances in two availability zones, use an even number of VMs to evenly distribute them between availability zones.
 * When selecting the number of NAT instances, take into consideration the [load balancer traffic processing locality](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).

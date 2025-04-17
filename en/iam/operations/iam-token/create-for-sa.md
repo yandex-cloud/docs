@@ -187,6 +187,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   package com.mycompany.java.jwt;
 
   import com.fasterxml.jackson.databind.ObjectMapper;
+  import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   import io.jsonwebtoken.Jwts;
   import io.jsonwebtoken.SignatureAlgorithm;
   import org.bouncycastle.util.io.pem.PemObject;
@@ -203,6 +204,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   public class JavaJwt {
 
+      @JsonIgnoreProperties(ignoreUnknown = true)
       public static class KeyInfo {
 
           public String id;
@@ -726,6 +728,6 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
 #### What's next {#what-is-next}
 
-* [{#T}](../sa/set-access-bindings.md).
-* [{#T}](../sa/assign-role-for-sa.md).
-* [{#T}](./revoke-iam-token.md).
+* [{#T}](../sa/set-access-bindings.md)
+* [{#T}](../sa/assign-role-for-sa.md)
+* [{#T}](./revoke-iam-token.md)

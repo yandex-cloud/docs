@@ -247,7 +247,7 @@ There are also paid and free specialized solutions for scanning {{ k8s }} node O
 
 ## Backup and recovery {#backup-and-restore}
 
-Set up backups in {{ managed-k8s-name }} by following the [guide](../../managed-kubernetes/tutorials/kubernetes-backup.md). When storing your backups in {{ objstorage-name }}, follow recommendations from the [Secure configuration for {{ objstorage-name }}](../standard/virtualenv-safe-config.md#objstorage).
+Configure a {{ managed-k8s-name }} backup job according to the [guide](../../managed-kubernetes/tutorials/kubernetes-backup.md). When storing your backups in {{ objstorage-name }}, follow recommendations from the [Secure configuration for {{ objstorage-name }}](../standard/virtualenv-safe-config.md#objstorage).
 
 ## Security policies in {{ k8s }} {#kubernetes-security-policies}
 

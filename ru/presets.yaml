@@ -6499,11 +6499,6 @@ default:
         action_import: Пользовательский сертификат
         action_request: Сертификат от Let's Encrypt
         button_empty-action: Добавить сертификат
-        domain:
-          form:
-            button_bind: Привязать
-            field_certificate: Сертификат
-            field_domain: Домен
         import:
           button_add-certificate: Добавить сертификат
           button_add-chain: Добавить цепочку

@@ -35,18 +35,86 @@ You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [buc
 
 
 
-1. In the [management console]({{ link-console-main }}), select the folder for testing.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-1. In the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
-1. [Select](../concepts/agent-select.md) a test agent or create a new one.
-1. Under **Attached files**:
-    1. Click **{{ ui-key.yacloud.load-testing.label_choose-from-bucket }}**.
-    1. Find the bucket in the drop-down list and specify the path to the payload file.
+{% list tabs group=instructions %}
 
-    Alternatively, you can **Select files** from your computer. In this case, you will have to reupload the files every time you run the test.
+- Management console {#console}
+  1. In the [management console]({{ link-console-main }}), select the folder for testing.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. In the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
+  1. [Select](../concepts/agent-select.md) a test agent or create a new one.
+  1. Under **Attached files**:
+      1. Click **{{ ui-key.yacloud.load-testing.label_choose-from-bucket }}**.
+      1. Find the bucket in the drop-down list and specify the path to the payload file.
 
-1. Depending on the selected configuration type, set the parameters under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
+      Alternatively, you can **Select files** from your computer. In this case, you will have to reupload the files every time you run the test.
 
-    {% include [test settings](../../_includes/load-testing/test-settings.md) %}
+  1. Depending on the selected configuration type, set the parameters under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
 
-1. Click **{{ ui-key.yacloud.common.create }}**.
+      {% include [test settings](../../_includes/load-testing/test-settings.md) %}
+
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. View the description of the [CLI](../../cli/) command for creating a test:
+
+     ```bash
+     yc loadtesting test create --help
+     ```
+
+  1. Upload the YAML configuration file for your test:
+
+     ```bash
+     yc loadtesting test-config create --from-yaml-file <file_path>
+     ```
+
+  1. Upload the [test data](../../load-testing/concepts/payload). To do this, create an [IAM token](../../ydb/terraform/credentials):
+
+     ```bash
+     export YC_TOKEN=$(yc iam create-token)
+     export TEST_PAYLOAD_FILE="sample/_requests.uri"
+     export S3_PAYLOAD_BUCKET="my_bucket"
+     export S3_PAYLOAD_FILENAME="my_requests.uri"
+     curl -H "X-YaCloud-SubjectToken: ${$YC_TOKEN}" --upload-file - "https://storage.yandexcloud.net/${$S3_PAYLOAD_BUCKET}/${$S3_PAYLOAD_FILENAME}" < ${$TEST_PAYLOAD_FILE}
+     ```
+
+  1. Create a test in the default [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
+
+     ```bash
+     loadtesting test create \
+     --name "yc-examples-test" \
+     --description "Test has been created using YC" \
+     --labels source=gh,type=tutorial \
+     --configuration id=ff6hvk749g71********,agent-id=ff633vbrst7a********,test-data=requests.uri \
+     --test-data name=requests.uri,s3bucket=my_bucket,s3file=my_requests.uri
+     ```
+
+     Where:
+     * `--name`: Test name.
+     * `--description`: Test description.
+     * `--labels`: Test [labels](../../resource-manager/concepts/labels.md).
+     * `--configuration`: Test configuration parameters:
+         * `id`: Test configuration ID. Specify the ID of the configuration file you uploaded in Step 2. To get the list of configuration IDs, run the `yc loadtesting test-config list` command.
+         * `agent-id`: Test agent ID.
+         * `test-data`: Test data file name.
+     * `--test-data`: Test data settings:
+         * `name`: Test data object name.
+         * `s3bucket`: Name of the bucket storing the test data.
+         * `s3file`: Name of the test data file in the bucket.
+
+     For more information on how to create a test with the CLI, see the [Yandex Cloud Examples repository](https://github.com/yandex-cloud-examples/yc-load-testing-start-test).
+
+  1. To view the list of tests in the folder for loadtesting using the CLI, run the following command:
+
+     ```bash
+     yc loadtesting test list
+     ```
+
+     For more information on using the CLI to view test info, see the [Yandex Cloud Examples repository](https://github.com/yandex-cloud-examples/yc-load-testing-list-tests).
+    
+
+{% endlist %}

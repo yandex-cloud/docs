@@ -8,7 +8,8 @@ Maximum message size per [push notification](../notifications/concepts/push.md) 
 
 **Type of limit** | **Value**
 ----- | -----
-Maximum number of [push notification channels](../notifications/concepts/push.md#mobile-channel) per cloud | 20
+Maximum number of [mobile push notification channels](../notifications/concepts/push.md#mobile-channel) per cloud | 20
+Maximum number of [in-browser push notification channels](../notifications/concepts/browser.md) per cloud | 10
 Maximum number of [SMS notification](../notifications/concepts/sms.md) channels per cloud | 10
 Maximum number of SMS notification channels with a [shared sender](../notifications/concepts/sms.md) per cloud | 1
 Maximum number of SMS notification channels with an [individual sender](../notifications/concepts/sms.md#individual-sender) per cloud | 10

@@ -30,3 +30,4 @@ description: Various {{ vpc-full-name }} use cases in {{ yandex-cloud }}.
 * [Deploying an Always On availability group with an internal network load balancer](mssql-alwayson-lb.md)
 * [Configuring {{ interconnect-name }} access to cloud networks behind NGFWs](cic-with-ngfw.md)
 * [{#T}](airflow-auto-tasks.md)
+* [{#T}](bm-vrf-and-vpc-interconnect.md)

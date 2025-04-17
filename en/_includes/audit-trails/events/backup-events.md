@@ -3,6 +3,7 @@ Event name | Description
 `ApplyPolicy` | Applying backup policies
 `CreateDirectory` | Creating a new directory inside a VM or {{ baremetal-full-name }} server
 `CreatePolicy` | Creating backup policies
+`DeleteArchive` | Deleting a backup archive
 `DeleteBackup` | Deleting backups
 `DeletePolicy` | Deleting backup policies
 `DeleteResource` | Deleting a VM or {{ baremetal-name }} server from {{ backup-name }}

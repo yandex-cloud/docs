@@ -1,6 +1,6 @@
 # Uploading audit logs to ArcSight SIEM
 
-Create a trail to upload management event audit logs of resources in an individual folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to ArcSight SIEM.
+Create a trail to upload management event audit logs of resources in an individual folder to an {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to ArcSight SIEM.
 
 To complete the tutorial successfully, you must have an ArcSight instance installed.
 
@@ -105,7 +105,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 You need to create two accounts: one for a trail and one for a bucket.
 
-Create a service account named `sa-arcsight`:
+Create the `sa-arcsight` service account:
 
 {% list tabs group=instructions %}
 
@@ -180,7 +180,7 @@ Assign the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDec
 
 - CLI {#cli}
 
-  1. `audit-trails.viewer` [role](../../audit-trails/security/index.md#at-viewer) for the folder:
+  1. `audit-trails.viewer` [role](../../audit-trails/security/index.md#roles) for the folder:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -212,7 +212,7 @@ Assign the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDec
       * `--id`: `example-folder` ID.
       * `--service-account-id`: `sa-arcsight` service account ID.
 
-  1. `kms.keys.encrypterDecrypter` [role](../../kms/security/index.md##kms-keys-encrypterDecrypter) for the `arcsight-kms` encryption key:
+  1. `kms.keys.encrypterDecrypter` [role](../../kms/security/index.md#service) for the `arcsight-kms` encryption key:
   
       ```
       yc kms symmetric-key add-access-binding \
@@ -283,7 +283,7 @@ Assign the `storage.viewer` and `kms.keys.encrypterDecrypter` roles to the `sa-a
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_bucket }}**.
+     * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name.
      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
   
      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}

@@ -84,14 +84,19 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      ```bash
      yc alb virtual-host create <virtual_host_name> \
        --http-router-name <HTTP_router_name> \
-       --authority *
+       --authority * \
+       --rate-limit rps=100,all-requests \
        --security-profile-id <security_profile_ID>
      ```
 
      Where:
      * `--http-router-name`: HTTP router name.
      * `--authority`: Domains for the `:authority` headers that will be associated with this virtual host. This parameter supports wildcards, e.g., `*.foo.com` or `*-bar.foo.com`.
-     * `--security-profile-id` (optional): ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+     * `--rate-limit`: Request rate limit. This is an optional setting.
+       * `rps` or `rpm`: Number of allowed incoming requests per second or minute.
+       * `all-requests`: Limits all incoming requests.
+       * `requests-per-ip`: Limits the total number of requests per IP address. That is, for each IP address, only the specified number of requests is allowed per unit of time.
+     * `--security-profile-id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). This is an optional setting. A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Result:
@@ -100,7 +105,10 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      done (1s)
      name: <virtual_host_name>
      authority:
-     - *
+       - *
+     rate_limit:
+       all_requests:
+         per_second: "100"
      ```
 
   1. View a description of the CLI command for adding a host:
@@ -117,7 +125,8 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        --http-router-name <HTTP_router_name> \
        --prefix-fqmn-match / \
        --backend-group-name <backend_group_name> \
-       --request-max-timeout 60s
+       --request-max-timeout 60s \
+       --rate-limit rps=50,requests-per-ip
      ```
 
      Where:
@@ -129,6 +138,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        * `--exact-fqmn-match` to route all requests matching the specified FQMN. The parameter should be followed by `/<FQMN>/`.
        * `--regex-fqmn-match` to route all requests that satisfy the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). Specify `/<regular_expression>` following the parameter.
      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
+     * `--rate-limit`: Request rate limit.
      * `--request-max-timeout`: Maximum request idle timeout in seconds. The client can specify a `grpc-timeout` HTTP header with a shorter timeout in the request.
 
      For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
@@ -188,13 +198,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
      Where:
      * `yandex_alb_http_router`: HTTP router description.
-       * `name`: HTTP router name. The name should match the following format:
+       * `name`: HTTP router name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
        * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
      * `yandex_alb_virtual_host`: Virtual host description:
-       * `name`: Virtual host name. The name should match the following format:
+       * `name`: Virtual host name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -205,11 +215,11 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
            * `grpc_route_action`: Parameter to specify an action with gRPC traffic.
              * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
              * `max_timeout`: Maximum request idle timeout in seconds. The client can specify a `grpc-timeout` HTTP header with a shorter timeout in the request.
-       * `route_options` (optional): Additional parameters of the virtual host:
+       * `route_options` (optional): Additional virtual host parameters:
          * `security_profile_id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
-     For more information about the properties of {{ TF }} resources, see these {{ TF }} guides:
+     Learn more about the properties of {{ TF }} resources in the {{ TF }} documentation:
      * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource
      * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource
   1. Create the resources

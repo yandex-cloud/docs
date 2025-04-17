@@ -23,13 +23,6 @@ description: In this article, you will learn how to work with {{ certificate-man
 - [{#T}](import/cert-modify.md)
 - [{#T}](import/cert-delete.md)
 
-## Domain {#domain}
-
-- [{#T}](domain/domain-create.md)
-- [{#T}](domain/domain-link-cert.md)
-- [{#T}](domain/domain-modify.md)
-- [{#T}](domain/domain-delete.md)
-
 ## Backups {#backup}
 
 - [{#T}](cert-backup.md)

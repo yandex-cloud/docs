@@ -13,6 +13,19 @@ To create an L7 load balancer with a connected security profile using an Ingress
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for the number of requests to {{ sws-name }} (see [{{ vpc-name }} pricing](../../smartwebsecurity/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 1. Prepare the required infrastructure:
@@ -92,7 +105,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * {{ sws-name }} security profile name.
             * IP address to allow traffic from.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

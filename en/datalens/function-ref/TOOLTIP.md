@@ -15,7 +15,7 @@ TOOLTIP( text, tooltip [ , placement ] )
 ```
 
 #### Description {#description}
-Adds a small tooltip to a text or other markup function results. The `placement` argument manages the text positioning: `top`, `right`, `bottom` or `left`. The default value is `right`.
+Adds a small tooltip to a text or other markup function results. The `placement` argument manages the text positioning: `top`, `right`, `bottom`, `left` or `auto`. The default value is `auto`.
 
 **Argument types:**
 - `text` — `Markup | String`

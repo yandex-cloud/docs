@@ -1984,7 +1984,7 @@ Returns the current date, depending on the data source and connection type.
 
 **Syntax:**`TOOLTIP( text, tooltip [ , placement ] )`
 
-Adds a small tooltip to a text or other markup function results. The `placement` argument manages the text positioning: `top`, `right`, `bottom` or `left`. The default value is `right`.
+Adds a small tooltip to a text or other markup function results. The `placement` argument manages the text positioning: `top`, `right`, `bottom`, `left` or `auto`. The default value is `auto`.
 
 
 

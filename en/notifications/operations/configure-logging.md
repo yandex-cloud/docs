@@ -1,4 +1,4 @@
-# Configuring logging
+# Setting up logging
 
 {% list tabs group=instructions %}
 
@@ -6,11 +6,12 @@
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the notification channel.
     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-    1. Select the channel you need or initiate creating a new one. If you have selected an existing channel, click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-    1. Under **{{ ui-key.yacloud.cns.section_logging }}**, tick the checkbox for **{{ ui-key.yacloud.common.enabled }}** in the **{{ ui-key.yacloud.k8s.clusters.create.label_logging-enabled }}** field.
-    1. In the **{{ ui-key.yacloud.cns.field_logging-folder }}** field, select a folder to house the [log group](../../logging/concepts/log-group.md).
+    1. Select a channel.
+    1. At the top right, click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+    1. Under **{{ ui-key.yacloud.cns.section_logging }}**, enable the **{{ ui-key.yacloud.cns.field_logging }}** option.
+    1. In the **{{ ui-key.yacloud.cns.field_logging-folder }}** list, select a folder to house the [log group](../../logging/concepts/log-group.md).
     1. In the **{{ ui-key.yacloud.cns.field_log-group }}** field, select an existing log group or create a new one.
-    1. To disable logging, untick the **{{ ui-key.yacloud.common.enabled }}** checkbox.
+    1. To stop logging, disable **{{ ui-key.yacloud.cns.field_logging }}**.
 
 - AWS CLI {#aws-cli}
 

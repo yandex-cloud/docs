@@ -1,6 +1,6 @@
 # SetPlatformApplicationAttributes
 
-Sets parameters of the [mobile push notification channel](../concepts/push.md).
+Setting up [mobile push notification channel](../concepts/push.md) or [in-browser push notification channel](../concepts/browser.md) parameters.
 
 ## HTTP request {#request}
 
@@ -13,10 +13,10 @@ POST https://{{ cns-host }}/
 Parameter | Description
 --- | ---
 `Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `SetPlatformApplicationAttributes`.
-`PlatformApplicationArn` | **string**<br/>Required field.<br/>Mobile push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`PlatformApplicationArn` | **string**<br/>Required field.<br/>Notification channel name.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
 `Attributes.entry.N.key` | **string**<br/>Required field.<br/>[Attribute](#attributes) key. `N` is a numeric value.<br/>Example: `Attributes.entry.1.key=PlatformPrincipal&Attributes.entry.2.key=PlatformCredential`.
 `Attributes.entry.N.value` | **string**<br/>Required field.<br/>Attribute value. `N` is a numeric value.<br/>Example: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=CgB6e3x9iW/qiE9l9wAUPK0e/bJQe5uIgTlYUD4bP********`.
-`ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
 
 ### Attributes {#attributes}
 

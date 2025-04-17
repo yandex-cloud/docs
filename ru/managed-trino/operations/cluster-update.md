@@ -33,7 +33,7 @@ noIndex: true
             {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группу безопасности для кластера.
-    1. Измените конфигурацию координатора и воркеров.
+    1. Измените конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** установите или снимите защиту от удаления кластера.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите или выключите запись логов. Если логирование включено, укажите, в какую лог-группу или каталог будут записываться логи и минимальный уровень логирования.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.

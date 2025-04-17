@@ -5,17 +5,13 @@ description: In this article, you will learn about public and private networks i
 
 # Network
 
-![baremetal-network](../../_assets/baremetal/baremetal-network.svg).
-
-{% note info %}
-
-You will be able to use {{ interconnect-name }} with {{ baremetal-name }} servers starting April 2025.
-
-{% endnote %}
+![baremetal-network](../../_assets/baremetal/baremetal-network.svg)
 
 ## Public network {#public-network}
 
-A network with internet access, to which all servers are physically connected. On [some](./traffic-restrictions.md) TCP and UDP ports, network traffic between the private network and the internet is limited.
+A network with internet access, to which all servers are physically connected. On [some](./network-restrictions.md#blocked-ports) TCP and UDP ports, network traffic between the private network and the internet is limited.
+
+When working with a public network and internet access, make sure to comply with the [terms of use](https://yandex.ru/legal/cloud_termsofuse/).
 
 ## Private network {#private-network}
 
@@ -31,12 +27,16 @@ To configure networking between servers from different [pools](./servers.md), se
 
 {% include [internal-addressing-rules](../../_includes/baremetal/internal-addressing-rules.md) %}
 
-### Virtual routing and forwarding (VRF) {#vrf-segment}
+### Virtual network segment (VRF) {#vrf-segment}
 
-To provide L3 routing, private subnets with configured routing are aggregated into virtual routing and forwarding segments (VRFs).
+To provide L3 routing, private subnets with configured routing are aggregated into virtual network segments (VRFs).
 
-Servers from the same or different pools connected to different private subnets aggregated into a VRF will be able to maintain L3 networking between them.
+Servers from the same or different pools connected to different private subnets aggregated into a VRF segment will be able to maintain L3 networking between them.
+
+### Private connection to cloud networks {#private-connection-to-vpc}
+
+To set up network connectivity between {{ baremetal-name }} [servers](./servers.md), {{ vpc-full-name }} private [subnets](../../vpc/concepts/network.md#subnet), and private subnets in the on-premise infrastructure, use [{{ interconnect-full-name }}](../../interconnect/concepts/priv-con.md).
 
 #### See also {#see-also}
 
-* [{#T}](./traffic-restrictions.md)
+* [{#T}](./network-restrictions.md)

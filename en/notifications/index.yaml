@@ -5,24 +5,31 @@ description:
     href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
   - >-
     Yandex Cloud Notification Service is a service for sending multichannel
-    notifications to users. Its HTTP API is compatible with <a
+    notifications to users. The service's HTTP API is compatible with the <a
     href="https://docs.aws.amazon.com/sns/latest/api/welcome.html">Amazon SNS
     API</a>.
   - >-
-    At the preview stage, you can send push notifications to iOS and Android
-    devices.
-  - >-
-    Moving forward, we will add SMS messaging and notifications to messengers
-    and browsers.
+    At the Preview stage, you can send personalized push notifications to iOS
+    and Android devices, browsers, and via SMS.
+  - Moving forward, we will be adding notifications to messengers.
 meta:
   title: Yandex Cloud Notification Service
 links:
   - title: Getting started
-    description: Register you first notification delivery channel
+    description: Create the first notification channel
     href: quickstart
   - title: Concepts
     description: Learn how channels and notification delivery methods work
     href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: AWS CLI
+    description: Learn how to get started with the AWS CLI
+    href: tools/aws-cli
+  - title: API reference
+    description: HTTP API methods
+    href: api-ref/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing

@@ -112,7 +112,7 @@ The infrastructure support cost includes:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account. The naming requirements are as follows:
+  1. Enter a name for the service account. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -126,7 +126,7 @@ The infrastructure support cost includes:
 
 - CLI {#cli}
 
-  1. Assign the [audit-trails.viewer](../../audit-trails/security/index.md#at-viewer) role to the folder whose resources will be polled for audit logs:
+  1. Assign the [audit-trails.viewer](../../audit-trails/security/index.md#roles) role to the folder whose resources will be polled for audit logs:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -139,7 +139,7 @@ The infrastructure support cost includes:
   
       * `--role`: Role to assign.
       * `--id`: ID of the folder from which audit logs will be collected.
-      * `--service-account-id`.
+      * `--service-account-id`: Service account ID.
   
   1. Assign the [storage.uploader](../../storage/security/index.md#storage-uploader) role to the folder to host the trail:
      
@@ -154,9 +154,9 @@ The infrastructure support cost includes:
   
       * `--role`: Role you want to assign.
       * `--id`: ID of the folder to host the trail.
-      * `--service-account-id`.
+      * `--service-account-id`: Service account ID.
   
-  1. Assign the [kms.keys.encrypterDecrypter](../../kms/security/index.md#kms-keys-encrypterDecrypter) role to the encryption key:
+  1. Assign the [kms.keys.encrypterDecrypter](../../kms/security/index.md#service) role to the encryption key:
   
       ```
       yc kms symmetric-key add-access-binding \
@@ -169,7 +169,7 @@ The infrastructure support cost includes:
   
       * `--role`: Role to assign.
       * `--id`: KMS key ID.
-      * `--service-account-id`.
+      * `--service-account-id`: Service account ID.
   
 {% endlist %}
 
@@ -238,7 +238,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
       1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
       1. Click **{{ ui-key.yacloud.common.create }}**.
-      1. Enter a name for the gateway. The naming requirements are as follows:
+      1. Enter a name for the gateway. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
    
@@ -254,7 +254,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
       1. Click **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**. 
   1. Link the route table to the subnet where you want to deploy the intermediate VM, to forward its traffic via the NAT gateway:
       1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-      1. In the row of the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
+      1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).
       1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
       1. In the window that opens, select the created table from the list.
       1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -305,7 +305,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
      terraform plan
      ```
   
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:

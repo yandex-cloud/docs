@@ -12,13 +12,13 @@ Routes inside an HTTP router are combined in [virtual hosts](#virtual-host). Rou
 
 1. The most suitable virtual host is selected based on the `Host` header (`:authority` if using HTTP/2).
 
-1. The first route whose predicate matches the request is selected. The order of virtual hosts inside the router doesn't matter. However, the order of routes inside the virtual host matters: the most specific routes must be at the top of the list.
+1. The first route whose predicate matches the request is selected. The order of virtual hosts inside the router does not matter. However, the order of routes inside the virtual host matters: the most specific routes must be at the top of the list.
 
 ## Virtual hosts {#virtual-host}
 
 Virtual hosts consolidate [routes](#routes) belonging to the same set of domains, i.e., the `Host` (`:authority`) header values of an HTTP request. Both exact matches and wildcards are supported. When an incoming request is received, the balancer checks route predicates one-by-one and selects the first predicate matching the request.
 
-The load balancer routes traffic to the [backend](./backend-group.md) that refers to various resources. These resources may be vulnerable to external threats. You can protect your resources using [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) by connecting a [security profile](../../smartwebsecurity/operations/host-connect.md) to the virtual host.
+The load balancer routes traffic to the [backend](./backend-group.md) that refers to various resources. These resources may be vulnerable to external threats. You can protect your resources using [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) by connecting a [security profile](../../smartwebsecurity/operations/host-connect.md) to the virtual host. You can also limit the number of requests to the virtual host using the [Global RateLimit](rate-limiter.md) module.
 
 When an {{ alb-name }} [Ingress controller](../tools/k8s-ingress-controller/index.md) manages the load balancer, connect the security profile using an [Ingress resource annotation](../k8s-ref/ingress.md#annot-security-profile-id).
 
