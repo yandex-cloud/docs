@@ -41,6 +41,12 @@ Event name | Description
 `UpdateTrail` | Editing a trail
 `UpdateTrailAccessBindings` | Updating access permissions for a trail
 
+## {{ baremetal-full-name }} {#baremetal}
+
+Service name: `baremetal`.
+
+{% include [baremetal-events](../../_includes/audit-trails/events/baremetal-events.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
 Service name: `certificatemanager`.
@@ -70,6 +76,12 @@ Service name: `billing`.
 Service name: `cdn`.
 
 {% include [cdn-events](../../_includes/audit-trails/events/cdn-events.md) %}
+
+## {{ cloud-desktop-full-name }} {#clouddesktop}
+
+Service name: `clouddesktop`.
+
+{% include [clouddesktop-events](../../_includes/audit-trails/events/clouddesktop-events.md) %}
 
 ## {{ dns-full-name }} {#dns}
 
@@ -113,6 +125,12 @@ Service name: `cloudregistry`.
 
 {% include [cloudregistry-events](../../_includes/audit-trails/events/cloudregistry-events.md) %}
 
+## {{ video-full-name }} {#video}
+
+Service name: `video`.
+
+{% include [video-events](../../_includes/audit-trails/events/video-events.md) %}
+
 ## {{ compute-full-name }} {#compute}
 
 Service name: `compute`.
@@ -136,6 +154,12 @@ Service name: `dataproc`.
 Service name: `datatransfer`.
 
 {% include [datatransfer-events](../../_includes/audit-trails/events/datatransfer-events.md) %}
+
+## {{ datalens-full-name }} {#datalens}
+
+Service name: `datalens`.
+
+{% include [datalens-events](../../_includes/audit-trails/events/datalens-events.md) %}
 
 ## {{ ml-platform-full-name }} {#datasphere}
 
@@ -245,6 +269,14 @@ Service name: `mdb.redis`.
 Service name: `ydb`.
 
 {% include [ydb-events](../../_includes/audit-trails/events/ydb-events.md) %}
+
+## {{ metadata-hub-full-name }} {#metadata-hub}
+
+### {{ metastore-full-name }} {#hive-metastore}
+
+Service name: `metastore`.
+
+{% include [hive-metastore-events](../../_includes/audit-trails/events/hive-metastore-events.md) %}
 
 ## {{ network-load-balancer-full-name }} {#network-load-balancer}
 

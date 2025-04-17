@@ -8,6 +8,7 @@ description: Various {{ dns-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](local-dns-cache.md)
 * [{#T}](connect-migration.md)
 * [{#T}](dns-integration.md)
+* [{#T}](custom-dns.md)
 * [{#T}](mdb-dns-peering.md)
 * [{#T}](cert-manager-webhook.md)
 * [{#T}](bind-domain-vm/index.md)

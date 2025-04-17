@@ -10,7 +10,7 @@ description: Follow this guide to update a push notification channel.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the notification channel.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the push notification channel and select **{{ ui-key.yacloud.common.edit }}**.
   1. On the **{{ ui-key.yacloud.cns.type_mobile }}** tab, edit the authentication parameters for your platform:
 
@@ -27,7 +27,7 @@ description: Follow this guide to update a push notification channel.
       ```bash
       aws sns set-platform-application-attributes \
         --platform-application-arn <notification_channel_ARN> \
-        --attributes <параметр1>=<new_value1>, ... <parameterN>=<new_valueN>
+        --attributes <parameter1>=<new_value1>, ... <parameterN>=<new_valueN>
       ```
 
       Where:
@@ -37,16 +37,16 @@ description: Follow this guide to update a push notification channel.
 
       For more information about the `aws sns set-platform-application-attributes` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-platform-application-attributes.html).
 
-- AWS SDK for Python (boto3) {#python}
+- AWS SDK for Python {#python}
 
-  1. If you do not have AWS SDK for Python (boto3) yet, [install and configure it](../../tools/sdk-python.md#aws-sdk).
+  1. If you do not have the AWS SDK for Python (boto3) yet, [install and configure it](../../tools/sdk-python.md#aws-sdk).
   1. To update a push notification channel, use the following code:
 
       ```python
       response = client.set_platform_application_attributes(
           PlatformApplicationArn="<notification_channel_ARN>",
           Attributes={
-              "<параметр1>": "<new_value1>",
+              "<parameter1>": "<new_value1>",
               ...
               "<parameterN>": "<new_valueN>"
           }
@@ -56,7 +56,7 @@ description: Follow this guide to update a push notification channel.
 
       Where:
 
-      * `PlatformApplicationArn`: Notification channel ID (ARN)
+      * `PlatformApplicationArn`: Notification channel ID (ARN).
       * `Attributes`: Comma-separated parameters you want to update, in `"<parameterN>": "<new_valueN>"` format.
 
 - AWS SDK for PHP {#php}
@@ -79,7 +79,7 @@ description: Follow this guide to update a push notification channel.
 
       Where:
 
-      * `PlatformApplicationArn`: Notification channel ID (ARN)
+      * `PlatformApplicationArn`: Notification channel ID (ARN).
       * `Attributes`: Comma-separated parameters you want to update, in `'<parameter>' => '<new_value>'` format.
 
 

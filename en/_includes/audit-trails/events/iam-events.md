@@ -30,6 +30,8 @@ Event name | Description
 `workload.DeleteFederatedCredential` | Deleting a link from a service account federation
 `workload.oidc.CreateFederation` | Creating a [workload identity federation](../../../iam/concepts/workload-identity.md)
 `workload.oidc.DeleteFederation` | Deleting a workload identity federation
+`workload.oidc.SetFederationAccessBindings` | Assigning access permissions to a workload identity federation
 `workload.oidc.UpdateFederation` | Updating a workload identity federation
+`workload.oidc.UpdateFederationAccessBindings` | Modifying access permissions of a workload identity federation
 
 \* The event will not end up in the audit log unless the [audit log collection scope](../../../audit-trails/concepts/trail.md#collecting-area) for the trail is `Organization`.

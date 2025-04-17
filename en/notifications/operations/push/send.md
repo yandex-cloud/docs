@@ -71,7 +71,7 @@ description: Follow this guide to send a push notification.
   * `--message-structure`: Message format
   * `--message`: Message
 
-- AWS SDK for Python (boto3) {#python}
+- AWS SDK for Python {#python}
 
   If you do not have the AWS SDK for Python (boto3) yet, [install and configure it](../../tools/sdk-python.md#aws-sdk).
 

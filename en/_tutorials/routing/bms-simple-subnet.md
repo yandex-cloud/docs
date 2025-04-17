@@ -4,7 +4,7 @@ If you set up routing for a [private subnet](../../baremetal/concepts/network.md
 
 However, if you did not set up routing for a private subnet, this subnet functions as an [OSI](https://en.wikipedia.org/wiki/OSI_model) L2 network, where DHCP does not work, and you need to assign IP addresses manually in the server network interface settings to establish network connectivity. 
 
-This is because the DHCP server becomes part of a private subnet only once the subnet is routable and connected to a [virtual routing and forwarding segment](../../baremetal/concepts/network.md#vrf-segment) (VRF).
+This is because the DHCP server becomes part of a private subnet only once the subnet is routable and connected to a [virtual network segment](../../baremetal/concepts/network.md#vrf-segment) (VRF).
 
 {% note info %}
 
@@ -24,13 +24,18 @@ To configure network connectivity in a {{ baremetal-full-name }} subnet:
 1. [Create a private subnet](#create-subnet).
 1. [Lease {{ baremetal-name }} servers](#rent-servers).
 1. [Manually configure the network interfaces](#setup-interfaces).
-1. [Create a VRF and enable routing in the private subnet](#setup-vrf).
+1. [Create a VRF segment and enable routing in the private subnet](#setup-vrf).
 1. [Enable DHCP on the network interfaces](#re-enable-dhcp).
+
+See also [How to cancel server lease](#clear-out).
 
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+### Required paid resources {#paid-resources}
+
+The cost of the proposed solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 ## Create a private subnet {#create-subnet}
 
@@ -246,16 +251,16 @@ By reconfiguring the network interfaces of the servers in the private subnet, yo
       rtt min/avg/max/mdev = 0.222/0.964/3.899/1.467 ms
       ```
 
-      Network connectivity between the servers is established with zero packet loss.
+      Network connectivity between the servers has been established with zero packet loss.
 
 {% endlist %}
 
-## Create a VRF and enable routing in the private subnet {#setup-vrf}
+## Create a VRF segment and enable routing in the private subnet {#setup-vrf}
 
-To activate the DHCP server in the private subnet, create a virtual routing and forwarding (VRF) segment and enable routing in the subnet by linking it to this VRF.
+To activate the DHCP server in the private subnet, create a virtual network segment (VRF) and enable routing in the subnet by linking it to this VRF.
 
 
-### Create a virtual routing and forwarding segment (VRF) {#create-vrf}
+### Create a virtual network segment (VRF) {#create-vrf}
 
 {% list tabs group=instructions %}
 
@@ -264,12 +269,12 @@ To activate the DHCP server in the private subnet, create a virtual routing and 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
-  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF: `my-vrf`.
+  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF segment: `my-vrf`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
 
 {% endlist %}
 
-### Connect the private subnet to the VRF {#connect-subnet-to-vrf} 
+### Connect the private subnet to the VRF segment {#connect-subnet-to-vrf} 
 
 {% list tabs group=instructions %}
 
@@ -281,7 +286,7 @@ To activate the DHCP server in the private subnet, create a virtual routing and 
   1. In the `subnet-m3` row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
   
       1. Enable **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
-      1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select the previously created VRF, `my-vrf`.
+      1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select the previously created segment, `my-vrf`.
       1. In the **{{ ui-key.yacloud.baremetal.field_CIDR }}** field, specify `192.168.1.0/24`.
       1. In the **{{ ui-key.yacloud.baremetal.field_gateway }}** field, keep the default value, `192.168.1.1`.
       1. Enable the **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}** option and in the **{{ ui-key.yacloud.baremetal.field_dhcp-ip-range }}** field that appears, leave the default values, `192.168.1.1` — `192.168.1.254`.
@@ -291,7 +296,7 @@ To activate the DHCP server in the private subnet, create a virtual routing and 
 
 ## Enable DHCP on the network interfaces {#re-enable-dhcp}
 
-After you enabled routing in the private subnet and connected it to the VRF, a DHCP server started automatically in this subnet. To allow network interfaces of your {{ baremetal-name }} servers to obtain IP addresses via DHCP, you need to enable DHCP in their configuration.
+After you enabled routing in the private subnet and connected it to the VRF segment, a DHCP server started automatically in this subnet. To allow network interfaces of your {{ baremetal-name }} servers to obtain IP addresses via DHCP, you need to enable DHCP in their configuration.
 
 {% note info %}
 
@@ -394,12 +399,12 @@ Make sure the servers retained network connectivity after obtaining IP addresses
       rtt min/avg/max/mdev = 0.208/0.235/0.271/0.025 ms
       ```
 
-      Network connectivity between the servers is established with zero packet loss.
+      Network connectivity between the servers has been established with zero packet loss.
 
 {% endlist %}
 
-## How to delete the resources you created {#clear-out}
+## How to cancel server lease {#clear-out}
 
-You cannot delete a {{ baremetal-name }} server. Instead, you can cancel the server lease.
+You cannot delete {{ baremetal-name }} servers. Instead, you can cancel their lease.
 
 To stop paying for the resources you created, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the lease of the {{ baremetal-name }} servers you created earlier.

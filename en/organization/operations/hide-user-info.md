@@ -5,7 +5,7 @@ description: Follow this guide to block organization users from viewing informat
 
 # Blocking users from viewing information about organization members
 
-By default, all {{ org-name }} users can view information about all the other users in the same organization. You can restrict this access by reserving it for individual users only.
+By default, all {{ org-name }} users can view information about all other users in the same organization. You can restrict this access by reserving it for individual users only.
 
 Before you block access to the information about organization members, make sure to [grant](./add-role.md) this access to the appropriate users.
 
@@ -41,9 +41,11 @@ To block users from viewing information about other organization members:
 
       [Switch](./manage-organizations.md#switch-to-another-org) to an organization or federation of your choice as needed.
 
+  1. At the top of the screen, navigate to the **{{ ui-key.yacloud_org.layout.organization }}** tab.
+
   1. In the left-hand panel, select ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
 
-  1. Under **Privacy**, enable **Block users from viewing information about other organization members**.
+  1. Under **{{ ui-key.yacloud_org.form.oslogin-settings.title_users-list-visibility }}**, enable **{{ ui-key.yacloud_org.form.oslogin-settings.title_hide-users-list }}**.
 
       Disable this option to allow users to view information about other organization members.
 

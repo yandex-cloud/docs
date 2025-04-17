@@ -26,7 +26,7 @@ description: In this tutorial, you will learn how to change access permissions f
 
   {% note alert %}
 
-  The `set-access-binding` command will rewrite all desktop group access permissions, deleting existing group roles.
+  The `set-access-binding` command rewrites desktop group access permissions. All current group roles will be deleted.
 
   {% endnote %}
 

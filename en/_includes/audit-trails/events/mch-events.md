@@ -17,6 +17,7 @@ Event name | Description
 `DeleteShardGroup` | Deleting a shard group
 `MoveCluster` | Moving a cluster
 `RescheduleMaintenance` | Changing scheduled maintenance date and time
+`RestartClusterHosts` | Restarting cluster hosts
 `RestoreCluster` | Creating a new cluster from a backup
 `StartCluster` | Starting a cluster
 `StopCluster` | Stopping a cluster

@@ -51,7 +51,7 @@ The cost of infrastructure support includes a fee for a bucket (see [Pricing for
 
 ### Create service accounts {#create-sa}
 
-Create a service account named `trail-sa`:
+Create the `trail-sa` service account:
 
 {% list tabs group=instructions %}
 
@@ -68,7 +68,7 @@ Create a service account named `trail-sa`:
 Similarly, create a service account named `bucket-yq-sa`.
 
 
-### Assign rights to service accounts {#grant-roles}
+### Assign permissions to service accounts {#grant-roles}
 
 Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` service account:
 
@@ -151,7 +151,7 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role for `example
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `logsyq`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket you [created](#create-backet) earlier.
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `trail-sa`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:

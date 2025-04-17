@@ -13,8 +13,11 @@ With {{ cns-name }}, you can send notifications to apps registered in the follow
 * [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs)
 * [Firebase Cloud Messaging](https://firebase.google.com/) (FCM)
 * [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS)
+* [RuStore](https://www.rustore.ru/help/sdk/push-notifications/)
 
-When working with {{ cns-name }}, in addition to {{ yandex-cloud }} tools you can also use popular tools made for Amazon S3.
+User browsers on any device.
+
+With {{ cns-name }}, in addition to {{ yandex-cloud }} tools you can also use tools built for Amazon S3.
 
 * [AWS CLI](aws-cli.md)
 * [AWS SDK for C++](sdk-cpp.md)

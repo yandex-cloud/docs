@@ -19,6 +19,9 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
+  - title: Tutorials
+    description: Use ready-made scenarios to manage your BareMetal servers
+    href: tutorials/
   - title: Access management
     description: Configure access permissions to use the service
     href: security/

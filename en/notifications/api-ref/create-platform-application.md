@@ -10,15 +10,51 @@ POST https://{{ cns-host }}/
 
 ### Query parameters {#parameters}
 
-Parameter | Description
---- | ---
-`Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `CreatePlatformApplication`.
-`Name` | **string**<br/>Required field.<br/>Notification channel name. See the naming requirements in [{#T}](../operations/push/channel-create.md).<br/>Example: `com.example.app`.
-`Platform` | **string**<br/>Required field.<br/>Platform for sending mobile push notifications.<br/>The possible values include:<ul><li>`APNS`: [Apple Push Notification service](https://developer.apple.com/notifications/).</li>`APNS_SANDBOX`: Apple Push Notification service for app testing.</li><li>`FCM`: [Firebase Cloud Messaging](https://firebase.google.com/).</li><li>`HMS`: [Huawei Mobile Services](https://developer.huawei.com/consumer/).</li><li>`RUSTORE`: [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).</li></ul>
-`FolderId` | **string**<br/>Required field.<br/>[ID of the folder](../../resource-manager/operations/folder/get-id.md) to create a notification channel in.<br/>Example: `b1gsm0k26v1l********`.
-`Attributes.entry.N.key` | **string**<br/>Required field.<br/>[Attribute](#attributes) key. `N` is a numeric value.<br/>Example: `Attributes.entry.1.key=PlatformPrincipal&Attributes.entry.2.key=PlatformCredential`.
-`Attributes.entry.N.value` | **string**<br/>Required field.<br/>Attribute value. `N` is a numeric value.<br/>Example: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=CgB6e3x9iW/qiE9l9wAUPK0e/bJQe5uIgTlYUD4bP********`.
-`ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
+#|
+|| **Parameter** | **Description** ||
+
+|| `Action` | **string**
+This is a required field.
+Operation type parameter.
+Value: `CreatePlatformApplication`.||
+
+|| `Name` | **string**
+This is a required field.
+Notification channel name. See the naming requirements in [{#T}](../operations/push/channel-create.md).
+E.g., `com.example.app`.||
+
+|| `Platform` | **string**
+This is a required field.
+Platform for sending mobile push notifications or in-browser notifications.
+The possible values are:
+- `APNS`: [Apple Push Notification service](https://developer.apple.com/notifications/).
+- `APNS_SANDBOX`: Apple Push Notification service for app testing.
+- `FCM`: [Firebase Cloud Messaging](https://firebase.google.com/).
+- `HMS`: [Huawei Mobile Services](https://developer.huawei.com/consumer/).
+- `RUSTORE`: [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
+- `WEB`: [In-browser push notifications](https://developer.mozilla.org/en-US/docs/Web/API/Push_API).||
+
+|| `FolderId` | **string**
+Required field when authenticating via an IAM token.
+[ID of the folder](../../resource-manager/operations/folder/get-id.md) the notification channel is created in. When authenticating via a static service account key, if FolderId is not specified, the channel is created in the same folder as the service account.
+E.g., `b1gsm0k26v1l********`.||
+
+|| `Attributes.entry.N.key` | **string**
+This is a required field.
+Attribute key. `N` is a numeric value.
+E.g., `Attributes.entry.1.key=PlatformPrincipal&Attributes.entry.2.key=PlatformCredential`.||
+
+|| `Attributes.entry.N.value` | **string**
+This is a required field.
+Attribute value. `N` is a numeric value.
+E.g., `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=CgB6e3x9iW/qiE9l9wAUPK0e/bJQe5uIgTlYUD4bP********`.||
+
+|| `ResponseFormat` | **string**
+Response format.
+The possible values are:
+- `XML` (default)
+- `JSON`.||
+|#
 
 ### Attributes {#attributes}
 

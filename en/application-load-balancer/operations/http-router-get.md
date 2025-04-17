@@ -47,12 +47,17 @@ To get information about an HTTP router:
           authority:
             - www.first-site.ru
             - first-site.ru
+          route_options:
+            security_profile_id: fevcifh6tr**********
+          rate_limit:
+            all_requests:
+              per_second: "100"
           routes:
             - name: route-1
               http:
                 route:
                   backend_group_id: ds7maho6c4or********
-      created_at: "2023-10-24T12:20:44.091821711Z"
+      created_at: "2024-12-12T12:20:44.091821711Z"
       ```
 
 - {{ TF }} {#tf}
@@ -82,13 +87,13 @@ To get information about an HTTP router:
       * `output "tf-router-name"`: Output variable that contains the HTTP router name:
          * `value`: Returned value.
 
-     You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_alb_http_router` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/alb_http_router).
+     You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_alb_http_router` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/alb_http_router).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create an HTTP router and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create an HTTP router and display the output variable values in the terminal. To check the results, run this command:
 
       ```bash
       terraform output

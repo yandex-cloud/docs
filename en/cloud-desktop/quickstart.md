@@ -72,7 +72,7 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your desktop group in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your desktop group.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Click **{{ ui-key.yacloud.vdi.button_empty-create-desktop-group }}**.
   1. Enter a name for the desktop group.
@@ -86,7 +86,7 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
       * Select `SSD` for the boot and data [disk](./concepts/disks.md) [types](../compute/concepts/disk.md#disks-types).
       * Set the boot disk size to `60 GB`.
       * Set the data disk size to `4 GB`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [cloud network](../vpc/concepts/network.md#network) and [subnets](../vpc/concepts/network.md#subnet) to host desktops.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [cloud network](../vpc/concepts/network.md#network) and [subnets](../vpc/concepts/network.md#subnet) where your desktops will reside.
   1. Under **Desktop users**, click **Add users** and specify those the desktops will be available to:
      * [User groups](../iam/concepts/access-control/public-group.md).
      * [Individual users](../iam/concepts/users/accounts.md).
@@ -103,7 +103,7 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 
 - Management console {#console}
 
-  1. To the right of the desktop group created earlier, click ![image](../_assets/console-icons/ellipsis.svg) and select **Configure ACL**.
+  1. To the right of the desktop group you created earlier, click ![image](../_assets/console-icons/ellipsis.svg) and select **Configure ACL**.
   1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window, select the user group you created earlier, specify the `vdi.viewer` [role](./security/index.md#vdi-viewer) for it, and click **{{ ui-key.yacloud.common.add }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -122,11 +122,11 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 
       {% note info %}
 
-      To provide your desktop with internet access, make sure to [configure a NAT gateway](../vpc/operations/create-nat-gateway.md) in the subnet.
+      Make sure to [configure a NAT gateway](../vpc/operations/create-nat-gateway.md) in this subnet, so your desktop will have internet access.
 
       {% endnote %}
 
-  1. Specify the user of the desktop.
+  1. Specify the desktop user.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

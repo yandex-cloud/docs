@@ -25,3 +25,4 @@ description: Various {{ interconnect-name }} use cases in {{ yandex-cloud }}.
 ## Integrations {#interop}
 * [{#T}](dns-integration.md)
 * [{#T}](cic-with-ngfw.md)
+* [{#T}](bm-vrf-and-vpc-interconnect.md)

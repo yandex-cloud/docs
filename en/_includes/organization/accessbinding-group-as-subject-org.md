@@ -64,7 +64,7 @@
 
      ```hcl
      resource "yandex_organizationmanager_organization_iam_member" "users-editors" {
-       organization_id = "<cloud_ID>"
+       organization_id = "<organization_ID>"
        role            = "<role_ID>"
        member          = "group:<group_ID>"
      }
@@ -72,7 +72,7 @@
 
      Where:
      
-     * `organization_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required parameter.
+     * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). This is a required parameter.
      * `role`: Role to assign. This is a required parameter.
      * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required parameter.
 

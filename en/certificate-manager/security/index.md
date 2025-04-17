@@ -6,23 +6,23 @@ description: Access management in {{ certificate-manager-full-name }}, a service
 # Access management in {{ certificate-manager-name }}
 
 In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#choosing-roles) for particular actions.
+* [What resources you can assign a role for](#resources).
+* [What roles exist in the service](#roles-list).
+* [What roles are required](#choosing-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `certificate-manager.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user needs the `certificate-manager.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 You can assign a role for a [custom certificate](../concepts/imported-certificate.md) via the {{ yandex-cloud }} [CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/add-access-binding.md) or [API](../api-ref/authentication.md).
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -63,18 +63,15 @@ The table below lists the roles required to perform a particular action. You can
 Action | Methods | Required roles
 ----- | ----- | -----
 **Certificate Manager** | | 
-Getting a list of certificates or domains | `list` | `viewer` for folder
-Getting certificate or domain details | `get` | `viewer` for certificate or folder
+Getting lists of certificates | `list` | `viewer` for folder
+Get certificate details | `get` | `viewer` for certificate or folder
 [Adding](../operations/managed/cert-create.md) a Let's Encrypt certificate | `requestNew` | `editor` for folder
 [Updating](../operations/managed/cert-modify.md) and [deleting](../operations/managed/cert-delete.md) a Let's Encrypt certificate | `update`, `delete` | `editor` for certificate or folder
 [Adding](../operations/import/cert-create.md) a custom certificate | `create` | `editor` for folder
 [Renewing](../operations/import/cert-update.md), [updating](../operations/import/cert-modify.md), or [deleting](../operations/import/cert-delete.md) a custom certificate | `update`, `delete` | `editor` for certificate or folder
 Getting the contents of a [custom certificate](../operations/import/cert-get-content.md) or [Let's Encrypt certificate](../operations/managed/cert-get-content.md) | `get-content` | `certificate-manager.certificates.downloader` for certificate or folder
-[Adding a domain](../operations/domain/domain-create.md) | `create` | `editor` for folder
-[Updating a domain](../operations/domain/domain-modify.md) and [deleting a domain](../operations/domain/domain-delete.md) | `update`, `delete` | `editor` for domain or folder
-[Updating a domain certificate](../operations/domain/domain-link-cert.md) | `setPrimaryCertificate` | `editor` for domain or folder
 **IAM** | |
-[Assigning a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md), and viewing the roles assigned for a folder or cloud | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` or `certificate-manager.admin` for certificate, domain, or folder 
+[Assigning a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md), and viewing the roles assigned for a folder or cloud | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` or `certificate-manager.admin` for certificate or folder 
 
 #### What's next {what-is-next}
 

@@ -28,7 +28,7 @@ noIndex: true
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Нажмите на имя нужного кластера.
 
 {% endlist %}

@@ -5,6 +5,318 @@ description: This section contains {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+## Q1 2025 {#q1-2025}
+
+* Added new events for the services:
+
+  {% cut "{{ baremetal-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `BatchCreateServer` | Leasing several {{ baremetal-name }} [servers](../baremetal/concepts/servers.md) at the same time
+  `CreateExternalConnection` | Creating a [private connection](../baremetal/concepts/network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
+  `CreatePrivateSubnet` | Creating a [private subnet](../baremetal/concepts/network.md#private-subnet)
+  `CreateServer` | Leasing a {{ baremetal-name }} server
+  `CreateVRF` | Creating a [virtual network segment](../baremetal/concepts/network.md#vrf-segment) (VRF)
+  `DeleteExternalConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
+  `DeletePrivateSubnet` | Deleting a private subnet
+  `DeleteVRF` | Deleting a virtual network segment (VRF)
+  `PowerOffServer` | Powering off a {{ baremetal-name }} server
+  `PowerOnServer` | Powering on a {{ baremetal-name }} server
+  `RebootServer` | Restarting a {{ baremetal-name }} server
+  `RegisterServerBackupAgent` | Registering a {{ backup-full-name }} [agent](../backup/concepts/agent.md) on a {{ baremetal-name }} server
+  `ReinstallServer` | Reinstalling a {{ baremetal-name }} server OS
+  `StartServerProlongation` | Enabling auto-renewal of {{ baremetal-name }} server lease
+  `StopServerProlongation` | Disabling auto-renewal of {{ baremetal-name }} server lease
+  `UpdatePrivateSubnet` | Updating a private subnet
+  `UpdateServer` | Updating a {{ baremetal-name }} server
+  `UpdateVRF` | Updating a virtual network segment (VRF)
+
+  {% endcut %}
+
+  {% cut "{{ backup-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `DeleteArchive` | Deleting a backup archive
+
+  {% endcut %}
+
+  {% cut "{{ cdn-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `gcore.ResourceDelete` | Deleting a resource
+  `gcore.ResourceRuleCreate` | Creating a Rewrite rule
+  `gcore.ResourceRuleDelete` | Deleting a Rewrite rule
+  `gcore.ResourceRuleUpdate` | Updating a Rewrite rule
+
+  {% endcut %}
+
+  {% cut "{{ ml-platform-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateFilestore` | Create file storage
+  `CreateModel` | Creating a [model](../datasphere/concepts/models/index.md)
+  `CreateS3Connector` | Creating an [S3 connector](https://yandex.ru/support/metrica/pro/cloud.html)
+  `CreateSecret` | Creating a [secret](../datasphere/concepts/secrets.md)
+  `CreateSparkConnector` | Creating a [Spark connector](../datasphere/concepts/spark-connector.md)
+  `CreateYandexDataProcessing` | Creating a [{{ dataproc-name }} template](../datasphere/concepts/data-processing-template.md)
+  `DeleteFilestore` | Delete file storage
+  `DeleteModel` | Delete model
+  `DeleteS3Connector` | Deleting an S3 connector
+  `DeleteSecret` | Destroying a secret
+  `DeleteSparkConnector` | Deleting a Spark connector
+  `DeleteYandexDataProcessing` | Deleting a {{ dataproc-name }} template
+  `UpdateFilestore` | Updating a file storage
+  `UpdateModel` | Edit model
+  `UpdateS3Connector` | Updating an S3 connector
+  `UpdateSecret` | Updating a secret
+  `UpdateSparkConnector` | Updating a Spark connector
+  `UpdateYandexDataProcessing` | Updating a {{ dataproc-name }} template
+
+  {% endcut %}
+
+  {% cut "{{ cloud-desktop-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateDesktop` | Creating a desktop
+  `CreateDesktopGroup` | Creating a desktop group
+  `DeleteDesktop` | Deleting a desktop
+  `DeleteDesktopGroup` | Deleting a desktop group
+  `RestartDesktop` | Restarting a desktop
+
+  {% endcut %}
+
+  {% cut "{{ video-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `BatchDeleteChannels` | Deleting a channel group
+  `BatchDeleteEpisodes` | Deleting an episode group
+  `BatchDeletePlaylists` | Deleting a playlist group
+  `BatchDeleteStreamLines` | Deleting a group of stream lines
+  `BatchDeleteStreams` | Deleting a stream group
+  `BatchDeleteVideos` | Deleting a video group
+  `CreateChannel` | Creating a channel
+  `CreateEpisode` | Creating an episode
+  `CreatePlaylist` | Creating a playlist
+  `CreateStream` | Creating a stream
+  `CreateStreamLine` | Creating a stream line
+  `CreateSubtitle` | Subtitling
+  `CreateThumbnail` | Creating a thumbnail
+  `CreateVideo` | Creating a video
+  `DeleteChannel` | Deleting a channel
+  `DeleteEpisode` | Deleting an episode
+  `DeletePlaylist` | Deleting a playlist
+  `DeleteStream` | Deleting a stream
+  `DeleteStreamLine` | Deleting a stream line
+  `DeleteSubtitle` | Deleting subtitles
+  `DeleteThumbnail` | Deleting a thumbnail
+  `DeleteVideo` | Deleting a video
+  `EpisodePerformAction` | Performing actions with an episode
+  `SetChannelAccessBindings` | Assigning access permissions for a channel
+  `StreamLinePerformAction` | Performing actions with a stream line
+  `StreamLineUpdateStreamKey` | Updating a stream key of a stream line
+  `StreamPerformAction` | Performing actions with a stream
+  `TranscodeVideo` | Transcoding a video
+  `UpdateChannel` | Updating a channel
+  `UpdateChannelAccessBindings` | Updating access permissions for a channel
+  `UpdateEpisode` | Updating an episode
+  `UpdatePlaylist` | Updating a playlist
+  `UpdateStream` | Updating a stream
+  `UpdateStreamLine` | Updating a stream line
+  `UpdateVideo` | Updating a video
+  `VideoPerformAction` | Performing actions with a video
+
+  {% endcut %}
+
+  {% cut "{{ compute-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateReservedInstancePool` | Creating a pool of reserved VMs
+  `DeleteReservedInstancePool` | Deleting a pool of reserved VMs
+  `UpdateReservedInstancePool` | Updating a pool of reserved VMs
+
+  {% endcut %}
+
+  {% cut "{{ iam-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `RevokeLeakedCredential` | Revoking a compromised secret
+  `workload.oidc.SetFederationAccessBindings` | Assigning access permissions to a workload identity federation
+  `workload.oidc.UpdateFederationAccessBindings` | Modifying access permissions of a workload identity federation
+
+  {% endcut %}
+  
+  {% cut "{{ mch-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `RestartClusterHosts` | Restarting cluster hosts
+
+  {% endcut %}
+
+  {% cut "{{ mgl-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateRunner` | Creating {{ GLR }}
+  `DeleteRunner` | Deleting {{ GLR }}
+  `StartRunner` | Starting {{ GLR }}
+  `StopRunner` | Stopping {{ GLR }}
+  `UpdateRunner` | Updating {{ GLR }}
+
+  {% endcut %}
+
+  {% cut "{{ managed-k8s-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `AutoUpgradeCluster` | Performing cluster auto-updates
+  `AutoUpgradeNodeGroup` | Performing node group auto-updates
+  `CreateCluster` | Creating a cluster
+  `CreateNodeGroup` | Creating a node group
+  `DeleteCluster` | Deleting a cluster
+  `DeleteNodeGroup` | Deleting a node group
+  `DeleteStoppedCluster` | Deleting a stopped cluster
+  `InstallHelmRelease` | Installing a Helm version
+  `SetClusterAccessBindings` | Assigning access permissions for a cluster
+  `StartCluster` | Starting a cluster
+  `StopCluster` | Stopping a cluster
+  `UninstallHelmRelease` | Destroying a Helm version
+  `UpdateCluster` | Updating a cluster
+  `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+  `UpdateHelmRelease` | Updating a Helm version
+  `UpdateNodeGroup` | Updating a  node group
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `apiserver.ApiServerApprove` | Confirming a request
+  `apiserver.ApiServerBind` | Linking a role
+  `apiserver.ApiServerCreate` | Creating a resource
+  `apiserver.ApiServerDelete` | Deleting a resource
+  `apiserver.ApiServerDeleteCollection` | Deleting a resource collection
+  `apiserver.ApiServerEscalate` | Escalating privileges
+  `apiserver.ApiServerGet` | Getting information about a resource
+  `apiserver.ApiServerHead` | Getting resource metadata
+  `apiserver.ApiServerImpersonate` | Impersonation
+  `apiserver.ApiServerList` | Getting information about a resource collection
+  `apiserver.ApiServerNonstandardVerb` | The event is generated if the {{ managed-k8s-name }} audit log contains a non-standard value in the `verb` field
+  `apiserver.ApiServerOptions` | Configuring a resource
+  `apiserver.ApiServerPatch` | Changing a resource
+  `apiserver.ApiServerPost` | Creating a resource
+  `apiserver.ApiServerPut` | Updating a resource
+  `apiserver.ApiServerUpdate` | Updating a query
+  `apiserver.ApiServerWatch` | Tracking resources
+  
+  {% endcut %}
+
+  {% cut "{{ mos-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `RestartOpenSearch` | Restarting a cluster
+  `SwitchMaster` | Changing the host quorum leader with the `MANAGER` role
+
+  {% endcut %}
+
+  {% cut "{{ mrd-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `DeleteBackup` | Deleting backups
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `CreateUser` | Creating a user in a cluster
+  `DeleteUser` | Deleting a user from a cluster
+  `UpdateUser` | Updating a user in a cluster
+
+  {% endcut %}
+
+  {% cut "{{ vpc-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreatePrivateEndpoint` | Creating a service connection
+  `DeletePrivateEndpoint` | Deleting a service connection
+  `UpdatePrivateEndpoint` | Updating a service connection
+
+  {% endcut %}
+
+  {% cut "{{ billing-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `BillingAccountCreate` | Creating a billing account
+  `BillingAccountUpdate` | Updating a billing account
+
+  {% endcut %}
+
+  {% cut "{{ lockbox-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `GetPayload` | Accessing the contents of a secret
+  `GetPayloadEx` | Accessing the contents of a secret by folder or name
+
+  {% endcut %}
+
+  {% cut "{{ metadata-hub-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `CreateCluster` | Creating a {{ metastore-full-name }} [cluster](../metadata-hub/concepts/metastore.md)
+  `DeleteCluster` | Deleting a {{ metastore-full-name }} cluster
+  `StartCluster` | Starting a {{ metastore-full-name }} cluster
+  `StopCluster` | Stopping a {{ metastore-full-name }} cluster
+  `UpdateCluster` | Updating an {{ metastore-full-name }} cluster
+
+  {% endcut %}
+
 ## Q4 2024 {#q4-2024}
 
 * Added new events for the services:
@@ -190,7 +502,7 @@ description: This section contains {{ at-name }} release notes.
 
   Event name | Description
   --- | ---
-  `ComputeNodeAccess` | Connecting the {{ atr-name }} [module](../security-deck/concepts/access-transparency.md) to a {{ dataproc-name }} [subcluster](../data-proc/concepts/index.md#resources)
+  `ComputeNodeAccess` | Connecting the {{ atr-name }} [module](../security-deck/concepts/access-transparency.md) to the {{ dataproc-name }} [subcluster](../data-proc/concepts/index.md#resources)
   `MDBClusterAccess` | Connecting the {{ atr-name }} module to a database cluster
 
   {% endcut %}
@@ -704,6 +1016,7 @@ description: This section contains {{ at-name }} release notes.
   `RelocateSubnet` | Moving a cloud subnet to a different availability zone
 
   {% endcut %}
+
 * Fixed an error that delayed event delivery with the trail in the `Error` status.
 
 * Modified the mechanism for delivering database management events and database user management events from {{ mpg-full-name }}, {{ mmy-full-name }}, and {{ mmg-full-name }}. Now they are considered [data events](./concepts/format-data-plane.md).

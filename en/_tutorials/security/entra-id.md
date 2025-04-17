@@ -277,17 +277,69 @@ Configure the application for the new group to have access to it.
 
   1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** field, enter the `az_demo_group` ID [you got in {{ microsoft-idp.entra-id-short }}](#create-group) earlier.
 
-      {% note warning %}
+     {% note warning %}
 
-      You selected group ID as the source attribute when [configuring group mapping on the Azure side](#map-azure-group).
+     You selected group ID as the source attribute when [configuring group mapping on the Azure side](#map-azure-group).
 
-      Therefore, enter the group ID, not its name.
+     Therefore, enter the group ID, not its name.
 
-      {% endnote %}
+     {% endnote %}
 
   1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** field, select the `yc-demo-group` group you created in {{ org-full-name }} from the list.
 
   1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+- {{ TF }} {#tf}
+
+  1. Describe the properties of the new resources in the {{ TF }} configuration file:
+
+      ```hcl
+      # Creating a user group
+      resource "yandex_organizationmanager_group" "my-group" {
+        name            = "yc-demo-group"
+        organization_id = "demo-federation"
+      }
+
+      # Assigning the viewer role for a folder
+      resource "yandex_resourcemanager_folder_iam_member" "viewers" {
+        folder_id = "<folder_ID>"
+        role      = "viewer"
+        member    = "group:${yandex_organizationmanager_group.my-group.id}"
+      }
+
+      # Enabling federated user group mapping
+      resource "yandex_organizationmanager_group_mapping" "my_group_map" {
+        federation_id = "demo-federation"
+        enabled       = true
+      }
+
+      # Configuring a federated user group mapping
+      resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item" {
+        federation_id     = "demo-federation"
+        internal_group_id = yandex_organizationmanager_group.my-group.id
+        external_group_id = "<az_demo_group_ID>"
+
+        depends_on = [yandex_organizationmanager_group_mapping.group_mapping]
+      }
+      ```
+
+      Where:
+      * `folder_id`: Folder the role is assigned for.
+      * `external_group_id`: `az_demo_group` ID [you got in {{ microsoft-idp.entra-id-short }} earlier](#create-group).
+
+         {% note warning %}
+
+         You selected group ID as the source attribute when [configuring group mapping on the Azure side](#map-azure-group).
+
+         Therefore, enter the group ID, not its name.
+
+         {% endnote %}
+
+      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider documentation.
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 {% endlist %}
 

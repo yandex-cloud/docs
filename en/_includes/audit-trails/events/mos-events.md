@@ -10,9 +10,11 @@ Event name | Description
 `DeleteOpenSearchNodeGroup` | Deleting an `OpenSearch` type host group
 `MoveCluster` | Moving a cluster
 `RescheduleMaintenance` | Changing scheduled maintenance date and time
+`RestartOpenSearch` | Restarting a cluster
 `RestoreCluster` | Creating a new cluster from a backup
 `StartCluster` | Starting a cluster
 `StopCluster` | Stopping a cluster
+`SwitchMaster` | Changing the host quorum leader with the `MANAGER` role
 `UpdateCluster` | Updating a cluster
 `UpdateDashboardsNodeGroup` |  Updating a `Dashboards` type host group
 `UpdateOpenSearchNodeGroup` | Updating a `OpenSearch` type host group

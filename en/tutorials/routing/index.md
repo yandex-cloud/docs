@@ -26,3 +26,4 @@ description: Various use cases for network infrastructure in {{ yandex-cloud }}.
 * [Adding a public connection to a direct or partner trunk](pub-add.md)
 * [{#T}](./bms-vrf-routing.md)
 * [{#T}](./bms-simple-subnet.md)
+* [{#T}](./bm-vrf-and-vpc-interconnect.md)

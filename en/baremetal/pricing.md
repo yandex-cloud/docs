@@ -14,7 +14,7 @@ Yandex BareMetal is at the [Preview](../overview/concepts/launch-stages) stage.
 
 {% endnote %}
 
-In {{ baremetal-name }}, you pay for leasing a server of a certain configuration.
+In {{ baremetal-name }}, you pay for leasing a server of a [certain configuration](concepts/server-configurations.md).
 
 ## Prices for the Russia region {#prices}
 

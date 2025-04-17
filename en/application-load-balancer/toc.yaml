@@ -84,12 +84,12 @@ items:
           through an {{ alb-name }} Ingress controller
         href: tutorials/alb-ingress-with-sws-profile.md
       - name: >-
-          Migrating services from a NLB load balancer to an L7 ALB load balancer
-          for DDoS protection using {{ sws-name }}
+          Migrating services from an NLB to L7 ALB for DDoS protection using {{
+          sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md
-          - name: NLB load balancer with VMs as targets
+          - name: NLB with VMs as targets
             items:
               - name: Overview
                 href: >-
@@ -100,7 +100,7 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
-          - name: NLB load balancer with a VM group as a target
+          - name: NLB with an instance group as a target
             items:
               - name: Overview
                 href: >-
@@ -111,9 +111,7 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
-          - name: >-
-              NLB load balancer with a {{ managed-k8s-name }} cluster as a
-              target
+          - name: NLB with a {{ managed-k8s-name }} cluster as a target
             items:
               - name: Overview
                 href: >-
@@ -124,7 +122,7 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
-          - name: NLB load balancer as a target for an ALB
+          - name: NLB as a target for ALB
             items:
               - name: Overview
                 href: >-
@@ -191,6 +189,8 @@ items:
         href: concepts/application-load-balancer.md
       - name: HTTP routers
         href: concepts/http-router.md
+      - name: Limit on the number of requests
+        href: concepts/rate-limiter.md
       - name: Backend groups
         href: concepts/backend-group.md
       - name: Target groups

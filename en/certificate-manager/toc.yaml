@@ -33,16 +33,6 @@ items:
             href: operations/import/cert-modify.md
           - name: Deleting a certificate
             href: operations/import/cert-delete.md
-      - name: Domain
-        items:
-          - name: Adding a domain
-            href: operations/domain/domain-create.md
-          - name: Linking a certificate to a domain
-            href: operations/domain/domain-link-cert.md
-          - name: Updating a domain
-            href: operations/domain/domain-modify.md
-          - name: Deleting a domain
-            href: operations/domain/domain-delete.md
       - name: Backups
         href: operations/cert-backup.md
       - name: Adding alerts for certificates
@@ -77,7 +67,7 @@ items:
         href: concepts/managed-certificate.md
       - name: Custom certificate
         href: concepts/imported-certificate.md
-      - name: Checking rights for a domain
+      - name: Domain rights check
         href: concepts/challenges.md
       - name: Integration with {{ yandex-cloud }} services
         href: concepts/services.md
@@ -89,6 +79,7 @@ items:
             href: concepts/domains/index.md
           - name: Integration with {{ yandex-cloud }} services
             href: concepts/domains/services.md
+        hidden: true
   - name: Access management
     href: security/index.md
   - name: Pricing policy

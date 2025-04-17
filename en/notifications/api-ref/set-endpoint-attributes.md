@@ -10,24 +10,24 @@ POST https://{{ cns-host }}/
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `Action` | **string**<br/>Required field.<br/>Parameter to indicate the operation type.<br/>Value: `SetEndpointAttributes`. |
-| `EndpointArn` | **string**<br/>Required field.<br/>Mobile endpoint ID (ARN).<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`. |
-| `Attributes.entry.N.key` | **string**<br/>Required field.<br/>[Attribute](#attributes) key. `N`: Numerical value.<br/>Example: `Attributes.entry.1.key=Token&Attributes.entry.2.key=CustomUserData`. |
-| `Attributes.entry.N.value` | **string**<br/>Required field.<br/>Attribute value. `N`: Numerical value.<br/>Example: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=test-text`. |
-| `ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (by default).</li><li>`JSON`.</li></ul> |
+`Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `SetEndpointAttributes`.
+`EndpointArn` | **string**<br/>Required field.<br/>Endpoint ID (ARN).<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
+`Attributes.entry.N.key` | **string**<br/>Required field.<br/>[Attribute](#attributes) key. `N` is a numeric value.<br/>Example: `Attributes.entry.1.key=Token&Attributes.entry.2.key=CustomUserData`.
+`Attributes.entry.N.value` | **string**<br/>Required field.<br/>Attribute value. `N` is a numeric value.<br/>Example: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=test-text`.
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
 
 ### Attributes {#attributes}
 
-| Attribute | Description |
+Attribute | Description
 --- | ---
-| `Token` | **string**<br/>Required field.<br/>Unique token on the user device (Registration ID) created by the notification service for the app. |
-| `CustomUserData` | **string**<br/>Other user data that can be stored with the endpoint. {{ cns-name }} does not use this data in any way. |
+`Token` | **string**<br/>Required field.<br/>For mobile notifications: unique token on the user device (Registration ID) created by the notification service for the app. For in-browser notifications: the [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object received in the user's browser, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format.
+`CustomUserData` | **string**<br/>Other user data that can be stored together with the endpoint. {{ cns-name }} does not use this data in any way.
 
 {% note info %}
 
-The `Enabled` attribute (enabling and disabling endpoint notifications) is currently not supported.
+The `Enabled` attribute for enabling and disabling endpoint notifications is currently not supported. 
 
 {% endnote %}
 
@@ -45,24 +45,24 @@ Data schema:
 
 - XML
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <SetEndpointAttributesResponse>
-   	  <ResponseMetadata>
-   		  <RequestId>string</RequestId>
-   	  </ResponseMetadata>
-   </SetEndpointAttributesResponse>
-   ```
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <SetEndpointAttributesResponse>
+	  <ResponseMetadata>
+		  <RequestId>string</RequestId>
+	  </ResponseMetadata>
+  </SetEndpointAttributesResponse>
+  ```
 
 - JSON
 
-   ```json
-   {
-     "ResponseMetadata": {
-       "RequestId": "string"
-     }
-   }
-   ```
+  ```json
+  {
+    "ResponseMetadata": {
+      "RequestId": "string"
+    }
+  }
+  ```
 
 {% endlist %}
 

@@ -38,16 +38,20 @@ items:
             href: operations/servers/restore-grub.md
           - name: Upload image
             href: operations/image-upload.md
+          - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
+            href: operations/backup-baremetal.md
       - name: Network
         items:
-          - name: Creating a VRF
+          - name: Creating a VRF segment
             href: operations/network-create.md
           - name: Creating a subnet
             href: operations/subnet-create.md
+          - name: Creating a private connection to cloud networks
+            href: operations/create-vpc-connection.md
   - name: Concepts
     expanded: true
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
       - name: Servers
         expanded: true
@@ -64,6 +68,7 @@ items:
           - name: DHCP
             href: concepts/dhcp.md
           - name: Blocked network ports
+            hidden: true
             href: concepts/traffic-restrictions.md
           - name: Restrictions in {{ baremetal-name }} networks
             href: concepts/network-restrictions.md
@@ -72,15 +77,21 @@ items:
   - name: Tutorials
     expanded: true
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
-        href: operations/backup-baremetal.md
-      - name: Configuring VRRP for a {{ baremetal-name }} server cluster
+        href: tutorials/backup-baremetal.md
+      - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
         href: tutorials/bms-vrf-routing.md
       - name: Setting up network connectivity in a {{ baremetal-name }} subnet
         href: tutorials/bms-simple-subnet.md
+      - name: >-
+          Setting up network connectivity between {{ baremetal-name }} and {{
+          vpc-name }} subnets
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
   - name: API reference
     items:
-      - name: Authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -231,6 +242,10 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -38,8 +38,8 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
     As long as the container is running, the {{ keycloak }} administrator account will be available at [http://localhost:8080/admin](http://localhost:8080/admin) or [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin). The default login parameters are as follows:
 
-    * **User name or email**: `admin`.
-    * **Password**: `Pa55w0rd`.
+    * **User name or email**: `admin`
+    * **Password**: `Pa55w0rd`
 
     {% note info %}
 
@@ -53,9 +53,9 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
         If you are using a local server from a Docker image, the default login credentials are:
 
-        * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin).
-        * **User name or email**: `admin`.
-        * **Password**: `Pa55w0rd`.
+        * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin)
+        * **User name or email**: `admin`
+        * **Password**: `Pa55w0rd`
 
     1. In the **Realm Settings** section, select the **Keys** tab.
 
@@ -153,9 +153,9 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
     If you are using a local server from a Docker image, the default login credentials are:
 
-    * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin).
-    * **User name or email**: `admin`.
-    * **Password**: `Pa55w0rd`.
+    * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin)
+    * **User name or email**: `admin`
+    * **Password**: `Pa55w0rd`
 
 1. Create a SAML application:
 
@@ -291,6 +291,49 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
   1. In the **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** field, select the `yc_demo_group` group you created in {{ org-full-name }} from the list.
 
   1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
+
+- {{ TF }} {#tf}
+
+  1. Describe the properties of the new resources in the {{ TF }} configuration file:
+
+      ```hcl
+      # Creating a user group
+      resource "yandex_organizationmanager_group" "my-group" {
+        name            = "yc_demo_group"
+        organization_id = "demo-federation"
+      }
+
+      # Assigning the viewer role for a folder
+      resource "yandex_resourcemanager_folder_iam_member" "viewers" {
+        folder_id = "<folder_ID>"
+        role      = "viewer"
+        member    = "group:${yandex_organizationmanager_group.my-group.id}"
+      }
+
+      # Enabling federated user group mapping
+      resource "yandex_organizationmanager_group_mapping" "my_group_map" {
+        federation_id = "demo-federation"
+        enabled       = true
+      }
+
+      # Configuring a federated user group mapping
+      resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item" {
+        federation_id     = "demo-federation"
+        internal_group_id = yandex_organizationmanager_group.my-group.id
+        external_group_id = "kc_demo_group"
+
+        depends_on = [yandex_organizationmanager_group_mapping.group_mapping]
+      }
+      ```
+
+      Where:
+      * `folder_id`: Folder the role is assigned for.
+
+      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider documentation.
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 {% endlist %}
 
