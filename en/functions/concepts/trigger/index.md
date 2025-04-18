@@ -1,6 +1,6 @@
 ---
 title: Triggers in {{ sf-name }}. Overview
-description: Triggers are criteria that automatically launch a  function when met. Triggers enable you to automate your work with other {{ yandex-cloud }} services, such as Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core.
+description: Triggers are criteria that automatically launch a function when met. With triggers, you can automate your work with other {{ yandex-cloud }} services, e.g., Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core.
 ---
 
 # Triggers in {{ sf-name }}. Overview
@@ -26,8 +26,18 @@ Triggers call functions based on preset [quotas and limits](../../../functions/c
 
 When a function is called by a trigger, the following specifics apply:
 - Functions are always called by triggers with the `?integration=raw` query string parameter. More about [function calls](../function-invoke.md).
-- Before the trigger delivers messages to a function, it changes their format. Each trigger type uses a message format of its own. Read more about this in the trigger description.
+- Before the trigger delivers messages to a function, it changes their format. Each trigger type uses a message format of its own. Read more about this in the relevant trigger description.
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/data-recording.md)
+* [{#T}](../../tutorials/events-from-postbox-to-yds.md)
+* [{#T}](../../tutorials/logging-functions.md)
+* [{#T}](../../tutorials/logging.md)
+* [{#T}](../../tutorials/regular-launch-datasphere.md)
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)
+* [{#T}](../../tutorials/video-converting-queue.md)
 
 ## See also {#see-also}
 
-* [Triggers that call a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/index.md).
+* [Triggers that run a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/index.md).

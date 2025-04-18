@@ -58,7 +58,7 @@ description: In this article, you will learn about boto3 and boto, how to instal
   session = boto3.session.Session()
   s3 = session.client(
       service_name='s3',
-      endpoint_url='https://{{ s3-storage-host }}'
+      endpoint_url='https://{{ s3-storage-host }}',
       aws_access_key_id='<static_key_ID>',
       aws_secret_access_key='<secret_key>'
   )

@@ -12,7 +12,7 @@ The application creates a {{ ydb-short-name }} database connection driver, a ses
 
 To set up a connection to a {{ ydb-short-name }} database:
 1. [Get your cloud ready](#before-begin).
-1. [Prepare the environment](#prepare-environment).
+1. [Set up your environment](#prepare-environment).
 1. [Create a service account](#create-sa).
 1. [Create an authorized key](#create-key).
 1. [Create a {{ ydb-short-name }} database](#create-database).
@@ -31,19 +31,19 @@ The infrastructure support cost for this scenario includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for running queries to the database (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 
-## Prepare the environment {#prepare-environment}
+## Set up your environment {#prepare-environment}
 
-1. Clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) using Git:
+1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-ydb-connect-from-serverless-function) using Git:
 
    ```bash
-   git clone https://github.com/yandex-cloud/examples.git
+   git clone https://github.com/yandex-cloud-examples/yc-ydb-connect-from-serverless-function.git
    ```
 
 1. Install and initialize the [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
 1. Go to the project root directory:
 
    ```bash
-   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   cd ~/yc-ydb-connect-from-serverless-function
    ```
 
    Make sure to run all further commands in this directory.
@@ -151,7 +151,7 @@ The infrastructure support cost for this scenario includes:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -159,7 +159,7 @@ The infrastructure support cost for this scenario includes:
         terraform apply
         ```
 
-     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -174,14 +174,14 @@ The infrastructure support cost for this scenario includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-function` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Select the encryption algorithm.
   1. Enter a description for the [authorized key](../../iam/concepts/authorization/key.md) so you can easily find it in the management console.
-  1. Save both the public and private parts of the authorized key to the `examples/serverless/functions/YDB-connect-from-serverless-function/service_account_key_file.json` file:
+  1. Save both the public and private parts of the authorized key to the `yc-ydb-connect-from-serverless-function/service_account_key_file.json` file:
 
      ```json
      {
@@ -224,7 +224,7 @@ The infrastructure support cost for this scenario includes:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -232,7 +232,7 @@ The infrastructure support cost for this scenario includes:
         terraform apply
         ```
 
-     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -247,9 +247,9 @@ The infrastructure support cost for this scenario includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Name the database. The naming requirements are as follows:
+  1. Name the database. Follow these naming requirements:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
@@ -273,7 +273,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 1. Go to the project root directory:
 
    ```bash
-   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   cd ~/yc-ydb-connect-from-serverless-function
    ```
 
 1. Edit the `.env` file:
@@ -343,7 +343,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the `func-test-ydb` function.
   1. Navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, click the link.

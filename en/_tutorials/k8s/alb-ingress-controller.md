@@ -15,6 +15,19 @@ For full configuration of the resources for the {{ alb-name }} Ingress controlle
 * [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md): Managing multiple Ingress controllers in a {{ k8s }} cluster.
 * [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md): Description of {{ k8s }} services used as backends.
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
@@ -27,7 +40,7 @@ For full configuration of the resources for the {{ alb-name }} Ingress controlle
     yc certificate-manager certificate list
     ```
 
-    Result:
+    What the command should return:
 
     ```text
     +----------------------+-----------+----------------+---------------------+----------+--------+
@@ -323,7 +336,7 @@ Create test applications and an Ingress resource:
 
      * `ingress.alb.yc.io/subnets`: One or more subnets hosting the {{ alb-name }} L7 load balancer.
      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port `10501` in the {{ managed-k8s-name }} node group subnet or to its security group.
-     * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
+     * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [IP address you got earlier](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
 
        If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will also delete the [IP address](../../vpc/concepts/address.md). To avoid this, use an existing reserved IP address.
 
@@ -393,9 +406,9 @@ Create test applications and an Ingress resource:
 
      * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
 
-     * `ingress.alb.yc.io/balancing-panic-threshold`: [Panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode) threshold. The mode will be activated if the percentage of healthy endpoints falls below this value. The default value is `0`, which never activates the panic mode.
+     * `ingress.alb.yc.io/balancing-panic-threshold`: [Panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode) threshold. The mode will be activated if the percentage of healthy endpoints falls below this value. The default value is `0`, which means the panic mode will never be activated.
 
-     * `ingress.alb.yc.io/balancing-locality-aware-routing`: Percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic is evenly distributed between other availability zones. The default value is `0`. [More on locality-aware routing](../../application-load-balancer/concepts/backend-group.md#locality).
+     * `ingress.alb.yc.io/balancing-locality-aware-routing`: Percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic is evenly distributed between other availability zones. The default value is `0`. [More on locality aware routing](../../application-load-balancer/concepts/backend-group.md#locality).
 
      * `ingress.alb.yc.io/autoscale-max-size`: Maximum total number of resource units. By default, this number is unlimited. Make sure the value is more or equal to the number of load balancer availability zones multiplied by the minimum number of resource units per zone. [Learn more about the autoscaling settings here](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
 
@@ -464,7 +477,7 @@ Create test applications and an Ingress resource:
 
      To follow the load balancer's creation and make sure it is error-free, open the logs of the pod the creation process was run in:
 
-     1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click your cluster's name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
      1. Select one of the `alb-demo-***` pods the load balancer's creation was run in.
      1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
@@ -652,7 +665,7 @@ Create test applications and an Ingress resource:
      Where:
      * `ingress.alb.yc.io/subnets`: One or more subnets hosting the {{ alb-name }} L7 load balancer.
      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port `10501` in the {{ managed-k8s-name }} node group subnet or to its security group.
-     * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
+     * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [IP address you got earlier](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
 
        If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will also delete the [IP address](../../vpc/concepts/address.md). To avoid this, use an existing reserved IP address.
 
@@ -718,7 +731,7 @@ Create test applications and an Ingress resource:
 
      To follow the load balancer's creation and make sure it is error-free, open the logs of the pod the creation process was run in:
 
-     1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click your cluster's name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
      1. Select one of the `alb-demo-***` pods the load balancer's creation was run in.
      1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.

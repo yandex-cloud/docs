@@ -9,7 +9,7 @@ Sending emails with {{ postbox-full-name }}. The `simple` and `raw` fields are m
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`fromAddress` | `string` | Yes | No | No | {{ postbox-name }} [address](../../../../../postbox/concepts/glossary.md#adress) to send emails from.<br/><br/>The [service account](../../../../../iam/concepts/users/service-accounts.md) specified in the [workflow](../../workflow.md) settings and the address specified in this field must reside in the same [folder](../../../../../resource-manager/concepts/resources-hierarchy.md#folder).
+`fromAddress` | `string` | Yes | No | No | {{ postbox-name }} [address](../../../../../postbox/concepts/glossary.md#adress) to send emails from.<br/><br/>[The service account](../../../../../iam/concepts/users/service-accounts.md) specified in the [workflow](../../workflow.md) settings and the address specified in this field must reside in the same [folder](../../../../../resource-manager/concepts/resources-hierarchy.md#folder).
 `destination` | [Destination](#postbox-destination) | Yes | No | No | Object describing addresses of recipients.
 `simple` | [SimpleMessage](#postbox-simplemessage) | No | No | No | Email that will be sent.
 `raw` | [RawMessage](#postbox-rawmessage) | No | No | No | Email that will be sent.

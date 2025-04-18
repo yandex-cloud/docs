@@ -12,10 +12,10 @@ The list of keys processed by the [metadata service](../vm-metadata.md) in {{ ya
 - Linux {#linux}
 
   * `serial-port-enable`: Key responsible for access to [serial console](../../operations/serial-console/index.md) of the VM instance: The possible values are:
-      * `0`: Access to serial console disabled (default).
+      * `0`: Access to serial console disabled. Default value.
       * `1`: Access to serial console enabled.
   * `enable-oslogin`: Key responsible for access to the VM instance via [{{ oslogin }}](../../operations/vm-connect/os-login.md). The possible values are:
-      * `false`: Access via {{ oslogin }} disabled (default).
+      * `false`: Access via {{ oslogin }} disabled. Default value.
       * `true`: Access via {{ oslogin }} enabled.
   * `user-data`: Key containing a string with the user metadata that will be processed by the [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) agent running on the VM instance.
 
@@ -46,6 +46,14 @@ The list of keys processed by the [metadata service](../vm-metadata.md) in {{ ya
   ```
 
 {% endlist %}
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/rds-gw.md)
+* [{#T}](../../tutorials/coi-with-terraform.md)
+* [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
+* [{#T}](../../../tutorials/routing/multi-folder-vpc.md)
+* [{#T}](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
 
 #### See also {#see-also}
 

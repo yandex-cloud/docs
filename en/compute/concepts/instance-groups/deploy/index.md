@@ -1,6 +1,6 @@
 ---
 title: Updating an instance group in {{ compute-full-name }}
-description: 'An instance group is updated in two steps: first, its instances are allocated across availability zones and then the deployment algorithm is run.'
+description: 'An instance group is updated in two steps: first, its instances are allocated across availability zones, and then the deployment algorithm starts.'
 ---
 
 # Updating instance groups
@@ -16,6 +16,10 @@ To learn about the implications of updating or changing an instance group, see t
 
 {% note info %}
 
-If for an instance group, [processes are paused](../stopping-pausing.md) (the [status](../statuses.md#group-statuses) is `PAUSED`), it is not updated.
+You cannot update an instance group with [paused processes](../stopping-pausing.md) (its [status](../statuses.md#group-statuses) is `PAUSED`).
 
 {% endnote %}
+
+## Use cases {#examples}
+
+* [{#T}](../../../tutorials/updating-under-load.md)

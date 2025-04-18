@@ -13,6 +13,7 @@ You can change the following parameters of a [{{ managed-k8s-name }}](../../conc
 * Name.
 * Description.
 * [Service accounts](../../../iam/operations/sa/create.md).
+* [Resource configuration](../../concepts/index.md#master-resources) for the master.
 * [{{ k8s }}](../../concepts/release-channels-and-updates.md) version.
 * [Updates](../../concepts/release-channels-and-updates.md#updates) policy.
 * List of [security groups](../connect/security-groups.md).
@@ -126,7 +127,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
 
 - API {#api}
 
-  To edit {{ managed-k8s-name }} cluster parameters, use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
+  To update {{ managed-k8s-name }} cluster parameters, use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
 
   To edit the settings for sending logs to {{ cloud-logging-name }}, configure their `masterSpec.masterLogging` parameter values.
 
@@ -189,7 +190,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to delete it.
     1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a key and/or value for the new label.
-    1. Press **Enter**, then click **{{ ui-key.yacloud.common.save }}**.
+    1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -246,5 +247,24 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
   name: k8s-demo
   ...
   ```
+
+{% endlist %}
+
+## Updating the master resource configuration {#manage-resources}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+  1. Click the name of the {{ managed-k8s-name }} cluster.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**, expand the **Compute resources** section and select a [resource configuration](../../concepts/index.md#master-resources) for the master.
+
+      {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
+
+      {% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

@@ -327,6 +327,8 @@ items:
                 href: api-ref/grpc/Cluster/stop.md
               - name: Move
                 href: api-ref/grpc/Cluster/move.md
+              - name: RescheduleMaintenance
+                href: api-ref/grpc/Cluster/rescheduleMaintenance.md
               - name: ListOperations
                 href: api-ref/grpc/Cluster/listOperations.md
               - name: ListMasterHosts
@@ -401,6 +403,18 @@ items:
                 href: api-ref/grpc/ResourcePreset/get.md
               - name: List
                 href: api-ref/grpc/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/grpc/User/index.md
+              - name: List
+                href: api-ref/grpc/User/list.md
+              - name: Create
+                href: api-ref/grpc/User/create.md
+              - name: Update
+                href: api-ref/grpc/User/update.md
+              - name: Delete
+                href: api-ref/grpc/User/delete.md
       - name: REST
         items:
           - name: Overview
@@ -437,6 +451,8 @@ items:
                 href: api-ref/Cluster/stop.md
               - name: Move
                 href: api-ref/Cluster/move.md
+              - name: RescheduleMaintenance
+                href: api-ref/Cluster/rescheduleMaintenance.md
               - name: ListOperations
                 href: api-ref/Cluster/listOperations.md
               - name: ListMasterHosts
@@ -511,6 +527,18 @@ items:
                 href: api-ref/ResourcePreset/get.md
               - name: List
                 href: api-ref/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/User/index.md
+              - name: List
+                href: api-ref/User/list.md
+              - name: Create
+                href: api-ref/User/create.md
+              - name: Update
+                href: api-ref/User/update.md
+              - name: Delete
+                href: api-ref/User/delete.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

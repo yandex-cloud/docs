@@ -10,6 +10,7 @@ You can invoke a function:
 * [Using the CLI](#cli).
 * [Using a trigger](#trigger).
 * [Using a {{ api-gw-full-name }} extension](#extension).
+* [Using {{ monitoring-short-name }} events](#monitoring).
 
 Each method has its own data structure for function requests and responses. You can invoke a specific function [version](function.md#version) using a [tag](function.md#tag). Learn more about how to [invoke a function](../operations/function/function-invoke.md).
 
@@ -49,8 +50,8 @@ Where:
 - `httpMethod`: HTTP method name, such as: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
 - `headers`: Dictionary of strings with HTTP request headers and their values. If the same header is provided multiple times, the dictionary contains the last provided value.
 - `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary; however, if any of the headers was repeated multiple times, its list will contain all the values provided for this header. If the header was provided only once, it is included into this dictionary and its list will contain a single value.
-- `queryStringParameters`: Dictionary with query parameters. If the same parameter is set multiple times, the dictionary contains the last specified value.
-- `multiValueQueryStringParameters`: Dictionary with the list of all specified values for each query parameter. If the same parameter is set multiple times, the dictionary contains all the specified values.
+- `queryStringParameters`: Dictionary with query parameters. If the same parameter is specified multiple times, the dictionary will contain the last specified value.
+- `multiValueQueryStringParameters`: Dictionary with the list of all specified values for each query parameter. If the same parameter is specified multiple times, the dictionary will contain all the specified values.
 - `requestContext` has the following structure: 
   
     ```
@@ -64,10 +65,10 @@ Where:
         "apiGateway": "<dictionary with specific data transmitted by API gateway during function invocation>",
         "connectionId": "<web socket connection ID>",
         "connectedAt": "<web socket connection time>",
-        "eventType": "<type or web socket event or operation: CONNECT, MESSAGE, DISCONNECT>",
+        "eventType": "<type of web socket event or operation: CONNECT, MESSAGE, DISCONNECT>",
         "messageId": "<ID of the message received from the web socket>",
-        "disconnectStatusCode": "<web socket closing status code>",
-        "disconnectReason": "<text description of the reason for closing the web socket>"
+        "disconnectStatusCode": "<web socket close code>",
+        "disconnectReason": "<text description of the reason the web socket was closed>"
     }
     ```
                
@@ -89,7 +90,7 @@ Where:
     Structure of the `authorizer` element:
     ```
     {
-        "jwt": { // Field filled in by the API Gateway JWT authorizer. Contains data from the token about the user and the user's permissions'
+        "jwt": { // Field filled in by the API Gateway JWT authorizer. It contains the token data about the user and the user's permissions'
           "claims": "<dictionary of JWT body fields>",
           "scopes": "<list of JWT owner permissions>"
         }
@@ -338,6 +339,10 @@ Your function receives and transmits the contents of HTTP headers as JSON fields
 
 If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, the specified IP addresses and the IP address of the client that invoked the function are provided in this header. If not, it only passes the IP address of the client that invoked the function.
 
+### Use cases {#examples-https}
+
+* [{#T}](../tutorials/connect-to-ydb-nodejs.md)
+
 ## Invoking a function using the {{ yandex-cloud }} CLI {#cli}
 
 A function call via the CLI is an HTTPS request which uses the POST method and the `?integration=raw` parameter (without converting the request into a JSON structure or checking the response).
@@ -394,6 +399,33 @@ Detailed description of how to transfer data using different flags and arguments
 
 When invoking a function using a trigger, the JSON description of a trigger event is provided in the body of an HTTP request to the function. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about [triggers](trigger/index.md).
 
+### Use cases {#examples-trigger}
+
+* [{#T}](../tutorials/data-recording.md)
+* [{#T}](../tutorials/events-from-postbox-to-yds.md)
+* [{#T}](../tutorials/logging-functions.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/regular-launch-datasphere.md)
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md)
+* [{#T}](../tutorials/video-converting-queue.md)
+
 ## Invoking a function using a {{ api-gw-full-name }} extension {#extension}
 
 When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
+
+### Use cases {#examples-api-gw}
+
+* [{#T}](../tutorials/canary-release.md)
+* [{#T}](../tutorials/java-servlet-todo-list.md)
+* [{#T}](../tutorials/serverless-url-shortener.md)
+* [{#T}](../tutorials/slack-bot-serverless.md)
+* [{#T}](../tutorials/telegram-bot-serverless.md)
+* [{#T}](../tutorials/websocket-app.md)
+
+## Invoking functions using {{ monitoring-short-name }} events {#monitoring}
+
+You can integrate {{ sf-name }} functions into {{ monitoring-full-name }} for automatic processing of incidents and other events. To do this, add a function to the [notification channel](../../monitoring/operations/alert/create-channel-function.md). You can invoke a {{ sf-name }} function when an [alert](../../monitoring/concepts/alerting/alert.md) fires or in a {{ monitoring-short-name }} [escalation](../../monitoring/concepts/alerting/escalations.md).
+
+A function must be invoked in [asynchronous mode](../concepts/function-invoke-async.md).
+
+See [{#T}](../../monitoring/operations/alert/create-channel-function.md) for an example of a function for invoking an external API when an alert fires.

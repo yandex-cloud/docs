@@ -47,15 +47,77 @@ A _master_ is a component that manages a {{ k8s }} cluster.
 
 A master runs {{ k8s }} control processes including the {{ k8s }} API server, scheduler, and main resource controllers. Master lifecycle is managed by {{ k8s }} when creating or deleting a {{ k8s }} cluster. A master is responsible for the global solutions executed on all {{ k8s }} cluster nodes. These include scheduling workloads (such as containerized applications), managing the lifecycle of workloads, and scaling.
 
-There are two types of masters that differ by their location in [availability zones](../../overview/concepts/geo-scope.md):
-* _Zonal_: Master created in a subnet in one availability zone.
-* _Regional_: Master created in a distributed manner in three subnets in each availability zone. If a zone becomes unavailable, the regional master remains functional.
+There are several types of masters differing by number of master hosts and by their [availability zone](../../overview/concepts/geo-scope.md) placement:
+* _Basic_: Contains one master host in a single availability zone. This type of master is cheaper but not fault-tolerant. Its former name is _zonal_.
 
   {% note warning %}
 
-  The internal IP address of a regional master is only available within a single {{ vpc-full-name }} cloud network.
+  {% include [base-zonal-pricing](../../_includes/managed-kubernetes/base-zonal-pricing.md) %}
 
   {% endnote %}
+
+* `Highly available`: Contains three master hosts, which you can place as follows:
+  * In one availability zone and one subnet. This is a good choice of master if you want to ensure high availability of the cluster and reduce network latency within it.
+  * In three different availability zones. This master ensures the greatest [fault tolerance](../../architecture/fault-tolerance.md): if one zone becomes unavailable, the master will remain operational.
+
+  The internal IP address of the highly available master is available only within a single {{ vpc-full-name }} cloud network.
+
+  Its former name is _regional_.
+
+  {% note warning %}
+
+  {% include [ha-regional-pricing](../../_includes/managed-kubernetes/ha-regional-pricing.md) %}
+
+  {% endnote %}
+
+For more information about master settings, see [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
+
+### Master computing resources {#master-resources}
+
+{% include [master-default-config](../../_includes/managed-kubernetes/master-default-config.md) %}
+
+When [creating](../operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) a cluster, you can select a master configuration suitable for your tasks.
+
+{% include [master-config-preview-note](../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
+At the Preview stage, you can select a master configuration in the [management console]({{ link-console-main }}).
+
+The following master configurations are available for Intel Cascade Lake with a guaranteed vCPU share of 100%:
+
+* **Standard**: Standard hosts with 4:1 RAM to vCPU ratio: {#master-standard}
+
+  Number of vCPUs | RAM
+  --- | ---
+  2 | 8
+  4 | 16
+  8 | 32
+  16 | 64
+  32 | 128
+  64 | 256
+  80 | 320
+
+* **CPU-optimized**: Hosts with decreased RAM to vCPU ratio of 2:1: {#master-cpu-optimized}
+
+  Number of vCPUs | RAM
+  --- | ---
+  4 | 8
+  8 | 16
+  16 | 32
+  32 | 64
+
+* **Memory optimized**: Hosts with increased RAM to vCPU ratio of 8:1: {#master-memory-optimized}
+
+  Number of vCPUs | RAM
+  --- | ---
+  2 | 16
+  4 | 32
+  8 | 64
+  16 | 128
+  32 | 256
+
+You can update the master configuration without stopping the {{ managed-k8s-name }} cluster.
+
+You can also prohibit master configuration updates.
 
 ## Node group {#node-group}
 
@@ -271,3 +333,11 @@ In the service documentation, _service account_ refers to a regular cloud servic
 {% include [metrics-k8s-tools](../../_includes/managed-kubernetes/metrics-k8s-tools.md) %}
 
 You can find metrics description in [{#T}](../../managed-kubernetes/metrics.md).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/k8s-cluster-with-no-internet.md)
+* [{#T}](../tutorials/kubernetes-backup.md)
+* [{#T}](../tutorials/prometheus-grafana-monitoring.md)
+* [{#T}](../tutorials/metrics-server.md)
+* [{#T}](../tutorials/driverless-gpu.md)

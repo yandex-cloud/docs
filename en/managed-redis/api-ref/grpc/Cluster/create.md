@@ -142,7 +142,9 @@ Creates a Redis cluster in the specified folder.
       "allow_data_loss": "google.protobuf.BoolValue",
       "use_luajit": "google.protobuf.BoolValue",
       "io_threads_allowed": "google.protobuf.BoolValue",
-      "zset_max_listpack_entries": "google.protobuf.Int64Value"
+      "zset_max_listpack_entries": "google.protobuf.Int64Value",
+      "aof_max_size_percent": "google.protobuf.Int64Value",
+      "activedefrag": "google.protobuf.BoolValue"
     },
     "disk_size_autoscaling": {
       "planned_usage_threshold": "google.protobuf.Int64Value",
@@ -248,7 +250,8 @@ Deletion Protection inhibits deletion of the cluster ||
 Persistence mode
 
 - `ON`: cluster persistence mode on
-- `OFF`: cluster persistence mode off ||
+- `OFF`: cluster persistence mode off
+- `ON_REPLICAS`: cluster persistence on replicas only ||
 || announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
@@ -709,6 +712,12 @@ Allow redis to use io-threads ||
 || zset_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
+|| aof_max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+AOF maximum size as a percentage of disk available ||
+|| activedefrag | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable active (online) memory defragmentation ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1180,7 +1189,9 @@ SanitizePayload parameter. ||
           "allow_data_loss": "google.protobuf.BoolValue",
           "use_luajit": "google.protobuf.BoolValue",
           "io_threads_allowed": "google.protobuf.BoolValue",
-          "zset_max_listpack_entries": "google.protobuf.Int64Value"
+          "zset_max_listpack_entries": "google.protobuf.Int64Value",
+          "aof_max_size_percent": "google.protobuf.Int64Value",
+          "activedefrag": "google.protobuf.BoolValue"
         },
         "user_config": {
           "maxmemory_policy": "MaxmemoryPolicy",
@@ -1212,7 +1223,9 @@ SanitizePayload parameter. ||
           "allow_data_loss": "google.protobuf.BoolValue",
           "use_luajit": "google.protobuf.BoolValue",
           "io_threads_allowed": "google.protobuf.BoolValue",
-          "zset_max_listpack_entries": "google.protobuf.Int64Value"
+          "zset_max_listpack_entries": "google.protobuf.Int64Value",
+          "aof_max_size_percent": "google.protobuf.Int64Value",
+          "activedefrag": "google.protobuf.BoolValue"
         },
         "default_config": {
           "maxmemory_policy": "MaxmemoryPolicy",
@@ -1244,7 +1257,9 @@ SanitizePayload parameter. ||
           "allow_data_loss": "google.protobuf.BoolValue",
           "use_luajit": "google.protobuf.BoolValue",
           "io_threads_allowed": "google.protobuf.BoolValue",
-          "zset_max_listpack_entries": "google.protobuf.Int64Value"
+          "zset_max_listpack_entries": "google.protobuf.Int64Value",
+          "aof_max_size_percent": "google.protobuf.Int64Value",
+          "activedefrag": "google.protobuf.BoolValue"
         }
       },
       "disk_size_autoscaling": {
@@ -1435,7 +1450,8 @@ Deletion Protection inhibits deletion of the cluster ||
 Persistence mode
 
 - `ON`: cluster persistence mode on
-- `OFF`: cluster persistence mode off ||
+- `OFF`: cluster persistence mode off
+- `ON_REPLICAS`: cluster persistence on replicas only ||
 || announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
@@ -1993,6 +2009,12 @@ Allow redis to use io-threads ||
 || zset_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
+|| aof_max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+AOF maximum size as a percentage of disk available ||
+|| activedefrag | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable active (online) memory defragmentation ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2}

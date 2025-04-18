@@ -49,11 +49,11 @@ Key | Value
 ----- | -----
 `zones` | List of zones. Each zone is represented in the `zone_id` key by a `key:value` pair.
 `zone_id` | Zone ID
-`instance_tags_pool` | (Optional) List of instance tags in the group.<br/>Limitations:<ul><li>The number of tags cannot be less than the `size` key value in the `scale_policy` section for fixed-size instance groups and the `max_size` key value in the `scale_policy` section for automatically scaled instance groups.</li><li>Tags must be unique for the entire group and not just within a single zone.</li><li>A tag must be from 3 to 50 characters long.</li><li>It may contain lowercase Latin letters, numbers, hyphens, and underscores.</li></ul>
+`instance_tags_pool` | (Optional) List of group instance tags.<br/>Restrictions:<ul><li>The number of tags cannot be less than the `size` key value in the `scale_policy` section for fixed-size instance groups and the `max_size` key value in the `scale_policy` section for automatically scaled instance groups.</li><li>Tags must be unique for the entire group and not just within a single zone.</li><li>A tag must be from 3 to 50 characters long.</li><li>It may contain lowercase Latin letters, numbers, hyphens, and underscores.</li></ul>
 
 ### Example {#example}
 
-In the example, a YAML specification describes a [group of fixed-size instances](../../../operations/instance-groups/create-fixed-group.md). The instances are hosted in the same availability zone and their names include tags from the `instance_tags_pool` list.
+In the example, a YAML specification describes a [fixed-size instance group](../../../operations/instance-groups/create-fixed-group.md). The instances are hosted in the same availability zone and their names include tags from the `instance_tags_pool` list.
 
 ```yaml
 name: first-fixed-group
@@ -90,6 +90,11 @@ allocation_policy:
       - second
       - third
 ```
+
+## Use cases {#examples}
+
+* [{#T}](../../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../../tutorials/autoscale-monitoring.md)
 
 ### See also {#see-also}
 

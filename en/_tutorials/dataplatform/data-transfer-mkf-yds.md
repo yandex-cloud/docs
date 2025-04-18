@@ -16,7 +16,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 * Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
@@ -30,7 +30,7 @@ The support cost includes:
 
 	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
 	* Based on actual use:
-		* If the DB operates in serverless mode, the data stream is charged under the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
+		* If the DB operates in serverless mode, the data stream is charged according to the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
 
 		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated)).
 
@@ -226,15 +226,46 @@ The support cost includes:
     - Manually {#manual}
 
         1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
+
+            If you want to transform data during the transfer, specify the relevant transformers in the transfer settings:
+
+            {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
+
         1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
     - {{ TF }} {#tf}
 
         1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
 
-            * `source_endpoint_id`: ID of the source endpoint.
+            * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
+
+        1. If you want to transform data during the transfer, add the `transformation` section with a list of the transformers you need to the `yandex_datatransfer_transfer` resource:
+
+            ```hcl
+            resource "yandex_datatransfer_transfer" "mkf-ydb-transfer" {
+              ...
+              transformation {
+                transformers{
+                  <transformer_1>
+                }
+                transformers{
+                  <transformer_2>
+                }
+                ...
+                transformers{
+                  <transformer_N>
+                }
+              }
+            }
+            ```
+
+            The following transformer types are available:
+
+            {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
+
+            For more on configuring transformers, see the [{{ TF }} provider documentation]({{ tf-provider-dt-transfer }}).
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 

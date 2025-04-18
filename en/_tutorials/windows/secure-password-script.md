@@ -1,6 +1,6 @@
 # Secure password transmission to an initialization script
 
-When creating a VM from an image with the Windows OS, you can use an initialization script. For example, you can set up username-password pairs for the administrator and other system users. To protect sensitive data, use [{{ lockbox-full-name }}](../../lockbox/) tools and {{ kms-full-name }} keys instead of explicitly specifying settings in the script.
+You can use an initialization script when creating a VM based on a Windows image. Such a script may contain system user passwords To protect sensitive data, use [{{ lockbox-full-name }}](../../lockbox/) tools and {{ kms-full-name }} keys instead of explicitly specifying settings in the script.
 
 In this tutorial, you will create a Windows VM with its initialization script receiving usernames and passwords from {{ lockbox-name }}.
 
@@ -34,7 +34,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Specify the service account name, e.g., `win-secret-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -114,7 +114,7 @@ The infrastructure support cost includes:
 
    {% endlist %}
 
-1. Assign the `kms.keys.encrypterDercrypter` [role](../../iam/concepts/access-control/roles.md) to the `win-secret-sa` service account:
+1. Assign the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md) to the `win-secret-sa` service account:
 
    {% list tabs group=instructions %}
 
@@ -124,7 +124,7 @@ The infrastructure support cost includes:
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. In the dialog box that opens, click **Add role** and select `kms.keys.encrypterDercrypter`.
+      1. In the dialog that opens, click **Add role** and select the `kms.keys.encrypterDecrypter` role.
 
    - CLI {#cli}
 
@@ -132,13 +132,13 @@ The infrastructure support cost includes:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
-         --role kms.keys.encrypterDercrypter \
+         --role kms.keys.encrypterDecrypter \
          --subject serviceAccount:<service_account_ID>
       ```
 
    - API {#api}
 
-      To assign a role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -193,7 +193,7 @@ These password requirements are:
 
       * `--name`: Secret name (required).
       * `--kms-key-id`: {{ kms-short-name }} key ID.
-      * `--description`: Secret description (optional).
+      * `--description`: Secret description. This is an optional parameter.
       * `--payload`: Secret content in YAML or JSON format.
       * `--cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) where you want to create your secret.
       * `--folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to create your secret.
@@ -226,7 +226,7 @@ These password requirements are:
       Where:
 
       * `name`: Secret name (required).
-      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret (optional).
+      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret. This is an optional parameter.
       * `kms_key_id`: ID of the [{{ kms-name }}](../../kms/concepts/key.md) encryption key used to encrypt your secret.
       * `entries`: Secret content.
 
@@ -272,7 +272,7 @@ These password requirements are:
 
    - API {#api}
 
-      To assign a role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -376,6 +376,7 @@ Create a Windows VM and add the administrator and user accounts to it.
 
       * `imade_id`: Windows image ID.
       * `subnet_name`: Name of the subnet where your VM will get connected.
+
       {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
    {% endlist %}

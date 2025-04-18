@@ -6,6 +6,7 @@ sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listLogs.md
 # Managed Service for OpenSearch API, REST: Cluster.ListLogs
 
 Retrieves logs for the specified OpenSearch cluster.
+For detailed description, see the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developer's guide.
 
 ## HTTP request
 

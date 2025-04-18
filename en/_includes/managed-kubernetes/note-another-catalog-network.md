@@ -1,6 +1,6 @@
 {% note info %}
 
-If you select a [cloud network](../../vpc/concepts/network.md#network) from another [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [assign](../../iam/operations/sa/assign-role-for-sa.md) the resource [service account](../../iam/concepts/users/service-accounts.md) the following [roles](../../iam/concepts/access-control/roles.md) in this folder:
+If you select a [cloud network](../../vpc/concepts/network.md#network) from another [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [assign](../../iam/operations/sa/assign-role-for-sa.md) the resource [service account](../../iam/concepts/users/service-accounts.md) the following [roles](../../iam/concepts/access-control/roles.md) in that folder:
 * [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user)
 * [vpc.bridgeAdmin](../../vpc/security/index.md#vpc-bridge-admin)

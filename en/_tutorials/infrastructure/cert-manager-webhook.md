@@ -23,6 +23,16 @@ The certificate manager with the ACME webhook for {{ dns-full-name }} supports [
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
+### Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for the public IP address for the cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Set up your environment {#prepare-environment}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
@@ -236,7 +246,7 @@ To [create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operati
       - dns01:
          webhook:
            config:
-             # The ID of the folder where dns-zone is located
+             # The ID of the folder where dns-zone located in
              folder: <folder_ID>
              # This is the secret used to access the service account
              serviceAccountSecretRef:

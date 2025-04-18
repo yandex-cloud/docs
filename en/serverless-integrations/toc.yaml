@@ -200,6 +200,8 @@ items:
                     href: concepts/workflows/yawl/integration/tracker.md
                   - name: Postbox
                     href: concepts/workflows/yawl/integration/postbox.md
+                  - name: Workflow
+                    href: concepts/workflows/yawl/integration/workflow.md
               - name: Control steps
                 items:
                   - name: Switch
@@ -242,7 +244,7 @@ items:
     href: tf-ref.md
   - name: '{{ sw-name }} API reference'
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/workflows/authentication.md
       - name: gRPC
         items:
@@ -334,7 +336,7 @@ items:
                 href: workflows/api-ref/Workflow/listOperations.md
   - name: '{{ er-name }} API reference'
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/eventrouter/authentication.md
       - name: gRPC
         items:

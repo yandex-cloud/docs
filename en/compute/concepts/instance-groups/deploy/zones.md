@@ -13,7 +13,7 @@ Allocation of instances across zones depends on the [group scaling type](../scal
 In manually scaled groups, instances are distributed evenly between zones. 
 
 In accordance with the [deployment policy](../policies/allocation-policy.md), instances are added to each zone sequentially, one at a time. If the list of zones is exhausted, but the desired number of instances is not created, zones are reused.
-
+ 
 {% note tip %}
 
 We recommend creating an instance group so that its size is a multiple of the number of zones.
@@ -79,3 +79,8 @@ Let's assume `min_zone_size` is 5 and `max_size` is 20. The autoscaling algorith
 
 1. One possible allocation option is 9 + 6 + 5. 
   Six instances are removed from the largest zone (15 before, 9 after), four are removed from the medium zone (10 before, 6 after), and nothing is removed from the smallest group, because it already has the minimum allowable number of instances (5).
+
+## Use cases {#examples}
+
+* [{#T}](../../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../../tutorials/vm-scale-scheduled/index.md)

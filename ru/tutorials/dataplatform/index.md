@@ -69,6 +69,7 @@ description: На странице представлен список прак�
 * [{#T}](greenplum-to-postgresql.md)
 * [{#T}](greenplum-yezzey.md)
 * [{#T}](object-storage-to-greenplum.md)
+* [{#T}](opensearch-to-greenplum.md)
 * [{#T}](mgp-config-server-for-s3.md)
 
 ## {{ ES }} {#elasticsearch}
@@ -113,11 +114,11 @@ description: На странице представлен список прак�
 * [{#T}](mos-migration-from-standalone.md)
 * [{#T}](opensearch-to-object-storage.md)
 * [{#T}](opensearch-to-ydb.md)
+* [{#T}](opensearch-to-greenplum.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](postgresql-to-opensearch.md)
 * [{#T}](opensearch-saml-keycloak.md)
 * [{#T}](opensearch-yandex-lemmer.md)
-
 
 ## {{ PG }} {#postgresql}
 

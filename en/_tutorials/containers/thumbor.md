@@ -16,9 +16,21 @@ To edit images using Thumbor and enable the CDN:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for {{ cdn-name }}: Outgoing traffic (see [{{ objstorage-name }} pricing](../../cdn/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#infra}
+### Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
@@ -26,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
 
-      * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles for the folder](../../managed-kubernetes/security/index.md#yc-api) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
+      * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles for the folder](../../managed-kubernetes/security/index.md#yc-api) where the {{ managed-k8s-name }} cluster is being created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
       * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry on behalf of this account.
 

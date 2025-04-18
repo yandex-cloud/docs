@@ -1,6 +1,6 @@
 # Creating a Node.js function using TypeScript
 
-Node.js does not support [TypeScript](https://www.typescriptlang.org/). Before uploading TypeScript code to {{ sf-name }}, you need to compile it in JavaScript.
+By default, Node.js does not support [TypeScript](https://www.typescriptlang.org/). Before uploading TypeScript code to {{ sf-name }}, you need to compile it in JavaScript.
 
 1. Install [Node.js](https://nodejs.org/en/).
 1. Open your project directory.
@@ -10,7 +10,7 @@ Node.js does not support [TypeScript](https://www.typescriptlang.org/). Before u
     ```
 1. Create a TypeScript configuration:
     ```bash
-    npx ts --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build --strict false --target ES2021
+    npx --no-install tsc --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build --strict false --target ES2021
     ```
 
     To use a different version of JavaScript, change the value of the `target` argument. The latest JavaScript version that can be specified depends on the Node.js version you are using:

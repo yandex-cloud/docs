@@ -68,6 +68,11 @@ After the input data is filtered, the [Foreach](yawl/management/foreach.md) step
 * `input`: To convert a state from a JSON object to an array.
 * `output`: To convert the step execution result from an array into a JSON object that can be added to the workflow state.
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/auto-upload.md)
+* [{#T}](../../tutorials/tracker-yandexgpt-postbox-integrations.md)
+
 ## See also
 
 * [YaWL specification example](yawl/index.md#spec-example)

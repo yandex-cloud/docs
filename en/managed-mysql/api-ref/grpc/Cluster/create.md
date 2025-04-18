@@ -114,7 +114,11 @@ Creates a cluster in a folder.
       "optimizer_search_depth": "google.protobuf.Int64Value",
       "query_response_time_stats": "google.protobuf.BoolValue",
       "userstat": "google.protobuf.BoolValue",
-      "max_execution_time": "google.protobuf.Int64Value"
+      "max_execution_time": "google.protobuf.Int64Value",
+      "audit_log_policy": "AuditLogPolicy",
+      "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+      "mdb_force_ssl": "google.protobuf.BoolValue",
+      "innodb_change_buffering": "InnodbChangeBuffering"
     },
     "mysql_config_8_0": {
       "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -203,7 +207,14 @@ Creates a cluster in a folder.
       "optimizer_switch": "string",
       "optimizer_search_depth": "google.protobuf.Int64Value",
       "userstat": "google.protobuf.BoolValue",
-      "max_execution_time": "google.protobuf.Int64Value"
+      "max_execution_time": "google.protobuf.Int64Value",
+      "audit_log_policy": "AuditLogPolicy",
+      "replication_sender_observe_commit_only": "google.protobuf.BoolValue",
+      "replication_optimize_for_static_plugin_config": "google.protobuf.BoolValue",
+      "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+      "sql_require_primary_key": "google.protobuf.BoolValue",
+      "mdb_force_ssl": "google.protobuf.BoolValue",
+      "innodb_change_buffering": "InnodbChangeBuffering"
     },
     // end of the list of possible fields
     "resources": {
@@ -888,6 +899,38 @@ For details, see [Percona documentation for the variable](https://docs.percona.c
 The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_execution_time) ||
+|| audit_log_policy | enum **AuditLogPolicy**
+
+The policy controlling how the audit log plugin writes events to its log file
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/audit-log-reference.html#sysvar_audit_log_policy)
+
+- `AUDIT_LOG_POLICY_UNSPECIFIED`
+- `ALL`
+- `LOGINS`
+- `QUERIES`
+- `NONE` ||
+|| innodb_lru_scan_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth) ||
+|| mdb_force_ssl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Force ssl on all hosts (require_secure_transport) ||
+|| innodb_change_buffering | enum **InnodbChangeBuffering**
+
+An optimization for change buffering
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_change_buffering).
+
+- `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
+- `INNODB_CHANGE_BUFFERING_NONE`
+- `INNODB_CHANGE_BUFFERING_INSERTS`
+- `INNODB_CHANGE_BUFFERING_DELETES`
+- `INNODB_CHANGE_BUFFERING_CHANGES`
+- `INNODB_CHANGE_BUFFERING_PURGES`
+- `INNODB_CHANGE_BUFFERING_ALL` ||
 |#
 
 ## MysqlConfig8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_0}
@@ -1367,6 +1410,53 @@ For details, see [Percona documentation for the variable](https://docs.percona.c
 The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time) ||
+|| audit_log_policy | enum **AuditLogPolicy**
+
+The policy controlling how the audit log plugin writes events to its log file
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy)
+
+- `AUDIT_LOG_POLICY_UNSPECIFIED`
+- `ALL`
+- `LOGINS`
+- `QUERIES`
+- `NONE` ||
+|| replication_sender_observe_commit_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Limit callbacks to improve performance for semisynchronous replication
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only). ||
+|| replication_optimize_for_static_plugin_config | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Use shared locks, and avoid unnecessary lock acquisitions, to improve performance for semisynchronous replication
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config). ||
+|| innodb_lru_scan_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth) ||
+|| sql_require_primary_key | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether statements that create new tables or alter the structure of existing tables enforce the requirement that tables have a primary key
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_require_primary_key). ||
+|| mdb_force_ssl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Force ssl on all hosts (require_secure_transport) ||
+|| innodb_change_buffering | enum **InnodbChangeBuffering**
+
+An optimization for change buffering
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
+
+- `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
+- `INNODB_CHANGE_BUFFERING_NONE`
+- `INNODB_CHANGE_BUFFERING_INSERTS`
+- `INNODB_CHANGE_BUFFERING_DELETES`
+- `INNODB_CHANGE_BUFFERING_CHANGES`
+- `INNODB_CHANGE_BUFFERING_PURGES`
+- `INNODB_CHANGE_BUFFERING_ALL` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources}
@@ -1761,7 +1851,11 @@ Hour of the day in UTC (in `HH` format). ||
           "optimizer_search_depth": "google.protobuf.Int64Value",
           "query_response_time_stats": "google.protobuf.BoolValue",
           "userstat": "google.protobuf.BoolValue",
-          "max_execution_time": "google.protobuf.Int64Value"
+          "max_execution_time": "google.protobuf.Int64Value",
+          "audit_log_policy": "AuditLogPolicy",
+          "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+          "mdb_force_ssl": "google.protobuf.BoolValue",
+          "innodb_change_buffering": "InnodbChangeBuffering"
         },
         "user_config": {
           "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -1854,7 +1948,11 @@ Hour of the day in UTC (in `HH` format). ||
           "optimizer_search_depth": "google.protobuf.Int64Value",
           "query_response_time_stats": "google.protobuf.BoolValue",
           "userstat": "google.protobuf.BoolValue",
-          "max_execution_time": "google.protobuf.Int64Value"
+          "max_execution_time": "google.protobuf.Int64Value",
+          "audit_log_policy": "AuditLogPolicy",
+          "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+          "mdb_force_ssl": "google.protobuf.BoolValue",
+          "innodb_change_buffering": "InnodbChangeBuffering"
         },
         "default_config": {
           "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -1947,7 +2045,11 @@ Hour of the day in UTC (in `HH` format). ||
           "optimizer_search_depth": "google.protobuf.Int64Value",
           "query_response_time_stats": "google.protobuf.BoolValue",
           "userstat": "google.protobuf.BoolValue",
-          "max_execution_time": "google.protobuf.Int64Value"
+          "max_execution_time": "google.protobuf.Int64Value",
+          "audit_log_policy": "AuditLogPolicy",
+          "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+          "mdb_force_ssl": "google.protobuf.BoolValue",
+          "innodb_change_buffering": "InnodbChangeBuffering"
         }
       },
       "mysql_config_8_0": {
@@ -2038,7 +2140,14 @@ Hour of the day in UTC (in `HH` format). ||
           "optimizer_switch": "string",
           "optimizer_search_depth": "google.protobuf.Int64Value",
           "userstat": "google.protobuf.BoolValue",
-          "max_execution_time": "google.protobuf.Int64Value"
+          "max_execution_time": "google.protobuf.Int64Value",
+          "audit_log_policy": "AuditLogPolicy",
+          "replication_sender_observe_commit_only": "google.protobuf.BoolValue",
+          "replication_optimize_for_static_plugin_config": "google.protobuf.BoolValue",
+          "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+          "sql_require_primary_key": "google.protobuf.BoolValue",
+          "mdb_force_ssl": "google.protobuf.BoolValue",
+          "innodb_change_buffering": "InnodbChangeBuffering"
         },
         "user_config": {
           "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -2127,7 +2236,14 @@ Hour of the day in UTC (in `HH` format). ||
           "optimizer_switch": "string",
           "optimizer_search_depth": "google.protobuf.Int64Value",
           "userstat": "google.protobuf.BoolValue",
-          "max_execution_time": "google.protobuf.Int64Value"
+          "max_execution_time": "google.protobuf.Int64Value",
+          "audit_log_policy": "AuditLogPolicy",
+          "replication_sender_observe_commit_only": "google.protobuf.BoolValue",
+          "replication_optimize_for_static_plugin_config": "google.protobuf.BoolValue",
+          "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+          "sql_require_primary_key": "google.protobuf.BoolValue",
+          "mdb_force_ssl": "google.protobuf.BoolValue",
+          "innodb_change_buffering": "InnodbChangeBuffering"
         },
         "default_config": {
           "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -2216,7 +2332,14 @@ Hour of the day in UTC (in `HH` format). ||
           "optimizer_switch": "string",
           "optimizer_search_depth": "google.protobuf.Int64Value",
           "userstat": "google.protobuf.BoolValue",
-          "max_execution_time": "google.protobuf.Int64Value"
+          "max_execution_time": "google.protobuf.Int64Value",
+          "audit_log_policy": "AuditLogPolicy",
+          "replication_sender_observe_commit_only": "google.protobuf.BoolValue",
+          "replication_optimize_for_static_plugin_config": "google.protobuf.BoolValue",
+          "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+          "sql_require_primary_key": "google.protobuf.BoolValue",
+          "mdb_force_ssl": "google.protobuf.BoolValue",
+          "innodb_change_buffering": "InnodbChangeBuffering"
         }
       },
       // end of the list of possible fields
@@ -2992,6 +3115,38 @@ For details, see [Percona documentation for the variable](https://docs.percona.c
 The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_execution_time) ||
+|| audit_log_policy | enum **AuditLogPolicy**
+
+The policy controlling how the audit log plugin writes events to its log file
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/audit-log-reference.html#sysvar_audit_log_policy)
+
+- `AUDIT_LOG_POLICY_UNSPECIFIED`
+- `ALL`
+- `LOGINS`
+- `QUERIES`
+- `NONE` ||
+|| innodb_lru_scan_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth) ||
+|| mdb_force_ssl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Force ssl on all hosts (require_secure_transport) ||
+|| innodb_change_buffering | enum **InnodbChangeBuffering**
+
+An optimization for change buffering
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_change_buffering).
+
+- `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
+- `INNODB_CHANGE_BUFFERING_NONE`
+- `INNODB_CHANGE_BUFFERING_INSERTS`
+- `INNODB_CHANGE_BUFFERING_DELETES`
+- `INNODB_CHANGE_BUFFERING_CHANGES`
+- `INNODB_CHANGE_BUFFERING_PURGES`
+- `INNODB_CHANGE_BUFFERING_ALL` ||
 |#
 
 ## MysqlConfigSet8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_0}
@@ -3487,6 +3642,53 @@ For details, see [Percona documentation for the variable](https://docs.percona.c
 The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time) ||
+|| audit_log_policy | enum **AuditLogPolicy**
+
+The policy controlling how the audit log plugin writes events to its log file
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy)
+
+- `AUDIT_LOG_POLICY_UNSPECIFIED`
+- `ALL`
+- `LOGINS`
+- `QUERIES`
+- `NONE` ||
+|| replication_sender_observe_commit_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Limit callbacks to improve performance for semisynchronous replication
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only). ||
+|| replication_optimize_for_static_plugin_config | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Use shared locks, and avoid unnecessary lock acquisitions, to improve performance for semisynchronous replication
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config). ||
+|| innodb_lru_scan_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth) ||
+|| sql_require_primary_key | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether statements that create new tables or alter the structure of existing tables enforce the requirement that tables have a primary key
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_require_primary_key). ||
+|| mdb_force_ssl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Force ssl on all hosts (require_secure_transport) ||
+|| innodb_change_buffering | enum **InnodbChangeBuffering**
+
+An optimization for change buffering
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
+
+- `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
+- `INNODB_CHANGE_BUFFERING_NONE`
+- `INNODB_CHANGE_BUFFERING_INSERTS`
+- `INNODB_CHANGE_BUFFERING_DELETES`
+- `INNODB_CHANGE_BUFFERING_CHANGES`
+- `INNODB_CHANGE_BUFFERING_PURGES`
+- `INNODB_CHANGE_BUFFERING_ALL` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources2}

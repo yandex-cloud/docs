@@ -75,6 +75,13 @@ Regular images from {{ marketplace-name }} are already optimized for deployment.
 
 By default, optimized images have a zero [quota](../concepts/limits.md#compute-quotas). To increase the [quota]({{ link-console-quotas }}), contact [support](../../support/overview.md).
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/packer-quickstart.md)
+* [{#T}](../tutorials/packer-custom-image.md)
+* [{#T}](../tutorials/bind-domain-vm/index.md)
+* [{#T}](../tutorials/hystax-migration.md)
+
 ## See also {#see-also}
 
 * Learn how to create a VM from a [custom](../operations/vm-create/create-from-user-image.md) or [public](../operations/images-with-pre-installed-software/create.md) image.

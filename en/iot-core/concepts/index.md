@@ -44,8 +44,19 @@ For example, use permanent topics for temperature sensors on devices that need t
 
 When exchanging messages, {{ iot-name }} supports the following quality of service (QoS) levels for MQTT:
 
-* `QoS 0: At most once`. Message is sent no more than once and there is no guarantee of delivery.
+* `QoS 0: At most once`. The message is sent no more than once and there is no guarantee of delivery.
 
-* `QoS 1: At least once`. This level guarantees that a message is delivered to a client at least once. There is a chance of receiving duplicate messages.
+* `QoS 1: At least once`. The message is guaranteed to be delivered at least once. There is a chance of receiving duplicate messages.
 
 For more information about {{ iot-name }} service limits, see [{#T}](limits.md).
+
+### Use cases {#examples-device}
+
+* [{#T}](../tutorials/android-java.md)
+* [{#T}](../tutorials/data-recording.md)
+* [{#T}](../tutorials/message-delivery-check.md)
+* [{#T}](../tutorials/mosquitto/mosquitto-publish.md)
+* [{#T}](../tutorials/datalens.md)
+* [{#T}](../tutorials/monitoring.md)
+* [{#T}](../tutorials/message-delivery-check.md)
+* [{#T}](../tutorials/iot-emulation.md)

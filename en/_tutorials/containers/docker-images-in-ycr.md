@@ -20,7 +20,7 @@ To set up storage of {{ mgl-name }} Docker images in {{ container-registry-full-
 1. [Create a {{ GL }} instance](#create-gitlab).
 1. [Configure {{ GL }}](#configure-gitlab).
 1. [Create a test application](#app-create).
-1. [Create a {{ GLR }}](#runner).
+1. [Create a {{ GLR }}](#runners).
 1. [Create {{ GL }} environment variables](#add-variables).
 1. [Create the CI script configuration file](#add-ci).
 1. [Check the result](#check-result).
@@ -50,7 +50,7 @@ Infrastructure support costs include fees for the following resources:
 * Storing the Docker images you created and a vulnerability scanner, if [activated](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Using a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -64,7 +64,7 @@ Infrastructure support costs include fees for the following resources:
       * `{{ roles-cr-pusher }}`
       * `{{ roles-cr-puller }}`
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with a zonal master and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the service account you created previously.
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with a basic master and create a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the service account you created previously.
    1. Configure a security group for the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/security-groups.md) and [{{ mgl-name }} instance](../../managed-gitlab/operations/configure-security-group.md).
 
    1. [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
@@ -83,7 +83,7 @@ Infrastructure support costs include fees for the following resources:
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
       * [Security group](../../vpc/concepts/security-groups.md) and rules required for the {{ mgl-name }} instance and [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-      * {{ managed-k8s-name }} cluster with a zonal master.
+      * {{ managed-k8s-name }} cluster with a basic master.
       * [Node group for the cluster](../../managed-kubernetes/concepts/index.md#node-group).
       * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group.
       * {{ container-registry-full-name }} registry.
@@ -94,7 +94,7 @@ Infrastructure support costs include fees for the following resources:
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
 
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

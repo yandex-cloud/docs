@@ -384,7 +384,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
           "ioThreadsAllowed": "boolean",
-          "zsetMaxListpackEntries": "string"
+          "zsetMaxListpackEntries": "string",
+          "aofMaxSizePercent": "string",
+          "activedefrag": "boolean"
         },
         "userConfig": {
           "maxmemoryPolicy": "string",
@@ -416,7 +418,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
           "ioThreadsAllowed": "boolean",
-          "zsetMaxListpackEntries": "string"
+          "zsetMaxListpackEntries": "string",
+          "aofMaxSizePercent": "string",
+          "activedefrag": "boolean"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "string",
@@ -448,7 +452,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
           "ioThreadsAllowed": "boolean",
-          "zsetMaxListpackEntries": "string"
+          "zsetMaxListpackEntries": "string",
+          "aofMaxSizePercent": "string",
+          "activedefrag": "boolean"
         }
       },
       "diskSizeAutoscaling": {
@@ -687,7 +693,8 @@ Deletion Protection inhibits deletion of the cluster ||
 Persistence mode
 
 - `ON`: cluster persistence mode on
-- `OFF`: cluster persistence mode off ||
+- `OFF`: cluster persistence mode off
+- `ON_REPLICAS`: cluster persistence on replicas only ||
 || announceHostnames | **boolean**
 
 Enable FQDN instead of ip ||
@@ -1269,6 +1276,12 @@ Allow redis to use io-threads ||
 || zsetMaxListpackEntries | **string** (int64)
 
 Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
+|| aofMaxSizePercent | **string** (int64)
+
+AOF maximum size as a percentage of disk available ||
+|| activedefrag | **boolean**
+
+Enable active (online) memory defragmentation ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}

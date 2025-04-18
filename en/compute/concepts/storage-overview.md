@@ -1,9 +1,9 @@
 ---
-title: Disks and file storage in {{ compute-full-name }}
+title: Disks and file storages in {{ compute-full-name }}
 description: In this tutorial, you will learn what disks and file storage are.
 ---
 
-# Disks and file storage
+# Disks and file storages
 
 To work with data, you can attach the following {{ compute-name }} resources to [VMs](vm.md):
 
@@ -14,4 +14,9 @@ To work with data, you can attach the following {{ compute-name }} resources to 
 
 You can attach multiple disks (in addition to the required boot disk) and multiple file stores to each VM.
 
-There are technical restrictions on [reads and writes](storage-read-write.md) that apply to disks and file storages.
+There are some technical restrictions on [reads and writes](storage-read-write.md) that apply to disks and file storages.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/ha-regional-glusterfs.md)
+* [{#T}](../tutorials/ha-regional-glusterfs-high-performance.md)

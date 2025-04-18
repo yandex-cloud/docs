@@ -18,9 +18,9 @@ The `computeMetadata` folder contains the following main keys:
 
 #|
 || **Key name (path)** | **Description** | **Value example** ||
-|| instance/attributes/enable-oslogin | Key responsible for access to the VM instance via [{{ oslogin }}](../../../organization/concepts/os-login.md). Possible values:</br>- `true`: Access enabled</br>- `false`: Access disabled. | `true` ||
-|| instance/attributes/install-unified-agent | Key responsible for installing the [{{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) on the VM instance. Possible values:</br>- `1`: Agent installed</br>- `0`: Agent not installed. | `0` ||
-|| instance/attributes/serial-port-enable | Key responsible for access to the VM instance via the [serial console](../../operations/serial-console/index.md). Possible values:</br>- `1`: Access enabled</br>- `0`: Access disabled. | `0` ||
+|| instance/attributes/enable-oslogin | Key responsible for access to the VM instance via [{{ oslogin }}](../../../organization/concepts/os-login.md). The possible values are:</br>- `true`: Access enabled.</br>- `false`: Access disabled. | `true` ||
+|| instance/attributes/install-unified-agent | Key responsible for installing the [{{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) on the VM instance. The possible values are:</br>- `1`: Agent installed.</br>- `0`: Agent not installed. | `0` ||
+|| instance/attributes/serial-port-enable | Key responsible for access to the VM instance via the [serial console](../../operations/serial-console/index.md). The possible values are:</br>- `1`: Access enabled.</br>- `0`: Access disabled. | `0` ||
 || instance/description | VM description. | `VM description` ||
 || instance/hostname | Full internal VM name ([FQDN](../network.md#hostname)). | `my-vm.{{ region-id }}.internal` ||
 || instance/id | VM ID. | `epdhfouo8bgq********` ||
@@ -82,6 +82,14 @@ To get information from this folder, you need to [run a request](../../operation
 All data in the `user-data` metadata folder will be publicly available to any user with terminal access to the VM instance.
 
 {% endnote %}
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/secure-password-script.md)
+* [{#T}](../../tutorials/rds-gw.md)
+* [{#T}](../../../tutorials/security/gitlab-lockbox-integration.md)
+* [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
+* [{#T}](../../../tutorials/routing/multi-folder-vpc.md)
 
 #### See also {#see-also}
 

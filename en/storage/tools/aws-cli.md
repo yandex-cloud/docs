@@ -51,7 +51,20 @@ The `aws configure` command saves the static key and the region.
   region = {{ region-id }}
   ```
 
-* You can create multiple profiles for different service accounts by specifying their details in the `.aws/credentials` file:
+
+{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
+
+### Setting up an additional profile
+
+You can create multiple AWS CLI profiles with the following command:
+
+  ```bash
+  aws configure --profile <profile_name>
+  ```
+
+The profile data will be saved to the `.aws/credentials` and `.aws/config` files as follows:
+* `credentials`:
 
   ```ini
   [default]
@@ -66,19 +79,27 @@ The `aws configure` command saves the static key and the region.
   aws_secret_access_key = <contents_of_static_key_n>
   ```
 
+* `config`:
+
+  ```ini
+  [default]
+  region = {{ region-id }}
+  [profile <name_of_profile_2>]
+  region = {{ region-id }}
+  ...
+  [profile <name_of_profile_n>]
+  region = us-east-1
+  ```
+
   Where `default` is the default profile.
 
-  To switch between profiles, the AWS CLI commands use the `--profile` option, e.g.:
+To switch between profiles, the AWS CLI commands use the `--profile` option, e.g.:
 
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }}/ \
     --profile <name_of_profile_2> \
     s3 mb s3://<bucket_name>
   ```
-
-
-{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
-
 
 ## Features {#specifics}
 

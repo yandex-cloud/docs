@@ -12,6 +12,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 `input` | `string` | No | [Overall state of the workflow](../../workflow.md#state) | Yes | A jq expression to filter the workflow state fed into the step.
 `output` | `string` | No | Step output data | Yes | A jq expression to filter the step outputs added into the workflow state.
 `branches` | `map<string,` [Branch](#Branch)`>` | Yes | No | No | Object containing description of execution branches. Key: branch ID; value: description of steps in the branch.
+`concurrency` | `int` | No  | 30 | No | Number of concurrent branches. For example, if `concurrency` is set to 2, and 5 branches are described in `branches`, at most 2 randomly selected branches will be executed simultaneously.
 `next` | `string` | No | No | No | ID of the next step.
 
 ## Branch object {#Branch}

@@ -34,7 +34,7 @@ The device and registry that are subscribed to the monitoring topic will receive
 * `registry_id`: ID of the registry where the device is located.
 * `device_id`: Device ID.
 
-Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). New messages are sent to registries or devices that are subscribed to the topic every time the device is accessed over MQTT. The quality of service is [at most once](../index.md#qos). If the message failed to arrive within the expected time period, we recommend waiting about two minutes before reacting.
+Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). New messages are sent to registries or devices that are subscribed to the topic every time the device is accessed over MQTT. The quality of service (QoS) level is [at most once](../index.md#qos). If the message failed to arrive within the expected time period, we recommend waiting about two minutes before reacting.
 
 ### Example of monitoring data {#example}
 
@@ -48,3 +48,11 @@ Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_T
 	"device_id": "are3tkujvebfo3s*****"
 }
 ```
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/data-recording.md)
+* [{#T}](../../tutorials/datalens.md)
+* [{#T}](../../tutorials/message-delivery-check.md)
+* [{#T}](../../tutorials/monitoring.md)
+* [{#T}](../../tutorials/mosquitto/mosquitto-publish.md)

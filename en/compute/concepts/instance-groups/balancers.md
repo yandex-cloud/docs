@@ -14,7 +14,7 @@ Target groups usually include {{ compute-name }} VM instances. This allows you t
 * When an instance is added to the instance group or restarted after being stopped, it is added to the target group.
 * When an instance is stopped or removed from the instance group, it is removed from the target group.
 
-To make sure the target group starts receiving traffic, link it to a load balancer. {{ compute-name }} does not do that automatically.
+To make sure the target group starts receiving traffic, link it to a load balancer. {{ compute-name }} does not do this automatically. 
 
 * The {{ network-load-balancer-name }} target group should be [linked to the load balancer](../../../network-load-balancer/operations/target-group-attach.md) directly.
 * The {{ alb-name }} target group should be linked to a [backend group](../../../application-load-balancer/concepts/backend-group.md) and the backend group, to the load balancer, either directly or via an [HTTP router](../../../application-load-balancer/concepts/http-router.md), depending on the load balancing type. For more information, see our [guides for managing {{ alb-name }} resources](../../../application-load-balancer/operations/index.md).
@@ -110,3 +110,11 @@ The fields and options in the management console are located under **{{ ui-key.y
 | `labels` | Target group [labels](../../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. |
 | `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Time during which a new instance in the group must pass the health check from the load balancer. The possible values are 0 and 1+ sec. The default value is 0 (unlimited). For more information, see [Load balancer health checks](#principles-health-checks). |
 | `ignore_health_checks` | Ignore load balancer health checks. The possible values are `true` or `false`. |
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../tutorials/updating-under-load.md)
+* [{#T}](../../tutorials/high-accessible-dmz.md)
+* [{#T}](../../tutorials/fault-tolerance.md)
+* [{#T}](../../tutorials/alb-with-ddos-protection/index.md)

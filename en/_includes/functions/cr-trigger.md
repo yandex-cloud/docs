@@ -11,15 +11,15 @@ For more information about creating a trigger for {{ container-registry-name }},
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}
 
 * To create a trigger, you need:
-   * Permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) and [{{ roles-editor }}](../../iam/roles-reference.md#editor) roles or higher.
-   * The `{{ roles-cr-puller }}` role for the registry whose events are processed by the trigger.
+    * Permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) and [{{ roles-editor }}](../../iam/roles-reference.md#editor) roles or higher.
+    * The `{{ roles-cr-puller }}` role for the registry whose events are processed by the trigger.
 * For the trigger to fire, the service account needs the `{{ roles-functions-invoker }}` role for the folder containing the function called by the trigger.
 
 Read more about [access management](../../functions/security/index.md).
 
 ## {{ container-registry-name }} trigger message format {#format}
 
-After the trigger is activated, it sends the following message to the function:
+Once the trigger fires, it will send the following message to the function:
 
 {% include [cr-format](cr-format.md) %}
 

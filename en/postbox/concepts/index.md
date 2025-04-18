@@ -25,6 +25,10 @@ You can integrate {{ postbox-name }} with other services to:
 * Automatically respond to specific letters using [{{ sf-full-name }}](../../functions/).
 * [Publish](../tutorials/events-from-postbox-to-yds.md) email sending events to a [{{ yds-full-name }}](../../data-streams/) stream and analyze them using [{{ datalens-full-name }}](../../datalens/).
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/events-from-postbox-to-yds.md)
+
 #### See also {#see-also}
 
 * [{#T}](../quickstart.md)

@@ -46,10 +46,10 @@ yc components update
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
       1. Go to the cluster page and find the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** section.
       1. On the **{{ ui-key.yacloud.k8s.workloads.label_pods }}** tab, open the pod's page.
-      1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}** tab.
       1. Check if the pod manifest contains the following parameters and {{ k8s }} labels in them:
 
          * Parameters:
@@ -292,7 +292,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
        - Management console {#console}
 
           1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
-          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+          1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
           1. Go to the cluster page and find the **{{ ui-key.yacloud.k8s.cluster.switch_storage }}** section.
           1. On the **{{ ui-key.yacloud.k8s.storage.label_pv }}** tab, find the `new-pv-test-<number>` object and check the **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}** field value. It must specify an availability zone. A dash means there is no assignment to an availability zone.
 

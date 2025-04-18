@@ -1,13 +1,13 @@
 # Deploying and load testing a gRPC service with scaling in {{ managed-k8s-full-name }}
 
 
-Use this tutorial to deploy an autoscalable [gRPC](https://grpc.io/docs/) service in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
+Use this tutorial to deploy an autoscalable [gRPC](https://grpc.io/docs/) service in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
 
 To deploy the service and perform load testing:
 
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Prepare a test target](#prepare-target).
-1. [Prepare a domain](#prepare-domain).
+1. [Register your domain](#prepare-domain).
 1. [Install Ingress](#install-ingress).
 1. [Configure horizontal pod autoscaling](#configure-autoscaling).
 1. [Load test the gRPC service](#load-testing).
@@ -15,7 +15,7 @@ To deploy the service and perform load testing:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 1. Register a [domain name](../../dns/concepts/resource-record.md) for your website.
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 
 * Fee for using the [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) and outgoing traffic  (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources of the [L7 load balancer](../../application-load-balancer/concepts/index.md) (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using the computing resources of the [L7 load balancer](../../application-load-balancer/concepts/index.md) (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 
@@ -114,7 +114,7 @@ This instruction will use a gRPC service as a test target.
    ```
 
 
-## Prepare a domain {#prepare-domain}
+## Register your domain {#prepare-domain}
 
 1. [Create](../../dns/operations/zone-create-public.md) a public DNS zone and delegate a domain.
 
@@ -342,11 +342,11 @@ This instruction will use a gRPC service as a test target.
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Select your {{ managed-k8s-name }} test cluster.
-   1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
+   1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
    1. Monitor the change in the number of application pods as the load increases and decreases.
    1. After the test is complete, in the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Select the created L7 load balancer.
-   1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
+   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
    1. View the test load chart.
 
 ## How to delete the resources you created {#clear-out}

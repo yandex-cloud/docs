@@ -22,6 +22,19 @@ To launch an app:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for {{ container-registry-name }}: using the storage and outgoing traffic (see [{{ container-registry-name }} pricing](../../container-registry/pricing)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for a public IP address for an L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
@@ -34,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    sudo apt update && sudo apt install jq
    ```
 
-### Create a network and subnet {#create-network}
+### Create a network with a subnet {#create-network}
 
 1. [Create a network](../../vpc/operations/network-create.md) named `yc-auto-network`:
 
@@ -274,10 +287,10 @@ To create a service account that lets nodes download the necessary Docker images
    {% endlist %}
 
 1. Assign the service account the following roles for the folder:
-   * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor).
-   * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
-   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader).
-   * [compute.viewer](../../compute/security/index.md#compute-viewer).
+   * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor)
+   * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin)
+   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader)
+   * [compute.viewer](../../compute/security/index.md#compute-viewer)
 
    ```bash
    yc resource-manager folder add-access-binding \

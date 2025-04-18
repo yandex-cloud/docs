@@ -16,14 +16,14 @@ If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reco
 To connect a Linux VM to {{ backup-name }}:
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../security/index.md#backup-editor).
-1. [Connect](../../compute/operations/vm-control/vm-update.md) the previously created service account to the VM.
+1. [Connect](../../compute/operations/vm-control/vm-connect-sa.md) the previously created service account to the VM.
 1. [Set up](../concepts/vm-connection.md#vm-network-access) network access for your VM.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Run the following commands:
 
-   {% list tabs group=operating_system %}
+    {% list tabs group=operating_system %}
 
-   - Ubuntu {#ubuntu}
+    - Ubuntu {#ubuntu}
 
       ```bash
       sudo apt update && \
@@ -38,7 +38,7 @@ To connect a Linux VM to {{ backup-name }}:
       Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
       ```
 
-   - CentOS {#centos}
+    - CentOS {#centos}
 
       ```bash
       sudo yum install epel-release -y && \
@@ -54,7 +54,7 @@ To connect a Linux VM to {{ backup-name }}:
       Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
       ```
 
-   {% endlist %}
+    {% endlist %}
 
 After that, you can link your VM to [backup policies](../concepts/policy.md).
 
@@ -63,6 +63,6 @@ To connect an existing VM to {{ backup-name }}, you can also [take](../../comput
 #### See also {#see-also}
 
 * [{#T}](create-vm.md)
-* [Attaching a VM to a backup policy](./policy-vm/update.md#update-vm-list)
+* [Linking a VM to a backup policy](./policy-vm/update.md#update-vm-list)
 * [{#T}](./policy-vm/create.md)
 * [{#T}](./backup-vm/recover.md)

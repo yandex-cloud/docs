@@ -451,6 +451,22 @@ items:
                 href: api-ref/grpc/Backup/list.md
               - name: Delete
                 href: api-ref/grpc/Backup/delete.md
+          - name: ClusterExtension
+            items:
+              - name: Overview
+                href: api-ref/grpc/ClusterExtension/index.md
+              - name: Get
+                href: api-ref/grpc/ClusterExtension/get.md
+              - name: List
+                href: api-ref/grpc/ClusterExtension/list.md
+              - name: Create
+                href: api-ref/grpc/ClusterExtension/create.md
+              - name: Delete
+                href: api-ref/grpc/ClusterExtension/delete.md
+              - name: Update
+                href: api-ref/grpc/ClusterExtension/update.md
+              - name: SetExtensions
+                href: api-ref/grpc/ClusterExtension/setExtensions.md
           - name: Cluster
             items:
               - name: Overview
@@ -541,6 +557,14 @@ items:
                 href: api-ref/grpc/Database/create.md
               - name: Delete
                 href: api-ref/grpc/Database/delete.md
+          - name: Extension
+            items:
+              - name: Overview
+                href: api-ref/grpc/Extension/index.md
+              - name: Get
+                href: api-ref/grpc/Extension/get.md
+              - name: List
+                href: api-ref/grpc/Extension/list.md
           - name: FormatSchema
             items:
               - name: Overview
@@ -623,6 +647,22 @@ items:
                 href: api-ref/Backup/list.md
               - name: Delete
                 href: api-ref/Backup/delete.md
+          - name: ClusterExtension
+            items:
+              - name: Overview
+                href: api-ref/ClusterExtension/index.md
+              - name: Get
+                href: api-ref/ClusterExtension/get.md
+              - name: List
+                href: api-ref/ClusterExtension/list.md
+              - name: Create
+                href: api-ref/ClusterExtension/create.md
+              - name: Delete
+                href: api-ref/ClusterExtension/delete.md
+              - name: Update
+                href: api-ref/ClusterExtension/update.md
+              - name: SetExtensions
+                href: api-ref/ClusterExtension/setExtensions.md
           - name: Cluster
             items:
               - name: Overview
@@ -713,6 +753,14 @@ items:
                 href: api-ref/Database/create.md
               - name: Delete
                 href: api-ref/Database/delete.md
+          - name: Extension
+            items:
+              - name: Overview
+                href: api-ref/Extension/index.md
+              - name: Get
+                href: api-ref/Extension/get.md
+              - name: List
+                href: api-ref/Extension/list.md
           - name: FormatSchema
             items:
               - name: Overview

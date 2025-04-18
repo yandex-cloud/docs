@@ -32,3 +32,9 @@ For more information on configuring clients to work with TLS version 1.2 and hig
 * [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/security-java-tls.html)
 * [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/enforcing-tls.html)
 * [AWS SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/enforcing-tls.html)
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/gatsby-static-website.md)
+

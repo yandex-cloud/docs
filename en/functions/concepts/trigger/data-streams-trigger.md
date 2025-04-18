@@ -13,7 +13,7 @@ For more information about creating a trigger for {{ yds-name }}, see [{#T}](../
 
 ## Roles required for the proper operation of a trigger for {{ yds-name }} {#roles}
 
-* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
+* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
 * For the trigger to fire, service accounts need the following roles:
     * `{{ roles-functions-invoker }}` for the function the trigger invokes.
     * `yds.admin` for the stream that invokes the trigger when data is sent there.
@@ -25,6 +25,10 @@ For more information about creating a trigger for {{ yds-name }}, see [{#T}](../
 Once the trigger fires, it will send a message with the `messages` array to the function:
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/events-from-postbox-to-yds.md)
 
 ## See also {#see-also}
 

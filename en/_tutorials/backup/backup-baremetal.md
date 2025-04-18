@@ -33,7 +33,9 @@ See also [How to cancel a lease and delete resources](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-Currently, {{ baremetal-name }} and the server backup feature are offered at no charge.
+The infrastructure support cost includes:
+* Server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+* Fee for the {{ baremetal-name }} server connected to {{ backup-name }} and the backup size (see [{{ backup-full-name }} pricing](../../backup/pricing.md)).
 
 ## Create a service account {#prepare-service-account}
 
@@ -117,8 +119,8 @@ If you are already leasing a server with an [appropriate OS](#os-support), go to
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 22.04 LTS` image.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, specify:
 
-      1. **{{ ui-key.yacloud.baremetal.field_server-count }}**: `1`
-      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}**: `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`
+      1. **{{ ui-key.yacloud.baremetal.field_server-count }}**: `1`.
+      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}**: `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
@@ -160,7 +162,7 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
 
   1. In the [management console]({{ link-console-main }}), select the folder the server belongs to.
   1. In the list of services, select **{{ baremetal-name }}**.
-  1. In the row with the server you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Start KVM console**.
+  1. In the row with the server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Start KVM console**.
   1. In the window that opens, click **KVM console**.
 
 - Linux/macOS {#linux-macos}
@@ -318,7 +320,7 @@ To start creating a {{ baremetal-name }} server backup outside of the backup pol
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![bms](../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
-  1. In the row with the server you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
+  1. In the row with the server, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. In the window that opens, select the backup policy for creating the backup and click **{{ ui-key.yacloud.common.create }}**.
 
   {{ backup-name }} will start to create a backup of the {{ baremetal-name }} server. You can see the progress in the relevant server row in the **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}** field.

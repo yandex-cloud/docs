@@ -2,7 +2,7 @@
 
 A _topic_ is a channel for messaging between devices, registries, and broker clients.
 
-Using the broker, you can send and receive messages in any topics that are allowed by the MQTT specification, except for topics starting with a `$` character.
+Using the broker, you can send and receive messages in any topics allowed by the MQTT specification, except for topics starting with `$`.
 
 When using device registries, the service provides [device topics](./devices-topic.md) and [registry topics](./registries-topic.md). Device topics identify messages intended for a specific device, and registry topics identify messages intended for all devices in that registry.
 Both topic types can have [subtopics](./subtopic.md).
@@ -16,3 +16,11 @@ A _permanent topic_ is a topic that stores the last message sent to this topic s
 * [{#T}](./registries-topic.md)
 * [{#T}](./subtopic.md)
 * [{#T}](./usage.md)
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/data-recording.md)
+* [{#T}](../../tutorials/datalens.md)
+* [{#T}](../../tutorials/message-delivery-check.md)
+* [{#T}](../../tutorials/monitoring.md)
+* [{#T}](../../tutorials/mosquitto/mosquitto-publish.md)

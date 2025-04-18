@@ -13,8 +13,17 @@ When [creating](../tutorials/vm-create.md) a {{ coi }} VM, keep in mind that:
 
    {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 
+### Use cases {#examples-boot-disk}
+
+* [{#T}](../tutorials/docker-compose.md)
+* [{#T}](../tutorials/deploy-app-container.md)
+
 ## Working with secondary disks {#second-disk}
 
 You can [mount](../tutorials/vm-create-with-second-disk.md) a secondary disk into the container by using the `x-yc-disks` section of the [Docker Compose specification](./coi-specifications.md#compose-spec):
 * To mount a disk into a {{ coi }} VM and search in the `/dev/disk/by-id/virtio-...` tree, use the disk `device-name`. If you do not specify this parameter when connecting the disk to the VM, you may get a [mount error](../error/index.md#disk-mount).
 * When using a partitioned secondary disk, provide the `partition: x` parameter in the [Docker Compose specification](./coi-specifications.md#compose-spec-example), where `x` is the number of the partition to mount.
+
+### Use cases {#examples-second-disk}
+
+* [{#T}](../tutorials/vm-create-with-second-disk.md)

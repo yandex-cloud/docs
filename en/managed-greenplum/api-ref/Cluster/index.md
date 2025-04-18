@@ -20,6 +20,7 @@ A set of methods for managing Greenplum® clusters.
 || [Start](start.md) | Starts the specified Greenplum® cluster. ||
 || [Stop](stop.md) | Stops the specified Greenplum® cluster. ||
 || [Move](move.md) | Moves the specified Greenplum® cluster to the specified folder. ||
+|| [RescheduleMaintenance](rescheduleMaintenance.md) | Reschedule planned maintenance operation. ||
 || [ListOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster. ||
 || [ListMasterHosts](listMasterHosts.md) | Retrieves a list of master hosts for the specified cluster. ||
 || [ListSegmentHosts](listSegmentHosts.md) | Retrieves a list of segment hosts for the specified cluster. ||

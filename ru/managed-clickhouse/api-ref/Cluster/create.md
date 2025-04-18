@@ -55,7 +55,10 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
           "mergeMaxBlockSize": "string",
           "checkSampleColumnIsCorrect": "boolean",
           "maxMergeSelectingSleepMs": "string",
-          "maxCleanupDelayPeriod": "string"
+          "maxCleanupDelayPeriod": "string",
+          "deduplicateMergeProjectionMode": "string",
+          "lightweightMutationProjectionMode": "string",
+          "materializeTtlRecalculateOnly": "boolean"
         },
         "compression": [
           {
@@ -114,7 +117,14 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
             "layout": {
               "type": "string",
               "sizeInCells": "string",
-              "maxArraySize": "string"
+              "allowReadExpiredKeys": "boolean",
+              "maxUpdateQueueSize": "string",
+              "updateQueuePushTimeoutMilliseconds": "string",
+              "queryWaitTimeoutMilliseconds": "string",
+              "maxThreadsForUpdates": "string",
+              "initialArraySize": "string",
+              "maxArraySize": "string",
+              "accessToKeyFromAttributes": "boolean"
             },
             // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
             "fixedLifetime": "string",
@@ -287,6 +297,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "asynchronousInsertLogEnabled": "boolean",
         "asynchronousInsertLogRetentionSize": "string",
         "asynchronousInsertLogRetentionTime": "string",
+        "processorsProfileLogEnabled": "boolean",
+        "processorsProfileLogRetentionSize": "string",
+        "processorsProfileLogRetentionTime": "string",
         "backgroundPoolSize": "string",
         "backgroundMergesMutationsConcurrencyRatio": "string",
         "backgroundSchedulePoolSize": "string",
@@ -479,6 +492,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "addHttpCorsHeader": "boolean",
         "cancelHttpReadonlyQueriesOnClientClose": "boolean",
         "maxHttpGetRedirects": "string",
+        "httpMaxFieldNameSize": "string",
+        "httpMaxFieldValueSize": "string",
         "joinedSubqueryRequiresAlias": "boolean",
         "joinUseNulls": "boolean",
         "transformNullIn": "boolean",
@@ -493,12 +508,14 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "waitForAsyncInsertTimeout": "string",
         "asyncInsertMaxDataSize": "string",
         "asyncInsertBusyTimeout": "string",
-        "asyncInsertStaleTimeout": "string",
+        "asyncInsertUseAdaptiveBusyTimeout": "boolean",
         "memoryProfilerStep": "string",
         "memoryProfilerSampleProbability": "number",
         "maxFinalThreads": "string",
         "inputFormatParallelParsing": "boolean",
         "inputFormatImportNestedJson": "boolean",
+        "formatAvroSchemaRegistryUrl": "string",
+        "dataTypeDefaultNullable": "boolean",
         "localFilesystemReadMethod": "string",
         "maxReadBufferSize": "string",
         "insertKeeperMaxRetries": "string",
@@ -510,14 +527,31 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "memoryOvercommitRatioDenominatorForUser": "string",
         "memoryUsageOvercommitMaxWaitMicroseconds": "string",
         "logQueryThreads": "boolean",
+        "logQueryViews": "boolean",
+        "logQueriesProbability": "number",
+        "logProcessorsProfiles": "boolean",
+        "useQueryCache": "boolean",
+        "enableReadsFromQueryCache": "boolean",
+        "enableWritesToQueryCache": "boolean",
+        "queryCacheMinQueryRuns": "string",
+        "queryCacheMinQueryDuration": "string",
+        "queryCacheTtl": "string",
+        "queryCacheMaxEntries": "string",
+        "queryCacheMaxSizeInBytes": "string",
+        "queryCacheTag": "string",
+        "queryCacheShareBetweenUsers": "boolean",
+        "queryCacheNondeterministicFunctionHandling": "string",
         "maxInsertThreads": "string",
         "useHedgedRequests": "boolean",
         "idleConnectionTimeout": "string",
         "hedgedConnectionTimeoutMs": "string",
         "loadBalancing": "string",
         "preferLocalhostReplica": "boolean",
+        "doNotMergeAcrossPartitionsSelectFinal": "boolean",
+        "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
         "compile": "boolean",
-        "minCountToCompile": "string"
+        "minCountToCompile": "string",
+        "asyncInsertStaleTimeout": "string"
       },
       "quotas": [
         {
@@ -556,7 +590,331 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
       "hour": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "shardSpecs": [
+    {
+      "name": "string",
+      "configSpec": {
+        "clickhouse": {
+          "config": {
+            "logLevel": "string",
+            "mergeTree": {
+              "replicatedDeduplicationWindow": "string",
+              "replicatedDeduplicationWindowSeconds": "string",
+              "partsToDelayInsert": "string",
+              "partsToThrowInsert": "string",
+              "inactivePartsToDelayInsert": "string",
+              "inactivePartsToThrowInsert": "string",
+              "maxReplicatedMergesInQueue": "string",
+              "numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge": "string",
+              "maxBytesToMergeAtMinSpaceInPool": "string",
+              "maxBytesToMergeAtMaxSpaceInPool": "string",
+              "minBytesForWidePart": "string",
+              "minRowsForWidePart": "string",
+              "ttlOnlyDropParts": "boolean",
+              "allowRemoteFsZeroCopyReplication": "boolean",
+              "mergeWithTtlTimeout": "string",
+              "mergeWithRecompressionTtlTimeout": "string",
+              "maxPartsInTotal": "string",
+              "maxNumberOfMergesWithTtlInPool": "string",
+              "cleanupDelayPeriod": "string",
+              "numberOfFreeEntriesInPoolToExecuteMutation": "string",
+              "maxAvgPartSizeForTooManyParts": "string",
+              "minAgeToForceMergeSeconds": "string",
+              "minAgeToForceMergeOnPartitionOnly": "boolean",
+              "mergeSelectingSleepMs": "string",
+              "mergeMaxBlockSize": "string",
+              "checkSampleColumnIsCorrect": "boolean",
+              "maxMergeSelectingSleepMs": "string",
+              "maxCleanupDelayPeriod": "string",
+              "deduplicateMergeProjectionMode": "string",
+              "lightweightMutationProjectionMode": "string",
+              "materializeTtlRecalculateOnly": "boolean"
+            },
+            "compression": [
+              {
+                "method": "string",
+                "minPartSize": "string",
+                "minPartSizeRatio": "string",
+                "level": "string"
+              }
+            ],
+            "dictionaries": [
+              {
+                "name": "string",
+                "structure": {
+                  "id": {
+                    "name": "string"
+                  },
+                  "key": {
+                    "attributes": [
+                      {
+                        "name": "string",
+                        "type": "string",
+                        "nullValue": "string",
+                        "expression": "string",
+                        "hierarchical": "boolean",
+                        "injective": "boolean"
+                      }
+                    ]
+                  },
+                  "rangeMin": {
+                    "name": "string",
+                    "type": "string",
+                    "nullValue": "string",
+                    "expression": "string",
+                    "hierarchical": "boolean",
+                    "injective": "boolean"
+                  },
+                  "rangeMax": {
+                    "name": "string",
+                    "type": "string",
+                    "nullValue": "string",
+                    "expression": "string",
+                    "hierarchical": "boolean",
+                    "injective": "boolean"
+                  },
+                  "attributes": [
+                    {
+                      "name": "string",
+                      "type": "string",
+                      "nullValue": "string",
+                      "expression": "string",
+                      "hierarchical": "boolean",
+                      "injective": "boolean"
+                    }
+                  ]
+                },
+                "layout": {
+                  "type": "string",
+                  "sizeInCells": "string",
+                  "allowReadExpiredKeys": "boolean",
+                  "maxUpdateQueueSize": "string",
+                  "updateQueuePushTimeoutMilliseconds": "string",
+                  "queryWaitTimeoutMilliseconds": "string",
+                  "maxThreadsForUpdates": "string",
+                  "initialArraySize": "string",
+                  "maxArraySize": "string",
+                  "accessToKeyFromAttributes": "boolean"
+                },
+                // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
+                "fixedLifetime": "string",
+                "lifetimeRange": {
+                  "min": "string",
+                  "max": "string"
+                },
+                // end of the list of possible fields
+                // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+                "httpSource": {
+                  "url": "string",
+                  "format": "string",
+                  "headers": [
+                    {
+                      "name": "string",
+                      "value": "string"
+                    }
+                  ]
+                },
+                "mysqlSource": {
+                  "db": "string",
+                  "table": "string",
+                  "port": "string",
+                  "user": "string",
+                  "password": "string",
+                  "replicas": [
+                    {
+                      "host": "string",
+                      "priority": "string",
+                      "port": "string",
+                      "user": "string",
+                      "password": "string"
+                    }
+                  ],
+                  "where": "string",
+                  "invalidateQuery": "string",
+                  "closeConnection": "boolean",
+                  "shareConnection": "boolean"
+                },
+                "clickhouseSource": {
+                  "db": "string",
+                  "table": "string",
+                  "host": "string",
+                  "port": "string",
+                  "user": "string",
+                  "password": "string",
+                  "where": "string",
+                  "secure": "boolean"
+                },
+                "mongodbSource": {
+                  "db": "string",
+                  "collection": "string",
+                  "host": "string",
+                  "port": "string",
+                  "user": "string",
+                  "password": "string",
+                  "options": "string"
+                },
+                "postgresqlSource": {
+                  "db": "string",
+                  "table": "string",
+                  "hosts": [
+                    "string"
+                  ],
+                  "port": "string",
+                  "user": "string",
+                  "password": "string",
+                  "invalidateQuery": "string",
+                  "sslMode": "string"
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "graphiteRollup": [
+              {
+                "name": "string",
+                "patterns": [
+                  {
+                    "regexp": "string",
+                    "function": "string",
+                    "retention": [
+                      {
+                        "age": "string",
+                        "precision": "string"
+                      }
+                    ]
+                  }
+                ],
+                "pathColumnName": "string",
+                "timeColumnName": "string",
+                "valueColumnName": "string",
+                "versionColumnName": "string"
+              }
+            ],
+            "kafka": {
+              "securityProtocol": "string",
+              "saslMechanism": "string",
+              "saslUsername": "string",
+              "saslPassword": "string",
+              "enableSslCertificateVerification": "boolean",
+              "maxPollIntervalMs": "string",
+              "sessionTimeoutMs": "string",
+              "debug": "string",
+              "autoOffsetReset": "string"
+            },
+            "kafkaTopics": [
+              {
+                "name": "string",
+                "settings": {
+                  "securityProtocol": "string",
+                  "saslMechanism": "string",
+                  "saslUsername": "string",
+                  "saslPassword": "string",
+                  "enableSslCertificateVerification": "boolean",
+                  "maxPollIntervalMs": "string",
+                  "sessionTimeoutMs": "string",
+                  "debug": "string",
+                  "autoOffsetReset": "string"
+                }
+              }
+            ],
+            "rabbitmq": {
+              "username": "string",
+              "password": "string",
+              "vhost": "string"
+            },
+            "maxConnections": "string",
+            "maxConcurrentQueries": "string",
+            "keepAliveTimeout": "string",
+            "uncompressedCacheSize": "string",
+            "markCacheSize": "string",
+            "maxTableSizeToDrop": "string",
+            "maxPartitionSizeToDrop": "string",
+            "builtinDictionariesReloadInterval": "string",
+            "timezone": "string",
+            "geobaseEnabled": "boolean",
+            "geobaseUri": "string",
+            "queryLogRetentionSize": "string",
+            "queryLogRetentionTime": "string",
+            "queryThreadLogEnabled": "boolean",
+            "queryThreadLogRetentionSize": "string",
+            "queryThreadLogRetentionTime": "string",
+            "partLogRetentionSize": "string",
+            "partLogRetentionTime": "string",
+            "metricLogEnabled": "boolean",
+            "metricLogRetentionSize": "string",
+            "metricLogRetentionTime": "string",
+            "traceLogEnabled": "boolean",
+            "traceLogRetentionSize": "string",
+            "traceLogRetentionTime": "string",
+            "textLogEnabled": "boolean",
+            "textLogRetentionSize": "string",
+            "textLogRetentionTime": "string",
+            "textLogLevel": "string",
+            "opentelemetrySpanLogEnabled": "boolean",
+            "opentelemetrySpanLogRetentionSize": "string",
+            "opentelemetrySpanLogRetentionTime": "string",
+            "queryViewsLogEnabled": "boolean",
+            "queryViewsLogRetentionSize": "string",
+            "queryViewsLogRetentionTime": "string",
+            "asynchronousMetricLogEnabled": "boolean",
+            "asynchronousMetricLogRetentionSize": "string",
+            "asynchronousMetricLogRetentionTime": "string",
+            "sessionLogEnabled": "boolean",
+            "sessionLogRetentionSize": "string",
+            "sessionLogRetentionTime": "string",
+            "zookeeperLogEnabled": "boolean",
+            "zookeeperLogRetentionSize": "string",
+            "zookeeperLogRetentionTime": "string",
+            "asynchronousInsertLogEnabled": "boolean",
+            "asynchronousInsertLogRetentionSize": "string",
+            "asynchronousInsertLogRetentionTime": "string",
+            "processorsProfileLogEnabled": "boolean",
+            "processorsProfileLogRetentionSize": "string",
+            "processorsProfileLogRetentionTime": "string",
+            "backgroundPoolSize": "string",
+            "backgroundMergesMutationsConcurrencyRatio": "string",
+            "backgroundSchedulePoolSize": "string",
+            "backgroundFetchesPoolSize": "string",
+            "backgroundMovePoolSize": "string",
+            "backgroundDistributedSchedulePoolSize": "string",
+            "backgroundBufferFlushSchedulePoolSize": "string",
+            "backgroundMessageBrokerSchedulePoolSize": "string",
+            "backgroundCommonPoolSize": "string",
+            "defaultDatabase": "string",
+            "totalMemoryProfilerStep": "string",
+            "totalMemoryTrackerSampleProbability": "number",
+            "queryMaskingRules": [
+              {
+                "name": "string",
+                "regexp": "string",
+                "replace": "string"
+              }
+            ],
+            "dictionariesLazyLoad": "boolean",
+            "queryCache": {
+              "maxSizeInBytes": "string",
+              "maxEntries": "string",
+              "maxEntrySizeInBytes": "string",
+              "maxEntrySizeInRows": "string"
+            },
+            "jdbcBridge": {
+              "host": "string",
+              "port": "string"
+            }
+          },
+          "resources": {
+            "resourcePresetId": "string",
+            "diskSize": "string",
+            "diskTypeId": "string"
+          },
+          "weight": "string"
+        }
+      },
+      "shardGroupNames": [
+        "string"
+      ]
+    }
+  ]
 }
 ```
 
@@ -614,6 +972,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.clickhouse.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
+|| shardSpecs[] | **[ShardSpec](#yandex.cloud.mdb.clickhouse.v1.ShardSpec)**
+
+Configuration(s) of the shard(s) to be created. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec}
@@ -875,6 +1236,17 @@ automatic removal of asynchronous_insert_log data based on size is disabled. ||
 
 The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0,
 automatic removal of asynchronous_insert_log data based on time is disabled. ||
+|| processorsProfileLogEnabled | **boolean**
+
+Enable or disable processors_profile_log system table. ||
+|| processorsProfileLogRetentionSize | **string** (int64)
+
+The maximum size that processors_profile_log can grow to before old data will be removed.
+If set to 0 (default), automatic removal of processors_profile_log data based on size is disabled. ||
+|| processorsProfileLogRetentionTime | **string** (int64)
+
+The maximum time that processors_profile_log records will be retained before removal.
+If set to 0, automatic removal of processors_profile_log data based on time is disabled. ||
 || backgroundPoolSize | **string** (int64) ||
 || backgroundMergesMutationsConcurrencyRatio | **string** (int64)
 
@@ -1028,6 +1400,27 @@ Maximum period to clean old queue logs, blocks hashes and parts.
 Default: 300
 Min_version: 23.6
 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) ||
+|| deduplicateMergeProjectionMode | **enum** (DeduplicateMergeProjectionMode)
+
+Determines the behavior of background merges for MergeTree tables with projections.
+https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode
+
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_UNSPECIFIED`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD` ||
+|| lightweightMutationProjectionMode | **enum** (LightweightMutationProjectionMode)
+
+Determines the behavior of lightweight deletes for MergeTree tables with projections.
+
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_UNSPECIFIED`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
+|| materializeTtlRecalculateOnly | **boolean**
+
+Only recalculate ttl info when MATERIALIZE TTL. ||
 |#
 
 ## Compression {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Compression}
@@ -1214,15 +1607,50 @@ Available for all dictionary sources.
 - `CACHE`: The dictionary is stored in a cache with a set number of cells.
 Available for MySQL, ClickHouse and HTTP dictionary sources.
 - `COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys.
-Available for MySQL, ClickHouse and HTTP dictionary sources. ||
+Available for MySQL, ClickHouse and HTTP dictionary sources.
+- `SPARSE_HASHED`: Similar to HASHED, but uses less memory in favor of more CPU usage.
+- `COMPLEX_KEY_SPARSE_HASHED`: Similar to SPARSE_HASHED, to be used with composite keys.
+- `COMPLEX_KEY_RANGE_HASHED`: Similar to RANGE_HASHED, to be used with composite keys.
+- `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+- `COMPLEX_KEY_DIRECT`: Similar to DIRECT, to be used with composite keys.
+- `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN. ||
 || sizeInCells | **string** (int64)
 
 Number of cells in the cache. Rounded up to a power of two.
 Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| allowReadExpiredKeys | **boolean**
+
+Allows to read expired keys.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| maxUpdateQueueSize | **string** (int64)
+
+Max size of update queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| updateQueuePushTimeoutMilliseconds | **string** (int64)
+
+Max timeout in milliseconds for push update task into queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| queryWaitTimeoutMilliseconds | **string** (int64)
+
+Max wait timeout in milliseconds for update task to complete.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| maxThreadsForUpdates | **string** (int64)
+
+Max threads for cache dictionary update.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| initialArraySize | **string** (int64)
+
+Initial dictionary key size.
+Applicable only for FLAT layout type. ||
 || maxArraySize | **string** (int64)
 
 Maximum dictionary key size.
 Applicable only for FLAT layout type. ||
+|| accessToKeyFromAttributes | **boolean**
+
+Allows to retrieve key attribute using dictGetString function.
+Enabling this option increases memory usage.
+Applicable only for IP_TRIE layout type. ||
 |#
 
 ## Range {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range}
@@ -2507,6 +2935,14 @@ Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://cli
 If the parameter is set to **0** (default), no hops is allowed.
 
 More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects). ||
+|| httpMaxFieldNameSize | **string** (int64)
+
+Maximum length of field name in HTTP header.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_name_size). ||
+|| httpMaxFieldValueSize | **string** (int64)
+
+Maximum length of field value in HTTP header.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_value_size). ||
 || joinedSubqueryRequiresAlias | **boolean** ||
 || joinUseNulls | **boolean** ||
 || transformNullIn | **boolean** ||
@@ -2580,11 +3016,10 @@ The maximum timeout in milliseconds since the first INSERT query before insertin
 If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
 
 More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms). ||
-|| asyncInsertStaleTimeout | **string** (int64)
+|| asyncInsertUseAdaptiveBusyTimeout | **boolean**
 
-The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the `asyncInsertBusyTimeout` with every INSERT query as long as `asyncInsertMaxDataSize` is not exceeded.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms). ||
+If it is set to true, use adaptive busy timeout for asynchronous inserts.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#async_insert_use_adaptive_busy_timeout). ||
 || memoryProfilerStep | **string** (int64)
 
 Memory profiler step (in bytes).
@@ -2609,6 +3044,14 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 
 Enables or disables the insertion of JSON data with nested objects.
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing) ||
+|| formatAvroSchemaRegistryUrl | **string**
+
+Avro schema registry URL.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/formats#format_avro_schema_registry_url). ||
+|| dataTypeDefaultNullable | **boolean**
+
+Allows data types without explicit modifiers NULL or NOT NULL in column definition will be Nullable.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#data_type_default_nullable). ||
 || localFilesystemReadMethod | **enum** (LocalFilesystemReadMethod)
 
 Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.
@@ -2677,8 +3120,70 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 || logQueryThreads | **boolean**
 
 Setting up query threads logging. Query threads log into the [system.query_thread_log](https://clickhouse.com/docs/en/operations/system-tables/query_thread_log) table. This setting has effect only when [log_queries](https://clickhouse.com/docs/en/operations/settings/settings#log-queries) is true. Queries threads run by ClickHouse with this setup are logged according to the rules in the [query_thread_log](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#server_configuration_parameters-query_thread_log) server configuration parameter.
-Default: true
+Default: false
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_threads) ||
+|| logQueryViews | **boolean**
+
+Enables or disables query views logging to the the system.query_view_log table.
+Default: true
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_views) ||
+|| logQueriesProbability | **number** (double)
+
+Log queries with the specified probability.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_queries_probability). ||
+|| logProcessorsProfiles | **boolean**
+
+Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_processors_profiles). ||
+|| useQueryCache | **boolean**
+
+If turned on, SELECT queries may utilize the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_query_cache). ||
+|| enableReadsFromQueryCache | **boolean**
+
+If turned on, results of SELECT queries are retrieved from the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_reads_from_query_cache). ||
+|| enableWritesToQueryCache | **boolean**
+
+If turned on, results of SELECT queries are stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_writes_to_query_cache). ||
+|| queryCacheMinQueryRuns | **string** (int64)
+
+Minimum number of times a SELECT query must run before its result is stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_runs). ||
+|| queryCacheMinQueryDuration | **string** (int64)
+
+Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_duration). ||
+|| queryCacheTtl | **string** (int64)
+
+After this time in seconds entries in the query cache become stale.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_ttl). ||
+|| queryCacheMaxEntries | **string** (int64)
+
+The maximum number of query results the current user may store in the query cache. 0 means unlimited.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_entries). ||
+|| queryCacheMaxSizeInBytes | **string** (int64)
+
+The maximum amount of memory (in bytes) the current user may allocate in the query cache. 0 means unlimited.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_size_in_bytes). ||
+|| queryCacheTag | **string**
+
+A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_tag). ||
+|| queryCacheShareBetweenUsers | **boolean**
+
+If turned on, the result of SELECT queries cached in the query cache can be read by other users. It is not recommended to enable this setting due to security reasons.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_share_between_users). ||
+|| queryCacheNondeterministicFunctionHandling | **enum** (QueryCacheNondeterministicFunctionHandling)
+
+Controls how the query cache handles SELECT queries with non-deterministic functions like rand() or now().
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_nondeterministic_function_handling).
+
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_UNSPECIFIED`
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW`: Throw an exception and don't cache the query result.
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_SAVE`: Cache the query result.
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception. ||
 || maxInsertThreads | **string** (int64)
 
 The maximum number of threads to execute the INSERT SELECT query.
@@ -2713,13 +3218,25 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 - `LOAD_BALANCING_ROUND_ROBIN` ||
 || preferLocalhostReplica | **boolean**
 
-Enables/disables preferable using the localhost replica when processing distributed queries.
+Enables or disables preferable using the localhost replica when processing distributed queries.
 Default: true
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#prefer_localhost_replica) ||
+|| doNotMergeAcrossPartitionsSelectFinal | **boolean**
+
+Enables or disable independent processing of partitions for SELECT queries with FINAL.
+Default: false
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree) ||
+|| ignoreMaterializedViewsWithDroppedTargetTable | **boolean**
+
+Ignore materialized views with dropped target table during pushing to views.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#ignore_materialized_views_with_dropped_target_table). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||
 || minCountToCompile | **string** (int64)
+
+The setting is deprecated and has no effect. ||
+|| asyncInsertStaleTimeout | **string** (int64)
 
 The setting is deprecated and has no effect. ||
 |#
@@ -2837,6 +3354,46 @@ Day of the week (in `DDD` format).
 Hour of the day in UTC (in `HH` format). ||
 |#
 
+## ShardSpec {#yandex.cloud.mdb.clickhouse.v1.ShardSpec}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the shard to be created. ||
+|| configSpec | **[ShardConfigSpec](#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec)**
+
+Configuration of the shard to be created. ||
+|| shardGroupNames[] | **string**
+
+Shard groups that contain the shard. ||
+|#
+
+## ShardConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec}
+
+#|
+||Field | Description ||
+|| clickhouse | **[Clickhouse](#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec.Clickhouse)**
+
+ClickHouse configuration for a shard. ||
+|#
+
+## Clickhouse {#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec.Clickhouse}
+
+#|
+||Field | Description ||
+|| config | **[ClickhouseConfig](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig)**
+
+ClickHouse settings for the shard. ||
+|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
+
+Computational resources for the shard. ||
+|| weight | **string** (int64)
+
+Relative weight of the shard considered when writing data to the cluster.
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -2909,7 +3466,10 @@ Hour of the day in UTC (in `HH` format). ||
               "mergeMaxBlockSize": "string",
               "checkSampleColumnIsCorrect": "boolean",
               "maxMergeSelectingSleepMs": "string",
-              "maxCleanupDelayPeriod": "string"
+              "maxCleanupDelayPeriod": "string",
+              "deduplicateMergeProjectionMode": "string",
+              "lightweightMutationProjectionMode": "string",
+              "materializeTtlRecalculateOnly": "boolean"
             },
             "compression": [
               {
@@ -2968,7 +3528,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "layout": {
                   "type": "string",
                   "sizeInCells": "string",
-                  "maxArraySize": "string"
+                  "allowReadExpiredKeys": "boolean",
+                  "maxUpdateQueueSize": "string",
+                  "updateQueuePushTimeoutMilliseconds": "string",
+                  "queryWaitTimeoutMilliseconds": "string",
+                  "maxThreadsForUpdates": "string",
+                  "initialArraySize": "string",
+                  "maxArraySize": "string",
+                  "accessToKeyFromAttributes": "boolean"
                 },
                 // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
                 "fixedLifetime": "string",
@@ -3141,6 +3708,9 @@ Hour of the day in UTC (in `HH` format). ||
             "asynchronousInsertLogEnabled": "boolean",
             "asynchronousInsertLogRetentionSize": "string",
             "asynchronousInsertLogRetentionTime": "string",
+            "processorsProfileLogEnabled": "boolean",
+            "processorsProfileLogRetentionSize": "string",
+            "processorsProfileLogRetentionTime": "string",
             "backgroundPoolSize": "string",
             "backgroundMergesMutationsConcurrencyRatio": "string",
             "backgroundSchedulePoolSize": "string",
@@ -3202,7 +3772,10 @@ Hour of the day in UTC (in `HH` format). ||
               "mergeMaxBlockSize": "string",
               "checkSampleColumnIsCorrect": "boolean",
               "maxMergeSelectingSleepMs": "string",
-              "maxCleanupDelayPeriod": "string"
+              "maxCleanupDelayPeriod": "string",
+              "deduplicateMergeProjectionMode": "string",
+              "lightweightMutationProjectionMode": "string",
+              "materializeTtlRecalculateOnly": "boolean"
             },
             "compression": [
               {
@@ -3261,7 +3834,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "layout": {
                   "type": "string",
                   "sizeInCells": "string",
-                  "maxArraySize": "string"
+                  "allowReadExpiredKeys": "boolean",
+                  "maxUpdateQueueSize": "string",
+                  "updateQueuePushTimeoutMilliseconds": "string",
+                  "queryWaitTimeoutMilliseconds": "string",
+                  "maxThreadsForUpdates": "string",
+                  "initialArraySize": "string",
+                  "maxArraySize": "string",
+                  "accessToKeyFromAttributes": "boolean"
                 },
                 // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
                 "fixedLifetime": "string",
@@ -3434,6 +4014,9 @@ Hour of the day in UTC (in `HH` format). ||
             "asynchronousInsertLogEnabled": "boolean",
             "asynchronousInsertLogRetentionSize": "string",
             "asynchronousInsertLogRetentionTime": "string",
+            "processorsProfileLogEnabled": "boolean",
+            "processorsProfileLogRetentionSize": "string",
+            "processorsProfileLogRetentionTime": "string",
             "backgroundPoolSize": "string",
             "backgroundMergesMutationsConcurrencyRatio": "string",
             "backgroundSchedulePoolSize": "string",
@@ -3495,7 +4078,10 @@ Hour of the day in UTC (in `HH` format). ||
               "mergeMaxBlockSize": "string",
               "checkSampleColumnIsCorrect": "boolean",
               "maxMergeSelectingSleepMs": "string",
-              "maxCleanupDelayPeriod": "string"
+              "maxCleanupDelayPeriod": "string",
+              "deduplicateMergeProjectionMode": "string",
+              "lightweightMutationProjectionMode": "string",
+              "materializeTtlRecalculateOnly": "boolean"
             },
             "compression": [
               {
@@ -3554,7 +4140,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "layout": {
                   "type": "string",
                   "sizeInCells": "string",
-                  "maxArraySize": "string"
+                  "allowReadExpiredKeys": "boolean",
+                  "maxUpdateQueueSize": "string",
+                  "updateQueuePushTimeoutMilliseconds": "string",
+                  "queryWaitTimeoutMilliseconds": "string",
+                  "maxThreadsForUpdates": "string",
+                  "initialArraySize": "string",
+                  "maxArraySize": "string",
+                  "accessToKeyFromAttributes": "boolean"
                 },
                 // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
                 "fixedLifetime": "string",
@@ -3727,6 +4320,9 @@ Hour of the day in UTC (in `HH` format). ||
             "asynchronousInsertLogEnabled": "boolean",
             "asynchronousInsertLogRetentionSize": "string",
             "asynchronousInsertLogRetentionTime": "string",
+            "processorsProfileLogEnabled": "boolean",
+            "processorsProfileLogRetentionSize": "string",
+            "processorsProfileLogRetentionTime": "string",
             "backgroundPoolSize": "string",
             "backgroundMergesMutationsConcurrencyRatio": "string",
             "backgroundSchedulePoolSize": "string",
@@ -4295,6 +4891,17 @@ automatic removal of asynchronous_insert_log data based on size is disabled. ||
 
 The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0,
 automatic removal of asynchronous_insert_log data based on time is disabled. ||
+|| processorsProfileLogEnabled | **boolean**
+
+Enable or disable processors_profile_log system table. ||
+|| processorsProfileLogRetentionSize | **string** (int64)
+
+The maximum size that processors_profile_log can grow to before old data will be removed.
+If set to 0 (default), automatic removal of processors_profile_log data based on size is disabled. ||
+|| processorsProfileLogRetentionTime | **string** (int64)
+
+The maximum time that processors_profile_log records will be retained before removal.
+If set to 0, automatic removal of processors_profile_log data based on time is disabled. ||
 || backgroundPoolSize | **string** (int64) ||
 || backgroundMergesMutationsConcurrencyRatio | **string** (int64)
 
@@ -4448,6 +5055,27 @@ Maximum period to clean old queue logs, blocks hashes and parts.
 Default: 300
 Min_version: 23.6
 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) ||
+|| deduplicateMergeProjectionMode | **enum** (DeduplicateMergeProjectionMode)
+
+Determines the behavior of background merges for MergeTree tables with projections.
+https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode
+
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_UNSPECIFIED`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD` ||
+|| lightweightMutationProjectionMode | **enum** (LightweightMutationProjectionMode)
+
+Determines the behavior of lightweight deletes for MergeTree tables with projections.
+
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_UNSPECIFIED`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
+|| materializeTtlRecalculateOnly | **boolean**
+
+Only recalculate ttl info when MATERIALIZE TTL. ||
 |#
 
 ## Compression {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Compression2}
@@ -4634,15 +5262,50 @@ Available for all dictionary sources.
 - `CACHE`: The dictionary is stored in a cache with a set number of cells.
 Available for MySQL, ClickHouse and HTTP dictionary sources.
 - `COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys.
-Available for MySQL, ClickHouse and HTTP dictionary sources. ||
+Available for MySQL, ClickHouse and HTTP dictionary sources.
+- `SPARSE_HASHED`: Similar to HASHED, but uses less memory in favor of more CPU usage.
+- `COMPLEX_KEY_SPARSE_HASHED`: Similar to SPARSE_HASHED, to be used with composite keys.
+- `COMPLEX_KEY_RANGE_HASHED`: Similar to RANGE_HASHED, to be used with composite keys.
+- `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+- `COMPLEX_KEY_DIRECT`: Similar to DIRECT, to be used with composite keys.
+- `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN. ||
 || sizeInCells | **string** (int64)
 
 Number of cells in the cache. Rounded up to a power of two.
 Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| allowReadExpiredKeys | **boolean**
+
+Allows to read expired keys.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| maxUpdateQueueSize | **string** (int64)
+
+Max size of update queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| updateQueuePushTimeoutMilliseconds | **string** (int64)
+
+Max timeout in milliseconds for push update task into queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| queryWaitTimeoutMilliseconds | **string** (int64)
+
+Max wait timeout in milliseconds for update task to complete.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| maxThreadsForUpdates | **string** (int64)
+
+Max threads for cache dictionary update.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| initialArraySize | **string** (int64)
+
+Initial dictionary key size.
+Applicable only for FLAT layout type. ||
 || maxArraySize | **string** (int64)
 
 Maximum dictionary key size.
 Applicable only for FLAT layout type. ||
+|| accessToKeyFromAttributes | **boolean**
+
+Allows to retrieve key attribute using dictGetString function.
+Enabling this option increases memory usage.
+Applicable only for IP_TRIE layout type. ||
 |#
 
 ## Range {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range2}

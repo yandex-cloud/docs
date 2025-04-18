@@ -22,3 +22,4 @@ description: Various use cases for data storage and recovery in {{ yandex-cloud 
 * [{#T}](replicate-logs-to-storage-via-data-streams.md)
 * [{#T}](replicate-logs-to-storage.md)
 * [{#T}](copy-files-from-object-storage.md)
+* [{#T}](backup-baremetal.md)

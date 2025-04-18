@@ -13,6 +13,17 @@ In this article, you will learn how to create a backup of a {{ managed-k8s-name 
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for each {{ managed-k8s-name }} cluster: Using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* VM fee (two node groups and a VM for managing a cluster with no public access): Using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for the public IP addresses assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 ### Set up your infrastructure {#deploy-infrastructure}
@@ -37,7 +48,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
   1. [Create a service account](../../iam/operations/sa/create.md) with the `compute.admin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with Velero.
   1. Grant the [service account](../../iam/concepts/users/service-accounts.md) **READ and WRITE** permissions to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}. To do this, [configure the bucket ACL](../../storage/operations/buckets/edit-acl.md).
-  1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account and save its ID and value. You will not be able to get the key again.
+  1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account and save its ID and value. You will not be able to get the secret key again.
 
 - {{ TF }} {#tf}
 

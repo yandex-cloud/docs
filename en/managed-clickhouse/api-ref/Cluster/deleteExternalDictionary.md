@@ -110,7 +110,10 @@ Name of the external dictionary to delete. ||
               "mergeMaxBlockSize": "string",
               "checkSampleColumnIsCorrect": "boolean",
               "maxMergeSelectingSleepMs": "string",
-              "maxCleanupDelayPeriod": "string"
+              "maxCleanupDelayPeriod": "string",
+              "deduplicateMergeProjectionMode": "string",
+              "lightweightMutationProjectionMode": "string",
+              "materializeTtlRecalculateOnly": "boolean"
             },
             "compression": [
               {
@@ -169,7 +172,14 @@ Name of the external dictionary to delete. ||
                 "layout": {
                   "type": "string",
                   "sizeInCells": "string",
-                  "maxArraySize": "string"
+                  "allowReadExpiredKeys": "boolean",
+                  "maxUpdateQueueSize": "string",
+                  "updateQueuePushTimeoutMilliseconds": "string",
+                  "queryWaitTimeoutMilliseconds": "string",
+                  "maxThreadsForUpdates": "string",
+                  "initialArraySize": "string",
+                  "maxArraySize": "string",
+                  "accessToKeyFromAttributes": "boolean"
                 },
                 // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
                 "fixedLifetime": "string",
@@ -342,6 +352,9 @@ Name of the external dictionary to delete. ||
             "asynchronousInsertLogEnabled": "boolean",
             "asynchronousInsertLogRetentionSize": "string",
             "asynchronousInsertLogRetentionTime": "string",
+            "processorsProfileLogEnabled": "boolean",
+            "processorsProfileLogRetentionSize": "string",
+            "processorsProfileLogRetentionTime": "string",
             "backgroundPoolSize": "string",
             "backgroundMergesMutationsConcurrencyRatio": "string",
             "backgroundSchedulePoolSize": "string",
@@ -403,7 +416,10 @@ Name of the external dictionary to delete. ||
               "mergeMaxBlockSize": "string",
               "checkSampleColumnIsCorrect": "boolean",
               "maxMergeSelectingSleepMs": "string",
-              "maxCleanupDelayPeriod": "string"
+              "maxCleanupDelayPeriod": "string",
+              "deduplicateMergeProjectionMode": "string",
+              "lightweightMutationProjectionMode": "string",
+              "materializeTtlRecalculateOnly": "boolean"
             },
             "compression": [
               {
@@ -462,7 +478,14 @@ Name of the external dictionary to delete. ||
                 "layout": {
                   "type": "string",
                   "sizeInCells": "string",
-                  "maxArraySize": "string"
+                  "allowReadExpiredKeys": "boolean",
+                  "maxUpdateQueueSize": "string",
+                  "updateQueuePushTimeoutMilliseconds": "string",
+                  "queryWaitTimeoutMilliseconds": "string",
+                  "maxThreadsForUpdates": "string",
+                  "initialArraySize": "string",
+                  "maxArraySize": "string",
+                  "accessToKeyFromAttributes": "boolean"
                 },
                 // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
                 "fixedLifetime": "string",
@@ -635,6 +658,9 @@ Name of the external dictionary to delete. ||
             "asynchronousInsertLogEnabled": "boolean",
             "asynchronousInsertLogRetentionSize": "string",
             "asynchronousInsertLogRetentionTime": "string",
+            "processorsProfileLogEnabled": "boolean",
+            "processorsProfileLogRetentionSize": "string",
+            "processorsProfileLogRetentionTime": "string",
             "backgroundPoolSize": "string",
             "backgroundMergesMutationsConcurrencyRatio": "string",
             "backgroundSchedulePoolSize": "string",
@@ -696,7 +722,10 @@ Name of the external dictionary to delete. ||
               "mergeMaxBlockSize": "string",
               "checkSampleColumnIsCorrect": "boolean",
               "maxMergeSelectingSleepMs": "string",
-              "maxCleanupDelayPeriod": "string"
+              "maxCleanupDelayPeriod": "string",
+              "deduplicateMergeProjectionMode": "string",
+              "lightweightMutationProjectionMode": "string",
+              "materializeTtlRecalculateOnly": "boolean"
             },
             "compression": [
               {
@@ -755,7 +784,14 @@ Name of the external dictionary to delete. ||
                 "layout": {
                   "type": "string",
                   "sizeInCells": "string",
-                  "maxArraySize": "string"
+                  "allowReadExpiredKeys": "boolean",
+                  "maxUpdateQueueSize": "string",
+                  "updateQueuePushTimeoutMilliseconds": "string",
+                  "queryWaitTimeoutMilliseconds": "string",
+                  "maxThreadsForUpdates": "string",
+                  "initialArraySize": "string",
+                  "maxArraySize": "string",
+                  "accessToKeyFromAttributes": "boolean"
                 },
                 // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
                 "fixedLifetime": "string",
@@ -928,6 +964,9 @@ Name of the external dictionary to delete. ||
             "asynchronousInsertLogEnabled": "boolean",
             "asynchronousInsertLogRetentionSize": "string",
             "asynchronousInsertLogRetentionTime": "string",
+            "processorsProfileLogEnabled": "boolean",
+            "processorsProfileLogRetentionSize": "string",
+            "processorsProfileLogRetentionTime": "string",
             "backgroundPoolSize": "string",
             "backgroundMergesMutationsConcurrencyRatio": "string",
             "backgroundSchedulePoolSize": "string",
@@ -1496,6 +1535,17 @@ automatic removal of asynchronous_insert_log data based on size is disabled. ||
 
 The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0,
 automatic removal of asynchronous_insert_log data based on time is disabled. ||
+|| processorsProfileLogEnabled | **boolean**
+
+Enable or disable processors_profile_log system table. ||
+|| processorsProfileLogRetentionSize | **string** (int64)
+
+The maximum size that processors_profile_log can grow to before old data will be removed.
+If set to 0 (default), automatic removal of processors_profile_log data based on size is disabled. ||
+|| processorsProfileLogRetentionTime | **string** (int64)
+
+The maximum time that processors_profile_log records will be retained before removal.
+If set to 0, automatic removal of processors_profile_log data based on time is disabled. ||
 || backgroundPoolSize | **string** (int64) ||
 || backgroundMergesMutationsConcurrencyRatio | **string** (int64)
 
@@ -1649,6 +1699,27 @@ Maximum period to clean old queue logs, blocks hashes and parts.
 Default: 300
 Min_version: 23.6
 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) ||
+|| deduplicateMergeProjectionMode | **enum** (DeduplicateMergeProjectionMode)
+
+Determines the behavior of background merges for MergeTree tables with projections.
+https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode
+
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_UNSPECIFIED`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD` ||
+|| lightweightMutationProjectionMode | **enum** (LightweightMutationProjectionMode)
+
+Determines the behavior of lightweight deletes for MergeTree tables with projections.
+
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_UNSPECIFIED`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
+|| materializeTtlRecalculateOnly | **boolean**
+
+Only recalculate ttl info when MATERIALIZE TTL. ||
 |#
 
 ## Compression {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Compression}
@@ -1835,15 +1906,50 @@ Available for all dictionary sources.
 - `CACHE`: The dictionary is stored in a cache with a set number of cells.
 Available for MySQL, ClickHouse and HTTP dictionary sources.
 - `COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys.
-Available for MySQL, ClickHouse and HTTP dictionary sources. ||
+Available for MySQL, ClickHouse and HTTP dictionary sources.
+- `SPARSE_HASHED`: Similar to HASHED, but uses less memory in favor of more CPU usage.
+- `COMPLEX_KEY_SPARSE_HASHED`: Similar to SPARSE_HASHED, to be used with composite keys.
+- `COMPLEX_KEY_RANGE_HASHED`: Similar to RANGE_HASHED, to be used with composite keys.
+- `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+- `COMPLEX_KEY_DIRECT`: Similar to DIRECT, to be used with composite keys.
+- `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN. ||
 || sizeInCells | **string** (int64)
 
 Number of cells in the cache. Rounded up to a power of two.
 Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| allowReadExpiredKeys | **boolean**
+
+Allows to read expired keys.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| maxUpdateQueueSize | **string** (int64)
+
+Max size of update queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| updateQueuePushTimeoutMilliseconds | **string** (int64)
+
+Max timeout in milliseconds for push update task into queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| queryWaitTimeoutMilliseconds | **string** (int64)
+
+Max wait timeout in milliseconds for update task to complete.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| maxThreadsForUpdates | **string** (int64)
+
+Max threads for cache dictionary update.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| initialArraySize | **string** (int64)
+
+Initial dictionary key size.
+Applicable only for FLAT layout type. ||
 || maxArraySize | **string** (int64)
 
 Maximum dictionary key size.
 Applicable only for FLAT layout type. ||
+|| accessToKeyFromAttributes | **boolean**
+
+Allows to retrieve key attribute using dictGetString function.
+Enabling this option increases memory usage.
+Applicable only for IP_TRIE layout type. ||
 |#
 
 ## Range {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range}

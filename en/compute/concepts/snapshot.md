@@ -52,8 +52,13 @@ To test disk recovery from a snapshot, [create a VM with a snapshot disk](../ope
 
 To protect critical data in {{ compute-name }}, we recommend encrypting snapshots with [{{ kms-full-name }}](../../kms/) keys.
 
-To learn more, see [{#T}](encryption.md).
+For more information, see [{#T}](encryption.md).
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/hpc-on-preemptible.md)
+* [{#T}](../../tutorials/testing/ci-for-snapshots.md)
+* [{#T}](../../tutorials/web/bitrix-website/index.md)
 
 #### See also {#see-also}
 

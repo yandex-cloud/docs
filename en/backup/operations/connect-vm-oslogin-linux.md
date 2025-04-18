@@ -16,7 +16,7 @@ If you have [deleted](delete-vm.md) a VM with OS Login from {{ backup-name }} an
 To connect a Linux VM with OS Login to {{ backup-name }}:
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../security/index.md#backup-editor).
-1. [Connect](../../compute/operations/vm-control/vm-update.md) the previously created service account to the VM.
+1. [Connect](../../compute/operations/vm-control/vm-connect-sa.md) the previously created service account to the VM.
 1. [Set up](../concepts/vm-connection.md#vm-network-access) network access for your VM.
 1. Install the {{ backup-name }} agent:
 
@@ -44,7 +44,7 @@ To connect a Linux VM with OS Login to {{ backup-name }}:
         * `id`: VM unique ID. This is a required parameter.
         * `policy-ids`: IDs of the [backup policies](../concepts/policy.md) for attaching to the VM after installing the {{ backup-name }} agent. This is an optional parameter. Attaching a policy to a VM is an asynchronous operation which may take several minutes.
 
-        Once you execute the command, you will get the {{ backup-name }} agent installation warning: `This command will launch commands on specified instance to install backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Confirm the installation: in the terminal, type `yes` and press `Enter`. The {{ backup-name }} agent installation will start. It will take some time to complete.
+        Once you execute the command, you will get the {{ backup-name }} agent installation warning: `This command will launch commands on specified instance to install backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Confirm the installation: in the terminal, type `yes` and press `Enter`. The {{ backup-name }} agent installation will start. It will take some time.
 
         Result:
 

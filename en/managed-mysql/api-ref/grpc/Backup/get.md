@@ -39,7 +39,8 @@ To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/grpc/Bac
   "started_at": "google.protobuf.Timestamp",
   "size": "int64",
   "type": "BackupCreationType",
-  "status": "BackupStatus"
+  "status": "BackupStatus",
+  "journal_size": "int64"
 }
 ```
 
@@ -81,4 +82,7 @@ Status of backup
 - `BACKUP_STATUS_UNSPECIFIED`
 - `DONE`: Backup is done
 - `CREATING`: Backup is creating ||
+|| journal_size | **int64**
+
+Size of the journal associated with backup, in bytes. ||
 |#

@@ -84,6 +84,7 @@ The computing resources may have the following configurations:
 
   Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---
+  1 | 80 | 18 | 144
   2 | 160 | 36 | 288
   4 | 320 | 72 | 576
   8 | 640 | 180 | 1440
