@@ -254,6 +254,50 @@ items:
             href: operations/users/move-subscription.md
           - name: Disabling auto-renewal
             href: operations/users/cancel-subscription.md
+      - name: Tutorials
+        items:
+          - name: All tutorials
+            href: tutorials/index.md
+          - name: Using {{ marketplace-name }} products in {{ managed-k8s-name }}
+            items:
+              - name: Integration with Argo CD
+                href: tutorials/argo-cd.md
+              - name: Integration with Crossplane
+                href: tutorials/crossplane.md
+              - name: Syncing with {{ lockbox-name }} secrets
+                href: tutorials/kubernetes-lockbox-secrets.md
+              - name: Configuring Fluent Bit for {{ cloud-logging-name }}
+                href: tutorials/fluent-bit-logging.md
+              - name: Setting up Gateway API
+                href: tutorials/gateway-api.md
+              - name: >-
+                  Configuring an {{ alb-name }} L7 load balancer using an
+                  Ingress controller
+                href: tutorials/alb-ingress-controller.md
+              - name: >-
+                  Configuring logging for an {{ alb-name }} L7 load balancer
+                  using an Ingress controller
+                href: tutorials/alb-ingress-controller-log-options.md
+              - name: >-
+                  Creating an L7 load balancer with a {{ sws-name }} security
+                  profile through an {{ alb-name }} Ingress controller
+                href: tutorials/alb-ingress-with-sws-profile.md
+              - name: >-
+                  Health checking your apps in a {{ managed-k8s-name }} cluster
+                  using an {{ alb-name }} L7 load balancer
+                href: tutorials/custom-health-checks.md
+              - name: Using Jaeger to trace requests in {{ ydb-name }}
+                href: tutorials/jaeger-over-ydb.md
+              - name: Setting up Kyverno & Kyverno Policies
+                href: tutorials/kyverno.md
+              - name: Using {{ MP }} to stream metrics
+                href: tutorials/metrics-provider.md
+              - name: Editing website images using Thumbor
+                href: tutorials/thumbor.md
+              - name: Using Istio
+                href: tutorials/istio.md
+              - name: Using HashiCorp Vault to store secrets
+                href: tutorials/hashicorp-vault.md
       - name: Concepts
         items:
           - name: Subscription

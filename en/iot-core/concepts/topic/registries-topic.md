@@ -17,3 +17,7 @@ Registry topics available in the service:
     The registry can write data to these topics and the device can read data from them. The registry sends commands for all devices to these topics.
 
 {% include [registry-and-device-topic-note.md](../../../_includes/iot-core/registry-and-device-topic-note.md) %}
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/mosquitto/mosquitto-publish.md)

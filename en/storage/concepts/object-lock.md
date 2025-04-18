@@ -16,13 +16,13 @@ There are two types of object locks that are set for a certain period, i.e., unt
 
 Governance-mode retention
 
-: Users with the permission to upload objects (the [`storage.uploader` role](../security/index.md#storage-uploader)) can set locks.
-: Users with the {{ objstorage-name }} admin permissions (the [`storage.admin` role](../security/index.md#storage-admin)) can override locks (delete or overwrite object versions), change their retention period, and remove them. Users need to explicitly confirm such actions, e.g., when sending a request via an Amazon S3-compatible REST API with the `X-Amz-Bypass-Governance-Retention: true` header.
+: Users with the permission to upload objects (the [`storage.uploader`](../security/index.md#storage-uploader) role) can set locks.
+: Users with the {{ objstorage-name }} admin permissions (the [`storage.admin`](../security/index.md#storage-admin) role) can override locks (delete or overwrite object versions), change their retention period, and remove them. Users need to explicitly confirm such actions, e.g., when sending a request via an Amazon S3-compatible REST API with the `X-Amz-Bypass-Governance-Retention: true` header.
 
 Compliance-mode retention
 
-: Users with the permission to upload objects (the `storage.uploader` role) can set locks.
-: Users with the {{ objstorage-name }} admin permissions (the `storage.admin` role) can only extend the retention period.
+: Users with the permission to upload objects (the `storage.uploader` role) can set locks. 
+: Users with the {{ objstorage-name }} admin permissions (the `storage.admin` role) can only extend the retention period. 
 : You cannot override, shorten, or remove such locks until they expire.
 
 There is another object lock type that has no time limit:
@@ -49,7 +49,7 @@ Retention periods and legal holds are independent. This means you can place a re
 
 ## Default object locks {#default}
 
-You can set _default object locks_ for a bucket, which will apply to all new object versions uploaded to it.
+You can set _default object locks_ for a bucket, which will apply to all new object versions uploaded to it. 
 
 For such locks, you need to specify the following:
 
@@ -71,3 +71,9 @@ For details, see these guides:
 * [Uploading an object version with an object lock](../operations/objects/upload.md#w-object-lock)
 * [Configuring object locks](../operations/objects/edit-object-lock.md): Setting, updating, and removing a lock
 * [Deleting an object version with an object lock](../operations/objects/delete.md#w-object-lock)
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/backup-with-veeam.md)
+

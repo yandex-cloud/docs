@@ -7,3 +7,10 @@ You can pull this Docker image from the public Docker image registry or {{ conta
 Examples of Docker image names for various registries:
 * Docker Hub: `ubuntu:16.04`.
 * {{ container-registry-name }}: `{{ registry }}/<registry_ID>/ubuntu:16.04`.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/coi-fluent-bit-logging.md)
+* [{#T}](../tutorials/deploy-app-container.md)
+* [{#T}](../tutorials/docker-compose.md)
+* [{#T}](../tutorials/serial-port.md)

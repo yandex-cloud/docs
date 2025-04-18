@@ -5,6 +5,17 @@ You can send [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md
 * To enable sending [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master logs, use the `master logging` setting when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) a cluster. The setting is only available in the API, CLI, and {{ TF }}.
 * To send [pod](../../managed-kubernetes/concepts/index.md#pod) and [service](../../managed-kubernetes/concepts/index.md#service) logs, use the [Fluent Bit application with the {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) plugin in the {{ managed-k8s-name }} cluster.
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for {{ cloud-logging-name }}: Writing and storing data (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+
+
 ## Sending master logs to {{ managed-k8s-name }} in {{ cloud-logging-name }} using master logging {#master-logging}
 
 To set up the transfer of {{ managed-k8s-name }} master logs to {{ cloud-logging-name }}:
@@ -24,7 +35,7 @@ Set up your infrastructure:
   1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
   1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
   1. [Create service accounts](../../iam/operations/sa/create.md#create-sa):
-     * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is being created.
+     * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
        {% note tip %}

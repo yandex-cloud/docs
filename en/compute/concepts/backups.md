@@ -34,3 +34,9 @@ With {{ backup-name }}, you can [restore](../../backup/operations/backup-vm/reco
 To enable backups on a VM, [connect](../../backup/concepts/vm-connection.md) the VM to {{ backup-name }} and [link](../../backup/operations/policy-vm/update.md#update-vm-list) it to a backup [policy](../../backup/concepts/policy.md). The provider must [support](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html) the VM operating system.
 
 {% include [backup-image-snapshot-comparison](../../_includes/backup-image-snapshot-comparison.md) %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/hystax-backup.md)
+* [{#T}](../../tutorials/archive/vm-with-backup-policy/index.md)

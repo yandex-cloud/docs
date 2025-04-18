@@ -1,6 +1,7 @@
 ---
-title: Guide for using Jaeger to trace requests in {{ ydb-name }}
-description: This guide describes how you can install Jaeger in a {{ managed-k8s-name }} cluster and configure it to work with {{ ydb-full-name }}.
+title: Guide on using Jaeger to trace requests in {{ ydb-name }}
+description: Follow this guide to install the Jaeger platform in a cluster and configure it to work with {{ ydb-full-name }}.
+canonical: '{{ link-docs }}/tutorials/container-infrastructure/jaeger-over-ydb'
 ---
 
 # Using Jaeger to trace requests in {{ ydb-name }}

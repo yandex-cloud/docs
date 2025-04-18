@@ -111,6 +111,10 @@ items:
           Загрузка данных из {{ objstorage-name }} в {{ mgp-name }} с помощью {{
           data-transfer-name }}
         href: tutorials/object-storage-to-greenplum.md
+      - name: >-
+          Копирование данных из {{ mos-name }} в {{ mgp-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-greenplum.md
       - name: Поставка данных с помощью {{ data-transfer-name }}
         items:
           - name: Поставка из {{ KF }} в {{ GP }}
@@ -327,6 +331,8 @@ items:
                 href: api-ref/grpc/Cluster/stop.md
               - name: Move
                 href: api-ref/grpc/Cluster/move.md
+              - name: RescheduleMaintenance
+                href: api-ref/grpc/Cluster/rescheduleMaintenance.md
               - name: ListOperations
                 href: api-ref/grpc/Cluster/listOperations.md
               - name: ListMasterHosts
@@ -401,6 +407,18 @@ items:
                 href: api-ref/grpc/ResourcePreset/get.md
               - name: List
                 href: api-ref/grpc/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/grpc/User/index.md
+              - name: List
+                href: api-ref/grpc/User/list.md
+              - name: Create
+                href: api-ref/grpc/User/create.md
+              - name: Update
+                href: api-ref/grpc/User/update.md
+              - name: Delete
+                href: api-ref/grpc/User/delete.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -437,6 +455,8 @@ items:
                 href: api-ref/Cluster/stop.md
               - name: Move
                 href: api-ref/Cluster/move.md
+              - name: RescheduleMaintenance
+                href: api-ref/Cluster/rescheduleMaintenance.md
               - name: ListOperations
                 href: api-ref/Cluster/listOperations.md
               - name: ListMasterHosts
@@ -511,6 +531,18 @@ items:
                 href: api-ref/ResourcePreset/get.md
               - name: List
                 href: api-ref/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/User/index.md
+              - name: List
+                href: api-ref/User/list.md
+              - name: Create
+                href: api-ref/User/create.md
+              - name: Update
+                href: api-ref/User/update.md
+              - name: Delete
+                href: api-ref/User/delete.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

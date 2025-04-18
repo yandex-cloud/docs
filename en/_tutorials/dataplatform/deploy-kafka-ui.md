@@ -20,9 +20,19 @@ To deploy the UI for {{ KF }} in a Docker container:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+### Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* VM fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for public IP addresses for VMs and cluster hosts if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
 ### Getting started {#before-you-begin-to-work-with-docker}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -58,7 +68,7 @@ Prepare the infrastructure:
       * {{ KF }} user.
 
    1. In the `kafka-ui-via-docker.tf` file, specify the values of variables.
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -93,7 +103,7 @@ Prepare the infrastructure:
    You can view the FQDN in the management console:
 
       1. Go to the cluster page.
-      1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
    If the cluster is available, you will get this message:
@@ -149,7 +159,7 @@ When deploying {{ KF }} in a Docker container, TrustStore commands run on a VM.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `password`: {{ KF }} user password.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD`: Password you set when creating the `truststore.jks` file.
 
-   Once started, the command does not terminate. While it is running, the UI for {{ KF }} is available.
+   The command does not complete after you run it. While it is running, the UI for {{ KF }} is available.
 
 1. On a local machine, go to `http://<VM_public_IP_address>:8080` in your browser. The UI for {{ KF }} with {{ mkf-name }} cluster data will open.
 
@@ -167,9 +177,20 @@ To deploy the UI for {{ KF }} in a {{ managed-k8s-name }} cluster:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+### Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for {{ managed-k8s-name }} cluster nodes (VM): using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for public IP addresses for {{ mkf-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ### Getting started {#before-you-begin-to-work-with-kubernetes}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -209,7 +230,7 @@ Prepare the infrastructure:
       * {{ managed-k8s-name }} node group.
 
    1. Specify the values of variables in the `kafka-ui-via-kubernetes.tf` file.
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -239,7 +260,7 @@ On a local machine:
    You can view the FQDN in the management console:
 
       1. Go to the cluster page.
-      1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
    If the cluster is available, you will get this message:

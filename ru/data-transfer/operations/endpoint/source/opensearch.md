@@ -21,6 +21,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Миграция кластера {{ OS }}](../../../tutorials/os-to-mos.md).
 * [Загрузка данных из {{ OS }} в {{ objstorage-name }}](../../../tutorials/opensearch-to-object-storage.md).
 * [Миграция со сменой хранилища: {{ OS }} в {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
+* [Миграция со сменой хранилища: {{ OS }} в {{ GP }}](../../../tutorials/opensearch-to-greenplum.md).
 
 * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 

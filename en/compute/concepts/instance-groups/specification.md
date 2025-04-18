@@ -95,7 +95,7 @@ service_account_id: ajefnb8427bh********
 The list, structure, and descriptions of specification fields are provided:
 
 * In the specification of the [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) structure and other [structures used in it](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto), in the API repository on GitHub (in [Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) format).
-* In the description of the [create](../../api-ref/InstanceGroup/create) REST API method of the `InstanceGroup` resource ([JSON](https://en.wikipedia.org/wiki/JSON) format).
+* In the description of the [create](../../api-ref/InstanceGroup/create) REST API method of the `InstanceGroup` resource ([JSON](https://en.wikipedia.org/wiki/JSON))
 * In the description of the [InstanceGroupService/Create](../../instancegroup/api-ref/grpc/InstanceGroup/create.md) gRPC API call.
 
 API references are generated from specifications published on GitHub.
@@ -250,3 +250,7 @@ You can create an instance group based on a YAML specification using the command
 
 * [{#T}](../../operations/instance-groups/create-from-yaml.md)
 * [{#T}](../../operations/instance-groups/update-from-yaml.md)
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/vm-autoscale/index.md)

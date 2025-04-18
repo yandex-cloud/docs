@@ -179,6 +179,25 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
       "access": {
         "dataTransfer": "boolean",
         "serverless": "boolean"
+      },
+      "snapshotManagement": {
+        "snapshotSchedule": {
+          // Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`
+          "hourlySnapshotSchedule": {
+            "minute": "string"
+          },
+          "dailySnapshotSchedule": {
+            "hour": "string",
+            "minute": "string"
+          },
+          "weeklySnapshotSchedule": {
+            "day": "string",
+            "hour": "string",
+            "minute": "string"
+          }
+          // end of the list of possible fields
+        },
+        "snapshotMaxAgeDays": "string"
       }
     },
     "networkId": "string",
@@ -438,6 +457,9 @@ Dashboards configuration. ||
 || access | **[Access](#yandex.cloud.mdb.opensearch.v1.Access)**
 
 Access policy for external services. ||
+|| snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
+
+Snapshot management configuration ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -602,6 +624,94 @@ Determines whether the access to Data Transfer is allowed. ||
 || serverless | **boolean**
 
 Determines whether the access to Serverless is allowed. ||
+|#
+
+## SnapshotManagement {#yandex.cloud.mdb.opensearch.v1.SnapshotManagement}
+
+Snapshot management configuration
+
+#|
+||Field | Description ||
+|| snapshotSchedule | **[SnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule)**
+
+Snapshot creation schedule ||
+|| snapshotMaxAgeDays | **string** (int64)
+
+Snapshot max age in days ||
+|#
+
+## SnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule}
+
+Snapshot creation schedule
+
+#|
+||Field | Description ||
+|| hourlySnapshotSchedule | **[HourlySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule)**
+
+Hourly based snapshot schedule
+
+Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`. ||
+|| dailySnapshotSchedule | **[DailySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule)**
+
+Daily based snapshot schedule
+
+Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`. ||
+|| weeklySnapshotSchedule | **[WeeklySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule)**
+
+Weekly based snapshot schedule
+
+Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`. ||
+|#
+
+## HourlySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule}
+
+Hourly based snapshot schedule
+
+#|
+||Field | Description ||
+|| minute | **string** (int64)
+
+The minute of the hour at which the backup should be created. ||
+|#
+
+## DailySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule}
+
+Daily based snapshot schedule
+
+#|
+||Field | Description ||
+|| hour | **string** (int64)
+
+The hour of the day in UTC timezone at which the backup should be created. ||
+|| minute | **string** (int64)
+
+The minute of the hour at which the backup should be created. ||
+|#
+
+## WeeklySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule}
+
+Weekly based snapshot schedule
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+Day of the week
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+The hour of the day in UTC timezone at which the backup should be created. ||
+|| minute | **string** (int64)
+
+The minute of the hour at which the backup should be created. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

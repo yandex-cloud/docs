@@ -15,6 +15,7 @@ Actions are performed by making RPC calls. For more information about API archit
 ||Service | Description ||
 || [Backup](Backup/index.md) | A set of methods for managing backups. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing OpenSearch clusters. ||
+|| [Extension](Extension/index.md) |  ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets. ||
 |#

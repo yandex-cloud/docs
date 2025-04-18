@@ -36,4 +36,6 @@ A set of methods for managing OpenSearch clusters.
 || [UpdateDashboardsNodeGroup](updateDashboardsNodeGroup.md) | Updates a Dashboards type host group. ||
 || [GetAuthSettings](getAuthSettings.md) | Retrieves auth settings for specified cluster. ||
 || [UpdateAuthSettings](updateAuthSettings.md) | Updates auth settings for specified cluster. ||
+|| [RestartOpenSearch](restartOpenSearch.md) | Restarts OpenSearch on specified host. ||
+|| [SwitchMaster](switchMaster.md) | Switches current master or ensures that master not on specified hosts. ||
 |#

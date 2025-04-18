@@ -13,7 +13,7 @@ After an antivirus run, creating an incremental backup under a policy with enabl
 At the same time, the final size of an incremental backup does not change much: algorithms detect actual data on the disk has not changed.
 
 
-## How to detect if the antivirus affects backups {#symphtoms}
+## How to detect the antivirus affects backups {#symphtoms}
 
 The antivirus affects quick backups in the following cases:
 
@@ -30,7 +30,7 @@ The antivirus affects quick backups in the following cases:
 
 * However, if backup time is crucial and exceeds the allocated period, we recommend changing the volume mounting settings in `fstab` and disabling the `access time` parameter. To do this, specify the `noatime` parameter for the mounting point of a disk volume or partition in the `/etc/fstab` file.
 
-Here is an example:
+For example:
 
 ```bash
 /dev/mapper/vg1-disk /storage auto rw,noatime 0 0

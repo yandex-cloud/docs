@@ -1,7 +1,7 @@
 # Configuring a fault-tolerant architecture in {{ yandex-cloud }}
 
 
-In this tutorial, you will configure a fault-tolerant architecture in {{ yandex-cloud }} and test it with different scenarios.
+In this tutorial, you will configure a [fault-tolerant architecture](../../architecture/fault-tolerance.md) in {{ yandex-cloud }} and test it in different scenarios.
 
 By fault tolerance, we mean the ability of a system to operate despite failures in one or more of its components.
 

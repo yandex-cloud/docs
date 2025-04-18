@@ -45,7 +45,7 @@ Do not delete the security groups linked to a running cluster or node group. Thi
 
 {% note warning %}
 
-Rules for service traffic are required for a regional cluster to work.
+Rules for service traffic are required for a highly-available cluster to work.
 
 {% endnote %}
 
@@ -68,9 +68,9 @@ For the cluster to work correctly, create rules for incoming and outgoing traffi
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `ICMP`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Address ranges of subnets within {{ yandex-cloud }} to health check the cluster from, e.g.:
-       * `10.0.0.0/8`.
-       * `192.168.0.0/16`.
-       * `172.16.0.0/12`.
+       * `10.0.0.0/8`
+       * `192.168.0.0/16`
+       * `172.16.0.0/12`
 
 1. Add a rule for outgoing service traffic between the master and the nodes:
 
@@ -134,10 +134,10 @@ To access the nodes via SSH, create a rule for incoming traffic and [apply it to
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: IP address ranges of subnets within {{ yandex-cloud }} and public IP addresses of computers on the internet, for example:
-    * `10.0.0.0/8`.
-    * `192.168.0.0/16`.
-    * `172.16.0.0/12`.
-    * `85.32.32.22/32`.
+    * `10.0.0.0/8`
+    * `192.168.0.0/16`
+    * `172.16.0.0/12`
+    * `85.32.32.22/32`
 
 ## Applying security groups with rules {#apply}
 
@@ -161,7 +161,7 @@ Depending on the rules the security groups contain, these groups must be assigne
 
     * Uses the following configuration:
 
-        * A regional master in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones.
+        * A highly-available master in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones.
         * A node group named `worker-nodes-a` in the `{{ region-id }}-a` availability zone.
         * Cluster CIDR: `10.96.0.0/16`; CIDR of services: `10.112.0.0/16`.
 
@@ -169,9 +169,9 @@ Depending on the rules the security groups contain, these groups must be assigne
 
         * [Health checks of nodes using ICMP requests](#rules-internal-cluster) are allowed from the following subnets within {{ yandex-cloud }}:
 
-            * `10.0.0.0/8`.
-            * `172.16.0.0/12`.
-            * `192.168.0.0/16`.
+            * `10.0.0.0/8`
+            * `172.16.0.0/12`
+            * `192.168.0.0/16`
 
         * [Connections to services from the internet](#rules-nodes) are allowed from any addresses: `0.0.0.0/0`.
         * [Connections to nodes via SSH](#rules-nodes-ssh) are allowed from the only address: `85.32.32.22/32`.

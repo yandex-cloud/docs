@@ -33,9 +33,9 @@ To create a [resource](../../concepts/resource.md):
 
       1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
       1. Enter a label in `key: value` format.
-      1. Click **Enter**.
+      1. Press **Enter**.
 
-  1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, enter **{{ ui-key.yacloud.cdn.label_personal-domain }}**. You can add multiple **Domain names**. Names may include characters other than [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII), e.g., Сyrillic, or [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). The first name is considered the primary domain name.
+  1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, enter **{{ ui-key.yacloud.cdn.label_personal-domain }}**. You can add multiple **Domain names**. Names may include characters other than [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII), e.g., Cyrillic, or [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). The first name is considered the primary domain name.
 
      {% note warning %}
 
@@ -205,7 +205,7 @@ To create a [resource](../../concepts/resource.md):
 
      {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

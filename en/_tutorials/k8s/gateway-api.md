@@ -13,6 +13,18 @@ To integrate Gateway API and {{ alb-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
@@ -249,7 +261,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    {% endcut %}
 
-1. Create the `dev-route.yaml` file:
+1. Create a file named `dev-route.yaml`:
 
    {% cut "dev-route.yaml" %}
 

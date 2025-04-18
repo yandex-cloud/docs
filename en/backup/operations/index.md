@@ -47,5 +47,8 @@ description: This page provides a list of step-by-step guides for {{ backup-name
 ## Service operations {#service-operations}
 
 * [{#T}](activate-service.md)
-* [{#T}](operation-logs.md)
 * [{#T}](get-stats.md)
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

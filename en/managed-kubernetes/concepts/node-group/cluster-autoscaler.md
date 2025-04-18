@@ -20,8 +20,12 @@ You can resize an autoscaling group using [{{ k8s }} cluster-autoscaler](https:/
 
 {% note info %}
 
-When calculating the current limits and [quotas]({{ link-console-quotas }}), {{ managed-k8s-name }} uses the specified maximum node group size as the actual size, regardless of the current group size.
+When calculating the current limits and [quotas]({{ link-console-quotas }}), {{ managed-k8s-name }} uses the specified maximum node group size as its actual size, regardless of the current group size.
 
 {% endnote %}
 
 The node group autoscaler is different from [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale). The Horizontal Pod Autoscaler uses a controller to periodically request resource usage based on the metrics defined in each {{ k8s }} API [HorizontalPodAutoscaler](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#horizontalpodautoscaler-v2-autoscaling) object. You can use both mechanisms in parallel.
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/dns-autoscaler.md)

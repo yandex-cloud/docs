@@ -149,7 +149,9 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
       "allowDataLoss": "boolean",
       "useLuajit": "boolean",
       "ioThreadsAllowed": "boolean",
-      "zsetMaxListpackEntries": "string"
+      "zsetMaxListpackEntries": "string",
+      "aofMaxSizePercent": "string",
+      "activedefrag": "boolean"
     },
     "diskSizeAutoscaling": {
       "plannedUsageThreshold": "string",
@@ -238,7 +240,8 @@ TLS port and functionality on\off ||
 Persistence mode
 
 - `ON`: cluster persistence mode on
-- `OFF`: cluster persistence mode off ||
+- `OFF`: cluster persistence mode off
+- `ON_REPLICAS`: cluster persistence on replicas only ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the cluster ||
@@ -723,6 +726,12 @@ Allow redis to use io-threads ||
 || zsetMaxListpackEntries | **string** (int64)
 
 Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
+|| aofMaxSizePercent | **string** (int64)
+
+AOF maximum size as a percentage of disk available ||
+|| activedefrag | **boolean**
+
+Enable active (online) memory defragmentation ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1162,7 +1171,9 @@ Hour of the day in UTC (in `HH` format). ||
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
           "ioThreadsAllowed": "boolean",
-          "zsetMaxListpackEntries": "string"
+          "zsetMaxListpackEntries": "string",
+          "aofMaxSizePercent": "string",
+          "activedefrag": "boolean"
         },
         "userConfig": {
           "maxmemoryPolicy": "string",
@@ -1194,7 +1205,9 @@ Hour of the day in UTC (in `HH` format). ||
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
           "ioThreadsAllowed": "boolean",
-          "zsetMaxListpackEntries": "string"
+          "zsetMaxListpackEntries": "string",
+          "aofMaxSizePercent": "string",
+          "activedefrag": "boolean"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "string",
@@ -1226,7 +1239,9 @@ Hour of the day in UTC (in `HH` format). ||
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
           "ioThreadsAllowed": "boolean",
-          "zsetMaxListpackEntries": "string"
+          "zsetMaxListpackEntries": "string",
+          "aofMaxSizePercent": "string",
+          "activedefrag": "boolean"
         }
       },
       "diskSizeAutoscaling": {
@@ -1458,7 +1473,8 @@ Deletion Protection inhibits deletion of the cluster ||
 Persistence mode
 
 - `ON`: cluster persistence mode on
-- `OFF`: cluster persistence mode off ||
+- `OFF`: cluster persistence mode off
+- `ON_REPLICAS`: cluster persistence on replicas only ||
 || announceHostnames | **boolean**
 
 Enable FQDN instead of ip ||
@@ -2040,6 +2056,12 @@ Allow redis to use io-threads ||
 || zsetMaxListpackEntries | **string** (int64)
 
 Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
+|| aofMaxSizePercent | **string** (int64)
+
+AOF maximum size as a percentage of disk available ||
+|| activedefrag | **boolean**
+
+Enable active (online) memory defragmentation ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2}

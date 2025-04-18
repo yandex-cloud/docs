@@ -14,6 +14,17 @@ To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data 
 1. [Connect the service account to the cluster](#connect-service-account).
 1. [Set up access rights for the service account](#configure-acl).
 
+{% note info %}
+
+The service account will send SQL queries to {{ objstorage-name }}. These queries may or may not include the key and the secret.
+
+If no service account is specified, SQL queries will be sent:
+
+* Anonymously, if the key and secret are not specified in the query.
+* Using the key, if the key and secret are specified in the query.
+
+{% endnote %}
+
 See also [Examples of working with objects](#examples).
 
 
@@ -31,11 +42,11 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
 {% note tip %}
 
-To link {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using dedicated service accounts. This allows you to work with any buckets, including those to which you cannot or should not allow public access.
+To link {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using dedicated service accounts. This allows you to work with any buckets, including those to which you cannot or should not allow public access.  
 
 {% endnote %}
 
-## Set up access rights {#configure-acl}
+## Configure access permissions {#configure-acl}
 
 {% list tabs group=instructions %}
 

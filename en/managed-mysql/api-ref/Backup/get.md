@@ -37,7 +37,8 @@ To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/Backup/l
   "startedAt": "string",
   "size": "string",
   "type": "string",
-  "status": "string"
+  "status": "string",
+  "journalSize": "string"
 }
 ```
 
@@ -93,4 +94,7 @@ Status of backup
 - `BACKUP_STATUS_UNSPECIFIED`
 - `DONE`: Backup is done
 - `CREATING`: Backup is creating ||
+|| journalSize | **string** (int64)
+
+Size of the journal associated with backup, in bytes. ||
 |#

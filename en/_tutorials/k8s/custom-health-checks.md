@@ -1,7 +1,7 @@
 # Health checking your apps in a {{ managed-k8s-full-name }} cluster using a {{ alb-full-name }} L7 load balancer
 
 
-You can use the [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to automatically health check your applications deployed in a {{ managed-k8s-name }} cluster.
+You can use an [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to automatically health check your applications deployed in a {{ managed-k8s-name }} cluster.
 
 An Ingress controller installed in the cluster deploys an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) with all the required {{ alb-name }} resources based on the configuration of the [Ingress](../../managed-kubernetes/alb-ref/ingress.md) and [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resources you created.
 
@@ -17,7 +17,7 @@ You can view health check results in the [management console]({{ link-console-ma
 
 To deploy an application in a {{ managed-k8s-name }} cluster and configure access to it and health checks via an {{ alb-name }} L7 load balancer:
 
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Create a Docker image](#docker-image).
 1. [Deploy a test application](#test-app).
 1. [Prepare an address for the L7 load balancer](#prepare-address).
@@ -26,9 +26,22 @@ To deploy an application in a {{ managed-k8s-name }} cluster and configure acces
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
 
-### Prepare the infrastructure {#infra}
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing).
+
+
+## Get your cloud ready {#before-begin}
+
+### Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
@@ -69,7 +82,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `k8s_version`: {{ k8s }} version. Available versions are listed in [{#T}](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -263,7 +276,7 @@ To prepare an address for the load balancer:
       * [Type A record](../../dns/concepts/resource-record.md#a) for this zone to bind the reserved IP address to the delegated domain.
 
 
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -319,7 +332,7 @@ To create resources:
 
    To follow the load balancer's creation and make sure it is error-free, open the logs of the pod the creation process was run in:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Click your cluster's name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
    1. Select the `yc-alb-ingress-controller-*` pod (not `yc-alb-ingress-controller-hc-*`) where the resource creation process is running.
    1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
@@ -367,7 +380,7 @@ To create resources:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. Click the load balancer name and select **{{ ui-key.yacloud.alb.label_healthchecks }}** in the left-hand panel.
       1. Check the target health statuses. The `HEALTHY` status indicates the application is up and running.
 

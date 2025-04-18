@@ -70,7 +70,7 @@ The service _logs_ the execution of functions. However, if necessary, you can im
 
 ### Scaling a function {#scaling}
 
-A function instance processes one function call at a single point in time. If the function is called faster than one instance can process the request, the service scales the function by running additional function instances. This ensures _concurrent request processing_. In {{ sf-name }}, you can specify:
+A function instance processes one function call at a single point in time. If the function is called faster than the instance can process the request, the service scales the function by running additional instances of it. This ensures _concurrent request processing_. In {{ sf-name }}, you can specify:
 
 {% include [scaling](../../_includes/functions/scaling.md) %}
 
@@ -115,6 +115,16 @@ Provisioned instances count towards the following [quotas](limits.md) even when 
 * Number of function instances per availability zone.
 * Total RAM for all running functions per availability zone.
 * Number of provisioned function instances per cloud.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/api-gw-integration.md)
+* [{#T}](../tutorials/batch-code-execution.md)
+* [{#T}](../tutorials/canary-release.md)
+* [{#T}](../tutorials/events-from-postbox-to-yds.md)
+* [{#T}](../tutorials/functions-framework-to-container.md)
+* [{#T}](../tutorials/monitoring.md)
+* [{#T}](../tutorials/nodejs-cron-restart-vm.md)
 
 #### See also
 

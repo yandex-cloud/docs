@@ -21,7 +21,7 @@ If you no longer need the resources, [delete them](#delete-resources).
 ### Required paid resources {#paid-resources}
 
 The cost of support for the infrastructure deployed through {{ TF }} in this tutorial includes:
-* Fee for a [{{ managed-k8s-name }} regional master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for the [{{ managed-k8s-name }} highly available master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) in the [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using dynamic [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
@@ -33,7 +33,7 @@ The cost of support for the infrastructure deployed through {{ TF }} in this tut
 
 {% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
 
-{% cut "Managing resources on behalf of a Yandex account or a federated account" %}
+{% cut "Managing resources under a Yandex account or a federated account" %}
 
 {% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
 
@@ -77,7 +77,7 @@ module "yc-vpc" {
 
 ## Enable {{ managed-k8s-name }} {#k8s-module}
 
-Add the `terraform-yc-vpc` module to the configuration. Add the {{ managed-k8s-name }} cluster configuration with a regional master and two node groups as well:
+Add the `terraform-yc-vpc` module to the configuration. Also, add the {{ managed-k8s-name }} cluster configuration with a highly available master and two node groups:
 
 ```hcl
 module "kube" {

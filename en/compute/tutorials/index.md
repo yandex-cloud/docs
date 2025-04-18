@@ -42,8 +42,11 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](bastion.md)
 * [{#T}](route-switcher.md)
 * [{#T}](site-to-site-openvpn.md)
+* [{#T}](gpu-cluster-deepseek.md)
 * [{#T}](mlflow-datasphere.md)
+* [{#T}](install-gitlab-runner.md)
 * [{#T}](mgp-config-server-for-s3.md)
+* [{#T}](bm-vrf-and-vpc-interconnect.md)
 
 ## {{ coi }} {#coi}
 

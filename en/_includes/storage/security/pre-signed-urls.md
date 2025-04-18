@@ -144,7 +144,7 @@ Hex(Hash-SHA256(<CanonicalRequest>))
 
 Where:
 
-* `AWS4-HMAC-SHA256`: Hash algorithm.
+* `AWS4-HMAC-SHA256`: Hash algorithm. 
 * `timestamp`: Current time in ISO 8601 format, e.g., `20190801T000000Z`. The specified date value (not the format) must match the date in the `scope` parameter.
 * `scope`: `<YYYYMMDD>/{{ region-id }}/s3/aws4_request`.
 * `CanonicalRequest`: [Canonical request](#canonical-request) generated earlier. The signature string contains the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash of the canonical request in hexadecimal representation.
@@ -464,3 +464,9 @@ This subsection provides examples of generating pre-signed URLs with the help of
       ```
 
 {% endlist %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../../../tutorials/security/protected-access-to-content/index.md)
+

@@ -1,6 +1,6 @@
 # Access
 
-By default, all operations in {{ ig-name }} are performed on behalf of a [service account](../../../iam/concepts/users/service-accounts.md).
+By default, all operations in {{ ig-name }} are performed under a [service account](../../../iam/concepts/users/service-accounts.md).
 
 Service accounts are special accounts that can be used by services and applications to work with other {{ yandex-cloud }} APIs on your behalf. For more information about service accounts and access management in {{ yandex-cloud }}, see the [{{ iam-full-name }} documentation](../../../iam/).
 
@@ -21,6 +21,10 @@ For more information, see [{#T}](balancers.md).
 {% include [sa-dependence](../../../_includes/instance-groups/sa-dependence.md) %}
 
 {% endnote %}
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/vm-autoscale/index.md)
 
 #### See also {#see-also}
 

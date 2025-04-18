@@ -3,10 +3,10 @@
 
 In this tutorial, you will configure status monitoring for devices (e.g., vending machines) connected to [{{ iot-full-name }}](../../iot-core/index.yaml) and located at various sites throughout the city. You can monitor the status of vending machines on the [{{ datalens-full-name }}](../../datalens/index.yaml) map and charts. To emulate sensors, we will use [{{ sf-full-name }}](../../functions/index.yaml). If you have any connected sensors, use them. [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) will be used to store data.
 
-The source code for the tutorial is available in a [GitHub repository](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios).
+The source code for the tutorial is available in a [GitHub repository](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring).
 
 To configure monitoring of sensor readings:
-1. [Prepare your cloud](#configure-cloud).
+1. [Get your cloud ready](#configure-cloud).
 1. [Create a {{ mpg-name }} cluster](#postgresql-step).
 1. [Create the required {{ iot-name }} resources](#resources-step).
 1. [Create a device emulator in {{ sf-name }}](#emulator-step).
@@ -51,8 +51,8 @@ The example is based on the minimum values of [host](../../managed-postgresql/co
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Specify a name for the cluster, e.g., `my-pg-database`.
-  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** list, select `PRODUCTION`.
-  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** list, select `15`.
+  1. From the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** list, select `PRODUCTION`.
+  1. From the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** list, select `15`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, specify:
 
       * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}**: `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`.
@@ -552,7 +552,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Click **Create chart**.
-  1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select the `My-pg-dataset` you created previously.
+  1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select `My-pg-dataset`, which you created previously.
   1. Select **Line chart** as your [chart type](../../datalens/visualization-ref/line-chart.md).
   1. From the **Dimensions** section in the left-hand menu, drag the dimensions to the **Line chart** section as follows:
       * `event_datetime`, to the **X** section.

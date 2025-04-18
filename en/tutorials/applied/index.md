@@ -20,6 +20,7 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 * [Creating a Python web application with Flask](../web/flask.md)
 * [{#T}](../web/gatsby-static-website.md)
 * [{#T}](../web/migrate-to-yc-cdn.md)
+* [{#T}](../web/user-agent-statistics.md)
 
 ## 1C {#1c}
 

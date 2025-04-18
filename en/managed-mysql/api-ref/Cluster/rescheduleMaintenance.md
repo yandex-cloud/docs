@@ -191,7 +191,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "optimizerSearchDepth": "string",
           "queryResponseTimeStats": "boolean",
           "userstat": "boolean",
-          "maxExecutionTime": "string"
+          "maxExecutionTime": "string",
+          "auditLogPolicy": "string",
+          "innodbLruScanDepth": "string",
+          "mdbForceSsl": "boolean",
+          "innodbChangeBuffering": "string"
         },
         "userConfig": {
           "innodbBufferPoolSize": "string",
@@ -284,7 +288,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "optimizerSearchDepth": "string",
           "queryResponseTimeStats": "boolean",
           "userstat": "boolean",
-          "maxExecutionTime": "string"
+          "maxExecutionTime": "string",
+          "auditLogPolicy": "string",
+          "innodbLruScanDepth": "string",
+          "mdbForceSsl": "boolean",
+          "innodbChangeBuffering": "string"
         },
         "defaultConfig": {
           "innodbBufferPoolSize": "string",
@@ -377,7 +385,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "optimizerSearchDepth": "string",
           "queryResponseTimeStats": "boolean",
           "userstat": "boolean",
-          "maxExecutionTime": "string"
+          "maxExecutionTime": "string",
+          "auditLogPolicy": "string",
+          "innodbLruScanDepth": "string",
+          "mdbForceSsl": "boolean",
+          "innodbChangeBuffering": "string"
         }
       },
       "mysqlConfig_8_0": {
@@ -468,7 +480,14 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "optimizerSwitch": "string",
           "optimizerSearchDepth": "string",
           "userstat": "boolean",
-          "maxExecutionTime": "string"
+          "maxExecutionTime": "string",
+          "auditLogPolicy": "string",
+          "replicationSenderObserveCommitOnly": "boolean",
+          "replicationOptimizeForStaticPluginConfig": "boolean",
+          "innodbLruScanDepth": "string",
+          "sqlRequirePrimaryKey": "boolean",
+          "mdbForceSsl": "boolean",
+          "innodbChangeBuffering": "string"
         },
         "userConfig": {
           "innodbBufferPoolSize": "string",
@@ -557,7 +576,14 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "optimizerSwitch": "string",
           "optimizerSearchDepth": "string",
           "userstat": "boolean",
-          "maxExecutionTime": "string"
+          "maxExecutionTime": "string",
+          "auditLogPolicy": "string",
+          "replicationSenderObserveCommitOnly": "boolean",
+          "replicationOptimizeForStaticPluginConfig": "boolean",
+          "innodbLruScanDepth": "string",
+          "sqlRequirePrimaryKey": "boolean",
+          "mdbForceSsl": "boolean",
+          "innodbChangeBuffering": "string"
         },
         "defaultConfig": {
           "innodbBufferPoolSize": "string",
@@ -646,7 +672,14 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "optimizerSwitch": "string",
           "optimizerSearchDepth": "string",
           "userstat": "boolean",
-          "maxExecutionTime": "string"
+          "maxExecutionTime": "string",
+          "auditLogPolicy": "string",
+          "replicationSenderObserveCommitOnly": "boolean",
+          "replicationOptimizeForStaticPluginConfig": "boolean",
+          "innodbLruScanDepth": "string",
+          "sqlRequirePrimaryKey": "boolean",
+          "mdbForceSsl": "boolean",
+          "innodbChangeBuffering": "string"
         }
       },
       // end of the list of possible fields
@@ -1475,6 +1508,38 @@ For details, see [Percona documentation for the variable](https://docs.percona.c
 The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_execution_time) ||
+|| auditLogPolicy | **enum** (AuditLogPolicy)
+
+The policy controlling how the audit log plugin writes events to its log file
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/audit-log-reference.html#sysvar_audit_log_policy)
+
+- `AUDIT_LOG_POLICY_UNSPECIFIED`
+- `ALL`
+- `LOGINS`
+- `QUERIES`
+- `NONE` ||
+|| innodbLruScanDepth | **string** (int64)
+
+A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth) ||
+|| mdbForceSsl | **boolean**
+
+Force ssl on all hosts (require_secure_transport) ||
+|| innodbChangeBuffering | **enum** (InnodbChangeBuffering)
+
+An optimization for change buffering
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_change_buffering).
+
+- `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
+- `INNODB_CHANGE_BUFFERING_NONE`
+- `INNODB_CHANGE_BUFFERING_INSERTS`
+- `INNODB_CHANGE_BUFFERING_DELETES`
+- `INNODB_CHANGE_BUFFERING_CHANGES`
+- `INNODB_CHANGE_BUFFERING_PURGES`
+- `INNODB_CHANGE_BUFFERING_ALL` ||
 |#
 
 ## MysqlConfigSet8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_0}
@@ -1970,6 +2035,53 @@ For details, see [Percona documentation for the variable](https://docs.percona.c
 The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time) ||
+|| auditLogPolicy | **enum** (AuditLogPolicy)
+
+The policy controlling how the audit log plugin writes events to its log file
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy)
+
+- `AUDIT_LOG_POLICY_UNSPECIFIED`
+- `ALL`
+- `LOGINS`
+- `QUERIES`
+- `NONE` ||
+|| replicationSenderObserveCommitOnly | **boolean**
+
+Limit callbacks to improve performance for semisynchronous replication
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only). ||
+|| replicationOptimizeForStaticPluginConfig | **boolean**
+
+Use shared locks, and avoid unnecessary lock acquisitions, to improve performance for semisynchronous replication
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config). ||
+|| innodbLruScanDepth | **string** (int64)
+
+A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth) ||
+|| sqlRequirePrimaryKey | **boolean**
+
+Whether statements that create new tables or alter the structure of existing tables enforce the requirement that tables have a primary key
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_require_primary_key). ||
+|| mdbForceSsl | **boolean**
+
+Force ssl on all hosts (require_secure_transport) ||
+|| innodbChangeBuffering | **enum** (InnodbChangeBuffering)
+
+An optimization for change buffering
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
+
+- `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
+- `INNODB_CHANGE_BUFFERING_NONE`
+- `INNODB_CHANGE_BUFFERING_INSERTS`
+- `INNODB_CHANGE_BUFFERING_DELETES`
+- `INNODB_CHANGE_BUFFERING_CHANGES`
+- `INNODB_CHANGE_BUFFERING_PURGES`
+- `INNODB_CHANGE_BUFFERING_ALL` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources}

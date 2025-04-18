@@ -25,7 +25,7 @@ _{{ sts-name }}_ — компонент сервиса {{ iam-name }} для п�
 * Секретный ключ.
 * Токен сессии.
 
-Чтобы получить временный ключ доступа с помощью {{ sts-name }}, воспользуйтесь [AWS Command Line Interface (AWS CLI)](../..//storage/tools/aws-cli.md) или HTTP API, совместимым с [AWS STS API](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
+Чтобы получить временный ключ доступа с помощью {{ sts-name }}, воспользуйтесь [AWS Command Line Interface (AWS CLI)](../../storage/tools/aws-cli.md) или HTTP API, совместимым с [AWS STS API](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
 
 Для работы с {{ sts-name }} предусмотрен отдельный [эндпоинт API](../../api-design-guide/concepts/endpoints.md): `https://{{ sts-host }}`.
 

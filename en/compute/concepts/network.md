@@ -84,3 +84,11 @@ Specified host name | VM FQDN
 Once the network interface is connected to a VM, it will be assigned the device MAC address.
 
 You can find out the MAC address from a VM or in the resource information using the {{ yandex-cloud }} API.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/bastion.md)
+* [{#T}](../tutorials/route-switcher.md)
+* [{#T}](../tutorials/backup-and-archive-to-sftp.md)
+* [{#T}](../tutorials/bind-domain-vm/index.md)
+* [{#T}](../tutorials/rds-gw.md)

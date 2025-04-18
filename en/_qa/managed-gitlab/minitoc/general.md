@@ -12,6 +12,8 @@
 
 * [I get `500 Internal Server Error` when opening an instance. What could be the problem?](#500-error)
 
+* [How can I clear pipeline logs to free up disk space?](#pipeline-cleanup)
+
 * [Where can I track my disk space usage?](#disk-space)
 
 * [How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up?](#alert-for-disk-space)

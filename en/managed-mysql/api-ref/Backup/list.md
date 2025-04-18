@@ -51,7 +51,8 @@ To get the next page of results, set `pageToken` to the [ListBackupsResponse.nex
       "startedAt": "string",
       "size": "string",
       "type": "string",
-      "status": "string"
+      "status": "string",
+      "journalSize": "string"
     }
   ],
   "nextPageToken": "string"
@@ -126,4 +127,7 @@ Status of backup
 - `BACKUP_STATUS_UNSPECIFIED`
 - `DONE`: Backup is done
 - `CREATING`: Backup is creating ||
+|| journalSize | **string** (int64)
+
+Size of the journal associated with backup, in bytes. ||
 |#

@@ -28,7 +28,7 @@ items:
             href: operations/update-backup-agent.md
           - name: Updating a Linux VM connection with {{ oslogin }}
             href: operations/refresh-connection-oslogin-linux.md
-          - name: Viewing VM connection status
+          - name: Viewing VM connection settings
             href: operations/get-connection-status.md
           - name: Viewing backup log
             href: operations/get-journal.md
@@ -82,6 +82,8 @@ items:
         href: operations/get-stats.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
         href: tutorials/backup-baremetal.md
       - name: Linking a backup policy to a VM automatically
@@ -196,7 +198,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/backup/authentication.md
       - name: gRPC
         items:

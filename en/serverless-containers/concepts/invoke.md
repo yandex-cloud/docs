@@ -83,3 +83,9 @@ When invoking a container using a trigger, an HTTP POST request is sent to the [
 ## {{ api-gw-full-name }} extension {#extension}
 
 When invoking a container using the {{ api-gw-name }}, the container is handed over an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the container's host. The request source IP is provided in the same way as when [invoking a container using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/containers.md).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/movies-database.md)
+* [{#T}](../tutorials/pg-connect.md)
+* [{#T}](../tutorials/functions-framework-to-container.md)

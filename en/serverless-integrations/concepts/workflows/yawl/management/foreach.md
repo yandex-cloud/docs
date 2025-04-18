@@ -12,6 +12,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 `input` | `string` | Yes | No | Yes | A jq expression that forms an array of objects. If the result is not an array of objects, the run will be terminated with an error.
 `output` | `string` | Yes | No | Yes | A jq expression that forms an object to contain the `foreach` output. If the result is not an object, the run will be terminated with an error.
 `do` | [ForeachDo](#ForeachDo) | Yes | No | No | Sequence of steps to apply to each input data item.
+`concurrency` | `int` | No | 1 | No | Number of input data items on which the sequence of steps from `do` is being performed at the same time.
 `next` | `string` | No | No | No | ID of the next step.
 
 ## ForeachDo object {#ForeachDo}

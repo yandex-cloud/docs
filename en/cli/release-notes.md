@@ -7,11 +7,72 @@ description: This page presents a list of YC CLI releases and the updates of eac
 
 ## Current version {#latest-release}
 
-## Version 0.145.0 (18/03/25) {#version0.145.0}
+### Version 0.146.1 (03/04/25) {#version0.146.1}
 
-### Changes to {{ yandex-cloud }} services {#version0.145.0-services}
+#### Changes in {{ yandex-cloud }} services
 
-#### {{ mrd-name }} {#version0.145.0-mrd}
+##### {{ compute-name }} {#compute}
+
+* Added the following commands for managing VM reserved pools:
+  * `yc compute reserved-instance-pool get`
+  * `yc compute reserved-instance-pool list`
+  * `yc compute reserved-instance-pool create`
+  * `yc compute reserved-instance-pool update`
+  * `yc compute reserved-instance-pool delete`
+
+## Previous releases {#previous-release}
+
+### Version 0.146.0 (02/04/25) {#version0.146.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ at-name }} {#audit-trails}
+
+* `--filter-from-*` flags are no longer checked in the `yc audit-trails trail create` and `yc audit-trails trail update` commands. These flags will be deleted in the next release.
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Deleted the `--capacity` and `--pop` flags from the `yc cic trunk-connection update` command.
+ 
+##### {{ iam-name }} {#iam}
+
+* Marked the `--scope` flag in the `yc iam api-key create` command as **DEPRECATED**.
+
+##### {{ objstorage-name }} {#storage}
+
+* Added the `yc storage s3api list-objects` command for getting a list of bucket objects.
+
+##### Managed database services {#managed-db}
+
+* Added the `--generate-password` flag for automatic password generation using {{ connection-manager-name }} to these commands:
+  * `yc managed-clickhouse user create`, `yc managed-clickhouse user update`
+  * `yc managed-mysql user create`, `yc managed-mysql user update`
+  * `yc managed-postgresql user create`, `yc managed-postgresql user update`
+
+**{{ mkf-name }}**
+
+* In the `yc managed-kafka user create` and `yc managed-kafka user update` commands, added a new possible value, `topic_admin`, for the `role` key in the `--permission` flag.
+
+**{{ mgp-name }}**
+
+* Fixed the default version from 6.19 to 6.25 for the `yc managed-greenplum cluster create` command.
+
+**{{ mos-name }}**
+
+* Added the `yc managed-opensearch cluster restart-opensearch` command for restarting the service on the host specified in the `--host` flag.
+* Added the `yc managed-opensearch cluster switch-master` command for switching the current master.
+  * In the `--from-hosts host,[host...]` parameter, you can specify a list of hosts to switch the master from. If the master is no longer on any of these hosts, no changes will take place.
+  * If the `--from-hosts` parameter is missing, the master will be switched from the host it is currently on.
+
+**{{ ydb-name }}**
+
+* Added the `--security-group-name` and `--security-group-id` flags to the `yc ydb database create` and `yc ydb database update` commands.
+
+### Version 0.145.0 (18/03/25) {#version0.145.0}
+
+#### Changes to {{ yandex-cloud }} services {#version0.145.0-services}
+
+##### {{ mrd-name }} {#version0.145.0-mrd}
 
 * Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` commands:
   * `activedefrag`
@@ -22,19 +83,19 @@ description: This page presents a list of YC CLI releases and the updates of eac
   * `yc managed-redis cluster restore`
   * `yc managed-redis cluster update`
 
-#### {{ mos-name }} {#version0.145.0-mos}
+##### {{ mos-name }} {#version0.145.0-mos}
 
 * Added support for `local-ssd` disks.
 * Added the ability to automatically assign subnets when creating a cluster or adding a host group.
 
-#### {{ quota-manager-name }} {#version0.145.0-quota-manager}
+##### {{ quota-manager-name }} {#version0.145.0-quota-manager}
 
 * Added the `yc quota-manager quota-limit` command group to view quota limits:
   * `yc quota-manager quota-limit get`: Output the value of a specific quota.
   * `yc quota-manager quota-limit list`: Output a list of quotas for a specific service.
   * `yc quota-manager quota-limit list-service`: Output the list of services that have available quotas.
 
-#### {{ interconnect-name }} {#version0.145.0-cic}
+##### {{ interconnect-name }} {#version0.145.0-cic}
 
 * Added commands for TrunkConnection management:
   * `yc cic trunk-connection create`
@@ -54,7 +115,7 @@ description: This page presents a list of YC CLI releases and the updates of eac
   * `yc cic private-connection remove-static-route`
   * `yc cic private-connection list-operations`
 
-#### {{ cr-name }} {#version0.145.0-cloudrouter}
+##### {{ cr-name }} {#version0.145.0-cloudrouter}
 
 * Added commands for RoutingInstance management:
   * `yc cloudrouter routing-instance create`
@@ -68,17 +129,15 @@ description: This page presents a list of YC CLI releases and the updates of eac
   * `yc cloudrouter routing-instance remove-private-connection`
   * `yc cloudrouter routing-instance list-operations`
 
-#### {{ network-load-balancer-name }} {#version0.145.0-nlb}
+##### {{ network-load-balancer-name }} {#version0.145.0-nlb}
 
 * Fixed an error for the `yc network-load-balancer update` command in the `--allow-zonal-shift` flag listener.
 
-## Previous releases {#previous-release}
-
 ### Version 0.144.0 (27/02/25) {#version0.144.0}
 
-### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ mrd-name }}
+##### {{ mrd-name }}
 
 * Added the commands for outputting, reading, creating, updating, and deleting users:
   * `yc managed-redis user list`
@@ -100,15 +159,15 @@ description: This page presents a list of YC CLI releases and the updates of eac
   * `yc managed-redis cluster restore`
   * `yc managed-redis cluster update-config`
 
-#### {{ resmgr-name }} {#resmgr}
+##### {{ resmgr-name }} {#resmgr}
 
 * Added the `--organization-id` optional parameter to the `yc resource-manager cloud create` command.
 
-#### {{ backup-name }} {#backup}
+##### {{ backup-name }} {#backup}
 
 * Added the `backup backup batch-delete` command for deleting all backups in an archive and the archive itself. You can specify the archive using the `--archive-id` parameter or the `--instance-id` and `--policy-id` parameters.
 
-#### {{ yc-mdb-gp }}
+##### {{ yc-mdb-gp }}
 
 * Updated the list of supported Greenplum® versions for the `yc managed-greenplum cluster update-config` command:
 
@@ -125,7 +184,7 @@ description: This page presents a list of YC CLI releases and the updates of eac
   * `--log-command-center-enabled`: Enabling log delivery from Greenplum®.
   * `--log-command-center-enabled`: Enabling log delivery from Odyssey®.
 
-#### {{ network-load-balancer-name }}
+##### {{ network-load-balancer-name }}
 
 * Added the `--allow-zonal-shift` parameter for the `yc network-load-balancer create/update` commands that allows the load balancer to work in one-AZ (one availability zone) fault mode.
 
@@ -1298,7 +1357,7 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 
 #### Changes to the CLI {#cli}
 
-* Added the `--impersonate-service-account-id` parameter to perform actions on behalf of a service account. This parameter is used to provide the service account ID. The value data type is string.
+* Added the `--impersonate-service-account-id` parameter to perform actions under a service account. This parameter is used to provide the service account ID. The value data type is string.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -1645,7 +1704,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * Added the following parameters to the `yc serverless api-gateway add-domain` command:
 
-  * `--domain`: To specify the FQDN of a [domain](../certificate-manager/concepts/domains/index.md) from {{ certificate-manager-name }} you are connecting.
+  * `--domain`: To specify the FQDN of a domain from {{ certificate-manager-name }} you are connecting.
   * `--certificate-id`: To specify the ID of a certificate from {{ certificate-manager-name }}.
 
   The `--domain-id` parameter is considered obsolete. Use the `--domain` and `--certificate-id` parameters instead.
@@ -3907,7 +3966,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` commands.
 
-  For the `--listener` flag, you can now set the `target-port` parameter, which allows you to configure NAT for targets receive traffic on a port other than the `listener` port.
+  For the `--listener` flag, you can now set the `target-port` parameter, which allows you to configure NAT so that target resources receive traffic on a port other than the `listener` port.
 
 
 #### Managed database services {#managed-db}

@@ -7,7 +7,7 @@ description: This article describes the syntax of the S3 Select query language.
 
 {% note info %}
 
-To be able to make S3 Select queries, contact [support](../../support/overview.md).
+To be able to make S3 Select requests, contact [support](../../support/overview.md).
 
 {% endnote %}
 
@@ -320,3 +320,11 @@ Examples:
   ```
 
 {% endlist %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/server-logs.md)
+* [{#T}](../tutorials/user-agent-statistics.md)
+* [{#T}](../tutorials/billing-resource-detailing.md)
+

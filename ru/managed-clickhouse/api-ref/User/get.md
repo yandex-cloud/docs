@@ -149,6 +149,8 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
     "addHttpCorsHeader": "boolean",
     "cancelHttpReadonlyQueriesOnClientClose": "boolean",
     "maxHttpGetRedirects": "string",
+    "httpMaxFieldNameSize": "string",
+    "httpMaxFieldValueSize": "string",
     "joinedSubqueryRequiresAlias": "boolean",
     "joinUseNulls": "boolean",
     "transformNullIn": "boolean",
@@ -163,12 +165,14 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
     "waitForAsyncInsertTimeout": "string",
     "asyncInsertMaxDataSize": "string",
     "asyncInsertBusyTimeout": "string",
-    "asyncInsertStaleTimeout": "string",
+    "asyncInsertUseAdaptiveBusyTimeout": "boolean",
     "memoryProfilerStep": "string",
     "memoryProfilerSampleProbability": "number",
     "maxFinalThreads": "string",
     "inputFormatParallelParsing": "boolean",
     "inputFormatImportNestedJson": "boolean",
+    "formatAvroSchemaRegistryUrl": "string",
+    "dataTypeDefaultNullable": "boolean",
     "localFilesystemReadMethod": "string",
     "maxReadBufferSize": "string",
     "insertKeeperMaxRetries": "string",
@@ -180,14 +184,31 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
     "memoryOvercommitRatioDenominatorForUser": "string",
     "memoryUsageOvercommitMaxWaitMicroseconds": "string",
     "logQueryThreads": "boolean",
+    "logQueryViews": "boolean",
+    "logQueriesProbability": "number",
+    "logProcessorsProfiles": "boolean",
+    "useQueryCache": "boolean",
+    "enableReadsFromQueryCache": "boolean",
+    "enableWritesToQueryCache": "boolean",
+    "queryCacheMinQueryRuns": "string",
+    "queryCacheMinQueryDuration": "string",
+    "queryCacheTtl": "string",
+    "queryCacheMaxEntries": "string",
+    "queryCacheMaxSizeInBytes": "string",
+    "queryCacheTag": "string",
+    "queryCacheShareBetweenUsers": "boolean",
+    "queryCacheNondeterministicFunctionHandling": "string",
     "maxInsertThreads": "string",
     "useHedgedRequests": "boolean",
     "idleConnectionTimeout": "string",
     "hedgedConnectionTimeoutMs": "string",
     "loadBalancing": "string",
     "preferLocalhostReplica": "boolean",
+    "doNotMergeAcrossPartitionsSelectFinal": "boolean",
+    "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
     "compile": "boolean",
-    "minCountToCompile": "string"
+    "minCountToCompile": "string",
+    "asyncInsertStaleTimeout": "string"
   },
   "quotas": [
     {
@@ -991,6 +1012,14 @@ Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://cli
 If the parameter is set to **0** (default), no hops is allowed.
 
 More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects). ||
+|| httpMaxFieldNameSize | **string** (int64)
+
+Maximum length of field name in HTTP header.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_name_size). ||
+|| httpMaxFieldValueSize | **string** (int64)
+
+Maximum length of field value in HTTP header.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_value_size). ||
 || joinedSubqueryRequiresAlias | **boolean** ||
 || joinUseNulls | **boolean** ||
 || transformNullIn | **boolean** ||
@@ -1064,11 +1093,10 @@ The maximum timeout in milliseconds since the first INSERT query before insertin
 If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
 
 More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms). ||
-|| asyncInsertStaleTimeout | **string** (int64)
+|| asyncInsertUseAdaptiveBusyTimeout | **boolean**
 
-The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the `asyncInsertBusyTimeout` with every INSERT query as long as `asyncInsertMaxDataSize` is not exceeded.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms). ||
+If it is set to true, use adaptive busy timeout for asynchronous inserts.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#async_insert_use_adaptive_busy_timeout). ||
 || memoryProfilerStep | **string** (int64)
 
 Memory profiler step (in bytes).
@@ -1093,6 +1121,14 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 
 Enables or disables the insertion of JSON data with nested objects.
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing) ||
+|| formatAvroSchemaRegistryUrl | **string**
+
+Avro schema registry URL.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/formats#format_avro_schema_registry_url). ||
+|| dataTypeDefaultNullable | **boolean**
+
+Allows data types without explicit modifiers NULL or NOT NULL in column definition will be Nullable.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#data_type_default_nullable). ||
 || localFilesystemReadMethod | **enum** (LocalFilesystemReadMethod)
 
 Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.
@@ -1161,8 +1197,70 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 || logQueryThreads | **boolean**
 
 Setting up query threads logging. Query threads log into the [system.query_thread_log](https://clickhouse.com/docs/en/operations/system-tables/query_thread_log) table. This setting has effect only when [log_queries](https://clickhouse.com/docs/en/operations/settings/settings#log-queries) is true. Queries threads run by ClickHouse with this setup are logged according to the rules in the [query_thread_log](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#server_configuration_parameters-query_thread_log) server configuration parameter.
-Default: true
+Default: false
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_threads) ||
+|| logQueryViews | **boolean**
+
+Enables or disables query views logging to the the system.query_view_log table.
+Default: true
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_views) ||
+|| logQueriesProbability | **number** (double)
+
+Log queries with the specified probability.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_queries_probability). ||
+|| logProcessorsProfiles | **boolean**
+
+Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_processors_profiles). ||
+|| useQueryCache | **boolean**
+
+If turned on, SELECT queries may utilize the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_query_cache). ||
+|| enableReadsFromQueryCache | **boolean**
+
+If turned on, results of SELECT queries are retrieved from the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_reads_from_query_cache). ||
+|| enableWritesToQueryCache | **boolean**
+
+If turned on, results of SELECT queries are stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_writes_to_query_cache). ||
+|| queryCacheMinQueryRuns | **string** (int64)
+
+Minimum number of times a SELECT query must run before its result is stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_runs). ||
+|| queryCacheMinQueryDuration | **string** (int64)
+
+Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_duration). ||
+|| queryCacheTtl | **string** (int64)
+
+After this time in seconds entries in the query cache become stale.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_ttl). ||
+|| queryCacheMaxEntries | **string** (int64)
+
+The maximum number of query results the current user may store in the query cache. 0 means unlimited.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_entries). ||
+|| queryCacheMaxSizeInBytes | **string** (int64)
+
+The maximum amount of memory (in bytes) the current user may allocate in the query cache. 0 means unlimited.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_size_in_bytes). ||
+|| queryCacheTag | **string**
+
+A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_tag). ||
+|| queryCacheShareBetweenUsers | **boolean**
+
+If turned on, the result of SELECT queries cached in the query cache can be read by other users. It is not recommended to enable this setting due to security reasons.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_share_between_users). ||
+|| queryCacheNondeterministicFunctionHandling | **enum** (QueryCacheNondeterministicFunctionHandling)
+
+Controls how the query cache handles SELECT queries with non-deterministic functions like rand() or now().
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_nondeterministic_function_handling).
+
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_UNSPECIFIED`
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW`: Throw an exception and don't cache the query result.
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_SAVE`: Cache the query result.
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception. ||
 || maxInsertThreads | **string** (int64)
 
 The maximum number of threads to execute the INSERT SELECT query.
@@ -1197,13 +1295,25 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 - `LOAD_BALANCING_ROUND_ROBIN` ||
 || preferLocalhostReplica | **boolean**
 
-Enables/disables preferable using the localhost replica when processing distributed queries.
+Enables or disables preferable using the localhost replica when processing distributed queries.
 Default: true
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#prefer_localhost_replica) ||
+|| doNotMergeAcrossPartitionsSelectFinal | **boolean**
+
+Enables or disable independent processing of partitions for SELECT queries with FINAL.
+Default: false
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree) ||
+|| ignoreMaterializedViewsWithDroppedTargetTable | **boolean**
+
+Ignore materialized views with dropped target table during pushing to views.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#ignore_materialized_views_with_dropped_target_table). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||
 || minCountToCompile | **string** (int64)
+
+The setting is deprecated and has no effect. ||
+|| asyncInsertStaleTimeout | **string** (int64)
 
 The setting is deprecated and has no effect. ||
 |#

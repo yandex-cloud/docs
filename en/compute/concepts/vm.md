@@ -5,13 +5,13 @@ description: A VM is similar to a server in the cloud infrastructure. A VM is cr
 
 # VMs in {{ compute-name }}
 
-A _VM_ is similar to a server in the cloud infrastructure.
+A _virtual machine_ is similar to a server in cloud infrastructures.
 
 ## VMs as a {{ yandex-cloud }} resource {#project}
 
 A VM is created in a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) within your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and inherits access rights from it. You can read more about the {{ yandex-cloud }} resource hierarchy [here](../../resource-manager/concepts/resources-hierarchy.md).
 
-Each VM has a unique ID and name. The name is unique within the folder. The naming requirements are as follows:
+Each VM has a unique ID and name. The name is unique within the folder. Follow these naming requirements:
 
 {% include [name-format](../../_includes/name-format.md) %}
 
@@ -40,15 +40,15 @@ You can also attach additional disks to your VM. You can either attach a previou
 
 You can attach and detach additional disks even after you created the VM.
 
-You can read more about disks [here](disk.md).
+Read more about disks in [{#T}](disk.md).
 
 ## Statuses {#status}
 
 The status of a VM determines which operations you can currently perform on it.
 
-> For example, the `STOPPED` status means that the VM is stopped and you cannot connect to it. To connect to such a VM, you must [start](../operations/vm-control/vm-stop-and-start.md#start) it first. After the status changes to `RUNNING` and the OS loads, you will be able to connect to the VM.
+> For example, the `STOPPED` status means the VM is stopped and you cannot connect to it. To connect to such a VM, you must [start](../operations/vm-control/vm-stop-and-start.md#start) it first. After the status changes to `RUNNING` and the OS boots, you will be able to connect to the VM.
 
-For more information about statuses, see the [{#T}](vm-statuses.md) section.
+For more information about statuses, see [{#T}](vm-statuses.md).
 
 ## Metadata {#metadata}
 
@@ -59,3 +59,11 @@ You can specify your own metadata when creating or updating VMs. For example, to
 When creating a VM, you need to specify its network interface settings by selecting the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, configuring an [internal and public IP address](../../vpc/concepts/address.md), and adding the required [security groups](../../vpc/concepts/security-groups.md). This will allow the VM to work with other services on the intranet and internet.
 
 For more information, see [{#T}](network.md).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/vm-scale-scheduled/index.md)
+* [{#T}](../tutorials/gre-over-ipsec.md)
+* [{#T}](../tutorials/ntp.md)
+* [{#T}](../tutorials/vm-fluent-bit-logging.md)
+* [{#T}](../tutorials/bind-domain-vm/index.md)

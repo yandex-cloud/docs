@@ -65,6 +65,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
 * [{#T}](vm-control/vm-change-security-groups-set.md)
+* [{#T}](vm-control/vm-connect-sa.md)
 * [{#T}](vm-control/vm-access.md)
 * [{#T}](vm-control/vm-delete.md)
 
@@ -130,7 +131,6 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](snapshot-control/snapshot-schedule-access.md)
 * [{#T}](snapshot-control/delete-schedule.md)
 
-
 ## Disk placement groups {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
@@ -138,7 +138,6 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-placement-groups/get-info.md)
 * [{#T}](disk-placement-groups/access.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
-
 
 ## Creating an image {#image-create}
 
@@ -156,7 +155,6 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](image-control/import.md)
 * [{#T}](image-control/access.md)
 
-
 ## File storages {#filesystem}
 
 * [{#T}](filesystem/create.md)
@@ -166,7 +164,6 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](filesystem/get-info.md)
 * [{#T}](filesystem/filesystem-access.md)
 * [{#T}](filesystem/delete.md)
-
 
 ## Managing a serial console {#serial-console}
 
@@ -215,7 +212,6 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](instance-groups/delete.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
 
-
 ## Dedicated hosts {#dedicated-host}
 
 * [{#T}](dedicated-host/create-host-group.md)
@@ -231,3 +227,10 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](gpu-cluster/gpu-cluster-delete.md)
 * [{#T}](gpu-cluster/gpu-cluster-get-info.md)
 * [{#T}](gpu-cluster/access.md)
+* [{#T}](gpu-cluster/gpu-cluster-test-physical-state.md)
+* [{#T}](gpu-cluster/gpu-cluster-mpirun-parallel.md)
+* [{#T}](gpu-cluster/test-infiniband-bandwidth.md)
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)
