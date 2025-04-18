@@ -26,7 +26,7 @@ You can configure [lifecycles](lifecycles.md) for bucket objects.
 
 A key is an ID of an object in a bucket.
 
-Objects are stored in a flat structure, although GUI-based [tools](../tools/index.md) allow you to use {{ objstorage-name }} as a hierarchical file system. Hierarchical view is possible because you can write keys as paths in a file system, e.g., `top_level_prefix/subprefix/text_data.txt`. In the {{ yandex-cloud }} management console, prefixes are called folders.
+Objects are stored in a flat structure, although GUI-based [tools](../tools/index.md) allow you to use {{ objstorage-name }} as a hierarchical file system. Hierarchical view is possible because you can write keys as paths in a file system, e.g., `top_level_prefix/subprefix/text_data.txt`. In the {{ yandex-cloud }} management console, prefixes are called directories.
 
 A key must:
 
@@ -90,8 +90,8 @@ Key | Description
 `Content-Length` | Object size in bytes.
 `Last-Modified` | Date the object was created or last modified.
 `Content-MD5` | Object MD5 hash value, Base64-encoded.
-`Cache-Control` | Value of the `Cache-Control` HTTP header provided by the client when saving the object to the bucket. Afterwards, {{ objstorage-name }} returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header means the object expires 200 seconds after the client receives it. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2).
-`Expires` | Value of the `Expires` HTTP header provided by the client when saving the object to the bucket. Afterwards, {{ objstorage-name }} returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Expires: Thu, 15 Apr 2020 20:00:00 GMT` header means the object expires at 20:00:00 GMT on April 15, 2020. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.3).
+`Cache-Control` | Value of the `Cache-Control` HTTP header provided by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header means the object expires 200 seconds after the client receives it. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2).
+`Expires` | Value of the `Expires` HTTP header provided by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Expires: Thu, 15 Apr 2020 20:00:00 GMT` header means the object expires on April 15, 2020 at 20:00:00 GMT. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.3).
 
 ### User-defined metadata {#user-meta}
 
@@ -109,6 +109,12 @@ The PUT request header must not exceed 8 KB. The maximum size of user-defined me
 
 For more information, see [{#T}](../operations/objects/object-meta.md).
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/server-logs.md)
+* [{#T}](../tutorials/server-logs-yq.md)
+* [{#T}](../tutorials/bucket-to-bucket.md)
 
 ### See also {#see-also}
 

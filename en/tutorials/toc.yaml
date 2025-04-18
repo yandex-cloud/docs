@@ -251,6 +251,8 @@ items:
         href: archive/replicate-logs-to-storage.md
       - name: Using {{ objstorage-name }} in {{ dataproc-name }}
         href: archive/copy-files-from-object-storage.md
+      - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
+        href: archive/backup-baremetal.md
   - name: Development and testing
     items:
       - name: All tutorials
@@ -265,6 +267,8 @@ items:
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
+      - name: '{{ GL }} integration with {{ tracker-name }}'
+        href: dev/gitlab-tracker-integration.md
       - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
       - name: Load testing a gRPC service
@@ -285,14 +289,20 @@ items:
           Getting statistics on queries to {{ objstorage-name }} objects using
           {{ yq-name }}
         href: testing/server-logs-yq.md
+      - name: Getting the number of queries to {{ objstorage-name }} objects
+        href: testing/server-logs.md
       - name: Invoking load testing from {{ GL }} CI
         href: testing/loadtesting-gitlab-ci.md
+      - name: Deploying {{ GLR }} on a {{ compute-name }} virtual machine
+        href: dev/install-gitlab-runner.md
   - name: Basic infrastructure
     items:
       - name: All tutorials
         href: infrastructure/index.md
       - name: Basic internet service architecture and protection
         href: routing/web-service.md
+      - name: Cost analysis by resource using {{ objstorage-name }}
+        href: infrastructure/billing-resource-detailing.md
       - name: Fault tolerance and scaling
         items:
           - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
@@ -432,43 +442,9 @@ items:
       - name: All tutorials
         href: container-infrastructure/index.md
       - name: >-
-          Deploying and load testing a gRPC service with scaling in {{
-          managed-k8s-name }}
-        href: container-infrastructure/loadtesting-grpc-autoscaling.md
-      - name: Setting up Gateway API in {{ managed-k8s-name }}
-        href: container-infrastructure/gateway-api.md
-      - name: >-
-          Installing an NGINX Ingress controller with a {{
-          certificate-manager-name }} certificate
-        href: container-infrastructure/nginx-ingress-certificate-manager.md
-      - name: Setting up the {{ alb-name }} Ingress controller
-        href: container-infrastructure/alb-ingress-controller.md
-      - name: Logging settings for {{ alb-name }} Ingress controllers
-        href: container-infrastructure/alb-ingress-controller-log-options.md
-      - name: >-
-          Health checking your applications in a {{ managed-k8s-name }} cluster
-          with the {{ alb-name }} Ingress controller
-        href: container-infrastructure/custom-health-checks.md
-      - name: >-
-          Transferring {{ managed-k8s-name }} cluster logs to {{
-          cloud-logging-name }}
-        href: container-infrastructure/k8s-fluent-bit-logging.md
-      - name: Encrypting secrets in {{ managed-k8s-name }}
-        href: container-infrastructure/kms-k8s.md
-      - name: Syncing {{ lockbox-name }} and {{ managed-k8s-name }} secrets
-        href: container-infrastructure/kubernetes-lockbox-secrets.md
-      - name: Signing and verifying Docker images in {{ managed-k8s-name }}
-        href: container-infrastructure/sign-cr-with-cosign.md
-      - name: >-
           Setting up a {{ mpg-name }} connection from a container in {{
           serverless-containers-name }}
         href: container-infrastructure/container-pg-connect.md
-      - name: Storing Docker images created in {{ mgl-name }} projects
-        href: container-infrastructure/image-storage.md
-      - name: >-
-          Scanning vulnerabilities during continuous deployment of {{
-          managed-k8s-name }} applications using {{ GL }}
-        href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
       - name: Creating a VM from a {{ coi }}
         href: container-infrastructure/vm-create.md
       - name: >-
@@ -487,6 +463,90 @@ items:
         href: container-infrastructure/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: container-infrastructure/serial-port.md
+      - name: '{{ managed-k8s-name }}'
+        items:
+          - name: Creating a {{ k8s }} cluster with no internet access
+            href: container-infrastructure/k8s-cluster-with-no-internet.md
+          - name: Using node groups with GPUs and no pre-installed drivers
+            href: container-infrastructure/driverless-gpu.md
+          - name: Encrypting secrets in {{ managed-k8s-name }}
+            href: container-infrastructure/kms-k8s.md
+          - name: Setting up and testing scaling
+            items:
+              - name: Horizontal application scaling in a cluster
+                href: container-infrastructure/autoscaling.md
+              - name: Deploying and load testing a gRPC service with scaling
+                href: container-infrastructure/loadtesting-grpc-autoscaling.md
+          - name: Installing NGINX
+            items:
+              - name: Installing an NGINX Ingress controller with {{ lets-encrypt }}
+                href: container-infrastructure/ingress-cert-manager.md
+              - name: >-
+                  Installing an NGINX Ingress controller with a {{
+                  certificate-manager-name }} certificate
+                href: container-infrastructure/nginx-ingress-certificate-manager.md
+          - name: Usage {{ container-registry-name }}
+            items:
+              - name: Integration with {{ container-registry-name }}
+                href: container-infrastructure/container-registry.md
+              - name: >-
+                  Signing and verifying {{ container-registry-name }} Docker
+                  images
+                href: container-infrastructure/sign-cr-with-cosign.md
+              - name: Storing Docker images created in {{ mgl-name }} projects
+                href: container-infrastructure/image-storage.md
+          - name: Continuous integration with {{ GL }}
+            items:
+              - name: >-
+                  Scanning {{ container-registry-name }} for vulnerabilities
+                  during continuous deployment of applications using {{ GL }}
+                href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
+          - name: Working with DNS
+            items:
+              - name: Integrating with a corporate DNS zone
+                href: container-infrastructure/custom-dns.md
+              - name: DNS autoscaling based on cluster size
+                href: container-infrastructure/dns-autoscaler.md
+              - name: DNS Challenge for {{ lets-encrypt }} certificates
+                href: container-infrastructure/dnschallenge.md
+          - name: Monitoring
+            items:
+              - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
+                href: container-infrastructure/filebeat-oss-monitoring.md
+          - name: Using {{ marketplace-name }} products
+            items:
+              - name: Integration with Argo CD
+                href: container-infrastructure/argo-cd.md
+              - name: Integration with Crossplane
+                href: container-infrastructure/crossplane.md
+              - name: Syncing {{ lockbox-name }} and {{ managed-k8s-name }} secrets
+                href: container-infrastructure/kubernetes-lockbox-secrets.md
+              - name: >-
+                  Transferring {{ managed-k8s-name }} cluster logs to {{
+                  cloud-logging-name }}
+                href: container-infrastructure/k8s-fluent-bit-logging.md
+              - name: Setting up Gateway API in {{ managed-k8s-name }}
+                href: container-infrastructure/gateway-api.md
+              - name: Setting up the {{ alb-name }} Ingress controller
+                href: container-infrastructure/alb-ingress-controller.md
+              - name: Logging settings for {{ alb-name }} Ingress controllers
+                href: container-infrastructure/alb-ingress-controller-log-options.md
+              - name: >-
+                  Health checking your applications in a {{ managed-k8s-name }}
+                  cluster with the {{ alb-name }} Ingress controller
+                href: container-infrastructure/custom-health-checks.md
+              - name: Using Jaeger to trace requests in {{ ydb-name }}
+                href: container-infrastructure/jaeger-over-ydb.md
+              - name: Setting up Kyverno &amp; Kyverno Policies
+                href: container-infrastructure/kyverno.md
+              - name: Using {{ MP }} to stream metrics
+                href: container-infrastructure/metrics-provider.md
+              - name: Editing website images using Thumbor
+                href: container-infrastructure/thumbor.md
+              - name: Using Istio
+                href: container-infrastructure/istio.md
+              - name: Using HashiCorp Vault to store secrets
+                href: container-infrastructure/hashicorp-vault.md
   - name: Application solutions
     items:
       - name: All tutorials
@@ -569,6 +629,8 @@ items:
             href: web/gatsby-static-website.md
           - name: Migrating to {{ cdn-name }} from a third-party CDN provider
             href: web/migrate-to-yc-cdn.md
+          - name: Getting website traffic statistics using S3 Select
+            href: web/user-agent-statistics.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store
@@ -1057,6 +1119,8 @@ items:
         href: windows/mssql-alwayson-lb.md
       - name: Deploying Remote Desktop Gateway
         href: windows/rds-gw.md
+      - name: Mounting a bucket as a disk in Windows
+        href: windows/s3-disk-connect.md
   - name: Architecture and networking
     items:
       - name: All tutorials
@@ -1253,8 +1317,8 @@ items:
           authentication in Firebase
         href: serverless/jwt-authorizer-firebase.md
       - name: >-
-          Automatic data upload to {{ speechsense-name }} using {{ sw-full-name
-          }}
+          Automatic data upload to {{ speechsense-full-name }} using {{
+          sw-full-name }}
         href: serverless/auto-upload.md
       - name: >-
           Configuring responses in {{ cloud-logging-name }} and {{ sf-full-name

@@ -51,7 +51,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To create a cluster:
+  To create a {{ managed-k8s-name }} cluster:
 
   1. Specify the {{ managed-k8s-name }} cluster parameters in the create command (not all parameters are given in the example):
 
@@ -59,8 +59,6 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      {{ yc-k8s }} cluster create \
        --name test-k8s \
        --network-name default \
-       --zone {{ region-id }}-a \
-       --subnet-name default-a \
        --public-ip \
        --release-channel regular \
        --version 1.27 \
@@ -69,6 +67,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
        --security-group-ids enpe5sdn7vs5********,enpj6c5ifh75******** \
        --service-account-name default-sa \
        --node-service-account-name default-sa \
+       --master-location zone={{ region-id }}-a,subnet-id=mysubnet \
        --daily-maintenance-window start=22:00,duration=10h
        --labels <cloud_label_name=cloud_label_value>
      ```
@@ -80,8 +79,6 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
-     * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
-     * `--subnet-name`: [Subnet](../../../vpc/concepts/network.md#subnet) name.
      * `--public-ip`: Flag indicating that the {{ managed-k8s-name }} cluster needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
 
        {% include [nat-instance-restriction](../../../_includes/managed-kubernetes/nat-instance-restriction.md) %}
@@ -101,6 +98,14 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
      * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will pull the required [Docker images](../../../container-registry/concepts/registry.md) from the [registry](../../../container-registry/concepts/docker-image.md) on behalf of this account.
+     * `--master-location`: [Master](../../concepts/index.md#master) configuration. Specify in the parameter the availability zone and subnet where the master will be located.
+
+        The number of `--master-location` parameters depends on the type of master:
+
+        * For the basic master, provide one `--master-location` parameter.
+        * For a highly available master hosted across three availability zones, provide three `--master-location` parameters. In each one, specify different availability zones and subnets.
+        * For a highly available master hosted in a single availability zone, provide three `--master-location` parameters. In each one, specify the same availability zone and subnet.
+
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
      * `--labels`: [Cloud labels](../../concepts/index.md#cluster-labels) for the cluster.
 
@@ -267,6 +272,14 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   To create a {{ managed-k8s-name }} cluster, use the [create](../../managed-kubernetes/api-ref/Cluster/create.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster) resource.
 
+  The request body depends on the [master type](../../concepts/index.md#master):
+
+  * For the basic master, provide one `masterSpec.locations` parameter in the request.
+  * For a highly available master hosted across three availability zones, provide three `masterSpec.locations` parameters in the request. In each one, specify different availability zones and subnets.
+  * For a highly available master hosted in a single availability zone, provide three `masterSpec.locations` parameters in the request. In each one, specify the same availability zone and subnet.
+
+  When providing the `masterSpec.locations` parameter, you do not need to specify `masterSpec.zonalMasterSpec` or `masterSpec.regionalMasterSpec`.
+
   {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
   To use a [{{ kms-full-name }}](../../concepts/encryption.md) encryption key to protect secrets, provide its ID in the `kmsProvider.keyId` parameter.
@@ -279,36 +292,59 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 ## Examples {#examples}
 
-### Creating a zonal {{ managed-k8s-name }} cluster {#example-zonal-cluster}
+### Creating a {{ managed-k8s-name }} cluster with a basic master {#example-single-cluster}
 
-Create a {{ managed-k8s-name }} cluster and a network for it with the following test specifications:
+{% list tabs group=instructions %}
 
-  * Name: `k8s-zonal`.
+- CLI {#cli}
+
+  Create a {{ managed-k8s-name }} cluster with the following test specifications:
+
+  * Name: `k8s-single`.
+  * Network: `mynet`.
+  * Availability zone: `{{ region-id }}-a`.
+  * Subnet: `mysubnet`.
+  * Service account: `myaccount`.
+  * Security group ID: `{{ security-group }}`.
+
+  To create a {{ managed-k8s-name }} cluster with a basic master, run this command:
+
+  ```bash
+  {{ yc-k8s }} cluster create \
+     --name k8s-single \
+     --network-name mynet \
+     --master-location zone={{ region-id }}-a,subnet-name=mysubnet \
+     --service-account-name myaccount \
+     --node-service-account-name myaccount \
+     --security-group-ids {{ security-group }}
+  ```
+
+- {{ TF }} {#tf}
+
+  Create a {{ managed-k8s-name }} cluster and a network for it with the following test specifications:
+
+  * Name: `k8s-single`.
   * [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID: `{{ tf-folder-id }}`.
   * Network: `mynet`.
   * Subnet: `mysubnet`. Its network settings are as follows:
 
-    * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+    * Availability zone: `{{ region-id }}-a`.
     * Range: `10.1.0.0/16`.
 
   * Service account: `myaccount`.
   * Service account [roles](../../../iam/concepts/access-control/roles.md): `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.keys.encrypterDecrypter`.
   * {{ kms-full-name }} [encryption key](../../concepts/encryption.md): `kms-key`.
-  * [Security group](../../../vpc/concepts/security-groups.md): `k8s-public-services`. It contains [rules for connecting to services from the internet](../connect/security-groups.md#rules-nodes).
+  * Security group: `k8s-public-services`. It contains [rules for connecting to services from the internet](../connect/security-groups.md#rules-nodes).
 
-Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
-
-{% list tabs group=instructions %}
-
-- {{ TF }} {#tf}
+  Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
 
   ```hcl
   locals {
     folder_id   = "{{ tf-folder-id }}"
   }
 
-  resource "yandex_kubernetes_cluster" "k8s-zonal" {
-    name = "k8s-zonal"
+  resource "yandex_kubernetes_cluster" "k8s-single" {
+    name = "k8s-single"
     network_id = yandex_vpc_network.mynet.id
     master {
       master_location {
@@ -342,8 +378,8 @@ Install {{ TF }} (unless you already have it), configure the provider according 
   }
 
   resource "yandex_iam_service_account" "myaccount" {
-    name        = "zonal-k8s-account"
-    description = "K8S zonal service account"
+    name        = "myaccount"
+    description = "Service account for the single Kubernetes cluster"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
@@ -430,13 +466,43 @@ Install {{ TF }} (unless you already have it), configure the provider according 
 
 {% endlist %}
 
-### Creating a regional {{ managed-k8s-name }} cluster {#example-regional-cluster}
+### Creating a {{ managed-k8s-name }} cluster with a highly available master in three availability zones {#example-ha-cluster-three-zones}
 
-Create a {{ managed-k8s-name }} cluster and a network for it with the following test specifications:
+{% list tabs group=instructions %}
 
-  * Name: `k8s-regional`.
-  * Folder ID: `{{ tf-folder-id }}`.
-  * Network: `my-regional-net`.
+- CLI {#cli}
+
+  Create a {{ managed-k8s-name }} cluster with the following test specifications:
+
+  * Name: `k8s-ha-three-zones`.
+  * Network: `my-ha-net`.
+  * Subnet for the `{{ region-id }}-a` availability zone: `mysubnet-a`.
+  * Subnet for the `{{ region-id }}-b` availability zone: `mysubnet-b`.
+  * Subnet for the `{{ region-id }}-d` availability zone: `mysubnet-d`.
+  * Service account: `ha-k8s-account`.
+  * Security group ID: `{{ security-group }}`.
+
+  To create a {{ managed-k8s-name }} cluster with a highly available master in three availability zones, run this command:
+
+  ```bash
+  {{ yc-k8s }} cluster create \
+     --name k8s-ha-three-zones \
+     --network-name my-ha-net \
+     --master-location zone={{ region-id }}-a,subnet-name=mysubnet-a \
+     --master-location zone={{ region-id }}-b,subnet-name=mysubnet-b \
+     --master-location zone={{ region-id }}-d,subnet-name=mysubnet-d \
+     --service-account-name ha-k8s-account \
+     --node-service-account-name ha-k8s-account \
+     --security-group-ids {{ security-group }}
+  ```
+
+- {{ TF }} {#tf}
+
+  Create a {{ managed-k8s-name }} cluster and a network for it with the following test specifications:
+
+  * Name: `k8s-ha-three-zones`.
+  * Folder ID: `{{ tf-folder-id }}`
+  * Network: `my-ha-net`.
   * Subnet: `mysubnet-a`. Its network settings are as follows:
 
     * Availability zone: `{{ region-id }}-a`.
@@ -452,25 +518,21 @@ Create a {{ managed-k8s-name }} cluster and a network for it with the following 
     * Availability zone: `{{ region-id }}-d`.
     * Range: `10.7.0.0/16`.
 
-  * Service account: `regional-k8s-account`.
+  * Service account: `ha-k8s-account`.
   * Service account roles: `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.keys.encrypterDecrypter`.
   * {{ kms-full-name }} [encryption key](../../concepts/encryption.md): `kms-key`.
   * Security group: `regional-k8s-sg`. It contains [rules for service traffic](../connect/security-groups.md#rules-internal).
 
-Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
-
-{% list tabs group=instructions %}
-
-- {{ TF }} {#tf}
+  Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
 
   ```hcl
   locals {
     folder_id   = "{{ tf-folder-id }}"
   }
 
-  resource "yandex_kubernetes_cluster" "k8s-regional" {
-    name = "k8s-regional"
-    network_id = yandex_vpc_network.my-regional-net.id
+  resource "yandex_kubernetes_cluster" "k8s-ha-three-zones" {
+    name = "k8s-ha-three-zones"
+    network_id = yandex_vpc_network.my-ha-net.id
     master {
       master_location {
         zone      = yandex_vpc_subnet.mysubnet-a.zone
@@ -484,10 +546,10 @@ Install {{ TF }} (unless you already have it), configure the provider according 
         zone      = yandex_vpc_subnet.mysubnet-d.zone
         subnet_id = yandex_vpc_subnet.mysubnet-d.id
       }
-      security_group_ids = [yandex_vpc_security_group.regional-k8s-sg.id]
+      security_group_ids = [yandex_vpc_security_group.ha-k8s-sg.id]
     }
-    service_account_id      = yandex_iam_service_account.my-regional-account.id
-    node_service_account_id = yandex_iam_service_account.my-regional-account.id
+    service_account_id      = yandex_iam_service_account.ha-k8s-account.id
+    node_service_account_id = yandex_iam_service_account.ha-k8s-account.id
     depends_on = [
       yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
       yandex_resourcemanager_folder_iam_member.vpc-public-admin,
@@ -499,62 +561,62 @@ Install {{ TF }} (unless you already have it), configure the provider according 
     }
   }
 
-  resource "yandex_vpc_network" "my-regional-net" {
-    name = "my-regional-net"
+  resource "yandex_vpc_network" "my-ha-net" {
+    name = "my-ha-net"
   }
 
   resource "yandex_vpc_subnet" "mysubnet-a" {
     name = "mysubnet-a"
     v4_cidr_blocks = ["10.5.0.0/16"]
     zone           = "{{ region-id }}-a"
-    network_id     = yandex_vpc_network.my-regional-net.id
+    network_id     = yandex_vpc_network.my-ha-net.id
   }
 
   resource "yandex_vpc_subnet" "mysubnet-b" {
     name = "mysubnet-b"
     v4_cidr_blocks = ["10.6.0.0/16"]
     zone           = "{{ region-id }}-b"
-    network_id     = yandex_vpc_network.my-regional-net.id
+    network_id     = yandex_vpc_network.my-ha-net.id
   }
 
   resource "yandex_vpc_subnet" "mysubnet-d" {
     name = "mysubnet-d"
     v4_cidr_blocks = ["10.7.0.0/16"]
     zone           = "{{ region-id }}-d"
-    network_id     = yandex_vpc_network.my-regional-net.id
+    network_id     = yandex_vpc_network.my-ha-net.id
   }
 
-  resource "yandex_iam_service_account" "my-regional-account" {
-    name        = "regional-k8s-account"
-    description = "K8S regional service account"
+  resource "yandex_iam_service_account" "ha-k8s-account" {
+    name        = "ha-k8s-account"
+    description = "Service account for the highly available Kubernetes cluster"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
     # The service account gets the "k8s.clusters.agent" role.
     folder_id = local.folder_id
     role      = "k8s.clusters.agent"
-    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
     # The service account gets the "vpc.publicAdmin" role.
     folder_id = local.folder_id
     role      = "vpc.publicAdmin"
-    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
     # The service account gets the "container-registry.images.puller" role.
     folder_id = local.folder_id
     role      = "container-registry.images.puller"
-    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "encrypterDecrypter" {
     # The service account gets the "kms.keys.encrypterDecrypter" role.
     folder_id = local.folder_id
     role      = "kms.keys.encrypterDecrypter"
-    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
@@ -564,10 +626,10 @@ Install {{ TF }} (unless you already have it), configure the provider according 
     rotation_period   = "8760h" # 1 year.
   }
 
-  resource "yandex_vpc_security_group" "regional-k8s-sg" {
-    name        = "regional-k8s-sg"
+  resource "yandex_vpc_security_group" "ha-k8s-sg" {
+    name        = "ha-k8s-sg"
     description = "Group rules ensure the basic performance of the {{ managed-k8s-name }} cluster. Apply it to the cluster and node groups."
-    network_id  = yandex_vpc_network.my-regional-net.id
+    network_id  = yandex_vpc_network.my-ha-net.id
     ingress {
       protocol          = "TCP"
       description       = "The rule allows availability checks from the load balancer's range of addresses. It is required for the operation of a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
@@ -586,6 +648,191 @@ Install {{ TF }} (unless you already have it), configure the provider according 
       protocol          = "ANY"
       description       = "The rule allows sub-sub and service-service interactions. Specify the subnets of your {{ managed-k8s-name }} cluster and services."
       v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-d.v4_cidr_blocks)
+      from_port         = 0
+      to_port           = 65535
+    }
+    ingress {
+      protocol          = "ICMP"
+      description       = "The rule allows debug ICMP packets from internal subnets."
+      v4_cidr_blocks    = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
+    }
+    ingress {
+      protocol          = "TCP"
+      description       = "The rule allows incoming traffic from the internet to a range of NodePorts. Add ports or change existing ones to the required ports."
+      v4_cidr_blocks    = ["0.0.0.0/0"]
+      from_port         = 30000
+      to_port           = 32767
+    }
+    egress {
+      protocol          = "ANY"
+      description       = "The rule allows all outgoing traffic. Nodes can connect to {{ container-registry-full-name }}, {{ objstorage-full-name }}, Docker Hub, etc."
+      v4_cidr_blocks    = ["0.0.0.0/0"]
+      from_port         = 0
+      to_port           = 65535
+    }
+  }
+  ```
+
+{% endlist %}
+
+### Creating a {{ managed-k8s-name }} cluster with a highly available master in a single availability zone {#example-ha-cluster-one-zone}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Create a {{ managed-k8s-name }} cluster with the following test specifications:
+
+  * Name: `k8s-ha-one-zone`.
+  * Network: `my-ha-net`.
+  * Subnet for the `{{ region-id }}-a` availability zone: `my-ha-subnet`.
+  * Number of identical `--master-location` parameters: three. This creates three instances of the master in one availability zone.
+  * Availability zone: `{{ region-id }}-a`.
+  * Service account: `ha-k8s-account`.
+  * Security group ID: `{{ security-group }}`.
+
+  To create a {{ managed-k8s-name }} cluster with a highly available master in a single availability zone , run this command:
+
+  ```bash
+  {{ yc-k8s }} cluster create \
+     --name k8s-ha-one-zone \
+     --network-name my-ha-net \
+     --master-location zone={{ region-id }}-a,subnet-name=my-ha-subnet \
+     --master-location zone={{ region-id }}-a,subnet-name=my-ha-subnet \
+     --master-location zone={{ region-id }}-a,subnet-name=my-ha-subnet \
+     --service-account-name ha-k8s-account \
+     --node-service-account-name ha-k8s-account \
+     --security-group-ids {{ security-group }}
+  ```
+
+- {{ TF }} {#tf}
+
+  Create a {{ managed-k8s-name }} cluster and a network for it with the following test specifications:
+
+  * Name: `k8s-ha-one-zone`.
+  * Folder ID: `{{ tf-folder-id }}`.
+  * Network: `my-ha-net`.
+  * Subnet: `my-ha-subnet`. Its network settings are as follows:
+
+    * Availability zone: `{{ region-id }}-a`.
+    * Range: `10.5.0.0/16`.
+
+  * Service account: `ha-k8s-account`.
+  * Service account roles: `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.keys.encrypterDecrypter`.
+  * {{ kms-full-name }} encryption key: `kms-key`.
+  * Security group: `ha-k8s-sg`. It contains [rules for service traffic](../connect/security-groups.md#rules-internal).
+
+  Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
+
+  ```hcl
+  locals {
+    folder_id   = "{{ tf-folder-id }}"
+  }
+
+  resource "yandex_kubernetes_cluster" "k8s-ha-one-zone" {
+    name = "k8s-ha-one-zone"
+    network_id = yandex_vpc_network.my-ha-net.id
+    master {
+      master_location {
+        zone      = yandex_vpc_subnet.my-ha-subnet.zone
+        subnet_id = yandex_vpc_subnet.my-ha-subnet.id
+      }
+      master_location {
+        zone      = yandex_vpc_subnet.my-ha-subnet.zone
+        subnet_id = yandex_vpc_subnet.my-ha-subnet.id
+      }
+      master_location {
+        zone      = yandex_vpc_subnet.my-ha-subnet.zone
+        subnet_id = yandex_vpc_subnet.my-ha-subnet.id
+      }
+      security_group_ids = [yandex_vpc_security_group.ha-k8s-sg.id]
+    }
+    service_account_id      = yandex_iam_service_account.ha-k8s-account.id
+    node_service_account_id = yandex_iam_service_account.ha-k8s-account.id
+    depends_on = [
+      yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
+      yandex_resourcemanager_folder_iam_member.vpc-public-admin,
+      yandex_resourcemanager_folder_iam_member.images-puller,
+      yandex_resourcemanager_folder_iam_member.encrypterDecrypter
+    ]
+    kms_provider {
+      key_id = yandex_kms_symmetric_key.kms-key.id
+    }
+  }
+
+  resource "yandex_vpc_network" "my-ha-net" {
+    name = "my-ha-net"
+  }
+
+  resource "yandex_vpc_subnet" "my-ha-subnet" {
+    name = "my-ha-subnet"
+    v4_cidr_blocks = ["10.5.0.0/16"]
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.my-ha-net.id
+  }
+
+  resource "yandex_iam_service_account" "ha-k8s-account" {
+    name        = "ha-k8s-account"
+    description = "Service account for the highly available Kubernetes cluster"
+  }
+
+  resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
+    # The service account gets the "k8s.clusters.agent" role.
+    folder_id = local.folder_id
+    role      = "k8s.clusters.agent"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
+  }
+
+  resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
+    # The service account gets the "vpc.publicAdmin" role.
+    folder_id = local.folder_id
+    role      = "vpc.publicAdmin"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
+  }
+
+  resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
+    # The service account gets the "container-registry.images.puller" role.
+    folder_id = local.folder_id
+    role      = "container-registry.images.puller"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
+  }
+
+  resource "yandex_resourcemanager_folder_iam_member" "encrypterDecrypter" {
+    # The service account gets the "kms.keys.encrypterDecrypter" role.
+    folder_id = local.folder_id
+    role      = "kms.keys.encrypterDecrypter"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
+  }
+
+  resource "yandex_kms_symmetric_key" "kms-key" {
+    # A {{ kms-full-name }} key for encrypting critical information, including passwords, OAuth tokens, and SSH keys.
+    name              = "kms-key"
+    default_algorithm = "AES_128"
+    rotation_period   = "8760h" # 1 year.
+  }
+
+  resource "yandex_vpc_security_group" "ha-k8s-sg" {
+    name        = "ha-k8s-sg"
+    description = "Group rules ensure the basic performance of the {{ managed-k8s-name }} cluster. Apply it to the cluster and node groups."
+    network_id  = yandex_vpc_network.my-ha-net.id
+    ingress {
+      protocol          = "TCP"
+      description       = "The rule allows availability checks from the load balancer's range of addresses. It is required for the operation of a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
+      predefined_target = "loadbalancer_healthchecks"
+      from_port         = 0
+      to_port           = 65535
+    }
+    ingress {
+      protocol          = "ANY"
+      description       = "The rule allows master-to-node and node-to-node communication inside a security group."
+      predefined_target = "self_security_group"
+      from_port         = 0
+      to_port           = 65535
+    }
+    ingress {
+      protocol          = "ANY"
+      description       = "The rule allows sub-sub and service-service interactions. Specify the subnets of your {{ managed-k8s-name }} cluster and services."
+      v4_cidr_blocks    = concat(yandex_vpc_subnet.my-ha-subnet.v4_cidr_blocks, yandex_vpc_subnet.my-ha-subnet.v4_cidr_blocks, yandex_vpc_subnet.my-ha-subnet.v4_cidr_blocks)
       from_port         = 0
       to_port           = 65535
     }

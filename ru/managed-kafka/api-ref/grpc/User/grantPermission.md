@@ -60,7 +60,8 @@ Access role type to grant to the user.
 - `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
-- `ACCESS_ROLE_ADMIN`: Admin role for the user. ||
+- `ACCESS_ROLE_ADMIN`: Admin role for the user.
+- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user. ||
 || allow_hosts[] | **string**
 
 Lists hosts allowed for this permission.
@@ -210,7 +211,8 @@ Access role type to grant to the user.
 - `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
-- `ACCESS_ROLE_ADMIN`: Admin role for the user. ||
+- `ACCESS_ROLE_ADMIN`: Admin role for the user.
+- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user. ||
 || allow_hosts[] | **string**
 
 Lists hosts allowed for this permission.

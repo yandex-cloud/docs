@@ -32,7 +32,7 @@ A data streaming bus is an important infrastructure component. It is tolerant to
 
 ### Batching {#batching}
 
-Data storage and processing systems perform at their best if data is written to them in batches. The most effective place for batch generation is the single entry point you channel all your data to. Its role is normally performed by data buses.
+Data storage and processing systems perform at their best if data is written to them in batches. You can create batches in the most efficient way at the single point all your data flows to. Its role is commonly performed by data buses.
 
 
 ### Rewinding data {#rewind}
@@ -44,7 +44,7 @@ Unlike message queues, data buses store data until the retention period expires 
 
 The same data is often stored in multiple storage systems at once: in {{ CH }} for fast analysis and in {{ objstorage-name }} for long-term storage. With data buses, you can easily handle this: as different apps can read data concurrently, you can set up sending the same data to both storage systems: {{ CH }} and {{ objstorage-name }}. This solution will also let you add a third storage system, such as {{ GP }} or {{ ES }}, at any time.
 
-The multiple storage system approach is very convenient for ensuring compliance with FZ-152, PCI DSS, and other standards requiring that data be stored for at least one year. In which case the last month's data can go to one storage system for quick access, and the rest of the data to a cold storage in {{ objstorage-name }} for long time storage.
+The multiple storage system approach is very convenient for ensuring compliance with FZ-152, PCI DSS, and other standards requiring that data be stored for at least one year. In which case the last month's data can go to one storage system for quick access, and the rest of the data to a long-term cold {{ objstorage-name }} storage.
 
 
 ### Masking data and processing logs {#mask}
@@ -61,7 +61,7 @@ Once processed, the data can be sent to multiple target systems at once: access 
 You can process the data saved in {{ yds-short-name }} programmatically. {{ yds-short-name }} is compatible with the Amazon Kinesis Data Streams API, allowing you to use SDKs for different programming languages: C++, Java, Go, Python, etc.
 
 
-## Setup {#setup}
+## Configuration {#setup}
 
 To set up data input to storage systems:
 
@@ -71,13 +71,13 @@ To set up data input to storage systems:
 
     An example of setting up data delivery from {{ yds-short-name }} is given in the [tutorial on how to save data to {{ CH }}](../../data-streams/tutorials/send-to-clickhouse.md).
 
-1. Connect an arbitrary data processing function to {{ data-transfer-full-name }}. See the function code in the [example](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) or use SDKs to directly read data from {{ yds-short-name }}:
+1. Connect an arbitrary data processing function to {{ data-transfer-full-name }}. This GitHub [example](https://github.com/yandex-cloud-examples/yc-nginx-logs-data-transfer) illustrates the function code. Alternatively, you can use the SDK to read data directly from {{ yds-short-name }}:
 
-    * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/).
-    * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html).
-    * [Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/AmazonKinesisClient.html).
-    * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html).
-    * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html).
-    * [HTTP Kinesis Data Streams API](../../data-streams/kinesisapi/api-ref.md).
+    * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/)
+    * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html)
+    * [Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/AmazonKinesisClient.html)
+    * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html)
+    * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html)
+    * [HTTP Kinesis Data Streams API](../../data-streams/kinesisapi/api-ref.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

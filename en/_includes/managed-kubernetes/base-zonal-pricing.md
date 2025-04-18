@@ -1,0 +1,1 @@
+A _base_ master is billed as a _zonal_ one and displayed in {{ billing-name }} as `Managed Kubernetes. Zonal Master - small`.

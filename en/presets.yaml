@@ -114,6 +114,8 @@ default:
   cloud-registry: registry.yandexcloud.net
   cloud-registry-full-name: Yandex Cloud Registry
   cloud-registry-name: Cloud Registry
+  cloud-shell-full-name: Yandex Cloud Shell
+  cloud-shell-name: Cloud Shell
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
   cns-full-name: Yandex Cloud Notification Service

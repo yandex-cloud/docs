@@ -21,6 +21,13 @@ In addition to {{ kms-name }} key-based encryption, you can also use the followi
 
 {% include [encryption-client-side](../../_includes/storage/encryption-client-side.md) %}
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/server-side-encryption.md)
+* [{#T}](../tutorials/static-key-in-lockbox/index.md)
+* [{#T}](../tutorials/export-logs-to-arcsight.md)
+* [{#T}](../tutorials/export-logs-to-splunk.md)
+
 
 #### See also {#see-also}
 

@@ -37,7 +37,7 @@ Set up the software:
 * [Install](https://www.terraform.io/downloads) {{ TF }}. See also: [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Download](https://stedolan.github.io/jq/download/) the `jq` utility.
 * [Configure](https://gitforwindows.org) Git. If you are running Windows, use Git Bash.
-* [Create](https://github.com/yandex-cloud/examples) a repository branch with examples in your GitHub account.
+* [Create](https://github.com/yandex-cloud-examples/yc-marketplace-vm-image-packer) a repository branch with examples in your GitHub account.
 * [Prepare](../../compute/operations/vm-connect/ssh.md) an SSH key for VM access.
 
 ## Create a service account {#create-service-account}
@@ -77,7 +77,7 @@ To create a VM:
 
     {% endnote %}
 
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `15 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the parameters as follows:
 
@@ -88,16 +88,16 @@ To create a VM:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
         * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
         * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-            * In the window that opens, enter the network name and select the folder to host the network.
+            * In the window that opens, specify the network name and select the folder to host the network.
             * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
             * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool. Alternatively, select a static address from the list if you reserved one.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random external IP address from the {{ yandex-cloud }} pool to the VM. Alternatively, select a static address from the list if you reserved one.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
@@ -226,7 +226,7 @@ Enter your {{ yandex-cloud }} credentials and create a task to download changes 
 1. Under **Pipeline**, select `Pipeline script from SCM` from the **Definition** list.
 1. From the **SCM** list, select `Git`.
 1. In the **Report URL** field, enter the URL of your GitHub fork.
-1. In the **Script path** field, enter `jenkins-packer/Jenkinsfile`.
+1. In the **Script path** field, enter `Jenkinsfile`.
 1. Leave other fields unchanged and click **Save**.
 
 ## Configure the GitHub repository {#configure-github-repo}
@@ -253,13 +253,13 @@ In the GitHub repository settings, enable a webhook to initiate a Jenkins build 
 ## Create an image using Jenkins {#create-image}
 
 Jenkins launches an image build automatically after you run `push` in the `master` branch of your GitHub repository.
-1. Clone the [examples](https://github.com/yandex-cloud/examples) repository fork you created when [getting started](#before-you-begin) to your computer:
+1. Clone the [examples](https://github.com/yandex-cloud-examples/yc-marketplace-vm-image-packer) repository fork you created when [getting started](#before-you-begin) to your computer:
 
    ```bash
-   git clone https://github.com/<GitHub_login>/examples.git
+   git clone https://github.com/<GitHub_login>/yc-marketplace-vm-image-packer.git
    ```
 
-1. Modify the Packer templates in the `jenkins-packer/packer/` directory. You can find articles and guides regarding Packer templatess on the [Packer website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the [image families](../../compute/concepts/image#family) for Jenkins to build.
+1. Modify the Packer templates in the `packer` directory. You can find articles and guides regarding Packer templates on the [Packer website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the [image families](../../compute/concepts/image#family) for Jenkins to build.
 1. Modify the Pipeline for `Jenkinsfile` located in the repository root directory. For the Pipeline user handbook, see the [Packer website](https://jenkins.io/doc/book/pipeline/syntax/).
 1. Upload the changes to GitHub:
 
@@ -280,7 +280,7 @@ When configuring a Jenkins task under **GitHub Hook log**, you may encounter a `
 
 As a result, three new images will appear in **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** under **{{ ui-key.yacloud.compute.switch_images }}**:
 * `Debian`: Basic image with the latest updates.
-* `Nginx`: `Debian`-based image with an NGINX web server.
+* `Nginx`: `Debian`-based image with an nginx web server.
 * `Django`: `Debian`-based image with the Django framework.
 
 ## Deploy the images {#deploy-image}

@@ -1,7 +1,7 @@
 # {{ GL }} integration with {{ tracker-full-name }}
 
 
-In [{{ tracker-name }} issues]({{ link-tracker-cloudless }}about-tracker#zadacha), you can automatically add links to {{ GL }} [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) by specifying the appropriate issue [key]({{ link-tracker-cloudless }}glossary#key) in the name or description of a new merge request. The links will be placed in [Links to external applications]({{ link-tracker-cloudless }}external-links).
+In [{{ tracker-name }} issues]({{ link-tracker-cloudless }}about-tracker#zadacha), you can automatically add links to {{ GL }} [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) by specifying the appropriate issue [key]({{ link-tracker-cloudless }}glossary#key) in the name or description of a new merge request. The links will be placed in the [Links to external applications]({{ link-tracker-cloudless }}external-links) section.
 
 You can also enable automatic creation of issue comments with information about merge requests. Auto comments are only available for [{{ mgl-name }}](../../managed-gitlab/).
 
@@ -104,8 +104,9 @@ To set up integration for an individual {{ GL }} project, create one.
 ## Check the result {#check-result}
 
 1. [Create an issue]({{ link-tracker-cloudless }}user/create-ticket#create-task) in {{ tracker-name }}.
-1. [Create a merge request]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) in {{ GL }} and specify the [issue key]({{ link-tracker-cloudless }}glossary#key)in its name or description.
-1. Make sure the {{ tracker-name }} issue now contains a link to the {{ GL }} merge request under [Links to external applications]({{ link-tracker-cloudless }}external-links).
+1. [Create a merge request]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) in {{ GL }} and specify the [issue key]({{ link-tracker-cloudless }}glossary#key) in its name or description.
+1. Make sure a link to the merge request from {{ GL }} appears in the {{ tracker-name }} issue under [Links to external applications]({{ link-tracker-cloudless }}external-links).
+
     If you used {{ mgl-name }} and enabled auto comments when [creating a hook](#create-hook), the issue will show a comment with the merge request link and details.
 
 ## Delete the resources you created {#clear-out}

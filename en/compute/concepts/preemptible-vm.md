@@ -37,3 +37,8 @@ In [{{ ig-name }}](instance-groups/index.md), stopped VMs start automatically ba
 With {{ ig-name }}, preemptible VMs in the group get stopped after a random interval of 22 to 24 hours, rather than exactly after 24 hours. This helps avoid situations when all VMs in the group restart at the same time and stop handling the load of running applications.
 
 {% endnote %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/nodejs-cron-restart-vm.md)
+* [{#T}](../tutorials/hpc-on-preemptible.md)

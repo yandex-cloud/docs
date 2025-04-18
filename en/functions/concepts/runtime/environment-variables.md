@@ -24,6 +24,12 @@ You cannot calculate environment variables. Environment variable values are stri
 
 You can retrieve environment variables using standard programming language tools.
 
+### Use cases {#examples}
+
+* [{#T}](../../tutorials/datalens.md)
+* [{#T}](../../tutorials/monitoring.md)
+* [{#T}](../../tutorials/nodejs-cron-restart-vm.md)
+
 ## Certificate for accessing managed databases {#mdb-certificate}
 
 The environment has an SSL certificate available for accessing managed databases from your code. The certificate is stored in the `/usr/local/share/ca-certificates/yandex-internal-ca.crt` file.

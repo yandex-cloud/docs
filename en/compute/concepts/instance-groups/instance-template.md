@@ -15,7 +15,7 @@ You can set variable values for the instance template. For more information, see
 
 When describing a template, you specify the computing resources to allocate to each instance, i.e., the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](../performance-levels.md).
 
-You can also configure the template to create [preemptible](../preemptible-vm.md) instances, which are cheaper than regular ones. Preemptible instances can only be autohealed if there is enough computing resources in the availability zone. If the resources are insufficient, {{ ig-name }} will resume autohealing as soon as the resources become available; this, however, may take a longer time.
+You can also use configure the template to create [preemptible](../preemptible-vm.md) instances, which are cheaper than regular ones. Preemptible instances can only be autohealed if there is enough computing resources in the availability zone. If the resources are insufficient, {{ ig-name }} will resume autohealing as soon as the resources become available; this, however, may take a longer time.
 
 You can enable a [software-accelerated network](../software-accelerated-network.md) for group instances. This will transfer the processing of VM network traffic to additional compute cores.
 
@@ -143,36 +143,42 @@ Key | Value
 `resources_spec.cores` | Number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type.
 `resources_spec.core_fraction` | Basic [vCPU performance level](../performance-levels.md).
 `boot_disk_spec` | Boot disk parameters.
-`boot_disk_spec.disk_spec.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access.
+`boot_disk_spec.disk_spec.mode` | Disk access mode.</br>– `READ_ONLY`: Read-only access.</br>– `READ_WRITE`: Read/write access.
 `boot_disk_spec.disk_spec.image_id` | ID of the image to create the disk from.
 `boot_disk_spec.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the [diskTypes](../../api-ref/DiskType/list.md) request.
 `boot_disk_spec.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB).
-`boot_disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.
-`secondary_disk_specs` | (Optional) Secondary disks parameters.
-`secondary_disk_specs.name` | (Optional) Secondary disk name. In the same specification, names should be assigned either to all secondary disks or none of them. For more information, see [{#T}](./deploy/secondary-disk.md).
-`secondary_disk_specs.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access.
-`secondary_disk_specs.disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.
+`boot_disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.
+`secondary_disk_specs` | Secondary disks parameters. This is optional.
+`secondary_disk_specs.name` | Secondary disk name. This is optional. In the same specification, names should be assigned either to all secondary disks or none of them. For more information, see [{#T}](./deploy/secondary-disk.md).
+`secondary_disk_specs.mode` | Disk access mode.</br>– `READ_ONLY`: Read-only access.</br>– `READ_WRITE`: Read/write access.
+`secondary_disk_specs.disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.
 `secondary_disk_specs.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the [diskTypes](../../api-ref/DiskType/list.md) request.
 `secondary_disk_specs.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB).
-`filesystem_specs` | (Optional) File storage parameters.
-`filesystem_specs.mode` | File storage access mode: </br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access (default).
+`filesystem_specs` | File storage parameters. This is optional.
+`filesystem_specs.mode` | File storage access mode: </br>– `READ_ONLY`: Read-only access.</br>– `READ_WRITE`: Read/write access (default).
 `filesystem_specs.device_name` | Device name for attaching the file storage to the VM, e.g., `sample-fs`. After attaching a file storage to a VM in the group, [mount](../../operations/filesystem/attach-to-vm.md) it on the VM's operating system. For more information, see [{#T}](../../operations/instance-groups/create-with-filesystem.md).
 `filesystem_specs.filesystem_id` | File storage ID.
 `network_interface_specs.network_id` | Cloud network ID.
 `network_interface_specs.subnet_ids` | IDs of cloud subnets.
 `network_interface_specs.ip_version` | IP version for the public IP address.
 `network_interface_specs.security_group_ids` | Security group IDs.
-`network_settings.type` | (Optional) Network type.</br>– `SOFTWARE_ACCELERATED`: Software-accelerated network.</br>– `STANDARD`: Standard network (default).
-`metadata_options` | (Optional) [Metadata service parameters](../vm-metadata.md#metadata-formats).
-`metadata_options.gce_http_endpoint` | (Optional) Access metadata using the Google Compute Engine format.</br>- `enabled`: Enabled.</br>- `disabled`: Disabled.
-`metadata_options.gce_http_token` | (Optional) Access {{ iam-name }} credentials using the Google Compute Engine format.</br>- `enabled`: Enabled.</br>- `disabled`: Disabled. 
-`metadata` | (Optional) Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md).
+`network_settings.type` | Network acceleration type. This is optional.</br>– `SOFTWARE_ACCELERATED`: Software-accelerated network.</br>– `STANDARD`: Standard network (default parameter).
+`metadata_options` | [Metadata service parameters](../vm-metadata.md#metadata-formats). This is optional.
+`metadata_options.gce_http_endpoint` | Access metadata using the Google Compute Engine format. This is optional.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled.
+`metadata_options.gce_http_token` | Access {{ iam-name }} credentials using the Google Compute Engine format. This is optional.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled.
+`metadata` | Metadata for a template instance. This is optional. For more information, see [{#T}](../vm-metadata.md).
 `metadata.user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program.
-`placement_policy` | (Optional) [VM placement group](../placement-groups.md) parameters.
-`placement_policy.placement_group_id` | Placement group ID. VM instances will reside in data center server racks depending on the selected placement strategy:</br>– `spread` placement strategy ensures that each VM instance resides in a separate server rack in one of the availability zones.</br>– `partition` placement strategy evenly distributes VM instances among the group's partitions and ensures that VM instances from different partitions reside in different server racks in one of the availability zones.
-`service_account_id` | (Optional) [Service account](../../../iam/concepts/users/service-accounts.md) attached to the VMs in the group that enables them to use cloud resources. Using a service account enables flexible configuration of access permissions for resources.</br>For more granular management of access permissions, attach different service accounts with different permissions to the instance group and VMs in the group.
+`placement_policy` | [VM placement group](../placement-groups.md) parameters. This is optional.
+`placement_policy.placement_group_id` | Placement group ID. VM instances will reside in data center server racks depending on the selected placement strategy:</br>– `spread` placement: Each instance is hosted on a separate server rack in one of the availability zones.</br>– `partition` placement: Even allocation of VM instances across group partitions where VM instances from different partitions reside in different server racks in one of the availability zones.
+`service_account_id` | [Service account](../../../iam/concepts/users/service-accounts.md) attached to the VMs in the group that enables them to use cloud resources. This is optional. With a service account, you can flexibly configure access permissions for your resources.</br>For more granular access management, link different service accounts with different permissions to the instance group and individual instances within that group.
 
 For information about the technical restrictions of {{ ig-name }}, see [{#T}](../limits.md).
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../tutorials/vm-scale-scheduled/index.md)
+* [{#T}](../../tutorials/autoscale-monitoring.md)
 
 #### See also {#see-also}
 

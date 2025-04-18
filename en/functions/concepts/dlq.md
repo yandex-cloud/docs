@@ -25,3 +25,8 @@ To configure the redrive policy for all triggers except a trigger for {{ message
 The [redrive policy](../../message-queue/concepts/dlq.md#redrive-policy) for the {{ message-queue-full-name }} trigger is configured when creating a source queue for messages that are processed by the triggered function.
 
 The message keeps its ID after moving to the DLQ.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/datalens.md)
+* [{#T}](../tutorials/monitoring.md)

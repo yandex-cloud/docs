@@ -1,4 +1,4 @@
-# Monitoring a cluster using {{ prometheus-name }} and {{ grafana-name }}
+# Cluster monitoring with {{ prometheus-name }} and {{ grafana-name }}
 
 {{ managed-k8s-name }} enables you to upload cluster object metrics to monitoring systems.
 
@@ -12,6 +12,16 @@ To set up the {{ managed-k8s-name }} cluster monitoring system:
 * [Set up and check {{ grafana-name }}](#configure-grafana).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for the public IP address for the cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
 
 ## Getting started {#before-you-begin}
 

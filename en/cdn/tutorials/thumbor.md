@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/container-infrastructure/metrics-provider'
 ---
 
 # Editing website images using Thumbor

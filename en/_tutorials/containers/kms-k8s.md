@@ -4,6 +4,12 @@ Use [{{ kms-full-name }}](../../kms/concepts/key.md) keys to encrypt [secrets](.
 
 Make sure you specify the encryption key when creating a {{ managed-k8s-name }} cluster, as you cannot add it when updating the cluster.
 
+
+## Required paid resources {#paid-resources}
+
+The cost of support for the described solution includes a {{ kms-name }} fee: number of active key versions (with `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

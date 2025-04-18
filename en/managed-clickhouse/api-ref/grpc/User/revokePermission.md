@@ -167,6 +167,8 @@ Name of the database that the user should lose access to. ||
       "add_http_cors_header": "google.protobuf.BoolValue",
       "cancel_http_readonly_queries_on_client_close": "google.protobuf.BoolValue",
       "max_http_get_redirects": "google.protobuf.Int64Value",
+      "http_max_field_name_size": "google.protobuf.Int64Value",
+      "http_max_field_value_size": "google.protobuf.Int64Value",
       "joined_subquery_requires_alias": "google.protobuf.BoolValue",
       "join_use_nulls": "google.protobuf.BoolValue",
       "transform_null_in": "google.protobuf.BoolValue",
@@ -181,12 +183,14 @@ Name of the database that the user should lose access to. ||
       "wait_for_async_insert_timeout": "google.protobuf.Int64Value",
       "async_insert_max_data_size": "google.protobuf.Int64Value",
       "async_insert_busy_timeout": "google.protobuf.Int64Value",
-      "async_insert_stale_timeout": "google.protobuf.Int64Value",
+      "async_insert_use_adaptive_busy_timeout": "google.protobuf.BoolValue",
       "memory_profiler_step": "google.protobuf.Int64Value",
       "memory_profiler_sample_probability": "google.protobuf.DoubleValue",
       "max_final_threads": "google.protobuf.Int64Value",
       "input_format_parallel_parsing": "google.protobuf.BoolValue",
       "input_format_import_nested_json": "google.protobuf.BoolValue",
+      "format_avro_schema_registry_url": "string",
+      "data_type_default_nullable": "google.protobuf.BoolValue",
       "local_filesystem_read_method": "LocalFilesystemReadMethod",
       "max_read_buffer_size": "google.protobuf.Int64Value",
       "insert_keeper_max_retries": "google.protobuf.Int64Value",
@@ -198,14 +202,31 @@ Name of the database that the user should lose access to. ||
       "memory_overcommit_ratio_denominator_for_user": "google.protobuf.Int64Value",
       "memory_usage_overcommit_max_wait_microseconds": "google.protobuf.Int64Value",
       "log_query_threads": "google.protobuf.BoolValue",
+      "log_query_views": "google.protobuf.BoolValue",
+      "log_queries_probability": "google.protobuf.DoubleValue",
+      "log_processors_profiles": "google.protobuf.BoolValue",
+      "use_query_cache": "google.protobuf.BoolValue",
+      "enable_reads_from_query_cache": "google.protobuf.BoolValue",
+      "enable_writes_to_query_cache": "google.protobuf.BoolValue",
+      "query_cache_min_query_runs": "google.protobuf.Int64Value",
+      "query_cache_min_query_duration": "google.protobuf.Int64Value",
+      "query_cache_ttl": "google.protobuf.Int64Value",
+      "query_cache_max_entries": "google.protobuf.Int64Value",
+      "query_cache_max_size_in_bytes": "google.protobuf.Int64Value",
+      "query_cache_tag": "string",
+      "query_cache_share_between_users": "google.protobuf.BoolValue",
+      "query_cache_nondeterministic_function_handling": "QueryCacheNondeterministicFunctionHandling",
       "max_insert_threads": "google.protobuf.Int64Value",
       "use_hedged_requests": "google.protobuf.BoolValue",
       "idle_connection_timeout": "google.protobuf.Int64Value",
       "hedged_connection_timeout_ms": "google.protobuf.Int64Value",
       "load_balancing": "LoadBalancing",
       "prefer_localhost_replica": "google.protobuf.BoolValue",
+      "do_not_merge_across_partitions_select_final": "google.protobuf.BoolValue",
+      "ignore_materialized_views_with_dropped_target_table": "google.protobuf.BoolValue",
       "compile": "google.protobuf.BoolValue",
-      "min_count_to_compile": "google.protobuf.Int64Value"
+      "min_count_to_compile": "google.protobuf.Int64Value",
+      "async_insert_stale_timeout": "google.protobuf.Int64Value"
     },
     "quotas": [
       {
@@ -1080,6 +1101,14 @@ Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://cli
 If the parameter is set to **0** (default), no hops is allowed.
 
 More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects). ||
+|| http_max_field_name_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum length of field name in HTTP header.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_name_size). ||
+|| http_max_field_value_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum length of field value in HTTP header.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_value_size). ||
 || joined_subquery_requires_alias | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 || join_use_nulls | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 || transform_null_in | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
@@ -1153,11 +1182,10 @@ The maximum timeout in milliseconds since the first INSERT query before insertin
 If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
 
 More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms). ||
-|| async_insert_stale_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| async_insert_use_adaptive_busy_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the `async_insert_busy_timeout` with every INSERT query as long as `async_insert_max_data_size` is not exceeded.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms). ||
+If it is set to true, use adaptive busy timeout for asynchronous inserts.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#async_insert_use_adaptive_busy_timeout). ||
 || memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Memory profiler step (in bytes).
@@ -1182,6 +1210,14 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 
 Enables or disables the insertion of JSON data with nested objects.
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing) ||
+|| format_avro_schema_registry_url | **string**
+
+Avro schema registry URL.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/formats#format_avro_schema_registry_url). ||
+|| data_type_default_nullable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows data types without explicit modifiers NULL or NOT NULL in column definition will be Nullable.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#data_type_default_nullable). ||
 || local_filesystem_read_method | enum **LocalFilesystemReadMethod**
 
 Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.
@@ -1250,8 +1286,70 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 || log_query_threads | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Setting up query threads logging. Query threads log into the [system.query_thread_log](https://clickhouse.com/docs/en/operations/system-tables/query_thread_log) table. This setting has effect only when [log_queries](https://clickhouse.com/docs/en/operations/settings/settings#log-queries) is true. Queries threads run by ClickHouse with this setup are logged according to the rules in the [query_thread_log](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#server_configuration_parameters-query_thread_log) server configuration parameter.
-Default: true
+Default: false
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_threads) ||
+|| log_query_views | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables query views logging to the the system.query_view_log table.
+Default: true
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_views) ||
+|| log_queries_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+Log queries with the specified probability.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_queries_probability). ||
+|| log_processors_profiles | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_processors_profiles). ||
+|| use_query_cache | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+If turned on, SELECT queries may utilize the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_query_cache). ||
+|| enable_reads_from_query_cache | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+If turned on, results of SELECT queries are retrieved from the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_reads_from_query_cache). ||
+|| enable_writes_to_query_cache | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+If turned on, results of SELECT queries are stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_writes_to_query_cache). ||
+|| query_cache_min_query_runs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum number of times a SELECT query must run before its result is stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_runs). ||
+|| query_cache_min_query_duration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_duration). ||
+|| query_cache_ttl | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+After this time in seconds entries in the query cache become stale.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_ttl). ||
+|| query_cache_max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of query results the current user may store in the query cache. 0 means unlimited.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_entries). ||
+|| query_cache_max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum amount of memory (in bytes) the current user may allocate in the query cache. 0 means unlimited.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_size_in_bytes). ||
+|| query_cache_tag | **string**
+
+A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_tag). ||
+|| query_cache_share_between_users | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+If turned on, the result of SELECT queries cached in the query cache can be read by other users. It is not recommended to enable this setting due to security reasons.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_share_between_users). ||
+|| query_cache_nondeterministic_function_handling | enum **QueryCacheNondeterministicFunctionHandling**
+
+Controls how the query cache handles SELECT queries with non-deterministic functions like rand() or now().
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_nondeterministic_function_handling).
+
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_UNSPECIFIED`
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW`: Throw an exception and don't cache the query result.
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_SAVE`: Cache the query result.
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception. ||
 || max_insert_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of threads to execute the INSERT SELECT query.
@@ -1286,13 +1384,25 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 - `LOAD_BALANCING_ROUND_ROBIN` ||
 || prefer_localhost_replica | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Enables/disables preferable using the localhost replica when processing distributed queries.
+Enables or disables preferable using the localhost replica when processing distributed queries.
 Default: true
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#prefer_localhost_replica) ||
+|| do_not_merge_across_partitions_select_final | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disable independent processing of partitions for SELECT queries with FINAL.
+Default: false
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree) ||
+|| ignore_materialized_views_with_dropped_target_table | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Ignore materialized views with dropped target table during pushing to views.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#ignore_materialized_views_with_dropped_target_table). ||
 || compile | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 The setting is deprecated and has no effect. ||
 || min_count_to_compile | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The setting is deprecated and has no effect. ||
+|| async_insert_stale_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The setting is deprecated and has no effect. ||
 |#

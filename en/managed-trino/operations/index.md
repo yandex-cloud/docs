@@ -11,4 +11,5 @@ noIndex: true
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating a cluster](cluster-update.md)
+* [Connecting to a cluster](connect.md)
 * [Deleting a cluster](cluster-delete.md)

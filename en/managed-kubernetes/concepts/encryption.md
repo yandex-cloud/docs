@@ -64,6 +64,14 @@ The encryption process of an individual secret runs as follows:
 
 Secrets are decrypted in a similar way.
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/kms-k8s.md)
+* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+
+
+* [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
+
 ## See also {#see-also}
 
 * [{#T}](../operations/applications/hashicorp-vault.md)

@@ -6,8 +6,8 @@ description: You can describe a Docker container's launch configuration using th
 # Docker container specifications
 
 There are two ways to describe a Docker container's launch configuration:
-* [COI specification](#coi-spec) that can only run one Docker container.
-* [Docker Compose specification](#compose-spec) allows a more flexible configuration. For example, you can run multiple Docker containers and any required services.
+* [COI specification](#coi-spec), which you can use to run a single Docker container.
+* [Docker Compose specification](#compose-spec), which offers more flexibility. For example, you can run multiple Docker containers and services.
 
 {% note warning %}
 
@@ -15,15 +15,15 @@ You can only use one specification at a time, the COI or Docker Compose.
 
 {% endnote %}
 
-## COI specification {#coi-spec}
+## COI specifications {#coi-spec}
 
 In a {{ coi }}, the Docker container description is in a YAML specification file based on a [{{ k8s }} pod spec](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
 [Creating a VM from a {{ coi }}](../tutorials/vm-create.md) in the management console or YC CLI automatically generates the specification file using the provided data. When [creating an instance group from a {{ coi }}](../tutorials/ig-create.md), you set the specification manually. Below are a sample specification file and the required keys.
 
-### Sample COI specification of a Docker container {#coi-spec-example}
+### Example of the COI specification for a Docker container {#coi-spec-example}
 
-The COI specification is a YAML file with these contents:
+The COI specification is a YAML file with the following contents:
 
 ```yaml
 spec:
@@ -74,13 +74,18 @@ Where:
 * `hostPath`: Directory from the VM file system to mount in the Docker container.
 * `path`: `hostPath` directory path.
 
+### Use cases {#examples-coi-spec}
+
+* [{#T}](../tutorials/coi-with-terraform.md)
+* [{#T}](../tutorials/serial-port.md)
+
 ## Docker Compose specification {#compose-spec}
 
-You need to provide instructions on running Docker containers and service configurations in the `docker-compose.yaml` specification file as per [this Compose file reference](https://docs.docker.com/compose/compose-file/).
+You need to provide instructions on running Docker containers together with service configurations in the `docker-compose.yaml` specification file as per [this Compose file reference](https://docs.docker.com/compose/compose-file/).
 
 For more information about how to run multiple Docker containers, see [{#T}](../tutorials/docker-compose.md).
 
-### Sample Docker Compose specification {#compose-spec-example}
+### Example of the Docker Compose specification {#compose-spec-example}
 
 The Docker Compose specification is a file named `docker-compose.yaml` with these contents:
 
@@ -125,3 +130,9 @@ Where:
 * `fs_type`: File system type. The supported file systems are ext4 and xfs.
 * `host_path`: Directory to mount the disk to.
 * `partition`: Disk partition being used.
+
+### Use cases {#examples-compose-spec}
+
+* [{#T}](../tutorials/docker-compose.md)
+* [{#T}](../tutorials/vm-create-with-second-disk.md)
+* [{#T}](../tutorials/coi-fluent-bit-logging.md)

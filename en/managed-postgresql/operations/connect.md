@@ -1,5 +1,5 @@
 ---
-title: Connecting to a {{ PG }} cluster in {{ mpg-full-name }}
+title: Connecting to an {{ PG }} cluster in {{ mpg-full-name }}
 description: You can connect to {{ PG }} cluster hosts from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs residing in the same virtual network.
 ---
 
@@ -101,11 +101,7 @@ Cluster hosts also use [special FQDNs](#special-fqdns).
 
 Alongside [regular FQDNs](#fqdn), {{ mpg-name }} provides several special FQDNs, which can also be used when connecting to a cluster.
 
-{% note warning %}
-
-If, when the [master host is changed automatically](../concepts/replication.md#replication-auto), a host with no public access becomes a new master or the most recent replica, you will not be able to access them from the internet. To avoid this, [enable public access](hosts.md#update) for all cluster hosts.
-
-{% endnote %}
+In multiple-host clusters, special FQDNs may for some time (up to 10 minutes) point to the old host, even if it has changed its role (e.g., from a master to a replica). If using a special FQDN which points to the current master, some write requests may fail if routed to the replica. This is because it takes time to update DNS records for special FQDNs. Therefore, if using special FQDNs, you should be able to correctly handle situations where a host fails to execute a request because its role has changed. For example, you may repeat your request a little later.
 
 ### Current master {#fqdn-master}
 
@@ -115,20 +111,9 @@ When connecting to this FQDN, both read and write operations are allowed.
 
 {% note info %}
 
-Only use the connection via specific master host FQDNs for the processes that can withstand database unavailability for 15 to 30 minutes. For example, when switching to the master, the application that uses the master host FQDN will continue attempts to run `write` requests on the replica for some time.
+Use master host special FQDN-based connections only for processes that can cope with database being unavailable for writing for up to 10 minutes. 
 
 {% endnote %}
-
-Here is an example of connecting to a master host for a cluster with the `c9qash3nb1v9********` ID:
-
-```bash
-psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<DB_name> \
-      user=<username> \
-      target_session_attrs=read-write"
-```
 
 ### Most recent replica {#fqdn-replica}
 
@@ -140,32 +125,108 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../co
 * If there are no active replicas in the cluster, this FQDN will point to the current master host.
 * You cannot select replicas whose [replication source is specified manually](../concepts/replication.md#replication-manual) as most recent when using this FQDN.
 
-Here is an example of connecting to the most recent replica for a cluster with the `c9qash3nb1v9********` ID:
+## Selecting an FQDN and method of connection to a cluster {#automatic-master-host-selection}
 
-```bash
-psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<DB_name> \
-      user=<username> \
-      target_session_attrs=any"
-```
+You can connect to a cluster using [host FQDNs](#fqdn) or [special FQDNs](#special-fqdns): If the cluster [consists of multiple hosts](../concepts/planning-cluster-topology.md) and has [autofailover](../concepts/replication.md#replication-auto) enabled, keep this in mind when connecting. This is important because the current master can the next moment turn into a replica, and vice versa.
 
-## Automatic master host selection {#automatic-master-host-selection}
+{% note warning %}
 
-To guarantee a connection to the master host:
+If, due to autofailover, a host with no public access becomes a new master or the most recent replica, you will not be able to access such a host from the internet. To avoid this, [enable public access](hosts.md#update) for all the cluster hosts.
 
-1. In the `host` argument, provide one of the following:
+{% endnote %}
 
-    * [Special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
-    * [FQDNs](#fqdn) of all cluster hosts.
+Use one of these methods to connect to master hosts for reading and writing:
 
-1. Provide the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting from [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+* Connect using a [special FQDN](#fqdn-master) that points to the current master.
 
-To upgrade the library version used by the `psql` utility:
+    When the master changes, this FQDN may for some time point to the previous master, now a replica, because it takes time to update the DNS record.
+
+    Therefore, if the application uses such an FQDN, it must correctly handle the situation with the master temporarily unavailable. For example, write requests can be repeated after a while.
+
+    {% cut "Connection example" %}
+
+    In this example, we use the `c9qash3nb1v9********` cluster ID:
+
+    ```bash
+    psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
+          port={{ port-mpg }} \
+          sslmode=verify-full \
+          dbname=<DB_name> \
+          user=<username>"
+    ```
+
+    {% endcut %}
+
+* Connect by listing all cluster hosts and specifying the `target_session_attrs=read-write` parameter.
+
+    {% cut "Connection example" %}
+
+    In this example, all the cluster hosts are listed.
+
+    The host IDs are `rc1a-be***.{{ dns-zone }}`, `rc1b-5r***.{{ dns-zone }}`, and `rc1d-t4***.{{ dns-zone }}`:
+
+    ```bash
+    psql "host=rc1a-be***.{{ dns-zone }},rc1b-5r***.{{ dns-zone }},rc1d-t4***.{{ dns-zone }} \
+          port={{ port-mpg }} \
+          sslmode=verify-full \
+          dbname=<DB_name> \
+          user=<username> \
+          target_session_attrs=read-write"
+    ```
+
+    {% endcut %}
+
+Use one of these methods to connect to hosts for reading:
+
+* Connect using a [special FQDN](#fqdn-replica) that points to the most recent replica.
+
+    {% cut "Connection example" %}
+
+    In this example, we use the `c9qash3nb1v9********` cluster ID:
+
+    ```bash
+    psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
+          port={{ port-mpg }} \
+          sslmode=verify-full \
+          dbname=<DB_name> \
+          user=<username>"
+    ```
+
+    {% endcut %}
+
+* Connect by listing all cluster hosts and specifying the `target_session_attrs=any` parameter.
+
+    {% cut "Connection example" %}
+
+    In this example, all the cluster hosts are listed.
+
+    The host IDs are `rc1a-be***.{{ dns-zone }}`, `rc1b-5r***.{{ dns-zone }}`, and `rc1d-t4***.{{ dns-zone }}`:
+
+    ```bash
+    psql "host=rc1a-be***.{{ dns-zone }},rc1b-5r***.{{ dns-zone }},rc1d-t4***.{{ dns-zone }} \
+          port={{ port-mpg }} \
+          sslmode=verify-full \
+          dbname=<DB_name> \
+          user=<username> \
+          target_session_attrs=any"
+    ```
+
+    {% endcut %}
+
+{% note info %}
+
+You can specify the `target_session_attrs` parameter if connecting via a client that uses the `libpq` library.
+
+The `libpq` library supports the `read-write` value for this parameter starting from [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+
+{% cut "How to upgrade the library version used by `psql`" %}
 
 * For Debian-based Linux distributions, install the `postgresql-client-10` package or higher (e.g., using an [APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
 * For operating systems that use RPM packages, use the {{ PG }} distribution available from the [yum repository](https://yum.postgresql.org/).
+
+{% endcut %}
+
+{% endnote %}
 
 ## Connecting from graphical IDEs {#connection-ide}
 

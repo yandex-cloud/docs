@@ -3,7 +3,7 @@ title: Bucket
 description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Names of {{ yandex-cloud }} buckets are unique, i.e., you cannot create two buckets with the same name, even in different folders of different clouds. Keep this in mind if you are going to create buckets automatically through the API.
 keywords:
   - what is a bucket
-  - storage bucket
+  - what is a bucket
   - buckets
   - bucket
   - data storage bucket
@@ -108,7 +108,7 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
 
 ## Recommendations and limitations {#details-of-usage}
 
-- Updating bucket statistics may take up to 20 minutes. Therefore, sometimes the specified maximum bucket size may be exceeded (e.g., during fast sequential upload of multiple objects).
+- Updating bucket statistics may take up to 20 minutes. Therefore, sometimes the specified maximum bucket size may be exceeded (e.g., during fast sequential upload of multiple objects).  
 - In the management console, the information about the number of objects in the bucket and used up space is updated with a delay.
 - You cannot rename buckets.
 - The number of buckets does not affect the performance of {{ objstorage-name }}. How many buckets you use to store your data is up to you.
@@ -123,6 +123,14 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
 
   {% endnote %}
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-processing-init-actions-geesefs.md)
+* [{#T}](../tutorials/s3-disk-connect.md)
+* [{#T}](../tutorials/bucket-to-bucket.md)
+* [{#T}](../tutorials/batch-recognition-stt.md)
+* [{#T}](../tutorials/mgp-config-server-for-s3.md)
 
 ### See also {#see-also}
 

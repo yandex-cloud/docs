@@ -120,3 +120,7 @@ All changes to the settings will take effect without additional user actions.
 
 The logging pricing follows the regular [{{ objstorage-name }} pricing rules](../pricing.md).
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/storage-logs-analysis.md)
+

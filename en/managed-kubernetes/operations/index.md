@@ -89,3 +89,7 @@ description: In this article, you will learn how to work with the managed servic
 ## Working with external nodes {#external-nodes}
 
 * [{#T}](external-nodes-connect.md)
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)

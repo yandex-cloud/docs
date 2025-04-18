@@ -47,6 +47,10 @@ The instance disk space may be full. You can [increase the instance disk space y
 
 For details, see [{#T}](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
 
+#### How can I clear pipeline logs to free up disk space? {#pipeline-cleanup}
+
+You cannot delete the logs separately. However, you delete them by [deleting irrelevant pipelines](../../managed-gitlab/operations/instance/clean-up-disk-space.md#pipeline-cleanup).
+
 #### Where can I track my disk space usage? {#disk-space}
 
 You can track your disk space:

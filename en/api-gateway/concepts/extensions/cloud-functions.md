@@ -1,19 +1,20 @@
 # x-yc-apigateway-integration:cloud_functions extension
 
-The `x-yc-apigateway-integration:cloud-functions` extension invokes the relevant function. As its input, the function accepts the HTTP request data and values of the properties listed in the specification. As the output, it returns the result of function execution to the client.
+The `x-yc-apigateway-integration:cloud_functions` extension invokes the relevant function. As its input, the function accepts the HTTP request data and values of the properties listed in the specification. As the output, it returns the result of function execution to the client.
+
 {% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
 
 ## Supported parameters {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Description |
+Parameter | Type | Description 
 ----|----|----
-| `function_id` | `string` | ID of the [function](../../../functions/concepts/function.md). |
-| `tag` | `string` | This is an optional parameter. It specifies the [tag of the function version](../../../functions/concepts/function.md#tag). The default value is `$latest`.<br>The `tag` property is used for parameter substitution. |
-| `service_account_id` | `string` | ID of the service account used for authorization when accessing the function. If it is not specified, its default value is taken from the [parent](./index.md#top-level) `service_account_id`. If the parent parameter is also missing, the function is invoked without authorization. |
-| `payload_format_version` | `string` | Function call format version. The possible values are [`0.1`](#request_v0) and [`1.0`](#request_v1). The default version is [`0.1`](#request_v0). |
-| `context` | `object` | This is an optional parameter. This is the operation context, an object in `YAML` or `JSON` format. It is provided to a function within a [request](../../../functions/concepts/function-invoke.md#request) in the `requestContext.apiGateway.operationContext` field. `context` is used for parameter substitution. |
+`function_id` | `string` | [Function](../../../functions/concepts/function.md) ID.
+`tag` | `string` | This is an optional parameter. It specifies the [tag of the function version](../../../functions/concepts/function.md#tag). The default value is `$latest`. <br>The parameters are subsituted into `tag`.
+`service_account_id` | `string` | ID of the service account used for authorization when accessing the function. If you omit the parameter, the `service_account_id` [top-level](./index.md#top-level) parameter value will be used. If the top-level parameter is also missing, the function is invoked without authorization. 
+`payload_format_version` | `string` | Function call format version. It can be either [`0.1`](#request_v0) or [`1.0`](#request_v1). [`0.1`](#request_v0) is the default version.
+`context` | `object` | This is an optional parameter. It provides the operation context, i.e., an object in `YAML` or `JSON` format. It is provided to a function within a [request](../../../functions/concepts/function-invoke.md#request) in the `requestContext.apiGateway.operationContext` field. The parameters are subsituted into `context`.
 
 ## Extension specification {#spec}
 
@@ -54,80 +55,87 @@ exports.handler= async function (data, context) {
 };
 ```
 
-## v0.1 request structure {#request_v0}
+## Request structure for v0.1 {#request_v0}
 
 The request JSON structure for version `0.1` replicates the [structure of a request](../../../functions/concepts/function-invoke.md#request) to a function with some additional fields:
 
 ```json
 {
     "url": <actual request path>,
-    "path": <path matching the request in the specification>,
+    "path": <path matching specification request>,
     "httpMethod": <HTTP method name>,
-    "headers": <dictionary with string values for HTTP headers>,
-    "multiValueHeaders": <dictionary with lists of values of HTTP headers>,
+    "headers": <dictionary with HTTP header string values>,
+    "multiValueHeaders": <dictionary with lists of HTTP header values>,
     "queryStringParameters": <dictionary of queryString parameters>,
-    "multiValueQueryStringParameters": <dictionary of list of values of queryString parameters>,
-    "requestContext": <dictionary with the request context>,
-    "body": <body of the request>,
-    "isBase64Encoded": <true or false>
-    "pathParams": <dictionary of values of the request path parameters>,
-    "params": <dictionary of values of the request parameters described in the OpenAPI specification>,
-    "multiValueParams": <dictionary with lists of request parameter values described in the OpenAPI specification>
+    "multiValueQueryStringParameters": <dictionary with lists of queryString parameter values>,
+    "requestContext": <dictionary with request context>,
+    "body": <request contents>,
+    "isBase64Encoded": <true or false>,
+    "pathParams": <dictionary of request path parameter values>,
+    "params": <dictionary of request parameter values as described in the OpenAPI spec>,
+    "multiValueParams": <dictionary with request parameter value lists as described in the OpenAPI spec>
 }
 ```
 
-## v1.0 request structure {#request_v1}
+## Request structure for v1.0 {#request_v1}
 
-Request JSON structure for version `1.0` is compatible with the request format for [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) version `1.0` with some additional fields:
+The request JSON structure for version `1.0` is compatible with the request format for [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) version `1.0` with some additional fields:
 
 ```json
 {
     "version": <request format version>,
-    "resource": <resource matching the request in the specification>,
+    "resource": <resource matching specification request>,
     "path": <actual request path>,
     "httpMethod": <HTTP method name>,
-    "headers": <dictionary with string values of HTTP headers>,
-    "multiValueHeaders": <dictionary with lists of values of HTTP headers>,
+    "headers": <dictionary with HTTP header string values>,
+    "multiValueHeaders": <dictionary with lists of HTTP header values>,
     "queryStringParameters": <dictionary of queryString parameters>,
-    "multiValueQueryStringParameters": <dictionary of lists of values of queryString parameters>,
-    "requestContext": <dictionary with the request context>,
-    "pathParameters": <dictionary of the request path parameter values>,
-    "body": <request body>,
+    "multiValueQueryStringParameters": <dictionary with lists of queryString parameter values>,
+    "requestContext": <dictionary with request context>,
+    "pathParameters": <dictionary of request path parameter values>,
+    "body": <request contents>,
     "isBase64Encoded": <true or false>,
     // additional fields:    
-    "parameters": <dictionary of values of the request parameters described in the OpenAPI specification>,
-    "multiValueParameters": <dictionary with lists of values of the request parameters described in the OpenAPI specification>,
-    "operationId": <operationId matching the request in the OpenAPI specification>
+    "parameters": <dictionary of request parameter values as described in the OpenAPI spec>,
+    "multiValueParameters": <dictionary with request parameter value lists as described in the OpenAPI spec>,
+    "operationId": <operationId matching the request in the OpenAPI spec>
 }
 ```
 
-`requestContext` element structure:
+Structure of the `requestContext` element:
 
 ```json
     {
-        "identity": <key:value pairs for user authentication>,
+        "identity": <a set of key:value pairs to authenticate the user>,
         "httpMethod": <DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT>,
-        "requestId": <request ID generated on the router side>,
+        "requestId": <request ID generated in the router>,
         "requestTime": <request time in CLF format>,
         "requestTimeEpoch": <request time in Unix format>,
         "authorizer": <dictionary with authorization context>,
-        "apiGateway": <dictionary of custom data transmitted by API gateway for function call>,
+        "apiGateway": <dictionary with specific data transmitted by API gateway during function invocation>,
         "connectionId": <web socket connection ID>",
         "connectedAt": <web socket connection time>,
-        "eventType": <web socket event or operation type: CONNECT, MESSAGE, or DISCONNECT>,
-        "messageId": <ID of message received from web socket>,
-        "disconnectStatusCode": <web socket closure status code>,
-        "disconnectReason": <web socket disconnection cause description in text format>
+        "eventType": <type of web socket event or operation: CONNECT, MESSAGE, DISCONNECT>,
+        "messageId": <ID of the message received from the web socket>,
+        "disconnectStatusCode": <web socket close code>,
+        "disconnectReason": <text description of the reason the web socket was closed>
     }
 ```
 
-`authorizer` element structure:
+Structure of the `authorizer` element:
 ```json
     {
-        "jwt": { // Field that is filled in by the API Gateway JWT authorizer. It contains data about the user and their permissions'
+        "jwt": { // Field filled in by the API Gateway JWT authorizer. It contains the token data about the user and the user's permissions'
           "claims": <dictionary of JWT body fields>,
           "scopes": <list of JWT owner permissions>
         }
         // Other authorization context fields returned from the authorizer function
     }
 ```
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/api-gw-integration.md)
+* [{#T}](../../tutorials/canary-release.md)
+* [{#T}](../../tutorials/recognizer-bot.md)
+* [{#T}](../../tutorials/java-servlet-todo-list.md)

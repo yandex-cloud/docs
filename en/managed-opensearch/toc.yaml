@@ -41,7 +41,7 @@ items:
             href: operations/s3-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: Managing users
+      - name: User management
         href: operations/cluster-users.md
       - name: Logs and monitoring
         items:
@@ -76,6 +76,8 @@ items:
             href: tutorials/opensearch-to-ydb.md
           - name: Copying data to {{ mch-full-name }}
             href: tutorials/opensearch-to-clickhouse.md
+      - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
+        href: tutorials/filebeat-oss-monitoring.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -236,6 +238,24 @@ items:
                 href: api-ref/grpc/Cluster/getAuthSettings.md
               - name: UpdateAuthSettings
                 href: api-ref/grpc/Cluster/updateAuthSettings.md
+              - name: RestartOpenSearch
+                href: api-ref/grpc/Cluster/restartOpenSearch.md
+              - name: SwitchMaster
+                href: api-ref/grpc/Cluster/switchMaster.md
+          - name: Extension
+            items:
+              - name: Overview
+                href: api-ref/grpc/Extension/index.md
+              - name: Get
+                href: api-ref/grpc/Extension/get.md
+              - name: List
+                href: api-ref/grpc/Extension/list.md
+              - name: Create
+                href: api-ref/grpc/Extension/create.md
+              - name: Update
+                href: api-ref/grpc/Extension/update.md
+              - name: Delete
+                href: api-ref/grpc/Extension/delete.md
           - name: Operation
             items:
               - name: Overview
@@ -318,6 +338,24 @@ items:
                 href: api-ref/Cluster/getAuthSettings.md
               - name: UpdateAuthSettings
                 href: api-ref/Cluster/updateAuthSettings.md
+              - name: RestartOpenSearch
+                href: api-ref/Cluster/restartOpenSearch.md
+              - name: SwitchMaster
+                href: api-ref/Cluster/switchMaster.md
+          - name: Extension
+            items:
+              - name: Overview
+                href: api-ref/Extension/index.md
+              - name: Get
+                href: api-ref/Extension/get.md
+              - name: List
+                href: api-ref/Extension/list.md
+              - name: Create
+                href: api-ref/Extension/create.md
+              - name: Update
+                href: api-ref/Extension/update.md
+              - name: Delete
+                href: api-ref/Extension/delete.md
           - name: Operation
             items:
               - name: Overview

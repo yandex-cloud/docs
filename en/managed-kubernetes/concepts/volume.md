@@ -108,3 +108,7 @@ Depending on the `PersistentVolume` and `PersistentVolumeClaim` settings, volume
 {% include [about-cluster-delete](../../_includes/managed-kubernetes/note-k8s-cluster-delete.md) %}
 
 Learn more about volumes in the relevant [{{ k8s }} guides](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/kubernetes-backup.md)
