@@ -38,6 +38,7 @@ description: Various use cases for machine learning and artificial intelligence 
 
 * [{#T}](archive-from-vision-to-object-storage.md)
 * [{#T}](recognizer-bot.md)
+* [{#T}](batch-recognition-stt.md)
 
 ## Using {{ foundation-models-full-name }} generative neural networks {#generative-neuronets}
 

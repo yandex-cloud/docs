@@ -1,6 +1,6 @@
 ---
 title: '{{ datalens-full-name }}. FAQ'
-description: How do I get the logs of my activity in {{ datalens-full-name }}? Find the answer to this and other questions in this article.
+description: How do I get the logs of my actions in {{ datalens-full-name }}? Find the answer to this and other questions in this article.
 ---
 
 # Questions and answers about {{ datalens-name }}
@@ -24,8 +24,8 @@ Sections:
 
 There are two ways to report a problem:
 
-* From the {{ datalens-full-name }} interface. In the {{ datalens-full-name }} interface, next to the error code, click **Report problem** and enter all the necessary details of the problem in the description. A {{ yandex-cloud }} support ticket will be created automatically.
-* From a direct report to [technical support]({{ link-console-support }}) {{ yandex-cloud }}.
+* Via the {{ datalens-full-name }} interface. In the {{ datalens-full-name }} interface, next to the error code, click **Report problem** and enter all the necessary details of the problem in the description. A {{ yandex-cloud }} support ticket will be created automatically.
+* Via a direct report to {{ yandex-cloud }} [support]({{ link-console-support }}).
 
 In your report, please provide (if possible):
 

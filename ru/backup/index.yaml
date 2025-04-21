@@ -9,6 +9,16 @@ meta:
   description: >-
     Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
     копирование виртуальных машин сервиса Yandex Compute Cloud.
+  keywords:
+    - keyword: backup
+    - keyword: yandex backup
+    - keyword: '{{ backup-name }}'
+    - keyword: '{{ backup-full-name }}'
+    - keyword: сервис {{ backup-name }}
+    - keyword: резервные копии в {{ yandex-cloud }}
+    - keyword: резервное копирование в {{ yandex-cloud }}
+    - keyword: резервные копии
+    - keyword: резервное копирование
 links:
   - title: Начало работы
     description: Создайте ВМ и привяжите ее к политике резервного копирования

@@ -1,16 +1,16 @@
 ---
-title: Как обновить подключение виртуальной машины на Linux с OS Login к {{ backup-full-name }}
-description: Следуя данной инструкции, вы сможете обновить подключение виртуальной машины на Linux с OS Login к {{ backup-name }}.
+title: Как обновить подключение виртуальной машины на Linux с {{ oslogin }} к {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете обновить подключение виртуальной машины на Linux с {{ oslogin }} к {{ backup-name }}.
 ---
 
-# Обновить подключение виртуальной машины на Linux с OS Login к {{ backup-name }}
+# Обновить подключение виртуальной машины на Linux с {{ oslogin }} к {{ backup-name }}
 
 {% note info %}
 
 Если вы [удалили](delete-vm.md) ВМ из {{ backup-name }} и хотите подключить ее к сервису заново, воспользуйтесь инструкциями:
 
 * [Подключить виртуальную машину на Linux](connect-vm-linux.md)
-* [Подключить виртуальную машину на Linux с OS Login](connect-vm-oslogin-linux.md)
+* [Подключить виртуальную машину на Linux с {{ oslogin }}](connect-vm-oslogin-linux.md)
 
 {% endnote %}
 

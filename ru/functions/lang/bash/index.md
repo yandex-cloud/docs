@@ -1,6 +1,6 @@
 ---
 title: Разработка на Bash в {{ sf-full-name }}. Обзор
-description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Bash. В среду выполнения Bash по умолчанию установлены утилиты jq, CLI {{ yandex-cloud }}, AWS CLI version 2.
+description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Bash. В среду выполнения Bash по умолчанию установлены утилиты jq, {{ yandex-cloud }} CLI, AWS CLI version 2.
 ---
 
 # Разработка на Bash. Обзор
@@ -12,7 +12,7 @@ description: С помощью сервиса {{ sf-name }} вы можете з
 | Название | Назначение | 
 |----|----|
 |[jq](https://stedolan.github.io/jq/)| Для работы с JSON. | 
-|[CLI {{ yandex-cloud }}](../../../cli)| Для работы с API {{ yandex-cloud }}. | 
+|[{{ yandex-cloud }} CLI](../../../cli)| Для работы с API {{ yandex-cloud }}. | 
 |[AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html)| Для работы с совместимыми сервисами. |
 
 Подробнее о способах использования SDK читайте в разделе [Использование SDK](sdk.md).

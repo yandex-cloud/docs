@@ -5,6 +5,7 @@ description: In this article, you will learn about the service roles and primiti
 
 # Access management
 
+
 {% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
 
 ## Roles existing in this service {#roles-list}
@@ -13,27 +14,39 @@ description: In this article, you will learn about the service roles and primiti
 
 #### billing.accounts.owner {#billing-accounts-owner}
 
+
 {% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
+
 
 #### billing.accounts.viewer {#billing-accounts-viewer}
 
+
 {% include [billing.accounts.viewer](../../_roles/billing/accounts/viewer.md) %}
+
 
 #### billing.accounts.accountant {#billing-accounts-accountant}
 
+
 {% include [billing.accounts.accountant](../../_roles/billing/accounts/accountant.md) %}
+
 
 #### billing.accounts.editor {#billing-accounts-editor}
 
+
 {% include [billing.accounts.editor](../../_roles/billing/accounts/editor.md) %}
+
 
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 
+
 {% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
+
 
 #### billing.accounts.admin {#billing-accounts-admin}
 
+
 {% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
 
 #### billing.accounts.partnerViewer {#billing-accounts-partnerViewer}
 
@@ -101,7 +114,7 @@ The tables below provide a list of operations available to each role type. Full 
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/yes.svg) ||
-|| Activating the paid version |
+|| Activate the paid version |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) |
@@ -183,7 +196,7 @@ The tables below provide a list of operations available to each role type. Full 
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/no.svg) ||
-|| View the list of partner commissions and info on them. |
+|| View the list of partner bonuses and info on them |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/yes.svg) |
@@ -198,6 +211,7 @@ The tables below provide a list of operations available to each role type. Full 
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) ||
 |#
+
 
 ## Operations for the referral program {#referral-operations}
 
@@ -259,6 +273,7 @@ The tables below provide a list of operations available to each role type. Full 
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/no.svg) ||
 |#
+
 
 ## Available operations for a subaccount {#subaccount-available-operations}
 

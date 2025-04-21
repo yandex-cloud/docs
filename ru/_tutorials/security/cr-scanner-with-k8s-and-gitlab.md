@@ -134,7 +134,7 @@
               - gl-container-scanning-report-yc.json
           script:
             - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
-            # Install YC CLI.
+            # Install CLI.
             - curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
             # Start scanning.
             - echo "Scanning image $IMAGE_NAME ${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}..."
@@ -201,7 +201,7 @@
               - gl-container-scanning-report-yc.json
           script:
             - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
-            # Install YC CLI.
+            # Install CLI.
             - curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
             # Start scanning.
             - echo "Scanning image $IMAGE_NAME ${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}..."

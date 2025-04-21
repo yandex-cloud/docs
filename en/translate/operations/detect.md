@@ -14,7 +14,7 @@ The [detectLanguage](../api-ref/Translation/detectLanguage) method returns the l
 
 {% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
 
-{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
+{% include [translate-instruction-auth](../../_includes/translate/translate-instruction-auth.md) %}
 
 ## Detect the language of a phrase {#simple-example}
 
@@ -24,24 +24,24 @@ To detect the language of the text, pass it in the [detectLanguage](../api-ref/T
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```bash
     export FOLDER_ID=<folder_ID>
-    export IAM_TOKEN=<IAM_token>
+    export API_KEY=<API_key>
     export TEXT="Hello, world"
     curl \
       --request POST \
       --header "Content-Type: application/json" \
-      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --header "Authorization: Api-Key ${API_KEY}" \
       --data "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
       "https://translate.{{ api-host }}/translate/v2/detect"
     ```
 
     Where:
 
-    * `FOLDER_ID`: Folder ID you got [before you started](#before-begin).
-    * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
+    * `FOLDER_ID`: Folder [ID](../../resource-manager/operations/folder/get-id.md) you got [before you started](#before-begin).
+    * {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     The service will respond with the [language](../concepts/supported-languages.md) code of the source text:
 
@@ -61,7 +61,7 @@ To avoid mistakes, you can use the `languageCodeHints` field to specify which la
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```json
     {
@@ -73,18 +73,18 @@ To avoid mistakes, you can use the `languageCodeHints` field to specify which la
 
     Where:
 
-    * `folderId`: Folder ID you got [before you started](#before-begin).
+    * `folderId`: Folder [ID](../../resource-manager/operations/folder/get-id.md) you got [before you started](#before-begin).
     * `languageCodeHints`: Languages to prioritize when determining the language of the text.
     * `text`: Text to translate as a string.
 
     Save the request body to a file (e.g., `body.json`) and provide the file using the [detectLanguage](../api-ref/Translation/detectLanguage) method:
 
     ```bash
-    export IAM_TOKEN=<IAM_token>
+    export API_KEY=<API_key>
     curl \
       --request POST \
       --header "Content-Type: application/json" \
-      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --header "Authorization: Api-Key ${API_KEY}" \
       --data '@body.json' \
       "https://translate.{{ api-host }}/translate/v2/detect"
 
@@ -93,6 +93,6 @@ To avoid mistakes, you can use the `languageCodeHints` field to specify which la
     }
     ```
 
-    Where `IAM_TOKEN` is the IAM token you got [before you started](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
 {% endlist %}

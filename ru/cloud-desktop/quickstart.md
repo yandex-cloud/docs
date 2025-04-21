@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-{{ cloud-desktop-name }} — сервис для управления виртуальной инфраструктурой рабочих столов на базе Linux.
+{{ cloud-desktop-name }} — сервис для управления виртуальной инфраструктурой рабочих столов.
 
 Создайте [группу пользователей](../organization/concepts/groups.md) {{ org-full-name }} и разверните для нее [группу рабочих столов](./concepts/desktops-and-groups.md) {{ cloud-desktop-name }}:
 
@@ -67,6 +67,11 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 ## Разверните группу рабочих столов {#create-desktop-group}
+
+В этой инструкции вы создадите группу рабочих столов на базе предустановленной ОС `Ubuntu 20.04 LTS`. Также вы можете:
+
+* [{#T}](operations/images/create-from-compute-linux.md)
+* [{#T}](operations/images/create-from-windows.md)
 
 {% list tabs group=instructions %}
 

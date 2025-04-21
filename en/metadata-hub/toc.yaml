@@ -136,10 +136,12 @@ items:
         href: security/schema-registry-roles.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: Schema Registry
         href: api-ref/schema-registry/index.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Pricing policy
     href: pricing.md
   - name: Public materials

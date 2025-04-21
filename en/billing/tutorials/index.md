@@ -7,3 +7,4 @@ description: Various {{ billing-name }} use cases in {{ yandex-cloud }}.
 
 * [{#T}](serverless-trigger-budget-vm.md)
 * [{#T}](serverless-trigger-budget-queue-vm-tg.md)
+* [{#T}](billing-resource-detailing.md)

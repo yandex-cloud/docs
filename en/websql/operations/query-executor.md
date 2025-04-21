@@ -27,13 +27,9 @@ SELECT * FROM <table_1_name> LIMIT 10;
 INSERT INTO <table_2_name>;
 ```
 
-{{ websql-name }} supports multi-queries for all database types except {{ CH }}. For {{ CH }}, you can use this feature through the **Multi-queries in {{ CH }}** option, which enables you to do the following:
+The **Experiments** section in {{ websql-full-name }} settings contains the **Multi-queries** option that enables separate subqueries within a multi-query. To do this, highlight one or more subqueries and click **Run current query**. The editor will display the progress status of the highlighted queries.
 
-1. Run multi-queries for {{ CH }} in the query editor.
-
-1. Run subqueries within a {{ CH }} multi-query, one at a time. To do this, highlight one or more subqueries and click **Run current query**. The editor will display the progress status of the highlighted queries.
-
-**Multi-queries in {{ CH }}** is enabled for all {{ websql-name }} users by default. You can disable it the {{ websql-name }} settings under **Experiments**.
+By default, the **Multi-queries** option is enabled for all {{ websql-name }} users by default. To disable it, go to the settings and disable **Multi-queries** under **Experiments**.
 
 ## Exporting query execution results {#export-results}
 

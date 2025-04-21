@@ -8,10 +8,10 @@ description: Follow this guide to create and set up a {{ ydb-name }} database.
 In this tutorial, you will create a [{{ ydb-short-name }}](https://ydb.tech/{{ lang }}) database in {{ yandex-cloud }} and run a simple query to it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command line tools.
 
 You can also work with a {{ ydb-full-name }} DB through:
-* [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
-* [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/).
-* [AWS SDK](docapi/tools/aws-sdk/index.md).
-* [AWS CLI](docapi/tools/aws-cli/index.md).
+* [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/)
+* [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/)
+* [AWS SDK](docapi/tools/aws-sdk/index.md)
+* [AWS CLI](docapi/tools/aws-cli/index.md)
 
 ## Getting started {#before-you-begin}
 
@@ -39,7 +39,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
+  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. Follow these naming requirements:
 
      {% include [name-format](../_includes/name-format.md) %}
 
@@ -109,7 +109,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
+  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. Follow these naming requirements:
 
      {% include [name-format](../_includes/name-format.md) %}
 
@@ -241,7 +241,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
   1. In the [management console]({{ link-console-main }}), select the folder where the desired bucket is located.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the previously created database.
-  1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
   1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text.
 
      ```yql

@@ -18,7 +18,7 @@ description: Управление доступом в сервисе, предо
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-В консоли {{ yandex-cloud }} или с помощью YC CLI вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Назначенные роли будут действовать и на вложенные ресурсы.
+В консоли {{ yandex-cloud }} или с помощью CLI вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Назначенные роли будут действовать и на вложенные ресурсы.
 
 ## Какие роли действуют в сервисе {#roles-list}
 

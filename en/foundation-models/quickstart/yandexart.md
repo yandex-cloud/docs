@@ -67,7 +67,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `{{ roles-yaart-user }}` role or higher.
-  1. From the list of services, select **{{ foundation-models-name }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/palette.svg) **{{ yandexart-name }}**.
   1. In the input field, describe the image you want to generate. You should use vivid and detailed descriptions, specify styles if you want your image styled in a certain way.
   1. Leave the [**seed**](../concepts/yandexart/index.md) parameter random or specify any value.

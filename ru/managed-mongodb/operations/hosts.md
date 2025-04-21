@@ -381,7 +381,7 @@
     Чтобы изменить параметры хоста в кластере, выполните команду:
 
     ```bash
-    {{ yc-mdb-mg }} host update <имя_хоста> \
+    {{ yc-mdb-mg }} host update \
       --cluster-name <имя_кластера> \
       --host hostname=<имя_хоста>,`
             `assign-public-ip=<публичный_доступ_к_хосту>,`

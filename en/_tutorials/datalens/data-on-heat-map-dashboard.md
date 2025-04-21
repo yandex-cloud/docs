@@ -28,16 +28,16 @@ User access to the **Heat Maps** dashboard is arranged by a manager who should s
 To visualize and analyze the data, follow these steps:
 
 1. [Set up a connection](#configure-connection).
-   1. [Set up {{ datalens-short-name }}](#before-you-begin).
-   1. [Create a connection](#create-connection).
+    1. [Set up {{ datalens-short-name }}](#before-you-begin).
+    1. [Create a connection](#create-connection).
 1. [Learn how to get started with Heat Maps](#view-dashboard).
-   1. [Review the contents of the folder](#view-catalog).
-   1. [Set up a dashboard](#dashboard-settings).
+    1. [Review the contents of the folder](#view-catalog).
+    1. [Set up the dashboard](#dashboard-settings).
 1. [Share supply and demand statistics with other users](#share-statistics).
 1. [Make a dashboard or chart public](#publish-dashboard-chart).
 1. [Add a chart or dashboard to your website](#add-dashboard-chart).
 
-We recommend checking the [FAQ](#qa) section for answers to common questions that users of supply and demand statistics may have.
+We recommend checking out this [FAQ](#qa) section covering questions commonly asked by supply and demand statistics users.
 
 ## 1. Set up a connection {#configure-connection}
 
@@ -71,20 +71,20 @@ To connect to the **Heat Maps** dashboard:
 1. When the connection is created, a folder containing a set of standard objects that your statistics are based on opens:
 
    * ![image](../../_assets/console-icons/layout-cells-large.svg) **Supply and demand** dashboard: Main page with a set of all widgets (charts, tables, and filters) where you can view the statistics. To quickly access the dashboard, save the page link to a convenient location.
-   * ![image](../../_assets/console-icons/circles-intersection.svg) **smb_geo_heat_maps_dataset** dataset: Dataset with a set of dimensions and measures used to create charts.
+   * ![image](../../_assets/console-icons/circles-intersection.svg) **smb_geo_heat_maps_dataset** dataset: Dataset with dimensions and measures used to create charts.
    * ![image](../../_assets/console-icons/chart-column.svg) Charts: Set of individual visualizations as diagrams and tables used on the dashboard.
 
 1. Open the **Supply and demand** dashboard.
 
-   It contains three tabs: **Demand**, **Supply**, and **Demand for supply**. Each tab contains:
+   The dashboard has three tabs: **Demand**, **Supply**, and **Demand-to-supply ratio**. Each tab contains:
 
-   * Text widgets: Headers, comments, and hints.
-   * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
-   * Charts: Graphs, tables, and other visualizations.
+      * Text widgets: Headers, comments, and tooltips.
+      * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
+      * Charts: Graphs, tables, and other visualizations.
 
    ![image](../../_assets/datalens/solution-heatmap/heat-map.png)
 
-1. Add the dashboard to **Favorites**. To do this, click ![image](../../_assets/console-icons/star.svg) to the right of the dashboard name at the top of the screen. To access the **Favorites** folder, click ![image](../../_assets/console-icons/star.svg) in the panel on the left.
+1. Add the dashboard to **Favorites**. To do this, click ![image](../../_assets/console-icons/star.svg) to the right of the dashboard name at the top of the screen. To access the **Favorites** folder, click ![image](../../_assets/console-icons/star.svg) in the left-hand panel.
 
 You can edit it and add standard objects as you wish.
 
@@ -93,20 +93,20 @@ You can edit it and add standard objects as you wish.
 1. Select a city.
 1. To visualize data on the map, select a category and polygon type.
 
-Polygons of the `district` type are city districts and polygons of the `hash_n` type are defined using the `H3` geospatial indexing system with the following average sizes of their sides:
+Polygons of the `district` type are city districts; polygons of the `hash_n` type are defined using the `H3` geospatial indexing system with the following average sizes of their sides:
 
-* `hash9`: 0.18 km
-* `hash8`: 0.43 km
-* `hash7`: 1.22 km
-* `hash6`: 3.22 km
+   * `hash9`: 0.18 km
+   * `hash8`: 0.43 km
+   * `hash7`: 1.22 km
+   * `hash6`: 3.22 km
 
 If you select a different city and the map focus remains at the same location, refresh the page. {{ datalens-short-name }} saves the data automatically: you can always continue from where you left off.
 
-The **Demand for supply in city** measure shows demand for products and services in a specific city or district. It is calculated as follows:
+The **Demand-to-supply ratio per city** measure shows the demand for products and services in a specific city or district. It is calculated as follows:
 
-1. Demand to supply ratio for the entire `city` is calculated.
-1. Demand to supply ratio for the `polygon` is calculated. If the supply value is zero, the demand value is multiplied by 2.
-1. `Polygon` to `city` ratio is calculated.
+1. Calculating demand to supply ratio for the entire `city`.
+1. Calculating demand to supply ratio for the `polygon`. If the supply value is zero, the demand value is multiplied by 2.
+1. Calculating `polygon` to `city` ratio.
 
 {% note info %}
 
@@ -149,20 +149,20 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 - Publishing a dashboard {#dashboard}
 
-   1. Open the **Supply and demand** dashboard.
-   1. At the top of the dashboard interface, click ![image](../../_assets/console-icons/nodes-right.svg).
-   1. In the public access settings window that opens, enable **Access via link**.
-   1. Confirm the publishing and click **Next**.
-   1. Select the charts you want to publish with the dashboard.
-   1. Copy the public link and click **Apply**.
+  1. Open the **Supply and demand** dashboard.
+  1. At the top of the dashboard interface, click ![image](../../_assets/console-icons/nodes-right.svg).
+  1. In the public access settings window that opens, enable **Access via link**.
+  1. Confirm the publishing and click **Next**.
+  1. Select the charts you want to publish with the dashboard.
+  1. Copy the public link and click **Apply**.
 
 - Publishing a chart {#chart}
 
-   1. On the navigation page, find a chart, e.g., **Demand for supply map**, and open it.
-   1. At the top of the chart interface, click ![image](../../_assets/console-icons/nodes-right.svg).
-   1. In the public access settings window that opens, enable **Access via link**.
-   1. Confirm the publishing and click **Next**.
-   1. Copy the public link and click **Apply**.
+  1. On the navigation page, find a chart, e.g., **Demand-to-supply ratio map**, and open it.
+  1. At the top of the chart interface, click ![image](../../_assets/console-icons/nodes-right.svg).
+  1. In the public access settings window that opens, enable **Access via link**.
+  1. Confirm the publishing and click **Next**.
+  1. Copy the public link and click **Apply**.
 
 {% endlist %}
 
@@ -172,7 +172,7 @@ You can embed the published charts into a website or app using the `iframe` elem
 
 1. Follow the public link to the chart.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Embed code**.
-1. Copy the `iframe` code to embed in a light or dark theme.
+1. Copy the `iframe` embed code in a light or dark theme.
 1. Embed the code into your website.
 
 {% note info %}
@@ -185,30 +185,30 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 
 {% cut "Why can you only connect with a Yandex account?" %}
 
-Using a Yandex account in {{ datalens-short-name }} ensures high data security.
+   Using a Yandex account in {{ datalens-short-name }} ensures high data security.
 
 {% endcut %}
 
 {% cut "Can I edit a standard dashboard?" %}
 
-Yes, you can edit the dashboard and related objects.
+   Yes, you can edit the dashboard and related objects.
 
 {% endcut %}
 
 {% cut "I deleted a dashboard accidentally. How do I restore it?" %}
 
-Re-create a connection and the dashboard will expand again.
+   Recreate a connection and the dashboard will expand again.
 
 {% endcut %}
 
 {% cut "Why are chart settings so complicated?" %}
 
-{{ datalens-short-name }} is a full-fledged data analysis and visualization tool. Use its rich set of settings to create different types of visualizations that meet a variety of user requirements.
+   {{ datalens-short-name }} is a full-fledged data analysis and visualization tool. Use its rich set of settings to create different types of visualizations that meet a variety of user requirements.
 
 {% endcut %}
 
 {% cut "What else can I use {{ datalens-short-name }} for?" %}
 
-You are not restricted to using {{ datalens-short-name }}. You can connect to your own data sources, build charts and dashboards, and share them with your colleagues.
+   You are not restricted to using {{ datalens-short-name }}. You can connect to your own data sources, build charts and dashboards, and share them with your colleagues.
 
 {% endcut %}

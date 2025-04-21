@@ -16,7 +16,7 @@ description: Из статьи вы узнаете, как настроить д
 1. [Подключите репозиторий снапшотов](#register-snapshot-repository).
 
 
-Перед началом работы [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна в следующих случаях:
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна в следующих случаях:
 
 
 * если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт;
@@ -25,9 +25,9 @@ description: Из статьи вы узнаете, как настроить д
 ## Подключите сервисный аккаунт к кластеру {#connect-service-account}
 
 
-1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
+1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) либо [создайте новый](../../iam/operations/sa/create.md).
 
-1. Убедитесь, что этому аккаунту [назначена роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) этому аккаунту роль `storage.editor`.
 
 
 ## Настройте права доступа {#configure-acl}

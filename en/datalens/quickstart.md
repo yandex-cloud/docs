@@ -183,7 +183,7 @@ To create a dashboard:
 
 
 
-1. In the panel at the bottom of the page, select **Chart**.
+1. In the panel at the bottom of the page, hold down ![image](../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
 1. In the window that opens, click **Select**.
 1. Select the `Sales map` chart.
 
@@ -220,7 +220,7 @@ By default, the chart used for filtering filters data in all charts on the curre
 
 To add a selector to a dashboard:
 
-1. In the panel at the bottom of the page, choose **Selector**.
+1. In the panel at the bottom of the page, hold down ![image](../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
 1. Add the calendar selector for the order date:
 
    1. Select `Sales Dataset`.

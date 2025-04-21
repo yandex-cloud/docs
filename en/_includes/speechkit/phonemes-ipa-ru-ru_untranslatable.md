@@ -44,7 +44,7 @@ IPA           | Description                                                     
 `ɛ`             | Open-mid front unrounded vowel                                                          | **э**му ['ɛmʊ], п**е**сня ['pʲesnʲə], кар**е** [kə'rɛ]
 `i`             | Close central unrounded vowel                                                             | **и**стина ['istʲɪna], кн**и**га ['knʲiga], ручь**и** [rʊ't͡ɕji]
 `ɪ`             | Near-close front unrounded vowel                                | **и**гла [ɪˈgla], **э**нциклопедия [ɪnt͡sɨklɐˈpʲedʲɪjə], л**е**нивый [lʲɪˈnʲivɨj], н**и**кто [nʲɪkˈto], кон**и** [ˈkonʲɪ]
-`ɨ̞`             | Close central unrounded vowel                                                                   | ж**и**рный [ˈʐɨrnɨj], костр**ы** [kɐˈstrɨ]
+`ɨ`             | Close central unrounded vowel                                                                   | ж**и**рный [ˈʐɨrnɨj], костр**ы** [kɐˈstrɨ]
 `ɔ`             | Close-mid back rounded vowel                                                            | **о**торопь ['otərɐpʲ], к**о**рт ['kort], окн**о** [ək'no]
 `u`             | Close back rounded vowel                                                        | **у**зкий [ˈuskʲɪj], **ю**г [ˈjuk], с**у**мерки [ˈsumʲɪrkʲɪ], прид**у** [prʲɪˈdu], дежав**ю** [dɛʐɐˈvʲu]
 `ʊ`             | Near-close back rounded vowel                                                | к**у**ркума [kʊrˈkumə], в рек**у** [v] [ˈrʲekʊ], рису**ю** [ˈrʲɪˈsujʉ]

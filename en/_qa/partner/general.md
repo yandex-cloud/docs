@@ -3,29 +3,30 @@
 
 #### I cannot log in to the partner portal. What should I do? {#login}
 
-If you received a welcome email saying that you joined the program with a link to the [partner portal]({{ link-cloud-partners }}) and you cannot log in:
+If you received a welcome email about being accepted into the program with a link to the [partner portal]({{ link-cloud-partners }}) but you cannot log in:
 
 1. Make sure you are logged in with the Yandex ID that your billing account with the partner status is linked to.
 1. Check that your billing account is activated and its status is `Active`.
-   This status confirms that the paid version has been activated and there are no arrears for resource usage.
+    This status confirms that the paid version has been activated and there are no arrears for resource usage.
 1. If necessary, top up your account. The minimum payment amount is shown at the time of payment in the **Top up account** window.
 
 #### How to get the {{ yandex-cloud }} partner authorization letter? {#mail}
 
-Send a request to [yc-partners@yandex-team.ru](mailto:Yc-partners@yandex-team.ru) or your partner manager stating company name, TIN, and billing account of your company with partner status.
+Send a request to [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru) or your partner manager giving your company name, TIN, and the billing account of your company with the partner status.
 
 #### How to change the login of the partner billing account owner? {#owner}
 
 To change the account administrator:
 
 1. Fill out the [application](https://disk.yandex.ru/i/vYSMw7adOHSHUA), sign it, and stamp it with your organization seal. Make sure the login specified in the application matches to the current account owner and the application signatory is authorized to sign it.
-1. Send a scanned copy of the application and your partner billing account ID to [yc-partners@yandex-team.ru](mailto:Yc-partners@yandex-team.ru) or to your partner manager.
+1. Send a scanned copy of the application and your partner billing account ID to [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru) or to your partner manager.
 
 {% note warning %}
 
 You must [register](https://yandex.ru/support/id/authorization/registration.html) a new account on Yandex (Yandex ID) and must not use it for authorization in other Yandex services. You also need to log in and authorize with this Yandex ID in {{ yandex-cloud }} without creating new billing accounts.
 
 {% endnote %}
+
 
 #### Is {{ yandex-cloud }} listed in the Russian software registry? {#registry}
 
@@ -35,9 +36,10 @@ You must [register](https://yandex.ru/support/id/authorization/registration.html
 
 No, {{ yandex-cloud }} services fall under the definition of hosting services in the Information Act. According to the [clarification](https://rkn.gov.ru/it/control/p852/) of Roskomnadzor posted on the official website, hosting services are not communication services.
 
+
 #### Why does the subaccount balance always equal zero? {#balance}
 
-The partner is always invoiced for the [subaccount](../../partner/terms.md#sub-account) with the partner bonus deducted, so there is no need to fund it directly. The subaccount balance always equals zero, and its usage details change according to the services deployed under the subaccount.
+The partner is always invoiced for the [subaccount](../../partner/terms.md#sub-account) with the partner bonus deducted, so there is no need to top up your subaccount directly. The subaccount balance always equals zero, and its usage details change according to the services deployed under the subaccount.
 
 #### Can I use any email address to create a subaccount? {#email}
 
@@ -57,6 +59,6 @@ Each subaccount uses its own [technical support plan](../../support/pricing.md),
 
 #### How do I contact the {{ yandex-cloud }} partner program team? {#contacts}
 
-You can ask your questions on grants or using {{ yandex-cloud }} by contacting [support]({{ link-console-support }}) in the console {{ yandex-cloud }}. The support team will call in the partner program team if necessary.
+You can ask your questions on grants or {{ yandex-cloud }} processes by contacting [support]({{ link-console-support }}) in the {{ yandex-cloud }} console. The support team will call in the partner program team if necessary.
 
-You can ask questions about the terms of the program or share your opinion at [yc-partners@yandex-team.ru](mailto:Yc-partners@yandex-team.ru) or in the partner chat.
+You can ask your questions about the terms of the program or share your feedback at [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru) or in the partner chat.

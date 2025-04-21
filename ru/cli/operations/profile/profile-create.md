@@ -1,5 +1,5 @@
 ---
-title: Как cоздать профиль в CLI {{ yandex-cloud }}
+title: Как cоздать профиль в {{ yandex-cloud }} CLI
 description: Следуя данной инструкции, вы сможете cоздать профиль в CLI.
 ---
 

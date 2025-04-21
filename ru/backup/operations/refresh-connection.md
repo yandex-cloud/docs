@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 Если вы [удалили](delete-vm.md) ВМ из {{ backup-name }} и хотите подключить ее к сервису заново, воспользуйтесь инструкциями:
 
 * [Подключить виртуальную машину на Linux](connect-vm-linux.md)
-* [Подключить виртуальную машину на Linux с OS Login](connect-vm-oslogin-linux.md)
+* [Подключить виртуальную машину на Linux с {{ oslogin }}](connect-vm-oslogin-linux.md)
 * [Подключить виртуальную машину на Windows](connect-vm-windows.md)
 
 {% endnote %}

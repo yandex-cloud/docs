@@ -1150,6 +1150,7 @@ default:
     text_classification:
       v1|string: "0,75\_₸"
     text_embedding:
+      v1|number: 0.05
       v1|string: "0,05\_₸"
     text_generation_alt:
       v1|number: 1
@@ -2703,6 +2704,7 @@ default:
     text_classification:
       v1|string: "0,15\_₽"
     text_embedding:
+      v1|number: 0.01
       v1|string: "0,01\_₽"
     text_generation_alt:
       v1|number: 0.2
@@ -4119,10 +4121,13 @@ default:
     text_classification:
       v1|string: "0,001200\_$"
     text_embedding:
+      v1|number: 0.00008
       v1|string: "0,000080\_$"
     text_generation_alt:
+      v1|number: 0.0016
       v1|string: "0,001600\_$"
     text_generation:
+      v1|number: 0.0016
       v1|string: "0,001600\_$"
   sku|USD|gitlab:
     backup|month|number: 0.01536
@@ -4883,10 +4888,13 @@ default:
         30000000|number: 0.00004
         6000000|number: 0.000048
       text:
+        v2|number: 0.01104
         v2|pricingRate:
+          100000|number: 0.00816
           100000|string: "0,008160\_$"
           1000000|string: "0,003360\_$"
           2500000|string: "0,002400\_$"
+          500000|number: 0.0048
           500000|string: "0,004800\_$"
         v2|string: "0,011040\_$"
       v1|number: 0.000184
@@ -6802,6 +6810,10 @@ default:
         label-set:
           button_add-label: Добавить метку
           label_labels: Метки
+        maintenance-alert:
+          button_reschedule: Перенести
+          value_next-available-window: На следующее окно
+          value_specific-time: Выбрать дату (UTC)
         mdb:
           settings:
             button_reset: Сбросить
@@ -8204,6 +8216,15 @@ default:
             button_choose: Сохранить
             field_public_ip: Публичный доступ
             field_subnetworks: Подсеть
+        maintenance:
+          action_change-task-time: Перенести
+          action_exec-task-now: Провести сейчас
+          action_maintenance-window-setup: Настроить окно обслуживания
+          label_task-logs: Логи задания
+          label_task-start-time: Дата начала
+          label_task-status: Статус
+          label_task-status-planned: Запланировано
+          title_maintenance: Техническое обслуживание
         shard-groups:
           button_add-group: Создать группу шардов
       metastore:
@@ -10420,7 +10441,6 @@ default:
         delete-key-value: Удалить
         duplicate: Дублировать
         edit: Редактировать
-        filters: Фильтры
         more: Еще
         'no': Нет
         period: Период
@@ -10874,4 +10894,4 @@ default:
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 8.5.0-3
+        tag: 8.5.0-4

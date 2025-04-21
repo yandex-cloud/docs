@@ -1,0 +1,1 @@
+If you did not link a card when creating a billing account, you must deposit a minimum initial amount (1,000 RUB or 5,000 KZT) to your [personal account](../../billing/concepts/personal-account.md) to start using paid cloud resources.

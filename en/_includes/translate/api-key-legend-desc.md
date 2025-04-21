@@ -1,0 +1,1 @@
+Where `API_KEY` is the [API key](../../iam/concepts/authorization/api-key.md) you got [before you started](#before-begin). If you use an [IAM token](../../iam/concepts/authorization/iam-token.md) for authentication, change the `Authorization` header to `"Authorization: Bearer <IAM_token>"`.

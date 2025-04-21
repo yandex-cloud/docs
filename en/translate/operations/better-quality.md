@@ -16,7 +16,7 @@ To increase the accuracy of translations:
 
 {% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
 
-{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
+{% include [translate-instruction-auth](../../_includes/translate/translate-instruction-auth.md) %}
 
 
 ## Specify the source language {#with-source-language}
@@ -27,7 +27,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```json
     {
@@ -40,7 +40,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
     Where:
 
-    * `folderId`: Folder ID you got [before you started](#before-begin).
+    * `folderId`: Folder [ID](../../resource-manager/operations/folder/get-id.md) you got [before you started](#before-begin).
     * `texts`: Text to translate, as a list of strings.
     * `targetLanguageCode`: Target [language](../concepts/supported-languages.md). You can get the language code together with a [list of supported languages](list.md).
     * `sourceLanguageCode`: Source language.
@@ -49,7 +49,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Where `IAM_TOKEN` is the IAM token you got [before you started](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     This returns a translation from the correct language:
 
@@ -68,7 +68,7 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     {% include [with-glossary-req](../../_untranslatable/translate/with-glossary-req.md) %}
 
@@ -77,13 +77,13 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
     * `sourceLanguageCode`: Source [language](../concepts/supported-languages.md). You can get the language code together with a [list of supported languages](list.md).
     * `targetLanguageCode`: Target language.
     * `texts`: Text to translate, as a list of strings.
-    * `folderId`: Folder ID you got [before you started](#before-begin).
+    * `folderId`: Folder [ID](../../resource-manager/operations/folder/get-id.md) you got [before you started](#before-begin).
 
     Save the request body to a file (for example, `body.json`) and provide the file to the model using the [translate](../api-ref/Translation/translate) method:
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Where `IAM_TOKEN` is the IAM token you got [before you started](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     The response will contain a translation based on the terms from your glossary:
 
@@ -101,7 +101,7 @@ For particular text fragments to remain untranslated, specify the `HTML` text fo
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
   ```json
   {
@@ -137,7 +137,7 @@ Misspelled words may be translated incorrectly or transliterated. For example, t
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```json
     {
@@ -156,14 +156,14 @@ Misspelled words may be translated incorrectly or transliterated. For example, t
     * `sourceLanguageCode`: Source [language](../concepts/supported-languages.md). You can get the language code together with a [list of supported languages](list.md).
     * `targetLanguageCode`: Target language.
     * `texts`: Text to translate, as a list of strings.
-    * `folderId`: Folder ID you got [before you started](#before-begin).
+    * `folderId`: Folder [ID](../../resource-manager/operations/folder/get-id.md) you got [before you started](#before-begin).
     * `speller`: Parameter that activates the spell checker.
 
     Save the request body to a file (for example, `body.json`) and provide the file to the model using the [translate](../api-ref/Translation/translate) method:
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Where `IAM_TOKEN` is the IAM token you got [before you started](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     The response will contain a spell-checked translation of the word:
     

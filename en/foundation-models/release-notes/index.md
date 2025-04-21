@@ -5,12 +5,21 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 31/03/2025 {#310325}
+
+1. The `RC` branch now features the {{ gpt-lite }} 5th generation model, which supports contexts of up to 32,000 tokens in both synchronous and asynchronous modes.
+1. Added [support](../concepts/openai-compatibility.md) for {{ openai }} tools to work with text generation models. 
+
+## Release as of 19/03/2025 {#190325}
+
+Increased some limits for {{ assistant-api }}: now you can add up to 10,000 documents with the total size of 5 million tokens to a search index. You can upload up to 100 documents at a time. Also, increased the maximum number of threads to 10,000 and maximum number of messages per thread to 100,000. For a complete list of limits, see [{#T}](../concepts/limits.md).
+
 ## Release as of 25/02/2025 {#250225}
 
 The {{ yagpt-name }} 5th generation model is available for testing (`RC` branch). The 5th generation key upgrades include:
-1. [Function calling](../concepts/yandexgpt/function-call.md) was significantly improved.
-1. Added support for structured output. This feature enables you to set up the model to generate responses in random JSON format or according to the provided schema. For more information on structuring model output, see [Text generation overview](../concepts/yandexgpt/index.md#answers-formatting).
-1. Increased the supported context to 32,000 tokens for all modes.
+* [Function calling](../concepts/yandexgpt/function-call.md) was significantly improved.
+* Added support for structured output. This feature enables you to set up the model to generate responses in random JSON format or according to the provided schema. For more information on structuring model output, see [Text generation overview](../concepts/yandexgpt/index.md#answers-formatting).
+* Increased the supported context to 32,000 tokens for all modes.
 
 ## Release as of 11/02/25 {#110225}
 

@@ -13,6 +13,8 @@ items:
         href: operations/index.md
       - name: Disabling request logging
         href: operations/disable-logging.md
+      - name: Getting an API key
+        href: operations/get-api-key.md
       - name: Text generation
         items:
           - name: Estimating request size in tokens
@@ -39,6 +41,18 @@ items:
         items:
           - name: Using embeddings to search through the knowledge base
             href: operations/embeddings/search.md
+      - name: Working with datasets
+        items:
+          - name: Creating a dataset for tuning a text generation model
+            href: operations/resources/create-dataset-gpt.md
+          - name: Creating a dataset for tuning a text classification model
+            href: operations/resources/create-dataset-classifier.md
+      - name: Model tuning
+        items:
+          - name: Tuning a text generation model
+            href: operations/tuning/create.md
+          - name: Tuning a text classification model
+            href: operations/tuning/tune-classifiers.md
       - name: '{{ assistant-api }}'
         items:
           - name: Creating a simple assistant
@@ -47,12 +61,6 @@ items:
             href: operations/assistant/create-with-searchindex.md
           - name: Getting intermediate response generation results
             href: operations/assistant/request-chunked-response.md
-      - name: Model tuning in {{ foundation-models-name }}
-        items:
-          - name: Fine-tuning text generation models
-            href: operations/tuning/create.md
-          - name: Fine-tuning classifier models
-            href: operations/tuning/tune-classifiers.md
   - name: Concepts
     items:
       - name: About {{ foundation-models-full-name }}
@@ -83,27 +91,23 @@ items:
             href: concepts/classifier/models.md
       - name: Embeddings
         href: concepts/embeddings.md
+      - name: Datasets
+        href: concepts/resources/dataset.md
+      - name: Fine-tuning
+        href: concepts/tuning/index.md
       - name: '{{ assistant-api }}'
         items:
           - name: Overview
             href: concepts/assistant/index.md
           - name: Search indexes
             href: concepts/assistant/search-index.md
-      - name: Fine-tuning
-        items:
-          - name: Overview
-            href: concepts/tuning/index.md
-          - name: Fine-tuning text generation models
-            href: concepts/tuning/generating.md
-          - name: Fine-tuning classifiers
-            href: concepts/tuning/classifier.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: API references
     items:
       - name: Overview
         href: concepts/api.md
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: Text Generation API
         items:
@@ -650,11 +654,13 @@ items:
                     href: tuning/api-ref/grpc/Tuning/listErrors.md
   - name: '{{ ml-sdk-full-name }}'
     href: sdk/index.md
+  - name: Compatibility with {{ openai }}
+    href: concepts/openai-compatibility.md
   - name: Tutorials
     items:
       - name: >-
-          Implementing an AI assistant with search through PDF files with
-          complex formatting
+          Implementing an AI assistant with search capabilities for PDF files
+          with complex formatting
         href: tutorials/pdf-searchindex-ai-assistant.md
       - name: Model tuning in {{ ml-platform-name }}
         href: tutorials/models-fine-tuning.md
@@ -670,7 +676,5 @@ items:
     items:
       - name: FAQ
         href: qa/index.md
-      - name: External errors when working with models
-        href: troubleshooting/known-issues.md
       - name: Error codes
         href: troubleshooting/error-codes.md

@@ -17,7 +17,7 @@ Pausing is available for testing in all languages the speech synthesis is suppor
 | [Set a pause between sentences explicitly](#pause) | `sil<[t]>`, where `t` is the pause duration in milliseconds. |
 | [Set a pause depending on the context](#context-pause) | `<[small]>`. Acceptable values: `tiny`, `small`, `medium`, `large`, and `huge`. |
 | [Place emphasis](#accent) | `<[accented]>` or `**emphasized word**` |
-| [Use phonetic pronunciation](#phoneme) | `[[ <word_phonemes_separated_by_spaces> ]]` |
+| [Use phonetic pronunciation](#phoneme) | `[[<word_phonemes_separated_by_spaces>]]` |
 
 {% include [note-templates-markup](../../../_includes/speechkit/note-templates-markup.md) %}
 
@@ -86,3 +86,37 @@ Hi! My name is [[v a sʲ ʌ]]
 ```
 
 You can find the list of supported phonemes [here](tts-supported-phonemes.md).
+
+### Usage examples for Russian phonemes {#rus-examples}
+
+**Example 1**
+
+Ishimbay is a city in Russia.
+
+```text
+Всем привет! Я взял билеты на автобус в город [[i ʂ ɨ m b a j]] и буду там наслаждаться природой.
+```
+
+**Example 2**
+
+Keremet is a Kazakh female name. Possible confusion: `Keremet`/`keremyot`.
+
+```text
+Познакомься, это моя подруга [[kʲ ɪ rʲ ɪ mʲ ɛ t]]. Мы вместе учились в школе.
+```
+
+**Example 3**
+
+Lena, a female name, used in the genitive plural case. Possible confusion: `Len`/`lyon`.
+
+```text
+В моей семье очень много [[lʲ ɛ n]]. Это очень популярное имя у нас.
+```
+
+**Example 4**
+
+Beret is a type of headwear. Possible confusion: `beret`/`beryot`.
+
+```text
+Голубой [[bʲ ɪ rʲ ɛ t]]. Передай мне, пожалуйста, мой берет.
+```

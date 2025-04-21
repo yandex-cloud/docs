@@ -1,9 +1,9 @@
 ---
 title: Creating a fine-tuned classifier model in {{ foundation-models-name }}
-description: Follow this guide to create a dataset and fine-tune a classifier model in {{ foundation-models-name }} using API and {{ ml-sdk-name }}.
+description: Follow this guide to create a dataset and fine-tune a classifier model in {{ foundation-models-name }} using {{ ai-playground }}, the API, and {{ ml-sdk-name }}.
 ---
 
-# Creating a fine-tuned classifier model in {{ foundation-models-name }}
+# Tuning a text classification model
 
 {% include [lora-tuning-preview](../../../_includes/foundation-models/lora-tuning-preview.md) %}
 
@@ -15,13 +15,28 @@ If an out-of-the-box classifier model is not enough, you can [fine-tune](../../c
 
 ## Upload the dataset {#create-dataset}
 
-Depending on the [classification type](../../concepts/classifier/index.md) the fine-tuned model will be used for, prepare [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8)-encoded [tuning data](../../concepts/tuning/classifier#data) in [JSON Lines format](https://jsonlines.org/). If you want to split your data into two datasets for tuning and validation, repeat the steps below for each dataset. Use the IDs you got after uploading the datasets to start the fine-tuning process.
+Depending on the [classification type](../../concepts/classifier/index.md) the fine-tuned model will be used for, prepare [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8)-encoded [tuning data](../../concepts/resources/dataset.md#classifier) in [JSON Lines format](https://jsonlines.org/). If you want to split your data into two datasets for tuning and validation, repeat the steps below for each dataset. Use the IDs you got after uploading the datasets to start the fine-tuning process.
 
 In this example, we only use the tuning dataset for fine-tuning. 
 
 Create a tuning dataset:
 
 {% list tabs group=programming_language %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user` and `ai.datasets.editor` [roles](../../security/index.md) or higher.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.dataset.datasets }}**.
+  1. Click **{{ ui-key.yacloud.dataset.create }}**.
+  1. Enter a name and descriptions for the dataset. Follow these naming requirements:
+
+     {% include [name-format](../../../_includes/name-format.md) %}
+
+  1. In the **{{ ui-key.yacloud.common.type }}** field, select the classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
+  1. Delete or add dataset [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Click **Select file** or drag the JSON file you created earlier to the loading area.
+  1. Click **{{ ui-key.yacloud.dataset.create }}**.
 
 - SDK {#sdk}
 
@@ -107,6 +122,25 @@ Create a tuning dataset:
 ## Start tuning {#start-tuning}
 
 {% list tabs group=programming_language %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user`, `ai.datasets.user`, and `ai.models.editor` [roles](../../security/index.md) or higher.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. In the left-hand panel, click ![image](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.tuning.tunings }}**.
+  1. Click **{{ ui-key.yacloud.tuning.train-model }}**.
+  1. Enter a name and descriptions for the dataset. Follow these naming requirements:
+
+     {% include [name-format](../../../_includes/name-format.md) %}
+
+  1. In the **{{ ui-key.yacloud.tuning.task }}** field, select **{{ ui-key.yacloud.tuning.classification }}**.
+  1. Select the **{{ ui-key.yacloud.tuning.classification-task }}**: **{{ ui-key.yacloud.dataset.text-classification-multiclass.short-title }}** or **{{ ui-key.yacloud.dataset.text-classification-multilabel.short-title }}**.
+  1. Optionally, add or delete the tuning [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. In the **{{ ui-key.yacloud.yagpt.model }}** field, select the model you need.
+  1. In the **{{ ui-key.yacloud.dataset.dataset }}** field, click **{{ ui-key.yacloud.common.add }}**.
+  1. In the window that opens, go to the **{{ ui-key.yacloud.dataset.select-from-created }}** tab and select the dataset you created earlier.
+  1. Click **{{ ui-key.yacloud.tuning.addition-params }}** to do advanced fine-tuning setup.
+  1. Click **{{ ui-key.yacloud.tuning.start-tuning }}**.
 
 - SDK {#sdk}
 

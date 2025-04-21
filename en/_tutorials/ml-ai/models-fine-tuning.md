@@ -104,7 +104,7 @@ To get the API key and folder ID from the notebook, create [secrets](../../datas
 
 ## Tune the model {#fine-tuning}
 
-The code for fine-tuning is run from the {{ ml-platform-name }} notebook. [Fine-tuning data](../../foundation-models/concepts/tuning/generating.md) is stored in [JSON Lines](https://jsonlines.org/) format.
+The code for fine-tuning is run from the {{ ml-platform-name }} notebook. [Fine-tuning data](../../foundation-models/concepts/resources/dataset.md#generating) is stored in [JSON Lines](https://jsonlines.org/) format.
 
 1. Open the notebook with the code by following the link below:
 

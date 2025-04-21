@@ -3,6 +3,9 @@
 #### What is the initial grant? {#start-grant}
 
 
+The initial grant enables you to gain hands-on experience with {{ yandex-cloud }} without paying for the resources you consume. It is issued automatically when you create the first billing account for a partner or customer after their billing account is verified. The initial grant for businesses is 4,000 rubles. Read more about the grant system in [Grant](../../billing/concepts/bonus-account.md).
+
+
 
 #### How do I get the initial grant for an activated partner account? {#connected-accounts}
 

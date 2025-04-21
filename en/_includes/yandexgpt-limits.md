@@ -1,6 +1,6 @@
 #### Quotas {#yandexgpt-quotas}
 
-Type of limit | Value
+Limit type | Value
 ----- | -----
 **[Text vectorization](../foundation-models/concepts/embeddings.md)** |
 Number of text vectorization requests per second | 10
@@ -29,7 +29,7 @@ Number of fine-tuning runs per hour | 3
 
 #### Limits {#yandexgpt-limits}
 
-Type of limit | Value
+Limit type | Value
 ----- | -----
 Period to store results of asynchronous requests on the server | 3 days
 **[Text vectorization](../foundation-models/concepts/embeddings.md)** |
@@ -39,10 +39,10 @@ Output vector size | {{ emb-vector }}
 Maximum number of tokens in response via API | 2,000 
 Maximum number of tokens per response in the [management console]({{ link-console-main }}) | 1,000
 Total number of tokens in request and response, [3rd generation models](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
-Total number of tokens in request and response, {{ gpt-lite }} model of [4th generation](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
-Total number of tokens in request and response, {{ gpt-lite }} model of [5th generation](../foundation-models/concepts/yandexgpt/models.md) | 32,000
-Total number of tokens in request and response, synchronous mode of {{ gpt-pro }} model of [4th generation](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
-Total number of tokens in request and response, asynchronous mode of {{ gpt-pro }} model of [4th generation models](../foundation-models/concepts/yandexgpt/models.md) | 32,000
+Total number of tokens in request and response, [4th generation](../foundation-models/concepts/yandexgpt/models.md) {{ gpt-lite }} model | {{ yagpt-max-tokens }}
+Total number of tokens in request and response, [5th generation](../foundation-models/concepts/yandexgpt/models.md) {{ gpt-lite }} model | 32,000
+Total number of tokens in request and response, synchronous mode of the [4th generation](../foundation-models/concepts/yandexgpt/models.md) {{ gpt-pro }} model | {{ yagpt-max-tokens }}
+Total number of tokens in request and response, asynchronous mode of the [4th generation](../foundation-models/concepts/yandexgpt/models.md) {{ gpt-pro }} model | 32,000
 Total number of tokens in request and response, {{ gpt-pro }} model of [5th generation models](../foundation-models/concepts/yandexgpt/models.md) | 32,000
 Total number of tokens in request and response, {{ gpt-pro }} 32k model | 32,000
 Total number of tokens in request and response, [5th generation {{ gpt-pro }} model](../foundation-models/concepts/yandexgpt/models.md) | 32,000

@@ -1,8 +1,6 @@
 title: Architecture solutions
-stage: hidden
 href: index.yaml
 noIndex: true
 items:
   - name: Recommendations on fault tolerance in {{ yandex-cloud }}
     href: fault-tolerance.md
-    hidden: true

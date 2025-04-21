@@ -9,6 +9,8 @@ description: Follow this guide to top up your personal account.
 
 {{ yandex-cloud }} reserves the right to automatically debit your linked card during the current reporting period if your account balance exceeds the established credit limit.
 
+ 
+
 The method for topping up your personal account depends on your legal status.
 
 {% note info %}

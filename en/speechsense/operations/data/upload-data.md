@@ -8,7 +8,7 @@ description: Follow this guide to upload audio data to {{ speechsense-name }} vi
 Use this guide to upload data to {{ speechsense-name }} for speech recognition and analysis via API. This example uses the following parameters:
 
 * [Audio format](../../concepts/formats.md): WAV.
-* The dialog metadata is stored in `metadata_example.json`.
+* The dialog metadata is stored in `metadata.json`.
 
 {% include [authentication](../../../_includes/speechsense/data/authentication.md) %}
 
@@ -23,6 +23,9 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
 To prepare for uploading audio recordings:
 
 1. [Create a connection](../connection/create.md#create-audio-connection) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** type.
+
+   If you want to upload [linked dialogs](../../concepts/dialogs.md#related-dialogs), add the `ticket_id` string key to the connection's general metadata. The dialogs will be linked by this key.
+
 1. [Create a project](../project/create.md) with the new connection.
 
    Voice call recordings will be uploaded to the project and connection you created.
@@ -36,7 +39,7 @@ To prepare for uploading audio recordings:
 ## Uploading data {#upload-data}
 
 1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
-1. In the `upload_data` folder, create the `upload_grpc.py` Python script to upload your data to a {{ speechsense-name }} connection as a single message:
+1. In the `upload_data` directory , create the `upload_grpc.py` Python script to upload your data to a {{ speechsense-name }} connection as a single message:
 
       ```python
       import argparse
@@ -110,6 +113,32 @@ To prepare for uploading audio recordings:
             audio_bytes = fp.read()
          upload_talk(args.connection_id, metadata, args.key, audio_bytes)
       ```
+
+1. In the `upload_data` directory , create a file named `metadata.json` with your conversation metadata:
+
+   ```json
+   {
+      "operator_name": "<agent_name>",
+      "operator_id": "<agent_ID>",
+      "client_name": "<customer_name>",
+      "client_id": "<customer_ID>",
+      "date": "<start_date>",
+      "direction_outgoing": "<outgoing_direction:_true_or_false>",
+      "language": "<language>",
+      <additional_connection_parameters>
+   }
+   ```
+
+   Set the `date` field value in `YYYY-MM-DDTHH:MM:SS.SSS` format.
+
+   The file's fields must match the parameters of the connection you are uploading audio recordings to. The template above shows the required fields for **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** type connections. If you added other parameters to the connection, specify them in the `metadata.json` file; e.g., to upload [linked dialogs](../../concepts/dialogs.md#related-dialogs), add the following parameter to your file:
+
+   ```json
+   {
+      ...
+      "ticket_id": "<task_number>"
+   }
+   ```
 
 1. {% include [api-key](../../../_includes/speechsense/data/api-key.md) %}
 

@@ -1,26 +1,32 @@
 ---
 title: Fault tolerance of {{ yandex-cloud }} services
 description: This article provides recommendations on designing a fault-tolerant infrastructure in {{ yandex-cloud }}.
-noIndex: true
+keywords:
+  - fault tolerance
+  - availability zone fault
+  - availability zone failure
+  - service unavailability
+  - reservation
+  - delay minimization
 ---
 
 # Recommendations on fault tolerance in {{ yandex-cloud }}
 
 Fault tolerance is the capability of a system to continue its operation in case of any fault in one or multiple components. 
-Faults can be either total or partial. A partial fault is an intermediate state between full operability and a total fault, manifested by a partial rather than entire loss of the system’s capability to perform its functions. Example: 50% loss of network packages during transmission via communication circuits is a partial fault. 
+Faults can be either total or partial. A partial fault is an intermediate state between full operability and a total fault, manifested by a partial rather than full loss of the system’s capacity to perform its functions. Example: 50% loss of network packages during transmission via communication circuits is a partial fault. 
 
 Below are recommendations on designing a fault-tolerant infrastructure in {{ yandex-cloud }}.
 
 ## Introduction {#introduction}
 
-{{ yandex-cloud }} infrastructure divides into [regions](../overview/concepts/region) and [availability zones](../overview/concepts/geo-scope). An availability zone is an isolated part of the infrastructure that is protected from faults in other zones. Availability zones are organized territorially and located around 300 km away from each other.
+{{ yandex-cloud }} infrastructure divides into [regions](../overview/concepts/region.md) and [availability zones](../overview/concepts/geo-scope.md). An availability zone is an isolated part of the infrastructure that is protected from faults in other zones. Availability zones are organized territorially and located around 300 km away from each other.
 
 Currently, the following regions are available in {{ yandex-cloud }}:
 
 * **Russia** (ru-central1): `ru-central1-a`, `ru-central1-b`, and `ru-central1-d` availability zones.
 * **Kazakhstan** (kz1): `kz1-a` availability zone.
 
-A region provides direct network (IP) connectivity across availability zones, common [APIs](../overview/api), [SLAs](../overview/sla), and unified [pricing](../../prices) for cloud services.
+A region provides direct network (IP) connectivity across availability zones, common [APIs](../overview/api.md), [SLAs](../overview/sla.md), and unified [pricing](../../prices) for cloud services.
 
 Here are the possible fault types regarding which this document provides recovery recommendations:
 
@@ -51,7 +57,7 @@ Depending on requirements for fault recovery time, two basic schemes are availab
 
 1. **Load balancing (Active-Active)**:
    * The load is distributed among multiple zones (see the scheme below). 
-   * This sheme requires software adaptation and minimizing network delays across the zones (e.g., traffic localization).
+   * This scheme requires software adaptation and minimizing network delays between the zones (e.g., locality aware routing).
    * The scheme shows high fault tolerance and minimum recovery time.
 
    Delay minimization is one of the subjects in the [Quest for microseconds: Optimizing cloud service performance](https://yandex.cloud/ru/events/935) webinar.
@@ -87,25 +93,40 @@ To minimize fault handling time, especially in case of API faults, it is essenti
    * [{{ objstorage-name }}](../storage)
    * [{{ container-registry-name }}](../container-registry/)
    * [Serverless Functions](../functions/)
-   * [Egress NAT](../vpc/concepts/gateways)
+   * [Egress NAT](../vpc/concepts/gateways.md)
 
 * Autoscaling tools: 
    * [Instance groups](../compute/concepts/instance-groups/) 
-   * [{{ k8s }} node groups](../managed-kubernetes/concepts/node-group/cluster-autoscaler)
+   * [{{ k8s }} node groups](../managed-kubernetes/concepts/node-group/cluster-autoscaler.md)
 
 ## Load balancers ({{ network-load-balancer-name }}, {{ alb-name }}) {#load-balancers}
 
 ### {{ network-load-balancer-name }} {#nlb}
 
-The central tool for building fault-tolerant solutions in {{ yandex-cloud }} is a [network load balancer ({{ network-load-balancer-name }})](../network-load-balancer/concepts/), which distributes TCP connections among targets. It can be external, for processing traffic from the internet (listener with a public IP address), or internal, for processing internal network traffic (listener with an internal IP address). Health checks are used to check if the targets are ready. Currently, {{ network-load-balancer-name }} does not support disabling traffic in a specific zone.
+The central tool for building fault-tolerant solutions in {{ yandex-cloud }} is a [network load balancer ({{ network-load-balancer-name }})](../network-load-balancer/concepts/), which distributes TCP connections among targets. It can be external, for processing traffic from the internet (listener with a public IP address), or internal, for processing internal network traffic (listener with an internal IP address). Targets are checked for readiness using health checks. Currently, {{ network-load-balancer-name }} does not support disabling traffic in a specific zone.
+
+We recommend checking the targets for readiness frequently enough with an interval of under three seconds. The health check trigger thresholds must be strictly greater than 1. To avoid increased load on targets, the health checks must not require much resources to generate a response. Example of poor practice: requesting the website root page for a health check. Example of good practice: using a separate URI to check connections to the targets of interest (e.g., databases) and overall operability. 
 
 Here is an [example](../tutorials/web/load-balancer-website/) of creating a fault-tolerant website with load balancing using {{ network-load-balancer-name }} between two availability zones with fault protection in one zone.
 
 ### {{ alb-name }} {#alb}
 
-[{{ alb-name }}](../application-load-balancer/) is a smarter yet more costly balancing tool. It supports integration with protection services, such as [{{ sws-name }}](../smartwebsecurity/), [ARL](../smartwebsecurity/concepts/arl.md), [WAF](../smartwebsecurity/concepts/waf.md), and [{{ captcha-name }}](../smartcaptcha/). {{ alb-name }} allows disabling resources in a specific zone and [localizing traffic inside an availability zone](../application-load-balancer/concepts/backend-group.md#locality). 
+[{{ alb-name }}](../application-load-balancer/) is a smarter yet more costly balancing tool. At the architecture level, the service is a {{ network-load-balancer-name }} that distributes network traffic between [resource units](../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling), i.e., internal VMs acting as [reverse proxies](https://ru.wikipedia.org/wiki/Обратный_прокси) which, in turn, distribute traffic further between the customer’s targets. Unlike {{ network-load-balancer-name }} with only VM network interfaces for targets, {{ alb-name }} can distribute traffic to any private IP addresses, e.g., IP addresses outside of the cloud network, IP addresses of {{ network-load-balancer-name }} listeners, etc.
+
+To handle situations with partial availability zone faults, with {{ alb-name }}, you can manually stop delivering customer traffic to the compromised zone.
+
+To reduce system recovery time, we recommend you to keep resource units in all your availability zones and reserve enough resource units in each one. This gives you some reserve capacity if one of the zones goes down. You can use the `--min-zone-size` parameter to specify the minimum number of resource units per availability zone.
+
+For reliable operation of the fault tolerance mechanisms, {{ alb-name }} has to be supplied with information about the availability zone the targets are in. If you use integration with instance groups, this is done automatically; otherwise, you must specify the ID of the subnet the target resides in. [For more information, see this guide](../application-load-balancer/operations/target-group-create.md).
+
+To minimize delays during request processing, locality aware routing should be employed: a request reaching a resource unit in an availability zone must be processed in the same availability zone. To do this, set the [locality_aware_routing_percent](../application-load-balancer/concepts/backend-group.md#locality) parameter for the [backend group](../application-load-balancer/concepts/backend-group.md) to 100%. This will prioritize traffic delivery to the current availability zone while still keeping it possible to send requests to other availability zones if no targets are available. We do not recommend enabling **Strict localization**, as it stops the processing of requests ending up in the availability zone without any targets available. 
+
+The recommendations for {{ alb-name }} target availability checks are the same as for {{ network-load-balancer-name }}.
+
+You can give {{ alb-name }} extra resilience to faults related to malicious activities by connecting to it such web application protection services as [{{ sws-name }}](../smartwebsecurity/), [ARL](../smartwebsecurity/concepts/arl.md), [WAF](../smartwebsecurity/concepts/waf.md), and [{{ captcha-name }}](../smartcaptcha/).  
 
 Here is an [example](../tutorials/web/application-load-balancer-website/index.md) of creating a fault-tolerant website with load balancing using {{ alb-name }} between three availability zones with fault protection in one zone.
+
 
 ## Fault tolerance of platform services {#platform-services-ha}
 
@@ -187,7 +208,7 @@ To ensure fault tolerance and quick fault handling in {{ managed-k8s-name }} app
 
 ## How to shift load from an availability zone {#traffic-shifting}
 
-{{ alb-name }} supports manual [disabling of traffic in a specific zone](../application-load-balancer/concepts/application-load-balancer#lb-location). 
+{{ alb-name }} supports manual [disabling of traffic in a specific zone](../application-load-balancer/concepts/application-load-balancer.md#lb-location). 
 For {{ network-load-balancer-name }}, you can only remove traffic from an availability zone by disabling health checks for targets in the faulty zone. There are several ways to do this:
 
    * At the infrastructure level, block checks at the network security group level.
@@ -201,7 +222,7 @@ You should consider the other methods in case the {{ yandex-cloud }} API is unav
 
 ### Application high availability testing {#app-ha-test}
 
-To test an application’s fault tolerance, i.e., its ability to handle traffic when an availability zone fails, you can use this pre-configured [scenario](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb), where the web app is deployed behind the NLB load balancer, and the [high availability testing technique](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb?tab=readme-ov-file#sg) that involves isolating a specific app component from the load balancer.
+To test an application’s fault tolerance, i.e., its ability to handle traffic when an availability zone fails, you can use this pre-configured [scenario](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb), where the web app is deployed behind the NLB, and the [high availability testing technique](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb?tab=readme-ov-file#sg) that involves isolating a specific app component from the load balancer.
 
 You can test your web applications using this technique, if required.
 
@@ -209,9 +230,9 @@ You can test your web applications using this technique, if required.
 
 We are introducing `NLB Zone Shift` to better respond to partial failure incidents.
 
-After successful HA testing of an application, you can tag the relevant NLB load balancer with a special flag. This flag enables the {{ yandex-cloud }} support team to shift traffic away from the load balancer in case of partial failures in an availability zone that are not captured by regular [target health checks](../network-load-balancer/concepts/health-check.md), such as issues with external communication circuits.
+After successful HA testing of an application, you can tag the relevant NLB with an appropriate flag. This flag enables the {{ yandex-cloud }} support team to shift traffic away from the load balancer in case of partial failures in an availability zone that are not captured by regular [target health checks](../network-load-balancer/concepts/health-check.md), such as issues with external communication circuits.
 
-To tag an NLB load balancer with a zonal shift flag, run this YC CLI command:
+To tag an NLB with a zonal shift flag, run this YC CLI command:
 ```bash
 yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
 ``` 

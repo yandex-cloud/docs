@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
 
-   1. [Создайте авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для созданного сервисного аккаунта при помощи утилиты [YC CLI](../../../cli/quickstart.md):
+   1. [Создайте авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для созданного сервисного аккаунта при помощи [{{ yandex-cloud }} CLI](../../../cli/quickstart.md):
 
        ```bash
        yc iam key create --service-account-id <идентификатор_сервисного_аккаунта> --output jwt_params.json

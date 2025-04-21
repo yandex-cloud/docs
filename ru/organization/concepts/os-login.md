@@ -41,13 +41,13 @@ _Профиль {{ oslogin }}_ определяет параметры, кото
 
 У одного пользователя или сервисного аккаунта в организации {{ org-name }} может быть несколько профилей {{ oslogin }} — разные профили позволяют подключаться к ВМ от имени разных локальных пользователей ВМ. Подробнее о создании дополнительных профилей {{ oslogin }} см. в инструкции [{#T}](../operations/os-login-profile-create.md).
 
-Управлять профилями {{ oslogin }} пользователей вы можете в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}), а также с помощью [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/oslogin/index.md) и [API](../api-ref/OsLogin/index.md). Управлять профилями {{ oslogin }} сервисных аккаунтов можно только с помощью CLI или API.
+Управлять профилями {{ oslogin }} пользователей вы можете в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}), а также с помощью [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/oslogin/index.md) и [API](../api-ref/OsLogin/index.md). Управлять профилями {{ oslogin }} сервисных аккаунтов можно только с помощью {{ yandex-cloud }} CLI или API.
 
 {% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 
 ### SSH-ключи пользователей и сервисных аккаунтов {#ssh-keys}
 
-Включив [режим 2](#modes), [администратор организации](../security/index.md#organization-manager-admin) может разрешить использовать публичные SSH-ключи для подключения пользователей и сервисных аккаунтов к ВМ по {{ oslogin }}. При включении данного режима администратор должен будет самостоятельно загрузить публичные SSH-ключи пользователей и сервисных аккаунтов в их [профили OS Login](#os-login-profiles).
+Включив [режим 2](#modes), [администратор организации](../security/index.md#organization-manager-admin) может разрешить использовать публичные SSH-ключи для подключения пользователей и сервисных аккаунтов к ВМ по {{ oslogin }}. При включении данного режима администратор должен будет самостоятельно загрузить публичные SSH-ключи пользователей и сервисных аккаунтов в их [профили {{ oslogin }}](#os-login-profiles).
 
 Администратор организации также может разрешить пользователям самостоятельно управлять своими публичными SSH-ключами, для этого нужно дополнительно [включить](../operations/os-login-access.md) опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}** в настройках безопасности организации.
 
@@ -84,7 +84,7 @@ _Профиль {{ oslogin }}_ определяет параметры, кото
 
 {% cut "Пример подключения по короткоживущему SSH-сертификату" %}
 
-```
+```bash
 # 1. Получение публичного IP-адреса ВМ my-oslogin-vm и идентификатора организации
 PUB_IP=$(yc compute instance get my-oslogin-vm \
   --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')

@@ -6,5 +6,5 @@ You can create [{{ metastore-full-name }}](../../metadata-hub/operations/metasto
 * Saves the table metadata between running the short-lived computing clusters.
 * Shares the data space between concurrently run clusters.
 * Links together different ETL systems and tools for working with shared data and simplifies their deployment.
-* Provides fault tolerance, scalable storage, and metadata backup.
+* Provides [fault tolerance](../../architecture/fault-tolerance.md), scalable storage, and metadata backup.
 * Simplifies sending logs and metrics, as well as the update and migration processes.

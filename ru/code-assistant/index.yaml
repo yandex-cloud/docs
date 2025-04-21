@@ -20,6 +20,17 @@ description:
     использования сервиса {{ ca-full-name }}</a>
 meta:
   title: '{{ ca-full-name }}'
+  keywords:
+    - keyword: source craft
+    - keyword: yandex code assistant
+    - keyword: yandex source craft
+    - keyword: '{{ ca-name }}'
+    - keyword: '{{ ca-full-name }}'
+    - keyword: сервис {{ ca-name }}
+    - keyword: ai помощник в {{ yandex-cloud }}
+    - keyword: помощник разработчика в {{ yandex-cloud }}
+    - keyword: ai помощник
+    - keyword: помощник разработчика
 links:
   - title: Начало работы
     description: Установите плагин {{ ca-name }} для вашей IDE

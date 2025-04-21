@@ -1,10 +1,11 @@
 #### Quotas {#datasphere-quotas}
 
-Type of limit | Value
+Limit type | Value
 --- | ---
 Number of [projects](../datasphere/concepts/project.md) per [community](../datasphere/concepts/community.md) | 50
 Total [dataset](../datasphere/concepts/dataset.md) size per community | 1,024 GB
 Number of datasets per community | 10
+Number of file storages per community | 10
 Number of Docker images per community | 3
 Project [storage](../datasphere/concepts/project.md#storage) size ([can be increased per project](../datasphere/operations/projects/storage-resize.md)) | 10 GB
 Number of communities linked to a single [billing account](../billing/concepts/billing-account.md) | 100
@@ -25,7 +26,7 @@ gt4.1 ^1^ | 0
 
 #### Limits {#datasphere-limits}
 
-Type of limit | Value
+Limit type | Value
 --- | ---
 Maximum project storage size | 4,096 GB
 Maximum dataset size | 4,096 GB

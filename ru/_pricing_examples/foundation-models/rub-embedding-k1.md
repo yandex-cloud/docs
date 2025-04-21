@@ -1,6 +1,6 @@
-* 0,01&nbsp;₽ — стоимость обработки 1000 токенов.
-* 0,01&nbsp;₽ / 1000 — стоимость обработки 1 токена.
+* {{ sku|RUB|foundation_models.text_embedding.v1|string }} — стоимость обработки 1000 токенов.
+* {{ sku|RUB|foundation_models.text_embedding.v1|string }} / 1000 — стоимость обработки 1 токена.
 
-2000 × (0,01&nbsp;₽ / 1000) = 0,02&nbsp;₽
+2000 × ({{ sku|RUB|foundation_models.text_embedding.v1|string }} / 1000) = {% calc [currency=RUB] 2000 × {{ sku|RUB|foundation_models.text_embedding.v1|number }} / 1000 %}
 
-Итого: 0,02&nbsp;₽.
+Итого: {% calc [currency=RUB] 2000 × {{ sku|RUB|foundation_models.text_embedding.v1|number }} / 1000 %}.
