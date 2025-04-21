@@ -26,7 +26,15 @@ When {{ atr-name }} is used from the second day of the calendar month or later, 
 
 ### {{ atr-name }} {#atr-pricing}
 
+
 {% note warning %}
+
+Starting May 1, 2025, the prices for {{ sd-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2n5s29voog346lncrm).
+
+{% endnote %}
+
+
+{% note info %}
 
 These prices are valid as of March 13, 2025.
 

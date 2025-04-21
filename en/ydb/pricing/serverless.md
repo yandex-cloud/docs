@@ -75,7 +75,7 @@ For topics with on-demand pricing, you also pay for the actually used disk space
 
 You can force a database backup, saving a copy to [{{ objstorage-name }}](../../storage/). The cost of this operation depends on the size of copied data and is calculated similarly to the [ReadTable](ru-special.md#readtable) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
-{% note warning %}
+{% note info %}
 
 If you export data using `ydb tools dump`, billing is based on the `ReadTable` operation rates.
 
@@ -111,7 +111,7 @@ Actual (on-demand) consumption of RUs per month will be:
 
 You can restore databases and individual tables from the backups stored in {{ objstorage-name }}. The cost of this operation depends on the size of recovered data and is calculated similarly to the [BulkUpsert](ru-special.md#bulkupsert) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
-{% note warning %}
+{% note info %}
 
 If you restore data using `ydb tools restore`, billing is based on the cost of writing a row to the DB for each restored row.
 
@@ -144,6 +144,15 @@ Actual (on-demand) consumption of RUs per month will be:
 
 
 ## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ ydb-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2ydbtgqogjqcrlbehu).
+
+{% endnote %}
+
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 

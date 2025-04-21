@@ -50,7 +50,7 @@ Host operation cost is charged per hour based on what computing resources you al
 
 You can choose a host class both for {{ CH }} and {{ ZK }} hosts (according to the expected replication load).
 
-{% note warning %}
+{% note info %}
 
 In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and with two or more {{ CH }} hosts, 3 {{ ZK }} hosts with the minimal class are automatically created to provide replication and fault tolerance.
 
@@ -126,6 +126,15 @@ CVoS discount is only available for certain types of resources. A dash in the re
 
 
 ## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ mch-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2220hr46dtogekm57v).
+
+{% endnote %}
+
 
 
 

@@ -16,7 +16,7 @@ The cost of using {{ lockbox-name }} is calculated based on:
 * Number of completed [get](api-ref/Payload/get) operations on a secret.
 
 
-{% note warning %}
+{% note info %}
 
 The prices are valid as of March 10, 2024.
 
@@ -25,6 +25,15 @@ The prices are valid as of March 10, 2024.
 
 
 ## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ lockbox-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2k9ntpr7hljm0o71sg).
+
+{% endnote %}
+
 
 
 

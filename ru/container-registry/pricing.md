@@ -24,7 +24,7 @@ editable: false
 
 Использование хранилища измеряется в ГБ в месяц. Объемом хранимых в течение месяца данных считается среднее значение за месяц, согласно данным, гранулированным посекундно. Минимальная единица тарификации — час хранения 1 МБ данных.
 
-{% note warning %}
+{% note info %}
 
 Если несколько [Docker-образов](concepts/docker-image.md) в одном реестре используют одни и те же слои, хранение каждого переиспользуемого слоя повторно не тарифицируется. Уникальность слоя определяется по его [хешу](concepts/docker-image.md#version).
 
@@ -32,6 +32,18 @@ editable: false
 
 
 ## Цены для региона Россия {#prices}
+
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ container-registry-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn2tng436tjcn7cjudv1)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn2tng436tjcn7cjudv1)
+
+{% endnote %}
+
+
 
 
 

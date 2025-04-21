@@ -8,12 +8,6 @@ editable: false
 
 
 
-{% note warning %}
-
-Цены на защиту серверов {{ baremetal-full-name }} и хранение их резервных копий начнут действовать с 14 апреля 2025 года.
-
-{% endnote %}
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -54,6 +48,18 @@ editable: false
 Объем резервных копий защищаемого ресурса может быть как меньше размера диска самого ресурса, например, при малой заполненности диска и хорошей сжимаемости данных, так и больше, например, когда резервных копий много, а данные на них постоянно меняются и плохо сжимаются.
 
 ## Цены для региона Россия {#prices}
+
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ backup-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn21j2nquomme940r5rt)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn21j2nquomme940r5rt)
+
+{% endnote %}
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

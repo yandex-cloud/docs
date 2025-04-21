@@ -16,7 +16,7 @@ editable: false
 
 In {{ api-gw-name }}, you are charged for the number of requests to the created API gateways and outgoing traffic. 
 
-{% note warning %}
+{% note info %}
 
 {{ api-gw-name }} only handles HTTPS requests. All requests to API gateways over HTTP are redirected automatically to their HTTPS versions. 
 
@@ -38,6 +38,15 @@ Cost per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} ×
 {% include [prices-example](../_includes/api-gateway/prices-example.md) %}
 
 ## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ api-gw-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn25mc2lq81eqg1ohe4i).
+
+{% endnote %}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

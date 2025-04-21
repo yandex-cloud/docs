@@ -27,6 +27,15 @@ After deleting or stopping resources, you will continue to pay for the reserved 
 
 
 
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ vpc-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn21qssbrdtcaus362kp).
+
+{% endnote %}
+
+
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
@@ -122,7 +131,7 @@ In which case the user will be charged only for these 4 GB of legitimate traffic
 
 {{ adv-ddos-protection }} is activated upon request via the [form](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
-{% note warning "Important" %}
+{% note info %}
 
 Please note that the subscription fee for {{ adv-ddos-protection }} and Managed Web Application Firewall is charged for the whole month and is not calculated in proportion to the number of days. For example, if you activate or deactivate the services mid-month you will still be charged the full subscription fee.
 

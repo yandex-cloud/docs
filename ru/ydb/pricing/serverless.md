@@ -75,7 +75,7 @@ editable: false
 
 Вы можете принудительно выполнить резервное копирование базы данных с сохранением копии в сервисе [{{ objstorage-name }}](../../storage/). Стоимость такой операции зависит от объема скопированных данных и рассчитывается как для операции [ReadTable](ru-special.md#readtable). При расчете стоимости фактический объем округляется в большую сторону до значений, кратных 1 ГБ.
 
-{% note warning %}
+{% note info %}
 
 В случае выгрузки данных при помощи утилиты `ydb tools dump` тарификация производится по тарифам операции `ReadTable`.
 
@@ -121,7 +121,7 @@ editable: false
 
 Вы можете восстанавливать базы и/или отдельные таблицы из резервных копий, которые хранятся в сервисе {{ objstorage-name }}. Стоимость такой операции зависит от объема восстановленных данных и рассчитывается как для операции [BulkUpsert](ru-special.md#bulkupsert). При расчете стоимости фактический объем округляется в большую сторону до значения, кратного 1 ГБ.
 
-{% note warning %}
+{% note info %}
 
 В случае восстановления данных при помощи утилиты `ydb tools restore` тарификация производится по цене записи строки в базу данных для каждой восстановленной строки.
 
@@ -164,6 +164,18 @@ editable: false
 
 
 ## Цены для региона Россия {#prices}
+
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ ydb-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn2ydbtgqogjqcrlbehu)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn2ydbtgqogjqcrlbehu)
+
+{% endnote %}
+
+
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 

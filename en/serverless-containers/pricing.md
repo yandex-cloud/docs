@@ -23,7 +23,7 @@ Computing resources are billed based on the number of processor cores (vCPUs), t
 * The memory size specified when creating a revision is measured in GB.
 * The total container time is measured in hours and is rounded up to a multiple of 100 ms.
 
-{% note warning %}
+{% note info %}
 
 You are only charged for the container invocations that have caused your application to run.
 
@@ -67,6 +67,15 @@ Example of calculating the cost of a container with the following parameters:
 
 
 ## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ serverless-containers-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2qu7ck7veplf4kmbuh).
+
+{% endnote %}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

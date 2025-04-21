@@ -28,6 +28,14 @@ When analyzing text dialogs, the cost of using {{ speechsense-name }} depends on
 
 ## Prices for the Russia region {#prices}
 
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ speechsense-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2m45g7b9fhfnpqs0je).
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Audio dialog analysis {#speech}

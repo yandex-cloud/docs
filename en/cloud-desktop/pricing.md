@@ -34,6 +34,14 @@ You are charged for disks whether the desktops are running or not.
 
 ## Prices for the Russia region {#prices}
 
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ cloud-desktop-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn25bk2bcun5eb7kkdq0).
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Computing resources {#prices-desktop-resources}

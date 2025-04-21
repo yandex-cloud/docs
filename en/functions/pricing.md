@@ -20,7 +20,7 @@ When billing computing resources (GB × hour), the memory allocated for the func
 * The amount of memory specified when [creating a version](operations/function/version-manage.md), in GB.
 * The execution time for each function call in hours, rounded up to the nearest multiple of 100 ms.
 
-{% note warning %}
+{% note info %}
 
 You are only charged for the [function calls](concepts/function-invoke.md) that triggered your code to run.
 
@@ -54,6 +54,15 @@ Cost per month = {{ sku|USD|serverless.functions.compute.v1|pricingRate.10|strin
 However, if the function uses other {{ yandex-cloud }} resources, they are billed. For example, if the function makes requests to the {{ message-queue-name }} queue, the requests are billed according to the [pricing](../message-queue/pricing.md#requests-to-queues).
 
 ## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ sf-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2hj814q5t5pipfkqo4).
+
+{% endnote %}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

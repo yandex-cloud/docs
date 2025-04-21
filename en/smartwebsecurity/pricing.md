@@ -23,6 +23,15 @@ You are not charged for processing requests with ARL profile rules. You are not 
 
 ## Prices for the Russia region {#prices}
 
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ sws-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2hj22hpe85kloqo6ag).
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

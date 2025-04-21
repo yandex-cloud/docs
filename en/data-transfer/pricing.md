@@ -37,7 +37,16 @@ Resource consumption fees are charged for transfers with {{ dt-status-repl }} (`
 
 Data delivery for transfers that are at the Preview stage is free of charge. For a list of available transfers and their release stages, see [Available transfers](transfer-matrix.md).
 
-## Pricing {#prices}
+## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ data-transfer-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2dtfaj8fno5r3beac3).
+
+{% endnote %}
+
 
 ### Number of transferred rows {#data}
 

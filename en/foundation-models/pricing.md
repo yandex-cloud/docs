@@ -45,12 +45,6 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune
 
 ### Text classification {#rules-text-classifier}
 
-{% note warning %}
-
-The rules described below will take effect on December 9, 2024.
-
-{% endnote %}
-
 The cost of text classification depends on the classification model you use and the number of [tokens](concepts/yandexgpt/tokens.md) you provide.
 
 * When classifying with {{ gpt-lite }}, a billing unit is a request of up to 1,000 tokens.
@@ -78,6 +72,14 @@ You are charged for each generation request in {{ yandexart-name }}. The request
 {% include [error-request](../_includes/speechkit/error-request.md) %}
 
 ## Prices for the Russia region {#prices}
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ foundation-models-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2o984h40l32p7t5nsv).
+
+{% endnote %}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

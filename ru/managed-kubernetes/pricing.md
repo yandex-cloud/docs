@@ -29,6 +29,18 @@ editable: false
 ## Цены для региона Россия {#prices}
 
 
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ managed-k8s-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn2af04ph5otc5f23o1h)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn2af04ph5otc5f23o1h)
+
+{% endnote %}
+
+
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -39,7 +51,7 @@ editable: false
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 
 
-{% note warning %}
+{% note info %}
 
 {% include [base-zonal-pricing](../_includes/managed-kubernetes/base-zonal-pricing.md) %}
 

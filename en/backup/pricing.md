@@ -8,12 +8,6 @@ editable: false
 
 
 
-{% note warning %}
-
-The prices for {{ baremetal-full-name }} backups and their storage will be effective starting April 14, 2025.
-
-{% endnote %}
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -54,6 +48,15 @@ To optimize your costs, consider removing the backups of the deleted VMs or the 
 The size of resource backups can fall short of the resource disk size, e.g., if the disk usage is low and the level of data compression is high, or exceed it, e.g., when there are many backups and their data is continuously modified and poorly compressed.
 
 ## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ backup-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn21j2nquomme940r5rt).
+
+{% endnote %}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

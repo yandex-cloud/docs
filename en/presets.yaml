@@ -1451,7 +1451,6 @@ default:
         greenplum|month|number: 65.05
         greenplum|month|string: ₸65.05
         kafka|month|string: ₸65.05
-        mongodb|month|string: ₸65.05
         mysql:
           dedicated|month|string: ₸21.05
         mysql|month|string: ₸65.05
@@ -1459,7 +1458,6 @@ default:
         pg|month|string: ₸65.05
         redis|month|string: ₸65.05
       mongodb:
-        backup|month|string: ₸9.60
         v1:
           cpu:
             c100|month|string: ₸5760.00
@@ -1553,7 +1551,6 @@ default:
         greenplum|month|string: ₸16.00
         kafka|month|number: 16
         kafka|month|string: ₸16.00
-        mongodb|month|string: ₸16.00
         mysql|month|number: 16
         mysql|month|string: ₸16.00
         opensearch|month|string: ₸16.00
@@ -1566,7 +1563,6 @@ default:
         greenplum|month|string: ₸65.05
         kafka|month|number: 65.05
         kafka|month|string: ₸65.05
-        mongodb|month|string: ₸65.05
         mysql|month|string: ₸65.05
         opensearch|month|string: ₸65.05
         pg|month|string: ₸65.05
@@ -1576,7 +1572,6 @@ default:
         ch|month|string: ₸108.90
         greenplum|month|string: ₸108.90
         kafka|month|string: ₸108.90
-        mongodb|month|string: ₸108.90
         mysql|month|string: ₸108.90
         opensearch|month|string: ₸108.90
         pg|month|string: ₸108.90
@@ -1586,7 +1581,6 @@ default:
         elasticsearch|month|string: ₸44.00
         greenplum|month|string: ₸44.00
         kafka|month|string: ₸44.00
-        mongodb|month|string: ₸44.00
         mysql|month|string: ₸44.00
         opensearch|month|string: ₸44.00
         pg|month|string: ₸44.00
@@ -3005,6 +2999,7 @@ default:
         greenplum|month|number: 13.01
         greenplum|month|string: ₽13.01
         kafka|month|string: ₽13.01
+        mongodb|month|number: 13.01
         mongodb|month|string: ₽13.01
         mysql:
           dedicated|month|string: ₽4.21
@@ -3013,38 +3008,63 @@ default:
         pg|month|string: ₽13.01
         redis|month|string: ₽13.01
       mongodb:
+        backup|month|number: 1.92
         backup|month|string: ₽1.92
         v1:
           cpu:
-            c100|month|string: ₽1152.00
-            c100|string: ₽1.60
-            c20|month|string: ₽331.20
-            c20|string: ₽0.46
-            c5|month|string: ₽28.80
-            c5|string: ₽0.04
-            c50|month|string: ₽540.00
-            c50|string: ₽0.75
-          ram|month|string: ₽648.00
-          ram|string: ₽0.90
-        v2:
-          cpu:
-            c100|month|string: ₽1152.00
-            c100|string: ₽1.60
-            c20|month|string: ₽331.20
-            c20|string: ₽0.46
-            c5|month|string: ₽28.80
-            c5|string: ₽0.04
-            c50|month|string: ₽540.00
-            c50|string: ₽0.75
-          ram|month|string: ₽648.00
-          ram|string: ₽0.90
-        v3:
-          cpu:
+            c100|month|number: 1152
             c100|month|string: ₽1152.00
             c100|number: 1.6
             c100|string: ₽1.60
+            c20|month|number: 331.2
+            c20|month|string: ₽331.20
+            c20|number: 0.46
+            c20|string: ₽0.46
+            c5|month|number: 28.8
+            c5|month|string: ₽28.80
+            c5|number: 0.04
+            c5|string: ₽0.04
+            c50|month|number: 540
             c50|month|string: ₽540.00
+            c50|number: 0.75
             c50|string: ₽0.75
+          ram|month|number: 648
+          ram|month|string: ₽648.00
+          ram|number: 0.9
+          ram|string: ₽0.90
+        v2:
+          cpu:
+            c100|month|number: 1152
+            c100|month|string: ₽1152.00
+            c100|number: 1.6
+            c100|string: ₽1.60
+            c20|month|number: 331.2
+            c20|month|string: ₽331.20
+            c20|number: 0.46
+            c20|string: ₽0.46
+            c5|month|number: 28.8
+            c5|month|string: ₽28.80
+            c5|number: 0.04
+            c5|string: ₽0.04
+            c50|month|number: 540
+            c50|month|string: ₽540.00
+            c50|number: 0.75
+            c50|string: ₽0.75
+          ram|month|number: 648
+          ram|month|string: ₽648.00
+          ram|number: 0.9
+          ram|string: ₽0.90
+        v3:
+          cpu:
+            c100|month|number: 1152
+            c100|month|string: ₽1152.00
+            c100|number: 1.6
+            c100|string: ₽1.60
+            c50|month|number: 540
+            c50|month|string: ₽540.00
+            c50|number: 0.75
+            c50|string: ₽0.75
+          ram|month|number: 648
           ram|month|string: ₽648.00
           ram|number: 0.9
           ram|string: ₽0.90
@@ -3107,6 +3127,7 @@ default:
         greenplum|month|string: ₽3.20
         kafka|month|number: 3.2
         kafka|month|string: ₽3.20
+        mongodb|month|number: 3.2
         mongodb|month|string: ₽3.20
         mysql|month|number: 3.2
         mysql|month|string: ₽3.20
@@ -3120,6 +3141,7 @@ default:
         greenplum|month|string: ₽13.01
         kafka|month|number: 13.01
         kafka|month|string: ₽13.01
+        mongodb|month|number: 13.01
         mongodb|month|string: ₽13.01
         mysql|month|string: ₽13.01
         opensearch|month|string: ₽13.01
@@ -3130,6 +3152,7 @@ default:
         ch|month|string: ₽21.78
         greenplum|month|string: ₽21.78
         kafka|month|string: ₽21.78
+        mongodb|month|number: 21.78
         mongodb|month|string: ₽21.78
         mysql|month|string: ₽21.78
         opensearch|month|string: ₽21.78
@@ -3140,6 +3163,7 @@ default:
         elasticsearch|month|string: ₽8.80
         greenplum|month|string: ₽8.80
         kafka|month|string: ₽8.80
+        mongodb|month|number: 8.8
         mongodb|month|string: ₽8.80
         mysql|month|string: ₽8.80
         opensearch|month|string: ₽8.80

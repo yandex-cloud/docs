@@ -24,6 +24,14 @@ Each successful request for image recognition performed using any [recognition m
 
 ## Prices for the Russia region {#prices}
 
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ vision-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2kcocimf3n6a09pl2o).
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

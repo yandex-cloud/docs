@@ -52,7 +52,7 @@ editable: false
 
 Вы можете выбрать класс хостов как для хостов {{ CH }}, так и для хостов {{ ZK }} (в соответствии с ожидаемой нагрузкой реплицирования).
 
-{% note warning %}
+{% note info %}
 
 В кластерах с выключенной поддержкой [{{ CK }}](./concepts/replication.md#ck) и с двумя или более хостами {{ CH }} автоматически создается 3 хоста {{ ZK }} минимального класса, которые обеспечивают репликацию и отказоустойчивость.
 
@@ -138,6 +138,18 @@ editable: false
 
 
 ## Цены для региона Россия {#prices}
+
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ mch-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn2220hr46dtogekm57v)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn2220hr46dtogekm57v)
+
+{% endnote %}
+
+
 
 
 
