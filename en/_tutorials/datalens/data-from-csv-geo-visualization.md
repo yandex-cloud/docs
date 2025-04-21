@@ -45,7 +45,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter the [workbook](../../datalens/workbooks-collections/index.md) name: `Tutorials`.
+1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Tutorials`.
 1. Click **Create**.
 
 
@@ -95,7 +95,7 @@ Create a dataset based on the `dtp_data` connection:
 
    ![image](../../_assets/datalens/solution-07/32-preview.png)
 
-1. Go to the **Fields** tab. On this tab, you can add [data fields](../../datalens/dataset/data-model.md#field) and [calculated fields](../../datalens/concepts/calculations/index.md), change field data types and aggregation rules, as well as rename fields.
+1. Navigate to the **Fields** tab. On this tab, you can add [data fields](../../datalens/dataset/data-model.md#field) and [calculated fields](../../datalens/concepts/calculations/index.md), change field data types and aggregation rules, as well as rename fields.
 1. Rename the fields as follows:
 
    * `reg_code` to `Region code`
@@ -149,7 +149,7 @@ Create a dataset based on the `dtp_data` connection:
    * `vehicles_amount` to `Number of vehicles`
    * `participants_amount` to `Number of participants`
 
-1. For the `Death toll`, `Number of victims` `Number of vehicles` and `Number of participants` fields, specify the **Sum** aggregation type. The fields with the defined aggregate functions become measures and change their color to blue.
+1. For the `Death toll`, `Number of victims` `Number of vehicles` and `Number of participants` fields, specify the **Sum** aggregation type. The fields with defined aggregation functions become measures and change their color to blue.
 
    ![image](../../_assets/datalens/solution-07/05-choose-agg-sum.png)
 
@@ -237,7 +237,7 @@ To analyze the number of accidents by region, create a [bar chart](../../datalen
 
    {% endnote %}
 
-1. Save your chart: in the top-right corner, click **Save**.
+1. Save your chart: click **Save** in the top-right corner.
 
 To analyze the accident death rate by region, create another bar chart:
 
@@ -253,7 +253,7 @@ To analyze the accident death rate by region, create another bar chart:
 
    This time, Ingushetia, Kalmykia, and the Volgograd region are far ahead in the number of deaths.
 
-1. Save your chart: in the top-right corner, click **Save**.
+1. Save your chart: click **Save** in the top-right corner.
 
 ## Analyze the statistics by week, day of week, and time of day {#create-line-chart}
 
@@ -261,7 +261,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
 1. Analyze the number of accidents and death rate by week:
 
-   1. Create a copy of the chart you created in the previous step:
+   1. Copy the chart you created in the previous step:
 
       1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
       1. In the window that opens, enter the `Number of accidents and death rate by week` as the name for the new chart and click **Save**.
@@ -288,11 +288,11 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       Now you can see a chart with two graphs: number of accidents and death rate. If you hover over a point on the chart, a tooltip appears with specific values.
 
-   1. Save your chart: in the top-right corner, click **Save**.
+   1. Save your chart: click **Save** in the top-right corner.
 
 1. Now analyze the number of accidents and death rate by day of week:
 
-   1. Create a copy of the chart you created in the previous step:
+   1. Copy the chart you created in the previous step:
 
       1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
       1. In the window that opens, enter the `Number of accidents and death rate by day of week` as the name for the new chart and click **Save**.
@@ -305,11 +305,11 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       ![image](../../_assets/datalens/solution-07/18-line-chart-day.png)
 
-   1. Save your chart: in the top-right corner, click **Save**.
+   1. Save your chart: click **Save** in the top-right corner.
 
 1. Analyze the number of accidents and death rate by time of day.
 
-   1. Create a copy of the chart you created in the previous step:
+   1. Copy the chart you created in the previous step:
 
       1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
       1. In the window that opens, enter `Number of accidents and death rate by time of day` as the name for the new chart and click **Save**.
@@ -322,11 +322,11 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       ![image](../../_assets/datalens/solution-07/20-line-chart-hour.png)
 
-   1. Save your chart: in the top-right corner, click **Save**.
+   1. Save your chart: click **Save** in the top-right corner.
 
 ## Create a map with color fill by region {#create-map-geopolygon-chart}
 
-1. Create a copy of the chart you created in the previous step:
+1. Copy the chart you created in the previous step:
 
    1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
    1. In the window that opens, enter the `Regions map` as the name for the new chart and click **Save**.
@@ -354,7 +354,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
    ![image](../../_assets/datalens/solution-07/35-geopolygons-map.png)
 
-1. Save your chart: in the top-right corner, click **Save**.
+1. Save your chart: click **Save** in the top-right corner.
 
 ## Create a dashboard and add charts to it {#create-dashboard}
 
@@ -366,7 +366,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 
 
-1. In the panel at the bottom of the page, select **Chart**.
+1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
 
    ![add-chart](../../_assets/datalens/solution-07/21-add-chart.png)
 
@@ -403,7 +403,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 1. Add a widget for data filtering:
 
-   1. In the panel at the bottom of the page, choose **Selector**.
+   1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
 
       ![add-selector](../../_assets/datalens/solution-07/25-add-selector.png)
 

@@ -37,6 +37,7 @@ To create a billing account:
       {% include [payment-card-types](payment-card-types-business.md) %}
 
       {% include [yandex-account](payment-card-validation.md) %}
+   
 
    1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents. If you have already signed up for {{ yandex-cloud }}, check that your contact details are correct.
 

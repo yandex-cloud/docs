@@ -51,13 +51,13 @@ When [creating a pivot table](#create-diagram), you can use these advanced setti
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 Columns | Dimensions
 Rows | Dimensions
 Measures | Measures. If you add more than one measure to a section, the **Columns** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. You can move `Measure Names` to **Rows**.
 Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure.
-Sorting | Dimensions and measures under **Columns** and **Rows**. You can use multiple dimensions and measures.<br/><br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.<br/><br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to **Sorting**.<br/>The order of fields in the section affects the sorting order of the table fields.<br/><br/>Sorting by measure only affects the query to the source, not the pivot table.
+Sorting | Dimensions and measures under **Columns** and **Rows**. Multiple dimensions and measures can be used.<br/><br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. <br/><br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to the **Sorting** section.<br/>The order of fields in the section affects the sorting order of the table fields.<br/><br/>Sorting by measure affects only the query to the source, not the pivot table.
 Filters | Dimension or measure. Used as a filter.
 
 ## Creating a pivot table {#create-diagram}
@@ -196,6 +196,7 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
    {% endlist %}
 
+1. For the **Gradient** fill type, specify the coloring option for `null` values: `Do not color` or `Color as 0`.
 1. Click **Apply**.
 
 ### Adding a linear indicator to a column with a measure {#add-linear-indicator}

@@ -7,7 +7,7 @@ description: In this tutorial, you will learn about the classifier models availa
 
 {{ foundation-models-full-name }} offers you {{ gpt-lite }} and {{ gpt-pro }}-based classifier models to [classify](./index.md) text requests provided in prompts. The classification is implemented based on the [{{ foundation-models-name }}Text Classification API](../../text-classification/api-ref/index.md).
 
-If an out-of-the-box model is not enough, you can [fine-tune](../tuning/classifier.md) a {{ gpt-lite }}-based classifier for the model to classify your requests more accurately. To access a fine-tuned classifier model, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API method.
+If an out-of-the-box model is not enough, you can [fine-tune](../../operations/tuning/tune-classifiers.md) a {{ gpt-lite }}-based classifier for the model to classify your requests more accurately. To access a fine-tuned classifier model, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API method.
 
 | **Model** | **URI** | **[Operating modes](../index.md#working-mode)** |
 |---|---|---|

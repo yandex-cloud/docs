@@ -60,7 +60,7 @@ Create a [connection](../../datalens/concepts/connection.md) to the source data 
 Create a [dataset](../../datalens/dataset/index.md) based on the `SuperHeroes` connection:
 
 1. In the top-right corner of the connection page, click **Create dataset**.
-1. Go to the **Fields** tab.
+1. Navigate to the **Fields** tab.
 1. Create a measure field with the number of superheroes:
 
    1. Duplicate the `Name` field: on the right side of the row with the field, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Duplicate**.
@@ -149,7 +149,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 
 
-1. In the panel at the bottom of the page, select **Chart**.
+1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
 
    ![add-chart](../../_assets/datalens/solution-01/11-add-chart.png)
 
@@ -168,7 +168,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 Add [selectors](../../datalens/dashboard/selector.md) to filter superheroes by `Eye color` and `Hair color`:
 
-1. In the panel at the bottom of the page, choose **Selector**.
+1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
 
    ![add-selector](../../_assets/datalens/solution-01/14-add-selector.png)
 

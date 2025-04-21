@@ -54,7 +54,44 @@ To disable displaying a number in the center:
 
 ## Recommendations {#recommendations}
 
-* If there are more than 4-6 segments per chart, group the smallest of them as **Other**. A larger number of segments overloads a chart and makes it difficult to understand the data.
+* If there are many segments, the chart looks cluttered and it becomes difficult to understand the data. If there are more than 4-6 segments in one chart, consider combining the smallest of them into one segment, e.g., `Other`. You can do this by processing the data, e.g., by creating a [calculated field](../concepts/calculations/index.md) in your dataset or chart.
+
+  {% cut "Example of combining segments in a chart" %}
+
+  **Source table**
+
+  ProductSubcategory | Sales |	
+  -----|---------| 
+  Beauty and health products | 11M |
+  Kitchenware | 34M |
+  Kitchen products | 23M |
+  Detergents | 22.5M |
+  Health and beauty equipment | 35M |
+  Non-essential goods | 23M |
+  Cleaners | 21.5M |
+
+  To combine multiple segments by the `ProductSubcategory` field into a joined group:
+
+  1. Add a new field to the chart with the following formula:
+
+     ```
+     CASE [ProductSubcategory]
+         WHEN "Beauty and health equipment" THEN "Beauty and health equipment"
+         WHEN "Kitchen" THEN "Kitchen"
+         WHEN "Kitchenware" THEN "Kitchenware"
+         ELSE "Other"
+     END
+     ```
+
+  1. Drag the new field to the **Color** section.
+  1. Drag the `Sales` field to the **Measures** and **Signatures** sections.
+
+  The sales amount will be calculated separately for the `Beauty and health equipment`, `Kitchen`, and `Kitchenware` subcategories; for other subcategories, in the `Other` group.
+
+  ![ring-chart-join-segments](../../_assets/datalens/visualization-ref/ring-chart/ring-chart-join-segments.png)
+
+  {% endcut %}
+
 * Combine small segments into larger groups:
   
   * Use the **Categories** section to highlight segments.

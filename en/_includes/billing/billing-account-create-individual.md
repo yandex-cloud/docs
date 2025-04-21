@@ -14,18 +14,22 @@ To create a billing account:
 
 1. If you see a list of available payers in the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-id }}** section, you can select one of them or add a new one. To add a payer:
   
-   * Select **Individual** for the payer type and click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+   * Select the payer type: **Individual**, and click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
    * Enter your first and last name.
    * (Optional) Enter your middle name and mailing address.
    * Click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
   
+1. Link your bank card.
+   
    {% include [pin-card-data](pin-card-data.md) %}
   
    {% include [payment-card-types](payment-card-types.md) %}
   
    {% include [payment-card-validation](payment-card-validation.md) %}
 
-   Your account will be created as a paid one: after you have used up your initial grant, your card will be debited for the {{ yandex-cloud }} resources you are using.
+   Your account will be created as a paid one: after you have used up your initial grant, your card will be debited for the {{ yandex-cloud }} resources you are using. 
+
+   {% include [no-card](create-ba-without-card.md) %}
 
 1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents. If you have already signed up for {{ yandex-cloud }}, check that your contact details are correct.
 

@@ -102,6 +102,8 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters.md) %}
 
+        {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
+
         You can request the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
@@ -121,6 +123,16 @@ After creating a cluster, you can edit its basic and advanced settings.
         {% endnote %}
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters.md) %}
+
+        * `subnet_ids`: Subnet IDs list.
+
+            {% note info %}
+
+            Once a cluster is created, you cannot change its subnets.
+
+            {% endnote %}
+
+        {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
 
     1. Make sure the settings are correct.
 

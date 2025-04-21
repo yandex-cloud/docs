@@ -27,7 +27,7 @@ keywords:
 ## Изменить сервисный аккаунт {#change-service-account}
 
 
-Для привязки сервисного аккаунта к кластеру {{ mos-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+Для привязки сервисного аккаунта к кластеру {{ mos-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
 
 {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}

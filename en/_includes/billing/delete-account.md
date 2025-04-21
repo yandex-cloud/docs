@@ -1,5 +1,8 @@
 1. Go to [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Select the billing account from the list.
+
+    {% include [account-access-lost](../../_includes/billing/account-access-lost.md) %}
+
 1. In the top-right corner of the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}**.
 1. Confirm and wait until the check is completed.
 1. If the account can be deleted, the deletion notification will pop up. At this point, you can still abort the operation by clicking **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-go-pay_button_cancel }}**.

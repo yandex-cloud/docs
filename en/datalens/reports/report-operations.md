@@ -122,7 +122,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
    - Title {#header}
 
      * Enter title text.
-     * Select a size from the list or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify the size.
+     * Select the size from the preset ones: `XS`, `S`, `M`, `L`, and `XL` or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify the text size in pixels.
      * (Optional) Set a background.
 
    {% endlist %}
@@ -130,8 +130,8 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 1. Click **Add**.
 1. Resize the widget and drag it to a convenient location on the page. You can also move the selected widget up, down, or sideways with arrow keys. Here is how you can do this:
 
-   * Use arrow keys to move by one pixel.
-   * Press **Shift** + arrow keys to move by ten pixels.
+   * Arrow keys to move by one pixel.
+   * **Shift** + arrow keys to move by ten pixels.
 
 1. In the top-right corner, click **Save**.
 
@@ -151,6 +151,8 @@ To insert a copied widget onto a page:
 1. On the widget panel at the top, click ![icon](../../_assets/console-icons/copy-plus.svg) **Insert**.
 1. Resize the widget and move it to a convenient location on the page.
 1. In the top-right corner, click **Save**.
+
+You cannot copy an [image](../dashboard/markdown.md#image) from a report to a dashboard.
 
 ### Deleting a widget {#delete-widget}
 

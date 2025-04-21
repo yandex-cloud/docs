@@ -2,4 +2,4 @@
 * Количество юнитов в 1 токене для модели {{ gpt-lite }} в синхронном режиме: 1.
 * Общее количество юнитов в детализации потребления: 750.
 
-(0,20&nbsp;₽ / 1000 юнитов) × 750 юнитов = 0,15&nbsp;₽
+({{ sku|RUB|foundation_models.text_generation.v1|string }} / 1000 юнитов) × 750 юнитов = {% calc [currency=RUB] ({{ sku|RUB|foundation_models.text_generation.v1|number }} / 1000) × 750 %}

@@ -18,9 +18,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
+  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -153,9 +153,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to update DB settings in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the DB you need and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to update DB settings.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the DB and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Configure the DB settings:
       1. Change the DB name, if required.
       1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**, specify [throughput](../pricing/serverless.md#prices-ru) and [data size](../pricing/serverless.md#rules-storage).
@@ -218,7 +218,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
      * `enable_throttling_rcu_limit`: Enable throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional parameter. The default value is `0`.
-     * `storage_size_limit`: Amount of data, in GB. This is an optional parameter. The default value is `50`.
+     * `storage_size_limit`: Amount of data, GB. This is an optional parameter. The default value is `50`.
      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is `0`.
 
   1. Apply the changes:
@@ -278,9 +278,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The naming requirements are as follows:
+  1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -340,14 +340,14 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       Where:
 
         * `--dedicated`: Configuration of the DB with dedicated servers.
-        * `--network-name`: Name of the cloud network to create the DB in. You can specify the network as `default`.
-        * `--storage`: Media type and number of [storage groups](../concepts/resources.md#storage-groups), in `type=<media_type>,groups=<number_of_storage_groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
+        * `--network-name`: Name of the cloud network to create the DB in. You can specify the `default` network.
+        * `--storage`: Media type and number of [storage groups](../concepts/resources.md#storage-groups) in `type=<media_type>,groups=<number_of_storage_groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
         * `--resource-preset`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
 
   Important additional parameters:
 
-  * `--public-ip`: Public IP address assignment flag. Without it, you cannot connect to the DB you created, from the internet.
-  * `--fixed-size INT`: Number of cluster nodes, default is `1`. Nodes are allocated in different availability zones, so a configuration of three nodes will be geographically distributed across three availability zones.
+  * `--public-ip`: Public IP address assignment flag. Without it, you cannot connect to the DB you created from the internet.
+  * `--fixed-size INT`: Number of cluster nodes, `1` by default. Nodes are allocated in different availability zones, so a configuration of three nodes will be geographically distributed across three availability zones.
   * `--async`: Asynchronous DB creation flag. Creating a dedicated DB may take a long time, up to a few minutes. You can set this flag to recover control as soon as the command to create DB is accepted by the cloud.
 
   **Examples**
@@ -409,7 +409,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
     
      * `name`: DB name.
      * `network_id`: ID of the network the DB is connected to.
-     * `subnet_ids`: List of subnet IDs, separated by commas.
+     * `subnet_ids`: Subnet IDs list. Separated by commas.
      * `resource_preset_id`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
      * `scale_policy`: Scaling policy, where `size` indicates the number of DB instances.
@@ -429,7 +429,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   **Example**
 
-  Creating a single-node dedicated {{ ydb-name }} database with the minimum configuration, named `test-bd` and accessible from the internet:
+  Creating a single-node dedicated {{ ydb-name }} database named `test-bd` with the minimum configuration and accessible from the internet:
 
     > ```hcl
     > resource "yandex_ydb_database_dedicated" "database2" {
@@ -471,9 +471,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to update DB settings in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the DB you need and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to update DB settings.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the DB and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Configure the DB settings:
       1. Change the DB name, if required.
       1. Under **{{ ui-key.yacloud.ydb.forms.label_section-compute }}**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
@@ -559,7 +559,7 @@ To move a database to a different availability zone, follow [this guide](migrati
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to get a list of databases for.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -588,7 +588,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the DB resides in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
   1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. Select the group, user, or service account you want to grant access to the database.
@@ -672,7 +672,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the DB resides in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
   1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. Select the group, user, or service account you want to grant access to the database.
@@ -748,9 +748,9 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
      ```bash
      yc ydb database set-access-bindings \
         --id <DB_ID> \
-        --access-binding role=<role_1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_3>,service-account-id=<service_account_ID>
+        --access-binding role=<role1>,service-account-id=<service_account_ID> \
+        --access-binding role=<role2>,service-account-id=<service_account_ID> \
+        --access-binding role=<role3>,service-account-id=<service_account_ID>
      ```
 
 - API {#api}
@@ -772,8 +772,8 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to delete the DB from.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the DB you need and select **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the DB and select **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
   1. Confirm the deletion.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -829,7 +829,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
 - API {#api}
 
-  To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) gRPC API call and specify the deleted database ID in the `databaseId` request parameter.
+  To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) gRPC API call and specify the ID of the DB to delete in the `databaseId` request parameter.
 
   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 

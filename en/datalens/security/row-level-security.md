@@ -1,10 +1,10 @@
-# Managing access at the data row level (RLS)
+# Row-level security (RLS)
 
 With RLS (_row-level security_), you can restrict data access for users or [user groups](../../organization/concepts/groups.md) within a single dataset. For example, you can introduce data access control for different customers.
 
 {% include [rls-note](../../_includes/datalens/datalens-rls-note.md) %}
 
-You can introduce data access control at the row level either in a [dataset](#dataset-rls) or a [data source](#datasource-rls).
+You can introduce row-level access control either in a [dataset](#dataset-rls) or a [data source](#datasource-rls).
 
 ## Configuring RLS at the dataset level {#dataset-rls}
 
@@ -26,7 +26,7 @@ For users, access control is based on the access configuration which looks like 
 'value_3': user_1, user_2, user_3
 ```
 
-For example, to permit the `user-login` user to access the `first-company` value of the `Company name` field, [specify the following configuration](#how-to-manage-rls):
+For example, to configure `user-login` access to all rows with the `first-company` value in the `Company name` field, [set the following configuration](#how-to-manage-rls):
 
 
 
@@ -56,7 +56,7 @@ For user groups, access control is based on the access configuration which looks
 
 The configuration specifies the group name rather than its identifier. If a group is renamed, you will need to update its RLS configuration accordingly.
 
-For example, to allow the `group-name` user group to access the `first-company` value of the `Company name` field, specify the following configuration:
+For example, to configure `group-name` user group access to all rows with the `first-company` value in the `Company name` field, set the following configuration:
 
 ```yaml
 'first-company': @group:group-name
@@ -92,7 +92,7 @@ You can define values, users, and group names using wildcard characters:
   *: user_1, user_2, @group:group_1_name
   ```
 
-  For example, to configure access to all values of the `Company name` field, specify the following configuration:
+  For example, to configure access to all rows with any value in the `Company name` field, set the following configuration:
 
 
   ```yaml
@@ -106,7 +106,7 @@ You can define values, users, and group names using wildcard characters:
   'value_1': *
   ```
 
-  For example, to allow all users and groups to access the `first-company` value in the `Company name` field, specify the following configuration:
+  For example, to allow all users to access all rows with the `first-company` value in the `Company name` field, set the following configuration:
 
   ```yaml
   'first-company': *
@@ -136,9 +136,9 @@ You can also use the `"` character:
 
 ## Configuring RLS at the data source level {#datasource-rls}
 
-Configuring RLS at the dataset level requires editing the dataset every time the RLS settings change.
+Configuring RLS at the dataset level requires editing the datatset every time the RLS settings change.
 
-To avoid this, you can move the access control logic at the row level to the data source side:
+To avoid this, you can move the row-level security logic to the data source side:
 
 1. Add a new field for storing user IDs to the source data. All requests to the source will be filtered by this field.
 
@@ -164,6 +164,6 @@ You can transfer the RLS logic to the source side for sources where the data str
 
 ## How to change permissions to a row in a dataset {#how-to-manage-rls}
 
-To configure access to a data row value:
+To configure access permissions to data rows:
 
 {% include [datalens-manage-rls](../../_includes/datalens/operations/datalens-manage-rls.md) %}

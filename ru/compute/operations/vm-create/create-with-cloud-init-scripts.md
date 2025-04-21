@@ -237,7 +237,7 @@ description: Следуя данной инструкции, вы сможете
       content: |
         #!/bin/bash
 
-        # YC CLI
+        # CLI
         echo "Installing Yandex Cloud CLI"
         curl \
           --silent \

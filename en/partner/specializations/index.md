@@ -57,4 +57,4 @@ A specialization reward is credited as a [rebate](../terms.md#rebate):
 
 A rebate is credited for each quarter during which a partner had an active specialization. Accrued rebates are displayed in the [partner portal]({{ link-cloud-partners }}) under **Rebate accrual balance**.
 
-For more information on getting partner rewards, see the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=en).
+For more information on getting partner rewards, see the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=ru).

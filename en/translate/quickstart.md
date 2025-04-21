@@ -6,30 +6,28 @@ In this section, you will learn how to translate text using the {{ translate-nam
 
 {% include [curl](../_includes/curl.md) %}
 
-Refer to the [step-by-step guides](operations/index.md) for more examples in different programming languages.
+Refer to the [step-by-step guides](operations/index.md) for more examples in different programming languages. 
 
 To learn how to create a service account and an API key to integrate {{ translate-full-name }} into your application, see [{#T}](operations/sa-api-key.md).
 
 ## Getting started {#before-begin}
 
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) that is either `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 
-1. Get the authorization data for your account:
-
-   {% include [user-auth](../_includes/translate/user-auth.md) %}
+1. {% include [translate-instruction-auth](../_includes/translate/translate-instruction-auth.md) %}
 
 ## Translating text {#translate-text}
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
-   {% include [translate](../_includes/translate/translate-bash.md) %}
+    {% include [translate](../_includes/translate/translate-bash.md) %}
 
 {% endlist %}
 
 #### What's next {#what-is-next}
 
-* [Learn more about {{ yagpt-full-name }}](concepts/index.md)
+* [Learn more about the service](concepts/index.md)
 * [See other examples](operations/index.md)
 * [Learn about API authentication methods](api-ref/authentication.md)

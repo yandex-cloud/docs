@@ -59,3 +59,7 @@ description: This page presents all the guides on how to use {{ speechsense-name
 * [{#T}](dictionary/change.md)
 * [{#T}](dictionary/add.md)
 * [{#T}](dictionary/delete.md)
+
+## External integrations {#external_integrations}
+
+* [{#T}](external-integrations/create-datalens-connection.md)

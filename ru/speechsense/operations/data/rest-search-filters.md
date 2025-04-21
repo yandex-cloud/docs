@@ -89,20 +89,9 @@
         * `userMeta.<имя_поля>` — фильтрация по метаданным. Здесь `<имя_поля>` — это поле метаданных, которое было указано при загрузке диалога. Пример: `userMeta.date`.
         * `talk.classifiers.<имя_классификатора>.count` — фильтрация по классификаторам. Учитывает, сколько раз в диалоге сработал определенный классификатор.
         * `talk.summarization.points.<идентификатор_вопроса>` — фильтрация по резюме диалога. Идентификаторы вопросов из резюме диалога вы можете [получить вместе с данными о диалоге](rest-get-dialog-data.md).
-        * `talk.statistics.<название_статистики>` — фильтрация по статистикам (только для аудио):
+        * `talk.statistics.<название_статистики>` — фильтрация по статистикам:
 
-          * `talk.statistics.duration_seconds` — длительность диалога, в секундах.
-          * `talk.statistics.simultaneous_silence.duration_seconds` — длительность одновременной тишины, в секундах.
-          * `talk.statistics.simultaneous_silence.ratio` — доля одновременной тишины от общей длительности диалога.
-          * `talk.statistics.simultaneous_speech.duration_seconds` — длительность одновременной речи, в секундах.
-          * `talk.statistics.simultaneous_speech.ratio` — доля одновременной речи от общей длительности диалога.
-          * `talk.statistics.interrupts.count` — количество прерываний собеседника.
-          * `talk.statistics.phrases.count` — количество фраз в диалоге.
-          * `talk.statistics.words.count` — количество слов в диалоге.
-          * `talk.statistics.letters.count` — количество символов в диалоге.
-          * `talk.statistics.words.count_per_second` —  количество слов в секунду в канале, который указывается в параметре `channelNumber`.
-          * `talk.statistics.letters.count_per_second` — количество символов в секунду в канале, который указывается в параметре `channelNumber`.
-          * `talk.statistics.interrupts.duration_seconds` — длительность прерываний одним из участников речи другого участника, в секундах. Канал прерывающего участника указывается в параметре `channelNumber`.
+          {% include [api-statistics-filter](../../../_includes/speechsense/data/api-statistics-filter.md) %}
 
       * `channelNumber` — номер канала. Если номер указан, фильтр применяется к метаданным, срабатываниям классификатора или статистикам, относящимся к этому каналу.
 

@@ -62,7 +62,7 @@
         * `pg_password` — пароль пользователя {{ PG }};
         * `mos_version` — версия {{ OS }};
         * `mos_password` — пароль пользователя {{ OS }};
-        * `profile_name` — имя вашего профиля в YC CLI.
+        * `profile_name` — имя вашего профиля в CLI.
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 

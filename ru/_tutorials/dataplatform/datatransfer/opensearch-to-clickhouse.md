@@ -65,7 +65,7 @@
         * `mch_username` — имя пользователя в кластере {{ mch-name }};
         * `mch_user_password` — пароль пользователя в кластере {{ mch-name }};
         * `source_endpoint_id` — идентификатор эндпоинта-источника;
-        * `profile_name` — имя вашего профиля в YC CLI.
+        * `profile_name` — имя вашего профиля в CLI.
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 

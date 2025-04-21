@@ -96,7 +96,7 @@
 
 #### См. также {#see-also}
 
-* [Интерфейс командной строки YC CLI](../../cli).
+* [Интерфейс командной строки CLI](../../cli).
 * [Симметричное шифрование в {{ kms-full-name }}](../concepts/symmetric-encryption.md).
 * [Асимметричное шифрование в {{ kms-full-name }}](../concepts/asymmetric-encryption.md).
 * [Управление ключами в KMS](./index.md).

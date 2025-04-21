@@ -23,30 +23,33 @@ The table lists the properties of the supported voices that use deep neural netw
 |---------| ---- | ---- | -- |--------|---|
 | `de-DE` | German | `lea` | F | — | v1, v3 |
 | `en-US` | English | `john` | M | — | v1, v3 |
-| `he-IL` | Hebrew | `naomi` | F | (default) modern: `modern` </br> classic: `classic`|  v3 |
+| `he-IL` | Hebrew | `naomi` | F | (Default) Modern: `modern` </br> Classic: `classic`|  v3 |
 | `kk-KK` or `kk-KZ` | Kazakh | `amira` | F | — | v1, v3 |
 | `kk-KK` or `kk-KZ` | Kazakh | `madi` | M | — | v1, v3 |
-| `kk-KK` or `kk-KZ` | Kazakh | `saule` | F | (default) neutral: `neutral` </br> strict: `strict`  | v3 |
-| `kk-KK` or `kk-KZ` | Kazakh | `zhanar` | F | —  | v3 |
-| `ru-RU` | Russian | `alena` | F | (default) neutral: `neutral` </br> cheerful: `good` </br> | v1, v3 |
+| `kk-KK` or `kk-KZ` | Kazakh | `saule` | F | (Default) Neutral: `neutral` </br> Strict: `strict` | v3 |
+| `kk-KK` or `kk-KZ` | Kazakh | `zhanar` | F | (Default) Neutral: `neutral` </br>Friendly: `friendly` | v3 |
+| `ru-RU` | Russian | `alena` | F | (Default) Neutral: `neutral` </br> Cheerful: `good` </br> | v1, v3 |
 | `ru-RU` | Russian | `filipp` | M | — | v1, v3 |
-| `ru-RU` | Russian | `ermil` | M | (default) neutral: `neutral` </br> cheerful: `good` | v1, v3 |
-| `ru-RU` | Russian | `jane`  | F | (default) neutral: `neutral` </br> cheerful: `good` </br> irritated: `evil` | v1, v3 |
+| `ru-RU` | Russian | `ermil` | M | (Default) Neutral: `neutral` </br> Cheerful: `good` | v1, v3 |
+| `ru-RU` | Russian | `jane`  | F | (Default) Neutral: `neutral` </br> Cheerful: `good` </br> Irritated: `evil` | v1, v3 |
+| `ru-RU` | Russian | `omazh` | F  | (Default) Neutral: `neutral` </br> Irritated: `evil` | v1, v3 |
+| `ru-RU` | Russian | `zahar` | M | (Default) Neutral: `neutral` </br> Cheerful: `good` | v1, v3 |
+| `ru-RU` | Russian | `dasha`  | F | (Default) Neutral: `neutral` </br> Cheerful: `good`</br> Friendly: `friendly` | v3 |
+| `ru-RU` | Russian | `julia`  | F | (Default) Neutral: `neutral` </br> Strict: `strict` | v3 |
+| `ru-RU` | Russian | `lera`  | F | (Default) Neutral: `neutral` </br> Friendly: `friendly` | v3 |
+| `ru-RU` | Russian | `masha`  | F | (Default) Cheerful: `good` </br> Strict: `strict` </br> Friendly: `friendly` | v3 |
+| `ru-RU` | Russian | `marina` </br> (default) | F | (Default) Neutral: `neutral` </br> Whisper: `whisper` </br> Friendly: `friendly` | v1, v3 |
+| `ru-RU` | Russian | `alexander` | M | (Default) Neutral: `neutral` </br> Cheerful: `good` | v3 |
+| `ru-RU` | Russian | `kirill` | M | (Default) Neutral: `neutral` </br> Strict: `strict` </br> Cheerful: `good` | v3 |
+| `ru-RU` | Russian | `anton` | M | (Default) Neutral: `neutral` </br> Cheerful: `good` | v3 |
 | `ru-RU` | Russian | `madi_ru` | M | — | v1, v3 |
-| `ru-RU` | Russian | `saule_ru` | F | — | v3 |
-| `ru-RU` | Russian | `omazh` | F  | (default) neutral: `neutral` </br> irritated: `evil` | v1, v3 |
-| `ru-RU` | Russian | `zahar` | M | (default) neutral: `neutral` </br> cheerful: `good` | v1, v3 |
-| `ru-RU` | Russian | `dasha`  | F | (default) neutral: `neutral` </br> cheerful: `good`</br> friendly: `friendly` | v3 |
-| `ru-RU` | Russian | `julia`  | F | (default) neutral: `neutral` </br> strict: `strict` | v3 |
-| `ru-RU` | Russian | `lera`  | F | (default) neutral: `neutral` </br> friendly: `friendly` | v3 |
-| `ru-RU` | Russian | `masha`  | F | (default) cheerful: `good` </br> strict: `strict` </br> friendly: `friendly` | v3 |
-| `ru-RU` | Russian | `marina` </br> (default) | F | (default) neutral: `neutral` </br> whisper: `whisper` </br> friendly: `friendly` | v1, v3 |
-| `ru-RU` | Russian | `alexander` | M | (default) neutral: `neutral` </br> cheerful: `good` | v3 |
-| `ru-RU` | Russian | `kirill` | M | (default) neutral: `neutral` </br> strict: `strict` </br> cheerful: `good` | v3 |
-| `ru-RU` | Russian | `anton` | M | (default) neutral: `neutral` </br> cheerful: `good` | v3 |
+| `ru-RU` | Russian | `saule_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Whisper: `whisper` | v3 |
+| `ru-RU` | Russian | `lola_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict` | v3 |
+| `ru-RU` | Russian | `zhanar_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Friendly: `friendly` | v3 |
+| `ru-RU` | Russian | `yulduz_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Friendly: `friendly` | v3 |
 | `uz-UZ` | Uzbek | `nigora` | F | — | v1, v3 |
 | `uz-UZ` | Uzbek | `lola` | F | — | v3 |
-| `uz-UZ` | Uzbek | `yulduz` | F | — | v3 |
+| `uz-UZ` | Uzbek | `yulduz` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Friendly: `friendly`</br>Whisper: `whisper` | v3 |
 
 
 The `oksana` and `alena` voices are based on recordings of the same speaker. The `oksana` voice is no longer on the list of supported voices. Use the `alena` voice with the `good` role instead. The `oksana` voice is still available for legacy projects.

@@ -87,6 +87,12 @@ items:
             href: operations/dictionary/add.md
           - name: Removing a dictionary
             href: operations/dictionary/delete.md
+      - name: External integrations
+        items:
+          - name: >-
+              Creating a connection to {{ speechsense-name }} from {{
+              datalens-short-name }}
+            href: operations/external-integrations/create-datalens-connection.md
   - name: Tutorials
     items:
       - name: All tutorials

@@ -302,6 +302,7 @@ default:
   link-cloud-oauth: >-
     https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.yandex.cloud/
+  link-cloud-partners-landing: https://yandex.cloud/ru/partners/
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
   link-console-access-management: https://console.yandex.cloud/iam
@@ -496,6 +497,7 @@ default:
   objstorage-sftps-gateway-version: '1.0'
   objstorage-short-name: Object Storage
   ocr-max-filesize: 10 MB
+  openai: OpenAI
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Cloud Organization
@@ -1147,6 +1149,7 @@ default:
     text_classification:
       v1|string: ₸0.75
     text_embedding:
+      v1|number: 0.05
       v1|string: ₸0.05
     text_generation_alt:
       v1|number: 1
@@ -2700,6 +2703,7 @@ default:
     text_classification:
       v1|string: ₽0.15
     text_embedding:
+      v1|number: 0.01
       v1|string: ₽0.01
     text_generation_alt:
       v1|number: 0.2
@@ -4116,10 +4120,13 @@ default:
     text_classification:
       v1|string: $0.001200
     text_embedding:
+      v1|number: 0.00008
       v1|string: $0.000080
     text_generation_alt:
+      v1|number: 0.0016
       v1|string: $0.001600
     text_generation:
+      v1|number: 0.0016
       v1|string: $0.001600
   sku|USD|gitlab:
     backup|month|number: 0.01536
@@ -4880,10 +4887,13 @@ default:
         30000000|number: 0.00004
         6000000|number: 0.000048
       text:
+        v2|number: 0.01104
         v2|pricingRate:
+          100000|number: 0.00816
           100000|string: $0.008160
           1000000|string: $0.003360
           2500000|string: $0.002400
+          500000|number: 0.0048
           500000|string: $0.004800
         v2|string: $0.011040
       v1|number: 0.000184
@@ -6799,6 +6809,10 @@ default:
         label-set:
           button_add-label: Add label
           label_labels: Labels
+        maintenance-alert:
+          button_reschedule: Reschedule
+          value_next-available-window: Next window
+          value_specific-time: Choose date (UTC)
         mdb:
           settings:
             button_reset: Reset
@@ -8199,6 +8213,15 @@ default:
             button_choose: Save
             field_public_ip: Public access
             field_subnetworks: Subnet
+        maintenance:
+          action_change-task-time: Postpone
+          action_exec-task-now: Carry out now
+          action_maintenance-window-setup: Configure the maintenance window
+          label_task-logs: Task logs
+          label_task-start-time: Start date
+          label_task-status: Status
+          label_task-status-planned: Planned
+          title_maintenance: Technical maintenance
         shard-groups:
           button_add-group: Create shard group
       metastore:
@@ -10417,7 +10440,6 @@ default:
         delete-key-value: Delete
         duplicate: Duplicate
         edit: Edit
-        filters: Filters
         more: More
         'no': 'No'
         period: Period
@@ -10871,4 +10893,4 @@ default:
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 8.5.0-3
+        tag: 8.5.0-4

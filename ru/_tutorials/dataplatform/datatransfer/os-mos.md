@@ -50,7 +50,7 @@
 
             * `os_admin_password` — пароль пользователя-администратора {{ mos-name }}.
             * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
-            * `profile_name` — имя вашего профиля в YC CLI.
+            * `profile_name` — имя вашего профиля в CLI.
 
               {% include [cli-install](../../../_includes/cli-install.md) %}
 

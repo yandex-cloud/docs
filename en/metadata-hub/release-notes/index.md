@@ -7,6 +7,13 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
+### March {#march25}
+
+#### New features {#new-features-march25}
+
+* Added a button to upload a schema to an existing {{ schema-registry-name }} [subject](../concepts/schema-registry.md#subject).
+* Added [{#T}](../public-talks.md) to the {{ metadata-hub-name }} documentaition.
+
 ### February {#february25}
 
 #### New features {#new-features-february25}

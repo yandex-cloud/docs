@@ -101,18 +101,25 @@ description: Следуя данной инструкции, вы сможете
 
     - CLI {#cli}
 
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
       Выполните команду:
 
       ```bash
-      yc compute instance update --name <имя_ВМ> \
-      --folder-id <идентификатор_каталога> \
-      --metadata enable-oslogin=false
+      yc compute instance update
+        --name <имя_ВМ> \
+        --folder-id <идентификатор_каталога> \
+        --metadata enable-oslogin=false
       ```
 
       Убедитесь, что доступ по {{ oslogin }} выключен:
 
       ```bash
-      yc compute ssh --name <имя_ВМ> --folder-id <идентификатор_каталога>
+      yc compute ssh
+        --name <имя_ВМ> \
+        --folder-id <идентификатор_каталога>
       ```
 
       Результат:

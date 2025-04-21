@@ -5,7 +5,7 @@ description: In this tutorial, you will learn about the text generation models a
 
 # Text generation models
 
-{{ foundation-models-full-name }} provides access to large text models from different vendors. If an out-of-the-box model is not enough, you can [fine-tune](../tuning/generating.md) some models to respond to your requests more accurately.
+{{ foundation-models-full-name }} provides access to large text models from different vendors. If an out-of-the-box model is not enough, you can [fine-tune](../tuning/index.md) some models to respond to your requests more accurately.
 
 ## Generation models {#generation}
 
@@ -18,7 +18,7 @@ All basic models are subject to the update rules described in [Model lifecycle](
 || **{{ gpt-pro }}** ||
 || `gpt://<folder_ID>/yandexgpt/deprecated`</br>`gpt://<folder_ID>/yandexgpt/latest`</br>`gpt://<folder_ID>/yandexgpt/rc` | 4</br>4</br>5  | Asynchronous, synchronous ||
 || **{{ gpt-pro }} 32k** ||
-|| `gpt://<folder_ID>/yandexgpt-32k/deprecated`</br>`gpt://<folder_ID>/yandexgpt-32k/latest`</br>`gpt://<folder_ID>/yandexgpt-32k/rc` | 4</br>4</br>5  | Synchronous^1^ ||
+|| `gpt://<folder_ID>/yandexgpt-32k/deprecated`</br>`gpt://<folder_ID>/yandexgpt-32k/latest`</br>`gpt://<folder_ID>/yandexgpt/rc` | 4</br>4</br>5  | Synchronous^1^ ||
 || **{{ llama }} 8B**^2^ ||
 || `gpt://<folder_ID>/llama-lite/deprecated`</br>`gpt://<folder_ID>/llama-lite/latest`</br>`gpt://<folder_ID>/llama-lite/rc` | 3.1</br>3.1</br>3.1 | Asynchronous, synchronous ||
 || **{{ llama }} 70B**^2^ ||

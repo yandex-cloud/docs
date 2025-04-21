@@ -59,8 +59,8 @@ description: По этой инструкции вы можете создать
 
 На локальной машине:
 
-1. [Установите интерфейс командной строки](../cli/operations/install-cli.md) {{ yandex-cloud }} (YC CLI).
-1. [Аутентифицируйте свой сервисный аккаунт](../cli/operations/authentication/service-account.md) через YC CLI.
+1. [Установите интерфейс командной строки](../cli/operations/install-cli.md) {{ yandex-cloud }} (CLI).
+1. [Аутентифицируйте свой сервисный аккаунт](../cli/operations/authentication/service-account.md) через CLI.
 1. [Установите {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 ## Подготовьте репозиторий с конфигурацией {{ TF }} {#repository}
@@ -100,7 +100,7 @@ SSH-ключи понадобятся для аутентификации при
 
 ## Добавьте переменные для конфигурации {{ TF }} {#variables}
 
-В директории репозитория `yc-speechkit-hybrid-deployment` располагается файл `terraform.tfvars.template`. Он представляет собой {{ TF }}-шаблон, по которому задаются переменные окружения. Эти переменные передаются YC CLI и {{ TF }} во время выполнения команд.
+В директории репозитория `yc-speechkit-hybrid-deployment` располагается файл `terraform.tfvars.template`. Он представляет собой {{ TF }}-шаблон, по которому задаются переменные окружения. Эти переменные передаются CLI и {{ TF }} во время выполнения команд.
 
 Чтобы задать переменные для конфигурации {{ TF }}, выполните следующие действия на локальной машине:
 

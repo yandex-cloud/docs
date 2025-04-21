@@ -53,6 +53,7 @@ description: This page presents all the guides on how to use {{ ml-platform-full
 * [{#T}](data/s3-connectors.md)
 * [{#T}](data/spark-connectors.md)
 * [{#T}](data/models.md)
+* [{#T}](data/filestores.md)
 
 ## Connecting to data sources {#connections-to-data-sources}
 
@@ -86,6 +87,7 @@ description: This page presents all the guides on how to use {{ ml-platform-full
 ## Shared access to resources, projects, and computation results {#share}
 
 * [{#T}](data/dataset.md#share)
+* [{#T}](data/filestores.md#share)
 * [{#T}](data/s3-connectors.md#share)
 * [{#T}](data/secrets.md#share)
 * [{#T}](user-images.md#share)

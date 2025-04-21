@@ -21,6 +21,18 @@ meta:
     Yandex Cloud CDN позволяет организовать доставку контента до конечных
     потребителей с помощью сети распространения контента (Content Delivery
     Network, CDN).
+  keywords:
+    - keyword: cdn
+    - keyword: yandex cdn
+    - keyword: '{{ cdn-name }}'
+    - keyword: '{{ cdn-full-name }}'
+    - keyword: сервис {{ cdn-name }}
+    - keyword: сеть распространения контента в {{ yandex-cloud }}
+    - keyword: content delivery detwork в {{ yandex-cloud }}
+    - keyword: доставка контента в {{ yandex-cloud }}
+    - keyword: сеть распространения контента
+    - keyword: content delivery detwork
+    - keyword: доставка контента
 links:
   - title: Начало работы
     description: Как начать доставлять контент с помощью CDN

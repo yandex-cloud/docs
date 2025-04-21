@@ -1,6 +1,6 @@
-* Количество токенов в промте и ответе: 1020 + 30 = 1050
-* Цена за 1000 токенов для модели, дообученной в {{ ml-platform-name }}, в синхронном режиме: 6,00 ₸
-* Количество юнитов в 1 токене для модели, дообученной в {{ ml-platform-name }}, в синхронном режиме: 6
-* Общее количество юнитов в детализации потребления: 1050 × 6 = 6300
+* Количество токенов в промте и ответе: 1020 + 30 = 1050.
+* Цена за 1000 токенов для модели, дообученной в {{ ml-platform-name }}, в синхронном режиме: {% calc [currency=KZT] 6 × {{ sku|KZT|foundation_models.text_generation.v1|number }} %}.
+* Количество юнитов в 1 токене для модели, дообученной в {{ ml-platform-name }}, в синхронном режиме: 6.
+* Общее количество юнитов в детализации потребления: 1050 × 6 = 6300.
 
-Итого: (1,00&nbsp;₸ / 1000 юнитов) × 6300 юнитов = 6,30&nbsp;₸ **или** (6,00&nbsp;₸ / 1000 токенов) × 1050 токенов = 6,30&nbsp;₸.
+Итого: ({{ sku|KZT|foundation_models.text_generation_alt.v1|string }} / 1000 юнитов) × 6300 юнитов = {% calc [currency=KZT] {{ sku|KZT|foundation_models.text_generation_alt.v1|number }} / 1000 × 6300 %} **или** ({% calc [currency=KZT] 6 × {{ sku|KZT|foundation_models.text_generation.v1|number }} %} / 1000 токенов) × 1050 токенов = {% calc [currency=KZT] 6 × {{ sku|KZT|foundation_models.text_generation.v1|number }} / 1000 × 1050 %}.

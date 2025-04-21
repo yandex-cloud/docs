@@ -10,13 +10,15 @@ The partner program will enable you to:
 * Sell your solutions to new customers and boost demand among your current ones.
 * Deliver integrated projects by offering pro-level services.
 
+
+
 Becoming a partner is a multi-step process.
 
 ## Step 1. Go to the onboarding page {#step-1}
 
 See the onboarding page for the procedure of getting the partner status:
 
-1. On [the partner program page](https://yandex.cloud/ru/partners), click [**Apply**]({{ link-cloud-partners }}welcome).
+1. On [the partner program page]({{ link-cloud-partners-landing }}), click [**Apply**]({{ link-cloud-partners }}welcome).
 1. Learn about the steps of getting the partner status and the partner program benefits and click **Let's get started!**.
 
 ## Step 2. Sign in {#step-2}
@@ -68,7 +70,7 @@ If you have already provided a billing account at [Step 3](#step-3), proceed to 
 Billing account requirements: {#restrictions}
 
 * Billing account type: [Business account](../billing/concepts/billing-account.md#ba-types).
-* A business account issued to a business residing in the Russian Federation.
+* Business account owner: Business residing in the Russian Federation.
 * Payment method: **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**.
 
 1. Click **Create billing account**.
@@ -106,6 +108,7 @@ On the application confirmation page, you can view your application's details an
 If you meet the partner [requirements](https://yandex.ru/legal/cloud_partnership_requirements/), you will become a {{ yandex-cloud }} partner program member after you complete the above steps, which means you will be able to use our [partner portal]({{ link-cloud-partners }}).
 
 See [{#T}](portal.md) to learn more about the portal and its features.
+
 
 ## What's next {#whats-next}
 

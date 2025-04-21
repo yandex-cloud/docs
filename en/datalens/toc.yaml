@@ -45,7 +45,7 @@ items:
               Geocoding with the Yandex Maps API for data visualization in {{
               datalens-short-name }}
             href: tutorials/data-from-ch-geocoder.md
-          - name: Visualizing data using "Heat Maps"
+          - name: Visualizing data using Heat Maps
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
           - name: Status monitoring of geographically distributed devices
@@ -842,10 +842,14 @@ items:
             href: pricing-archive/pricing01062024.md
           - name: Before April 23, 2024
             href: pricing-archive/pricing23042024.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Release notes
     items:
-      - name: February 2025
+      - name: March 2025
         href: release-notes/index.md
+      - name: February 2025
+        href: release-notes/2502.md
       - name: January 2025
         href: release-notes/2501.md
       - name: December 2024
@@ -854,10 +858,10 @@ items:
         href: release-notes/2411.md
       - name: October 2024
         href: release-notes/2410.md
-      - name: September 2024
-        href: release-notes/2409.md
       - name: Archive
         items:
+          - name: September 2024
+            href: release-notes/2409.md
           - name: August 2024
             href: release-notes/2408.md
           - name: July 2024

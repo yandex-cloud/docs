@@ -89,6 +89,8 @@ items:
             href: operations/data/spark-connectors.md
           - name: Working with models
             href: operations/data/models.md
+          - name: Using file storages
+            href: operations/data/filestores.md
       - name: Connecting to data sources
         items:
           - name: Connecting to S3 using the boto3 library
@@ -219,6 +221,8 @@ items:
             href: concepts/models/index.md
           - name: Fine-tuned foundation models
             href: concepts/models/tuned-models.md
+          - name: File storages
+            href: concepts/filestores.md
       - name: Foundation models
         href: concepts/models/foundation-models.md
       - name: Quotas and limits
