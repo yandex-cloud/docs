@@ -66,6 +66,15 @@ The monthly prices are based on 720 hours per month.
 
 ## Prices for the Russia region {#prices}
 
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ ml-platform-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn24j84p743fhjngkebd%2Cdn2scoh2b9945dep39ih).
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 The prices of the configurations are valid for computations in [{{ ds-nb }}](concepts/project.md#mode), [{{ ds-jobs }}](concepts/jobs/index.md) jobs, and the use of [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).

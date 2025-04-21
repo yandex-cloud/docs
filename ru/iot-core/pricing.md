@@ -51,6 +51,18 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ iot-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn2hj92de1icl8k3m3bg)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn2hj92de1icl8k3m3bg)
+
+{% endnote %}
+
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Объем данных {#volumes}

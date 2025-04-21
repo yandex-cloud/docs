@@ -120,6 +120,15 @@ CVoS discount is only available for certain types of resources. A dash in the re
 
 
 
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ mpg-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2hmdmghr9j2odlvssi).
+
+{% endnote %}
+
+
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

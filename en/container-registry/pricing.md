@@ -24,7 +24,7 @@ The {{ container-registry-name }} usage cost is based on:
 
 Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
-{% note warning %}
+{% note info %}
 
 If multiple [Docker images](concepts/docker-image.md) in the same registry use the same layers, you are not charged repeatedly for storing each reused layer. A layer's [digest](concepts/docker-image.md#version) indicates whether the layer is unique.
 
@@ -32,6 +32,15 @@ If multiple [Docker images](concepts/docker-image.md) in the same registry use t
 
 
 ## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ container-registry-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2tng436tjcn7cjudv1).
+
+{% endnote %}
+
 
 
 

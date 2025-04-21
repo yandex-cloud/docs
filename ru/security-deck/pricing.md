@@ -28,7 +28,8 @@ editable: false
 
 ### {{ atr-name }} {#atr-pricing}
 
-{% note warning %}
+
+{% note info %}
 
 Цены действуют с 13 марта 2025 года.
 

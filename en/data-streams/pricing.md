@@ -42,6 +42,15 @@ Data processing cost per month (for a 31-day month):
 
 ## Prices for the Russia region {#prices}
 
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ yds-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2yds6scistjlmes0fe).
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Price per unit of written data {#event}

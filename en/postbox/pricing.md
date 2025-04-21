@@ -37,13 +37,15 @@ Calculating cost of 65,500 emails per month:
 
 ## Prices for the Russia region {#prices}
 
-{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 {% note warning %}
 
-These prices apply starting September 24, 2024.
+Starting May 1, 2025, the prices for {{ postbox-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2h92g8s9qofi6iu1gp).
 
 {% endnote %}
+
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
@@ -55,3 +57,4 @@ These prices apply starting September 24, 2024.
 If you want to send over 500,000 emails per month, contact [support]({{ link-console-support }}) or your account manager for special terms.
 
 {% endnote %}
+

@@ -8,6 +8,14 @@ editable: false
 
 
 
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ interconnect-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2iqlgecrio4statr88).
+
+{% endnote %}
+
+
+
 
 The service is provided if technically feasible.
 

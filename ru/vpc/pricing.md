@@ -26,6 +26,18 @@ editable: false
 ## Цены для региона Россия {#prices}
 
 
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ vpc-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?currency=RUB&installationCode=ru&services=dn21qssbrdtcaus362kp)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?currency=KZT&installationCode=ru&services=dn21qssbrdtcaus362kp)
+
+{% endnote %}
+
+
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -172,7 +184,7 @@ editable: false
 
 Услуга {{ adv-ddos-protection }} подключается по запросу через [форму](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
-{% note warning "Важно" %}
+{% note info %}
 
 Обратите внимание, что абонентская плата за услуги {{ adv-ddos-protection }} и Managed Web Application Firewall списывается сразу за весь месяц и не рассчитывается пропорционально дням. Например, если вы подключили или отключили услуги в середине месяца, абонентская плата все равно спишется полностью.
 

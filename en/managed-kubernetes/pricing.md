@@ -30,6 +30,15 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
 
 
 
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ managed-k8s-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2af04ph5otc5f23o1h).
+
+{% endnote %}
+
+
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
