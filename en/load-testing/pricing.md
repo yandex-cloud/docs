@@ -20,6 +20,15 @@ Tests run by multiple agents are charged as a sum of tests run by each agent.
 
 ## Prices for the Russia region {#prices}
 
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ load-testing-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2ul6hj517ba5ckvl0i).
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Test running time {#test-time}

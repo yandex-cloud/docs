@@ -23,7 +23,7 @@ editable: false
 * Объем памяти, указанный при создании ревизии, измеряется в ГБ.
 * Суммарное время работы контейнера измеряется в часах, и округляется в большую сторону до ближайшего значения, кратного 100 мс.
 
-{% note warning %}
+{% note info %}
 
 Тарифицируются только вызовы контейнера, которые привели к запуску приложения.
 
@@ -97,6 +97,18 @@ editable: false
 
 
 ## Цены для региона Россия {#prices}
+
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ serverless-containers-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn2qu7ck7veplf4kmbuh)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn2qu7ck7veplf4kmbuh)
+
+{% endnote %}
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

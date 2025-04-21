@@ -50,6 +50,15 @@ The cost of using a cluster with the following parameters for 30 days:
 
 
 
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ maf-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2o8879r181fgps5lb3).
+
+{% endnote %}
+
+
+
+
 
 All prices below do not include VAT.
 

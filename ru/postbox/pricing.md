@@ -53,13 +53,8 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-{% note warning %}
-
-Цены действуют с 24 сентября 2024 года.
-
-{% endnote %}
 
 
 {% list tabs group=pricing %}

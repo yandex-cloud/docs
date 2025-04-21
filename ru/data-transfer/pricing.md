@@ -37,7 +37,19 @@ editable: false
 
 Передача данных для трансферов, находящихся на стадии Preview, не тарифицируется. Перечень доступных трансферов и стадий их готовности см. в разделе [Доступные трансферы](transfer-matrix.md).
 
-## Цены {#prices}
+## Цены для региона Россия {#prices}
+
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ data-transfer-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?currency=RUB&installationCode=ru&services=dn2dtfaj8fno5r3beac3)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?currency=KZT&installationCode=ru&services=dn2dtfaj8fno5r3beac3)
+
+{% endnote %}
+
+
 
 ### Количество строк, перенесенных трансфером {#data}
 
