@@ -27,6 +27,8 @@ items:
             href: operations/cluster-backups.md
           - name: Управление дисковым пространством
             href: operations/storage-space.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Обновление версии PostgreSQL
             href: operations/cluster-version-update.md
           - name: Удаление кластера

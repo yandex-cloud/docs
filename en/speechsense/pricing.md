@@ -44,10 +44,39 @@ When analyzing text dialogs, the cost of using {{ speechsense-name }} depends on
 {% include [usd.md](../_pricing/speechsense/usd-text-dialogs.md) %}
 
 
-### Example of calculating the cost of audio analysis {#price-example}
+### Example of calculating the cost of audio analysis {#price-example-speech}
 
 
 
 {% include [usd-speechsense](../_pricing_examples/speechsense/usd-speechsense.md) %}
+
+
+### Example of calculating the cost of text dialog analysis {#price-example-text}
+
+#### Example 1 {#example-1}
+
+Let's assume that 90,000,015 characters were analyzed during one month of using {{ speechsense-name }}. The number of characters in each dialog is rounded up to the tens. This means, the billable amount is 90,000,020 characters, or 90,000.02 thousand characters.
+
+
+
+{% include [usd-speechsense-text-100k](../_pricing_examples/speechsense/usd-speechsense-text-100k.md) %}
+
+
+#### Example 2 {#example-2}
+
+Let's assume that 150,000,023 characters were analyzed during one month of using {{ speechsense-name }}. The number of characters in each dialog is rounded up to the tens. This means, the billable amount is 150,000,030 characters, or 150,000.03 thousand characters.
+
+
+
+{% include [usd-speechsense-text-500k](../_pricing_examples/speechsense/usd-speechsense-text-500k.md) %}
+
+
+#### Example 3 {#example-3}
+
+Let's assume that 685,000,000 characters, or 685,000 thousand characters, were analyzed during one month of using {{ speechsense-name }}.
+
+
+
+{% include [usd-speechsense-text-1M](../_pricing_examples/speechsense/usd-speechsense-text-1M.md) %}
 
 

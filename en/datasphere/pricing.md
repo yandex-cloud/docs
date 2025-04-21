@@ -54,7 +54,7 @@ Learn more about [integration with {{ dataproc-name }}](concepts/data-processing
 
 Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the project size [quota]({{ link-console-quotas }}), the entire requested [storage capacity](#prices-storage) exceeding {{ ml-project-size }} is paid for separately. For more information about pricing, see [{#T}](concepts/limits.md).
 
-Data storage inside [datasets](#prices-storage) and file storages is charged separately.
+You will be charged separately for data stored inside [datasets](#prices-storage) and file storages.
 
 If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In which case you will pay for data storage according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 

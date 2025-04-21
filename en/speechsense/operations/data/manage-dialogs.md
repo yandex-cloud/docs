@@ -9,7 +9,26 @@ In a [dialog](../../concepts/dialogs.md), you can listen to an audio of the conv
 
 By default, the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** tab shows 100 most recent dialogs. To see the previous dialogs, click **{{ ui-key.yc-ui-talkanalytics.common.show-more }}** at the end of the list.
 
-To search for dialogs, you can use [filters](#filters-dialogs) and the [search bar](#find-dialogs).
+To get more information about each dialog, [customize the columns](#set-columns).
+
+You can use [filters](#filters-dialogs) and the [search bar](#find-dialogs) to search for dialogs.
+
+## Customizing column display {#set-columns}
+
+By default, not all columns are displayed in the dialog list. You can display additional columns, hide the ones you do not need, and reorder them.
+
+To customize column display:
+
+1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
+1. Go to the space you need and select a project.
+1. In the title row for the list of dialogs, click ![image](../../../_assets/console-icons/gear.svg). This will open the list of all columns.
+1. Do one of the following in the list of columns:
+
+    * Check any additional columns you want displayed.
+    * Uncheck columns you do not need to hide them. Some columns cannot be hidden, so you cannot uncheck them.
+    * To reorder columns, click ![image](../../../_assets/console-icons/grip.svg) to the left of the column name and drag the column to a new position in the list.
+
+1. Click **Apply**.
 
 ## Finding dialogs using filters {#filters-dialogs}
 
@@ -51,7 +70,7 @@ The dialog page displays the following information:
 
     The tab contains several sections. If you want to leave only a specific section, click on it.
 
-To learn more, see [{#T}](../../concepts/dialogs.md#details).
+For more information, see [{#T}](../../concepts/dialogs.md#details).
 
 ## Example of searching dialogs by time period and text fragment {#example-find-dialogs-by-period-and-text}
 

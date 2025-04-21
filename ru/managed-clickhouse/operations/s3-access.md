@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 См. также [Примеры работы с объектами](#examples).
 
 
-Перед началом работы [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна в следующих случаях:
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна в следующих случаях:
 
 
 * если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт;
@@ -36,9 +36,9 @@ description: Следуя данной инструкции, вы сможете
 
 ## Подключите сервисный аккаунт к кластеру {#connect-service-account}
 
-1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий сервисный аккаунт, либо создайте новый.
+1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий сервисный аккаунт либо создайте новый.
 
-1. Убедитесь, что этому аккаунту назначены корректные роли из группы ролей `storage.*`. При необходимости назначьте нужные роли, например, `storage.viewer` и `storage.uploader`.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) этому аккаунту корректные роли из группы ролей `storage.*`, например `storage.viewer` и `storage.uploader`.
 
 {% note tip %}
 

@@ -13,7 +13,7 @@ The grant for a pilot is credited to a customer subaccount.
 
 {% note info %}
 
-A subaccount is an additional account for a customer's billing account. It is created automatically when you link your customer's account to your account on the partner portal. It is displayed both in your {{ yandex-cloud }} account's console and the customer's console.
+A subaccount is an additional account for a customer billing account. It is created automatically when you link your customer's account to your account on the partner portal. It is displayed both in your {{ yandex-cloud }} account's console and the customer's console.
 
 {% endnote %}
 
@@ -37,4 +37,4 @@ For all our partners, we provide appropriate resources for trying out our new se
 * One-month grant for 5,000 rubles for trying out our {{ yandex-cloud }} services.
 * Grant for 10,000 rubles on the ["Cloud engineer"](https://practicum.yandex.ru/ycloud/) course in Yandex Practicum (for two engineers).
 
-Our {{ yandex-cloud }} Professional [tier](../../partner/specializations/index.md) partners receive a one-year 150,000 ruble grant for creating and maintaining a demo stand.
+Our {{ yandex-cloud }} Professional [tier](../../partner/specializations/index.md) partners receive a one-year 150,000 ruble grant for creating and maintaining a demo setup.

@@ -181,6 +181,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters.md) %}
 
+        * `--subnet-ids`: Subnet IDs list.
+
+            {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+        {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
+
+
 - {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -199,6 +206,12 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters.md) %}
 
+        * `subnet_ids`: Subnet IDs list.
+
+            {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+        {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
+
     1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -207,7 +220,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+        This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-maf }}).
 

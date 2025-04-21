@@ -4,4 +4,4 @@ description: In {{ speechkit-name }}, a response may contain the request executi
 ---
 
 
-{% include [response](../../_includes/response-translate-speechkit.md) %}
+{% include [response](../../_includes/speechkit/response-format.md) %}

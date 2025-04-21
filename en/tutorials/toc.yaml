@@ -1220,6 +1220,9 @@ items:
                   Geocoding with the Yandex Maps API for data visualization in
                   {{ datalens-short-name }}
                 href: datalens/data-from-ch-geocoder.md
+              - name: Visualizing data using Heat Maps
+                hidden: true
+                href: datalens/data-on-heat-map-dashboard.md
           - name: Service analytics
             items:
               - name: 'Yandex Metrica: direct connection'
@@ -1396,6 +1399,10 @@ items:
             href: ml-ai/archive-from-vision-to-object-storage.md
           - name: Developing a Telegram bot for text and audio recognition
             href: ml-ai/recognizer-bot.md
+          - name: >-
+              Regular asynchronous recognition of audio files from {{
+              objstorage-name }}
+            href: ml-ai/batch-recognition-stt.md
       - name: Using {{ foundation-models-full-name }} generative models
         items:
           - name: >-

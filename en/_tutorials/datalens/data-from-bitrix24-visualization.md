@@ -94,7 +94,7 @@ You can customize the standard dashboard by deleting, moving, or editing charts.
 1. Add the chart to the dashboard:
 
    1. Return to the tab with the dashboard and click **Edit** at the top of the page.
-   1. In the panel at the bottom of the page, select **Chart**.
+   1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
    
       ![06-add-chart](../../_assets/datalens/solution-bitrix24/06-add-chart.png)
    
@@ -156,7 +156,7 @@ To use the `Bitrix24` connection data, you can create a custom dataset based on 
 
    ![11-dataset-new-source](../../_assets/datalens/solution-bitrix24/11-dataset-new-source.png)
 
-1. Go to the **Fields** tab.
+1. Navigate to the **Fields** tab.
 1. Create a record count field named `ID_COUNT`:
 
    1. Duplicate the `ID` field: on the right side of the row with the field, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Duplicate**.

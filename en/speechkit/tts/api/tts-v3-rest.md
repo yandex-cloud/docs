@@ -18,34 +18,34 @@ Authentication takes place under a Yandex account or a federated account using a
 
   1. Create the `request.json` file with the following request parameters:
 
-    ```json
-    {"text": "Hi! I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!", "hints": [{"voice": "marina"}, {"role": "friendly"}]}
-    ```
+      ```json
+      {"text": "Hi! I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!", "hints": [{"voice": "marina"}, {"role": "friendly"}]}
+      ```
 
-    Where:
-    * `text`: Text to synthesize
-    * `hints`: List of synthesis parameters:
-        * `voice`: Voice for synthesis
-        * `role`: Role
+      Where:
+      * `text`: Text to synthesize
+      * `hints`: List of synthesis parameters:
+          * `voice`: Voice for synthesis
+          * `role`: Role
 
-  1. Get the folder ID and the IAM token for the account you will use with {{ speechkit-name }}, and include them in the request headers.
+  1. Run the request in the terminal by specifying the IAM token and the ID of the folder you will use to work with {{ speechkit-name }}:
 
-    ```bash
-    export FOLDER_ID=<folder_ID>
-    export IAM_TOKEN=<IAM_token>
+      ```bash
+      export FOLDER_ID=<folder_ID>
+      export IAM_TOKEN=<IAM_token>
 
-    curl \
-      --header "Authorization: Bearer $IAM_TOKEN" \
-      --header "x-folder-id: $FOLDER_ID" \
-      --data @request.json https://{{ api-host-sk-tts }}:443/tts/v3/utteranceSynthesis | \
-      jq -r  '.result.audioChunk.data' | \
-      while read chunk; do base64 -d <<< "$chunk" >> audio.wav; done
-    ```
+      curl \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "x-folder-id: $FOLDER_ID" \
+        --data @request.json https://{{ api-host-sk-tts }}:443/tts/v3/utteranceSynthesis | \
+        jq -r  '.result.audioChunk.data' | \
+        while read chunk; do base64 -d <<< "$chunk" >> audio.wav; done
+      ```
 
-    Where:
-    * `FOLDER_ID` is the [ID of the folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-speechkit-tts }}` role or higher.
-    * `IAM_TOKEN`: IAM token of your [Yandex account](../../../iam/operations/iam-token/create.md) or [federated account](../../../iam/operations/iam-token/create-for-federation.md).
+     Where:
+     * `FOLDER_ID` is the [ID of the folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-speechkit-tts }}` role or higher. If using a service account, you do not need to include the folder ID in the request.
+     * `IAM_TOKEN`: IAM token of your [Yandex account](../../../iam/operations/iam-token/create.md) or [federated account](../../../iam/operations/iam-token/create-for-federation.md).
 
-    The synthesized speech will be Base64 encoded and saved to a file named `audio.wav`.
+     The synthesized speech will be Base64 encoded and saved to a file named `audio.wav`.
 
 {% endlist %}

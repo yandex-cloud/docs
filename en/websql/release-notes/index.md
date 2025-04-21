@@ -5,6 +5,12 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## March {#march}
+
+1. Now you can run subqueries within a [muli-query](../operations/query-executor.md#multiple-queries) in all available database types.
+
+1. Added support for {{ MG }} and {{ mtr-full-name }} connections ({{ mtr-full-name }} is currently at the [Preview](../../overview/concepts/launch-stages.md) stage).
+
 ## February {#february}
 
 ### New features {#new-features-feb}

@@ -11,6 +11,8 @@ TTS phonemes ([wrapped in `[[ ]]`](tts-markup.md#phoneme)) are only supported fo
 
 Learn more about [Russian](https://en.wikipedia.org/wiki/Russian_phonology), [Uzbek](https://en.wikipedia.org/wiki/Uzbek_language#Phonology), and [Kazakh](https://en.wikipedia.org/wiki/Kazakh_language#Phonology_and_orthography) phonology.
 
+See phoneme usage [examples](tts-markup.md#rus-examples).
+
 ## List of supported Russian phonemes {#phonemes-ru}
 
 {% include [phonemes-ru-ru_untranslatable](../../../_includes/speechkit/phonemes-ipa-ru-ru_untranslatable.md) %}

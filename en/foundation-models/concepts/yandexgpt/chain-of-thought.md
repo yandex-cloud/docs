@@ -10,7 +10,7 @@ Generative models do not always cope equally well with tasks that require reason
 You can improve the accuracy of the model's responses by forcing the model to reason and generate based on such chains of intermediate computations. You can do this using a prompt or a special [generation parameter](../../text-generation/api-ref/TextGeneration/completion.md#yandex.cloud.ai.foundation_models.v1.ReasoningOptions).
 
 You can configure the reasoning mode using the `reasoning_options` parameter when you [access](./models.md#addressing-models) the models supporting this parameter through the API or SDK. The `reasoning_options` parameter can take the following values:
-* `DISABLED`: Reasoning mode is disabled. Default. If the `reasoning_options` parameter is not specified in the request, the reasoning mode is disabled.
+* `DISABLED`: Reasoning mode is disabled. Default value. If the `reasoning_options` parameter is not specified in the request, the reasoning mode is disabled.
 * `ENABLED_HIDDEN`: Reasoning mode is enabled. Different models decide differently whether to use this mode for each particular request. Even if the model uses reasoning when generating a response, the response will not contain the model's actual chain of reasoning.
 
 Example of a request configuration in the reasoning mode:

@@ -66,7 +66,7 @@
         * `mos_version` — версия {{ OS }};
         * `mos_password` — пароль пользователя-владельца кластера {{ OS }};
         * `bucket_name`— имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
-        * `profile_name` — имя вашего профиля в YC CLI.
+        * `profile_name` — имя вашего профиля в CLI.
 
           {% include [cli-install](../../../_includes/cli-install.md) %}
 

@@ -20,7 +20,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
 Подробнее о начале работы с бакетами см. в статье [{#T}](../quickstart.md).
 
-[Создать бакет](../operations/buckets/create.md) можно с помощью [Консоли управления]({{ link-console-main }}), [YC CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket), [API](../../api-design-guide/concepts/general.md), а также популярных [инструментов](../tools/index.md) для работы с HTTP API Amazon S3.
+[Создать бакет](../operations/buckets/create.md) можно с помощью [Консоли управления]({{ link-console-main }}), [CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket), [API](../../api-design-guide/concepts/general.md), а также популярных [инструментов](../tools/index.md) для работы с HTTP API Amazon S3.
 
 ## Именование бакетов {#naming}
 

@@ -1,8 +1,9 @@
 # Partner portal
 
+
 {% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
 
-[Partner portal]({{ link-cloud-partners }}) is the main partner tool you can use to manage customers, [track their resource consumption](./operations/get-client-stat.md), register [orders](./program/var-tools.md#deal-reg) and [projects](./program/var-tools.md#project-reg), view partner bonuses and accrued rebates, as well as manage [referral links](./program/referral.md).
+The [partner portal]({{ link-cloud-partners }}) is the main partner tool used to manage customers, [track their consumption](./operations/get-client-stat.md), register [deals](./program/var-tools.md#deal-reg) and [projects](./program/var-tools.md#project-reg), view partner bonuses and accrued rebates, as well as manage [referral links](./program/referral.md).
 
 The partner portal offers the following sections:
 
@@ -34,12 +35,13 @@ In this section, you can find information on your customers and users with acces
 
 ## Commissions {#bonuses}
 
-This section shows the partner bonus amount information.
+This section shows the partner bonus amount information:
 
-* Bonus payment schedule for all customers, by month.
-* Table showing resource consumption and bonuses for all customers, by month.
+* Bonus accrual schedule for all customers, by month.
+* Table with monthly resource consumption and bonuses for all customers.
 
 You can view the commission statistics and download a detailed report in `.csv` format.
+
 
 ## Rebate accrual balance {#balance}
 
@@ -51,28 +53,32 @@ This section shows rebates only for registered projects and specializations. To 
 
 {% endnote %}
 
+
 ## Partner bonus {#premium}
 
-In this section, you can view the partner bonus amount applied to your subaccounts. To view detailed information on a bonus, click the relevant line.
+In this section, you can view the partner bonus amount applied to your subaccounts. To view detailed information about a bonus, click the relevant line.
 
 ## Partner tools {#tools}
 
 This section contains links to application forms and other useful links for partners:
 
 * Presale request form.
-* Application form for registering a partner's order or project.
-* Application form for registering a partner's order on Yandex Tracker.
+* Application form for registering a partner deal or project.
+* Application form for registering a partner deal on Yandex Tracker.
 * Partner Kit.
 * Telegram channel for partners.
 * Links to legal documents.
+
 
 ## Specializations {#specs}
 
 This section gives information on the [technological specializations](./specializations/index.md) you obtained.
 
+
 ## Profile {#profile}
 
 In this section, you can view information on your partner account.
+
 
 ## Referral program {#ref}
 

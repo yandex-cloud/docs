@@ -4,6 +4,10 @@
 
 For more information about voice models, see [About technology](tts/index.md#voices).
 
+### Release as of 28/03/25 {#280325}
+
+Added Russian equivalents for the `lola` and `yulduz` voices, `lola_ru` and `yulduz_ru`, with multiple roles. Additional roles are now available for the following voices: `saule`, `saule_ru`, `zhanar`, `zhanar_ru`, and `yulduz`. For the full list of available voices, see [{#T}](tts/voices.md).
+
 ### Release as of 24/01/25 {#240125}
 
 Added new [voices](tts/voices.md). For synthesis in Kazakh, the `zhanar` female voice is now available. For synthesis in Uzbek, added the female voices `lola` and `yulduz`.

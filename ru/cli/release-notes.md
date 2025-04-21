@@ -1,15 +1,75 @@
 ---
-title: Список релизов YC CLI
-description: На странице представлены релизы YC CLI, а также изменения в каждом из них.
+title: Список релизов CLI
+description: На странице представлены релизы CLI, а также изменения в каждом из них.
 ---
 
-# Релизы YC CLI
+# Релизы CLI
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.147.0 (21.04.25) {#version0.147.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#version0.147.0-services}
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+* В команды `yc managed-kafka user create`, `yc managed-kafka user update` добавлен параметр `--rest-api-enabled` для включения REST API на кластере.
+
+* В команде `yc managed-mysql cluster create` поддержан аргумент `--user generate-password` для автоматической генерации пароля с использованием {{ connection-manager-full-name }}.
+
+* В команде `yc managed-postgresql cluster create` поддержан аргумент `--user generate-password` для автоматической генерации пароля с использованием {{ connection-manager-full-name }}.
+
+* В команде `yc managed-clickhouse cluster create` поддержан аргумент `--user generate-password` для автоматической генерации пароля с использованием {{ connection-manager-full-name }}.
+
+* В команды `yc clickhouse cluster create` и `yc clickhouse cluster restore` добавлен флаг `--shard`, позволяющий задать один или несколько шардов& Пример: `yc clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
+
+* В команде `yc managed-clickhouse shard add` поддержан повторяемый композитный флаг `--shard`:
+  * Будет создано столько шардов, сколько раз встретился флаг `--shard`.
+  * Для каждого шарда необходимо указать имя, также можно задать вес: `yc managed-clickhouse shard add --shard name=myshard,weight=200`.
+  * Флаг `--shard` несовместим с флагами `--name` и `--weight`, как и с заданием имени шарда через позиционный аргумент.
+
+* Ускорено удаление нескольких шардов через `yc managed-clickhouse shards delete`.
+
+* В команду `yc clickhouse cluster add-external-dictionary` добавлены следующие параметры:
+  * `--layout-allow-read-expired-keys `
+  * `--layout-max-update-queue-size`
+  * `--layout-update-queue-push-timeout-milliseconds`
+  * `--layout-query-wait-timeout-milliseconds`
+  * `--layout-max-threads-for-updates`
+  * `--layout-initial-array-size`
+  * `--layout-access-to-key-from-attributes`
+  
+##### {{ alb-name }} {#alb}
+
+* Добавлены команды для работы c механизмом ручного переключения зоны доступности на балансировщике:
+  * `yc application-load-balancer load-balancer start-zonal-shift`
+  * `yc application-load-balancer load-balancer cancel-zonal-shift`
+
+* Добавлен параметр `--allow-zonal-shift`, который размечает балансировщик как способный работать в режиме отказа одной зоны доступности:
+  * `yc application-load-balancer load-balancer create`
+  * `yc application-load-balancer load-balancer update`
+
+##### {{ iam-name }} {#iam}
+
+Добавлены команды для управления доступом к федерациям сервисных аккаунтов:
+* `yc iam workload-identity oidc federation list-access-bindings`
+* `yc iam workload-identity oidc federation set-access-bindings`
+* `yc iam workload-identity oidc federation add-access-binding`
+* `yc iam workload-identity oidc federation remove-access-binding`
+
+##### {{ ydb-name }} {#ydb}
+
+В команде `yc ydb database backup` поддержан аргумент storage-class для указания типа хранилища
+
+##### {{ compute-name }} {#compute}
+
+Добавлены команды для привязки инстансов к пулам зарезервированных ВМ.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.146.1 (03.04.25) {#version0.146.1}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }} {#version0.146.1-services}
 
 ##### {{ compute-name }} {#compute}
 
@@ -20,11 +80,9 @@ description: На странице представлены релизы YC CLI,
   * `yc compute reserved-instance-pool update`;
   * `yc compute reserved-instance-pool delete`.
 
-## Предыдущие релизы {#previous-release}
-
 ### Версия 0.146.0 (02.04.25) {#version0.146.0}
 
-####  Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#version0.146.0-services}
 
 ##### {{ at-name }} {#audit-trails}
 
@@ -435,7 +493,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `yc storage s3api head-object` — получение метаданных объекта.
   * `yc storage s3api delete-objects` — удаление группы объектов.
 
-  Чтобы работать с объектами, укажите в конфигурационном файле YC CLI `~/.config/yandex-cloud/config.yaml` эндпоинт {{ objstorage-name }}:
+  Чтобы работать с объектами, укажите в конфигурационном файле CLI `~/.config/yandex-cloud/config.yaml` эндпоинт {{ objstorage-name }}:
 
   ```yaml
   ...
@@ -3035,7 +3093,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **Исправлено**
 
-* Исправлена проблема с авторизацией для федеративных пользователей при инициализации нового профиля YC CLI.
+* Исправлена проблема с авторизацией для федеративных пользователей при инициализации нового профиля CLI.
 
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -3502,7 +3560,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **Улучшено**
 
-* При запуске YC CLI с флагом `--debug`, строка лога ответа API-вызова теперь выводит не только gRPC-код статуса, но и его описание.
+* При запуске CLI с флагом `--debug`, строка лога ответа API-вызова теперь выводит не только gRPC-код статуса, но и его описание.
 
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -3524,7 +3582,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **Улучшено**
 
-* При обновлении YC CLI теперь выводится текущая устанавливаемая версия.
+* При обновлении CLI теперь выводится текущая устанавливаемая версия.
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
