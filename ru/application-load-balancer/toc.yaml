@@ -319,6 +319,8 @@ items:
             href: cli-ref/load-balancer/add-stream-sni.md
           - name: autoscale
             href: cli-ref/load-balancer/autoscale.md
+          - name: cancel-zonal-shift
+            href: cli-ref/load-balancer/cancel-zonal-shift.md
           - name: create
             href: cli-ref/load-balancer/create.md
           - name: delete
@@ -343,6 +345,8 @@ items:
             href: cli-ref/load-balancer/remove-sni.md
           - name: start
             href: cli-ref/load-balancer/start.md
+          - name: start-zonal-shift
+            href: cli-ref/load-balancer/start-zonal-shift.md
           - name: stop
             href: cli-ref/load-balancer/stop.md
           - name: target-states

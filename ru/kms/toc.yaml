@@ -97,7 +97,7 @@ items:
         href: tutorials/vault-secret.md
       - name: Безопасная передача пароля в скрипт инициализации
         href: tutorials/secure-password-script.md
-      - name: Шифрование для бакета {{objstorage-name }} на стороне сервера
+      - name: Шифрование для бакета {{ objstorage-name }} на стороне сервера
         href: tutorials/server-side-encryption.md
   - name: Управление доступом
     href: security/index.md

@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/lockbox/cli-ref/index.md
 
 # yc lockbox
 
-[PREVIEW] Manage Yandex Lockbox resources
+Manage Yandex Lockbox resources
 
 #### Command Usage
 

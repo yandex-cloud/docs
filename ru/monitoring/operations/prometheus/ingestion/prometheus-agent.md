@@ -29,7 +29,7 @@ description: Из статьи вы узнаете, как установить 
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) начните [создавать ВМ](../../../../compute/operations/vm-create/create-linux-vm.md).
-  1. Раскройте блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}** > **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**.
+  1. Раскройте блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}** ⟶ **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**.
   1. Включите **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** и выберите **{{ managed-prometheus-name }}**.
   1. [Создайте](../index.md#access) или выберите уже существующий воркспейс.
   1. (Опционально) Укажите параметры поставки собственных метрик в формате JSON.

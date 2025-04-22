@@ -58,7 +58,7 @@ Contact [support]({{ link-console-support }}) for additional information and rec
 
 ### ACCESS_DENIED {#stream-access-denied}
 
-Make sure the service account used by the trail to upload audit logs to the stream has the `yds.editor` [role](../../data-streams/security/#yds-editor) or higher.
+Make sure the service account used by the trail to upload audit logs to the stream has the `yds.writer` [role](../../data-streams/security/#yds-writer) or higher.
 
 ### STREAM_NOT_FOUND {#stream-not-found}
 

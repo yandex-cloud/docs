@@ -316,6 +316,9 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/workload-identity/oidc/federation/index.md
+                  - name: add-access-binding
+                    href: >-
+                      cli-ref/workload-identity/oidc/federation/add-access-binding.md
                   - name: add-audiences
                     href: cli-ref/workload-identity/oidc/federation/add-audiences.md
                   - name: add-labels
@@ -328,11 +331,20 @@ items:
                     href: cli-ref/workload-identity/oidc/federation/get.md
                   - name: list
                     href: cli-ref/workload-identity/oidc/federation/list.md
+                  - name: list-access-bindings
+                    href: >-
+                      cli-ref/workload-identity/oidc/federation/list-access-bindings.md
+                  - name: remove-access-binding
+                    href: >-
+                      cli-ref/workload-identity/oidc/federation/remove-access-binding.md
                   - name: remove-audiences
                     href: >-
                       cli-ref/workload-identity/oidc/federation/remove-audiences.md
                   - name: remove-labels
                     href: cli-ref/workload-identity/oidc/federation/remove-labels.md
+                  - name: set-access-bindings
+                    href: >-
+                      cli-ref/workload-identity/oidc/federation/set-access-bindings.md
                   - name: update
                     href: cli-ref/workload-identity/oidc/federation/update.md
   - name: Справочник {{ TF }}

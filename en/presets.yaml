@@ -2383,7 +2383,7 @@ default:
       ba_i100_h:
         1_day|string: ₽18200.00
         1_month|string: ₽17654.00
-        12_month|string: ₽18200.00
+        12_month|string: ₽15470.00
         3_month|string: ₽17290.00
         6_month|string: ₽16926.00
       ba_i101_h:

@@ -22,6 +22,7 @@ Syntax:
 |`--source`|<b>`value[,value]`</b><br/>Adds source path to backup.|
 |`--exclude`|<b>`value[,value]`</b><br/>Add path to exclude from backup.|
 |`--ttl`|<b>`duration`</b><br/>Specify backup time to live|
+|`--storage-class`|<b>`string`</b><br/>Specify backup storage class Values: 'standard', 'reduced-redundancy', 'standard-ia', 'onezone-ia', 'intelligent-tiering', 'glacier', 'deep-archive', 'outposts'|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

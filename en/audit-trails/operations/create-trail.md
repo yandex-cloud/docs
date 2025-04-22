@@ -61,7 +61,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) for the trail to be able to collect and upload logs:
 
-        * `yds.editor` for a data stream.
+        * `yds.writer` for a data stream.
 
         {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 

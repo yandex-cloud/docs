@@ -47,6 +47,7 @@ Aliases:
 	- [yc application-load-balancer load-balancer add-stream-listener](load-balancer/add-stream-listener.md) — Adds a Stream listener to the specified application load balancer.
 	- [yc application-load-balancer load-balancer add-stream-sni](load-balancer/add-stream-sni.md) — Adds Stream sni match to application load balancer's listener.
 	- [yc application-load-balancer load-balancer autoscale](load-balancer/autoscale.md) — Modify scaling settings of the application load balancer.
+	- [yc application-load-balancer load-balancer cancel-zonal-shift](load-balancer/cancel-zonal-shift.md) — Cancel zonal shift the specified load balancer
 	- [yc application-load-balancer load-balancer create](load-balancer/create.md) — Create an application load balancer
 	- [yc application-load-balancer load-balancer delete](load-balancer/delete.md) — Delete the specified application load balancer
 	- [yc application-load-balancer load-balancer disable-traffic](load-balancer/disable-traffic.md) — Disables traffic in specified zones for application load balancer.
@@ -59,6 +60,7 @@ Aliases:
 	- [yc application-load-balancer load-balancer remove-location](load-balancer/remove-location.md) — Removes locations from application load balancer.
 	- [yc application-load-balancer load-balancer remove-sni](load-balancer/remove-sni.md) — Removes sni match from application load balancer's listener.
 	- [yc application-load-balancer load-balancer start](load-balancer/start.md) — Start the specified application load balancer
+	- [yc application-load-balancer load-balancer start-zonal-shift](load-balancer/start-zonal-shift.md) — Start zonal shift the specified load balancer
 	- [yc application-load-balancer load-balancer stop](load-balancer/stop.md) — Stop the specified application load balancer
 	- [yc application-load-balancer load-balancer target-states](load-balancer/target-states.md) — Shows states of targets in the target group and backend group for application load balancer.
 	- [yc application-load-balancer load-balancer update](load-balancer/update.md) — Update the specified application load balancer

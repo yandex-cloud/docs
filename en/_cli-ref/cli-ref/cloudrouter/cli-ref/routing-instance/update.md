@@ -23,8 +23,6 @@ Syntax:
 |`--description`|<b>`string`</b><br/>New description for the routing-instance.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>New set of labels for the routing-instance as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--region`|<b>`string`</b><br/>Region of the routing-instance.|
-|`--cic-prc`|<b>`value[,value]`</b><br/>CIC private connection ids of the routing-instance.|
-|`--vpc-net`|<b>`value[,value]`</b><br/>VPC network info of the routing-instance.|
 
 #### Global Flags
 

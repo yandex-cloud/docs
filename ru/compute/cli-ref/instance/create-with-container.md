@@ -55,6 +55,8 @@ Syntax:
 |`--gpu-cluster-name`|<b>`string`</b><br/>GPU cluster to create the instance in.|
 |`--service-account-id`|<b>`string`</b><br/>Service account, which token can be obtained inside VM from metadata service.|
 |`--service-account-name`|<b>`string`</b><br/>Service account, which token can be obtained inside VM from metadata service.|
+|`--reserved-instance-pool-id`|<b>`string`</b><br/>Reserved instance pool to create the instance in.|
+|`--reserved-instance-pool-name`|<b>`string`</b><br/>Reserved instance pool to create the instance in.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--container-arg`|<b>`value[,value]`</b><br/>A list of arguments to append to container entrypoint. Overrides default container CMD|
 |`--container-command`|<b>`string`</b><br/>Executable to run when the container starts. Overrides default container ENTRYPOINT|

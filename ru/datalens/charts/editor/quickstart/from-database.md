@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
 1. На вкладке **Prepare** сформируйте таблицу:
 
    ```javascript
-   // Вспомогательная функция для подготавки полученных из источника данных в более удобном виде
+   // Вспомогательная функция для подготовки полученных из источника данных в более удобном виде
    function getPreparedLoadedData(loadedData, sourceName) {
        const sourceData = loadedData[sourceName];
        const columnNames = sourceData.filter(item => item.event === 'metadata').map(item => item.data.names)?.[0] || [];

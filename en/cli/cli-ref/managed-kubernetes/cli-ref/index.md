@@ -32,6 +32,7 @@ Aliases:
 	- [yc managed-kubernetes cluster list-nodes](cluster/list-nodes.md) — List nodes in all node groups of the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster list-operations](cluster/list-operations.md) — List operations for the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster remove-labels](cluster/remove-labels.md) — Remove labels from the specified Kubernetes cluster.
+	- [yc managed-kubernetes cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule mandatory maintenance for the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster start](cluster/start.md) — Start a Kubernetes cluster and all its node groups.
 	- [yc managed-kubernetes cluster stop](cluster/stop.md) — Stop a Kubernetes cluster and all its node groups.
 	- [yc managed-kubernetes cluster update](cluster/update.md) — Modify configuration or attributes of a Kubernetes cluster.

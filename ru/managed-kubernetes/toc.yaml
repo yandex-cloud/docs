@@ -360,6 +360,8 @@ items:
             href: cli-ref/cluster/list-operations.md
           - name: remove-labels
             href: cli-ref/cluster/remove-labels.md
+          - name: reschedule-maintenance
+            href: cli-ref/cluster/reschedule-maintenance.md
           - name: start
             href: cli-ref/cluster/start.md
           - name: stop
