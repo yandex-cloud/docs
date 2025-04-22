@@ -112,8 +112,7 @@
 * Подключаться к кластеру по [особым FQDN](../operations/connect.md#special-fqdns):
 
    * Для записи используется [FQDN текущего хоста-мастера](../operations/connect.md#fqdn-master) — `c-<идентификатор_кластера>.rw.mdb.yandexcloud.net`.
-   * Для чтения используется [FQDN наименее отстающей реплики](../operations/connect.md#fqdn-replica) — `c-
-<идентификатор_кластера>.ro.mdb.yandexcloud.net`.
+   * Для чтения используется [FQDN наименее отстающей реплики](../operations/connect.md#fqdn-replica) — `c-<идентификатор_кластера>.ro.mdb.yandexcloud.net`.
 
    Этот способ прост в применении, но основан на использовании [DNS](../../glossary/dns.md), поэтому при переключении мастера требуется дополнительное время на обновление DNS-записи.
 

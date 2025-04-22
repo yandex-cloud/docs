@@ -82,7 +82,7 @@ keywords:
 ## Инструменты обеспечения отказоустойчивости {#ha-tools}
 
 * Балансировщики нагрузки: 
-   * [Сетевой балансировщик нагрузки ({{network-load-balancer-name}})](../network-load-balancer/concepts/);
+   * [Сетевой балансировщик нагрузки ({{ network-load-balancer-name }})](../network-load-balancer/concepts/);
    * [Балансировщик нагрузки уровня приложения ({{ alb-name }})](../application-load-balancer/concepts/);
 
 * Платформенные сервисы: 
@@ -99,9 +99,9 @@ keywords:
    * [Группы виртуальных машин](../compute/concepts/instance-groups/) 
    * [Группы узлов {{ k8s }}](../managed-kubernetes/concepts/node-group/cluster-autoscaler.md).
 
-## Балансировщики нагрузки ({{network-load-balancer-name}}, {{ alb-name }}) {#load-balancers}
+## Балансировщики нагрузки ({{ network-load-balancer-name }}, {{ alb-name }}) {#load-balancers}
 
-### Сетевой балансировщик нагрузки ({{network-load-balancer-name}}) {#nlb}
+### Сетевой балансировщик нагрузки ({{ network-load-balancer-name }}) {#nlb}
 
 Основным средством для построения отказоустойчивых решений в {{ yandex-cloud }} является [сетевой балансировщик нагрузки ({{ network-load-balancer-name }})](../network-load-balancer/concepts/). {{ network-load-balancer-name }} распределяет TCP-соединения между целевыми ресурсами. Он может быть внешним для обработки трафика из интернета (обработчик с публичным IP-адресом) и внутренним (обработчик с приватным IP-адресом) для обработки внутреннего сетевого трафика. Health Checks используются для проверки готовности целевых ресурсов. В настоящее время {{ network-load-balancer-name }} не поддерживает отключение трафика в конкретной зоне.
 
@@ -123,7 +123,7 @@ keywords:
 
 Рекомендации по организации проверок доступности целевых ресурсов {{ alb-name }} такие же, как и для {{ network-load-balancer-name }}.
 
-Дополнительная устойчивость {{ alb-name }} к отказам, связанным с вредоносной деятельностью, может быть достигнута с помощью подключения к {{ alb-name }} сервисов защиты веб-приложений, таких как [{{ sws-name }}](../smartwebsecurity/), [ARL](../smartwebsecurity/concepts/arl.md), [WAF](../smartwebsecurity/concepts/waf.md), и [{{ captcha-name }}](../smartcaptcha/).  
+Дополнительная устойчивость {{ alb-name }} к отказам, связанным с вредоносной деятельностью, может быть достигнута с помощью подключения к {{ alb-name }} сервисов защиты веб-приложений, таких как [{{ sws-name }}](../smartwebsecurity/), [ARL](../smartwebsecurity/concepts/arl.md), [WAF](../smartwebsecurity/concepts/waf.md), и [{{ captcha-name }}](../smartcaptcha/).
 
 [Пример](../tutorials/web/application-load-balancer-website) создания отказоустойчивого сайта с балансировкой нагрузки через {{ alb-name }} между тремя зонами доступности, защищенный от сбоев в одной зоне.
 

@@ -448,6 +448,16 @@ items:
             href: cli-ref/bucket/stats.md
           - name: update
             href: cli-ref/bucket/update.md
+      - name: s3
+        items:
+          - name: Overview
+            href: cli-ref/s3/index.md
+          - name: cp
+            href: cli-ref/s3/cp.md
+          - name: mv
+            href: cli-ref/s3/mv.md
+          - name: rm
+            href: cli-ref/s3/rm.md
       - name: s3api
         items:
           - name: Overview

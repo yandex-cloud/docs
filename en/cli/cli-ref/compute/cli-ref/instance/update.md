@@ -43,6 +43,8 @@ Syntax:
 |`--host-group-name`|<b>`string`</b><br/>Host group to place the instance to (to clear affinity rules use --no-host-affinity-rules).|
 |`--host-id`|<b>`string`</b><br/>Host to place the instance to (to remove all affinity rules use --no-host-affinity-rules).|
 |`--no-host-affinity-rules`|Clear host affinity rules|
+|`--reserved-instance-pool-id`|<b>`string`</b><br/>Link instance to specified reserved instance pool.|
+|`--reserved-instance-pool-name`|<b>`string`</b><br/>Link instance to specified reserved instance pool.|
 |`--service-account-id`|<b>`string`</b><br/>Service account, which token can be obtained inside VM from metadata service.|
 |`--service-account-name`|<b>`string`</b><br/>Service account, which token can be obtained inside VM from metadata service.|
 

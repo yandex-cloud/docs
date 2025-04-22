@@ -133,6 +133,9 @@ items:
               - name: autoscale
                 href: >-
                   cli-ref/application-load-balancer/cli-ref/load-balancer/autoscale.md
+              - name: cancel-zonal-shift
+                href: >-
+                  cli-ref/application-load-balancer/cli-ref/load-balancer/cancel-zonal-shift.md
               - name: create
                 href: >-
                   cli-ref/application-load-balancer/cli-ref/load-balancer/create.md
@@ -168,6 +171,9 @@ items:
               - name: start
                 href: >-
                   cli-ref/application-load-balancer/cli-ref/load-balancer/start.md
+              - name: start-zonal-shift
+                href: >-
+                  cli-ref/application-load-balancer/cli-ref/load-balancer/start-zonal-shift.md
               - name: stop
                 href: >-
                   cli-ref/application-load-balancer/cli-ref/load-balancer/stop.md
@@ -1150,6 +1156,8 @@ items:
                 href: cli-ref/container/cli-ref/cluster/list-operations.md
               - name: remove-labels
                 href: cli-ref/container/cli-ref/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: cli-ref/container/cli-ref/cluster/reschedule-maintenance.md
               - name: start
                 href: cli-ref/container/cli-ref/cluster/start.md
               - name: stop
@@ -1712,6 +1720,9 @@ items:
                       - name: Overview
                         href: >-
                           cli-ref/iam/cli-ref/workload-identity/oidc/federation/index.md
+                      - name: add-access-binding
+                        href: >-
+                          cli-ref/iam/cli-ref/workload-identity/oidc/federation/add-access-binding.md
                       - name: add-audiences
                         href: >-
                           cli-ref/iam/cli-ref/workload-identity/oidc/federation/add-audiences.md
@@ -1730,12 +1741,21 @@ items:
                       - name: list
                         href: >-
                           cli-ref/iam/cli-ref/workload-identity/oidc/federation/list.md
+                      - name: list-access-bindings
+                        href: >-
+                          cli-ref/iam/cli-ref/workload-identity/oidc/federation/list-access-bindings.md
+                      - name: remove-access-binding
+                        href: >-
+                          cli-ref/iam/cli-ref/workload-identity/oidc/federation/remove-access-binding.md
                       - name: remove-audiences
                         href: >-
                           cli-ref/iam/cli-ref/workload-identity/oidc/federation/remove-audiences.md
                       - name: remove-labels
                         href: >-
                           cli-ref/iam/cli-ref/workload-identity/oidc/federation/remove-labels.md
+                      - name: set-access-bindings
+                        href: >-
+                          cli-ref/iam/cli-ref/workload-identity/oidc/federation/set-access-bindings.md
                       - name: update
                         href: >-
                           cli-ref/iam/cli-ref/workload-identity/oidc/federation/update.md
@@ -2799,6 +2819,9 @@ items:
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/list-operations.md
               - name: remove-labels
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: >-
+                  cli-ref/managed-kubernetes/cli-ref/cluster/reschedule-maintenance.md
               - name: start
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/start.md
               - name: stop
@@ -4280,6 +4303,16 @@ items:
                 href: cli-ref/storage/cli-ref/bucket/stats.md
               - name: update
                 href: cli-ref/storage/cli-ref/bucket/update.md
+          - name: s3
+            items:
+              - name: Overview
+                href: cli-ref/storage/cli-ref/s3/index.md
+              - name: cp
+                href: cli-ref/storage/cli-ref/s3/cp.md
+              - name: mv
+                href: cli-ref/storage/cli-ref/s3/mv.md
+              - name: rm
+                href: cli-ref/storage/cli-ref/s3/rm.md
           - name: s3api
             items:
               - name: Overview

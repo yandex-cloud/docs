@@ -27,8 +27,15 @@ Syntax:
 |`--fixed-lifetime`|<b>`int`</b><br/>Fixed time between dictionary updates.|
 |`--lifetime-range`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Range of possible time intervals between dictionary updates.<br/><br/>Possible property names:<br/><ul> <li><code>min</code>:     Minimum time interval between dictionary updates.</li> <li><code>max</code>:     Maximum time interval between dictionary updates.</li> </ul>|
 |`--layout-type`|<b>`string`</b><br/>Layout type for the external dictionary.|
-|`--layout-size-in-cells`|<b>`int`</b><br/>Number of cells in the cache. Rounded up to a power of two.|
-|`--layout-max-array-size`|<b>`int`</b><br/>Maximum dictionary key size.|
+|`--layout-size-in-cells`|<b>`int`</b><br/>Number of cells in the cache. Rounded up to a power of two. Applicable only for cache and complex_key_cache layout types.|
+|`--layout-allow-read-expired-keys`|Allows to read expired keys. Applicable only for cache and complex_key_cache layout types.|
+|`--layout-max-update-queue-size`|<b>`int`</b><br/>Max size of update queue. Applicable only for cache and complex_key_cache layout types.|
+|`--layout-update-queue-push-timeout-milliseconds`|<b>`int`</b><br/>Max timeout in milliseconds for push update task into queue. Applicable only for cache and complex_key_cache layout types.|
+|`--layout-query-wait-timeout-milliseconds`|<b>`int`</b><br/>Max wait timeout in milliseconds for update task to complete. Applicable only for cache and complex_key_cache layout types.|
+|`--layout-max-threads-for-updates`|<b>`int`</b><br/>Max threads for cache dictionary update. Applicable only for cache and complex_key_cache layout types.|
+|`--layout-initial-array-size`|<b>`int`</b><br/>Initial dictionary key size. Applicable only for flat layout type.|
+|`--layout-max-array-size`|<b>`int`</b><br/>Maximum dictionary key size. Applicable only for flat layout type.|
+|`--layout-access-to-key-from-attributes`|Allows to retrieve key attribute using dictGetString function. Applicable only for ip_trie layout type.|
 |`--http-source-url`|<b>`string`</b><br/>URL of the source for the external HTTP dictionary.|
 |`--http-source-format`|<b>`string`</b><br/>Data format for the external HTTP dictionary.|
 |`--http-source`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Description of the source for the external HTTP dictionary.<br/><br/>Possible property names:<br/><ul> <li><code>url</code>:     URL of the source for the external HTTP dictionary.</li> <li><code>format</code>:     Data format for the external HTTP dictionary.</li> </ul>|
