@@ -61,7 +61,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
 
-        * `yds.editor` на поток данных.
+        * `yds.writer` на поток данных.
 
         {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 

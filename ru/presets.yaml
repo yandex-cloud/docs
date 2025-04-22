@@ -2384,7 +2384,7 @@ default:
       ba_i100_h:
         1_day|string: "18\_200,00\_₽"
         1_month|string: "17\_654,00\_₽"
-        12_month|string: "18\_200,00\_₽"
+        12_month|string: "15\_470,00\_₽"
         3_month|string: "17\_290,00\_₽"
         6_month|string: "16\_926,00\_₽"
       ba_i101_h:

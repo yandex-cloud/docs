@@ -16,14 +16,18 @@ Syntax:
 #### Command Tree
 
 - [yc iam workload-identity oidc federation](federation/index.md) — Manage workload identity OIDC federation
+	- [yc iam workload-identity oidc federation add-access-binding](federation/add-access-binding.md) — Add access binding to access the specified workload identity federation as a resource.
 	- [yc iam workload-identity oidc federation add-audiences](federation/add-audiences.md) — Add audiences to workload identity federation
 	- [yc iam workload-identity oidc federation add-labels](federation/add-labels.md) — Add labels to workload identity federation
 	- [yc iam workload-identity oidc federation create](federation/create.md) — Create a workload identity federation
 	- [yc iam workload-identity oidc federation delete](federation/delete.md) — Delete the specified workload identity federation
 	- [yc iam workload-identity oidc federation get](federation/get.md) — Show information about the specified workload identity federation
 	- [yc iam workload-identity oidc federation list](federation/list.md) — List workload identity federations
+	- [yc iam workload-identity oidc federation list-access-bindings](federation/list-access-bindings.md) — List access bindings for accessing the specified workload identity federation.
+	- [yc iam workload-identity oidc federation remove-access-binding](federation/remove-access-binding.md) — Remove access binding for accessing the specified workload identity federation as a resource.
 	- [yc iam workload-identity oidc federation remove-audiences](federation/remove-audiences.md) — Remove audiences from workload identity federation
 	- [yc iam workload-identity oidc federation remove-labels](federation/remove-labels.md) — Remove labels from workload identity federation
+	- [yc iam workload-identity oidc federation set-access-bindings](federation/set-access-bindings.md) — Set access bindings for accessing the specified workload identity federation and DELETE all other existing access bindings if there were any.
 	- [yc iam workload-identity oidc federation update](federation/update.md) — Update the specified workload identity federation
 
 #### Global Flags

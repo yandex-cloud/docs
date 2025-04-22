@@ -5,13 +5,13 @@ sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/shards/add.md
 
 # yc managed-clickhouse shards add
 
-Create new shard for the cluster in the specified availability zones.
+Create new shard(s) for the cluster in the specified availability zones.
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-clickhouse shards add <SHARD-NAME> [Flags...] [Global Flags...]`
+`yc managed-clickhouse shards add [SHARD-NAME] [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -20,13 +20,14 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--name`|<b>`string`</b><br/>Shard name.|
-|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for ClickHouse hosts that should be added to the shard.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> </ul>|
+|`--shard`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for ClickHouse shards that should be added to the cluster.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Shard name.</li> <li><code>weight</code>:     Weight of the shard in the cluster; an integer.</li> </ul>|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for ClickHouse hosts of the new shard(s).<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> <li><code>shard-name</code>:     Host shard name.</li> </ul>|
+|`--copy-schema`|Copy schema from an existing shard.|
 |`--clickhouse-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.).|
-|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ClickHouse host in GB|
+|`--clickhouse-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ClickHouse host in GB.|
 |`--clickhouse-disk-type`|<b>`string`</b><br/>Storage type for a ClickHouse host.|
-|`--weight`|<b>`int`</b><br/>Weight of the host in the shard.|
-|`--copy-schema`|Copy schema from another shard|
+|`--name`|<b>`string`</b><br/>Shard name. Incompatible with --shard flags.|
+|`--weight`|<b>`int`</b><br/>Weight of the shard in the cluster; an integer. Incompatible with --shard flags.|
 
 #### Global Flags
 
