@@ -31,7 +31,7 @@ For external nodes to connect to a {{ managed-k8s-name }} cluster, both the clus
 
 {% note info %}
 
-To create an external node group, make sure the {{ managed-k8s-name }} cluster is running in tunnel mode. For more information, see [{#T}](../concepts/external-nodes.md#requirements).
+To create an external node group, make sure the {{ managed-k8s-name }} cluster is running in tunnel mode. To learn more, see [{#T}](../concepts/external-nodes.md#requirements).
 
 {% endnote %}
 
@@ -85,7 +85,7 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
   kubectl -n yandex-system edit nodegroup external-node-group
   ```
 
-  >Example:
+  >For example:
   >
   >```yaml
   >apiVersion: mks.yandex.cloud/v1alpha1
@@ -193,8 +193,8 @@ For semi-automated installation, you need to install on all {{ managed-k8s-name 
 1. Save `kubeconfig` you just got on the server you are connecting:
 
    ```bash
-   sudo mkdir -p /etc/maintainer
-   sudo vi /etc/maintainer/kube.config # Use this file to save the contents of `kubeconfig` you got in the previous step.
+   sudo mkdir -p /etc/yandex-maintainer
+   sudo vi /etc/yandex-maintainer/kube.config # Use this file to save the contents of `kubeconfig` you got in the previous step.
    ```
 
 1. Run the commands below on a connecting server:

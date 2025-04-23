@@ -143,33 +143,33 @@ items:
             href: concepts/access-control/resources-with-access-control.md
       - name: Authentication
         items:
-          - name: Overview
+          - name: How to choose the correct authentication method
             href: concepts/authorization/index.md
-          - name: Cookie
-            href: concepts/authorization/cookie.md
           - name: IAM token
             href: concepts/authorization/iam-token.md
-          - name: ID token
-            href: concepts/authorization/id-token.md
-          - name: Refresh token
-            href: concepts/authorization/refresh-token.md
-          - name: OAuth token
-            href: concepts/authorization/oauth-token.md
           - name: API key
             href: concepts/authorization/api-key.md
-          - name: Authorized key
-            href: concepts/authorization/key.md
           - name: Static access key
             href: concepts/authorization/access-key.md
-      - name: Services' access to user's resources
+          - name: '{{ sts-name }}'
+            href: concepts/authorization/sts.md
+          - name: Authorized key
+            href: concepts/authorization/key.md
+          - name: OAuth_token
+            href: concepts/authorization/oauth-token.md
+          - name: ID token
+            href: concepts/authorization/id-token.md
+          - name: Cookie
+            href: concepts/authorization/cookie.md
+          - name: Refresh token
+            href: concepts/authorization/refresh-token.md
+      - name: Service access to user resources
         stage: preview
         href: concepts/service-control.md
       - name: Identity federations
         href: concepts/federations.md
       - name: Workload identity federations
         href: concepts/workload-identity.md
-      - name: '{{ sts-name }}'
-        href: concepts/authorization/sts.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Secure use of {{ yandex-cloud }}
@@ -351,7 +351,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

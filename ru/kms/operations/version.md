@@ -20,13 +20,13 @@
 
   1. Получите список версий нужного ключа:
 
-     ```
+     ```bash
      yc kms symmetric-key list-versions example-key
      ```
-	 
-	 Результат:
-	 
-	 ```
+
+     Результат:
+
+     ```text
      +----------------------+---------+--------+-----------+
      |          ID          | PRIMARY | STATUS | ALGORITHM |
      +----------------------+---------+--------+-----------+
@@ -39,7 +39,7 @@
 
   1. Смените версию ключа, указав идентификатор нужной версии:
 
-     ```
+     ```bash
      yc kms symmetric-key set-primary-version example-key-1 \
        --version-id abj8cvn99nam********
      ```
@@ -82,13 +82,13 @@
 
   1. Получите список версий нужного ключа:
 
-     ```
+     ```bash
      yc kms symmetric-key list-versions example-key
-	 ```
-	 
-	 Результат:
-	 
-	 ```
+     ```
+
+     Результат:
+
+     ```text
      +----------------------+---------+--------+-----------+
      |          ID          | PRIMARY | STATUS | ALGORITHM |
      +----------------------+---------+--------+-----------+
@@ -101,7 +101,7 @@
 
   1. Запланируйте удаление нужной версии:
 
-     ```
+     ```bash
      yc kms symmetric-key schedule-version-destruction example-key \
        --version-id abjed9ciau8e********
      ```
@@ -134,13 +134,13 @@
 
   1. Получите список версий нужного ключа:
 
-     ```
+     ```bash
      yc kms symmetric-key list-versions example-key
-	 ```
-	 
-	 Результат:
-	 
-	 ```
+     ```
+
+     Результат:
+
+     ```text
      +----------------------+---------+---------------------------+-----------+
      |          ID          | PRIMARY |          STATUS           | ALGORITHM |
      +----------------------+---------+---------------------------+-----------+
@@ -153,7 +153,7 @@
 
   1. Отмените удаление нужной версии:
 
-     ```
+     ```bash
      yc kms symmetric-key cancel-version-destruction example-key \
        --version-id abjed9ciau8e********
      ```

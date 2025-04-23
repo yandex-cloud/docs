@@ -301,3 +301,21 @@ Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Erro
 #### Почему я не могу выбрать Docker в качестве среды запуска контейнеров? {#docker-runtime}
 
 Среда запуска контейнеров Docker не поддерживается в кластерах с версией {{ k8s }} 1.24 и выше. Доступна только среда [containerd](https://containerd.io/).
+
+#### Ошибка при подключении репозитория {{ GL }} к Argo CD {#argo-cd}
+
+Текст ошибки:
+
+```text
+FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed
+```
+
+Ошибка возникает, если доступ в {{ GL }} по протоколу HTTP(S) отключен.
+
+**Решение**: включите доступ. Для этого:
+
+  1. В {{ GL }} на панели слева выберите **Admin → Settings → General**.
+  1. В блоке **Visibility and access controls** найдите настройку **Enabled Git access protocols**.
+  1. Выберите в списке пункт, разрешающий доступ по протоколу HTTP(S).
+
+  [Подробнее в документации {{ GL }}](https://docs.gitlab.com/administration/settings/visibility_and_access_controls/#configure-enabled-git-access-protocols).

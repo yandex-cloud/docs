@@ -1,1 +1,1 @@
-If a target group is used in at least one backend group, you cannot delete it. First, you need to [delete](../../application-load-balancer/operations/backend-group-update.md#update-group) it from all backend groups.
+You cannot delete a target group used in a backend group. First, you need to [remove](../../application-load-balancer/operations/backend-group-update.md#update-group) it from all backend groups.

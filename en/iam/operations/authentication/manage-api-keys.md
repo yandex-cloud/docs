@@ -53,7 +53,7 @@ To create a service account API key:
       ```bash
       yc iam api-key create \
         --service-account-name <service_account_name> \
-        --scope <scope> \
+        --scopes <scope_1>[,<scope_2>,...,<scope_n>] \
         --expires-at <date_and_time> \
         > api_key.yaml
       ```
@@ -61,22 +61,28 @@ To create a service account API key:
       Where:
       
       * `--service-account-name`: Service account name. This is a required parameter.
-      * `--scope`: Key [scope](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
-      * `--expires-at`: Key expiration date and time. This is an optional parameter.
+      * `--scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional parameter.
+
+          If the scope is not specified, the API key will be assigned the following scopes by default:
+
+          {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
+
+      * `--expires-at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2026-01-01T21:00:00Z`. This is an optional parameter.
       * `api_key.yaml`: File to save the response to.
       
       As a result, you will get the `api_key.yaml` file with the API key value in the `secret` field:
 
       ```yaml
       api_key:
-        id: ajeefjedtpbi********
-        service_account_id: ajeg2b2et02f********
-        created_at: "2025-03-03T16:29:04.709971428Z"
-        scope: yc.postbox.send
+        id: ajeuo7ng2p6u********
+        service_account_id: ajegtlf2q28a********
+        created_at: "2025-04-04T10:23:08.722440521Z"
         scopes:
+          - yc.monitoring.read
+          - yc.serverless.functions.invoke
           - yc.postbox.send
-        expires_at: "2025-04-09T08:41:27Z"
-      secret: AQVNznzc3uVybtct16KkWUFCdQEneK2-********
+        expires_at: "2026-01-01T21:00:00Z"
+      secret: AQVN3sHvAWTemWB8QxHkunfG2x4q7G3O********
       ```
 
       Save the key value you got in a secure location. You will not be able to get it again.
@@ -91,7 +97,7 @@ To create a service account API key:
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
         service_account_id = "<service_account_ID>"
         description        = "<key_description>"
-        scope              = "<scope>"
+        scopes              = ["<scope_1>", "<scope_2>", ..., "<scope_n>"]
         expires_at         = "<date_and_time>"
         pgp_key            = "<PGP_key>"
         output_to_lockbox  {
@@ -105,8 +111,13 @@ To create a service account API key:
 
       * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
       * `description`: Key description. This is an optional parameter.
-      * `scope`: Key [scope](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
-      * `expires_at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format. This is an optional parameter.
+      * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional parameter.
+
+          If the scope is not specified, the API key will be assigned the following scopes by default:
+
+          {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
+
+      * `expires_at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2026-01-01T21:00:00Z`. This is an optional parameter.
       * `pgp_key`: Additional PGP key for encrypting a private key. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format. This is an optional parameter.
       * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the API key value to, in order to avoid its possible leak through the `terraform.tfstate` file. This is an optional parameter. Nested parameters:
           * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the API key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
@@ -118,7 +129,7 @@ To create a service account API key:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
 
       ```bash
       yc iam api-key list --service-account-id <service_account_ID>
@@ -137,7 +148,7 @@ To create a service account API key:
     --header "Authorization: Bearer $IAM_TOKEN" \
     --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
-        \"scope\": \"<scope>\",
+        \"scopes\": [\"<scope_1>\",\"<scope_2>\",...,\"<scope_n>\"],
         \"expiresAt\": \"<date_and_time>\"
     }" \
     https://iam.{{ api-host }}/iam/v1/apiKeys
@@ -147,7 +158,12 @@ To create a service account API key:
 
   * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required parameter.
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
-  * `scope`: Key [scope](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
+  * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional parameter.
+
+      If the scope is not specified, the API key will be assigned the following scopes by default:
+
+      {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
+
   * `expiresAt`: Expiration date and time for the key with restricted access. This is an optional parameter.
 
   You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md) gRPC API call.
@@ -208,13 +224,15 @@ To add an API key description when creating the key:
   ```bash
   yc iam api-key create \
     --service-account-name <service_account_name> \
-    --description "this API-key is for my-robot"
+    --description "this API-key is for my-robot" \
+    --scopes yc.monitoring.read,yc.postbox.send,yc.serverless.functions.invoke
   ```
 
   Where:
 
   * `--service-account-name`: Service account [name](../sa/get-id.md). This is a required parameter.
   * `--description`: API key description. This is an optional parameter.
+  * `--scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
 
 - {{ TF }} {#tf}
 
@@ -222,6 +240,7 @@ To add an API key description when creating the key:
   resource "yandex_iam_service_account_api_key" "sa-api-key" {
     service_account_id = "<service_account_ID>"
     description        = "this API-key is for my-robot"
+    scopes             = ["yc.monitoring.read", "yc.postbox.send", "yc.serverless.functions.invoke"]
   }
   ```
 
@@ -229,6 +248,7 @@ To add an API key description when creating the key:
 
   * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
   * `description`: Key description. This is an optional parameter.
+  * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
 
 - API {#api}
 
@@ -243,7 +263,8 @@ To add an API key description when creating the key:
     --header "Authorization: Bearer $IAM_TOKEN" \
     --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
-        \"description\": \"this API-key is for my-robot\"
+        \"description\": \"this API-key is for my-robot\",
+        \"scopes\": [\"yc.monitoring.read\",\"yc.postbox.send\",\"yc.serverless.functions.invoke\"]
     }" \
     https://iam.{{ api-host }}/iam/v1/apiKeys
   ```
@@ -252,6 +273,7 @@ To add an API key description when creating the key:
 
   * `SERVICEACCOUNT_ID`: [Service account ID](../sa/get-id). This is a required parameter.
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
+  * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
 
 {% endlist %}
 
@@ -291,7 +313,7 @@ To delete a service account API key:
         +----------------------+---------------------+
         ```
 
-        The folder specified in the CLI profile is used by default to search for the service account. You can specify a different folder through the `--folder-name` or `--folder-id` parameter.
+        The folder specified in the CLI profile is used by default to search for the service account. You can specify a different folder using the `--folder-name` or `--folder-id` parameter.
 
     1. Delete the API key by specifying its ID:
 
@@ -326,7 +348,7 @@ To delete a service account API key:
             terraform plan
             ```
 
-        If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+        If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Deploy the cloud resources.
 

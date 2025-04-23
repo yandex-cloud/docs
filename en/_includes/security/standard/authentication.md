@@ -59,7 +59,7 @@ To make sure all authentication requests from {{ yandex-cloud }} contain a digit
 
       ```bash
       yc organization-manager federation saml list \
-        --organization-id=<organization ID>
+        --organization-id=<organization_ID>
       ```
 
   1. Make sure the list contains at least one identity federation configured. Otherwise, proceed to <q>Guides and solutions to use</q>.
@@ -73,9 +73,9 @@ To make sure all authentication requests from {{ yandex-cloud }} contain a digit
 
 ##### 1.1.1 User group mapping is set up in an identity federation {#group-mapping}
 
-In organizations with a lot of users, you may need to grant the same access permissions for {{ yandex-cloud }} resources to multiple users at once. In this case, it is more efficient to grant roles and permissions to a group rather than individually.
+In organizations with a lot of users, you may need to grant the same access permissions for {{ yandex-cloud }} resources to multiple users at once. In which case it is more efficient to issue roles and permissions to groups rather than individual users.
 
-If you have configured user groups in your identity provider or plan to do so, [set up user group mapping](../../../organization/operations/federation-group-mapping.md) between the identity provider and {{ org-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-name }}.
+If you have created user groups in your identity provider or plan to do so, you can [map user groups](../../../organization/operations/federation-group-mapping.md) between the IdP and {{ org-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-name }}.
 
 #### 1.2 Yandex ID accounts are only used in exceptional cases {#yandex-id-accounts}
 
@@ -104,7 +104,7 @@ The best approach to account management, in terms of security, is using identity
   1. Run the command below to search for non-federated accounts in your organization, but for the ID of the account included in the list of valid exceptions:
 
       ```bash
-      yc organization-manager user list --organization-id=<organization ID> \
+      yc organization-manager user list --organization-id=<organization_ID> \
         --format=json | jq -r '.[] | select(.subject_claims.sub!="<ID of account from list of allowed exceptions>")' | jq -r 'select(.subject_claims.federation | not)'
       ```
 
@@ -141,7 +141,7 @@ In the [identity federation](../../../organization/concepts/add-federation.md) s
   1. Run the command below to search for accounts with primitive roles assigned at the organization level:
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for FED in $(yc organization-manager federation saml list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do yc organization-manager federation saml get --id bpfdshe1skaqcjp6uc50 --format=json | jq -r '. | select(.cookie_max_age>"21600s")'
       done
@@ -209,34 +209,124 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
 
   1. Run the command below to search for accounts with primitive roles assigned at the organization level:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       yc organization-manager organization list-access-bindings \
         --id=${ORG_ID} \
         --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer")'
       ```
 
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      if(!(Get-Module -Name Join-Object)) {
+        # Force enable TLS12 in PowerShell session (important for Windows Server 2016 and earlier)
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-Module -Name Join-Object -Confirm:$false -Force
+      }
+
+      $OrgUsers = yc organization-manager users list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+      $OrgGroups = yc organization-manager group list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+
+      $PrimitiveRoles = yc organization-manager organization list-access-bindings --id=$ORG_ID --format=json | ConvertFrom-Json | where {$_.role_id -eq "admin" -or $_.role_id -eq "editor" -or $_.role_id -eq "viewer" -or $_.role_id -eq "auditor"} | select role_id -ExpandProperty subject
+
+      $Result = @()
+      $Result += Join-Object -Left $($OrgUsers.subject_claims | Where-Object { $_.sub -in $PrimitiveRoles.id } ) -LeftJoinProperty sub -Right $PrimitiveRoles -RightJoinProperty id -Type OnlyIfInBoth
+      $Result += Join-Object -Left $($OrgGroups | Where-Object {$_.id -in $PrimitiveRoles.id}) -LeftJoinProperty id -Right $PrimitiveRoles -RightJoinProperty id -Type OnlyIfInBoth | Select @{n="sub";e={$_.id}}, name, preferred_username, picture, email, sub_type, type, role_id 
+      $Result
+      ```
+
+      {% endcut %}
+
   1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
   1. Run the command below to search for accounts with primitive roles assigned at the cloud level:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer")'
       done
       ```
 
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      Install-Module -Name Join-Object
+
+      $ORG_ID = "<organization_ID>"
+
+      $OrgUsers = yc organization-manager users list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+      $OrgGroups = yc organization-manager group list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+
+      $Clouds = yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $CloudBindings = @()
+      foreach ($Cloud in $Clouds) {
+        $CloudBindings += yc resource-manager cloud list-access-bindings --id $Cloud.CloudID --format=json | ConvertFrom-Json | where {$_.role_id -eq "admin" -or $_.role_id -eq "editor" -or $_.role_id -eq "viewer" -or $_.role_id -eq "auditor"} | select role_id -ExpandProperty subject | Select @{n="CloudID";e={$Cloud.CloudID}},  @{n="CloudName";e={$Cloud.CloudName}}, @{n="UserID";e={$_.id}}, type, role_id 
+      }
+
+      $Result = @()
+      $Result += Join-Object -Left $($OrgUsers.subject_claims | Where-Object {$_.sub -in $CloudBindings.UserID}) -LeftJoinProperty sub -Right $CloudBindings -RightJoinProperty UserID -Type OnlyIfInBoth | Select CloudID, CloudName, sub, preferred_username, email, @{n="FedID";e={$_.federation.id}}, @{n="FedName";e={$_.federation.name}}, sub_type, type, role_id
+      $Result += Join-Object -Left $($OrgGroups | Where-Object {$_.id -in $CloudBindings.UserID}) -LeftJoinProperty id -Right $CloudBindings -RightJoinProperty UserID -Type OnlyIfInBoth | Select CloudID, CloudName, @{n="sub";e={$_.id}}, name, preferred_username, email, @{n="FedID";e={$_.federation.id}}, @{n="FedName";e={$_.federation.name}}, sub_type, type, role_id 
+      $Result
+      ```
+
+      {% endcut %}
+
   1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
   1. Run the command below to search for accounts with primitive roles assigned at the level of all folders in your clouds:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
       do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer")'
       done;
       done
       ```
+
+      {% endcut %}
+
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      $OrgUsers = yc organization-manager users list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+      $OrgGroups = yc organization-manager group list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+
+      $Clouds = yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $FolderBindings = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+          $FolderBindings += yc resource-manager folder list-access-bindings --id $Folder.id --format=json | ConvertFrom-Json | where {$_.role_id -eq "admin" -or $_.role_id -eq "editor" -or $_.role_id -eq "viewer" -or $_.role_id -eq "auditor"} | select role_id -ExpandProperty subject | Select @{n="CloudID";e={$Cloud.CloudID}},  @{n="CloudName";e={$Cloud.CloudName}}, @{n="FolderID";e={$Folder.id}}, @{n="FolderName";e={$Folder.name}}, @{n="FolderStatus";e={$Folder.status}}, @{n="UserID";e={$_.id}}, type, role_id 
+        }
+      }
+
+      $Result = @()
+      $Result += Join-Object -Left $($OrgUsers.subject_claims | Where-Object {$_.sub -in $FolderBindings.UserID}) -LeftJoinProperty sub -Right $FolderBindings -RightJoinProperty UserID -Type OnlyIfInBoth | Select CloudID, CloudName, FolderID, FolderName, FolderStatus, sub, name, email, sub_type, type, role_id
+      $Result += Join-Object -Left $($OrgGroups | Where-Object {$_.id -in $FolderBindings.UserID}) -LeftJoinProperty id -Right $FolderBindings -RightJoinProperty UserID -Type OnlyIfInBoth | Select CloudID, CloudName, FolderID, FolderName, FolderStatus, @{n="sub";e={$_.id}}, name, email, sub_type, type, role_id
+      $Result
+      ```
+
+      {% endcut %}
 
   1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
@@ -368,7 +458,7 @@ The cloud entities with service accounts assigned must be registered and limited
   1. Run the command below to search for VMs with assigned service accounts in your organization:
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
@@ -415,7 +505,7 @@ Follow the principle of least privilege and [assign to the service account](../.
   1. Run the command below to output all the service accounts of the organization in `<service_account_ID>:<service_account_name>` format:
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for SA in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc iam service-account list --folder-id=$FOLDER_ID --format=json  | jq -r '.[].id + ":" + .[].name' 
@@ -427,7 +517,7 @@ Follow the principle of least privilege and [assign to the service account](../.
   1. Run the command below to output all the access permissions of a given service account assigned for the organization:
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       yc organization-manager organization list-access-bindings \
         --id=${ORG_ID} \
         --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")'
@@ -436,7 +526,7 @@ Follow the principle of least privilege and [assign to the service account](../.
   1. View the service account's access permissions in all clouds:
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID  --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
       done;
@@ -445,7 +535,7 @@ Follow the principle of least privilege and [assign to the service account](../.
   1. View the service account's access permissions in all folders:
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do yc resource-manager folder list-access-bindings --id=$FOLDER_ID  --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $FOLDER_ID
@@ -492,7 +582,7 @@ Each service account with extended permissions should be placed as a resource in
   1. Run the command below to output all the service accounts in the clouds:
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID  --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
       done;
@@ -544,10 +634,14 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
       yc organization-manager organization list
       ```
 
-  1. Check when static access keys were created:
+  1. Check when the keys were created:
+
+      {% cut "**Bash**" %}
+
+      [Static keys](../../../iam/concepts/authorization/access-key.md): 
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for SA in $(yc iam service-account list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id');
@@ -557,10 +651,10 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
       done
       ```
 
-  1. Check when authorized keys were created:
+      [Authorized keys](../../../iam/concepts/authorization/key.md):
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for SA in $(yc iam service-account list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id');
@@ -570,10 +664,10 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
       done
       ```
 
-  1. Check when API access keys were created:
+      [API keys](../../../iam/concepts/authorization/api-key.md):
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for SA in $(yc iam service-account list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id');
@@ -583,6 +677,81 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
       done
       ```
 
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      if(!(Get-Module -Name Join-Object)) {
+        # Force enable TLS12 in PowerShell session (important for Windows Server 2016 and earlier)
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-Module -Name Join-Object -Confirm:$false -Force
+      }
+
+      $SAList = (yc organization-manager users list --organization-id $ORG_ID --format=json | ConvertFrom-Json | where {$_.subject_claims.sub_type -eq "SERVICE_ACCOUNT"}).subject_claims
+
+      $AllStaticKeys = @()
+      $AllAuthKeys = @()
+      $AllAPIKeys = @()
+
+      foreach($SA in $SAList) {
+        $StaticKeys = yc iam access-key list --service-account-id $SA.sub --format=json | ConvertFrom-Json
+
+        if($StaticKeys) {
+          $ExpiriedKeys = $StaticKeys | where {($(Get-Date) - $_.created_at).Days -gt 90} | Select @{n="StaticKeyID";e={$_.id}}, service_account_id, created_at, key_id, description, @{n="KeyStatus";e={"EXPIRIED"}}
+          $ActualKeys = $StaticKeys | where {($(Get-Date) - $_.created_at).Days -le 90} | Select @{n="StaticKeyID";e={$_.id}}, service_account_id, created_at, key_id, description, @{n="KeyStatus";e={"VALID"}}
+
+          if($ExpiriedKeys) {
+            $AllStaticKeys += Join-Object -Left $($SAList | Where-Object {$_.sub -in $ExpiriedKeys.service_account_id}) -LeftJoinProperty sub -Right $ExpiriedKeys -RightJoinProperty service_account_id -Type OnlyIfInBoth | Select @{n="service_account_id";e={$_.sub}}, name, sub_type, StaticKeyID, created_at, key_id, description, KeyStatus
+          }
+
+          if($ActualKeys) {
+            $AllStaticKeys += Join-Object -Left $($SAList | Where-Object {$_.sub -in $ActialKeys.service_account_id}) -LeftJoinProperty sub -Right $ActialKeys -RightJoinProperty service_account_id -Type OnlyIfInBoth | Select @{n="service_account_id";e={$_.sub}}, name, sub_type, StaticKeyID, created_at, key_id, description, KeyStatus
+          }
+        }
+
+        $AuthKeys = yc iam key list --service-account-id $SA.sub --format=json | ConvertFrom-Json
+
+        if($AuthKeys) {
+          $ExpiriedKeys = $AuthKeys | where {($(Get-Date) - $_.created_at).Days -gt 90} | Select @{n="AuthKeyID";e={$_.id}}, service_account_id, created_at, @{n="KeyStatus";e={"EXPIRIED"}}, key_algorithm, last_used_at
+          $ActualKeys = $AuthKeys | where {($(Get-Date) - $_.created_at).Days -le 90} | Select @{n="AuthKeyID";e={$_.id}}, service_account_id, created_at, @{n="KeyStatus";e={"VALID"}}, key_algorithm, last_used_at
+
+          if($ExpiriedKeys) {
+            $AllAuthKeys += Join-Object -Left $($SAList | Where-Object {$_.sub -in $ExpiriedKeys.service_account_id}) -LeftJoinProperty sub -Right $ExpiriedKeys -RightJoinProperty service_account_id -Type OnlyIfInBoth | Select @{n="service_account_id";e={$_.sub}}, name, sub_type, AuthKeyID, description, created_at, KeyStatus, key_algorithm, last_used_at
+          }
+
+          if($ActualKeys) {
+            $AllAuthKeys += Join-Object -Left $($SAList | Where-Object {$_.sub -in $ActualKeys.service_account_id}) -LeftJoinProperty sub -Right $ActualKeys -RightJoinProperty service_account_id -Type OnlyIfInBoth | Select @{n="service_account_id";e={$_.sub}}, name, sub_type, AuthKeyID, description, created_at, KeyStatus, key_algorithm, last_used_at
+          }
+        }
+
+        $APIKeys = yc iam api-key list --service-account-id $SA.sub --format=json | ConvertFrom-Json
+
+        if($APIKeys) {
+          $ExpiriedKeys = $APIKeys | where {($(Get-Date) - $_.created_at).Days -gt 90} | Select @{n="APIKeyID";e={$_.id}}, service_account_id, created_at, scope, expires_at, @{n="KeyStatus";e={"EXPIRIED"}}
+          $ActualKeys = $APIKeys | where {($(Get-Date) - $_.created_at).Days -le 90} | Select @{n="APIKeyID";e={$_.id}}, service_account_id, created_at, scope, expires_at, @{n="KeyStatus";e={"VALID"}}
+
+          if($ExpiriedKeys) {
+            $AllAPIKeys += Join-Object -Left $($SAList | Where-Object {$_.sub -in $ExpiriedKeys.service_account_id}) -LeftJoinProperty sub -Right $ExpiriedKeys -RightJoinProperty service_account_id -Type OnlyIfInBoth | Select @{n="service_account_id";e={$_.sub}}, name, sub_type, APIKeyID, description, created_at, KeyStatus, scope, expires_at
+          }
+
+          if($ActualKeys) {
+            $AllAPIKeys += Join-Object -Left $($SAList | Where-Object {$_.sub -in $ActualKeys.service_account_id}) -LeftJoinProperty sub -Right $ActualKeys -RightJoinProperty service_account_id -Type OnlyIfInBoth | Select @{n="service_account_id";e={$_.sub}}, name, sub_type, APIKeyID, description, created_at, KeyStatus, scope, expires_at
+          }
+        }
+      }
+
+      $AllStaticKeys
+      $AllAuthKeys
+      $AllAPIKeys
+      ```
+
+      This script returns three arrays of objects: static keys, authorized keys, and API keys. It also automatically identifies any expired keys (more than 90 days old).
+
+      {% endcut %}
+
   1. Make sure no list of keys of any type contains keys with the `created_at` value older than 90 days. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
@@ -591,11 +760,11 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
 Follow the [guide](../../../iam/operations/compromised-credentials.md#key-reissue) for rotating keys depending on their type.
 
-#### 1.11 Service account API keys have specified scopes {#api-key-scopes}
+#### 1.11 The minimum required scopes for service account API keys are defined {#api-key-scopes}
 
 {% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
 
-The scope limits the use of [API keys](../../../iam/concepts/authorization/api-key.md) in addition to the user's personal access permissions. Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys.
+In addition to service account access permissions, you can define [scopes](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) to restrict the use of [API keys](../../../iam/concepts/authorization/api-key.md). You can reduce the risk of unauthorized use of your keys by configuring their scope limits and validity periods. Assign only the strictly required scopes to API keys.
 
 {% list tabs group=instructions %}
 
@@ -605,7 +774,7 @@ The scope limits the use of [API keys](../../../iam/concepts/authorization/api-k
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, check the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** field in the table with your API keys’ details.
-  1. If all API keys have their scopes specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. If all API keys have their minimum required scopes specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -615,7 +784,7 @@ The scope limits the use of [API keys](../../../iam/concepts/authorization/api-k
   yc iam api-key list --service-account-name <service_account_name>
   ```
 
-  If all API keys listed in the `SCOPE` filed of the command output have their scopes set, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  If all API keys listed in the `SCOPES` filed of the command output have their minimum required scopes set, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -659,6 +828,30 @@ If the `{{ roles-iam-sa-tokencreator }}` role is missing, set up impersonation f
 
 Do not write service account keys and other keys to the [VM metadata](../../../compute/concepts/vm-metadata.md) directly. [Assign a service account](../../../compute/operations/vm-connect/auth-inside-vm.md) to a VM instance and get a token using the metadata service. You can store sensitive data in any metadata field. However, the most common one is `user-data` (due to its use in the cloud-init utility).
 
+To get VM metadata outside the VM, run the following command:
+
+{% cut "**Bash**" %}
+
+```bash
+yc compute instance get \
+  --id <VM_ID> \
+  --full \
+  --format=json | jq -r '. | select(.metadata."user-data") | .metadata."user-data"'
+```
+
+{% endcut %}
+
+{% cut "**PowerShell**" %}
+
+```powershell
+yc compute instance get `
+  --id <VM_ID> `
+  --full `
+  --format=json | ConvertFrom-Json
+```
+
+{% endcut %}
+
 See the list of all regular expressions used to search for cloud accounts' credential secrets:
 
 * **yandex_cloud_iam_cookie_v1** : c1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
@@ -682,34 +875,254 @@ See the list of all regular expressions used to search for cloud accounts' crede
       yc organization-manager organization list
       ```
 
-  1. Run the command below to search for cloud keys in the metadata service represented as plaintext, using the example of {{ yandex-cloud }} AWS API Compatible Access Secret:
+  1. {{ yandex-cloud }} works with secrets of various types, which may be explicitly included in VM metadata or environment variables. To identify VMs which may have cloud secrets in their metadata, run the following script:
+
+      {% cut "**Bash**" %}
 
       ```bash
-      export ORG_ID=<organization ID>
-      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc compute instance get --id=$VM_ID --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("YC[a-zA-Z0-9_\\-]{38}") | .string' && echo $VM_ID
-      done;
-      done;
+      export ORG_ID=<organization_ID>
+      CLOUDS=$(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+
+      for CLOUD_ID in $CLOUDS
+        do
+        FOLDERS=$(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id')
+        for FOLDER_ID in $FOLDERS
+        do
+          VMIDS=$(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id')
+
+          if [[ -n "$VMIDS" ]]; then
+            for VM_ID in $VMIDS
+            do
+              IAM_TOKEN=""
+              IAM_COOKIE=""
+              STATIC_KEY=""
+              API_KEY=""
+              OAUTH_TOKEN=""
+              PRIVATE_KEY=""
+
+              VMDATA=$(yc compute instance get --id $VM_ID --full --folder-id $FOLDER_ID --format=json)
+              VM_META=$(echo $VMDATA | jq -r '. | select(.metadata."user-data") | .metadata."user-data"')
+
+              if [[ -n $VM_META ]]; then
+
+                # IAM Tokens
+                IAM_TOKEN=$(echo $VMDATA | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("t1\\.[A-Z0-9a-z_-]+[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}") | .string')
+
+                if [[ -n "$IAM_TOKEN" ]]; then
+                  echo "------------"
+                  echo "CLOUD_ID:" $CLOUD_ID
+                  echo "FOLDER_ID:" $FOLDER_ID
+                  echo "VM_ID: "$(echo $VMDATA | jq -r '.id')
+                  echo "VM_NAME: "$(echo $VMDATA | jq -r '.name')
+                  echo "METADATA_SECRET_ENTRY: $IAM_TOKEN"
+                  echo "SECRET_TYPE: IAM-Token"
+                  echo "------------"
+                fi
+
+                # IAM Cookies
+                IAM_COOKIE=$(echo $VMDATA | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("c1\\.[A-Z0-9a-z_-]+[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}") | .string')
+
+                if [[ -n $IAM_COOKIE ]]; then
+                  echo "------------"
+                  echo "CLOUD_ID: $CLOUD_ID"
+                  echo "FOLDER_ID: $FOLDER_ID"
+                  echo "VM_ID: "$(echo $VMDATA | jq -r '.id')
+                  echo "VM_NAME: "$(echo $VMDATA | jq -r '.name')
+                  echo "METADATA_SECRET_ENTRY: $IAM_COOKIE"
+                  echo "SECRET_TYPE: IAM-Cookie"
+                  echo "------------"
+                fi
+
+                # Static Keys
+                STATIC_KEY=$(echo $VMDATA | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("YC[a-zA-Z0-9_-]{38}") | .string')
+
+                if [[ -n $STATIC_KEY ]]; then
+                  echo "------------"
+                  echo "CLOUD_ID:" $CLOUD_ID
+                  echo "FOLDER_ID:" $FOLDER_ID
+                  echo "VM_ID: "$(echo $VMDATA | jq -r '.id')
+                  echo "VM_NAME: "$(echo $VMDATA | jq -r '.name')
+                  echo "METADATA_SECRET_ENTRY: $STATIC_KEY"
+                  echo "SECRET_TYPE: Static Key"
+                  echo "------------"
+                fi
+
+                # API Keys
+                API_KEY=$(echo $VMDATA | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("AQVN[A-Za-z0-9_-]{35,38}") | .string')
+
+                if [[ -n $API_KEY ]]; then
+                  echo "------------"
+                  echo "CLOUD_ID:" $CLOUD_ID
+                  echo "FOLDER_ID:" $FOLDER_ID
+                  echo "VM_ID: "$(echo $VMDATA | jq -r '.id')
+                  echo "VM_NAME: "$(echo $VMDATA | jq -r '.name')
+                  echo "METADATA_SECRET_ENTRY: $API_KEY"
+                  echo "SECRET_TYPE: API Key"
+                  echo "------------"
+                fi
+
+                # OAuth Tokens
+                OAUTH_TOKEN=$(echo $VMDATA | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("y[0-6]_[-_A-Za-z0-9]{55}") | .string')
+
+                if [[ -n $OAUTH_TOKEN ]]; then
+                  echo "------------"
+                  echo "CLOUD_ID:" $CLOUD_ID
+                  echo "FOLDER_ID:" $FOLDER_ID
+                  echo "VM_ID: "$(echo $VMDATA | jq -r '.id')
+                  echo "VM_NAME: "$(echo $VMDATA | jq -r '.name')
+                  echo "METADATA_SECRET_ENTRY: $OAUTH_TOKEN"
+                  echo "SECRET_TYPE: OAuth Token"
+                  echo "------------"
+                fi
+
+                # Private keys
+                PRIVATE_KEY=$(echo $VMDATA | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("-----BEGIN PRIVATE KEY-----") | .string')
+
+                if [[ -n $PRIVATE_KEY ]]; then
+                  echo "------------"
+                  echo "CLOUD_ID:" $CLOUD_ID
+                  echo "FOLDER_ID:" $FOLDER_ID
+                  echo "VM_ID: "$(echo $VMDATA | jq -r '.id')
+                  echo "VM_NAME: "$(echo $VMDATA | jq -r '.name')
+                  echo "METADATA_SECRET_ENTRY: $PRIVATE_KEY"
+                  echo "SECRET_TYPE: Private Key"
+                  echo "------------"
+                fi
+              fi
+            done
+          fi
+        done
       done
       ```
 
-  1. If there are no lines in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
-  1. Run the command below to search for plaintext cloud keys in the metadata service. Here we use a {{ yandex-cloud }} {{ iam-short-name }} token as an example:
+      {% endcut %}
 
-      ```bash
-      export ORG_ID=<organization ID>
-      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc compute instance get --id fhm2i4a72v44kdqaqhid --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("t1\\.[A-Z0-9a-z_-]+[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}") | .string'
-      done;
-      done;
-      done
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID=<organization_ID>
+
+      $Clouds = yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $MetadataSecrets = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+          $VMs = yc compute instance list --folder-id $Folder.id --format=json | ConvertFrom-Json
+
+          foreach($VM in $VMs) {
+            $VMData = yc compute instance get --id $VM.id --folder-id $Folder.id --full --format=json | ConvertFrom-Json
+
+            $SecretScanner = @()
+            if($VMData.metadata."user-data") {
+              $VMData.metadata."user-data" | Out-File user-data.txt
+
+              # Checking if IAM Cookie in user-data
+              $SecretScanner += Get-Item -Path user-data.txt | Select-String -Pattern 'c1\.[a-zA-Z0-9_-]*\.[a-zA-Z0-9_-]*' | Select LineNumber, @{n="Entry";e={$_.Line}}, @{n="SecretType";e={"IAM Token"}}
+
+              # Checking if IAM Token in user-data
+              $SecretScanner += Get-Item -Path user-data.txt | Select-String -Pattern 't1\.[a-zA-Z0-9_-]*\.[a-zA-Z0-9_-]*' | Select LineNumber, @{n="Entry";e={$_.Line}}, @{n="SecretType";e={"IAM Cookie"}}
+
+              # Checking if Static Key in user-data
+              $SecretScanner += Get-Item -Path user-data.txt | Select-String -Pattern 'YC[a-zA-Z0-9_\\-]{38}'  -CaseSensitive | Select LineNumber, @{n="Entry";e={$_.Line}}, @{n="SecretType";e={"Static Key"}}
+
+              # Checking if any API Key in user-data
+              $SecretScanner += Get-Item -Path user-data.txt | Select-String -Pattern 'AQVN[a-zA-Z0-9_-]{35}' -CaseSensitive | Select LineNumber, @{n="Entry";e={$_.Line}}, @{n="SecretType";e={"API Key"}}
+
+              # Checking if any private key in user-data
+              $SecretScanner += Get-Item -Path user-data.txt | Select-String -Pattern "-----BEGIN PRIVATE KEY-----" -CaseSensitive | Select LineNumber, @{n="Entry";e={$_.Line}}, @{n="SecretType";e={"Private Key"}}
+
+              # Checking if OAuth tokens
+              $SecretScanner += Get-Item -Path user-data.txt | Select-String -Pattern 'y[0-6]_[a-zA-Z0-9_\\-]{58}' -CaseSensitive | Select LineNumber, @{n="Entry";e={$_.Line}}, @{n="SecretType";e={"Yandex OAuth Token"}}
+
+              if($SecretScanner) {
+                $MetadataSecrets += $SecretScanner | Select @{n="CloudID";e={$Cloud.CloudID}}, @{n="CloudName";e={$Cloud.CloudName}},@{n="FolderID";e={$Folder.id}},@{n="FolderName";e={$Folder.name}},@{n="VMID";e={$VMData.id}},@{n="VMName";e={$VMData.name}}, LineNumber, Entry, SecretType
+              }
+            }
+          }
+        }
+      }
+
+      $outNull = Remove-Item user-data.txt -Confirm:$false -Force
+
+      $MetadataSecrets
       ```
 
-  1. If there are no lines in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
+      {% endcut %}
+
+      The script searches for all secrets across all VMs in the organization and returns the occurrences of lines with secrets in `user-data`, the line number, and secret type (`IAM Token`, `Static Key`, `API Key`, or `Private Key`).
+
+      {% cut "**Output example**" %}
+
+      ```text
+      $MetadataSecrets
+      CloudID    : b1g4bj142s8d********
+      CloudName  : mycloud
+      FolderID   : b1gd3nedooa0********
+      FolderName : myfolder
+      VMID       : fhmlfad6feul********
+      VMName     : test
+      LineNumber : 4
+      Entry      : export token="t1.9eue****"
+      SecretType : IAM Token
+
+      CloudID    : b1g4bj142s8d********
+      CloudName  : mycloud
+      FolderID   : b1gd3nedooa0********
+      FolderName : myfolder
+      VMID       : fhmlfad6feul********
+      VMName     : test
+      LineNumber : 5
+      Entry      : export token2="t1.9eue****"
+      SecretType : IAM Token
+
+      CloudID    : b1g4bj142s8d********
+      CloudName  : mycloud
+      FolderID   : b1gd3nedooa0********
+      FolderName : myfolder
+      VMID       : fhmlfad6feulm********
+      VMName     : test
+      LineNumber : 3
+      Entry      : export key="YCMJ5_****"
+      SecretType : Static Key
+
+      CloudID    : b1g4bj142s8d********
+      CloudName  : mycloud
+      FolderID   : b1gd3nedooa0********
+      FolderName : myfolder
+      VMID       : fhmlfad6feul********
+      VMName     : test
+      LineNumber : 59
+      Entry      : export a="AQVN2****"  
+      SecretType : API Key
+
+      CloudID    : b1g4bj142s8d********
+      CloudName  : mycloud
+      FolderID   : b1gd3nedooa0********
+      FolderName : myfolder
+      VMID       : fhmlfad6feul********
+      VMName     : test
+      LineNumber : 60
+      Entry      : export b="AQVN2****" 
+      SecretType : API Key
+
+      CloudID    : b1g4bj142s8d********
+      CloudName  : mycloud
+      FolderID   : b1gd3nedooa0********
+      FolderName : myfolder
+      VMID       : fhmlfad6feul********
+      VMName     : test
+      LineNumber : 7
+      Entry      : -----BEGIN PRIVATE KEY-----
+      SecretType : Private Key
+      ```
+
+      {% endcut %}
+
+  1. If there are no lines with secrets in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -749,7 +1162,7 @@ You can disable getting a service account token via Amazon EC2 using the [aws_v1
   1. Run the command below to search for VMs with IMDSv1 enabled for getting a token:
 
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.metadata_options.aws_v1_http_token=="ENABLED")' | jq -r '.id' 
@@ -884,32 +1297,140 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
   1. Find organization-level privileged permissions:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       yc organization-manager organization list-access-bindings
         --id=${ORG_ID} \
-        --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="organization-manager.organizations.owner" or .role_id=="organization-manager.admin" or .role_id=="resource-manager.clouds.owner" or role_id=="resource-manager.clouds.editor")'
+        --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="organization-manager.organizations.owner" or .role_id=="organization-manager.admin" or .role_id=="resource-manager.clouds.owner" or role_id=="resource-manager.clouds.editor")'
       ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      if(!(Get-Module -Name Join-Object)) {
+        # Force enable TLS12 in PowerShell session (important for Windows Server 2016 and earlier)
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-Module -Name Join-Object -Confirm:$false -Force
+      }
+
+      $OrgUsers = yc organization-manager users list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+      $OrgGroups = yc organization-manager group list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+
+      $OrgBindings = yc organization-manager organization list-access-bindings --id=$ORG_ID --format=json | ConvertFrom-Json | where {$_.role_id -eq "admin"-or $_.role_id -eq "editor" -or $_.role_id -eq "organization-manager.organizations.owner" -or $_.role_id -eq "organization-manager.admin" -or $_.role_id -eq "resource-manager.clouds.owner" -or $_.role_id -eq "resource-manager.clouds.editor"} | select role_id -ExpandProperty subject
+
+      $Result = @()
+      $Result += Join-Object -Left $($OrgUsers.subject_claims | Where-Object { $_.sub -in $OrgBindings.id } ) -LeftJoinProperty sub -Right $OrgBindings -RightJoinProperty id -Type OnlyIfInBoth | Select sub, name, preferred_username, picture, email, sub_type, type, role_id 
+
+      if($OrgGroups | Where-Object {$_.id -in $OrgBindings.id}) {
+          $Result += Join-Object -Left $($OrgGroups | Where-Object {$_.id -in $OrgBindings.id}) -LeftJoinProperty id -Right $OrgBindings -RightJoinProperty id -Type OnlyIfInBoth | Select @{n="sub";e={$_.id}}, name, preferred_username, picture, email, sub_type, type, role_id 
+      }
+      $Result
+      ```
+
+      {% endcut %}
 
   1. Find cloud-level privileged permissions:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="resource-manager.clouds.owner" or role_id=="resource-manager.clouds.editor")' && echo $CLOUD_ID
+      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="resource-manager.clouds.owner" or role_id=="resource-manager.clouds.editor")' && echo $CLOUD_ID
       done
       ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      if(!(Get-Module -Name Join-Object)) {
+        # Force enable TLS12 in PowerShell session (important for Windows Server 2016 and earlier)
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-Module -Name Join-Object -Confirm:$false -Force
+      }
+
+      $OrgUsers = yc organization-manager users list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+      $OrgGroups = yc organization-manager group list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+
+      $Clouds = yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $CloudBindings = @()
+      foreach ($Cloud in $Clouds) {
+        $CloudBindings += yc resource-manager cloud list-access-bindings --id $Cloud.CloudID --format=json | ConvertFrom-Json | where {$_.role_id -eq "admin" -or $_.role_id -eq "editor" -or $_.role_id -eq "resource-manager.clouds.owner" -or $_.role_id -eq "resource-manager.clouds.editor"} | select role_id -ExpandProperty subject | Select @{n="CloudID";e={$Cloud.CloudID}},  @{n="CloudName";e={$Cloud.CloudName}}, @{n="UserID";e={$_.id}}, type, role_id 
+      }
+
+      $Result = @()
+      $Result += Join-Object -Left $($OrgUsers.subject_claims | Where-Object {$_.sub -in $CloudBindings.UserID}) -LeftJoinProperty sub -Right $CloudBindings -RightJoinProperty UserID -Type OnlyIfInBoth | Select CloudID, CloudName, sub, preferred_username, email, @{n="FedID";e={$_.federation.id}}, @{n="FedName";e={$_.federation.name}}, sub_type, type, role_id
+
+      if($OrgGroups | Where-Object {$_.id -in $CloudBindings.UserID}) {
+          $Result += Join-Object -Left $($OrgGroups | Where-Object {$_.id -in $CloudBindings.UserID}) -LeftJoinProperty id -Right $CloudBindings -RightJoinProperty UserID -Type OnlyIfInBoth | Select CloudID, CloudName, @{n="sub";e={$_.id}}, name, preferred_username, email, @{n="FedID";e={$_.federation.id}}, @{n="FedName";e={$_.federation.name}}, sub_type, type, role_id 
+      }
+      $Result
+      ```
+
+      {% endcut %}
 
   1. Run the command below to search for privileged permissions at the level of all folders in your clouds:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-      do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="admin")' && echo $FOLDER_ID
+      do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor")' && echo $FOLDER_ID
       done;
       done
       ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      if(!(Get-Module -Name Join-Object)) {
+        # Force enable TLS12 in PowerShell session (important for Windows Server 2016 and earlier)
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-Module -Name Join-Object -Confirm:$false -Force
+      }
+
+      $OrgUsers = yc organization-manager users list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+      $OrgGroups = yc organization-manager group list --organization-id $ORG_ID --format=json | ConvertFrom-Json
+      $Clouds = yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $FolderBindings = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+          $FolderBindings += yc resource-manager folder list-access-bindings --id $Folder.id --format=json | ConvertFrom-Json | where {$_.role_id -eq "admin" -or $_.role_id -eq "editor"} | select role_id -ExpandProperty subject | Select @{n="CloudID";e={$Cloud.CloudID}},  @{n="CloudName";e={$Cloud.CloudName}}, @{n="FolderID";e={$Folder.id}}, @{n="FolderName";e={$Folder.name}}, @{n="FolderStatus";e={$Folder.status}}, @{n="UserID";e={$_.id}}, type, role_id 
+        }
+      }
+
+      $Result = @()
+      $Result += Join-Object -Left $($OrgUsers.subject_claims | Where-Object {$_.sub -in $FolderBindings.UserID}) -LeftJoinProperty sub -Right $FolderBindings -RightJoinProperty UserID -Type OnlyIfInBoth | Select CloudID, CloudName, FolderID, FolderName, FolderStatus, sub, name, email, sub_type, type, role_id
+
+      if($OrgGroups | Where-Object {$_.id -in $FolderBindings.UserID}) {
+          $Result += Join-Object -Left $($OrgGroups | Where-Object {$_.id -in $FolderBindings.UserID}) -LeftJoinProperty id -Right $FolderBindings -RightJoinProperty UserID -Type OnlyIfInBoth | Select CloudID, CloudName, FolderID, FolderName, FolderStatus, @{n="sub";e={$_.id}}, name, email, sub_type, type, role_id
+      }
+
+      $Result
+      ```
+
+      {% endcut %}
 
   1. Make sure all the privileged roles are granted to trusted administrators. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
@@ -927,6 +1448,8 @@ To use a database at the application level, in addition to {{ iam-short-name }} 
 
 * The password must contain numbers, uppercase letters, lowercase letters, and special characters. 
 * It must be at least 8 characters long.
+
+We recommend using generated passwords. In this case, [{{ lockbox-full-name }}](../../../lockbox/index.yaml) will [generate a secret](../../../lockbox/concepts/secret.md#secret-type), and its value will be used as the DB user password.
 
 {% list tabs group=instructions %}
 
@@ -960,13 +1483,23 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 
 #### 1.20 The proper resource model is used {#resourses}
 
-When developing an access model for your infrastructure, we recommend the following approach:
+When developing an access model for your infrastructure, we recommend applying the least privilege principle and the principle of resource separation. The cloud resource model can be visualized as nested containers: organization, cloud, and folder.
 
-* At least one organization per company.
-* Group resources by purpose and store them in separate folders. To ensure the strictest isolation, place them in a separate cloud.
+An [_organization_](../../../organization/concepts/organization.md) is the root container storing information about users and their roles. It may also host some services, e.g., {{ datalens-full-name }}, {{ ml-platform-full-name }}, etc. Organization-level roles are automatically inherited by all subordinate containers. For this reason, we recommend assigning organization-level roles only to administrators and users of organization-level services.
+
+A [_cloud_](../../../resource-manager/concepts/resources-hierarchy.md#cloud) is a container one level below the organization. It houses folders with services. A cloud logically joins together multiple interconnected environments within its folders. However, there is no direct connectivity between two clouds. Roles assigned at the cloud level are inherited by all its folders. We do not recommend granting overly broad privileges at this level.
+
+A [_folder_](../../../resource-manager/concepts/resources-hierarchy.md#folder) is a container with resources and services. You can set up network connectivity between folders within a single cloud. This means, when organizing your infrastructure, consider placing related services and environments in nearby folders.
+
+When developing an access model for your infrastructure, we recommend the following approaches:
+
+* Create at least one organization per company (the root container with user roles inherited by clouds, folders, and services).
+* Group resources by project. We recommend grouping resources by their intended use and storing them in separate clouds. For maximum isolation, place them in separate folders.
+* If there are different teams using the services, organize these teams' resources in separate clouds.
 * Place any critical resources in a separate folder or cloud. These include resources related to the processing of payment data, personal data, and trade secret data.
-* Host the resource groups that require different administrative permissions in different folders or clouds (DMZ, CDE, security, backoffice, and so on).
-* When developing apps, make sure to isolate test and production environments.
+* Avoid granting users the `.admin` role for the folder with your product environment. Instead, consider implementing `GitOps` and using {{ TF }} and {{ GL }} to manage folder infrastructure.
+* Host resource groups requiring different administrative permissions, e.g., DMZ, CDE, security, backoffice, etc., in different folders or clouds.
+* When developing applications, make sure to isolate test and production environments.
 * Put shared resources (e.g., network and security groups) into a separate shared resource folder (if you separate components into folders).
 
 {% list tabs group=instructions %}
@@ -1045,26 +1578,65 @@ Make sure that these groups have no public access to your resources: clouds, fol
 
   1. Run the command below to search for accounts with primitive roles assigned at the organization level:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       yc organization-manager organization list-access-bindings \
         --id=${ORG_ID} \
-        --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="organization-manager.organizations.owner" or .role_id=="organization-manager.admin" or .role_id=="resource-manager.clouds.owner")'
+        --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")'
       ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      $OrgBindings = yc organization-manager organization list-access-bindings --id=$ORG_ID --format=json | ConvertFrom-Json | where {$_.subject.id -eq "allAuthenticatedUsers" -or $_.subject.id -eq "allUsers"} | select role_id -ExpandProperty subject
+
+      $OrgBindings
+      ```
+
+      {% endcut %}
 
   1. Run the command below to search for cloud-level access permissions such as `allUsers` and `allAuthenticatedUsers`:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $CLOUD_ID
       done
       ```
 
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      $Clouds = yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $CloudBindings = @()
+      foreach ($Cloud in $Clouds) {
+        $CloudBindings += yc resource-manager cloud list-access-bindings --id $Cloud.CloudID --format=json | ConvertFrom-Json | where {$_.subject.id -eq "allAuthenticatedUsers" -or $_.subject.id -eq "allUsers"} | select role_id -ExpandProperty subject | Select @{n="CloudID";e={$Cloud.CloudID}},  @{n="CloudName";e={$Cloud.CloudName}}, @{n="PublicGroupID";e={$_.id}}, type, role_id
+      }
+
+      $CloudBindings
+      ```
+
+      {% endcut %}
+
   1. Run the command below to search for folder-level access permissions such as `allUsers` and `allAuthenticatedUsers`:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FOLDER_ID
@@ -1072,10 +1644,36 @@ Make sure that these groups have no public access to your resources: clouds, fol
       done
       ```
 
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      $Clouds = yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $FolderBindings = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+          $FolderBindings += yc resource-manager folder list-access-bindings --id $Folder.id --format=json | ConvertFrom-Json | where {$_.subject.id -eq "allAuthenticatedUsers" -or $_.subject.id -eq "allUsers"} | select role_id -ExpandProperty subject | Select @{n="CloudID";e={$Cloud.CloudID}},  @{n="CloudName";e={$Cloud.CloudName}}, @{n="FolderID";e={$Folder.id}}, @{n="FolderName";e={$Folder.name}}, @{n="FolderStatus";e={$Folder.status}}, @{n="PublicGroupID";e={$_.id}}, type, role_id 
+        }
+      }
+
+      $FolderBindings
+      ```
+
+      {% endcut %}
+
   1. Run the command below to search for the `allUsers` and `allAuthenticatedUsers` access permissions at the {{ container-registry-name }} level in all folders:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for CR in $(yc container registry list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id');
@@ -1085,10 +1683,41 @@ Make sure that these groups have no public access to your resources: clouds, fol
       done
       ```
 
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      $Clouds = yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $CRBindings = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+
+          $CRList = yc container registry list --folder-id=$Folder.id --format=json | ConvertFrom-Json
+
+          foreach($CR in $CRList) {
+              $CRBindings += yc container registry list-access-bindings --id $CR.id --folder-id $Folder.id --format=json | ConvertFrom-Json | where {$_.subject.id -eq "allAuthenticatedUsers" -or $_.subject.id -eq "allUsers"} | select role_id -ExpandProperty subject | Select @{n="CloudID";e={$Cloud.CloudID}},  @{n="CloudName";e={$Cloud.CloudName}}, @{n="FolderID";e={$Folder.id}}, @{n="FolderName";e={$Folder.name}}, @{n="FolderStatus";e={$Folder.status}}, @{n="PublicGroupID";e={$_.id}}, type, role_id 
+          }
+        }
+      }
+
+      $CRBindings
+      ```
+
+      {% endcut %}
+
   1. Run the command below to search for the `allUsers` and `allAuthenticatedUsers` access permissions at the {{ sf-name }} level in all folders:
 
+      {% cut "**Bash**" %}
+
       ```bash
-      export ORG_ID=<organization ID>
+      export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for FUN in $(yc serverless function list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
@@ -1097,6 +1726,35 @@ Make sure that these groups have no public access to your resources: clouds, fol
       done;
       done
       ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+
+      $Clouds = yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $FunctionsBindings = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+
+          $FunctionsList = yc serverless function list --folder-id $Folder.id --format=json | ConvertFrom-Json
+
+          foreach($Function in $FunctionsList) {
+              $FunctionsBindings += yc serverless function  list-access-bindings --id $Function.id --folder-id $Folder.id --format=json | ConvertFrom-Json | where {$_.subject.id -eq "allAuthenticatedUsers" -or $_.subject.id -eq "allUsers"} | select role_id -ExpandProperty subject | Select @{n="CloudID";e={$Cloud.CloudID}},  @{n="CloudName";e={$Cloud.CloudName}}, @{n="FolderID";e={$Folder.id}}, @{n="FolderName";e={$Folder.name}}, @{n="FunctionID";e={$Function.id}}, @{n="FunctionName";e={$Function.name}}, @{n="FunctionStatus";e={$Function.status}}, @{n="PublicGroupID";e={$_.id}}, type, role_id 
+          }
+        }
+      }
+
+      $FunctionsBindings
+      ```
+
+      {% endcut %}
 
   1. Make sure none of the specified resources contain `allUsers` or `allAuthenticatedUsers`. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
@@ -1184,7 +1842,7 @@ To get notifications of security-related events, such as vulnerability detection
 
 {% include [key-has-last-used-data](../../iam/key-has-last-used-data.md) %}
 
-For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
+To learn more, see [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
 
 {% list tabs group=instructions %}
 
@@ -1195,6 +1853,61 @@ For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you need.
   1. You can see the time of the last key use in the table with key info under **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_last-used-at }}**.
+
+- Performing a check via the CLI {#cli}
+
+  1. See what organizations are available to you and write down the ID you need:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. To get the dates for the last service account authentication and last access key use, run this command:
+
+      {% cut "**Bash**" %}
+
+      ```bash
+      export ORG_ID=<organization_ID>
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do for SA in $(yc iam service-account list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id');
+      do yc iam key list --service-account-id=$SA --format=json | jq -r '.[] | "key_id" + ":" + .id + "," + "sa_id" + ":" + .service_account_id + "," + "created_at" + ":" + .created_at + "last_used_at" + ":" + .last_used_at' 
+      done;
+      done;
+      done
+      ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<organization_ID>"
+      $SAList = (yc organization-manager users list --organization-id $ORG_ID --format=json | ConvertFrom-Json | where {$_.subject_claims.sub_type -eq "SERVICE_ACCOUNT"}).subject_claims
+
+      $AllAuthKeys = @()
+
+      foreach($SA in $SAList) {
+        $AuthKeys = yc iam key list --service-account-id $SA.sub --format=json | ConvertFrom-Json
+
+        if($AuthKeys) {
+          $ExpiriedKeys = $AuthKeys | where {($(Get-Date) - $_.created_at).Days -gt 90} | Select @{n="AuthKeyID";e={$_.id}}, service_account_id, created_at, @{n="KeyStatus";e={"EXPIRIED"}}, key_algorithm, last_used_at
+          $ActualKeys = $AuthKeys | where {($(Get-Date) - $_.created_at).Days -le 90} | Select @{n="AuthKeyID";e={$_.id}}, service_account_id, created_at, @{n="KeyStatus";e={"VALID"}}, key_algorithm, last_used_at
+
+          if($ExpiriedKeys) {
+            $AllAuthKeys += Join-Object -Left $($SAList | Where-Object {$_.sub -in $ExpiriedKeys.service_account_id}) -LeftJoinProperty sub -Right $ExpiriedKeys -RightJoinProperty service_account_id -Type OnlyIfInBoth | Select @{n="service_account_id";e={$_.sub}}, name, sub_type, AuthKeyID, description, created_at, KeyStatus, key_algorithm, last_used_at
+          }
+
+          if($ActualKeys) {
+            $AllAuthKeys += Join-Object -Left $($SAList | Where-Object {$_.sub -in $ActualKeys.service_account_id}) -LeftJoinProperty sub -Right $ActualKeys -RightJoinProperty service_account_id -Type OnlyIfInBoth | Select @{n="service_account_id";e={$_.sub}}, name, sub_type, AuthKeyID, description, created_at, KeyStatus, key_algorithm, last_used_at
+          }
+        }
+      }
+
+      $AllAuthKeys
+      ```
+
+      {% endcut %}
 
 {% endlist %}
 

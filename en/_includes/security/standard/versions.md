@@ -1,32 +1,92 @@
-# Versions of the standard for securing {{ yandex-cloud }} infrastructure
+# Versions of {{ yandex-cloud }} infrastructure security standard
 
 ### Changes in version {{ security-standard-current-version }} {#current-version}
 
+Publication date: 08/04/24.
+
+* Deleted **3.20 Side-channel attacks in {{ sf-name }} are addressed** due to the minimum level of risk.
+
+* **Added the following items**:
+    * [{#T}](../../../security/standard/network-security.md#use-cloud-desktop).
+    * [{#T}](../../../security/standard/network-security.md#use-yandex-browser).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#antivirus).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#security-specialist-certificate).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#app-container-registry).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#vip-containers).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#api-gateway-access-managment).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#networking).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#using-own-domain).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#websocket).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#inter-cloud-services).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#authorization).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#auth-context).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#api-logs).
+    * [{#T}](../../../security/standard/audit-logs.md#access-transparency-enabled).
+    * [{#T}](../../../security/standard/app-security.md#keep-safe-cr-settings).
+    * [{#T}](../../../security/standard/app-security.md#app-sws-lists).
+
+* Under **3. Secure virtual environment configuration**:
+    * Renamed the [{#T}](../../../security/standard/virtualenv-safe-config.md#functions) subsection (formerly `{{ sf-name }} and {{ api-gw-full-name }}`).
+    * Added the [{#T}](../../../security/standard/virtualenv-safe-config.md#api-gateway) section (items 3.40 - 3.48).
+    * Changed the numbering of some items in this section due to adding new subsections and items.
+    
+* **Updated the following items**:
+    * In [{#T}](../../../security/standard/authentication.md#min-privileges), added commands for checks via the CLI in PowerShell.
+    * In [{#T}](../../../security/standard/authentication.md#sa-key-rotation), added commands for checks via the CLI in PowerShell.
+    * In [{#T}](../../../security/standard/authentication.md#sa-key-rotation), added automatic scripts for checks via the CLI in Bash and PowerShell.
+    * In [{#T}](../../../security/standard/authentication.md#privileged-users), added commands for checks via the CLI in PowerShell.
+    * In [{#T}](../../../security/standard/authentication.md#mdb-auth), added a recommendation on using {{ lockbox-full-name }} generated secrets.
+    * In [{#T}](../../../security/standard/authentication.md#resourses), extended the description of the resource model and recommendation on how to use it.
+    * In [{#T}](../../../security/standard/authentication.md#public-access), added commands for checks via the CLI in PowerShell.
+    * In [{#T}](../../../security/standard/authentication.md#key-usage-control), added commands for checks via the CLI.
+    * In [{#T}](../../../security/standard/network-security.md#firewall), updated the description of the principle of using custom VM disk images (the [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system) principle).
+    * Renumbered items in [{#T}](../../../security/standard/network-security.md#outgoing-access) (formerly `3.19`) and [{#T}](../../../security/standard/network-security.md#recursive-resolvers) (formerly `2.8`).
+    * Renumbered an item in [{#T}](../../../security/standard/virtualenv-safe-config.md#bucket-logs) (formerly `3.9`), clarified the description of bucket operation logging in {{ at-short-name }}, fixed punctuation.
+    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#db-console-access) (formerly `3.17`), extended the command for checks in Bash, and added a command for checks in PowerShell.
+    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#function-access-and-env) (formerly `3.19`), clarified the recommendation on storing secrets and sensitive data in {{ lockbox-full-name }} and accessing DB cluster hosts from a function.
+    * In [{#T}](../../../security/standard/virtualenv-safe-config.md#acl-container-registry), added commands for checks via the CLI in PowerShell.
+    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#k8s-security) (formerly `3.31`) and updated the link to the recommendations in [{#T}](../../../security/standard/kubernetes-security.md).
+    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#security-updates) (formerly `3.35`) and added a link to [security bulletins](../../../security/security-bulletins/index.md).
+    * In [{#T}](../../../security/standard/encryption.md#at-rest), added the check of encrypted VM disks via the CLI and the guide for replacing unencrypted disks with encrypted ones, added a link to the [key rotation](../../../kms/operations/key.md#rotate) concept in the corporate information security policy.
+    * In [{#T}](../../../security/standard/encryption.md#alb-https):
+        * Fixed the link to [Listener setup description](../../../application-load-balancer/concepts/application-load-balancer.md#listener) in the {{ alb-full-name }} tutorials.
+        * Fixed the link to the {{ alb-full-name }} HTTPS listener [guide](../../../application-load-balancer/tutorials/tls-termination/index.md).
+        * Added a command for checks via the CLI in PowerShell.
+    * In [{#T}](../../../security/standard/encryption.md#secrets-lockbox), shortened the listed of secret storage services and the description of how to use them in {{ TF }} and the management console.
+    * In [{#T}](../../../security/standard/encryption.md#secrets-scanning), rearranged the list of cloud secrets for detection.
+    * In [{#T}](../../../security/standard/audit-logs.md#events), shortened the listed of SIEM systems for which {{ yandex-cloud }} audit log export solutions are ready.
+    * In [{#T}](../../../security/standard/audit-logs.md#data-plane-events), replaced the list of supported services with a link to [{#T}](../../../audit-trails/concepts/events-data-plane.md).
+    * Due to a new item in [6. Application protection](../../../security/standard/app-security.md), renumbered items 6.2 - 6.13.
+    * In [{#T}](../../../security/standard/app-security.md#use-sws), clarified the threat models {{ sws-full-name }} provides protection from.
+    * In [{#T}](../../../security/standard/app-security.md#use-arl), clarified the definition of Advanced Rate Limiter (ARL).
+
+### Changes in version 1.3 {#version-1-3}
+
 Publication date: 27/12/24.
 
-* **Deleted Section 6. Backup**. The section's content was moved to Section [3. Secure configuration of a virtual environment](../../../security/standard/virtualenv-safe-config.md#backup).
+* **Deleted Section 6. Backup**. The section's content was moved to Section **3. Secure virtual environment configuration**.
 
-* **Deleted Section 7. Physical security**. The section's content was moved to Section [{#T}](../../../security/standard/index.md#intro).
+* **Deleted Section 7. Physical security**. Moved its contents to **Introduction**.
 
 * **Added the following items:**
-    * [{#T}](../../../security/standard/authentication.md#api-key-scopes).
-    * [{#T}](../../../security/standard/authentication.md#key-usage-control).
-    * [{#T}](../../../security/standard/authentication.md#ciem-access-control).
+    * 1.11 Service account API keys have specified scopes.
+    * 1.25 The date of the last service account authentication and the last use of the access keys in {{ iam-full-name }} are tracked.
+    * 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} CIEM.
 
 * **Updated the following items:**
-    * Added [{{ container-registry-full-name }}](../../../container-registry/), [{{ sws-full-name }}](../../../smartwebsecurity/), and [{{ captcha-full-name }}](../../../smartcaptcha/) to [{#T}](../../../security/standard/index.md#application).
-    * Added {{ sws-name }} usage info to [{#T}](../../../security/standard/network-security.md#ddos-protection).
-    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#vpc-functions) (formerly `3.22`) and updated it with info about restrictions on networking between functions and user resources.
-    * Renumbered and renamed item [{#T}](../../../security/standard/virtualenv-safe-config.md#function-access-and-env) (formerly `3.18 Public cloud functions are only used in exceptional cases`). Updated the item with information about assigning roles for a function, working with secrets and environment variables from a function, and accessing managed {{ mpg-full-name }} and {{ mch-full-name }} databases from a function.
-    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#side-channel-attacks) (formerly `3.19`).
-    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#ntp-functions) (formerly `3.20`) and updated it with info on how functions are getting time data.
-    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#http-functions) (formerly `3.21`) and updated it with a description of how to invoke a function with the `?integration=raw` query parameter.
-    * Added the following to [{#T}](../../../security/standard/encryption.md#storage-https):
+    * Added [{{ container-registry-full-name }}](../../../container-registry/index.yaml), [{{ sws-full-name }}](../../../smartwebsecurity/index.yaml), and [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) to **Scope**.
+    * Added information about using {{ sws-name }} to **2.5 DDoS protection is enabled**.
+    * Renumbered item **3.18 {{ serverless-containers-name }}/{{ sf-short-name }} uses the {{ vpc-short-name }} internal network** (formerly `3.22`) and updated it with info on networking restrictions between functions and user resources.
+    * Renumbered and renamed item **3.19 Functions are configured in terms of access control, secret and environment variable management, and DBMS connection** (formerly `3.18 Public cloud functions are only used in exceptional cases`). Updated the item with information about assigning roles for a function, working with secrets and environment variables from a function, and accessing managed {{ mpg-full-name }} and {{ mch-full-name }} databases from a function.
+    * Renumbered item **3.20 Side-channel attacks in {{ sf-name }} are addressed** (formerly `3.19`)
+    * Renumbered item **3.21 Aspects of time synchronization in {{ sf-name }} are addressed** (formerly `3.20`) and updated it with info on how functions get time data.
+    * Renumbered item **3.22 Aspects of header management in {{ sf-name }} are addressed** (formerly `3.21`) and updated it with a description of how to invoke a function with the `?integration=raw` query parameter.
+    * Added the following to **4.2 HTTPS for static website hosting is enabled in {{ objstorage-full-name }}**:
         * Checks via the CLI
-        * Link to HTTPS configuration [guide](../../../storage/operations/hosting/certificate.md)
-    * Added links to best security practices to [{#T}](../../../security/standard/audit-logs.md#hardering).
-    * In [{#T}](../../../security/standard/audit-logs.md#data-plane-events), expanded the list of services for which you can track events on this level.
-    * In [{#T}](../../../security/standard/app-security.md#use-sws), added checks via the CLI.
+        * Link to the HTTPS setup [guide](../../../storage/operations/hosting/certificate.md)
+    * In item **5.4 The {{ objstorage-name }} bucket that stores the {{ at-full-name }} audit logs has been hardened**, added links to best security practices.
+    * In **5.8 Data events are monitored**, expanded the list of services for which you can track events on this level.
+    * In item **6.9 A {{ sws-full-name }} security profile is used**, added checks via the CLI.
 
 ### Changes in version 1.2 {#version-1-2}
 
@@ -51,21 +111,21 @@ Publication date: 25/09/24.
 * **Added the following items:**
     * 1.1.1 User group mapping is set up in an identity federation.
     * 1.24 Tracking the date of last access key use in {{ iam-full-name }}.
-    * 3.11 {{ sts-full-name }} is used for getting access keys to {{ objstorage-name }}.
+    * 3.11 {{ sts-full-name }} is used to get access keys to {{ objstorage-name }}.
     * 3.12 Pre-signed URLs are generated for isolated cases of access to specific objects in {{ objstorage-name }} private buckets.
     * 3.32 {{ oslogin }} is used for connection to a VM or {{ k8s }} node.
     * 4.8 Encryption of disks and virtual machine snapshots is used.
     * 5.8 Data events are monitored.
-    * 8.9 {{ sws-full-name }} security profile is used.
+    * 8.9 A {{ sws-full-name }} security profile is used.
     * 8.10 A web application firewall is used.
     * 8.11 Advanced Rate Limiter is used.
-    * 8.12 Approval rules are set.
+    * 8.12 Approval rules are configured.
 
 * **Updated the following items:**
     * In **5.1 {{ at-full-name }} is enabled at the organization level**, added description of data event audit logs.
-    * **6.2 Vulnerability scanning is performed at the cloud IP level** was moved to Section **3. Secure configuration of a virtual environment**.
-    * **6.3 External security scans are performed according to the cloud rules** was moved to Section **3. Secure configuration of a virtual environment**.
-    * **6.4 The process of security updates is set up** was moved to Section **3. Secure configuration of a virtual environment**.
+    * **6.2 Vulnerability scanning is performed at the cloud IP level** was moved to Section **3. Secure virtual environment configuration**.
+    * **6.3 External security scans are performed according to the cloud rules** was moved to Section **3. Secure virtual environment configuration**.
+    * **6.4 The security update process has been set up** was moved to Section **3. Secure virtual environment configuration**.
     * **6.5 A web application firewall is used** was updated and moved to Section **8. Application security**.
     * In **8.6 Ensure artifact integrity**, added a recommendation to save the asymmetric key pair of a [Cosign](https://github.com/sigstore/cosign) electronic signature in [{{ kms-full-name }}](../../../kms/quickstart/index.md) and to use the saved key pair for signing artifacts and verifying the signature.
 

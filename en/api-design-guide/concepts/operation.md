@@ -1,3 +1,8 @@
+---
+title: Operation object
+description: In this tutorial, you will learn about the Operation object, its format, how to track the status of an operation, cancel an operation, and view the list of operations.
+---
+
 # Operation object
 
 Each operation that changes the state of a resource causes an [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto) object to be created. This object contains information about the operation: its status, ID, call time, and so on.
@@ -18,13 +23,13 @@ Field |  Description
 `created_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>Operation start time. Uses [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format.
 `created_by`* |  <b>string</b><br/>ID of the user who started the operation.
 `modified_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>Resource last update time. Uses [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format.
-`done`* | <b>bool</b><br/>Operation status. Can take one of the two values:<br/><q>true</q>: Operation completed. Note that the operation is considered completed even if an error occurred during its execution.<br/><q>false</q>: Operation not completed.
-`response` | [google.protobuf.Any](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto)<br/>This field is only present if the operation was completed successfully.<br/><br/> For the `Create` and `Update` methods, the `response` field contains a view of the created or updated resource. For other operations, the field may contain an empty message ([google.protobuf.Empty](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/empty.proto)), e.g., when deleting a resource.<br/></br>The `response` and `error` fields are mutually exclusive. A response cannot contain both fields at the same time.
+`done`* | <b>bool</b><br/>Operation status. Can take one of the two values:<br/><q>true</q> for operation completed. Note that the operation is considered completed even if there was an error during its execution.<br/><q>false</q> for operation not completed.
+`response` | [google.protobuf.Any](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto)<br/>This field is present only if the operation was completed successfully.<br/><br/> For the `Create` and `Update` methods, the `response` field contains a view of the created or updated resource. For other operations, the field may contain an empty message ([google.protobuf.Empty](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/empty.proto)), e.g., when deleting a resource.<br/></br>The `response` and `error` fields are mutually exclusive. A response cannot contain both fields at the same time.
 `error` | [google.rpc.Status](https://github.com/grpc/grpc/blob/master/src/proto/grpc/status/status.proto)<br/>Error message. This field is present if an error occurs during the operation.<br/><br/><br/>The `error` field may appear in the response before the operation is completed: when an error occurs, the service immediately adds the `error` field to the `Operation` object. At the same time, the service starts rolling back to the previous state: it aborts all running procedures and deletes the resources created during the operation. Only when the service returns to the previous state, the operation will be considered completed and its `done` field will be set to <q>true</q>.<br/><br/>The `response` and `error` fields are mutually exclusive. A response cannot contain both fields at the same time.
 `metadata` | [google.protobuf.Any](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto)<br/>Operation metadata. This field usually contains the ID of the resource the operation is being performed on. If the method returns the `Operation` object, the method description contains the structure of the corresponding `metadata` field.
 `description` | <b>string</b><br/>Operation description. The maximum length is 256 characters.
 
-\* Required field.
+\* This is a required field.
 
 ## Operation status monitoring {#monitoring}
 

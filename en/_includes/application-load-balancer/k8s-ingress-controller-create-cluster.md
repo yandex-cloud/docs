@@ -1,3 +1,3 @@
-[Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating it, specify the security groups prepared in advance.
+[Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating a cluster, specify the preconfigured security groups.
 
-If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP address to the cluster.
+For {{ yandex-cloud }} internal network usage, your cluster does not need a public IP address. To enable internet access to your cluster, assign it a public IP address.

@@ -1,6 +1,6 @@
 ---
 title: How to create an HTTP router for gRPC traffic in {{ alb-full-name }}
-description: Follow this guide to create an HTTP router for gRPC traffic.
+description: In this tutorial, you will learn how to create an HTTP router for gRPC traffic.
 ---
 
 # Creating an HTTP router for gRPC traffic
@@ -13,37 +13,37 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
-  1. Enter the HTTP router name.
+  1. Specify your HTTP router name.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
-  1. Enter **{{ ui-key.yacloud.common.name }}**.
-  1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, type `*` or the [IP address](../../vpc/concepts/address.md) of the load balancer.
-  1. (Optional) In the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+  1. Specify **{{ ui-key.yacloud.common.name }}**.
+  1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, specify your load balancer [IP address](../../vpc/concepts/address.md) or enter `*`.
+  1. Optionally, in the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}** and select **{{ ui-key.yacloud.alb.label_route-type }}**: `{{ ui-key.yacloud.alb.label_proto-grpc }}`.
-     1. Enter **{{ ui-key.yacloud.common.name }}**.
+     1. Specify **{{ ui-key.yacloud.common.name }}**.
      1. In the **{{ ui-key.yacloud.alb.label_fqmn }}** field, select one of the options:
-        * `{{ ui-key.yacloud.alb.label_match-prefix }}` to route all requests starting with a specific FQMN. In the input field, specify `/<first_word_in_service_name>`, e.g., `/helloworld`.
-        * `{{ ui-key.yacloud.alb.label_match-exact }}` to route all requests matching the specified FQMN.
-        * `{{ ui-key.yacloud.alb.label_match-regex }}` to route all requests that satisfy the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
+        * `{{ ui-key.yacloud.alb.label_match-prefix }}`: Route all requests starting with a specific FQMN. In the input field, specify `/<first_word_in_service_name>`, e.g., `/helloworld`.
+        * `{{ ui-key.yacloud.alb.label_match-exact }}`: Route all requests matching the specified FQMN.
+        * `{{ ui-key.yacloud.alb.label_match-regex }}`: Route all requests matching the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 
         {% note warning %}
 
-        The FQMN must start with a slash (`/`/) and contain a part of the full name of the service the procedure call is redirected to.
+        The FQMN must start with a slash "`/`" and contain a part of the service name where your procedure call is redirected.
 
         {% endnote %}
 
      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, select one of the options: `{{ ui-key.yacloud.alb.label_route-action-route }}` or `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`. Depending on the selected option:
         * `{{ ui-key.yacloud.alb.label_route-action-route }}`:
-          * In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select the name of the [backend group](../concepts/backend-group.md) from the same folder where you are creating the HTTP router.
+          * In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select a [backend group](../concepts/backend-group.md) from your HTTP router folder.
           * Optionally, in the **{{ ui-key.yacloud.alb.label_host-rewrite }}** field, select one of these options:
             * `none`: No rewriting.
-            * `rewrite`: Rewriting to the specified value.
-            * `auto`: Automatic rewriting to the target [VM](../../compute/concepts/vm.md) address.
-          * (Optional) In the **{{ ui-key.yacloud_billing.alb.label_max-timeout }}** field, specify the maximum connection time. The client can specify a `grpc-timeout` HTTP header with a shorter timeout in the request.
-          * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time with zero data transmission.
+            * `rewrite`: Rewrite to the specified value.
+            * `auto`: Rewrite to the target [VM](../../compute/concepts/vm.md) address.
+          * Optionally, in the **{{ ui-key.yacloud_billing.alb.label_max-timeout }}** field, specify the maximum connection time. You can specify a shorter timeout in the `grpc-timeout` request HTTP header.
+          * Optionally, in the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the connection inactivity timeout.
         * `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`:
-          * In the **{{ ui-key.yacloud.alb.label_grpc-status-code }}** field, select the code to be used for response.
+          * In the **{{ ui-key.yacloud.alb.label_grpc-status-code }}** field, select the gRPC response code.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -52,7 +52,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../cli/) command to create an HTTP router:
+  1. See the description of the [CLI](../../cli/) command for creating an HTTP router:
 
      ```bash
      yc alb http-router create --help
@@ -73,13 +73,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      created_at: "2022-06-16T21:04:59.438292069Z"
      ```
 
-  1. View a description of the CLI command for creating a virtual host:
+  1. See the description of the CLI command for creating a virtual host:
 
      ```bash
      yc alb virtual-host create --help
      ```
 
-  1. Create a virtual host, specifying the name of the HTTP router and the virtual host settings:
+  1. To create a virtual host, run this command with your HTTP router name and virtual host settings specified:
 
      ```bash
      yc alb virtual-host create <virtual_host_name> \
@@ -91,12 +91,12 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
      Where:
      * `--http-router-name`: HTTP router name.
-     * `--authority`: Domains for the `:authority` headers that will be associated with this virtual host. This parameter supports wildcards, e.g., `*.foo.com` or `*-bar.foo.com`.
+     * `--authority`: `:authority` header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`.
      * `--rate-limit`: Request rate limit. This is an optional setting.
        * `rps` or `rpm`: Number of allowed incoming requests per second or minute.
        * `all-requests`: Limits all incoming requests.
        * `requests-per-ip`: Limits the total number of requests per IP address. That is, for each IP address, only the specified number of requests is allowed per unit of time.
-     * `--security-profile-id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). This is an optional setting. A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+     * `--security-profile-id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. This is an optional argument. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Result:
@@ -111,13 +111,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
          per_second: "100"
      ```
 
-  1. View a description of the CLI command for adding a host:
+  1. See the description of the CLI command for adding a host:
 
      ```bash
      yc alb virtual-host append-grpc-route --help
      ```
 
-  1. Add a route, specifying the HTTP router ID or name and the routing parameters:
+  1. To add a route, run this command with the HTTP router ID / name and routing settings specified:
 
      ```bash
      yc alb virtual-host append-grpc-route <route_name> \
@@ -132,16 +132,16 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      Where:
      * `--virtual-host-name`: Virtual host name.
      * `--http-router-name`: HTTP router name.
-     * `--prefix-fqmn-match`: Parameter to route all requests with a specific prefix. The parameter should be followed by FQMN `/` .
+     * `--prefix-fqmn-match`: Route all requests with a specific prefix. Add `FQMN` `/` after this option.
 
-       To specify a routing condition, you can also use the following options:
-       * `--exact-fqmn-match` to route all requests matching the specified FQMN. The parameter should be followed by `/<FQMN>/`.
-       * `--regex-fqmn-match` to route all requests that satisfy the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). Specify `/<regular_expression>` following the parameter.
+       You can also use these options for specifying routing conditions:
+       * `--exact-fqmn-match`: Route all requests matching the specified FQMN. Add `/<FQMN>/` after this option.
+       * `--regex-fqmn-match`: Route all requests matching the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). Add `/<regular_expression>` after this option.
      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
      * `--rate-limit`: Request rate limit.
-     * `--request-max-timeout`: Maximum request idle timeout in seconds. The client can specify a `grpc-timeout` HTTP header with a shorter timeout in the request.
+     * `--request-max-timeout`: Maximum request timeout in seconds. You can specify a shorter timeout in the `grpc-timeout` request HTTP header.
 
-     For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
+     For more information about the `yc alb virtual-host append-grpc-route` command options, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
      Result:
 
@@ -167,7 +167,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, specify the parameters of the HTTP router and virtual host:
+  1. In the configuration file, specify your HTTP router and virtual host settings:
 
      ```hcl
      resource "yandex_alb_http_router" "tf-router" {
@@ -202,31 +202,31 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-       * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
+       * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). List the labels in key-value format.
      * `yandex_alb_virtual_host`: Virtual host description:
        * `name`: Virtual host name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
        * `http_router_id`: HTTP router ID.
-       * `route`: HTTP router route description:
+       * `route`: Route description:
          * `name`: Route name.
-         * `grpc_route`: Description of the route for gRPC traffic:
-           * `grpc_route_action`: Parameter to specify an action with gRPC traffic.
+         * `grpc_route`: Route description for gRPC traffic:
+           * `grpc_route_action`: Action applied to gRPC traffic.
              * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
-             * `max_timeout`: Maximum request idle timeout in seconds. The client can specify a `grpc-timeout` HTTP header with a shorter timeout in the request.
-       * `route_options` (optional): Additional virtual host parameters:
-         * `security_profile_id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+             * `max_timeout`: Maximum request timeout in seconds. You can specify a shorter timeout in the `grpc-timeout` request HTTP header.
+       * `route_options`: Optional virtual host settings:
+         * `security_profile_id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
-     Learn more about the properties of {{ TF }} resources in the {{ TF }} documentation:
+     Learn more about the properties of {{ TF }} resources in the relevant {{ TF }} guides:
      * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource
      * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource
   1. Create the resources
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 
      ```bash
      yc alb http-router get <HTTP_router_name>

@@ -1,6 +1,6 @@
 ---
 title: How to delete an L7 load balancer in {{ alb-full-name }}
-description: Follow this guide to delete an L7 load balancer.
+description: In this tutorial, you will learn how to delete an L7 load balancer.
 ---
 
 # Deleting an L7 load balancer
@@ -11,11 +11,11 @@ To delete an L7 load balancer:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Next to the load balancer name you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer you want to delete, then select **{{ ui-key.yacloud.common.delete }}**.
 
-     To do this with multiple load balancers, select the load balancers to delete in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
+     To delete many load balancers at once, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -24,7 +24,7 @@ To delete an L7 load balancer:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for removing a load balancer:
+  1. See the description of the CLI command for deleting a load balancer:
 
      ```bash
      yc alb load-balancer delete --help
@@ -47,7 +47,7 @@ To delete an L7 load balancer:
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To delete an L7 load balancer created with {{ TF }}:
-  1. Open the {{ TF }} configuration file and delete the fragment with the L7 load balancer description.
+  1. Open the {{ TF }} configuration file and delete the part describing the L7 load balancer.
 
      {% cut "Sample L7 load balancer description in the {{ TF }} configuration" %}
 
@@ -85,7 +85,7 @@ To delete an L7 load balancer:
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
      ```bash
@@ -104,16 +104,16 @@ To delete an L7 load balancer:
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If your configuration contains errors, {{ TF }} will show them.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb load-balancer list

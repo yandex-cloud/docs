@@ -49,36 +49,36 @@ description: Следуя данной инструкции, вы сможете
 
         ```bash
         yc kms symmetric-key add-access-binding \
-           --id <идентификатор_ключа> \
-           --role <роль> \
-           --user-account-id <идентификатор_пользователя>
+          --id <идентификатор_ключа> \
+          --role <роль> \
+          --user-account-id <идентификатор_пользователя>
         ```
 
      * Федеративному пользователю:
 
         ```bash
         yc kms symmetric-key add-access-binding \
-           --id <идентификатор_ключа> \
-           --role <роль> \
-           --subject federatedUser:<идентификатор_пользователя>
+          --id <идентификатор_ключа> \
+          --role <роль> \
+          --subject federatedUser:<идентификатор_пользователя>
         ```
 
      * Сервисному аккаунту:
 
         ```bash
         yc kms symmetric-key add-access-binding \
-           --id <идентификатор_ключа> \
-           --role <роль> \
-           --service-account-id <идентификатор_сервисного_аккаунта>
+          --id <идентификатор_ключа> \
+          --role <роль> \
+          --service-account-id <идентификатор_сервисного_аккаунта>
         ```
 
      * Группе пользователей:
 
         ```bash
         yc kms symmetric-key add-access-binding \
-           --id <идентификатор_ключа> \
-           --role <роль> \
-           --subject group:<идентификатор_группы>
+          --id <идентификатор_ключа> \
+          --role <роль> \
+          --subject group:<идентификатор_группы>
         ```
 
 - {{ TF }} {#tf}
@@ -158,7 +158,7 @@ description: Следуя данной инструкции, вы сможете
 
      ```bash
      yc kms symmetric-key list-access-bindings \
-        --id <идентификатор_ключа>
+       --id <идентификатор_ключа>
      ```
 
   1. Посмотрите описание команды CLI для назначения ролей:
@@ -180,43 +180,43 @@ description: Следуя данной инструкции, вы сможете
 
         ```bash
         yc kms symmetric-key set-access-bindings \
-           --id <идентификатор_ключа> \
-           --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
+          --id <идентификатор_ключа> \
+          --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
         ```
 
      * Федеративному пользователю:
 
         ```bash
         yc kms symmetric-key set-access-bindings \
-           --id <идентификатор_ключа> \
-           --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
+          --id <идентификатор_ключа> \
+          --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
         ```
 
      * Сервисному аккаунту:
 
         ```bash
         yc kms symmetric-key set-access-bindings \
-           --id <идентификатор_ключа> \
-           --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
+          --id <идентификатор_ключа> \
+          --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
         ```
 
      * Группе пользователей:
 
         ```bash
         yc kms symmetric-key set-access-bindings \
-           --id <идентификатор_ключа> \
-           --access-binding role=<роль>,subject=group:<идентификатор_группы>
+          --id <идентификатор_ключа> \
+          --access-binding role=<роль>,subject=group:<идентификатор_группы>
         ```
 
      Для каждой роли передайте отдельный флаг `--access-binding`. Пример:
 
       ```bash
-     yc kms symmetric-key set-access-bindings \
+      yc kms symmetric-key set-access-bindings \
         --id <идентификатор_ключа> \
         --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
         --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
         --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
-     ```
+      ```
 
 - {{ TF }} {#tf}
 

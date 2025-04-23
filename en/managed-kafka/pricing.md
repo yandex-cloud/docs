@@ -1,4 +1,6 @@
 ---
+title: '{{ mkf-full-name }} pricing policy'
+description: This article covers the {{ mkf-name }} pricing policy.
 editable: false
 ---
 

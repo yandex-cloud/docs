@@ -1,6 +1,6 @@
 ---
 title: How to create a backend group in {{ alb-full-name }}
-description: Follow this guide to create a backend group.
+description: In this tutorial, you will learn how to create a backend group.
 ---
 
 # Creating a backend group
@@ -11,16 +11,16 @@ To create a [backend group](../concepts/backend-group.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a backend group in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a backend group.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
-  1. Enter a name for the backend group.
+  1. Specify the backend group name.
   1. Select the [backend group type](../concepts/backend-group.md#group-types):
      * `{{ ui-key.yacloud.alb.label_proto-http }}`: For HTTP or HTTPS traffic.
-     * `{{ ui-key.yacloud.alb.label_proto-grpc }}`: For HTTP or HTTPS traffic with [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC) procedure calls.
+     * `{{ ui-key.yacloud.alb.label_proto-grpc }}`: For HTTP or HTTPS traffic with [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC).
      * `{{ ui-key.yacloud.alb.label_proto-stream }}`: For unencrypted TCP traffic or TCP traffic with TLS encryption support.
-  1. (Optional) Enable [session affinity](../concepts/backend-group.md#session-affinity). `{{ ui-key.yacloud.alb.label_proto-http-plain }}` and `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend groups support the following session affinity modes:
+  1. Optinally, enable [session affinity](../concepts/backend-group.md#session-affinity). `{{ ui-key.yacloud.alb.label_proto-http-plain }}` and `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend groups support the following session affinity modes:
      * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
      * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
      * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
@@ -47,13 +47,13 @@ To create a [backend group](../concepts/backend-group.md):
 
   {% endnote %}
 
-  1. View the description of the [CLI](../../cli/) command to create a backend group:
+  1. See the description of the [CLI](../../cli/) command for creating a backend group:
 
      ```bash
      yc alb backend-group create --help
      ```
 
-  1. Create a backend group by running the command:
+  1. Create a backend group by running this command:
 
      ```bash
      yc alb backend-group create <backend_group_name>
@@ -68,7 +68,7 @@ To create a [backend group](../concepts/backend-group.md):
      created_at: "2021-02-11T20:46:21.688940670Z"
      ```
 
-  1. Add a backend and health check to the group.
+  1. Add a backend and a health check to the group.
 
      {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
@@ -194,7 +194,7 @@ To create a [backend group](../concepts/backend-group.md):
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
+  1. In the {{ TF }} configuration file, describe the resource you want to create:
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
@@ -228,23 +228,23 @@ To create a [backend group](../concepts/backend-group.md):
      ```
 
      Where:
-     * `yandex_alb_backend_group`: Backend group parameters:
+     * `yandex_alb_backend_group`: Backend group settings:
        * `name`: Backend group name.
        * `session_affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) settings. This is an optional parameter.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection`: Mode of session affinity by [IP address](../../vpc/concepts/address.md) (`source_ip`). It can either be `true` or `false`. The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group is of the `Stream` type (consists of the `stream_backend` resources), you can only use the `connection` mode for session affinity.
-       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must be of the same type: `HTTP`, `gRPC`, or `Stream`.
+         * `connection`: Session affinity by the `source_ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`. You can also choose `cookie` or `header` session affinity modes, but you can only specify one mode. If the backend group is of the `Stream` type, i.e., it consists of the `stream_backend` resources, you can only use the `connection` mode for session affinity.
+       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within a group must be of the same type: `HTTP`, `gRPC`, or `Stream`.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
-     For more information about the `yandex_alb_backend_group` resource properties, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
-  1. Create resources:
+     For more information about `yandex_alb_backend_group` properties, see the relevant [{{ TF }} article]({{ tf-provider-alb-backendgroup }}).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this CLI command:
+     {{ TF }} will create all the required resources. You can check new resources in the [management console]({{ link-console-main }}) or using this CLI command:
 
      ```bash
      yc alb backend-group list

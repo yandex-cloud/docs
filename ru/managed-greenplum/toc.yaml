@@ -13,18 +13,14 @@ items:
             href: operations/cluster-list.md
           - name: Создание кластера
             href: operations/cluster-create.md
+          - name: Расширение кластера
+            href: operations/cluster-expand.md
+          - name: Изменение конфигурации кластера
+            href: operations/cluster-config.md
           - name: Изменение настроек кластера
             href: operations/update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
-          - name: Управление хостами кластера
-            items:
-              - name: Информация о хостах
-                href: operations/hosts/cluster-hosts.md
-              - name: Расширение кластера
-                href: operations/hosts/cluster-expand.md
-              - name: Миграция хостов в другую зону доступности
-                href: operations/hosts/host-migration.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
           - name: Удаление кластера
@@ -67,6 +63,8 @@ items:
         items:
           - name: Управление расширениями
             href: operations/extensions/cluster-extensions.md
+          - name: gp_url_tools
+            href: operations/extensions/gp-url-tools.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
           - name: uuid-cb
@@ -83,6 +81,8 @@ items:
         items:
           - name: Просмотр логов кластера
             href: operations/cluster-logs.md
+          - name: Просмотр операций кластера
+            href: operations/cluster-operations.md
           - name: Диагностика производительности
             href: operations/performance-diagnostics.md
           - name: Мониторинг состояния кластера и хостов

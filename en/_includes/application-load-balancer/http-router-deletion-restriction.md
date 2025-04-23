@@ -1,1 +1,1 @@
-If an HTTP router is used in at least one load balancer, you cannot delete it. First, you need to [delete](../../application-load-balancer/operations/application-load-balancer-update.md) it from all load balancers.
+You cannot delete an HTTP router used in a load balancer. First, you need to [remove](../../application-load-balancer/operations/application-load-balancer-update.md) it from all load balancers.

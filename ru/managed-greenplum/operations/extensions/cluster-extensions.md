@@ -2,7 +2,7 @@
 
 {{ mgp-short-name }} поддерживает некоторые расширения {{ GP }}. См. [полный список доступных расширений и их версий](#greenplum).
 
-## Получить список расширений доступных для установки {#available-extensions}
+## Получить список расширений, доступных для установки {#available-extensions}
 
 Подключитесь к выбранной базе данных и выполните команду:
 
@@ -65,6 +65,9 @@ CREATE EXTENSION <имя_расширения>;
 || [gp_internal_tools]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-managing-monitor.html#creating-the-session_level_memory_consumption-view)
 Содержит различные внутренние утилиты для {{ GP }}.
 | 1.0.0 ||
+|| [gp_url_tools](https://github.com/open-gpdb/gp_url_tools)
+Содержит функции для работы с URL-адресами. Подробнее см. в разделе [Использование gp_url_tools](./gp-url-tools.md).
+| 1.0 ||
 || [hstore]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-modules-hstore.html)
 Добавляет тип данных для хранения пар <q>ключ-значение</q> в одном поле.
 | 1.3 ||

@@ -2,16 +2,32 @@
 
   {% include [name-format](../../_includes/name-format.md) %}
 
-* В поле **{{ ui-key.yacloud.backup.field_repeat-period-type }}** выберите частоту создания копий:
-  * `{{ ui-key.yacloud.backup.value_period-time-hourly }}`.
-  * `{{ ui-key.yacloud.backup.value_period-time-daily }}` — укажите время создания копий.
-  * `{{ ui-key.yacloud.backup.value_period-time-weekly }}` — укажите дни недели и время создания копий.
-  * `{{ ui-key.yacloud.backup.value_period-time-monthly }}` — укажите месяцы, дни месяца и время создания копий.
 * Выберите [тип резервных копий](../../backup/concepts/backup.md#types):
-  * `{{ ui-key.yacloud.backup.field_type-incremental }}` — сохраняются только отличия от предыдущей копии.
-  * `{{ ui-key.yacloud.backup.field_type-full }}` — сохраняются все данные виртуальной машины / сервера {{ baremetal-name }}.
-* Выберите [политику хранения копий](../../backup/concepts/policy.md#retention):
+  * `{{ ui-key.yacloud.backup.field_type-incremental }}` — сохраняются только отличия от предыдущей копии. При первом запуске будет создана полная копия ресурса.
+  * `{{ ui-key.yacloud.backup.field_type-full }}` — сохраняются все данные виртуальной машины или сервера {{ baremetal-name }}.
+
+* В блоке **{{ ui-key.yacloud.backup.policy-form.title_schedule-section }}** укажите:
+  * **{{ ui-key.yacloud.backup.field_repeat-period-type }}** выберите частоту создания копий:
+      *  `{{ ui-key.yacloud.backup.value_period-time-daily }}`. Настройте создание резервной копии либо один раз в день в указанное время, либо несколько раз в день с заданной периодичностью в указанном временном интервале.
+      * `{{ ui-key.yacloud.backup.value_period-time-weekly }}`. Выберите дни недели и время, в которое в эти дни будет выполняться резервное копирование.
+      * `{{ ui-key.yacloud.backup.value_period-time-monthly }}`. Укажите месяцы, день месяца и время, в которые будет выполняться резервное копирование.
+
+  Резервные копии создаются по локальному времени ВМ или сервера {{ baremetal-name }}. Возможно небольшое отставание от расписания в зависимости от текущей нагрузки на сервис.
+
+* Для инкрементальных копий вы можете включить **{{ ui-key.yacloud.backup.policy-form.value_weekly-full-copy }}** и выбрать день недели, в который будет создаваться полная копия. В выбранный день вместо инкрементальной копии будет создана полная резервная копия.
+
+* В блоке **{{ ui-key.yacloud.backup.policy-form.title_retention-section }}** задайте политику [хранения копий](../../backup/concepts/policy.md#retention):
   * `{{ ui-key.yacloud.backup.value_retention-save-all }}` — будут храниться все копии, созданные по этой политике резервного копирования.
   * `{{ ui-key.yacloud.backup.value_retention-save-last-f }}` — укажите количество последних копий, которые нужно хранить, или количество дней, недель или месяцев, копии за которые нужно хранить. Остальные копии будут удаляться автоматически.
-  
-  Если политика создана с помощью консоли управления, последующие изменения настроек правил хранения резервных копий будут задействованы после создания очередной резервной копии.
+
+      {% note info %}
+
+      При создании политики с помощью консоли управления последующие изменения настроек хранения резервных копий применяются только после создания очередной резервной копии. Если изменения не вступили в силу, то [отвяжите](../../backup/operations/policy-vm/detach-vm.md) политику от ВМ или сервера {{ baremetal-name }} и после [привяжите](../../backup/operations/policy-vm/attach-and-detach-vm.md) ее заново.
+
+      {% endnote %}
+
+* В блоке **{{ ui-key.yacloud.backup.policy-form.title_additional-section }}**:
+
+  * (Опционально) Включите **{{ ui-key.yacloud.backup.policy-overview.field_fast-copy }}**, чтобы ускорить создание инкрементальных копий. Наличие изменений в файле будет определяться по размеру, дате и времени последнего изменения. Если опция отключена, {{ backup-name }} будет сравнивать содержимое всех файлов с содержимым резервной копии. Опция не работает для томов с файловыми системами JFS, ReiserFS3, ReiserFS4, ReFS или XFS.
+
+  * (Опционально) Включите **{{ ui-key.yacloud.backup.policy-overview.field_multivolume-snapshot }}** для создания синхронизированных по времени резервных копий данных, расположенных на нескольких томах. Параметр определяет, будут ли создаваться снимки нескольких томов одновременно или последовательно.

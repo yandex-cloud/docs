@@ -65,6 +65,4 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 &#x2713; **Using {{ lockbox-name }} secrets for storing access keys and tokens**: Store keys and tokens in [{{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox/index.md) and use their payload when you need to apply a key or token.
 
-&#x2713; **Using API keys with limited access**: create [API keys with limited scope and validity period](../../iam/concepts/authorization/api-key.md#scoped-api-keys) for working with the list of required services to lower the risk of unauthorized use of the keys.
-
-{% include [scoped-api-keys-note](../../_includes/iam/scoped-api-keys-note.md) %}
+&#x2713; **Using API keys with limited access**: create API keys with minimum required [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys) and validity period for working with the list of required services to lower the risk of unauthorized use of the keys.

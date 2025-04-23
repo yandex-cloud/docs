@@ -1,45 +1,45 @@
 ---
 title: How to edit an L7 load balancer in {{ alb-full-name }}
-description: Follow this guide to edit an L7 load balancer.
+description: In this tutorial, you will learn how to edit an L7 load balancer.
 ---
 
 # Editing an L7 load balancer
 
-To update the parameters of an L7 load balancer:
+To change L7 load balancer settings:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Click the name of the load balancer in question.
+  1. Click the name of the load balancer you need.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit the required load balancer settings:
+  1. Edit the load balancer settings:
 
-      1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, update the [security groups](../concepts/application-load-balancer.md#security-groups):
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, change the [security groups](../concepts/application-load-balancer.md#security-groups):
 
           {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
 
           {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
 
-      1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable or disable the incoming traffic for each availability zone separately using the **{{ ui-key.yacloud.alb.label_disable-traffic }}** option.
+      1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable or disable incoming traffic for each availability zone using the **{{ ui-key.yacloud.alb.label_disable-traffic }}** option.
 
-      1. Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
+      1. Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set the [resource unit](../concepts/application-load-balancer.md#lcu-scaling) limit.
 
       1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
-          1. Change the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
-          1. Edit the [rules for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
+          1. Change the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) storing your load balancer logs.
+          1. Edit [log discard rules](../concepts/application-load-balancer.md#discard-logs-rules):
     
               * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update the HTTP status codes.
-              * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the classes of HTTP status codes.
+              * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the HTTP status code classes.
               * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Update the gRPC codes.
-              * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the percentage of logs to discard.
+              * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the log discard rate.
     
               To add another rule, click **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
     
-      1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, change the parameters of the appropriate listeners.
+      1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, change listener settings.
 
   1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
@@ -49,20 +49,20 @@ To update the parameters of an L7 load balancer:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for updating the load balancer parameters:
+  1. See the description of the CLI command for updating load balancer settings:
 
      ```bash
      yc alb load-balancer update --help
      ```
 
-  1. Run the command, indicating the new load balancer parameters. For example, link [security groups](../concepts/application-load-balancer.md#security-groups) to the load balancer:
+  1. Run this command with new load balancer settings specified. For example, specify the load balancer [security groups](../concepts/application-load-balancer.md#security-groups):
 
      ```bash
      yc alb load-balancer update <load_balancer_name> \
        --security-group-id <list_of_security_group_IDs>
      ```
 
-     Where `--security-group-id` is a new list of one to five comma-separated [security group](../concepts/application-load-balancer.md#security-groups) IDs. If you omit this parameter, any traffic will be allowed for the load balancer.
+     Where `--security-group-id` is a comma separated list of one to five new [security group](../concepts/application-load-balancer.md#security-groups) IDs. If you skip it, the load balancer will accept all traffic.
 
      Result:
 
@@ -95,15 +95,15 @@ To update the parameters of an L7 load balancer:
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
-  1. (Optional) Update the parameters for writing [logs](../logs-ref.md) to [{{ cloud-logging-full-name }}](../../logging/):
+  1. Optionally, update the [{{ cloud-logging-full-name }}](../../logging/) [logging](../logs-ref.md) settings:
 
-      1. View the description of the CLI command to manage load balancer logging:
+      1. See the description of the CLI command for managing load balancer logging:
 
           ```bash
           yc alb load-balancer logging --help
           ```
 
-      1. Add a new rule for discarding logs:
+      1. Add a new log discard rule:
 
           ```bash
           yc alb load-balancer logging <load_balancer_name> \
@@ -115,9 +115,9 @@ To update the parameters of an L7 load balancer:
           Where:
 
           * `--log-group-id`: [Log group](../../logging/concepts/log-group.md) ID.
-          * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule parameters:
-            * `codes`: HTTP codes, classes of HTTP codes, or gRPC codes.
-            * `percent`: Discarded logs percentage.
+          * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule options:
+            * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
+            * `percent`: Log discard rate.
 
           Result:
 
@@ -139,17 +139,17 @@ To update the parameters of an L7 load balancer:
                 discard_percent: "90"
           ```
 
-  1. Set new parameters for the listener:
+  1. Specify new listener settings:
 
      * HTTP listener:
 
-       1. View the description of the CLI command for updating the parameters of an HTTP listener for an L7 load balancer:
+       1. See the description of the CLI command for updating L7 load balancer HTTP listener settings:
 
           ```bash
           yc alb load-balancer update-listener --help
           ```
 
-       1. Run the command, indicating the new listener parameters:
+       1. Run this command with new listener settings specified:
 
           ```bash
           yc alb load-balancer update-listener <load_balancer_name> \
@@ -160,13 +160,13 @@ To update the parameters of an L7 load balancer:
 
      * Stream listener:
 
-       1. View the description of the CLI command for updating the parameters of a Stream listener for an L7 load balancer:
+       1. See the description of the CLI command for updating the L7 load balancer Stream listener settings:
 
           ```bash
           yc alb load-balancer update-stream-listener --help
           ```
 
-       1. Run the command, indicating the new listener parameters:
+       1. Run this command with new listener settings specified:
 
           ```bash
           yc alb load-balancer update-stream-listener <load_balancer_name> \
@@ -175,7 +175,7 @@ To update the parameters of an L7 load balancer:
             --external-ipv4-endpoint port=<listener_port>
           ```
 
-     The result of updating two listeners is:
+     The result of updating two listeners:
 
      ```bash
      done (42s)
@@ -225,7 +225,7 @@ To update the parameters of an L7 load balancer:
            discard_percent: "90"
      ```
 
-  1. (Optional) Set new limits on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling):
+  1. Optinally, update the [resource unit](../concepts/application-load-balancer.md#lcu-scaling) limit:
 
      {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
@@ -233,7 +233,7 @@ To update the parameters of an L7 load balancer:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the fragment with the L7 load balancer description:
+  1. Open the {{ TF }} configuration file and edit the fragment describing the L7 load balancer:
 
      ```hcl
      ...
@@ -278,7 +278,7 @@ To update the parameters of an L7 load balancer:
      ...
      ```
 
-     For more information about the `yandex_alb_load_balancer` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about `yandex_alb_load_balancer` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Check the configuration using this command:
 
@@ -298,17 +298,17 @@ To update the parameters of an L7 load balancer:
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of new resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check the L7 load balancer update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check whether the L7 load balancer configuration was updated correctly in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb load-balancer get <load_balancer_name>
@@ -322,16 +322,16 @@ To update the parameters of an L7 load balancer:
 
 ## Deleting a listener {#delete-listener}
 
-To delete a listener for your L7 load balancer:
+To delete a listener from your L7 load balancer:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Next to the load balancer name you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, next to the appropriate listener name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer you need, then select **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, next to the listener you want to delete, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -397,7 +397,7 @@ To delete a listener for your L7 load balancer:
      ...
      ```
 
-     For more information about the `yandex_alb_load_balancer` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about `yandex_alb_load_balancer` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Check the configuration using this command:
 
@@ -417,17 +417,17 @@ To delete a listener for your L7 load balancer:
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of new resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check the L7 load balancer update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check whether the L7 load balancer configuration was updated correctly in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb load-balancer get <L7_load_balancer_name>

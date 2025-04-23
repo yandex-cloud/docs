@@ -6,10 +6,7 @@ editable: false
 
 # Квоты и лимиты {{ cns-full-name }}
 
-В сервисе {{ cns-name }} действуют следующие ограничения:
+В сервисе {{ cns-name }} действуют _лимиты_ — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}. Изменить лимиты невозможно.
 
-{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
-
-{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
 {% include [cns-limits](../../_includes/cns-limits.md) %}

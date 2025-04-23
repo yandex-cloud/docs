@@ -1,6 +1,6 @@
 ---
 title: How to create an HTTP router for HTTP traffic in {{ alb-full-name }}
-description: Follow this guide to create an HTTP router for HTTP traffic.
+description: In this tutorial, you will learn how to create an HTTP router for HTTP traffic.
 ---
 
 # Creating an HTTP router for HTTP traffic
@@ -11,48 +11,48 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an HTTP router.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your HTTP router.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
-  1. Enter the HTTP router name.
+  1. Specify your HTTP router name.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
-  1. Enter the host name.
-  1. (Optional) In the **{{ ui-key.yacloud.alb.label_authority }}** field, specify the value of the `Host` header for HTTP/1.1 or the `:authority` pseudo-header for HTTP/2 that will be used to select a virtual host.
-  1. (Optional) In the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+  1. Specify the host name.
+  1. Optionally, in the **{{ ui-key.yacloud.alb.label_authority }}** field, specify the HTTP/1.1 `Host` (HTTP/2 `:authority`) header value for virtual host selection.
+  1. Optionally, in the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
-  1. Enter the route **{{ ui-key.yacloud.common.name }}**.
+  1. Specify the route **{{ ui-key.yacloud.common.name }}**.
   1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select one of the options:
-     * `{{ ui-key.yacloud.alb.label_match-exact }}` and specify the `/` path to route all requests that match the specified path.
-     * `{{ ui-key.yacloud.alb.label_match-prefix }}` to route all requests with a specific prefix.
-     * `{{ ui-key.yacloud.alb.label_match-regex }}` to route all requests that satisfy the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
+     * `{{ ui-key.yacloud.alb.label_match-exact }}`: Route all requests matching the specified path, e.g., `/`.
+     * `{{ ui-key.yacloud.alb.label_match-prefix }}`: Route all requests with a specific prefix.
+     * `{{ ui-key.yacloud.alb.label_match-regex }}`: Route all requests matching the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
   1. In the **{{ ui-key.yacloud.alb.label_http-methods }}** list, select the required methods.
   1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, select one of the options: `{{ ui-key.yacloud.alb.label_route-action-route }}`, `{{ ui-key.yacloud.alb.label_route-action-redirect }}`, or `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`. Depending on the selected option:
      * `{{ ui-key.yacloud.alb.label_route-action-route }}`:
-       * In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the name of the [backend group](../concepts/backend-group.md) from the same folder where you are creating the HTTP router.
-       * (Optional) In the **{{ ui-key.yacloud.alb.label_prefix-rewrite }}** field, specify where the HTTP router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely rewritten. If you select `{{ ui-key.yacloud.alb.label_match-prefix }}`, only the prefix will be rewritten.
+       * In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select a [backend group](../concepts/backend-group.md) from your HTTP router folder.
+       * Optionally, in the **{{ ui-key.yacloud.alb.label_prefix-rewrite }}** field, specify where the HTTP router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely rewritten. If you select `{{ ui-key.yacloud.alb.label_match-prefix }}`, only the prefix will be rewritten.
        * Optionally, in the **{{ ui-key.yacloud.alb.label_host-rewrite }}** field, select one of these options:
          * `none`: No rewriting.
-         * `rewrite`: Rewriting to the specified value.
-         * `auto`: Automatic rewriting to the target VM address.
-       * (Optional) In the **{{ ui-key.yacloud.alb.label_timeout }}** field, specify the maximum connection time.
-       * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time with zero data transmission.
-       * (Optional) In the **{{ ui-key.yacloud.alb.label_upgrade-types }}** field, list the protocols the backend group can switch to within a TCP connection upon the client's request.
-       * (Optional) Select **{{ ui-key.yacloud.alb.label_web-socket }}** if you want to use the WebSocket protocol.
+         * `rewrite`: Rewrite to the specified value.
+         * `auto`: Rewrite to the target VM address.
+       * Optionally, in the **{{ ui-key.yacloud.alb.label_timeout }}** field, specify the maximum connection time.
+       * Optionally, in the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the connection inactivity timeout.
+       * Optionally, in the **{{ ui-key.yacloud.alb.label_upgrade-types }}** field, specify the protocols the backend group can use within a single TCP connection based on the client's request.
+       * Optionally, select **{{ ui-key.yacloud.alb.label_web-socket }}** if you want to use the WebSocket protocol.
      * `{{ ui-key.yacloud.alb.label_route-action-redirect }}`:
-       * In the **{{ ui-key.yacloud.alb.label_http-status-code }}** field, select the code to be used for forwarding.
-       * (Optional) In the **{{ ui-key.yacloud.alb.label_replace }}** field, specify where the HTTP router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely replaced, even if `{{ ui-key.yacloud.alb.label_replace-prefix }}` is selected in the **{{ ui-key.yacloud.alb.label_replace }}** field.
-       * (Optional) Select the **{{ ui-key.yacloud.alb.label_strict-query }}** option. 
-       * (Optional) Select the **{{ ui-key.yacloud.alb.label_replace-scheme }}** option. If the original URI uses the `http` (`https`) schema and specifies port `80`(`443`), the change of schema will delete the port.
-       * (Optional) Select **{{ ui-key.yacloud.alb.label_replace-host }}** and specify a new host.
-       * (Optional) Select **{{ ui-key.yacloud.alb.label_replace-port }}** and specify a new port.
+       * In the **{{ ui-key.yacloud.alb.label_http-status-code }}** field, select the HTTP forwarding status code.
+       * Optionally, in the **{{ ui-key.yacloud.alb.label_replace }}** field, specify where the HTTP router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely overwritten, even with `{{ ui-key.yacloud.alb.label_replace-prefix }}` selected in the **{{ ui-key.yacloud.alb.label_replace }}** field.
+       * Optionally, select **{{ ui-key.yacloud.alb.label_strict-query }}**. 
+       * Optionally, select **{{ ui-key.yacloud.alb.label_replace-scheme }}**. If the original URI has the `http` or `https` scheme, the specified port, `80` or `443`, will be deleted upon changing the scheme.
+       * Optionally, select **{{ ui-key.yacloud.alb.label_replace-host }}** and specify the new host.
+       * Optionally, select **{{ ui-key.yacloud.alb.label_replace-port }}** and specify the new port.
      * `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`:
-       * In the **{{ ui-key.yacloud.alb.label_http-status-code }}** field, select the code to be used for response.
+       * In the **{{ ui-key.yacloud.alb.label_http-status-code }}** field, select the HTTP response status code.
        * In the **{{ ui-key.yacloud.alb.label_body }}** field, click **{{ ui-key.yacloud.alb.button_select }}** and do the following in the window that opens:
          * Select a response **{{ ui-key.yacloud.component.file-content-dialog.field_method }}**: **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** or **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}**.
-         * Depending on the selected method, attach a file or specify the text of the load balancer's response to the request received via this route.
+         * Depending on the selected method, attach a file or specify the text the load balancer will send in response to requests received via this route.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -61,7 +61,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../cli/) command to create an HTTP router:
+  1. See the description of the [CLI](../../cli/) command for creating an HTTP router:
 
      ```bash
      yc alb http-router create --help
@@ -82,34 +82,33 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      created_at: "2021-02-11T21:04:59.438292069Z"
      ```
 
-  1. View a description of the CLI command for creating a virtual host:
+  1. See the description of the CLI command for creating a virtual host:
 
      ```bash
      yc alb virtual-host create --help
      ```
 
-  1. Create a virtual host, specifying the name of the HTTP router and the virtual host settings:
+  1. To create a virtual host, run this command with the HTTP router name and virtual host settings specified:
 
      ```bash
      yc alb virtual-host create <virtual_host_name> \
        --http-router-name <HTTP_router_name> \
        --authority your-domain.foo.com \
        --modify-request-header name=Accept-Language,append=ru-RU \
-       --rate-limit rps=100,all-requests \
        --security-profile-id <security_profile_ID>
      ```
 
      Where:
      * `--http-router-name`: HTTP router name.
-     * `--authority`: Domains for the `Host` headers for HTTP/1.1 or `authority` for HTTP/2 that will be associated with this virtual host. This parameter supports wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional parameter.
+     * `--authority`: HTTP/1.1 `Host` (HTTP/2 `authority`) header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional argument.
      * `--modify-request-header`: Request header modification settings:
-       * `name`: Name of the header being modified.
-       * `append`: String to add to the header value.
+       * `name`: Modified header name.
+       * `append`: String appended to the header.
      * `--rate-limit`: Request rate limit. This is an optional setting.
        * `rps` or `rpm`: Number of allowed incoming requests per second or per minute.
        * `all-requests`: Limits all incoming requests.
        * `requests-per-ip` Limits the total number of requests per IP address. That is, for each IP address, only the specified number of requests is allowed per unit of time.
-     * `--security-profile-id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). This is an optional setting. A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+     * `--security-profile-id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. This is an optional argument. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Result:
@@ -128,13 +127,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
          per_second: "100"
      ```
 
-  1. View a description of the CLI command for adding a host:
+  1. See the description of the CLI command for adding a route:
 
      ```bash
      yc alb virtual-host append-http-route --help
      ```
 
-  1. Add a route, specifying the HTTP router ID or name and the routing parameters:
+  1. To add a route, run this command with the HTTP router ID / name and routing settings specified:
 
      ```bash
      yc alb virtual-host append-http-route <route_name> \
@@ -150,17 +149,16 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      Where:
      * `--virtual-host-name`: Virtual host name.
      * `--http-router-name`: HTTP router name.
-     * `--prefix-path-match`: Parameter to route all requests with a specific prefix. The parameter should be followed by path `/`.
+     * `--prefix-path-match`: Route all requests with a specific prefix. Add path `/` after this option.
 
-       To specify a routing condition, you can also use the following parameters:
-       * `--exact-path-match` to route all requests matching the specified path. The parameter should be followed by `/<path>/`. 
-       * `--regex-path-match` to route all requests that satisfy the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). The parameter should be followed by `/<regular_expression>`.
+       To specify routing conditions, you can also use the following options:
+       * `--exact-path-match`: Route all requests matching the specified path. Add `/<path>/` after this option. 
+       * `--regex-path-match`: Route all requests matching the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). Add `/<regular_expression>` after this option.
      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
      * `--request-timeout`: Request timeout in seconds.
-     * `--request-max-timeout`: Maximum request idle timeout in seconds.
-     * `--rate-limit`: Request rate limit.
+     * `--request-max-timeout`: Maximum request timeout in seconds.
 
-     For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+     For more information about the `yc alb virtual-host append-http-route` command options, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
      Result:
 
@@ -190,7 +188,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, specify the parameters of the HTTP router and virtual host:
+  1. In the configuration file, specify your HTTP router and virtual host settings:
 
      ```hcl
      resource "yandex_alb_http_router" "tf-router" {
@@ -226,31 +224,31 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-       * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
+       * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). List the labels in key-value format.
      * `yandex_alb_virtual_host`: Virtual host description:
        * `name`: Virtual host name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
        * `http_router_id`: HTTP router ID.
-       * `route`: HTTP router route description:
+       * `route`: Route description:
          * `name`: Route name.
-         * `http_route_action`: Parameter to specify an action with HTTP traffic.
+         * `http_route_action`: Action applied to HTTP traffic.
            * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
-           * `timeout`: Maximum request idle timeout in seconds.
-       * `authority`: Domains for the `Host` headers for HTTP/1.1 or `authority` for HTTP/2 that will be associated with this virtual host. This parameter supports wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional parameter.
-       * `route_options` (optional): Additional virtual host parameters:
-           * `security_profile_id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+           * `timeout`: Maximum request timeout in seconds.
+       * `authority`: HTTP/1.1 `Host` (HTTP/2 `authority`) header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional argument.
+       * `route_options`: Optional virtual host settings:
+           * `security_profile_id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
   
 
-     Learn more about the properties of {{ TF }} resources in the {{ TF }} documentation:
-     * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
-     * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
+     Learn more about the properties of {{ TF }} resources in the relevant {{ TF }} guides:
+     * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router).
+     * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
       
-     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 
      ```bash
      yc alb http-router get <HTTP_router_name>
