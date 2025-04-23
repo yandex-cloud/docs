@@ -28,7 +28,11 @@ You can manage network access without security groups, e.g., by using a separate
 * Detecting network attacks by signature.
 * Other features of conventional NGFW solutions.
 
-Make sure you use security groups in your [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) on each cloud object, or a separate VM based on the NGFW from {{ marketplace-name }}, or the Bring Your Own Image (BYOI) approach that allows you to deploy your own equipment or system images.
+Make sure that your [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) use any of the following:
+
+* Security groups in each cloud object.
+* A separate NGFW VM from {{ marketplace-name }}.
+* [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system) principle, e.g., [your own disk image](../../../compute/operations/image-create/upload.md).
 
 {% list tabs group=instructions %}
 
@@ -279,7 +283,7 @@ We recommend that you only allow access to your cloud infrastructure through con
            yc organization-manager organization list
            ```
 
-        1. Run the command below to search for IP addresses with no DDOS protection:
+      1. Run the command below to search for IP addresses with no DDOS protection:
 
            ```bash
            export ORG_ID=<organization ID>
@@ -292,7 +296,7 @@ We recommend that you only allow access to your cloud infrastructure through con
            done
            ```
 
-        1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+      1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -336,7 +340,41 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
 
 {% endlist %}
 
-#### 2.7 Outbound internet access control is performed {#outgoing-access}
+#### 2.7 Employees use {{ cloud-desktop-full-name }} for remote access {#use-cloud-desktop}
+
+{{ cloud-desktop-full-name }} is a virtual [desktop](../../../cloud-desktop/concepts/desktops-and-groups.md) infrastructure management service.
+
+Use this service to:
+
+* Quickly create virtual workspaces for new employees.
+* Securely connect remote employees to the corporate network.
+* Allow your employees to work from any modern internet-enabled device, including a privately owned one ([BYOD](https://en.wikipedia.org/wiki/Bring_your_own_device)).
+* Manage desktop computing resources.
+* Administer desktops remotely.
+* Create desktop groups with the same computing resources and cloud [network](../../../vpc/concepts/network.md).
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder you want to check for the presence of [desktops](../../../cloud-desktop/concepts/desktops-and-groups.md).
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
+  1. If the list contains at least one created desktop, the recommendation is fulfilled; otherwise, proceed to "Guides and solutions to use".
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+1. [Create a desktop group](../../../cloud-desktop/operations/desktop-groups/create.md).
+1. If you have any specific OS configuration requirements, you can use your own OS image by following the [{#T}](../../../cloud-desktop/operations/images/create-from-compute-linux.md) guide or [create](../../../cloud-desktop/operations/images/create-from-desktop.md) an image based on the existing desktop and reuse it for the group.
+1. After you create a desktop group, the administrator can [create](../../../cloud-desktop/operations/desktops/create.md) the required number of desktops and assign users for them. Alternatively, the desktop group users can use the [user desktop showcase](../../../cloud-desktop/concepts/showcase.md) to get a desktop by themselves.
+
+#### 2.8 Secure Yandex Browser is used for remote access to {{ cloud-desktop-name }} {#use-yandex-browser}
+
+Employees working remotely via {{ cloud-desktop-name }} should use the [Secure Yandex Browser](https://browser.yandex.ru/corp) to access the corporate resources. This requirement enforces data security for protection against [phishing](https://en.wikipedia.org/wiki/Phishing), malicious websites, and data leaks. The browser has built-in tools for traffic encryption, blocking of dangerous resources, and integration with corporate authentication systems.
+
+#### 2.9 Outbound internet access control is performed {#outgoing-access}
 
 Possible options for setting up outbound internet access:
 * [Public IP address](../../../vpc/concepts/address.md#public-addresses). Assigned to a VM according to the one-to-one NAT rule.
@@ -433,6 +471,6 @@ Regardless of which option you select for setting up outbound internet access, b
 * If any NAT-Gateway is found, make sure it is required. Otherwise, delete it.
 * If any NAT instance is found, make sure it is required. Otherwise, delete it.
 
-#### 2.8 DNS queries are not provided to third-party recursive resolvers {#recursive-resolvers}
+#### 2.10 DNS queries are not provided to third-party recursive resolvers {#recursive-resolvers}
 
 To increase fault tolerance, some traffic may be routed to third-party recursive resolvers. To avoid this, contact [support](../../../support/overview.md).

@@ -1,5 +1,5 @@
 ```hcl
-# Declaring variables for confidential parameters
+# Declaring variables with sensitive data
 
 variable "folder_id" {
   type = string
@@ -25,7 +25,7 @@ variable "private_key" {
   type = string
 }
 
-# Adding other variables
+# Declaring other variables
 
 locals {
   sa_name          = "ig-sa"
@@ -155,7 +155,7 @@ resource "yandex_vpc_security_group" "sg-vms" {
   }
 }
 
-# Importing a website’s TLS certificate
+# Importing the website’s TLS certificate
 
 resource "yandex_cm_certificate" "imported-cert" {
   name    = local.cert_name
@@ -340,7 +340,7 @@ resource "yandex_dns_zone" "alb-zone" {
   public      = true
 }
 
-# Creating a resource record in a DNS zone
+# Creating a DNS zone resource record
 
 resource "yandex_dns_recordset" "alb-record" {
   zone_id = yandex_dns_zone.alb-zone.id

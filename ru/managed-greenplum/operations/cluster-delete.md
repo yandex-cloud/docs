@@ -7,7 +7,10 @@ description: Из статьи вы узнаете, как удалить кла
 
 ## Перед удалением кластера {#before-you-delete}
 
-[Отключите защиту от удаления](./update.md#change-additional-settings) для кластера, если она включена.
+* [Отключите защиту от удаления](update.md#change-additional-settings) для кластера, если она включена.
+* [Сохраните идентификатор кластера](cluster-list.md#list-clusters).
+
+  {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 ## Удалить кластер {#delete}
 
@@ -16,7 +19,7 @@ description: Из статьи вы узнаете, как удалить кла
 - Консоль управления {#console}
 
   1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера, выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** и подтвердите удаление.
 
 - CLI {#cli}
 

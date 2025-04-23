@@ -1,6 +1,6 @@
 # Viewing operations with {{ alb-name }} resources
 
-All actions with {{ alb-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ alb-name }} resources in an operation list. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,13 +8,13 @@ All actions with {{ alb-name }} resources are logged as a list of operations. Ea
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for an [L7 load balancer](../concepts/application-load-balancer.md). The same steps apply to other {{ compute-name }} resources.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for an [L7 load balancer](../concepts/application-load-balancer.md). The same steps apply to other resources as well.
 
-  1. In the [management console]({{ link-console-main }}), open the folder the load balancer is in.
+  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.alb.label_load-balancers }}**.
-  1. Select the appropriate load balancer.
-  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected load balancer.
+  1. Select the load balancer you need.
+  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected load balancer.
 
      You will see a list of operations with the selected load balancer.
 
@@ -24,7 +24,7 @@ All actions with {{ alb-name }} resources are logged as a list of operations. Ea
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for an {{ alb-name }} resource, run this command:
+  To get the list of operations for the {{ alb-name }} resource, run this command:
 
   ```bash
   yc alb <resource_type> list-operations <resource_name_or_ID>
@@ -51,7 +51,7 @@ All actions with {{ alb-name }} resources are logged as a list of operations. Ea
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
-  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc alb load-balancer list-operations ds7857cmjtuv******** --format yaml

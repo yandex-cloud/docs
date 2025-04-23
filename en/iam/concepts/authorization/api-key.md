@@ -22,13 +22,13 @@ It is the user's responsibility to store the API key. {{ yandex-cloud }} provide
 
 ## API keys with scope and validity limits {#scoped-api-keys}
 
-You can [create](../../operations/authentication/manage-api-keys.md#create-api-key) API keys with an expiration date and a limited scope.
+When [creating](../../operations/authentication/manage-api-keys.md#create-api-key) an API key, you can specify one or more _scopes_.
 
 {% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
 
-The scope limits the use of API keys in addition to the user's personal access permissions. Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys.
+The scope limits the use of API keys in addition to the service account's personal access permissions.
 
-{% include [scoped-api-keys-note](../../../_includes/iam/scoped-api-keys-note.md) %}
+Additionally, when creating an API key, you can limit its validity period. You can reduce the risk of unauthorized use of your keys by configuring their scope limits and validity periods.
 
 Available scopes are listed below:
 
@@ -48,6 +48,10 @@ Available scopes are listed below:
 * `yc.serverless.functions.invoke`: To invoke functions via the [{{ sf-short-name }} API](../../../functions/functions/api-ref/index.md).
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 * `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
+
+When creating an API key in the [management console]({{ link-console-main }}), scope is a required parameter. When creating an API key using the [{{ yandex-cloud }} CLI](../../../cli/cli-ref/iam/cli-ref/api-key/create.md), [{{ TF }}]({{ tf-provider-resources-link }}/iam_service_account_api_key), or [API](../../api-ref/ApiKey/create.md), scope is optional. If you do not specify a scope for the new API key, it will get the following scopes by default:
+
+{% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
 ## Using an API key {#use}
 

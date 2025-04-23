@@ -19,6 +19,16 @@ meta:
   description: >-
     Yandex Managed Service for YDB помогает разворачивать и поддерживать базы
     данных YDB в инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: yandex db
+    - keyword: yandex data base
+    - keyword: '{{ ydb-name }}'
+    - keyword: '{{ ydb-full-name }}'
+    - keyword: сервис {{ ydb-name }}
+    - keyword: база данных {{ ydb-short-name }}
+    - keyword: кластер {{ ydb-short-name }}
+    - keyword: '{{ ydb-short-name }} в {{ yandex-cloud }}'
+    - keyword: распределенная отказоустойчивая СУБД
 links:
   - title: Начало работы
     description: Создайте первую базу данных

@@ -542,6 +542,8 @@ items:
           Setting up network connectivity between {{ baremetal-name }} and {{
           vpc-name }} subnets
         href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: Working with snapshots in {{ managed-k8s-name }}
+        href: tutorials/pvc-snapshot-restore.md
       - name: '{{ coi }}'
         items:
           - name: Creating a VM from a {{ coi }}

@@ -49,13 +49,6 @@ To get started with the {{ dspm-name }} module, follow the guides on how to [cre
 
 To get started with the {{ ciem-name }} module, follow the guides for [viewing](./operations/ciem/view-permissions.md) and [revoking](./operations/ciem/revoke-permissions.md) accesses.
 
-## Compliance Portal {#compliance}
-
-{{ sd-name }} [Compliance Portal]({{ link-sd-main }}compliance/) contains all required documents, reports, guides, and additional information about the {{ yandex-cloud }} security system.
-
-Here you can download public documents or request documents containing confidential data, if available.
-
-To learn more, see [{#T}](./concepts/compliance.md).
 
 ## Required roles {#required-roles}
 

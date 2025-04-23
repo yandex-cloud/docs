@@ -1495,6 +1495,8 @@ default:
       mysql:
         highfreq-v3:
           cpu:
+            c100:
+              dedicated|string: ₸4.50
             c100|month|string: ₸9684.00
             c100|string: ₸13.45
           ram:
@@ -2276,11 +2278,14 @@ default:
         v1|month|string: ₸10.05
     v1:
       serverless:
+        provisioned_rcu|number: 0.08
         requests|pricingRate:
           1|number: 106.9
           1|string: ₸106.90
         requests|string: Free
         storage|month|string: Free
+        storage|pricingRate:
+          720|month|string: ₸106.90
   sku|KZT|yds:
     events:
       puts|pricingRate:
@@ -3071,6 +3076,8 @@ default:
       mysql:
         highfreq-v3:
           cpu:
+            c100:
+              dedicated|string: ₽0.90
             c100|month|string: ₽1936.80
             c100|string: ₽2.69
           ram:
@@ -3860,11 +3867,14 @@ default:
         v1|month|string: ₽2.01
     v1:
       serverless:
+        provisioned_rcu|number: 0.016
         requests|pricingRate:
           1|number: 21.38
           1|string: ₽21.38
         requests|string: Free
         storage|month|string: Free
+        storage|pricingRate:
+          720|month|string: ₽21.38
   sku|RUB|yds:
     events:
       puts|pricingRate:
@@ -4482,6 +4492,8 @@ default:
       mysql:
         highfreq-v3:
           cpu:
+            c100:
+              dedicated|string: $0.007200
             c100|month|string: $15.494400
             c100|string: $0.021520
           ram:
@@ -5303,11 +5315,14 @@ default:
         v1|month|string: $0.016080
     v1:
       serverless:
+        provisioned_rcu|number: 0.000128
         requests|pricingRate:
           1|number: 0.17104
           1|string: $0.171040
         requests|string: Free
         storage|month|string: Free
+        storage|pricingRate:
+          720|month|string: $0.171040
   sku|USD|yds:
     events:
       puts|pricingRate:
@@ -6027,6 +6042,8 @@ default:
           action:
             add-federated-users: Add federated users
             invite-users: Invite users with a Yandex account
+          dropdown:
+            button-text: Add user
       pages:
         acl: Access bindings
         federations: Federations
@@ -6358,6 +6375,23 @@ default:
         label_instances: Virtual machines
         label_navigate-to-journal-action: Open the backup log
         label_policies: Backup policies
+        policy-form:
+          field_action-on-task-failure: Repeat operation on task failure
+          field_attempts-qty: Number of attempts
+          field_interval-between-attempts: Time between attempts
+          field_snapshot-reaatempt: Retry in case of an error while creating a snapshot
+          title_additional-section: Additional
+          title_retention-section: Retention settings
+          title_schedule-section: Schedule
+          value_weekly-full-copy: Create a full copy once a week
+        policy-overview:
+          field_compression: Compression
+          field_error-handling: Error handling
+          field_exclusion-masks: Do not backup files that meet the following criteria
+          field_fast-copy: Fast backup
+          field_files-filters: File filters
+          field_inclusion-masks: Only backup files that meet the following criteria
+          field_multivolume-snapshot: Multivolume snapshot
         title_backup: Backups
         title_linked-recourses: Attached resources
         value_bms-recourses: BareMetal servers
@@ -7436,8 +7470,12 @@ default:
               ssdDisks:
                 size: Total SSD capacity
             label_quota-name-mdb:
+              cpu:
+                count: Number of vCPUs
               hdd:
                 size: HDD storage capacity
+              memory:
+                size: Amount of virtual memory
               ssd:
                 size: SSD storage capacity
             value_status-error: Almost exhausted

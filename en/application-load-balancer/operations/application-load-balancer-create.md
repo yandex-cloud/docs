@@ -1,6 +1,6 @@
 ---
 title: How to create an L7 load balancer in {{ alb-full-name }}
-description: Follow this guide to create an L7 load balancer.
+description: In this tutorial, you will learn how to create an L7 load balancer.
 ---
 
 # Creating an L7 load balancer
@@ -14,47 +14,47 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a load balancer.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
-  1. Enter the load balancer name.
+  1. Specify the load balancer name.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
-     1. [Network](../../vpc/concepts/network.md#network) whose [subnets](../../vpc/concepts/network.md#subnet) will host the load balancer nodes.
-     1. Suitable [security groups](../concepts/application-load-balancer.md#security-groups):
+     1. [Network](../../vpc/concepts/network.md#network) whose [subnets](../../vpc/concepts/network.md#subnet) will host load balancer nodes.
+     1. Relevant [security groups](../concepts/application-load-balancer.md#security-groups):
 
         {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
 
         {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
 
-  1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the subnets in different [availability zones](../../overview/concepts/geo-scope.md) for the load balancer's nodes and enable traffic in these subnets.
+  1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the load balancer node subnets in different [availability zones](../../overview/concepts/geo-scope.md) and enable their traffic.
 
-      To avoid creating a load balancer node in a particular availability zone, click ![xmark](../../_assets/console-icons/xmark.svg) in the corresponding row.
+      If you do not want to create a load balancer node in a specific availability zone, click ![xmark](../../_assets/console-icons/xmark.svg) next to it.
 
 
-  1. (Optional) Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable or disable the incoming traffic for each availability zone separately using the **{{ ui-key.yacloud.alb.label_disable-traffic }}** option.
+  1. Optionally, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable or disable incoming traffic for each availability zone using **{{ ui-key.yacloud.alb.label_disable-traffic }}**.
 
-  1. (Optional) Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
+  1. Optionally, under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set the [resource unit](../concepts/application-load-balancer.md#lcu-scaling) limit.
 
-     The number of units will change automatically depending on the actual load on the load balancer and the limits you specified. The number of units affects the [load balancer pricing](../pricing.md).
+     Resource units will scale automatically depending on load balancer traffic and specified limits. The number of resource units used affects the [load balancer pricing](../pricing.md).
   1. Optionally, under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
-     1. Select the [{{ cloud-logging-full-name }}](../../logging/) [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
-     1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and set up its [parameters](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Select the [{{ cloud-logging-full-name }}](../../logging/) [log group](../../logging/concepts/log-group.md) where you want to store load balancer logs.
+     1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../concepts/application-load-balancer.md#discard-logs-rules):
         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Add HTTP status codes.
-        * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Add classes of HTTP status codes.
+        * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Add HTTP status code classes.
         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Add gRPC codes.
-        * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Set the percentage of logs to discard.
+        * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Set the log discard rate.
 
-        You can set multiple rules.
+        You can add multiple rules.
 
-  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
-     1. Enter the listener name.
-     1. (Optional) Enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set the **{{ ui-key.yacloud.alb.label_port }}** to `80` and select **{{ ui-key.yacloud.common.type }}**:
+  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and specify listener settings:
+     1. Specify the listener name.
+     1. Optionally, enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set **{{ ui-key.yacloud.alb.label_port }}** to `80` and select **{{ ui-key.yacloud.common.type }}**:
         * `{{ ui-key.yacloud.alb.label_address-auto }}`.
-        * `{{ ui-key.yacloud.alb.label_address-list }}`: Select an address from the drop-down list of the field that appears on the right.
-     1. (Optional) Enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
+        * `{{ ui-key.yacloud.alb.label_address-list }}`: Select an address from the drop-down list that appears on the right.
+     1. Optionally, enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
      1. Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, select the listener type: `{{ ui-key.yacloud.alb.label_listener-type-http }}` or `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
 
         For `{{ ui-key.yacloud.alb.label_listener-type-http }}`, select:
-        * Protocol: `{{ ui-key.yacloud.alb.label_proto-http-plain }}`, `{{ ui-key.yacloud.alb.label_proto-http-tls }}`, or `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
-        * [HTTP router](http-router-create.md) from the drop-down list.
+        * `Protocol`: `{{ ui-key.yacloud.alb.label_proto-http-plain }}`, `{{ ui-key.yacloud.alb.label_proto-http-tls }}`, or `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
+        * [`HTTP router`](http-router-create.md): Select it from the drop-down list.
 
         For `{{ ui-key.yacloud.alb.label_listener-type-stream }}`, select a protocol:
         * `{{ ui-key.yacloud.alb.label_proto-stream-plain }}`: Select **{{ ui-key.yacloud.alb.label_backend-groups }}** from the drop-down list.
@@ -68,7 +68,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../cli/) command to create an L7 load balancer:
+  1. See the description of the [CLI](../../cli/) command for creating an L7 load balancer:
 
      ```bash
      yc alb load-balancer create --help
@@ -84,10 +84,10 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
      ```
 
      Where:
-     * `<load_balancer_name>`: Name of the new load balancer.
-     * `--network-name`: Name of the network you are creating the load balancer in.
-     * `--security-group-id` (optional): List of one to five [security group](../concepts/application-load-balancer.md#security-groups) IDs separated by commas. If you omit this parameter, any traffic will be allowed for the load balancer.
-     * `--location`: Subnet and availability zone. You can repeat the option multiple times to specify different availability zones and subnets.
+     * `<load_balancer_name>`: New load balancer name.
+     * `--network-name`: Name of the network containing the load balancer.
+     * `--security-group-id`: Comma separated list of one to five [security group](../concepts/application-load-balancer.md#security-groups) IDs. This is an optional setting. If you skip it, the load balancer will accept all traffic.
+     * `--location`: Subnet and availability zone. You can add this option multiple times to specify different availability zones and subnets.
 
      Result:
 
@@ -110,18 +110,18 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
-  1. (Optional) Set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling):
+  1. Optionally, set the [resource unit](../concepts/application-load-balancer.md#lcu-scaling) limit:
 
      {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
-  1. (Optional) Set parameters for writing [logs](../logs-ref.md) to [{{ cloud-logging-full-name }}](../../logging/):
-     1. View a description of the CLI command for enabling load balancer logging:
+  1. Optionally, configure [{{ cloud-logging-full-name }}](../../logging/) [settings](../logs-ref.md):
+     1. See the description of the CLI command for enabling load balancer logging:
 
         ```bash
         yc alb load-balancer logging --help
         ```
 
-     1. Link a log group to the load balancer and set up a [rule for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Specify the load balancer log group and set up a [log discard rule](../concepts/application-load-balancer.md#discard-logs-rules):
 
         ```bash
         yc alb load-balancer logging <load_balancer_name> \
@@ -132,11 +132,11 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
         Where:
         * `--log-group-id`: [Log group](../../logging/concepts/log-group.md) ID.
-        * `--discard`: Log discard rule. Rule parameters:
-          * `codes`: HTTP codes, classes of HTTP codes, or gRPC codes.
-          * `percent`: Discarded logs percentage.
+        * `--discard`: Log discard rule. Rule options:
+          * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
+          * `percent`: Log discard rate.
 
-        You can set multiple rules.
+        You can add multiple rules.
 
         Result:
 
@@ -157,15 +157,15 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
               discard_percent: "90"
         ```
 
-  1. Add a listener for an L7 load balancer:
-     * HTTP listener
-       1. View a description of the CLI command for adding an HTTP listener for an L7 load balancer:
+  1. Add a listener to an L7 load balancer:
+     * HTTP listener.
+       1. See the description of the CLI command for adding an HTTP listener to an L7 load balancer:
 
           ```bash
           yc alb load-balancer add-listener --help
           ```
 
-       1. Add a listener by running the command:
+       1. Add a listener by running this command:
 
           ```bash
           yc alb load-balancer add-listener <load_balancer_name> \
@@ -174,14 +174,14 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
             --external-ipv4-endpoint port=<listener_port>
           ```
 
-     * Stream listener
-       1. View a description of the CLI command for adding a Stream listener for an L7 load balancer:
+     * Stream listener.
+       1. See the description of the CLI command for adding a Stream listener to an L7 load balancer:
 
           ```bash
           yc alb load-balancer add-stream-listener --help
           ```
 
-       1. Add a listener by running the command:
+       1. Add a listener by running this command:
 
           ```bash
           yc alb load-balancer add-stream-listener <load_balancer_name> \
@@ -190,7 +190,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
             --external-ipv4-endpoint port=<listener_port>
           ```
 
-     The result of adding two listeners is:
+     The result of adding two listeners:
  
      ```text
      done (42s)
@@ -246,7 +246,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_alb_load_balancer" "test-balancer" {
@@ -290,51 +290,51 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
      ```
 
      Where:
-     * `name`: L7 load balancer name. The name format is as follows:
+     * `name`: L7 load balancer name. Follow these naming requirements:
 
        {% include [name-format](../../_includes/name-format.md) %}
 
-     * `network_id`: ID of the network you are creating the load balancer in.
-     * `security_group_ids` (optional): List of one to five [security group](../concepts/application-load-balancer.md#security-groups) IDs separated by commas.
-         If you omit this parameter, any traffic will be allowed for the load balancer.
-     * `allocation_policy`: Description of the L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zone and subnet IDs.
-     * `listener`: Description of the L7 load balancer's [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) parameters:
-        * `name`: Listener name. The name format is as follows:
+     * `network_id`: ID of the network that will host your load balancer.
+     * `security_group_ids`: Comma separated list of one to five [security group](../concepts/application-load-balancer.md#security-groups) IDs. This is an optional setting.
+         If you skip it, the load balancer will accept all traffic.
+     * `allocation_policy`: L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zones and subnet IDs.
+     * `listener`: L7 load balancer's [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) settings:
+        * `name`: Listener name. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-        * `endpoint`: Description of the listener's addresses and ports. Set the external IPv4 address and port for receiving traffic. If the `external_ipv4_address` parameter is not set, a public IP address is assigned automatically.
-        * `http`: Description of the listener's HTTP endpoint. Specify the HTTP router ID.
-        * `log_options`: (Optional) [Logging](../logs-ref.md) parameters for [{{ cloud-logging-full-name }}](../../logging/):
+        * `endpoint`: Listener addresses and ports. Specify the external IPv4 address and port for receiving traffic. If the `external_ipv4_address` setting is not specified, a public IP address will be assigned automatically.
+        * `http`: Listener HTTP endpoint description. Specify the HTTP router ID.
+        * `log_options`: Optional [logging](../logs-ref.md) settings for [{{ cloud-logging-full-name }}](../../logging/):
           * `log_group_id`: [Log group](../../logging/concepts/log-group.md) ID.
           * `discard_rule`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules).
             * `http_codes`: HTTP codes.
             * `http_code_intervals`: HTTP code classes.
             * `grpc_codes`: gRPC codes.
-            * `discard_percent`: Discarded logs percentage.
+            * `discard_percent`: Log discard rate.
 
-            You can set multiple rules.
+            You can add multiple rules.
 
-     For more information about the `yandex_alb_load_balancer` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this]({{ tf-provider-resources-link }}/alb_load_balancer) {{ TF }} article.
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     If your configuration is correct, you will see a detailed list of new resources; otherwise, {{ TF }} will show configuration errors.
+  1. Deploy your cloud resources.
+     1. If your configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Type `yes` and press **Enter** to confirm changes.
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+        After that, your resources will appear in the specified folder. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 
         ```bash
         yc alb load-balancer list

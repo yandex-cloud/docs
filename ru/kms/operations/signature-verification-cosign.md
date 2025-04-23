@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
     ```bash
     cosign generate-key-pair \
-        --kms yckms:///folder/<идентификатор_каталога>/keyname/<имя_ключевой_пары>
+      --kms yckms:///folder/<идентификатор_каталога>/keyname/<имя_ключевой_пары>
     ```
 
     Где:
@@ -60,9 +60,9 @@ description: Следуя данной инструкции, вы сможете
 
     ```bash
     cosign sign-blob \
-        --key yckms:///<идентификатор_ключевой_пары> \
-        --tlog-upload=false \
-        <путь_к_файлу>
+      --key yckms:///<идентификатор_ключевой_пары> \
+      --tlog-upload=false \
+      <путь_к_файлу>
     ```
 
     Где:
@@ -85,10 +85,10 @@ description: Следуя данной инструкции, вы сможете
 
 ```bash
 cosign verify-blob \
-    --key yckms:///<идентификатор_ключевой_пары> \
-    --insecure-ignore-tlog \
-    --signature "<значение_электронной_подписи>" \
-    <путь_к_файлу>
+  --key yckms:///<идентификатор_ключевой_пары> \
+  --insecure-ignore-tlog \
+  --signature "<значение_электронной_подписи>" \
+  <путь_к_файлу>
 ```
 
 Где:

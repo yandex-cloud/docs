@@ -1,8 +1,8 @@
 # GrpcBackendGroup resource fields
 
-`GrpcBackendGroup` enables you to combine backends that are {{ k8s }} services and that gRPC traffic is distributed to, into a group. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
+`GrpcBackendGroup` enables you to combine {{ k8s }} service backends processing gRPC traffic into a group. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
 
-You need to add a reference to `GrpcBackendGroup` to the [`Ingress`](../../../application-load-balancer/k8s-ref/ingress.md) resource. This `Ingress` must have the `ingress.alb.yc.io/protocol: grpc` annotation.
+You need to add a reference to `GrpcBackendGroup` to the [`Ingress`](../../../application-load-balancer/k8s-ref/ingress.md) resource. This `Ingress` resource must have the `ingress.alb.yc.io/protocol: grpc` annotation.
 
 {% cut "Example" %}
 
@@ -94,11 +94,11 @@ Where:
 
   * `name` (`string`, required)
 
-    Resource name. For more information about the format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the name format, see the relevant [{{ k8s }} guides](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see the [relevant configuration](../../../application-load-balancer/k8s-ref/ingress.md)).
+    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource. For more information, see the [relevant configuration](../../../application-load-balancer/k8s-ref/ingress.md).
 
-    This name is not the backend group name in {{ alb-name }}.
+    Do not mistake this name for the {{ alb-name }} backend group name.
 
 * `spec` (`GrpcBackendGroupSpec`)
 
@@ -106,7 +106,7 @@ Where:
 
   * `backends` (`[]GrpcBackend`)
   
-    List of backends in the group.
+    List of the group backends.
     
     * `name` (`string`, required)
     
@@ -114,17 +114,17 @@ Where:
     
     * `weight` (`int64`)
 
-      Relative backend weight. Traffic is distributed to backends in a group as a function of backend weights.
+      Backend weight. Backends in a group receive traffic in proportion to their weights.
 
-      Weights must be specified either for all backends in a group, or for none. If weights are not specified, traffic is distributed to the backends as if they had identical positive weights.
+      You should either specify weights for all backends in a group, or not specify them at all. If weights are not specified, traffic will be equally distributed between backends.
 
-      If a non-positive weight is specified, a backend will not receive traffic.
+      A backend with zero or negative weight will not be receiving traffic.
 
     * `service` (`ServiceBackend`)
 
-      Reference to the [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#service) service expected to process requests as a backend.
+      [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#service) service backend for processing requests.
 
-      The `Service` resource this field refers to must be described in line with the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
+      The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
       {% include [k8s-ingress-controller-service-backend](../../application-load-balancer/k8s-ingress-controller-service-backend.md) %}
         
@@ -132,54 +132,54 @@ Where:
     
       TLS connection settings for the load balancer nodes and backend endpoints.
     
-      If the field is specified, the load balancer establishes TLS connections with the backend and compares the certificates it gets with the certificate specified in the `trustedCa` field. If the field is not specified, the load balancer will make unencrypted connections to the backend.
+      If this field is specified, the load balancer will establish TLS connections to the backend, comparing received certificates with the one specified in the `trustedCa` field. Otherwise, the load balancer will use unencrypted connections to the backend.
         
       * `sni` (`string`)
       
-        Domain name specified as the value for the Server Name Indication (SNI) TLS extension.
+        SNI domain name for TLS connections.
       
       * `trustedCa` (`string`)
       
-        Contents of the X.509 certificate issued by a certificate authority in PEM format.  
+        X.509 certificate in PEM format.
 
     * `healthChecks` (`[]HealthChecks`)
 
-      Settings for custom [health checks](../../../application-load-balancer/concepts/backend-group.md#health-checks) of applications in a {{ managed-k8s-name }} cluster.
+      Custom [health checks](../../../application-load-balancer/concepts/backend-group.md#health-checks) settings for {{ managed-k8s-name }} cluster applications.
 
-      By default, the {{ alb-name }} Ingress controller receives health check requests from the L7 load balancer on TCP port `10501` and health checks the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
+      By default, the {{ alb-name }} Ingress controller receives L7 load balancer health check requests on TCP port `10501`. Then it checks [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. Given that kube-proxy is healthy, the process is as follows: if an application does not respond in a particular pod, {{ k8s }} will redirect traffic to a different pod or node.
       
-      You can use the `healthChecks` parameters to [customize application health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md).
+      You can use `healthChecks` settings to [customize application health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md).
 
       * `grpc` (`GrpcBackend`)
 
-        Sets gRPC as the protocol to use for the health check.
+        Specifies gRPC as the health check protocol.
 
         * `serviceName` (`string`)
 
-          Name of the service checked.
+          Name of the service you want to check.
 
       * `port` (`int32`)
 
-        Port on the cluster nodes used to check the application's availability. The same port is specified in the `NodePort` type [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md) resource, in the `spec.ports.nodePort` parameter.
+        Cluster node port for checking application availability. This port should match the `spec.ports.nodePort` value of the `NodePort` [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md) resource.
 
-        The application will be available for health checks at `http://<node_IP_address>:<port>/<path>`.
+        The application will listen for health check requests on `http://<node_IP_address>:<port>/<path>`.
 
       * `healthyThreshold` (`int32`)
 
-        Number of consecutive successful checks to consider the application endpoint healthy.
+        Number of consecutive successful checks required before considering the application endpoint healthy.
 
       * `unhealthyThreshold` (`int32`)
 
-        Number of consecutive failed checks to consider the application endpoint unhealthy.
+        Number of consecutive failed checks required before considering the application endpoint unhealthy.
 
       * `timeout` (`string`)
 
-        Response timeout in seconds. The values range from `1s` to `60s`.
+        Response timeout in seconds. You can specify values between `1s` and `60s`.
 
       * `interval` (`string`)
 
-        Interval between health check requests in seconds.
+        Health check request interval in seconds.
 
-        The values range from `1s` to `60s`. The `interval` value must be larger than `timeout` by at least one second.
+        You can specify values between `1s` and `60s`. `interval` must exceed `timeout` by at least one second.
 
       {% include [alb-custom-hc-enabling](../../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}

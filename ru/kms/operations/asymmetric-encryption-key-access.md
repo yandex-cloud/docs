@@ -49,36 +49,36 @@ description: Следуя данной инструкции, вы сможете
 
          ```bash
          yc kms asymmetric-encryption-key add-access-binding \
-            --id <идентификатор_ключевой_пары> \
-            --role <роль> \
-            --user-account-id <идентификатор_пользователя>
+           --id <идентификатор_ключевой_пары> \
+           --role <роль> \
+           --user-account-id <идентификатор_пользователя>
          ```
 
       * Федеративному пользователю:
 
          ```bash
          yc kms asymmetric-encryption-key add-access-binding \
-            --id <идентификатор_ключевой_пары> \
-            --role <роль> \
-            --subject federatedUser:<идентификатор_пользователя>
+           --id <идентификатор_ключевой_пары> \
+           --role <роль> \
+           --subject federatedUser:<идентификатор_пользователя>
          ```
 
       * Сервисному аккаунту:
 
          ```bash
          yc kms asymmetric-encryption-key add-access-binding \
-            --id <идентификатор_ключевой_пары> \
-            --role <роль> \
-            --service-account-id <идентификатор_сервисного_аккаунта>
+           --id <идентификатор_ключевой_пары> \
+           --role <роль> \
+           --service-account-id <идентификатор_сервисного_аккаунта>
          ```
 
       * Группе пользователей:
 
          ```bash
          yc kms asymmetric-encryption-key add-access-binding \
-            --id <идентификатор_ключевой_пары> \
-            --role <роль> \
-            --subject group:<идентификатор_группы>
+           --id <идентификатор_ключевой_пары> \
+           --role <роль> \
+           --subject group:<идентификатор_группы>
          ```
 
 - {{ TF }} {#tf}
@@ -157,7 +157,7 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       yc kms asymmetric-encryption-key list-access-bindings \
-         --id <идентификатор_ключевой_пары>
+        --id <идентификатор_ключевой_пары>
       ```
 
    1. Посмотрите описание команды CLI для назначения ролей:
@@ -179,42 +179,42 @@ description: Следуя данной инструкции, вы сможете
 
          ```bash
          yc kms asymmetric-encryption-key set-access-bindings \
-            --id <идентификатор_ключевой_пары> \
-            --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
+           --id <идентификатор_ключевой_пары> \
+           --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
          ```
 
       * Федеративному пользователю:
 
          ```bash
          yc kms asymmetric-encryption-key set-access-bindings \
-            --id <идентификатор_ключевой_пары> \
-            --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
+           --id <идентификатор_ключевой_пары> \
+           --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
          ```
 
       * Сервисному аккаунту:
 
          ```bash
          yc kms asymmetric-encryption-key set-access-bindings \
-            --id <идентификатор_ключевой_пары> \
-            --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
+           --id <идентификатор_ключевой_пары> \
+           --access-binding role=<роль>,service-account-id=<идентификатор_сервисного_аккаунта>
          ```
 
       * Группе пользователей:
 
          ```bash
          yc kms asymmetric-encryption-key set-access-bindings \
-            --id <идентификатор_ключевой_пары> \
-            --access-binding role=<роль>,subject=group:<идентификатор_группы>
+           --id <идентификатор_ключевой_пары> \
+           --access-binding role=<роль>,subject=group:<идентификатор_группы>
          ```
 
       Для каждой роли передайте отдельный флаг `--access-binding`. Пример:
 
       ```bash
       yc kms asymmetric-encryption-key set-access-bindings \
-         --id <идентификатор_ключевой_пары> \
-         --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
-         --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
-         --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
+        --id <идентификатор_ключевой_пары> \
+        --access-binding role=<роль1>,service-account-id=<идентификатор_сервисного_аккаунта> \
+        --access-binding role=<роль2>,service-account-id=<идентификатор_сервисного_аккаунта> \
+        --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
       ```
 
 - {{ TF }} {#tf}

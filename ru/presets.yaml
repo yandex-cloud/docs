@@ -1496,6 +1496,8 @@ default:
       mysql:
         highfreq-v3:
           cpu:
+            c100:
+              dedicated|string: "4,50\_₸"
             c100|month|string: "9\_684,00\_₸"
             c100|string: "13,45\_₸"
           ram:
@@ -2277,11 +2279,14 @@ default:
         v1|month|string: "10,05\_₸"
     v1:
       serverless:
+        provisioned_rcu|number: 0.08
         requests|pricingRate:
           1|number: 106.9
           1|string: "106,90\_₸"
         requests|string: Не тарифицируется
         storage|month|string: Не тарифицируется
+        storage|pricingRate:
+          720|month|string: "106,90\_₸"
   sku|KZT|yds:
     events:
       puts|pricingRate:
@@ -3072,6 +3077,8 @@ default:
       mysql:
         highfreq-v3:
           cpu:
+            c100:
+              dedicated|string: "0,90\_₽"
             c100|month|string: "1\_936,80\_₽"
             c100|string: "2,69\_₽"
           ram:
@@ -3861,11 +3868,14 @@ default:
         v1|month|string: "2,01\_₽"
     v1:
       serverless:
+        provisioned_rcu|number: 0.016
         requests|pricingRate:
           1|number: 21.38
           1|string: "21,38\_₽"
         requests|string: Не тарифицируется
         storage|month|string: Не тарифицируется
+        storage|pricingRate:
+          720|month|string: "21,38\_₽"
   sku|RUB|yds:
     events:
       puts|pricingRate:
@@ -4483,6 +4493,8 @@ default:
       mysql:
         highfreq-v3:
           cpu:
+            c100:
+              dedicated|string: "0,007200\_$"
             c100|month|string: "15,494400\_$"
             c100|string: "0,021520\_$"
           ram:
@@ -5304,11 +5316,14 @@ default:
         v1|month|string: "0,016080\_$"
     v1:
       serverless:
+        provisioned_rcu|number: 0.000128
         requests|pricingRate:
           1|number: 0.17104
           1|string: "0,171040\_$"
         requests|string: Не тарифицируется
         storage|month|string: Не тарифицируется
+        storage|pricingRate:
+          720|month|string: "0,171040\_$"
   sku|USD|yds:
     events:
       puts|pricingRate:
@@ -6028,6 +6043,8 @@ default:
           action:
             add-federated-users: Добавить федеративных пользователей
             invite-users: Пригласить пользователей с аккаунтом на Яндексе
+          dropdown:
+            button-text: Добавить пользователя
       pages:
         acl: Права доступа
         federations: Федерации
@@ -6359,6 +6376,27 @@ default:
         label_instances: Виртуальные машины
         label_navigate-to-journal-action: Открыть журнал резервирования
         label_policies: Политики копирования
+        policy-form:
+          field_action-on-task-failure: Повторение операций при сбое задания
+          field_attempts-qty: Количество попыток
+          field_interval-between-attempts: Интервал между попытками
+          field_snapshot-reaatempt: В случае ошибки при создании снимка повторить попытку
+          title_additional-section: Дополнительно
+          title_retention-section: Настройки хранения
+          title_schedule-section: Расписание запуска
+          value_weekly-full-copy: Раз в неделю создавать полную копию
+        policy-overview:
+          field_compression: Уровень сжатия
+          field_error-handling: Обработка ошибок
+          field_exclusion-masks: >-
+            Не выполнять резервное копирование файлов, соответствующих следующим
+            критериям
+          field_fast-copy: Быстрое резервное копирование
+          field_files-filters: Фильтры файлов
+          field_inclusion-masks: >-
+            Выполнять резервное копирование только файлов, соответствующих
+            следующим критериям
+          field_multivolume-snapshot: Одновременное создание снимков нескольких томов
         title_backup: Резервное копирование
         title_linked-recourses: Привязанные ресурсы
         value_bms-recourses: Серверы BareMetal
@@ -7439,8 +7477,12 @@ default:
               ssdDisks:
                 size: Общий объём SSD-дисков
             label_quota-name-mdb:
+              cpu:
+                count: Количество vCPU
               hdd:
                 size: Объём HDD-хранилищ
+              memory:
+                size: Объём виртуальной памяти
               ssd:
                 size: Объём SSD-хранилищ
             value_status-error: Почти израсходованы

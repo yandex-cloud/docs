@@ -1,3 +1,8 @@
+---
+title: Working with operations using the API
+description: In this article, you will learn about asynchronous operations, the object they return and how to work with it, and about the idempotency mechanism.
+---
+
 # Working with operations
 
 All operations that change the state of a resource are [asynchronous signature](async.md) operations. When these operations are called, the server returns the `Operation` object. Use this object for [operation status monitoring](operation.md#monitoring).

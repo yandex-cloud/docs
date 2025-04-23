@@ -32,8 +32,6 @@ items:
         href: concepts/dspm.md
       - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
         href: concepts/ciem.md
-      - name: Compliance Portal
-        href: concepts/compliance.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

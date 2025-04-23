@@ -23,6 +23,15 @@ meta:
   description: >-
     Yandex Message Queue — универсальное масштабируемое решение для обмена
     сообщениями между приложениями.
+  keywords:
+    - keyword: '{{ message-queue-name }}'
+    - keyword: '{{ message-queue-full-name }}'
+    - keyword: сервис {{ message-queue-name }}
+    - keyword: очереди в {{ yandex-cloud }}
+    - keyword: очереди сообщений в {{ yandex-cloud }}
+    - keyword: обмен сообщениями между приложениями в {{ yandex-cloud }}
+    - keyword: очереди сообщений
+    - keyword: обмен сообщениями между приложениями
 links:
   - title: Начало работы
     description: Создайте и настройте первую очередь сообщений

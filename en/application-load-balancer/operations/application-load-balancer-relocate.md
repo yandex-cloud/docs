@@ -1,23 +1,23 @@
 ---
-title: How to move a VM behind an L7 load balancer to a target group in a new availability zone
-description: Follow this guide to move VMs behind an L7 load balancer to a target group in a new availability zone.
+title: How to move an L7 load balancer backend VM to a target group in a new availability zone
+description: In this tutorial, you will learn how to move an L7 load balancer backend VM to a target group in a new availability zone.
 ---
 
 # Moving a VM to a target group in a new availability zone
 
 
-To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../concepts/application-load-balancer.md) to a [target group](../concepts/target-group.md) in a new [availability zone](../../overview/concepts/geo-scope.md):
+To move an [L7 load balancer](../concepts/application-load-balancer.md) backend [VM](../../compute/concepts/vm.md) to a [target group](../concepts/target-group.md) in a new [availability zone](../../overview/concepts/geo-scope.md):
 
-1. Enable traffic for the load balancer in the new availability zone:
+1. Enable load balancer traffic in the new availability zone:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder containing the load balancer.
+      1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the row with the load balancer, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-      1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone to move your VMs to.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer you need, then select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone where you plan to move your VM.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
     - CLI {#cli}
@@ -56,7 +56,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
             --zone <availability_zone>
           ```
 
-          Where `--zone` is the availability zone to which you want to move your VMs.
+          Where `--zone` is the availability zone where you plan to move your VMs.
 
           Result:
 
@@ -87,7 +87,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
       If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-      1. Open the {{ TF }} configuration file for the L7 load balancer and, under `allocation_policy`, specify a new availability zone and the ID of the previously created subnet:
+      1. Open the {{ TF }} L7 load balancer configuration file and, under `allocation_policy`, specify the new availability zone and the ID of the previously created subnet:
 
          ```hcl
          ...
@@ -99,7 +99,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
                ]
                subnet_id = [
                  "<subnet_ID_in_previous_availability_zone>",
-                 "<subnet_ID_in_new_availability_zone>"
+                 "<ID_of_subnet_in_new_availability_zone>"
                ]
              }
            }
@@ -109,15 +109,15 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
          Where:
          * `zone_id`: Availability zones where the load balancer will receive traffic.
-         * `subnet_id`: IDs of the subnets in the availability zones.
+         * `subnet_id`: IDs of the subnets in these availability zones.
 
-         For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+         For more information about resource properties in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
 
       1. Apply the changes:
 
          {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-         The load balancer will start receiving traffic in the new availability zone. You can check this using the [management console]({{ link-console-main }}) or this CLI command:
+         The load balancer will start receiving traffic in the new availability zone. You can check this in the [management console]({{ link-console-main }}) or using this CLI command:
 
          ```bash
          yc alb load-balancer get <load_balancer_name>
@@ -129,20 +129,20 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
    {% endlist %}
 
-1. [Set up](../../vpc/operations/security-group-add-rule.md) a [security group](../../vpc/concepts/security-groups.md) for the load balancer if needed. For the load balancer to run properly, its security groups must allow outgoing connections to the IP addresses of the subnet in the new availability zone of your VMs.
-1. [Move](../../compute/operations/vm-control/vm-change-zone.md) the VM to the new availability zone.
-1. [Add](../../application-load-balancer/operations/target-group-update.md#add-targets) new VMs to the load balancer's target group and [delete](../../application-load-balancer/operations/target-group-update.md#remove-targets) the old ones.
-1. Make sure the load balancer identifies the VM status as `HEALTHY`:
+1. [Set up](../../vpc/operations/security-group-add-rule.md) a [security group](../../vpc/concepts/security-groups.md) for the load balancer if needed. For proper load balancer operation, its security groups must allow outbound connections to the subnet addresses in your VM’s new availability zone.
+1. [Move](../../compute/operations/vm-control/vm-change-zone.md) your VM to the new availability zone.
+1. [Add](../../application-load-balancer/operations/target-group-update.md#add-targets) your VM to the load balancer target group and [delete](../../application-load-balancer/operations/target-group-update.md#remove-targets) its old entry.
+1. Make sure the load balancer identifies your VM status as `HEALTHY`:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder containing the load balancer.
+     1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-     1. Select the appropriate load balancer.
-     1. Go to the ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}** tab.
-     1. Expand the list of targets. Make sure that the VMs attached to the target group have the `HEALTHY` [status](../../compute/concepts/vm-statuses.md).
+     1. Select the load balancer you need.
+     1. Navigate to the ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}** tab.
+     1. Expand the list of targets. Make sure the target group VMs have the `HEALTHY` [status](../../compute/concepts/vm-statuses.md).
 
    - API {#api}
 
@@ -150,6 +150,6 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
    {% endlist %}
 
-   The VM [status](../../compute/concepts/vm-statuses.md) is not identified as `HEALTHY` immediately after attaching them to the target group. This may take a few minutes depending on the backend settings.
+   The load balancer will not recognize a VM [status](../../compute/concepts/vm-statuses.md) as `HEALTHY` immediately after adding it to the target group. This may take a few minutes depending on your backend settings.
 
-   If the load balancer identifies the VM status as `UNHEALTHY` for a long time, check whether the load balancer's security groups are set up [correctly](../concepts/application-load-balancer.md#security-groups).
+   If the load balancer consistently identifies your VM status as `UNHEALTHY` over an extended period, check its [security group](../concepts/application-load-balancer.md#security-groups) configuration.

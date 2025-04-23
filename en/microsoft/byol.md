@@ -1,6 +1,6 @@
 # Use of personal licenses for Microsoft products
 
-{{ yandex-cloud }} allows you to use your own Microsoft product licenses on [dedicated hosts](../compute/concepts/dedicated-host.md). In this case, the license relationships regulate only you as a client and Microsoft as a license vendor. You are fully responsible for complying with the Microsoft license [terms and conditions](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+{{ yandex-cloud }} allows you to use your own Microsoft product licenses on [dedicated hosts](../compute/concepts/dedicated-host.md). In this case, the license relationships regulate only you as a client and Microsoft as a license vendor. You are fully responsible for complying with the Microsoft license [terms and conditions](https://www.microsoft.com/en-us/useterms).
 
 When using Microsoft license products in {{ yandex-cloud }}, the cost of license is deducted from the cost of VM usage. You need to settle all license-related matters with your supplier.
 

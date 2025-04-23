@@ -1,4 +1,6 @@
 ---
+title: '{{ sd-full-name }} pricing policy'
+description: This article covers the {{ sd-name }} pricing policy.
 editable: false
 ---
 

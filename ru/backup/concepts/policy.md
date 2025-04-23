@@ -2,7 +2,15 @@
 
 Резервные копии ресурсов {{ yandex-cloud }} создаются в {{ backup-name }} автоматически в соответствии с _политиками резервного копирования_.
 
-Создание политик доступно после [активации](index.md#providers) сервиса {{ backup-name }}.
+[Создание](../operations/policy-vm/create.md) политик доступно после [активации](index.md#providers) сервиса {{ backup-name }}.
+
+{% note info %}
+
+Создать или [изменить](../operations/policy-vm/update.md) политику можно с помощью консоли управления {{ yandex-cloud }}, {{ TF }}, а также задать по [спецификации](#specification) в формате [JSON](https://ru.wikipedia.org/wiki/JSON), используя [CLI](../../cli/quickstart.md) {{ yandex-cloud }} или API.
+
+В консоли управления {{ yandex-cloud }} поддерживаются не все параметры из JSON-спецификации политик.
+
+{% endnote %}
 
 {% include [default-policies](../../_includes/backup/default-policies.md) %}
 

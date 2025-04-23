@@ -28,7 +28,7 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -202,7 +202,7 @@ We recommend changing broker host class only when there is no active workload on
 
   To change the class and number of hosts:
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Change the required settings:
      * To edit the broker host class, select a new [**{{ ui-key.yacloud.mdb.forms.section_resource }}**](../concepts/instance-types.md).
@@ -432,7 +432,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Select a new [**{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**](../concepts/instance-types.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -630,7 +630,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
   1. Enable or disable public access to a cluster via the **Public access** option.
@@ -825,7 +825,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Change additional cluster settings:
 
@@ -870,7 +870,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
     * `--schema-registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`.
 
@@ -891,11 +891,11 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
           ...
-          deletion_protection = <deletion_protection>
+          deletion_protection = <cluster_deletion_protection>
         }
         ```
 
-        {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
     1. To enable data schema management using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add the `config.schema_registry` field set to `true` to the cluster description:
 
@@ -955,7 +955,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                           "hour": "<hour_UTC>"
                         }
                       },
-                      "deletionProtection": <deletion_protection:_true_or_false>
+                      "deletionProtection": <cluster_deletion_protection:_true_or_false>
                     }'
         ```
 
@@ -970,7 +970,10 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 
             * `maintenanceWindow`: To change the [maintenance window](../concepts/maintenance.md) settings, including for disabled clusters.
-            * `deletionProtection`: To enable or disable protection of the cluster, its databases, and users against accidental deletion.
+            * `deletionProtection`: To enable or disable cluster protection against accidental deletion.
+
+              Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
+
         * `configSpec.schemaRegistry`: Set to `true` to manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md). You will not be able to edit this setting once it is enabled.
         * `configSpec.restApiConfig.enabled`: Set to `true` for access to sending requests to the {{ KF }} REST API. You will not be able to edit this setting once it is enabled.
 
@@ -982,9 +985,9 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
-        * `deletionProtection`: To enable or disable protection of the cluster, its database, and users against accidental deletion.
+        * `deletionProtection`: To enable or disable cluster protection against accidental deletion.
 
-            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -1033,7 +1036,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                       "hour": "<hour_UTC>"
                     }
                   },
-                  "deletion_protection": <deletion_protection:_true_or_false>
+                  "deletion_protection": <cluster_deletion_protection:_true_or_false>
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.kafka.v1.ClusterService.Update
@@ -1062,9 +1065,9 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
-        * `deletion_protection`: To enable (`true`) or disable (`false`) protection of the cluster, its databases, and users against accidental deletion.
+        * `deletion_protection`: To enable (`true`) or disable (`false`) cluster protection against accidental deletion.
 
-            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -1078,7 +1081,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings-kafka }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
 

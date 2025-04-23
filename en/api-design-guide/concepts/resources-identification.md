@@ -1,3 +1,8 @@
+---
+title: Identifying resources in the API
+description: In this tutorial, you will learn about resource identification in the {{ yandex-cloud }} API.
+---
+
 # Resource identification
 
 Each resource in the {{ yandex-cloud }} APIs has its own unique ID. IDs are generated on the service side. An ID is a string consisting of Latin letters and numbers.
@@ -22,7 +27,7 @@ Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/bl
 In the REST API, each resource has its own unique URL generated according to the pattern:
 
 ```http
-https://<domain>/<service>/<API version>/<resource category>/<resource identifier>
+https://<domain>/<service>/<API version>/<resource category>/<resource ID>
 ```
 
 Sample REST request for a disk:
@@ -30,7 +35,7 @@ Sample REST request for a disk:
  GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 ```
 
-As you can see from the example, a resource URL is identified by the <q>resource category and resource ID</q> bundle.
+As you can see from the example, the resource URL is identified by the <q>resource category and resource ID</q> bundle.
 
 The resource category determines the type of resource. For example, `disks` is a category of disks; `instances` is a category of VMs; and `images` is a category of images.
 
@@ -79,13 +84,13 @@ Sample REST request for getting a DB:
  GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/24f17h0gfqf7oeuis2f/databases/db-testing
 ```
 Where:
-- `clusters`: Category of the parent resource.
-- `24f17h0gfqf7oeuis2f`: ID of the parent resource.
-- `databases`: Category of the nested resource.
-- `db-testing`: ID of the nested resource.
+ - `clusters`: Parent resource category.
+ - `24f17h0gfqf7oeuis2f`: Parent resource ID.
+ - `databases`: Nested resource category.
+ - `db-testing`: Nested resource ID.
 
 
 #### See also {#see-also}
-- [{{ yandex-cloud }} API repository](https://github.com/yandex-cloud/cloudapi): Link to the .proto specifications of the API.
-- [{{ resmgr-full-name }}Documentation](../../resource-manager/concepts/resources-hierarchy.md): Link to the <q>Hierarchy of {{ yandex-cloud }}resources</q> section.
+- [{{ yandex-cloud }} API repository](https://github.com/yandex-cloud/cloudapi): Link to the API .proto specifications.
+- [{{ resmgr-full-name }} documentation](../../resource-manager/concepts/resources-hierarchy.md): Link to the <q>Hierarchy of {{ yandex-cloud }} resources</q> section.
 

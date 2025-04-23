@@ -13,7 +13,7 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 
 {% note info %}
 
-Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions.
+Starting March 1, 2025, support for {{ KF }} 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions.
 
 {% endnote %}
 
@@ -194,7 +194,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
      {% note tip %}
 
@@ -273,7 +273,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
        network_id          = "<network_ID>"
        subnet_ids          = ["<list_of_subnet_IDs>"]
        security_group_ids  = ["<list_of_cluster_security_group_IDs>"]
-       deletion_protection = <deletion_protection>
+       deletion_protection = <cluster_deletion_protection>
 
        config {
          version          = "<version>"
@@ -317,9 +317,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
        * `zones = ["<one_availability_zone>"] brokers_count = 1`
        * `zones = ["<one_availability_zone>"] brokers_count = 3`
 
-     * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+     * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
-       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+       Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
      * `assign_public_ip`: Public access to the cluster, `true` or `false`.
      * `schema_registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`.
@@ -378,7 +378,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 "<security_group_N_ID>"
               ],
               "configSpec": {
-                "version": "<{{ KF }}>_version",
+                "version": "<{{ KF }}_version>",
                 "kafka": {
                   "resources": {
                     "resourcePresetId": "<{{ KF }} host_class>",
@@ -438,7 +438,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletionProtection": <deletion_protection:_true_or_false>
+              "deletionProtection": <cluster_deletion_protection:_true_or_false>
             }
             ```
 
@@ -499,9 +499,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletionProtection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
-                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+                Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
             
             To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `hostGroupIds` parameter.
@@ -564,7 +564,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 "<security_group_N_ID>"
               ],
               "config_spec": {
-                "version": "<{{ KF }}>_version",
+                "version": "<{{ KF }}_version>",
                 "kafka": {
                   "resources": {
                     "resource_preset_id": "<{{ KF }} host_class>",
@@ -630,7 +630,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletion_protection": <deletion_protection:_true_or_false>
+              "deletion_protection": <cluster_deletion_protection:_true_or_false>
             }
             ```
 
@@ -691,9 +691,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletion_protection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
-                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+                Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
             
             To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `host_group_ids` parameter.
@@ -822,10 +822,10 @@ To create a {{ KF }} cluster copy:
   * With one broker host.
   * Network SSD storage (`{{ disk-type-example }}`): 10 GB.
   * Public access: Allowed.
-  * Protection against accidental {{ mkf-name }} cluster deletion: Enabled.
+  * Deletion protection: Enabled.
 
 
-  Run this command:
+  Run the following command:
 
   
   ```bash
@@ -864,7 +864,7 @@ To create a {{ KF }} cluster copy:
   * With one broker host.
   * Network SSD storage (`{{ disk-type-example }}`): 10 GB.
   * Public access: Allowed.
-  * Protection against accidental {{ mkf-name }} cluster deletion: Enabled.
+  * Deletion protection: Enabled.
 
   The configuration file for this {{ mkf-name }} cluster is as follows:
 

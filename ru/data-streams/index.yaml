@@ -15,6 +15,16 @@ meta:
   description: >-
     Yandex Data Streams — масштабируемый сервис для управления потоками данных в
     режиме реального времени.
+  keywords:
+    - keyword: yds
+    - keyword: '{{ yds-name }}'
+    - keyword: '{{ yds-full-name }}'
+    - keyword: сервис {{ yds-name }}
+    - keyword: потоки данных в {{ yandex-cloud }}
+    - keyword: потоки передачи данных в {{ yandex-cloud }}
+    - keyword: потоки данных
+    - keyword: потоки передачи данных
+    - keyword: управления потоками данных в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте поток данных, настройте поставку и сохранение данных

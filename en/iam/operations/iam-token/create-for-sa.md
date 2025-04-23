@@ -128,8 +128,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [PyJWT](https://github.com/jpadilla/pyjwt/):
-  - Verified for Python 3.12.2 and PyJWT 2.8.0.
-  - The required data is read from the JSON file obtained when creating the authorized key.
+  - Tested for Python 3.13.0 and PyJWT 2.10.0.
+  - Required data is read from the JSON file obtained when creating the authorized key.
 
   Install the `PyJWT` and `cryptography` modules to use `PS256` algorithm:
   
@@ -138,42 +138,52 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   pip3 install cryptography
   ```
 
+  
   ```python
   import time
   import jwt
   import json
 
+  key_path = '<JSON_file_with_keys>'
+
   # Reading a private key from a JSON file
-  with open('<JSON_file_with_keys>', 'r') as f: 
+  with open(key_path, 'r') as f:
     obj = f.read() 
     obj = json.loads(obj)
     private_key = obj['private_key']
     key_id = obj['id']
     service_account_id = obj['service_account_id']
 
-  now = int(time.time())
-  payload = {
-          'aud': 'https://iam.{{ api-host }}/iam/v1/tokens',
-          'iss': service_account_id,
-          'iat': now,
-          'exp': now + 3600
-        }
+  sa_key = {
+      "id": key_id,
+      "service_account_id": service_account_id,
+      "private_key": private_key
+  }
 
-  # JWT generation.
-  encoded_token = jwt.encode(
-      payload,
-      private_key,
-      algorithm='PS256',
-      headers={'kid': key_id}
-    )
+  def create_jwt():
+      now = int(time.time())
+      payload = {
+              'aud': 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+              'iss': service_account_id,
+              'iat': now,
+              'exp': now + 3600
+          }
 
-  #Writing a key to a file
-  with open('jwt_token.txt', 'w') as j:
-     j.write(encoded_token)
-     
-  # Printing to console
-  print(encoded_token)
+      # JWT generation.
+      encoded_token = jwt.encode(
+          payload,
+          private_key,
+          algorithm='PS256',
+          headers={'kid': key_id}
+      )
+
+      print(encoded_token)
+
+      return encoded_token
+
+  create_jwt()
   ```
+
 
 - Java {#java}
 
@@ -181,7 +191,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   Example of creating a JWT using the [JJWT](https://github.com/jwtk/jjwt), [Bouncy Castle](https://github.com/bcgit/bc-java), and [Jackson Databind](https://github.com/FasterXML/jackson-databind) libraries:
   - Verified for Java 21 and JJWT 0.12.5.
-  - The required data is read from the JSON file obtained when creating the authorized key.
+  - Required data is read from the JSON file obtained when creating the authorized key.
 
   ```java
   package com.mycompany.java.jwt;
@@ -354,8 +364,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [golang-jwt](https://github.com/golang-jwt/jwt).
-  - Verified for Go1.22.1 and golang-jwt v5.
-  - The private key is read from the JSON file obtained when creating the authorized key.
+  - Tested for Go 1.23.1 and golang-jwt v5.
+  - Private key is read from the JSON file obtained when creating the authorized key.
 
   Install the required packages:
 
@@ -364,6 +374,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   go get -u github.com/golang-jwt/jwt/v5
   ```
 
+    
   ```go
   package main  
   
@@ -379,15 +390,15 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   
   func main() {
     // Getting a token
-  	 token := signedToken()
+  	token := signedToken()
     // Saving the token to a file
-  	 err := os.WriteFile("jwt_token.txt", []byte(token), 0644)
-  	 if err != nil {
-  		log.Fatal(err)
-  	 }
-  	 // Printing the token to console
-  	 fmt.Println("Here is token:")
-  	 fmt.Println(token)
+  	err := os.WriteFile("jwt_token.txt", []byte(token), 0644)
+  	if err != nil {
+  	  log.Fatal(err)
+  	}
+  	// Printing the token to console
+  	fmt.Println("Here is token:")
+  	fmt.Println(token)
   }
   
   const (
@@ -398,46 +409,50 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   
   // JWT generation.
   func signedToken() string {
-  	 claims := jwt.RegisteredClaims{
+  	claims := jwt.RegisteredClaims{
   	 	Issuer:    serviceAccountID,
   	 	ExpiresAt: jwt.NewNumericDate(time.Now().UTC().Add(1 * time.Hour)),
   	 	IssuedAt:  jwt.NewNumericDate(time.Now().UTC()),
   	 	NotBefore: jwt.NewNumericDate(time.Now().UTC()),
   	 	Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
-  	 }
-  	 token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
-  	 token.Header["kid"] = keyID
+  	}
+  	token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
+  	token.Header["kid"] = keyID
   
-  	 privateKey := loadPrivateKey()
-  	 signed, err := token.SignedString(privateKey)
-  	 if err != nil {
+  	privateKey := loadPrivateKey()
+  	signed, err := token.SignedString(privateKey)
+  	if err != nil {
   		panic(err)
-  	 }
-  	 return signed
-  }
-  
-  type keyFileStruct struct {
-  	 PrivateKey string `json:"private_key"`
+  	}
+
+  	return signed
   }
   
   func loadPrivateKey() *rsa.PrivateKey {
-  	 data, err := os.ReadFile(keyFile)
-  	 if err != nil {
-  		panic(err)
-  	 }
-  
-  	 var keyData keyFileStruct
-  	 if err := json.Unmarshal(data, &keyData); err != nil {
-  		panic(err)
-  	 }
-  
-  	 rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM([]byte(keyData.PrivateKey))
-  	 if err != nil {
-  		panic(err)
-  	 }
-  	 return rsaPrivateKey
+    keyData := readPrivateKey()
+
+    rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM([]byte(keyData.PrivateKey))
+    if err != nil {
+      panic(err)
+    }
+    return rsaPrivateKey
+	}
+
+  func readPrivateKey() *iamkey.Key {
+    data, err := os.ReadFile(keyFile)
+    if err != nil {
+      panic(err)
+    }
+
+    var keyData *iamkey.Key
+    if err := json.Unmarshal(data, &keyData); err != nil {
+      panic(err)
+    }
+
+    return keyData
   }
   ```
+
 
 - Node.js {#node}
 
@@ -445,37 +460,39 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   Example of creating a JWT using [node-jose](https://github.com/cisco/node-jose):
   - Verified for Node.js v20.12.1 and node-jose 2.2.0.
-  - The required data is read from the JSON file obtained when creating the authorized key.
+  - Required data is read from the JSON file obtained when creating the authorized key.
 
+  
   ```js
-  var jose = require('node-jose');
-  var fs = require('fs');
-  
-  var json = JSON.parse(fs.readFileSync(require.resolve('<JSON_file_with_keys>')));
-  
-  var key = json.private_key;
-  var serviceAccountId = json.service_account_id;
-  var keyId = json.id;
-  
-  var now = Math.floor(new Date().getTime() / 1000);
-  
-  var payload = {
-     aud: "https://iam.{{ api-host }}/iam/v1/tokens",
-     iss: serviceAccountId,
-     iat: now,
-     exp: now + 3600
-  };
-  
-  jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
-     .then(function (result) {
-        jose.JWS.createSign({ format: 'compact' }, result)
-           .update(JSON.stringify(payload))
-           .final()
-           .then(function (result) {
-              console.log(result);
-           });
-     });
+  const serviceAccountJson = require('<JSON_file_with_keys>')
+  const jose = require('node-jose');
+
+  const {
+      id: accessKeyId,
+      service_account_id: serviceAccountId,
+      private_key: privateKey
+  } = serviceAccountJson
+
+  const createJWT = () =>
+  {
+      const now = Math.floor(new Date().getTime() / 1000)
+      const payload = {
+          iss: serviceAccountId,
+          iat: now,
+          exp: now + 3600,
+          aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+      
+      return jose.JWK.asKey(privateKey, 'pem', { kid: accessKeyId, alg: 'PS256' })
+          .then(function (result)
+          {
+              return jose.JWS.createSign({ format: 'compact' }, result)
+                  .update(JSON.stringify(payload))
+                  .final();
+          });
+  }
   ```
+
+  
 
 - PHP {#php}
 
@@ -484,7 +501,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   Example of creating a JWT using [PHP JWT Framework](https://github.com/web-token/jwt-framework):
   - Verified for PHP v8.3.4 and web-token/jwt-framework v3.3.5.
   - Verified for PHP v7.4.33 and web-token/jwt-framework v2.2.11.
-  - The required data is read from the JSON file obtained when creating the authorized key.
+  - Required data is read from the JSON file obtained when creating the authorized key.
 
 
   ```php
@@ -550,7 +567,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   Example of creating a JWT using [jwt-cpp](https://github.com/Thalhammer/jwt-cpp):
   - Verified for C++ 14 and jwt-cpp 0.7.0.
-  - The required data is read from the JSON file obtained when creating the authorized key.
+  - Required data is read from the JSON file obtained when creating the authorized key.
 
   ```cpp
   #include <chrono>
@@ -598,7 +615,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   Example of creating a JWT using [ruby-jwt](https://github.com/jwt/ruby-jwt):
   - Verified for Ruby 3.2.3 and jwt 2.8.1.
-  - The required data is read from the JSON file obtained when creating the authorized key.
+  - Required data is read from the JSON file obtained when creating the authorized key.
 
   Install the jwt package:
 
@@ -675,51 +692,163 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   curl \
       --request POST \
       --header 'Content-Type: application/json' \
-      --data '{"jwt": "<JWT_token>"}' \
+      --data '{"jwt": "<JWT>"}' \
       https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
   Where `<JWT_token>` is the JWT you got in the previous step.
 
+- Python {#python}
+
+  To exchange your JWT for an IAM token, you can use the [YC-SDK](../../../overview/sdk/overview.md) for Python.
+  1. Install the {{ yandex-cloud }} SDK for Python: 
+
+      ```bash
+      pip install yandexcloud
+      ```
+
+  1. Exchange your JWT for an IAM token:
+
+      ```go
+      import yandexcloud
+
+      from yandex.cloud.iam.v1.iam_token_service_pb2 import (CreateIamTokenRequest)
+      from yandex.cloud.iam.v1.iam_token_service_pb2_grpc import IamTokenServiceStub
+
+      key_path = '<JSON_file_with_keys>'
+
+      # Reading a private key from a JSON file
+      with open(key_path, 'r') as f:
+        obj = f.read() 
+        obj = json.loads(obj)
+        private_key = obj['private_key']
+        key_id = obj['id']
+        service_account_id = obj['service_account_id']
+
+      sa_key = {
+          "id": key_id,
+          "service_account_id": service_account_id,
+          "private_key": private_key
+      }
+
+      def create_iam_token():
+        jwt = create_jwt()
+        
+        sdk = yandexcloud.SDK(service_account_key=sa_key)
+        iam_service = sdk.client(IamTokenServiceStub)
+        iam_token = iam_service.Create(
+            CreateIamTokenRequest(jwt=jwt)
+        )
+        
+        print("Your iam token:")
+        print(iam_token.iam_token)
+
+        return iam_token.iam_token
+      ```
+
 - Go {#go}
 
-  Example of a JWT exchange for an IAM token:
+  To exchange your JWT for an IAM token, you can use the [YC-SDK](../../../overview/sdk/overview.md) for Go.
+  1. Install the {{ yandex-cloud }} SDK for Go: 
 
-  ```go
-  import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strings"
-  )
+      ```bash
+      go get github.com/yandex-cloud/go-sdk
+      ```
 
-  func getIAMToken() string {
-    jot := signedToken()
-    fmt.Println(jot)
-    resp, err := http.Post(
-        "https://iam.{{ api-host }}/iam/v1/tokens",
-        "application/json",
-        strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
-    )
-    if err != nil {
-        panic(err)
-    }
-    defer resp.Body.Close()
-    if resp.StatusCode != http.StatusOK {
-        body, _ := ioutil.ReadAll(resp.Body)
-        panic(fmt.Sprintf("%s: %s", resp.Status, body))
-    }
-    var data struct {
-        IAMToken string `json:"iamToken"`
-    }
-    err = json.NewDecoder(resp.Body).Decode(&data)
-    if err != nil {
-        panic(err)
-    }
-    return data.IAMToken
-  }
-  ```
+  1. Exchange your JWT for an IAM token:
+
+      ```go
+      import (
+        "context"
+        
+        "github.com/yandex-cloud/go-genproto/yandex/cloud/iam/v1"
+        ycsdk "github.com/yandex-cloud/go-sdk"
+      )
+
+      func getIAMToken() string {
+        authKey := readPrivateKey()
+        ctx := context.Background()
+
+        credentials, err := ycsdk.ServiceAccountKey(authKey)
+        if err != nil {
+          panic(err)
+        }
+
+        sdk, err := ycsdk.Build(ctx, ycsdk.Config{
+          Credentials: credentials,
+        })
+        if err != nil {
+          panic(err)
+        }
+
+        iamRequest := &iam.CreateIamTokenRequest{
+          Identity: &iam.CreateIamTokenRequest_Jwt{Jwt: signedToken()},
+        }
+
+        newKey,err := sdk.IAM().IamToken().Create(ctx,iamRequest)
+        if err != nil {
+          panic(err)
+        }
+
+        fmt.Println("Your iam token:")
+        fmt.Println(newKey.IamToken)
+        return newKey.IamToken
+      }
+      ```
+
+- Node.js {#node}
+
+  To exchange your JWT for an IAM token, you can use the [YC-SDK](../../../overview/sdk/overview.md) for Node.js.
+  1. Install the {{ yandex-cloud }} SDK for Node.js: 
+
+      ```bash
+      npm install @yandex-cloud/nodejs-sdk
+      ```
+
+  1. Exchange your JWT for an IAM token:
+
+      ```js
+      const serviceAccountJson = require('<JSON_file_with_keys>')
+      const {
+          serviceClients, Session, cloudApi, waitForOperation, decodeMessage,
+      } = require('@yandex-cloud/nodejs-sdk');
+
+      const {
+          id: accessKeyId,
+          service_account_id: serviceAccountId,
+          private_key: privateKey
+      } = serviceAccountJson
+
+      const {
+          iam: {
+              iam_token_service: {
+                  CreateIamTokenRequest,
+              }
+          }
+      } = cloudApi;
+
+      async function createIamToken()
+      {
+          const session = new Session({
+              serviceAccountJson: {
+                  accessKeyId,
+                  serviceAccountId,
+                  privateKey,
+              }
+          })
+          const tokenClient = session.client(serviceClients.IamTokenServiceClient)
+          const jwt = await createJWT()
+          const tokenRequest = CreateIamTokenRequest.fromPartial({ jwt })
+          const { iamToken } = await tokenClient.create(tokenRequest)
+
+          console.log("Your iam token:")
+          console.log(iamToken)
+
+          return iamToken
+      }
+
+      createIamToken()
+      ```
 
 {% endlist %}
 

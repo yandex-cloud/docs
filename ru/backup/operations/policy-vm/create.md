@@ -1,11 +1,19 @@
 ---
 title: Создать политику резервного копирования
-description: Из статьи вы узнаете, как создать политику резервного копирования в **{{ backup-name }}**.
+description: Из статьи вы узнаете, как создать политику резервного копирования в {{ backup-name }}.
 ---
 
 # Создать политику резервного копирования
 
-Создание политики доступно после [активации](../../concepts/index.md#providers) сервиса {{ backup-name }}.
+Создание [политики](../../concepts/policy.md) доступно после [активации](../../concepts/index.md#providers) сервиса {{ backup-name }}.
+
+Создать или [изменить](update.md) политику можно с помощью консоли управления {{ yandex-cloud }}, {{ TF }}, а также задать по [спецификации](../../concepts/policy.md#specification) в формате [JSON](https://ru.wikipedia.org/wiki/JSON), с помощью [CLI](../../../cli/quickstart.md) {{ yandex-cloud }} или API.
+
+{% note info %}
+
+Политики резервного копирования с некоторыми дополнительными настройками нельзя создать в консоли управления {{ yandex-cloud }}. Для создания таких политик воспользуйтесь CLI, {{ TF }} или API.
+
+{% endnote %}
 
 {% include [default-policies](../../../_includes/backup/default-policies.md) %}
 
@@ -21,7 +29,17 @@ description: Из статьи вы узнаете, как создать пол
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. На странице создания политики резервного копирования:
 
-     {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+      {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+
+        * (Опционально) Выберите **{{ ui-key.yacloud.backup.policy-overview.field_compression }}** данных в резервной копии. Чем выше уровень сжатия, тем больше времени занимает резервное копирование, при этом созданная копия занимает меньше места. Эффективность процесса зависит от типа копируемых данных: уже сжатые файлы, такие как JPG, PDF или MP3, плохо поддаются дополнительному сжатию, в отличие, например, от DOC или XLS. 
+
+          {% note info %}
+
+          Уровень сжатия можно выбрать только при создании политики. Для существующей политики изменить его нельзя.
+
+          {% endnote %}
+
+        {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

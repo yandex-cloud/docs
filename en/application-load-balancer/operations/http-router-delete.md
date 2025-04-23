@@ -1,6 +1,6 @@
 ---
 title: How to delete an HTTP router
-description: Follow this guide to delete an HTTP router.
+description: In this tutorial, you will learn how to delete an HTTP router.
 ---
 
 # Deleting an HTTP router
@@ -17,12 +17,12 @@ To delete an HTTP router:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your HTTP router.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Select the router and click ![image](../../_assets/console-icons/ellipsis.svg).
+  1. Select your router and click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
 
-     To do this with multiple HTTP routers, select the routers to delete from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
+     To delete multiple routers at once, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -31,19 +31,19 @@ To delete an HTTP router:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for deleting an HTTP router:
+  1. See the description of the CLI command for deleting an HTTP router:
 
      ```bash
      yc alb http-router delete --help
      ```
 
-  1. Run the command, specifying the name of the HTTP router:
+  1. Run this command with your HTTP router name specified:
 
      ```bash
      yc alb http-router delete --name <HTTP_router_name>
      ```
 
-     To check the deletion, get a list of HTTP routers by running the command:
+     To check whether your router has been deleted, get a list of HTTP routers by running the command:
 
      ```bash
      yc alb http-router list
@@ -54,9 +54,9 @@ To delete an HTTP router:
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To delete an HTTP router or virtual host created with {{ TF }}:
-  1. Open the {{ TF }} configuration file and delete the fragment with the HTTP router or virtual host description (the `yandex_alb_http_router` and `yandex_alb_virtual_host` resources, respectively).
+  1. Open the {{ TF }} configuration file and delete the fragment describing the HTTP router or virtual host, i.e., `yandex_alb_http_router` or `yandex_alb_virtual_host` resource, respectively.
 
-      {% cut "Sample HTTP router and virtual host description in the {{ TF }} configuration" %}
+     {% cut "Sample HTTP router and virtual host description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -86,7 +86,7 @@ To delete an HTTP router:
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
      ```bash
@@ -105,16 +105,16 @@ To delete an HTTP router:
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If your configuration contains errors, {{ TF }} will show them.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb http-router list

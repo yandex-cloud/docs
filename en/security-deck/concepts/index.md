@@ -26,7 +26,6 @@ The {{ sd-name }} modules allow you to achieve a number of security objectives:
     * Effective management of [user](../../overview/roles-and-resources.md#users) and [service account](../../iam/concepts/users/service-accounts.md) access permissions.
     * Shorter time to investigate security incidents.
 
-* **Compliance with regulations and industry standards**. The [Compliance Portal](./compliance.md) module provides access to information on the company's compliance with information security regulations, thus helping to enforce compliance with legislation and standards in this area.
 
 Integration between modules simplifies the process of monitoring the actions of {{ yandex-cloud }} engineers and users, allowing you to quickly respond to possible security threats.
 

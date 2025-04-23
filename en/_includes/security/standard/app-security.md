@@ -4,7 +4,7 @@
 
 ### Bot protection {#protecting-recommendations}
 
-#### 6.1 Use {{ captcha-full-name }} {#use-smartcaptcha}
+#### 6.1 {{ captcha-full-name }} is used {#use-smartcaptcha}
 
 To mitigate the risks associated with automated attacks on applications, we recommend using [{{ captcha-full-name }}](/services/smartcaptcha). The service checks user requests with its ML algorithms and only shows challenges to those users whose requests it considers suspicious. You do not have to place the **"I’m not a robot"** button on the page.
 
@@ -26,47 +26,53 @@ To mitigate the risks associated with automated attacks on applications, we reco
 
 {{ yandex-cloud }} allows customers to achieve compliance of software they develop at all [Supply-chain Levels for Software Artifacts (SLSA)](https://slsa.dev/), provided that they follow the guidelines given in this section. When using [{{ mgl-full-name }}](../../../managed-gitlab/), a customer automatically achieves [SLSA Level 2 compliance](https://about.gitlab.com/blog/2022/11/30/achieve-slsa-level-2-compliance-with-gitlab/).
 
-#### 6.2 Implement scanning of Docker images when uploading them to {{ container-registry-full-name }} {#upload-policy}
+#### 6.2 When creating a registry in {{ container-registry-full-name }}, keep the safe registry settings by default {#keep-safe-cr-settings}
 
-[Auto scans](../../../container-registry/operations/scanning-docker-image.md#automatically) of Docker images on push are critical for early detection and elimination of vulnerabilities to ensure secure deployment of containers. Reports on completed scans provide a brief description of detected vulnerabilities and issues and help you set priorities and eliminate security risks in containerized applications.
+When creating a new [registry](../../../container-registry/concepts/registry.md), use the default options to make sure it meets the {{ yandex-cloud }} security standard:
 
-{% list tabs group=instructions %}
-
-- Performing a check in the management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
-  1. Select the appropriate registry in **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab and click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
-  1. Make sure Docker image scans on push are enabled.
-
-{% endlist %}
+* Docker images are automatically scanned as they are uploaded to the registry.
+* Docker images in the registry are regularly re-scanned, i.e., every 7 days with an option to switch to daily scanning in the settings.
 
 **Guides and solutions to use:**
 
-[Guide on scanning Docker images on push](../../../container-registry/operations/scanning-docker-image.md#automatically).
-
-#### 6.3 Schedule regular scanning of Docker images stored in {{ container-registry-name }} {#periodic-scan}
-
-Scheduled scanning of Docker images is an automated process that checks containerized images for vulnerabilities and compliance with security standards. Such scans are regular and automatic to ensure the consistency of image checks for vulnerabilities and maintain a high security level in the long run. Reports on completed scans provide a brief description of detected vulnerabilities and issues and help you set priorities and eliminate security risks in containerized applications.
-
-We recommend setting up a schedule for scans to be run at least once a week.
-
 {% list tabs group=instructions %}
 
-- Performing a check in the management console {#console}
+- Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
-  1. Select the appropriate registry in **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab and click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
-  1. Make sure that scheduled Docker image scans are enabled with a frequency of at least once a week.
+  1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
+  1. In the **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** field, enter a name for the registry, The naming requirements are as follows:
+      
+      {% include [name-format](../../name-format.md) %}
+  1. Under **{{ ui-key.yacloud.cr.overview.popup-create_field_auto_scan }}**:
+
+      * Keep **{{ ui-key.yacloud.cr.overview.popup-create_scan_push_text }}** enabled to scan Docker images at their upload to the repository.
+      * Keep **{{ ui-key.yacloud.cr.overview.popup-create_scan_period_enabled }}** enabled. Adjust the scanning frequency if you need to.
+
+  1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
+
+- CLI {#cli}
+
+  To create a registry with safe image scanning settings used by default, run this command:
+
+  ```bash
+  yc container registry create \
+    --name <registry_name> \
+    --secure
+  ```
 
 {% endlist %}
 
-**Guides and solutions to use:**
+#### 6.3 Docker images are scanned when uploaded to {{ container-registry-name }} {#upload-policy}
 
-[Guide on scheduled scanning of Docker images](../../../container-registry/operations/scanning-docker-image.md#scheduled).
+{% include [scan-docker-upload](scan-docker-upload.md) %}
 
-#### 6.4 Make sure containerized images used in production environments have the last scan date of one week ago or less {#last-scan-date}
+#### 6.4 Docker images stored in {{ container-registry-name }} are regularly scanned {#periodic-scan}
+
+{% include [scan-docker-periodic](scan-docker-periodic.md) %}
+
+#### 6.5 Container images used in the production environment have the last scan date of one week ago or less {#last-scan-date}
 
 Checking Docker images used in production environments with the last scan date not older than a week ensures that you continuously monitor and update security measures, eliminating potential vulnerabilities that might have occurred since the last scan. This also helps you make sure you are not deploying containers with recently detected vulnerabilities and enhance the security level. You can automate this process by [setting up a schedule](#periodic-scan) in the Vulnerability scanner.
 
@@ -92,7 +98,7 @@ Checking Docker images used in production environments with the last scan date n
 
 {% endlist %}
 
-#### 6.5 Use attestations when building software artifacts {#provenance-attestation}
+#### 6.6 Attestations are used when building artifacts {#provenance-attestation}
 
 Attestations used when building software artifacts help ensure a secure and verifiable record of an artifact's origin, integrity, and SBOM compliance. This helps ensure the artifact reliability throughout its lifecycle. A software bill of materials (SBOM) is required to secure a supply chain, manage vulnerabilities, comply with requirements, assess risks, ensure transparency, and respond to incidents in an effective way.
 
@@ -110,27 +116,11 @@ With {{ mgl-name }}, attestations are easier to use, as the service has a featur
 
 [Gitlab guide for software artifact attestation](https://docs.gitlab.com/ee/ci/runners/configure_runners.html#artifact-attestation).
 
-#### 6.6 Ensure artifact integrity {#pipeline-artifacts-cosign}
+#### 6.7 Artifact integrity is ensured {#pipeline-artifacts-cosign}
 
-Signing artifacts enhances security to ensure your software validity, integrity, reliability, and compliance with the requirements.
+{% include [artifacts-cosign](artifacts-cosign.md) %}
 
-{% list tabs group=instructions %}
-
-- Manual check {#manual}
-
-  Make sure that artifacts are signed while building an application.
-
-{% endlist %}
-
-**Guides and solutions to use:**
-
-To sign artifacts within a pipeline, you can use [Cosign](https://github.com/sigstore/cosign), a third-party command line utility for signing [artifacts](https://docs.sigstore.dev/signing/quickstart/), images, and [in-to-to attestations](https://github.com/in-toto/attestation/tree/main/spec/predicates). Then you can upload these artifacts to {{ container-registry-full-name }}.
-
-A special build of Cosign allows you to store the created [digital signature key pair](../../../kms/concepts/asymmetric-signature-key.md) in [{{ kms-full-name }}](../../../kms/quickstart/index.md), sign files and artifacts with the private key of the pair, and verify a digital signature using its public key.
-
-For more information, see [{#T}](../../../container-registry/tutorials/sign-cr-with-cosign.md).
-
-#### 6.7 Verify artifacts on deployment {#artifacts-checked}
+#### 6.8 Artifacts are checked for authenticity on deployment {#artifacts-checked}
 
 To ensure the reliability, security, and compatibility of applications in [{{ managed-k8s-name }}](../../../managed-kubernetes/), a service for automatic scaling and deployment of applications, you need to minimize the risk of issues, vulnerabilities, and failures during your application deployment and runtime. To do this, use [signatures and signature verification](../../../container-registry/tutorials/sign-cr-with-cosign.md) in {{ managed-k8s-name }} with Cosign and [Kyverno](../../../managed-kubernetes/operations/applications/kyverno.md).
 
@@ -146,17 +136,17 @@ To ensure the reliability, security, and compatibility of applications in [{{ ma
 
 [Guide on setting up the artifact signature](../../../container-registry/tutorials/sign-cr-with-cosign.md).
 
-#### 6.8 Use protected templates of a secure pipeline {#pipeline-blocks}
+#### 6.9 Protected secure pipeline templates are used {#pipeline-blocks}
 
-When working with {{ mgl-name }}, make sure you use built-in GitLab security mechanisms to secure your pipeline. The following [options of pipeline usage](../../../managed-gitlab/concepts/security.md#security-pipeline-usage) are available for your projects:
+When working with {{ mgl-name }}, make sure you use built-in GitLab security mechanisms to secure your pipeline. You can integrate a pipeline into your projects in the [following ways](../../../managed-gitlab/concepts/security.md#security-pipeline-usage):
 
 * Creating a pipeline in an individual project and connecting it to other projects using the [`include`](https://docs.gitlab.com/ee/ci/yaml/includes.html) function. This option is available for all license types.
 * Using the [`Compliance framework and pipeline`](https://docs.gitlab.com/ee/user/project/settings/index.html#compliance-frameworks) mechanism that you can run in any group project. It is available for the `Ultimate` license.
 * Copying pipeline sections to `.gitlab-ci.yml` files in your projects.
 
-#### 6.9 Use a {{ sws-full-name }} profile {#use-sws}
+#### 6.10 A {{ sws-full-name }} security profile is used {#use-sws}
 
-[{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}.
+[{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) protects you against DDoS attacks, web attacks, and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}.
 
 In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
 
@@ -165,7 +155,7 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Make sure you have security profiles created.
   1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
@@ -185,7 +175,7 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 
 [Creating a security profile and connecting it to a virtual host of an L7 load balancer](../../../smartwebsecurity/quickstart.md).
 
-#### 6.10 A web application firewall is used {#use-waf}
+#### 6.11 A web application firewall is used {#use-waf}
 
 To mitigate risks associated with web attacks, we recommend using the {{ sws-full-name }} web application firewall (WAF). A web application firewall analyzes HTTP requests to a web app according to pre-configured rules. Based on the analysis results, certain [actions](../../../smartwebsecurity/concepts/rules.md#rule-action) are applied to HTTP requests.
 
@@ -196,7 +186,7 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check a security profile for a WAF rule.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Make sure your security profile has a security rule of the **web application firewall** type.
 
 {% endlist %}
@@ -205,9 +195,9 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 
 [Creating a WAF profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart.md#waf).
 
-#### 6.11 Use Advanced Rate Limiter {#use-arl}
+#### 6.12 Advanced Rate Limiter is used {#use-arl}
 
-[Advanced Rate Limiter (ARL)](../../../smartwebsecurity/concepts/arl.md) is a module used to monitor and limit web app loads. The module allows you to set a limit on the number of HTTP requests over a certain period of time. All requests above the limit will be blocked. You can set a single limit for all traffic or configure specific limits to segment requests by certain parameters. For the purposes of limits, you can count requests one by one or group them together based on specified characteristics.
+[Advanced Rate Limiter (ARL)](../../../smartwebsecurity/concepts/arl.md) is a {{ sws-full-name }} module used to monitor and limit web app loads. The module allows you to set a limit on the number of HTTP requests over a certain period of time. All requests above the limit will be blocked. You can set a single limit for all traffic or configure specific limits to segment requests by certain parameters. For the purposes of limits, you can count requests one by one or group them together based on specified characteristics.
 
 You need to connect your ARL profile to the [security profile](../../../smartwebsecurity/concepts/profiles.md) in {{ sws-name }}.
 
@@ -216,7 +206,7 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to check for ARL profiles.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../../_assets/smartwebsecurity/arl.svg) **ARL profiles** and make sure you have ARL profiles connected to your security profile.
 
 {% endlist %}
@@ -225,7 +215,7 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 
 [Creating an ARL profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart.md#arl).
 
-#### 6.12 Set approval rules {#setup-code-review}
+#### 6.13 Approval rules are configured {#setup-code-review}
 
 With [{{ mgl-full-name }}](../../../managed-gitlab/index.yaml), you can flexibly set up mandatory [approval rules](../../../managed-gitlab/concepts/approval-rules.md) for adding code to the target project branch. This feature is an alternative to the GitLab Enterprise Edition’s [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) tool and is available regardless of the GitLab [version](https://about.gitlab.com/pricing).
 
@@ -247,3 +237,28 @@ If you close a thread manually, it will be created again. If a merge request is 
 **Guides and solutions to use:**
 
 [Enabling approval rules in the {{ GL }} instance](../../../managed-gitlab/operations/approval-rules.md#enable)
+
+#### 6.14 Trusted and unwanted IP addresses are grouped into lists {#app-sws-lists}
+
+[{{ sws-full-name }}](../../../smartwebsecurity/index.yaml) supports grouping IP addresses into [custom lists](../../../smartwebsecurity/concepts/lists.md#user-rules). Add those lists as [conditions](../../../smartwebsecurity/concepts/conditions.md) in [rules](../../../smartwebsecurity/concepts/rules.md) to allow, block, or forward some traffic to [{{ captcha-name }}](../../../smartcaptcha/index.yaml) during IP address verification.
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. Open the {{ yandex-cloud }} console in your browser.
+  1. Go to the appropriate folder.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Go to **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
+  1. Check that the lists have been created.
+  1. If there are such lists, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+
+- Manual check {#manual}
+
+  Contact your account manager to make sure you have {{ sws-name }} lists.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+Whitelist and blacklist IP addresses to filter traffic. To learn more, see [{#T}](../../../smartwebsecurity/operations/list-create.md).
