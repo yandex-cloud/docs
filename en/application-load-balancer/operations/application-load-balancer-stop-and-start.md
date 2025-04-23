@@ -7,9 +7,9 @@ description: In this tutorial, you will learn how to stop and start an L7 load b
 
 ## Stopping a load balancer {#stop}
 
-The **{{ ui-key.yacloud.common.stop }}** command shuts down an [L7 load balancer](../concepts/application-load-balancer.md). Once shut down, the load balancer changes its status to `STOPPED`. As long as the load balancer is stopped, you are not charged for its use.
+The **{{ ui-key.yacloud.common.stop }}** command stops an [L7 load balancer](../concepts/application-load-balancer.md). Once stopped, the load balancer changes its status to `STOPPED`. As long as the load balancer is stopped, you are not charged for its use.
 
-You can restart a load balancer at any time to continue using it. All your data and changes will be saved.
+You can start the load balancer at any time to continue your work. All your data and changes will remain intact.
 
 To stop an L7 load balancer:
 
@@ -17,11 +17,11 @@ To stop an L7 load balancer:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Next to the load balancer name you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer you need, then select **{{ ui-key.yacloud.common.stop }}**.
   
-     To apply this action to multiple load balancers, select the appropriate load balancers in the list, click **{{ ui-key.yacloud.common.stop }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.stop }}** in the window that opens.
+     To stop multiple load balancers at once, select them in the list, click **{{ ui-key.yacloud.common.stop }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.stop }}** in the window that opens.
 
 - CLI {#cli}
 
@@ -29,7 +29,7 @@ To stop an L7 load balancer:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Review the description of the CLI load balancer stop command:
+  1. See the description of the CLI load balancer stop command:
 
      ```bash
      yc application-load-balancer load-balancer stop --help
@@ -79,13 +79,13 @@ To stop an L7 load balancer:
        created_at: "2022-02-11T09:01:46.724279145Z"
      ```
 
-  1. Stop the load balancer by including its ID or name in the command below:
+  1. To stop the load balancer, run the following command with its ID or name specified:
 
      ```bash
      yc application-load-balancer load-balancer stop <load_balancer_name>
      ```
 
-     For more information about the `application-load-balancer load-balancer stop` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/stop.md).
+     For more information about the `application-load-balancer load-balancer stop` command, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/stop.md).
 
 - API {#api}
 
@@ -95,7 +95,7 @@ To stop an L7 load balancer:
 
 ## Start a load balancer {#start}
 
-The **{{ ui-key.yacloud.common.start }}** command starts a stopped L7 load balancer. Once started, the load balancer changes its status to `ACTIVE`. From this point on, you will be charged for using the load balancer.
+The **{{ ui-key.yacloud.common.start }}** command starts an L7 load balancer. Once started, the load balancer changes its status to `ACTIVE`. From this point on, you will be charged for its use.
 
 To start a load balancer:
 
@@ -103,11 +103,11 @@ To start a load balancer:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Next to the load balancer name you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.start }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer you need, then select **{{ ui-key.yacloud.common.start }}**.
 
-     To apply this action to multiple load balancers, select the appropriate load balancers in the list, click **{{ ui-key.yacloud.common.start }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.start }}** in the window that opens.
+     To start multiple load balancers at once, select them in the list, click **{{ ui-key.yacloud.common.start }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.start }}** in the window that opens.
 
 - CLI {#cli}
 
@@ -165,13 +165,13 @@ To start a load balancer:
        created_at: "2022-02-11T09:01:46.724279145Z"
      ```
 
-  1. Start the load balancer by including its ID or name in the command below:
+  1. To start a load balancer, run the following command with its ID or name specified:
 
      ```bash
      yc application-load-balancer load-balancer start <load_balancer_name>
      ```
 
-     For more information about the `application-load-balancer load-balancer start` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/start.md).
+     For more information about the `application-load-balancer load-balancer start` command, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/start.md).
 
 - API {#api}
 

@@ -1,6 +1,6 @@
 # Setting up L7 load balancer logging
 
-You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7 load balancer](../concepts/application-load-balancer.md) to [{{ cloud-logging-full-name }}](../../logging/).
+You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs](../concepts/application-load-balancer.md#logging) to [{{ cloud-logging-full-name }}](../../logging/).
 
 ## Enabling logging {#enable-logs}
 
@@ -8,19 +8,19 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the load balancer.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the list of load balancers, select the one you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
-   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
-      1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
-      1. Select the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
-      1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and set up its [parameters](../concepts/application-load-balancer.md#discard-logs-rules):
-         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Add HTTP status codes.
-         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Add classes of HTTP status codes.
-         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Add gRPC codes.
-         * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Set the percentage of logs to discard.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your load balancer.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Select the load balancer you need from the list, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+     1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
+     1. Select the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) where you want to store load balancer logs.
+     1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../concepts/application-load-balancer.md#discard-logs-rules):
+        * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Add HTTP status codes.
+        * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Add HTTP status code classes.
+        * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Add gRPC codes.
+        * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Set the log discard rate.
 
-        You can set multiple rules.
+        You can add multiple rules.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -29,13 +29,13 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../cli/) command to manage load balancer logging:
+  1. See the description of the [CLI](../../cli/) command for managing load balancer logging:
 
      ```bash
      yc alb load-balancer logging --help
      ```
 
-  1. Enable logging and set parameters for writing [logs](../logs-ref.md) to {{ cloud-logging-name }}:
+  1. Enable logging and configure {{ cloud-logging-name }} [logging](../logs-ref.md) settings:
 
      ```bash
      yc alb load-balancer logging <load_balancer_name> \
@@ -45,13 +45,13 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
      ```
 
      Where:
-     * `--enable`: Parameter that enables logging.
-     * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
-     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule parameters:
-       * `codes`: HTTP codes, classes of HTTP codes, or gRPC codes.
-       * `percent`: Discarded logs percentage.
+     * `--enable`: Enable logging.
+     * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
+     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule settings:
+       * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
+       * `percent`: Log discard rate.
 
-       You can set multiple rules.
+       You can add multiple rules.
 
      Result:
 
@@ -90,20 +90,20 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
      }
      ```
 
-     Where `log_options` are the parameters for writing [logs](../logs-ref.md) to {{ cloud-logging-name }}:
-     * `log_group_id`: ID of the [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
+     Where `log_options` are the {{ cloud-logging-name }} [logging](../logs-ref.md) options:
+     * `log_group_id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
      * `discard_rule`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules):
        * `http_codes`: HTTP codes.
        * `http_code_intervals`: HTTP code classes.
        * `grpc_codes`: gRPC codes.
-       * `discard_percent`: Discarded logs percentage.
+       * `discard_percent`: Log discard rate.
 
-       You can set multiple rules.
+       You can add multiple rules.
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  This will enable logging in the specified load balancer. You can check the logging status and other load balancer settings using the [management console]({{ link-console-main }}) or this CLI command:
+  This will enable logging for the specified load balancer. You can check the logging status and other load balancer settings in the [management console]({{ link-console-main }}) or using this CLI command:
 
   ```bash
   yc alb load-balancer get <load_balancer_name>
@@ -115,22 +115,22 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
 {% endlist %}
 
-## Updating logging parameters {#update-logs}
+## Updating logging settings {#update-logs}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the load balancer.
+  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. In the list of load balancers, select the one you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Select the load balancer you need from the list, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
-     1. Change the {{ cloud-logging-name }} log group to write the load balancer logs to.
-     1. Edit the [rules for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
-        * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update the HTTP status codes.
-        * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the classes of HTTP status codes.
-        * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Update the gRPC codes.
-        * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the percentage of logs to discard.
+     1. Change the {{ cloud-logging-name }} log group storing your load balancer logs.
+     1. Edit [log discard rules](../concepts/application-load-balancer.md#discard-logs-rules):
+        * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update HTTP status codes.
+        * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update HTTP status code classes.
+        * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Update gRPC codes.
+        * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the log discard rate.
 
         To add another rule, click **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -141,13 +141,13 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to manage load balancer logging:
+  1. See the description of the CLI command for managing load balancer logging:
 
      ```bash
      yc alb load-balancer logging --help
      ```
 
-  1. Update the parameters for writing [logs](../logs-ref.md) to {{ cloud-logging-name }}:
+  1. Update the {{ cloud-logging-name }} [logging](../logs-ref.md) settings:
 
      ```bash
      yc alb load-balancer logging <load_balancer_name> \
@@ -156,12 +156,12 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
      ```
 
      Where:
-     * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
-     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule parameters:
-       * `codes`: HTTP codes, classes of HTTP codes, or gRPC codes.
-       * `percent`: Discarded logs percentage.
+     * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
+     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule settings:
+       * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
+       * `percent`: Log discard rate.
 
-       You can set multiple rules.
+       You can add multiple rules.
 
      Result:
 
@@ -200,20 +200,20 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
      }
      ```
 
-     Where `log_options` are the parameters for writing [logs](../logs-ref.md) to {{ cloud-logging-name }}:
-     * `log_group_id`: ID of the [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
+     Where `log_options` are the {{ cloud-logging-name }} [logging](../logs-ref.md) options:
+     * `log_group_id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
      * `discard_rule`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules):
        * `http_codes`: HTTP codes.
        * `http_code_intervals`: HTTP code classes.
        * `grpc_codes`: gRPC codes.
-       * `discard_percent`: Discarded logs percentage.
+       * `discard_percent`: Log discard rate.
 
-       You can set multiple rules.
+       You can add multiple rules.
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  This will update the logging parameters in the specified load balancer. You can check the load balancer settings using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+  This will update logging settings for the specified load balancer. You can check the load balancer settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
   ```bash
   yc alb load-balancer get <load_balancer_name>
@@ -221,7 +221,7 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
 - API {#api}
 
-  To update the logging parameters, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md) gRPC API call.
+  To update logging settings, use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -231,10 +231,10 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the load balancer.
+  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. In the list of load balancers, select the one you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, disable the **{{ ui-key.yacloud.alb.label_log-requests }}** option.
+  1. Select the load balancer you need from the list, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, disable **{{ ui-key.yacloud.alb.label_log-requests }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -243,7 +243,7 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to manage load balancer logging:
+  1. See the description of the CLI command for managing load balancer logging:
 
      ```bash
      yc alb load-balancer logging --help
@@ -255,7 +255,7 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
      yc alb load-balancer logging <load_balancer_name> --disable
      ```
 
-     Where `--disable` is the parameter that disables logging.
+     Where `--disable` is the logging disable option.
 
      Result:
 
@@ -284,7 +284,7 @@ You can send [logs](../concepts/application-load-balancer.md#logging) of the [L7
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     This will disable logging in the specified load balancer. You can check the logging status and other load balancer settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     This will disable logging for the specified load balancer. You can check the logging status and other load balancer settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb load-balancer get <load_balancer_name>

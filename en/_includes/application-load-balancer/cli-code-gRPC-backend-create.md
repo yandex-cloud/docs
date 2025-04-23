@@ -1,7 +1,7 @@
 ```bash
 yc alb backend-group add-grpc-backend \
   --backend-group-name <backend_group_name> \
-  --name <name_of_backend_being_added> \
+  --name <name_of_backend_you_are_adding> \
   --weight <backend_weight> \
   --port <backend_port> \
   --target-group-id=<target_group_ID> \

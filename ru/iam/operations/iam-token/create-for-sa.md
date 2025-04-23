@@ -5,12 +5,17 @@ description: Следуя данной инструкции, вы сможете
 
 # Получение IAM-токена для сервисного аккаунта
 
+## Выбрать способ получения IAM-токена {#choose-method}
+
 Есть несколько способов получить [IAM-токен](../../concepts/authorization/iam-token.md) для [сервисного аккаунта](../../concepts/users/service-accounts.md):
 
-* [С помощью CLI](#via-cli) — самый простой способ.
-* [С помощью JSON Web Token](#via-jwt). Этот способ подойдет для автоматизации работы через [API](../../../glossary/rest-api.md).
-* [С помощью виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md) в сервисе {{ compute-name }}. Этот способ удобен, если ваше приложение запущено на виртуальной машине {{ yandex-cloud }}.
-* [С помощью функции](../../../functions/operations/function-sa.md) в сервисе {{ sf-name }}. Этот способ подойдет для получения IAM-токена из кода вашей функции.
+![choose-method](../../../_assets/iam/choose-method.svg)
+
+* [С помощью сервиса метаданных ВМ](../../../compute/operations/vm-connect/auth-inside-vm.md) — предпочтительный способ при работе на виртуальной машине [{{ compute-full-name }}](../../../compute/).
+* [С помощью федерации сервисных аккаунтов](../../concepts/workload-identity.md) — если вы хотите аутентифицироваться в API {{ yandex-cloud }} при запросе из внешней системы, совместимой с протоколом [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). Например, интеграция с GitHub, [{{ mgl-full-name }}](../../../managed-gitlab/) или пользовательской инсталляцией {{ k8s }}.
+* [С помощью CLI](#via-cli) — самый простой способ, если внешняя система несовместима с протоколом OIDC, но позволяет установить CLI.
+* [С помощью JSON Web Token](#via-jwt) — если вы хотите контролировать все этапы процесса формирования IAM-токенов.
+* [С помощью функции](../../../functions/operations/function-sa.md) — для получения IAM-токена из кода функции [{{ sf-name }}](../../../functions/).
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 

@@ -58,7 +58,7 @@ description: Следуя данной инструкции, вы сможете
 
         Где:
 
-        * `cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../cluster-list.md##list-cluster).
+        * `cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../cluster-list.md#list-cluster).
         * `driver` — класс JDBC-драйвера в Java. Возможные значения:
 
             {% include [JBDC driver](../../../_includes/mdb/mgp/jdbc-driver.md) %}

@@ -4,10 +4,10 @@
 ------------------------------------------------                    | ----------------------
 Фактическое потребление Request Units, менее 1 млн в месяц          | {{ sku|RUB|ydb.v1.serverless.requests|string }}
 Фактическое потребление Request Units, свыше 1 млн в месяц          | {{ sku|RUB|ydb.v1.serverless.requests|pricingRate.1|string }} за 1 миллион RU
-Выделенная пропускная способность                                   | 1,60 ₽ за 100 RU/с×час
+Выделенная пропускная способность                                   | {% calc [currency=RUB] {{ sku|RUB|ydb.v1.serverless.provisioned_rcu|number }} × 100 %} за 100 RU/с×час
 
 Другие тарифицируемые операции                                      | Цена,<br>вкл. НДС
 ------------------------------------------------                    | ----------------------
 Хранение данных, менее 1 ГБ в месяц                                 | {{ sku|RUB|ydb.v1.serverless.storage|month|string }}
-Хранение данных, свыше 1 ГБ в месяц                                 | {{ sku|RUB|ydb.cluster.v1.ssd|month|string }} за 1 ГБ в месяц
-Хранение резервных копий по требованию в {{ objstorage-full-name }} | 2,01 ₽ за 1 ГБ в месяц
+Хранение данных, свыше 1 ГБ в месяц                                 | {{ sku|RUB|ydb.v1.serverless.storage|pricingRate.720|month|string }} за 1 ГБ в месяц
+Хранение резервных копий по требованию в {{ objstorage-full-name }} | {{ sku|RUB|ydb.db.backup.v1|month|string }} за 1 ГБ в месяц

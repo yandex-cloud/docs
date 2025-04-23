@@ -2,19 +2,19 @@
 
 You can [configure](application-load-balancer-manage-logs.md) the delivery of L7 load balancer [logs](../concepts/application-load-balancer.md#logging) to a {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md).
 
-To view logs of the L7 Load balancer:
+To view L7 Load balancer logs:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Select the load balancer to view logs for.
-  1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
-  1. Select the number of messages per page and the period: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
-  1. To view full information about the message, click the arrow at the beginning of the row.
-
+  1. Select the load balancer you need.
+  1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
+  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
+  1. To see the message details, click the arrow icon on its left.
+  
 {% endlist %}
 
 You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
@@ -23,11 +23,11 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
+  1. In the [management console]({{ link-console-main }}), select the folder with your log group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-  1. Select the log group the load balancer logs will be sent to.
-  1. Select the number of messages per page and the period: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
-  1. To view full information about the message, click the arrow at the beginning of the row.
+  1. Select the log group receiving your load balancer logs.
+  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
+  1. To see the message details, click the arrow icon on its left.
 
 - CLI {#cli}
 
@@ -35,7 +35,7 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To view the records in JSON format, run the command:
+    To see the messages in JSON format, run this command:
 
     ```bash
     yc logging read \
@@ -45,7 +45,7 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
 
     Where:
 
-    * `--group-name`: Name of the log group the load balancer logs are sent to.
+    * `--group-name`: Name of the log group receiving your load balancer logs.
     * `--format`: Log output format.
 
     Result:
@@ -67,10 +67,10 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
     ]
     ```
 
-    For more information on how to read logs using the CLI, see [{#T}](../../logging/operations/read-logs.md).
+    For more information on how to view logs with CLI, see [this](../../logging/operations/read-logs.md) {#T} article.
 
 - API {#api}
 
-  To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+  To view log group messages, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
 {% endlist %}

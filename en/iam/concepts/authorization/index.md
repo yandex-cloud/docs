@@ -1,89 +1,24 @@
-# Authorization and authentication in {{ yandex-cloud }}
+---
+title: How to choose the appropriate authentication method in {{ yandex-cloud }}
+description: In this article, you will learn how to choose the appropriate authentication method in {{ yandex-cloud }}.
+---
 
-When a user does something with a resource in {{ yandex-cloud }}, {{ iam-short-name }} checks whether they have the access permissions required to perform this operation.
+# How to choose the appropriate authentication method in {{ yandex-cloud }}
 
-Users get permissions along with resource roles. For more information about how roles are assigned and how the list of permissions is checked, see [{#T}](../access-control/index.md).
+Users and [service accounts](../users/service-accounts.md) get permissions to perform actions with {{ yandex-cloud }} resources along with [roles](../../roles-reference.md) for these resources. {{ iam-name }} verifies the required permissions when a user or service account runs an operation on a {{ yandex-cloud }} resource.
 
-## Authentication in {{ yandex-cloud }} {#authentication}
+For more information about assigning roles and verifying the list of permissions, see [{#T}](../access-control/index.md).
 
-Before authorization, a user must get authenticated, i.e., they must log in using their account. Authentication is performed in different ways depending on the type of account and the interface used:
+Use the appropriate credential type for authentication:
 
-* [Authentication with a Yandex account](#passport)
-* [Service account authentication](#sa)
-* [Federated user authentication](#saml-federation)
+* [IAM token](iam-token.md) is the recommended and most secure type. It is suitable for most operations, such as [creating a VM](../../../compute/operations/vm-create/create-linux-vm.md). It is not suitable for services with AWS-compatible APIs.
+* [API key](api-key.md) is used for [services](api-key.md#supported-services) that do not support authentication with IAM tokens. You can limit the API key by [validity period and scope](api-key.md#scoped-api-keys).
+* [Static access key](access-key.md) is suitable for authentication in services with an AWS-compatible API, such as [{{ objstorage-full-name }}](../../../storage/index.yaml) and [{{ ydb-full-name }}](../../../ydb/index.yaml). From a static key, you can create a [temporary access key](sts.md) for {{ objstorage-name }} buckets.
+* [Authorized key](key.md) is used in cases where you need to control all stages of issuing an IAM token. You may need it when obtaining an IAM token for a [service account](../../operations/iam-token/create-for-sa#via-jwt). Authorized keys are used for authentication only by applications form [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}).
+* [OAuth token](oauth-token.md) is used to obtain an IAM token on behalf of a user with a [Yandex account](../users/accounts.md#passport).
+* [ID token](id-token.md) is used to for {{ yandex-cloud }} service account authentication in third-party systems with [OIDC](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) support. It is not suitable for authentication within {{ yandex-cloud }}.
+* [Cookie](cookie.md) is only used for service purposes.
 
-### Authentication using a Yandex account {#passport}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  When logging in to your Yandex or Yandex 360 account, you will be authenticated automatically.
-
-
-- CLI {#cli}
-
-  To perform operations in the CLI, authenticate by following [this guide](../../../cli/operations/authentication/user.md). After this, authentication will work automatically.
-
-
-- API {#api}
-
-  {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
-
-  To perform operations in the API:
-  
-  1. [Get an IAM token](../../operations/iam-token/create.md) in exchange for your [OAuth token](oauth-token.md).
-  1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
-
-     {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
-
-{% endlist %}
-
-### Service account authentication {#sa}
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  To perform operations in the CLI, authenticate by following [this guide](../../../cli/operations/authentication/service-account.md). After this, authentication will work automatically.
-
-- API {#api}
-
-  There are three ways to perform operations on behalf of a service account:
-
-  * Using an [IAM token](iam-token.md):
-
-      This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). This makes it a good method for applications that automatically request an IAM token.
-
-    [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
-  * With [API keys](api-key).
-
-      {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
-
-      [Instructions for how to get an API key](../../operations/authentication/manage-api-keys.md#create-api-key).
-  * Using [static access keys](access-key.md). Use this method for services with an AWS-compatible API, such as {{ objstorage-name }} and {{ message-queue-name }}.
-
-      [Instructions for how to get a static access key](../../operations/authentication/manage-access-keys.md#create-access-key).
-
-{% endlist %}
-
-### Federated user authentication {#saml-federation}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  {% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
-
-  The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../../../organization/concepts/add-federation.md).
-
-- CLI {#cli}
-
-  To perform operations in the CLI, authenticate by following [this guide](../../../cli/operations/authentication/federated-user.md).
-
-  {% include [include](../../../_includes/cli/success-auth-via-federation.md) %}
-
-{% endlist %}
 
 #### See also {#see-also}
 

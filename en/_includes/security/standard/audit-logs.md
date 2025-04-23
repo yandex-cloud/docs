@@ -27,7 +27,7 @@ The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }
 
 [Management events](../../../audit-trails/concepts/format.md) are actions you take to configure {{ yandex-cloud }} resources, such as creating, updating, or deleting infrastructure components, users, or policies. [Data events](../../../audit-trails/concepts/format-data-plane.md) are updates and actions performed on data and resources within {{ yandex-cloud }} services. By default, {{ at-name }} does not log data events. You need to [enable](../../../audit-trails/quickstart.md#the-trail-creation) collection of data event audit logs individually for each supported service.
 
-For more information, see [{#T}](../../../audit-trails/concepts/control-plane-vs-data-plane.md).
+To learn more, see [{#T}](../../../audit-trails/concepts/control-plane-vs-data-plane.md).
 
  To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../../monitoring/).  For example, it can help you track spikes in {{ compute-name }} workload, {{ alb-name }} RPS, or significant changes in {{ iam-name }} event statistics.
 
@@ -67,6 +67,8 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
 * Wazuh: [Collecting, monitoring, and analyzing audit logs in Wazuh](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-wazuh/blob/main/README-en.md)
 
+* KUMA: [Collecting, monitoring, and analyzing audit logs in KUMA](../../../tutorials/security/audit-trails-events-to-kuma/index.md)
+
 For more information about MaxPatrol, see this [section](../../../audit-trails/tutorials/maxpatrol.md).
 
 You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs.md) or [s3fs](../../../storage/tools/s3fs.md). These utilities allow mounting a {{ objstorage-full-name }} bucket as a VM local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket. You can also use utilities compatible with AWS Kinesis datastreams if sending audit logs to {{ yds-full-name }}.
@@ -91,15 +93,15 @@ Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, a
 
 [Solution: Notifications and responses to {{ at-name }} information security events using {{ iam-short-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud-examples/yc-audit-trails-automatic-response)
 
-#### 5.4 Object Storage bucket storing {{ at-full-name }} audit logs is hardened {#hardering}
+#### 5.4 The Object Storage bucket that stores the {{ at-full-name }} audit logs has been hardened {#hardering}
 
 If you write {{ at-full-name }} audit logs to a {{ objstorage-full-name }} bucket, make sure the bucket is set up using security best practices, such as:
 
-* [No public access to the {{ objstorage-full-name }} bucket is allowed](../../../security/standard/virtualenv-safe-config.md#bucket-access).
-* [Bucket policies are used in {{ objstorage-full-name }}](../../../security/standard/virtualenv-safe-config.md#bucket-policy).
+* [There is no public access to the {{ objstorage-full-name }} bucket](../../../security/standard/virtualenv-safe-config.md#bucket-access).
+* [{{ objstorage-full-name }} uses bucket policies](../../../security/standard/virtualenv-safe-config.md#bucket-policy).
 * [The **Object lock** feature is enabled in {{ objstorage-full-name }}](../../../security/standard/virtualenv-safe-config.md#object-lock).
 * [Logging of actions with buckets is enabled in {{ objstorage-full-name }}](../../../security/standard/virtualenv-safe-config.md#bucket-logs).
-* [Data encryption at rest using KMS keys is enabled in {{ objstorage-full-name }}](../../../security/standard/encryption.md#storage-kms).
+* [At-rest encryption with a KMS key is enabled in {{ objstorage-full-name }}](../../../security/standard/encryption.md#storage-kms).
 
 You can use a solution for secure {{ objstorage-full-name }} bucket setup with {{ TF }}.
 
@@ -173,8 +175,26 @@ A [data event audit log](../../../audit-trails/concepts/format-data-plane.md) is
   1. Select the trail you need.
   1. Make sure the trail info page in **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** lists all the services you want to collect data event logs for, specifying the correct audit log [scope](../../../audit-trails/concepts/trail.md#collecting-area) for each service.
 
-      List of supported services:
-
-      {% include [dp-events-service-list](../../../_includes/audit-trails/dp-events-service-list.md) %}
+      For the list of supported services, see [{#T}](../../../audit-trails/concepts/events-data-plane.md).
 
 {% endlist %}
+
+#### 5.9 The {{ sd-name }} Access Transparency module is enabled to check actions {{ yandex-cloud }} employees take in your infrastructure {#access-transparency-enabled}
+
+All actions of the {{ yandex-cloud }} staff are captured and monitored via [bastion hosts](../../../tutorials/routing/bastion.md), which log operations on resources handling user data.
+
+With [Access Transparency](../../../security-deck/concepts/access-transparency.md), you can verify the reasons for provider access to your infrastructure. For example, support engineers may need to run additional IT system diagnostics or perform software updates. ML models analyze these actions. {{ yagpt-name }} integrated into Access Transparency generates access event summaries for enhanced visibility. Suspicious sessions are automatically sent to the {{ yandex-cloud }} security teams for review.
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
+  1. In the left-hand panel, select ![CloudCheck](../../../_assets/console-icons/cloud-check.svg) **Access Transparency**.
+  1. If you are prompted to enable Access Transparency, it means the module is not active; proceed to _Guides and solutions to use_.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+Click **Connect** to activate the `Access Transparency` module.

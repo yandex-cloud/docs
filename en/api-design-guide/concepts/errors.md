@@ -1,3 +1,8 @@
+---
+title: Handling errors in the {{ yandex-cloud }} API
+description: In this tutorial, you will learn about handling errors in the {{ yandex-cloud }} API.
+---
+
 # Handling errors in the {{ yandex-cloud }} API
 
 If an operation completes successfully, the server returns the OK status to the client. If an error occurs during the operation, the server returns a message with the error description.

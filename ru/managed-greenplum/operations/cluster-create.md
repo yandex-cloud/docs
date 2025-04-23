@@ -46,6 +46,8 @@
 
            {% include [zone-cannot-be-changed](../../_includes/mdb/mgp/zone-cannot-be-changed.md) %}
 
+           {% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+
         * Опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, чтобы подключаться к кластеру из интернета.
 
     1. (Опционально) Включите опцию **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
@@ -729,7 +731,7 @@
         export GREENPLUM_CLUSTER_ID=<идентификатор_кластера>
         ```
 
-        Идентификатор можно запросить вместе со [списком кластеров в каталоге](../../managed-greenplum/operations/cluster-list.md#list-clusters).
+        Идентификатор можно запросить вместе со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
     1. Импортируйте настройки первоначального кластера {{ GP }} в конфигурацию {{ TF }}:
 

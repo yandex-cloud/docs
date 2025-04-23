@@ -47,6 +47,7 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](install-gitlab-runner.md)
 * [{#T}](mgp-config-server-for-s3.md)
 * [{#T}](bm-vrf-and-vpc-interconnect.md)
+* [{#T}](pvc-snapshot-restore.md)
 
 ## {{ coi }} {#coi}
 

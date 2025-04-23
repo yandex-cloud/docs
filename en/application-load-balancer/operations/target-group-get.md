@@ -8,11 +8,11 @@ title: How to get information about a target group in {{ alb-full-name }}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the directory where the [target group](../concepts/target-group.md) is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the [management console]({{ link-console-main }}), select your [target group](../concepts/target-group.md) folder.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Select the target group.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the group.
+  1. You will see your target group details on the **{{ ui-key.yacloud.common.overview }}** page.
 
 - CLI {#cli}
 
@@ -20,13 +20,13 @@ title: How to get information about a target group in {{ alb-full-name }}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to get information about a [target group](../concepts/target-group.md):
+  1. See the description of the CLI command for getting information about a [target group](../concepts/target-group.md):
 
       ```bash
       yc alb target-group get --help
       ```
 
-  1. Get information about the target group by specifying its ID or name:
+  1. To get information about the target group, run this command with its ID or name specified:
 
       ```bash
       yc alb target-group get <target_group_name>
@@ -56,7 +56,7 @@ title: How to get information about a target group in {{ alb-full-name }}
 
   To get information about a [target group](../concepts/target-group.md) using {{ TF }}:
 
-  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+  1. Add `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_alb_target_group" "my_tg" {
@@ -72,16 +72,16 @@ title: How to get information about a target group in {{ alb-full-name }}
 
       * `data "yandex_alb_target_group"`: Description of the target group as a data source:
         * `target_group_id`: Target group ID.
-      * `output "target_group"`: Output variable that contains information about the connected resources of the target group:
+      * `output "target_group"`: Output variable with target group resource information:
         * `value`: Returned value.
 
-      You can replace `target` with any other parameter to get the information you need. For more information about the `yandex_alb_target_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/alb_target_group).
+      You can replace `target` with another variable to get the information you need. For more information about `yandex_alb_target_group` data source variables, see the [provider documentation]({{ tf-provider-datasources-link }}/alb_target_group).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output
@@ -101,6 +101,6 @@ title: How to get information about a target group in {{ alb-full-name }}
 
 - API {#api}
 
-  For detailed information about a [target group](../concepts/target-group.md), use the [get](../api-ref/TargetGroup/get.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Get](../api-ref/grpc/TargetGroup/get.md) gRPC API call.
+  To get [target group](../concepts/target-group.md) details, use the [get](../api-ref/TargetGroup/get.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Get](../api-ref/grpc/TargetGroup/get.md) gRPC API call.
 
 {% endlist %}

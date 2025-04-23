@@ -1,6 +1,6 @@
 ---
-title: How to install an {{ alb-name }} Ingress controller for {{ managed-k8s-name }}
-description: This guide describes how you can install an {{ alb-name }} Ingress controller for {{ managed-k8s-name }}.
+title: Installing an {{ alb-name }} Ingress controller for {{ managed-k8s-name }}
+description: In this tutorial, you will learn how to install an {{ alb-name }} Ingress controller for {{ managed-k8s-name }}.
 ---
 
 # Installing an {{ alb-name }} Ingress controller for {{ managed-k8s-name }}

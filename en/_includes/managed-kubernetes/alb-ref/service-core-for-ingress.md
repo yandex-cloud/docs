@@ -8,15 +8,15 @@ spec: <ServiceSpec>
 ```
 
 #|
-|| **Field**    | **Value or type**   | **Description**           ||
-|| `apiVersion` | `v1` |                   **Required**.
+|| **Field**     | **Value / Type**   | **Description**           ||
+|| `apiVersion` | `v1` |                   **This is a required field**.
 
 Kubernetes API version. ||
-|| `kind`       | `Service`              | Resource type.           ||
-|| `metadata`   | `ObjectMeta`           | **Required**.
+|| `kind`       | `Service`              | Resource type           ||
+|| `metadata`   | `ObjectMeta`           | **This is a required field**.
 
 Resource metadata. ||
-|| `spec`       | `ServiceSpec`          | **Required**.
+|| `spec`       | `ServiceSpec`          | **This is a required field**.
 
 Resource specification. ||
 |#

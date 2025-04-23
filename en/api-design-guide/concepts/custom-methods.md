@@ -1,10 +1,15 @@
+---
+title: Additional API methods
+description: In this article, you will learn about additional {{ yandex-cloud }} API methods and see an example of an additional method.
+---
+
 # Additional methods
 
 Additional API methods allow you to perform operations that cannot be performed using standard methods. For example, start or stop a VM.
 
 Each service has its own set of additional methods available. The methods are listed in the corresponding API references.
 
-The `POST` HTTP method is mapped to additional methods. The signature of additional methods differs from the standard signature of HTTP methods. The name of an additional method is specified in the resource URL after a colon (<q>:</q>).
+Additional methods are mapped to the `POST` HTTP method. The signature of additional methods differs from the standard signature of HTTP methods. The additional method's name is put in the resource URL after the <q>:</q> symbol.
 
 Sample gRPC description of the [AttachDisk](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instance_service.proto) method:
 
@@ -13,10 +18,10 @@ Sample gRPC description of the [AttachDisk](https://github.com/yandex-cloud/clou
    option (google.api.http) = {
      post: "/compute/v1/instances/{instance_id}:attachDisk" body: "*"
    };
-   // In the `metadata` field of the Operation object
-   // there is an `AttachInstanceDiskMetadata` view.
+   // The Operation object's `metadata` field
+   // contains the `AttachInstanceDiskMetadata` view.
    // If the operation is successful,
-   // the `response` field of the Operation object
+   // the Operation object's `response` field
    // contains a view of the updated VM.
    option (yandex.api.operation) = {
      metadata: "AttachInstanceDiskMetadata"
@@ -28,13 +33,13 @@ Sample gRPC description of the [AttachDisk](https://github.com/yandex-cloud/clou
    // the disk should be attached.
    string instance_id = 1;
 
-   // The disk to attach.
+   // Attached disk.
    AttachedDiskSpec attached_disk_spec = 2;
  }
 
  message AttachInstanceDiskMetadata {
    // ID of the VM
-   // the disk is attached to.
+   // the disk is connected to.
    string instance_id = 1;
 
    // ID of the attached disk.

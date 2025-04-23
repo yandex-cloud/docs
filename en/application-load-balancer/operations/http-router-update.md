@@ -1,23 +1,23 @@
 ---
-title: How to update HTTP router parameters in {{ alb-full-name }}
-description: Follow this guide to update parameters of an HTTP router.
+title: How to update HTTP router settings in {{ alb-full-name }}
+description: In this tutorial, you will learn how to update HTTP router settings.
 ---
 
-# Updating HTTP router parameters
+# Updating HTTP router settings
 
-To update HTTP router parameters:
+To update HTTP router settings:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your HTTP router.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
-  1. Click the router name.
+  1. Click your router name.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit the router, virtual host, or route settings.
-  1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
+  1. Edit your router (virtual host, route) settings.
+  1. Click **{{ ui-key.yacloud.common.save }}** at the bottom of the page.
 
 - CLI {#cli}
 
@@ -25,13 +25,13 @@ To update HTTP router parameters:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to update a load balancer:
+  1. See the description of the CLI command for updating an HTTP router:
 
      ```bash
      yc alb http-router update --help
      ```
 
-  1. Run the command, indicating the new router parameters:
+  1. Run this command with new router settings specified:
 
      ```bash
      yc alb http-router update <HTTP_router_name> --new-name <new_name_for_HTTP_router>
@@ -67,7 +67,7 @@ To update HTTP router parameters:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the fragment with the HTTP router description.
+  1. Open the {{ TF }} configuration file and edit the fragment describing your HTTP router.
 
      ```hcl
      ...
@@ -81,9 +81,9 @@ To update HTTP router parameters:
      ...
      ```
 
-     For more information about `yandex_alb_http_router` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_http_router).
+     For more information about `yandex_alb_http_router` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_http_router).
 
-  1. To add, update, or delete HTTP router virtual hosts, use the `yandex_alb_virtual_host` resource indicating the router in the `http_router_id` field:
+  1. To add, update, or delete HTTP router virtual hosts, use the `yandex_alb_virtual_host` resource with your router ID specified in its `http_router_id` field:
 
      ```hcl
      resource "yandex_alb_virtual_host" "my-virtual-host" {
@@ -101,7 +101,7 @@ To update HTTP router parameters:
      }
      ```
 
-     For more information about `yandex_alb_virtual_host` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more information about `yandex_alb_virtual_host` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Check the configuration using this command:
 
@@ -109,7 +109,7 @@ To update HTTP router parameters:
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If your configuration is correct, you will get this message:
      
      ```bash
      Success! The configuration is valid.
@@ -121,17 +121,17 @@ To update HTTP router parameters:
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If your configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check the HTTP router update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check your HTTP router updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb http-router get <HTTP_router_ID>
@@ -145,19 +145,19 @@ To update HTTP router parameters:
 
 ## Adding a route to a virtual host {#add-virtual-host}
 
-To add a new route to an HTTP router's virtual host:
+To add a new route to your HTTP router's virtual host:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your HTTP router.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
-  1. Click the router name.
+  1. Click your router name.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
-  1. Set the route parameters and click **{{ ui-key.yacloud.common.save }}**.
+  1. Specify your route settings and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -174,11 +174,11 @@ To add a new route to an HTTP router's virtual host:
    * **HTTP**
 
     
-      You can add a new route to the beginning, end, or specific position in the host's route list.
+      You can add a new route at the beginning, end, or any position within the route list.
     
-      **Add a route to the end of a host's route list**
+      **Add a route at the end of the list**
     
-      1. View a description of the CLI command for adding a route to the end of a host's route list:
+      1. See the description of the CLI command for adding a route at the end of the route list:
 
          ```bash
          yc alb virtual-host append-http-route --help
@@ -198,7 +198,7 @@ To add a new route to an HTTP router's virtual host:
            --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
-         For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+         For more information about `yc alb virtual-host append-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
          Result:
 
@@ -220,9 +220,9 @@ To add a new route to an HTTP router's virtual host:
                idle_timeout: 3s
          ```
     
-      **Add a route to the beginning of a host's route list**
+      **Add a route at the beginning of the list**
     
-      1. View a description of the CLI command for adding a route to the beginning of a host's route list:
+      1. See the description of the CLI command for adding a route at the beginning of the route list:
 
          ```bash
          yc alb virtual-host prepend-http-route --help
@@ -242,7 +242,7 @@ To add a new route to an HTTP router's virtual host:
            --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
-         For more information about the `yc alb virtual-host prepend-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
+         For more information about `yc alb virtual-host prepend-http-route` options, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
 
          Result:
 
@@ -266,9 +266,9 @@ To add a new route to an HTTP router's virtual host:
          ...
          ```
     
-      **Add a route before a specific route**
+      **Add a route before another route**
     
-      1. View a description of the CLI command for adding a route before a specific route:
+      1. See the description of the CLI command for adding a route before another route:
 
          ```bash
          yc alb virtual-host insert-http-route --help
@@ -289,7 +289,7 @@ To add a new route to an HTTP router's virtual host:
            --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
-         For more information about the `yc alb virtual-host insert-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
+         For more information about `yc alb virtual-host insert-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
 
          Result:
 
@@ -315,9 +315,9 @@ To add a new route to an HTTP router's virtual host:
          ...
          ```
     
-      **Add a route after a specific route**
+      **Add a route after another route**
     
-       1. View a description of the CLI command for adding a new route after a specific route:
+       1. See the description of the CLI command for adding a new route after another route:
 
           ```bash
           yc alb virtual-host insert-http-route --help
@@ -338,7 +338,7 @@ To add a new route to an HTTP router's virtual host:
              --rate-limit rps=<request_limit>,requests-per-ip
            ```
 
-           For more information about the `yc alb virtual-host insert-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
+           For more information about `yc alb virtual-host insert-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
     
            Result:
     
@@ -364,11 +364,11 @@ To add a new route to an HTTP router's virtual host:
 
    * **gRPC**
 
-      You can add a new route to the beginning, end, or specific position in the host's route list.
+      You can add a new route at the beginning, end, or any position within the route list.
       
-      **Add a route to the end of a host's route list**
+      **Add a route at the end of the list**
       
-      1. View a description of the CLI command for adding a route to the end of a host's route list:
+      1. See the description of the CLI command for adding a route at the end of the route list:
 
          ```bash
          yc alb virtual-host append-grpc-route --help
@@ -386,7 +386,7 @@ To add a new route to an HTTP router's virtual host:
            --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
-         For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
+         For more information about `yc alb virtual-host append-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
          Result:
 
@@ -408,9 +408,9 @@ To add a new route to an HTTP router's virtual host:
                auto_host_rewrite: false
          ```
       
-      **Add a route to the beginning of a host's route list**
+      **Add a route at the beginning of the list**
       
-      1. View a description of the CLI command for adding a route to the beginning of a host's route list:
+      1. See the description of the CLI command for adding a route at the beginning of the route list:
 
          ```bash
          yc alb virtual-host prepend-grpc-route --help
@@ -428,7 +428,7 @@ To add a new route to an HTTP router's virtual host:
            --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
-         For more information about the `yc alb virtual-host prepend-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
+         For more information about `yc alb virtual-host prepend-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
 
          Result:
 
@@ -450,9 +450,9 @@ To add a new route to an HTTP router's virtual host:
          ...
          ```
       
-      **Add a route before a specific route**
+      **Add a route before another route**
       
-      1. View a description of the CLI command for adding a route before a specific route:
+      1. See the description of the CLI command for adding a route before another route:
 
          ```bash
          yc alb virtual-host insert-grpc-route --help
@@ -473,14 +473,14 @@ To add a new route to an HTTP router's virtual host:
 
           Where:
 
-          * `--virtual-host-name`: Name of the virtual host to add a route to.
-          * `--before`: Route name to be preceded by the new route.
+          * `--virtual-host-name`: Name of the virtual host where you want to add a route.
+          * `--before`: Route name following your new route.
           * `--http-router-name`: HTTP router name.
-          * `--prefix-fqmn-match`: First word in the service name.
+          * `--prefix-fqmn-match`: Service name first word.
           * `--backend-group-name`: Backend group name.
           * `--request-max-timeout`: Timeout in seconds.
 
-         For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
+         For more information about `yc alb virtual-host insert-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
          Result:
 
@@ -503,9 +503,9 @@ To add a new route to an HTTP router's virtual host:
          ...
          ```
       
-      **Add a route after a specific route**
+      **Add a route after another route**
       
-      1. View a description of the CLI command for adding a new route after a specific route:
+      1. See the description of the CLI command for adding a new route after another route:
 
           ```bash
           yc alb virtual-host insert-grpc-route --help
@@ -526,14 +526,14 @@ To add a new route to an HTTP router's virtual host:
 
           Where:
 
-          * `--virtual-host-name`: Name of the virtual host to add a route to.
-          * `--after`: Route name to be followed by the new route.
+          * `--virtual-host-name`: Name of the virtual host where you want to add a route.
+          * `--after`: Route name before your new route.
           * `--http-router-name`: HTTP router name.
-          * `--prefix-fqmn-match`: First word in the service name.
+          * `--prefix-fqmn-match`: Service name first word.
           * `--backend-group-name`: Backend group name.
           * `--request-max-timeout`: Timeout in seconds.
 
-          For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
+          For more information about `yc alb virtual-host insert-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
           Result:
       
@@ -561,7 +561,7 @@ To add a new route to an HTTP router's virtual host:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the virtual host description fragment by adding the `route` section:
+  1. Open the {{ TF }} configuration file and add the `route` section to your virtual host description:
 
      ```hcl
      resource "yandex_alb_virtual_host" "my-virtual-host" {
@@ -579,9 +579,9 @@ To add a new route to an HTTP router's virtual host:
      }
      ```
 
-     For more information about `yandex_alb_virtual_host` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more information about `yandex_alb_virtual_host` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
 
-     The sequence of routes inside a virtual host description matters. For more information, see the [concept](../../application-load-balancer/concepts/http-router.md#virtual-host).
+     The order of routes in the list matters. For more information, see [this article](../../application-load-balancer/concepts/http-router.md#virtual-host).
 
   1. Check the configuration using this command:
 
@@ -589,7 +589,7 @@ To add a new route to an HTTP router's virtual host:
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If your configuration is correct, you will get this message:
      
      ```text
      Success! The configuration is valid.
@@ -601,17 +601,17 @@ To add a new route to an HTTP router's virtual host:
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If your configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check the virtual host update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check virtual host updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb virtual-host get <virtual_host_ID>
@@ -623,35 +623,35 @@ To add a new route to an HTTP router's virtual host:
 
 {% endlist %}
 
-## Change route order in the virtual host {#change-route-order}
+## Change your virtual host’s route order {#change-route-order}
 
-To change the order of HTTP router routes:
+To change route order in the HTTP router:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
+  1. In the [management console]({{ link-console-main }}), select the folder with your HTTP router.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
-  1. Click the router name.
+  1. Click your router name.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Click **{{ ui-key.yacloud.alb.button_routes-sort }}**.
-  1. In the window that opens, drag the route to a new position in the list.
+  1. In the window that opens, drag your route to a new position in the list.
   1. Click **{{ ui-key.yacloud.common.save }}**.
-  1. Finish editing the router and click **{{ ui-key.yacloud.common.save }}**.
+  1. Once you finish edits, click **{{ ui-key.yacloud.common.save }}**.
   
 - CLI {#cli}
 
    * **HTTP**
    
-      1. View a description of the CLI route delete command:
+      1. See the description of the CLI command for deleting a route:
 
           ```bash
           yc application-load-balancer virtual-host remove-http-route --help
           ```
        
-      1. Delete the route:   
+      1. Delete a route:   
 
           ```bash
           yc alb virtual-host remove-http-route <route_name> \
@@ -659,17 +659,17 @@ To change the order of HTTP router routes:
             --http-router-name <router_name>
           ```
       
-      1. Add the route to a desired position using one of the ways described above.   
+      1. Add your route at a required position as described above.   
 
    * **gRPC**
    
-      1. View a description of the CLI route delete command:
+      1. See the description of the CLI command for deleting a route:
 
           ```bash
           yc application-load-balancer virtual-host remove-gRPC-route --help
           ```
        
-      1. Delete the route:   
+      1. Delete a route:   
 
           ```bash
           yc alb virtual-host remove-grpc-route <route_name> \
@@ -677,7 +677,7 @@ To change the order of HTTP router routes:
             --http-router-name  <router_name>
           ```
       
-      1. Add the route to a desired position using one of the ways described above.
+      1. Add your route at a required position as described above.
 
 - API {#api}
 

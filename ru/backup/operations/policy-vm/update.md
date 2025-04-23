@@ -9,11 +9,20 @@ description: Из статьи вы узнаете, как изменить по
 
 {% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
 
+
 ## Изменить основные параметры {#update-basic-parameters}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+  
+  {% note warning %}
+  
+  Политики копирования с некоторыми дополнительными настройками нельзя изменить в консоли управления {{ yandex-cloud }}. Чтобы изменить настройки таких политик, воспользуйтесь CLI {{ yandex-cloud }}, {{ TF }} или API.
+
+  Если изменения настроек политики резервного копирования не применились на ВМ или сервере {{ baremetal-name }}, к которым ранее была привязана политика, то [отвяжите](detach-vm.md) политику от ВМ и [привяжите](attach-and-detach-vm.md) ее заново.
+
+  {% endnote %}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно изменить [политику резервного копирования](../../../backup/concepts/policy.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -22,6 +31,8 @@ description: Из статьи вы узнаете, как изменить по
   1. Измените параметры политики резервного копирования:
 
      {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+
+       {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
