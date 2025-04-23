@@ -169,7 +169,7 @@
    git push
    ```
 
-1. Запустится сценарий сборки. Чтобы посмотреть его выполнение, выберите в выпадающем меню пункт **Build** → **Pipelines**. Дождитесь успешного завершения обоих этапов сборки.
+1. Запустится сценарий сборки. Чтобы посмотреть его выполнение, на панели слева в {{ GL }} выберите **Build** → **Pipelines**. Дождитесь успешного завершения обоих этапов сборки.
 1. Откройте завершенную сборку и скопируйте строку из лога, она понадобится на следующем этапе:
 
    ```text
@@ -184,13 +184,6 @@
 
    {% include [Install kubectl](../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
 
-1. Настройте переадресацию порта сервиса ArgoCD на локальный компьютер:
-
-   ```bash
-   kubectl port-forward service/<название_приложения_Argo_CD>-argocd-server \
-     --namespace <пространство_имен> 8080:443
-   ```
-
 1. Получите пароль администратора из секрета {{ k8s }}:
 
    ```bash
@@ -198,8 +191,15 @@
      --output jsonpath="{.data.password}" | base64 -d
    ```
 
+1. Настройте переадресацию порта сервиса ArgoCD на локальный компьютер:
+
+   ```bash
+   kubectl port-forward service/<название_приложения_Argo_CD>-argocd-server \
+     --namespace <пространство_имен> 8080:443
+   ```
+
 1. Откройте в браузере консоль Argo CD по адресу `https://127.0.0.1:8080`.
-1. Авторизуйтесь в консоли, используя имя пользователя `admin` и пароль, полученный на предыдущем шаге.
+1. Авторизуйтесь в консоли, используя имя пользователя `admin` и полученный ранее пароль.
 
 ### Добавьте репозиторий {{ GL }} в Argo CD {#create}
 
@@ -211,7 +211,18 @@
 1. Нажмите кнопку **Create project access token**.
 1. Скопируйте значение созданного токена.
 1. В консоли Argo CD перейдите в раздел **Settings** → **Repositories**.
-1. Нажмите кнопку **Connect Repo Using HTTPS**.
+1. Нажмите кнопку **Connect Repo** и выберите в списке **VIA HTTPS**.
+
+   {% note info %}
+
+   Если при подключении репозитория вы получаете ошибку `FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed`, включите доступ в {{ GL }} по протоколу HTTP(S).
+
+   Чтобы включить доступ, на панели слева в {{ GL }} выберите **Admin → Settings → General**. В блоке **Visibility and access controls** найдите настройку **Enabled Git access protocols** и выберите в списке пункт, разрешающий доступ по протоколу HTTP(S).
+
+   [Подробнее в документации {{ GL }}](https://docs.gitlab.com/administration/settings/visibility_and_access_controls/#configure-enabled-git-access-protocols).
+
+   {% endnote %}
+
 1. В открывшейся форме задайте параметры:
    * **Repository URL** — URL репозитория вида `https://<имя_инстанса_{{ GL }}>.gitlab.yandexcloud.net/<имя_пользователя-администратора>/gitlab-test.git`.
    * **Username** — `gitlab-ci-token`.
