@@ -9,11 +9,11 @@ noIndex: true
 {% include [preview](../_includes/managed-trino/note-preview.md) %}
 
 To get started:
-* [Create a {{ mtr-name }}](#cluster-create) cluster.
-* [Install the {{ TR }} CLI](#install-trino-cli).
-* [Connect to {{ TR }}](#connect).
-* [Send queries to the {{ mpg-full-name }} cluster through {{ TR }}](#query-mpg-via-trino).
-* [Check the queries in the {{ mpg-name }} cluster](#check-queries-in-psql).
+1. [Create a {{ mtr-name }} cluster](#cluster-create).
+1. [Connect to the {{ mtr-name }} cluster](#connect).
+1. [Send queries to the {{ mpg-full-name }} cluster through {{ TR }}](#query-mpg-via-trino).
+1. [Check the queries in the {{ mpg-name }} cluster](#check-queries-in-psql).
+
 
 ## Getting started {#before-you-begin}
 
@@ -52,14 +52,14 @@ To get started:
 
         1. For the {{ mpg-name }} cluster, with the following properties:
 
-           * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `test`
-           * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `PostgreSQL`
-           * **{{ ui-key.yacloud.trino.catalogs.label_url }}**: `jdbc:postgresql://<FQDN_of_host_of_Managed_Service_for_Postgresql>:6432/<DB_name>?ssl=true&sslmode=verify-full`
+           * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `test`.
+           * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `PostgreSQL`.
+           * **URL**: `jdbc:postgresql://<FQDN_of_host_of_Managed_Service_for_Postgresql>:6432/<DB_name>?ssl=true&sslmode=verify-full`
 
                To learn how to get the FQDN of a host in a {{ mpg-name }} cluster, see [this guide](../managed-postgresql/operations/connect.md#fqdn).
 
-           * **{{ ui-key.yacloud.trino.catalogs.label_userName }}**: Username in the {{ mpg-name }} cluster.
-           * **{{ ui-key.yacloud.trino.catalogs.label_password }}**: User password.
+           * **User name**: Username in the {{ mpg-name }} cluster.
+           * **Password**: User password.
 
         1. For test data, with the following properties:
 
@@ -81,52 +81,9 @@ To get started:
 
 {% endlist %}
 
-## Install the {{ TR }} CLI {#install-trino-cli}
+## Connect to the {{ mtr-name }} cluster through the {{ TR }} CLI {#connect-to-trino}
 
-1. Download the {{ TR }} CLI from the Apache Maven central repository to the `trino` file:
-
-   ```bash
-   wget -O trino \
-   https://repo.maven.apache.org/maven2/io/trino/trino-cli/<version_number>/trino-cli-<version_number>-executable.jar
-   ```
-
-   The available versions are listed [here](https://repo.maven.apache.org/maven2/io/trino/trino-cli/).
-
-1. Convert the file you downloaded to an executable:
-
-   ```bash
-   sudo chmod +x trino
-   ```
-
-1. Make sure {{ TR }} is installed successfully. Do it by requesting {{ TR }} version:
-
-   ```bash
-   ./trino --version
-   ```
-
-   The response will look as follows:
-
-   ```bash
-   Trino CLI <version_number>
-   ```
-
-## Connect to the {{ mtr-name }} cluster {#connect-to-trino}
-
-1. Create an [IAM token](../iam/concepts/authorization/iam-token.md) and put it to the `TRINO_PASSWORD` environment variable:
-
-   ```bash
-   export TRINO_PASSWORD=$(yc iam create-token)
-   ```
-
-   This IAM token in `TRINO_PASSWORD` will be your password to the {{ mtr-name }} cluster. To enable it, specify the `--password` flag upon connection.
-
-1. Connect to the {{ mtr-name }} cluster:
-
-   ```bash
-   ./trino <coordinator_URL> --user iam --password
-   ```
-
-   You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.title_resource-coordinator }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
+{% include [trino-cli-connect](../_includes/managed-trino/trino-cli-connect.md) %}
 
 ## Send queries to the {{ mpg-name }} cluster through {{ TR }} {#query-mpg-via-trino}
 
@@ -195,3 +152,7 @@ Expected response:
 
 ```
 
+
+# What's next {#whats-next}
+
+* Learn other [methods of connection to a {{ mtr-name }} cluster](operations/connect.md).

@@ -86,3 +86,10 @@ description: Из статьи вы узнаете, что такое храни
 Настроить автоматическое увеличение размера хранилища можно при [создании](../operations/cluster-create.md) или [изменении кластера](../operations/storage-space.md#disk-size-autoscale). Если настроен порог для планового увеличения, настройте расписание окна обслуживания.
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/kafka-connect.md)
+* [{#T}](../tutorials/managed-schema-registry.md)
+* [{#T}](../tutorials/confluent-schema-registry.md)

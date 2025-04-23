@@ -1,7 +1,7 @@
 title: Yandex API Gateway
 description:
   - >-
-    Yandex API Gateway is an API gateway management service supporting <a
+    Yandex API Gateway is an API gateway management service that supports <a
     href="https://github.com/OAI/OpenAPI-Specification">OpenAPI 3.0</a> and
     extensions for compatibility with other cloud services.
 meta:

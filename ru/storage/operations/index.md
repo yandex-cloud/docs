@@ -27,6 +27,8 @@ description: Из статьи вы узнаете, как работать с {
 ## Объекты {#objects}
 
 * [{#T}](objects/upload.md)
+* [{#T}](objects/multipart-upload.md)
+* [{#T}](objects/list.md)
 * [{#T}](objects/info.md)
 * [{#T}](objects/download.md)
 * [{#T}](objects/restore-object-version.md)

@@ -38,6 +38,8 @@ items:
             href: operations/images/create-from-desktop.md
           - name: Создать образ Linux на основе ВМ Compute Cloud
             href: operations/images/create-from-compute-linux.md
+          - name: Создать образ Windows
+            href: operations/images/create-from-windows.md
           - name: Удалить пользовательский образ
             href: operations/images/delete.md
       - name: Посмотреть логи

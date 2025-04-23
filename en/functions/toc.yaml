@@ -449,7 +449,9 @@ items:
         href: tutorials/regular-launch-datasphere.md
       - name: Interactive debugging of functions
         href: tutorials/serverless-live-debug.md
-      - name: Regular recognition of audio files in an {{ objstorage-name }} bucket
+      - name: >-
+          Regular asynchronous recognition of audio files from {{
+          objstorage-name }}
         href: tutorials/batch-recognition-stt.md
       - name: Canary release of a {{ sf-name }} function
         href: tutorials/canary-release.md
@@ -460,9 +462,9 @@ items:
           Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: >-
-          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
-          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
-          data-transfer-full-name }}
+          Loading data from {{ yandex-direct }} to a data mart enabled by {{
+          mch-full-name }} using {{ sf-full-name }}, {{ objstorage-full-name }},
+          and {{ data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
       - name: Scheduled instance group scaling
         items:
@@ -499,7 +501,7 @@ items:
           serverless-containers-full-name }}
         href: tutorials/functions-framework-to-container.md
       - name: >-
-          Delivering data from {{ forms-full-name }} to {{ datalens-full-name }}
+          Migrating data from {{ forms-full-name }} to {{ datalens-full-name }}
           using {{ sf-full-name }} and {{ yq-full-name }}
         items:
           - name: Overview
@@ -528,7 +530,7 @@ items:
     href: tf-ref.md
   - name: API Functions reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
@@ -682,7 +684,7 @@ items:
                 href: functions/api-ref/Operation/cancel.md
   - name: API Triggers reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:

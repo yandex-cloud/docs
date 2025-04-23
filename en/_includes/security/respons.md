@@ -1,6 +1,6 @@
 # Division of responsibility for security
 
-The security of the systems using cloud services requires sharing the responsibility between the client (end system owner) and the provider (cloud infrastructure owner). The division of this responsibility depends on the model of cloud services: IaaS (Infrastructure as a Service), PaaS (Platform as a Service), or SaaS (Software as a Service).
+The security of systems dependent on cloud services involves a division of responsibility between the customer (end system owner) and the provider (cloud infrastructure owner). The division of this responsibility depends on the model of cloud services: IaaS (Infrastructure as a Service), PaaS (Platform as a Service), or SaaS (Software as a Service).
 
 It can be visualized in a table, where:
 
@@ -26,7 +26,7 @@ In any of the four situations, only the client is responsible for controlling ac
 The client is solely responsible for ensuring security at all levels.
 
 ## IaaS {#iaas}
-The provider is responsible for the physical security and fault tolerance of the platform itself, network security, and the collection and analysis of security events from hypervisors and other infrastructure components.
+The provider is responsible for the physical security and [fault tolerance](../../architecture/fault-tolerance.md) of the platform itself, network security, the collection and analysis of security events from hypervisors and other infrastructure components.
 
 The client is to back up VMs, protect the virtual network, ensure the security of guest OS, control access, and secure cloud user accounts.
 

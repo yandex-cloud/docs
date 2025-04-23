@@ -67,6 +67,12 @@ items:
                 href: operations/iam-token/create-for-federation.md
               - name: Revoking an IAM token
                 href: operations/iam-token/revoke-iam-token.md
+              - name: Refresh tokens
+                items:
+                  - name: Getting a list of refresh tokens
+                    href: operations/refresh-token/list.md
+                  - name: Revoking a refresh token
+                    href: operations/refresh-token/revoke.md
           - name: Managing static access keys
             href: operations/authentication/manage-access-keys.md
           - name: Managing API keys
@@ -145,6 +151,8 @@ items:
             href: concepts/authorization/iam-token.md
           - name: ID token
             href: concepts/authorization/id-token.md
+          - name: Refresh token
+            href: concepts/authorization/refresh-token.md
           - name: OAuth token
             href: concepts/authorization/oauth-token.md
           - name: API key
@@ -308,6 +316,9 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/workload-identity/oidc/federation/index.md
+                  - name: add-access-binding
+                    href: >-
+                      cli-ref/workload-identity/oidc/federation/add-access-binding.md
                   - name: add-audiences
                     href: cli-ref/workload-identity/oidc/federation/add-audiences.md
                   - name: add-labels
@@ -320,11 +331,20 @@ items:
                     href: cli-ref/workload-identity/oidc/federation/get.md
                   - name: list
                     href: cli-ref/workload-identity/oidc/federation/list.md
+                  - name: list-access-bindings
+                    href: >-
+                      cli-ref/workload-identity/oidc/federation/list-access-bindings.md
+                  - name: remove-access-binding
+                    href: >-
+                      cli-ref/workload-identity/oidc/federation/remove-access-binding.md
                   - name: remove-audiences
                     href: >-
                       cli-ref/workload-identity/oidc/federation/remove-audiences.md
                   - name: remove-labels
                     href: cli-ref/workload-identity/oidc/federation/remove-labels.md
+                  - name: set-access-bindings
+                    href: >-
+                      cli-ref/workload-identity/oidc/federation/set-access-bindings.md
                   - name: update
                     href: cli-ref/workload-identity/oidc/federation/update.md
   - name: '{{ TF }} reference'

@@ -42,6 +42,12 @@ You can attach a file storage to VMs running Linux with kernel version 5.4 or hi
 
 Attaching file storages to Windows-based VMs in {{ compute-name }} is currently not supported.
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/ha-regional-glusterfs-high-performance.md)
+* [{#T}](../tutorials/ha-regional-glusterfs.md)
+* [{#T}](../tutorials/backup-with-bacula.md)
+
 **See also**
 
 * [{#T}](../operations/filesystem/create.md)

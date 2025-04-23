@@ -14,6 +14,9 @@ description: На этой странице приведен справочни�
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate) | [TLS-сертификат](./concepts/index.md#types) |
+| [yandex_cm_certificate_iam_binding]({{ tf-provider-resources-link }}/cm_certificate_iam_binding)| [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к TLS-сертификату. Имеет ограничение в 1000 привязок на ресурс. <br>Вместо `yandex_cm_certificate_iam_binding` рекомендуется использовать `yandex_cm_certificate_iam_member` |
+| [yandex_cm_certificate_iam_member]({{ tf-provider-resources-link }}/cm_certificate_iam_member) |  [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к TLS-сертификату. |
+
 
 ## Источники данных {#data-sources}
 

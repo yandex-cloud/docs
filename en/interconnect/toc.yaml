@@ -10,7 +10,7 @@ items:
         href: operations/partner-get-info.md
       - name: Getting information about {{ interconnect-name }} points of presence
         href: operations/pop-get-info.md
-      - name: Getting information about trunk connections
+      - name: Getting information about trunk links
         href: operations/trunk-get-info.md
       - name: Getting information about private connections
         href: operations/priv-con-get-info.md
@@ -47,6 +47,10 @@ items:
           Configuring {{ interconnect-name }} access to cloud networks behind
           NGFWs
         href: tutorials/cic-with-ngfw
+      - name: >-
+          Setting up network connectivity between {{ baremetal-name }} and {{
+          vpc-name }} subnets
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
   - name: Concepts
     expanded: true
     items:
@@ -146,7 +150,7 @@ items:
             href: cli-ref/trunk-connection/update.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

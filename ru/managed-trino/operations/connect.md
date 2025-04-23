@@ -173,7 +173,7 @@
 1. Создайте директорию для проекта Maven:
 
     ```bash
-    cd ~/ && mkdir -p project/src/java/com/example && cd project/
+    cd ~/ && mkdir -p project/src/main/java/com/example && cd project/
     ```
 
 1. Создайте конфигурационный файл для Maven:
@@ -181,22 +181,21 @@
     {% cut "pom.xml" %}
 
     ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml version="1.0" encoding="utf-8"?>
     <project xmlns="http://maven.apache.org/POM/4.0.0"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
         <modelVersion>4.0.0</modelVersion>
-
         <groupId>com.example</groupId>
-        <artifactId>trino-example</artifactId>
-        <version>1.0-SNAPSHOT</version>
-
+        <artifactId>app</artifactId>
+        <version>0.1.0</version>
+        <packaging>jar</packaging>
         <properties>
             <maven.compiler.source>21</maven.compiler.source>
             <maven.compiler.target>21</maven.compiler.target>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         </properties>
-
         <dependencies>
             <dependency>
                 <groupId>io.trino</groupId>
@@ -204,7 +203,47 @@
                 <version>469</version>
             </dependency>
         </dependencies>
-
+        <build>
+            <finalName>${project.artifactId}-${project.version}</finalName>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.7.1</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                            <phase>package</phase>
+                            <configuration>
+                                <descriptorRefs>
+                                    <descriptorRef>
+                                        jar-with-dependencies</descriptorRef>
+                                </descriptorRefs>
+                                <archive>
+                                    <manifest>
+                                        <mainClass>com.example.App</mainClass>
+                                    </manifest>
+                                </archive>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.4.2</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <mainClass>com.example.App</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
     </project>
 
     ```
@@ -231,7 +270,7 @@
       import java.sql.DriverManager;
       import java.util.Properties;
 
-      public class Main {
+      public class App {
           private static final String COORDINATOR_URL = "c-<идентификатор_кластера>.trino.yandexcloud.net";
 
           public static void main(String[] args) {
@@ -287,7 +326,7 @@
 
 - Подключение с SSL {#with-ssl}
 
-    `app.js`
+    `app.mjs`
 
     ```javascript
     "use strict";
@@ -313,5 +352,5 @@
 Подключение:
 
 ```bash
-node app.js
+node app.mjs
 ```

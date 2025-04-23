@@ -1,7 +1,3 @@
----
-noIndex: true
----
-
 # Лимиты в {{ cloud-shell-full-name }}
 
 {% include notitle [preview](../../../_includes/note-preview.md) %}

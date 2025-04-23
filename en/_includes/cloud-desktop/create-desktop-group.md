@@ -2,10 +2,10 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your desktop group in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your desktop group.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Click **{{ ui-key.yacloud.vdi.button_empty-create-desktop-group }}**.
-  1. Enter a name and description of the desktop group.
+  1. Specify the desktop group name and description.
   1. Select **{{ ui-key.yacloud.vdi.section_type }}**:
 
       * **{{ ui-key.yacloud.vdi.value_type-personal }}**: Desktops are assigned to users on their first sign-in and remain reserved for them.
@@ -54,7 +54,7 @@
 
   {% include [cli-install](../cli-install.md) %}
 
-  1. View the description of the [CLI](../../cli/index.yaml) command to create a [desktop group](../../cloud-desktop/concepts/desktops-and-groups.md):
+  1. See the description of the [CLI](../../cli/index.yaml) command for creating a [desktop group](../../cloud-desktop/concepts/desktops-and-groups.md):
 
       ```bash
       yc desktops group create --help
@@ -77,7 +77,7 @@
       +----------------------+------------+--------+----------+
       ```
 
-  1. Select an [image](../../cloud-desktop/concepts/images.md) to create a boot [disk](../../cloud-desktop/concepts/disks.md) for the desktop. You can look up the image ID in the [management console]({{ link-console-main }}).
+  1. Select the desktop boot [disk](../../cloud-desktop/concepts/disks.md) [image](../../cloud-desktop/concepts/images.md). You can find the image ID in the [management console]({{ link-console-main }}).
   1. Select a [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet):
 
       ```bash
@@ -117,14 +117,14 @@
 
       * `--folder-id`: Folder ID.
       * `--image-id`: Disk image ID.
-      * `--name`: Desktop groups name.
-      * `--resource-spec`: Description of the desktop group computing resources:
+      * `--name`: Desktop group name.
+      * `--resource-spec`: Desktop group resource description:
 
           * `memory`: Amount of RAM.
           * `cores`: Number of vCPUs.
           * `core-fraction`: [Guaranteed vCPU share](../../compute/concepts/performance-levels.md).
 
-      * `--network-interface-spec`: Description of the desktop group network interface:
+      * `--network-interface-spec`: Desktop group network interface description:
 
           * `network-id`: Cloud network ID.
           * `subnet-id`: Subnet ID.

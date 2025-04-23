@@ -187,6 +187,8 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
+      - name: Planning a cluster topology
+        href: concepts/planning-cluster-topology.md
       - name: Networking in {{ mpg-name }}
         href: concepts/network.md
       - name: Quotas and limits
@@ -345,7 +347,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

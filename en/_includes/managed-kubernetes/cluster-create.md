@@ -15,6 +15,14 @@
 1. Add [cloud labels](../../managed-kubernetes/concepts/index.md#cluster-labels) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field.
 
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
+   * (Optional) Expand the **Compute resources** section and select a [resource configuration](../../managed-kubernetes/concepts/index.md#master-resources) for the master.
+
+     {% include [master-default-config](../../_includes/managed-kubernetes/master-default-config.md) %}
+
+     To allow further changes to the master's resource configuration, select **Allow resource volume to increase in response to loads**.
+
+     {% include [master-config-preview-note](../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the {{ k8s }} version to be installed on the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master.
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** field, select an [IP address](../../vpc/concepts/address.md) assignment method:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
@@ -25,20 +33,41 @@
      {% include [write-once-settings](write-once-setting.md) %}
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** field, select the {{ managed-k8s-name }} master type:
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}`: Master created in a [subnet](../../vpc/concepts/network.md#subnet) in one [availability zone](../../overview/concepts/geo-scope.md).
+     * `Basic`: Contains one master host in one availability zone. This type of master is cheaper but not fault-tolerant. Its former name is _zonal_.
 
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`: Master created in a distributed manner in three subnets in each availability zone.
-   * Select the availability zone to create a {{ managed-k8s-name }} master in.
+       {% note warning %}
 
-     This step is only available for the {{ managed-k8s-name }} zonal master.
+       {% include [base-zonal-pricing](../../_includes/managed-kubernetes/base-zonal-pricing.md) %}
+
+       {% endnote %}
+
+     * `Highly available`: Contains three master hosts. Its former name is _regional_.
+
+       {% note warning %}
+
+       {% include [ha-regional-pricing](../../_includes/managed-kubernetes/ha-regional-pricing.md) %}
+
+       {% endnote %}
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** field, select the [network](../../vpc/concepts/network.md#network) to create a {{ managed-k8s-name }} master in. If there are no networks available, [create one](../../vpc/operations/network-create.md).
 
       {% include [note-another-catalog-network](note-another-catalog-network.md) %}
 
-   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_subnetwork }}** field, select the subnet to create a {{ managed-k8s-name }} master in. If there is no subnet, [create one](../../vpc/operations/subnet-create.md).
+   * For a highly available master, select master host placement in the **Distribution of masters by availability zone** field:
+     * `One zone`: In one availability zone and one subnet. This is a good choice of master if you want to ensure high availability of the cluster and reduce network latency within it.
+     * `Different zones`: In three different availability zones. This master ensures the greatest fault tolerance: if one zone becomes unavailable, the master will remain operational.
 
-     For the {{ managed-k8s-name }} regional master, specify a subnet in each availability zone.
+   * Depending on the type of master you select:
+     * For a basic or highly available master in a single zone, specify the availability zone and subnet. 
+     * For a highly available master in different zones, specify subnets in each zone. 
+
+     If there are no subnets, [create](../../vpc/operations/subnet-create.md) them.
+
+     {% note warning %}
+
+     You cannot change the master type and location after you create a cluster.
+
+     {% endnote %}
 
    * Select [security groups](../../vpc/concepts/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
 

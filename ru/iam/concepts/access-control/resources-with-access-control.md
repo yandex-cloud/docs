@@ -82,6 +82,7 @@ description: Из статьи вы узнаете, на какие ресурс
 
   **{{ certificate-manager-full-name }}**
   * [Пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md)
+  * [Сертификат Let's Encrypt](../../../certificate-manager/concepts/managed-certificate.md)
 
   **{{ cloud-desktop-full-name }}**
   * [Группа рабочих столов](../../../cloud-desktop/concepts/desktops-and-groups.md)
@@ -141,6 +142,10 @@ description: Из статьи вы узнаете, на какие ресурс
 
   {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
 
+  **{{ certificate-manager-full-name }}**
+  * [Пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md)
+  * [Сертификат Let's Encrypt](../../../certificate-manager/concepts/managed-certificate.md)
+
   **{{ compute-full-name }}**
 
   {% include notitle [compute-resources-tf](../../../_includes/iam/resources-with-access-control/compute-tf.md) %}
@@ -183,6 +188,7 @@ description: Из статьи вы узнаете, на какие ресурс
 
   **{{ certificate-manager-full-name }}**
   * [Пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md)
+  * [Сертификат Let's Encrypt](../../../certificate-manager/concepts/managed-certificate.md)
 
   **{{ billing-name }}**
   * [Платежный аккаунт](../../../billing/concepts/billing-account.md)

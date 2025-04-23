@@ -51,8 +51,8 @@ The update process is different for a [{{ managed-k8s-name }} master](#master) a
 #### Master {#master}
 
 The amount of time a {{ managed-k8s-name }} master is unavailable during an update depends on the master type:
-* Zonal masters are unavailable during the update.
-* Regional masters keep running during the update.
+* The basic master is unavailable during the update.
+* The highly available master maintains connectivity during the update.
 
 For more information, see [Updating a cluster](../operations/update-kubernetes.md#cluster-upgrade).
 

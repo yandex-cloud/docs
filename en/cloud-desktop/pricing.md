@@ -13,10 +13,10 @@ editable: false
 The {{ cloud-desktop-name }} usage cost includes:
 
 * Computing resources:
-  * Number of vCPUs.
-  * Amount of RAM.
-* Disk type and size.
-* Amount of outgoing traffic.
+  * Number of vCPUs
+  * Amount of RAM
+* Disk type and size
+* Amount of outgoing traffic
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -33,6 +33,14 @@ A desktop starts automatically once it is created.
 You are charged for disks whether the desktops are running or not.
 
 ## Prices for the Russia region {#prices}
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ cloud-desktop-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn25bk2bcun5eb7kkdq0).
+
+{% endnote %}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -58,7 +66,7 @@ Here is an example of calculating the cost of using {{ cloud-desktop-name }} for
 
 * Computing resources: 2 x 50% vCPUs and 2 GB of RAM.
 * Boot disk: 50 GB SSD.
-* Working disk: 30 GB HDD.
+* Data disk: 30 GB HDD.
 * Total operating time of all desktops over the month: 1,000 hours.
 
 

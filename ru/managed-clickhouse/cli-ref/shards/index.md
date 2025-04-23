@@ -19,7 +19,7 @@ Aliases:
 
 #### Command Tree
 
-- [yc managed-clickhouse shards add](add.md) — Create new shard for the cluster in the specified availability zones.
+- [yc managed-clickhouse shards add](add.md) — Create new shard(s) for the cluster in the specified availability zones.
 - [yc managed-clickhouse shards delete](delete.md) — Delete a shard.
 - [yc managed-clickhouse shards get](get.md) — Get information about a shard in a ClickHouse cluster.
 - [yc managed-clickhouse shards list](list.md) — List shards for a ClickHouse cluster.

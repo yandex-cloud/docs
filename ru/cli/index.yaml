@@ -8,6 +8,18 @@ meta:
   description: >-
     CLI Yandex Cloud — скачиваемое программное обеспечение для управления вашими
     облачными ресурсами через командную строку.
+  keywords:
+    - keyword: cli
+    - keyword: yandex cli
+    - keyword: yc cli
+    - keyword: command line interface
+    - keyword: интерфейс командной строки
+    - keyword: командная оболочка
+    - keyword: command line interface {{ yandex-cloud }}
+    - keyword: интерфейс командной строки {{ yandex-cloud }}
+    - keyword: командная оболочка {{ yandex-cloud }}
+    - keyword: командная строка yandex
+    - keyword: командная строка {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Установите CLI и выполните первую команду

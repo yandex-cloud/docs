@@ -20,7 +20,7 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--name`|<b>`string`</b><br/>Shard name.|
+|`--name`|<b>`string`</b><br/>Name of the shard to be deleted. Provided for compatibility, and only the last value is used; prefer positional arguments instead.|
 
 #### Global Flags
 

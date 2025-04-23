@@ -54,7 +54,7 @@ Learn more about [integration with {{ dataproc-name }}](concepts/data-processing
 
 Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the project size [quota]({{ link-console-quotas }}), the entire requested [storage capacity](#prices-storage) exceeding {{ ml-project-size }} is paid for separately. For more information about pricing, see [{#T}](concepts/limits.md).
 
-Data storage inside [datasets](#prices-storage) and file storages is charged separately.
+You will be charged separately for data stored inside [datasets](#prices-storage) and file storages.
 
 If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In which case you will pay for data storage according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
@@ -65,6 +65,15 @@ If you need to store large amounts of data, you can use {{ objstorage-full-name 
 The monthly prices are based on 720 hours per month.
 
 ## Prices for the Russia region {#prices}
+
+
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ ml-platform-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn24j84p743fhjngkebd%2Cdn2scoh2b9945dep39ih).
+
+{% endnote %}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

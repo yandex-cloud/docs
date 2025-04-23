@@ -5,10 +5,11 @@ description: In this article, you will learn about the VAR program tools.
 
 # VAR program tools
 
+
 The VAR program participants have access to the following tools:
 
-* [Registering orders](#deal-reg)
-* [Order registration as part of a scheduled procurement](#tender)
+* [Deal registration](#deal-reg)
+* [Deal registration as part of a scheduled procurement](#tender)
 * [Project registration](#project-reg)
 * [Presale assistance](#presale)
 * [Quickstart program](#acceleration)
@@ -19,14 +20,24 @@ The VAR program participants have access to the following tools:
 * [Telegram channel for partners](#tg-channel)
 * [Partner Kit](#kit)
 
-## Order registration {#deal-reg}
+## Deal registration {#deal-reg}
 
-Order registration is a partner protection tool to reward a partner for bringing an order to {{ yandex-cloud }}. An order should be registered with a customer who has never worked with {{ yandex-cloud }} before. For registering an order, you will get up to 15% in addition to your [partner bonus](./var.md#premium) for as long as the customer remains linked to you.
+Deal registration is a partner protection tool that rewards the partner for generating a deal for {{ yandex-cloud }}. You register a deal with a customer who has never worked with {{ yandex-cloud }} before. For registering a deal, you will get up to 15% on top of your [partner bonus](./var.md#premium) for as long as the customer remains linked to you.
 
-Order registration conditions:
 
-* Target consumption for an order starts from 30,000 rubles per month.
-* You are registering an order with a new {{ yandex-cloud }} customer.
+### Deal registration conditions for the Russia region {#deal-reg-conditions}
+
+
+
+{% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
+
+
+{% list tabs group=pricing %}
+
+- Cost in RUB {#prices-rub}
+
+  * Deal target consumption starts from 30,000 RUB per month.
+  * Deal is registered with a new {{ yandex-cloud }} customer.
 
   {% note info %}
   
@@ -34,11 +45,26 @@ Order registration conditions:
   
   {% endnote %}
 
-To register an order:
+- Cost in KZT {#prices-kzt}
+
+  * Deal target consumption starts from 150,000 KZT per month.
+  * Deal is registered with a new {{ yandex-cloud }} customer.
+
+  {% note info %}
+  
+  For up-to-date conditions, see the [offer](https://yandex.com/legal/deal_reg_kz/).
+  
+  {% endnote %}
+
+{% endlist %}
+
+
+
+To register a deal:
 
 1. Log in to the [partner portal]({{ link-cloud-partners }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
-1. Click the **Partner's order/project application form** link.
+1. Click the **Partner deal/project application form** link.
 1. Fill out the form. Under **Application data**, in the **Request type** field, select `New customer`.
 1. Click **Submit** and wait for the application to be approved: this may take up to 20 business days.
 
@@ -69,15 +95,25 @@ To register an order:
 
       You can also [link](../operations/pin-cloud.md) an existing cloud to the customer's subaccount.
 
-## Order registration as part of a scheduled procurement {#tender}
+## Deal registration as part of a scheduled procurement {#tender}
 
-You can also register an order if you have entered into a contract or agreement with your customer under a scheduled procurement taking place under Federal Law 44-FZ or 223-FZ. For registering such an order you will get up to 15% on top of your [partner bonus](./var.md#premium) for the duration of your contract or agreement.
+You can also register a deal if you have entered into a contract or agreement with your customer as part of a scheduled procurement under Federal Law 44-FZ or 223-FZ. For registering such a deal you will get up to 15% on top of your [partner bonus](./var.md#premium) for the duration of your contract or agreement.
 
-Order registration conditions:
 
-* Target consumption for an order starts from 30,000 rubles per month.
-* The customer has not been brought in through a [referral program](../program/referral.md).
-* You already participated in a {{ yandex-cloud }} partner program at the time you won the scheduled procurement.
+### Deal registration conditions for the Russia region {#tender-conditions}
+
+
+
+{% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
+
+
+{% list tabs group=pricing %}
+
+- Cost in RUB {#prices-rub}
+
+  * Deal target consumption starts from 30,000 RUB per month.
+  * The customer has not been brought in through a [referral program](../program/referral.md).
+  * You already participated in a {{ yandex-cloud }} partner program at the time you won the scheduled procurement.
 
   {% note info %}
   
@@ -85,7 +121,23 @@ Order registration conditions:
   
   {% endnote %}
 
-You can register an order as part of a scheduled procurement just like a [regular order](#deal-reg). When filling out the application, put `Yes` in the **Order is part of procurement under 44-FZ/223-FZ** field under **Application data**.
+- Cost in KZT {#prices-kzt}
+
+  * Deal target consumption starts from 150,000 KZT per month.
+  * The customer has not been brought in through a [referral program](../program/referral.md).
+  * You already participated in a {{ yandex-cloud }} partner program at the time you won the scheduled procurement.
+
+  {% note info %}
+  
+  For up-to-date conditions, see the [offer](https://yandex.com/legal/cloud_partnership_procurement_kz/).
+  
+  {% endnote %}
+
+{% endlist %}
+
+
+
+You can register a deal taking place as part of a scheduled procurement just like a [regular deal](#deal-reg). When filling out your application, put in the **Deal is part of a procurement under 44-FZ/223-FZ** field under **Application data** `Yes`.
 
 ## Project registration {#project-reg}
 
@@ -97,6 +149,7 @@ Project registration conditions:
 * You are registering a project in the existing {{ yandex-cloud }} customer account.
 * Customer's cloud or folder shows zero consumption at the time of application submission.
 
+
   {% note info %}
   
   For up-to-date conditions, see the [offer](https://yandex.ru/legal/cloud_partnership_project_protect/).
@@ -107,7 +160,7 @@ To register a project:
 
 1. Log in to the [partner portal]({{ link-cloud-partners }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
-1. Click the **Partner's order/project application form** link.
+1. Click the **Partner deal/project application form** link.
 1. Fill out the form. Under **Application data**, in the **Request type** field, select `Customer project`.
 1. Click **Submit** and wait for the application to be approved: this may take up to 20 business days.
 
@@ -120,11 +173,11 @@ To submit a presale request:
 1. Log in to the [partner portal]({{ link-cloud-partners }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
 1. Click the **Presale request form** link.
-1. Fill out the form and click **Submit**. A customer manager will contact you within 3 business days.
+1. Complete the form and click **Submit**. A customer manager will contact you within 3 business days.
 
 ## Quickstart program {#acceleration}
 
-Our step-by-step acceleration program helps partners achieve their first sales with {{ yandex-cloud }}. Your participation in the program will help you greatly advance your knowledge of {{ yandex-cloud }} services, generate new orders, successfully implement projects based on {{ yandex-cloud }} services, and obtain a [technology specialization](../specializations/index.md).
+Our step-by-step acceleration program helps partners achieve their first sales with {{ yandex-cloud }}. Your participation in the program will considerably advance your knowledge of {{ yandex-cloud }} services, generate new deals, and contribute to successful implementation of your projects based on {{ yandex-cloud }} services, plus get you a [technology specialization](../specializations/index.md).
 
 The program is split between the two key areas: sales and technology. In each one, you will have a dedicated manager assigned. The manager will guide you through every step of the program and provide support with:
 
@@ -140,6 +193,7 @@ Requirements for program participants:
 * You have a ready list of 10-20 loyal customers ready to start using {{ yandex-cloud }}.
 * To participate in the technology area: an employee who has completed the [Cloud Service Engineer](https://practicum.yandex.ru/ycloud/) course.
 * To participate in the sales area: a dedicated sales manager.
+
 
 ## Co-marketing program {#co-marketing}
 
@@ -165,9 +219,10 @@ Requirements for program participants:
 * You guarantee in-depth study and analysis of the results of the marketing activities.
 * You comply with all the established {{ yandex-cloud }} policies and requirements.
 
+
 ## Partner catalog {#catalog}
 
-[Partner catalog](https://yandex.cloud/ru/partners/catalogue) is a showcase of {{ yandex-cloud }}-based partner solutions and services built around customer needs. The catalog features companies {{ yandex-cloud }} recommends for implementing turnkey projects of various complexity levels. Each one of them has a track of record of completed projects based on cloud technologies, as well as a team of certified experts.
+[Partner catalog]({{ link-cloud-partners-landing }}catalogue) is a showcase of {{ yandex-cloud }}-based partner solutions and services built around customer needs. The catalog features companies {{ yandex-cloud }} recommends for implementing turnkey projects of various complexity levels. Each one of them has a track of record of completed projects based on cloud technologies, as well as a team of certified experts.
 
 Benefits of being listed in the catalog:
 

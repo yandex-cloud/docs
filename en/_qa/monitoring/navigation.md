@@ -1,13 +1,13 @@
 # Navigation
 
-#### Where can I view a VM's RAM chart? {#ram-graphs-overview}
+#### Where can I see a VM RAM consumption chart? {#ram-graphs-overview}
 
-The {{ compute-full-name }} service can't measure vRAM consumption inside the guest operating system because for the service, memory consumption by the virtual machine is always the same: the one that is allocated the moment it is started.
+{{ compute-full-name }} cannot measure the guest operating system vRAM consumption. In fact, the service sees the VM memory consumption as a constant: the amount of RAM allocated to it at start up.
 
-You can configure collecting custom metrics yourself [via the API](../../monitoring/operations/metric/add.md), and for Linux-compatible operating systems, you can do it by a [system metrics delivery agent](../../monitoring/operations/unified-agent/linux_metrics.md).
+You can configure the collection of custom metrics [via the API](../../monitoring/operations/metric/add.md) or using a [system metrics delivery agent](../../monitoring/operations/unified-agent/linux_metrics.md) for Linux operating systems.
 
-#### Where can I view a VM's disk space chart? {#space-graphs-overview}
+#### Where can I see a VM disk space chart? {#space-graphs-overview}
 
-{{ monitoring-name }} can't access guest operating systems, so there is no such metric.
+There is no such metric because {{ monitoring-name }} cannot access guest operating systems.
 
-You can configure collecting custom metrics yourself [via the API](../../monitoring/operations/metric/add.md), and for Linux-compatible operating systems, you can do it by a [system metrics delivery agent](../../monitoring/operations/unified-agent/linux_metrics.md).
+You can configure the collection of custom metrics [via the API](../../monitoring/operations/metric/add.md) or using a [system metrics delivery agent](../../monitoring/operations/unified-agent/linux_metrics.md) for Linux operating systems.

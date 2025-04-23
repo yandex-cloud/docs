@@ -25,7 +25,7 @@ description: Узнайте, как установить приложение In
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Ingress NGINX](/marketplace/products/yc/ingress-nginx) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
 
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Ingress NGINX или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `ingress-nginx-space`). Если вы оставите пространство имен по умолчанию, Ingress NGINX может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Количество реплик контроллера** — настройте число реплик Ingress-контроллера, чтобы повысить отказоустойчивость. Если используется только одна реплика, в случае ее отказа будут недоступны приложения, развернутые с помощью Ingress-контроллера.
 
@@ -66,6 +66,8 @@ description: Узнайте, как установить приложение In
       --create-namespace \
       ingress-nginx ./ingress-nginx/
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Ingress NGINX может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `ingress-nginx-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

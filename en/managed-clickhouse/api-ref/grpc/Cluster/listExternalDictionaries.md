@@ -90,7 +90,14 @@ returned by a previous list request. ||
       "layout": {
         "type": "Type",
         "size_in_cells": "int64",
-        "max_array_size": "int64"
+        "allow_read_expired_keys": "google.protobuf.BoolValue",
+        "max_update_queue_size": "int64",
+        "update_queue_push_timeout_milliseconds": "int64",
+        "query_wait_timeout_milliseconds": "int64",
+        "max_threads_for_updates": "int64",
+        "initial_array_size": "int64",
+        "max_array_size": "int64",
+        "access_to_key_from_attributes": "google.protobuf.BoolValue"
       },
       // Includes only one of the fields `fixed_lifetime`, `lifetime_range`
       "fixed_lifetime": "int64",
@@ -345,15 +352,50 @@ Available for all dictionary sources.
 - `CACHE`: The dictionary is stored in a cache with a set number of cells.
 Available for MySQL, ClickHouse and HTTP dictionary sources.
 - `COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys.
-Available for MySQL, ClickHouse and HTTP dictionary sources. ||
+Available for MySQL, ClickHouse and HTTP dictionary sources.
+- `SPARSE_HASHED`: Similar to HASHED, but uses less memory in favor of more CPU usage.
+- `COMPLEX_KEY_SPARSE_HASHED`: Similar to SPARSE_HASHED, to be used with composite keys.
+- `COMPLEX_KEY_RANGE_HASHED`: Similar to RANGE_HASHED, to be used with composite keys.
+- `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+- `COMPLEX_KEY_DIRECT`: Similar to DIRECT, to be used with composite keys.
+- `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN. ||
 || size_in_cells | **int64**
 
 Number of cells in the cache. Rounded up to a power of two.
 Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| allow_read_expired_keys | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows to read expired keys.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| max_update_queue_size | **int64**
+
+Max size of update queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| update_queue_push_timeout_milliseconds | **int64**
+
+Max timeout in milliseconds for push update task into queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| query_wait_timeout_milliseconds | **int64**
+
+Max wait timeout in milliseconds for update task to complete.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| max_threads_for_updates | **int64**
+
+Max threads for cache dictionary update.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| initial_array_size | **int64**
+
+Initial dictionary key size.
+Applicable only for FLAT layout type. ||
 || max_array_size | **int64**
 
 Maximum dictionary key size.
 Applicable only for FLAT layout type. ||
+|| access_to_key_from_attributes | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows to retrieve key attribute using dictGetString function.
+Enabling this option increases memory usage.
+Applicable only for IP_TRIE layout type. ||
 |#
 
 ## Range {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range}

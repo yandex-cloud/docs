@@ -19,7 +19,7 @@ To use the service, log in to the management console with a [Yandex account](../
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `managed-trino.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user needs the `managed-trino.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
@@ -37,19 +37,23 @@ Below is a list of all roles that are used to verify access rights in the servic
 
 #### managed-trino.auditor {#managed-trino-auditor}
 
-{% include [trino.auditor](../_roles/managed-trino/auditor.md) %}
+{% include [managed-trino.auditor](../_roles/managed-trino/auditor.md) %}
 
 #### managed-trino.viewer {#managed-trino-viewer}
 
-{% include [trino.viewer](../_roles/managed-trino/viewer.md) %}
+{% include [managed-trino.viewer](../_roles/managed-trino/viewer.md) %}
+
+#### managed-trino.user {#managed-trino-user}
+
+{% include [managed-trino.user](../_roles/managed-trino/user.md) %}
 
 #### managed-trino.editor {#managed-trino-editor}
 
-{% include [trino.editor](../_roles/managed-trino/editor.md) %}
+{% include [managed-trino.editor](../_roles/managed-trino/editor.md) %}
 
 #### managed-trino.admin {#managed-trino-admin}
 
-{% include [trino.admin](../_roles/managed-trino/admin.md) %}
+{% include [managed-trino.admin](../_roles/managed-trino/admin.md) %}
 
 #### managed-trino.integrationProvider {#managed-trino-integrationProvider}
 

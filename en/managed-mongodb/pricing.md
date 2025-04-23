@@ -90,6 +90,14 @@ Calculation for the storage cost and total cost:
 
 ## Prices for the Russia region {#prices}
 
+
+{% note warning %}
+
+Starting May 1, 2025, the prices for {{ mmg-full-name }} resources in the Russia region will increase.
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

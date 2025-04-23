@@ -32,6 +32,11 @@ description: This page presents all the guides on how to use {{ foundation-model
 * [{#T}](./assistant/create-with-searchindex.md)
 * [{#T}](./assistant/request-chunked-response.md)
 
+## Step-by-step guides on managing {{ foundation-models-name }} resources {#resources}
+
+* [{#T}](./resources/create-dataset-gpt.md)
+* [{#T}](./resources/create-dataset-classifier.md)
+
 ## {{ foundation-models-name }} model tuning {#tuning}
 
 * [{#T}](./tuning/create.md)

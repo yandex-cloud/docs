@@ -1,12 +1,12 @@
 ---
 title: '{{ baremetal-full-name }} quotas and limits'
-description: In {{ baremetal-full-name }}, there are certain limits and quotas for servers and virtual routing and forwarding (VRF) segments. For more information about the service limitations, read this article.
+description: In {{ baremetal-full-name }}, there are certain limits and quotas for servers and virtual network segments (VRF). For more information about the service limitations, read this article.
 editable: false
 ---
 
 # {{ baremetal-full-name }} quotas and limits
 
-{{ baremetal-full-name }} has the following limits:
+{{ baremetal-full-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
@@ -14,4 +14,4 @@ editable: false
 
 #### See also {#see-also}
 
-* [{#T}](./traffic-restrictions.md)
+* [{#T}](./network-restrictions.md)

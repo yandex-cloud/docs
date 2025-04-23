@@ -47,8 +47,12 @@ items:
         items:
           - name: Creating alerts
             href: operations/alert/create-alert.md
-          - name: Creating a notification channel
+          - name: Creating a notification channel with a recipient
             href: operations/alert/create-channel.md
+          - name: Creating a notification channel that invokes a function
+            href: operations/alert/create-channel-function.md
+          - name: Creating a webhook that calls an external API
+            href: operations/alert/alert-call-function.md
           - name: Creating an escalation policy
             href: operations/alert/create-escalation.md
           - name: Deleting an alert
@@ -129,7 +133,7 @@ items:
         href: tutorials/monitoring.md
       - name: Alert settings in {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
-      - name: Identifying {{ mpg-name }} cluster performance issues
+      - name: Searching for the {{ mpg-name }} cluster performance issues
         href: tutorials/mpg-performance-problems.md
   - name: '{{ managed-prometheus-name }}'
     items:
@@ -139,6 +143,8 @@ items:
         items:
           - name: Overview
             href: operations/prometheus/ingestion/index.md
+          - name: Metric collection agent
+            href: operations/prometheus/ingestion/prometheus-agent.md
           - name: Remote Write
             href: operations/prometheus/ingestion/remote-write.md
           - name: Diagnostics and troubleshooting

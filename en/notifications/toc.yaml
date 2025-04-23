@@ -7,15 +7,17 @@ items:
     items:
       - name: Overview
         href: quickstart.md
-      - name: Getting started with Push notifications
+      - name: Getting started with mobile push notifications
         href: quickstart-push.md
+      - name: Getting started with in-browser push notifications
+        href: quickstart-browser.md
       - name: Getting started with SMS
         href: quickstart-sms.md
   - name: Step-by-step operations
     items:
       - name: All guides
         href: operations/index.md
-      - name: Push notifications
+      - name: Mobile push notifications
         items:
           - name: Creating a push notification channel
             href: operations/push/channel-create.md
@@ -31,6 +33,18 @@ items:
             href: operations/push/endpoint-delete.md
           - name: Sending a push notification
             href: operations/push/send.md
+      - name: In-browser push notifications
+        items:
+          - name: Creating a channel
+            href: operations/browser/channel-create.md
+          - name: Managing a channel
+            href: operations/browser/channel-manage.md
+          - name: Creating an endpoint
+            href: operations/browser/endpoint-create.md
+          - name: Managing an endpoint
+            href: operations/browser/endpoint-manage.md
+          - name: Sending a push notification to browser
+            href: operations/browser/send.md
       - name: SMS notifications
         items:
           - name: Creating an SMS notification channel
@@ -52,8 +66,10 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Push notifications
+      - name: Mobile push notifications
         href: concepts/push.md
+      - name: In-browser push notifications
+        href: concepts/browser.md
       - name: SMS
         href: concepts/sms.md
       - name: Quotas and limits

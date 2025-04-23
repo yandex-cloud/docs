@@ -84,7 +84,7 @@ Aliases:
 	- [yc managed-clickhouse shard-groups list](shard-groups/list.md) — List shard groups for a ClickHouse cluster.
 	- [yc managed-clickhouse shard-groups update](shard-groups/update.md) — Modify configuration or attributes of a ClickHouse shard group.
 - [yc managed-clickhouse shards](shards/index.md) — Manage shards in a ClickHouse cluster.
-	- [yc managed-clickhouse shards add](shards/add.md) — Create new shard for the cluster in the specified availability zones.
+	- [yc managed-clickhouse shards add](shards/add.md) — Create new shard(s) for the cluster in the specified availability zones.
 	- [yc managed-clickhouse shards delete](shards/delete.md) — Delete a shard.
 	- [yc managed-clickhouse shards get](shards/get.md) — Get information about a shard in a ClickHouse cluster.
 	- [yc managed-clickhouse shards list](shards/list.md) — List shards for a ClickHouse cluster.

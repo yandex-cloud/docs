@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится асимметричная ключевая пара шифрования.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -81,9 +81,45 @@ description: Следуя данной инструкции, вы сможете
             --subject group:<идентификатор_группы>
          ```
 
-* API {#api}
+- {{ TF }} {#tf}
 
-   Воспользуйтесь вызовом gRPC API [AsymmetricSignatureKeyService/UpdateAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/updateAccessBindings.md) и передайте в запросе:
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   Чтобы назначить роль на асимметричную ключевую пару электронной подписи с помощью {{ TF }}:
+
+   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+       ```hcl
+       resource "yandex_kms_asymmetric_signature_key" "key-viewers" {
+         asymmetric_signaturen_key_id  = "<идентификатор_ключевой_пары>"
+         role                          = "<роль_1>"
+         members                       = ["<тип_субъекта>:<идентификатор_субъекта>"]
+       }
+       ```
+
+       Где:
+
+       * `asymmetric_signaturen_key_id ` — идентификатор ключевой пары электронной подписи.
+       * `role` — назначаемая [роль](../security/index.md#roles-list).
+       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+
+       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
+
+   1. Создайте ресурсы:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно с помощью команды [CLI](../../cli/):
+
+       ```bash
+       yc kms asymmetric-signature-key list-access-bindings <идентификатор_ключевой_пары>
+       ```
+
+- API {#api}
+
+   Воспользуйтесь методом [updateAccessBindings](../asymmetricsignature/api-ref/AsymmetricSignatureKey/updateAccessBindings.md) для ресурса [AsymmetricSignatureKey](../asymmetricsignature/api-ref/AsymmetricSignatureKey/index.md) или вызовом gRPC API [AsymmetricSignatureKeyService/UpdateAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/updateAccessBindings.md) и передайте в запросе:
 
    * Значение `ADD` в параметре `access_binding_deltas[].action`, чтобы добавить роль.
    * Роль в параметре `access_binding_deltas[].access_binding.role_id`.
@@ -96,7 +132,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится асимметричная ключевая пара шифрования.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -107,7 +143,7 @@ description: Следуя данной инструкции, вы сможете
    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-* CLI {#cli}
+- CLI {#cli}
 
    {% include [set-access-bindings-cli](../../_includes/iam/set-access-bindings-cli.md) %}
 
@@ -181,11 +217,55 @@ description: Следуя данной инструкции, вы сможете
          --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
       ```
 
-* API {#api}
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   Чтобы назначить несколько ролей на асимметричную ключевую пару электронной подписи с помощью {{ TF }}:
+
+   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+       ```hcl
+       # Роль 1
+       resource "yandex_kms_asymmetric_signature_key" "key-viewers" {
+         asymmetric_signaturen_key_id = "<идентификатор_ключевой_пары>"
+         role                         = "<роль_1>"
+         members                      = ["<тип_субъекта>:<идентификатор_субъекта>"]
+       }
+
+       # Роль 2
+       resource "yandex_kms_asymmetric_signature_key" "key-editors" {
+         asymmetric_signaturen_key_id = "<идентификатор_ключевой_пары>"
+         role                         = "<роль_2>"
+         members                      = ["<тип_субъекта>:<идентификатор_субъекта>"]
+       }
+       ```
+
+       Где:
+
+       * `asymmetric_signaturen_key_id` — идентификатор ключевой пары электронной подписи.
+       * `role` — назначаемая [роль](../security/index.md#roles-list).
+       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+
+       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
+
+   1. Создайте ресурсы:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно с помощью команды [CLI](../../cli/):
+
+       ```bash
+       yc kms asymmetric-signature-key list-access-bindings <идентификатор_ключевой_пары>
+       ```
+
+- API {#api}
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Воспользуйтесь вызовом gRPC API [AsymmetricSignatureKeyService/SetAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
+   Воспользуйтесь методом [SetAccessBindings](../asymmetricsignature/api-ref/AsymmetricSignatureKey/setAccessBindings.md) для ресурса [AsymmetricSignatureKey](../asymmetricsignature/api-ref/AsymmetricSignatureKey/index.md) или вызовом gRPC API [AsymmetricSignatureKeyService/SetAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md). Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
    * Роль в параметре `access_bindings[].role_id`.
    * Идентификатор субъекта, на кого назначаются роли, в параметре `access_bindings[].subject.id`.

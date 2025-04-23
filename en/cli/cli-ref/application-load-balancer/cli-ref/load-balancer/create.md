@@ -29,6 +29,7 @@ Syntax:
 |`--log-group-name`|<b>`string`</b><br/>Name of the log group to which the loadbalancer send logs.|
 |`--log-group-use-default`|Use default log group in the folder where load balancer resides.|
 |`--disable-logging`|Do not send access logs to Cloud Logging log group.|
+|`--allow-zonal-shift`|Specifies whether application load balancer is available to zonal shift.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -15,9 +15,23 @@ editable: false
 * Количества версий секретов.
 * Числа выполненных операций [get](api-ref/Payload/get) с секретом.
 
+Использование секретов, созданных с помощью сервиса {{ connection-manager-name }}, не тарифицируется.
+
 
 
 ## Цены для региона Россия {#prices}
+
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ lockbox-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?currency=RUB&installationCode=ru&services=dn2k9ntpr7hljm0o71sg)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?currency=KZT&installationCode=ru&services=dn2k9ntpr7hljm0o71sg)
+
+{% endnote %}
+
+
 
 
 

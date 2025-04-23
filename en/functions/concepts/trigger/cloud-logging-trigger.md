@@ -10,16 +10,21 @@ For more information about creating a trigger for {{ cloud-logging-name }}, see 
 
 ## Roles required for the proper operation of a trigger for {{ cloud-logging-name }} {#roles}
 
-* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
+* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
 * For the trigger to fire, the service account needs the following roles:
-   * `{{ roles-functions-invoker }}` for the function that the trigger invokes.
-   * `logging.reader` for the log group that will activate the trigger when records are added to it.
+    * `{{ roles-functions-invoker }}` for the function that the trigger invokes.
+    * `logging.reader` for the log group that will fire the trigger when entries are added to it.
 
 ## Format of the message from the trigger for {{ cloud-logging-name }} {#format}
 
 After the trigger is activated, it sends the following message to the function:
 
 {% include [logging-format](../../../_includes/functions/logging-format.md) %}
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/logging-functions.md)
+* [{#T}](../../tutorials/logging.md)
 
 ## See also {#see-also}
 

@@ -1,6 +1,6 @@
 # ListEndpointsByPlatformApplication
 
-Gets a list of [endpoints for push notifications](../concepts/index.md#mobile-endpoints).
+Gets a list of [endpoints for mobile push notifications](../concepts/index.md#mobile-endpoints) or [in-browser push notifications](../concepts/browser.md).
 
 ## HTTP request {#request}
 
@@ -10,12 +10,12 @@ POST https://{{ cns-host }}/
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `Action` | **string**<br/>Required field.<br/>Parameter to indicate the operation type.<br/>Value: `ListEndpointsByPlatformApplication`. |
-| `PlatformApplicationArn` | **string**<br/>Required field.<br/>Mobile push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`. |
-| `NextToken` | **string**<br/>Token for viewing endpoint records after the first page. |
-| `ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (by default)</li><li>`JSON`.</li></ul> |
+`Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `ListEndpointsByPlatformApplication`.
+`PlatformApplicationArn` | **string**<br/>Required field.<br/>Mobile push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`NextToken` | **string**<br/>Token for viewing endpoint records after the first page.
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
 
 ## Response {#response}
 
@@ -31,49 +31,49 @@ Data schema:
 
 - XML
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <ListEndpointsByPlatformApplicationResponseXML>
-   	  <ResponseMetadata>
-   		  <RequestId>string</RequestId>
-   	  </ResponseMetadata>
-   	  <ListEndpointsByPlatformApplicationResult>
-   		  <Endpoints>
-   			  <member>
-   				  <EndpointArn>string</EndpointArn>
-   				  <Attributes>
-   					  <entry>
-   						  <key>string</key>
-   						  <value>string</value>
-   					  </entry>
-   				  </Attributes>
-   			  </member>
-   		  </Endpoints>
-   		  <NextToken>string</NextToken>
-   	  </ListEndpointsByPlatformApplicationResult>
-   </ListEndpointsByPlatformApplicationResponseXML>
-   ```
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <ListEndpointsByPlatformApplicationResponseXML>
+	  <ResponseMetadata>
+		  <RequestId>string</RequestId>
+	  </ResponseMetadata>
+	  <ListEndpointsByPlatformApplicationResult>
+		  <Endpoints>
+			  <member>
+				  <EndpointArn>string</EndpointArn>
+				  <Attributes>
+					  <entry>
+						  <key>string</key>
+						  <value>string</value>
+					  </entry>
+				  </Attributes>
+			  </member>
+		  </Endpoints>
+		  <NextToken>string</NextToken>
+	  </ListEndpointsByPlatformApplicationResult>
+  </ListEndpointsByPlatformApplicationResponseXML>
+  ```
 
 - JSON
 
-   ```json
-   {
-     "ResponseMetadata": {
-       "RequestId": "string"
-     },
-     "ListEndpointsByPlatformApplicationResult": {
-       "Endpoints": [
-         {
-           "EndpointARN": "string",
-           "Attributes": {
-             "Attribute": "string"
-           }
-         }
-       ],
-       "NextToken": "string"
-     }
-   }
-   ```
+  ```json
+  {
+    "ResponseMetadata": {
+      "RequestId": "string"
+    },
+    "ListEndpointsByPlatformApplicationResult": {
+      "Endpoints": [
+        {
+          "EndpointARN": "string",
+          "Attributes": {
+            "Attribute": "string"
+          }
+        }
+      ],
+      "NextToken": "string"
+    }
+  }
+  ```
 
 {% endlist %}
 
@@ -81,15 +81,15 @@ Where:
 * `RequestId`: Request ID.
 * `EndpointArn`: Mobile endpoint ID (ARN).
 * `Attributes`: Mobile endpoint attributes. The following attributes are supported:
-   * `CustomUserData`: Other user data that is stored with the endpoint. {{ cns-name }} does not use this data in any way.
-   * `Enabled`: Attribute for enabling and disabling endpoint notifications, currently not supported. It always returns `true`.
+  * `CustomUserData`: Other user data stored together with the endpoint. {{ cns-name }} does not use this data in any way.
+  * `Enabled`: Attribute for enabling and disabling endpoint notifications, currently not supported. It always returns `true`.
 
-   {% note info %}
+  {% note info %}
 
-   The `Token` attribute is not output for additional data protection.
+  For data protection purposes, you can not output the `Token` attribute.
 
-   {% endnote %}
-* `NextToken`: Token for viewing endpoint records on the next page. It returns when additional records are available. If all records have been viewed, `NextToken` does not return.
+  {% endnote %}
+* `NextToken`: Token for viewing endpoint records on the next page. It returns when additional records are available. If all records have been viewed, `NextToken` is not returned.
 
 ### Error response {#response-4xx}
 

@@ -26,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Argo CD](/marketplace/products/yc/argo-cd) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Argo CD или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `argo-cd-space`). Если вы оставите пространство имен по умолчанию, Argo CD может работать некорректно.
    * **Название приложения** — укажите название приложения.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
@@ -47,6 +47,8 @@ description: Следуя данной инструкции, вы сможете
    ```
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Argo CD может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `argo-cd-space`).
 
 ## Доступ к приложению {#application-access}
 

@@ -45,3 +45,12 @@ If you work with {{ objstorage-name }} via an [Amazon S3-compatible API](../s3/i
 * Standard storage: `STANDARD`.
 * Cold storage: `COLD`, `STANDARD_IA`, or `NEARLINE` (use the last two only for uploading objects to a bucket).
 * Ice storage: `ICE` or `GLACIER` (use the latter only for uploading objects to a bucket).
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/greenplum-yezzey.md)
+* [{#T}](../tutorials/log-ingestion.md)
+* [{#T}](../tutorials/hystax-backup.md)
+* [{#T}](../tutorials/clickhouse-hybrid-storage.md)
+

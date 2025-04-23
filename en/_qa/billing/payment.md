@@ -30,6 +30,8 @@ Depending on the currency, the minimum payment amount is:
 * ₸60
 * $1
 
+{% include [initial_payment](../../_includes/billing/initial-payment-amount.md) %} 
+
 #### How can I change my payment details? {#change-requisites}
 
 {% include [change-address](../../billing/_includes/change-address.md) %}
@@ -69,6 +71,7 @@ If you upgraded to the paid version and used {{ yandex-cloud }} services, do the
 1. Delete all billable service resources.
 1. Contact [technical support]({{ link-console-support }}) to deactivate your account.
 
+
 #### I linked a cloud to a new billing account. How do I pay for services now? {#unlink-cloud}
 
 If the [cloud was previously linked](../../billing/operations/pin-cloud.md) to another billing account, check the service usage period. For services provided before the move, pay from the previous billing account. For services provided after, pay from the current billing account. The payment method must match the [billing account type](../../billing/concepts/billing-account.md#ba-types).
@@ -79,7 +82,7 @@ If the [cloud was previously linked](../../billing/operations/pin-cloud.md) to a
 
 For more information, see [Pricing](../../billing/pricing.md).
 
-#### If I pay an invoice by bank transfer after the end of the reporting period, will my resources be blocked? {#payment-delay}
+#### If I pay an invoice by wire transfer after the end of the reporting period, will my resources be blocked? {#payment-delay}
 
 
 You can pay within 14 calendar days (not counting public holidays) after the reporting period ends. Depending on which company you contracted with, you can find detailed information in the _Legal Documents_ section for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).

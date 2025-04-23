@@ -1,6 +1,6 @@
 ---
-title: How to reset a user password for a desktop in {{ cloud-desktop-full-name }}
-description: In this tutorial, you will learn how to reset a user password for a desktop in {{ cloud-desktop-full-name }}.
+title: How to reset a {{ cloud-desktop-full-name }} desktop user password
+description: In this tutorial, you will learn how to reset a {{ cloud-desktop-full-name }} desktop user password.
 ---
 
 # Resetting a desktop user password
@@ -15,16 +15,16 @@ description: In this tutorial, you will learn how to reset a user password for a
   1. Select the desktop to connect to.
   1. Under **{{ ui-key.yacloud.vdi.section_access }}**, next to the user account, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vdi.button_reset-password }}**.
   1. Confirm the password reset.
-  1. Save a new password from the pop-up window and close it.
+  1. Save the new password from the pop-up window that appears, then close the window.
 
 - User desktop showcase {#desktop-showcase}
 
   1. Open the [user desktop showcase]({{ link-cloud-desktop-showcase }}).
-  1. If the desktop you want to connect to has the `Stopped` status, run it by clicking ![image](../../../_assets/console-icons/play.svg) and confirm the action.
+  1. If the desktop you want to connect to has the `Stopped` status, run it by clicking ![image](../../../_assets/console-icons/play.svg) and then confirming the action.
 
       Wait for the desktop status to change to `Active`.
   1. Click ![image](../../../_assets/console-icons/lock-open.svg) and confirm the password reset.
-  1. Save a new password from the pop-up window and close it.
+  1. Save the new password from the pop-up window that appears, then close the window.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -32,7 +32,7 @@ description: In this tutorial, you will learn how to reset a user password for a
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/index.yaml) command to reset a [desktop](../../../cloud-desktop/concepts/desktops-and-groups.md) password:
+  1. See the description of the [CLI](../../../cli/index.yaml) command for resetting a [desktop](../../../cloud-desktop/concepts/desktops-and-groups.md) password:
 
       ```bash
       yc desktops desktop reset-password --help

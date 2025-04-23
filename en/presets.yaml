@@ -114,6 +114,8 @@ default:
   cloud-registry: registry.yandexcloud.net
   cloud-registry-full-name: Yandex Cloud Registry
   cloud-registry-name: Cloud Registry
+  cloud-shell-full-name: Yandex Cloud Shell
+  cloud-shell-name: Cloud Shell
   cluster-id: cat0adul1fj0********
   cname-example: cl-msa87*****.edgecdn.ru
   cns-full-name: Yandex Cloud Notification Service
@@ -300,6 +302,7 @@ default:
   link-cloud-oauth: >-
     https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.yandex.cloud/
+  link-cloud-partners-landing: https://yandex.cloud/ru/partners/
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
   link-console-access-management: https://console.yandex.cloud/iam
@@ -475,6 +478,7 @@ default:
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/en-us
+  msp-full-name: Yandex Managed Service for Apache Spark™
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -493,6 +497,7 @@ default:
   objstorage-sftps-gateway-version: '1.0'
   objstorage-short-name: Object Storage
   ocr-max-filesize: 10 MB
+  openai: OpenAI
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Cloud Organization
@@ -1144,6 +1149,7 @@ default:
     text_classification:
       v1|string: ₸0.75
     text_embedding:
+      v1|number: 0.05
       v1|string: ₸0.05
     text_generation_alt:
       v1|number: 1
@@ -1445,7 +1451,6 @@ default:
         greenplum|month|number: 65.05
         greenplum|month|string: ₸65.05
         kafka|month|string: ₸65.05
-        mongodb|month|string: ₸65.05
         mysql:
           dedicated|month|string: ₸21.05
         mysql|month|string: ₸65.05
@@ -1453,7 +1458,6 @@ default:
         pg|month|string: ₸65.05
         redis|month|string: ₸65.05
       mongodb:
-        backup|month|string: ₸9.60
         v1:
           cpu:
             c100|month|string: ₸5760.00
@@ -1547,7 +1551,6 @@ default:
         greenplum|month|string: ₸16.00
         kafka|month|number: 16
         kafka|month|string: ₸16.00
-        mongodb|month|string: ₸16.00
         mysql|month|number: 16
         mysql|month|string: ₸16.00
         opensearch|month|string: ₸16.00
@@ -1560,7 +1563,6 @@ default:
         greenplum|month|string: ₸65.05
         kafka|month|number: 65.05
         kafka|month|string: ₸65.05
-        mongodb|month|string: ₸65.05
         mysql|month|string: ₸65.05
         opensearch|month|string: ₸65.05
         pg|month|string: ₸65.05
@@ -1570,7 +1572,6 @@ default:
         ch|month|string: ₸108.90
         greenplum|month|string: ₸108.90
         kafka|month|string: ₸108.90
-        mongodb|month|string: ₸108.90
         mysql|month|string: ₸108.90
         opensearch|month|string: ₸108.90
         pg|month|string: ₸108.90
@@ -1580,7 +1581,6 @@ default:
         elasticsearch|month|string: ₸44.00
         greenplum|month|string: ₸44.00
         kafka|month|string: ₸44.00
-        mongodb|month|string: ₸44.00
         mysql|month|string: ₸44.00
         opensearch|month|string: ₸44.00
         pg|month|string: ₸44.00
@@ -1899,7 +1899,6 @@ default:
     check:
       requests:
         v1|pricingRate:
-          250|number: 500
           250|string: ₸500.00
         v1|string: Free
   sku|KZT|speechkit:
@@ -2384,7 +2383,7 @@ default:
       ba_i100_h:
         1_day|string: ₽18200.00
         1_month|string: ₽17654.00
-        12_month|string: ₽18200.00
+        12_month|string: ₽15470.00
         3_month|string: ₽17290.00
         6_month|string: ₽16926.00
       ba_i101_h:
@@ -2698,6 +2697,7 @@ default:
     text_classification:
       v1|string: ₽0.15
     text_embedding:
+      v1|number: 0.01
       v1|string: ₽0.01
     text_generation_alt:
       v1|number: 0.2
@@ -2999,6 +2999,7 @@ default:
         greenplum|month|number: 13.01
         greenplum|month|string: ₽13.01
         kafka|month|string: ₽13.01
+        mongodb|month|number: 13.01
         mongodb|month|string: ₽13.01
         mysql:
           dedicated|month|string: ₽4.21
@@ -3007,38 +3008,63 @@ default:
         pg|month|string: ₽13.01
         redis|month|string: ₽13.01
       mongodb:
+        backup|month|number: 1.92
         backup|month|string: ₽1.92
         v1:
           cpu:
-            c100|month|string: ₽1152.00
-            c100|string: ₽1.60
-            c20|month|string: ₽331.20
-            c20|string: ₽0.46
-            c5|month|string: ₽28.80
-            c5|string: ₽0.04
-            c50|month|string: ₽540.00
-            c50|string: ₽0.75
-          ram|month|string: ₽648.00
-          ram|string: ₽0.90
-        v2:
-          cpu:
-            c100|month|string: ₽1152.00
-            c100|string: ₽1.60
-            c20|month|string: ₽331.20
-            c20|string: ₽0.46
-            c5|month|string: ₽28.80
-            c5|string: ₽0.04
-            c50|month|string: ₽540.00
-            c50|string: ₽0.75
-          ram|month|string: ₽648.00
-          ram|string: ₽0.90
-        v3:
-          cpu:
+            c100|month|number: 1152
             c100|month|string: ₽1152.00
             c100|number: 1.6
             c100|string: ₽1.60
+            c20|month|number: 331.2
+            c20|month|string: ₽331.20
+            c20|number: 0.46
+            c20|string: ₽0.46
+            c5|month|number: 28.8
+            c5|month|string: ₽28.80
+            c5|number: 0.04
+            c5|string: ₽0.04
+            c50|month|number: 540
             c50|month|string: ₽540.00
+            c50|number: 0.75
             c50|string: ₽0.75
+          ram|month|number: 648
+          ram|month|string: ₽648.00
+          ram|number: 0.9
+          ram|string: ₽0.90
+        v2:
+          cpu:
+            c100|month|number: 1152
+            c100|month|string: ₽1152.00
+            c100|number: 1.6
+            c100|string: ₽1.60
+            c20|month|number: 331.2
+            c20|month|string: ₽331.20
+            c20|number: 0.46
+            c20|string: ₽0.46
+            c5|month|number: 28.8
+            c5|month|string: ₽28.80
+            c5|number: 0.04
+            c5|string: ₽0.04
+            c50|month|number: 540
+            c50|month|string: ₽540.00
+            c50|number: 0.75
+            c50|string: ₽0.75
+          ram|month|number: 648
+          ram|month|string: ₽648.00
+          ram|number: 0.9
+          ram|string: ₽0.90
+        v3:
+          cpu:
+            c100|month|number: 1152
+            c100|month|string: ₽1152.00
+            c100|number: 1.6
+            c100|string: ₽1.60
+            c50|month|number: 540
+            c50|month|string: ₽540.00
+            c50|number: 0.75
+            c50|string: ₽0.75
+          ram|month|number: 648
           ram|month|string: ₽648.00
           ram|number: 0.9
           ram|string: ₽0.90
@@ -3101,6 +3127,7 @@ default:
         greenplum|month|string: ₽3.20
         kafka|month|number: 3.2
         kafka|month|string: ₽3.20
+        mongodb|month|number: 3.2
         mongodb|month|string: ₽3.20
         mysql|month|number: 3.2
         mysql|month|string: ₽3.20
@@ -3114,6 +3141,7 @@ default:
         greenplum|month|string: ₽13.01
         kafka|month|number: 13.01
         kafka|month|string: ₽13.01
+        mongodb|month|number: 13.01
         mongodb|month|string: ₽13.01
         mysql|month|string: ₽13.01
         opensearch|month|string: ₽13.01
@@ -3124,6 +3152,7 @@ default:
         ch|month|string: ₽21.78
         greenplum|month|string: ₽21.78
         kafka|month|string: ₽21.78
+        mongodb|month|number: 21.78
         mongodb|month|string: ₽21.78
         mysql|month|string: ₽21.78
         opensearch|month|string: ₽21.78
@@ -3134,6 +3163,7 @@ default:
         elasticsearch|month|string: ₽8.80
         greenplum|month|string: ₽8.80
         kafka|month|string: ₽8.80
+        mongodb|month|number: 8.8
         mongodb|month|string: ₽8.80
         mysql|month|string: ₽8.80
         opensearch|month|string: ₽8.80
@@ -3453,7 +3483,6 @@ default:
     check:
       requests:
         v1|pricingRate:
-          250|number: 100
           250|string: ₽100.00
         v1|string: Free
   sku|RUB|speechkit:
@@ -4115,10 +4144,13 @@ default:
     text_classification:
       v1|string: $0.001200
     text_embedding:
+      v1|number: 0.00008
       v1|string: $0.000080
     text_generation_alt:
+      v1|number: 0.0016
       v1|string: $0.001600
     text_generation:
+      v1|number: 0.0016
       v1|string: $0.001600
   sku|USD|gitlab:
     backup|month|number: 0.01536
@@ -4852,7 +4884,6 @@ default:
     check:
       requests:
         v1|pricingRate:
-          250|number: 0.8
           250|string: $0.800000
         v1|string: Free
   sku|USD|speechkit:
@@ -4880,10 +4911,13 @@ default:
         30000000|number: 0.00004
         6000000|number: 0.000048
       text:
+        v2|number: 0.01104
         v2|pricingRate:
+          100000|number: 0.00816
           100000|string: $0.008160
           1000000|string: $0.003360
           2500000|string: $0.002400
+          500000|number: 0.0048
           500000|string: $0.004800
         v2|string: $0.011040
       v1|number: 0.000184
@@ -5682,11 +5716,11 @@ default:
           dashboards:
             title: Dashboards
           escalations:
-            title: Escalation Policies
+            title: Escalation policies
           explorer:
             title: Metrics
           notification-feed:
-            title: Notification Feed
+            title: Notification feed
           prometheus:
             title: Prometheus
       channel:
@@ -5832,10 +5866,10 @@ default:
           repeatByParam: Repeat by parameter
           repeatSettings: Repeat graphs
         group-by:
-          chart-for: Chart for
           charts-count: Number of graphs in a row
           execute: Execute
-          limit: Limit
+          label-field-title: Split by label
+          limit-field-title: Display
           sort-by: Sort by
         legend:
           copy-as-csv: Copy as CSV
@@ -6496,11 +6530,6 @@ default:
         action_import: User certificate
         action_request: Let's Encrypt certificate
         button_empty-action: Add certificate
-        domain:
-          form:
-            button_bind: Link
-            field_certificate: Certificate
-            field_domain: Domain
         import:
           button_add-certificate: Add certificate
           button_add-chain: Add chain
@@ -6691,7 +6720,7 @@ default:
           button_assign-binding: Edit roles
           button_configure-access: Configure access
           button_invite-users: Invite users
-          button_new-bindings: Assign bindings
+          button_new-bindings: Assign roles
           button_remove-bindings: Remove bindings
           label_access-bindings: Access bindings
           label_bindings: Roles
@@ -6757,7 +6786,6 @@ default:
             label_tab-custom: Custom
             label_tab-gpu: GPU
             label_tab-standard: Standard
-            value_platform-tab-gpu: With GPU
         condition-column:
           condition_and: and
           condition_full-trafic: All traffic
@@ -6805,6 +6833,10 @@ default:
         label-set:
           button_add-label: Add label
           label_labels: Labels
+        maintenance-alert:
+          button_reschedule: Reschedule
+          value_next-available-window: Next window
+          value_specific-time: Choose date (UTC)
         mdb:
           settings:
             button_reset: Reset
@@ -6855,6 +6887,9 @@ default:
         component:
           instance-storage-dialog:
             button_add-disk: Add disk
+        components:
+          PlatformField:
+            value_platform-tab-gpu_hGyQ8: With GPU
         disk-form:
           field_size: Size
           field_type: Type
@@ -7129,6 +7164,7 @@ default:
         value_disk-type-network-ssd-nonreplicated: Non-replicated SSD
       connection-manager:
         label_connection-type: Connection type
+        label_connections: Connections
         label_create-connection-action: Create connection
         label_dependences: Dependencies
         label_open-websql: Open in WebSQL
@@ -7541,7 +7577,6 @@ default:
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
-        button_add-label: Add label
         button_add-password: Add password
         button_add-yds-export: Add export
         button_create-broker: Create broker
@@ -7604,13 +7639,13 @@ default:
             label_stream-cluster-autoscaler: Cluster Autoscaler logs
             label_stream-events: Event logs
             label_stream-kube-apiserver: Kubernetes API server logs
+            option_master-type-basic: Basic
+            option_master-type-highly-available: Highly available
             section_allocation: Cluster network settings
             section_main-cluster: Master configuration
             section_maintenance: Maintenance window settings
             switch_auto: Auto
             switch_none: No address
-            switch_region: Regional
-            switch_zone: Zonal
             value_maintenance-anytime: Anytime
             value_maintenance-daily: Daily
             value_maintenance-disabled: Disable
@@ -7764,8 +7799,8 @@ default:
           button_empty-create: Create key
       load-balancer:
         network-load-balancer:
-          button_add-listener: Add listener
-          button_attach-tg: Attach
+          button_add-listener: Create listener
+          button_attach-tg: Attach target group
           button_create: Create a network load balancer
           column_ip-address: IP address
           form:
@@ -7890,6 +7925,7 @@ default:
         label_secret-versions-section: Versions
         label_section-overview: Overview
         label_section-secrets: Secrets
+        label_version-current: Current
         label_version-dialog-title: Version
       logging:
         button_create-group: Create group
@@ -8048,6 +8084,7 @@ default:
             button_action-password: Change password
             button_action-update: Configure
             button_advanced-settings: Additional settings
+            label_go-to-password: View password
             popup-add_button_add: Create
             popup-button_add: Create
             popup-button_save: Save
@@ -8087,6 +8124,7 @@ default:
           popup-confirm-switch-master_label-title: Switch master host
         forms:
           additional-field-cloud-storage: Hybrid storage
+          additional-field-connman: Use Connection Manager
           additional-field-datalens: DataLens access
           additional-field-datatransfer: Access from Data Transfer
           additional-field-metrika: Access from Metrica and AppMetrica
@@ -8199,6 +8237,15 @@ default:
             button_choose: Save
             field_public_ip: Public access
             field_subnetworks: Subnet
+        maintenance:
+          action_change-task-time: Postpone
+          action_exec-task-now: Carry out now
+          action_maintenance-window-setup: Configure the maintenance window
+          label_task-logs: Task logs
+          label_task-start-time: Start date
+          label_task-status: Status
+          label_task-status-planned: Planned
+          title_maintenance: Technical maintenance
         shard-groups:
           button_add-group: Create shard group
       metastore:
@@ -8453,7 +8500,7 @@ default:
             value_method-storage: Object Storage
             value_method-zip-file: ZIP archive
           overview:
-            button_edit-tag: Edit
+            button_edit-scale-settings: Scaling settings
             button_editor-create: Сreate in editor
             label_all-users-invoke: Public function
             label_invoke-link: Link to invoke
@@ -8602,7 +8649,6 @@ default:
           label_arl-profile: ARL profile
           label_default-action: Action for the default base rule
           section_security-rules: Security rules
-        label_profiles-list: Security profiles
         label_search-rule-type: 'Rule type:'
         match-lists:
           label_match-lists: Lists
@@ -8762,6 +8808,7 @@ default:
             field_user: User
             field_value: Value
             label_if-exists: Apply if the field exists
+            label_select-users: Select users
           popup-create-folder_button_create: Create
           popup-create-folder_field_name: Folder name
           settings:
@@ -8848,14 +8895,6 @@ default:
         catalogs:
           field_catalog-name: Catalog name
           field_catalog-type: Connector type
-          label_external-s3: External storage
-          label_filesystem: File storage
-          label_password: Password
-          label_s3: Yandex Object Storage
-          label_uri: URI
-          label_url: URL
-          label_userName: User name
-          section_catalog: Catalog settings
         overview:
           title_resource-coordinator: Coordinator
         title_catalogs: Catalogs
@@ -10425,7 +10464,6 @@ default:
         delete-key-value: Delete
         duplicate: Duplicate
         edit: Edit
-        filters: Filters
         more: More
         'no': 'No'
         period: Period
@@ -10464,7 +10502,7 @@ default:
         direction:
           incoming: Incoming
           outgoing: Outgoing
-        exact-match-by-key-phrases: Exact match by key phrases
+        exact-match-by-key-phrases: Exact match by keywords
         open-dialog: Open dialog
         operator: Agent
         operator-tags: 'Agent tags '
@@ -10474,7 +10512,7 @@ default:
           neuro:
             title: Semantic
           text:
-            title: Full-text
+            title: Text
         speech-statistics: Conversation statistics
         system-meta:
           talk:
@@ -10772,7 +10810,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.21
+        tag: v0.2.23
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -10879,4 +10917,4 @@ default:
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 8.5.0-3
+        tag: 8.5.0-4

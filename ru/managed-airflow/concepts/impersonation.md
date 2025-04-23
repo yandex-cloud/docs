@@ -30,7 +30,12 @@ _Имперсонацией_ в {{ maf-short-name }} называется вып
 
 Чтобы использовать возможности {{ lockbox-name }} в кластере {{ AF }}, [создайте секрет](../../lockbox/operations/secret-create.md) с нужными данными и [выдайте доступ к нему](../../lockbox/operations/secret-access.md) сервисному аккаунту, который привязан к кластеру. После этого данные из секрета можно будет использовать в DAG-файлах кластера.
 
-Пример интеграции см. в разделе [{#T}](../operations/lockbox-secrets-in-maf-cluster.md).
+
+#### Примеры использования {#examples-lockbox}
+
+* [{#T}](../tutorials/test-smtp-notification.md)
+* [{#T}](../operations/lockbox-secrets-in-maf-cluster.md).
+
 
 ## Доступные инструменты для интеграции с {{ yandex-cloud }} {#instruments}
 
@@ -38,7 +43,11 @@ _Имперсонацией_ в {{ maf-short-name }} называется вып
 
 [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) позволяет управлять ресурсами {{ yandex-cloud }} из DAG-файлов кластера {{ AF }} от имени [сервисного аккаунта](../../functions/operations/function-sa.md). Для этого создайте в DAG-файле объект `yandexcloud.SDK()` без указания параметров аутентификации. DAG-файл будет аутентифицироваться с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, который привязан к кластеру.
 
-Пример интеграции см. в разделе [{#T}](../tutorials/using-python-sdk.md).
+
+#### Примеры использования {#examples-python}
+
+* [{#T}](../tutorials/using-python-sdk.md)
+
 
 ### Airflow Yandex Provider {#yc-airflow-provider-integration}
 

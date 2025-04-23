@@ -47,21 +47,21 @@ noIndex: true
     1. Задайте имя кластера.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите созданный ранее сервисный аккаунт.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../vpc/operations/network-create.md), [подсеть](../vpc/operations/subnet-create.md) и [группу безопасности](../vpc/concepts/security-groups.md) для кластера.
-    1. Задайте конфигурацию координатора и воркеров.
-    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте каталоги:
+    1. Задайте конфигурацию [координатора](concepts/index.md#coordinator) и [воркеров](concepts/index.md#workers).
+    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте по одному [каталогу](concepts/index.md#catalog):
 
-        1. Для кластера {{ mpg-name }} со следующими параметрами:
+        1. Для [созданного ранее](#before-you-begin) кластера {{ mpg-name }}:
 
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `test`.
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `PostgreSQL`.
-           * **{{ ui-key.yacloud.trino.catalogs.label_url }}** — `jdbc:postgresql://<FQDN_хоста_кластера_{{ PG }}>:6432/<имя_базы_данных>?ssl=true&sslmode=verify-full`.
+           * **URL** — `jdbc:postgresql://<FQDN_хоста_кластера_{{ PG }}>:6432/<имя_базы_данных>?ssl=true&sslmode=verify-full`.
 
                Подробнее о получении FQDN хоста в кластере {{ mpg-name }} см. в [инструкции](../managed-postgresql/operations/connect.md#fqdn).
 
-           * **{{ ui-key.yacloud.trino.catalogs.label_userName }}** — имя пользователя в кластере {{ mpg-name }}.
-           * **{{ ui-key.yacloud.trino.catalogs.label_password }}** — пароль пользователя.
+           * **Имя пользователя** — имя пользователя в кластере {{ mpg-name }}.
+           * **Пароль** — пароль пользователя.
 
-        1. Для тестовых данных со следующими параметрами:
+        1. Для генерации тестовых данных:
 
             * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `data`.
             * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `TPC-H`.
@@ -155,4 +155,5 @@ SELECT COUNT(*) FROM tpch_postgresql.customers;
 
 # Что дальше {#whats-next}
 
+* Изучите [взаимосвязь ресурсов сервиса](concepts/index.md).
 * Ознакомьтесь с другими [способами подключения к кластеру {{ mtr-name }}](operations/connect.md).

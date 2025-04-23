@@ -1,19 +1,19 @@
 ---
-title: Как подключить виртуальную машину на Linux с OS Login к {{ backup-full-name }}
-description: Следуя данной инструкции, вы сможете подключить виртуальную машину на Linux с OS Login к {{ backup-name }}.
+title: Как подключить виртуальную машину на Linux с {{ oslogin }} к {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете подключить виртуальную машину на Linux с {{ oslogin }} к {{ backup-name }}.
 ---
 
-# Подключить виртуальную машину на Linux с OS Login к {{ backup-name }}
+# Подключить виртуальную машину на Linux с {{ oslogin }} к {{ backup-name }}
 
-Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами с OS Login на базе Linux](../concepts/vm-connection.md#linux).
+Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами с {{ oslogin }} на базе Linux](../concepts/vm-connection.md#linux).
 
 {% include [requirements](../../_includes/backup/requirements.md) %}
 
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
-Если вы [удалили](delete-vm.md) ВМ с OS Login из {{ backup-name }} и хотите подключить ее к сервису заново, воспользуйтесь инструкцией ниже.
+Если вы [удалили](delete-vm.md) ВМ с {{ oslogin }} из {{ backup-name }} и хотите подключить ее к сервису заново, воспользуйтесь инструкцией ниже.
 
-Чтобы подключить виртуальную машину на Linux с OS Login к {{ backup-name }}:
+Чтобы подключить виртуальную машину на Linux с {{ oslogin }} к {{ backup-name }}:
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../security/index.md#backup-editor) `backup.editor`.
 1. [Подключите](../../compute/operations/vm-control/vm-connect-sa.md) к ВМ сервисный аккаунт, созданный ранее.

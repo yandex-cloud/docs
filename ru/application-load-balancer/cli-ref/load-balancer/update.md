@@ -30,6 +30,7 @@ Syntax:
 |`--log-group-use-default`|Use default log group in the folder where load balancer resides.|
 |`--disable-logging`|Do not send access logs to Cloud Logging log group.|
 |`--enable-logging`|Send access logs to specified Cloud Logging log group.|
+|`--allow-zonal-shift`|Specifies whether application load balancer is available to zonal shift.|
 
 #### Global Flags
 

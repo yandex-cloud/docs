@@ -1,4 +1,4 @@
-{% note warning %}
+{% note info %}
 
 Prices for {{ yandex-cloud }} resources vary from region to region. For more information about the available regions, see [{#T}](../overview/concepts/region.md).
 

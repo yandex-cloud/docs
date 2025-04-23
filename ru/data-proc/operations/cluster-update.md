@@ -30,7 +30,7 @@ description: После создания кластера {{ dataproc-name }} в
 
             Выберите существующий сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md).
 
-            Для изменения сервисного аккаунта в кластере {{ dataproc-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+            Для изменения сервисного аккаунта в кластере {{ dataproc-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
             {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 

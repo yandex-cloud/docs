@@ -15,6 +15,28 @@ meta:
     Yandex Key Management Service — сервис для создания и управления ключами
     шифрования, которые можно использовать для защиты данных в инфраструктуре
     Yandex Cloud, а также шифрования и расшифровки любых ваших данных.
+  keywords:
+    - keyword: key management
+    - keyword: kms
+    - keyword: key {{ kms-name }}
+    - keyword: сервис {{ kms-name }}
+    - keyword: ключи шифрования
+    - keyword: ключи в {{ kms-name }}
+    - keyword: ключи шифрования {{ yandex-cloud }}
+    - keyword: симметричный ключ
+    - keyword: симметричный ключ в {{ kms-name }}
+    - keyword: ассиметричный ключ
+    - keyword: ассиметричный ключ в {{ kms-name }}
+    - keyword: ключевая пара
+    - keyword: public key
+    - keyword: public key {{ kms-name }}
+    - keyword: private key
+    - keyword: private key {{ kms-name }}
+    - keyword: envelope encryption
+    - keyword: AES
+    - keyword: RSA
+    - keyword: '{{ kms-name }}'
+    - keyword: '{{ kms-name }} в {{ yandex-cloud }}'
 links:
   - title: Начало работы
     description: Зашифруйте и расшифруйте текст ключом KMS

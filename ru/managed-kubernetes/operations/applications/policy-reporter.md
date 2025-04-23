@@ -49,7 +49,7 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Policy Reporter](/marketplace/products/yc/policy-reporter) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Policy Reporter или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `policy-reporter-space`). Если вы оставите пространство имен по умолчанию, Policy Reporter может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Идентификатор кластера** — выберите кластер {{ managed-k8s-name }} из списка.
    * **Установить Policy Reporter UI** — включите опцию, чтобы установить компонент **Policy Reporter UI** для отображения результатов в графическом виде.
@@ -87,6 +87,8 @@ description: Следуя данной инструкции, вы сможете
      --set target.kinesis.streamName=<имя_потока_Data_Streams> \
      policy-reporter ./policy-reporter/
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Policy Reporter может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `policy-reporter-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

@@ -81,7 +81,7 @@ After you configure the bucket for hosting, the website will become accessible a
 http(s)://<bucket_name>.{{ s3-web-host }}
 ```
 
-Or:
+or
 
 ```
 http(s)://{{ s3-web-host }}/<bucket_name>
@@ -109,3 +109,10 @@ You can manage {{ dns-full-name }} domains in the bucket settings or in [{{ dns-
 
 {% include [public-link](../../_includes/storage/public-link.md) %}
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/user-agent-statistics.md)
+* [{#T}](../tutorials/static/index.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
+* [{#T}](../tutorials/alice-shareable-todolist.md)

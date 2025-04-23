@@ -22,7 +22,7 @@ To create a channel:
 
       {% include [push-channel-create-aws](../../../_includes/notifications/push-channel-create-aws.md) %}
 
-- AWS SDK for Python (boto3) {#python}
+- AWS SDK for Python {#python}
 
   1. If you do not have the AWS SDK for Python (boto3) yet, [install and configure it](../../tools/sdk-python.md#aws-sdk).
   1. To create a push notification channel, use the following code:

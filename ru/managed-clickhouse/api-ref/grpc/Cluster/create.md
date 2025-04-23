@@ -53,7 +53,10 @@ Creates a ClickHouse cluster in the specified folder.
           "merge_max_block_size": "google.protobuf.Int64Value",
           "check_sample_column_is_correct": "google.protobuf.BoolValue",
           "max_merge_selecting_sleep_ms": "google.protobuf.Int64Value",
-          "max_cleanup_delay_period": "google.protobuf.Int64Value"
+          "max_cleanup_delay_period": "google.protobuf.Int64Value",
+          "deduplicate_merge_projection_mode": "DeduplicateMergeProjectionMode",
+          "lightweight_mutation_projection_mode": "LightweightMutationProjectionMode",
+          "materialize_ttl_recalculate_only": "google.protobuf.BoolValue"
         },
         "compression": [
           {
@@ -112,7 +115,14 @@ Creates a ClickHouse cluster in the specified folder.
             "layout": {
               "type": "Type",
               "size_in_cells": "int64",
-              "max_array_size": "int64"
+              "allow_read_expired_keys": "google.protobuf.BoolValue",
+              "max_update_queue_size": "int64",
+              "update_queue_push_timeout_milliseconds": "int64",
+              "query_wait_timeout_milliseconds": "int64",
+              "max_threads_for_updates": "int64",
+              "initial_array_size": "int64",
+              "max_array_size": "int64",
+              "access_to_key_from_attributes": "google.protobuf.BoolValue"
             },
             // Includes only one of the fields `fixed_lifetime`, `lifetime_range`
             "fixed_lifetime": "int64",
@@ -285,6 +295,9 @@ Creates a ClickHouse cluster in the specified folder.
         "asynchronous_insert_log_enabled": "google.protobuf.BoolValue",
         "asynchronous_insert_log_retention_size": "google.protobuf.Int64Value",
         "asynchronous_insert_log_retention_time": "google.protobuf.Int64Value",
+        "processors_profile_log_enabled": "google.protobuf.BoolValue",
+        "processors_profile_log_retention_size": "google.protobuf.Int64Value",
+        "processors_profile_log_retention_time": "google.protobuf.Int64Value",
         "background_pool_size": "google.protobuf.Int64Value",
         "background_merges_mutations_concurrency_ratio": "google.protobuf.Int64Value",
         "background_schedule_pool_size": "google.protobuf.Int64Value",
@@ -472,6 +485,8 @@ Creates a ClickHouse cluster in the specified folder.
         "add_http_cors_header": "google.protobuf.BoolValue",
         "cancel_http_readonly_queries_on_client_close": "google.protobuf.BoolValue",
         "max_http_get_redirects": "google.protobuf.Int64Value",
+        "http_max_field_name_size": "google.protobuf.Int64Value",
+        "http_max_field_value_size": "google.protobuf.Int64Value",
         "joined_subquery_requires_alias": "google.protobuf.BoolValue",
         "join_use_nulls": "google.protobuf.BoolValue",
         "transform_null_in": "google.protobuf.BoolValue",
@@ -486,12 +501,14 @@ Creates a ClickHouse cluster in the specified folder.
         "wait_for_async_insert_timeout": "google.protobuf.Int64Value",
         "async_insert_max_data_size": "google.protobuf.Int64Value",
         "async_insert_busy_timeout": "google.protobuf.Int64Value",
-        "async_insert_stale_timeout": "google.protobuf.Int64Value",
+        "async_insert_use_adaptive_busy_timeout": "google.protobuf.BoolValue",
         "memory_profiler_step": "google.protobuf.Int64Value",
         "memory_profiler_sample_probability": "google.protobuf.DoubleValue",
         "max_final_threads": "google.protobuf.Int64Value",
         "input_format_parallel_parsing": "google.protobuf.BoolValue",
         "input_format_import_nested_json": "google.protobuf.BoolValue",
+        "format_avro_schema_registry_url": "string",
+        "data_type_default_nullable": "google.protobuf.BoolValue",
         "local_filesystem_read_method": "LocalFilesystemReadMethod",
         "max_read_buffer_size": "google.protobuf.Int64Value",
         "insert_keeper_max_retries": "google.protobuf.Int64Value",
@@ -503,14 +520,31 @@ Creates a ClickHouse cluster in the specified folder.
         "memory_overcommit_ratio_denominator_for_user": "google.protobuf.Int64Value",
         "memory_usage_overcommit_max_wait_microseconds": "google.protobuf.Int64Value",
         "log_query_threads": "google.protobuf.BoolValue",
+        "log_query_views": "google.protobuf.BoolValue",
+        "log_queries_probability": "google.protobuf.DoubleValue",
+        "log_processors_profiles": "google.protobuf.BoolValue",
+        "use_query_cache": "google.protobuf.BoolValue",
+        "enable_reads_from_query_cache": "google.protobuf.BoolValue",
+        "enable_writes_to_query_cache": "google.protobuf.BoolValue",
+        "query_cache_min_query_runs": "google.protobuf.Int64Value",
+        "query_cache_min_query_duration": "google.protobuf.Int64Value",
+        "query_cache_ttl": "google.protobuf.Int64Value",
+        "query_cache_max_entries": "google.protobuf.Int64Value",
+        "query_cache_max_size_in_bytes": "google.protobuf.Int64Value",
+        "query_cache_tag": "string",
+        "query_cache_share_between_users": "google.protobuf.BoolValue",
+        "query_cache_nondeterministic_function_handling": "QueryCacheNondeterministicFunctionHandling",
         "max_insert_threads": "google.protobuf.Int64Value",
         "use_hedged_requests": "google.protobuf.BoolValue",
         "idle_connection_timeout": "google.protobuf.Int64Value",
         "hedged_connection_timeout_ms": "google.protobuf.Int64Value",
         "load_balancing": "LoadBalancing",
         "prefer_localhost_replica": "google.protobuf.BoolValue",
+        "do_not_merge_across_partitions_select_final": "google.protobuf.BoolValue",
+        "ignore_materialized_views_with_dropped_target_table": "google.protobuf.BoolValue",
         "compile": "google.protobuf.BoolValue",
-        "min_count_to_compile": "google.protobuf.Int64Value"
+        "min_count_to_compile": "google.protobuf.Int64Value",
+        "async_insert_stale_timeout": "google.protobuf.Int64Value"
       },
       "quotas": [
         {
@@ -549,7 +583,331 @@ Creates a ClickHouse cluster in the specified folder.
       "hour": "int64"
     }
     // end of the list of possible fields
-  }
+  },
+  "shard_specs": [
+    {
+      "name": "string",
+      "config_spec": {
+        "clickhouse": {
+          "config": {
+            "log_level": "LogLevel",
+            "merge_tree": {
+              "replicated_deduplication_window": "google.protobuf.Int64Value",
+              "replicated_deduplication_window_seconds": "google.protobuf.Int64Value",
+              "parts_to_delay_insert": "google.protobuf.Int64Value",
+              "parts_to_throw_insert": "google.protobuf.Int64Value",
+              "inactive_parts_to_delay_insert": "google.protobuf.Int64Value",
+              "inactive_parts_to_throw_insert": "google.protobuf.Int64Value",
+              "max_replicated_merges_in_queue": "google.protobuf.Int64Value",
+              "number_of_free_entries_in_pool_to_lower_max_size_of_merge": "google.protobuf.Int64Value",
+              "max_bytes_to_merge_at_min_space_in_pool": "google.protobuf.Int64Value",
+              "max_bytes_to_merge_at_max_space_in_pool": "google.protobuf.Int64Value",
+              "min_bytes_for_wide_part": "google.protobuf.Int64Value",
+              "min_rows_for_wide_part": "google.protobuf.Int64Value",
+              "ttl_only_drop_parts": "google.protobuf.BoolValue",
+              "allow_remote_fs_zero_copy_replication": "google.protobuf.BoolValue",
+              "merge_with_ttl_timeout": "google.protobuf.Int64Value",
+              "merge_with_recompression_ttl_timeout": "google.protobuf.Int64Value",
+              "max_parts_in_total": "google.protobuf.Int64Value",
+              "max_number_of_merges_with_ttl_in_pool": "google.protobuf.Int64Value",
+              "cleanup_delay_period": "google.protobuf.Int64Value",
+              "number_of_free_entries_in_pool_to_execute_mutation": "google.protobuf.Int64Value",
+              "max_avg_part_size_for_too_many_parts": "google.protobuf.Int64Value",
+              "min_age_to_force_merge_seconds": "google.protobuf.Int64Value",
+              "min_age_to_force_merge_on_partition_only": "google.protobuf.BoolValue",
+              "merge_selecting_sleep_ms": "google.protobuf.Int64Value",
+              "merge_max_block_size": "google.protobuf.Int64Value",
+              "check_sample_column_is_correct": "google.protobuf.BoolValue",
+              "max_merge_selecting_sleep_ms": "google.protobuf.Int64Value",
+              "max_cleanup_delay_period": "google.protobuf.Int64Value",
+              "deduplicate_merge_projection_mode": "DeduplicateMergeProjectionMode",
+              "lightweight_mutation_projection_mode": "LightweightMutationProjectionMode",
+              "materialize_ttl_recalculate_only": "google.protobuf.BoolValue"
+            },
+            "compression": [
+              {
+                "method": "Method",
+                "min_part_size": "int64",
+                "min_part_size_ratio": "double",
+                "level": "google.protobuf.Int64Value"
+              }
+            ],
+            "dictionaries": [
+              {
+                "name": "string",
+                "structure": {
+                  "id": {
+                    "name": "string"
+                  },
+                  "key": {
+                    "attributes": [
+                      {
+                        "name": "string",
+                        "type": "string",
+                        "null_value": "string",
+                        "expression": "string",
+                        "hierarchical": "bool",
+                        "injective": "bool"
+                      }
+                    ]
+                  },
+                  "range_min": {
+                    "name": "string",
+                    "type": "string",
+                    "null_value": "string",
+                    "expression": "string",
+                    "hierarchical": "bool",
+                    "injective": "bool"
+                  },
+                  "range_max": {
+                    "name": "string",
+                    "type": "string",
+                    "null_value": "string",
+                    "expression": "string",
+                    "hierarchical": "bool",
+                    "injective": "bool"
+                  },
+                  "attributes": [
+                    {
+                      "name": "string",
+                      "type": "string",
+                      "null_value": "string",
+                      "expression": "string",
+                      "hierarchical": "bool",
+                      "injective": "bool"
+                    }
+                  ]
+                },
+                "layout": {
+                  "type": "Type",
+                  "size_in_cells": "int64",
+                  "allow_read_expired_keys": "google.protobuf.BoolValue",
+                  "max_update_queue_size": "int64",
+                  "update_queue_push_timeout_milliseconds": "int64",
+                  "query_wait_timeout_milliseconds": "int64",
+                  "max_threads_for_updates": "int64",
+                  "initial_array_size": "int64",
+                  "max_array_size": "int64",
+                  "access_to_key_from_attributes": "google.protobuf.BoolValue"
+                },
+                // Includes only one of the fields `fixed_lifetime`, `lifetime_range`
+                "fixed_lifetime": "int64",
+                "lifetime_range": {
+                  "min": "int64",
+                  "max": "int64"
+                },
+                // end of the list of possible fields
+                // Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`
+                "http_source": {
+                  "url": "string",
+                  "format": "string",
+                  "headers": [
+                    {
+                      "name": "string",
+                      "value": "string"
+                    }
+                  ]
+                },
+                "mysql_source": {
+                  "db": "string",
+                  "table": "string",
+                  "port": "int64",
+                  "user": "string",
+                  "password": "string",
+                  "replicas": [
+                    {
+                      "host": "string",
+                      "priority": "int64",
+                      "port": "int64",
+                      "user": "string",
+                      "password": "string"
+                    }
+                  ],
+                  "where": "string",
+                  "invalidate_query": "string",
+                  "close_connection": "google.protobuf.BoolValue",
+                  "share_connection": "google.protobuf.BoolValue"
+                },
+                "clickhouse_source": {
+                  "db": "string",
+                  "table": "string",
+                  "host": "string",
+                  "port": "int64",
+                  "user": "string",
+                  "password": "string",
+                  "where": "string",
+                  "secure": "google.protobuf.BoolValue"
+                },
+                "mongodb_source": {
+                  "db": "string",
+                  "collection": "string",
+                  "host": "string",
+                  "port": "int64",
+                  "user": "string",
+                  "password": "string",
+                  "options": "string"
+                },
+                "postgresql_source": {
+                  "db": "string",
+                  "table": "string",
+                  "hosts": [
+                    "string"
+                  ],
+                  "port": "int64",
+                  "user": "string",
+                  "password": "string",
+                  "invalidate_query": "string",
+                  "ssl_mode": "SslMode"
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "graphite_rollup": [
+              {
+                "name": "string",
+                "patterns": [
+                  {
+                    "regexp": "string",
+                    "function": "string",
+                    "retention": [
+                      {
+                        "age": "int64",
+                        "precision": "int64"
+                      }
+                    ]
+                  }
+                ],
+                "path_column_name": "string",
+                "time_column_name": "string",
+                "value_column_name": "string",
+                "version_column_name": "string"
+              }
+            ],
+            "kafka": {
+              "security_protocol": "SecurityProtocol",
+              "sasl_mechanism": "SaslMechanism",
+              "sasl_username": "string",
+              "sasl_password": "string",
+              "enable_ssl_certificate_verification": "google.protobuf.BoolValue",
+              "max_poll_interval_ms": "google.protobuf.Int64Value",
+              "session_timeout_ms": "google.protobuf.Int64Value",
+              "debug": "Debug",
+              "auto_offset_reset": "AutoOffsetReset"
+            },
+            "kafka_topics": [
+              {
+                "name": "string",
+                "settings": {
+                  "security_protocol": "SecurityProtocol",
+                  "sasl_mechanism": "SaslMechanism",
+                  "sasl_username": "string",
+                  "sasl_password": "string",
+                  "enable_ssl_certificate_verification": "google.protobuf.BoolValue",
+                  "max_poll_interval_ms": "google.protobuf.Int64Value",
+                  "session_timeout_ms": "google.protobuf.Int64Value",
+                  "debug": "Debug",
+                  "auto_offset_reset": "AutoOffsetReset"
+                }
+              }
+            ],
+            "rabbitmq": {
+              "username": "string",
+              "password": "string",
+              "vhost": "string"
+            },
+            "max_connections": "google.protobuf.Int64Value",
+            "max_concurrent_queries": "google.protobuf.Int64Value",
+            "keep_alive_timeout": "google.protobuf.Int64Value",
+            "uncompressed_cache_size": "google.protobuf.Int64Value",
+            "mark_cache_size": "google.protobuf.Int64Value",
+            "max_table_size_to_drop": "google.protobuf.Int64Value",
+            "max_partition_size_to_drop": "google.protobuf.Int64Value",
+            "builtin_dictionaries_reload_interval": "google.protobuf.Int64Value",
+            "timezone": "string",
+            "geobase_enabled": "google.protobuf.BoolValue",
+            "geobase_uri": "string",
+            "query_log_retention_size": "google.protobuf.Int64Value",
+            "query_log_retention_time": "google.protobuf.Int64Value",
+            "query_thread_log_enabled": "google.protobuf.BoolValue",
+            "query_thread_log_retention_size": "google.protobuf.Int64Value",
+            "query_thread_log_retention_time": "google.protobuf.Int64Value",
+            "part_log_retention_size": "google.protobuf.Int64Value",
+            "part_log_retention_time": "google.protobuf.Int64Value",
+            "metric_log_enabled": "google.protobuf.BoolValue",
+            "metric_log_retention_size": "google.protobuf.Int64Value",
+            "metric_log_retention_time": "google.protobuf.Int64Value",
+            "trace_log_enabled": "google.protobuf.BoolValue",
+            "trace_log_retention_size": "google.protobuf.Int64Value",
+            "trace_log_retention_time": "google.protobuf.Int64Value",
+            "text_log_enabled": "google.protobuf.BoolValue",
+            "text_log_retention_size": "google.protobuf.Int64Value",
+            "text_log_retention_time": "google.protobuf.Int64Value",
+            "text_log_level": "LogLevel",
+            "opentelemetry_span_log_enabled": "google.protobuf.BoolValue",
+            "opentelemetry_span_log_retention_size": "google.protobuf.Int64Value",
+            "opentelemetry_span_log_retention_time": "google.protobuf.Int64Value",
+            "query_views_log_enabled": "google.protobuf.BoolValue",
+            "query_views_log_retention_size": "google.protobuf.Int64Value",
+            "query_views_log_retention_time": "google.protobuf.Int64Value",
+            "asynchronous_metric_log_enabled": "google.protobuf.BoolValue",
+            "asynchronous_metric_log_retention_size": "google.protobuf.Int64Value",
+            "asynchronous_metric_log_retention_time": "google.protobuf.Int64Value",
+            "session_log_enabled": "google.protobuf.BoolValue",
+            "session_log_retention_size": "google.protobuf.Int64Value",
+            "session_log_retention_time": "google.protobuf.Int64Value",
+            "zookeeper_log_enabled": "google.protobuf.BoolValue",
+            "zookeeper_log_retention_size": "google.protobuf.Int64Value",
+            "zookeeper_log_retention_time": "google.protobuf.Int64Value",
+            "asynchronous_insert_log_enabled": "google.protobuf.BoolValue",
+            "asynchronous_insert_log_retention_size": "google.protobuf.Int64Value",
+            "asynchronous_insert_log_retention_time": "google.protobuf.Int64Value",
+            "processors_profile_log_enabled": "google.protobuf.BoolValue",
+            "processors_profile_log_retention_size": "google.protobuf.Int64Value",
+            "processors_profile_log_retention_time": "google.protobuf.Int64Value",
+            "background_pool_size": "google.protobuf.Int64Value",
+            "background_merges_mutations_concurrency_ratio": "google.protobuf.Int64Value",
+            "background_schedule_pool_size": "google.protobuf.Int64Value",
+            "background_fetches_pool_size": "google.protobuf.Int64Value",
+            "background_move_pool_size": "google.protobuf.Int64Value",
+            "background_distributed_schedule_pool_size": "google.protobuf.Int64Value",
+            "background_buffer_flush_schedule_pool_size": "google.protobuf.Int64Value",
+            "background_message_broker_schedule_pool_size": "google.protobuf.Int64Value",
+            "background_common_pool_size": "google.protobuf.Int64Value",
+            "default_database": "google.protobuf.StringValue",
+            "total_memory_profiler_step": "google.protobuf.Int64Value",
+            "total_memory_tracker_sample_probability": "google.protobuf.DoubleValue",
+            "query_masking_rules": [
+              {
+                "name": "string",
+                "regexp": "string",
+                "replace": "string"
+              }
+            ],
+            "dictionaries_lazy_load": "google.protobuf.BoolValue",
+            "query_cache": {
+              "max_size_in_bytes": "google.protobuf.Int64Value",
+              "max_entries": "google.protobuf.Int64Value",
+              "max_entry_size_in_bytes": "google.protobuf.Int64Value",
+              "max_entry_size_in_rows": "google.protobuf.Int64Value"
+            },
+            "jdbc_bridge": {
+              "host": "string",
+              "port": "google.protobuf.Int64Value"
+            }
+          },
+          "resources": {
+            "resource_preset_id": "string",
+            "disk_size": "int64",
+            "disk_type_id": "string"
+          },
+          "weight": "google.protobuf.Int64Value"
+        }
+      },
+      "shard_group_names": [
+        "string"
+      ]
+    }
+  ]
 }
 ```
 
@@ -607,6 +965,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.clickhouse.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
+|| shard_specs[] | **[ShardSpec](#yandex.cloud.mdb.clickhouse.v1.ShardSpec)**
+
+Configuration(s) of the shard(s) to be created. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec}
@@ -868,6 +1229,17 @@ automatic removal of asynchronous_insert_log data based on size is disabled. ||
 
 The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0,
 automatic removal of asynchronous_insert_log data based on time is disabled. ||
+|| processors_profile_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable or disable processors_profile_log system table. ||
+|| processors_profile_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum size that processors_profile_log can grow to before old data will be removed.
+If set to 0 (default), automatic removal of processors_profile_log data based on size is disabled. ||
+|| processors_profile_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum time that processors_profile_log records will be retained before removal.
+If set to 0, automatic removal of processors_profile_log data based on time is disabled. ||
 || background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
 || background_merges_mutations_concurrency_ratio | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -1021,6 +1393,27 @@ Maximum period to clean old queue logs, blocks hashes and parts.
 Default: 300
 Min_version: 23.6
 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) ||
+|| deduplicate_merge_projection_mode | enum **DeduplicateMergeProjectionMode**
+
+Determines the behavior of background merges for MergeTree tables with projections.
+https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode
+
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_UNSPECIFIED`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD` ||
+|| lightweight_mutation_projection_mode | enum **LightweightMutationProjectionMode**
+
+Determines the behavior of lightweight deletes for MergeTree tables with projections.
+
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_UNSPECIFIED`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
+|| materialize_ttl_recalculate_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Only recalculate ttl info when MATERIALIZE TTL. ||
 |#
 
 ## Compression {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Compression}
@@ -1207,15 +1600,50 @@ Available for all dictionary sources.
 - `CACHE`: The dictionary is stored in a cache with a set number of cells.
 Available for MySQL, ClickHouse and HTTP dictionary sources.
 - `COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys.
-Available for MySQL, ClickHouse and HTTP dictionary sources. ||
+Available for MySQL, ClickHouse and HTTP dictionary sources.
+- `SPARSE_HASHED`: Similar to HASHED, but uses less memory in favor of more CPU usage.
+- `COMPLEX_KEY_SPARSE_HASHED`: Similar to SPARSE_HASHED, to be used with composite keys.
+- `COMPLEX_KEY_RANGE_HASHED`: Similar to RANGE_HASHED, to be used with composite keys.
+- `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+- `COMPLEX_KEY_DIRECT`: Similar to DIRECT, to be used with composite keys.
+- `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN. ||
 || size_in_cells | **int64**
 
 Number of cells in the cache. Rounded up to a power of two.
 Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| allow_read_expired_keys | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows to read expired keys.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| max_update_queue_size | **int64**
+
+Max size of update queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| update_queue_push_timeout_milliseconds | **int64**
+
+Max timeout in milliseconds for push update task into queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| query_wait_timeout_milliseconds | **int64**
+
+Max wait timeout in milliseconds for update task to complete.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| max_threads_for_updates | **int64**
+
+Max threads for cache dictionary update.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| initial_array_size | **int64**
+
+Initial dictionary key size.
+Applicable only for FLAT layout type. ||
 || max_array_size | **int64**
 
 Maximum dictionary key size.
 Applicable only for FLAT layout type. ||
+|| access_to_key_from_attributes | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows to retrieve key attribute using dictGetString function.
+Enabling this option increases memory usage.
+Applicable only for IP_TRIE layout type. ||
 |#
 
 ## Range {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range}
@@ -2476,6 +2904,14 @@ Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://cli
 If the parameter is set to **0** (default), no hops is allowed.
 
 More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects). ||
+|| http_max_field_name_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum length of field name in HTTP header.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_name_size). ||
+|| http_max_field_value_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum length of field value in HTTP header.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_value_size). ||
 || joined_subquery_requires_alias | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 || join_use_nulls | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 || transform_null_in | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
@@ -2549,11 +2985,10 @@ The maximum timeout in milliseconds since the first INSERT query before insertin
 If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
 
 More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms). ||
-|| async_insert_stale_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| async_insert_use_adaptive_busy_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the `async_insert_busy_timeout` with every INSERT query as long as `async_insert_max_data_size` is not exceeded.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms). ||
+If it is set to true, use adaptive busy timeout for asynchronous inserts.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#async_insert_use_adaptive_busy_timeout). ||
 || memory_profiler_step | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Memory profiler step (in bytes).
@@ -2578,6 +3013,14 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 
 Enables or disables the insertion of JSON data with nested objects.
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing) ||
+|| format_avro_schema_registry_url | **string**
+
+Avro schema registry URL.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/formats#format_avro_schema_registry_url). ||
+|| data_type_default_nullable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows data types without explicit modifiers NULL or NOT NULL in column definition will be Nullable.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#data_type_default_nullable). ||
 || local_filesystem_read_method | enum **LocalFilesystemReadMethod**
 
 Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.
@@ -2646,8 +3089,70 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 || log_query_threads | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Setting up query threads logging. Query threads log into the [system.query_thread_log](https://clickhouse.com/docs/en/operations/system-tables/query_thread_log) table. This setting has effect only when [log_queries](https://clickhouse.com/docs/en/operations/settings/settings#log-queries) is true. Queries threads run by ClickHouse with this setup are logged according to the rules in the [query_thread_log](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#server_configuration_parameters-query_thread_log) server configuration parameter.
-Default: true
+Default: false
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_threads) ||
+|| log_query_views | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables query views logging to the the system.query_view_log table.
+Default: true
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_views) ||
+|| log_queries_probability | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+Log queries with the specified probability.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_queries_probability). ||
+|| log_processors_profiles | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_processors_profiles). ||
+|| use_query_cache | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+If turned on, SELECT queries may utilize the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_query_cache). ||
+|| enable_reads_from_query_cache | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+If turned on, results of SELECT queries are retrieved from the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_reads_from_query_cache). ||
+|| enable_writes_to_query_cache | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+If turned on, results of SELECT queries are stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_writes_to_query_cache). ||
+|| query_cache_min_query_runs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum number of times a SELECT query must run before its result is stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_runs). ||
+|| query_cache_min_query_duration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_duration). ||
+|| query_cache_ttl | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+After this time in seconds entries in the query cache become stale.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_ttl). ||
+|| query_cache_max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of query results the current user may store in the query cache. 0 means unlimited.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_entries). ||
+|| query_cache_max_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum amount of memory (in bytes) the current user may allocate in the query cache. 0 means unlimited.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_size_in_bytes). ||
+|| query_cache_tag | **string**
+
+A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_tag). ||
+|| query_cache_share_between_users | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+If turned on, the result of SELECT queries cached in the query cache can be read by other users. It is not recommended to enable this setting due to security reasons.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_share_between_users). ||
+|| query_cache_nondeterministic_function_handling | enum **QueryCacheNondeterministicFunctionHandling**
+
+Controls how the query cache handles SELECT queries with non-deterministic functions like rand() or now().
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_nondeterministic_function_handling).
+
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_UNSPECIFIED`
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW`: Throw an exception and don't cache the query result.
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_SAVE`: Cache the query result.
+- `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception. ||
 || max_insert_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of threads to execute the INSERT SELECT query.
@@ -2682,13 +3187,25 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 - `LOAD_BALANCING_ROUND_ROBIN` ||
 || prefer_localhost_replica | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Enables/disables preferable using the localhost replica when processing distributed queries.
+Enables or disables preferable using the localhost replica when processing distributed queries.
 Default: true
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#prefer_localhost_replica) ||
+|| do_not_merge_across_partitions_select_final | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disable independent processing of partitions for SELECT queries with FINAL.
+Default: false
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree) ||
+|| ignore_materialized_views_with_dropped_target_table | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Ignore materialized views with dropped target table during pushing to views.
+See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#ignore_materialized_views_with_dropped_target_table). ||
 || compile | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 The setting is deprecated and has no effect. ||
 || min_count_to_compile | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The setting is deprecated and has no effect. ||
+|| async_insert_stale_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The setting is deprecated and has no effect. ||
 |#
@@ -2813,6 +3330,46 @@ Day of the week (in `DDD` format).
 Hour of the day in UTC (in `HH` format). ||
 |#
 
+## ShardSpec {#yandex.cloud.mdb.clickhouse.v1.ShardSpec}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the shard to be created. ||
+|| config_spec | **[ShardConfigSpec](#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec)**
+
+Configuration of the shard to be created. ||
+|| shard_group_names[] | **string**
+
+Shard groups that contain the shard. ||
+|#
+
+## ShardConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec}
+
+#|
+||Field | Description ||
+|| clickhouse | **[Clickhouse](#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec.Clickhouse)**
+
+ClickHouse configuration for a shard. ||
+|#
+
+## Clickhouse {#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec.Clickhouse}
+
+#|
+||Field | Description ||
+|| config | **[ClickhouseConfig](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig)**
+
+ClickHouse settings for the shard. ||
+|| resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
+
+Computational resources for the shard. ||
+|| weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Relative weight of the shard considered when writing data to the cluster.
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -2877,7 +3434,10 @@ Hour of the day in UTC (in `HH` format). ||
               "merge_max_block_size": "google.protobuf.Int64Value",
               "check_sample_column_is_correct": "google.protobuf.BoolValue",
               "max_merge_selecting_sleep_ms": "google.protobuf.Int64Value",
-              "max_cleanup_delay_period": "google.protobuf.Int64Value"
+              "max_cleanup_delay_period": "google.protobuf.Int64Value",
+              "deduplicate_merge_projection_mode": "DeduplicateMergeProjectionMode",
+              "lightweight_mutation_projection_mode": "LightweightMutationProjectionMode",
+              "materialize_ttl_recalculate_only": "google.protobuf.BoolValue"
             },
             "compression": [
               {
@@ -2936,7 +3496,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "layout": {
                   "type": "Type",
                   "size_in_cells": "int64",
-                  "max_array_size": "int64"
+                  "allow_read_expired_keys": "google.protobuf.BoolValue",
+                  "max_update_queue_size": "int64",
+                  "update_queue_push_timeout_milliseconds": "int64",
+                  "query_wait_timeout_milliseconds": "int64",
+                  "max_threads_for_updates": "int64",
+                  "initial_array_size": "int64",
+                  "max_array_size": "int64",
+                  "access_to_key_from_attributes": "google.protobuf.BoolValue"
                 },
                 // Includes only one of the fields `fixed_lifetime`, `lifetime_range`
                 "fixed_lifetime": "int64",
@@ -3109,6 +3676,9 @@ Hour of the day in UTC (in `HH` format). ||
             "asynchronous_insert_log_enabled": "google.protobuf.BoolValue",
             "asynchronous_insert_log_retention_size": "google.protobuf.Int64Value",
             "asynchronous_insert_log_retention_time": "google.protobuf.Int64Value",
+            "processors_profile_log_enabled": "google.protobuf.BoolValue",
+            "processors_profile_log_retention_size": "google.protobuf.Int64Value",
+            "processors_profile_log_retention_time": "google.protobuf.Int64Value",
             "background_pool_size": "google.protobuf.Int64Value",
             "background_merges_mutations_concurrency_ratio": "google.protobuf.Int64Value",
             "background_schedule_pool_size": "google.protobuf.Int64Value",
@@ -3170,7 +3740,10 @@ Hour of the day in UTC (in `HH` format). ||
               "merge_max_block_size": "google.protobuf.Int64Value",
               "check_sample_column_is_correct": "google.protobuf.BoolValue",
               "max_merge_selecting_sleep_ms": "google.protobuf.Int64Value",
-              "max_cleanup_delay_period": "google.protobuf.Int64Value"
+              "max_cleanup_delay_period": "google.protobuf.Int64Value",
+              "deduplicate_merge_projection_mode": "DeduplicateMergeProjectionMode",
+              "lightweight_mutation_projection_mode": "LightweightMutationProjectionMode",
+              "materialize_ttl_recalculate_only": "google.protobuf.BoolValue"
             },
             "compression": [
               {
@@ -3229,7 +3802,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "layout": {
                   "type": "Type",
                   "size_in_cells": "int64",
-                  "max_array_size": "int64"
+                  "allow_read_expired_keys": "google.protobuf.BoolValue",
+                  "max_update_queue_size": "int64",
+                  "update_queue_push_timeout_milliseconds": "int64",
+                  "query_wait_timeout_milliseconds": "int64",
+                  "max_threads_for_updates": "int64",
+                  "initial_array_size": "int64",
+                  "max_array_size": "int64",
+                  "access_to_key_from_attributes": "google.protobuf.BoolValue"
                 },
                 // Includes only one of the fields `fixed_lifetime`, `lifetime_range`
                 "fixed_lifetime": "int64",
@@ -3402,6 +3982,9 @@ Hour of the day in UTC (in `HH` format). ||
             "asynchronous_insert_log_enabled": "google.protobuf.BoolValue",
             "asynchronous_insert_log_retention_size": "google.protobuf.Int64Value",
             "asynchronous_insert_log_retention_time": "google.protobuf.Int64Value",
+            "processors_profile_log_enabled": "google.protobuf.BoolValue",
+            "processors_profile_log_retention_size": "google.protobuf.Int64Value",
+            "processors_profile_log_retention_time": "google.protobuf.Int64Value",
             "background_pool_size": "google.protobuf.Int64Value",
             "background_merges_mutations_concurrency_ratio": "google.protobuf.Int64Value",
             "background_schedule_pool_size": "google.protobuf.Int64Value",
@@ -3463,7 +4046,10 @@ Hour of the day in UTC (in `HH` format). ||
               "merge_max_block_size": "google.protobuf.Int64Value",
               "check_sample_column_is_correct": "google.protobuf.BoolValue",
               "max_merge_selecting_sleep_ms": "google.protobuf.Int64Value",
-              "max_cleanup_delay_period": "google.protobuf.Int64Value"
+              "max_cleanup_delay_period": "google.protobuf.Int64Value",
+              "deduplicate_merge_projection_mode": "DeduplicateMergeProjectionMode",
+              "lightweight_mutation_projection_mode": "LightweightMutationProjectionMode",
+              "materialize_ttl_recalculate_only": "google.protobuf.BoolValue"
             },
             "compression": [
               {
@@ -3522,7 +4108,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "layout": {
                   "type": "Type",
                   "size_in_cells": "int64",
-                  "max_array_size": "int64"
+                  "allow_read_expired_keys": "google.protobuf.BoolValue",
+                  "max_update_queue_size": "int64",
+                  "update_queue_push_timeout_milliseconds": "int64",
+                  "query_wait_timeout_milliseconds": "int64",
+                  "max_threads_for_updates": "int64",
+                  "initial_array_size": "int64",
+                  "max_array_size": "int64",
+                  "access_to_key_from_attributes": "google.protobuf.BoolValue"
                 },
                 // Includes only one of the fields `fixed_lifetime`, `lifetime_range`
                 "fixed_lifetime": "int64",
@@ -3695,6 +4288,9 @@ Hour of the day in UTC (in `HH` format). ||
             "asynchronous_insert_log_enabled": "google.protobuf.BoolValue",
             "asynchronous_insert_log_retention_size": "google.protobuf.Int64Value",
             "asynchronous_insert_log_retention_time": "google.protobuf.Int64Value",
+            "processors_profile_log_enabled": "google.protobuf.BoolValue",
+            "processors_profile_log_retention_size": "google.protobuf.Int64Value",
+            "processors_profile_log_retention_time": "google.protobuf.Int64Value",
             "background_pool_size": "google.protobuf.Int64Value",
             "background_merges_mutations_concurrency_ratio": "google.protobuf.Int64Value",
             "background_schedule_pool_size": "google.protobuf.Int64Value",
@@ -4220,6 +4816,17 @@ automatic removal of asynchronous_insert_log data based on size is disabled. ||
 
 The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0,
 automatic removal of asynchronous_insert_log data based on time is disabled. ||
+|| processors_profile_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable or disable processors_profile_log system table. ||
+|| processors_profile_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum size that processors_profile_log can grow to before old data will be removed.
+If set to 0 (default), automatic removal of processors_profile_log data based on size is disabled. ||
+|| processors_profile_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum time that processors_profile_log records will be retained before removal.
+If set to 0, automatic removal of processors_profile_log data based on time is disabled. ||
 || background_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
 || background_merges_mutations_concurrency_ratio | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -4373,6 +4980,27 @@ Maximum period to clean old queue logs, blocks hashes and parts.
 Default: 300
 Min_version: 23.6
 See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/4add9db84859bff7410cf934a3904b0414e36e51/src/Storages/MergeTree/MergeTreeSettings.h#L142) ||
+|| deduplicate_merge_projection_mode | enum **DeduplicateMergeProjectionMode**
+
+Determines the behavior of background merges for MergeTree tables with projections.
+https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode
+
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_UNSPECIFIED`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD` ||
+|| lightweight_mutation_projection_mode | enum **LightweightMutationProjectionMode**
+
+Determines the behavior of lightweight deletes for MergeTree tables with projections.
+
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_UNSPECIFIED`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
+|| materialize_ttl_recalculate_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Only recalculate ttl info when MATERIALIZE TTL. ||
 |#
 
 ## Compression {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Compression2}
@@ -4559,15 +5187,50 @@ Available for all dictionary sources.
 - `CACHE`: The dictionary is stored in a cache with a set number of cells.
 Available for MySQL, ClickHouse and HTTP dictionary sources.
 - `COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys.
-Available for MySQL, ClickHouse and HTTP dictionary sources. ||
+Available for MySQL, ClickHouse and HTTP dictionary sources.
+- `SPARSE_HASHED`: Similar to HASHED, but uses less memory in favor of more CPU usage.
+- `COMPLEX_KEY_SPARSE_HASHED`: Similar to SPARSE_HASHED, to be used with composite keys.
+- `COMPLEX_KEY_RANGE_HASHED`: Similar to RANGE_HASHED, to be used with composite keys.
+- `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+- `COMPLEX_KEY_DIRECT`: Similar to DIRECT, to be used with composite keys.
+- `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN. ||
 || size_in_cells | **int64**
 
 Number of cells in the cache. Rounded up to a power of two.
 Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| allow_read_expired_keys | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows to read expired keys.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| max_update_queue_size | **int64**
+
+Max size of update queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| update_queue_push_timeout_milliseconds | **int64**
+
+Max timeout in milliseconds for push update task into queue.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| query_wait_timeout_milliseconds | **int64**
+
+Max wait timeout in milliseconds for update task to complete.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| max_threads_for_updates | **int64**
+
+Max threads for cache dictionary update.
+Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
+|| initial_array_size | **int64**
+
+Initial dictionary key size.
+Applicable only for FLAT layout type. ||
 || max_array_size | **int64**
 
 Maximum dictionary key size.
 Applicable only for FLAT layout type. ||
+|| access_to_key_from_attributes | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows to retrieve key attribute using dictGetString function.
+Enabling this option increases memory usage.
+Applicable only for IP_TRIE layout type. ||
 |#
 
 ## Range {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range2}

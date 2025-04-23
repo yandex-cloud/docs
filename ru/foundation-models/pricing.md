@@ -45,12 +45,6 @@ editable: false
 
 ### Классификация текста {#rules-text-classifier}
 
-{% note warning %}
-
-Правила, описанные ниже, начнут действовать с 9 декабря 2024 года.
-
-{% endnote %}
-
 Стоимость классификации текста зависит от используемой модели классификации и количества переданных [токенов](concepts/yandexgpt/tokens.md).
 
 * При классификации с помощью {{ gpt-lite }} единицей тарификации является 1 запрос до 1 000 токенов.
@@ -78,6 +72,7 @@ editable: false
 {% include [error-request](../_includes/speechkit/error-request.md) %}
 
 ## Цены для региона Россия {#prices}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -267,7 +262,6 @@ editable: false
   {% include [kzt-embedding-k1](../_pricing_examples/foundation-models/kzt-embedding-k1.md) %}
 
 {% endlist %}
-
 
 
 

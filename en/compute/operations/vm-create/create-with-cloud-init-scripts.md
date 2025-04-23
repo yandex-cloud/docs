@@ -23,7 +23,7 @@ To create a VM with a custom configuration script:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** from the list of services.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -69,7 +69,7 @@ To create a VM with a custom configuration script:
   * `--create-boot-disk`: VM boot disk settings:
 
       * `image-family`: [Image family](../../concepts/image.md#family), e.g., `ubuntu-2204-lts`. This option allows you to install the latest version of the OS from the specified family.
-      * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+      * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional parameter.
 
         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
         
@@ -260,7 +260,7 @@ To make sure the configuration scripts ran successfully, [get the serial port ou
 
   {% note info %}
 
-  When creating a VM with [{{ unified-agent-full-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md), make sure to link it to a [service account](../../../iam/concepts/users/service-accounts.md) with the `monitoring.editor` [role](../../../monitoring/security/index.md#monitoring-editor) for the current [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  When creating a VM with [{{ unified-agent-full-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md), link it to a [service account](../../../iam/concepts/users/service-accounts.md) with the `monitoring.editor` [role](../../../monitoring/security/index.md#monitoring-editor) for the current [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
   {% endnote %}
 
@@ -283,6 +283,26 @@ To make sure the configuration scripts ran successfully, [get the serial port ou
   ```
 
   {% include [cli-install](../../../_includes/compute/create/legend-for-creating-user-data-scripts.md) %}
+
+  To link a service account to a VM when creating it using {{ TF }}, add the following row to the configuration:
+  
+  ```hcl
+  resource "yandex_compute_instance" "my-vm" {
+    ...
+    service_account_id = "ajehka*************"
+  }
+  ```
+
+  For {{ unified-agent-short-name }} to send metrics to {{ managed-prometheus-full-name }}, specify the workspace ID in the configuration:
+  
+  ```hcl
+  resource "yandex_compute_instance" "my-vm" {
+    ...
+    metadata    = {
+      monitoring_workspaceid = "mon618clr**************"
+    }
+  }
+  ```
 
 - {{ TF }}
 
@@ -419,3 +439,4 @@ Other configuration examples for the `user-data` key:
 * [Recovering VM network interfaces](../../qa/troubleshooting.md#unable-to-connect-to-new-multi-interface-vm)
 * [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
 * [Installing the agent for collecting {{ unified-agent-short-name }} metrics and logs](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup)
+* [Installing the agent for collecting metrics in {{ prometheus-name }} format](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md)

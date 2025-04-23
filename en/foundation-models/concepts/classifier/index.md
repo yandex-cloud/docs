@@ -110,7 +110,7 @@ You can deliver multiple classification examples in a single request. All exampl
 
 ## Trainable classifiers {#trainable}
 
-If not satisfied with the output quality of the [zero-shot](#zero-shot) and [few-shot](#few-shot) classifiers, [tune your own one](../tuning/classifier.md) based on {{ gpt-lite }}. Trainable classifiers can be trained to offer all supported classification types.
+If not satisfied with the output quality of the [zero-shot](#zero-shot) and [few-shot](#few-shot) classifiers, [tune your own one](../../operations/tuning/tune-classifiers.md) based on {{ gpt-lite }}. Trainable classifiers can be trained to offer all supported classification types.
 
 To [run](../../operations/classifier/additionally-trained.md) a request to the classifier of a model fine-tuned in {{ ml-platform-name }}, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) text classification API method. If you do so, you only need to provide the [model ID](./models.md) and the request text to the model. The names of the classes between which the model will be distributing requests must be specified during model tuning and are not provided in the request.
 

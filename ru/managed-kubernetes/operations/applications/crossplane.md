@@ -32,7 +32,7 @@
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Crossplane с поддержкой {{ yandex-cloud }}](/marketplace/products/yc/crossplane) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Crossplane или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `crossplane-space`). Если вы оставите пространство имен по умолчанию, Crossplane может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Ключ сервисного аккаунта** — вставьте содержимое файла [авторизованного ключа](../../../iam/concepts/authorization/key.md) сервисного аккаунта, [полученного ранее](#before-you-begin), или создайте новый.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -56,6 +56,8 @@
      --set-file providerJetYc.creds=key.json \
      crossplane ./crossplane/
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Crossplane может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `crossplane-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

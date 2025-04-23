@@ -14,7 +14,7 @@ To link {{ GL }} merge requests to {{ tracker-name }} issues, create a hook:
 1. Specify the hook parameters:
     * **URL**: `https://api.tracker.yandex.net/v2/system/gitlab/receive?comments=true&<organization_type>=<organization_ID>`.
 
-       Where:
+        Where:
 
         * `comments=true`: Enables automatic creation of comments in an issue with a link to and information about merge requests. Disable it if commenting is not required. This parameter is only available for {{ mgl-name }}.
         * `<organization_type>`: It may take the following values:
@@ -22,13 +22,12 @@ To link {{ GL }} merge requests to {{ tracker-name }} issues, create a hook:
             * `x_cloud_org_id`: If the type of your organization is {{ org-full-name }}.
             * `x_org_id`: If the type of your organization is {{ ya-360 }} or both {{ ya-360 }} and {{ org-full-name }}.
 
-        * `<organization_ID>`: ID of the organization from the [{{ tracker-name }} organizations page]({{ link-tracker }}admin/orgs).
+        * `<organization_ID>`: ID of the organization on the [{{ tracker-name }} organizations page]({{ link-tracker }}admin/orgs).
 
-    * **Secret token**: OAuth token of the bot that will be used to add the links, in `OAuth <token_contents>` format.
+    * **Secret token**: OAuth token of the bot which will create the links, in `OAuth <token_contents>` format.
       For example: `OAuth y1_AQAD-qJScAAAEKEQbBNnChvfBIqR_yEQl_HMO0********`.
     * In the **Trigger** section, disable all options except **Merge request events**.
     * In the **SSL verification** section, select **Enable SSL verification**.
-
 1. Click **Add system hook** (**Add webhook** for an individual project).
 
 The **System Hooks** (**Project Hooks** for an individual project) section with information about the created hook and its parameters will appear on the page.

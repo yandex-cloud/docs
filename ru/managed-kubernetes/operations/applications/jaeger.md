@@ -92,7 +92,7 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `jaeger-space`). Если вы оставите пространство имен по умолчанию, Jaeger может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **{{ ydb-name }} эндпоинт** — укажите имя эндпоинта {{ ydb-name }}, например `lb.etnk1hv0jol3********.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
    * **База данных** — укажите имя БД, например `/{{ region-id }}/b1gkgm9daf46********/etnk2hv0jol5********`.

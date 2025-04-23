@@ -13,10 +13,10 @@ POST https://{{ cns-host }}/
 Parameter | Description
 --- | ---
 `Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `CreatePlatformEndpoint`.
-`PlatformApplicationArn` | **string**<br/>Required field.<br/>Mobile push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
-`Token` | **string**<br/>Required field.<br/>Unique token on the user device (Registration ID), created by the notification service for the app.
+`PlatformApplicationArn` | **string**<br/>Required field.<br/>Mobile push notification channel or in-browser push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`Token` | **string**<br/>Required field.<br/>For mobile notifications: unique token on the user device (Registration ID) created by the notification service for the app. For in-browser notifications: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object received in the user's browser, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format.
 `CustomUserData` | **string**<br/>Other user data that can be stored together with the endpoint. {{ cns-name }} does not use this data in any way.
-`ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
 
 ## Response {#response}
 

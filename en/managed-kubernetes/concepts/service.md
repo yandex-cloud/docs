@@ -29,6 +29,12 @@ If [DDoS protection](../../vpc/ddos-protection/index.md) is required, [reserve](
 
 Read more about types of services in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/marketplace/jaeger-over-ydb.md)
+
+
 #### See also {#see-also}
 
 * [{#T}](../operations/create-load-balancer.md)

@@ -197,7 +197,7 @@ description: Следуя данной инструкции, вы сможете
 * **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**;
 * **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**.
 
-Для работы автоматического масштабирования убедитесь, что сервисному аккаунту кластера {{ dataproc-name }} [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
+Для работы автоматического масштабирования [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту кластера {{ dataproc-name }} роли:
 
 {% include [sa-roles](../../_includes/data-processing/sa-roles.md) %}
 

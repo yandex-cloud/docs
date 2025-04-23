@@ -65,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Filebeat OSS](/marketplace/products/yc/filebeat-oss) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `filebeat-oss-space`). Если вы оставите пространство имен по умолчанию, Filebeat OSS может работать некорректно.
    * **Название приложения** — укажите название приложения, например `filebeat-oss`.
    * **Имя пользователя {{ OS }}** — введите имя учетной записи, под которой Filebeat OSS будет подключаться к кластеру {{ mos-name }}.
    * **Пароль для подключения к {{ OS }}** — введите пароль для учетной записи в кластере {{ mos-name }}.
@@ -93,6 +93,8 @@ description: Следуя данной инструкции, вы сможете
    ```
 
    Эта команда также создаст новое пространство имен, необходимое для работы Filebeat OSS.
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Filebeat OSS может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `filebeat-oss-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

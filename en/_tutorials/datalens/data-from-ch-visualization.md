@@ -72,7 +72,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 
    ![image](../../_assets/datalens/solution-02/07-autolink3.png)
 
-1. Go to the **Fields** tab.
+1. Navigate to the **Fields** tab.
 1. Delete the duplicate fields left over from joining the tables: `ClientID (1)`, `ProductID (1)`, and `ShopID (1)`. To do this, select them and click ![icon](../../_assets/console-icons/trash-bin.svg) **Delete** in the panel below the list of fields.
 
    ![image](../../_assets/datalens/solution-02/09-delete-some-fields.png)
@@ -91,7 +91,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
    * `DeliveryDistrictCoordinates`: Change to **Geopolygon**.
    * `DeliveryAddressCoord`: Change to **Geopoint**.
 
-1. Create a measure for the order amount: in the **Aggregation** column, select **Sum** for the `Price` field. The aggregation field changes color to blue: it is now a measure.
+1. Create a measure for the order amount: in the **Aggregation** column, select **Sum** for the `Price` field. The aggregation field will change its color to blue: it is now a measure.
 
    ![image](../../_assets/datalens/solution-02/13-choose-agg.png)
 
@@ -121,7 +121,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 
 To visualize sales dynamics by month, create a [line](../../datalens/visualization-ref/line-chart.md) [chart](../../datalens/concepts/chart/index.md):
 
-1. On the dataset page, click **Create chart** in the top-right corner.
+1. Click **Create chart** in the top-right corner of the dataset page.
 1. For the visualization type, choose **Line chart**.
 
    ![image](../../_assets/datalens/solution-02/19-choose-line-chart.png)
@@ -158,7 +158,7 @@ To visualize sales by brand and product category, create a [column chart](../../
 
    1. In the window that opens, enter the `Sales by brand and category` name for the new chart and click **Save**.
 
-1. Select the **Bar chart** visualization type.
+1. Select **Bar chart** as the visualization type.
 
    ![image](../../_assets/datalens/solution-02/24-choose-barchart.png)
 
@@ -189,7 +189,7 @@ To visualize sales by product and time, create a [pivot table](../../datalens/vi
 1. Change the display format in the `OrderDate` field to years:
 
    1. Click the calendar icon next to the `OrderDate` field in the **Columns** section.
-   1. In the **Grouping** field, select **Date part** ⟶ **Year** and click **Apply**.
+   1. In the **Grouping** field, choose **Date portion** ⟶ **Year** and click **Apply**.
 
    ![image](../../_assets/datalens/solution-02/30-date-to-year.png)
 
@@ -227,7 +227,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** and go to the `Tutorials` workbook.
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
-1. In the panel at the bottom of the page, select **Chart**.
+1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
 
    ![image](../../_assets/datalens/solution-02/37-add-chart.png)
 
@@ -251,7 +251,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 Add [selectors](../../datalens/dashboard/selector.md) to filter your charts by date, Moscow district, product, and customer status:
 
-1. In the panel at the bottom of the page, choose **Selector**.
+1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
 
    ![image](../../_assets/datalens/solution-02/40-add-selector.png)
 
@@ -268,7 +268,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter your charts by d
 
    1. Make sure you selected the `Moscow Sales dataset` dataset.
    1. Select the `ProductCategory` field.
-   1. Enable the **Multiple choice** option.
+   1. Enable **Multiple choice**.
    1. Click **Save**.
 
 1. Similarly, add selectors for the following fields:

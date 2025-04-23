@@ -57,6 +57,10 @@ items:
         items:
           - name: Загрузка объекта
             href: operations/objects/upload.md
+          - name: Составная загрузка объекта
+            href: operations/objects/multipart-upload.md
+          - name: Получение списка объектов в бакете
+            href: operations/objects/list.md
           - name: Получение информации об объекте
             href: operations/objects/info.md
           - name: Скачивание объекта
@@ -458,6 +462,16 @@ items:
             href: cli-ref/bucket/stats.md
           - name: update
             href: cli-ref/bucket/update.md
+      - name: s3
+        items:
+          - name: Overview
+            href: cli-ref/s3/index.md
+          - name: cp
+            href: cli-ref/s3/cp.md
+          - name: mv
+            href: cli-ref/s3/mv.md
+          - name: rm
+            href: cli-ref/s3/rm.md
       - name: s3api
         items:
           - name: Overview

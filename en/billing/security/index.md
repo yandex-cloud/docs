@@ -7,7 +7,7 @@ description: Billing account access is provided through {{ billing-name }}. The 
 
 ## Billing account access {#billing-account}
 
-[Access](../concepts/billing-account.md) to the billing account can be provided via the [{{ billing-name }} interface]({{ link-console-billing }})or the [{{ yandex-cloud }} API](../api-ref/authentication.md). A billing account can be created by users with a registered Yandex or Yandex 360 account:
+[Access](../concepts/billing-account.md) to the billing account can be provided via the [{{ billing-name }} interface]({{ link-console-billing }}) or the [{{ yandex-cloud }} API](../api-ref/authentication.md). A billing account can be created by users with a registered Yandex or Yandex 360 account:
 
 * If you or your employee have no account yet, create one on [Yandex](https://passport.yandex.ru/registration) or [Yandex 360](https://yandex.com/support/business/add-users.html).
 * If using a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
@@ -26,23 +26,33 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 #### billing.accounts.owner {#billing-accounts-owner}
 
+
 {% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
+
 
 #### billing.accounts.viewer {#billing-accounts-viewer}
 
+
 {% include [billing.accounts.viewer](../../_roles/billing/accounts/viewer.md) %}
+
 
 #### billing.accounts.accountant {#billing-accounts-accountant}
 
+
 {% include [billing.accounts.accountant](../../_roles/billing/accounts/accountant.md) %}
+
 
 #### billing.accounts.editor {#billing-accounts-editor}
 
+
 {% include [billing.accounts.editor](../../_roles/billing/accounts/editor.md) %}
+
 
 #### billing.accounts.admin {#billing-accounts-admin}
 
+
 {% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
 
 #### billing.accounts.member {#billing-accounts-member}
 
@@ -50,7 +60,9 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 
+
 {% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
+
 
 #### billing.partners.editor {#billing-partners-editor}
 
@@ -138,7 +150,7 @@ The steps for assigning a billing account role depend on whether this billing ac
 
 - For accounts added to an organization
 
-  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account within the same organization. Proceed as follows:
+  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account within the same organization. To do this:
 
   1. [Make sure](../../organization/operations/users-get.md) that the user you need belongs to your organization. If not, [add them](../../organization/operations/add-account.md).
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
@@ -158,7 +170,7 @@ The steps for assigning a billing account role depend on whether this billing ac
 
 - For accounts not added to an organization
 
-  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list. Proceed as follows:
+  A user with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list. To do this:
  
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
@@ -182,7 +194,7 @@ The steps for revoking a billing account role depend on whether this billing acc
 
 - For accounts added to an organization
 
-  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account in their organization at any time. Proceed as follows:
+  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account in their organization at any time. To do this:
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
@@ -195,7 +207,7 @@ The steps for revoking a billing account role depend on whether this billing acc
 
 - For accounts not added to an organization
 
-  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account on the list at any time. Proceed as follows:
+  A user with the `billing.accounts.admin` role can revoke a billing account role from a user or service account on the list at any time. To do this:
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
@@ -216,12 +228,12 @@ The steps for revoking a billing account role depend on whether this billing acc
 
 ## Deleting a user {#delete-user}
 
-You can only delete users from those billing accounts that are not added to an organization. Proceed as follows:
+You can only delete users from those billing accounts that are not added to an organization. To do this:
 
 1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 1. Select a billing account.
 1. Find the user or service account in the list.
-1. In the line with the user or service account you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_billing.billing.account.users.button_remove-user }}**.
+1. In the line with the user or service account, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_billing.billing.account.users.button_remove-user }}**.
 1. This deletes the user from the list of the billing account users.
 
 If the billing account is added to an organization, you can simply [revoke](#delete-role) the required role from a user or service account. You can [remove a user from the organization](../../organization/operations/edit-account.md#remove-user) to prevent them from accessing any of its clouds or resources.

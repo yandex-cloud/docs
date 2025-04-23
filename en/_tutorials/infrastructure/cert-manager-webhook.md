@@ -23,6 +23,16 @@ The certificate manager with the ACME webhook for {{ dns-full-name }} supports [
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
+### Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for the public IP address for the cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Set up your environment {#prepare-environment}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
@@ -63,8 +73,8 @@ To create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations
      * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: Select the [IP address](../../vpc/concepts/address.md) assignment method:
        * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
      * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: Select the master type:
-       * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}`: To create a single master host in the selected availability zone. Specify a cloud network and select a subnet for the master host.
-       * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`: To create a single master host in each availability zone. Specify a cloud network and subnet for each availability zone.
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}`: To create a single master host in the selected availability zone. Specify a cloud network and select a subnet for the master host.
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`: To create a single master host in each availability zone. Specify a cloud network and subnet for each availability zone.
      * Select [security groups](../../managed-kubernetes/operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
   1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
      * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: Specify an IP range to allocate addresses to [pods](../../managed-kubernetes/concepts/index.md#pod) from.
@@ -236,7 +246,7 @@ To [create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operati
       - dns01:
          webhook:
            config:
-             # The ID of the folder where dns-zone is located
+             # The ID of the folder where dns-zone located in
              folder: <folder_ID>
              # This is the secret used to access the service account
              serviceAccountSecretRef:

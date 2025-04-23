@@ -2,6 +2,10 @@ To use the examples:
 
 {% list tabs group=programming_language %}
 
+- Management console {#console}
+
+  You can start working from the management console right away.
+
 - SDK {#sdk}
 
   1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `ai.editor` [role](../../foundation-models/security/index.md#languageModels-user) to it.

@@ -1,6 +1,6 @@
-* 0,05&nbsp;₸ — стоимость обработки 1000 токенов.
-* 0,05&nbsp;₸ / 1000 — стоимость обработки 1 токена.
+* {{ sku|KZT|foundation_models.text_embedding.v1|string }} — стоимость обработки 1000 токенов.
+* {{ sku|KZT|foundation_models.text_embedding.v1|string }} / 1000 — стоимость обработки 1 токена.
 
-2000 × (0,05&nbsp;₸ / 1000) = 0,10&nbsp;₸
+2000 × ({{ sku|KZT|foundation_models.text_embedding.v1|string }} / 1000) = {% calc [currency=KZT] 2000 × {{ sku|KZT|foundation_models.text_embedding.v1|number }} / 1000 %}
 
-Итого: 10,00&nbsp;₸.
+Итого: {% calc [currency=KZT] 2000 × {{ sku|KZT|foundation_models.text_embedding.v1|number }} / 1000 %}.

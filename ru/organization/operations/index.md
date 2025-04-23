@@ -45,6 +45,7 @@ description: Из статьи вы узнаете, как работать с {
 ## Авторизация и аутентификация {#auths}
 
 * [{#T}](./add-ssh.md).
+* [{#T}](./enable-refresh-tokens.md).
 
 ## Работа с {{ oslogin }} {#os-login}
 

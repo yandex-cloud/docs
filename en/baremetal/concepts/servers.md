@@ -25,7 +25,7 @@ Pools are infrastructurally separate data center modules servers physically resi
 A server can have one of the following statuses:
 
 * `PROVISIONING`: Server is being prepared to be leased out to a user.
-* `READY`: Server is leased out and fully available to a user. In this status, the server's power supply can be turned on or off.
+* `RUNNING`: Server is leased out and fully available to a user. In this status, the server's power supply can be turned on or off.
 * `STARTING`: Server is being powered up.
 * `STOPPING`: Server is being powered down.
 * `RESTARTING`: Server is rebooting.
@@ -34,7 +34,7 @@ A server can have one of the following statuses:
 * `QUARANTINING`: Server is being [quarantined](#quarantine).
 * `QUARANTINED`: Server is quarantined. Users cannot access quarantined servers over the network or through a KVM console.
 * `RETURNING_FROM_QUARANTINE`: Server is returning from quarantine, with access being restored over the network and through a KVM console.
-* `ERROR`: There is an error. Contact [support]({{ link-console-support }}).
+* `ERROR`: Error has occurred, the KVM console is unavailable. Contact [technical support]({{ link-console-support }}).
 
 ## Quarantine {#quarantine}
 

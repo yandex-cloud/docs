@@ -15,6 +15,16 @@ To run workloads using GPUs on {{ managed-k8s-name }} cluster [pods](../concepts
 
 If you no longer need the resources you created, [delete them](#delete-resources).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
@@ -27,7 +37,7 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating them, specify the security groups prepared earlier.
 1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following settings:
-   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
+   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.compute.components.PlatformField.value_platform-tab-gpu_hGyQ8 }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
    * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: Specify the required number of GPUs.
    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the security groups created earlier.
 

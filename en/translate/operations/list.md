@@ -9,7 +9,7 @@ description: In this tutorial, you will learn how to get a list of supported lan
 
 {% include [curl](../../_includes/curl.md) %}
 
-{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
+{% include [translate-instruction-auth](../../_includes/translate/translate-instruction-auth.md) %}
 
 {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
 
@@ -19,23 +19,23 @@ Get the list of [supported languages](../concepts/supported-languages.md) using 
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```bash
     export FOLDER_ID=<folder_ID>
-    export IAM_TOKEN=<IAM_token>
+    export API_KEY=<API_key>
     curl \
       --request POST \
       --header "Content-Type: application/json" \
-      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --header "Authorization: Api-Key ${API_KEY}" \
       --data "{\"folderId\": \"${FOLDER_ID}\"}" \
       "https://translate.{{ api-host }}/translate/v2/languages"
     ```
 
     Where:
 
-    * `FOLDER_ID`: Folder ID you got [before you started](#before-begin).
-    * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
+    * `FOLDER_ID`: Folder [ID](../../resource-manager/operations/folder/get-id.md) you got [before you started](#before-begin).
+    * {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     The response will contain a list of language names in the corresponding language:
 

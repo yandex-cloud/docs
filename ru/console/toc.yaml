@@ -7,18 +7,15 @@ items:
         href: quickstart/console.md
       - name: '{{ cloud-shell-name }}'
         href: quickstart/cloud-shell.md
-        hidden: true
   - name: Пошаговые инструкции
     items:
       - name: Изменение настроек консоли управления
         href: operations/update.md
       - name: Управление {{ cloud-shell-name }}
         href: operations/cloud-shell-options.md
-        hidden: true
       - name: Поиск в консоли управления
         href: operations/search.md
   - name: Лимиты в {{ cloud-shell-name }}
     href: concepts/cloud-shell/limits.md
-    hidden: true
   - name: Правила тарификации
     href: pricing.md

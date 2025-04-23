@@ -14,6 +14,23 @@ description:
   - Позднее будет реализована отправка уведомлений в мессенджеры.
 meta:
   title: Yandex Cloud Notification Service
+  keywords:
+    - keyword: notification
+    - keyword: notification service
+    - keyword: push-уведомлений
+    - keyword: '{{ cns-name }}'
+    - keyword: сервис {{ cns-name }}
+    - keyword: push {{ cns-name }}
+    - keyword: пуши {{ cns-name }}
+    - keyword: уведомления
+    - keyword: SMS {{ cns-name }}
+    - keyword: SMS-уведомление в {{ yandex-cloud }}
+    - keyword: CNS в {{ yandex-cloud }}
+    - keyword: всплывающие сообщения
+    - keyword: push в {{ yandex-cloud }}
+    - keyword: SMS в {{ yandex-cloud }}
+    - keyword: '{{ cns-name }} в {{ yandex-cloud }}'
+    - keyword: уведомления в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый канал уведомлений

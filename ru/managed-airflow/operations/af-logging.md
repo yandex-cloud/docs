@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Передача данных в лог-группу по умолчанию {#default}
 
-1. [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что сервисному аккаунту кластера назначена [роль](../../iam/roles-reference.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту кластера [роль](../../iam/roles-reference.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`.
 1. В кластере {{ maf-name }} задайте настройки логирования:
 
    {% list tabs group=instructions %}
@@ -143,7 +143,7 @@ description: Следуя данной инструкции, вы сможете
 ## Передача данных в пользовательскую лог-группу {#custom}
 
 1. [Создайте лог-группу](../../logging/operations/create-group.md) `airflow-log-group`.
-1. [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что сервисному аккаунту кластера назначена [роль](../../iam/roles-reference.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту кластера [роль](../../iam/roles-reference.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`.
 1. В кластере {{ maf-name }} задайте настройки логирования:
 
    {% list tabs group=instructions %}

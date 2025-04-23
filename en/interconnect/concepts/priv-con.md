@@ -81,7 +81,7 @@ This scenario also assumes you do not have your own equipment at the point of pr
 
 To connect one or more cloud subnets to a private connection, you need to know the following:
 * ID of the virtual network (`vpc_net_id`) to connect to the trunk.
-* List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet), distributed by [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes refer to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
+* List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) and their allocation across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes refer to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
 
 {% note info %}
 
@@ -102,6 +102,12 @@ When using {{ yandex-cloud }} load balancers, specifically:
 LB listener addresses are announced as `/32` IPv4 prefixes.
 
 This enables you to use load balancers to distribute traffic coming from your infrastructure via {{ interconnect-name }} across cloud resources in different {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
+
+{% endnote %}
+
+{% note info %}
+
+The IP prefix will only be announced to the customer if at least one VM with an IP address matching the announced prefix is created in the VPC. If no such VM is created, the route announcement will not be sent to the customer, and IP connectivity with the customer will not be established.
 
 {% endnote %}
 

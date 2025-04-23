@@ -28,6 +28,17 @@ meta:
   description: >-
     Сервис Yandex Compute Cloud предоставляет масштабируемые вычислительные
     мощности для создания виртуальных машин и управления ими.
+  keywords:
+    - keyword: compute
+    - keyword: yandex compute
+    - keyword: '{{ compute-name }}'
+    - keyword: '{{ compute-full-name }}'
+    - keyword: сервис {{ compute-name }}
+    - keyword: виртуальные машины в {{ yandex-cloud }}
+    - keyword: вм {{ yandex-cloud }}
+    - keyword: виртуальные ресурсы {{ yandex-cloud }}
+    - keyword: виртуальные машины
+    - keyword: облачные ресурсы
 links:
   - title: Начало работы
     description: Создайте первую виртуальную машину или группу ВМ

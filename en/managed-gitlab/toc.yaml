@@ -63,6 +63,8 @@ items:
         href: tutorials/tracker-integration.md
       - name: Invoking load testing from {{ GL }} CI
         href: tutorials/loadtesting-gitlab-ci.md
+      - name: Integration with Argo CD
+        href: tutorials/argo-cd.md
   - name: Concepts
     items:
       - name: Resource relationships

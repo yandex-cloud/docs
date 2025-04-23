@@ -1,6 +1,6 @@
 # ListPlatformApplications
 
-Gets a list of [mobile push notification channels](../concepts/push.md). The action always outputs one page and does not support pagination.
+Gets a list of [mobile push notification channels](../concepts/push.md) or [in-browser push notification channels](../concepts/browser.md). The action always outputs one page and does not support pagination.
 
 ## HTTP request {#request}
 
@@ -12,9 +12,9 @@ POST https://{{ cns-host }}/
 
 Parameter | Description
 --- | ---
-`Action` | **string**<br/>This is a required field.<br/>Parameter that indicates the type of operation.<br/>Value: `ListPlatformApplications`.
-`FolderId` | **string**<br/>This is a required field.<br/>[ID of the folder](../../resource-manager/operations/folder/get-id.md) where the notification channels are located.<br/>Example: `b1gsm0k26v1l********`.
-`ResponseFormat` | **string**<br/>Response format.<br/>Possible values:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
+`Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `ListPlatformApplications`.
+`FolderId` | **string**<br/>Required field.<br/>[ID of the folder](../../resource-manager/operations/folder/get-id.md) containing the notification channels.<br/>Example: `b1gsm0k26v1l********`.
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
 
 ## Response {#response}
 
@@ -53,8 +53,8 @@ Data schema:
   ```
 
   Where:
-  * `RequestId`: Request ID
-  * `PlatformApplicationArn`: Notification channel ID (ARN)
+  * `RequestId`: Request ID.
+  * `PlatformApplicationArn`: Notification channel ID (ARN).
   * `Attributes`: Notification channel attributes. The following attributes are supported:
     * `ApplePlatformTeamID`: Developer ID, only when using a token.
     * `ApplePlatformBundleID`: App ID (bundle ID), only when using a token.
@@ -81,8 +81,8 @@ Data schema:
   ```
 
   Where:
-  * `RequestId`: Request ID
-  * `PlatformApplicationArn`: Notification channel ID (ARN)
+  * `RequestId`: Request ID.
+  * `PlatformApplicationArn`: Notification channel ID (ARN).
   * `Attributes`: Notification channel attributes. The following attributes are supported:
     * `ApplePlatformTeamID`: Developer ID, only when using a token.
     * `ApplePlatformBundleID`: App ID (bundle ID), only when using a token.
@@ -91,7 +91,7 @@ Data schema:
     * `Description`: Description of the mobile push notification channel.
     * `Platform`: Platform for sending mobile push notifications:
       * `APNS`: [Apple Push Notification service](https://developer.apple.com/notifications/).
-      * `APNS_SANDBOX`: Apple Push Notification service for testing the app.
+      * `APNS_SANDBOX`: Apple Push Notification service for app testing.
       * `FCM`: [Firebase Cloud Messaging](https://firebase.google.com/).
       * `HMS`: [Huawei Mobile Services](https://developer.huawei.com/consumer/).
     * `CreatedAt`: Date and time when the mobile push notification channel was created.

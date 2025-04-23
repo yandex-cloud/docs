@@ -103,9 +103,7 @@ items:
         href: tutorials/user-agent-statistics.md
       - name: Getting object query statistics using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
-      - name: >-
-          Generating a resource-by-resource cost breakdown report using S3
-          Select
+      - name: Cost analysis by resource
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md
@@ -147,7 +145,7 @@ items:
         href: tutorials/opensearch-to-object-storage.md
       - name: Automatically copying objects from one bucket to another
         href: tutorials/bucket-to-bucket.md
-      - name: Recognizing audio files in a bucket on a regular basis
+      - name: Regular asynchronous recognition of audio files in a bucket
         href: tutorials/batch-recognition-stt.md
       - name: >-
           Training a model in {{ ml-platform-full-name }} on data from {{
@@ -258,7 +256,7 @@ items:
         href: tutorials/serverless-url-shortener.md
       - name: Storing application runtime logs
         href: tutorials/log-ingestion.md
-      - name: Creating a skill for Alice and a website with authorization
+      - name: Developing a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
@@ -450,6 +448,16 @@ items:
             href: cli-ref/bucket/stats.md
           - name: update
             href: cli-ref/bucket/update.md
+      - name: s3
+        items:
+          - name: Overview
+            href: cli-ref/s3/index.md
+          - name: cp
+            href: cli-ref/s3/cp.md
+          - name: mv
+            href: cli-ref/s3/mv.md
+          - name: rm
+            href: cli-ref/s3/rm.md
       - name: s3api
         items:
           - name: Overview
@@ -500,7 +508,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: REST (Amazon S3-compatible)
         items:

@@ -110,6 +110,14 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ mmg-full-name }} в регионе Россия.
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

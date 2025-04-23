@@ -121,3 +121,8 @@ Client API — общее название для набора нативных 
 * Можно управлять топиками с помощью Admin API, но со следующими ограничениями:
 
     {% include [admin-api-limits](../../_includes/mdb/mkf/admin-api-limits.md) %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/managed-schema-registry-rest.md)

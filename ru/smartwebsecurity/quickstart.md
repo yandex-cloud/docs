@@ -31,7 +31,7 @@
 
 Создайте первый [профиль безопасности](concepts/profiles.md) и подключите его к имеющемуся [виртуальному хосту](../application-load-balancer/concepts/http-router.md#virtual-host) L7-балансировщика {{ alb-full-name }}.
 
-Если у вас еще не настроен L7-балансировщик, вы можете развернуть [тестовую инфраструктуру](tutorials/balancer-with-sws-profile.md).
+Если у вас еще не настроен L7-балансировщик, вы можете развернуть [тестовую инфраструктуру](tutorials/balancer-with-sws-profile/index.md).
 
 ### Создайте профиль безопасности {#profile-create}
 
@@ -170,7 +170,7 @@ WAF позволяет использовать наборы правил для
 
 - Консоль управления {#console}
 
-  1. Перейдите на вкладку ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.label_profiles-list }}**.
+  1. Перейдите на вкладку ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. В списке выберите профиль безопасности, к которому вы хотите подключить профиль WAF, например `test-sp1`.
   1. Нажмите ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `waf-rule-1`.

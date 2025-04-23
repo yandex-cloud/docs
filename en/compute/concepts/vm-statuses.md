@@ -83,4 +83,3 @@ There are two error statuses:
     To fix the error, try [stopping](../operations/vm-control/vm-stop-and-start.md#stop) and re-[starting](../operations/vm-control/vm-stop-and-start.md#start) the VM.
 
     If the `ERROR` status persists or the VM keeps getting the `CRASHED` status, contact [support](../../support/overview.md) or create a new VM.
-

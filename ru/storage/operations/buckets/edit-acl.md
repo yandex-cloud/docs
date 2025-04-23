@@ -18,13 +18,16 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите нужный бакет и нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
-  1. В окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
+  1. В строке с нужным бакетом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+
+      Также можно нажать на имя бакета, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+
+      {% include [acl-edit-console](../../../_includes/storage/acl-edit-console.md) %}
 
       {% note info %}
-
+  
       {% include [console-sa-acl-note](../../../_includes/storage/console-sa-acl-note.md) %}
-
+  
       {% endnote %}
 
 - {{ yandex-cloud }} CLI {#cli}

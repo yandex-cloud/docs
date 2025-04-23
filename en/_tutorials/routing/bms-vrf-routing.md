@@ -16,13 +16,13 @@ This tutorial provides an example of setting up a high-availability proxy server
 
 ![bms-vrf-routing-scheme](../../_assets/baremetal/bms-vrf-routing-scheme.svg)
 
-In the `{{ region-id }}-m` availability zone, you will set up an environment of two [private subnets](../../baremetal/concepts/network.md#private-subnet), `subnet-m3` and `subnet-m4`, created in the `{{ region-id }}-m3` and `{{ region-id }}-m4` [server pools](../../baremetal/concepts/servers.md#server-pools), respectively. You will group these subnets into a [virtual routing and forwarding (VRF) network segment](../../baremetal/concepts/network.md#vrf-segment) named `vrrp-vrf`.
+In the `{{ region-id }}-m` availability zone, you will set up an environment of two [private subnets](../../baremetal/concepts/network.md#private-subnet), `subnet-m3` and `subnet-m4`, created in the `{{ region-id }}-m3` and `{{ region-id }}-m4` [server pools](../../baremetal/concepts/servers.md#server-pools), respectively. You will group these subnets into a [virtual network segment](../../baremetal/concepts/network.md#vrf-segment) (VRF) named `vrrp-vrf`.
 
 In `subnet-m3`, you will create two {{ baremetal-name }} servers, `master-server-m3` and `backup-server-m3`, which will have the `MASTER` and `BACKUP` roles, respectively, in the VRRP group. On these two servers, you will run Keepalived and use it to set up a virtual IP address for the server group in the `{{ region-id }}-m3` pool.
 
 In `subnet-m4` of the `{{ region-id }}-m4` server pool, you will create a {{ baremetal-name }} server named `client-server-m4`, which will serve as a client when using the virtual IP address created in the `{{ region-id }}-m3` pool.
 
-This solution fully demonstrates the operation of an isolated client VRF with the [OSI](https://en.wikipedia.org/wiki/OSI_model) L3 routing between the `{{ region-id }}-m3` and `{{ region-id }}-m4` server pools as well as the L2-level operation of the broadcast VRRP in the `{{ region-id }}-m3` server pool.
+This solution fully demonstrates the operation of an isolated client VRF segment with the [OSI](https://en.wikipedia.org/wiki/OSI_model) L3 routing between the `{{ region-id }}-m3` and `{{ region-id }}-m4` server pools as well as the L2-level operation of the broadcast VRRP in the `{{ region-id }}-m3` server pool.
 
 {% note info %}
 
@@ -33,23 +33,27 @@ At L2 of the OSI network model, broadcasting works only within one server pool a
 To configure a fault-tolerant cluster of {{ baremetal-name }} servers using VRRP:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Create a virtual network segment](#create-vrf).
+1. [Create a virtual routing and forwarding segment](#create-vrf).
 1. [Create private subnets](#create-subnetworks).
 1. [Lease {{ baremetal-name }} servers](#rent-servers).
 1. [Configure Keepalived on the servers of the {{ region-id }}-m3 pool](#setup-keepalived).
 1. [Test the solution](#test-solution).
 
-If you no longer need the resources you created, [delete them](#clear-out).
+See also [How to cancel server lease](#clear-out).
 
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-## Create a virtual network segment {#create-vrf}
+### Required paid resources {#paid-resources}
 
-To link several private subnets at the L3 level of the OSI network model, you need to group them into a virtual routing and forwarding (VRF) network fragment.
+The cost of the proposed solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
-Create a new VRF:
+## Create a virtual routing and forwarding segment {#create-vrf}
+
+To link several private subnets at the L3 level of the OSI network model, you need to group them into a virtual network segment (VRF).
+
+Create a new VRF segment:
 
 {% list tabs group=instructions %}
 
@@ -58,14 +62,14 @@ Create a new VRF:
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
-  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF: `vrrp-vrf`.
+  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF segment: `vrrp-vrf`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
 
 {% endlist %}
 
 ## Create private subnets {#create-subnetworks}
 
-Create two private subnets in different [server pools](../../baremetal/concepts/servers.md#server-pools) and add them to the VRF you created earlier:
+Create two private subnets in different [server pools](../../baremetal/concepts/servers.md#server-pools) and add them to the VRF segment you created earlier:
 
 {% list tabs group=instructions %}
 
@@ -77,7 +81,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `subnet-m3`.
   1. Enable **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
-  1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select the previously created VRF, `vrrp-vrf`.
+  1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select the previously created VRF segment, `vrrp-vrf`.
   1. In the **{{ ui-key.yacloud.baremetal.field_CIDR }}** field, specify `172.28.1.0/24`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. Similarly, create a private subnet named `subnet-m4` in the `{{ region-id }}-m4` server pool with the `172.28.2.0/24` CIDR.
@@ -412,8 +416,8 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
 
         As you can see from the service log and comments, `backup-server-m3` was promoted to the master node when Keepalived was stopped on `master-server-m3`. After resuming Keepalived on `master-server-m3`, the server reclaimed its master role and `backup-server-m3`, again, became the backup node.
 
-## How to delete the resources you created {#clear-out}
+## How to cancel server lease {#clear-out}
 
-You cannot delete a {{ baremetal-name }} server. Instead, you can cancel the server lease.
+You cannot delete {{ baremetal-name }} servers. Instead, you can cancel their lease.
 
 To stop paying for the resources you created, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the lease of the {{ baremetal-name }} servers you created earlier.

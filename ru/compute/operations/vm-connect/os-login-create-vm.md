@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [os-login-roles-needed-for-vm-access](../../../_includes/organization/os-login-roles-needed-for-vm-access.md) %}
 
-К ВМ с включенным доступом по {{ oslogin }} можно подключиться как [с помощью YC CLI](os-login.md#connect-with-yc-cli), так и [с помощью стандартного SSH-клиента](os-login.md#connect-with-ssh-client). При подключении можно использовать SSH-сертификат или SSH-ключ, предварительно [добавленный](../../../organization/operations/add-ssh.md) в профиль {{ oslogin }} пользователя или сервисного аккаунта в {{ org-full-name }}.
+К ВМ с включенным доступом по {{ oslogin }} можно подключиться как [с помощью CLI](os-login.md#connect-with-yc-cli), так и [с помощью стандартного SSH-клиента](os-login.md#connect-with-ssh-client). При подключении можно использовать SSH-сертификат или SSH-ключ, предварительно [добавленный](../../../organization/operations/add-ssh.md) в профиль {{ oslogin }} пользователя или сервисного аккаунта в {{ org-full-name }}.
 
 {% note info %}
 

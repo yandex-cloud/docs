@@ -16,6 +16,16 @@ To create a snapshot and then restore it:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Getting started {#before-you-begin}
 
 1. Create {{ k8s }} resources:
@@ -47,7 +57,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
-     1. Check that the {{ TF }} configuration files are correct using this command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

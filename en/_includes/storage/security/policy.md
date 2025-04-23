@@ -178,7 +178,13 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
 
 ## Configuration examples {#config-examples}
 
-* Rule that allows an anonymous user to read objects in the bucket over an encrypted connection:
+* [Allow an anonymous user to read bucket objects over an encrypted connection](#anonymous-user-read-encrypted)
+* [Allow downloading objects only from a specified IP address range](#download-specific-ip-range)
+* [Deny downloading objects from a specified IP address](#block-download-specific-ip)
+* [Grant users full access to specific folders](#user-specific-full-folder-access)
+* [Provide each user or service account with full access to a folder](#full-access-user-service-account-folder)
+
+#### Rule that allows an anonymous user to read bucket objects over an encrypted connection: {#anonymous-user-read-encrypted}
 
   ```json
   {
@@ -201,7 +207,7 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
   }
   ```
 
-* Rule that allows downloading objects only from a specified range of IP addresses:
+#### Rule that allows downloading objects only from a specified range of IP addresses: {#download-specific-ip-range}
 
   ```json
   {
@@ -222,7 +228,7 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
   }
   ```
 
-* Rule that denies downloading objects from the specified IP address:
+#### Rule that denies downloading objects from a specified IP address: {#block-download-specific-ip}
 
   ```json
   {
@@ -249,7 +255,7 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
   }
   ```
 
-* Rule that provides different users with full access only to specific folders; each user to their own:
+#### Rule that provides different users with full access only to their respective folders: {#user-specific-full-folder-access}
 
   ```json
   {
@@ -305,7 +311,7 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
   }
   ```
 
-* Rule that provides each user and service account with full access to a folder with the name matching the [user ID](../../../iam/operations/users/get.md) or [service account ID](../../../iam/operations/sa/get-id.md):
+#### Rule that provides each user and service account with full access to a folder with the name matching the [user ID](../../../iam/operations/users/get.md) or [service account ID](../../../iam/operations/sa/get-id.md): {#full-access-user-service-account-folder}
 
   ```json
   {

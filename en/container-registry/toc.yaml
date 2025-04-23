@@ -129,9 +129,11 @@ items:
           FastAPI
         href: tutorials/node-from-docker-fast-api.md
       - name: >-
-          Setting up a {{ mpg-name }} connection from a {{
-          serverless-containers-name }} container
+          Setting up a {{ mpg-name }} connection from a container in {{
+          serverless-containers-name }}
         href: tutorials/container-pg-connect.md
+      - name: Integration with {{ container-registry-name }}
+        href: tutorials/container-registry.md
   - name: Concepts
     items:
       - name: Overview
@@ -186,6 +188,8 @@ items:
             href: cli-ref/cluster/list-operations.md
           - name: remove-labels
             href: cli-ref/cluster/remove-labels.md
+          - name: reschedule-maintenance
+            href: cli-ref/cluster/reschedule-maintenance.md
           - name: start
             href: cli-ref/cluster/start.md
           - name: stop

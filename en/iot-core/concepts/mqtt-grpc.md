@@ -118,4 +118,4 @@ message PublishBrokerDataResponse {
 
 ## Use case
 
-You can find a use case where an MQTT server is contacted via gRPC for JavaScript in the [code](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/terraform/emulator_publish/publish/iot_data.js) of the function that emulates sending messages from multiple devices.
+You can find a use case where an MQTT server is contacted via gRPC for JavaScript in the [code](https://github.com/yandex-cloud-examples/yc-emulator-publish-with-iot/blob/main/publish/iot_data.js) of the function that emulates sending messages from multiple devices.

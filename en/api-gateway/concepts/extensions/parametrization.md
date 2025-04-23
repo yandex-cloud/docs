@@ -1,32 +1,32 @@
 # Specification parameterization
 
-With specification parameterization, you can change the way {{ api-gw-short-name }} works by setting different values for individual variables rather than the entire specification. For that purpose, you can use `x-yc-apigateway:variables`.
+With specification parameterization, you can change the way {{ api-gw-short-name }} works by setting different values for individual variables rather than the entire specification. For this, you can use the `x-yc-apigateway:variables` extension.
 
-## X-yc-apigateway:variables extension
+## x-yc-apigateway:variables extension
 
 The `x-yc-apigateway:variables` extension allows you to declare variables that are used for specification parameterization.
 
 ### VariableObject
 
-`VariableObject` is a set of OpеnAPI specification parameters that define a variable and its possible values.
+`VariableObject` is a set of OpenAPI specification parameters that define a variable and its possible values.
 
 #### Parameters
 
 The table below lists the `VariableObject` parameters.
 
-| Parameter | Type | Required | Description |
+Parameter   | Type                                     | Required   | Description
 -----------|-----------------------------------------|-----------------------|---------
-| `default` | `string`, `int`, `double`, `boolean` | Yes | Default variable value. It is used if the `enum` parameter is skipped. |
-| `enum` | `string[]`, `int[]`, `double[]`, `boolean[]` | No | List of acceptable variable values. If it is not specified, the variable may take any value. |
-| `description` | `string` | No | Text description of the variable. |
+`default`    | `string`, `int`, `double`, `boolean`         |Yes                     | Default variable value. It is used if the `enum` parameter is not specified.
+`enum`      | `string[]`, `int[]`, `double[]`, `boolean[]` |No                    | List of acceptable variable values. If it is not specified, the variable may take any value.
+`description` | `string`                                  |No                    | Text description of the variable.
 
-### How to use
+### Usage
 
-After you declare the variable, you can use a `${var.name}` statement in the specification below, where `name` is the name of the variable. {{ api-gw-short-name }} will replace the variable name with the value you set when creating or updating an API gateway, if required.
+After you declare the variable, you can use a `${var.name}` statement further in the specification, where `name` is the name of the variable. {{ api-gw-short-name }} will replace the variable name with the value you set when creating or updating an API gateway, if required.
 
 ### Extension specification
 
-Sample extension specification:
+Extension specification example:
 ```yaml
 openapi: 3.0.0
 info:
@@ -54,3 +54,7 @@ paths:
         http_headers:
           Content-Type: text/plain
 ```
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/canary-release.md)

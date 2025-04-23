@@ -138,7 +138,7 @@ editable: false
 
 Цена указывается за 1 месяц использования. Тарификация посекундная.
 
-{% note warning %}
+{% note info %}
 
 Диски с установленными продуктами [{{ marketplace-name }}](/marketplace) содержат идентификаторы лицензий (`product_ids`) этих продуктов.
 
@@ -201,6 +201,18 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 
 ## Цены для региона Россия {#prices}
+
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ compute-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn22pas77ftg9h3f2djj%2Cdn28okfvqh19eiue6l2m)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn22pas77ftg9h3f2djj%2Cdn28okfvqh19eiue6l2m)
+
+{% endnote %}
+
+
 
 
 

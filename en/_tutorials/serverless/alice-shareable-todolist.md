@@ -1,7 +1,7 @@
 # Developing a skill for Alice and a website with authorization
 
 
-In this tutorial, you will develop a skill for Alice and deploy a web app for creating, reading, and editing to-do lists using Alice, as well as for sharing such lists with other users on the website.
+In this tutorial, you will develop a skill for Alice and deploy a web app for creating, reading, and editing to-do lists using Alice, as well as for sharing such lists with other website users.
 
 
 
@@ -15,7 +15,7 @@ To deploy a project:
 
 ## Set up your environment {#prepare}
 
-1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [`examples` repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
+1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [repository](https://github.com/yandex-cloud-examples/yc-alice-shareable-todolist) with Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you do not have any. For convenience, you can use a separate folder named `alice-skill`.
 1. Install and initialize the following programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).

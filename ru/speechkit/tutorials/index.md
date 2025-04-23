@@ -8,3 +8,4 @@ description: На странице представлен список прак�
 
 * [{#T}](./recognizer-bot.md)
 * [{#T}](./speechkit-integrarion-via-agi-gw.md)
+* [{#T}](./batch-recognition-stt.md)

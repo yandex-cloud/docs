@@ -21,6 +21,7 @@ description: Из статьи вы узнаете, как задать наст
 
     * [Миграция кластера {{ GP }}](../../../tutorials/managed-greenplum.md);
     * [Миграция со сменой хранилища: {{ MY }} в {{ GP }}](../../../tutorials/mmy-to-mgp.md).
+    * [Миграция со сменой хранилища: {{ OS }} в {{ GP }}](../../../tutorials/opensearch-to-greenplum.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Поставка данных из {{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).

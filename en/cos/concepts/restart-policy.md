@@ -11,3 +11,10 @@ You can specify the Docker container restart policies in its description:
 * `OnFailure`: Restart the Docker container only if it shut down with a non-zero return code.
 
 If the Docker container description in the metadata changed when restarting the VM, the specified restart policy will be ignored and a Docker container matching the new description will start.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/coi-fluent-bit-logging.md)
+* [{#T}](../tutorials/deploy-app-container.md)
+* [{#T}](../tutorials/docker-compose.md)
+* [{#T}](../tutorials/ig-with-containers.md)

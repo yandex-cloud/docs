@@ -4,7 +4,7 @@ In this scenario, you will learn how to connect to {{ iot-full-name }} using the
 
 {% note info %}
 
-The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java).
+The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud-examples/yc-iot-android).
 
 {% endnote %}
 
@@ -137,7 +137,7 @@ openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 
 #### File structure {#file-structure}
 
-In the example available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java), certificates are loaded from files with the following structure:
+In the example available on [GitHub](https://github.com/yandex-cloud-examples/yc-iot-android), certificates are loaded from files with the following structure:
 
 ```text
   /my_registry        Registry directory |current directory|. The example should be run from this directory.
@@ -273,7 +273,7 @@ Where `listener` is the class that implements the `MqttCallback` interface.
 
 ## Subscribe to a topic and get messages {#subscribe}
 
-Subscribe to a topic using the following code. In the `subscribe` method, specify the topic (`topic`) you want to subscribe to and the QoS `qos` level.
+Subscribe to a topic using the following code. In the `subscribe` method, specify the topic (`topic`) you want to subscribe to and the QoS level (`qos`).
 
 ```java
 client.subscribe(topic, qos);

@@ -119,6 +119,8 @@ items:
             href: operations/vm-control/vm-update-policies.md
           - name: Configuring VM access permissions
             href: operations/vm-control/vm-access.md
+          - name: Linking a service account to a VM
+            href: operations/vm-control/vm-connect-sa.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
       - name: Working with VM instance metadata
@@ -391,6 +393,12 @@ items:
             href: operations/gpu-cluster/access.md
           - name: Deleting a GPU cluster
             href: operations/gpu-cluster/gpu-cluster-delete.md
+          - name: Testing a GPU cluster physical state
+            href: operations/gpu-cluster/gpu-cluster-test-physical-state.md
+          - name: Running parallel tasks in a GPU cluster
+            href: operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
+          - name: Testing InfiniBand throughput
+            href: operations/gpu-cluster/test-infiniband-bandwidth.md
       - name: Viewing operations with resources
         href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
@@ -530,6 +538,10 @@ items:
           Creating an external table from a {{ objstorage-name }} bucket table
           using a configuration file
         href: tutorials/mgp-config-server-for-s3.md
+      - name: >-
+          Setting up network connectivity between {{ baremetal-name }} and {{
+          vpc-name }} subnets
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: '{{ coi }}'
         items:
           - name: Creating a VM from a {{ coi }}
@@ -570,6 +582,12 @@ items:
             href: tutorials/rds-gw.md
           - name: Creating an MLFlow server for logging experiments and artifacts
             href: tutorials/mlflow-datasphere.md
+          - name: Deploying {{ GLR }} on a virtual machine
+            href: tutorials/install-gitlab-runner.md
+      - name: >-
+          Launching the DeepSeek-R1 language model in a {{ compute-full-name }}
+          GPU cluster
+        href: tutorials/gpu-cluster-deepseek.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -1164,7 +1182,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

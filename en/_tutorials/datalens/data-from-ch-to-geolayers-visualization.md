@@ -103,7 +103,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `DODO Con` conn
 
    ![drag-table](../../_assets/datalens/solution-09/05-drag-table.png)
 
-1. Go to the **Fields** tab.
+1. Navigate to the **Fields** tab.
 1. Rename the `Name` field to `Pizzerias`. To rename a field, click its current name, delete it, and enter a new one.
 1. For the `Coordinates` field, select **Geopoint** in the **Type** column.
 1. For the `Revenue` field, set the aggregation type to **Sum**. The fields with defined aggregation functions become measures and change their color to blue.
@@ -273,7 +273,7 @@ To visualize order density across Russia, create a [map](../../datalens/visualiz
 
 1. Go to the `Companies: supply and demand` workbook by clicking its name in the dashboard path.
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
-1. In the panel at the bottom of the page, select **Chart**.
+1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
 
    ![add-chart](../../_assets/datalens/solution-09/23-add-chart.png)
 
@@ -296,7 +296,7 @@ To visualize order density across Russia, create a [map](../../datalens/visualiz
 
 Add a [selector](../../datalens/dashboard/selector.md) to filter charts by city:
 
-1. In the panel at the bottom of the page, choose **Selector**.
+1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
 
    ![image](../../_assets/datalens/solution-09/27-add-selector.png)
 

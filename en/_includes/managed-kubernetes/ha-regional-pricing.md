@@ -1,0 +1,1 @@
+A _highly-available_ master is billed as a _regional_ one and displayed in {{ billing-name }} as `Managed Kubernetes. Regional Master - small`.

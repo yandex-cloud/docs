@@ -6,6 +6,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 # Tutorials for working with basic infrastructure management systems
 
 * [Architecture and protection of a basic internet service](../routing/web-service.md)
+* [{#T}](billing-resource-detailing.md)
 
 ## Fault tolerance and scaling {#fault-tolerance}
 
@@ -39,7 +40,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [Configuring clock synchronization using NTP](../infrastructure-management/ntp.md)
 * [DHCP settings for working with a corporate DNS server](../routing/dhcp-options.md)
 * [Routing through a NAT instance](../routing/nat-instance/index.md)
-* [Installing a Cisco CSR 1000v virtual router](../routing/cisco.md)
+* [Installing the Cisco CSR 1000v virtual router](../routing/cisco.md)
 * [Installing a Mikrotik CHR virtual router](../routing/mikrotik.md)
 * [Installing an NGINX Ingress controller with a {{ certificate-manager-name }} certificate](../container-infrastructure/nginx-ingress-certificate-manager.md)
 

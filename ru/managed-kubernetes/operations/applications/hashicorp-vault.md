@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms-k8s) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `hashicorp-vault-space`). Если вы оставите пространство имен по умолчанию, HashiCorp Vault может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Ключ сервисной учетной записи для Vault** — скопируйте в это поле содержимое файла `authorized-key.json`.
    * **ID ключа {{ kms-short-name }} для Vault** — укажите [полученный ранее](#before-you-begin) идентификатор ключа {{ kms-name }}.
@@ -107,7 +107,7 @@ description: Следуя данной инструкции, вы сможете
 
    Параметры команды:
    * `<путь_к_файлу_с_авторизованным_ключом>` — путь к файлу `authorized-key.json`, [сохраненному ранее](#before-you-begin).
-   * `<пространство_имен>` — новое пространство имен, которое будет создано для работы HashiCorp Vault.
+   * `<пространство_имен>` — новое пространство имен, которое будет создано для работы HashiCorp Vault. Если вы укажете пространство имен по умолчанию, HashiCorp Vault может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `hashicorp-vault-space`).
    * `<идентификатор_ключа_KMS>` — [полученный ранее](#before-you-begin) идентификатор ключа {{ kms-name }}.
 
    В результате выполнения команды в кластер будет установлен продукт HashiCorp Vault с поддержкой KMS с механизмом доставки секретов [Agent injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector). Чтобы задействовать альтернативный механизм [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi), дополните команду следующими параметрами:

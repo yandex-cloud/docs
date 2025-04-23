@@ -44,11 +44,11 @@ To simplify the comparison of different values and make the information easier t
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 Columns | Dimensions and measures to be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns.
 Colors | Measure. Affects color fill of all cells within a row. It may only contain one measure.
-Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of fields in the section affects the sorting order of the table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
+Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
 Filters | Dimension or measure. Used as a filter.
 
 ## Creating a table {#create-diagram}
@@ -202,6 +202,7 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 
    {% endlist %}
 
+1. For the **Gradient** fill type, specify the coloring option for `null` values: `Do not color` or `Color as 0`.
 1. Click **Apply**.
 
 ### Adding a linear indicator to a column with a measure {#add-linear-indicator}

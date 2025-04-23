@@ -14,7 +14,8 @@ description: На этой странице приведен справочни�
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret) | [Секрет](./concepts/secret.md#secret) |
-| [yandex_lockbox_secret_iam_binding]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к секрету |
+| [yandex_lockbox_secret_iam_binding]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к секрету. <br>Вместо `yandex_lockbox_secret_iam_binding` рекомендуется использовать `yandex_lockbox_secret_iam_member` |
+| [yandex_lockbox_secret_iam_member]({{ tf-provider-resources-link }}/lockbox_secret_iam_member) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к секрету |
 | [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version) | [Версия секрета](./concepts/secret.md#version)<br> Вместо `lockbox_secret_version` рекомендуется использовать `lockbox_secret_version_hashed` |
 | [yandex_lockbox_secret_version_hashed]({{ tf-provider-resources-link }}/lockbox_secret_version_hashed) | [Версия секрета](./concepts/secret.md#version), хранит в состоянии {{ TF }} значения в хешированном виде. <br> Хранить данные в таком виде безопаснее, чем в открытом. <br> Может содержать не более 10 пар ключей и значений |
 

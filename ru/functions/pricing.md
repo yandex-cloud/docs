@@ -20,7 +20,7 @@ editable: false
 * Объем памяти, указанный при [создании версии](operations/function/version-manage.md), измеряется в ГБ.
 * Время выполнения для каждого вызова функции, измеряется в часах, и округляется в большую сторону до ближайшего значения, кратного 100 мс.
 
-{% note warning %}
+{% note info %}
 
 Тарифицируются только [вызовы функции](concepts/function-invoke.md), которые привели к запуску вашего кода.
 
@@ -68,6 +68,18 @@ editable: false
 При этом если функция использует другие ресурсы {{ yandex-cloud }}, они тарифицируются. Например, если функция делает запросы к очереди {{ message-queue-name }}, за них взимается плата в соответствии с [тарифами](../message-queue/pricing.md#requests-to-queues).
 
 ## Цены для региона Россия {#prices}
+
+
+{% note warning %}
+
+С 1 мая 2025 года увеличатся цены на ресурсы {{ sf-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
+
+* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn2hj814q5t5pipfkqo4)
+* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn2hj814q5t5pipfkqo4)
+
+{% endnote %}
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
