@@ -44,7 +44,7 @@ description: Из статьи вы узнаете, как изменить на
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** задайте новые имя и описание кластера.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -189,7 +189,7 @@ description: Из статьи вы узнаете, как изменить на
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** включите или выключите опцию **{{ ui-key.yacloud.redis.field_announce-hostnames }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -356,7 +356,7 @@ description: Из статьи вы узнаете, как изменить на
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
      
 	 * В поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** выберите платформу.
@@ -546,7 +546,7 @@ description: Из статьи вы узнаете, как изменить на
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
   
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -726,7 +726,7 @@ description: Из статьи вы узнаете, как изменить на
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В разделе **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. Настройте доступные параметры в соответствии с [документацией {{ VLK }}](https://valkey.io/documentation).
   1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
@@ -878,7 +878,7 @@ description: Из статьи вы узнаете, как изменить на
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Измените дополнительные настройки кластера:
 
      {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
@@ -928,6 +928,72 @@ description: Из статьи вы узнаете, как изменить на
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+
+    1. Измените в описании кластера {{ mrd-name }} значения нужных вам параметров:
+    
+        * Для настройки времени начала резервного копирования добавьте блок `backup_window_start`:
+        
+            ```hcl
+            resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+                ...
+                backup_window_start {
+                    hours   = <часы>
+                    minutes = <минуты>
+                }
+            }
+            ```
+
+            Где:
+
+            * `hours` — час начала резервного копирования по UTC в формате `HH`: от `0` до `23` часов.
+            * `minutes` — минута начала резервного копирования по UTC в формате `mm`: от `0` до `59` минут.
+
+        * Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
+
+            ```hcl
+            resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+            ...
+                maintenance_window {
+                    day  = <день_недели>
+                    hour = <час_начала>
+                    type = "ANYTIME"
+                }
+            }
+            ```
+
+            Где `type` — тип технического обслуживания, который может иметь два значения:
+
+            * `ANYTIME` — в любое время.
+            * `WEEKLY`— по расписанию. При задании этого значения нужно также указать параметры:
+                * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+
+        * Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
+
+            ```hcl
+            resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+            ...
+                    deletion_protection = false
+            }
+            ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -1090,7 +1156,7 @@ description: Из статьи вы узнаете, как изменить на
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** включите опцию **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -1119,6 +1185,39 @@ description: Из статьи вы узнаете, как изменить на
         Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
     {% include [enable-sharding-shard-note](../../_includes/mdb/mrd/enable-sharding-shard-note.md) %}
+
+- {{ TF }} {#tf}
+
+    Чтобы включить шардирование:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+
+    1. Добавьте к описанию кластера {{ mrd-name }} параметр `sharded` со значением `true`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+            ...
+            sharded = true
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    {% include [enable-sharding-shard-note](../../_includes/mdb/mrd/enable-sharding-shard-note.md) %}
+
+    Также вы можете [управлять шардами](../operations/shards.md).
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -1303,7 +1402,7 @@ description: Из статьи вы узнаете, как изменить на
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.
 
 - CLI {#cli}

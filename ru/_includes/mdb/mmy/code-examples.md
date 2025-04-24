@@ -33,6 +33,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% include [Successful connection](successful-connect.md) %}
 
+
 ### Go
 
 Перед подключением установите зависимости:

@@ -30,7 +30,7 @@ Updates the specified asymmetric KMS key.
 || key_id | **string**
 
 Required field. ID of the asymmetric KMS key to update.
-To get the ID of a asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/api-ref/grpc/AsymmetricEncryptionKey/list#List) request. ||
+To get the ID of a asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/list#List) request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask that specifies which attributes of the asymmetric KMS key are going to be updated. ||

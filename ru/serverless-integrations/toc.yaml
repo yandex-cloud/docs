@@ -430,6 +430,8 @@ items:
                 href: eventrouter/api-ref/grpc/Event/index.md
               - name: Put
                 href: eventrouter/api-ref/grpc/Event/put.md
+              - name: Send
+                href: eventrouter/api-ref/grpc/Event/send.md
           - name: Operation
             items:
               - name: Overview
@@ -522,6 +524,8 @@ items:
                 href: eventrouter/api-ref/Event/index.md
               - name: Put
                 href: eventrouter/api-ref/Event/put.md
+              - name: Send
+                href: eventrouter/api-ref/Event/send.md
           - name: Operation
             items:
               - name: Overview

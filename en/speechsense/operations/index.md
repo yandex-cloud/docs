@@ -1,5 +1,5 @@
 ---
-title: Guides on using {{ speechsense-name }}
+title: How to work with {{ speechsense-name }}
 description: This page presents all the guides on how to use {{ speechsense-name }} in {{ yandex-cloud }}. Learn how to create a space, create a project for a specific connection, upload data, work with dialogs, and generate reports.
 ---
 
@@ -60,6 +60,6 @@ description: This page presents all the guides on how to use {{ speechsense-name
 * [{#T}](dictionary/add.md)
 * [{#T}](dictionary/delete.md)
 
-## External integrations {#external_integrations}
+## External integrations {#external-integrations}
 
 * [{#T}](external-integrations/create-datalens-connection.md)

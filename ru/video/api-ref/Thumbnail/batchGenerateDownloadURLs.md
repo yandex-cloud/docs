@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/batchGenerateDownloadURLs.md
 
 # Video API, REST: Thumbnail.BatchGenerateDownloadURLs
 
-Generate urls for download images.
+Generate urls for downloading images.
 
 ## HTTP request
 
@@ -43,7 +43,15 @@ List of thumbnails IDs. ||
   "downloadUrls": [
     {
       "thumbnailId": "string",
-      "downloadUrl": "string"
+      "originalUrl": "string",
+      "scaledUrls": [
+        {
+          "url": "string",
+          "maxWidth": "string",
+          "maxHeight": "string",
+          "imageFormat": "string"
+        }
+      ]
     }
   ]
 }
@@ -63,7 +71,32 @@ List of download urls. ||
 || thumbnailId | **string**
 
 ID of the thumbnail. ||
-|| downloadUrl | **string**
+|| originalUrl | **string**
+
+Original download url. ||
+|| scaledUrls[] | **[ScaledURL](#yandex.cloud.video.v1.ThumbnailDownloadURL.ScaledURL)**
+
+List of download urls, one per each available image size. ||
+|#
+
+## ScaledURL {#yandex.cloud.video.v1.ThumbnailDownloadURL.ScaledURL}
+
+#|
+||Field | Description ||
+|| url | **string**
 
 Download url. ||
+|| maxWidth | **string** (int64)
+
+Maximum width of the rectangle to inscribe the thumbnail into. ||
+|| maxHeight | **string** (int64)
+
+Maximum height of the rectangle to inscribe the thumbnail into. ||
+|| imageFormat | **enum** (ImageFormat)
+
+Image format.
+
+- `IMAGE_FORMAT_UNSPECIFIED`: Image format unspecified.
+- `JPEG`: JPEG image format.
+- `WEBP`: WebP image format. ||
 |#

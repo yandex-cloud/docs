@@ -46,7 +46,7 @@ Updates the specified project.
 || project_id | **string**
 
 Required field. ID of the Project resource to update.
-To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/grpc/Project/list#List) request. ||
+To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/grpc/Project/list#List) request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Project resource are going to be updated. ||

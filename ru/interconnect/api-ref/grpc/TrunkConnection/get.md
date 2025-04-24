@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/TrunkConnection/get.md
 
 Returns the specified TrunkConnection resource.
 
-To get the list of available TrunkConnection resources, make a [List](/docs/cic/workload/api-ref/grpc/TrunkConnection/list#List) request.
+To get the list of available TrunkConnection resources, make a [List](/docs/interconnect/api-ref/grpc/TrunkConnection/list#List) request.
 
 ## gRPC request
 
@@ -26,7 +26,7 @@ To get the list of available TrunkConnection resources, make a [List](/docs/cic/
 || trunk_connection_id | **string**
 
 Required field. ID of the TrunkConnection resource to return.
-To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/cic/workload/api-ref/grpc/TrunkConnection/list#List) request. ||
+To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/interconnect/api-ref/grpc/TrunkConnection/list#List) request. ||
 |#
 
 ## TrunkConnection {#yandex.cloud.cic.v1.TrunkConnection}
@@ -135,7 +135,8 @@ Capacity of the trunkConnection
 - `CAPACITY_30_GBPS`
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
-- `CAPACITY_100_GBPS` ||
+- `CAPACITY_100_GBPS`
+- `CAPACITY_200_GBPS` ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.

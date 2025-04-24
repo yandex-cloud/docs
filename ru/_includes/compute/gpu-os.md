@@ -20,4 +20,8 @@
   Для поддержки кластерного режима:
 : * [Ubuntu 20.04 LTS GPU Cluster](/marketplace/products/yc/ubuntu-2004-lts-gpu-cluster)(`ubuntu-2004-lts-gpu-cluster`)
 
+AMD EPYC™ 9474F with Gen2
+
+: * [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2) (`ubuntu-2004-lts-secureboot-cuda-12-2`)
+
 Мы рекомендуем использовать стандартный образ от {{ yandex-cloud }}. Вы также можете [установить драйверы](../../compute/operations/vm-operate/install-nvidia-drivers.md) на другой стандартный образ самостоятельно или [создать собственный образ](../../compute/operations/image-create/custom-image.md) с предустановленными драйверами.

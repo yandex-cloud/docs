@@ -33,6 +33,8 @@ The following connection types are available in {{ datalens-short-name }}:
    * [{{ billing-name }}](../operations/connection/create-cloud-billing.md)
    * [Yandex Monitoring](../operations/connection/create-monitoring.md)
   * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
+   * [Connecting API Connector](../operations/connection/create-api-connector.md)
+   * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
 
 
 * Partner connections:

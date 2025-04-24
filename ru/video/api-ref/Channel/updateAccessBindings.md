@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Channel/updateAccessBindings.md
 
 # Video API, REST: Channel.UpdateAccessBindings
 
-Updates access bindings for the specified channel.
+Update access bindings for the specified channel.
 
 ## HTTP request
 

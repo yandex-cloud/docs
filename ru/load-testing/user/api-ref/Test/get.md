@@ -287,14 +287,15 @@ Status of the test.
 - `POST_PROCESSING`: Execution stage: results post-processing.
 - `FAILED`: Test has failed due to some error.
 - `STOPPING`: Test is being stopped.
-- `STOPPED`: Test has been stopped.
+- `STOPPED`: Test has been stopped by user.
 - `AUTOSTOPPED`: Test has been stopped automatically by satisfying autostop condition.
 - `WAITING`: Execution stage: waiting for a trigger to start.
 - `DELETING`: Test is being deleted.
 - `LOST`: Test status has not been reported in a while during execution stage.
 
   Means that either an agent is too busy to send it, got offline, or failed without
-reporting a final status. ||
+reporting a final status.
+- `CANCELLED`: Test has been cancelled. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.

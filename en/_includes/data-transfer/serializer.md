@@ -7,11 +7,18 @@
       * Select the message value schema (matches the `value.converter` Debezium parameter).
       * If required, specify [**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}**](../../data-transfer/concepts/serializer.md#debezium) in `Parameter`-`Value` format.
 
-If you want to use JSON schemas in {{ schema-registry-full-name }} and need to keep them compatible while adding and deleting optional fields, specify these settings:
+If you want to use JSON schemas in {{ schema-registry-full-name }} and preserve their [compatibility when adding and deleting optional fields](../../metadata-hub/concepts/schema-registry-content-model.md#optional-parameters-compatibility-solution), use these settings:
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}**.
 * To use {{ schema-registry-name }} for keys, select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.key_converter_settings.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**. To use {{ schema-registry-name }} for values, select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.value_converter_settings.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**.
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.url.title }}**: {{ schema-registry-name }} namespace endpoint. You can copy the endpoint from the details for the {{ schema-registry-name }} namespace connection on the **Debezium** tab, in the `value.converter.schema.registry.url` parameter.
+
+      {% note warning %}
+
+      The namespace must have **Compatibility check policy for JSON** [set](../../metadata-hub/operations/update-name-space.md) to `optional friendly`.
+
+      {% endnote %}
+
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.username.title }}**: `api-key`.
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.password.title }}**: Value of the [API key](../../iam/concepts/authorization/api-key.md) with a limited scope used for connecting to {{ schema-registry-name }}. To get this value:
       1. Create an API key with a limited scope and place it in the `SECRET` local variable:
@@ -19,7 +26,7 @@ If you want to use JSON schemas in {{ schema-registry-full-name }} and need to k
           ```bash
           yc iam api-key create --folder-id <folder_ID> \
             --service-account-name <name_of_service_account_for_operations_with_Schema_Registry> \
-            --scope yc.schema-registry.schemas.manage \
+            --scopes yc.schema-registry.schemas.manage \
             --expires-at '2030-01-01T00:00:00Z' >./api-key.yaml && \
           SECRET=`cat ./api-key.yaml | grep 'secret:' | awk '{print $2}'`
           ```

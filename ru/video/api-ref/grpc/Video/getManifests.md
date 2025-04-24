@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Video/getManifests.md
 
 # Video API, gRPC: VideoService.GetManifests
 
-Returns manifest urls.
+Get manifest urls.
 
 ## gRPC request
 

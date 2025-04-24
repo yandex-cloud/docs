@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/get.md
 
 Returns the specified InstanceGroup resource.
 
-To get the list of available InstanceGroup resources, make a [List](/docs/compute/api-ref/InstanceGroup/list#List) request.
+To get the list of available InstanceGroup resources, make a [List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}
 || instanceGroupId | **string**
 
 Required field. ID of the InstanceGroup resource to return.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.instancegroup.GetInstanceGroupRequest}
@@ -394,15 +394,15 @@ Status of the instance group.
 In this state the group manages its instances and monitors their health,
 creating, deleting, stopping, updating and starting instances as needed.
 
-  To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/InstanceGroup/stop#Stop).
+  To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/instancegroup/api-ref/InstanceGroup/stop#Stop).
 To pause the processes in the instance group, i.e. scaling, checking instances' health,
 auto-healing and updating them, without stopping the instances,
-call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/InstanceGroup/pauseProcesses#PauseProcesses).
+call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/instancegroup/api-ref/InstanceGroup/pauseProcesses#PauseProcesses).
 - `STOPPING`: Instance group is being stopped.
 Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.
 - `STOPPED`: Instance group is stopped.
 In this state the group cannot be updated and does not react to any changes made to its instances.
-To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/InstanceGroup/start#Start).
+To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/instancegroup/api-ref/InstanceGroup/start#Start).
 - `DELETING`: Instance group is being deleted.
 - `PAUSED`: Instance group is paused.
 In this state all the processes regarding the group management, i.e. scaling, checking instances' health,
@@ -410,7 +410,7 @@ auto-healing and updating them, are paused. The instances that were running prio
 may still be running.
 
   To resume the processes in the instance group,
-call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/InstanceGroup/resumeProcesses#ResumeProcesses).
+call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/instancegroup/api-ref/InstanceGroup/resumeProcesses#ResumeProcesses).
 The group status will change to `ACTIVE`. ||
 || variables[] | **[Variable](#yandex.cloud.compute.v1.instancegroup.Variable)** ||
 || deletionProtection | **boolean**
@@ -961,7 +961,7 @@ If `maxUnavailable` is not specified or set to zero, `maxExpansion` must be set 
 Instance startup duration.
 Instance will be considered up and running (and start receiving traffic) only after startup_duration
 has elapsed and all health checks are passed.
-See [yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status](/docs/compute/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status) for more information. ||
+See [ManagedInstance.Status](/docs/compute/instancegroup/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status) for more information. ||
 || strategy | **enum** (Strategy)
 
 Affects the lifecycle of the instance during deployment.
@@ -1026,13 +1026,13 @@ Status message of the target group. ||
 Target number of instances for this instance group. ||
 || runningActualCount | **string** (int64)
 
-The number of running instances that match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_ACTUAL](/docs/compute/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status). ||
+The number of running instances that match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_ACTUAL](/docs/compute/instancegroup/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status). ||
 || runningOutdatedCount | **string** (int64)
 
-The number of running instances that does not match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_OUTDATED](/docs/compute/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status). ||
+The number of running instances that does not match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_OUTDATED](/docs/compute/instancegroup/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status). ||
 || processingCount | **string** (int64)
 
-The number of instances in flight (for example, updating, starting, deleting). For more information, see [ManagedInstance.Status](/docs/compute/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status). ||
+The number of instances in flight (for example, updating, starting, deleting). For more information, see [ManagedInstance.Status](/docs/compute/instancegroup/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status). ||
 |#
 
 ## LoadBalancerSpec {#yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec}

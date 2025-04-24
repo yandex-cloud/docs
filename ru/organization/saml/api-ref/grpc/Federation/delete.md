@@ -24,7 +24,7 @@ Deletes the specified federation.
 || federation_id | **string**
 
 ID of the federation to delete.
-To get the federation ID, make a [FederationService.List](/docs/organization/api-ref/grpc/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

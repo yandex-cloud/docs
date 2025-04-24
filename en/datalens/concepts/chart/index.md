@@ -2,10 +2,11 @@
 
 _Charts_ visualize the data from a dataset as tables, diagrams, or maps.
 
-There are two types of charts in {{ datalens-short-name }} that differ by how they receive data from their sources:
+There are several types of charts in {{ datalens-short-name }}:
 
-* [Dataset-based charts](./dataset-based-charts.md) are created in a wizard based on the data from one or more [datasets](../../dataset/index.md).
+* [Wizard charts](./dataset-based-charts.md) are created in a wizard based on data from one or more [datasets](../../dataset/index.md).
 * [QL charts](./ql-charts.md) are created through direct queries to the source.
+* [Editor charts](../../charts/editor/index.md) are visualizations and selectors created using JavaScript code. Only available in the Business plan.
 
 {{ datalens-short-name }} supports different types of visualization: charts, tables, maps, etc. For more information, see the [Visualization reference](../../visualization-ref/index.md).
 

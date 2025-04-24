@@ -26,7 +26,7 @@ To get the list of available asymmetric KMS keys, make a [SymmetricKeyService.Li
 || key_id | **string**
 
 Required field. ID of the asymmetric KMS key to return.
-To get the ID of an asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/api-ref/grpc/AsymmetricEncryptionKey/list#List) request. ||
+To get the ID of an asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/list#List) request. ||
 |#
 
 ## AsymmetricEncryptionKey {#yandex.cloud.kms.v1.asymmetricencryption.AsymmetricEncryptionKey}

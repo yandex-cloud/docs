@@ -13,12 +13,6 @@ You can use [{{ speechsense-name }} reports](../../concepts/reports/index.md) to
 
 If you want to use a dialog feature, e.g., reason, topic, or dialog outcome, as a filter or evaluation parameter, [use a semantic attribute in your report](#apply-sense-attribute).
 
-{% note warning %}
-
-Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags](../../concepts/tags.md#sense-tags) instead.
-
-{% endnote %}
-
 ## Building the _Evaluation form_ report {#build-an-evaluation-form}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
@@ -152,3 +146,17 @@ To apply a semantic attribute to dialogs in reports:
    > * **Not containing topic** to use dialogs on any topic other than the specified one.
 
 With that done, you can add more filters and parameters and build your report.
+
+## Using semantic tags for dialog evaluation {#use-sense-tags-for-dialog-evaluation}
+
+You can use semantic tags to evaluate the agent's performance and the client's behavior, e.g., whether the agent was polite, whether the client was rude, etc. To do this:
+
+1. [Create a semantic tag](../project/tag/create-sense-tag.md). 
+
+   When creating a tag, select the appropriate semantic attribute and specify the relevant search query.
+
+   > For example, if you are interested in dialogs where the customer was rude to the agent, select:
+   > * Semantic attribute: **{{ ui-key.yc-ui-talkanalytics.statements.common_question }}**.
+   > * Search query: **Was the client rude or aggressive at least once during the conversation?**
+
+1. Use a semantic tag as a report parameter.

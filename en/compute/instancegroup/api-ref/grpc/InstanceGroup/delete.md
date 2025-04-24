@@ -24,7 +24,7 @@ Deletes the specified instance group.
 || instance_group_id | **string**
 
 Required field. ID of the instance group to delete.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/grpc/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/grpc/InstanceGroup/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -109,5 +109,5 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 || instance_group_id | **string**
 
 ID of the instance group that is being deleted.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/grpc/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/grpc/InstanceGroup/list#List) request. ||
 |#

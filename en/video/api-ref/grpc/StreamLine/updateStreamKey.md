@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/updateStreamKey.md
 
 # Video API, gRPC: StreamLineService.UpdateStreamKey
 
-Change stream key.
+Update stream key.
 
 ## gRPC request
 
@@ -114,11 +114,11 @@ ID of the line. ||
 
 ## PushStreamKey {#yandex.cloud.video.v1.PushStreamKey}
 
-Push stream key.
+Represents the stream key used for pushing video streams.
 
 #|
 ||Field | Description ||
 || key | **string**
 
-Unique stream key. ||
+The unique stream key. ||
 |#

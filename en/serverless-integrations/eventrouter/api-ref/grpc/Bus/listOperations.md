@@ -33,7 +33,7 @@ Maximum number of operations to return. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListBusesResponse.next_page_token](/docs/functions/eventrouter/api-ref/grpc/Bus/list#yandex.cloud.serverless.eventrouter.v1.ListBusesResponse) returned by a previous list request. ||
+[ListBusesResponse.next_page_token](/docs/serverless-integrations/eventrouter/api-ref/grpc/Bus/list#yandex.cloud.serverless.eventrouter.v1.ListBusesResponse) returned by a previous list request. ||
 || filter | **string**
 
 Supported attributes for filter:

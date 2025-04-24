@@ -24,7 +24,8 @@ To get started in {{ yandex-cloud }}:
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `numbers`.
-  1. (Optional) In the **{{ ui-key.yacloud.common.description }}** field, enter a description.
+  1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, enter a description.
+  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_execution-timeout }}** field, specify the execution timeout. The value must not exceed the set [limit](../concepts/limits.md#api-gw-limits).
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
 
       ```yaml
@@ -135,7 +136,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
       1. Paste the following code to `index.js`:
 
           ```js
-          module.exports.handler = async (event) = {
+          module.exports.handler = async (event) => {
             return {
               "statusCode": 200,
               "headers": {"content-type": "application/json"},
@@ -164,8 +165,8 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
         };
         ```
 
-     1. Add the `index.js` file to the `hello-js.zip` archive.
-  1. Describe the parameters of the `yandex_function` resource in the configuration file:
+     1. Add `index.js` to the `hello-js.zip` archive.
+  1. Describe `yandex_function` properties in the configuration file:
 
      ```hcl
      resource "yandex_function" "test-function" {
@@ -197,7 +198,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
      * `content`: Function source code.
      * `content.0.zip_filename`: Path to the ZIP archive containing the function source code.
 
-     For more information about the `yandex_function` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
      1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
@@ -206,7 +207,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -297,10 +298,11 @@ Add function information to the API gateway specification.
 
   To add function information to the API gateway specification:
   1. Open the {{ TF }} configuration file and add the `/numbers` method which uses the `x-yc-apigateway-integration` extension of the `cloud_functions` type to invoke a function by ID. In the `spec` section, update the API gateway specification by providing the following parameters:
+
      * `function_id`: Function ID.
      * `service_account_id`: ID of the service account with permissions to invoke the function.
 
-     Extended API gateway specification:
+     **Extended API gateway specification:**
 
      ```hcl
      ...
@@ -358,7 +360,7 @@ Add function information to the API gateway specification.
      }
      ```
 
-     For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about resource properties in {{ TF }}, see the [relevant {{ TF }} documentation]({{ tf-provider-resources-link }}/api_gateway).
   1. Make sure the configuration files are correct.
      1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
@@ -367,7 +369,7 @@ Add function information to the API gateway specification.
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -377,7 +379,7 @@ Add function information to the API gateway specification.
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these CLI commands:
+        After that, your resources will appear in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these CLI commands:
 
         ```bash
         yc serverless api-gateway get <API_gateway_name>

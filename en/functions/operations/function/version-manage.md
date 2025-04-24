@@ -65,7 +65,7 @@ When creating a version, set the following parameters:
     * `--runtime`: Runtime environment.
     * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before the timeout is reached.
+    * `--execution-timeout`: Maximum running time of the function until timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -105,8 +105,8 @@ When creating a version, set the following parameters:
          * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
          * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
          * `memory`: Amount of memory allocated for the function, in MB.
-         * `execution_timeout`: Function execution timeout.
-         * `service_account_id`: ID of the service account under which the function will be called.
+         * `execution_timeout`: Function running timeout.
+         * `service_account_id`: ID of the service account you want to use to invoke the function.
          * `content`: Function source code.
            * `content.0.zip_filename`: Name of the ZIP archive containing the function source code.
 
@@ -134,7 +134,7 @@ When creating a version, set the following parameters:
 
        {% endnote %}
 
-        For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -154,14 +154,14 @@ When creating a version, set the following parameters:
        terraform plan
        ```
         
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
          
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
       
     You can check the new version using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -202,7 +202,7 @@ When creating a version, set the following parameters:
         * `runtime`: [Runtime environment](../../concepts/runtime/index.md#runtimes).
         * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
         * `memory`: Amount of RAM.
-        * `executionTimeout`: Maximum function running time before the timeout is reached.
+        * `executionTimeout`: Maximum running time of the function until timeout.
         * `serviceAccountId`: ID of the service account with a [role](../../../storage/security/index.md#service-roles) that allows bucket data reads.
         * `bucketName`: Name of the bucket where you uploaded the ZIP archive with the function code and required dependencies.
         * `objectName`: [Key of the bucket object](../../../storage/concepts/object.md#key) that contains the function code.
@@ -243,6 +243,6 @@ When creating a version, set the following parameters:
 
 {% note info %}
 
-To ensure the integrity of version links, you cannot update or delete function versions. For more information about the resource relationships, see [{#T}](../../concepts/function.md).
+To ensure the integrity of version links, you cannot update function versions. For more information about the resource relationships, see [{#T}](../../concepts/function.md).
 
 {% endnote %}

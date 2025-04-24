@@ -20,7 +20,7 @@ DELETE https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId
 || instanceGroupId | **string**
 
 Required field. ID of the instance group to delete.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -111,7 +111,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 || instanceGroupId | **string**
 
 ID of the instance group that is being deleted.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request. ||
 |#
 
 ## Status {#google.rpc.Status}

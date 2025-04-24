@@ -40,11 +40,11 @@ description: Следуя данной инструкции, вы сможете
 
 * Пользователям и сервисным аккаунтам, создавшим сабаккаунт для клиента:
    * [роль](../security/index.md#billing-accounts-admin) `billing.accounts.admin` на сабаккаунт;
-   * [роль](../../iam/roles-reference.md#organization-manager-admin) `organization-manager.admin` на организацию.
+   * [роль](../../iam/roles-reference.md#admin) `admin` на организацию.
 
 * Пользователям, почту которых указали при создании сабаккаунта:
    * [роль](../security/index.md#billing-accounts-admin) `billing.accounts.admin` на сабаккаунт;
-   * [роль](../../iam/roles-reference.md#organization-manager-admin) `organization-manager.admin` на организацию.
+   * [роль](../../iam/roles-reference.md#admin) `admin` на организацию.
 
 {% note info %}
 

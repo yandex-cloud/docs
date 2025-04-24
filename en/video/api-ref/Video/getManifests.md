@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Video/getManifests.md
 
 # Video API, REST: Video.GetManifests
 
-Returns manifest urls.
+Get manifest urls.
 
 ## HTTP request
 

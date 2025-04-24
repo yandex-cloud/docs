@@ -251,6 +251,26 @@ description: Следуя данной инструкции, вы сможете
 
      {% endnote %}
 
+     Чтобы включить [туннельный режим](../../concepts/network-policy.md#cilium) Cilium, добавьте к описанию кластера {{ managed-k8s-name }} блок:
+
+     ```hcl
+     network_implementation {
+      cilium {}
+     }
+     ```
+
+     Чтобы включить [контроллер сетевых политик](../../concepts/network-policy.md#calico) Calico, добавьте к описанию кластера {{ managed-k8s-name }} строку:
+
+     ```hcl
+     network_policy_provider = "CALICO"
+     ```
+
+     {% note warning %}
+
+      Контроллер сетевых политик Calico и туннельный режим Cilium нельзя включить одновременно. Их также нельзя включить после создания кластера.
+
+     {% endnote %}
+
      Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), добавьте к описанию кластера {{ managed-k8s-name }} блок `master_logging`:
 
      {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}

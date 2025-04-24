@@ -27,7 +27,7 @@ Retrieves the list of certificates in the specified federation.
 || federation_id | **string**
 
 Required field. ID of the federation to list certificates in.
-To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/api-ref/grpc/Federation/list#List) request. ||
+To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available

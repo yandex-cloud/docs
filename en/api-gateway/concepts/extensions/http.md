@@ -14,7 +14,7 @@ Parameter | Type | Description
 `method`|`enum`| This is an optional parameter. It sets the HTTP method for invocation. If it is not specified, the method to send a request to {{ api-gw-short-name }} will be used.
 `headers`|`map[string](string \| string[])`| HTTP headers to provide. By default, headers of the original request are not provided. <br>The parameters are subsituted into `headers`.
 `query`|`map[string](string \| string[])`| Query parameters to provide. By default, query parameters of the original request are not provided. <br>The parameters are subsituted into `query`.
-`timeouts`|`object`| This is an optional parameter that defines the `read` and `connect` invocation timeouts in seconds.
+`timeouts`|`object`| `read` and `connect` invocation timeouts. The value is specified in seconds and must not exceed the [set limit](../limits.md#api-gw-limits). This is an optional parameter. If no value is specified, HTTP requests will be aborted after the timeout specified for the API gateway.
 `omitEmptyHeaders`|`boolean`| This is an optional parameter. If set to `true`, empty headers are not provided.
 `omitEmptyQueryParameters`|`boolean`| This is an optional parameter. If set to `true`, empty query parameters are not provided.
 `serviceAccountId` | `string` | Service account ID. It is used for authorization when accessing the specified URL. The `serviceAccountId` [top-level parameter](index.md#top-level) value is ignored.

@@ -57,6 +57,8 @@ items:
             href: operations/invoke.md
           - name: Getting an invocation link
             href: operations/invocation-link.md
+          - name: Authenticating when invoking a private container via HTTPS
+            href: operations/auth.md
       - name: Managing a container
         items:
           - name: Updating a container
@@ -214,7 +216,7 @@ items:
       - name: Developing a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
       - name: >-
-          Developing functions in Functions Framework and deploying them in {{
+          Developing functions in Functions Framework and deploying them to {{
           serverless-containers-full-name }}
         href: tutorials/functions-framework-to-container.md
   - name: Access management

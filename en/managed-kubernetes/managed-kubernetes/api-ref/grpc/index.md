@@ -16,5 +16,6 @@ Actions are performed by making RPC calls. For more information about API archit
 || [Cluster](Cluster/index.md) | A set of methods for managing Kubernetes cluster. ||
 || [NodeGroup](NodeGroup/index.md) | A set of methods for managing node groups. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources. ||
 || [Version](Version/index.md) | A set of methods for managing Kubernetes versions. ||
 |#

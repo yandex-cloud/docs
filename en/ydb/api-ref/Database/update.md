@@ -102,7 +102,10 @@ Required field.  ||
     "subnetIds": [
       "string"
     ],
-    "assignPublicIps": "boolean"
+    "assignPublicIps": "boolean",
+    "securityGroupIds": [
+      "string"
+    ]
   },
   "serverlessDatabase": {
     "throttlingRcuLimit": "string",
@@ -243,7 +246,10 @@ Required field.  ||
       }
     ]
   },
-  "deletionProtection": "boolean"
+  "deletionProtection": "boolean",
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -285,6 +291,7 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 || backupConfig | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)** ||
 || monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
 || deletionProtection | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
@@ -385,6 +392,7 @@ Required field.  ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
 || assignPublicIps | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}
@@ -806,7 +814,10 @@ Required. Parameter value ||
       "subnetIds": [
         "string"
       ],
-      "assignPublicIps": "boolean"
+      "assignPublicIps": "boolean",
+      "securityGroupIds": [
+        "string"
+      ]
     },
     "serverlessDatabase": {
       "throttlingRcuLimit": "string",
@@ -950,7 +961,10 @@ Required. Parameter value ||
         }
       ]
     },
-    "deletionProtection": "boolean"
+    "deletionProtection": "boolean",
+    "securityGroupIds": [
+      "string"
+    ]
   }
   // end of the list of possible fields
 }
@@ -1109,6 +1123,7 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 || kafkaApiEndpoint | **string** ||
 || monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig2)** ||
 || deletionProtection | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig2}
@@ -1209,6 +1224,7 @@ Required field.  ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
 || assignPublicIps | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase2}

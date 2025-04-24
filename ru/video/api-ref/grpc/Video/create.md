@@ -20,6 +20,8 @@ Create video.
   "description": "string",
   "thumbnail_id": "string",
   "auto_transcode": "AutoTranscode",
+  "auto_publish": "google.protobuf.BoolValue",
+  "enable_ad": "google.protobuf.BoolValue",
   "labels": "map<string, string>",
   // Includes only one of the fields `tusd`
   "tusd": {
@@ -27,9 +29,8 @@ Create video.
     "file_name": "string"
   },
   // end of the list of possible fields
-  // Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`
+  // Includes only one of the fields `public_access`, `sign_url_access`
   "public_access": "VideoPublicAccessParams",
-  "auth_system_access": "VideoAuthSystemAccessParams",
   "sign_url_access": "VideoSignURLAccessParams"
   // end of the list of possible fields
 }
@@ -56,6 +57,15 @@ Auto start transcoding.
 - `AUTO_TRANSCODE_UNSPECIFIED`: Unspecified auto transcoding value.
 - `ENABLE`: Enable auto transcoding.
 - `DISABLE`: Disable auto transcoding. ||
+|| auto_publish | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Automatically publish video after transcoding.
+Switches visibility status to PUBLISHED. ||
+|| enable_ad | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable advertisement for this video.
+Default: true.
+Set explicitly to false to disable advertisements for a specific video. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
@@ -68,25 +78,19 @@ Includes only one of the fields `tusd`.
 Source type. ||
 || public_access | **[VideoPublicAccessParams](#yandex.cloud.video.v1.VideoPublicAccessParams)**
 
-Video is available to everyone.
+Publicly accessible video available for viewing by anyone with the direct link.
+No additional authorization or access control is applied.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Video access rights. ||
-|| auth_system_access | **[VideoAuthSystemAccessParams](#yandex.cloud.video.v1.VideoAuthSystemAccessParams)**
-
-Checking access rights using the authorization system.
-
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
-
-Video access rights. ||
+Video access permission settings. ||
 || sign_url_access | **[VideoSignURLAccessParams](#yandex.cloud.video.v1.VideoSignURLAccessParams)**
 
 Checking access rights using url's signature.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Video access rights. ||
+Video access permission settings. ||
 |#
 
 ## VideoTUSDParams {#yandex.cloud.video.v1.VideoTUSDParams}
@@ -102,13 +106,6 @@ File name. ||
 |#
 
 ## VideoPublicAccessParams {#yandex.cloud.video.v1.VideoPublicAccessParams}
-
-#|
-||Field | Description ||
-|| Empty | > ||
-|#
-
-## VideoAuthSystemAccessParams {#yandex.cloud.video.v1.VideoAuthSystemAccessParams}
 
 #|
 ||Field | Description ||
@@ -144,20 +141,34 @@ File name. ||
     "description": "string",
     "thumbnail_id": "string",
     "status": "VideoStatus",
-    "duration": "google.protobuf.Duration",
+    "error_message": "string",
     "visibility_status": "VisibilityStatus",
+    "duration": "google.protobuf.Duration",
     "auto_transcode": "AutoTranscode",
+    "enable_ad": "google.protobuf.BoolValue",
     "subtitle_ids": [
       "string"
     ],
+    "features": {
+      "summary": {
+        "result": "FeatureResult",
+        "urls": [
+          {
+            "url": "string",
+            "track_index": "int64",
+            "src_lang": "string"
+          }
+        ]
+      }
+    },
     // Includes only one of the fields `tusd`
     "tusd": {
-      "url": "string"
+      "url": "string",
+      "file_size": "int64"
     },
     // end of the list of possible fields
-    // Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`
+    // Includes only one of the fields `public_access`, `sign_url_access`
     "public_access": "VideoPublicAccessRights",
-    "auth_system_access": "VideoAuthSystemAccessRights",
     "sign_url_access": "VideoSignURLAccessRights",
     // end of the list of possible fields
     "created_at": "google.protobuf.Timestamp",
@@ -244,72 +255,78 @@ ID of the video. ||
 ID of the channel where the video was created. ||
 || title | **string**
 
-Video title. ||
+Video title displayed to users. ||
 || description | **string**
 
-Video description. ||
+Detailed description of the video. ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+ID of the video's thumbnail image. ||
 || status | enum **VideoStatus**
 
 Video status.
 
 - `VIDEO_STATUS_UNSPECIFIED`: Video status unspecified.
-- `WAIT_UPLOADING`: Waiting for the whole number of bytes to be loaded.
-- `PROCESSING`: Video processing.
-- `READY`: Video is ready, processing is completed.
-- `ERROR`: An error occurred during video processing. ||
+- `WAIT_UPLOADING`: Waiting for all the bytes to be loaded.
+- `UPLOADED`: Fully uploaded, ready to be transcoded.
+- `PROCESSING`: Video is being processed.
+- `READY`: Successfully processed and ready for use.
+- `ERROR`: Video processing has failed. ||
+|| error_message | **string**
+
+Error message describing the reason for video processing failure, if any. ||
+|| visibility_status | enum **VisibilityStatus**
+
+Visibility status of the video.
+
+- `VISIBILITY_STATUS_UNSPECIFIED`: Visibility status unspecified.
+- `PUBLISHED`: Video published and available for public viewing.
+- `UNPUBLISHED`: Video unpublished, available only to administrators. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Video duration. Optional, may be empty until the transcoding result is ready. ||
-|| visibility_status | enum **VisibilityStatus**
-
-Video visibility status.
-
-- `VISIBILITY_STATUS_UNSPECIFIED`: Visibility status unspecified.
-- `PUBLISHED`: Video is published and available for viewing.
-- `UNPUBLISHED`: Video is unpublished, only admin can watch. ||
 || auto_transcode | enum **AutoTranscode**
 
-Auto start transcoding.
-If set to ENABLE, transcoding process is initiated automatically after video upload.
-If set to DISABLE, manual "Transcode()" call is required instead.
+Auto-transcoding setting.
+Set ENABLE to automatically initiate transcoding after upload,
+or DISABLE for manual initiation via the Transcode() method.
 
 - `AUTO_TRANSCODE_UNSPECIFIED`: Unspecified auto transcoding value.
 - `ENABLE`: Enable auto transcoding.
 - `DISABLE`: Disable auto transcoding. ||
+|| enable_ad | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable advertisement for this video.
+Default: true.
+Set explicitly to false to disable advertisements for a specific video. ||
 || subtitle_ids[] | **string**
 
-IDs of active video subtitles. ||
+List of IDs defining the active subtitles for the video. ||
+|| features | **[VideoFeatures](#yandex.cloud.video.v1.VideoFeatures)**
+
+Additional video processing features and their results. ||
 || tusd | **[VideoTUSDSource](#yandex.cloud.video.v1.VideoTUSDSource)**
 
 Upload video using the tus protocol.
 
 Includes only one of the fields `tusd`.
 
-Source type. ||
+Video upload source definition (one source variant must be chosen). ||
 || public_access | **[VideoPublicAccessRights](#yandex.cloud.video.v1.VideoPublicAccessRights)**
 
-Video is available to everyone.
+Publicly accessible video available for viewing by anyone with the direct link.
+No additional authorization or access control is applied.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Video access rights. ||
-|| auth_system_access | **[VideoAuthSystemAccessRights](#yandex.cloud.video.v1.VideoAuthSystemAccessRights)**
-
-Checking access rights using the authorization system.
-
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
-
-Video access rights. ||
+Video access permission settings. ||
 || sign_url_access | **[VideoSignURLAccessRights](#yandex.cloud.video.v1.VideoSignURLAccessRights)**
 
 Checking access rights using url's signature.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Video access rights. ||
+Video access permission settings. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when video was created. ||
@@ -321,23 +338,58 @@ Time of last video update. ||
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#
 
+## VideoFeatures {#yandex.cloud.video.v1.VideoFeatures}
+
+#|
+||Field | Description ||
+|| summary | **[Summary](#yandex.cloud.video.v1.VideoFeatures.Summary)**
+
+Summarization result. ||
+|#
+
+## Summary {#yandex.cloud.video.v1.VideoFeatures.Summary}
+
+#|
+||Field | Description ||
+|| result | enum **FeatureResult**
+
+- `FEATURE_RESULT_UNSPECIFIED`
+- `NOT_REQUESTED`: Feature has not been requested.
+- `PROCESSING`: Feature is being processed.
+- `SUCCESS`: Feature processing completed successfully.
+- `FAILED`: Feature processing has failed. ||
+|| urls[] | **[SummaryURL](#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL)** ||
+|#
+
+## SummaryURL {#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL}
+
+#|
+||Field | Description ||
+|| url | **string** ||
+|| track_index | **int64**
+
+Input audio track index (one-based). ||
+|| src_lang | **string**
+
+Source track language (three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3).
+Either provided in transcoding settings earlier or automatically deduced. ||
+|#
+
 ## VideoTUSDSource {#yandex.cloud.video.v1.VideoTUSDSource}
+
+Video upload source via tus protocol.
 
 #|
 ||Field | Description ||
 || url | **string**
 
 URL for uploading video via the tus protocol. ||
+|| file_size | **int64**
+
+Size of the uploaded file, in bytes. ||
 |#
 
 ## VideoPublicAccessRights {#yandex.cloud.video.v1.VideoPublicAccessRights}
-
-#|
-||Field | Description ||
-|| Empty | > ||
-|#
-
-## VideoAuthSystemAccessRights {#yandex.cloud.video.v1.VideoAuthSystemAccessRights}
 
 #|
 ||Field | Description ||

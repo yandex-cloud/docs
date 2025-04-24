@@ -30,24 +30,30 @@ List streams for channel.
 Required field. ID of the channel. ||
 || page_size | **int64**
 
-The maximum number of the results per page to return. Default value: 100. ||
+The maximum number of the results per page to return.
+Default value: 100. ||
 || page_token | **string**
 
 Page token for getting the next page of the result. ||
 || order_by | **string**
 
 By which column the listing should be ordered and in which direction,
-format is "createdAt desc". "id asc" if omitted.
-Possible fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"]
+format is "<field> <order>" (e.g. "createdAt desc").
+Default: "id asc".
+Possible fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"].
 Both snake_case and camelCase are supported for fields. ||
 || filter | **string**
 
 Filter expression that filters resources listed in the response.
 Expressions are composed of terms connected by logic operators.
-Value in quotes: `'` or `"`
-Example: "key1='value' AND key2='value'"
-Supported operators: ["AND"].
-Supported fields: ["title", "lineId", "status"]
+If value contains spaces or quotes,
+it should be in quotes (`'` or `"`) with the inner quotes being backslash escaped.
+Supported logical operators: ["AND", "OR"].
+Supported string match operators: ["=", "!=", ":"].
+Operator ":" stands for substring matching.
+Filter expressions may also contain parentheses to group logical operands.
+Example: `key1='value' AND (key2!='\'value\'' OR key2:"\"value\"")`
+Supported fields: ["id", "title", "lineId", "status"].
 Both snake_case and camelCase are supported for fields. ||
 |#
 
@@ -67,6 +73,7 @@ Both snake_case and camelCase are supported for fields. ||
       "start_time": "google.protobuf.Timestamp",
       "publish_time": "google.protobuf.Timestamp",
       "finish_time": "google.protobuf.Timestamp",
+      "auto_publish": "google.protobuf.BoolValue",
       // Includes only one of the fields `on_demand`, `schedule`
       "on_demand": "OnDemand",
       "schedule": {
@@ -134,16 +141,20 @@ Stream publish time. Time when stream switched to ONAIR status. ||
 || finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Stream finish time. ||
+|| auto_publish | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Automatically publish stream when ready.
+Switches status from READY to ONAIR. ||
 || on_demand | **[OnDemand](#yandex.cloud.video.v1.OnDemand)**
 
-On demand stream. It starts immediately when a signal appears.
+On-demand stream. Starts immediately when a signal appears.
 
 Includes only one of the fields `on_demand`, `schedule`.
 
 Stream type. ||
 || schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
 
-Schedule stream. Determines when to start receiving the signal or finish time.
+Schedule stream. Starts or finished at the specified time.
 
 Includes only one of the fields `on_demand`, `schedule`.
 
@@ -161,7 +172,8 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 
 ## OnDemand {#yandex.cloud.video.v1.OnDemand}
 
-If "OnDemand" is used, client should start and finish explicitly.
+On-demand stream type.
+This type of streams should be started and finished explicitly.
 
 #|
 ||Field | Description ||
@@ -170,7 +182,8 @@ If "OnDemand" is used, client should start and finish explicitly.
 
 ## Schedule {#yandex.cloud.video.v1.Schedule}
 
-If "Schedule" is used, stream automatically start and finish at this time.
+Schedule stream type.
+This type of streams start and finish automatically at the specified time.
 
 #|
 ||Field | Description ||

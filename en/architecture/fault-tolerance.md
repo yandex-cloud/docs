@@ -13,7 +13,7 @@ keywords:
 # Recommendations on fault tolerance in {{ yandex-cloud }}
 
 Fault tolerance is the capability of a system to continue its operation in case of any fault in one or multiple components. 
-Faults can be either total or partial. A partial fault is an intermediate state between full operability and a total fault, manifested by a partial rather than full loss of the system’s capacity to perform its functions. Example: 50% loss of network packages during transmission via communication circuits is a partial fault. 
+Faults can be either total or partial. A partial fault is intermediate between a fully operational state and a total fault, manifested by a partial rather than full loss of the system’s capacity to perform its functions. For example: 50% loss of network packages during transmission via communication circuits is a partial fault.
 
 Below are recommendations on designing a fault-tolerant infrastructure in {{ yandex-cloud }}.
 
@@ -47,7 +47,7 @@ High-performance environments with demanding requirements for fault recovery spe
 
 ### Reservation schemes {#reservation-schemes}
 
-Depending on requirements for fault recovery time, two basic schemes are available:
+Depending on fault recovery time requirements, two basic schemes are available:
 
 1. **Cold reserve (active-passive)**:
    * The bulk of the load is processed in one availability zone.
@@ -76,7 +76,7 @@ For both reservation schemes described above, you can only minimize failover tim
 
 Also, note that the automatic mechanism of availability checks may not be triggered in case of partial faults in the availability zone. To recover a service in case of such faults, you must provide a mechanism for manual redistribution of load from the failed zone to healthy ones.
 
-To minimize fault handling time, especially in case of API faults, it is essential to make sure each zone has enough computing resources. This will allow you to use the capacity of the remaining healthy zones for handling the estimated load if an availability zone fails. We recommend you to have at least a 50% reserve above the estimated load for resources in each zone (see the diagram below).
+To minimize fault handling time, especially in case of API faults, it is essential to make sure each zone has enough computing resources. If one availability zone fails, this will allow you to use the capacity of the remaining operational zones to support the estimated load. We recommend you to have at least a 50% reserve above the estimated load for resources in each zone (see the diagram below).
 ![image](../_assets/architecture/fault-tolerance-parameters.svg)
 
 ## Tools for ensuring fault tolerance {#ha-tools}
@@ -103,7 +103,7 @@ To minimize fault handling time, especially in case of API faults, it is essenti
 
 ### {{ network-load-balancer-name }} {#nlb}
 
-The central tool for building fault-tolerant solutions in {{ yandex-cloud }} is a [network load balancer ({{ network-load-balancer-name }})](../network-load-balancer/concepts/), which distributes TCP connections among targets. It can be external, for processing traffic from the internet (listener with a public IP address), or internal, for processing internal network traffic (listener with an internal IP address). Targets are checked for readiness using health checks. Currently, {{ network-load-balancer-name }} does not support disabling traffic in a specific zone.
+The central tool for building fault-tolerant solutions in {{ yandex-cloud }} is a [network load balancer ({{ network-load-balancer-name }})](../network-load-balancer/concepts/), which distributes TCP connections among targets. It can be either external, for processing traffic from the internet (listener with a public IP address), or internal, for processing internal network traffic (listener with a private IP address). Targets are checked for readiness using health checks. Currently, {{ network-load-balancer-name }} does not support disabling traffic in a specific zone.
 
 We recommend checking the targets for readiness frequently enough with an interval of under three seconds. The health check trigger thresholds must be strictly greater than 1. To avoid increased load on targets, the health checks must not require much resources to generate a response. Example of poor practice: requesting the website root page for a health check. Example of good practice: using a separate URI to check connections to the targets of interest (e.g., databases) and overall operability. 
 
@@ -178,11 +178,11 @@ The central scaling tool in {{ yandex-cloud }} is an [instance group](../compute
 
 Here is an [example](../tutorials/infrastructure-management/vm-autoscale/) of deploying an instance group with an autoscaling policy for managing extra load.
 
-For autoscaling, you can use any parameter from {{ yandex-cloud }} {{ monitoring-name }} in addition to the basic parameter (CPU load).
+For autoscaling, you can use any {{ yandex-cloud }} {{ monitoring-name }} parameter in addition to the basic parameter (CPU load).
 
 Recommendations on ensuring tolerance against zone faults:
-   1. Use a separate instance group for each availability zone. Avoid using the same instance group for creating instances in various availability zones, since it can complicate managing them in case one of the zones fails.
-   1. Similarly, autoscaling {{ k8s }} cluster node groups is also based on instance groups.
+   1. Use a separate instance group for each availability zone. Avoid using the same instance group to create instances in different availability zones: it can complicate their management should one of the zones fail.
+   1. {{ k8s }} cluster node group autoscaling is also based on the instance group mechanics.
 
 {% note warning %}
 
@@ -216,23 +216,23 @@ For {{ network-load-balancer-name }}, you can only remove traffic from an availa
    * At the operating system level, restrict access to checks using a firewall.
    * At the application level, configure the application in such a way that it would not respond to health checks.
 
-We recommend using network security groups. To do this, you need to configure separate rules allowing availability checks up to the targets in each availability zone. Deleting a rule allows you to disable traffic in a certain zone. This type of configuration enables you to use network security groups for testing fault tolerance.
+We recommend using network security groups. To do this, you need to configure separate rules allowing availability checks up to the targets in each availability zone. Deleting a rule allows you to disable traffic in a certain zone. This type of configuration enables you to use network security groups for fault tolerance testing.
 
 You should consider the other methods in case the {{ yandex-cloud }} API is unavailable.
 
 ### Application high availability testing {#app-ha-test}
 
-To test an application’s fault tolerance, i.e., its ability to handle traffic when an availability zone fails, you can use this pre-configured [scenario](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb), where the web app is deployed behind the NLB, and the [high availability testing technique](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb?tab=readme-ov-file#sg) that involves isolating a specific app component from the load balancer.
+To analyze an application for fault tolerance, i.e., its ability to process traffic if one of its availability zones fails, you can use this ready-made [scenario](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb), where the web app is deployed behind an NLB, and the [fault tolerance test method](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb?tab=readme-ov-file#sg), in which a portion of the app is disconnected from the load balancer.
 
 You can test your web applications using this technique, if required.
 
-### NLB tagging for a zonal shift {#nlb-zone-shift}
+### NLB tagging to disconnect an availability zone {#nlb-zone-shift}
 
-We are introducing `NLB Zone Shift` to better respond to partial failure incidents.
+We are introducing the `NLB Zone Shift` mechanism to better respond to partial failure incidents.
 
-After successful HA testing of an application, you can tag the relevant NLB with an appropriate flag. This flag enables the {{ yandex-cloud }} support team to shift traffic away from the load balancer in case of partial failures in an availability zone that are not captured by regular [target health checks](../network-load-balancer/concepts/health-check.md), such as issues with external communication circuits.
+After an application is successfully tested for fault tolerance, you can tag the relevant NLB with a special flag. This flag will enable {{ yandex-cloud }} support to cut traffic from the load balancer in response to partial failures in one of its availability zones not captured by regular [target health checks](../network-load-balancer/concepts/health-check.md), e.g., in the event of external communication circuit issues.
 
-To tag an NLB with a zonal shift flag, run this YC CLI command:
+To tag an NLB with a zone shift flag, run this YC CLI command:
 ```bash
 yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
 ``` 
@@ -241,7 +241,7 @@ yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
 ## Monitoring and escalation {#monitoring-escalation}
 
 [Monitoring](../monitoring/concepts/) and [alerts](../monitoring/concepts/alerting/alert.md) are key tools for ensuring fault tolerance. Beyond the basic monitoring tools provided with the cloud services, it is crucial to configure monitoring of business metrics. For example, tracking the number of service users for the recent minutes allows you to detect problems at a high level, even with their source in the infrastructure not tracked. 
-For quick notification about problems, you need to configure an [escalation policy](../monitoring/concepts/alerting/escalations.md), which is currently at the [preview](../overview/concepts/launch-stages.md) stage, in addition to monitoring.
+For quick issue reporting, in addition to monitoring, you should configure an [escalation policy](../monitoring/concepts/alerting/escalations.md) (currently at the [Preview](../overview/concepts/launch-stages.md) stage).
 
 ## Action plan {#action-plan}
 

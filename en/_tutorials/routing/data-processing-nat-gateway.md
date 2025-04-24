@@ -3,6 +3,16 @@
 
 In this tutorial, you will learn how to create a {{ dataproc-name }} cluster and set up subnets and a NAT gateway.
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ dataproc-name }} cluster fee: using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* NAT gateway fee (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+
 ## Create resources {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
@@ -84,7 +94,7 @@ In this tutorial, you will learn how to create a {{ dataproc-name }} cluster and
 
     1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

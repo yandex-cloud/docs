@@ -22,4 +22,6 @@ You can restore access to your resources if you upgrade to the paid version with
 
 You can also stop using {{ yandex-cloud }} resources before the end of the trial period.
 
-{% include [delete-account](../../../_includes/billing/billing-delete-account.md) %}
+{% include [billing-delete-account](../../../_includes/billing/billing-delete-account.md) %}
+
+{% include [billing-delete-account-see-also](../../../_includes/billing/billing-delete-account-see-also.md) %}

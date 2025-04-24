@@ -1,4 +1,6 @@
 ---
+title: Trial period restrictions
+description: In this article, you will learn about quotas and limits that apply to {{ yandex-cloud }} services during your trial period.
 editable: false
 ---
 

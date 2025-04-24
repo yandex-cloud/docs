@@ -64,7 +64,8 @@ Required field. ID of the desktop. ||
         "subject_id": "string",
         "subject_type": "string"
       }
-    ]
+    ],
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -175,6 +176,9 @@ Name of the desktop. ||
 Resources of the desktop. ||
 || network_interfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)** ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}

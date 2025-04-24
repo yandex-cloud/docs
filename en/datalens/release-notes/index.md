@@ -51,3 +51,11 @@ Updated the **Support Center** menu structure in the side navigation.
 
   {% endcut %}
 
+### File connections in secure embeddings {#files-secure-embeddings}
+
+The following connections are now supported for [embedding private objects](../security/private-embedded-objects.md):
+
+* [Files](../operations/connection/create-file.md) (CSV and `xsls` from Excel)
+* [Yandex Documents](../operations/connection/create-yadocs.md)
+* [Google Sheets](../operations/connection/create-google-sheets.md)
+

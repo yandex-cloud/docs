@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Playlist/batchDelete.md
 
 # Video API, gRPC: PlaylistService.BatchDelete
 
-Batch delete playlist.
+Batch delete playlists.
 
 ## gRPC request
 

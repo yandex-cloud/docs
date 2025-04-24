@@ -45,7 +45,7 @@ Required field. ID of the playlist. ||
 ||Field | Description ||
 || fieldMask | **string** (field-mask)
 
-A comma-separated names off ALL fields to be updated.
+Required field. A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
 If the field is specified in `` updateMask `` and no value for that field was sent in the request,
 the field's value will be reset to the default. The default value for most fields is null or 0.

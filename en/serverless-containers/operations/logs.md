@@ -1,11 +1,11 @@
 ---
 title: Viewing the execution log in {{ serverless-containers-full-name }}
-description: You can view monitoring charts in {{ serverless-containers-full-name }} using the management console. To do this, select {{ serverless-containers-name }} and click the container whose execution log you want to view. In the window that opens, go to Logs and specify the time period. The default time period is 1 hour. Container runtime logs are stored for 14 days. Time in the log is shown in UTC.
+description: You can view monitoring charts in {{ serverless-containers-full-name }} using the management console. To do this, select {{ serverless-containers-name }} and click the container whose execution log you want to view. In the window that opens, go to Logs and specify the time period. The default time period is one hour. All times in the log are UTC.
 ---
 
 # Viewing container logs
 
-Container runtime logs are stored for 14 days. All times shown in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 {% list tabs group=instructions %}
 

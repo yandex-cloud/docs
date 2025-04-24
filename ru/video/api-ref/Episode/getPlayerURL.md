@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Episode/getPlayerURL.md
 
 # Video API, REST: Episode.GetPlayerURL
 
-Returns url to the player.
+Get player url.
 
 ## HTTP request
 
@@ -62,7 +62,7 @@ If true, a player interface will be hidden by default. ||
 ||Field | Description ||
 || playerUrl | **string**
 
-Direct link to the video. ||
+Direct link to the episode. ||
 || html | **string**
 
 HTML embed code in Iframe format. ||

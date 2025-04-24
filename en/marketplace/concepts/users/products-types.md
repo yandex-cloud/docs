@@ -1,3 +1,8 @@
+---
+title: Product types in {{ marketplace-full-name }}
+description: In this article, you will learn about the types of products in {{ marketplace-name }} and see their description.
+---
+
 # Product types in {{ marketplace-name }}
 
 | **Product type** | **Description** |

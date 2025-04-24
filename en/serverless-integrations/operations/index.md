@@ -1,5 +1,5 @@
 ---
-title: Guides on using {{ si-full-name }}
+title: How to work with {{ si-full-name }}
 description: In this article, you will learn how to work with {{ si-full-name }} in {{ yandex-cloud }}.
 ---
 
@@ -14,15 +14,29 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 
 ### Managing a workflow {#workflow-control}
 
-* [{#T}](workflows/execution/start.md)
-* [{#T}](workflows/execution/stop.md)
-* [{#T}](workflows/execution/terminate.md)
+* [{#T}](workflows/workflow/create-constructor.md)
+* [{#T}](workflows/workflow/create-yawl.md)
+* [{#T}](workflows/workflow/update.md)
+* [{#T}](workflows/workflow/network-add.md)
+* [Adding a label](workflows/workflow/label-add.md)
+* [Updating a label](workflows/workflow/label-update.md)
+* [Deleting a label](workflows/workflow/label-delete.md)
+* [{#T}](workflows/workflow/logs-read.md)
+* [{#T}](workflows/workflow/logs-write.md)
+* [{#T}](workflows/workflow/monitoring.md)
+* [{#T}](workflows/workflow/delete.md)
 
 ### Getting the workflow execution information {#execution-get-info}
 
 * [{#T}](workflows/execution/get-list.md)
 * [{#T}](workflows/execution/get-info.md)
 * [{#T}](workflows/execution/get-history.md)
+
+### Managing a workflow {#workflow-control}
+
+* [{#T}](workflows/execution/start.md)
+* [{#T}](workflows/execution/stop.md)
+* [{#T}](workflows/execution/terminate.md)
 
 ### Getting additional information {#get-additional-info}
 

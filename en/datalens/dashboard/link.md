@@ -14,13 +14,14 @@ You can use links to filter the values of selectors and charts. For example, if 
 
 The field used by the selector to filter on must be included in the dataset used to construct a chart. Otherwise, the link will not work. For more information, see [{#T}](../concepts/data-join.md).
 
-The link type determines how values in selectors and charts are filtered. The type is set in the links window in dashboard edit mode.
+The link type determines how values in selectors and charts are filtered. The type is set in the links window in dashboard edit mode. For information on how to configure a link, see [{#T}](../operations/dashboard/dashboard-links.md).
+
 You can use the following types of links for a widget pair:
 
-* **Two-way**: Widgets influence each other both ways.
+* **Two-way**: Two-way influence between the widgets.
 * **Incoming**: Incoming influence.
 * **Outgoing**: Outgoing influence.
-* **Not linked**: Widgets are not linked and have no influence on each other.
+* **Not linked**: Widgets are not linked together and have no mutual influence.
 
 {% note warning %}
 
@@ -30,10 +31,10 @@ You cannot create a link with [{#T}](./widget.md#text) and [{#T}](./widget.md#ti
 
 Some widgets cannot influence other widgets. The table below shows possible types of links between widgets:
 
-| Affects/Affected | Selector | Charts |
+Affects/Affected | Selector | Chart
 ----- | ----- | -----
-| **Selector** | Two-way<br/>Incoming<br/>Outgoing<br/>Not linked | Outgoing<br/>Not linked |
-| **Chart** | Incoming<br/>Not linked | — |
+**Selector** | Two-way<br/>Incoming<br/>Outgoing<br/>Not linked | Outgoing<br/>Not linked
+**Chart**| Incoming<br/>Not linked | —
 
 {% note info %}
 
@@ -57,7 +58,7 @@ You can add multiple charts to a single widget on the dashboard. The link betwee
 
 An alias is a link between fields of different datasets defining how widgets influence each other when linked.
 
-Aliases allow you to link widgets that are based on different datasets. For example, if you create an alias using the `[Region]` and `[Country]` fields from different datasets, a selector by the `[Region]` field from one dataset will filter data in a chart with the `[Country]` field of another dataset.
+Aliases allow you to link widgets that are based on different datasets. For example, if you create an alias using the `[Region]` and `[Country]` fields from different datasets, the `[Region]` field selector of one dataset will filter the chart data using the `[Country]` field of the other dataset.
 
 {% note warning %}
 
@@ -72,6 +73,9 @@ Creating aliases is required when you need to:
 * Establish links between a selector of the **Based on dataset** type from one dataset and charts from another dataset, so that the selector values filter the values in the charts.
 
 * Establish links between a selector of the **Manual input** type and other selectors, so that the values of one selector filter the list of available values of another selector.
+
+
+{% include [datalens-chart-editor-js-selector-parameters](../../_includes/datalens/datalens-chart-editor-js-selector-parameters.md) %}
 
 
 You can specify an alias for a pair of linked widgets. In this case:

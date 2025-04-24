@@ -26,7 +26,7 @@ Updates the specified access key.
 || access_key_id | **string**
 
 Required field. ID of the AccessKey resource to update.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/api-ref/grpc/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/grpc/AccessKey/list#List) request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Accesskey resource are going to be updated. ||

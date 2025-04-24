@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificat
 
 Returns the specified certificate.
 
-To get the list of available certificates, make a [List](/docs/organization/api-ref/grpc/Certificate/list#List) request.
+To get the list of available certificates, make a [List](/docs/organization/saml/api-ref/grpc/Certificate/list#List) request.
 
 ## gRPC request
 
@@ -26,7 +26,7 @@ To get the list of available certificates, make a [List](/docs/organization/api-
 || certificate_id | **string**
 
 ID of the certificate to return.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/api-ref/grpc/Certificate/list#List) request. ||
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/grpc/Certificate/list#List) request. ||
 |#
 
 ## Certificate {#yandex.cloud.organizationmanager.v1.saml.Certificate}

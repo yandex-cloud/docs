@@ -299,6 +299,20 @@ items:
                 href: api-ref/grpc/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/grpc/Resource/getProviderCName.md
+          - name: Shielding
+            items:
+              - name: Overview
+                href: api-ref/grpc/Shielding/index.md
+              - name: Activate
+                href: api-ref/grpc/Shielding/activate.md
+              - name: Deactivate
+                href: api-ref/grpc/Shielding/deactivate.md
+              - name: Get
+                href: api-ref/grpc/Shielding/get.md
+              - name: Update
+                href: api-ref/grpc/Shielding/update.md
+              - name: ListAvailableLocations
+                href: api-ref/grpc/Shielding/listAvailableLocations.md
       - name: REST
         items:
           - name: Overview

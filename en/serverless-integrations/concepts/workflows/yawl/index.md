@@ -28,7 +28,7 @@ Field name | Type | Required | Description
 --- | --- | --- | ---
 `title` | `string` | No | Step name.
 `description` | `string` | No | Step description.
-`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)<br/>[Workflow](integration/workflow.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)) | Yes | Step specification. Possible parameters depend on selected `<step_type>`.
+`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Disk](integration/disk.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)<br/>[Workflow](integration/workflow.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)\|<br/>[While](management/while.md)) | Yes | Step specification. Possible parameters depend on selected `<step_type>`.
 
 ## Integration steps {#integration-steps}
 
@@ -44,6 +44,7 @@ Field name | Type | Required | Description
 * [Tracker](integration/tracker.md)
 * [Postbox](integration/postbox.md)
 * [Workflow](integration/workflow.md)
+* [Disk](integration/disk.md)
 
 ### Common fields {#common}
 
@@ -56,6 +57,7 @@ Field name | Type | Required | Default value | Description
 `next` | `string` | No | No | ID of the next step.
 `retryPolicy` | [RetryPolicy](#retrypolicy) | No | `defaultRetryPolicy`, if set on the [workflow](#workflow) level | Retry policy applied if a step throws an error during execution.
 `timeout` | `Duration` | No | 15 minutes | Maximum step execution time.
+`catch` | [CatchRule[]](#catchrule) | No | `[]` | Transition rules for errors encountered during a step. The rules are applied one by one following the `retryPolicy`.
 
 ### RetryPolicy object {#retrypolicy}
 
@@ -68,6 +70,22 @@ Field name | Type | Required | Default value | Threshold value | Description
 `retryCount` | `int` | No | `0` | `100` | Maximum number of retries.
 `maxDelay` | `Duration` | No | `1s` | `1h` | Maximum delay between retries.
 
+### CatchRule object {#catchrule}
+
+Field name | Type | Required | Default value | Threshold value | Description
+--- | --- | --- | --- |---| ---
+`errorList` | `WorkflowError[]` | Yes | `[]` | — | List of errors to apply the transition rule to. For more information, see [{#T}](../execution.md#errors).
+`errorListMode` | `INCLUDE/EXCLUDE` | No | `INCLUDE` | — | Error selection mode: `INCLUDE` to apply the transition rule to errors from `error_list`; `EXCLUDE`, to any error except those from `error_list`.
+`output` | `string` | Yes | No | — | A jq expression to filter the step outputs added into the workflow state. Input data for filtering: an [ErrorInfo](#errorinfo) object. If a step throws an error covered by a transition rule (`catch`), the _jq_ expression specified in the `output` field of the entire step is not applied.
+`next` | `string` | Yes | No | — | ID of the next step.
+
+### ErrorInfo object {#errorinfo}
+
+Field name | Type | Description
+--- | --- | ---
+`error` | `WorkflowError` | Error type.
+`message` | `string` | Error text message.
+
 ## Control steps {#management-steps}
 
 * [Switch](management/switch.md)
@@ -77,6 +95,7 @@ Field name | Type | Required | Default value | Threshold value | Description
 * [Fail](management/fail.md)
 * [NoOp](management/noop.md)
 * [Wait](management/wait.md)
+* [While](management/while.md)
 
 ## Specification example {#spec-example}
 

@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/get.md
 
 Returns the specified access key.
 
-To get the list of available access keys, make a [List](/docs/iam/api-ref/AccessKey/list#List) request.
+To get the list of available access keys, make a [List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
 || accessKeyId | **string**
 
 Required field. ID of the AccessKey resource to return.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/api-ref/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.awscompatibility.AccessKey}

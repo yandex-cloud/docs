@@ -1,8 +1,8 @@
-> 2023 × (1 320,00&nbsp;₽ / 1 000 000) = 2,67&nbsp;₽
+> 2023 × ({{ sku|RUB|speechkit.tts_gpu.v1|string }} / 1 000 000) = {% calc [currency=RUB] round(2023 × ({{ sku|RUB|speechkit.tts_gpu.v1|number }} / 1 000 000) × 100) / 100 %}
 >
-> Итого: 2,67&nbsp;₽.
+> Итого: {% calc [currency=RUB] round(2023 × ({{ sku|RUB|speechkit.tts_gpu.v1|number }} / 1 000 000) × 100) / 100 %}.
   
 Где:
 
-* 1 320,00&nbsp;₽ — стоимость за 1 млн символов.
-* 1 320,00&nbsp;₽ / 1 000 000 — стоимость за 1 символ.
+* {{ sku|RUB|speechkit.tts_gpu.v1|string }} — стоимость за 1 млн символов.
+* {{ sku|RUB|speechkit.tts_gpu.v1|string }} / 1 000 000 — стоимость за 1 символ.

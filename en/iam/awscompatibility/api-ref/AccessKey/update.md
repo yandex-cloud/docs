@@ -20,7 +20,7 @@ PATCH https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyI
 || accessKeyId | **string**
 
 Required field. ID of the AccessKey resource to update.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/api-ref/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request. ||
 |#
 
 ## Body parameters {#yandex.cloud.iam.v1.awscompatibility.UpdateAccessKeyRequest}

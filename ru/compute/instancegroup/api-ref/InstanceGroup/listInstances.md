@@ -20,7 +20,7 @@ GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}/i
 || instanceGroupId | **string**
 
 Required field. ID of the InstanceGroup resource to list instances for.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest}

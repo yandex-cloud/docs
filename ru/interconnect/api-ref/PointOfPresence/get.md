@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/cic/v1/api-ref/PointOfPresence/get.md
 
 Returns the specified PointOfPresence resource.
 
-To get the list of available PointOfPresence resources, make a [List](/docs/cic/workload/api-ref/PointOfPresence/list#List) request.
+To get the list of available PointOfPresence resources, make a [List](/docs/interconnect/api-ref/PointOfPresence/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://cic.{{ api-host }}/cic/v1/pointOfPresences/{pointOfPresenceId}
 || pointOfPresenceId | **string**
 
 Required field. ID of the PointOfPresence resource to return.
-To get the pointOfPresence ID use a [PointOfPresenceService.List](/docs/cic/workload/api-ref/PointOfPresence/list#List) request. ||
+To get the pointOfPresence ID use a [PointOfPresenceService.List](/docs/interconnect/api-ref/PointOfPresence/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.PointOfPresence}

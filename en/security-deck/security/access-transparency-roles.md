@@ -18,3 +18,11 @@ With {{ atr-name }} service roles, you can set up the module and view analytical
 #### access-transparency.admin {#access-transparency-admin}
 
 {% include [access-transparency.admin](../../_roles/access-transparency/admin.md) %}
+
+#### access-transparency.billingProvider {#access-transparency-billingProvider}
+
+{% include [access-transparency.billingProvider](../../_roles/access-transparency/billingProvider.md) %}
+
+#### access-transparency.subscriptionManager {#access-transparency-subscriptionManager}
+
+{% include [access-transparency.subscriptionManager](../../_roles/access-transparency/subscriptionManager.md) %}

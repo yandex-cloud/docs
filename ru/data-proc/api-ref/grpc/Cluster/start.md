@@ -75,7 +75,8 @@ To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/C
             ],
             "timeout": "int64"
           }
-        ]
+        ],
+        "oslogin_enabled": "bool"
       }
     },
     "health": "Health",
@@ -313,6 +314,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initialization_actions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
+|| oslogin_enabled | **bool**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction}

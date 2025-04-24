@@ -7,7 +7,7 @@ description: Follow this guide to create an API gateway.
 
 Before you start, prepare an API specification file based on the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) standard.
 
-{% cut "Below is an example of the `hello-world.yaml` specification" %}
+{% cut "Example of the `hello-world.yaml` specification file" %}
 
 ```yaml
 openapi: "3.0.0"
@@ -50,10 +50,11 @@ paths:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an [API gateway](../concepts/index.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Enter a name for the API gateway in the **{{ ui-key.yacloud.common.name }}** field.
-  1. (Optional) In the **{{ ui-key.yacloud.common.description }}** field, enter a description for the API gateway.
+  1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, enter a description for the API gateway.
+  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_execution-timeout }}** field, specify the execution timeout. The value must not exceed the set [limit](../concepts/limits.md#api-gw-limits).
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the text of the [OpenAPI specifications](https://en.wikipedia.org/wiki/OpenAPI_Specification).
 
       {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}
@@ -68,19 +69,27 @@ paths:
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To create an [API gateway](../concepts/index.md):
-  1. View a description of the CLI command for creating an API gateway:
+  1. View the description of the CLI command for creating an API gateway:
 
      ```bash
      {{ yc-serverless }} api-gateway create --help
      ```
 
-  1. Specify API gateway parameters in the create command (the list of supported parameters in the example is not exhaustive):
+  1. Specify API gateway parameters in the create command (not all the supported parameters are listed):
 
      ```bash
      {{ yc-serverless }} api-gateway create \
        --name <API_gateway_name> \
+       --execution-timeout <request_execution_timeout> \
        --spec=<specification_file_path>
      ```
+
+     Where:
+     * `--name`: API gateway name:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+     * `--execution-timeout`: Request execution timeout. The value is specified in seconds and must not exceed the set [limit](../concepts/limits.md#api-gw-limits). This is an optional parameter. The default value is `300` seconds.
+     * `--spec`: Path to the specification file you created earlier.
 
 - {{ TF }} {#tf}
 

@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/iam/v1/workload/workload-identity/api-ref/grpc/Fede
 
 Returns the specified federated credential.
 
-To get the list of available federated credentials, make a [List](/docs/iam/workload-identity/api-ref/grpc/FederatedCredential/list#List) request.
+To get the list of available federated credentials, make a [List](/docs/iam/workload/workload-identity/api-ref/grpc/FederatedCredential/list#List) request.
 
 ## gRPC request
 
@@ -26,7 +26,7 @@ To get the list of available federated credentials, make a [List](/docs/iam/work
 || federated_credential_id | **string**
 
 Required field. ID of the federated credential to return.
-To get the federated credential ID, make a [FederatedCredentialService.List](/docs/iam/workload-identity/api-ref/grpc/FederatedCredential/list#List) request. ||
+To get the federated credential ID, make a [FederatedCredentialService.List](/docs/iam/workload/workload-identity/api-ref/grpc/FederatedCredential/list#List) request. ||
 |#
 
 ## FederatedCredential {#yandex.cloud.iam.v1.workload.FederatedCredential}

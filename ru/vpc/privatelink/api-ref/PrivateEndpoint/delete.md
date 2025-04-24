@@ -21,7 +21,7 @@ DELETE https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}
 
 Required field. ID of the private endpoint to delete.
 
-To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/api-ref/PrivateEndpoint/list#List) request. ||
+To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

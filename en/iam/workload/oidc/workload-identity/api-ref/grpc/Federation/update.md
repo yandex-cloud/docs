@@ -33,7 +33,7 @@ Updates the specified OIDC workload identity federation.
 || federation_id | **string**
 
 Required field. ID of the OIDC workload identity federation to update.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload-identity/api-ref/grpc/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the OIDC workload identity federation are going to be updated. ||

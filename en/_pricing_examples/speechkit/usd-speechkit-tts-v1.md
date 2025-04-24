@@ -1,8 +1,8 @@
-> 2,023 × ($10.560000 / 1,000,000) = $0.020000
+> 2,023 × ({{ sku|USD|speechkit.tts_gpu.v1|string }} / 1,000,000) = {% calc [currency=USD] 2023 × ({{ sku|USD|speechkit.tts_gpu.v1|number }} / 1 000 000) %}
 >
-> Total: $0,020000
+> Total: {% calc [currency=USD] 2023 × ({{ sku|USD|speechkit.tts_gpu.v1|number }} / 1 000 000) %}
 
 Where:
 
-* $10.560000: Cost per one million characters.
-* $10.560000 / 1,000,000: Cost per one character.
+* {{ sku|USD|speechkit.tts_gpu.v1|string }}: Cost per one million characters.
+* {{ sku|USD|speechkit.tts_gpu.v1|string }} / 1,000,000: Cost per one character.

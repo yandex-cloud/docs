@@ -465,16 +465,28 @@ items:
         href: container-infrastructure/serial-port.md
       - name: '{{ managed-k8s-name }}'
         items:
+          - name: Creating a new {{ k8s }} project
+            href: container-infrastructure/new-kubernetes-project.md
           - name: Creating a {{ k8s }} cluster with no internet access
             href: container-infrastructure/k8s-cluster-with-no-internet.md
+          - name: Running workloads with GPUs
+            href: container-infrastructure/running-pod-gpu.md
           - name: Using node groups with GPUs and no pre-installed drivers
             href: container-infrastructure/driverless-gpu.md
+          - name: Setting up Time-Slicing GPUs
+            href: container-infrastructure/time-slicing-gpu.md
+          - name: Migrating resources to a different availability zone
+            href: container-infrastructure/migration-to-an-availability-zone.md
           - name: Encrypting secrets in {{ managed-k8s-name }}
             href: container-infrastructure/kms-k8s.md
           - name: Setting up and testing scaling
             items:
               - name: Horizontal application scaling in a cluster
                 href: container-infrastructure/autoscaling.md
+              - name: Vertical application scaling in a cluster
+                href: container-infrastructure/vpa-autoscaling.md
+              - name: Updating the Metrics Server parameters
+                href: container-infrastructure/metrics-server.md
               - name: Deploying and load testing a gRPC service with scaling
                 href: container-infrastructure/loadtesting-grpc-autoscaling.md
           - name: Installing NGINX
@@ -507,10 +519,20 @@ items:
                 href: container-infrastructure/custom-dns.md
               - name: DNS autoscaling based on cluster size
                 href: container-infrastructure/dns-autoscaler.md
+              - name: Setting up NodeLocal DNS Cache
+                href: container-infrastructure/node-local-dns.md
               - name: DNS Challenge for {{ lets-encrypt }} certificates
                 href: container-infrastructure/dnschallenge.md
+          - name: Backups
+            items:
+              - name: Working with {{ compute-name }} snapshots
+                href: container-infrastructure/pvc-snapshot-restore.md
           - name: Monitoring
             items:
+              - name: >-
+                  Cluster monitoring with {{ prometheus-name }} and {{
+                  grafana-name }}
+                href: container-infrastructure/prometheus-grafana-monitoring.md
               - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
                 href: container-infrastructure/filebeat-oss-monitoring.md
           - name: Using {{ marketplace-name }} products

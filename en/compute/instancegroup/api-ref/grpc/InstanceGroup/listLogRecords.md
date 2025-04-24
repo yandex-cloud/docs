@@ -27,7 +27,7 @@ Lists logs for the specified instance group.
 || instance_group_id | **string**
 
 Required field. ID of the InstanceGroup resource to list logs for.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/grpc/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/grpc/InstanceGroup/list#List) request. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
@@ -42,7 +42,7 @@ returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/grpc/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field. ||
+Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/instancegroup/api-ref/grpc/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field. ||
 |#
 
 ## ListInstanceGroupLogRecordsResponse {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse}

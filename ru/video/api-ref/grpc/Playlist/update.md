@@ -38,7 +38,7 @@ Update playlist.
 Required field. ID of the playlist. ||
 || field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
-Field mask that specifies which fields of the playlist are going to be updated. ||
+Required field. Field mask that specifies which fields of the playlist are going to be updated. ||
 || title | **string**
 
 Playlist title. ||

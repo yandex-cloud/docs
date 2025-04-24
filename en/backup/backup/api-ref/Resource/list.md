@@ -57,7 +57,12 @@ Type of resource. Could be compute VM or baremetal server.
       "isActive": "boolean",
       "initStatus": "string",
       "metadata": "string",
-      "type": "string"
+      "type": "string",
+      "tenantInfo": {
+        "folderId": "string",
+        "personalTenantId": "string",
+        "userId": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -165,4 +170,22 @@ Type of resource. Could be compute VM or baremetal server.
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
 - `BMS`: Resource is baremetal server ||
+|| tenantInfo | **[TenantInfo](#yandex.cloud.backup.v1.TenantInfo)**
+
+Additional info abount tenant which resource belongs to ||
+|#
+
+## TenantInfo {#yandex.cloud.backup.v1.TenantInfo}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Folder ID ||
+|| personalTenantId | **string**
+
+Personal tenant id from backup provider ||
+|| userId | **string**
+
+User id from provider ||
 |#

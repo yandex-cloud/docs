@@ -1,6 +1,11 @@
 ---
 title: '{{ assistant-api }}'
 description: '{{ assistant-api }} is a tool for creating AI assistants. You can use it to set up an RAG scenario and develop an assistant for querying your knowledge base.'
+keywords:
+  - keyword: RAG
+  - keyword: AI assistant
+  - keyword: AI assistant
+  - keyword: chat bot
 ---
 
 # {{ assistant-api }}
@@ -81,16 +86,31 @@ If the AI assistant uses search indexes with external information sources when g
 
 When using {{ ml-sdk-name }}, source citations are available in the `citations` property of the `run` object. To get the source citations via the API, use the run ID and initiate the [Run.Get](../../runs/api-ref/Run/get.md) REST API method or the [RunService/Get](../../runs/api-ref/grpc/Run/get.md) gRPC API call. The section with source citations is also included in all assistant messages stored in the thread.
 
-The `citations` section containing source citations has the following structure:
+#### Structure of the citations section {#citations-structure}
+
+The `citations` section that features links to the sources has the following structure:
+
 * `sources`: Array consisting of one or more fragments of source files that were used to generate the response:
 
     * `chunk`: Information on the file fragment that was used to generate the response:
 
-        * `searchIndex`: Section of fields with information about the search index that includes the source file fragment used. This section contains the index ID, type, and other metadata, as well as information about index settings.
-        * `sourceFile`: Section of fields with information about the source file, whose fragment was used to generate the response. This section contains the file ID and other metadata.
+        * `searchIndex`: Section of fields with information about the search index that includes the source file fragment used. This section contains the ID, type, metadata (`labels`), and other information about the index and its settings.
+        * `sourceFile`: Section of fields with information about the source file, whose fragment was used to generate the response. This section contains the ID, metadata (`labels`), and other information about the source file.
         * `content`: Section of fields with the fragment text that was used to generate the response.
 
 To learn more about the `citations` section structure, see the [API reference](../../runs/api-ref/Run/create.md#yandex.cloud.ai.assistants.v1.runs.Run).
+
+#### Source file and search index metadata {#labels}
+
+For more efficient usage of source confirmation and data returned in the `citations` section, you can specify _metadata_ for each source file and search index. You can use metadata to apply additional filters to results or to give more detailed and meaningful names and descriptions to the sources.
+
+Source file metadata is specified when creating the files using the [File.Create](../../files/api-ref/File/create.md) REST API method, [FileService/Create](../../files/api-ref/grpc/File/create.md) gRPC API call, or [{{ ml-sdk-full-name }}](../../sdk/index.md). Source file metadata is provided as objects containing `<key>:<value>` pairs.
+
+Search index metadata is specified when creating the indexes using the [SearchIndex.Create](../../searchindex/api-ref/SearchIndex/create.md) REST API method, [SearchIndexService/Create](../../searchindex/api-ref/grpc/SearchIndex/create.md) gRPC API call, or [{{ ml-sdk-full-name }}](../../sdk/index.md). Search index metadata is provided as objects containing `<key>:<value>` pairs.
+
+The metadata of each source file and search index may comprise one or more `<key>:<value>` pairs.
+
+For more information on using source file and search index metadata, see [{#T}](../../operations/assistant/create-with-labels.md).
 
 {% note tip %}
 
@@ -104,4 +124,5 @@ For examples of how to work with source citations using the SDK and API, and for
 
 * [{#T}](../../operations/assistant/create.md)
 * [{#T}](../../operations/assistant/create-with-searchindex.md)
+* [{#T}](../../operations/assistant/create-with-labels.md)
 * [{#T}](../../operations/assistant/request-chunked-response.md)

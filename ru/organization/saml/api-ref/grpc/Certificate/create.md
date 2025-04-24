@@ -27,7 +27,7 @@ Creates a certificate in the specified federation.
 || federation_id | **string**
 
 ID of the federation to add new certificate.
-To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/api-ref/grpc/Federation/list#List) request. ||
+To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request. ||
 || name | **string**
 
 Name of the certificate.

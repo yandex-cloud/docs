@@ -43,7 +43,8 @@ To create a Google Sheets connection:
 
    {% note info %}
 
-   To properly identify the data types, select **Format** → **Numbers** in the Google Sheets menu and set the column cell format.
+   * To properly identify the data types, select **Format** → **Numbers** in the Google Sheets menu and set the column cell format.
+   * If a filter is enabled in Google Sheets table, only data matching the filter criteria will be displayed in connections and datasets based on it.
 
    {% endnote %}
 
@@ -57,7 +58,7 @@ You can add, rename, and delete files in the connection.
 
 
 
-{% cut "What do I do if a Google Sheets spreadsheet is not working properly?" %}
+{% cut "What do I do if a Google Sheets spreadsheet works incorrectly?" %}
 
 If a Google Sheets spreadsheet contains empty cells, {{ datalens-name }} may incorrectly display column headers and miss the first several rows.
 
@@ -85,11 +86,11 @@ To quickly populate empty cells in a Google Sheets spreadsheet:
 
 When creating a connection to Google Sheets, keep in mind the following limitations:
 
-* Maximum number of Google Sheets sheets per connection: 10. When creating a connection, all sheets will be loaded, but you can only select ten of them to work with at the same time.
+* Maximum number of Google Sheets per connection: 10. When creating a connection, all sheets will be loaded, but you can only select ten of them to work with at the same time.
 * Maximum size per sheet: 200 MB.
-
+  
   {% note info %}
-
+  
   Technically, you cannot check the size of an individual sheet in the connection. If the limit is exceeded, you will get a message saying the data could not be loaded.
 
   {% endnote %}

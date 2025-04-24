@@ -42,7 +42,6 @@ description: Различные сценарии использования {{ c
 * [{#T}](bastion.md)
 * [{#T}](route-switcher.md)
 * [{#T}](site-to-site-openvpn.md)
-* [{#T}](gpu-cluster-deepseek.md)
 * [{#T}](mlflow-datasphere.md)
 * [{#T}](install-gitlab-runner.md)
 * [{#T}](mgp-config-server-for-s3.md)
@@ -67,3 +66,8 @@ description: Различные сценарии использования {{ c
 * [{#T}](rds.md)
 * [{#T}](mssql-alwayson-lb.md)
 * [{#T}](rds-gw.md)
+
+## GPU {#gpu}
+
+* [{#T}](gpu-cluster-deepseek.md)
+* [{#T}](vllm-gemma-gpu.md)

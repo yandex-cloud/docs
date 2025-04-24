@@ -20,7 +20,7 @@ PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/saml/f
 || federationId | **string**
 
 Required field. ID of the federation to update.
-To get the federation ID, make a [FederationService.List](/docs/organization/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest}

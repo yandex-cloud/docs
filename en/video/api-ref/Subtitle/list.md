@@ -19,7 +19,8 @@ GET https://video.{{ api-host }}/video/v1/subtitles
 ||Field | Description ||
 || pageSize | **string** (int64)
 
-The maximum number of the results per page to return. ||
+The maximum number of the results per page to return.
+Default value: 100. ||
 || pageToken | **string**
 
 Page token for getting the next page of the result. ||
@@ -42,6 +43,7 @@ Includes only one of the fields `videoId`. ||
       "language": "string",
       "label": "string",
       "status": "string",
+      "sourceType": "string",
       "filename": "string",
       "createdAt": "string",
       "updatedAt": "string",
@@ -71,7 +73,9 @@ Token for getting the next page. ||
 ID of the subtitle. ||
 || language | **string**
 
-Subtitle language represented as a three-letter ISO 639-3 code. ||
+Subtitle language in any of the following formats:
+* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
+* two-letter code according to ISO 639-1 ||
 || label | **string**
 
 Subtitle caption to be displayed on screen during video playback. ||
@@ -82,6 +86,13 @@ Subtitle status.
 - `SUBTITLE_STATUS_UNSPECIFIED`: Subtitle status unspecified.
 - `WAIT_UPLOADING`: Waiting for all the bytes to be loaded.
 - `UPLOADED`: Uploading is complete. ||
+|| sourceType | **enum** (SubtitleSourceType)
+
+Source type.
+
+- `SUBTITLE_SOURCE_TYPE_UNSPECIFIED`: Subtitle source type unspecified.
+- `MANUAL`: Manually uploaded subtitle.
+- `GENERATED`: Automatically generated subtitle. ||
 || filename | **string**
 
 Subtitle filename. ||

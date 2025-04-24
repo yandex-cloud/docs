@@ -30,7 +30,16 @@ Required field. ID of the bus to update. ||
   "name": "string",
   "description": "string",
   "labels": "object",
-  "deletionProtection": "boolean"
+  "deletionProtection": "boolean",
+  "loggingEnabled": "boolean",
+  "logOptions": {
+    // Includes only one of the fields `logGroupId`, `folderId`
+    "logGroupId": "string",
+    "folderId": "string",
+    // end of the list of possible fields
+    "minLevel": "string",
+    "serviceAccountId": "string"
+  }
 }
 ```
 
@@ -58,6 +67,62 @@ New labels of the bus. ||
 || deletionProtection | **boolean**
 
 New flag that disallow deletion of the bus. ||
+|| loggingEnabled | **boolean**
+
+Is logging from the bus enabled. ||
+|| logOptions | **[LogOptions](#yandex.cloud.serverless.eventrouter.v1.LogOptions)**
+
+New options for logging from the bus. ||
+|#
+
+## LogOptions {#yandex.cloud.serverless.eventrouter.v1.LogOptions}
+
+#|
+||Field | Description ||
+|| logGroupId | **string**
+
+Entry will be written to log group resolved by ID.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Log entries destination. ||
+|| folderId | **string**
+
+Entry will be written to default log group for specified folder.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Log entries destination. ||
+|| minLevel | **enum** (Level)
+
+Minimum log entry level.
+
+See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+
+- `LEVEL_UNSPECIFIED`: Default log level.
+
+  Equivalent to not specifying log level at all.
+- `TRACE`: Trace log level.
+
+  Possible use case: verbose logging of some business logic.
+- `DEBUG`: Debug log level.
+
+  Possible use case: debugging special cases in application logic.
+- `INFO`: Info log level.
+
+  Mostly used for information messages.
+- `WARN`: Warn log level.
+
+  May be used to alert about significant events.
+- `ERROR`: Error log level.
+
+  May be used to alert about errors in infrastructure, logic, etc.
+- `FATAL`: Fatal log level.
+
+  May be used to alert about unrecoverable failures and events. ||
+|| serviceAccountId | **string**
+
+Required field. Service account, which has permission to write to destination ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -92,7 +157,16 @@ New flag that disallow deletion of the bus. ||
     "description": "string",
     "labels": "object",
     "deletionProtection": "boolean",
-    "status": "string"
+    "status": "string",
+    "loggingEnabled": "boolean",
+    "logOptions": {
+      // Includes only one of the fields `logGroupId`, `folderId`
+      "logGroupId": "string",
+      "folderId": "string",
+      // end of the list of possible fields
+      "minLevel": "string",
+      "serviceAccountId": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -236,4 +310,60 @@ Status of the bus.
 - `CREATING`
 - `ACTIVE`
 - `DELETING` ||
+|| loggingEnabled | **boolean**
+
+Is logging from the bus enabled. ||
+|| logOptions | **[LogOptions](#yandex.cloud.serverless.eventrouter.v1.LogOptions2)**
+
+Options for logging from the bus. ||
+|#
+
+## LogOptions {#yandex.cloud.serverless.eventrouter.v1.LogOptions2}
+
+#|
+||Field | Description ||
+|| logGroupId | **string**
+
+Entry will be written to log group resolved by ID.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Log entries destination. ||
+|| folderId | **string**
+
+Entry will be written to default log group for specified folder.
+
+Includes only one of the fields `logGroupId`, `folderId`.
+
+Log entries destination. ||
+|| minLevel | **enum** (Level)
+
+Minimum log entry level.
+
+See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+
+- `LEVEL_UNSPECIFIED`: Default log level.
+
+  Equivalent to not specifying log level at all.
+- `TRACE`: Trace log level.
+
+  Possible use case: verbose logging of some business logic.
+- `DEBUG`: Debug log level.
+
+  Possible use case: debugging special cases in application logic.
+- `INFO`: Info log level.
+
+  Mostly used for information messages.
+- `WARN`: Warn log level.
+
+  May be used to alert about significant events.
+- `ERROR`: Error log level.
+
+  May be used to alert about errors in infrastructure, logic, etc.
+- `FATAL`: Fatal log level.
+
+  May be used to alert about unrecoverable failures and events. ||
+|| serviceAccountId | **string**
+
+Required field. Service account, which has permission to write to destination ||
 |#

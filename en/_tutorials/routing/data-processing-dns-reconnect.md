@@ -11,6 +11,17 @@ To set up DNS for your {{ dataproc-name }} cluster:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ dataproc-name }} cluster fee (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* NAT gateway fee (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Getting started {#deploy-infrastructure}
 
 Set up your infrastructure:
@@ -89,7 +100,7 @@ Set up your infrastructure:
         * `bucket`: Bucket name.
 
     1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

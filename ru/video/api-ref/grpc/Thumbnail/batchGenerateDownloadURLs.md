@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/batchGenerateDownlo
 
 # Video API, gRPC: ThumbnailService.BatchGenerateDownloadURLs
 
-Generate urls for download images.
+Generate urls for downloading images.
 
 ## gRPC request
 
@@ -39,7 +39,15 @@ List of thumbnails IDs. ||
   "download_urls": [
     {
       "thumbnail_id": "string",
-      "download_url": "string"
+      "original_url": "string",
+      "scaled_urls": [
+        {
+          "url": "string",
+          "max_width": "int64",
+          "max_height": "int64",
+          "image_format": "ImageFormat"
+        }
+      ]
     }
   ]
 }
@@ -59,7 +67,32 @@ List of download urls. ||
 || thumbnail_id | **string**
 
 ID of the thumbnail. ||
-|| download_url | **string**
+|| original_url | **string**
+
+Original download url. ||
+|| scaled_urls[] | **[ScaledURL](#yandex.cloud.video.v1.ThumbnailDownloadURL.ScaledURL)**
+
+List of download urls, one per each available image size. ||
+|#
+
+## ScaledURL {#yandex.cloud.video.v1.ThumbnailDownloadURL.ScaledURL}
+
+#|
+||Field | Description ||
+|| url | **string**
 
 Download url. ||
+|| max_width | **int64**
+
+Maximum width of the rectangle to inscribe the thumbnail into. ||
+|| max_height | **int64**
+
+Maximum height of the rectangle to inscribe the thumbnail into. ||
+|| image_format | enum **ImageFormat**
+
+Image format.
+
+- `IMAGE_FORMAT_UNSPECIFIED`: Image format unspecified.
+- `JPEG`: JPEG image format.
+- `WEBP`: WebP image format. ||
 |#

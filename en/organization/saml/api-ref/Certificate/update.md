@@ -20,7 +20,7 @@ PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/saml/c
 || certificateId | **string**
 
 Required field. ID of the certificate to update.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/api-ref/Certificate/list#List) request. ||
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/Certificate/list#List) request. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.saml.UpdateCertificateRequest}

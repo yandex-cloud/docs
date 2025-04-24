@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/Partner/get.md
 
 Returns the specified Partner resource.
 
-To get the list of available Partner resources, make a [List](/docs/cic/workload/api-ref/grpc/Partner/list#List) request.
+To get the list of available Partner resources, make a [List](/docs/interconnect/api-ref/grpc/Partner/list#List) request.
 
 ## gRPC request
 
@@ -26,7 +26,7 @@ To get the list of available Partner resources, make a [List](/docs/cic/workload
 || partner_id | **string**
 
 Required field. ID of the Partner resource to return.
-To get the partner ID use a [PartnerService.List](/docs/cic/workload/api-ref/grpc/Partner/list#List) request. ||
+To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/grpc/Partner/list#List) request. ||
 |#
 
 ## Partner {#yandex.cloud.cic.v1.Partner}

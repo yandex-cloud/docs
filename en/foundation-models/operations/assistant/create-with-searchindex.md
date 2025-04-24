@@ -33,7 +33,7 @@ To use the examples:
 
 - SDK {#sdk}
 
-  This example shows you how to create an [assistant](../../concepts/assistant/index.md) that uses information from files for responses. In the example, we will create an index for full-text search and a simplest chat.
+  This example shows how to create an [assistant](../../concepts/assistant/index.md) that relies on information from files for responses. In the example, we will create an index for full-text search and a simplest chat.
 
   1. {% include [download-context-file-step](../../../_includes/foundation-models/assistants/download-context-file-step.md) %}
   1. Create a file named `search-assistant.py` and paste the following code into it:
@@ -92,7 +92,7 @@ To use the examples:
 
 - cURL {#curl}
 
-  This example shows you how to create an [assistant](../../concepts/assistant/index.md) that uses information from files for responses. In this example, we will show the basic algorithm for working with {{ assistant-api }} via the [REST API](../../assistants/api-ref/index.md) interface: creating an index for hybrid search, creating an assistant and a thread, and submitting a request to the assistant.
+  This example shows how to create an [assistant](../../concepts/assistant/index.md) that relies on information from files for responses. In this example, we will show the basic algorithm for working with {{ assistant-api }} via the [REST API](../../assistants/api-ref/index.md) interface: creating an index for hybrid search, creating an assistant and a thread, and submitting a request to the assistant.
 
   1. Upload the context file for the knowledge base using the [Files API](../../files/api-ref/File/index.md):
       1. {% include [download-context-file-step](../../../_includes/foundation-models/assistants/download-context-file-step.md) %}
@@ -653,5 +653,6 @@ To use the examples:
 #### See also {#see-also}
 
 * [{#T}](./create.md)
+* [{#T}](./create-with-labels.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
 * Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

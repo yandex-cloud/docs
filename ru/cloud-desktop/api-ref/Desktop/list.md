@@ -76,7 +76,8 @@ The default sorting order is ascending. ||
           "subjectId": "string",
           "subjectType": "string"
         }
-      ]
+      ],
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -146,6 +147,9 @@ Name of the desktop. ||
 Resources of the desktop. ||
 || networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)** ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}

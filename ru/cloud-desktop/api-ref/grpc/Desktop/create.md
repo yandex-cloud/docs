@@ -89,7 +89,8 @@ Required field. Type of the access binding, e.g. userAccount, serviceAccount, sy
         "subject_id": "string",
         "subject_type": "string"
       }
-    ]
+    ],
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -200,6 +201,9 @@ Name of the desktop. ||
 Resources of the desktop. ||
 || network_interfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User2)** ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}

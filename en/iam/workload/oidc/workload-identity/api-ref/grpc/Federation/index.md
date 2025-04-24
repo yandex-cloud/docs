@@ -16,4 +16,7 @@ A set of methods for managing OIDC workload identity federations.
 || [Create](create.md) | Creates an OIDC workload identity federation in the specified folder. ||
 || [Update](update.md) | Updates the specified OIDC workload identity federation. ||
 || [Delete](delete.md) | Deletes the specified OIDC workload identity federation. ||
+|| [ListAccessBindings](listAccessBindings.md) | Lists access bindings for the specified OIDC workload identity federation. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified OIDC workload identity federation. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified OIDC workload identity federation. ||
 |#

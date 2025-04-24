@@ -126,7 +126,8 @@ Compute Cloud instance ID. Either Folder ID or Compute Cloud instance ID should 
                 "months": [
                   "int64"
                 ],
-                "type": "RepeatePeriod"
+                "type": "RepeatePeriod",
+                "run_later": "bool"
               },
               "since_last_exec_time": {
                 "delay": {
@@ -165,7 +166,10 @@ Compute Cloud instance ID. Either Folder ID or Compute Cloud instance ID should 
           "inclusion_masks": [
             "string"
           ]
-        }
+        },
+        "sector_by_sector": "bool",
+        "validation_enabled": "bool",
+        "lvm_snapshotting_enabled": "bool"
       },
       "folder_id": "string"
     }
@@ -218,7 +222,7 @@ Required field. Archive compression level.
 - `OFF` ||
 || format | enum **Format**
 
-Required field. Format of the Cyberprotect backup archive.
+Required field. Format of the Acronis backup archive.
 
 - `FORMAT_UNSPECIFIED`
 - `VERSION_11`: A legacy backup format used in older versions. It's not recommended to use.
@@ -231,7 +235,8 @@ versions. ||
 If true, snapshots of multiple volumes will be taken simultaneously. ||
 || preserve_file_security_settings | **bool**
 
-If true, the file security settings will be preserved. ||
+If true, the file security settings will be preserved.
+Deprecated. ||
 || reattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
 
 Required field. Configuration of retries on recoverable errors during the backup operations like reconnection to destination. No attempts to fix recoverable errors will be made if retry configuration is not set. ||
@@ -272,10 +277,28 @@ Required field. A configuration of Changed Block Tracking (CBT).
 If true, determines whether a file has changed by the file size and timestamp. Otherwise, the entire file contents are compared to those stored in the backup. ||
 || quiesce_snapshotting_enabled | **bool**
 
-If true, a quiesced snapshot of the virtual machine will be taken. ||
+If true, a quiesced snapshot of the virtual machine will be taken.
+Deprecated. ||
 || file_filters | **[FileFilters](#yandex.cloud.backup.v1.PolicySettings.FileFilters)**
 
 File filters to specify masks of files to backup or to exclude of backuping ||
+|| sector_by_sector | **bool**
+
+A sector-by-sector backup of a disk or volume creates a backup copy of all sectors of the disk or volume,
+including those that do not contain data.
+Therefore, the size of such a backup copy will be equal to the size of the original disk or volume.
+This method can be used to back up a disk or volume with an unsupported file system. ||
+|| validation_enabled | **bool**
+
+Validation is a time-consuming process, even with incremental or differential backups of small amounts of data.
+This is because not only the data physically contained in the backup copy is verified,
+but all data restored when it is selected.
+This option requires access to previously created backup copies. ||
+|| lvm_snapshotting_enabled | **bool**
+
+LVM will be used to create the volume snapshot.
+If LVM fails to create a snapshot (for example, because there is not enough free space),
+the software will create the snapshot itself. ||
 |#
 
 ## RetriesConfiguration {#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration}
@@ -511,6 +534,9 @@ Required field. Possible types: `REPEATE_PERIOD_UNSPECIFIED`, `HOURLY`, `DAILY`,
 - `DAILY`
 - `WEEKLY`
 - `MONTHLY` ||
+|| run_later | **bool**
+
+If the machine is off, launch missed tasks on boot up. ||
 |#
 
 ## TimeOfDay {#yandex.cloud.backup.v1.PolicySettings.TimeOfDay}

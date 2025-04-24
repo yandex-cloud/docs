@@ -25,7 +25,7 @@ Deletes the specified private endpoint.
 
 Required field. ID of the private endpoint to delete.
 
-To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/api-ref/grpc/PrivateEndpoint/list#List) request. ||
+To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/grpc/PrivateEndpoint/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

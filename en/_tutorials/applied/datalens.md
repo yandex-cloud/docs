@@ -306,7 +306,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-  1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger. For example, `my-emulator-function-trigger`.
+  1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger, e.g., `my-emulator-function-trigger`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, select `{{ ui-key.yacloud_billing.common.button_cron-1min }}`.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, specify the function parameters:
@@ -354,7 +354,7 @@ Create a data processing function, test it, and review the result of data proces
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * File name: `myfunction.py`.
-          * File contents: Function code from [GitHub](https://github.com/yc-geo-dist-devices-iot-monitoring/blob/main/myfunction.py).
+          * File contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/myfunction.py).
 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `myfunction.msgHandler`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
@@ -454,7 +454,7 @@ The trigger will invoke the function when messages appear in the [device topic](
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-  1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger. For example, `my-db-func-trigger`.
+  1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger, e.g., `my-db-func-trigger`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry and device parameters:
 

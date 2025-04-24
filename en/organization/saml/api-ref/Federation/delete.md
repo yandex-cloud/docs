@@ -20,7 +20,7 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/
 || federationId | **string**
 
 Required field. ID of the federation to delete.
-To get the federation ID, make a [FederationService.List](/docs/organization/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

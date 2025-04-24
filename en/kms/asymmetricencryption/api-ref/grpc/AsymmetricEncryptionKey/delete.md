@@ -8,7 +8,7 @@ sourcePath: en/_api-ref-grpc/kms/v1/asymmetricencryption/api-ref/grpc/Asymmetric
 Deletes the specified asymmetric KMS key. This action also automatically schedules
 the destruction of all of the key's versions in 72 hours.
 
-The key and its versions appear absent in [AsymmetricEncryptionKeyService.Get](/docs/kms/api-ref/grpc/AsymmetricEncryptionKey/get#Get) and [AsymmetricEncryptionKeyService.List](/docs/kms/api-ref/grpc/AsymmetricEncryptionKey/list#List)
+The key and its versions appear absent in [AsymmetricEncryptionKeyService.Get](/docs/kms/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/get#Get) and [AsymmetricEncryptionKeyService.List](/docs/kms/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/list#List)
 requests, but can be restored within 72 hours with a request to tech support.
 
 ## gRPC request

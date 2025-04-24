@@ -25,7 +25,7 @@
 
 ### Доступ в S3 с аутентификацией через IAM-токен сервисного аккаунта кластера {#s3-access-using-iam}
 
-1. При создании кластера укажите [сервисный аккаунт](../../iam/operations/sa/create.md#create-sa). Если кластер уже создан, добавьте сервисный аккаунт с помощью кнопки **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** в консоли управления.
+1. При создании кластера укажите [сервисный аккаунт](../../iam/operations/sa/create.md#create-sa). Если кластер уже создан, добавьте сервисный аккаунт с помощью кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** в консоли управления.
 
     Сервисному аккаунту должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
 

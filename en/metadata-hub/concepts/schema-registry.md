@@ -24,12 +24,6 @@ A _[schema_](https://docs.confluent.io/platform/current/schema-registry/develop/
 Schemas are used to check data structure in messages on events, thereby ensuring that producers and consumers send and receive data in the same format. You can define schemas in a schema registry only within a given [subject](#subject).
 You can edit a data schema. To do this, [upload an updated schema to a subject](../operations/add-schema.md). The new schema will appear in the new subject version:
 
-{% note warning %}
-
-Changing the schema type may result in incorrect schema compatibility checks in different versions of the subject. 
-
-{% endnote %}
-
 ## Reference {#reference}
 
 A reference _([schema reference](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#referenced-schemas))_ is a link to other schemas comprising the following parameters:

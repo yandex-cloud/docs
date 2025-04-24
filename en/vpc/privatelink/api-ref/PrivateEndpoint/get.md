@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/get.md
 
 Returns the specified Private Endpoint resource.
 
-To get the list of all available PrivateEndpoint resources, make a [List](/docs/vpc/api-ref/PrivateEndpoint/list#List)
+To get the list of all available PrivateEndpoint resources, make a [List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List)
 request.
 
 ## HTTP request
@@ -24,7 +24,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}
 
 Required field. ID of the PrivateEndpoint resource to return.
 
-To get PrivateEndpoint resource ID make a [PrivateEndpointService.List](/docs/vpc/api-ref/PrivateEndpoint/list#List)
+To get PrivateEndpoint resource ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List)
 request. ||
 |#
 

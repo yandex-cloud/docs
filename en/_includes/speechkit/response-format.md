@@ -1,18 +1,8 @@
-# Response format
+# Response status codes
 
-The response may contain:
+In response to a request, {{ speechkit-name }} returns a message containing the request code and processing status. If there is an error processing the request, the message will also include its possible cause.
 
-- Result of request execution if successful.
-- Error code and description if the request failed:
-
-  ```json
-  {
-    "code": "{string}",
-    "message": "{string}"
-  }
-  ```
-
-## Response codes {#response-codes}
+When analyzing the models' responses in your app, go by request code and status. Error messages contain useful information but may change after you update the service.
 
 gRPC | REST | Status               | Reason                          | Solution
  --- | ---- | -------------------- | -------------------------------- |---

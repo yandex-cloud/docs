@@ -45,7 +45,7 @@ items:
         items:
           - name: Creating a dataset for tuning a text generation model
             href: operations/resources/create-dataset-gpt.md
-          - name: Creating a dataset for tuning a text classification model
+          - name: Creating a dataset for tuning a text classifier
             href: operations/resources/create-dataset-classifier.md
       - name: Model tuning
         items:
@@ -59,6 +59,8 @@ items:
             href: operations/assistant/create.md
           - name: Creating a search assistant
             href: operations/assistant/create-with-searchindex.md
+          - name: Creating a search assistant that uses file and index metadata
+            href: operations/assistant/create-with-labels.md
           - name: Getting intermediate response generation results
             href: operations/assistant/request-chunked-response.md
   - name: Concepts
@@ -107,7 +109,7 @@ items:
     items:
       - name: Overview
         href: concepts/api.md
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: Text Generation API
         items:

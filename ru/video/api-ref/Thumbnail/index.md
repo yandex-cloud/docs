@@ -11,10 +11,10 @@ Thumbnail management service.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific thumbnail. ||
+|| [Get](get.md) | Get the specific thumbnail. ||
 || [List](list.md) | List thumbnails for channel. ||
 || [Create](create.md) | Create thumbnail. ||
-|| [BatchGenerateDownloadURLs](batchGenerateDownloadURLs.md) | Generate urls for download images. ||
-|| [GenerateUploadURL](generateUploadURL.md) | Generate url for upload image. ||
+|| [BatchGenerateDownloadURLs](batchGenerateDownloadURLs.md) | Generate urls for downloading images. ||
+|| [GenerateUploadURL](generateUploadURL.md) | Generate url for uploading an image. ||
 || [Delete](delete.md) | Delete thumbnail. ||
 |#

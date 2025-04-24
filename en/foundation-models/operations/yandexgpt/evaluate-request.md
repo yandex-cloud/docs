@@ -61,7 +61,7 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
       python3 token.py
       ```
 
-      The result of a prompt is a list of tokens obtained by the tokenizer.
+      The request will return a list of all received tokens. 
 
 
       
@@ -70,6 +70,7 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
       {% include [token-result](../../../_untranslatable/foundation-models/tokens-result-en.md) %}
 
       {% endcut %}
+
 
 
 - cURL {#curl}
@@ -97,18 +98,18 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
   
      Where:
   
-     * `<IAM_token>`: Value of the IAM token you got for your account.
+     * `<IAM_token>`: Value of the [IAM token](../../../iam/concepts/authorization/iam-token.md) you got for your account.
      * `tbody.json`: JSON file with request parameters.
   
-     The result of a prompt is a list of tokens obtained by the tokenizer.
+     The request will return a list of all received tokens. 
+
+
      
+     {% cut "Result" %}
 
-      
-      {% cut "Result" %}
+     {% include [token-result](../../../_untranslatable/foundation-models/tokens-result-en.md) %}
 
-      {% include [token-result](../../../_untranslatable/foundation-models/tokens-result-en.md) %}
-
-      {% endcut %}
+     {% endcut %}
 
 
 {% endlist %}

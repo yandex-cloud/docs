@@ -36,7 +36,7 @@ POST https://llm.{{ api-host }}/foundationModels/v1/fewShotTextClassification
 ```
 
 Request for the service to classify text.
-For examples of usage, see [step-by-step guides](/docs/operations/classifier/readymade).
+For examples of usage, see [step-by-step guides](/docs/foundation-models/operations/classifier/readymade).
 
 #|
 ||Field | Description ||
