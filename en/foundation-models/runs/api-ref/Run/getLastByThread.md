@@ -96,11 +96,16 @@ Required field. ID of the thread for which the last run is being fetched. ||
                       }
                       // end of the list of possible fields
                     },
-                    // Includes only one of the fields `ngramTokenizer`
+                    // Includes only one of the fields `ngramTokenizer`, `standardTokenizer`
                     "ngramTokenizer": {
                       "minGram": "string",
                       "maxGram": "string"
-                    }
+                    },
+                    "standardTokenizer": "object",
+                    // end of the list of possible fields
+                    // Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`
+                    "standardAnalyzer": "object",
+                    "yandexLemmerAnalyzer": "object"
                     // end of the list of possible fields
                   },
                   "vectorSearchIndex": {
@@ -125,11 +130,16 @@ Required field. ID of the thread for which the last run is being fetched. ||
                         }
                         // end of the list of possible fields
                       },
-                      // Includes only one of the fields `ngramTokenizer`
+                      // Includes only one of the fields `ngramTokenizer`, `standardTokenizer`
                       "ngramTokenizer": {
                         "minGram": "string",
                         "maxGram": "string"
-                      }
+                      },
+                      "standardTokenizer": "object",
+                      // end of the list of possible fields
+                      // Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`
+                      "standardAnalyzer": "object",
+                      "yandexLemmerAnalyzer": "object"
                       // end of the list of possible fields
                     },
                     "vectorSearchIndex": {
@@ -243,7 +253,10 @@ Required field. ID of the thread for which the last run is being fetched. ||
         "searchIndexIds": [
           "string"
         ],
-        "maxNumResults": "string"
+        "maxNumResults": "string",
+        "rephraserOptions": {
+          "rephraserUri": "string"
+        }
       },
       "function": {
         "name": "string",
@@ -602,11 +615,39 @@ In the case of text search, tokens are individual text characters. ||
 
 Tokenizer that generates n-grams.
 
-Includes only one of the fields `ngramTokenizer`.
+Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
 
 Tokenizer type used for text search. The tokenizer determines how the
 input text is broken down into tokens before indexing.
 If not specified, the default tokenizer configuration is applied. ||
+|| standardTokenizer | **object**
+
+Tokenizer that generates words.
+
+Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
+
+Tokenizer type used for text search. The tokenizer determines how the
+input text is broken down into tokens before indexing.
+If not specified, the default tokenizer configuration is applied. ||
+|| standardAnalyzer | **object**
+
+Standard analyzer that performs common text processing operations to normalize text.
+
+Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`.
+
+Analyzer type used for text search. The analyzer determines how the
+tokenized text is further processed before indexing.
+If not specified, the default analyzer configuration is applied. ||
+|| yandexLemmerAnalyzer | **object**
+
+Specialized analyzer that uses Yandex's lemmatization technology,
+particularly effective for Russian and other Slavic languages.
+
+Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`.
+
+Analyzer type used for text search. The analyzer determines how the
+tokenized text is further processed before indexing.
+If not specified, the default analyzer configuration is applied. ||
 |#
 
 ## ChunkingStrategy {#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy}
@@ -971,6 +1012,22 @@ A list of search index IDs that this tool will query. Currently, only a single i
 The maximum number of results to return from the search.
 Fewer results may be returned if necessary to fit within the prompt's token limit.
 This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|| rephraserOptions | **[RephraserOptions](#yandex.cloud.ai.assistants.v1.RephraserOptions)**
+
+Options for rephrasing user queries.
+Used to rewrite the last user message for search,
+incorporating context from the previous conversation. ||
+|#
+
+## RephraserOptions {#yandex.cloud.ai.assistants.v1.RephraserOptions}
+
+Options for configuring the rephrasing the last user message for search using context from previous conversation.
+
+#|
+||Field | Description ||
+|| rephraserUri | **string**
+
+Required field. The ID of the model used to rephrase the last user message for search. ||
 |#
 
 ## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}

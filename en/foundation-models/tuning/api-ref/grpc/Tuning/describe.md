@@ -38,7 +38,10 @@ Required field.  ||
     "started_at": "google.protobuf.Timestamp",
     "finished_at": "google.protobuf.Timestamp",
     "source_model_uri": "string",
-    "target_model_uri": "string"
+    "target_model_uri": "string",
+    "name": "string",
+    "description": "string",
+    "labels": "map<string, string>"
   }
 }
 ```
@@ -62,7 +65,8 @@ Required field.  ||
 - `IN_PROGRESS`
 - `COMPLETED`
 - `FAILED`
-- `CANCELED` ||
+- `CANCELED`
+- `DRAFT` ||
 || folder_id | **string** ||
 || created_by | **string** ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
@@ -70,4 +74,7 @@ Required field.  ||
 || finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || source_model_uri | **string** ||
 || target_model_uri | **string** ||
+|| name | **string** ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#

@@ -17,4 +17,5 @@ RunService provides operations for managing runs.
 || [Get](get.md) | Retrieve details of a specific run by its ID. ||
 || [GetLastByThread](getLastByThread.md) | Retrieves the most recent run for a specific thread. ||
 || [List](list.md) | List runs in a specific folder. ||
+|| [Submit](submit.md) | Submit event to run ||
 |#

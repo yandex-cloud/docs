@@ -39,7 +39,8 @@ Token to retrieve the next page of results. ||
 - `IN_PROGRESS`
 - `COMPLETED`
 - `FAILED`
-- `CANCELED` ||
+- `CANCELED`
+- `DRAFT` ||
 |#
 
 ## ListTuningsResponse {#yandex.cloud.ai.tuning.v1.ListTuningsResponse}
@@ -57,7 +58,10 @@ Token to retrieve the next page of results. ||
       "started_at": "google.protobuf.Timestamp",
       "finished_at": "google.protobuf.Timestamp",
       "source_model_uri": "string",
-      "target_model_uri": "string"
+      "target_model_uri": "string",
+      "name": "string",
+      "description": "string",
+      "labels": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -88,7 +92,8 @@ Token to retrieve the next page of results. ||
 - `IN_PROGRESS`
 - `COMPLETED`
 - `FAILED`
-- `CANCELED` ||
+- `CANCELED`
+- `DRAFT` ||
 || folder_id | **string** ||
 || created_by | **string** ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
@@ -96,4 +101,7 @@ Token to retrieve the next page of results. ||
 || finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || source_model_uri | **string** ||
 || target_model_uri | **string** ||
+|| name | **string** ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#

@@ -14,12 +14,16 @@ Returns a list of dataset types
 ## ListTypesRequest {#yandex.cloud.ai.dataset.v1.ListTypesRequest}
 
 ```json
-{}
+{
+  "folder_id": "string"
+}
 ```
 
 #|
 ||Field | Description ||
-|| Empty | > ||
+|| folder_id | **string**
+
+Folder to search task types (if empty only public types will be returned) ||
 |#
 
 ## ListTypesResponse {#yandex.cloud.ai.dataset.v1.ListTypesResponse}

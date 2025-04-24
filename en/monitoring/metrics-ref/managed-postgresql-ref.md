@@ -1,4 +1,6 @@
 ---
+title: '{{ mpg-full-name }} metrics'
+description: In this tutorial, you will learn about {{ mpg-name }} metrics.
 editable: false
 ---
 

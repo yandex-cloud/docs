@@ -24,7 +24,10 @@ Lists datasets in specified folder.
     "string"
   ],
   "page_size": "int64",
-  "page_token": "string"
+  "page_token": "string",
+  "dataset_ids": [
+    "string"
+  ]
 }
 ```
 
@@ -59,6 +62,9 @@ that can be used to get the next page of results in subsequent list requests. De
 
 Page token. To get the next page of results, set `page_token` to the
 [ListDatasetsResponse.next_page_token](#yandex.cloud.ai.dataset.v1.ListDatasetsResponse) returned by a previous list request. ||
+|| dataset_ids[] | **string**
+
+Dataset Id of the datasets to list. Optional. ||
 |#
 
 ## ListDatasetsResponse {#yandex.cloud.ai.dataset.v1.ListDatasetsResponse}

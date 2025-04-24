@@ -1,4 +1,6 @@
 ---
+title: '{{ mch-full-name }} metrics'
+description: In this tutorial, you will learn about {{ mch-name }} metrics.
 editable: false
 ---
 

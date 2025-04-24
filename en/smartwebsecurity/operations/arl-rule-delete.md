@@ -12,11 +12,65 @@ Basic rules, as well as Smart Protection and WAF rules, are [deleted from a secu
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the [ARL profile](../concepts/arl.md) resides in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Select the profile to delete a rule from.
   1. Under **{{ ui-key.yacloud.smart-web-security.arl.section_rules }}**, in the rule row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To delete an [ARL profile](../concepts/arl.md) rule created with {{ TF }}:
+
+  1. Open the {{ TF }} configuration file and remove the `advanced_rate_limiter_rule` section with the security rule from the `yandex_sws_advanced_rate_limiter_profile` ARL profile description.
+
+      {% cut "Example of an ARL profile description in the {{ TF }} configuration" %}
+      
+      ```hcl
+      # ARL profile
+
+      resource "yandex_sws_advanced_rate_limiter_profile" "arl-profile" {
+        name        = "<profile_name>"
+        description = "<profile_description>"
+
+        ...
+
+        # Rule 2
+        advanced_rate_limiter_rule {
+          name        = "<rule_name>"
+          priority    = <rule_priority>
+          description = "<rule_description>"
+          dry_run     = true
+  
+          static_quota {
+            action = "DENY"
+            limit  = <rule_limit>
+            period = <rule_period>
+            condition {
+              source_ip {
+                geo_ip_match {
+                  locations = ["ru", "kz"]
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
+
+      {% endcut %}
+
+  1. Apply the changes:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+       You can check the deletion of the resources using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

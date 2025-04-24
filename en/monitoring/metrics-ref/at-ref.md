@@ -1,4 +1,6 @@
 ---
+title: '{{ at-full-name }} metrics'
+description: In this tutorial, you will learn about {{ at-name }} metrics.
 editable: false
 ---
 

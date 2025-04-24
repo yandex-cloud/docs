@@ -16,4 +16,8 @@ sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/index.md
 || [GetMetricsUrl](getMetricsUrl.md) |  ||
 || [GetOptions](getOptions.md) |  ||
 || [ListErrors](listErrors.md) |  ||
+|| [CreateDraft](createDraft.md) | Unimplemented ||
+|| [UpdateDraft](updateDraft.md) | Unimplemented ||
+|| [DeleteDraft](deleteDraft.md) | Unimplemented ||
+|| [TuneDraft](tuneDraft.md) | Unimplemented ||
 |#

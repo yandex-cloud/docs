@@ -31,6 +31,8 @@ items:
         items:
           - name: Сгенерировать изображение
             href: operations/yandexart/request.md
+      - name: Пакетная обработка данных
+        href: operations/batch/create.md
       - name: Классификация
         items:
           - name: Использовать классификаторы по промту
@@ -43,6 +45,8 @@ items:
             href: operations/embeddings/search.md
       - name: Работа с датасетами
         items:
+          - name: Создать датасет
+            href: operations/resources/create-dataset.md
           - name: Создать датасет для дообучения генерации текста
             href: operations/resources/create-dataset-gpt.md
           - name: Создать датасет для дообучения классификации текста
@@ -87,6 +91,8 @@ items:
             href: concepts/yandexart/index.md
           - name: Модели
             href: concepts/yandexart/models.md
+      - name: Мультимодальные модели
+        href: concepts/multimodal/index.md
       - name: Классификация
         items:
           - name: Обзор
@@ -133,6 +139,12 @@ items:
                     href: text-generation/api-ref/TextGenerationAsync/index.md
                   - name: Completion
                     href: text-generation/api-ref/TextGenerationAsync/completion.md
+              - name: TextGenerationBatch
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/TextGenerationBatch/index.md
+                  - name: Completion
+                    href: text-generation/api-ref/TextGenerationBatch/completion.md
               - name: TextGeneration
                 items:
                   - name: Overview
@@ -166,6 +178,13 @@ items:
                   - name: Completion
                     href: >-
                       text-generation/api-ref/grpc/TextGenerationAsync/completion.md
+              - name: TextGenerationBatch
+                items:
+                  - name: Overview
+                    href: text-generation/api-ref/grpc/TextGenerationBatch/index.md
+                  - name: Completion
+                    href: >-
+                      text-generation/api-ref/grpc/TextGenerationBatch/completion.md
               - name: TextGeneration
                 items:
                   - name: Overview
@@ -221,6 +240,24 @@ items:
                     href: image-generation/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: image-generation/api-ref/grpc/Operation/cancel.md
+      - name: Batch Inference API (англ.)
+        items:
+          - name: gRPC
+            items:
+              - name: Overview
+                href: batch-inference/api-ref/grpc/index.md
+              - name: BatchInference
+                items:
+                  - name: Overview
+                    href: batch-inference/api-ref/grpc/BatchInference/index.md
+                  - name: Describe
+                    href: batch-inference/api-ref/grpc/BatchInference/describe.md
+                  - name: List
+                    href: batch-inference/api-ref/grpc/BatchInference/list.md
+                  - name: Cancel
+                    href: batch-inference/api-ref/grpc/BatchInference/cancel.md
+                  - name: Delete
+                    href: batch-inference/api-ref/grpc/BatchInference/delete.md
       - name: Text Classification API (англ.)
         items:
           - name: REST
@@ -321,6 +358,8 @@ items:
                         href: runs/api-ref/Run/getLastByThread.md
                       - name: List
                         href: runs/api-ref/Run/list.md
+                      - name: Submit
+                        href: runs/api-ref/Run/submit.md
               - name: Search Index
                 items:
                   - name: Overview
@@ -451,6 +490,8 @@ items:
                         href: runs/api-ref/grpc/Run/getLastByThread.md
                       - name: List
                         href: runs/api-ref/grpc/Run/list.md
+                      - name: Submit
+                        href: runs/api-ref/grpc/Run/submit.md
               - name: Search Index
                 items:
                   - name: Overview
@@ -656,6 +697,14 @@ items:
                     href: tuning/api-ref/grpc/Tuning/getOptions.md
                   - name: ListErrors
                     href: tuning/api-ref/grpc/Tuning/listErrors.md
+                  - name: CreateDraft
+                    href: tuning/api-ref/grpc/Tuning/createDraft.md
+                  - name: UpdateDraft
+                    href: tuning/api-ref/grpc/Tuning/updateDraft.md
+                  - name: DeleteDraft
+                    href: tuning/api-ref/grpc/Tuning/deleteDraft.md
+                  - name: TuneDraft
+                    href: tuning/api-ref/grpc/Tuning/tuneDraft.md
   - name: '{{ ml-sdk-full-name }}'
     href: sdk/index.md
   - name: Совместимость с {{ openai }}
