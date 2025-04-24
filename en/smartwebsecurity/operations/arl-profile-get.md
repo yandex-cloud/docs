@@ -21,17 +21,17 @@ description: Follow this guide to get information about a {{ sws-full-name }} AR
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To get information about a {{ sws-full-name }} [ARL profile](../concepts/arl.md) created using {{ TF }}:
+  To get information about a {{ sws-full-name }} [ARL profile](../concepts/arl.md) using {{ TF }}:
 
-  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+  1. Add `data` and `output` sections to the {{ TF }} configuration file:
 
      ```hcl
-     data "yandex_sws_advanced_rate_limiter_profile" "default" {
-        name = yandex_sws_advanced_rate_limiter_profile.default.name
+     data "yandex_sws_advanced_rate_limiter_profile" "arl-profile" {
+        name = yandex_sws_advanced_rate_limiter_profile.arl-profile.name
      }
 
      output "profile-created" {
-       value = data.yandex_sws_advanced_rate_limiter_profile.default.created_at
+       value = data.yandex_sws_advanced_rate_limiter_profile.arl-profile.created_at
      }
      ```
 
@@ -41,13 +41,13 @@ description: Follow this guide to get information about a {{ sws-full-name }} AR
      * `output "profile-created"`: Output variable that contains information about the ARL profile creation timestamp:
        * `value`: Returned value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_sws_advanced_rate_limiter_profile` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/sws_advanced_rate_limiter_profile).
+     You can replace `created_at` with another variable to get the information you need. For more information about the `yandex_sws_advanced_rate_limiter_profile` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output

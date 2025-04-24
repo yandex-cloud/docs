@@ -19,6 +19,79 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
 
       {% include [add-arl-rule](../../_includes/smartwebsecurity/add-arl-rule.md) %}
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To add a rule to your [ARL profile](../concepts/arl.md):
+
+    1. Open the {{ TF }} configuration file and edit the part with the `yandex_sws_advanced_rate_limiter_profile` resource description: add the `advanced_rate_limiter_rule` section containing the security rule.
+
+        ```hcl
+        # ARL profile
+
+        resource "yandex_sws_advanced_rate_limiter_profile" "arl-profile" {
+          name        = "<profile_name>"
+          description = "<profile_description>"
+
+          # Rule 1
+
+          advanced_rate_limiter_rule {
+            name        = "<rule_name>"
+            priority    = <rule_priority>
+            description = "<rule_description>"
+            dry_run     = true
+  
+            static_quota {
+              action = "DENY"
+              limit  = <rule_limit>
+              period = <rule_period>
+              condition {
+                request_uri {
+                  path {
+                    exact_match = "/api"
+                  }
+                }
+              }
+            }
+          }
+
+          # Rule 2
+
+          advanced_rate_limiter_rule {
+            name        = "<rule_name>"
+            priority    = <rule_priority>
+            description = "<rule_description>"
+            dry_run     = true
+  
+            static_quota {
+              action = "DENY"
+              limit  = <rule_limit>
+              period = <rule_period>
+              condition {
+                source_ip {
+                  geo_ip_match {
+                    locations = ["ru", "kz"]
+                  }
+                }
+              }
+            }
+          }
+        }
+        ```
+  
+        {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
+  
+        For more information about the `yandex_sws_advanced_rate_limiter_profile` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+  
+    1. Apply the changes:
+  
+         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+         You can check the resources’ updates in the [management console]({{ link-console-main }}).
+
 - API {#api}
 
   [Get](arl-profile-get.md) information about the ARL profile and then update the ARL profile using the [update](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/update.md) REST API method for the [AdvancedRateLimiterProfile](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md) resource or the [AdvancedRateLimiterProfile/Update](../advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/update.md) gRPC API call.

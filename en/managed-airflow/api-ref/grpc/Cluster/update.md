@@ -84,6 +84,15 @@ Updates the specified Apache Airflow cluster.
     "log_group_id": "string",
     // end of the list of possible fields
     "min_level": "Level"
+  },
+  "maintenance_window": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_window`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_window": {
+      "day": "WeekDay",
+      "hour": "int64"
+    }
+    // end of the list of possible fields
   }
 }
 ```
@@ -127,6 +136,9 @@ For more information, see [documentation](/docs/managed-airflow/concepts/imperso
 || logging | **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig)**
 
 Cloud Logging configuration. ||
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
 |#
 
 ## UpdateClusterConfigSpec {#yandex.cloud.airflow.v1.UpdateClusterConfigSpec}
@@ -329,6 +341,44 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
   May be used to alert about unrecoverable failures and events. ||
 |#
 
+## MaintenanceWindow {#yandex.cloud.airflow.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.airflow.v1.AnytimeMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.airflow.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | enum **WeekDay**
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **int64**
+
+Hour of the day in UTC. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -429,6 +479,21 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
       "log_group_id": "string",
       // end of the list of possible fields
       "min_level": "Level"
+    },
+    "maintenance_window": {
+      // Includes only one of the fields `anytime`, `weekly_maintenance_window`
+      "anytime": "AnytimeMaintenanceWindow",
+      "weekly_maintenance_window": {
+        "day": "WeekDay",
+        "hour": "int64"
+      }
+      // end of the list of possible fields
+    },
+    "planned_operation": {
+      "info": "string",
+      "delayed_until": "google.protobuf.Timestamp",
+      "latest_maintenance_time": "google.protobuf.Timestamp",
+      "next_maintenance_window_time": "google.protobuf.Timestamp"
     }
   }
   // end of the list of possible fields
@@ -570,6 +635,12 @@ For more information, see [documentation](/docs/managed-airflow/concepts/imperso
 || logging | **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig2)**
 
 Cloud Logging configuration. ||
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow2)**
+
+Window of maintenance operations. ||
+|| planned_operation | **[MaintenanceOperation](#yandex.cloud.airflow.v1.MaintenanceOperation)**
+
+Maintenance operation planned at nearest maintenance_window. ||
 |#
 
 ## Monitoring {#yandex.cloud.airflow.v1.Monitoring}
@@ -794,4 +865,52 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.airflow.v1.MaintenanceWindow2}
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.airflow.v1.AnytimeMaintenanceWindow2)**
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow2)**
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.airflow.v1.AnytimeMaintenanceWindow2}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow2}
+
+#|
+||Field | Description ||
+|| day | enum **WeekDay**
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **int64**
+
+Hour of the day in UTC. ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.airflow.v1.MaintenanceOperation}
+
+#|
+||Field | Description ||
+|| info | **string** ||
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| latest_maintenance_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

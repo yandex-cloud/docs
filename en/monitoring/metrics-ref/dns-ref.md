@@ -1,4 +1,6 @@
 ---
+title: '{{ dns-full-name }} metrics'
+description: In this tutorial, you will learn about {{ dns-name }} metrics.
 editable: false
 ---
 

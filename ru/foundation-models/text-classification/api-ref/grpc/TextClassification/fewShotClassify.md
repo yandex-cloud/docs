@@ -81,7 +81,8 @@ Expected label for a given text. ||
       "confidence": "double"
     }
   ],
-  "model_version": "string"
+  "model_version": "string",
+  "input_tokens": "int64"
 }
 ```
 
@@ -96,6 +97,9 @@ for the probability of classifying the request text into each class. ||
 || model_version | **string**
 
 The model version changes with each new releases. ||
+|| input_tokens | **int64**
+
+Number of input tokens ||
 |#
 
 ## ClassificationLabel {#yandex.cloud.ai.foundation_models.v1.text_classification.ClassificationLabel}

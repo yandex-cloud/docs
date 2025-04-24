@@ -10,7 +10,7 @@ Returns the specified Operation resource.
 ## HTTP request
 
 ```
-GET https://operation.{{ sk-operations-host }}/operations/{operationId}
+GET https://{{ sk-operations-host }}/operations/{operationId}
 ```
 
 ## Path parameters

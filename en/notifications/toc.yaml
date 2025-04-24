@@ -74,8 +74,6 @@ items:
         href: concepts/sms.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Logging
-        href: concepts/logging.md
   - name: Tools
     expanded: true
     items:
@@ -135,5 +133,9 @@ items:
             href: api-ref/delete-endpoint.md
       - name: Publish
         href: api-ref/publish.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: Logs {{ cloud-logging-name }}
+    href: concepts/logging.md
   - name: Release notes
     href: release-notes.md

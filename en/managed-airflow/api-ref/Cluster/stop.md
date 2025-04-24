@@ -130,6 +130,21 @@ Required field. ID of the Apache Airflow cluster to stop. ||
       "logGroupId": "string",
       // end of the list of possible fields
       "minLevel": "string"
+    },
+    "maintenanceWindow": {
+      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+      "anytime": "object",
+      "weeklyMaintenanceWindow": {
+        "day": "string",
+        "hour": "string"
+      }
+      // end of the list of possible fields
+    },
+    "plannedOperation": {
+      "info": "string",
+      "delayedUntil": "string",
+      "latestMaintenanceTime": "string",
+      "nextMaintenanceWindowTime": "string"
     }
   }
   // end of the list of possible fields
@@ -309,6 +324,12 @@ For more information, see [documentation](/docs/managed-airflow/concepts/imperso
 || logging | **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig)**
 
 Cloud Logging configuration. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
+|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.airflow.v1.MaintenanceOperation)**
+
+Maintenance operation planned at nearest maintenance_window. ||
 |#
 
 ## Monitoring {#yandex.cloud.airflow.v1.Monitoring}
@@ -533,4 +554,66 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.airflow.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC. ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.airflow.v1.MaintenanceOperation}
+
+#|
+||Field | Description ||
+|| info | **string** ||
+|| delayedUntil | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| latestMaintenanceTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| nextMaintenanceWindowTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

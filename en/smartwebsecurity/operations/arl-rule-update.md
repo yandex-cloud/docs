@@ -12,7 +12,7 @@ You can only update ARL rules in an [ARL](../concepts/arl.md) profile. Basic [ru
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the ARL profile resides in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Select the profile to update a rule in.
   1. In the rule row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
@@ -29,6 +29,78 @@ You can only update ARL rules in an [ARL](../concepts/arl.md) profile. Basic [ru
           {% include [arl-rule-request-count](../../_includes/smartwebsecurity/arl-rule-request-count.md) %}
 
       1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To update a rule in an ARL profile:
+
+  1. Open the {{ TF }} configuration file and update the `advanced_rate_limiter_rule` security rule section in the `yandex_sws_advanced_rate_limiter_profile` ARL profile description.
+
+      ```hcl
+      # ARL profile
+
+      resource "yandex_sws_advanced_rate_limiter_profile" "arl-profile" {
+        name        = "<profile_name>"
+        description = "<profile_description>"
+
+
+        # Rule 1
+
+        advanced_rate_limiter_rule {
+          name        = "<new_rule_name>"
+          priority    = <new_rule_priority>
+          description = "<new_rule_description>"
+          dry_run     = true
+
+          static_quota {
+            action = "DENY"
+            limit  = <new_rule_limit>
+            period = <new_rule_period>
+            condition {
+              request_uri {
+                path {
+                  exact_match = "/api"
+                }
+              }
+            }
+          }
+        }
+
+        # Rule 2
+
+        advanced_rate_limiter_rule {
+          name        = "<rule_name>"
+          priority    = <rule_priority>
+          description = "<rule_description>"
+          dry_run     = true
+  
+          static_quota {
+            action = "DENY"
+            limit  = <rule_limit>
+            period = <rule_period>
+            condition {
+              source_ip {
+                geo_ip_match {
+                  locations = ["ru", "kz"]
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      For more information about the `yandex_sws_advanced_rate_limiter_profile` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+
+  1. Apply the changes:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+       You can check the resources’ updates in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

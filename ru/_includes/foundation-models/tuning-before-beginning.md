@@ -21,8 +21,8 @@
 - cURL {#curl}
 
   1. {% include notitle [ai-before-beginning](./yandexgpt/ai-before-beginning.md) %}
-  1. Установите [gRPCurl](https://github.com/fullstorydev/grpcurl).
   1. {% include [curl](../curl.md) %}
+  1. Установите [gRPCurl](https://github.com/fullstorydev/grpcurl).
   1. (Опционально) Установите [утилиту jq](https://stedolan.github.io/jq/) для потоковой обработки JSON-файлов.
   1. [Получите IAM-токен](../../iam/operations/iam-token/create.md) для аутентификации в API.
   

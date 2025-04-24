@@ -57,7 +57,7 @@ Restrictions:
 || folder_id | **string**
 
 ID of the folder to which you have access.
-Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).
+Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/UserAccount/get#yandex.cloud.iam.v1.UserAccount) resource).
 Don't specify this field if you make the request on behalf of a service account. ||
 |#
 

@@ -15,6 +15,7 @@ The service does not operate with resources.
 ||Service | Description ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [TextGenerationAsync](TextGenerationAsync/index.md) | Service for asynchronous text generation. ||
+|| [TextGenerationBatch](TextGenerationBatch/index.md) | Service for text generation. ||
 || [TextGeneration](TextGeneration/index.md) | Service for text generation. ||
 || [Tokenizer](Tokenizer/index.md) | Service for tokenizing input content. ||
 |#

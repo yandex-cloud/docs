@@ -29,6 +29,8 @@ Text generation cost is based on the total number of [prompt](concepts/index.md#
 
 The number of [prompt](concepts/yandexgpt/tokens.md) and response [tokens](concepts/index.md) for the same text may vary depending on model.
 
+When using models in batch processing mode, there is a minimum launch cost of 200,000 tokens.
+
 The total number of billing units is based on the overall number of prompt and response tokens and is rounded up to a whole number.
 
 #### Tokenization {#rules-tokens}
@@ -41,7 +43,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune
 
 * The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 * The use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} policy.
-* The use of a fine-tuned {{ llama }} 8B^1^ model is charged according to the {{ llama }} 8B policy.
+* The use of a fine-tuned {{ llama }} 8B model is charged according to the {{ llama }} 8B policy.
 
 ### Text classification {#rules-text-classifier}
 
@@ -87,7 +89,23 @@ Starting May 1, 2025, the prices for {{ foundation-models-full-name }} resources
 
 
 
+{% include [rub-generating-units.md](../_pricing/yandexgpt/usd-generating_units.md) %}
+
+
+#### Cost of using models in synchronous and asynchronous mode {#text-sync-async}
+
+
+
 {% include [usd-generating.md](../_pricing/yandexgpt/usd-generating_new.md) %}
+
+
+#### Cost of using models in batch processing mode {#batch}
+
+When using models in batch processing mode, there is a minimum launch cost of 200,000 tokens.
+
+
+
+{% include [usd-generating.md](../_pricing/yandexgpt/usd-generating-batch.md) %}
 
 
 ### Text classification {#pricing-classifier}
@@ -166,7 +184,4 @@ Cost of using {{ foundation-models-full-name }} for text vectorization with the 
 {% include [usd-embedding-k1](../_pricing_examples/foundation-models/usd-embedding-k1.md) %}
 
 
-
-
-^1^ {{ meta-disclaimer }}
 

@@ -45,7 +45,10 @@ Create a new assistant.
         "search_index_ids": [
           "string"
         ],
-        "max_num_results": "google.protobuf.Int64Value"
+        "max_num_results": "google.protobuf.Int64Value",
+        "rephraser_options": {
+          "rephraser_uri": "string"
+        }
       },
       "function": {
         "name": "string",
@@ -204,6 +207,22 @@ A list of search index IDs that this tool will query. Currently, only a single i
 The maximum number of results to return from the search.
 Fewer results may be returned if necessary to fit within the prompt's token limit.
 This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|| rephraser_options | **[RephraserOptions](#yandex.cloud.ai.assistants.v1.RephraserOptions)**
+
+Options for rephrasing user queries.
+Used to rewrite the last user message for search,
+incorporating context from the previous conversation. ||
+|#
+
+## RephraserOptions {#yandex.cloud.ai.assistants.v1.RephraserOptions}
+
+Options for configuring the rephrasing the last user message for search using context from previous conversation.
+
+#|
+||Field | Description ||
+|| rephraser_uri | **string**
+
+Required field. The ID of the model used to rephrase the last user message for search. ||
 |#
 
 ## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}
@@ -264,7 +283,10 @@ The schema should describe the required fields, their types, and any constraints
         "search_index_ids": [
           "string"
         ],
-        "max_num_results": "google.protobuf.Int64Value"
+        "max_num_results": "google.protobuf.Int64Value",
+        "rephraser_options": {
+          "rephraser_uri": "string"
+        }
       },
       "function": {
         "name": "string",
@@ -441,6 +463,22 @@ A list of search index IDs that this tool will query. Currently, only a single i
 The maximum number of results to return from the search.
 Fewer results may be returned if necessary to fit within the prompt's token limit.
 This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|| rephraser_options | **[RephraserOptions](#yandex.cloud.ai.assistants.v1.RephraserOptions2)**
+
+Options for rephrasing user queries.
+Used to rewrite the last user message for search,
+incorporating context from the previous conversation. ||
+|#
+
+## RephraserOptions {#yandex.cloud.ai.assistants.v1.RephraserOptions2}
+
+Options for configuring the rephrasing the last user message for search using context from previous conversation.
+
+#|
+||Field | Description ||
+|| rephraser_uri | **string**
+
+Required field. The ID of the model used to rephrase the last user message for search. ||
 |#
 
 ## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool2}

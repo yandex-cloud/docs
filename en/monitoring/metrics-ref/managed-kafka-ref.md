@@ -1,4 +1,6 @@
 ---
+title: '{{ mkf-full-name }} metrics'
+description: In this tutorial, you will learn about {{ mkf-name }} metrics.
 editable: false
 ---
 

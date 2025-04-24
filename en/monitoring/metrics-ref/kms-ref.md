@@ -1,4 +1,6 @@
 ---
+title: '{{ kms-full-name }} metrics'
+description: In this tutorial, you will learn about {{ kms-name }} metrics.
 editable: false
 ---
 
