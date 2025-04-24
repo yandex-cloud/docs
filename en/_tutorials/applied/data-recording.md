@@ -57,7 +57,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 - Management console {#console}
 
     1. In [the management console]({{ link-console-main }}), select the folder where you want to create a registry.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `my-registry`.
     1. Enter the password.
@@ -114,7 +114,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter `my-pg-database`.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** field, select `PRODUCTION`.
@@ -186,7 +186,7 @@ As a sample data source, the scenario uses an air sensor that measures the follo
 * Pressure
 * Temperature
 
-The sensor outputs the result in JSON format. Here is an example:
+The sensor outputs the result in JSON format. For example:
 
 ```json
 {
@@ -244,7 +244,7 @@ The function will receive messages from the MQTT broker and write data to the ta
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Enter a function name.
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -265,7 +265,7 @@ After creating the function, you will be automatically redirected to the **{{ ui
         * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, keep the default value, **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
 
     1. Create a file named `myfunction.py`.
-    1. In the file editing area, add the function code from [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Samples/PostgreSQL/myfunction.py).
+    1. In the file editing area, add the function code from [GitHub](https://github.com/yandex-cloud-examples/yc-iot-postgresql/blob/main/myfunction.py).
 
         {% note info %}
 
@@ -293,7 +293,7 @@ After creating the function, you will be automatically redirected to the **{{ ui
         To define the values of connection parameters:
 
         1. In the [management console]({{ link-console-main }}), select the folder where you created the cluster.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Select the `my-pg-database` cluster.
         1. In the line with the database you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
         1. On the **PowerShell** tab, find a sample connection string.
@@ -312,7 +312,7 @@ The trigger will accept copies of messages from the device topic and pass them t
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:

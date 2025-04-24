@@ -1,6 +1,11 @@
 # Request handler for a function in Python
 
-A _request handler_ is a method used to process each Python function call. When creating a function version, you should specify the entry point that consists of the file name and the request handler name, e.g., `main.handler`. The name of the handler file must not contain any `.` before the extension, e.g., `.handler.py`.
+A _request handler_ is a method used to process each Python function call. When creating a function [version](../../concepts/function.md#version), you must set up an _entry point_ for it, i.e., a path to the request handler in `<file>`.`<function>` format, where:
+
+* `<file>`: Name of the file with the function code (without `.py`), e.g., `index`. The code file must reside in the root directory. The file name must not contain any dots.
+* `<function>`: Name of the callable object, as defined in `<file>`, e.g., `handler`. When a function is initialized, the runtime environment imports `<file>` and finds a callable object named `<function>` in that file, which object is launched each time the function is called.
+
+Example of an entry point for a Python function: `index.handler`.
 
 {% note info %}
 

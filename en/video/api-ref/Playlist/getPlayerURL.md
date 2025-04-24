@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Playlist/getPlayerURL.md
 
 # Video API, REST: Playlist.GetPlayerURL
 
-Returns player's url.
+Get player url.
 
 ## HTTP request
 

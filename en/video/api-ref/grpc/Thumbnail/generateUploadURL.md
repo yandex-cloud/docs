@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/generateUploadURL.m
 
 # Video API, gRPC: ThumbnailService.GenerateUploadURL
 
-Generate url for upload image.
+Generate url for uploading an image.
 
 ## gRPC request
 

@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation
 
 Returns the specified federation.
 
-To get the list of available federations, make a [List](/docs/organization/api-ref/grpc/Federation/list#List) request.
+To get the list of available federations, make a [List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request.
 
 ## gRPC request
 
@@ -26,7 +26,7 @@ To get the list of available federations, make a [List](/docs/organization/api-r
 || federation_id | **string**
 
 ID of the federation to return.
-To get the federation ID, make a [FederationService.List](/docs/organization/api-ref/grpc/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request. ||
 |#
 
 ## Federation {#yandex.cloud.organizationmanager.v1.saml.Federation}

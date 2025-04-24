@@ -8,4 +8,5 @@ ERROR: rpc error: code = PermissionDenied desc = you do not have permission to a
 
 This error occurs if you link a service account to a cluster while creating or modifying it.
 
-To fix this error, [assign](../iam/operations/roles/grant.md) your {{ yandex-cloud }} account the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+**Solution**
+[Assign](../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.

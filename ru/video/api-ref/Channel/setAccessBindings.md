@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Channel/setAccessBindings.md
 
 # Video API, REST: Channel.SetAccessBindings
 
-Sets access bindings for the channel.
+Set access bindings for the channel.
 
 ## HTTP request
 

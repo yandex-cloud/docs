@@ -131,6 +131,8 @@ items:
                 href: operations/function/logs-write.md
           - name: Migration to the {{ region-id }}-d availability zone
             href: operations/function/migration.md
+          - name: Deleting a function version
+            href: operations/function/version-delete.md
           - name: Deleting a function
             href: operations/function/function-delete.md
       - name: Getting information about a trigger
@@ -530,7 +532,7 @@ items:
     href: tf-ref.md
   - name: API Functions reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
@@ -684,7 +686,7 @@ items:
                 href: functions/api-ref/Operation/cancel.md
   - name: API Triggers reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:

@@ -33,8 +33,8 @@ def main():
         )
         files.append(file)
 
-    # Let’s create an index for full-text search through the uploaded files.
-    # The maximum fragment size is 700 tokens, with a 300-token overlap.
+    # Creating an index for full-text search through the uploaded files.
+    # In this example, the maximum fragment size is set to 700 tokens, with a 300-token overlap.
     operation = sdk.search_indexes.create_deferred(
         files,
         index_type=TextSearchIndexType(
@@ -45,14 +45,14 @@ def main():
         ),
     )
 
-    # Waiting until the search index is created.
+    # Waiting for the search index to be created.
     search_index = operation.wait()
 
-    # Let’s create a tool to work with the search index.
-    # or multiple search indexes if that was the case
+    # Creating a tool to work with the search index.
+    # Or even several indexes if that were the case.
     tool = sdk.tools.search_index(search_index)
 
-    # Let’s create an assistant for the Latest {{ gpt-pro }} model.
+    # Creating an assistant for the Latest {{ gpt-pro }} model.
     # It will use the search index tool.
     assistant = sdk.assistants.create("yandexgpt", tools=[tool])
     thread = sdk.threads.create()
@@ -64,16 +64,16 @@ def main():
     while input_text.lower() != "exit":
         thread.write(input_text)
 
-        # Let’s give the entirety of the tread to the model.
+        # Giving the whole thread content to the model.
         run = assistant.run(thread)
 
         # To get the result, wait until the run is complete.
         result = run.wait()
 
-        # Let’s display the response.
+        # Displaying the response.
         print("Response: ", result.text)
 
-        # Let’s display part of the _citations_ property’s attributes: information about used fragments created from source files.
+        # Displaying some of the attributes of the _citations_ property: information about the used fragments created from source files.
         # 
         # To display the entire contents of the _citations_ property, run this command: print(result.citations)
         # 
@@ -105,7 +105,7 @@ def main():
             'Enter your question to the assistant ("exit" to end the dialog): '
         )
 
-    # Delete everything you no longer need.
+    # Deleting things you no longer need.
     search_index.delete()
     thread.delete()
     assistant.delete()

@@ -1770,6 +1770,14 @@ description: В статье приведен полный справочник 
 
 {% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
 
+#### access-transparency.billingProvider {#access-transparency-billingProvider}
+
+{% include [access-transparency.billingProvider](../_roles/access-transparency/billingProvider.md) %}
+
+#### access-transparency.subscriptionManager {#access-transparency-subscriptionManager}
+
+{% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
+
 Подробнее см. [Управление доступом в {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
 
 ### Сервисные роли для контроля данных ({{ dspm-name }}) {#dspm-roles}

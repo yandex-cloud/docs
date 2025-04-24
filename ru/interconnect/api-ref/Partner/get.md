@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/cic/v1/api-ref/Partner/get.md
 
 Returns the specified Partner resource.
 
-To get the list of available Partner resources, make a [List](/docs/cic/workload/api-ref/Partner/list#List) request.
+To get the list of available Partner resources, make a [List](/docs/interconnect/api-ref/Partner/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://cic.{{ api-host }}/cic/v1/partners/{partnerId}
 || partnerId | **string**
 
 Required field. ID of the Partner resource to return.
-To get the partner ID use a [PartnerService.List](/docs/cic/workload/api-ref/Partner/list#List) request. ||
+To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/Partner/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.Partner}

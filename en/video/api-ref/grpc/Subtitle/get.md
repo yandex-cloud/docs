@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Subtitle/get.md
 
 # Video API, gRPC: SubtitleService.Get
 
-Return a specific subtitle.
+Get a specific subtitle.
 
 ## gRPC request
 
@@ -34,6 +34,7 @@ Required field. ID of the subtitle. ||
   "language": "string",
   "label": "string",
   "status": "SubtitleStatus",
+  "source_type": "SubtitleSourceType",
   "filename": "string",
   "created_at": "google.protobuf.Timestamp",
   "updated_at": "google.protobuf.Timestamp",
@@ -50,7 +51,9 @@ Required field. ID of the subtitle. ||
 ID of the subtitle. ||
 || language | **string**
 
-Subtitle language represented as a three-letter ISO 639-3 code. ||
+Subtitle language in any of the following formats:
+* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
+* two-letter code according to ISO 639-1 ||
 || label | **string**
 
 Subtitle caption to be displayed on screen during video playback. ||
@@ -61,6 +64,13 @@ Subtitle status.
 - `SUBTITLE_STATUS_UNSPECIFIED`: Subtitle status unspecified.
 - `WAIT_UPLOADING`: Waiting for all the bytes to be loaded.
 - `UPLOADED`: Uploading is complete. ||
+|| source_type | enum **SubtitleSourceType**
+
+Source type.
+
+- `SUBTITLE_SOURCE_TYPE_UNSPECIFIED`: Subtitle source type unspecified.
+- `MANUAL`: Manually uploaded subtitle.
+- `GENERATED`: Automatically generated subtitle. ||
 || filename | **string**
 
 Subtitle filename. ||

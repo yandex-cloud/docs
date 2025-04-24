@@ -162,7 +162,7 @@ The manifest uses YAML format and contains the following data:
       ```yaml
       user_values:
         - name: app.port
-          title: <Header>
+          title: <Title>
           description:
             en: <English_description>
             ru: <Russian_description>
@@ -177,7 +177,7 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             disabled: true
-            title: <Header>
+            title: <Title>
             string_value:
               required: true
               default_value: "simple_string_value"
@@ -188,7 +188,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             description: <Description>
             integer_value:
               default_value: <default_integer>
@@ -203,7 +203,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             description: <Description>
             boolean_value:
               default_value: true
@@ -214,7 +214,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             description: <Description>
             string_selector_value:
               default_value: <value_1>
@@ -230,7 +230,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             description: <Description>
             integer_selector_value:
               default_value: <integer_1>
@@ -246,7 +246,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             description: <Description>
             string_value:
               required: true
@@ -261,7 +261,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             cloud_id_value:
               required: true
         ```
@@ -271,7 +271,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             cloud_id_value:
               required: true
         ```
@@ -281,7 +281,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             folder_id_value:
               required: true
         ```
@@ -291,7 +291,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             cluster_id_value:
               required: true
         ```
@@ -301,7 +301,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             network_id_value:
               required: true
         ```
@@ -311,7 +311,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             subnet_id_value:
               required: true
         ```
@@ -321,7 +321,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             service_account_id_value:
               required: true
         ```
@@ -331,7 +331,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             service_account_key_value:
               required: true
         ```
@@ -341,7 +341,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
             description: <Description>
             service_account_aws_key_value:
               required: true
@@ -395,7 +395,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           cilium_value: {}
         ```
 
@@ -404,7 +404,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           cilium_value: {}
         ```
 
@@ -413,7 +413,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           kube_dns_cluster_ip_value:
             required: true
         ```
@@ -423,7 +423,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           kube_dns_cluster_ip_value:
             required: true
         ```
@@ -433,7 +433,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           log_group_id_value:
             required: true
         ```
@@ -443,7 +443,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           kms_key_id_value:
             required: true
         ```
@@ -453,7 +453,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           domain_value:
             required: true
         ```
@@ -463,7 +463,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           iam_api_key_value:
             required: true
         ```
@@ -473,7 +473,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           storage_bucket_value:
             required: true
         ```
@@ -483,7 +483,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           prometheus_workspace_id_value:
             required: false
         ```
@@ -493,7 +493,7 @@ The manifest uses YAML format and contains the following data:
         ```yaml
         user_values:
           - name: <name>
-            title: <Header>
+            title: <Title>
           license_id_value:
             required: false
         ```
@@ -593,7 +593,7 @@ user_values:
 ### values.yaml variable file {#values}
 
 ```yaml
-# An example of values.xml related to publisher manifest above.
+# An example of values.yaml related to publisher manifest above.
 replicaCount: 1
 podAnnotations: {}
 podSecurityContext: {}

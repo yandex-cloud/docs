@@ -79,7 +79,7 @@ Here is an example of creating a text search index for a single file:
 
 ## Vector search indexes {#vector-search}
 
-When creating a vector index, the [embedding](../embeddings.md) model creates vectors from chunks to store the semantic meaning of the text fragment. Same as in text search, you can configure the chunk size and amount of overlap in tokens. Note that, in vector search, tokens typically contain more than one character.
+When creating a vector index, the [embedding](../embeddings.md) model creates vectors from chunks to store the semantic meaning of the text fragment. Same as in text search, you can specify the chunk size and amount of overlap in tokens. Note that, in vector search, tokens typically contain more than one character.
 
 You can also override the embedding models for requests and responses. By default, the {{ foundation-models-name }} embedding models are used.
 

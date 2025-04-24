@@ -31,7 +31,9 @@ List backups using filters.
   // end of the list of possible fields
   "order_by": "string",
   "filter": "string",
-  "type": "ResourceType"
+  "type": "ResourceType",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
@@ -86,6 +88,12 @@ Type of resource. Could be compute VM or baremetal server.
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
 - `BMS`: Resource is baremetal server ||
+|| page_size | **int64**
+
+Number of results per page. ||
+|| page_token | **string**
+
+Token for the results page. Not allowed to use if listing is performed by specific policy ID. ||
 |#
 
 ## ArchiveParameters {#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters}
@@ -154,13 +162,17 @@ Policy ID. ||
       "policy_id": "string",
       "resource_id": "string"
     }
-  ]
+  ],
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
 || backups[] | **[Backup](#yandex.cloud.backup.v1.Backup)** ||
+|| next_page_token | **string**
+
+Token for the next results page. ||
 |#
 
 ## Backup {#yandex.cloud.backup.v1.Backup}

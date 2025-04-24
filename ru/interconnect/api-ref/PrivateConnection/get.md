@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/cic/v1/api-ref/PrivateConnection/get.md
 
 Returns the specified PrivateConnection resource.
 
-To get the list of available PrivateConnection resources, make a [List](/docs/cic/workload/api-ref/PrivateConnection/list#List) request.
+To get the list of available PrivateConnection resources, make a [List](/docs/interconnect/api-ref/PrivateConnection/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
 || privateConnectionId | **string**
 
 Required field. ID of the PrivateConnection resource to return.
-To get the privateConnection ID use a [PrivateConnectionService.List](/docs/cic/workload/api-ref/PrivateConnection/list#List) request. ||
+To get the privateConnection ID use a [PrivateConnectionService.List](/docs/interconnect/api-ref/PrivateConnection/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.PrivateConnection}

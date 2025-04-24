@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/updateStreamKey.md
 
 # Video API, REST: StreamLine.UpdateStreamKey
 
-Change stream key.
+Update stream key.
 
 ## HTTP request
 
@@ -149,11 +149,11 @@ A list of messages that carry the error details. ||
 
 ## PushStreamKey {#yandex.cloud.video.v1.PushStreamKey}
 
-Push stream key.
+Represents the stream key used for pushing video streams.
 
 #|
 ||Field | Description ||
 || key | **string**
 
-Unique stream key. ||
+The unique stream key. ||
 |#

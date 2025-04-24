@@ -29,7 +29,7 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/ce
 || federationId | **string**
 
 ID of the federation to add new certificate.
-To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/api-ref/Federation/list#List) request. ||
+To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request. ||
 || name | **string**
 
 Name of the certificate.

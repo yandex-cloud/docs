@@ -24,7 +24,7 @@ Returns the specified project.
 || project_id | **string**
 
 Required field. ID of the Project resource to return.
-To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/grpc/Project/list#List) request. ||
+To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/grpc/Project/list#List) request. ||
 |#
 
 ## Project {#yandex.cloud.datasphere.v2.Project}

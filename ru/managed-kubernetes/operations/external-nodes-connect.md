@@ -13,27 +13,21 @@ description: Следуя данной инструкции, вы сможете
 
 Внешние серверы подключаются в виде узлов к кластеру {{ managed-k8s-name }} с помощью специальных ресурсов {{ k8s }} API. Определения ([CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) этих ресурсов автоматически предустановлены в кластер {{ managed-k8s-name }}.
 
-## Требования для подключения внешних узлов к кластеру {#requirements}
+{% note warning %}
 
 Чтобы подключить внешние узлы к кластеру {{ managed-k8s-name }}, необходимо соответствие кластера и подключаемых серверов [определенным требованиям](../concepts/external-nodes.md#requirements).
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
+
+    Для создания внешней группы узлов кластер {{ managed-k8s-name }} должен работать в [туннельном режиме](../concepts/network-policy#cilium). Он включается только при создании кластера.
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Создайте объект группы узлов](#node-group-create) в {{ k8s }} API кластера {{ managed-k8s-name }}.
-
-   После создания объекта группы вы можете [добавлять узлы](#add-node) в кластер {{ managed-k8s-name }} и [удалять узлы](#remove-node) из кластера.
-
-   При возникновении проблем с подключением обратитесь к разделу [Диагностика проблем](#troubleshooting).
 
 ## Создание группы узлов {#node-group-create}
-
-{% note info %}
-
-Для создания внешней группы узлов кластер {{ managed-k8s-name }} должен работать в туннельном режиме. Подробнее см. в разделе [{#T}](../concepts/external-nodes.md#requirements).
-
-{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -42,6 +36,8 @@ description: Следуя данной инструкции, вы сможете
   1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**, затем **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
   1. Введите имя группы узлов {{ managed-k8s-name }}.
+  1. Укажите [IP-адрес](../../vpc/concepts/address.md) подключаемого сервера, доступный из [облачной сети](../../vpc/concepts/network.md#network) кластера {{ managed-k8s-name }}.
+  1. При необходимости нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}**, чтобы добавить еще IP-адреса.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -54,17 +50,23 @@ description: Следуя данной инструкции, вы сможете
      metadata:
        name: external-node-group
        namespace: yandex-system
+     spec:
+       ips: # Перечислите IP-адреса подключаемых серверов, доступные из облачной сети кластера {{ managed-k8s-name }}.
+       - 10.130.0.4
+       - 10.130.1.5  
      ```
 
-  1. Создайте внешнюю группу узлов {{ managed-k8s-name }}:
+  1. Создайте группу узлов {{ managed-k8s-name }}:
 
      ```bash
      kubectl apply -f ext-nodegroup.yaml
-     ```
+     ```   
 
 {% endlist %}
 
-## Добавление узлов в кластер {#add-node}
+### Изменение группы узлов {#edit-node-group}
+
+При необходимости группу узлов можно изменить — например, чтобы добавить дополнительные IP-адреса.
 
 {% list tabs group=instructions %}
 
@@ -73,121 +75,109 @@ description: Следуя данной инструкции, вы сможете
   1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Выберите нужную группу узлов {{ managed-k8s-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
-  1. Укажите [IP-адрес](../../vpc/concepts/address.md) подключаемого сервера, доступный из [облачной сети](../../vpc/concepts/network.md#network) кластера {{ managed-k8s-name }}.
-  1. При необходимости нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}**, чтобы добавить еще IP-адреса.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Внесите изменения и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Укажите в спецификации объекта группы узлов {{ managed-k8s-name }} IP-адреса подключаемых серверов, доступные из облачной сети кластера {{ managed-k8s-name }}:
+  Чтобы отредактировать спецификацию группы узлов {{ managed-k8s-name }}, выполните команду:
 
   ```bash
   kubectl -n yandex-system edit nodegroup external-node-group
   ```
 
-  >Пример:
-  >
-  >```yaml
-  >apiVersion: mks.yandex.cloud/v1alpha1
-  >kind: NodeGroup
-  >metadata:
-  >  name: external-node-group
-  >  namespace: yandex-system
-  >spec:
-  >  ips: # Перечислите IP-адреса подключаемых серверов, доступные из облачной сети кластера {{ managed-k8s-name }}.
-  >  - 10.130.0.4
-  >  - 10.130.1.5
-  >```
-
 {% endlist %}
 
-После этого необходимо [установить на подключаемые серверы системные компоненты](#node-setup).
+## Установка системных компонентов {#node-setup}
 
-После установки системных компонентов серверы начнут подключение к кластеру {{ managed-k8s-name }}.
+Чтобы подключить серверы к кластеру {{ managed-k8s-name }}, необходимо установить на них системные компоненты.
 
-Подключение узлов к кластеру {{ managed-k8s-name }} закончено, когда в кластере становятся доступны новые узлы в состоянии `Ready`:
+Установить системные компоненты можно одним из двух способов:
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. Перейдите к подробностям соответствующей группы узлов {{ managed-k8s-name }}.
-  1. Выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-
-- CLI {#cli}
-
-  ```bash
-  kubectl get node -o wide -w
-  ```
-
-  Результат:
-
-  ```text
-  NAME       STATUS  ROLES   AGE    VERSION  INTERNAL-IP  EXTERNAL-IP  OS-IMAGE            KERNEL-VERSION    CONTAINER-RUNTIME
-  ...
-  ext-node2  Ready   <none>  4m03s  v1.20.6  10.130.0.4   <none>       Ubuntu 20.04.3 LTS  5.4.0-42-generic  docker://20.10.8
-  ext-node1  Ready   <none>  4m25s  v1.20.6  10.130.1.5   <none>       Ubuntu 20.04.3 LTS  5.4.0-42-generic  docker://20.10.8
-  ```
-
-{% endlist %}
-
-### Установка системных компонентов на подключаемые серверы {#node-setup}
-
-Для установки системных компонентов и добавления узлов в кластер {{ managed-k8s-name }} можно воспользоваться одним из двух способов:
 * [Автоматическая установка](#automatic-setup).
 * [Полуавтоматическая установка](#semi-automatic-setup).
 
-#### Автоматическая установка {#automatic-setup}
+### Автоматическая установка {#automatic-setup}
 
-Для автоматической установки необходимо создать в кластере {{ managed-k8s-name }} секрет, содержащий приватный [SSH-ключ](../../glossary/ssh-keygen.md) для подключения к серверам. Создайте секрет:
+1. Создайте в кластере {{ managed-k8s-name }} секрет, содержащий приватный [SSH-ключ](../../glossary/ssh-keygen.md) для подключения к серверам:
 
-```bash
-kubectl -n yandex-system create secret generic <имя_секрета> --from-file=ssh-privatekey=<путь_к_файлу_SSH-ключа> --type=kubernetes.io/ssh-auth
-```
+    ```bash
+    kubectl -n yandex-system create secret generic <имя_секрета> --from-file=ssh-privatekey=<путь_к_файлу_SSH-ключа> --type=kubernetes.io/ssh-auth
+    ```
 
-В спецификации ресурса `NodeGroup` укажите имя соответствующего секрета:
+1. В спецификации группы узлов укажите имя соответствующего секрета:
 
-{% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+    - Консоль управления {#console}
 
-  1. Перейдите к подробностям соответствующей группы узлов {{ managed-k8s-name }}.
-  1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
-  1. Выберите в выпадающем списке нужный секрет.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. Перейдите к подробностям соответствующей группы узлов {{ managed-k8s-name }}.
+      1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
+      1. Выберите в выпадающем списке нужный секрет.
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI {#cli}
+    - CLI {#cli}
 
-  ```bash
-  kubectl -n yandex-system edit nodegroup external-node-group
-  ```
+      1. Выполните команду:
 
-  ```yaml
-  apiVersion: mks.yandex.cloud/v1alpha1
-  kind: NodeGroup
-  metadata:
-    name: external-node-group
-    namespace: yandex-system
-  spec:
-    ips:
-    ...
-    provisionBySsh:
-      sshKeySecret:
-        name: <имя_секрета>
-        namespace: yandex-system
-  ```
+          ```bash
+          kubectl -n yandex-system edit nodegroup external-node-group
+          ```
+      
+      1. Отредактируйте спецификацию:
 
-{% endlist %}
+          ```yaml
+          apiVersion: mks.yandex.cloud/v1alpha1
+          kind: NodeGroup
+          metadata:
+            name: external-node-group
+            namespace: yandex-system
+          spec:
+            ips:
+            ...
+            provisionBySsh:
+              sshKeySecret:
+                name: <имя_секрета>
+                namespace: yandex-system
+          ```
 
-На всех внешних узлах {{ managed-k8s-name }} должна быть доступна возможность подключения с логином `root` и указанным SSH-ключом.
+    {% endlist %}
 
-#### Полуавтоматическая установка {#semi-automatic-setup}
+1. На всех внешних узлах {{ managed-k8s-name }} должна быть доступна возможность подключения с логином `root` и указанным SSH-ключом. Если в качестве внешнего узла используется виртуальная машина {{ compute-name }}, включите для нее возможность подключения по SSH от `root`:
+
+    1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ.
+    1. Откройте файл конфигурации SSH:
+
+        ```bash
+        sudo vi /etc/ssh/sshd_config
+        ```
+    
+    1. Измените значение `PermitRootLogin` на `Yes` и сохраните изменения.
+    1. Откройте файл c SSH-ключом, который используется для подключения от `root`:
+
+        ```bash
+        sudo vi /root/.ssh/authorized_keys
+        ```
+    
+    1. Удалите из файла все, кроме ключа, и сохраните изменения. В результате файл должен выглядеть так:
+
+        ```text
+        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK******
+        ```
+
+    1. Перезапустите службу SSH, чтобы изменения вступили в силу:
+
+        ```bash
+        sudo systemctl restart sshd
+        ```
+
+### Полуавтоматическая установка {#semi-automatic-setup}
 
 Для полуавтоматической установки необходимо установить на все внешние узлы {{ managed-k8s-name }} базовый компонент и конфигурацию, обеспечивающие дальнейшую установку системных компонентов.
-1. После создания объекта NodeGroup в кластере {{ managed-k8s-name }} становится доступен секрет, содержащий `kubeconfig` для использования на подключаемых серверах. Получите его с помощью `kubectl`, настроенного на работу с кластером {{ managed-k8s-name }}, и сохраните его в файл:
+
+1. После [создания группы узлов](#node-group-create) в кластере {{ managed-k8s-name }} становится доступен секрет, содержащий `kubeconfig` для использования на подключаемых серверах. Получите его с помощью `kubectl`, настроенного на работу с кластером {{ managed-k8s-name }}, и сохраните его в файл:
 
    ```bash
-   kubectl -n yandex-system get secret <имя_объекта_NodeGroup>-maintainer-kube-config -o json | jq -r '.data."kube-config"' | base64 -d
+   kubectl -n yandex-system get secret <имя_группы_узлов>-maintainer-kube-config -o json | jq -r '.data."kube-config"' | base64 -d
    ```
 
 1. Сохраните полученный `kubeconfig` на подключаемом сервере:
@@ -206,7 +196,41 @@ kubectl -n yandex-system create secret generic <имя_секрета> --from-fi
    sudo /home/kubernetes/bin/maintainer install
    ```
 
-## Удаление внешних узлов из кластера {#remove-node}
+## Проверка состояния внешних узлов {#check-status}
+
+После установки системных компонентов серверы начнут подключение к кластеру {{ managed-k8s-name }}.
+
+Подключение узлов к кластеру {{ managed-k8s-name }} завершено, когда в кластере становятся доступны новые узлы в состоянии `Ready`.
+
+Чтобы проверить состояние узлов:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите к подробностям соответствующей группы узлов {{ managed-k8s-name }}.
+  1. Выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+
+- CLI {#cli}
+
+  Выполните команду:
+
+  ```bash
+  kubectl get node -o wide -w
+  ```
+
+  Результат:
+
+  ```text
+  NAME       STATUS  ROLES   AGE    VERSION  INTERNAL-IP  EXTERNAL-IP  OS-IMAGE            KERNEL-VERSION    CONTAINER-RUNTIME
+  ...
+  ext-node2  Ready   <none>  4m03s  v1.20.6  10.130.0.4   <none>       Ubuntu 20.04.3 LTS  5.4.0-42-generic  docker://20.10.8
+  ext-node1  Ready   <none>  4m25s  v1.20.6  10.130.1.5   <none>       Ubuntu 20.04.3 LTS  5.4.0-42-generic  docker://20.10.8
+  ```
+
+{% endlist %}
+
+## Отключение внешних узлов {#remove-node}
 
 {% list tabs group=instructions %}
 
@@ -219,11 +243,13 @@ kubectl -n yandex-system create secret generic <имя_секрета> --from-fi
 
 - CLI {#cli}
 
-  Для отключения узлов {{ managed-k8s-name }} удалите их IP-адреса из поля `spec.ips` ресурса`NodeGroup`:
+  1. Выполните команду:
 
-  ```bash
-  kubectl -n yandex-system edit nodegroup
-  ```
+      ```bash
+      kubectl -n yandex-system edit nodegroup
+      ```
+
+  1. Удалите IP-адреса нужных узлов из поля `spec.ips`.
 
 {% endlist %}
 
@@ -239,6 +265,8 @@ kubectl -n yandex-system create secret generic <имя_секрета> --from-fi
   1. Выберите пространство имен `yandex-system`.
 
 - CLI {#cli}
+
+  Чтобы получить список событий, выполните команду:
 
   ```bash
   kubectl -n yandex-system get events

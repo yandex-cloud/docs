@@ -124,7 +124,7 @@ Default email of the Yandex user account. ||
 ## SamlUserAccount {#yandex.cloud.organizationmanager.v1.SamlUserAccount}
 
 A SAML federated user.
-For more information, see [federations](/docs/iam/concepts/users/saml-federations).
+For more information, see [federations](/docs/iam/concepts/users/accounts#saml-federation).
 
 #|
 ||Field | Description ||

@@ -19,7 +19,8 @@ Updates the specified device.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "topic_aliases": "map<string, string>"
+  "topic_aliases": "map<string, string>",
+  "labels": "map<string, string>"
 }
 ```
 
@@ -44,6 +45,9 @@ Description of the device. ||
 Alias of a device topic.
 
 Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -74,8 +78,10 @@ Alias is an alternate name of a device topic assigned by the user. Map alias to 
       "last_auth_time": "google.protobuf.Timestamp",
       "last_pub_activity_time": "google.protobuf.Timestamp",
       "last_sub_activity_time": "google.protobuf.Timestamp",
-      "last_online_time": "google.protobuf.Timestamp"
-    }
+      "last_online_time": "google.protobuf.Timestamp",
+      "last_disconnect_time": "google.protobuf.Timestamp"
+    },
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -182,6 +188,9 @@ Status of the device.
 || monitoring_data | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#
 
 ## DeviceMonitoringData {#yandex.cloud.iot.devices.v1.DeviceMonitoringData}
@@ -193,4 +202,5 @@ Device monitoring data, returns if FULL view specified. ||
 || last_pub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_disconnect_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

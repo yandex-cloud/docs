@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/get.md
 
 Returns the specified endpoint.
 
-To get the list of all available endpoints, make a [List](/docs/datatransfer/api-ref/Endpoint/list#List) request.
+To get the list of all available endpoints, make a [List](/docs/data-transfer/api-ref/Endpoint/list#List) request.
 
 ## HTTP request
 
@@ -23,7 +23,7 @@ GET https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
 
 Required field. Identifier of the endpoint to return.
 
-To get the endpoint ID, make an [EndpointService.List](/docs/datatransfer/api-ref/Endpoint/list#List) request. ||
+To get the endpoint ID, make an [EndpointService.List](/docs/data-transfer/api-ref/Endpoint/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.datatransfer.v1.Endpoint}

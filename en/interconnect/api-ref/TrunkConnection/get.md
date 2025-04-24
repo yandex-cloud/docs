@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/get.md
 
 Returns the specified TrunkConnection resource.
 
-To get the list of available TrunkConnection resources, make a [List](/docs/cic/workload/api-ref/TrunkConnection/list#List) request.
+To get the list of available TrunkConnection resources, make a [List](/docs/interconnect/api-ref/TrunkConnection/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}
 || trunkConnectionId | **string**
 
 Required field. ID of the TrunkConnection resource to return.
-To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/cic/workload/api-ref/TrunkConnection/list#List) request. ||
+To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/interconnect/api-ref/TrunkConnection/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.TrunkConnection}
@@ -140,7 +140,8 @@ Capacity of the trunkConnection
 - `CAPACITY_30_GBPS`
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
-- `CAPACITY_100_GBPS` ||
+- `CAPACITY_100_GBPS`
+- `CAPACITY_200_GBPS` ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.

@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/batchDelete.md
 
 # Video API, gRPC: EpisodeService.BatchDelete
 
-Batch delete episode.
+Batch delete episodes.
 
 ## gRPC request
 

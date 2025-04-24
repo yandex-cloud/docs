@@ -22,4 +22,7 @@ A set of methods for managing Kubernetes cluster.
 || [ListNodeGroups](listNodeGroups.md) | Lists nodegroup for the specified Kubernetes cluster. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified Kubernetes cluster. ||
 || [ListNodes](listNodes.md) | Lists cluster's nodes. ||
+|| [ListAccessBindings](listAccessBindings.md) | Lists cluster's access bindings ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets cluster's access bindings ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates cluster's access bindings ||
 |#

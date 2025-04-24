@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/getStreamKey.md
 
 # Video API, REST: StreamLine.GetStreamKey
 
-Returns unique stream key.
+Get unique stream key.
 
 ## HTTP request
 
@@ -32,11 +32,11 @@ Required field. ID of the line. ||
 }
 ```
 
-Push stream key.
+Represents the stream key used for pushing video streams.
 
 #|
 ||Field | Description ||
 || key | **string**
 
-Unique stream key. ||
+The unique stream key. ||
 |#

@@ -38,7 +38,7 @@ Updates the specified federation.
 || federation_id | **string**
 
 ID of the federation to update.
-To get the federation ID, make a [FederationService.List](/docs/organization/api-ref/grpc/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/grpc/Federation/list#List) request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the federation are going to be updated. ||

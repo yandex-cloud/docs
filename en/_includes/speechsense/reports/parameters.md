@@ -1,4 +1,6 @@
-* **{{ ui-key.yc-ui-talkanalytics.dialogs.speech-statistics }}** (for audio only): Agent and customer speech quality criteria, e.g., speech rate, mutual interruptions, etc.
-* **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} detects certain keywords, phrases, or intonations in a dialog, classifies the dialog, and marks it with a tag.
+* **{{ ui-key.yc-ui-talkanalytics.dialogs.speech-statistics }}** (only for audio): Agent and customer speech quality criteria, e.g., speech rate, mutual interruptions, etc.
+* **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} detects specific keywords, phrases, or intonations in the dialog, classifies and tags the dialog.
 
     {{ speechsense-name }} has preconfigured tags. These can give you a clue as to whether there was an informal greeting or goodbye, whether the agent thanked the customer for waiting, whether it was the customer's repeat call to support, etc. You can learn more about tags [here](../../../speechsense/concepts/tags.md).
+
+    In your report, you can reflect the agent's performance criteria or the client's behavior, e.g., whether the agent was polite, whether the client was rude, etc. To do this, create a [semantic tag](../../../speechsense/concepts/tags.md#use-sense-tags-for-dialog-evaluation) and apply it as a parameter in the report. For more information, see [this guide](../../../speechsense/operations/data/manage-reports.md#use-sense-tags-for-analysis).

@@ -54,7 +54,8 @@ To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/De
       "subjectId": "string",
       "subjectType": "string"
     }
-  ]
+  ],
+  "labels": "object"
 }
 ```
 
@@ -104,6 +105,9 @@ Name of the desktop. ||
 Resources of the desktop. ||
 || networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)** ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}

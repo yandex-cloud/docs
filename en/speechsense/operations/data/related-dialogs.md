@@ -6,7 +6,7 @@ From a [related dialog](../../concepts/dialogs.md#related-dialogs), you can go t
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. On the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** tab, [find](manage-dialogs.md#filters-dialogs) the dialog you need.
+1. On the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** tab, [find](manage-dialogs.md#search-dialogs) the dialog you need.
 1. Navigate to related dialogs using one of these methods:
 
     * In the list of dialogs, [display the column](../data/manage-dialogs.md#set-columns) with [task numbers](../../concepts/dialogs.md#related-dialogs). Click the task number in the row with the dialog you need.

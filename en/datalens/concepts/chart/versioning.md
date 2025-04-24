@@ -13,6 +13,10 @@ To go to the list of versions, click the ![image](../../../_assets/console-icons
 
 To select a version from the list, click it. The version number will be displayed in the `revId` parameter in the chart address string. Clicking a link with the version number in the `revId` parameter will open the relevant version of the chart.
 
+
+In [Editor](../../charts/editor/index.md), when you hover over the list of versions, you will see a button; clicking this button will open a dialog box with a list of changes for each tab.
+
+
 When editing within the current version, you can undo/redo any change you have made. To do this, click:
 
 * ![image](../../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z** to undo changes.
@@ -41,11 +45,11 @@ All versions fall into the following types:
 
    A user with **{{ permission-write }}** permissions can make any chart version current.
   
-  {% note warning %}
+   {% note warning %}
   
-  When updating any version, except a draft, a new chart version is created.
+   When updating any version, except a draft, a new chart version is created.
 
-  {% endnote %}
+   {% endnote %}
   
 1. **Draft**: This is a version with unsaved chart changes. Common users do not see changes being made to a draft. This enables you to hide chart edits until you release a new version. A chart can only have one draft. 
    When you open a draft, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
@@ -66,7 +70,7 @@ All versions fall into the following types:
 1. **Outdated**: This is a version that is neither current nor a draft.  
    When you open an outdated version, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
 
-   * **Make current**: Turns the currently outdated version into the current one. The current version and draft (if any) will become outdated.
+   * **Make current**: Turns the currently outdated version into the current one. The current version and the draft (if any) will become outdated.
    * **Open current**: Opens the current version.
 
    {% cut "Outdated version" %}
@@ -95,7 +99,7 @@ You will also get a new version if you change chart configuration as follows:
 
 * Edit the chart settings you can access by clicking ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
 * Add, rename, or delete chart fields.
-* Add or delete fields in chart sections.
+* Add, rename, or delete chart fields.
 
 ## Editing versions {#version-edit}
 
@@ -114,17 +118,17 @@ Click the following:
 
 ### Editing a draft {#irrelevant-version-edit}
 
-To edit a draft, select it in the list of versions. To save the changes you make to the draft, at the top right, click:
+To edit a draft, select it in the version list. To save your draft edits, at the top right, click:
 
-* **Save as draft** to create a new draft. The current draft will become an outdated version.
+* **Save as draft**: New draft will be created. The current draft will become an outdated version.
 * Click ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as copy** to create a new chart.
 * ![image](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** to create a new current version and make all other versions outdated.
 
 ### Editing an outdated version {#current-version-edit}
 
-To edit an outdated version, select it from the list of versions. To save the changes you make to an outdated version, at the top right, click:
+To edit an outdated version, select it from the list of versions. To save edits to an outdated version, at the top right, click:
 
-* **Save as draft** to create a draft from the version you are editing. The current draft will become an outdated version.
+* **Save as draft**: Draft will be created from the edited version. The current draft will become an outdated version.
 * Click ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as copy** to create a new chart.
 * ![image](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** to create a new current version and make all other versions, including the draft, outdated.
 

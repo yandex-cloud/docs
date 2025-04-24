@@ -79,8 +79,10 @@ The default value.
         "last_auth_time": "google.protobuf.Timestamp",
         "last_pub_activity_time": "google.protobuf.Timestamp",
         "last_sub_activity_time": "google.protobuf.Timestamp",
-        "last_online_time": "google.protobuf.Timestamp"
-      }
+        "last_online_time": "google.protobuf.Timestamp",
+        "last_disconnect_time": "google.protobuf.Timestamp"
+      },
+      "labels": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -138,6 +140,9 @@ Status of the device.
 || monitoring_data | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#
 
 ## DeviceMonitoringData {#yandex.cloud.iot.devices.v1.DeviceMonitoringData}
@@ -149,4 +154,5 @@ Device monitoring data, returns if FULL view specified. ||
 || last_pub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_disconnect_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

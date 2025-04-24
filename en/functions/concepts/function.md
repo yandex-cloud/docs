@@ -15,7 +15,7 @@ Before writing your functions, review the [programming model](#programming-model
 
 ## Function versions {#version}
 
-_Versions_ contain the function code, run parameters, and all required dependencies. You can work with different versions of the same function during different development stages, e.g., under development, alpha version, beta version, etc. Each time a change is made, the system automatically creates a new version and [tags](#tag) it as `$latest` by default. It does not matter whether you uploaded a completely new code or only made some minor changes.
+_Versions_ contain the function code, run parameters, and all required dependencies. You can work with different versions of the same function during different development stages, e.g., under development, alpha version, beta version, etc. Each time a change is made, the system automatically creates a new version and [tags](#tag) it as `$latest` by default. It does not matter whether you uploaded a completely new code or only made some minor changes. You cannot delete a version with the `$latest` tag.
 
 Possible function version statuses include:
 
@@ -45,7 +45,7 @@ Tags are used for calling a particular version of a function. Each tag must be u
 
 {% note info %}
 
-Once a new version is created, it gets the default tag: `$latest`.
+Once a new version is created, it gets the default tag: `$latest`. You cannot delete the `$latest` tag.
 
 {% endnote %}
 

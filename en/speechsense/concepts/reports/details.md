@@ -4,12 +4,6 @@ title: _Details_ report in {{ speechsense-name }}
 
 # _Details_ report in {{ speechsense-name }}
 
-{% note warning %}
-
-Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags](../tags.md#sense-tags) instead.
-
-{% endnote %}
-
 The **{{ ui-key.yc-ui-talkanalytics.reports.details-key-value }}** report shows how the values of the evaluation parameter change over time for each data cross-section. For example, you can build a report based on average dialog duration, group the duration values by departments, and specify the period of one year. As a result, the report will demonstrate how average dialog duration evolved in the course of the year for each department.
 
 ## How to build a report {#form}

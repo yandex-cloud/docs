@@ -168,6 +168,8 @@ items:
                     href: license-manager/saas/api-ref/grpc/Instance/index.md
                   - name: Get
                     href: license-manager/saas/api-ref/grpc/Instance/get.md
+                  - name: GetUserInfo
+                    href: license-manager/saas/api-ref/grpc/Instance/getUserInfo.md
               - name: Lock
                 items:
                   - name: Overview
@@ -194,6 +196,8 @@ items:
                     href: license-manager/saas/api-ref/Instance/index.md
                   - name: Get
                     href: license-manager/saas/api-ref/Instance/get.md
+                  - name: GetUserInfo
+                    href: license-manager/saas/api-ref/Instance/getUserInfo.md
               - name: Lock
                 items:
                   - name: Overview

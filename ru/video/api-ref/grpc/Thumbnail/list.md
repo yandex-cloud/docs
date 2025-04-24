@@ -28,7 +28,8 @@ List thumbnails for channel.
 ID of the channel. ||
 || page_size | **int64**
 
-The maximum number of the results per page to return. Default value: 100. ||
+The maximum number of the results per page to return.
+Default value: 100. ||
 || page_token | **string**
 
 Page token for getting the next page of the result. ||

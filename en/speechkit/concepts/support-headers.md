@@ -3,10 +3,12 @@ title: Troubleshooting in {{ speechkit-full-name }}
 description: If something went wrong while sending API requests and you need help, contact technical support. The support team will solve your issue faster if you use advanced HTTP request and response headers.
 ---
 
-# Troubleshooting in {{ speechkit-full-name }}
+# Request headers for troubleshooting in {{ speechkit-full-name }}
 
 
-{% include [support-with-headers](../../_includes/ai-common/support-with-headers.md) %}
+If you get an error sending requests to the API and need help, use [these guidelines](./response.md) or contact [support](../../support/overview.md).
+
+The support team will solve your issue faster if you use advanced HTTP request and response headers.
 
 ## Request headers {#request-headers}
 
@@ -14,7 +16,7 @@ description: If something went wrong while sending API requests and you need hel
 
 ### Examples {#examples}
 
-For example, you can use these headers to let us know afterwards that your audio was poorly detected and help us refine our speech recognition model.
+For example, the following headers will help you find your request and use the provided audio to refine your recognition model.
 
 {% include [example-headers-speech](../../_includes/ai-common/example-headers-speech.md) %}
 

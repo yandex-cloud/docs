@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/get.md
 
 # Video API, REST: Thumbnail.Get
 
-Returns the specific thumbnail.
+Get the specific thumbnail.
 
 ## HTTP request
 

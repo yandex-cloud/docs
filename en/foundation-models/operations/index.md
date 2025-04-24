@@ -1,5 +1,5 @@
 ---
-title: Guides on using {{ foundation-models-full-name }}
+title: How to work with {{ foundation-models-full-name }}
 description: This page presents all the guides on how to use {{ foundation-models-full-name }} in {{ yandex-cloud }}. See how it works.
 ---
 
@@ -30,6 +30,7 @@ description: This page presents all the guides on how to use {{ foundation-model
 
 * [{#T}](./assistant/create.md)
 * [{#T}](./assistant/create-with-searchindex.md)
+* [{#T}](./assistant/create-with-labels.md)
 * [{#T}](./assistant/request-chunked-response.md)
 
 ## Step-by-step guides on managing {{ foundation-models-name }} resources {#resources}

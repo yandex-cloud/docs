@@ -150,7 +150,7 @@ Cost budget specification describes budget that can be used to control cost of c
 Required field. Max cost threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
@@ -206,7 +206,7 @@ Required field. Amount of the rule.
 * Must be less than budget's amount if type is AMOUNT. ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the threshold exceeds. ||
 |#
 
@@ -256,7 +256,7 @@ Expense budget specification describes budget that can be used to control expens
 Required field. Max expense threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
@@ -303,7 +303,7 @@ Balance budget specification describes budget that can be used to control [yande
 Required field. Max balance threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
@@ -600,7 +600,7 @@ Cost budget specification describes budget that can be used to control cost of c
 Required field. Max cost threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
@@ -656,7 +656,7 @@ Required field. Amount of the rule.
 * Must be less than budget's amount if type is AMOUNT. ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the threshold exceeds. ||
 |#
 
@@ -706,7 +706,7 @@ Expense budget specification describes budget that can be used to control expens
 Required field. Max expense threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
@@ -753,7 +753,7 @@ Balance budget specification describes budget that can be used to control [yande
 Required field. Max balance threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 

@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/getStreamKey.md
 
 # Video API, gRPC: StreamLineService.GetStreamKey
 
-Returns unique stream key.
+Get unique stream key.
 
 ## gRPC request
 
@@ -34,11 +34,11 @@ Required field. ID of the line. ||
 }
 ```
 
-Push stream key.
+Represents the stream key used for pushing video streams.
 
 #|
 ||Field | Description ||
 || key | **string**
 
-Unique stream key. ||
+The unique stream key. ||
 |#

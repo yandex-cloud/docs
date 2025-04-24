@@ -13,7 +13,7 @@ The `x-yc-apigateway-integration:serverless_containers` extension invokes the re
 Parameter | Type | Description
 ----|----|----
 `container_id` | `string` | Container ID.
-`service_account_id` | `string` | Service account ID used for authorization when accessing a container. If you omit the parameter, the `service_account_id` [top-level](./index.md#top-level) parameter value will be used.
+`service_account_id` | `string` | Service account ID used for authorization when accessing a container. [Invoking](../../../serverless-containers/operations/auth.md) a private container requires a service account with the `serverless-containers.containerInvoker` [role](../../../serverless-containers/security/index.md#serverless-containers-containerinvoker) or higher for that container. If you omit the parameter, the `service_account_id` [top-level](./index.md#top-level) parameter value will be used.
 `context` | `object` | This is an optional parameter. It provides the operation context, i.e., an object in `YAML` or `JSON` format. It is encoded in `Base64` and provided to the container in the `X-Yc-ApiGateway-Operation-Context` header. The parameters are subsituted into `context`.
 
 ## Extension specification {#spec}

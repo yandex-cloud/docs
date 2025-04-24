@@ -348,7 +348,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером БД.
   1. В списке сервисов выберите **{{ mpg-name }}**.
   1. Выберите кластер `todo-postgresql`.
-  1. Нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. Нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s2.medium`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 

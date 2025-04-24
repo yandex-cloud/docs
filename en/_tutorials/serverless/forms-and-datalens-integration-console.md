@@ -1,4 +1,4 @@
-# Delivering data from {{ forms-full-name }} to {{ datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name }} via the management console
+# Migrating data from {{ forms-full-name }} to {{ datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name }} via the management console
 
 
 To set up integration of {{ forms-name }} and {{ datalens-name }} via the management console, follow these steps:

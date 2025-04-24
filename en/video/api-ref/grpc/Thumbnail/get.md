@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/get.md
 
 # Video API, gRPC: ThumbnailService.Get
 
-Returns the specific thumbnail.
+Get the specific thumbnail.
 
 ## gRPC request
 

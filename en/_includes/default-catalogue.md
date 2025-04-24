@@ -1,1 +1,1 @@
-The folder specified in the CLI profile is used by default. You can specify a different folder using the `--folder-name` or `--folder-id` settings.
+The folder specified when [creating](../cli/operations/profile/profile-create.md) the CLI profile is used by default. To change the default folder, use the `yc config set folder-id <folder_ID>` command. You can also specify a different folder for any command using the `--folder-name` or `--folder-id` parameter.

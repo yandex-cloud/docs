@@ -26,7 +26,8 @@ POST https://iot-devices.{{ api-host }}/iot-devices/v1/devices
     }
   ],
   "topicAliases": "object",
-  "password": "string"
+  "password": "string",
+  "labels": "object"
 }
 ```
 
@@ -56,6 +57,9 @@ Alias is an alternate name of a device topic assigned by the user. Map alias to 
 Device password.
 
 The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#
 
 ## Certificate {#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate}
@@ -105,8 +109,10 @@ Public part of the device certificate. ||
       "lastAuthTime": "string",
       "lastPubActivityTime": "string",
       "lastSubActivityTime": "string",
-      "lastOnlineTime": "string"
-    }
+      "lastOnlineTime": "string",
+      "lastDisconnectTime": "string"
+    },
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -251,6 +257,9 @@ Status of the device.
 || monitoringData | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#
 
 ## DeviceMonitoringData {#yandex.cloud.iot.devices.v1.DeviceMonitoringData}
@@ -283,6 +292,14 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || lastOnlineTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| lastDisconnectTime | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

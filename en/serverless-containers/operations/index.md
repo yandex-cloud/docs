@@ -1,5 +1,5 @@
 ---
-title: Guides on using {{ serverless-containers-full-name }}
+title: How to work with {{ serverless-containers-full-name }}
 description: In this article, you will learn how to work with the managed service for {{ serverless-containers-full-name }} in {{ yandex-cloud }}.
 ---
 
@@ -32,6 +32,7 @@ description: In this article, you will learn how to work with the managed servic
 
 * [{#T}](./invoke.md)
 * [{#T}](./invocation-link.md)
+* [{#T}](./auth.md)
 
 ## Managing a container {#manage-container}
 

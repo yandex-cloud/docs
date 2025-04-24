@@ -121,7 +121,7 @@ items:
     items:
       - name: Overview
         href: concepts/api.md
-      - name: Authentication with the API
+      - name: API authentication
         href: concepts/auth.md
       - name: Recognition
         items:
@@ -253,9 +253,9 @@ items:
         href: release-notes.md
   - name: Troubleshooting
     items:
-      - name: Response format
+      - name: Error codes
         href: concepts/response.md
-      - name: Troubleshooting
+      - name: Request headers
         href: concepts/support-headers.md
       - name: General questions
         href: qa/general.md

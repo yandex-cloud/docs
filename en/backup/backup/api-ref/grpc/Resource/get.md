@@ -15,7 +15,8 @@ Get specific Compute Cloud instance.
 
 ```json
 {
-  "compute_instance_id": "string"
+  "compute_instance_id": "string",
+  "include_tenant_info": "bool"
 }
 ```
 
@@ -24,6 +25,9 @@ Get specific Compute Cloud instance.
 || compute_instance_id | **string**
 
 Required field. Compute Cloud instance ID. ||
+|| include_tenant_info | **bool**
+
+If flag is set tenant informantion would be added to the response. ||
 |#
 
 ## GetResourceResponse {#yandex.cloud.backup.v1.GetResourceResponse}
@@ -45,7 +49,12 @@ Required field. Compute Cloud instance ID. ||
     "is_active": "bool",
     "init_status": "InitStatus",
     "metadata": "string",
-    "type": "ResourceType"
+    "type": "ResourceType",
+    "tenant_info": {
+      "folder_id": "string",
+      "personal_tenant_id": "string",
+      "user_id": "string"
+    }
   }
 }
 ```
@@ -120,4 +129,22 @@ Type of resource. Could be compute VM or baremetal server.
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
 - `BMS`: Resource is baremetal server ||
+|| tenant_info | **[TenantInfo](#yandex.cloud.backup.v1.TenantInfo)**
+
+Additional info abount tenant which resource belongs to ||
+|#
+
+## TenantInfo {#yandex.cloud.backup.v1.TenantInfo}
+
+#|
+||Field | Description ||
+|| folder_id | **string**
+
+Folder ID ||
+|| personal_tenant_id | **string**
+
+Personal tenant id from backup provider ||
+|| user_id | **string**
+
+User id from provider ||
 |#

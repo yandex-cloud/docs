@@ -29,24 +29,30 @@ ID of the line.
 Includes only one of the fields `streamId`, `lineId`. ||
 || pageSize | **string** (int64)
 
-The maximum number of the results per page to return. Default value: 100. ||
+The maximum number of the results per page to return.
+Default value: 100. ||
 || pageToken | **string**
 
 Page token for getting the next page of the result. ||
 || orderBy | **string**
 
 By which column the listing should be ordered and in which direction,
-format is "createdAt desc". "id asc" if omitted.
-Possible fields: ["id", "createdAt", "updatedAt"]
+format is "<field> <order>" (e.g. "createdAt desc").
+Default: "id asc".
+Possible fields: ["id", "createdAt", "updatedAt"].
 Both snake_case and camelCase are supported for fields. ||
 || filter | **string**
 
 Filter expression that filters resources listed in the response.
 Expressions are composed of terms connected by logic operators.
-Value in quotes: `'` or `"`
-Example: "key1='value' AND key2='value'"
-Supported operators: ["AND"].
-Supported fields: ["title"]
+If value contains spaces or quotes,
+it should be in quotes (`'` or `"`) with the inner quotes being backslash escaped.
+Supported logical operators: ["AND", "OR"].
+Supported string match operators: ["=", "!=", ":"].
+Operator ":" stands for substring matching.
+Filter expressions may also contain parentheses to group logical operands.
+Example: `key1='value' AND (key2!='\'value\'' OR key2:"\"value\"")`
+Supported fields: ["id", "title"].
 Both snake_case and camelCase are supported for fields. ||
 |#
 
@@ -106,10 +112,10 @@ ID of the stream. Optional, empty if the episode is linked to the line ||
 ID of the line. Optional, empty if the episode is linked to the stream ||
 || title | **string**
 
-Channel title. ||
+Episode title. ||
 || description | **string**
 
-Channel description. ||
+Episode description. ||
 || thumbnailId | **string**
 
 ID of the thumbnail. ||
@@ -135,9 +141,10 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || dvrSeconds | **string** (int64)
 
-Enables episode DVR mode. DVR seconds determines how many last seconds of the stream are available.
+Enables episode DVR mode.
+Determines how many last seconds of the stream are available for watching.
 
-possible values:
+Possible values:
 * `0`: infinite dvr size, the full length of the stream allowed to display
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||
 || visibilityStatus | **enum** (VisibilityStatus)

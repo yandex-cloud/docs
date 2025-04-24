@@ -1,6 +1,6 @@
 ---
 title: '{{ postbox-full-name }} pricing policy'
-description: This article provides the {{ postbox-name }} pricing policy.
+description: This article covers the {{ postbox-name }} pricing policy.
 editable: false
 ---
 
@@ -12,7 +12,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=d41eb2e392e8#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=d41eb2e392e8#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
 
 
 {% endnote %}
@@ -21,6 +21,12 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 
 {{ postbox-name }} cost depends on the number of sent emails per month. All emails accepted for sending are charged, regardless of whether they have been actually delivered. If one email is sent to multiple recipients, the number of outbound emails is the same as the number of such recipients.
+
+{% note info %}
+
+By default, {{ postbox-name }} has quotas (e.g., on the number of emails you send), which you can increase by requesting support. For more information, see [{#T}](concepts/limits.md).
+
+{% endnote %}
 
 {% include [not-charged-postbox.md](../_includes/pricing/price-formula/not-charged-postbox.md) %}
 

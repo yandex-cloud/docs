@@ -339,6 +339,8 @@ items:
                 href: api-ref/grpc/Video/performAction.md
               - name: GetPlayerURL
                 href: api-ref/grpc/Video/getPlayerURL.md
+              - name: BatchGetPlayerURLs
+                href: api-ref/grpc/Video/batchGetPlayerURLs.md
               - name: GetManifests
                 href: api-ref/grpc/Video/getManifests.md
       - name: REST (англ.)
@@ -513,6 +515,8 @@ items:
                 href: api-ref/Video/performAction.md
               - name: GetPlayerURL
                 href: api-ref/Video/getPlayerURL.md
+              - name: BatchGetPlayerURLs
+                href: api-ref/Video/batchGetPlayerURLs.md
               - name: GetManifests
                 href: api-ref/Video/getManifests.md
   - name: Аудитные логи {{ at-name }}

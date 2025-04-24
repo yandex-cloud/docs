@@ -1692,6 +1692,14 @@ For more information, see [{#T}](../search-api/security/index.md).
 
 {% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
 
+#### access-transparency.billingProvider {#access-transparency-billingProvider}
+
+{% include [access-transparency.billingProvider](../_roles/access-transparency/billingProvider.md) %}
+
+#### access-transparency.subscriptionManager {#access-transparency-subscriptionManager}
+
+{% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
+
 For more information, see [Access management in Access Transparency](../security-deck/security/access-transparency-roles.md).
 
 ### DSPM roles {#dspm-roles}

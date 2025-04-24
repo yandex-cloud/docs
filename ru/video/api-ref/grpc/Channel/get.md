@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/get.md
 
 # Video API, gRPC: ChannelService.Get
 
-Returns the specific channel.
+Get the specific channel.
 
 ## gRPC request
 
@@ -36,7 +36,24 @@ Required field. ID of the channel. ||
   "description": "string",
   "created_at": "google.protobuf.Timestamp",
   "updated_at": "google.protobuf.Timestamp",
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "settings": {
+    "advertisement": {
+      // Includes only one of the fields `yandex_direct`
+      "yandex_direct": {
+        "enable": "bool",
+        "page_id": "int64",
+        "category": "int64"
+      }
+      // end of the list of possible fields
+    },
+    "referer_verification": {
+      "enable": "bool",
+      "allowed_domains": [
+        "string"
+      ]
+    }
+  }
 }
 ```
 
@@ -65,4 +82,65 @@ Time of last channel update. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+|| settings | **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings)**
+
+Channel settings. ||
+|#
+
+## ChannelSettings {#yandex.cloud.video.v1.ChannelSettings}
+
+Channel settings.
+
+#|
+||Field | Description ||
+|| advertisement | **[AdvertisementSettings](#yandex.cloud.video.v1.AdvertisementSettings)**
+
+Advertisement settings. ||
+|| referer_verification | **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings)**
+
+Referer verification settings ||
+|#
+
+## AdvertisementSettings {#yandex.cloud.video.v1.AdvertisementSettings}
+
+Advertisement settings.
+
+#|
+||Field | Description ||
+|| yandex_direct | **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect)**
+
+Includes only one of the fields `yandex_direct`.
+
+Advertisement provider. ||
+|#
+
+## YandexDirect {#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect}
+
+YandexDirect provider settings.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enable Partner Ad for Live and VOD content. ||
+|| page_id | **int64**
+
+Advertisement page ID. ||
+|| category | **int64**
+
+Advertisement category. ||
+|#
+
+## RefererVerificationSettings {#yandex.cloud.video.v1.RefererVerificationSettings}
+
+Referer verification settings.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enable verification ||
+|| allowed_domains[] | **string**
+
+List of available domains ||
 |#

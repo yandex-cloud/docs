@@ -27,7 +27,8 @@ List subtitles.
 ||Field | Description ||
 || page_size | **int64**
 
-The maximum number of the results per page to return. ||
+The maximum number of the results per page to return.
+Default value: 100. ||
 || page_token | **string**
 
 Page token for getting the next page of the result. ||
@@ -48,6 +49,7 @@ Includes only one of the fields `video_id`. ||
       "language": "string",
       "label": "string",
       "status": "SubtitleStatus",
+      "source_type": "SubtitleSourceType",
       "filename": "string",
       "created_at": "google.protobuf.Timestamp",
       "updated_at": "google.protobuf.Timestamp",
@@ -77,7 +79,9 @@ Token for getting the next page. ||
 ID of the subtitle. ||
 || language | **string**
 
-Subtitle language represented as a three-letter ISO 639-3 code. ||
+Subtitle language in any of the following formats:
+* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
+* two-letter code according to ISO 639-1 ||
 || label | **string**
 
 Subtitle caption to be displayed on screen during video playback. ||
@@ -88,6 +92,13 @@ Subtitle status.
 - `SUBTITLE_STATUS_UNSPECIFIED`: Subtitle status unspecified.
 - `WAIT_UPLOADING`: Waiting for all the bytes to be loaded.
 - `UPLOADED`: Uploading is complete. ||
+|| source_type | enum **SubtitleSourceType**
+
+Source type.
+
+- `SUBTITLE_SOURCE_TYPE_UNSPECIFIED`: Subtitle source type unspecified.
+- `MANUAL`: Manually uploaded subtitle.
+- `GENERATED`: Automatically generated subtitle. ||
 || filename | **string**
 
 Subtitle filename. ||

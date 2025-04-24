@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/get.md
 
 Returns the specified certificate.
 
-To get the list of available certificates, make a [List](/docs/organization/api-ref/Certificate/list#List) request.
+To get the list of available certificates, make a [List](/docs/organization/saml/api-ref/Certificate/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/cer
 || certificateId | **string**
 
 Required field. ID of the certificate to return.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/api-ref/Certificate/list#List) request. ||
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/Certificate/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.Certificate}

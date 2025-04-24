@@ -326,7 +326,10 @@ The FREQ values of MINUTELY, and SECONDLY are not supported. ||
       "subnetIds": [
         "string"
       ],
-      "assignPublicIps": "boolean"
+      "assignPublicIps": "boolean",
+      "securityGroupIds": [
+        "string"
+      ]
     },
     "serverlessDatabase": {
       "throttlingRcuLimit": "string",
@@ -470,7 +473,10 @@ The FREQ values of MINUTELY, and SECONDLY are not supported. ||
         }
       ]
     },
-    "deletionProtection": "boolean"
+    "deletionProtection": "boolean",
+    "securityGroupIds": [
+      "string"
+    ]
   }
   // end of the list of possible fields
 }
@@ -629,6 +635,7 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 || kafkaApiEndpoint | **string** ||
 || monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
 || deletionProtection | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
@@ -729,6 +736,7 @@ Required field.  ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
 || assignPublicIps | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}

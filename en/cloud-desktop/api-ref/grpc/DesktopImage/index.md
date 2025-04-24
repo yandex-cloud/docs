@@ -14,6 +14,7 @@ A service for managing desktop images.
 || [List](list.md) | Lists desktop images in the specified folder. ||
 || [Get](get.md) | Returns the specified desktop image. ||
 || [Copy](copy.md) | Copies the specified image to desktop image. ||
+|| [Update](update.md) | Updates desktop image properties. ||
 || [CopyFromDesktop](copyFromDesktop.md) | Copies the specified desktop image from the specified desktop. ||
 || [Delete](delete.md) | Deletes the specified desktop image. ||
 |#

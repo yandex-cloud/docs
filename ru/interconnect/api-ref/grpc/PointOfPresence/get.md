@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PointOfPresence/get.md
 
 Returns the specified PointOfPresence resource.
 
-To get the list of available PointOfPresence resources, make a [List](/docs/cic/workload/api-ref/grpc/PointOfPresence/list#List) request.
+To get the list of available PointOfPresence resources, make a [List](/docs/interconnect/api-ref/grpc/PointOfPresence/list#List) request.
 
 ## gRPC request
 
@@ -26,7 +26,7 @@ To get the list of available PointOfPresence resources, make a [List](/docs/cic/
 || point_of_presence_id | **string**
 
 Required field. ID of the PointOfPresence resource to return.
-To get the pointOfPresence ID use a [PointOfPresenceService.List](/docs/cic/workload/api-ref/grpc/PointOfPresence/list#List) request. ||
+To get the pointOfPresence ID use a [PointOfPresenceService.List](/docs/interconnect/api-ref/grpc/PointOfPresence/list#List) request. ||
 |#
 
 ## PointOfPresence {#yandex.cloud.cic.v1.PointOfPresence}

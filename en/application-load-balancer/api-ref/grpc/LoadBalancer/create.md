@@ -129,7 +129,8 @@ Creates an application load balancer in the specified folder.
       {
         "zone_id": "string",
         "subnet_id": "string",
-        "disable_traffic": "bool"
+        "disable_traffic": "bool",
+        "zonal_shift_active": "bool"
       }
     ]
   },
@@ -157,7 +158,8 @@ Creates an application load balancer in the specified folder.
       }
     ],
     "disable": "bool"
-  }
+  },
+  "allow_zonal_shift": "bool"
 }
 ```
 
@@ -218,6 +220,9 @@ see [documentation](/docs/application-load-balancer/concepts/application-load-ba
 || log_options | **[LogOptions](#yandex.cloud.apploadbalancer.v1.LogOptions)**
 
 Cloud logging settings of the application load balancer. ||
+|| allow_zonal_shift | **bool**
+
+Specifies whether application load balancer is available to zonal shift. ||
 |#
 
 ## ListenerSpec {#yandex.cloud.apploadbalancer.v1.ListenerSpec}
@@ -537,6 +542,9 @@ Disables the load balancer node in the specified availability zone.
 Backends in the availability zone are not directly affected by this setting.
 They still may receive traffic from the load balancer nodes in other availability zones,
 subject to [LoadBalancingConfig.locality_aware_routing_percent](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings. ||
+|| zonal_shift_active | **bool**
+
+Show zonal shift status for the location. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.apploadbalancer.v1.AutoScalePolicy}
@@ -741,7 +749,8 @@ Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
         {
           "zone_id": "string",
           "subnet_id": "string",
-          "disable_traffic": "bool"
+          "disable_traffic": "bool",
+          "zonal_shift_active": "bool"
         }
       ]
     },
@@ -771,7 +780,8 @@ Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
         }
       ],
       "disable": "bool"
-    }
+    },
+    "allow_zonal_shift": "bool"
   }
   // end of the list of possible fields
 }
@@ -918,6 +928,9 @@ see [documentation](/docs/application-load-balancer/concepts/application-load-ba
 || log_options | **[LogOptions](#yandex.cloud.apploadbalancer.v1.LogOptions2)**
 
 Cloud logging settings of the application load balancer. ||
+|| allow_zonal_shift | **bool**
+
+Specifies whether application load balancer is available to zonal shift. ||
 |#
 
 ## Listener {#yandex.cloud.apploadbalancer.v1.Listener}
@@ -1252,6 +1265,9 @@ Disables the load balancer node in the specified availability zone.
 Backends in the availability zone are not directly affected by this setting.
 They still may receive traffic from the load balancer nodes in other availability zones,
 subject to [LoadBalancingConfig.locality_aware_routing_percent](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings. ||
+|| zonal_shift_active | **bool**
+
+Show zonal shift status for the location. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.apploadbalancer.v1.AutoScalePolicy2}

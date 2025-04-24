@@ -27,7 +27,12 @@ POST https://cic.{{ api-host }}/cic/v1/trunkConnections
     "transceiverType": "string"
   },
   "lagDirectJoint": {
-    "transceiverType": "string"
+    "transceiverType": "string",
+    "lagAllocationSettings": {
+      // Includes only one of the fields `lagSize`
+      "lagSize": "string"
+      // end of the list of possible fields
+    }
   },
   "partnerJointInfo": {
     "partnerId": "string"
@@ -97,7 +102,8 @@ Capacity of the trunkConnection
 - `CAPACITY_30_GBPS`
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
-- `CAPACITY_100_GBPS` ||
+- `CAPACITY_100_GBPS`
+- `CAPACITY_200_GBPS` ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
@@ -147,6 +153,23 @@ Type of transceiver that the trunkConnection is deployed on.
 - `TRANSCEIVER_TYPE_10GBASE_ER`
 - `TRANSCEIVER_TYPE_100GBASE_LR4`
 - `TRANSCEIVER_TYPE_100GBASE_ER4` ||
+|| lagAllocationSettings | **[LagAllocationSettingsRequest](#yandex.cloud.cic.v1.common.LagAllocationSettingsRequest)**
+
+LAG allocation settings that the trunkConnection is deployed on. ||
+|#
+
+## LagAllocationSettingsRequest {#yandex.cloud.cic.v1.common.LagAllocationSettingsRequest}
+
+Structure for create and update requests that describes LAG allocation settings
+
+#|
+||Field | Description ||
+|| lagSize | **string** (int64)
+
+Size of LAG.
+Must be from 1 to 10 inclusively.
+
+Includes only one of the fields `lagSize`. ||
 |#
 
 ## PartnerJoint {#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.PartnerJoint}
@@ -394,7 +417,8 @@ Capacity of the trunkConnection
 - `CAPACITY_30_GBPS`
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
-- `CAPACITY_100_GBPS` ||
+- `CAPACITY_100_GBPS`
+- `CAPACITY_200_GBPS` ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.

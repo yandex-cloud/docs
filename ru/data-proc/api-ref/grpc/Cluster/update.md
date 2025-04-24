@@ -57,7 +57,8 @@ Updates the configuration of the specified cluster.
           ],
           "timeout": "int64"
         }
-      ]
+      ],
+      "oslogin_enabled": "bool"
     }
   },
   "name": "string",
@@ -243,6 +244,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initialization_actions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
+|| oslogin_enabled | **bool**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction}
@@ -307,7 +311,8 @@ Execution timeout ||
             ],
             "timeout": "int64"
           }
-        ]
+        ],
+        "oslogin_enabled": "bool"
       }
     },
     "health": "Health",
@@ -545,6 +550,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initialization_actions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction2)**
 
 Set of init-actions ||
+|| oslogin_enabled | **bool**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction2}

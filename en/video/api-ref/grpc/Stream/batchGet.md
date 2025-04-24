@@ -48,6 +48,7 @@ List of requested stream IDs. ||
       "start_time": "google.protobuf.Timestamp",
       "publish_time": "google.protobuf.Timestamp",
       "finish_time": "google.protobuf.Timestamp",
+      "auto_publish": "google.protobuf.BoolValue",
       // Includes only one of the fields `on_demand`, `schedule`
       "on_demand": "OnDemand",
       "schedule": {
@@ -111,16 +112,20 @@ Stream publish time. Time when stream switched to ONAIR status. ||
 || finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Stream finish time. ||
+|| auto_publish | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Automatically publish stream when ready.
+Switches status from READY to ONAIR. ||
 || on_demand | **[OnDemand](#yandex.cloud.video.v1.OnDemand)**
 
-On demand stream. It starts immediately when a signal appears.
+On-demand stream. Starts immediately when a signal appears.
 
 Includes only one of the fields `on_demand`, `schedule`.
 
 Stream type. ||
 || schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
 
-Schedule stream. Determines when to start receiving the signal or finish time.
+Schedule stream. Starts or finished at the specified time.
 
 Includes only one of the fields `on_demand`, `schedule`.
 
@@ -138,7 +143,8 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 
 ## OnDemand {#yandex.cloud.video.v1.OnDemand}
 
-If "OnDemand" is used, client should start and finish explicitly.
+On-demand stream type.
+This type of streams should be started and finished explicitly.
 
 #|
 ||Field | Description ||
@@ -147,7 +153,8 @@ If "OnDemand" is used, client should start and finish explicitly.
 
 ## Schedule {#yandex.cloud.video.v1.Schedule}
 
-If "Schedule" is used, stream automatically start and finish at this time.
+Schedule stream type.
+This type of streams start and finish automatically at the specified time.
 
 #|
 ||Field | Description ||

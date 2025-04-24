@@ -159,7 +159,8 @@ items:
                 href: operations/connection/create-usage-tracking.md
           - name: Creating an API Connector connection
             href: operations/connection/create-api-connector.md
-            hidden: true
+          - name: Creating a {{ speechsense-name }} connection
+            href: operations/connection/create-speechsense.md
       - name: Partner connections
         items:
           - name: Creating a 1C Extractor connection
@@ -660,6 +661,48 @@ items:
             href: concepts/chart/ql-charts.md
           - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
+      - name: Charts in Editor
+        items:
+          - name: Overview
+            href: charts/editor/index.md
+          - name: Quick start in Editor
+            items:
+              - name: Overview
+                href: charts/editor/quickstart/index.md
+              - name: Creating a table based on a dataset
+                href: charts/editor/quickstart/from-dataset.md
+              - name: Creating a table based on an SQL query
+                href: charts/editor/quickstart/from-database.md
+              - name: Creating a table based on API Connector
+                href: charts/editor/quickstart/from-api-connector.md
+          - name: Tabs
+            href: charts/editor/tabs.md
+          - name: Sources
+            href: charts/editor/sources.md
+          - name: Available methods
+            href: charts/editor/methods.md
+          - name: Notifications
+            href: charts/editor/notifications.md
+          - name: Chart links in dashboards and reports
+            href: charts/editor/links.md
+          - name: Cross-filtering
+            href: charts/editor/cross-filtration.md
+          - name: Chart debugging
+            href: charts/editor/debug.md
+          - name: Visualization types
+            items:
+              - name: Overview
+                href: charts/editor/widgets/index.md
+              - name: Table
+                href: charts/editor/widgets/table.md
+              - name: Chart (Gravity Charts)
+                href: charts/editor/widgets/chart.md
+              - name: Markdown
+                href: charts/editor/widgets/markdown.md
+              - name: Advanced chart
+                href: charts/editor/widgets/advanced.md
+              - name: Selector
+                href: charts/editor/widgets/controls.md
       - name: Visualization reference
         items:
           - name: All visualizations
@@ -760,6 +803,8 @@ items:
             href: operations/dashboard/add-support-message.md
           - name: Adding an access error message
             href: operations/dashboard/add-access-message.md
+          - name: Configuring links on the dashboard
+            href: operations/dashboard/dashboard-links.md
           - name: Creating an alias
             href: operations/dashboard/create-alias.md
           - name: Deleting an alias
@@ -776,6 +821,8 @@ items:
             href: operations/dashboard/dash-settings.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
+          - name: Adding a JS selector to a dashboard
+            href: charts/editor/add-js-selector.md
   - name: Reports
     items:
       - name: Overview

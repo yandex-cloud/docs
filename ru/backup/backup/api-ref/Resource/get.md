@@ -22,6 +22,15 @@ GET https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}
 Required field. Compute Cloud instance ID. ||
 |#
 
+## Query parameters {#yandex.cloud.backup.v1.GetResourceRequest}
+
+#|
+||Field | Description ||
+|| includeTenantInfo | **boolean**
+
+If flag is set tenant informantion would be added to the response. ||
+|#
+
 ## Response {#yandex.cloud.backup.v1.GetResourceResponse}
 
 **HTTP Code: 200 - OK**
@@ -43,7 +52,12 @@ Required field. Compute Cloud instance ID. ||
     "isActive": "boolean",
     "initStatus": "string",
     "metadata": "string",
-    "type": "string"
+    "type": "string",
+    "tenantInfo": {
+      "folderId": "string",
+      "personalTenantId": "string",
+      "userId": "string"
+    }
   }
 }
 ```
@@ -146,4 +160,22 @@ Type of resource. Could be compute VM or baremetal server.
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
 - `BMS`: Resource is baremetal server ||
+|| tenantInfo | **[TenantInfo](#yandex.cloud.backup.v1.TenantInfo)**
+
+Additional info abount tenant which resource belongs to ||
+|#
+
+## TenantInfo {#yandex.cloud.backup.v1.TenantInfo}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Folder ID ||
+|| personalTenantId | **string**
+
+Personal tenant id from backup provider ||
+|| userId | **string**
+
+User id from provider ||
 |#

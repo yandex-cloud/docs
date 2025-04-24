@@ -75,6 +75,16 @@ Updates the specified Kubernetes cluster.
     ],
     "external_v6_address_spec": {
       "address": "string"
+    },
+    "scale_policy": {
+      // Includes only one of the fields `fixed_scale`, `auto_scale`
+      "fixed_scale": {
+        "resource_preset_id": "string"
+      },
+      "auto_scale": {
+        "min_resource_preset_id": "string"
+      }
+      // end of the list of possible fields
     }
   },
   "service_account_id": "string",
@@ -154,6 +164,9 @@ Update master instance locations. ||
 || external_v6_address_spec | **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
 
 Specification of parameters for external IPv6 networking. ||
+|| scale_policy | **[MasterScalePolicySpec](#yandex.cloud.k8s.v1.MasterScalePolicySpec)**
+
+Scale policy of the master. ||
 |#
 
 ## UpdateVersionSpec {#yandex.cloud.k8s.v1.UpdateVersionSpec}
@@ -322,6 +335,40 @@ If not specified and there is a single subnet in specified zone, address in this
 IP address. ||
 |#
 
+## MasterScalePolicySpec {#yandex.cloud.k8s.v1.MasterScalePolicySpec}
+
+#|
+||Field | Description ||
+|| fixed_scale | **[FixedScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.FixedScale)**
+
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|| auto_scale | **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
+
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|#
+
+## FixedScale {#yandex.cloud.k8s.v1.MasterScalePolicySpec.FixedScale}
+
+Fixed master instance resources.
+
+#|
+||Field | Description ||
+|| resource_preset_id | **string**
+
+Required field. Preset of computing resources to be used by master. ||
+|#
+
+## AutoScale {#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale}
+
+Scalable master instance resources.
+
+#|
+||Field | Description ||
+|| min_resource_preset_id | **string**
+
+Required field. Preset of computing resources to be used as lower boundary for scaling. ||
+|#
+
 ## NetworkPolicy {#yandex.cloud.k8s.v1.NetworkPolicy}
 
 #|
@@ -457,6 +504,21 @@ IPv6 range for allocating Kubernetes service IP addresses ||
         "cluster_autoscaler_enabled": "bool",
         "kube_apiserver_enabled": "bool",
         "events_enabled": "bool"
+      },
+      "resources": {
+        "cores": "int64",
+        "core_fraction": "int64",
+        "memory": "int64"
+      },
+      "scale_policy": {
+        // Includes only one of the fields `fixed_scale`, `auto_scale`
+        "fixed_scale": {
+          "resource_preset_id": "string"
+        },
+        "auto_scale": {
+          "min_resource_preset_id": "string"
+        }
+        // end of the list of possible fields
       }
     },
     "ip_allocation_policy": {
@@ -689,6 +751,12 @@ Master security groups. ||
 || master_logging | **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging2)**
 
 Cloud Logging for master components. ||
+|| resources | **[MasterResources](#yandex.cloud.k8s.v1.MasterResources)**
+
+Computing resources of each master instance such as the amount of memory and number of cores. ||
+|| scale_policy | **[MasterScalePolicy](#yandex.cloud.k8s.v1.MasterScalePolicy)**
+
+Scale policy of the master. ||
 |#
 
 ## ZonalMaster {#yandex.cloud.k8s.v1.ZonalMaster}
@@ -908,6 +976,56 @@ Identifies whether Cloud Logging is enabled for kube-apiserver. ||
 || events_enabled | **bool**
 
 Identifies whether Cloud Logging is enabled for events. ||
+|#
+
+## MasterResources {#yandex.cloud.k8s.v1.MasterResources}
+
+#|
+||Field | Description ||
+|| cores | **int64**
+
+The number of cores available to each master instance. ||
+|| core_fraction | **int64**
+
+Baseline level of CPU performance with the ability to burst performance above that baseline level.
+This field sets baseline performance for each core. ||
+|| memory | **int64**
+
+The amount of memory available to each master instance, specified in bytes. ||
+|#
+
+## MasterScalePolicy {#yandex.cloud.k8s.v1.MasterScalePolicy}
+
+#|
+||Field | Description ||
+|| fixed_scale | **[FixedScale](#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale)**
+
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|| auto_scale | **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicy.AutoScale)**
+
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|#
+
+## FixedScale {#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale}
+
+Fixed master instance resources.
+
+#|
+||Field | Description ||
+|| resource_preset_id | **string**
+
+ID of computing resources preset to be used by master. ||
+|#
+
+## AutoScale {#yandex.cloud.k8s.v1.MasterScalePolicy.AutoScale}
+
+Autoscaled master instance resources.
+
+#|
+||Field | Description ||
+|| min_resource_preset_id | **string**
+
+ID of computing resources preset to be used as lower boundary for scaling. ||
 |#
 
 ## IPAllocationPolicy {#yandex.cloud.k8s.v1.IPAllocationPolicy2}

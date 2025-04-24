@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
    * Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-      1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+      1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
       1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
       1. Чтобы логи записывались в лог-группу по умолчанию, выберите значение **{{ ui-key.yacloud.common.folder }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
       1. Укажите каталог, лог-группу которого нужно использовать.
@@ -151,7 +151,7 @@ description: Следуя данной инструкции, вы сможете
    * Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-      1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+      1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
       1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
       1. Чтобы логи записывались в пользовательскую лог-группу, выберите значение **{{ ui-key.yacloud.logging.label_loggroup }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
       1. Укажите лог-группу `airflow-log-group`.

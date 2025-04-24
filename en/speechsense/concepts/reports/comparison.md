@@ -4,12 +4,6 @@ title: _Comparison_ report in {{ speechsense-name }}
 
 # _Comparison_ report in {{ speechsense-name }}
 
-{% note warning %}
-
-Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags](../tags.md#sense-tags) instead.
-
-{% endnote %}
-
 The **{{ ui-key.yc-ui-talkanalytics.reports.comparison-key-value }}** report allows you to display several parameters in a single chart and see how they correlate. For example, you can create a report that shows how the flaws in the agent’s speech, e.g., hesitation, poor articulation, or silence, affect the decision not to buy a service or product. You can use system tags as parameters for such a report: `Refused to buy`, `Agent’s hesitation`, `Stop words`, `Filler words`, etc.
 
 ## How to build a report {#form}

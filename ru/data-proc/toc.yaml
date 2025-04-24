@@ -13,6 +13,8 @@ items:
             href: operations/cluster-list.md
           - name: Создание кластера
             href: operations/cluster-create.md
+          - name: Создание кластера с автомасштабированием в сети другого каталога
+            href: operations/cluster-create-autoscale.md
           - name: Подключение к кластеру
             href: operations/connect.md
           - name: Изменение кластера

@@ -22,7 +22,8 @@ GET https://video.{{ api-host }}/video/v1/thumbnails
 ID of the channel. ||
 || pageSize | **string** (int64)
 
-The maximum number of the results per page to return. Default value: 100. ||
+The maximum number of the results per page to return.
+Default value: 100. ||
 || pageToken | **string**
 
 Page token for getting the next page of the result. ||

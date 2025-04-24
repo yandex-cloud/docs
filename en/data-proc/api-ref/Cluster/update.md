@@ -69,7 +69,8 @@ To get the cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Clus
           ],
           "timeout": "string"
         }
-      ]
+      ],
+      "osloginEnabled": "boolean"
     }
   },
   "name": "string",
@@ -257,6 +258,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
+|| osloginEnabled | **boolean**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction}
@@ -329,7 +333,8 @@ Execution timeout ||
             ],
             "timeout": "string"
           }
-        ]
+        ],
+        "osloginEnabled": "boolean"
       }
     },
     "health": "string",
@@ -605,6 +610,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction2)**
 
 Set of init-actions ||
+|| osloginEnabled | **boolean**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction2}

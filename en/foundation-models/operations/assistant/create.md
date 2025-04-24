@@ -95,6 +95,7 @@ This example shows how to create an [assistant](../../concepts/assistant/index.m
 #### See also {#see-also}
 
 * [{#T}](./create-with-searchindex.md)
+* [{#T}](./create-with-labels.md)
 * [{#T}](./request-chunked-response.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
 * Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

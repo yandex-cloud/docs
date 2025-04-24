@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/deactivate.md
 
 Deactivates the specified transfer.
 
-To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/Transfer/list#List) request.
+To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/Transfer/list#List) request.
 
 ## HTTP request
 
@@ -23,7 +23,7 @@ POST https://{{ api-host-data-transfer }}/v1/transfer/{transferId}:deactivate
 
 Required field. Identifier of the transfer to be deactivated.
 
-To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/Endpoint/list#List) request. ||
+To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/Endpoint/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

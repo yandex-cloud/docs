@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/vpc/v1/privatelink/api-ref/grpc/PrivateEndpoint/get
 
 Returns the specified Private Endpoint resource.
 
-To get the list of all available PrivateEndpoint resources, make a [List](/docs/vpc/api-ref/grpc/PrivateEndpoint/list#List)
+To get the list of all available PrivateEndpoint resources, make a [List](/docs/vpc/privatelink/api-ref/grpc/PrivateEndpoint/list#List)
 request.
 
 ## gRPC request
@@ -28,7 +28,7 @@ request.
 
 Required field. ID of the PrivateEndpoint resource to return.
 
-To get PrivateEndpoint resource ID make a [PrivateEndpointService.List](/docs/vpc/api-ref/grpc/PrivateEndpoint/list#List)
+To get PrivateEndpoint resource ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/grpc/PrivateEndpoint/list#List)
 request. ||
 |#
 

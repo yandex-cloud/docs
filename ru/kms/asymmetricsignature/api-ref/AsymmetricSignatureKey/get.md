@@ -22,7 +22,7 @@ GET https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
 || keyId | **string**
 
 Required field. ID of the asymmetric KMS key to return.
-To get the ID of an asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/api-ref/AsymmetricSignatureKey/list#List) request. ||
+To get the ID of an asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricSignatureKey}

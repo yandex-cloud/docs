@@ -104,6 +104,7 @@ description: В этой инструкции вы научитесь созда
 
       {% include [default-connstring](../_includes/mdb/mch/default-connstring.md) %}
 
+
 ## Что дальше {#whats-next}
 
 * Изучите [концепции сервиса](concepts/index.md).

@@ -23,3 +23,5 @@
   Список классов хостов и соответствующих им платформ см. в разделе [Классы хостов](../../../managed-mongodb/concepts/instance-types.md).
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+
+{% include [available-storage](../available-storage.md) %}

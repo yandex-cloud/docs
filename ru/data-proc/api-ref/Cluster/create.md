@@ -39,7 +39,8 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters
           ],
           "timeout": "string"
         }
-      ]
+      ],
+      "osloginEnabled": "boolean"
     },
     "subclustersSpec": [
       {
@@ -191,6 +192,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
+|| osloginEnabled | **boolean**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction}
@@ -366,7 +370,8 @@ Timeout to gracefully decommission nodes during downscaling. In seconds. Default
             ],
             "timeout": "string"
           }
-        ]
+        ],
+        "osloginEnabled": "boolean"
       }
     },
     "health": "string",
@@ -642,6 +647,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction2)**
 
 Set of init-actions ||
+|| osloginEnabled | **boolean**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction2}

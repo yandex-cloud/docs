@@ -117,7 +117,10 @@ request to get the next page of results. ||
         "subnetIds": [
           "string"
         ],
-        "assignPublicIps": "boolean"
+        "assignPublicIps": "boolean",
+        "securityGroupIds": [
+          "string"
+        ]
       },
       "serverlessDatabase": {
         "throttlingRcuLimit": "string",
@@ -261,7 +264,10 @@ request to get the next page of results. ||
           }
         ]
       },
-      "deletionProtection": "boolean"
+      "deletionProtection": "boolean",
+      "securityGroupIds": [
+        "string"
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -339,6 +345,7 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 || kafkaApiEndpoint | **string** ||
 || monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
 || deletionProtection | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
@@ -439,6 +446,7 @@ Required field.  ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
 || assignPublicIps | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}

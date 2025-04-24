@@ -12,22 +12,28 @@ description: 'In this tutorial, you will learn about methods of extending a spee
 * [Using audio to improve quality](#audio)
 
 
-## Auto-tuning {#autotuning}
+## Auto-tuning based on logged data {#autotuning}
 
 By default, {{ speechkit-name }} does not save data provided by users. However, the most effective way to improve a speech recognition model is to train it on real user data.
 
-To improve the quality of speech recognition, use model _auto-tuning_. It will enable you to save data transmitted in requests and use it for further training. Auto-tuning improves recognition quality while the model is running without any further actions on your part.
+To improve the quality of speech recognition, use model _auto-tuning_. It will enable you to save data transmitted in requests and use it for further training. Auto-tuning improves recognition quality while the model is running without any further data collecting actions on your part.
 
 Auto-tuning is a good option under these conditions:
 
 * The current script used for work tasks fails to recognize some of the vocabulary.
 * The vocabulary for auto-tuning should be easy to perceive by ear and to transcribe. For example, drug names are not suitable as these terms come from a narrow domain. To recognize domain-specific terms, use [model tuning](#advanced-training).
 
-To send data for auto-tuning, enable logging. To do this, provide the `x-data-logging-enabled: true` header in your API requests. For an example with logging enabled, see [{#T}](../concepts/support-headers.md).
+To send data for auto-tuning, provide the `x-data-logging-enabled: true` header in your API requests. For an example with logging enabled, see [{#T}](../concepts/support-headers.md). Then contact support to request model fine-tuning on the provided data.
 
-Restrictions and requirements:
+Auto-tuning tips:
 
 {% include [autotuning-requirements](../../_includes/speechkit/autotuning-requirements.md) %}
+
+## Using audio to improve quality {#audio}
+
+You can improve speech recognition by submitting an audio file to the {{ speechkit-name }} team. This method is similar to [auto-tuning](#autotuning) but uses an audio prepared by you instead of data provided in API requests. [Submit it to the support team]({{ link-console-support }}) as a ZIP archive. You can also attach transcripts of the messages, but this is optional.
+
+For the recommended data size, refer to the auto-tuning restrictions.
 
 ## Fine-tuning {#advanced-training}
 
@@ -56,13 +62,13 @@ For example, the `first-name.tsv`, `middle-name.tsv`, and `last-name.tsv` glossa
 
 | first-name.tsv | middle-name.tsv | last-name.tsv |
 |---|---|---|
-| John<br>Tom<br>Peter<br>... <br> | Wendell<br>Sean<br>Larry<br>... <br> | Thompson<br>Carter<br>Smith<br>... <br> |
+|  John<br>Tom<br>Peter<br>... <br> |  Wendell<br>Sean<br>Larry<br>... <br> | Thompson<br>Carter<br>Smith<br>... <br> |
 
 If the pattern phrases assume that the glossary terms may have possessive case forms, you need to create a separate glossary file for each form. For example, files with names in the possessive case will contain the following entries:
 
 | first-name-ablative.tsv | middle-name-ablative.tsv | last-name-ablative.tsv |
 |---|---|---|
-| John<br>Tom<br>Peter<br>... <br> | Wendell<br>Sean<br>Larry<br>... <br> | Thompson's<br>Carter's<br>Smith's<br>... <br> |
+|  John<br>Tom<br>Peter<br>... <br> |  Wendell<br>Sean<br>Larry<br>... <br> | Thompson's<br>Carter's<br>Smith's<br>... <br> |
 
 Then, the `templates.tsv` file may contain entries in the following format:
 
@@ -93,11 +99,3 @@ Requirements for text templates and glossaries:
 
 Tuning takes about two months from when you [submit the data archive to the support team](upload-data-for-training.md).
 
-
-## Using audio to improve quality {#audio}
-
-You can improve speech recognition by submitting an audio file to the {{ speechkit-name }} team. This method is similar to [auto-tuning](#autotuning) but uses an audio prepared by you instead of data provided in API requests. [Submit it to the support team]({{ link-console-support }}) as a ZIP archive.
-
-This method shares the same restrictions as auto-tuning:
-
-{% include [autotuning-requirements](../../_includes/speechkit/autotuning-requirements.md) %}

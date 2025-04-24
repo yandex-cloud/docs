@@ -24,7 +24,8 @@ Creates a device in the specified registry.
     }
   ],
   "topic_aliases": "map<string, string>",
-  "password": "string"
+  "password": "string",
+  "labels": "map<string, string>"
 }
 ```
 
@@ -54,6 +55,9 @@ Alias is an alternate name of a device topic assigned by the user. Map alias to 
 Device password.
 
 The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#
 
 ## Certificate {#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate}
@@ -95,8 +99,10 @@ Public part of the device certificate. ||
       "last_auth_time": "google.protobuf.Timestamp",
       "last_pub_activity_time": "google.protobuf.Timestamp",
       "last_sub_activity_time": "google.protobuf.Timestamp",
-      "last_online_time": "google.protobuf.Timestamp"
-    }
+      "last_online_time": "google.protobuf.Timestamp",
+      "last_disconnect_time": "google.protobuf.Timestamp"
+    },
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -203,6 +209,9 @@ Status of the device.
 || monitoring_data | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#
 
 ## DeviceMonitoringData {#yandex.cloud.iot.devices.v1.DeviceMonitoringData}
@@ -214,4 +223,5 @@ Device monitoring data, returns if FULL view specified. ||
 || last_pub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_disconnect_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

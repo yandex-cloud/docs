@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PrivateConnection/get.md
 
 Returns the specified PrivateConnection resource.
 
-To get the list of available PrivateConnection resources, make a [List](/docs/cic/workload/api-ref/grpc/PrivateConnection/list#List) request.
+To get the list of available PrivateConnection resources, make a [List](/docs/interconnect/api-ref/grpc/PrivateConnection/list#List) request.
 
 ## gRPC request
 
@@ -26,7 +26,7 @@ To get the list of available PrivateConnection resources, make a [List](/docs/ci
 || private_connection_id | **string**
 
 Required field. ID of the PrivateConnection resource to return.
-To get the privateConnection ID use a [PrivateConnectionService.List](/docs/cic/workload/api-ref/grpc/PrivateConnection/list#List) request. ||
+To get the privateConnection ID use a [PrivateConnectionService.List](/docs/interconnect/api-ref/grpc/PrivateConnection/list#List) request. ||
 |#
 
 ## PrivateConnection {#yandex.cloud.cic.v1.PrivateConnection}

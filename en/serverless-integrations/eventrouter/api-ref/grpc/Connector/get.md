@@ -6,7 +6,7 @@ sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/
 # EventRouter Service, gRPC: ConnectorService.Get
 
 Returns the specified bus.
-To get the list of all available connectors, make a [List](/docs/functions/eventrouter/api-ref/grpc/Connector/list#List) request.
+To get the list of all available connectors, make a [List](/docs/serverless-integrations/eventrouter/api-ref/grpc/Connector/list#List) request.
 
 ## gRPC request
 

@@ -12,4 +12,5 @@ Service for put events to bus for serverless eventrouter.
 #|
 ||Method | Description ||
 || [Put](put.md) | Puts event to bus. ||
+|| [Send](send.md) | Send events to bus. ||
 |#

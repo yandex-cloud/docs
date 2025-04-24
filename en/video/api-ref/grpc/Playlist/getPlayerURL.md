@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Playlist/getPlayerURL.md
 
 # Video API, gRPC: PlaylistService.GetPlayerURL
 
-Returns player's url.
+Get player url.
 
 ## gRPC request
 

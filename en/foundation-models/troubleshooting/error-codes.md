@@ -5,9 +5,9 @@ description: In response to any request, {{ foundation-models-name }} models ret
 
 # Error codes
 
-In response to any request, {{ foundation-models-name }} models return a message containing a request processing code and status. If there is an error processing a request, the message will also include its possible cause.
+In response to any request, {{ foundation-models-name }} models return a message containing a request processing code and status. If there is an error processing the request, the message will also include its possible cause.
 
-When processing model responses, in your message, refer to the request code and status. Error messages contain useful information, but may change after model updates.
+When analyzing the models' responses in your app, go by request code and status. Error messages contain useful information, but may change after model updates.
 
 | gRPC | REST | Status | Reason | Solution |
 |---|---|---|---|---|

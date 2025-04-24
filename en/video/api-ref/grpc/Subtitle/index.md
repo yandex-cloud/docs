@@ -11,7 +11,7 @@ Subtitle management service.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Return a specific subtitle. ||
+|| [Get](get.md) | Get a specific subtitle. ||
 || [List](list.md) | List subtitles. ||
 || [Create](create.md) | Create a new subtitle. ||
 || [GenerateUploadURL](generateUploadURL.md) | Generate an upload URL to add a new subtitle file. ||

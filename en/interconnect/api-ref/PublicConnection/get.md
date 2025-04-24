@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/cic/v1/api-ref/PublicConnection/get.md
 
 Returns the specified PublicConnection resource.
 
-To get the list of available PublicConnection resources, make a [List](/docs/cic/workload/api-ref/PublicConnection/list#List) request.
+To get the list of available PublicConnection resources, make a [List](/docs/interconnect/api-ref/PublicConnection/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://cic.{{ api-host }}/cic/v1/publicConnections/{publicConnectionId}
 || publicConnectionId | **string**
 
 Required field. ID of the PublicConnection resource to return.
-To get the publicConnection ID use a [PublicConnectionService.List](/docs/cic/workload/api-ref/PublicConnection/list#List) request. ||
+To get the publicConnection ID use a [PublicConnectionService.List](/docs/interconnect/api-ref/PublicConnection/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.PublicConnection}

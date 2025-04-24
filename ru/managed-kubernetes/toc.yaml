@@ -457,6 +457,13 @@ items:
                 href: managed-kubernetes/api-ref/grpc/Cluster/listOperations.md
               - name: ListNodes
                 href: managed-kubernetes/api-ref/grpc/Cluster/listNodes.md
+              - name: ListAccessBindings
+                href: managed-kubernetes/api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: managed-kubernetes/api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: >-
+                  managed-kubernetes/api-ref/grpc/Cluster/updateAccessBindings.md
           - name: NodeGroup
             items:
               - name: Overview
@@ -483,6 +490,14 @@ items:
                 href: managed-kubernetes/api-ref/grpc/Operation/get.md
               - name: Cancel
                 href: managed-kubernetes/api-ref/grpc/Operation/cancel.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: managed-kubernetes/api-ref/grpc/ResourcePreset/index.md
+              - name: Get
+                href: managed-kubernetes/api-ref/grpc/ResourcePreset/get.md
+              - name: List
+                href: managed-kubernetes/api-ref/grpc/ResourcePreset/list.md
           - name: Version
             items:
               - name: Overview
@@ -519,6 +534,12 @@ items:
                 href: managed-kubernetes/api-ref/Cluster/listOperations.md
               - name: ListNodes
                 href: managed-kubernetes/api-ref/Cluster/listNodes.md
+              - name: ListAccessBindings
+                href: managed-kubernetes/api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: managed-kubernetes/api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: managed-kubernetes/api-ref/Cluster/updateAccessBindings.md
           - name: NodeGroup
             items:
               - name: Overview

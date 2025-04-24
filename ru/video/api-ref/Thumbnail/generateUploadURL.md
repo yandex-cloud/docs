@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/generateUploadURL.md
 
 # Video API, REST: Thumbnail.GenerateUploadURL
 
-Generate url for upload image.
+Generate url for uploading an image.
 
 ## HTTP request
 
