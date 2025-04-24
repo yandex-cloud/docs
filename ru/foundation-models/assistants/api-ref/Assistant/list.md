@@ -74,7 +74,10 @@ Token to retrieve the next page of results. ||
             "searchIndexIds": [
               "string"
             ],
-            "maxNumResults": "string"
+            "maxNumResults": "string",
+            "rephraserOptions": {
+              "rephraserUri": "string"
+            }
           },
           "function": {
             "name": "string",
@@ -280,6 +283,22 @@ A list of search index IDs that this tool will query. Currently, only a single i
 The maximum number of results to return from the search.
 Fewer results may be returned if necessary to fit within the prompt's token limit.
 This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|| rephraserOptions | **[RephraserOptions](#yandex.cloud.ai.assistants.v1.RephraserOptions)**
+
+Options for rephrasing user queries.
+Used to rewrite the last user message for search,
+incorporating context from the previous conversation. ||
+|#
+
+## RephraserOptions {#yandex.cloud.ai.assistants.v1.RephraserOptions}
+
+Options for configuring the rephrasing the last user message for search using context from previous conversation.
+
+#|
+||Field | Description ||
+|| rephraserUri | **string**
+
+Required field. The ID of the model used to rephrase the last user message for search. ||
 |#
 
 ## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}

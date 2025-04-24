@@ -1,4 +1,4 @@
-# Push notifications in {{ cns-full-name }}
+# In-browser push notifications
 
 _In-browser push notifications_ are messages popping up in your browser.
 
@@ -13,11 +13,11 @@ To send a notification to the browser over a secure channel, the user must subsc
 To set up push notifications:
 
 1. In {{ cns-short-name }}, create the **{{ ui-key.yacloud.cns.type_web }}** channel.
-1. From the user's browser, use [Service Worker](https://developer.mozilla.org/ru/docs/Web/API/Service_Worker_API/Using_Service_Workers) to call the JavaScript [subscribe](https://developer.mozilla.org/en-US/docs/Web/API/PushManager/subscribe#applications) method.
+1. From the user browser, call the JavaScript [subscribe](https://developer.mozilla.org/en-US/docs/Web/API/PushManager/subscribe#applications) method using a [Service Worker](https://developer.mozilla.org/ru/docs/Web/API/Service_Worker_API/Using_Service_Workers).
 
-   When the method is called, the browser sends a request to its notification delivery server. For example, Google Chrome sends a request to Firebase Cloud Messaging (FCM), and Safari, to Apple Push Notification service (APNs). The [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object will be returned in response.
+   When the method is called, the browser sends a request to its notification delivery server. For example, Google Chrome sends a request to Firebase Cloud Messaging (FCM), and Safari, to Apple Push Notification service (APNs). The response will return a [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object.
 
-1. Convert the object you got into JSON by calling the [toJSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) method.
+1. Convert the object you got to JSON by calling the [toJSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) method.
 
 1. Use this JSON when creating the endpoint. Through this endpoint, you will send notifications to the user.
 

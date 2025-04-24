@@ -15,7 +15,8 @@ Lists supported dataset upload formats types and schemas for the specified datas
 
 ```json
 {
-  "task_type": "string"
+  "task_type": "string",
+  "folder_id": "string"
 }
 ```
 
@@ -24,6 +25,9 @@ Lists supported dataset upload formats types and schemas for the specified datas
 || task_type | **string**
 
 Required field. Dataset task type to list schemas. ||
+|| folder_id | **string**
+
+Folder to search task type (if empty only public types allowed) ||
 |#
 
 ## ListUploadSchemasResponse {#yandex.cloud.ai.dataset.v1.ListUploadSchemasResponse}

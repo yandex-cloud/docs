@@ -1,4 +1,6 @@
 ---
+title: '{{ mgl-full-name }} metrics'
+description: In this tutorial, you will learn about {{ mgl-name }} metrics.
 editable: false
 ---
 

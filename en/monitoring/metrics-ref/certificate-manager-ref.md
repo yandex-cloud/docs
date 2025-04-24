@@ -1,4 +1,6 @@
 ---
+title: '{{ certificate-manager-full-name }} metrics'
+description: In this tutorial, you will learn about {{ certificate-manager-name }} metrics.
 editable: false
 ---
 

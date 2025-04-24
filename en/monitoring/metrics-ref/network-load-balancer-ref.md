@@ -1,4 +1,6 @@
 ---
+title: '{{ network-load-balancer-full-name }} metrics'
+description: In this tutorial, you will learn about {{ network-load-balancer-name }} metrics.
 editable: false
 ---
 

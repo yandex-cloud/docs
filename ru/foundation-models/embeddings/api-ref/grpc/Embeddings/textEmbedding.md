@@ -16,7 +16,8 @@ A method for obtaining embeddings from text data.
 ```json
 {
   "model_uri": "string",
-  "text": "string"
+  "text": "string",
+  "dim": "google.protobuf.Int64Value"
 }
 ```
 
@@ -30,6 +31,9 @@ The [model URI](/docs/foundation-models/concepts/embeddings) to be used for obta
 || text | **string**
 
 The input text for which the embedding is requested. ||
+|| dim | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Optional parameter to specify embedding dimension for models that support multi-dimensional outputs ||
 |#
 
 ## TextEmbeddingResponse {#yandex.cloud.ai.foundation_models.v1.TextEmbeddingResponse}

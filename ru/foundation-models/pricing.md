@@ -16,9 +16,7 @@ editable: false
 
 ## Из чего складывается стоимость использования {{ foundation-models-full-name }} {#rules}
 
-### Единица тарификации {#unit}
-
-Использование сервиса {{ foundation-models-name }} детализируется в единицах тарификации — _тарифицирующих юнитах_. Стоимость одного тарифицирующего юнита различается для [генерации](./concepts/yandexgpt/index.md) и [векторизации](./concepts/embeddings.md) текста.
+Использование сервиса {{ foundation-models-name }} [детализируется в {{ billing-name }}](../billing/operations/check-charges.md) в единицах тарификации — _тарифицирующих юнитах_. Стоимость одного тарифицирующего юнита различается для [генерации](./concepts/yandexgpt/index.md) и [векторизации](./concepts/embeddings.md) текста.
 
 ### Генерация текста {#rules-generating}
 
@@ -28,6 +26,8 @@ editable: false
 * [Режим работы](concepts/index.md#working-mode) модели.
 
 Число [токенов](concepts/yandexgpt/tokens.md) в [промте](concepts/index.md) и ответе для одного и того же текста для разных моделей может отличаться.
+
+При использовании моделей в пакетном режиме минимальная стоимость запуска — 200 000 токенов.
 
 Итоговое количество потребленных юнитов вычисляется на основе суммарного числа токенов промта и ответа и округляется до целого значения в большую сторону.
 
@@ -41,7 +41,7 @@ editable: false
 
 * Работа моделей, дообученных в {{ ml-platform-full-name }}, тарифицируется по правилам {{ gpt-pro }}.
 * Работа дообученной модели {{ gpt-lite }} тарифицируется по правилам {{ gpt-lite }}.
-* Работа дообученной модели {{ llama }} 8B^1^ тарифицируется по правилам {{ llama }} 8B.
+* Работа дообученной модели {{ llama }} 8B тарифицируется по правилам {{ llama }} 8B.
 
 ### Классификация текста {#rules-text-classifier}
 
@@ -91,6 +91,11 @@ editable: false
 
 {% endlist %}
 
+
+
+#### Стоимость использования моделей в синхронном и асинхронном режиме {#text-sync-async}
+
+
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
@@ -100,6 +105,25 @@ editable: false
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-generating.md](../_pricing/yandexgpt/kzt-generating_new.md) %}
+
+{% endlist %}
+
+
+
+#### Стоимость использования моделей в пакетном режиме {#batch}
+
+При использовании моделей в пакетном режиме минимальная стоимость запуска — 200 000 токенов.
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-generating.md](../_pricing/yandexgpt/rub-generating-batch.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-generating.md](../_pricing/yandexgpt/kzt-generating-batch.md) %}
 
 {% endlist %}
 
@@ -265,6 +289,4 @@ editable: false
 
 
 
-
-^1^ {{ meta-disclaimer }}
 

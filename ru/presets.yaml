@@ -283,7 +283,10 @@ default:
   kraft-short-name: KRaft
   lang: ru
   lets-encrypt: Let's Encrypt®
+  license-apache: https://choosealicense.com/licenses/apache-2.0/
+  license-gemma: https://ai.google.dev/gemma/terms
   license-manager: License Manager
+  license-mit: https://opensource.org/license/mit
   link-adfs: >-
     https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
@@ -839,7 +842,7 @@ default:
   wiki-name: Wiki
   ya-360: Яндекс 360 для бизнеса
   yagpt-full-name: YandexGPT API
-  yagpt-max-tokens: 8 192
+  yagpt-max-tokens: "8\_192"
   yagpt-name: YandexGPT
   yandex-360: Яндекс 360
   yandex-cloud: Yandex Cloud

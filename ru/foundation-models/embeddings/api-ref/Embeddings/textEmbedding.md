@@ -18,7 +18,8 @@ POST https://llm.{{ api-host }}/foundationModels/v1/textEmbedding
 ```json
 {
   "modelUri": "string",
-  "text": "string"
+  "text": "string",
+  "dim": "string"
 }
 ```
 
@@ -32,6 +33,9 @@ The [model URI](/docs/foundation-models/concepts/embeddings) to be used for obta
 || text | **string**
 
 The input text for which the embedding is requested. ||
+|| dim | **string** (int64)
+
+Optional parameter to specify embedding dimension for models that support multi-dimensional outputs ||
 |#
 
 ## Response {#yandex.cloud.ai.foundation_models.v1.TextEmbeddingResponse}

@@ -56,11 +56,16 @@ Required field. ID of the search index to retrieve. ||
       }
       // end of the list of possible fields
     },
-    // Includes only one of the fields `ngram_tokenizer`
+    // Includes only one of the fields `ngram_tokenizer`, `standard_tokenizer`
     "ngram_tokenizer": {
       "min_gram": "google.protobuf.Int64Value",
       "max_gram": "google.protobuf.Int64Value"
-    }
+    },
+    "standard_tokenizer": "StandardTokenizer",
+    // end of the list of possible fields
+    // Includes only one of the fields `standard_analyzer`, `yandex_lemmer_analyzer`
+    "standard_analyzer": "StandardAnalyzer",
+    "yandex_lemmer_analyzer": "YandexLemmerAnalyzer"
     // end of the list of possible fields
   },
   "vector_search_index": {
@@ -85,11 +90,16 @@ Required field. ID of the search index to retrieve. ||
         }
         // end of the list of possible fields
       },
-      // Includes only one of the fields `ngram_tokenizer`
+      // Includes only one of the fields `ngram_tokenizer`, `standard_tokenizer`
       "ngram_tokenizer": {
         "min_gram": "google.protobuf.Int64Value",
         "max_gram": "google.protobuf.Int64Value"
-      }
+      },
+      "standard_tokenizer": "StandardTokenizer",
+      // end of the list of possible fields
+      // Includes only one of the fields `standard_analyzer`, `yandex_lemmer_analyzer`
+      "standard_analyzer": "StandardAnalyzer",
+      "yandex_lemmer_analyzer": "YandexLemmerAnalyzer"
       // end of the list of possible fields
     },
     "vector_search_index": {
@@ -220,11 +230,39 @@ In the case of text search, tokens are individual text characters. ||
 
 Tokenizer that generates n-grams.
 
-Includes only one of the fields `ngram_tokenizer`.
+Includes only one of the fields `ngram_tokenizer`, `standard_tokenizer`.
 
 Tokenizer type used for text search. The tokenizer determines how the
 input text is broken down into tokens before indexing.
 If not specified, the default tokenizer configuration is applied. ||
+|| standard_tokenizer | **[StandardTokenizer](#yandex.cloud.ai.assistants.v1.searchindex.StandardTokenizer)**
+
+Tokenizer that generates words.
+
+Includes only one of the fields `ngram_tokenizer`, `standard_tokenizer`.
+
+Tokenizer type used for text search. The tokenizer determines how the
+input text is broken down into tokens before indexing.
+If not specified, the default tokenizer configuration is applied. ||
+|| standard_analyzer | **[StandardAnalyzer](#yandex.cloud.ai.assistants.v1.searchindex.StandardAnalyzer)**
+
+Standard analyzer that performs common text processing operations to normalize text.
+
+Includes only one of the fields `standard_analyzer`, `yandex_lemmer_analyzer`.
+
+Analyzer type used for text search. The analyzer determines how the
+tokenized text is further processed before indexing.
+If not specified, the default analyzer configuration is applied. ||
+|| yandex_lemmer_analyzer | **[YandexLemmerAnalyzer](#yandex.cloud.ai.assistants.v1.searchindex.YandexLemmerAnalyzer)**
+
+Specialized analyzer that uses Yandex's lemmatization technology,
+particularly effective for Russian and other Slavic languages.
+
+Includes only one of the fields `standard_analyzer`, `yandex_lemmer_analyzer`.
+
+Analyzer type used for text search. The analyzer determines how the
+tokenized text is further processed before indexing.
+If not specified, the default analyzer configuration is applied. ||
 |#
 
 ## ChunkingStrategy {#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy}
@@ -280,6 +318,41 @@ Minimum length of characters in a gram. Defaults to 3 ||
 || max_gram | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum length of characters in a gram. Defaults to 4 ||
+|#
+
+## StandardTokenizer {#yandex.cloud.ai.assistants.v1.searchindex.StandardTokenizer}
+
+A standard tokenizer that splits text on word boundaries and removes punctuation.
+It follows the Unicode Text Segmentation rules as specified in Unicode Standard Annex #29.
+
+Example:
+Input text: `Hello, world! How are you?`
+Output tokens: `[Hello, world, How, are, you]`
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## StandardAnalyzer {#yandex.cloud.ai.assistants.v1.searchindex.StandardAnalyzer}
+
+A standard analyzer that uses StandardTokenizer.
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## YandexLemmerAnalyzer {#yandex.cloud.ai.assistants.v1.searchindex.YandexLemmerAnalyzer}
+
+A specialized analyzer that uses Yandex's lemmatization technology to reduce words to their base forms.
+Particularly effective for Russian and other Slavic languages, handling their complex morphology.
+For more information, see:
+https://yandex.cloud/en/docs/tutorials/dataplatform/opensearch-yandex-lemmer
+
+#|
+||Field | Description ||
+|| Empty | > ||
 |#
 
 ## VectorSearchIndex {#yandex.cloud.ai.assistants.v1.searchindex.VectorSearchIndex}
