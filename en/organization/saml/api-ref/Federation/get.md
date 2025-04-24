@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/get.md
 
 Returns the specified federation.
 
-To get the list of available federations, make a [List](/docs/organization/api-ref/Federation/list#List) request.
+To get the list of available federations, make a [List](/docs/organization/saml/api-ref/Federation/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fed
 || federationId | **string**
 
 Required field. ID of the federation to return.
-To get the federation ID, make a [FederationService.List](/docs/organization/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.Federation}

@@ -11,13 +11,13 @@ Channel management service.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific channel. ||
+|| [Get](get.md) | Get the specific channel. ||
 || [List](list.md) | List channels for organization. ||
 || [Create](create.md) | Create channel. ||
 || [Update](update.md) | Update channel. ||
 || [Delete](delete.md) | Delete channel. ||
 || [BatchDelete](batchDelete.md) | Batch delete channels. ||
-|| [ListAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified channel. ||
-|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the channel. ||
-|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified channel. ||
+|| [ListAccessBindings](listAccessBindings.md) | List existing access bindings for the specified channel. ||
+|| [SetAccessBindings](setAccessBindings.md) | Set access bindings for the channel. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Update access bindings for the specified channel. ||
 |#

@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Video/batchDelete.md
 
 # Video API, REST: Video.BatchDelete
 
-Batch delete video.
+Batch delete videos.
 
 ## HTTP request
 

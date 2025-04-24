@@ -22,14 +22,36 @@ items:
                 href: operations/workflows/workflow/get-list.md
               - name: Getting information about a workflow
                 href: operations/workflows/workflow/get-info.md
-          - name: Managing a workflow run
+          - name: Managing a workflow
             items:
-              - name: Starting a workflow
-                href: operations/workflows/execution/start.md
-              - name: Stopping a workflow execution
-                href: operations/workflows/execution/stop.md
-              - name: Forcing a workflow to stop
-                href: operations/workflows/execution/terminate.md
+              - name: Creating a workflow
+                items:
+                  - name: Constructor
+                    href: operations/workflows/workflow/create-constructor.md
+                  - name: YaWL specification
+                    href: operations/workflows/workflow/create-yawl.md
+              - name: Updating a workflow
+                href: operations/workflows/workflow/update.md
+              - name: Specifying a cloud network
+                href: operations/workflows/workflow/network-add.md
+              - name: Managing labels
+                items:
+                  - name: Adding a label
+                    href: operations/workflows/workflow/label-add.md
+                  - name: Updating a label
+                    href: operations/workflows/workflow/label-update.md
+                  - name: Deleting a label
+                    href: operations/workflows/workflow/label-delete.md
+              - name: Viewing monitoring charts
+                href: operations/workflows/workflow/monitoring.md
+              - name: Managing logs
+                items:
+                  - name: Viewing logs
+                    href: operations/workflows/workflow/logs-read.md
+                  - name: Writing logs
+                    href: operations/workflows/workflow/logs-write.md
+              - name: Deleting a workflow
+                href: operations/workflows/workflow/delete.md
           - name: Getting the workflow execution information
             items:
               - name: Getting a list of workflow executions
@@ -38,6 +60,14 @@ items:
                 href: operations/workflows/execution/get-info.md
               - name: Getting information on the progress of each step
                 href: operations/workflows/execution/get-history.md
+          - name: Managing a workflow run
+            items:
+              - name: Starting a workflow
+                href: operations/workflows/execution/start.md
+              - name: Stopping a workflow execution
+                href: operations/workflows/execution/stop.md
+              - name: Forcing a workflow to stop
+                href: operations/workflows/execution/terminate.md
       - name: '{{ er-name }}'
         items:
           - name: Getting information about a bus
@@ -202,6 +232,8 @@ items:
                     href: concepts/workflows/yawl/integration/postbox.md
                   - name: Workflow
                     href: concepts/workflows/yawl/integration/workflow.md
+                  - name: Disk
+                    href: concepts/workflows/yawl/integration/disk.md
               - name: Control steps
                 items:
                   - name: Switch
@@ -218,6 +250,8 @@ items:
                     href: concepts/workflows/yawl/management/noop.md
                   - name: Wait
                     href: concepts/workflows/yawl/management/wait.md
+                  - name: While
+                    href: concepts/workflows/yawl/management/while.md
           - name: Templating
             href: concepts/workflows/templating.md
       - name: '{{ er-name }}'
@@ -244,7 +278,7 @@ items:
     href: tf-ref.md
   - name: '{{ sw-name }} API reference'
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/workflows/authentication.md
       - name: gRPC
         items:
@@ -336,7 +370,7 @@ items:
                 href: workflows/api-ref/Workflow/listOperations.md
   - name: '{{ er-name }} API reference'
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/eventrouter/authentication.md
       - name: gRPC
         items:
@@ -396,6 +430,8 @@ items:
                 href: eventrouter/api-ref/grpc/Event/index.md
               - name: Put
                 href: eventrouter/api-ref/grpc/Event/put.md
+              - name: Send
+                href: eventrouter/api-ref/grpc/Event/send.md
           - name: Operation
             items:
               - name: Overview
@@ -488,6 +524,8 @@ items:
                 href: eventrouter/api-ref/Event/index.md
               - name: Put
                 href: eventrouter/api-ref/Event/put.md
+              - name: Send
+                href: eventrouter/api-ref/Event/send.md
           - name: Operation
             items:
               - name: Overview

@@ -19,13 +19,19 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 
 ### Creating and setting up a project {#creating-project}
 
+* [{#T}](new-kubernetes-project.md)
 * [{#T}](k8s-cluster-with-no-internet.md)
+* [{#T}](running-pod-gpu.md)
 * [{#T}](driverless-gpu.md)
+* [{#T}](time-slicing-gpu.md)
+* [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](kms-k8s.md)
 
 ### Setting up and testing scaling {#scaling}
 
 * [{#T}](autoscaling.md)
+* [{#T}](vpa-autoscaling.md)
+* [{#T}](metrics-server.md)
 * [{#T}](loadtesting-grpc-autoscaling.md)
 
 ### Installing NGINX {#nginx}
@@ -47,10 +53,16 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
+* [{#T}](node-local-dns.md)
 * [{#T}](dnschallenge.md)
+
+## Backups {#backup}
+
+* [{#T}](pvc-snapshot-restore.md)
 
 ### Monitoring {#monitoring}
 
+* [{#T}](prometheus-grafana-monitoring.md)
 * [{#T}](filebeat-oss-monitoring.md)
 
 ### Using {{ marketplace-full-name }} products {#marketplace-tutorials}

@@ -27,7 +27,7 @@ Lists operations for the specified asymmetric KMS key.
 
 Required field. ID of the symmetric KMS key to get operations for.
 
-To get the key ID, use a [AsymmetricSignatureKeyService.List](/docs/kms/api-ref/grpc/AsymmetricSignatureKey/list#List) request. ||
+To get the key ID, use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/list#List) request. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available

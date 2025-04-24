@@ -707,6 +707,7 @@ default:
   s3-storage-host-cli: storage.yandexcloud.net
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
+  s3-storage-host-ru: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
   saml-limit-display-name: 64 characters
   saml-limit-email: 256 characters
@@ -961,6 +962,11 @@ default:
     logs:
       raw|string: ₸25000.00
       shielding|string: ₸17500.00
+  sku|KZT|cloud_backup:
+    bms_used_space:
+      v1|month|string: ₸20.88
+    protected_bms:
+      v1|month|string: ₸5976.00
   sku|KZT|cloud_desktop:
     hdd:
       v1|month|number: 21.6
@@ -1906,11 +1912,15 @@ default:
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0125
+      v1|string: ₸0.0125
     stt_long_running:
       v1|number: 0.05
+      v1|string: ₸0.05
     stt:
+      v1|number: 0.8
       v1|string: ₸0.80
     tts_gpu:
+      v1|number: 6600
       v1|string: ₸6600.00
     tts:
       v3_bvcc_request:
@@ -1920,6 +1930,7 @@ default:
       v3_bvss_request:
         v1|string: ₸0.80
       v3_request:
+        v1|number: 0.8
         v1|string: ₸0.80
   sku|KZT|speechsense:
     analysis:
@@ -2513,6 +2524,11 @@ default:
     logs:
       raw|string: ₽5000.00
       shielding|string: ₽3500.00
+  sku|RUB|cloud_backup:
+    bms_used_space:
+      v1|month|string: ₽4.1760
+    protected_bms:
+      v1|month|string: ₽1195.20
   sku|RUB|cloud_desktop:
     hdd:
       v1|month|number: 4.32
@@ -3495,11 +3511,15 @@ default:
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0025
+      v1|string: ₽0.0025
     stt_long_running:
       v1|number: 0.01
+      v1|string: ₽0.01
     stt:
+      v1|number: 0.16
       v1|string: ₽0.16
     tts_gpu:
+      v1|number: 1320
       v1|string: ₽1320.00
     tts:
       v3_bvcc_request:
@@ -3509,6 +3529,7 @@ default:
       v3_bvss_request:
         v1|string: ₽0.16
       v3_request:
+        v1|number: 0.16
         v1|string: ₽0.16
   sku|RUB|speechsense:
     analysis:
@@ -3968,6 +3989,11 @@ default:
     logs:
       raw|string: $40.000000
       shielding|string: $28.000000
+  sku|USD|cloud_backup:
+    bms_used_space:
+      v1|month|string: $0.033408
+    protected_bms:
+      v1|month|string: $9.561600
   sku|USD|cloud_desktop:
     hdd:
       v1|month|number: 0.03456
@@ -4901,11 +4927,15 @@ default:
   sku|USD|speechkit:
     stt_long_running_deferred:
       v1|number: 0.00002
+      v1|string: $0.000020
     stt_long_running:
       v1|number: 0.00008
+      v1|string: $0.000080
     stt:
+      v1|number: 0.00128
       v1|string: $0.001280
     tts_gpu:
+      v1|number: 10.56
       v1|string: $10.560000
     tts:
       v3_bvcc_request:
@@ -4915,6 +4945,7 @@ default:
       v3_bvss_request:
         v1|string: $0.001280
       v3_request:
+        v1|number: 0.00128
         v1|string: $0.001280
   sku|USD|speechsense:
     analysis:
@@ -5023,6 +5054,7 @@ default:
         10|string: $1.600000
         100|number: 1.12
         100|string: $1.120000
+        1000|number: 0.4
         1000|string: $0.400000
         10000|string: $0.200000
       v1|string: Free
@@ -5030,10 +5062,15 @@ default:
       requests:
         v1|pricingRate:
           '0':
+            01|number: 200
             01|string: $200.000000
+          1|number: 28
           1|string: $28.000000
+          10|number: 1.6
           10|string: $1.600000
+          100|number: 1.12
           100|string: $1.120000
+          1000|number: 0.4
           1000|string: $0.400000
           10000|string: $0.200000
         v1|string: Free
@@ -10526,7 +10563,6 @@ default:
           two-channel-key-value: Two-channel audio
       dialogs:
         all-participants: All participants
-        analysis: Analysis
         bot: Bot
         classifier:
           appreciation-key-value: Appreciation
@@ -10543,7 +10579,6 @@ default:
         exact-match-by-key-phrases: Exact match by keywords
         open-dialog: Open dialog
         operator: Agent
-        operator-tags: 'Agent tags '
         search:
           dictionary:
             title: Dictionary

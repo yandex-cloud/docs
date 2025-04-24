@@ -124,7 +124,10 @@ Required field. ID of the destination folder. ||
       "subnet_ids": [
         "string"
       ],
-      "assign_public_ips": "bool"
+      "assign_public_ips": "bool",
+      "security_group_ids": [
+        "string"
+      ]
     },
     "serverless_database": {
       "throttling_rcu_limit": "int64",
@@ -258,7 +261,10 @@ Required field. ID of the destination folder. ||
         }
       ]
     },
-    "deletion_protection": "bool"
+    "deletion_protection": "bool",
+    "security_group_ids": [
+      "string"
+    ]
   }
   // end of the list of possible fields
 }
@@ -379,6 +385,7 @@ Includes only one of the fields `zonal_database`, `regional_database`, `dedicate
 || kafka_api_endpoint | **string** ||
 || monitoring_config | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
 || deletion_protection | **bool** ||
+|| security_group_ids[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
@@ -479,6 +486,7 @@ Required field.  ||
 || network_id | **string** ||
 || subnet_ids[] | **string** ||
 || assign_public_ips | **bool** ||
+|| security_group_ids[] | **string** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}

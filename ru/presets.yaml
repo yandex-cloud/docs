@@ -711,6 +711,7 @@ default:
   s3-storage-host-cli: storage.yandexcloud.net
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
+  s3-storage-host-ru: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
   saml-limit-display-name: 64 символа
   saml-limit-email: 256 символов
@@ -965,6 +966,11 @@ default:
     logs:
       raw|string: "25\_000,00\_₸"
       shielding|string: "17\_500,00\_₸"
+  sku|KZT|cloud_backup:
+    bms_used_space:
+      v1|month|string: "20,88\_₸"
+    protected_bms:
+      v1|month|string: "5\_976,00\_₸"
   sku|KZT|cloud_desktop:
     hdd:
       v1|month|number: 21.6
@@ -1910,11 +1916,15 @@ default:
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0125
+      v1|string: "0,0125\_₸"
     stt_long_running:
       v1|number: 0.05
+      v1|string: "0,05\_₸"
     stt:
+      v1|number: 0.8
       v1|string: "0,80\_₸"
     tts_gpu:
+      v1|number: 6600
       v1|string: "6\_600,00\_₸"
     tts:
       v3_bvcc_request:
@@ -1924,6 +1934,7 @@ default:
       v3_bvss_request:
         v1|string: "0,80\_₸"
       v3_request:
+        v1|number: 0.8
         v1|string: "0,80\_₸"
   sku|KZT|speechsense:
     analysis:
@@ -2517,6 +2528,11 @@ default:
     logs:
       raw|string: "5\_000,00\_₽"
       shielding|string: "3\_500,00\_₽"
+  sku|RUB|cloud_backup:
+    bms_used_space:
+      v1|month|string: "4,1760\_₽"
+    protected_bms:
+      v1|month|string: "1\_195,20\_₽"
   sku|RUB|cloud_desktop:
     hdd:
       v1|month|number: 4.32
@@ -3499,11 +3515,15 @@ default:
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0025
+      v1|string: "0,0025\_₽"
     stt_long_running:
       v1|number: 0.01
+      v1|string: "0,01\_₽"
     stt:
+      v1|number: 0.16
       v1|string: "0,16\_₽"
     tts_gpu:
+      v1|number: 1320
       v1|string: "1\_320,00\_₽"
     tts:
       v3_bvcc_request:
@@ -3513,6 +3533,7 @@ default:
       v3_bvss_request:
         v1|string: "0,16\_₽"
       v3_request:
+        v1|number: 0.16
         v1|string: "0,16\_₽"
   sku|RUB|speechsense:
     analysis:
@@ -3972,6 +3993,11 @@ default:
     logs:
       raw|string: "40,000000\_$"
       shielding|string: "28,000000\_$"
+  sku|USD|cloud_backup:
+    bms_used_space:
+      v1|month|string: "0,033408\_$"
+    protected_bms:
+      v1|month|string: "9,561600\_$"
   sku|USD|cloud_desktop:
     hdd:
       v1|month|number: 0.03456
@@ -4905,11 +4931,15 @@ default:
   sku|USD|speechkit:
     stt_long_running_deferred:
       v1|number: 0.00002
+      v1|string: "0,000020\_$"
     stt_long_running:
       v1|number: 0.00008
+      v1|string: "0,000080\_$"
     stt:
+      v1|number: 0.00128
       v1|string: "0,001280\_$"
     tts_gpu:
+      v1|number: 10.56
       v1|string: "10,560000\_$"
     tts:
       v3_bvcc_request:
@@ -4919,6 +4949,7 @@ default:
       v3_bvss_request:
         v1|string: "0,001280\_$"
       v3_request:
+        v1|number: 0.00128
         v1|string: "0,001280\_$"
   sku|USD|speechsense:
     analysis:
@@ -5027,6 +5058,7 @@ default:
         10|string: "1,600000\_$"
         100|number: 1.12
         100|string: "1,120000\_$"
+        1000|number: 0.4
         1000|string: "0,400000\_$"
         10000|string: "0,200000\_$"
       v1|string: Не тарифицируется
@@ -5034,10 +5066,15 @@ default:
       requests:
         v1|pricingRate:
           '0':
+            01|number: 200
             01|string: "200,000000\_$"
+          1|number: 28
           1|string: "28,000000\_$"
+          10|number: 1.6
           10|string: "1,600000\_$"
+          100|number: 1.12
           100|string: "1,120000\_$"
+          1000|number: 0.4
           1000|string: "0,400000\_$"
           10000|string: "0,200000\_$"
         v1|string: Не тарифицируется
@@ -10534,7 +10571,6 @@ default:
           two-channel-key-value: Двухканальное аудио
       dialogs:
         all-participants: Все участники
-        analysis: Анализ
         bot: Бот
         classifier:
           appreciation-key-value: Благодарность
@@ -10551,7 +10587,6 @@ default:
         exact-match-by-key-phrases: Точное совпадение ключевых фраз
         open-dialog: Перейти в диалог
         operator: Оператор
-        operator-tags: Теги оператора
         search:
           dictionary:
             title: Словарный

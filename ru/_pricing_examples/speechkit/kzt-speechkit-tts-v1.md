@@ -1,8 +1,8 @@
-> 2023 × (6 600,00&nbsp;₸ / 1 000 000) = 13,35&nbsp;₸
+> 2023 × ({{ sku|KZT|speechkit.tts_gpu.v1|string }} / 1 000 000) = {% calc [currency=KZT] round(2023 × ({{ sku|KZT|speechkit.tts_gpu.v1|number }} / 1 000 000) × 100) / 100 %}
 >
-> Итого: 13,35&nbsp;₸.
+> Итого: {% calc [currency=KZT] round(2023 × ({{ sku|KZT|speechkit.tts_gpu.v1|number }} / 1 000 000) × 100) / 100 %}.
 
 Где:
 
-* 6 600,00&nbsp;₸ — стоимость за 1 млн символов.
-* 6 600,00&nbsp;₸ / 1 000 000 — стоимость за 1 символ.
+* {{ sku|KZT|speechkit.tts_gpu.v1|string }} — стоимость за 1 млн символов.
+* {{ sku|KZT|speechkit.tts_gpu.v1|string }} / 1 000 000 — стоимость за 1 символ.

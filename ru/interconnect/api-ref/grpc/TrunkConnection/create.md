@@ -25,7 +25,12 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
     "transceiver_type": "TransceiverType"
   },
   "lag_direct_joint": {
-    "transceiver_type": "TransceiverType"
+    "transceiver_type": "TransceiverType",
+    "lag_allocation_settings": {
+      // Includes only one of the fields `lag_size`
+      "lag_size": "int64"
+      // end of the list of possible fields
+    }
   },
   "partner_joint_info": {
     "partner_id": "google.protobuf.StringValue"
@@ -95,7 +100,8 @@ Capacity of the trunkConnection
 - `CAPACITY_30_GBPS`
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
-- `CAPACITY_100_GBPS` ||
+- `CAPACITY_100_GBPS`
+- `CAPACITY_200_GBPS` ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
@@ -145,6 +151,23 @@ Type of transceiver that the trunkConnection is deployed on.
 - `TRANSCEIVER_TYPE_10GBASE_ER`
 - `TRANSCEIVER_TYPE_100GBASE_LR4`
 - `TRANSCEIVER_TYPE_100GBASE_ER4` ||
+|| lag_allocation_settings | **[LagAllocationSettingsRequest](#yandex.cloud.cic.v1.common.LagAllocationSettingsRequest)**
+
+LAG allocation settings that the trunkConnection is deployed on. ||
+|#
+
+## LagAllocationSettingsRequest {#yandex.cloud.cic.v1.common.LagAllocationSettingsRequest}
+
+Structure for create and update requests that describes LAG allocation settings
+
+#|
+||Field | Description ||
+|| lag_size | **int64**
+
+Size of LAG.
+Must be from 1 to 10 inclusively.
+
+Includes only one of the fields `lag_size`. ||
 |#
 
 ## PartnerJoint {#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.PartnerJoint}
@@ -346,7 +369,8 @@ Capacity of the trunkConnection
 - `CAPACITY_30_GBPS`
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
-- `CAPACITY_100_GBPS` ||
+- `CAPACITY_100_GBPS`
+- `CAPACITY_200_GBPS` ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.

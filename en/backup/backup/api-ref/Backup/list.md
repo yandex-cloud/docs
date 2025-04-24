@@ -66,6 +66,12 @@ Type of resource. Could be compute VM or baremetal server.
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
 - `BMS`: Resource is baremetal server ||
+|| pageSize | **string** (int64)
+
+Number of results per page. ||
+|| pageToken | **string**
+
+Token for the results page. Not allowed to use if listing is performed by specific policy ID. ||
 |#
 
 ## ArchiveParameters {#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters}
@@ -136,13 +142,17 @@ Policy ID. ||
       "policyId": "string",
       "resourceId": "string"
     }
-  ]
+  ],
+  "nextPageToken": "string"
 }
 ```
 
 #|
 ||Field | Description ||
 || backups[] | **[Backup](#yandex.cloud.backup.v1.Backup)** ||
+|| nextPageToken | **string**
+
+Token for the next results page. ||
 |#
 
 ## Backup {#yandex.cloud.backup.v1.Backup}

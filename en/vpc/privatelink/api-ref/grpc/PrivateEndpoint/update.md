@@ -41,7 +41,7 @@ Updates the specified private endpoint.
 
 Required field. ID of the private endpoint to update.
 
-To get the private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/api-ref/grpc/PrivateEndpoint/list#List)
+To get the private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/grpc/PrivateEndpoint/list#List)
 request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
@@ -60,7 +60,7 @@ Private endpoint labels as `key:value` pairs.
 
 Existing set of labels is completely replaced by the provided set, so if
 you just want to add or remove a label:
-1. Get the current set of labels with a [PrivateEndpointService.Get](/docs/vpc/api-ref/grpc/PrivateEndpoint/get#Get)
+1. Get the current set of labels with a [PrivateEndpointService.Get](/docs/vpc/privatelink/api-ref/grpc/PrivateEndpoint/get#Get)
 request.
 2. Add or remove a label in this set.
 3. Send the new set in this field. ||

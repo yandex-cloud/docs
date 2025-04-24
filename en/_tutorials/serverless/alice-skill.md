@@ -1,6 +1,6 @@
-# Creating skills for Alice
+# Creating a skill for Alice
 
-As an example, we will create a skill called <q>Parrot</q>, which repeats everything a user writes or says. The example is based on two programming languages: Python and Node.js.
+As an example, we will create a skill called <q>Parrot</q>, which repeats everything a user writes or says. The example is available in two programming languages: Python and Node.js.
 
 To add an Alice skill based on a [function](../../functions/concepts/function.md):
 
@@ -27,12 +27,12 @@ To create a [version](../../functions/concepts/function.md#version) of a functio
 
 - Python {#python}
 
-    1. Download a sample file from GitHub: [parrot.py](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/python/parrot/parrot.py).
+    1. Download a sample file from GitHub: [parrot.py](https://github.com/yandex-cloud-examples/yc-alice-skill-python/blob/main/parrot/parrot.py).
     1. Create a ZIP archive named `parrot-py.zip` with the `parrot.py` file.
 
 - Node.js {#node}
 
-    1. Download a sample file from GitHub: [index.js](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/nodejs/parrot/index.js).
+    1. Download a sample file from GitHub: [index.js](https://github.com/yandex-cloud-examples/yc-alice-skill-node/blob/main/parrot/index.js).
     1. Create a ZIP archive named `parrot-js.zip` with the `index.js` file.
 
 {% endlist %}

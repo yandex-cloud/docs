@@ -20,7 +20,7 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/
 || certificateId | **string**
 
 Required field. ID of the certificate to delete.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/api-ref/Certificate/list#List) request. ||
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/Certificate/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

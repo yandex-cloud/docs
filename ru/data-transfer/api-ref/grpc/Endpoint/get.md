@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
 
 Returns the specified endpoint.
 
-To get the list of all available endpoints, make a [List](/docs/datatransfer/api-ref/grpc/Endpoint/list#List) request.
+To get the list of all available endpoints, make a [List](/docs/data-transfer/api-ref/grpc/Endpoint/list#List) request.
 
 ## gRPC request
 
@@ -27,7 +27,7 @@ To get the list of all available endpoints, make a [List](/docs/datatransfer/api
 
 Identifier of the endpoint to return.
 
-To get the endpoint ID, make an [EndpointService.List](/docs/datatransfer/api-ref/grpc/Endpoint/list#List) request. ||
+To get the endpoint ID, make an [EndpointService.List](/docs/data-transfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 
 ## Endpoint {#yandex.cloud.datatransfer.v1.Endpoint}

@@ -6,7 +6,7 @@ sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/
 # EventRouter Service, gRPC: RuleService.Get
 
 Returns the specified rules.
-To get the list of all available buses, make a [List](/docs/functions/eventrouter/api-ref/grpc/Rule/list#List) request.
+To get the list of all available buses, make a [List](/docs/serverless-integrations/eventrouter/api-ref/grpc/Rule/list#List) request.
 
 ## gRPC request
 

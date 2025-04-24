@@ -201,14 +201,14 @@ items:
             href: tutorials/mkf-to-yds.md
           - name: '{{ DS }} to {{ KF }}'
             href: tutorials/yds-to-kafka.md
-          - name: '{{ DS }} to {{ CH }}'
+          - name: '{{ DS }} in {{ CH }}'
             href: tutorials/yds-to-clickhouse.md
-          - name: '{{ DS }} to {{ objstorage-name }}'
+          - name: '{{ DS }} in {{ objstorage-name }}'
             href: tutorials/yds-to-objstorage.md
-          - name: '{{ DS }} to {{ OS }}'
+          - name: '{{ DS }} in {{ OS }}'
             hidden: true
             href: tutorials/trails-to-os.md
-          - name: '{{ DS }} to {{ ydb-short-name }}'
+          - name: '{{ DS }} in {{ ydb-short-name }}'
             href: tutorials/yds-to-ydb.md
           - name: Entering data into storage systems
             href: tutorials/data-ingestion.md
@@ -216,15 +216,15 @@ items:
         items:
           - name: '{{ GP }} to {{ CH }}'
             href: tutorials/greenplum-to-clickhouse.md
-          - name: '{{ MY }} to {{ CH }}'
+          - name: '{{ MY }} in {{ CH }}'
             href: tutorials/mysql-to-clickhouse.md
           - name: '{{ metrika }} to {{ CH }}'
             href: tutorials/metrika-to-clickhouse.md
-          - name: '{{ PG }} to {{ CH }}'
+          - name: '{{ PG }} in {{ CH }}'
             href: tutorials/rdbms-to-clickhouse.md
           - name: '{{ GP }} to {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
-          - name: '{{ objstorage-name }} to {{ MY }}'
+          - name: '{{ objstorage-name }} in {{ MY }}'
             href: tutorials/objs-mmy-migration.md
           - name: '{{ objstorage-name }} to {{ PG }}'
             href: tutorials/object-storage-to-postgresql.md
@@ -232,13 +232,13 @@ items:
             href: tutorials/object-storage-to-greenplum.md
           - name: '{{ yandex-direct }} to {{ CH }}'
             href: tutorials/direct-to-mch.md
-          - name: '{{ objstorage-name }} to {{ CH }}'
+          - name: '{{ objstorage-name }} in {{ CH }}'
             href: tutorials/object-storage-to-clickhouse.md
           - name: '{{ objstorage-name }} to {{ ydb-short-name }}'
             href: tutorials/object-storage-to-ydb.md
           - name: '{{ ydb-short-name }} to {{ CH }}'
             href: tutorials/ydb-to-clickhouse.md
-          - name: '{{ OS }} to {{ CH }}'
+          - name: '{{ OS }} in {{ CH }}'
             href: tutorials/opensearch-to-clickhouse.md
       - name: Uploading data to {{ objstorage-name }}
         items:
@@ -382,7 +382,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -482,6 +482,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: March 2025
+        href: release-notes/2503.md
       - name: February 2025
         href: release-notes/2502.md
       - name: January 2025

@@ -21,7 +21,7 @@ GET https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}/operations
 
 Required field. ID of the symmetric KMS key to get operations for.
 
-To get the key ID, use a [AsymmetricSignatureKeyService.List](/docs/kms/api-ref/AsymmetricSignatureKey/list#List) request. ||
+To get the key ID, use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List) request. ||
 |#
 
 ## Query parameters {#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsRequest}

@@ -6,7 +6,7 @@ sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/
 # EventRouter Service, REST: Connector.Get
 
 Returns the specified bus.
-To get the list of all available connectors, make a [List](/docs/functions/eventrouter/api-ref/Connector/list#List) request.
+To get the list of all available connectors, make a [List](/docs/serverless-integrations/eventrouter/api-ref/Connector/list#List) request.
 
 ## HTTP request
 

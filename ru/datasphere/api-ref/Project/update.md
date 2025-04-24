@@ -20,7 +20,7 @@ PATCH https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}
 || projectId | **string**
 
 Required field. ID of the Project resource to update.
-To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/Project/list#List) request. ||
+To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Project/list#List) request. ||
 |#
 
 ## Body parameters {#yandex.cloud.datasphere.v2.UpdateProjectRequest}

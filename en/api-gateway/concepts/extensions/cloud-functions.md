@@ -12,7 +12,7 @@ Parameter | Type | Description
 ----|----|----
 `function_id` | `string` | [Function](../../../functions/concepts/function.md) ID.
 `tag` | `string` | This is an optional parameter. It specifies the [tag of the function version](../../../functions/concepts/function.md#tag). The default value is `$latest`. <br>The parameters are subsituted into `tag`.
-`service_account_id` | `string` | ID of the service account used for authorization when accessing the function. If you omit the parameter, the `service_account_id` [top-level](./index.md#top-level) parameter value will be used. If the top-level parameter is also missing, the function is invoked without authorization. 
+`service_account_id` | `string` | ID of the service account used for authorization when accessing the function. [Invoking](../../../functions/operations/function/auth.md) a function requires a service account with the `{{ roles-functions-invoker }}` [role](../../../functions/security/index.md#functions-functionInvoker) or higher for that function. If you omit the parameter, the `service_account_id` [top-level](./index.md#top-level) parameter value will be used. If the top-level parameter is also missing, the function is invoked without authorization.
 `payload_format_version` | `string` | Function call format version. It can be either [`0.1`](#request_v0) or [`1.0`](#request_v1). [`0.1`](#request_v0) is the default version.
 `context` | `object` | This is an optional parameter. It provides the operation context, i.e., an object in `YAML` or `JSON` format. It is provided to a function within a [request](../../../functions/concepts/function-invoke.md#request) in the `requestContext.apiGateway.operationContext` field. The parameters are subsituted into `context`.
 

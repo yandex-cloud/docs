@@ -20,7 +20,7 @@ GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}/o
 || instanceGroupId | **string**
 
 Required field. ID of the InstanceGroup resource to list operations for.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest}
@@ -39,7 +39,7 @@ Page token. To get the next page of results, set `pageToken` to the
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field. ||
+Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse}

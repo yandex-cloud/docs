@@ -30,12 +30,27 @@ To add a new customer:
 
 {% endlist %}
 
-When creating a customer record on the partner portal, a [subaccount](../terms.md#sub-account) and a new [organization](../../organization/) named `For subaccount 'Customer_name'` are created. You can delete the subaccount if the customer has not [confirmed](#apply) it on time.
+When creating a customer record on the partner portal, a [subaccount](../terms.md#sub-account), and then, after confirming the partnership, a new [organization](../../organization/) named `For subaccount 'Customer_name'` are created. You can delete the subaccount if the customer has not [confirmed](#confirm-partnership) it on time.
 
-The following roles are granted by default:
+In this case, users are assigned different roles for accessing the created subaccount and organization by default.
 
-* To the partner: `billing.accounts.owner` for the subaccount and `{{ roles-organization-owner }}` for the organization.
-* To the customer: `{{ roles-admin }}` for the subaccount and `{{ roles-organization-owner }}` for the organization.
+* Users and service accounts with the `billing.accounts.owner` [role](../security/index.md#billing-accounts-owner):
+   * The `billing.accounts.owner` [role](../security/index.md#billing-accounts-owner) for the subaccount.
+   * The `organization-manager.organizations.owner` [role](../../iam/roles-reference.md#organization-manager-organizations-owner) for the organization.
+
+* Users and service accounts that created a subaccount for a customer:
+   * The `billing.accounts.admin` [role](../security/index.md#billing-accounts-admin) for the subaccount.
+   * The `organization-manager.admin` [role](../../iam/roles-reference.md#organization-manager-admin) for the organization:
+
+* Users whose email addresses were specified when creating a subaccount:
+   * The `billing.accounts.admin` [role](../security/index.md#billing-accounts-admin) for the subaccount.
+   * The `organization-manager.admin` [role](../../iam/roles-reference.md#organization-manager-admin) for the organization:
+
+{% note info %}
+
+Only users with a Yandex account receive roles at the organization level, this does not apply to federated users.
+
+{% endnote %}
 
 ## Confirming partnership {#confirm-partnership}
 

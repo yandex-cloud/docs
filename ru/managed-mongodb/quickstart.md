@@ -69,6 +69,7 @@ description: Следуя данной инструкции, вы сможете
 
     О том, как получить FQDN хоста, см. [инструкцию](operations/connect/index.md#get-fqdn).
 
+
 ## Что дальше {#whats-next}
 
 * Изучите [концепции сервиса](concepts/index.md).

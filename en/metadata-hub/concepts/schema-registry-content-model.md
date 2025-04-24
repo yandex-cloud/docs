@@ -1,6 +1,6 @@
 # Content models and JSON schema evolution issues
 
-{{ schema-registry-full-name }} supports the [Avro](https://avro.apache.org/), [Protobuf](https://protobuf.dev/), and [JSON Schema](https://json-schema.org/) formats. Avro and Protobuf are based on grammar rules, so their constraints are strictly defined. JSON Schemas combine grammar and production rules, making their constraints more flexible. This can cause compatibility issues as schemas evolve, especially if they have optional parameters. To address this, you can use the closed content model with the `Optional-friendly` [compatibility check policy](compatibility-check-policy.md). {{ schema-registry-name }} implements a JSON schema compatibility check policy, which ensures JSON Schema stays compatible when you add or remove optional parameters.
+{{ schema-registry-full-name }} supports the [Avro](https://avro.apache.org/), [Protobuf](https://protobuf.dev/), and [JSON Schema](https://json-schema.org/) formats. Avro and Protobuf are based on grammar rules, so their constraints are strictly defined. JSON Schemas combine grammar and production rules, making their constraints more flexible. This can cause compatibility issues as schemas evolve, especially if they have optional parameters. To address this, you can use a closed content model with the `Optional-friendly` [compatibility check policy](compatibility-check-policy.md). {{ schema-registry-name }} implements a JSON schema compatibility check policy, which ensures JSON Schema stays compatible when you add or remove optional parameters.
 
 This article covers:
 
@@ -19,7 +19,7 @@ To use JSON Schema with backward compatibility checks in [{{ data-transfer-name 
 
 ## Schema compatibility {#compatibility}
 
-_Schema compatibility_ defines how a new version of a schema works with its previous version or versions. It is set with the **Compatibility check level** and **JSON compatibility check policy** parameters. 
+_Schema compatibility_ represents the total of the relationship between the new schema version and its previous version or versions. The nature of this relationship is defined by **Compatibility check level** and **Compatibility check policy for JSON**. 
 Depending on the type of compatibility, applications can read data written in older schemas, and vice versa. The compatibility type also affects how schemas evolve. [Learn more about schema compatibility](https://yokota.blog/2021/03/29/understanding-json-schema-compatibility/).
 
 {{ schema-registry-name }} uses the Confluent Schema Registry standard, which supports these compatibility types:
@@ -203,7 +203,7 @@ The above example does not define any properties but simply provides a general l
 * The schema becomes bulky and hard to maintain.
 * Any errors in `patternProperties` cannot be fixed without losing compatibility.
 * You cannot use new property types that may be added to the JSON specification as they are not described in `patternProperties`.
-* To use such a schema in practice, all property names must strictly match the described patterns, which is only possible if you control the data producer.
+* To use such a scheme in practice, all property names must strictly match the described patterns, which is only possible if you control the data producer.
 
 ## Maintaining compatibility with evolving optional properties {#optional-parameters-compatibility-solution}
 
@@ -223,3 +223,5 @@ To implement this solution, producers and consumers should use different content
 In this scenario, only the producer’s data schema is registered. The consumer’s schema is generated based on the producer schema, if required, but is not registered. The only difference between producer and consumer schemas is that they use different content models. As a result, schema compatibility checks only involve converting the consumer schema from the open content model to the closed one and verifying that such a schema is registered for the producer. If such a schema is registered, the compatibility check is passed. At the same time, the consumer schema may contain additional properties from other registered producer schemas. To support full transitive compatibility, the consumer schema must be compatible with at least one registered producer schema. Lead more about the [theory](https://www.creekservice.org/articles/2024/01/08/json-schema-evolution-part-1.html) behind this solution and [its applications](https://www.creekservice.org/articles/2024/01/09/json-schema-evolution-part-2.html).
 
 {{ schema-registry-name }} supports schema compatibility checks by converting an open consumer schema to a closed one. To enable this, in the JSON schema [namespace](schema-registry.md#namespace), set the `Optional-friendly` [compatibility check policy](compatibility-check-policy.md). You can [set a policy](../operations/create-name-space.md) for a new namespace or [modify it](../operations/update-name-space.md) for an existing one. For the `Optional-friendly` policy to work correctly, the namespace schemas must use the [closed content model](#closed-model).
+
+You can also use this solution to maintain JSON schema compatibility when delivering data to [{{ mkf-full-name }}](../../managed-kafka) via [{{ data-transfer-full-name }}](../../data-transfer/). For more information about the required endpoint settings, see [this guide](../../data-transfer/operations/endpoint/target/kafka.md#serializer).

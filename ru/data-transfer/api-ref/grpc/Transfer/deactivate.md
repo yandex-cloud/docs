@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/deactivate.md
 
 Deactivates the specified transfer.
 
-To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/grpc/Transfer/list#List) request.
+To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/grpc/Transfer/list#List) request.
 
 ## gRPC request
 
@@ -27,7 +27,7 @@ To get the list of all available transfers, make a [List](/docs/datatransfer/api
 
 Identifier of the transfer to be deactivated.
 
-To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/grpc/Endpoint/list#List) request. ||
+To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

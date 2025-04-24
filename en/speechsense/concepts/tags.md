@@ -64,6 +64,18 @@ When creating or editing a semantic tag, you can test it on a selection of dialo
 
 For more information about tag testing, see [this guide](../operations/project/tag/test.md).
 
+### Using semantic tags for dialog evaluation {#use-sense-tags-for-dialog-evaluation}
+
+You can use semantic tags to evaluate the agent's performance or the client's behavior, e.g., whether the agent was polite, whether the client was rude, etc. To do this, create a semantic tag with the relevant semantic attribute and search query. {{ speechsense-name }} will assign this tag to the dialogs that meet this criterion.
+
+> For example, if looking for dialogs where the customer was rude with the agent, select the following when creating the tag:
+> * Semantic attribute: **{{ ui-key.yc-ui-talkanalytics.statements.common_question }}**.
+> * Search query: **Was the client rude or aggressive at least once during the conversation?**
+>
+> {{ speechsense-name }} will tag dialogs where the customer was rude or aggressive during the conversation.
+
+Such use of semantic tags allows you to [filter dialogs](../operations/data/manage-dialogs.md#filter-dialogs) based on the agent's performance criteria and the client’s behavior, and use the same data as a filter or parameter in your [reports](../operations/data/manage-reports.md).
+
 ## Dictionary tags {#dictionary-tags}
 
 Dictionary tags are based on scanning dialogs for specified key phrases. You can either list the key phrases for tags or reuse them from [dictionaries](dictionaries.md). Dictionaries contain a ready-made list of key phrases which you can use across multiple tags and manage from the same place.

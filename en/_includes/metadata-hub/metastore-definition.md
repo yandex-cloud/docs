@@ -8,3 +8,6 @@ You can create [{{ metastore-full-name }}](../../metadata-hub/operations/metasto
 * Links together different ETL systems and tools for working with shared data and simplifies their deployment.
 * Provides [fault tolerance](../../architecture/fault-tolerance.md), scalable storage, and metadata backup.
 * Simplifies sending logs and metrics, as well as the update and migration processes.
+* Has a key role in cloud data processing scenarios by enabling different tools (Spark, Trino, Hive) to access the same metadata.
+
+Some Apache products, including [Hive](https://hive.apache.org/), [Spark](https://spark.apache.org/), and [Impala](https://impala.apache.org/overview.html), feature {{ metastore-name }} support.

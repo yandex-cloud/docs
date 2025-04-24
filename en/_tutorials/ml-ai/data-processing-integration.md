@@ -10,13 +10,19 @@ You can use the Apache Spark™ clusters deployed in {{ dataproc-full-name }}, i
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ dataproc-name }}  cluster fee (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* NAT gateway fee (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
-
-### Required paid resources {#paid-resources}
-
-The {{ dataproc-name }} cluster support cost covers the computing resources of the cluster and the storage size (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
 
 ## Set up your infrastructure {#infra}
 

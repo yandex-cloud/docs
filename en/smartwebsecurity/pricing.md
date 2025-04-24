@@ -82,5 +82,21 @@ To use additional protection against DDoS attacks at OSI layers 3 and 4, connect
 
 
 
+#### Example of {{ sws-name }} billing by requests {#price-example}
+
+{% cut "Pre-calculated request costs" %}
+
+To better understand how the cost of requests is calculated, see the table below with prices calculated for a certain number of requests per month. This number does not include the non-billable limit of 10,000 requests.
+The prices below are for reference only. {{ sws-name }} usage by your services will be calculated based on the actual request count.
+
+
+
+{% include [usd-smartwebsecurity-pack](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity-pack.md) %}
+
+
+{% endcut %}
+
+
+
 {% include [usd-smartwebsecurity](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity.md) %}
 

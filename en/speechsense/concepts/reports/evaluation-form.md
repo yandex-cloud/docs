@@ -5,12 +5,6 @@ description: In this article, you will learn about the _Evaluation form_ report 
 
 # _Evaluation form_ report in {{ speechsense-name }}
 
-{% note warning %}
-
-Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags](../tags.md#sense-tags) instead.
-
-{% endnote %}
-
 You can analyze and evaluate agent performance using a **{{ ui-key.yc-ui-talkanalytics.reports.rating-key-value }}** report in {{ speechsense-name }}. Reports are based on [audio files](../../operations/data/upload-data.md) or [text chats](../../operations/data/upload-chat-text.md) of conversations between agents and customers uploaded to the service. Here are some examples of what you can learn using reports:
 
 * How agents perform within different products.
@@ -63,11 +57,12 @@ There are several types of evaluation parameters:
 * **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}** (only for chats): Bot data.
 * **{{ ui-key.yc-ui-talkanalytics.dialogs.speech-statistics }}** (only for audio): Agent and customer speech quality criteria, e.g., speech rate, mutual interruptions, etc.
 * **{{ ui-key.yc-ui-talkanalytics.dialogs.common-metadata }}**: Data on the conversation audio (collected via PBX) or text chat. Metadata is uploaded to {{ speechsense-name }} together with the conversation audio or text chat and contains its key characteristics, e.g., date, topic, and dialog language.
-* **{{ ui-key.yc-ui-talkanalytics.dialogs.client-tags }}** and **{{ ui-key.yc-ui-talkanalytics.dialogs.operator-tags }}**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} detects certain keywords, phrases, or intonations in a dialog, classifies the dialog, and marks it with a tag.
+* **{{ ui-key.yc-ui-talkanalytics.tags.tags }}**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} detects specific keywords, phrases, or intonations in the dialog, classifies and tags the dialog.
 
    {{ speechsense-name }} has preconfigured tags. These can give you a clue as to whether there was an informal greeting or goodbye, whether the agent thanked the customer for waiting, whether it was the customer's repeat call to support, etc. To learn more about tags, see [Concepts](../../../speechsense/concepts/tags.md).
 
-* **{{ ui-key.yc-ui-talkanalytics.projects.sumarization }}**: Agent performance criteria and the customer's behavioral patterns during the dialog, such as whether the agent was polite, whether the customer acted in a rude manner, etc.
+   In your report, you can reflect the agent's performance criteria and the client's behavior, e.g., whether the agent was polite, whether the client was rude, etc. To do this, create a semantic tag and apply it as a parameter in the report. For more information, see [this guide](../../operations/data/manage-reports.md#use-sense-tags-for-analysis).
+
 * **Semantic attributes**: Dialog properties, such as reasons, topics, or outcomes. Read more about semantic attributes [here](sense-attributes.md).
 
    You can only use the semantic attribute once in each report: either as a parameter or as a [filter](#filters).

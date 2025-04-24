@@ -57,3 +57,8 @@ description: Различные сценарии использования си
 * [{#T}](../dataplatform/clickhouse-dns-peering.md)
 * [{#T}](../infrastructure-management/dns-integration.md)
 * [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](../infrastructure-management/cert-manager-webhook.md)
+
+## GPU {#gpu}
+
+* [Запуск языковой модели DeepSeek-R1 в кластере GPU](../infrastructure-management/gpu-cluster-deepseek.md)
+* [Запуск библиотеки vLLM с языковой моделью Gemma 3 на ВМ с GPU](../infrastructure-management/vllm-gemma-gpu.md)

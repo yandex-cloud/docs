@@ -11,11 +11,11 @@ Playlist management service.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific playlist. ||
+|| [Get](get.md) | Get the specific playlist. ||
 || [List](list.md) | List playlists for a channel. ||
 || [Create](create.md) | Create playlist. ||
 || [Update](update.md) | Update playlist. ||
 || [Delete](delete.md) | Delete playlist. ||
-|| [BatchDelete](batchDelete.md) | Batch delete playlist. ||
-|| [GetPlayerURL](getPlayerURL.md) | Returns player's url. ||
+|| [BatchDelete](batchDelete.md) | Batch delete playlists. ||
+|| [GetPlayerURL](getPlayerURL.md) | Get player url. ||
 |#

@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/updateAccessBindings.
 
 # Video API, gRPC: ChannelService.UpdateAccessBindings
 
-Updates access bindings for the specified channel.
+Update access bindings for the specified channel.
 
 ## gRPC request
 

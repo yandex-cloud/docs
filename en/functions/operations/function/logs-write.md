@@ -14,13 +14,13 @@ description: Follow this guide to configure function logging.
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function you want to configure logging for.
-    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**, select the following in the **{{ ui-key.yacloud.logging.label_destination }}** field:
         * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`: To disable logging.
         * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../../concepts/logs.md) to the default [log group](../../../logging/concepts/log-group.md) for the folder the function is in.
-            1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
+            1. Optionally, in the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
         * `{{ ui-key.yacloud.logging.label_loggroup }}`: To write logs to a custom log group.
-            1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
+            1. Optionally, in the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
             1. In the **{{ ui-key.yacloud.logging.label_loggroup }}** field, select the log group to write the logs to. If you do not have a log group, [create](../../../logging/operations/create-group.md) one.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
     
@@ -123,62 +123,38 @@ description: Follow this guide to configure function logging.
         Here are some examples of the configuration file structure:
 
         ```hcl
-        resource "yandex_function" "<function_name>" {
+        resource "yandex_function" "my-function" {
           name       = "<function_name>"
-          user_hash  = "<any_string>"
+          user_hash  = "<function_version_hash>"
           runtime    = "<runtime_environment>"
           entrypoint = "<entry_point>"
           memory     = "<RAM_size>"
           content {
-            zip_filename = "<ZIP_archive_name>"
+            zip_filename = "<path_to_ZIP_archive>"
           }
           log_options {
             log_group_id = "<log_group_ID>"
-            min_level = "<minimum_logging_level>"
+            min_level    = "<minimum_logging_level>"
           }
         }
         ```
 
         Where:
         * `name`: Function name.
-        * `user_hash`: Any string to identify the function version.
+        * `user_hash`: Any string to identify the function version. When the function changes, update this string, too. The function will update when this string is updated.
         * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
         * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
         * `memory`: Amount of memory allocated for the function, in MB.
-        * `content`: Function source code.
-          * `zip_filename`: Name of the ZIP archive containing the function source code.
+        * `content`: Function source code:
+          * `zip_filename`: Path to the ZIP archive containing the function source code and relevant dependencies.
         * `log_group_id`: ID of the log group to write logs to.
         * `min_level`: Minimum logging level. This is an optional parameter.
 
-        For more information about the `yandex_function` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
-        
-        ```
-        terraform validate
-        ```
+    1. Apply the changes:
 
-        If the configuration is correct, you will get this message:
-          
-        ```
-        Success! The configuration is valid.
-        ```
-
-    1. Run this command:
-
-        ```
-        terraform plan
-        ```
-          
-        The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-         
-    1. Apply the configuration changes:
-
-        ```
-        terraform apply
-        ```
-    
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+        {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 - API {#api}
 

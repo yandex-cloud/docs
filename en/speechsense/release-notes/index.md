@@ -5,6 +5,20 @@ description: This page presents {{ speechsense-full-name }} release notes.
 
 # {{ speechsense-full-name }} release notes
 
+## March 2025 {#0325}
+
+{{ speechsense-name }} can now analyze dialogs not only in Russian, but also in Kazakh, or a Russian-Kazakh combination. With this in mind, the required `language` field has been added to [new connections](../operations/connection/create.md). The metadata of dialogs uploaded via such connections must contain the codes of potential dialog languages. If a dialog contains Kazakh speech, the service will recognize the audio and make a Russian transcript for further analysis.
+
+When tagging, {{ speechsense-name }} now counts the _balance_ for the [main tags](../concepts/tags.md#dependent-tags). The balance consists of all the dialogs with the main tag that did not get at least one dependent tag. 
+
+The processing status is now displayed for newly uploaded dialogs. You can now see the current processing stage for each dialog.
+
+Added analysis of statistical metrics for text dialogs. 
+
+You can now export dialogs to process them further using your own tools.
+
+Dialog info update: we recommend using [semantic tags](../concepts/tags.md#sense-tags) instead of the obsolete **{{ yagpt-name }} analysis** section.
+
 ## February 2025 {#0225}
 
 Advanced [dialog search](../concepts/dialogs.md#filters) options are now available. Now, apart from full-text search that locates word matches and dictionary search that finds phrases and word combinations, you can use semantic search. It enables you to search for dialogs based on context, find synonyms and related terms rather than just exact matches. The search page will also show a summary of each dialog, so you can quickly understand its main idea and select the ones you need.

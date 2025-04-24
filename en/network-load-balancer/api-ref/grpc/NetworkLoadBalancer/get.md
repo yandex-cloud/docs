@@ -77,7 +77,8 @@ To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/do
       ]
     }
   ],
-  "deletion_protection": "bool"
+  "deletion_protection": "bool",
+  "allow_zonal_shift": "bool"
 }
 ```
 
@@ -142,6 +143,9 @@ List of target groups attached to the network load balancer. ||
 || deletion_protection | **bool**
 
 Specifies if network load balancer protected from deletion. ||
+|| allow_zonal_shift | **bool**
+
+Specifies if network load balancer available to zonal shift. ||
 |#
 
 ## Listener {#yandex.cloud.loadbalancer.v1.Listener}

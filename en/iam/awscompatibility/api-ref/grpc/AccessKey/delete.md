@@ -24,7 +24,7 @@ Deletes the specified access key.
 || access_key_id | **string**
 
 Required field. ID of the access key to delete.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/api-ref/grpc/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/grpc/AccessKey/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

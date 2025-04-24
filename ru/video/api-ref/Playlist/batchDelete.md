@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Playlist/batchDelete.md
 
 # Video API, REST: Playlist.BatchDelete
 
-Batch delete playlist.
+Batch delete playlists.
 
 ## HTTP request
 

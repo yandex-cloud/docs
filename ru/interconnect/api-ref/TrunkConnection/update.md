@@ -87,7 +87,8 @@ Capacity of the trunkConnection
 - `CAPACITY_30_GBPS`
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
-- `CAPACITY_100_GBPS` ||
+- `CAPACITY_100_GBPS`
+- `CAPACITY_200_GBPS` ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
@@ -335,7 +336,8 @@ Capacity of the trunkConnection
 - `CAPACITY_30_GBPS`
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
-- `CAPACITY_100_GBPS` ||
+- `CAPACITY_100_GBPS`
+- `CAPACITY_200_GBPS` ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.

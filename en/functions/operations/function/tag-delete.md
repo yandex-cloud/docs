@@ -5,6 +5,12 @@ description: Follow this guide to remove a function version tag.
 
 # Removing a function version tag
 
+{% note info %}
+
+You cannot delete the `$latest` tag.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -86,14 +92,14 @@ description: Follow this guide to remove a function version tag.
        terraform plan
        ```
         
-       The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out. 
+       The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out. 
          
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
       
     You can check the deletion of the tags using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

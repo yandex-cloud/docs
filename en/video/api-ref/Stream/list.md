@@ -22,24 +22,30 @@ GET https://video.{{ api-host }}/video/v1/streams
 Required field. ID of the channel. ||
 || pageSize | **string** (int64)
 
-The maximum number of the results per page to return. Default value: 100. ||
+The maximum number of the results per page to return.
+Default value: 100. ||
 || pageToken | **string**
 
 Page token for getting the next page of the result. ||
 || orderBy | **string**
 
 By which column the listing should be ordered and in which direction,
-format is "createdAt desc". "id asc" if omitted.
-Possible fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"]
+format is "<field> <order>" (e.g. "createdAt desc").
+Default: "id asc".
+Possible fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"].
 Both snake_case and camelCase are supported for fields. ||
 || filter | **string**
 
 Filter expression that filters resources listed in the response.
 Expressions are composed of terms connected by logic operators.
-Value in quotes: `'` or `"`
-Example: "key1='value' AND key2='value'"
-Supported operators: ["AND"].
-Supported fields: ["title", "lineId", "status"]
+If value contains spaces or quotes,
+it should be in quotes (`'` or `"`) with the inner quotes being backslash escaped.
+Supported logical operators: ["AND", "OR"].
+Supported string match operators: ["=", "!=", ":"].
+Operator ":" stands for substring matching.
+Filter expressions may also contain parentheses to group logical operands.
+Example: `key1='value' AND (key2!='\'value\'' OR key2:"\"value\"")`
+Supported fields: ["id", "title", "lineId", "status"].
 Both snake_case and camelCase are supported for fields. ||
 |#
 
@@ -61,6 +67,7 @@ Both snake_case and camelCase are supported for fields. ||
       "startTime": "string",
       "publishTime": "string",
       "finishTime": "string",
+      "autoPublish": "boolean",
       // Includes only one of the fields `onDemand`, `schedule`
       "onDemand": "object",
       "schedule": {
@@ -149,16 +156,20 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| autoPublish | **boolean**
+
+Automatically publish stream when ready.
+Switches status from READY to ONAIR. ||
 || onDemand | **object**
 
-On demand stream. It starts immediately when a signal appears.
+On-demand stream. Starts immediately when a signal appears.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
 Stream type. ||
 || schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
 
-Schedule stream. Determines when to start receiving the signal or finish time.
+Schedule stream. Starts or finished at the specified time.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
@@ -190,7 +201,8 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 
 ## Schedule {#yandex.cloud.video.v1.Schedule}
 
-If "Schedule" is used, stream automatically start and finish at this time.
+Schedule stream type.
+This type of streams start and finish automatically at the specified time.
 
 #|
 ||Field | Description ||

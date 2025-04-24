@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/AccessKey/get.
 
 Returns the specified access key.
 
-To get the list of available access keys, make a [List](/docs/iam/api-ref/grpc/AccessKey/list#List) request.
+To get the list of available access keys, make a [List](/docs/iam/awscompatibility/api-ref/grpc/AccessKey/list#List) request.
 
 ## gRPC request
 
@@ -26,7 +26,7 @@ To get the list of available access keys, make a [List](/docs/iam/api-ref/grpc/A
 || access_key_id | **string**
 
 Required field. ID of the AccessKey resource to return.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/api-ref/grpc/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/grpc/AccessKey/list#List) request. ||
 |#
 
 ## AccessKey {#yandex.cloud.iam.v1.awscompatibility.AccessKey}

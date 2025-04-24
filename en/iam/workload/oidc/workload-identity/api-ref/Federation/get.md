@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federatio
 
 Returns the specified OIDC workload identity federation.
 
-To get the list of available OIDC workload identity federation, make a [List](/docs/iam/workload-identity/api-ref/Federation/list#List) request.
+To get the list of available OIDC workload identity federation, make a [List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +22,7 @@ GET https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
 || federationId | **string**
 
 Required field. ID of the OIDC workload identity federation to return.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload-identity/api-ref/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.workload.oidc.Federation}

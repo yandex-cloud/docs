@@ -25,7 +25,7 @@ Deletes the specified endpoint.
 
 Identifier of the endpoint to delete.
 
-To get the list of all available endpoints, make a [List](/docs/datatransfer/api-ref/grpc/Endpoint/list#List) request. ||
+To get the list of all available endpoints, make a [List](/docs/data-transfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

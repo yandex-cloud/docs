@@ -1,6 +1,6 @@
 # Обновление версии {{ PG }}
 
-Вы можете обновить кластер {{ mpg-name }} до любой поддерживаемой версии.
+Вы можете обновить кластер {{ mpg-name }} до версии 16 или ниже.
 
 {% note info %}
 
@@ -12,7 +12,7 @@
 
 {% note warning %}
 
-Обновление до версий 16 и 17 возможно только при помощи {{ data-transfer-full-name }}. Для этого [создайте кластер](cluster-create.md#create-cluster) с новой версией и [перенесите в него данные](../tutorials/data-migration.md#data-transfer) из кластера, который хотите обновить.
+Обновление до версии 17 возможно только при помощи {{ data-transfer-full-name }}. Для этого [создайте кластер](cluster-create.md#create-cluster) с новой версией и [перенесите в него данные](../tutorials/data-migration.md#data-transfer) из кластера, который хотите обновить.
 
 {% endnote %}
 
@@ -46,19 +46,19 @@
 
 {% endnote %}
 
-### Обновить кластер до версии {{ PG }} 16 или 17 {#update-to-v16}
+### Обновить кластер до версии {{ PG }} 17 {#update-to-v17}
 
-1. [Создайте кластер](cluster-create.md#create-cluster) с версией {{ PG }} 16 или 17.
+1. [Создайте кластер](cluster-create.md#create-cluster) с версией {{ PG }} 17.
 1. При помощи {{ data-transfer-name }} [перенесите в него данные](../tutorials/data-migration.md#data-transfer) из кластера, который хотите обновить.
 
-### Обновить кластер до версии {{ PG }} 15 или ниже {#update-to-v15-or-lower}
+### Обновить кластер до версии {{ PG }} 16 или ниже {#update-to-v16-or-lower}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}  
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите нужный кластер в списке и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. Выберите нужный кластер в списке и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите номер новой версии.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -205,6 +205,12 @@
 
 Время обновления кластера зависит от размера базы данных.
 
+{% note tip %}
+
+Если с переходом на версию 16 возникнут проблемы, обратитесь в [техническую поддержку](../../support/overview.md).
+
+{% endnote %}
+
 ## Примеры {#examples}
 
 Допустим, нужно обновить кластер с версии 14 до версии 15.
@@ -248,3 +254,4 @@
       ```
 
 {% endlist %}
+

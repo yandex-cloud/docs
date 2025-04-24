@@ -1,6 +1,6 @@
 ---
 title: '{{ datalens-full-name }} pricing policy'
-description: This article provides the {{ datalens-name }} pricing policy.
+description: This article covers the {{ datalens-name }} pricing policy.
 editable: false
 ---
 
@@ -25,7 +25,9 @@ Service plans offer different feature sets and [cost](#prices) differently.
 
 **Service plan**  | **Community** | **Business**
 ------------------ |---------------|---------------
-Creating [charts](./concepts/chart/index.md) and [dashboards](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+Creating [charts in wizard](./concepts/chart/dataset-based-charts.md), [QL charts](./concepts/chart/ql-charts.md), and [dashboards](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+Creating [charts in Editor](./charts/editor/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
+Connecting [API Connector](./operations/connection/create-api-connector.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
 [Data model description](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Analytic calculations and SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Role-based access management](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   

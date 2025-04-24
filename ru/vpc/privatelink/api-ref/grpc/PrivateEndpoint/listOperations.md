@@ -27,7 +27,7 @@ List operations for the specified private endpoint.
 
 Required field. ID of the private endpoint to list operations for.
 
-To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/api-ref/grpc/PrivateEndpoint/list#List) request. ||
+To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/grpc/PrivateEndpoint/list#List) request. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of

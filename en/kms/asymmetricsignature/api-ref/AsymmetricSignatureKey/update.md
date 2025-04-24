@@ -20,7 +20,7 @@ PATCH https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
 || keyId | **string**
 
 Required field. ID of the asymmetric KMS key to update.
-To get the ID of a asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/api-ref/AsymmetricSignatureKey/list#List) request. ||
+To get the ID of a asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List) request. ||
 |#
 
 ## Body parameters {#yandex.cloud.kms.v1.asymmetricsignature.UpdateAsymmetricSignatureKeyRequest}

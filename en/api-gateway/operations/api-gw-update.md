@@ -12,9 +12,9 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit the API gateway parameters or OpenAPI specification if needed.
+  1. Edit the API gateway parameters or OpenAPI specification, if needed.
 
       {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}
 
@@ -27,8 +27,8 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To update an API gateway:
-  1. If necessary, edit the OpenAPI specification file or create a new one.
-  1. View a description of the CLI command for updating an API gateway:
+  1. Edit the OpenAPI specification file or create a new one, if required.
+  1. View the description of the CLI command for updating an API gateway:
 
      ```bash
      {{ yc-serverless }} api-gateway update --help
@@ -40,8 +40,17 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      {{ yc-serverless }} api-gateway update \
        --id <API_gateway_ID> \
        --new-name <new_API_gateway_name> \
+       --execution-timeout <request_execution_timeout> \
        --spec=<path_to_new_specification_file>
      ```
+
+     Where:
+     * `--id`: ID of the API gateway you need to update.
+     * `--name`: New name for the API gateway. This is an optional parameter. The naming requirements are as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+     * `--execution-timeout`: Request execution timeout. The value is specified in seconds and must not exceed the set [limit](../concepts/limits.md#api-gw-limits). This is an optional parameter. The default value is `300` seconds.
+     * `--spec`: Path to the file with the updated API gateway specification.
 
 - {{ TF }} {#tf}
 
@@ -50,7 +59,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To change the name, description, or specification of the API gateway:
-  1. Open the {{ TF }} configuration file and edit the `name`, `description`, and `spec` parameters, respectively.
+  1. Open the {{ TF }} configuration file and edit the `name`, `description`, `execution_timeout`, or `spec` properties, respectively.
 
      Here is an example of the configuration file structure:
 
@@ -63,7 +72,8 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
          label       = "label"
          empty-label = ""
        }
-       spec = <<-EOT
+       execution_timeout = "<request_execution_timeout>"
+       spec              = <<-EOT
          openapi: "3.0.0"
          info:
            version: 1.0.0
@@ -100,7 +110,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      ...
      ```
 
-     For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
   1. Check the configuration using this command:
 
      ```bash
@@ -119,14 +129,14 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the API gateway update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
@@ -140,6 +150,6 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-  To update a name, description, or specification for an API gateway, use the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+  To change a name, description, or specification for an API gateway, use the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

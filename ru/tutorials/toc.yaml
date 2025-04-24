@@ -465,6 +465,12 @@ items:
             href: infrastructure-management/dns-integration.md
           - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
             href: infrastructure-management/cert-manager-webhook.md
+      - name: GPU
+        items:
+          - name: Запуск языковой модели DeepSeek-R1 в кластере GPU
+            href: infrastructure-management/gpu-cluster-deepseek.md
+          - name: Запуск библиотеки vLLM с языковой моделью Gemma 3 на ВМ с GPU
+            href: infrastructure-management/vllm-gemma-gpu.md
   - name: Контейнерная инфраструктура
     items:
       - name: Все руководства

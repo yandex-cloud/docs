@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/iam/v1/workload/oidc/workload-identity/api-ref/grpc
 
 Returns the specified OIDC workload identity federation.
 
-To get the list of available OIDC workload identity federation, make a [List](/docs/iam/workload-identity/api-ref/grpc/Federation/list#List) request.
+To get the list of available OIDC workload identity federation, make a [List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request.
 
 ## gRPC request
 
@@ -26,7 +26,7 @@ To get the list of available OIDC workload identity federation, make a [List](/d
 || federation_id | **string**
 
 Required field. ID of the OIDC workload identity federation to return.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload-identity/api-ref/grpc/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request. ||
 |#
 
 ## Federation {#yandex.cloud.iam.v1.workload.oidc.Federation}

@@ -21,3 +21,5 @@
     * для платформы **Intel Ice Lake** — только с шагом {{ local-ssd-v3-step }}.
 
     {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+
+{% include [available-storage](../available-storage.md) %}

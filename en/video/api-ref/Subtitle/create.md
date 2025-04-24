@@ -34,14 +34,14 @@ POST https://video.{{ api-host }}/video/v1/subtitles
 ||Field | Description ||
 || language | **string**
 
-The language of the subtitles, represented as a three-letter ISO 639 code.
-Supports ISO 639-2/T (terminological), ISO 639-2/B (bibliographical) variants and ISO 639-3.
-Valid ISO language code corresponding to the subtitle text must be provided. ||
+Subtitle language in any of the following formats:
+* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
+* two-letter code according to ISO 639-1 ||
 || label | **string**
 
 Contains the subtitle label (or title) that will be displayed on screen during video playback.
 Should provide a concise and accurate representation of the spoken content.
-If not provided, will be auto-generated based on the specified language. ||
+If not provided, it will be auto-generated based on the specified language. ||
 || videoId | **string**
 
 ID of the video.
@@ -93,6 +93,7 @@ Required field.  ||
     "language": "string",
     "label": "string",
     "status": "string",
+    "sourceType": "string",
     "filename": "string",
     "createdAt": "string",
     "updatedAt": "string",
@@ -208,7 +209,9 @@ A list of messages that carry the error details. ||
 ID of the subtitle. ||
 || language | **string**
 
-Subtitle language represented as a three-letter ISO 639-3 code. ||
+Subtitle language in any of the following formats:
+* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
+* two-letter code according to ISO 639-1 ||
 || label | **string**
 
 Subtitle caption to be displayed on screen during video playback. ||
@@ -219,6 +222,13 @@ Subtitle status.
 - `SUBTITLE_STATUS_UNSPECIFIED`: Subtitle status unspecified.
 - `WAIT_UPLOADING`: Waiting for all the bytes to be loaded.
 - `UPLOADED`: Uploading is complete. ||
+|| sourceType | **enum** (SubtitleSourceType)
+
+Source type.
+
+- `SUBTITLE_SOURCE_TYPE_UNSPECIFIED`: Subtitle source type unspecified.
+- `MANUAL`: Manually uploaded subtitle.
+- `GENERATED`: Automatically generated subtitle. ||
 || filename | **string**
 
 Subtitle filename. ||

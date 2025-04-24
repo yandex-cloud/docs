@@ -21,7 +21,7 @@ description: После создания кластера {{ dataproc-name }} в
     Чтобы изменить настройки кластера {{ dataproc-name }}:
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. Измените имя и описание кластера в полях **{{ ui-key.yacloud.mdb.forms.base_field_name }}** и **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
     1. Добавьте или удалите [метки](../../resource-manager/concepts/labels.md) кластера в поле **{{ ui-key.yacloud.component.label-set.label_labels }}**.
     1. Измените настройки кластера:

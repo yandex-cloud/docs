@@ -24,4 +24,5 @@ Origin is not a standalone entity. It can live only within origin group. ||
 
 Used for Resources Rules management. ||
 || [Resource](Resource/index.md) | Provider's resources management service. ||
+|| [Shielding](Shielding/index.md) | Shielding management service. ||
 |#

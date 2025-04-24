@@ -20,7 +20,7 @@ DELETE https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKey
 || accessKeyId | **string**
 
 Required field. ID of the access key to delete.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/api-ref/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

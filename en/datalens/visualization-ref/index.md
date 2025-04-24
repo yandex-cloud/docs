@@ -7,6 +7,14 @@ description: In this article, you will learn about chart types available in {{ d
 
 
 
+
+{% note info %}
+
+[Editor](../charts/editor/index.md) has its own list of visualizations.
+
+{% endnote %}
+
+
 The following types of charts are available in {{ datalens-full-name }}:
 
 * **Charts**:

@@ -105,6 +105,7 @@ For example, if the current time is `2020-03-24T23:30:39.874Z`, then:
 
 For dashboard widgets, parameters are applied in the following order (values from the previous items are overridden by the subsequent ones):
 
+1. For wizard and QL charts, filters; for Editor charts, the parameters specified on the [Params](../charts/editor/tabs.md#params) tab.
 1. [Chart parameters](#params-chart) from dashboard settings.
 1. [Dashboard parameters](#params-dash).
 1. Dasboard [selector](./selector.md) values.

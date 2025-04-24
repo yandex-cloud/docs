@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Playlist/get.md
 
 # Video API, REST: Playlist.Get
 
-Returns the specific playlist.
+Get the specific playlist.
 
 ## HTTP request
 

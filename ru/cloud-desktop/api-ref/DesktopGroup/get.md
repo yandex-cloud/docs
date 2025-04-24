@@ -48,7 +48,8 @@ To get the desktop group ID use a [DesktopGroupService.List](/docs/cloud-desktop
     "subnetIds": [
       "string"
     ]
-  }
+  },
+  "labels": "object"
 }
 ```
 
@@ -92,6 +93,9 @@ Resource specification of the desktop group. ||
 || networkInterfaceSpec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
 
 Network interface specification of the desktop group. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop group. ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.clouddesktop.v1.api.ResourcesSpec}

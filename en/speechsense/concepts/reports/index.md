@@ -10,9 +10,3 @@ description: In this article, you will learn about report types in {{ speechsens
 * [Evaluation form](evaluation-form.md): To analyze several evaluation parameters.
 * [Comparison](comparison.md): To compare multiple evaluation parameters over time.
 * [Details](details.md): To analyze changes in a single evaluation parameter over time.
-
-{% note warning %}
-
-Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags](../tags.md#sense-tags) instead.
-
-{% endnote %}

@@ -24,7 +24,7 @@ Deletes the specified certificate.
 || certificate_id | **string**
 
 ID of the certificate to delete.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/api-ref/grpc/Certificate/list#List) request. ||
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/grpc/Certificate/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

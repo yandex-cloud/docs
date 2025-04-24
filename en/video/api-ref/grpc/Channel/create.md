@@ -18,7 +18,24 @@ Create channel.
   "organization_id": "string",
   "title": "string",
   "description": "string",
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "settings": {
+    "advertisement": {
+      // Includes only one of the fields `yandex_direct`
+      "yandex_direct": {
+        "enable": "bool",
+        "page_id": "int64",
+        "category": "int64"
+      }
+      // end of the list of possible fields
+    },
+    "referer_verification": {
+      "enable": "bool",
+      "allowed_domains": [
+        "string"
+      ]
+    }
+  }
 }
 ```
 
@@ -36,6 +53,67 @@ Channel description. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+|| settings | **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings)**
+
+Channel settings. ||
+|#
+
+## ChannelSettings {#yandex.cloud.video.v1.ChannelSettings}
+
+Channel settings.
+
+#|
+||Field | Description ||
+|| advertisement | **[AdvertisementSettings](#yandex.cloud.video.v1.AdvertisementSettings)**
+
+Advertisement settings. ||
+|| referer_verification | **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings)**
+
+Referer verification settings ||
+|#
+
+## AdvertisementSettings {#yandex.cloud.video.v1.AdvertisementSettings}
+
+Advertisement settings.
+
+#|
+||Field | Description ||
+|| yandex_direct | **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect)**
+
+Includes only one of the fields `yandex_direct`.
+
+Advertisement provider. ||
+|#
+
+## YandexDirect {#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect}
+
+YandexDirect provider settings.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enable Partner Ad for Live and VOD content. ||
+|| page_id | **int64**
+
+Advertisement page ID. ||
+|| category | **int64**
+
+Advertisement category. ||
+|#
+
+## RefererVerificationSettings {#yandex.cloud.video.v1.RefererVerificationSettings}
+
+Referer verification settings.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enable verification ||
+|| allowed_domains[] | **string**
+
+List of available domains ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -60,7 +138,24 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
     "description": "string",
     "created_at": "google.protobuf.Timestamp",
     "updated_at": "google.protobuf.Timestamp",
-    "labels": "map<string, string>"
+    "labels": "map<string, string>",
+    "settings": {
+      "advertisement": {
+        // Includes only one of the fields `yandex_direct`
+        "yandex_direct": {
+          "enable": "bool",
+          "page_id": "int64",
+          "category": "int64"
+        }
+        // end of the list of possible fields
+      },
+      "referer_verification": {
+        "enable": "bool",
+        "allowed_domains": [
+          "string"
+        ]
+      }
+    }
   }
   // end of the list of possible fields
 }
@@ -157,4 +252,65 @@ Time of last channel update. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+|| settings | **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings2)**
+
+Channel settings. ||
+|#
+
+## ChannelSettings {#yandex.cloud.video.v1.ChannelSettings2}
+
+Channel settings.
+
+#|
+||Field | Description ||
+|| advertisement | **[AdvertisementSettings](#yandex.cloud.video.v1.AdvertisementSettings2)**
+
+Advertisement settings. ||
+|| referer_verification | **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings2)**
+
+Referer verification settings ||
+|#
+
+## AdvertisementSettings {#yandex.cloud.video.v1.AdvertisementSettings2}
+
+Advertisement settings.
+
+#|
+||Field | Description ||
+|| yandex_direct | **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect2)**
+
+Includes only one of the fields `yandex_direct`.
+
+Advertisement provider. ||
+|#
+
+## YandexDirect {#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect2}
+
+YandexDirect provider settings.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enable Partner Ad for Live and VOD content. ||
+|| page_id | **int64**
+
+Advertisement page ID. ||
+|| category | **int64**
+
+Advertisement category. ||
+|#
+
+## RefererVerificationSettings {#yandex.cloud.video.v1.RefererVerificationSettings2}
+
+Referer verification settings.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enable verification ||
+|| allowed_domains[] | **string**
+
+List of available domains ||
 |#

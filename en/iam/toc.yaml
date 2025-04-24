@@ -501,54 +501,6 @@ items:
                     href: awscompatibility/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: awscompatibility/api-ref/grpc/Operation/cancel.md
-          - name: Identity and Access Management SAML API
-            items:
-              - name: Overview
-                href: saml/api-ref/grpc/index.md
-              - name: Certificate
-                items:
-                  - name: Overview
-                    href: saml/api-ref/grpc/Certificate/index.md
-                  - name: Get
-                    href: saml/api-ref/grpc/Certificate/get.md
-                  - name: List
-                    href: saml/api-ref/grpc/Certificate/list.md
-                  - name: Create
-                    href: saml/api-ref/grpc/Certificate/create.md
-                  - name: Update
-                    href: saml/api-ref/grpc/Certificate/update.md
-                  - name: Delete
-                    href: saml/api-ref/grpc/Certificate/delete.md
-                  - name: ListOperations
-                    href: saml/api-ref/grpc/Certificate/listOperations.md
-              - name: Federation
-                items:
-                  - name: Overview
-                    href: saml/api-ref/grpc/Federation/index.md
-                  - name: Get
-                    href: saml/api-ref/grpc/Federation/get.md
-                  - name: List
-                    href: saml/api-ref/grpc/Federation/list.md
-                  - name: Create
-                    href: saml/api-ref/grpc/Federation/create.md
-                  - name: Update
-                    href: saml/api-ref/grpc/Federation/update.md
-                  - name: Delete
-                    href: saml/api-ref/grpc/Federation/delete.md
-                  - name: AddUserAccounts
-                    href: saml/api-ref/grpc/Federation/addUserAccounts.md
-                  - name: ListUserAccounts
-                    href: saml/api-ref/grpc/Federation/listUserAccounts.md
-                  - name: ListOperations
-                    href: saml/api-ref/grpc/Federation/listOperations.md
-              - name: Operation
-                items:
-                  - name: Overview
-                    href: saml/api-ref/grpc/Operation/index.md
-                  - name: Get
-                    href: saml/api-ref/grpc/Operation/get.md
-                  - name: Cancel
-                    href: saml/api-ref/grpc/Operation/cancel.md
           - name: Workload Identity
             items:
               - name: Overview
@@ -603,6 +555,15 @@ items:
                       - name: Delete
                         href: >-
                           workload/oidc/workload-identity/api-ref/grpc/Federation/delete.md
+                      - name: ListAccessBindings
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/updateAccessBindings.md
                   - name: Operation
                     items:
                       - name: Overview
@@ -762,54 +723,6 @@ items:
                     href: awscompatibility/api-ref/Operation/get.md
                   - name: Cancel
                     href: awscompatibility/api-ref/Operation/cancel.md
-          - name: Identity and Access Management SAML API
-            items:
-              - name: Overview
-                href: saml/api-ref/index.md
-              - name: Certificate
-                items:
-                  - name: Overview
-                    href: saml/api-ref/Certificate/index.md
-                  - name: Get
-                    href: saml/api-ref/Certificate/get.md
-                  - name: List
-                    href: saml/api-ref/Certificate/list.md
-                  - name: Create
-                    href: saml/api-ref/Certificate/create.md
-                  - name: Update
-                    href: saml/api-ref/Certificate/update.md
-                  - name: Delete
-                    href: saml/api-ref/Certificate/delete.md
-                  - name: ListOperations
-                    href: saml/api-ref/Certificate/listOperations.md
-              - name: Federation
-                items:
-                  - name: Overview
-                    href: saml/api-ref/Federation/index.md
-                  - name: Get
-                    href: saml/api-ref/Federation/get.md
-                  - name: List
-                    href: saml/api-ref/Federation/list.md
-                  - name: Create
-                    href: saml/api-ref/Federation/create.md
-                  - name: Update
-                    href: saml/api-ref/Federation/update.md
-                  - name: Delete
-                    href: saml/api-ref/Federation/delete.md
-                  - name: AddUserAccounts
-                    href: saml/api-ref/Federation/addUserAccounts.md
-                  - name: ListUserAccounts
-                    href: saml/api-ref/Federation/listUserAccounts.md
-                  - name: ListOperations
-                    href: saml/api-ref/Federation/listOperations.md
-              - name: Operation
-                items:
-                  - name: Overview
-                    href: saml/api-ref/Operation/index.md
-                  - name: Get
-                    href: saml/api-ref/Operation/get.md
-                  - name: Cancel
-                    href: saml/api-ref/Operation/cancel.md
           - name: Workload Identity
             items:
               - name: Overview
@@ -863,6 +776,15 @@ items:
                       - name: Delete
                         href: >-
                           workload/oidc/workload-identity/api-ref/Federation/delete.md
+                      - name: ListAccessBindings
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/updateAccessBindings.md
                   - name: Operation
                     items:
                       - name: Overview

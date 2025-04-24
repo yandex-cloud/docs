@@ -54,9 +54,9 @@ The request body structure is as follows:
 || config.<br>specification | **object**<br>Recognition settings. ||
 || config.<br>specification.<br>languageCode | **string**<br>[Language](../models.md#languages) of the audio file for speech recognition.<br/>The default value is `ru-RU`, Russian. ||
 || config.<br>specification.<br>model | **string**<br>[Language model](../models.md#tags) for speech recognition.<br>The default value is `general`.<br>Different models have different [pricing](../../pricing.md#rules-stt-long). ||
-|| config.<br>specification.<br>profanityFilter | **boolean**<br>Profanity filter.<br/>Acceptable values include:<ul><li>`true`: Mask profanities with asterisks in recognition results.</li><li>`false` (default): Do not mask profanities.</li></ul> ||
+|| config.<br>specification.<br>profanityFilter | **boolean**<br>Profanity filter.<br/>Acceptable values:<ul><li>`true`: Mask profanities with asterisks in recognition results.</li><li>`false` (default): Do not mask profanities.</li></ul> ||
 || config.<br>specification.<br>literature_text | **boolean**<br>Enables [normalization mode](../normalization.md). ||
-|| config.<br>specification.<br>audioEncoding | **string**<br>Submitted audio [format](../../formats.md).<br/>Acceptable values include:<ul><li>`LINEAR16_PCM`: [LPCM without a WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus).</li><li>`MP3`: [MP3](../../formats.md#MP3).</li></ul> ||
+|| config.<br>specification.<br>audioEncoding | **string**<br>Submitted audio [format](../../formats.md).<br/>Acceptable values:<ul><li>`LINEAR16_PCM`: [LPCM without a WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [Ogg](../../formats.md#oggopus) with the OPUS codec.</li><li>`MP3`: [MP3](../../formats.md#MP3).</li></ul> ||
 || config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Sampling rate of the submitted audio.<br/>This parameter is required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default): 48 kHz.</li><li>`16000`: 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> ||
 || config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>Number of channels for [LPCM](../../formats.md#lpcm) audio files. The default value is `1`.<br>Do not use this field for [OggOpus](../../formats.md#oggopus) or [MP3](../../formats.md#MP3) audio files. They already contain information about the channel count. ||
 || config.<br>specification.<br>rawResults | **boolean** <br>Flag that toggles spelling out numbers.</br>Acceptable values:<ul><li>`true`: Spell out.</li><li>`false` (default): Use figures.</li></ul> ||
@@ -99,7 +99,7 @@ operationId | Operation ID received when sending the recognition request
 
 ### Response {#get-result-response}
 
-The [Operation object](../../../api-design-guide/concepts/operation.md) is returned in response to your request. Response example:
+The [Operation object](../../../api-design-guide/concepts/operation.md) is returned in response to your request. Here is a response example:
 
 ```json
 {

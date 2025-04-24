@@ -11,15 +11,16 @@ Video management service.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific video. ||
+|| [Get](get.md) | Get the specific video. ||
 || [List](list.md) | List videos for channel. ||
-|| [BatchGet](batchGet.md) | Batch get video in specific channel. ||
+|| [BatchGet](batchGet.md) | Batch get videos in specific channel. ||
 || [Create](create.md) | Create video. ||
 || [Update](update.md) | Update video. ||
 || [Transcode](transcode.md) | Transcode video. ||
 || [Delete](delete.md) | Delete video. ||
-|| [BatchDelete](batchDelete.md) | Batch delete video. ||
-|| [PerformAction](performAction.md) | Perform an action on the episode. ||
-|| [GetPlayerURL](getPlayerURL.md) | Returns url to the player. ||
-|| [GetManifests](getManifests.md) | Returns manifest urls. ||
+|| [BatchDelete](batchDelete.md) | Batch delete videos. ||
+|| [PerformAction](performAction.md) | Perform an action on the video. ||
+|| [GetPlayerURL](getPlayerURL.md) | Get player url. ||
+|| [BatchGetPlayerURLs](batchGetPlayerURLs.md) | Batch get player urls. ||
+|| [GetManifests](getManifests.md) | Get manifest urls. ||
 |#

@@ -1,2 +1,2 @@
-* A minimum of 10 hours of audio is required. Recommended number of hours: 50 or more.
-* Training the recognition model takes about three months for Russian. For other languages, contact your account manager.
+* It will take a minimum of 10 hours of audio in Russian to achieve a difference in the quality of recognition. Recognition models for other languages may require more data. The recommended data volume is 50 hours or more.
+* Recognition model training takes about three months for Russian. During this time, the team will check and validate the data, add it to the training dataset, and train the model. For other languages, contact your account manager.

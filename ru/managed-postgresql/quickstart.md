@@ -65,6 +65,7 @@ description: В этой инструкции вы научитесь созда
 
     {% include [default-connstring](../_includes/mdb/mpg/default-connstring.md) %}
 
+
 ## Что дальше {#whats-next}
 
 * Изучите [концепции сервиса](concepts/index.md).

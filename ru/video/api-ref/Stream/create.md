@@ -22,6 +22,7 @@ POST https://video.{{ api-host }}/video/v1/streams
   "title": "string",
   "description": "string",
   "thumbnailId": "string",
+  "autoPublish": "boolean",
   "labels": "object",
   // Includes only one of the fields `onDemand`, `schedule`
   "onDemand": "object",
@@ -50,19 +51,23 @@ Stream description. ||
 || thumbnailId | **string**
 
 ID of the thumbnail. ||
+|| autoPublish | **boolean**
+
+Automatically publish stream when ready.
+Switches status from READY to ONAIR. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 || onDemand | **object**
 
-On demand stream. It starts immediately when a signal appears.
+On-demand stream. Starts immediately when a signal appears.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
 Stream type. ||
 || schedule | **[ScheduleParams](#yandex.cloud.video.v1.ScheduleParams)**
 
-Schedule stream. Determines when to start receiving the signal or finish time.
+Schedule stream. Starts or finishes at the specified time.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
@@ -125,6 +130,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
     "startTime": "string",
     "publishTime": "string",
     "finishTime": "string",
+    "autoPublish": "boolean",
     // Includes only one of the fields `onDemand`, `schedule`
     "onDemand": "object",
     "schedule": {
@@ -297,16 +303,20 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| autoPublish | **boolean**
+
+Automatically publish stream when ready.
+Switches status from READY to ONAIR. ||
 || onDemand | **object**
 
-On demand stream. It starts immediately when a signal appears.
+On-demand stream. Starts immediately when a signal appears.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
 Stream type. ||
 || schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
 
-Schedule stream. Determines when to start receiving the signal or finish time.
+Schedule stream. Starts or finished at the specified time.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
@@ -338,7 +348,8 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 
 ## Schedule {#yandex.cloud.video.v1.Schedule}
 
-If "Schedule" is used, stream automatically start and finish at this time.
+Schedule stream type.
+This type of streams start and finish automatically at the specified time.
 
 #|
 ||Field | Description ||

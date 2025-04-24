@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `languageCode` — [язык](../models.md#languages), для которого будет выполнено распознавание.
-      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
+      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host-ru }}/speechkit/speech.opus`.
 
          Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
 

@@ -1,4 +1,6 @@
 ---
+title: '{{ datalens-full-name }} quotas and limits'
+description: In this article, you will learn about quotas and limits in {{ datalens-name }}.
 editable: false
 ---
 

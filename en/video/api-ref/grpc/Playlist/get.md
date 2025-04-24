@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Playlist/get.md
 
 # Video API, gRPC: PlaylistService.Get
 
-Returns the specific playlist.
+Get the specific playlist.
 
 ## gRPC request
 

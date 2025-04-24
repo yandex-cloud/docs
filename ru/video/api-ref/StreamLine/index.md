@@ -11,7 +11,7 @@ Stream line management service.
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specific stream line. ||
+|| [Get](get.md) | Get the specific stream line. ||
 || [List](list.md) | List lines for channel. ||
 || [BatchGet](batchGet.md) | Batch get lines for channel. ||
 || [Create](create.md) | Create stream line. ||
@@ -19,6 +19,6 @@ Stream line management service.
 || [Delete](delete.md) | Delete stream line. ||
 || [BatchDelete](batchDelete.md) | Batch delete stream lines. ||
 || [PerformAction](performAction.md) | Perform an action on the line. ||
-|| [GetStreamKey](getStreamKey.md) | Returns unique stream key. ||
-|| [UpdateStreamKey](updateStreamKey.md) | Change stream key. ||
+|| [GetStreamKey](getStreamKey.md) | Get unique stream key. ||
+|| [UpdateStreamKey](updateStreamKey.md) | Update stream key. ||
 |#

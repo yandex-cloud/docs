@@ -5,12 +5,6 @@ description: In a report, a semantic attribute is the dialog's feature that sets
 
 # Semantic attributes
 
-{% note warning %}
-
-Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags](../tags.md#sense-tags) instead.
-
-{% endnote %}
-
 In a report, a _semantic attribute_ is the dialog's feature that sets the context for analysis based on a search query. {{ speechsense-name }} analyzes the dialog to see how close it is semantically to the search query in the context of the selected semantic attribute. You can enter a search query yourself or choose one of the automatically generated [suggestions](../tags.md#suggestions).
 
 {{ speechsense-name }} operates the following semantic attributes:
@@ -21,7 +15,7 @@ In a report, a _semantic attribute_ is the dialog's feature that sets the contex
 * **{{ ui-key.yc-ui-talkanalytics.statements.problems }}**.
 * **{{ ui-key.yc-ui-talkanalytics.statements.operator_keywords }}**.
 * **{{ ui-key.yc-ui-talkanalytics.statements.client_keywords }}**.
-* **{{ ui-key.yc-ui-talkanalytics.statements.common_question }}**: Preset questions of universal applicability.
+* **{{ ui-key.yc-ui-talkanalytics.statements.common_question }}**: Universally applicable reset questions.
 
 {{ speechsense-name }} presents two groups of dialogs in the report: those that do and do not conform to the specified conditions. You choose which one to use in your report. 
 

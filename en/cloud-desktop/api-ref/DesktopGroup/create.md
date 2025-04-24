@@ -128,7 +128,8 @@ List of subnet IDs. ||
       "subnetIds": [
         "string"
       ]
-    }
+    },
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -271,6 +272,9 @@ Resource specification of the desktop group. ||
 || networkInterfaceSpec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec2)**
 
 Network interface specification of the desktop group. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop group. ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.clouddesktop.v1.api.ResourcesSpec2}

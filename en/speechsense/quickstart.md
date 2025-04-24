@@ -2,7 +2,7 @@
 
 {{ speechsense-full-name }} allows you to analyze your business communication channels based on dialog audio recordings or text chat messages and supports integration with your PBX and CRM systems. {{ speechsense-name }} utilizes {{ speechkit-full-name }} voice technologies to transcribe speech and perform statistical and qualitative analysis of recorded audio dialogs.
 
-{{ speechsense-name }} can analyze audio and text dialogs in Russian.
+{{ speechsense-name }} can analyze audio and text dialogs in Russian and Kazakh languages.
 
 You can upload your data to {{ speechsense-name }} or use a [demo recording](https://storage.yandexcloud.net/doc-files/speechsense-demo-dialog.wav) synthesized using {{ speechkit-name }}.
 
@@ -31,7 +31,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
 1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and create a [connection](concepts/resources-hierarchy.md#connection) based on the metainformation of your audio recordings or text chats:
 
-   1. Enter **{{ ui-key.yc-ui-talkanalytics.connections.connection-name }}**.
+   1. Specify **{{ ui-key.yc-ui-talkanalytics.connections.connection-name }}**.
    1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** or **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
    1. Set the connection parameters. For more information, see [Creating a connection](operations/connection/create.md).
    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.

@@ -12,7 +12,6 @@ You can use filtering to select the dialogs to include in your report. To do thi
     * **{{ ui-key.yc-ui-talkanalytics.dialogs.speech-statistics }}** (only for audio): Agent and customer speech quality criteria, e.g., speech rate, mutual interruptions, etc.
     * **{{ ui-key.yc-ui-talkanalytics.dialogs.common-metadata }}**: Data on the conversation audio (collected via PBX) or text chat. Metadata is uploaded to {{ speechsense-name }} together with the conversation audio or text chat and contains its key characteristics, e.g., date, topic, and dialog language.
     * **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}**: Classifiers applied to conversation audio recognition results or text chat messages.
-    * **{{ ui-key.yc-ui-talkanalytics.projects.sumarization }}**: Agent performance criteria and the customer's behavioral patterns during the dialog, such as whether the agent was polite, whether the customer acted in a rude manner, etc.
 
     You can use multiple filters at the same time. They will be combined by the logical `AND` operation. As a result, the report will be built based on dialogs that satisfy all the conditions that were specified.
 
@@ -22,3 +21,10 @@ You can use filtering to select the dialogs to include in your report. To do thi
    * By product, to learn which products agents make fewer mistakes presenting in dialogs.
 
 Data cross-sections depend on the dialog metadata. For example, if you want to filter or group data by product, make sure there is a relevant field in the [metadata file](../../../speechsense/quickstart.md#set-space). If you need a new set of metadata, prepare dialog recordings or chats with relevant metadata and [upload these recordings](../../../speechsense/operations/data/upload-data.md) or [chats](../../../speechsense/operations/data/upload-chat-text.md).
+
+You can add filters based on the agent performance criteria and the client’s behavior, such as whether the agent was polite, whether the client was rude, etc. To do this, create the appropriate [semantic tag](../../../speechsense/concepts/tags.md#use-sense-tags-for-dialog-evaluation) and apply it as a filter. 
+
+> For example, if you are interested in dialogs where the customer was rude to the agent, select:
+> * Semantic attribute: **{{ ui-key.yc-ui-talkanalytics.statements.common_question }}**.
+> * Search query: **Was the client rude or aggressive at least once during the conversation?**
+

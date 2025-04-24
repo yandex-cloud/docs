@@ -30,6 +30,7 @@ description: Следуя этой инструкции, вы сможете п�
 
 {% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
+
 ### clickhouse-client {#clickhouse-client}
 
 **Перед подключением:**

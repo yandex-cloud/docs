@@ -21,7 +21,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}/operations
 
 Required field. ID of the private endpoint to list operations for.
 
-To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/api-ref/PrivateEndpoint/list#List) request. ||
+To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List) request. ||
 |#
 
 ## Query parameters {#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsRequest}

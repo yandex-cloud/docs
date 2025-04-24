@@ -62,9 +62,10 @@ Episode start time. ||
 Episode finish time. ||
 || dvr_seconds | **int64**
 
-Enables episode DVR mode. DVR seconds determines how many last seconds of the stream are available.
+Enables episode DVR mode.
+Determines how many last seconds of the stream are available.
 
-possible values:
+Possible values:
 * `0`: infinite dvr size, the full length of the stream allowed to display
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||
 || public_access | **[EpisodePublicAccessParams](#yandex.cloud.video.v1.EpisodePublicAccessParams)**
@@ -228,10 +229,10 @@ ID of the stream. Optional, empty if the episode is linked to the line ||
 ID of the line. Optional, empty if the episode is linked to the stream ||
 || title | **string**
 
-Channel title. ||
+Episode title. ||
 || description | **string**
 
-Channel description. ||
+Episode description. ||
 || thumbnail_id | **string**
 
 ID of the thumbnail. ||
@@ -243,9 +244,10 @@ Episode start time. ||
 Episode finish time. ||
 || dvr_seconds | **int64**
 
-Enables episode DVR mode. DVR seconds determines how many last seconds of the stream are available.
+Enables episode DVR mode.
+Determines how many last seconds of the stream are available for watching.
 
-possible values:
+Possible values:
 * `0`: infinite dvr size, the full length of the stream allowed to display
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||
 || visibility_status | enum **VisibilityStatus**

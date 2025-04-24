@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/video/v1/api-ref/Channel/listAccessBindings.md
 
 # Video API, REST: Channel.ListAccessBindings
 
-Lists existing access bindings for the specified channel.
+List existing access bindings for the specified channel.
 
 ## HTTP request
 

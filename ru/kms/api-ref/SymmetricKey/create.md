@@ -44,7 +44,7 @@ Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key
 For example, `"project": "mvp"` or `"source": "dictionary"`. ||
 || defaultAlgorithm | **enum** (SymmetricAlgorithm)
 
-Encryption algorithm to be used with a new key version, generated with the next rotation.
+Required field. Encryption algorithm to be used with a new key version, generated with the next rotation.
 
 - `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.

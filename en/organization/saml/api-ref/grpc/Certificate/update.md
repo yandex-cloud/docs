@@ -28,7 +28,7 @@ Updates the specified certificate.
 || certificate_id | **string**
 
 ID of the certificate to update.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/api-ref/grpc/Certificate/list#List) request. ||
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/grpc/Certificate/list#List) request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the certificate are going to be updated. ||

@@ -6,7 +6,7 @@ sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/get.m
 # EventRouter Service, REST: Rule.Get
 
 Returns the specified rules.
-To get the list of all available buses, make a [List](/docs/functions/eventrouter/api-ref/Rule/list#List) request.
+To get the list of all available buses, make a [List](/docs/serverless-integrations/eventrouter/api-ref/Rule/list#List) request.
 
 ## HTTP request
 

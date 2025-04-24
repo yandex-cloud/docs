@@ -26,7 +26,7 @@ Before connecting to a namespace, [create a service account](../../iam/operation
       ```bash
       yc iam api-key create --folder-id <folder_ID> \
         --service-account-name <name_of_service_account_for_operations_with_Schema_Registry> \
-        --scope yc.schema-registry.schemas.manage \
+        --scopes yc.schema-registry.schemas.manage \
         --expires-at '2030-01-01T00:00:00Z' >./api-key.yaml && \
       SECRET=`cat ./api-key.yaml | grep 'secret:' | awk '{print $2}'`
       ```
@@ -39,7 +39,7 @@ Before connecting to a namespace, [create a service account](../../iam/operation
       curl -X GET "https://<namespace_ID>.{{ schema-registry-endpoint }}/subjects" \
          -H "accept: application/json" --user 'api-key:'$SECRET
       ```
-  
+
 
 - Debezium
 
@@ -60,7 +60,7 @@ Before connecting to a namespace, [create a service account](../../iam/operation
       ```bash
       yc iam api-key create --folder-id <folder_ID> \
         --service-account-name <name_of_service_account_for_operations_with_Schema_Registry> \
-        --scope yc.schema-registry.schemas.manage \
+        --scopes yc.schema-registry.schemas.manage \
         --expires-at '2030-01-01T00:00:00Z' >./api-key.yaml && \
       SECRET=`cat ./api-key.yaml | grep 'secret:' | awk '{print $2}'`
       ```
@@ -78,7 +78,7 @@ Before connecting to a namespace, [create a service account](../../iam/operation
       "value.converter.basic.auth.credentials.source": "USER_INFO",
       "value.converter.basic.auth.user.info": "api-key:%SECRET%"
       ```
-  
+
 
   1. To connect to the namespace, run Debezium.
 

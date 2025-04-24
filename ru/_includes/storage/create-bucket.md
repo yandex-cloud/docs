@@ -8,37 +8,43 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. Выберите сервис **{{ objstorage-name }}**.
-  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. На панели сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
   1. На странице создания бакета:
+
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
           
           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
 
 
+      1. При необходимости добавьте [метки](../../storage/concepts/tags.md):
+
+          1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          1. Введите метку в формате `ключ: значение`.
+          1. Нажмите **Enter**.
+
       1. При необходимости ограничьте максимальный размер бакета.
 
           {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
       1. Задайте параметры [публичного доступа](../../storage/security/public-access.md) на чтение [объектов](../../storage/concepts/object.md) в бакете, получение списка объектов и чтение настроек бакета:
+
           * `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}` — доступ только для авторизованных пользователей {{ yandex-cloud }}.
           * `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` — доступ для любых пользователей.
 
           {% include [public-access-warning](./security/public-access-warning.md) %}
 
       1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию:
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`.
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`.
+
+          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`
+          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`
+          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`
 
           Более «холодные» классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем «холоднее» хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать.
 
-      1. При необходимости добавьте [метки](../../storage/concepts/tags.md):
-          1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-          1. Введите метку в формате `ключ: значение`.
-          1. Нажмите **Enter**.
+      1. При необходимости включите шифрование: в поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите [симметричный ключ](../../kms/concepts/key.md) или [создайте](../../kms/operations/key.md#create) новый.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
+      1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -50,7 +56,7 @@
 
 - AWS CLI {#aws-cli}
 
-  Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
+  {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
   Чтобы создать бакет, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, через который работает AWS CLI, [роль](../../storage/security/#storage-editor) `storage.editor`.
 

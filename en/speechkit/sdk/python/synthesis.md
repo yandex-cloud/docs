@@ -69,7 +69,7 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
       * `text`: Text for synthesis in TTS markup.
       * `export_path`: Path to the file to save the audio to.
 
-   1. Enter text to be converted into speech:
+   1. Save the text to convert to speech into an environment variable:
 
       ```bash
       export TEXT='I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!'
@@ -83,7 +83,7 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
 
       Where:
 
-      * `--text`: Text for synthesis in TTS markup.
+      * `--text`: Text for synthesis in TTS markup. In the example, the text is provided in the `TEXT` environment variable.
       * `--export`: Path to the file to save the audio to.
 
       This will create the `speech.wav` file with synthesized speech.

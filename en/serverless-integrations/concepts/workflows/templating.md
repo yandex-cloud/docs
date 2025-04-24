@@ -66,9 +66,13 @@ Templater extensions allow you to call jq functions implementing non-standard lo
 
 The `$global` variable returns the top-level state of the workflow before starting the current top-level step. For example, in the [Foreach](yawl/management/foreach.md) step, input data filtering is a required attribute, and the `$global` variable can be used within the sequence of steps in `do` to retrieve the workflow state as it was before `Foreach` started (top-level state).
 
+### $counter variable {#counter}
+
+The `$counter` variable returns the current operation index (indexing starts from zero). You can use the variable inside the `input` and `condition` fields of the [While](yawl/management/while.md) step.
+
 ### {{ lockbox-full-name }} {#lockbox-extension}
 
-A special `lockboxPayload` jq function allows you to get the value of the [{{ lockbox-name }} secret](../../../lockbox/concepts/secret.md) by its ID, key and (optionally) [version](../../../lockbox/concepts/secret.md#version). For the extension to work correctly, the [workflow](./workflow.md) settings must specify a [service account](../../../iam/concepts/users/service-accounts.md) that has permissions to view the secret contents, e.g., the one with the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer).
+A special `lockboxPayload` jq function allows you to get the value of the [{{ lockbox-name }} secret](../../../lockbox/concepts/secret.md) by its ID, key and (optionally) [version](../../../lockbox/concepts/secret.md#version). For the extension to work correctly, the [workflow](workflow.md) settings must specify a [service account](../../../iam/concepts/users/service-accounts.md) that has permissions to view the secret contents, e.g., the one with the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer).
 
 Description of the `lockboxPayload` jq function arguments:
 

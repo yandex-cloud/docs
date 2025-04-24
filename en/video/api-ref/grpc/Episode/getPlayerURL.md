@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/getPlayerURL.md
 
 # Video API, gRPC: EpisodeService.GetPlayerURL
 
-Returns url to the player.
+Get player url.
 
 ## gRPC request
 
@@ -64,7 +64,7 @@ If true, a player interface will be hidden by default. ||
 ||Field | Description ||
 || player_url | **string**
 
-Direct link to the video. ||
+Direct link to the episode. ||
 || html | **string**
 
 HTML embed code in Iframe format. ||

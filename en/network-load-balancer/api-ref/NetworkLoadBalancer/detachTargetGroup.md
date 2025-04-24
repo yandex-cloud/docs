@@ -107,7 +107,8 @@ Required field. ID of the target group. ||
         ]
       }
     ],
-    "deletionProtection": "boolean"
+    "deletionProtection": "boolean",
+    "allowZonalShift": "boolean"
   }
   // end of the list of possible fields
 }
@@ -281,6 +282,9 @@ List of target groups attached to the network load balancer. ||
 || deletionProtection | **boolean**
 
 Specifies if network load balancer protected from deletion. ||
+|| allowZonalShift | **boolean**
+
+Specifies if network load balancer available to zonal shift. ||
 |#
 
 ## Listener {#yandex.cloud.loadbalancer.v1.Listener}

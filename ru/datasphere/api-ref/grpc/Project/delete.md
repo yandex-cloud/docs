@@ -24,7 +24,7 @@ Deletes the specified project.
 || project_id | **string**
 
 Required field. ID of the Project resource to delete.
-To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/grpc/Project/list#List) request. ||
+To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/grpc/Project/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

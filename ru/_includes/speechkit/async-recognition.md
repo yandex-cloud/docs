@@ -25,7 +25,7 @@
    * `audioEncoding` — [формат](../../speechkit/formats.md) передаваемого аудиофайла.
    * `sampleRateHertz` — частота дискретизации аудиофайла в Гц.
    * `audioChannelCount` — количество аудиоканалов.
-   * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host }}/speechkit/speech.pcm`.
+   * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host-ru }}/speechkit/speech.pcm`.
 
       Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
 
