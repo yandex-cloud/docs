@@ -1,11 +1,11 @@
 # Loading data from {{ objstorage-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ objstorage-name }} to the {{ ydb-name }} table using {{ data-transfer-name }}. Proceed as follows:
+You can migrate data from {{ objstorage-name }} to the {{ ydb-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 * Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
@@ -39,7 +39,7 @@ Set up your infrastructure:
 
     1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
 
-    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `s3-ydb-account` with the `storage.editor` and `ydb.editor` roles. The transfer will use it to access the bucket and the database.
+    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `s3-ydb-account` with the `storage.editor` and `ydb.editor` roles. The transfer will use it to access the bucket and database.
 
     1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for `s3-ydb-account`.
 
@@ -55,8 +55,8 @@ Set up your infrastructure:
         This file describes:
 
         * Service account to use when working with the {{ ydb-name }} bucket and database.
-        * {{ lockbox-name }} secret with the static key of the service account for configuring the source endpoint.
-        * {{ objstorage-name }} source bucket.
+        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
+        * Source {{ objstorage-name }} bucket.
         * {{ ydb-name }} target cluster.
         * Target endpoint.
         * Transfer.
@@ -105,9 +105,9 @@ Set up your infrastructure:
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data1.csv` file to the {{ objstorage-name }} bucket.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with these settings:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
@@ -123,7 +123,7 @@ Set up your infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    For the other properties, leave the default values.
+    Leave the default values for the other properties.
 
 1. Create a target endpoint and transfer:
 
@@ -134,15 +134,15 @@ Set up your infrastructure:
         1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) of the `{{ ydb-short-name }}` type and specify the cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-short-name }} database from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the `s3-ydb-account` service account.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the service account named `s3-ydb-account`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
 
-        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - Using {{ TF }} {#tf}
 
-        1. In the `object-storage-to-ydb.tf` file, specify the following parameters:
+        1. In the `object-storage-to-ydb.tf` file, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
@@ -163,7 +163,7 @@ Set up your infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Check the transfer performance by testing the copy and replication processes.
 
@@ -177,7 +177,7 @@ Check the transfer performance by testing the copy and replication processes.
     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
     1. Select the database from the list.
     1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-    1. Check that the {{ ydb-name }} database contains a table named `table1` with the test data.
+    1. Make sure the {{ ydb-name }} database contains a table named `table1` with the test data.
 
 - CLI {#cli}
 
@@ -219,7 +219,7 @@ Check the transfer performance by testing the copy and replication processes.
         1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-        1. Check that `table1` now contains the new data.
+        1. Make sure `table1` now contains the new data.
 
     - CLI {#cli}
 

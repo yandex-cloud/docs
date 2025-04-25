@@ -8,8 +8,8 @@ description: In this tutorial, you will learn how to change settings for a {{ MY
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-* [Change the disk type and increase storage size](#change-disk-size).
-* [Change {{ MY }} settings](#change-mysql-config).
+* [Change the disk type and increase the storage size](#change-disk-size).
+* [Changing {{ MY }} settings](#change-mysql-config).
 
     {% note warning %}
 
@@ -44,7 +44,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. To change the class of {{ MY }} hosts, under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -209,7 +209,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 {% endlist %}
 
-## Increasing storage size {#change-disk-size}
+## Changing the disk type and increasing the storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -219,7 +219,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -252,7 +252,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - {{ TF }} {#tf}
 
-  To change the disk type and  increase the storage size for a cluster:
+  To change the disk type and increase the storage size for a cluster:
 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -383,7 +383,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Configure the [{{ MY }}](../concepts/settings-list.md#dbms-cluster-settings) settings by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
@@ -549,7 +549,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Change additional cluster settings:
 
@@ -569,7 +569,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
         {{ yc-mdb-my }} cluster update --help
         ```
 
-    1. Run the following command with a list of settings to update:
+    1. Run the following command with the list of settings to update:
 
         ```bash
         {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
@@ -653,11 +653,11 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <deletion_protection>
+        deletion_protection = <cluster_deletion_protection>
       }
       ```
 
-      Where `deletion_protection` is the cluster deletion protection, `true` or `false`.
+      Where `deletion_protection` is protection against accidental cluster deletion: `true` or `false`.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -728,7 +728,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
                   "hour": "<hour>"
               }
           },
-          "deletionProtection": <deletion_protection:_true_or_false>
+          "deletionProtection": <cluster_deletion_protection:_true_or_false>
       }
       ```
 
@@ -771,11 +771,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `day`: Day of week, in `DDD` format.
               * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-      * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
-
-          By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
-
-          If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+      * `deletionProtection`: Cluster protection from accidental deletion.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -844,7 +840,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
                   "hour": "<hour>"
               }
           },
-          "deletion_protection": <deletion_protection:_true_or_false>
+          "deletion_protection": <cluster_deletion_protection:_true_or_false>
       }
       ```
 
@@ -887,11 +883,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `day`: Day of week, in `DDD` format.
               * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
-
-          By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
-
-          If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+      * `deletion_protection`: Cluster protection from accidental deletion.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -922,7 +914,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Select a folder you want to move the cluster to.
@@ -962,7 +954,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
         ```hcl
         resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
           ...
-          folder_id = "<target_folder_ID>"
+          folder_id = "<destination_folder_ID>"
         }
         ```
 
@@ -1042,7 +1034,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 

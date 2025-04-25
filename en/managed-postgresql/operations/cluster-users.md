@@ -3,7 +3,7 @@ title: Managing {{ PG }} cluster users in {{ mpg-full-name }}
 description: In this tutorial, you will learn how to add and remove users, as well as manage each user’s settings in the {{ PG }} database management service.
 ---
 
-# Managing {{ PG }} users
+# User management {{ PG }}
 
 You can add and remove users, as well as manage their individual settings.
 
@@ -19,7 +19,7 @@ You can use SQL commands to assign privileges to users but you cannot use them t
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
 
 - CLI {#cli}
@@ -35,7 +35,7 @@ You can use SQL commands to assign privileges to users but you cannot use them t
        --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - REST API {#api}
 
@@ -52,7 +52,7 @@ You can use SQL commands to assign privileges to users but you cannot use them t
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/users'
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/User/list.md#yandex.cloud.mdb.postgresql.v1.ListUsersResponse) to make sure the request was successful.
 
@@ -79,7 +79,7 @@ You can use SQL commands to assign privileges to users but you cannot use them t
        yandex.cloud.mdb.postgresql.v1.UserService.List
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.postgresql.v1.ListUsersResponse) to make sure the request was successful.
 
@@ -93,7 +93,7 @@ You can use SQL commands to assign privileges to users but you cannot use them t
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter the database username and password.
@@ -143,7 +143,7 @@ You can use SQL commands to assign privileges to users but you cannot use them t
 
   To customize the DBMS for the user, use the parameters described in [User settings](../concepts/settings-list.md#dbms-user-settings).
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -160,7 +160,7 @@ You can use SQL commands to assign privileges to users but you cannot use them t
         cluster_id = "<cluster_ID>"
         name       = "<username>"
         password   = "<password>"
-        grants     = [ "<role_1>","<role_2>" ]
+        grants     = [ "<role1>","<role2>" ]
         login      = <DB_login_permission>
         conn_limit = <maximum_number_of_connections>
         deletion_protection = <deletion_protection>
@@ -211,7 +211,7 @@ You can use SQL commands to assign privileges to users but you cannot use them t
                      }
                    ],
                    "connLimit": "<maximum_number_of_DB_connections>",
-                   "deletionProtection": <deletion_protection:_true_or_false>
+                   "deletionProtection": <deletion_protection>
                  }
                }'
      ```
@@ -225,9 +225,9 @@ You can use SQL commands to assign privileges to users but you cannot use them t
 
      * `permissions.databaseName`: Array of databases the user should have access to. Each array element is mapped to a separate DB.
      * `connLimit`: Maximum number of DB connections for the user.
-     * `deletionProtection`: DB deletion protection.
+     * `deletionProtection`: User deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -258,7 +258,7 @@ You can use SQL commands to assign privileges to users but you cannot use them t
                  }
                ],
                "conn_limit": "<maximum_number_of_DB_connections>",
-               "deletion_protection": <deletion_protection:_true_or_false>
+               "deletion_protection": <deletion_protection>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
@@ -274,9 +274,9 @@ You can use SQL commands to assign privileges to users but you cannot use them t
 
      * `permissions.database_name`: Array of databases the user should have access to. Each array element is mapped to a separate DB.
      * `conn_limit`: Maximum number of DB connections for the user.
-     * `deletion_protection`: DB deletion protection.
+     * `deletion_protection`: User deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -294,7 +294,7 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
   1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
@@ -317,7 +317,7 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
   {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -447,7 +447,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure user permissions to access certain databases:
@@ -480,7 +480,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
      * `cluster-name`: Cluster name.
      * `permissions`: List of databases the user should have access to.
 
-     You can request the cluster name with a [list of clusters in the folder](#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](#list-clusters).
 
      This command grants the user access rights to the databases listed.
 
@@ -499,7 +499,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
      You can change the connection limit for the user via the `--conn-limit` parameter.
 
-     You can request the cluster name with a [list of clusters in the folder](#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -529,7 +529,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
     1. To revoke the user's permission to access a specific database, delete the `permission` section with the name of this DB from the configuration file.
 
-    1. To change the [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, provide their parameters in the `settings` block:
+    1. To change the [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, provide their parameters in the `settings` section:
 
         ```hcl
         resource "yandex_mdb_postgresql_user" "<username>" {
@@ -640,7 +640,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure user deletion protection. To do this, select the relevant value in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
@@ -688,7 +688,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/users/<username>' \
        --data '{
                  "updateMask": "deletionProtection",
-                 "deletionProtection": <deletion_protection:_true_or_false>
+                 "deletionProtection": <deletion_protection>
                  }
                }'
      ```
@@ -699,7 +699,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
        Only one parameter is provided in this case.
 
-     * `deletionProtection`: DB deletion protection.
+     * `deletionProtection`: User deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
@@ -731,7 +731,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
                  "deletion_protection"
                ]
              },
-             "deletion_protection": <deletion_protection:_true_or_false>
+             "deletion_protection": <deletion_protection>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.UserService.Update
@@ -743,7 +743,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
        Only one parameter is provided in this case.
 
-     * `deletion_protection`: DB deletion protection.
+     * `deletion_protection`: User deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
@@ -767,7 +767,7 @@ A user can be protected against deletion. To delete such a user, [disable the pr
 
   To delete a user:
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Confirm the deletion.
@@ -785,7 +785,7 @@ A user can be protected against deletion. To delete such a user, [disable the pr
        --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 

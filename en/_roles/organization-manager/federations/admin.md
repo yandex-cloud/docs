@@ -3,8 +3,8 @@ The `organization-manager.federations.admin` role enables creating, modifying, a
 Users with this role can:
 * View info on the [organization](../../../organization/concepts/organization.md) and its settings.
 * View info on the [identity federations](../../../organization/concepts/add-federation.md) and create, modify, and delete them.
-* View info on the certificates and create, modify, and delete them.
+* View info on the [certificates](../../../organization/concepts/add-federation.md#build-trust) and create, modify, and delete them.
 * View the list of [user](../../../overview/roles-and-resources.md#users) group [mappings](../../../organization/concepts/add-federation.md#group-mapping) and info on them.
-* Create and delete federated users.
+* Create and delete [federated users](../../../iam/concepts/users/accounts.md#saml-federation).
 
 This role also includes the `organization-manager.federations.viewer` permissions.

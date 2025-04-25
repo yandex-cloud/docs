@@ -12,6 +12,16 @@ To set up data delivery from {{ RMQ }} to {{ mch-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name } pricing}](../../managed-clickhouse/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee: using computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
@@ -51,9 +61,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         * Username and password that will be used to access the {{ mch-name }} cluster.
         * ID of the public [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) [image](../../compute/operations/images-with-pre-installed-software/get-list.md) without GPU for the VM.
-        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
+        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image that is currently used. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -188,7 +198,7 @@ Create a table in the {{ mch-name }} cluster to accept data from {{ RMQ }}:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
 
-1. Run the following query:
+1. Run this request:
 
     ```sql
     CREATE TABLE IF NOT EXISTS db1.cars (
@@ -279,7 +289,7 @@ To create a materialized view for the `db1.cars` table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
 
-1. Run the following queries:
+1. Run the following requests:
 
     ```sql
     CREATE TABLE IF NOT EXISTS db1.cars_data_source (
@@ -303,7 +313,7 @@ To get all the data from the `db1.cars_view` materialized view:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
 
-1. Run the following query:
+1. Run this request:
 
     ```sql
     SELECT * FROM db1.cars_view;

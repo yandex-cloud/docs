@@ -1,4 +1,6 @@
 ---
+title: '{{ mos-full-name }} pricing policy'
+description: This article covers the {{ mos-name }} pricing policy.
 editable: false
 ---
 
@@ -11,7 +13,7 @@ In this section, you can find the {{ mos-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=6045f728368e#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=6045f728368e#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
 
 
 
@@ -32,7 +34,7 @@ Prices are applied differently depending on the cluster status:
 
 ## What goes into the cost of using {{ mos-short-name }} {#rules}
 
-The {{ mos-name }} usage cost is based on:
+The {{ mos-name }} usage cost includes:
 
 * Computing resources allocated to cluster hosts (including hosts with the `MANAGER` role).
 

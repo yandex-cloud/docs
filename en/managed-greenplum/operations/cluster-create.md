@@ -48,7 +48,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
         * The **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option to enable connecting to the cluster from the internet.
 
-    1. (Optional) Enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
+    1. Optionally, enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
         It enables [hybrid storage](../concepts/hybrid-storage.md). You cannot disable hybrid storage after you save your cluster settings.
 
@@ -195,10 +195,10 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You need to specify the ID if the selected availability zone has two or more subnets.
         * `--assign-public-ip`: Flag used if [public access](../concepts/network.md#public-access-to-a-host) to the hosts is required, `true` or `false`.
         * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
-        * `--deletion-protection`: Cluster deletion protection.
+        * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. To set the start time for the backup, provide the required value in `HH:MM:SS` format under `--backup-window-start`:
 
@@ -290,7 +290,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
   1. Create a configuration file with a description of the cluster and its hosts.
 
-      Here is the configuration file example:
+      Here is an example of the configuration file structure:
 
       
       ```hcl
@@ -339,9 +339,9 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       Where:
 
       * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
-      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
-          Even with cluster deletion protection enabled, one can still connect manually and delete the database contents.
+          {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       * `version`: {{ GP }} version.
       * `master_host_count`: Number of master hosts, 2.
@@ -502,9 +502,9 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletionProtection`: Cluster deletion protection, `true` or `false`.
+        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `configSpec.pool`: [Connection pooler](../concepts/pooling.md) settings:
 
@@ -657,9 +657,9 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `config_spec.pool`: [Connection pooler](../concepts/pooling.md) settings:
 
@@ -799,11 +799,11 @@ To create a {{ GP }} cluster copy:
 
     * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`.
     * With public access to hosts.
-    * Security group: `{{ security-group }}`
-    * With protection against accidental cluster deletion.
+    * Security group: `{{ security-group }}`.
+    * Deletion protection: Enabled.
 
 
-    Run this command:
+    Run the following command:
 
     
     ```bash

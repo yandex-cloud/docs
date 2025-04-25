@@ -515,7 +515,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. To [manage users via SQL](./cluster-users.md#sql-user-management), enable the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** setting under **{{ ui-key.yacloud.mdb.forms.section_settings }}** and specify the `admin` user password.
   1. To [manage databases via SQL](./databases.md#sql-database-management), enable the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** settings under **{{ ui-key.yacloud.mdb.forms.section_settings }}** and specify the `admin` user password.
@@ -869,7 +869,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletionProtection": <deletion_protection>
+              "deletionProtection": <cluster_deletion_protection>
             }
             ```
 
@@ -891,7 +891,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletionProtection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -956,7 +956,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletion_protection": <deletion_protection>
+              "deletion_protection": <cluster_deletion_protection>
             }
             ```
 
@@ -978,7 +978,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletion_protection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -1009,7 +1009,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
     1. Select **{{ ui-key.yacloud.common.move }}**.
     1. Select a folder you want to move the cluster to.

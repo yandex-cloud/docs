@@ -6,8 +6,8 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mmy-name }} sourc
 To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -17,6 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
 
@@ -26,7 +27,7 @@ The support cost includes:
     Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
 
 
-## Set up your infrastructure {#deploy-infrastructure}
+## Prepare the infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -118,11 +119,11 @@ The support cost includes:
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
@@ -136,12 +137,12 @@ The support cost includes:
 
         1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
 
                 Select a source cluster from the list and specify its connection settings.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
     - {{ TF }} {#tf}
@@ -169,7 +170,7 @@ The support cost includes:
 
 ## Test your transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Make sure the data from the source {{ mmy-name }} cluster has been moved to the {{ ydb-name }} database:
 

@@ -24,6 +24,16 @@ To migrate {{ VLK }} databases from the _source cluster_ to the _target cluster_
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mrd-name }} target cluster fee: Using computing resources allocated to hosts, and its disk space (see [{{ VLK }} pricing](../../managed-redis/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* When creating a VM to download a dump: Fee for using the computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
@@ -59,7 +69,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud-examples/yc-redis-data-migration-from-on-premise/blob/main/redis-cluster-non-sharded.tf): For an unsharded cluster.
         * [redis-cluster-sharded.tf](https://github.com/yandex-cloud-examples/yc-redis-data-migration-from-on-premise/blob/main/redis-cluster-sharded.tf): For a [sharded](../../managed-redis/concepts/sharding.md) cluster.
 
-        Each file describes:
+        Each file describes the following:
 
         * Network.
         * Subnet.
@@ -73,9 +83,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * (Optional) VM parameters:
 
             * Public virtual machine [image](../../compute/operations/images-with-pre-installed-software/get-list) ID, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-            * Login and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
+            * Login and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -238,7 +248,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             bash ./load-dump.sh
             ```
 
-            As you run the script, you will see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../../managed-redis/concepts/sharding.md).
+            As you run the script, you will see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. To learn more, see [{#T}](../../managed-redis/concepts/sharding.md).
 
     - Connecting via TLS {#with-tls}
 
@@ -303,7 +313,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             bash ./load-dump.sh
             ```
 
-            As you run the script, you will see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../../managed-redis/concepts/sharding.md).
+            As you run the script, you will see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. To learn more, see [{#T}](../../managed-redis/concepts/sharding.md).
 
         {% endcut %}
 
@@ -318,7 +328,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Make sure that the dump is restored completely {#check-data}
 
 1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click the cluster name and open the [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-redis/operations/monitoring.md) tab.
 
 Pay attention to the **DB Keys** chart showing the number of keys stored in the cluster. If the cluster is [sharded](../../managed-redis/concepts/sharding.md), the chart will show the number of keys in each shard. In this case, the number of keys in the cluster is equal to the total number of keys in the shards.

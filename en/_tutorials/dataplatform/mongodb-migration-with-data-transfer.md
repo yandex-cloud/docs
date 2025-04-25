@@ -3,6 +3,16 @@
 
 To migrate collections stored in a third-party {{ MG }} cluster to a {{ mmg-name }} cluster, you need to transfer the data, write-lock the old database, and transfer the load to a {{ yandex-cloud }} cluster.
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mmg-name }} target cluster fee: Using computing resources allocated to hosts, and its disk space (see [{{ MG }} pricing](../../managed-mongodb/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 Make sure that you can connect to the source cluster hosts from the internet.
@@ -22,7 +32,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 ### Set up the source cluster {#source-setup}
   
 1. Connect to the `mongos` host of the {{ MG }} source cluster using [`mongosh`](https://docs.mongodb.com/mongodb-shell).
-1. Create a database named `db1`.
+1. Create a `db1` database.
 1. Create a user with the `db1` owner permissions and log in with that user's credentials:
 
     ```javascript
@@ -72,7 +82,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
   1. [Create](../../managed-mongodb/operations/cluster-create.md) a {{ mmg-name }} cluster with any suitable configuration.
   1. [Create](../../managed-mongodb/operations/databases.md#add-db) a database named `db1`.
-  1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) named `user_transfer` with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
+  1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) named `user_transfer` with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the new database.
   
 - Sharded target cluster {#sharded}
 
@@ -101,7 +111,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: Enter the `user1` password.
   1. [Create an endpoint for the target cluster](../../data-transfer/operations/endpoint/index.md#create):
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MG }}`
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `MDB cluster`
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `MDB cluster`.
         * Specify the ID of the target cluster.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}**: `user_transfer`
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: Enter the `user_transfer` password.
@@ -124,7 +134,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: Enter the `user1` password.
   1. [Create an endpoint for the target cluster](../../data-transfer/operations/endpoint/index.md#create):
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MG }}`
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `MDB cluster`
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `MDB cluster`.
          * Specify the ID of the target cluster.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}**: `user_transfer`
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: Enter the `user_transfer` password.
@@ -144,7 +154,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
   1. [Activate](../../data-transfer/operations/transfer.md#activate) the created transfer.
   1. Wait for the transfer status to change to {{ dt-status-repl }}.
-  1. Switch the cluster source to _read-only_ and transfer the load to the target cluster.
+  1. Switch the source cluster to _read-only_ mode and transfer the load to the target cluster.
   1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
   1. [Connect](../../managed-mongodb/operations/connect/index.md) to the target cluster.
   1. Make sure `collection1` has been transferred and contains 200,000 documents as in the source cluster:

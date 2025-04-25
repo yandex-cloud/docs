@@ -37,7 +37,7 @@ items:
             href: operations/databases.md
       - name: '{{ MY }} users'
         items:
-          - name: Managing users
+          - name: User management
             href: operations/cluster-users.md
           - name: Managing user permissions
             href: operations/grant.md
@@ -85,6 +85,8 @@ items:
         href: concepts/settings-list.md
       - name: SQL command limits
         href: concepts/sql-limits.md
+      - name: Comparing {{ MY }} 5.7 and 8.0
+        href: concepts/mysql-57-80-comparison.md
   - name: Tutorials
     items:
       - name: All tutorials

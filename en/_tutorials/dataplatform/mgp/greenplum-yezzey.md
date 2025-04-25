@@ -1,30 +1,39 @@
 # Exporting {{ GP }} data to a cold storage
 
 
-In a {{ mgp-full-name }} cluster, you can enable [hybrid storage](../../../managed-greenplum/concepts/hybrid-storage.md) for [append-optimized (AO) and append-optimized column-oriented (AOCO) tables](../../../managed-greenplum/concepts/tables.md). With this done, the [{{ YZ }} extension](../../../managed-greenplum/operations/extensions/yezzey.md) can transfer data from such tables in the cluster storage to a cold storage.
+In a {{ mgp-full-name }} cluster, you can enable [hybrid storage](../../../managed-greenplum/concepts/hybrid-storage.md) for [append-optimized (AO) and append-optimized column-oriented (AOCO) tables](../../../managed-greenplum/concepts/tables.md). With this done, the [{{ YZ }} extension](../../../managed-greenplum/operations/extensions/yezzey.md) can transfer data in such tables from a cluster storage to a cold storage.
 
 Cold storage is a convenient option if you need to store your data for a long time without using it much. This will make data storage [less costly](../../../managed-greenplum/pricing/index.md#rules-storage).
 
 
 {% note info %}
 
-This feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage and is free of charge.
+This feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage and free of charge.
 
 {% endnote %}
 
 
-To transfer your data from the cluster storage to a cold storage:
+To transfer your data from a cluster storage to a cold storage:
 
 1. [Export the {{ GP }} table to a cold storage](#transfer).
 1. [Check the result](#check).
 
-You can also [transfer your data back](#offload-to-local-storage) to the cluster storage.
+You can also [transfer your data back](#offload-to-local-storage) to a cluster storage.
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mgp-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
-1. [Create](../../../managed-greenplum/operations/cluster-create.md) a {{ mgp-name }} cluster. When creating a cluster, make sure to enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
+1. [Create a {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-create.md). When creating a cluster, make sure to enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
    {% note info %}
 
@@ -131,7 +140,7 @@ If you no longer need the created resources, [delete them](#clear-out).
       INSERT INTO ao_table SELECT * FROM GENERATE_SERIES(1, 10000);
       ```
 
-   1. Check that the number of rows has doubled:
+   1. Make sure the number of rows has doubled:
 
       ```bash
       SELECT COUNT(1) FROM ao_table;

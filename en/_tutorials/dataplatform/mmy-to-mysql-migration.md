@@ -1,8 +1,8 @@
-# Migrating databases from {{ mmy-name }} to a third-party {{ MY }} cluster
+# Migrating a database from {{ mmy-name }} to a third-party {{ MY }} cluster
 
 {% note info %}
 
-Data migration from a third-party {{ MY }} cluster is described in [{#T}](../../managed-mysql/tutorials/data-migration.md).
+To learn about data migration from a third-party {{ MY }} cluster, see this article: [{#T}](../../managed-mysql/tutorials/data-migration.md).
 
 {% endnote %}
 
@@ -18,15 +18,15 @@ There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a t
 
 * [Transferring data using {{ data-transfer-full-name }}](#data-transfer).
 
-   This method allows you to migrate the entire database without interrupting user service.
+    This method allows you to migrate the entire database without interrupting user service.
 
-   For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
+    To learn more, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Transferring data using external replication](#binlog-replication).
 
-   [_External replication_](https://dev.mysql.com/doc/refman/8.0/en/replication-configuration.html) allows you to migrate databases across {{ MY }} clusters using built-in DBMS tools.
+    [_External replication_](https://dev.mysql.com/doc/refman/8.0/en/replication-configuration.html) allows you to migrate databases across {{ MY }} clusters using built-in DBMS tools.
 
-   Use this method only if, for some reason, it is not possible to migrate data using {{ data-transfer-full-name }}.
+    Use this method only if, for some reason, it is not possible to migrate data using {{ data-transfer-full-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -41,7 +41,7 @@ Additionally, to migrate data using external {{ MY }} replication:
    * [Add hosts](../../managed-mysql/operations/hosts.md#add) with public IP addresses.
    * [Delete hosts](../../managed-mysql/operations/hosts.md#remove) without public IP addresses.
 * Install [{{ mmy-name }} server SSL certificates](../../managed-mysql/operations/connect.md#get-ssl-cert) on the target cluster's hosts. They are required to connect to the publicly available source cluster.
-* If you need to, set up a firewall and [security groups](../../managed-mysql/operations/connect.md#configuring-security-groups) so you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [mysql utility](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
+* If you need to, set up a firewall and [security groups](../../managed-mysql/operations/connect.md#configuring-security-groups) so you can connect to the source cluster, as well as to each cluster separately, e.g., using the [mysql utility](https://dev.mysql.com/doc/refman/8.0/en/mysql.html), from the target cluster.
 * Make sure you can connect to the source cluster's hosts from the target cluster's hosts.
 * Make sure that you can [connect to the source cluster](../../managed-mysql/operations/connect.md) and the target cluster via SSL.
 
@@ -49,6 +49,16 @@ Additionally, to migrate data using external {{ MY }} replication:
 
 
 {% include notitle [MMY moving data with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql-to-mysql.md) %}
+
+
+### Required paid resources {#paid-resources-with-data-transfer}
+
+The cost of transferring data with {{ data-transfer-full-name }} includes:
+
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+
 
 ## Transferring data using external replication {#binlog-replication}
 
@@ -58,26 +68,35 @@ Additionally, to migrate data using external {{ MY }} replication:
 1. [Monitor the migration process](#monitor-migration) until it is complete.
 1. [Complete your migration](#finish-migration).
 
+
+### Required paid resources {#paid-resources-binlog-replication}
+
+The cost of transferring data using external replication includes:
+
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ### Transfer a logical dump of the database {#migrate-schema}
 
 A _logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. It is created using the [mysqldump utility](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html). To ensure that a logical dump is complete, pause data writes to the database before creating it.
 
 1. Request the current position of the binary log to make sure that restoring the logical dump is consistent:
 
-   ```sql
-   SHOW MASTER STATUS;
-   ```
+    ```sql
+    SHOW MASTER STATUS;
+    ```
 
-   ```text
-   +-------------------------+----------+--------------+------------------+-----------------------------+
-   | File                    | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set           |
-   +-------------------------+----------+--------------+------------------+-----------------------------+
-   | mysql-bin-log-...000224 |  2058567 |              |                  | d827098b-...00b86:1-1575866 |
-   +-------------------------+----------+--------------+------------------+-----------------------------+
-   1 row in set (0.00 sec)
-   ```
+    ```text
+    +-------------------------+----------+--------------+------------------+-----------------------------+
+    | File                    | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set           |
+    +-------------------------+----------+--------------+------------------+-----------------------------+
+    | mysql-bin-log-...000224 |  2058567 |              |                  | d827098b-...00b86:1-1575866 |
+    +-------------------------+----------+--------------+------------------+-----------------------------+
+    1 row in set (0.00 sec)
+    ```
 
-   Write down the `File` and `Position` values. You will need them when starting replication.
+    Write down the `File` and `Position` values. You will need them when starting replication.
 
 1. Create a dump of the source cluster database:
 
@@ -86,7 +105,7 @@ A _logical dump_ is a file with a set of commands running which one by one you c
        --databases=<DB_name> \
        --routines \
        --host=<master_host_FQDN> \
-       --ssl-ca=<SSL_certificate_path> \
+       --ssl-ca=<path_to_SSL_certificate> \
        --user=<DB_owner_username> > <dump_file>
    ```
 
@@ -94,33 +113,33 @@ A _logical dump_ is a file with a set of commands running which one by one you c
 
 1. Restore the database from the dump on the target cluster:
 
-   {% list tabs group=connection %}
+    {% list tabs group=connection %}
 
-   - Connecting via SSL {#with-ssl}
+    - Connecting via SSL {#with-ssl}
 
-      ```bash
-      mysql --host=<master_host_FQDN> \
-            --user=<username> \
-            --password \
-            --port=3306 \
-            --ssl-ca=<SSL_certificate_path> \
-            --ssl-mode=VERIFY_IDENTITY \
-            --line-numbers \
-            <DB_name> < <dump_file>
-      ```
+       ```bash
+       mysql --host=<master_host_FQDN> \
+             --user=<username> \
+             --password \
+             --port=3306 \
+             --ssl-ca=<path_to_SSL_certificate> \
+             --ssl-mode=VERIFY_IDENTITY \
+             --line-numbers \
+             <DB_name> < <dump_file>
+       ```
 
-   - Connecting without SSL {#without-ssl}
+    - Connecting without SSL {#without-ssl}
 
-      ```bash
-      mysql --host=<master_host_FQDN> \
-            --user=<username> \
-            --password \
-            --port=3306 \
-            --line-numbers \
-            <DB_name> < <dump_file>
-      ```
+       ```bash
+       mysql --host=<master_host_FQDN> \
+             --user=<username> \
+             --password \
+             --port=3306 \
+             --line-numbers \
+             <DB_name> < <dump_file>
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. Create a user with full access rights to the database being migrated in the target cluster:
 
@@ -135,8 +154,8 @@ A _logical dump_ is a file with a set of commands running which one by one you c
 
 To get binary log changes and manage the replication flow in the source cluster:
 1. [Create a user](../../managed-mysql/operations/cluster-users.md#adduser).
-1. Assign the `ALL_PRIVILEGES` [role](../../managed-mysql/operations/grant.md) to this user for the source cluster database.
-1. Assign the `REPLICATION CLIENT` and `REPLICATION SLAVE` [global privileges](../../managed-mysql/operations/cluster-users.md#update-settings) to this user.
+1. [Assign the `ALL_PRIVILEGES` role](../../managed-mysql/operations/grant.md) for the source cluster database to that user.
+1. [Assign the `REPLICATION CLIENT` and `REPLICATION SLAVE` global privileges](../../managed-mysql/operations/cluster-users.md#update-settings) to that user.
 
 The target cluster will connect to the source cluster on behalf of this user.
 
@@ -158,18 +177,18 @@ The target cluster will connect to the source cluster on behalf of this user.
 
    Where:
 
-   * `log_bin`: The name of the binary log in the target cluster.
-   * `server_id`: The target cluster ID. The default value is `1`. However, to run replication, make sure that the values of the source and target cluster IDs are different.
-   * `relay-log`: The path to the relay log.
-   * `relay-log-index`: The path to the relay log index.
+   * `log_bin`: Binary log name in the target cluster.
+   * `server_id`: Target cluster ID. The default value is `1`. However, to run replication, make sure that the values of the source and target cluster IDs are different.
+   * `relay-log`: Path to the relay log.
+   * `relay-log-index`: Path to the relay log index.
 
-   Enable the `gtid-mode` and `enforce-gtid-consistency options` to prepare for replication. In {{ mmy-name }} clusters, they are always activated.
+   Also enable `gtid-mode` and `enforce-gtid-consistency` for replication. In {{ mmy-name }} clusters, they are always activated.
 
-1. Restart the `mysql` service:
+1. Restart `mysql`:
 
-   ```bash
-   sudo systemctl restart mysql
-   ```
+    ```bash
+    sudo systemctl restart mysql
+    ```
 
 1. Connect to the target cluster on behalf of the user that is granted full access rights to the database being migrated.
 1. Enable replication for this database and disable replication for service databases (they are replicated by default):
@@ -194,11 +213,11 @@ The target cluster will connect to the source cluster on behalf of this user.
    ```sql
    CHANGE MASTER TO
          MASTER_HOST = '<master_host_FQDN>',
-         MASTER_USER = '<name_of_the_user_to_manage_replication>',
+         MASTER_USER = '<user_for_replication>',
          MASTER_PASSWORD = '<user_password>',
-         MASTER_LOG_FILE = '<File_value_from_the_binary_log_position_request>',
-         MASTER_LOG_POS = <Position_value_from_the_binary_log_position_request>,
-         MASTER_SSL_CA = '<SSL_certificate_path>',
+         MASTER_LOG_FILE = '<File_value_from_binary_log_position_request>',
+         MASTER_LOG_POS = <Position_value_from_binary_log_position_request>,
+         MASTER_SSL_CA = '<path_to_SSL_certificate>',
          MASTER_SSL_VERIFY_SERVER_CERT = 0,
          MASTER_SSL = 1;
    ```
@@ -236,8 +255,8 @@ SHOW SLAVE STATUS\G
 Field values show the replication status:
 
 * `Slave_IO_State` and `Slave_SQL_Running_State`: I/O state of the binary log and relay log streams. If replication is successful, both streams are active.
-* `Read_Master_Log_Pos`: The last position read from the master host log.
-* `Seconds_Behind_Master`: Replica's lag behind the master (seconds).
+* `Read_Master_Log_Pos`: Last position read from the master host log.
+* `Seconds_Behind_Master`: Replica's lag behind the master, in seconds.
 * `Last_IO_Error` and `Last_SQL_Error`: Replication errors.
 
 For more information about replication status, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html).

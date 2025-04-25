@@ -5,8 +5,8 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} clust
 To transfer data:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -18,6 +18,7 @@ The support cost includes:
 * {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -59,7 +60,7 @@ Set up your infrastructure:
         * Endpoints.
         * Transfer.
 
-    1. In the `opensearch-to-object-storage.tf` file, specify the following parameters:
+    1. In the `opensearch-to-object-storage.tf` file, specify the following settings:
 
         * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
         * `mos_version`: {{ OS }} version.
@@ -135,7 +136,7 @@ Set up your infrastructure:
          '
     ```
 
-1. (Optional) Check the data in the test index:
+1. Optionally, check the data in the test index:
 
     ```bash
     curl --user admin:<password> \
@@ -144,7 +145,7 @@ Set up your infrastructure:
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
@@ -195,16 +196,16 @@ Set up your infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the data has been transferred from the {{ mos-name }} cluster to the {{ objstorage-name }} bucket:
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
 1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
 1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
-1. Check that the {{ objstorage-name }} bucket contains the `from_MOS` folder with the JSON file with the test data.
+1. Make sure the {{ objstorage-name }} bucket contains the `from_MOS` folder with the test data JSON file.
 
 ## Delete the resources you created {#clear-out}
 
@@ -212,7 +213,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the `from_MOS` folder from the created bucket.
+1. Delete the `from_MOS` folder from the bucket you created.
 
 Delete the other resources depending on how they were created:
 

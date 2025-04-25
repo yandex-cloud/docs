@@ -6,13 +6,24 @@ As an example, we use a [directed acyclic graph (DAG)](../../managed-airflow/con
 
 To use the {{ yandex-cloud }} Python SDK to send requests to the {{ yandex-cloud }} API:
 
-1. [Prepare your infrastructure](#create-infrastracture).
+1. [Set up your infrastructure](#create-infrastracture).
 1. [Prepare the DAG file and run the graph](#dag).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare the infrastructure {#create-infrastructure}
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ maf-name }} cluster fee: Computing resources of the cluster components and the amount of outgoing traffic (see [{{ AF }} pricing](../../managed-airflow/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* VM fee: Using computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
+
+## Set up your infrastructure {#create-infrastructure}
 
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:
 

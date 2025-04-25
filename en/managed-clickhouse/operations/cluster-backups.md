@@ -22,7 +22,7 @@ Backups are created based on a random replica host. If there is no cluster host 
 
 - Management console {#console}
   
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -119,14 +119,14 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 - Management console {#console}
 
   To restore an existing cluster from a backup:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
@@ -163,59 +163,60 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
       +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
       ```
 
-  1. To restore an individual shard, provide the ID of a single backup:
+  1. To restore a cluster, run a command according to the backup type:
 
-      
-      ```bash
-      {{ yc-mdb-ch }} cluster restore \
-         --backup-id=<backup_ID> \
-         --name=<cluster_name> \
-         --environment=<environment> \
-         --network-name=<network_name> \
-         --host type=<host_type>,`
-               `zone-id=<availability_zone>,`
-               `subnet-id=<subnet_ID> \
-         --clickhouse-disk-size=<storage_size_in_GB> \
-         --clickhouse-disk-type=<disk_type> \
-         --clickhouse-resource-preset=<host_class>
-      ```
-
-
-      Where:
-
-      * `--backup-id`: [Backup](../concepts/backup.md) ID.
-      * `--name`: Cluster name.
-      * `--environment`: Environment:
-
-          * `PRODUCTION`: For stable versions of your apps.
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
-
-      * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
-      * `--host`: Host parameters:
-
-          * `type`: Host type: `clickhouse` or `zookeeper`.
-          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
-
-      * `--resource-preset`: [Host class](../concepts/instance-types.md#available-flavors).
-      * `--disk-size`: Storage size in GB.
-      * `--disk-type`: [Disk type](../concepts/storage.md):
+      * If the backup was created for all cluster shards at once (backup option currently used), provide a single backup ID in the command:
 
           
-          * `network-hdd`
-          * `network-ssd`
+          ```bash
+          {{ yc-mdb-ch }} cluster restore \
+             --backup-id=<cluster_ID>:<backup_ID> \
+             --name=<cluster_name> \
+             --environment=<environment> \
+             --network-name=<network_name> \
+             --host type=<host_type>,`
+                   `zone-id=<availability_zone>,`
+                   `subnet-id=<subnet_ID> \
+             --clickhouse-disk-size=<storage_size_in_GB> \
+             --clickhouse-disk-type=<disk_type> \
+             --clickhouse-resource-preset=<host_class>
+          ```
 
-          * `local-ssd`
-          * `network-ssd-nonreplicated`          * `network-ssd-io-m3`
+
+          Where:
+
+          * `--backup-id`: Cluster and backup IDs.
+          * `--name`: Cluster name.
+          * `--environment`: Environment:
+
+              * `PRODUCTION`: For stable versions of your apps.
+              * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+
+          * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
+          * `--host`: Host parameters:
+
+              * `type`: Host type: `clickhouse` or `zookeeper`.
+              * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+              * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+
+          * `--resource-preset`: [Host class](../concepts/instance-types.md#available-flavors).
+          * `--disk-size`: Storage size in GB.
+          * `--disk-type`: [Disk type](../concepts/storage.md):
+
+              
+              * `network-hdd`
+              * `network-ssd`
+              * `local-ssd`
+              * `network-ssd-nonreplicated`              * `network-ssd-io-m3`
 
 
-  1. To restore the entire cluster, provide backup IDs for all cluster shards:
+      * If backups were created separately for each cluster shard (legacy backup option), to restore the entire cluster, provide the backup IDs of all cluster shards:
 
-      ```bash
-      {{ yc-mdb-ch }} cluster restore \
-         --backup-id=<list_of_backup_IDs_for_all_shards> \
-         ...
-      ```
+          ```bash
+          {{ yc-mdb-ch }} cluster restore \
+             --backup-id=<list_of_backup_IDs_for_all_shards> \
+             ...
+          ```
 
 - REST API {#api}
 
@@ -229,7 +230,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
             ```json
             {
-              "backupId": "<backup_ID>",
+              "backupId": "<cluster_ID>:<backup_ID>",
               "additionalBackupIds": [
                 <list_of_additional_IDs_of_backups>
               ],
@@ -254,17 +255,17 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
               "securityGroupIds": [
                 <list_of_security_group_IDs>
               ],
-              "deletionProtection": <deletion_protection>
+              "deletionProtection": <cluster_deletion_protection>
             }
             ```
 
             Where:
 
-            * `backupId`: Backup ID.
+            * `backupId`: Cluster and backup IDs.
 
-                The shard for which that backup was created will be restored.
+                This will restore your cluster as a whole.
 
-            * `additionalBackupIds`: Array containing a list of additional IDs of your backups.
+            * `additionalBackupIds`: Array containing a list of additional IDs of your backups. Use this parameter if backups have been created separately for each shard (legacy backup option).
 
                 The shards for which those backups were created will be restored. To restore the entire cluster, provide backup IDs for all cluster shards.
 
@@ -287,11 +288,11 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
             * `networkId`: ID of the network to create the cluster in.
             * `serviceAccountId`: Service account ID.
             * `securityGroupIds`: Array of security group IDs.
-            * `deletionProtection`: Protection of the cluster, its databases, and users against accidental deletion.
+            * `deletionProtection`: Option to manage cluster protection against accidental deletion.
 
-                Even if it is enabled, one can still connect manually and delete the database content.
+                {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            You can request the backup ID with the [list of backups in the folder](#list-backups).
+            You can request the cluster ID and backup ID together with the [list of backups in the folder](#list-backups).
 
         1. Run this request:
 
@@ -320,7 +321,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
             ```json
             {
-              "backup_id": "<backup_ID>",
+              "backup_id": "<cluster_ID>:<backup_ID>",
               "additional_backup_ids": [
                 <list_of_additional_IDs_of_backups>
               ],
@@ -345,17 +346,17 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
               "security_group_ids": [
                 <list_of_security_group_IDs>
               ],
-              "deletion_protection": <deletion_protection>
+              "deletion_protection": <cluster_deletion_protection>
             }
             ```
 
             Where:
 
-            * `backup_id`: Backup ID.
+            * `backup_id`: Cluster and backup IDs.
 
-                The shard for which that backup was created will be restored.
+                This will restore your cluster as a whole.
 
-            * `additional_backup_ids`: Array containing a list of additional IDs of your backups.
+            * `additional_backup_ids`: Array containing a list of additional IDs of your backups. Use this parameter if backups have been created separately for each shard (legacy backup option).
 
                 The shards for which those backups were created will be restored. To restore the entire cluster, provide backup IDs for all cluster shards.
 
@@ -378,11 +379,11 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
             * `network_id`: ID of the network to create the cluster in.
             * `service_account_id`: Service account ID.
             * `security_group_ids`: Array of security group IDs.
-            * `deletion_protection`: Protection of the cluster, its databases, and users against accidental deletion.
+            * `deletion_protection`: Option to manage cluster protection against accidental deletion.
 
-                Even if it is enabled, one can still connect manually and delete the database content.
+                {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            You can request the backup ID with the [list of backups in the folder](#list-backups).
+            You can request the cluster ID and backup ID together with the [list of backups in the folder](#list-backups).
 
         1. Run this request:
 
@@ -410,11 +411,11 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 - Management console {#console}
 
   To get a list of cluster backups:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
   To get a list of all backups in a folder:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
   These lists contain the following information:
@@ -432,7 +433,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ CH }} cluster backups available in the default folder, run the command:
+  To get a list of {{ CH }} cluster backups available in the default folder, run this command:
 
   ```bash
   {{ yc-mdb-ch }} backup list
@@ -559,11 +560,11 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 - Management console {#console}
 
   To get information about the backup of an existing cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
   To get information about the backup of a previously deleted cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
 - CLI {#cli}
@@ -572,13 +573,13 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ CH }} cluster backup, run the command:
+  To get information about a {{ CH }} cluster backup, run this command:
 
   ```bash
-  {{ yc-mdb-ch }} backup get <backup_ID>
+  {{ yc-mdb-ch }} backup get <cluster_ID>:<backup_ID>
   ```
 
-  You can get the backup ID together with the [list of backups](#list-backups).
+  You can get the cluster ID and backup ID together with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -592,10 +593,10 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<backup_ID>'
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<cluster_ID>:<backup_ID>'
         ```
 
-        You can request the backup ID with the [list of backups in the folder](#list-backups).
+        You can get the cluster ID and backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/Backup/get.md#responses) to make sure the request was successful.
 
@@ -617,13 +618,13 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
             -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/backup_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
-                    "backup_id": "<backup_ID>"
+                    "backup_id": "<cluster_ID>:<backup_ID>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.BackupService.Get
         ```
 
-        You can request the backup ID with the [list of backups in the folder](#list-backups).
+        You can get the cluster ID and backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.clickhouse.v1.Backup) to make sure the request was successful.
 
@@ -864,7 +865,7 @@ You can only delete manual backups.
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
 
@@ -885,11 +886,11 @@ You can only delete manual backups.
   1. Request the deletion of a backup by specifying its ID:
   
       ```bash
-      {{ yc-mdb-ch }} backup delete <backup_ID>
+      {{ yc-mdb-ch }} backup delete <cluster_ID>:<backup_ID>
       ```
-  
-      You can get the backup ID together with the [list of backups](#list-backups).
-  
+
+      You can get the cluster ID and backup ID together with the [list of backups](#list-backups).
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
@@ -902,10 +903,10 @@ You can only delete manual backups.
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<backup_ID>'
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<cluster_ID>:<backup_ID>'
      ```
 
-     You can request the backup ID with the [list of backups](#list-backups).
+     You can get the cluster ID and backup ID together with the [list of backups](#list-backups).
 
   1. View the [server response](../api-ref/Backup/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -926,13 +927,13 @@ You can only delete manual backups.
        -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/backup_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
-             "backup_id": "<backup_ID>"
+             "backup_id": "<cluster_ID>:<backup_ID>"
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.clickhouse.v1.BackupService.Delete
      ```
 
-     You can request the backup ID with the [list of backups](#list-backups).
+     You can get the cluster ID and backup ID together with the [list of backups](#list-backups).
 
   1. View the [server response](../api-ref/grpc/Backup/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

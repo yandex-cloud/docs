@@ -21,7 +21,7 @@ For more information about {{ mrd-name }} cluster structure, see [Resource relat
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mrd-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mrd-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mrd.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 
 {% note info %}
@@ -145,7 +145,7 @@ There are no restrictions for non-sharded clusters.
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-  1. View the description of the create cluster CLI command:
+  1. View the description of the CLI command to create a cluster:
 
       ```bash
       {{ yc-mdb-rd }} cluster create --help
@@ -196,7 +196,9 @@ There are no restrictions for non-sharded clusters.
 
 
       * `--backup-window-start`: Backup start time in `HH:MM:SS` format.
-      * `--deletion-protection`: Cluster deletion protection.
+      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       * `--announce-hostnames`: Enables or disables [using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting): `true` or `false`.
 
@@ -205,8 +207,6 @@ There are no restrictions for non-sharded clusters.
       You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
-
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       If you are creating a sharded cluster with the **local-ssd** disk type, specify at least two hosts per shard in the command.
 
@@ -224,7 +224,7 @@ There are no restrictions for non-sharded clusters.
 
   To create a {{ mrd-name }} cluster:
 
-    1. In the configuration file, define the parameters of the resources you want to create:
+    1. In the configuration file, describe the resources you want to create:
 
        * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
@@ -243,7 +243,7 @@ There are no restrictions for non-sharded clusters.
          network_id          = "<network_ID>"
          security_group_ids  = [ "<list_of_security_group_IDs>" ]
          tls_enabled         = true
-         deletion_protection = <deletion_protection>
+         deletion_protection = <cluster_deletion_protection>
          announce_hostnames  = <using_FQDNs_instead_of_IP_addresses>
 
          config {
@@ -278,7 +278,10 @@ There are no restrictions for non-sharded clusters.
 
        Where:
        * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+       * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
        * `announce_hostnames`: Enables or disables [using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting): `true` or `false`.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
@@ -292,13 +295,11 @@ There are no restrictions for non-sharded clusters.
 
        {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
-       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
        If you are creating a sharded cluster with the **local-ssd** disk type, specify at least two hosts per shard in the configuration file.
 
        {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
-       For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mrd }}).
+       To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-mrd }}).
 
     1. Make sure the settings are correct.
 
@@ -421,9 +422,9 @@ There are no restrictions for non-sharded clusters.
 
             {% endnote %}
 
-        * `deletionProtection`: Cluster deletion protection, `true` or `false`.
+        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
-            If enabled, one can still connect to the cluster manually and delete it.
+            {% include [deletion-protection-limits-dataa](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `announceHostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
@@ -553,9 +554,9 @@ There are no restrictions for non-sharded clusters.
 
             {% endnote %}
 
-        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
-            If enabled, one can still connect to the cluster manually and delete it.
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `announce_hostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
@@ -590,7 +591,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ VLK }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ VLK }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ VLK }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ VLK }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ VLK }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ VLK }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ VLK }} cluster copy:
 
@@ -685,7 +686,7 @@ To create a {{ VLK }} cluster copy:
   * SSL support: Enabled.
   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
   * Password: `user1user1`.
-  * Protection against accidental cluster deletion.
+  * Deletion protection: Enabled.
 
   Run the following command:
 
@@ -722,7 +723,7 @@ To create a {{ VLK }} cluster copy:
     * SSL support: Enabled.
     * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
     * Password: `user1user1`.
-    * Protection against accidental cluster deletion.
+    * Deletion protection: Enabled.
 
   The configuration file for this cluster is as follows:
 
@@ -793,7 +794,7 @@ To create a {{ VLK }} cluster copy:
   * Environment: `production`.
   * Sharding: Enabled.
   * SSL support: Enabled.
-  * Protection against accidental cluster deletion.
+  * Deletion protection: Enabled.
   * Network: `default`.
   * Security group ID: `{{ security-group }}`.
   * Host class: `{{ mrd-host-class }}`.
@@ -831,7 +832,7 @@ To create a {{ VLK }} cluster copy:
   * Environment: `PRODUCTION`.
   * Sharding: Enabled.
   * SSL support: Enabled.
-  * Protection against accidental cluster deletion.
+  * Deletion protection: Enabled.
   * New network named `mynet` with a single subnet. Range for `mysubnet`: `10.5.0.0/24`.
   * New `redis-sg` security group allowing connections through the `{{ port-mrd-tls }}` port from any addresses in `mysubnet`.
   * Host class: `{{ mrd-host-class }}`.
@@ -920,7 +921,7 @@ To create a {{ VLK }} cluster copy:
     * New `redis-sg` security group allowing connections via ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](./connect/index.md)) from any subnet addresses.
     * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
     * Password: `user1user1`.
-    * Protection against accidental cluster deletion.
+    * Deletion protection: Enabled.
 
     The configuration file for this cluster is as follows:
 

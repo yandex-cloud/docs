@@ -1,22 +1,22 @@
 * **Asynchronous insert log enabled**{#setting-asynchronous-insert-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Determines whether information about asynchronous inserts will be logged. The logs will be saved to the `system.asynchronous_insert_log` table.
+    Determines whether information about asynchronous inserts will be logged. These logs are saved to the `system.asynchronous_insert_log` table.
 
-    The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    Default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/system-tables/asynchronous_insert_log).
+    For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/system-tables/asynchronous_insert_log).
 
 * **Asynchronous insert log retention size**{#setting-asynchronous-insert-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    The size of the `system.asynchronous_insert_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.asynchronous_insert_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
-    The default value is `0` (old records will not be deleted as the table grows in size).
+    Default value is `0` (old records will not be deleted as the table grows in size).
 
 * **Asynchronous insert log retention time**{#setting-asynchronous-insert-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Time (in milliseconds) between adding an entry to the `system.asynchronous_insert_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Asynchronous metric log enabled**{#setting-asynchronous-metric-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -24,11 +24,11 @@
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/asynchronous_metric_log).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/asynchronous_metric_log).
 
 * **Asynchronous metric log retention size**{#setting-asynchronous-metric-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    The size of the `system.asynchronous_metric_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.asynchronous_metric_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
     The default value is `0` (old records will not be deleted as the table grows in size).
 
@@ -36,7 +36,7 @@
 
     Time (in milliseconds) between adding an entry to the `system.asynchronous_metric_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Background buffer flush schedule pool size**{#setting-background-buffer-flush-schedule-pool-size} {{ tag-con }}
 
@@ -44,7 +44,7 @@
 
     Minimum value: `1`; default value: `16`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_buffer_flush_schedule_pool_size).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_buffer_flush_schedule_pool_size).
 
 * **Background common pool size**{#setting-background-common-pool-size} {{ tag-con }} {{ tag-api }}
 
@@ -52,55 +52,55 @@
 
     Minimum value: `1`; default value: `8`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_common_pool_size).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_common_pool_size).
 
 * **Background distributed schedule pool size**{#setting-background-distributed-schedule-pool-size} {{ tag-con }}
 
     Number of threads for background operations in [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) tables.
 
-    Minimum value: `1`; default value: `16`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    The minimum value is `1`; the default value is `16`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_distributed_schedule_pool_size).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_distributed_schedule_pool_size).
 
 * **Background fetches pool size**{#setting-background-fetches-pool-size} {{ tag-con }} {{ tag-api }}
 
     Number of threads for background jobs of copying data from a replica in [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) tables.
 
-    Minimum value: `1`; default value: `8`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    The minimum value is `1`; the default value is `8`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
 
 * **Background merges mutations concurrency ratio**{#setting-background-merges-mutations-concurrency-ratio} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     The number of background merges and mutations that can be concurrently executed by each thread.
 
-    The default value is `2`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    Default value is `2`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio).
 
 * **Background message broker schedule pool size**{#setting-background-message-broker-schedule-pool-size} {{ tag-con }}
 
     Number of threads for background message translation operations. This setting is set to a new value when restarting the {{ CH }} server.
 
-    Minimum value: `1`; default value: `16`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    The minimum value is `1`; the default value is `16`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_message_broker_schedule_pool_size).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_message_broker_schedule_pool_size).
 
 * **Background move pool size**{#setting-background-move-pool-size} {{ tag-con }}
 
     Number of threads for background moves of data parts in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
 
-    Minimum value: `1`; default value: `8`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    The minimum value is `1`; the default value is `8`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_move_pool_size).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_move_pool_size).
 
 * **Background pool size**{#setting-background-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
     Number of threads for background merges and [mutations]({{ ch.docs }}/sql-reference/statements/alter/#mutations) in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
 
-    Minimum value: `1`; default value: `16`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    The minimum value is `1`; the default value is `16`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_pool_size).
+    For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_pool_size).
 
 * **Background schedule pool size**{#setting-background-schedule-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
@@ -121,7 +121,7 @@
 
     Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings).
 
 * **Default database**{#setting-default-database} {{ tag-con }} {{ tag-api }}
 
@@ -135,9 +135,9 @@
 
     If the setting is disabled, the dictionaries are loaded when the server starts. The server waits for all the dictionaries to be loaded before it starts processing connections.
 
-    This setting is enabled by default.
+    This setting is on by default.
 
-    For more information, see the [{{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-dictionaries_lazy_load) documentation.
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-dictionaries_lazy_load).
 
 * **Geobase enabled**{#setting-geobase-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -177,14 +177,17 @@
 
     Global authentication settings for [integration with {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
 
-    * **Auto offset reset**: Initial position from which the [consumer](../../managed-kafka/concepts/producers-consumers.md) starts reading messages. Starting from there, the consumer adds shifts for new messages as it moves forward reading the incoming messages. For more information, see the [Confluent documentation](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management).
-    * **Debug**: Context for debugging purposes. You can only specify one value. For the list of possible values, see the `librdkafka` library documentation on [GitHub](https://github.com/confluentinc/librdkafka/blob/master/CONFIGURATION.md).
+    * **Auto offset reset**: Initial position from which the [consumer](../../managed-kafka/concepts/producers-consumers.md) starts reading messages. Starting from there, the consumer adds shifts for new messages as it moves forward reading the incoming messages. By default, the value is not set (equivalent to `latest`). For more information, see the [Confluent documentation](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management).
+    * **Debug**: Context for debugging purposes. By default, the value is not set. You can only specify one value in the setting. For the list of possible values, see the `librdkafka` library documentation on [GitHub](https://github.com/confluentinc/librdkafka/blob/master/CONFIGURATION.md).
     * **Enable ssl certificate verification**: Determines whether to perform SSL certificate verification. The default value is `false`.
-    * **Max poll interval ms**: Maximum interval (in milliseconds) between polls to get messages for high-level consumers. If exceeded, the user is removed from the group and rebalancing starts. The default value is `300000` (five minutes).
+    * **Max poll interval ms**: Maximum interval (in milliseconds) between polls to get messages for high-level consumers. If exceeded, the user is removed from the group and rebalancing starts. No value is set by default (equivalent to `300000`, 5 minutes).
     * **Sasl mechanism**: SASL authentication mechanism:
-      * `GSSAPI`: Authentication [using Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
+      * `GSSAPI` (default): Authentication [using Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
       * `PLAIN`: Authentication [using a username-password pair as plain text](https://kafka.apache.org/documentation/#security_sasl_plain).
       * `SCRAM-SHA-256` and `SCRAM-SHA-512`: Authentication [using the SCRAM family methods](https://kafka.apache.org/documentation/#security_sasl_scram).
+
+      By default, the value is not set (equivalent to `GSSAPI`).
+
     * **Sasl password**: {{ KF }} account password.
     * **Sasl username**: {{ KF }} account username.
     * **Security protocol**: Security protocol used for authentication:
@@ -192,7 +195,10 @@
         * `SSL`: Authentication credentials are sent SSL encrypted.
         * `SASL_PLAINTEXT`: Authentication credentials are sent as plain text through SASL.
         * `SASL_SSL`: Authentication credentials are sent SSL encrypted through SASL.
-    * **Session timeout ms**: Timeout (in milliseconds) for a periodic signal from a user to maintain a client group session. If exceeded, the broker removes the user from the group and runs rebalancing. The default value is `45000` (45 seconds).
+
+        By default, the value is not set (equivalent to `PLAINTEXT`).
+
+    * **Session timeout ms**: Timeout (in milliseconds) for a periodic signal from a user to maintain a client group session. If exceeded, the broker removes the user from the group and runs rebalancing. By default, the value is not set (equivalent to `45000`, 45 seconds).
 
     Changing these settings will restart {{ CH }} servers on the cluster hosts.
 
@@ -207,13 +213,13 @@
 
         Changing these settings will restart {{ CH }} servers on the cluster hosts.
 
-        For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#security).
+        For more information, see the relevant [{{ KF }} documentation](https://kafka.apache.org/documentation/#security).
 
 * **Keep alive timeout**{#setting-keep-alive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     The time (in seconds) since {{ CH }} received its last query before a connection was interrupted. If a new query comes in during this time, the connection does not terminate.
 
-    The default value is `3`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    Default value is `3`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
 * **Log level**{#setting-log-level} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -232,7 +238,7 @@
 
     The selected parameter value is not a hard and fast restriction. {{ CH }} can make this cache a little smaller or larger.
 
-    The default value is `5368709120`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    Default value is `5368709120`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
 * **Max concurrent queries**{#setting-max-concurrent-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -250,13 +256,13 @@
 
     Maximum [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table [partition]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key) size (in bytes) at which the table can be deleted with a `DROP TABLE` query. You can use this setting to protect tables with real data from inadvertent deletion, as these tables will normally be larger than test ones.
 
-    The default value is `53687091200` (50 GB). When set to `0`, you can delete tables of any size.
+    Default value is `53687091200` (50 GB). When set to `0`, you can delete tables of any size.
 
 * **Max table size to drop**{#setting-max-table-size-to-drop} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Maximum size (in bytes) of a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table you can delete with a `DROP TABLE` query. You can use this setting to protect tables with real data from inadvertent deletion, as these tables will normally be larger than test ones.
 
-    The default value is `53687091200` (50 GB). When set to `0`, you can delete tables of any size.
+    Default value is `53687091200` (50 GB). When set to `0`, you can delete tables of any size.
 
 * **Merge tree**{#setting-merge-tree} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -298,13 +304,13 @@
 
     * **Max bytes to merge at max space in pool**: Maximum total size of data parts (in bytes) to merge when the background pool has available resources.
 
-        The default value is `161061273600` (150 GB). Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `161061273600` (150 GB). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-max-space-in-pool).
 
     * **Max bytes to merge at min space in pool**: Maximum total data chunk size to merge with the background pool at minimum available resources.
 
-        The default value is `1048576` (1 MB). Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `1048576` (1 MB). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool).
 
@@ -326,13 +332,13 @@
 
     * **Max parts in total**: Number of active data parts in all table partitions which, when exceeded, will cause {{ CH }} to throw the `Too many parts ...` exception.
 
-        The default value is `100000`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `100000`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-parts-in-total).
 
     * **Max replicated merges in queue**: Maximum number of merge tasks that can be in a `ReplicatedMergeTree` queue at the same time.
 
-        The default value is `16`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `16`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
     * **Merge max block size**: Number of rows in the blocks forming the data parts for merging.
 
@@ -344,19 +350,19 @@
 
     * **Merge selecting sleep ms**: Timeout (in milliseconds) before merging a selection if no data part is selected.
 
-        The default value is `5000` (five seconds). Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `5000` (five seconds). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#merge_selecting_sleep_ms).
 
     * **Merge with recompression TTL timeout**: Minimum timeout (in seconds) before merges with recompression of data with expired TTL.
 
-        The default value is `14400` (four hours). Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `14400` (four hours). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/ttl/#triggering-ttl-events).
 
     * **Merge with TTL timeout**: Minimum timeout (in seconds) before merges to delete data with expired TTL.
 
-        The default value is `14400` (four hours). Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `14400` (four hours). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/ttl/#triggering-ttl-events).
 
@@ -368,9 +374,9 @@
 
     * **Min age to force merge seconds**: Minimum age (in seconds) for a data part to be merged.
 
-        The default value is `0` (merge disabled). Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `0` (merge disabled). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }}](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds) documentation.
+        For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds).
 
     * **Min bytes for wide part**: Minimum number of bytes a data part must have to be stored in `Wide` format. You can set it together with the **Min rows for wide part** parameter.
 
@@ -378,7 +384,7 @@
 
         Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }}]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) documentation.
+        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
     * **Min rows for wide part**: Minimum number of rows a data part must have to be stored in `Wide` format. You can set it together with the **Min bytes for wide part** parameter.
 
@@ -390,35 +396,35 @@
 
     * **Number of free entries in pool to execute mutation**: Threshold value of free entries in the pool. If the number of entries in the pool falls below this value, {{ CH }} stops executing [mutation]({{ ch.docs }}/sql-reference/statements/alter/#mutations) operations. This allows to leave free threads for merges and to avoid the `Too many parts ...` exception.
 
-        The default value is `20`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `20`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings/#number-of-free-entries-in-pool-to-execute-mutation).
 
     * **Number of free entries in pool to lower max size of merge**: Threshold value of free entries in the pool. If the number of entries in the pool falls below this value, {{ CH }} reduces the maximum size of a data part to merge. This helps handle small merges faster.
 
-        The default value is `8`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `8`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
     * **Parts to delay insert**: Number of active table data parts which, when exceeded, will cause {{ CH }} to throttle the speed of table data inserts. An active chunk is a new chunk of data resulting from a merge.
 
-        The default value is `150`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `150`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#parts-to-delay-insert) documentation.
 
     * **Parts to throw insert**: Threshold value of active table data parts which, when exceeded, will cause {{ CH }} to throw the `Too many parts ...` exception.
 
-        The default value is `300`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `300`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#parts-to-throw-insert).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#parts-to-throw-insert).
 
     * **Replicated deduplication window**: Number of blocks for recent hash inserts that {{ ZK }} will store. Deduplication only works for the most recently inserted data. Old blocks will be deleted.
 
-        The default value is `100`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `100`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window).
 
     * **Replicated deduplication window seconds**: Time interval during which {{ ZK }} stores blocks of recent hash inserts. Deduplication only works for the most recently inserted data. Old blocks will be deleted.
 
-        The default value is `604800`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        Default value is `604800`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds).
 
@@ -435,23 +441,23 @@
 
     Determines whether to log metric values from the `system.metrics` and `system.events` tables to the `system.metric_log` table.
 
-    The default value is `true`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    Default value is `true`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
 * **Metric log retention size**{#setting-metric-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    The size of the `system.metric_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.metric_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
-    The default value is `536870912` (0.5 GB). When set to `0`, old records will not be deleted as the table grows in size.
+    Default value is `536870912` (0.5 GB). When set to `0`, old records will not be deleted as the table grows in size.
 
 * **Metric log retention time**{#setting-metric-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Time (in milliseconds) between adding an entry to the `system.metric_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Opentelemetry span log enabled**{#setting-opentelemetry-span-log-enabled} {{ tag-con }}
 
-    Determines whether to log trace and metric values from a distributed application. The logs will be saved to the `system.opentelemetry_span_log` table.
+    Determines whether to log trace and metric values from a distributed application. These logs are saved to the `system.opentelemetry_span_log` table.
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
@@ -459,7 +465,7 @@
 
 * **Opentelemetry span log retention size**{#setting-opentelemetry-span-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    The size of the `system.opentelemetry_span_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.opentelemetry_span_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
     The default value is `0` (old records will not be deleted as the table grows in size).
 
@@ -467,11 +473,11 @@
 
     Time (in milliseconds) between adding an entry to the `system.opentelemetry_span_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    The size of the `system.part_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.part_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
     The default value is `536870912` (0.5 GB). When set to `0`, old records will not be deleted as the table grows in size.
 
@@ -479,7 +485,7 @@
 
     Time (in milliseconds) between adding an entry to the `system.part_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Query cache**{#setting-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
@@ -496,15 +502,15 @@
 
 * **Query log retention size**{#setting-query-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    The size of the `system.query_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.query_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
-    The default value is `1073741824` (1 GB). When set to `0`, old records will not be deleted as the table grows in size.
+    Default value is `1073741824` (1 GB). When set to `0`, old records will not be deleted as the table grows in size.
 
 * **Query log retention time**{#setting-query-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Time (in milliseconds) between adding an entry to the `system.query_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Query masking rules**{#setting-query-masking-rules} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
@@ -526,7 +532,7 @@
 
 * **Query thread log retention size**{#setting-query-thread-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    The size of the `system.query_thread_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.query_thread_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
     The default value is `536870912` (0.5 GB). When set to `0`, old records will not be deleted as the table grows in size.
 
@@ -534,11 +540,11 @@
 
     Time (in milliseconds) between adding an entry to the `system.query_thread_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Query views log enabled**{#setting-query-views-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Determines whether information about dependent views executed when running queries will be logged. The logs will be saved to the `system.query_views_log` table.
+    Determines whether information about dependent views executed when running queries will be logged. These logs are saved to the `system.query_views_log` table.
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
@@ -546,7 +552,7 @@
 
 * **Query views log retention size**{#setting-query-views-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    The size of the `system.query_views_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.query_views_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
     The default value is `0` (old records will not be deleted as the table grows in size).
 
@@ -554,7 +560,7 @@
 
     Time (in milliseconds) between adding an entry to the `system.query_views_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -568,7 +574,7 @@
 
 * **Session log enabled**{#setting-session-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Determines whether information about successful and failed login/logout events will be logged. The logs will be saved to the `system.session_log` table.
+    Determines whether information about successful and failed login/logout events will be logged. These logs are saved to the `system.session_log` table.
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
@@ -576,7 +582,7 @@
 
 * **Session log retention size**{#setting-session-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    The size of the `system.session_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.session_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
     The default value is `0` (old records will not be deleted as the table grows in size).
 
@@ -584,11 +590,11 @@
 
     Time (in milliseconds) between adding an entry to the `system.session_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Text log enabled**{#setting-text-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Determines whether system logs will be made. The logs will be saved to the `system.text_log` table.
+    Determines whether system logs will be made. These logs are saved to the `system.text_log` table.
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
@@ -602,11 +608,11 @@
     * `DEBUG`: System information for subsequent use in debugging.
     * `TRACE`: All available information on DBMS operation.
 
-    The default value is `TRACE`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    Default value is `TRACE`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
 * **Text log retention size**{#setting-text-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    The size of the `system.text_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.text_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
     The default value is `536870912` (0.5 GB). When set to `0`, old records will not be deleted as the table grows in size.
 
@@ -614,7 +620,7 @@
 
     Time (in milliseconds) between adding an entry to the `system.text_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Timezone**{#setting-timezone} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -628,7 +634,7 @@
 
     RAM (in bytes) for a stack trace at each memory allocation step. The data is stored in the `system.trace_log` system table. The `query_id` value is an empty string.
 
-    The default value is `4194304` (4 MB). Changing this setting will restart {{ CH }} servers on cluster hosts.
+    Default value is `4194304` (4 MB). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
     For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
 
@@ -648,7 +654,7 @@
 
 * **Trace log retention size**{#setting-trace-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    The size of the `system.trace_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.trace_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
     The default value is `536870912` (0.5 GB). When set to `0`, old records will not be deleted as the table grows in size.
 
@@ -656,17 +662,17 @@
 
     Time (in milliseconds) between adding an entry to the `system.trace_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
 * **Uncompressed cache size**{#setting-uncompressed-cache-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Cache size (in bytes) for uncompressed data used by the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table engines.
 
-    The default value is `8589934592` (8 GB). Changing this setting will restart {{ CH }} servers on cluster hosts.
+    Default value is `8589934592` (8 GB). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
 * **Zookeeper log enabled**{#setting-zookeeper-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Determines whether {{ ZK }} server request and response parameters will be logged. The logs will be saved to the `system.zookeeper_log` table.
+    Determines whether {{ ZK }} server request and response parameters will be logged. These logs are saved to the `system.zookeeper_log` table.
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
@@ -674,7 +680,7 @@
 
 * **Zookeeper log retention size**{#setting-zookeeper-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    The size of the `system.zookeeper_log` table (in bytes) which, when exceeded, will cause old records to be deleted from the table.
+    The size of the `system.zookeeper_log` table (in bytes), which, when exceeded, will cause old records to be deleted from that table.
 
     The default value is `0` (old records will not be deleted as the table grows in size).
 
@@ -682,4 +688,4 @@
 
     Time (in milliseconds) between adding an entry to the `system.zookeeper_log` table and deleting the entry. The value must be a multiple of 1000.
 
-    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+    Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.

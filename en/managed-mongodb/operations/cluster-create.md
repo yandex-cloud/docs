@@ -21,7 +21,7 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }}](../../iam/operations/roles/grant.md) documentation.
+To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mmg.editor }} roles or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }}](../../iam/operations/roles/grant.md) documentation.
 
 
 {% list tabs group=instructions %}
@@ -163,7 +163,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
       * `--performance-diagnostics`: Enables cluster performance diagnostics, `true` or `false`.
-      * `--deletion-protection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
+      
+      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -181,7 +184,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   To create a {{ mmg-name }} cluster:
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      * Database cluster: Description of the cluster and its hosts.
 
@@ -189,7 +192,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      
      ```hcl
@@ -262,7 +265,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
          * `secondary_delay_secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
          * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
-     * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
+     * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
      * `version`: {{ MG }} version, {{ versions.tf.str }}.
 
      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
@@ -389,7 +395,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
+        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
+
+          {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
         * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
 
@@ -571,7 +579,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
+        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+
+          {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
 
@@ -760,7 +770,7 @@ To create a {{ MG }} cluster copy:
   * Deletion protection: Enabled.
 
 
-  Run this command:
+  Run the following command:
 
   
   ```bash

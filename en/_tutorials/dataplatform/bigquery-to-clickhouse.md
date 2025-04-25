@@ -10,7 +10,7 @@ This method of migration has the following benefits:
 * You can specify the export format and the compression ratio.
 * Lower data amounts are involved, which accelerates migration and reduces its cost.
 
-However, in this case the data is migrated _as is_ without transforming or copying the updated increments.
+However, in this case, the data is migrated _as is_ without transforming or copying the updated increments.
 
 To migrate the database from Google BigQuery to {{ mch-name }}:
 
@@ -19,6 +19,17 @@ To migrate the database from Google BigQuery to {{ mch-name }}:
 1. [Analyze the data with {{ datalens-full-name }}](#datalens).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for using {{ datalens-full-name }} (see [{{ datalens-name }} pricing](../../datalens/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 

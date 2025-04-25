@@ -182,6 +182,10 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
 
+       If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+
+       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
      
      You need to specify the `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
 
@@ -194,8 +198,6 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
      {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
-
-     {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      You can also set the additional `replication-source` option in the `--host` parameter to [manually manage replication threads](../concepts/replication.md#replication-manual).
 
@@ -218,7 +220,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To create a {{ mpg-name }} cluster:
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
      * DB cluster: Description of the cluster and its hosts
      * Database: Description of the cluster DB
      * User: Description of the cluster user
@@ -229,7 +231,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      
      ```hcl
@@ -300,6 +302,10 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
 
+       If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+
+       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
      * `version`: {{ PG }} version, {{ pg.versions.tf.str }}.
      * `pool_discard`: Odyssey `pool_discard` parameter, `true` or `false`.
      * `pooling_mode`: Operation mode, `SESSION`, `TRANSACTION`, or `STATEMENT`.
@@ -307,8 +313,6 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
      {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
-
-     {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
@@ -419,6 +423,13 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 
      * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+
+       By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
+
+       If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
      * `configSpec`: Cluster settings:
 
        * `version`: {{ PG }} version.
@@ -570,6 +581,13 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 
      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
+
+        By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
+
+        If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
      * `config_spec`: Cluster settings:
 
        * `version`: {{ PG }} version.
@@ -740,7 +758,7 @@ To create an {{ PG }} cluster copy:
   * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
 
 
-  Run this command:
+  Run the following command:
 
   
   ```bash

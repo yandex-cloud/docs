@@ -10,6 +10,16 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mrd-name }} target cluster fee: Using computing resources allocated to hosts, and its disk space (see [{{ VLK }} pricing](../../managed-redis/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee: using computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
@@ -48,7 +58,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * [redis-cluster-non-sharded-and-vm-for-php.tf](https://github.com/yandex-cloud-examples/yc-redis-as-php-session-storage/blob/main/redis-cluster-non-sharded-and-vm-for-php.tf): For a non-sharded cluster.
         * [redis-cluster-sharded-and-vm-for-php.tf](https://github.com/yandex-cloud-examples/yc-redis-as-php-session-storage/blob/main/redis-cluster-sharded-and-vm-for-php.tf): For a [sharded](../../managed-redis/concepts/sharding.md) cluster.
 
-        Each file describes:
+        Each file describes the following:
 
         * Network.
         * Subnet.
@@ -60,9 +70,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         * Password to access the {{ mrd-name }} cluster.
         * ID of the public LAMP/LEMP [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
-        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image that is currently used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
+        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image that is currently used. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

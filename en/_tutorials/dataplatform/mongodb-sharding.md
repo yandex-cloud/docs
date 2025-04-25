@@ -1,7 +1,7 @@
 # Sharding {{ MG }} collections
 
 
-When sharding a {{ mmg-name }} cluster, the following service hosts are automatically created and [billed](../../managed-mongodb/pricing.md) separately from the main DBMS hosts:
+When sharding a {{ mmg-name }} cluster, the following service hosts are automatically created, [billed](../../managed-mongodb/pricing.md) separately from the main DBMS hosts:
 - either `MONGOS` and `MONGOCFG`
 - or `MONGOINFRA`
 
@@ -19,6 +19,12 @@ You should use sharding for:
 
 For more information about sharding, see [{#T}](../../managed-mongodb/concepts/sharding.md).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes the fee for additional service hosts in the {{ mmg-name }} cluster (see [{{ MG }} pricing](../../managed-mongodb/pricing.md)).
+
+
 ## How to enable collection sharding {#enable}
 
 {% note warning %}
@@ -34,7 +40,7 @@ Run all your sharding setup commands via the `mongosh` CLI as a user with the [m
    sh.enableSharding("<DB_name>")
    ```
 
-   You can request the host type with a [list of hosts in the cluster](../../managed-mongodb/operations/hosts.md#list-hosts).
+   You can request the host type with the [list of hosts in the cluster](../../managed-mongodb/operations/hosts.md#list-hosts).
 
 1. Define an index for the sharded collection:
 

@@ -4,7 +4,7 @@ To transfer a database from {{ GP }} to {{ CH }}:
 
 1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
-1. [Check the copy function upon re-activation](#example-check-copy).
+1. [Test the copy function upon re-activation](#example-check-copy).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -19,7 +19,7 @@ The support cost includes:
 
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
-* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Transfer fee: Use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -113,7 +113,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
     (44, 'User5');
     ```
 
-1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. To check that the data was transferred correctly, connect to the {{ mch-name }} target cluster and make sure that the columns of the `x_tab` table in the `db1` database match those of the `x_tab` table in the source database:
 
    ```sql
@@ -130,7 +130,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
    └────┴───────┘
    ```
 
-## Check the copy function upon re-activation {#example-check-copy}
+## Test the copy function upon re-activation {#example-check-copy}
 
 1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md); in the `x_tab` table, delete one row and update one:
 

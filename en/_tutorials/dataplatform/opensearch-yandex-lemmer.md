@@ -3,13 +3,22 @@
 
 With `yandex-lemmer`, you can add a filter to [improve text search in Russian](../../managed-opensearch/concepts/plugins.md#yandex-lemmer) across {{ OS }} documents.
 
-To test the plugin, compare [standard search results](#search-without-yandex-lemmer) to [`yandex-lemmer` search results](#search-with-yandex-lemmer) and then [refine your filter](#improve-search).
+To test the plugin, compare [standard search results](#search-without-yandex-lemmer) to [`yandex-lemmer`](#search-with-yandex-lemmer) search results and then [refine your filter](#improve-search).
 
 After testing, [delete](#clear-out) the created resources if you no longer need them.
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
+* Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-1. Prepare the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -29,7 +38,7 @@ After testing, [delete](#clear-out) the created resources if you no longer need 
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Download the [opensearch-yandex-lemmer.tf](https://github.com/yandex-cloud-examples/yc-opensearch-yandex-lemmer/blob/main/opensearch-yandex-lemmer.tf) configuration file to the same working directory. The file describes:
+        1. Download the [opensearch-yandex-lemmer.tf](https://github.com/yandex-cloud-examples/yc-opensearch-yandex-lemmer/blob/main/opensearch-yandex-lemmer.tf) configuration file to the same working directory. This file describes:
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
@@ -38,10 +47,10 @@ After testing, [delete](#clear-out) the created resources if you no longer need 
 
         1. In the `opensearch-yandex-lemmer.tf` file, specify these variables:
 
-            * `version`: {{ OS }} version.
+            * `version`: {{ OS }} version
             * `admin_password`: {{ OS }} admin password.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

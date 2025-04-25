@@ -12,8 +12,8 @@ With {{ data-transfer-name }}, you can transfer data from a [{{ metrika }}]({{ m
 
 To transfer data:
 
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -25,6 +25,7 @@ The support cost includes:
 * {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * [Metrica Pro]({{ link-yandex }}/support/metrica/pro/price.html) fee.
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -35,7 +36,7 @@ Set up your infrastructure:
 
 1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ metrika-endpoint }}` source](../../data-transfer/operations/endpoint/source/metrika.md).
 
@@ -48,7 +49,7 @@ Set up your infrastructure:
 
         Select a target cluster from the list and specify its [connection settings](../../data-transfer/operations/endpoint/target/clickhouse.md).
 
-1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
+1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
 1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
 A transfer only moves the current data and does not affect historical data. If you deactivate and activate the transfer again:
@@ -60,9 +61,9 @@ A transfer only moves the current data and does not affect historical data. If y
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}**: Purged of existing data without removing the tables and schemas.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}**: Used for further data writes.
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Make sure the data from the {{ metrika }} tag has been moved to the {{ mch-name }} database:
 
@@ -72,7 +73,7 @@ A transfer only moves the current data and does not affect historical data. If y
 
         ```sql
         SELECT table FROM system.tables
-      WHERE database = '<{{ CH }}_database_name>'
+        WHERE database = '<{{ CH }}_database_name>'
         ```
 
         Result:

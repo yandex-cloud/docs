@@ -1,10 +1,10 @@
 
 
-You can migrate a database from {{ mpg-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can migrate a database from {{ mpg-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}. To do this:
 
 1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
-1. [Check the copy function upon re-activation](#example-check-copy).
+1. [Test the copy function upon re-activation](#example-check-copy).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -16,6 +16,7 @@ The support cost includes:
 * {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -52,10 +53,10 @@ Set up your infrastructure:
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to the cluster.
-        * {{ mpg-name }} source cluster.
+        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to a cluster.
+        * Source {{ mpg-name }} cluster.
         * Service account for creating and accessing the bucket.
-        * {{ objstorage-name }} target bucket.
+        * Target {{ objstorage-name }} bucket.
         * Source endpoint.
         * Transfer.
 
@@ -105,13 +106,13 @@ Set up your infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_PostgreSQL`
 
-1. Create a source endpoint and a transfer.
+1. Create a source endpoint and transfer.
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
+    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/postgresql.md) of the `{{ PG }}` type and specify these cluster connection settings in it:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }}_source_cluster_name>` from the drop-down list.
@@ -144,11 +145,11 @@ Set up your infrastructure:
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 
 1. Make sure the {{ objstorage-name }} bucket now contains the `public_x_tab.csv` table with the `x_tab` table data.
 
-## Check the copy function upon re-activation {#example-check-copy}
+## Test the copy function upon re-activation {#example-check-copy}
 
 1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md) and, in the `x_tab` table, delete the row with the `41` ID and edit the row with the `42` ID:
 
