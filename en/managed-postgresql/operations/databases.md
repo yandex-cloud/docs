@@ -10,7 +10,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
@@ -25,7 +25,7 @@ You can add, rename, and remove databases, as well as view information about the
   {{ yc-mdb-pg }} database list --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -42,7 +42,7 @@ You can add, rename, and remove databases, as well as view information about the
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/databases'
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse) to make sure the request was successful.
 
@@ -69,7 +69,7 @@ You can add, rename, and remove databases, as well as view information about the
        yandex.cloud.mdb.postgresql.v1.DatabaseService.List
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse) to make sure the request was successful.
 
@@ -83,7 +83,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name.
   1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
   1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
@@ -105,7 +105,7 @@ You can add, rename, and remove databases, as well as view information about the
 
       * (Optional) Template: The name of one of the existing databases from which the data schema needs to be copied. All connections to the template database will be closed while the new database is being created.
 
-          For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createdatabase.html).
+          For more information, see the relevant [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createdatabase.html).
 
       * Collation and character set locales.
 
@@ -148,7 +148,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      {{ mpg-short-name }} runs the create database operation.
 
@@ -220,7 +220,7 @@ You can add, rename, and remove databases, as well as view information about the
                        "version": "<extension_version>"
                      }
                    ],
-                   "deletionProtection": <deletion_protection:_true_or_false>
+                   "deletionProtection": <deletion_protection>
                  }
                }'
      ```
@@ -241,9 +241,9 @@ You can add, rename, and remove databases, as well as view information about the
 
        Specify the name and version from the [list of supported {{ PG }} extensions and utilities](extensions/cluster-extensions.md#postgresql).
 
-     * `deletionProtection`: DB deletion protection.
+     * `deletionProtection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -276,7 +276,7 @@ You can add, rename, and remove databases, as well as view information about the
                    "version": "<extension_version>"
                  }
                ],
-               "deletion_protection": <deletion_protection:_true_or_false>
+               "deletion_protection": <deletion_protection>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
@@ -299,9 +299,9 @@ You can add, rename, and remove databases, as well as view information about the
 
        Specify the name and version from the [list of supported {{ PG }} extensions and utilities](extensions/cluster-extensions.md#postgresql).
 
-     * `deletion_protection`: DB deletion protection.
+     * `deletion_protection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -372,7 +372,7 @@ You can add, rename, and remove databases, as well as view information about the
 
        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -418,7 +418,7 @@ You can add, rename, and remove databases, as well as view information about the
 
        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -430,7 +430,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Select the appropriate value in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
@@ -478,7 +478,7 @@ You can add, rename, and remove databases, as well as view information about the
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/databases/<DB_name>' \
        --data '{
                  "updateMask": "deletionProtection",
-                 "deletionProtection": <deletion_protection:_true_or_false>
+                 "deletionProtection": <deletion_protection>
                }'
      ```
 
@@ -488,9 +488,9 @@ You can add, rename, and remove databases, as well as view information about the
 
        Only one parameter is provided in this case.
 
-     * `deletionProtection`: DB deletion protection.
+     * `deletionProtection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
-     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -520,7 +520,7 @@ You can add, rename, and remove databases, as well as view information about the
                  "deletion_protection"
                ]
              },
-             "deletion_protection": <deletion_protection:_true_or_false>
+             "deletion_protection": <deletion_protection>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Update
@@ -532,9 +532,9 @@ You can add, rename, and remove databases, as well as view information about the
 
        Only one parameter is provided in this case.
 
-     * `deletion_protection`: DB deletion protection.
+     * `deletion_protection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
-     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -555,7 +555,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 - Management console {#console}
 
   To delete a database:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, and confirm the deletion.
 
@@ -572,7 +572,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
      --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -608,7 +608,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/databases/<DB_name>'
      ```
 
-     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -636,7 +636,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Delete
      ```
 
-     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

@@ -11,6 +11,16 @@ To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for {{ mkf-name }} clusters: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
@@ -73,7 +83,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * Names of the {{ mkf-name }} clusters' topics.
         * Username and password that will be used to access a {{ mch-name }} cluster.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
        ```bash
        terraform validate
@@ -202,12 +212,12 @@ For example, {{ KF }} topics receive some data from car sensors in JSON format. 
 {"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-The {{ mch-name }} cluster will use the [JSONEachRow]({{ ch.docs }}/interfaces/formats/#jsoneachrow) data format to insert data into `Kafka` tables. This format converts strings from {{ KF }} messages into the appropriate column values.
+The {{ mch-name }} cluster will use the [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow) for data inserted into `Kafka` tables, which converts strings from {{ KF }} messages to the appropriate column values.
 
 For each {{ KF }} topic, create a separate table in your {{ mch-name }} cluster to write incoming data to:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
-1. Run the following query:
+1. Run this request:
 
     ```sql
     CREATE TABLE IF NOT EXISTS db1.<table_name_for_topic>
@@ -330,7 +340,7 @@ To create a materialized view:
 To get all the data from the appropriate materialized view:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
-1. Run the following query:
+1. Run this request:
 
     ```sql
     SELECT * FROM db1.<view_name>;

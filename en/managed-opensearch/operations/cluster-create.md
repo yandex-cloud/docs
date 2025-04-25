@@ -19,7 +19,7 @@ For more information, see [Resource relationships in the service](../concepts/in
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }}](../security/index.md#managed-opensearch-editor) role or higher.
+To create a {{ mos-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mos.editor }}](../security/index.md#managed-opensearch-editor) roles or higher.
 
 To link your service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
@@ -130,7 +130,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
   To create a {{ mos-name }} cluster:
 
-  1. View the description of the create cluster CLI command:
+  1. View the description of the CLI command to create a cluster:
 
       ```bash
       {{ yc-mdb-os }} cluster create --help
@@ -186,7 +186,9 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       * `--service-account-name`: Name of the service account for [access to {{ objstorage-full-name }}](s3-access.md) as a repository of {{ OS }} snapshots. For more information on service accounts, see the [{{ iam-full-name }} documentation](../../iam/concepts/users/service-accounts.md).
 
-      * `--delete-protection`: Cluster protection from accidental deletion by a user. With deletion protection enabled, you still can connect to a cluster manually to delete data.
+      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+      
+        Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
       * `--maintenance`: Maintenance window settings:
 
@@ -216,7 +218,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
   To create a {{ mos-name }} cluster:
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       * DB cluster: Description of the {{ mos-name }} cluster and its hosts
 
@@ -232,7 +234,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
         environment         = "<environment>"
         network_id          = "<network_ID>"
         security_group_ids  = ["<list_of_security_group_IDs>"]
-        deletion_protection = "<deletion_protection>"
+        deletion_protection = "<cluster_deletion_protection>"
 
         config {
 
@@ -295,7 +297,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
       Where:
 
       * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-      * `deletion_protection`: Deletion protection, `true` or `false`.
+      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+
+        Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
+
       * `assign_public_ip`: Public access to the host, `true` or `false`.
       * `roles`: `DATA` and `MANAGER` host roles.
       * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including those for disabled clusters):
@@ -304,8 +309,6 @@ When creating a cluster, you need to specify individual parameters for each [hos
               * `WEEKLY`: On a schedule.
           * `day`: Day of the week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
           * `hour`: Hour UTC in `HH` format for the `WEEKLY` type, e.g., `21`.
-
-      {% include [cluster-create](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
@@ -341,7 +344,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
               "<security_group_N_ID>"
           ],
           "serviceAccountId": "<service_account_ID>",
-          "deletionProtection": <deletion_protection:_true_or_false>,
+          "deletionProtection": <cluster_deletion_protection:_true_or_false>,
           "configSpec": {
               "version": "<{{ OS }}_version>",
               "adminPassword": "<admin_user_password>",
@@ -420,7 +423,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       Where:
 
-      * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -430,7 +433,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `serviceAccountId`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
 
 
-      * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+      * `deletionProtection`: Cluster protection from accidental deletion.
+
+        Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
+
       * `configSpec`: Cluster settings:
 
           * `version`: {{ OS }} version.
@@ -450,7 +456,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
                   * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                   * `zoneIds`: List of availability zones the cluster hosts are located in.
-                  * `subnetIds`: List of subnet IDs.
+                  * `subnetIds`: Subnet IDs list.
 
                   
                   * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
@@ -520,7 +526,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
               "<security_group_N_ID>"
           ],
           "service_account_id": "<service_account_ID>",
-          "deletion_protection": <deletion_protection:_true_or_false>,
+          "deletion_protection": <cluster_deletion_protection:_true_or_false>,
           "config_spec": {
               "version": "<{{ OS }}_version>",
               "admin_password": "<admin_user_password>",
@@ -599,7 +605,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       Where:
 
-      * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -609,7 +615,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
 
 
-      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
+      * `deletion_protection`: Cluster protection from accidental deletion.
+
+        Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
+
       * `config_spec`: Cluster settings:
 
           * `version`: {{ OS }} version.
@@ -629,7 +638,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
                   * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                   * `zone_ids`: List of availability zones the cluster hosts are located in.
-                  * `subnet_ids`: List of subnet IDs.
+                  * `subnet_ids`: Subnet IDs list.
 
                   
                   * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
@@ -772,7 +781,7 @@ To create an {{ OS }} cluster copy:
     * Network name: `{{ network-name }}`.
     * Security group ID: `{{ security-group }}`.
     * Service account name: `os-account`.
-    * Cluster deletion protection: Disabled.
+    * Deletion protection: Disabled.
     * Maintenance time: Every Monday from 13:00 till 14:00.
     * {{ OS }} version: `2.8`.
     * `admin` user password: Specified after entering the cluster create command.
@@ -803,7 +812,7 @@ To create an {{ OS }} cluster copy:
         * Subnet: `{{ network-name }}-{{ region-id }}-a`.
         * Public address: Assigned.
 
-    Run the following command:
+    Run this command:
 
     ```bash
     {{ yc-mdb-os }} cluster create \

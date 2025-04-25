@@ -6,13 +6,29 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
 
     This method is easy to configure, does not require the creation of an intermediate VM, and allows you to transfer the entire database without interrupting user service. To use it, allow connections to the source cluster from the internet.
 
-    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
+    To learn more, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Transferring data by creating and restoring a logical dump](#logical-dump).
 
     A _logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. To achieve a full logical dump, before you create it, switch the source cluster to <q>read-only</q>.
 
     Use this method only if, for some reason, it is not possible to migrate data using {{ data-transfer-name }}.
+
+
+## Required paid resources {#paid-resources}
+
+The cost of transferring data with {{ data-transfer-full-name }} includes:
+
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+
+The cost of transferring data using a database dump includes:
+
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* When creating a VM to download a dump: Fee for using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
 
 ## Transferring data using {{ data-transfer-name }} {#data-transfer}
 
@@ -49,7 +65,7 @@ Create the required resources:
 
 - Manually {#manual}
 
-    1. Create a [{{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration. In which case:
+    1. Create a [{{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration. In this case, the following applies:
 
         * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
@@ -103,9 +119,9 @@ Create the required resources:
         * (Optional) Virtual machine parameters:
 
             * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-            * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
+            * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -235,7 +251,7 @@ Create the required resources:
 1. Copy the archive containing the database dump to the intermediate virtual machine, e.g., using `scp`:
 
     ```bash
-    scp ~/db_dump.tar.gz <VM_user_name>@<VM_public_IP_address>:~/db_dump.tar.gz
+    scp ~/db_dump.tar.gz <VM_username>@<VM_public_IP_address>:~/db_dump.tar.gz
     ```
 
 1. Extract the dump from the archive:
@@ -313,7 +329,7 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
 {% endlist %}
 
-You can get the cluster ID with a [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+You can get the cluster ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
 ### Deleting the created resources {#clear-out}
 

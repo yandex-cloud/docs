@@ -16,5 +16,7 @@
 
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Enable this option to use the built-in [performance diagnostics](../../managed-mongodb/operations/performance-diagnostics.md) tool in the cluster. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
-- **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Cluster protection from accidental deletion. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
+- **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Cluster protection from accidental deletion.
+
+  {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

@@ -34,6 +34,16 @@ To configure {{ KFC }} to work with a {{ mkf-name }} cluster:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee: using computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 {% list tabs group=instructions %}
@@ -63,8 +73,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         This file describes:
 
-        * Network
-        * Subnet
+        * Network.
+        * Subnet.
 
         
         * Default security group and rules required to connect to the cluster and VM from the internet.

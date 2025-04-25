@@ -925,7 +925,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -986,9 +986,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
-        * `deletionProtection`: Cluster deletion protection, `true` or `false`.
+        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1063,9 +1063,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
-        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1179,7 +1179,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Select a folder you want to move the cluster to.

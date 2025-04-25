@@ -17,7 +17,7 @@
 * `auto_explain` — необходима для работы [расширения auto_explain]({{ pg-docs }}/auto-explain.html);
 * `pgaudit` — необходима для работы [расширения pgaudit](https://www.pgaudit.org/);
 * `pg_cron` — необходима для работы [расширения pg_cron](https://github.com/citusdata/pg_cron);
-* `pg_hint_plan` — необходима для работы [расширения pg_hint_plan](https://pghintplan.osdn.jp/pg_hint_plan.html);
+* `pg_hint_plan` — необходима для работы [расширения pg_hint_plan](https://github.com/ossc-db/pg_hint_plan);
 * `pg_qualstats` — необходима для работы [расширения pg_qualstats](https://github.com/powa-team/pg_qualstats);
 * `pg_stat_query_plans` — необходима для работы [расширения pg_stat_query_plans](https://github.com/postgredients/pg_stat_query_plans);
 * `timescaledb` — необходима для использования [расширения TimescaleDB](https://github.com/timescale/timescaledb);

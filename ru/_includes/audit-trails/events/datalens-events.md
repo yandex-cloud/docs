@@ -21,6 +21,7 @@
 `MoveWorkbooks`                | Перемещение воркбуков
 `DeleteWorkbooks`              | Удаление одного или нескольких воркбуков
 `CopyWorkbook`                 | Копирование воркбука
+`SwitchWorkbookFileExportProhibition` | Изменение запрета на экспорт файлов из воркбука
 `UpdateWorkbookAccessBindings` | Изменение настроек доступа к воркбуку
 `CreateEmbeddingSecret` | Создание ключа для [встраивания](../../../datalens/security/embedded-objects.md)
 `DeleteEmbeddingSecret` | Удаление ключа для встраивания
@@ -31,6 +32,7 @@
 `UpdateColorPalette` | Изменение цветовой палитры
 `DeleteColorPalette` | Удаление цветовой палитры
 `DisableFolders`                | [Отключение](../../../datalens/settings/disable-folder-navigation.md) навигации по папкам
+`SwitchDataExportProhibition`   | Изменение запрета на экспорт данных
 `SwitchPublicationProhibition`  | Изменение запрета на публикацию объектов
 `EnableBillingInstanceService`  | Получение сигнала от {{ billing-name }} об активности привязанного к {{ datalens-name }} [платежного аккаунта](../../../billing/concepts/billing-account.md)
 `DisableBillingInstanceService` | Получение сигнала от {{ billing-name }} о неактивности привязанного к {{ datalens-name }} платежного аккаунта

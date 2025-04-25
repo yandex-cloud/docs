@@ -106,6 +106,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
+Подробнее о лимитах см. в разделе [Квоты и лимиты](../concepts/limits.md).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

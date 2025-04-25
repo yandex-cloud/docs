@@ -1,12 +1,12 @@
 # Migrating data from {{ OS }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. Proceed as follows:
+With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. To do this:
 
 1. [Set up the source cluster](#configure-source).
 1. [Prepare the test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -17,6 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 * {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -54,7 +55,7 @@ The support cost includes:
               {% include [cli-install](../../../_includes/cli-install.md) %}
 
         1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -138,7 +139,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
          '
     ```
 
-1. (Optional) Check the data in the test index:
+1. Optionally, check the data in the test index:
 
     ```bash
     curl --user <username_in_target_cluster>:<user_password_in_target_cluster> \
@@ -158,7 +159,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
     1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the [source {{ OS }} cluster](../../../data-transfer/operations/endpoint/source/opensearch.md#on-premise).
 
@@ -170,7 +171,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
     - {{ TF }} {#tf}
@@ -178,7 +179,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
         1. In the `data-transfer-os-mos.tf` file, specify these variables:
 
             * `source_endpoint_id`: ID of the source endpoint.
-            * `target_endpoint_id`: Target endpoint ID.
+            * `target_endpoint_id`: ID of the target endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -199,7 +200,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Check that the the {{ mos-name }} cluster's `people` index contains the data that was sent:
 
     {% list tabs group=programming_language %}

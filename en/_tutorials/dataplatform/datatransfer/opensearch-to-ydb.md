@@ -6,8 +6,8 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} clust
 To transfer data:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -18,12 +18,14 @@ The support cost includes:
 
 * {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 * Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	* For dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
     
     Learn more about the [{{ ydb-name }} pricing](../../../ydb/pricing/index.md) plans.
 
@@ -65,7 +67,7 @@ Set up your infrastructure:
         * Target endpoint.
         * Transfer.
 
-    1. In the `opensearch-to-ydb.tf` file, specify the following parameters:
+    1. In the `opensearch-to-ydb.tf` file, specify the following settings:
 
         * `mos_version`: {{ OS }} version.
         * `mos_password`: User password of the {{ OS }} database owner.
@@ -137,7 +139,7 @@ Set up your infrastructure:
          '
     ```
 
-1. (Optional) Check the data in the test index:
+1. Optionally, check the data in the test index:
 
     ```bash
     curl --user admin:<password> \
@@ -146,9 +148,9 @@ Set up your infrastructure:
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with these settings:
+1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select a {{ mos-name }} cluster from the list.
@@ -166,13 +168,13 @@ Set up your infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the `ydb1` database from the list.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the `ydb-account` service account from the list.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
 
-        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
     - Using {{ TF }} {#tf}
 
-        1. In the `opensearch-to-ydb.tf` file, specify the following parameters:
+        1. In the `opensearch-to-ydb.tf` file, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` for creating a target endpoint and transfer.
@@ -224,7 +226,7 @@ Before deleting the resources you created, [deactivate the transfer](../../../da
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-1. Delete the resources depending on how they were created:
+1. Delete the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

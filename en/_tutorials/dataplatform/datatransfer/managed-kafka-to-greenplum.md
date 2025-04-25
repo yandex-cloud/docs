@@ -1,8 +1,8 @@
-You can set up data transfer from a {{ mkf-full-name }} topic to {{ mgp-full-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can set up data transfer from a {{ mkf-full-name }} topic to {{ mgp-full-name }} using {{ data-transfer-full-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -14,6 +14,7 @@ The support cost includes:
 * {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
 * {{ mgp-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -109,7 +110,7 @@ Create a file named `sample.json` with test data on your working instance:
 
 {% endcut %}
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) with the `{{ KF }}` type and specify the following items for it:
 
@@ -163,21 +164,21 @@ Create a file named `sample.json` with test data on your working instance:
     {% endcut %}
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/greenplum.md) of the `{{ GP }}` type and put `user` for username.
-1. Create and activate the transfer:
+1. Create and activate your transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
         1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-repl }}_ type that will use the created endpoints.
-        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to {{ dt-status-repl }}.
+        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-repl }}.
 
     - {{ TF }} {#tf}
 
         1. In the `kafka-greenplum.tf` file, specify these variables:
 
             * `kf_source_endpoint_id`: ID of the source endpoint.
-            * `gp_target_endpoint_id`: Target endpoint ID.
+            * `gp_target_endpoint_id`: ID of the target endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -196,7 +197,7 @@ Create a file named `sample.json` with test data on your working instance:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mgp-name }} database:
 

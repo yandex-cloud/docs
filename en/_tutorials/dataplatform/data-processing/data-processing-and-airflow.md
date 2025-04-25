@@ -13,14 +13,25 @@ In this DAG, a {{ dataproc-name }} cluster is created without using Hive. In the
 
 To automate operations with {{ dataproc-name }} using {{ maf-name }}:
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Prepare a PySpark job](#prepare-a-job).
 1. [Prepare and run a DAG file](#dag).
 1. [Check the result](#check-out).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare the infrastructure {#infra}
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ maf-name }} cluster fee: Computing resources of the cluster components (see [{{ AF }} pricing](../../../managed-airflow/pricing.md)).
+* NAT gateway fee (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* {{ dataproc-name }} cluster fee: Using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+
+
+## Set up your infrastructure {#infra}
 
 The example below illustrates two scenarios. Select the one you find most relevant:
 
@@ -40,7 +51,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * High security level
 
-   Prepare the infrastructure:
+   Set up your infrastructure:
 
    1. [Create service accounts](../../../iam/operations/sa/create.md) with the following roles:
 
@@ -142,7 +153,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * Simplified setup
 
-   Prepare the infrastructure:
+   Set up your infrastructure:
 
    1. [Create a service account](../../../iam/operations/sa/create.md) named `my-editor` with the following roles:
 
@@ -160,7 +171,7 @@ The example below illustrates two scenarios. Select the one you find most releva
    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `data-processing-network-{{ region-id }}-a` subnet.
    1. [Create a {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) cluster with the following parameters:
 
-      * **Service account**: `my-editor`.
+      * **Service account**: `my-editor`
       * **Network**: `data-processing-network`
       * **Subnet**: `data-processing-network-{{ region-id }}-a`
       * **Security group**: Default group in `data-processing-network`
@@ -454,7 +465,7 @@ To prepare a DAG:
 
       It may take a few minutes to upload a DAG file from the bucket.
 
-   1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
+   1. To run a DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
 {% endlist %}
 

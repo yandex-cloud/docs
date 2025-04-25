@@ -16,19 +16,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	* For dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
 	
     Learn more about the [{{ ydb-name }} pricing](../../../ydb/pricing/index.md) plans.
 
-* {{ yds-name }} fee. The fee depends on the pricing mode:
+* Fee for {{ yds-name }}. The fee depends on the pricing mode:
 
 	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
-	* Based on actual use:
-		* If the DB operates in serverless mode, the data stream is charged under the [{{ ydb-short-name }} serverless mode pricing policy](../../../ydb/pricing/serverless.md).
+	* By actual use:
+		* If the DB operates in serverless mode, the data stream is charged according to the [{{ ydb-short-name }} serverless mode pricing policy](../../../ydb/pricing/serverless.md).
 
 		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../../ydb/pricing/dedicated)).
 
@@ -70,7 +71,7 @@ Set up your infrastructure:
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to the cluster.
+        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to a cluster.
         * {{ mmy-name }} source cluster.
         * Database: {{ ydb-name }}.
         * Service account to use to access {{ yds-name }}.
@@ -125,13 +126,13 @@ Set up your infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `mpg-stream`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `yds-sa`
 
-1. Create a source endpoint and a transfer.
+1. Create a source endpoint and transfer.
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ MY }}` type and specify the cluster connection parameters in it:
+        1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ MY }}` type and specify these cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<source_cluster_name>` from the drop-down list.
@@ -139,13 +140,13 @@ Set up your infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy-user`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `mmy-user` user password.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
 
     - {{ TF }} {#tf}
 
         1. In the `mysql-yds.tf` file, specify these variables:
 
-            * `yds_endpoint_id`: Target endpoint ID.
+            * `yds_endpoint_id`: ID of the target endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -164,7 +165,7 @@ Set up your infrastructure:
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to _{{ dt-status-repl }}_.
+1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to _{{ dt-status-repl }}_.
 
 {% include [get-yds-data](../../../_includes/data-transfer/get-yds-data.md) %}
 

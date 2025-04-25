@@ -547,7 +547,7 @@ items:
                   Transferring {{ managed-k8s-name }} cluster logs to {{
                   cloud-logging-name }}
                 href: container-infrastructure/k8s-fluent-bit-logging.md
-              - name: Setting up Gateway API in {{ managed-k8s-name }}
+              - name: Setting up Gateway API
                 href: container-infrastructure/gateway-api.md
               - name: Setting up the {{ alb-name }} Ingress controller
                 href: container-infrastructure/alb-ingress-controller.md
@@ -1041,6 +1041,8 @@ items:
           Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
           data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
+      - name: Fixing string sorting issues in {{ PG }} after upgrading glibc
+        href: dataplatform/postgresql-glibc-collation-issues.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Migrating a database from {{ GP }} to {{ PG }}
@@ -1358,8 +1360,8 @@ items:
           serverless-containers-full-name }}
         href: serverless/functions-framework-to-container.md
       - name: >-
-          Migrating data from {{ forms-name }} to {{ datalens-name }} using {{
-          sf-name }} and {{ yq-name }}
+          Migrating data from {{ forms-full-name }} to {{ datalens-full-name }}
+          using {{ sf-full-name }} and {{ yq-full-name }}
         items:
           - name: Overview
             href: serverless/forms-and-datalens-integration/index.md

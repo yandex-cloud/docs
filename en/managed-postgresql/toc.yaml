@@ -133,7 +133,9 @@ items:
         href: tutorials/yq-postgre.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md
-      - name: Writing data from a device to a database
+      - name: Fixing string sorting issues after upgrading glibc
+        href: tutorials/glibc-collation-issues.md
+      - name: Writing data from a device into a database
         href: tutorials/data-recording.md
       - name: Replication and migration
         items:
@@ -209,6 +211,8 @@ items:
         href: concepts/supported-clients.md
       - name: PostgreSQL settings
         href: concepts/settings-list.md
+      - name: Indexes
+        href: concepts/indexes.md
       - name: SQL command limits
         href: concepts/sql-limits.md
   - name: Access management

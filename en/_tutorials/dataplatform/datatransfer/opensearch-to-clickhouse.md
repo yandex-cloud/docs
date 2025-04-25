@@ -5,8 +5,8 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} sourc
 To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -18,6 +18,7 @@ The support cost includes:
 * {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -56,7 +57,7 @@ Prepare the data transfer infrastructure:
         * Target endpoint.
         * Transfer.
 
-    1. In the `opensearch-to-clickhouse.tf` file, specify the following parameters:
+    1. In the `opensearch-to-clickhouse.tf` file, specify the following settings:
 
         * `source_admin_password`: `admin` user password in {{ mos-name }} cluster.
         * `mos_version`: {{ OS }} version.
@@ -132,7 +133,7 @@ Prepare the data transfer infrastructure:
          '
     ```
 
-1. (Optional) Check the data in the test index:
+1. Optionally, check the data in the test index:
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
@@ -141,7 +142,7 @@ Prepare the data transfer infrastructure:
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the {{ mos-name }} cluster you [created earlier](#before-you-begin) with the following settings:
 
@@ -194,9 +195,9 @@ Prepare the data transfer infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Make sure the data from the source {{ mos-name }} cluster has been moved to the {{ mch-name }} database:
 
     {% list tabs group=instructions %}

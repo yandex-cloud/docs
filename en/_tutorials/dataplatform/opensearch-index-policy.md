@@ -14,15 +14,24 @@ To configure such a policy:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mos-name }} cluster fee: using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
+* Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-1. Prepare the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in desired configuration with public access to a group of hosts with the `DATA` role.
+        1. [Create a {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in desired configuration with public access to a group of hosts with the `DATA` role.
 
         1. If using security groups in your cluster, make sure they are configured correctly and allow connecting to the [{{ mos-name }}](../../managed-opensearch/operations/connect.md#configuring-security-groups) cluster.
 
@@ -33,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Download the [opensearch-index-policy.tf](https://github.com/yandex-cloud-examples/yc-opensearch-index-policy/blob/main/opensearch-index-policy.tf) configuration file to the same working directory. The file describes:
+        1. Download the [opensearch-index-policy.tf](https://github.com/yandex-cloud-examples/yc-opensearch-index-policy/blob/main/opensearch-index-policy.tf) configuration file to the same working directory. This file describes:
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
@@ -45,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `version`: {{ OS }} version.
             * `admin_password`: {{ OS }} admin password.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
