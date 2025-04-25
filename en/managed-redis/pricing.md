@@ -1,4 +1,6 @@
 ---
+title: '{{ mrd-full-name }} pricing policy'
+description: This article covers the {{ mrd-name }} pricing policy.
 editable: false
 ---
 
@@ -11,7 +13,7 @@ In this section, you can find the {{ mrd-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=c46046673ba9#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=c46046673ba9#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
 
 
 
@@ -25,7 +27,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 ## What goes into the cost of using {{ mrd-short-name }} {#rules}
 
-The {{ mrd-name }} usage cost is based on:
+The {{ mrd-name }} usage cost includes:
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 

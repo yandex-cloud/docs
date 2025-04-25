@@ -173,12 +173,13 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      * `backup-retain-period-days`: Automatic backup retention period, in days.
      * `datalens-access`: Enables access from {{ datalens-full-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
      * `websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
-     * `deletion-protection`: Cluster deletion protection.
+     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
      * `performance-diagnostics`: Enabling statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, possible values range from `1` to `86400` seconds.
 
      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
-
-     {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
 
@@ -195,7 +196,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To create a {{ mmy-name }} cluster:
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
      * DB cluster: Description of the cluster and its hosts
      * Database: Description of the cluster DB
 
@@ -207,7 +208,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      
      ```hcl
@@ -264,12 +265,13 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
      * `version`: {{ MY }} version, `{{ versions.tf.str }}`.
-     * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+     * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
      * `assign_public_ip`: Public access to the host, `true` or `false`.
      * `priority`: Host priority when selecting a new master host, between `0` and `100`.
      * `backup_priority`: Backup priority, between `0` and `100`.
-
-     {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -355,7 +357,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               ...
               "<security_group_N_ID>"
           ],
-          "deletionProtection": <deletion_protection:_true_or_false>,
+          "deletionProtection": <cluster_deletion_protection:_true_or_false>,
           "configSpec": {
               "version": "<{{ MY }}_version>",
               "resources": {
@@ -424,7 +426,10 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-      * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+      * `deletionProtection`: Cluster protection from accidental deletion.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
       * `configSpec`: Cluster settings:
 
           * `version`: {{ MY }} version.
@@ -504,7 +509,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               ...
               "<security_group_N_ID>"
           ],
-          "deletion_protection": <deletion_protection:_true_or_false>,
+          "deletion_protection": <cluster_deletion_protection:_true_or_false>,
           "config_spec": {
               "version": "<{{ MY }}_version>",
               "resources": {
@@ -567,7 +572,10 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
+      * `deletion_protection`: Cluster protection from accidental deletion.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
       * `config_spec`: Cluster settings:
 
           * `version`: {{ MY }} version.
@@ -733,7 +741,7 @@ To create an {{ MY }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
   * User: `user1`, password: `user1user1`.
   * With one `db1` database, in which the `user1` user has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
-  * Protection against accidental cluster deletion.
+  * Deletion protection: Enabled.
 
 
   1. Run this command to create a {{ mmy-name }} cluster:
@@ -784,7 +792,7 @@ To create an {{ MY }} cluster copy:
     * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
     * User: `user1`, password: `user1user1`.
     * With one `db1` database, in which the `user1` user has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
-    * Protection against accidental {{ mmy-name }} cluster deletion: Enabled.
+    * Deletion protection: Enabled.
 
   The configuration file for this {{ mmy-name }} cluster is as follows:
 

@@ -71,11 +71,21 @@ description: Следуя данной инструкции, вы сможете
 
 1. На вкладке **Prepare** сформируйте таблицу:
 
+   {% note info %}
+
+   В примере используется служебный модуль `const Dataset = require('libs/dataset/v2')` — для более удобной работы с датасетами. Метод `Dataset.getDatasetRows()` извлекает данные из источника, переданного в параметре `datasetName`, и предоставляет их в удобном компактном виде.
+
+   Если необходимо, данные можно получить в полном виде самостоятельно с помощью метода `Editor.getLoadedData()`.
+
+   {% endnote %}
+
    ```javascript
    const Dataset = require('libs/dataset/v2');
    const loadedData = Editor.getLoadedData();
+
    // Получаем данные из датасета в удобном формате с помощью служебного модуля
-   const data = Dataset.processData(loadedData, 'salesSourceData', Editor);
+   // datasetName — имя датасета на вкладке Sources
+   const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
    
    // Вспомогательная функция для группировки данных по заданному имени поля датасета 
    function groupBy(arr, field) {

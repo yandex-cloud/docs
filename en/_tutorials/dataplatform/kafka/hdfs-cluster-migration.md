@@ -16,6 +16,12 @@ To migrate an HDFS cluster:
 
 Before you begin, [create a subnet](../../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating the cluster.
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes the fee for the {{ dataproc-name }} clusters (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+
+
 ## Create a cluster via import in {{ TF }} {#create}
 
 To create a {{ dataproc-name }} cluster in a different availability zone with the same configuration as the initial cluster, import the initial cluster's configuration into {{ TF }}:
@@ -40,7 +46,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
       export DATAPROC_CLUSTER_ID=<cluster_ID>
       ```
 
-      You can request the ID with a [list of clusters in the folder](../../../data-proc/operations/cluster-list.md#list).
+      You can request the ID with the [list of clusters in the folder](../../../data-proc/operations/cluster-list.md#list).
 
    1. Import the initial cluster settings into the {{ TF }} configuration:
 
@@ -191,4 +197,4 @@ This way you can copy all the data you need. To do this, specify the required di
 
 ## Delete the initial cluster {#delete}
 
-To do it, follow [this guide](../../../data-proc/operations/cluster-delete.md).
+By following [this guide](../../../data-proc/operations/cluster-delete.md).

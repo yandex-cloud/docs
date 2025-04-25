@@ -31,7 +31,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
 
@@ -110,7 +110,7 @@ We recommend changing the host class only when the cluster has no active workloa
   
   1. In the {{ mmg-name }} cluster description, change the `resource_preset_id` parameter value for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, or `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
-      Example:
+      For example:
   
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
@@ -243,7 +243,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the disk type and  increase the storage size for a cluster:
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -314,7 +314,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. In the {{ mmg-name }} cluster description, change the values of the `disk_type_id` and `disk_size` parameters for the following resources: `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, and `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
-      Example:
+      For example:
 
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
@@ -453,7 +453,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. To change the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -589,7 +589,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Change additional cluster settings:
 
@@ -643,7 +643,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
     * `--performance-diagnostics`: Specify this parameter to use the [Performance diagnostics](performance-diagnostics.md) tool in the cluster. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
-    * `--deletion-protection`: Cluster protection from accidental deletion. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     You can get the cluster ID and name with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
@@ -682,7 +684,7 @@ You can change the DBMS settings of the hosts in your cluster.
         }
         ```
 
-        Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
         To disable the protection, set the value to `false`.
 
@@ -762,7 +764,9 @@ You can change the DBMS settings of the hosts in your cluster.
           * `day`: Day of week, in `DDD` format.
           * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-      * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
+      * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
         
     1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -854,7 +858,9 @@ You can change the DBMS settings of the hosts in your cluster.
           * `day`: Day of week, in `DDD` format.
           * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
+      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
   1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -881,7 +887,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Select a folder you want to move the cluster to.
@@ -1001,7 +1007,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.

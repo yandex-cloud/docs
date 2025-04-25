@@ -2,32 +2,119 @@
 
 You can upgrade a {{ mmy-name }} cluster to any supported minor or major version.
 
-In single-host clusters, the only master host is brought out of its running state for upgrades. Unlike multi-host clusters, these clusters are not available for reads and writes during an upgrade.
+In single-host clusters, the only master host is brought out of its running state for upgrades. Unlike multi-host clusters, these clusters are not available for reads and writes during an upgrade. After the DBMS resumes operation, it will take time to _warm up_ the buffer pool, which may temporarily affect the request performance: this is especially prominent for large databases with active use of indexes.
 
 In multi-host clusters, upgrades follow the procedure below:
 
-1. The replicas are withdrawn from service one by one for an upgrade. The replicas are queued randomly. Following an upgrade, the replicas are put back online.
-1. A master host is closed for writes. A [new master host is selected](../concepts/replication.md#master-failover) from among the replicas and opened for writes. As a result, the cluster is updated with minimal downtime.
-1. The original master host is shut down, upgraded, and resumes its operation as a replica. It does not take back its role as a master.
+1. The replicas are withdrawn from service one by one for an upgrade. The replicas are queued randomly. Following the upgrade, the replicas get back online. Read performance may temporarily decrease at this stage because some replicas will be unavailable.
+
+1. A master host is closed for writes. A [new master host is selected](../concepts/replication.md#master-failover) from among the replicas and opened for writes. As a result, the cluster is upgraded with minimal downtime.
+
+1. The original master host is shut down, upgraded, and resumes its operation as a replica. The master does not switch back in order to minimize the risks of additional switching.
+
+{% note info %}
+
+In {{ MY }} 8.0, replica switching is more reliable and efficient due to improved metadata processing.
+
+{% endnote %}
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 {% note alert %}
 
 * Once your DBMS is upgraded, you cannot roll a cluster back to the previous version.
-* The success of a {{ MY }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
-* Upgrade your cluster when it is less loaded.
+* Update your cluster during low load periods to reduce risks and the impact on users.
+* The success of {{ MY }} version upgrade depends on many factors, such as:
+
+   * Cluster settings and specific configurations.
+   * Nature and structure of stored data.
+   * {{ MY }} features deployed (especially JSON functionality and full-text search).
+   * App compatibility with the new version.
+   * Correctness of stored procedures and triggers.
+   * Current database condition and data quality.
+
+   We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
 
 {% endnote %}
 
 ## Before a version upgrade {#before-update}
 
-Make sure the update does not affect your applications:
+When getting ready for an upgrade, a comprehensive approach to testing and compatibility analysis is of particular importance. Our experience shows that most upgrade issues can be prevented at the preparation stage:
 
-1. See the {{ MY }} [changelog](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html) to check how updates might affect your applications.
-1. Try upgrading the version on a test cluster. You can deploy it from a backup of the main cluster. Use the `PRESTABLE` environment for the test cluster.
-1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
-1. Since a cluster of three or more hosts is fault-tolerant, make sure the primary and test clusters have at least two replica hosts and a single master host. [Add hosts](hosts.md#add) as needed.
+1. See {{ MY }} [changelog](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html) for how upgrades may affect your applications.
+
+   {% cut "Examples of changes in {{ MY }} 8.0" %}
+
+   * Changes in the behavior of SQL functions and query optimizer:
+
+      ```sql
+      -- Example of query for execution plan analysis
+      EXPLAIN ANALYZE
+      SELECT * FROM <table_name>
+      WHERE complex_condition
+      ORDER BY <field>;
+      ```
+
+   * Deprecated and removed features, especially related to ​​security:
+
+      ```sql
+      -- Testing authentication mechanisms
+      SELECT user, host, plugin 
+      FROM mysql.user 
+      WHERE user NOT LIKE 'mysql.%';
+      ```
+
+   * Changes in full-text search and JSON processing:
+
+      ```sql
+      -- Checking the use of JSON functions
+      SELECT COUNT(*) 
+      FROM information_schema.routines 
+      WHERE routine_definition LIKE '%JSON%';
+      ```
+
+   * New default values ​​for DBMS settings.
+   * Aspects of working with metadata and temporary tables.
+
+   {% endcut %}
+
+1. Try a version upgrade on a test cluster.
+   
+   1. Deploy a test cluster from a backup of the main cluster using the `PRESTABLE` environment and upgrade it to the required version.
+   1. Check the operation of critical queries and stored procedures.
+   1. Check the functionality that uses JSON and full-text search.
+   1. Perform load testing:
+
+      ```sql
+      -- Monitoring performance during tests
+      SELECT EVENT_NAME, COUNT_STAR, AVG_TIMER_WAIT
+      FROM performance_schema.events_statements_summary_by_digest
+      WHERE SCHEMA_NAME = '<DB_name>'
+      ORDER BY AVG_TIMER_WAIT DESC
+      LIMIT 10;
+      ```
+
+1. [Create a backup](cluster-backups.md) of the main cluster just before the upgrade.
+
+1. Ensure cluster fault tolerance:
+   
+   1. Make sure the main and test clusters have at least two replica hosts and one master host. [Add hosts](hosts.md#add) as needed.
+   1. Optionally, check replication status and latency:
+
+     ```sql
+     -- Checking replication status
+     SHOW SLAVE STATUS\G
+
+     -- Checking replication latency
+     SELECT
+       SUBSTRING_INDEX(HOST, ':', 1) AS slave_host,
+       SUBSTRING_INDEX(HOST, ':', -1) AS slave_port,
+       SECONDS_BEHIND_MASTER,
+       SLAVE_IO_RUNNING,
+       SLAVE_SQL_RUNNING
+     FROM information_schema.PROCESSLIST
+     WHERE COMMAND = 'Binlog Dump';
+     ```
 
 ## Updating the {{ MY }} version {#start-update}
 
@@ -35,7 +122,7 @@ Make sure the update does not affect your applications:
 
 - Management console {#console}
 
-   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select the cluster you need from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -107,7 +194,7 @@ Make sure the update does not affect your applications:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-   1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+   1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -129,11 +216,11 @@ Make sure the update does not affect your applications:
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-         In this case, only one parameter is provided.
+         Only one parameter is provided in this case.
 
       * `configSpec.version`: New {{ MY }} version.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -144,7 +231,7 @@ Make sure the update does not affect your applications:
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-   1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+   1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -174,11 +261,11 @@ Make sure the update does not affect your applications:
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-         In this case, only one parameter is provided.
+         Only one parameter is provided in this case.
 
       * `config_spec.version`: New {{ MY }} version.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -188,13 +275,13 @@ The upgrade time depends on multiple factors, e.g., the amount of data or the nu
 
 ## Examples {#examples}
 
-Let's assume you need to upgrade your cluster from version 5.7 to 8.0.
+Let's look at a case where a cluster is upgraded from version 5.7 to 8.0. This scenario is particularly interesting because it covers the most significant changes in the {{ MY }} architecture.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   1. To get a list of clusters and find out their IDs and names, run this command:
+   1. Get a list of clusters and find out their IDs and names:
 
       ```bash
       {{ yc-mdb-my }} cluster list
@@ -210,13 +297,13 @@ Let's assume you need to upgrade your cluster from version 5.7 to 8.0.
       +----------------------+------------+---------------------+--------+---------+
       ```
 
-   1. To get information about a cluster named `mysql406`, run the following command:
+   1. Get detailed information about a specific cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster get mysql406
       ```
 
-      Result example:
+      The output will show the current version of {{ MY }}:
 
       ```text
         id: c9q8p8j2gaih********
@@ -226,11 +313,13 @@ Let's assume you need to upgrade your cluster from version 5.7 to 8.0.
           ...
       ```
 
-   1. To upgrade the `mysql406` cluster to version 8.0, run this command:
+   1. Start the upgrade to 8.0:
 
       ```bash
       {{ yc-mdb-my }} cluster update mysql406 --mysql-version 8.0
       ```
+
+      Once you execute this command, the upgrade process will start, which will take anywhere from a few minutes to an hour depending on database size and cluster configuration.
 
 - {{ TF }} {#tf}
 
@@ -245,12 +334,47 @@ Let's assume you need to upgrade your cluster from version 5.7 to 8.0.
       }
       ```
 
-   1. Make sure the settings are correct.
+   1. Make sure the settings are correct:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+   1. Apply the changes:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+   {{ TF }} will automatically detect the need to upgrade the version and start the process.
+
 {% endlist %}
+
+After a successful upgrade:
+
+1. Check the status of all critical components:
+
+   ```sql
+   -- Checking InnoDB status
+   SHOW ENGINE INNODB STATUS\G
+
+   -- Checking replication status
+   SHOW SLAVE STATUS\G
+   ```
+
+1. Make sure the applications work correctly:
+
+   * Check the execution time of critical requests.
+   * Check error statistics.
+   * Track resource usage.
+
+1. Optimize your configuration for the new version:
+
+   ```sql
+   -- Analyzing buffer pool usage
+   SELECT POOL_ID, POOL_SIZE, FREE_BUFFERS, DATABASE_PAGES
+   FROM information_schema.INNODB_BUFFER_POOL_STATS;
+   
+   -- Checking performance settings
+   SHOW VARIABLES LIKE '%buffer%';
+   ```
+
+## See also {#see-also}
+
+* [Technical overview of {{ MY }} 8.0 features](../concepts/mysql-57-80-comparison.md) with focus on the new version's changes in terms of performance and functionality.

@@ -1461,6 +1461,7 @@ default:
         greenplum|month|number: 65.05
         greenplum|month|string: "65,05\_₸"
         kafka|month|string: "65,05\_₸"
+        mongodb|month|string: "65,05\_₸"
         mysql:
           dedicated|month|string: "21,05\_₸"
         mysql|month|string: "65,05\_₸"
@@ -1468,6 +1469,7 @@ default:
         pg|month|string: "65,05\_₸"
         redis|month|string: "65,05\_₸"
       mongodb:
+        backup|month|string: "9,60\_₸"
         v1:
           cpu:
             c100|month|string: "5\_760,00\_₸"
@@ -1563,6 +1565,7 @@ default:
         greenplum|month|string: "16,00\_₸"
         kafka|month|number: 16
         kafka|month|string: "16,00\_₸"
+        mongodb|month|string: "16,00\_₸"
         mysql|month|number: 16
         mysql|month|string: "16,00\_₸"
         opensearch|month|string: "16,00\_₸"
@@ -1575,6 +1578,7 @@ default:
         greenplum|month|string: "65,05\_₸"
         kafka|month|number: 65.05
         kafka|month|string: "65,05\_₸"
+        mongodb|month|string: "65,05\_₸"
         mysql|month|string: "65,05\_₸"
         opensearch|month|string: "65,05\_₸"
         pg|month|string: "65,05\_₸"
@@ -1584,6 +1588,7 @@ default:
         ch|month|string: "108,90\_₸"
         greenplum|month|string: "108,90\_₸"
         kafka|month|string: "108,90\_₸"
+        mongodb|month|string: "108,90\_₸"
         mysql|month|string: "108,90\_₸"
         opensearch|month|string: "108,90\_₸"
         pg|month|string: "108,90\_₸"
@@ -1593,6 +1598,7 @@ default:
         elasticsearch|month|string: "44,00\_₸"
         greenplum|month|string: "44,00\_₸"
         kafka|month|string: "44,00\_₸"
+        mongodb|month|string: "44,00\_₸"
         mysql|month|string: "44,00\_₸"
         opensearch|month|string: "44,00\_₸"
         pg|month|string: "44,00\_₸"

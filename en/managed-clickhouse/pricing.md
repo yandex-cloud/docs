@@ -1,4 +1,6 @@
 ---
+title: '{{ mch-full-name }} pricing policy'
+description: This article covers the {{ mch-name }} pricing policy.
 editable: false
 ---
 
@@ -13,7 +15,7 @@ In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=2febafd8c375#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=2febafd8c375#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
 
 
 {% endnote %}
@@ -29,7 +31,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 ## What goes into the cost of using {{ mch-short-name }} {#rules}
 
-The {{ mch-name }} usage cost is based on:
+The {{ mch-name }} usage cost includes:
 
 * Disk type and storage size.
 

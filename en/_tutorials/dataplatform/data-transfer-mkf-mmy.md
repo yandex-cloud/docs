@@ -6,8 +6,8 @@ A {{ mmy-name }} cluster can get data from {{ KF }} topics in real time.
 To run data delivery:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -19,6 +19,7 @@ The support cost includes:
 * {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
 * {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -156,7 +157,7 @@ Create a local `sample.json` file with the following test data:
 
 {% endcut %}
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
@@ -248,8 +249,8 @@ Create a local `sample.json` file with the following test data:
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the user password.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
-        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
 
@@ -274,7 +275,7 @@ Create a local `sample.json` file with the following test data:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mmy-name }} cluster:
 

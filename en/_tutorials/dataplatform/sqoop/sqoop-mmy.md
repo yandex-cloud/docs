@@ -3,6 +3,19 @@
 
 {% include [What is the Sqoop](./header.md) %}
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ dataproc-name }} cluster fee (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../../managed-mysql/pricing.md)).
+* NAT gateway fee (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* VM fee: Using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* Fee for public IP addresses if public access is enabled for VMs or cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 {% include [Same Network](../../_tutorials_includes/note-same-network.md) %}
@@ -15,20 +28,20 @@ You can create other resources manually or using {{ TF }}.
 
 ### Manually {#create-manual}
 
-1. [Create a {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md) in any suitable [configuration](../../../managed-mysql/concepts/instance-types.md) with the following settings:
+1. [Create a {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md) of any suitable [configuration](../../../managed-mysql/concepts/instance-types.md) with the following settings:
 
-    * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
-    * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
+    * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+    * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
 
 1. To import the data to the {{ objstorage-name }} bucket:
 
     1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access.
     1. [Create a service account](../../../iam/operations/sa/create.md) with the following roles:
 
-        * [dataproc.agent](../../../data-proc/security/index.md#dataproc-agent).
-        * [dataproc.provisioner](../../../data-proc/security/index.md#dataproc-provisioner).
-        * [{{ roles-monitoring-viewer }}](../../../monitoring/security/index.md#monitoring-viewer).
-        * [storage.viewer](../../../storage/security/index.md#storage-viewer).
+        * [dataproc.agent](../../../data-proc/security/index.md#dataproc-agent)
+        * [dataproc.provisioner](../../../data-proc/security/index.md#dataproc-provisioner)
+        * [{{ roles-monitoring-viewer }}](../../../monitoring/security/index.md#monitoring-viewer)
+        * [storage.viewer](../../../storage/security/index.md#storage-viewer)
         * [storage.uploader](../../../storage/security/index.md#storage-uploader).
 
     1. [Grant this service account](../../../storage/operations/buckets/edit-acl.md) read and write permissions for this bucket.
@@ -71,14 +84,14 @@ You can create other resources manually or using {{ TF }}.
     * `data_proc_sa`: Name of the {{ dataproc-name }} cluster service account. The name must be unique within the folder.
     * `my_cluster_version`: {{ MY }} version of the {{ mmy-name }} cluster.
     * `my_cluster_password`: Password for `user1` of the {{ mmy-name }} database named `db1`.
-    * `vm_image_id`: ID of the public [image](../../../compute/operations/images-with-pre-installed-software/get-list.md) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-    * `vm_username` and `vm_public_key`: Username and absolute path to the [public SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
+    * `vm_image_id`: ID of the public [image](../../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+    * `vm_username` and `vm_public_key`: Username and absolute path to the [public SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
     * `bucket_name`: Bucket name in {{ objstorage-name }}. The name must be unique within the entire {{ objstorage-name }}.
     * `dp_public_key`: Absolute path to the [public SSH key](../../../data-proc/operations/connect.md#data-proc-ssh) for the {{ dataproc-name }} cluster.
 
         For an SSH connection to the hosts of a {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
-1. Check that the {{ TF }} configuration files are correct using this command:
+1. Make sure the {{ TF }} configuration files are correct using this command:
 
     ```bash
     terraform validate
@@ -96,7 +109,7 @@ You can create other resources manually or using {{ TF }}.
 
 ## Preparing the source cluster {#prepare}
 
-1. [Connect to](../../../managed-mysql/operations/connect.md) the `db1` database of the {{ mmy-full-name }} cluster as `user1`.
+1. [Connect](../../../managed-mysql/operations/connect.md) to the `db1` database in the {{ mmy-full-name }} cluster as `user1`.
 1. Add test data to the database. The example uses a simple table with people's names and ages:
 
     1. Create a table:
@@ -237,9 +250,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     Delete the resources you created manually:
 
-    1. [Subnet](../../../vpc/operations/subnet-delete.md)
-    1. [Route table](../../../vpc/operations/delete-route-table.md)
-    1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
-    1. [Cloud network](../../../vpc/operations/network-delete.md)
+    1. [Subnet](../../../vpc/operations/subnet-delete.md).
+    1. [Route table](../../../vpc/operations/delete-route-table.md).
+    1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
+    1. [Cloud network](../../../vpc/operations/network-delete.md).
 
 {% endlist %}

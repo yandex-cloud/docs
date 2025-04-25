@@ -1,4 +1,6 @@
 ---
+title: '{{ mgp-full-name }} pricing policy'
+description: This article covers the {{ mgp-name }} pricing policy.
 editable: false
 ---
 
@@ -29,7 +31,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 ## What goes into the cost of using {{ mgp-short-name }} {#rules}
 
-The {{ mgp-name }} usage cost is based on:
+The {{ mgp-name }} usage cost includes:
 
 * Disk type and storage size.
 * Computing resources allocated to cluster hosts and host type.
@@ -202,7 +204,7 @@ The cost is made up of two components: [the cost of {{ compute-full-name }} comp
 
 - Dedicated hosts
 
-  The cost is made up of two components: the [{{ compute-full-name }} storage cost](../../compute/pricing.md#prices) and the {{ mgp-name }} price for it. All prices are shown per 1 GB per month.
+  The cost is made up of two components: the [{{ compute-full-name }} storage cost](../../compute/pricing.md#prices) and the {{ mgp-name }} price for it. All prices are per 1 GB per month.
 
   {% include [usd-storage-dedicated](../../_pricing/managed-greenplum/usd-storage-dedicated.md) %}
 

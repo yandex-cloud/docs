@@ -4,6 +4,17 @@ You can track data changes in {{ mmy-name }} and send them to {{ mkf-name }} usi
 
 In this article, you will learn how to create a virtual machine in {{ yandex-cloud }} and set up [Debezium](https://debezium.io/documentation/reference/index.html), software used for CDC.
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee: using computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 1. [Create a _source cluster_](../../managed-mysql/operations/cluster-create.md) with the following settings:
@@ -12,7 +23,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
     * Database: `db1`
     * User: `user1`
 
-1. [Create a {{ mkf-name }} _target cluster_](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
+1. [Create an {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) _target cluster_ in any suitable configuration with publicly available hosts.
 
 1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
 
@@ -118,7 +129,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
     sudo tar -xzvf debezium-connector-mysql-${VERSION}-plugin.tar.gz -C /etc/debezium/plugins/
     ```
 
-1. Create a file named `/etc/debezium/mdb-connector.conf` with the Debezium connector settings for connecting to the source cluster:
+1. Create a file named `/etc/debezium/mdb-connector.conf` with Debezium connector settings for connecting to the source cluster:
 
     ```init
     name=debezium-mmy
@@ -174,9 +185,9 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) to store data from the source cluster:
 
-   * **{{ ui-key.yacloud.common.name }}**: `mmy.db1.measurements`.
+    * **{{ ui-key.yacloud.common.name }}**: `mmy.db1.measurements`.
 
-        Data topic names [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) the `<server_name>.<DB_name>.<table_name>` convention.
+        Data topic names [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) the `<server_name>.<schema_name>.<table_name>` convention.
 
         According to the [Debezium configuration file](#setup-debezium):
 
@@ -187,7 +198,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. Create a service topic to track the connector status:
 
-   * **{{ ui-key.yacloud.common.name }}**: `__debezium-heartbeat.mmy`.
+    * **{{ ui-key.yacloud.common.name }}**: `__debezium-heartbeat.mmy`.
 
         Service topic names [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-topics-prefix) the `<prefix_for_heartbeat>.<server_name>` convention.
 
@@ -203,7 +214,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 1. Create a service topic to track changes to the data format schema:
 
     * **{{ ui-key.yacloud.common.name }}**: `dbhistory.mmy`
-   * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Delete`
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Delete`
     * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
 
 1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `debezium`.

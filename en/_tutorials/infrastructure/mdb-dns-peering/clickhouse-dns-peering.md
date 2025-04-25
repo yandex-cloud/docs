@@ -12,6 +12,16 @@ To enable clients from different cloud networks to connect to the cluster using 
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mch-name }} cluster fee: using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* VM fee: using computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 1. [Prepare an SSH key pair](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to connect to VMs.
@@ -57,7 +67,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `create_optional_vm`: Parameter for creating a VM in the same network as the cluster. Optionally, set it to `1` so you can later check if the cluster is available from the same network.
 
         1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration file and enables you to use the provider resources and data sources.
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -90,7 +100,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. In the `nets-vm-mch.tf` file, set the `create_zone` parameter to `1`.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

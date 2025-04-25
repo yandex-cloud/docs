@@ -4,7 +4,7 @@ To transfer a database from {{ GP }} to {{ PG }}:
 
 1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
-1. [Check the copy function upon re-activation](#example-check-copy).
+1. [Test the copy function upon re-activation](#example-check-copy).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -16,6 +16,7 @@ The support cost includes:
 * {{ mgp-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
 * {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -60,7 +61,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
 
     1. In the `greenplum-postgresql.tf` file, specify the admin user passwords and {{ GP }} and {{ PG }} versions.
     1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -78,7 +79,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
 
 ## Set up your transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/greenplum.md) of the `{{ GP }}` type and specify the cluster connection parameters in it:
+1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/greenplum.md) of the `{{ GP }}` type and specify these cluster connection settings in it:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<{{ GP }}_source_cluster_name>` from the drop-down list
@@ -101,7 +102,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
 
             Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** field under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.title }}**, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
 
@@ -151,7 +152,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
     (44, 'User5');
     ```
 
-1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. To check that the data was transferred correctly, connect to the {{ mpg-name }} target cluster and make sure that the columns of the `x_tab` table in the `db1` database match those of the `x_tab` table in the source database:
 
    ```sql
@@ -168,7 +169,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
    └────┴───────┘
    ```
 
-## Check the copy function upon re-activation {#example-check-copy}
+## Test the copy function upon re-activation {#example-check-copy}
 
 1. In the [target endpoint parameters](../../../data-transfer/operations/endpoint/target/postgresql#additional-settings), select either `DROP` or `TRUNCATE` as cleanup policy.
 1. [Connect to the {{ mgp-name }} cluster](../../../managed-greenplum/operations/connect.md).

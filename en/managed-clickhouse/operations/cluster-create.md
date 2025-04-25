@@ -196,9 +196,9 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
-      * `--deletion-protection`: Cluster deletion protection.
+      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       You can manager cluster users and databases via SQL.
 
@@ -314,7 +314,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
              Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
 
-          * Enable deletion protection.
+          * Enable cluster protection against accidental deletion.
 
              {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -361,14 +361,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
        Where:
 
-       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+       * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+
        * `user`: User data section. Contains the {{ CH }} user `name` and `password` as well as a list of DBs the user must have access to in the `permission` section.
 
          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
        * `assign_public_ip`: Public access to the host, `true` or `false`.     
-
-       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
        1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
@@ -524,7 +523,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 { ... },
                 { <similar_configuration_for_host_N> }
               ],
-              "deletionProtection": <deletion_protection>
+              "deletionProtection": <cluster_deletion_protection>
             }
             ```
 
@@ -598,7 +597,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
-            * `deletionProtection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -720,7 +719,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 { ... },
                 { <similar_configuration_for_host_N> }
               ],
-              "deletion_protection": <deletion_protection>
+              "deletion_protection": <cluster_deletion_protection>
             }
             ```
 
@@ -796,7 +795,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
-            * `deletion_protection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -930,10 +929,10 @@ To create a {{ CH }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
   * User: `user1` with password `user1user1`.
   * Database: `db1`.
-  * Protection against accidental cluster deletion: Enabled.
+  * Cluster protection from accidental deletion.
 
 
-  Run this command:
+  Run the following command:
 
   
   ```bash

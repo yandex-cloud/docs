@@ -14,7 +14,7 @@ After creating a cluster, you can:
 * [Edit the scheduled maintenance operations settings](#change-background-settings).
 * [Update {{ GP }} settings](#change-gp-settings) according to the {{ GP }} documentation.
 * [Change the host class](#change-resource-preset).
-* [Change the disk type and increase storage size](#change-disk-size).
+* [Change the disk type and increase the storage size](#change-disk-size).
 
 To move a cluster to a different availability zone, [restore it from a backup](cluster-backups.md#restore). While restoring the cluster, specify a new availability zone. You will thus move the cluster hosts.
 
@@ -180,7 +180,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To сhange the public access setting {{ GP }}:
+  To change the public access setting {{ GP }}:
 
   1. View the description of the CLI command to update the cluster configuration:
 
@@ -294,7 +294,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Change additional cluster settings:
 
@@ -311,7 +311,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-            {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Enables [hybrid storage](../concepts/hybrid-storage.md).
 
@@ -343,7 +343,7 @@ If you enabled public access to the cluster but cannot access it from the inter
         {{ yc-mdb-gp }} cluster update --help
         ```
 
-    1. Run the following command with a list of settings to update:
+    1. Run the following command with the list of settings to update:
 
         
         ```bash
@@ -377,7 +377,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -389,7 +389,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
 
-    1. In the {{ mgp-name }} cluster description, edit the required additional settings:
+    1. In the {{ mgp-name }} cluster description, change the values of the required additional settings:
 
         
         ```hcl
@@ -410,7 +410,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             yandex_query = <access_from_Yandex_Query>
           }
 
-          deletion_protection = <deletion_protection>
+          deletion_protection = <cluster_deletion_protection>
 
           cloud_storage {
             enable = <hybrid_storage_use>
@@ -446,7 +446,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 
 
-        * `deletion_protection`: Protection of the cluster, its databases, and users against deletion, `true` or `false` value.
+        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -556,9 +556,9 @@ If you enabled public access to the cluster but cannot access it from the inter
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Hour of day (UTC), from `1` to `24`.
 
-        * `deletionProtection`: Cluster deletion protection, `true` or `false`.
+        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `configSpec.pool`: [Connection pooler](../concepts/pooling.md) settings:
 
@@ -684,9 +684,9 @@ If you enabled public access to the cluster but cannot access it from the inter
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Hour of day (UTC), from `1` to `24`.
 
-        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
-            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         * `config_spec.pool`: [Connection pooler](../concepts/pooling.md) settings:
 
@@ -731,7 +731,7 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.greenplum.section_background-activities }}**, change the parameters:
 
@@ -856,7 +856,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Change the [{{ GP }}](../concepts/settings-list.md) settings by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
@@ -1040,7 +1040,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for {{ GP }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -1227,7 +1227,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 {% endlist %}
 
-## Increasing storage size {#change-disk-size}
+## Change the disk type and increase the storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -1239,7 +1239,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
@@ -1278,7 +1278,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
         For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
 
-    1. In the {{ mgp-name }} cluster description, edit the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
+    1. In the {{ mgp-name }} cluster description, change the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {

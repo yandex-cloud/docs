@@ -12,6 +12,15 @@ To set up data delivery from {{ mkf-name }} to ksqlDB:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) cluster in any suitable configuration.
@@ -90,7 +99,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Review the format of the data coming from {{ mkf-name }} {#explore-kf-data-format}
 
-Processing data streams from {{ mkf-name }} depends on the data representation format in {{ KF }} messages.
+The processing of the {{ mkf-name }} data stream depends on the {{ KF }} message view format.
 
 In the example, geodata is written to the `locations` {{ KF }} topic in JSON format:
 

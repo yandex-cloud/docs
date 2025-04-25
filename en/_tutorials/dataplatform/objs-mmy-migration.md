@@ -6,8 +6,8 @@ With {{ data-transfer-name }}, you can transfer data from an {{ objstorage-name 
 To transfer data:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -19,6 +19,7 @@ The support cost includes:
 * {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -56,16 +57,16 @@ Set up your infrastructure:
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
-        * Service account for creating and accessing the bucket.
-        * {{ lockbox-name }} secret with the static key of the service account for configuring the source endpoint.
-        * {{ objstorage-name }} source bucket.
+        * Service account for creating and accessing the bucket
+        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
+        * Source {{ objstorage-name }} bucket.
         * {{ mmy-name }} target cluster.
         * Target endpoint.
         * Transfer.
 
     1. Specify the following in the `data-transfer-objs-mmy.tf` file:
 
-        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you will create the resources.
+        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the resources in.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `mmy_password`: {{ MY }} user password.
 
@@ -87,7 +88,7 @@ Set up your infrastructure:
 
 ## Prepare the test data {#prepare-data}
 
-1. Create a `data.csv` text file on the running instance and fill it with test data. As an example, we will use the readings returned by car sensors:
+1. Create a `data.csv` text file on the running instance and fill it with test data. As an example, we will use readings returned by car sensors:
 
     ```csv
     1;99101;2022-06-05 17:27:00;55.70329032;37.65472196;427.5;52.3;23.5;17.;52.
@@ -96,9 +97,9 @@ Set up your infrastructure:
     4;99101;2022-06-07 08:15:32;55.29194467;37.66542005;429.13;59.1;21.;18.;20.
     ```
 
-1. [Upload](../../storage/operations/objects/upload.md#simple) the file to the previously created {{ objstorage-name }} bucket.
+1. [Upload](../../storage/operations/objects/upload.md#simple) the file to the {{ objstorage-name }} bucket you created earlier.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
@@ -111,7 +112,7 @@ Set up your infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}**: Semicolon (`;`).
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}**: `measurements`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageResultTable.add_system_cols.title }}**: Disable the option.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageResultTable.add_system_cols.title }}**: Disable this option.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` and specify field names and data types:
 
         * `id`: `INT64`, **Key** property
@@ -132,9 +133,9 @@ Set up your infrastructure:
         * `cabin_temperature`: `DOUBLE`
         * `fuel_level`: `DOUBLE`
 
-    For the other properties, leave the default values.
+    Leave the default values for the other properties.
 
-1. Create an endpoint for the target and the transfer:
+1. Create an endpoint for the target and transfer:
 
     {% list tabs group=resources %}
 
@@ -150,7 +151,7 @@ Set up your infrastructure:
 
                    Select a source cluster from the list and specify its connection settings.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
     - {{ TF }} {#tf}
@@ -178,9 +179,9 @@ Set up your infrastructure:
 
 ## Test your transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. [Connect to the {{ mmy-name }} target cluster database](../../managed-mysql/operations/connect.md).
-1. To make sure the data was successfully transferred, run the following query:
+1. To make sure the data was successfully transferred, run this request:
 
     ```sql
     SELECT * FROM db1.measurements;
@@ -209,7 +210,7 @@ Set up your infrastructure:
     ```
 
 1. Upload the file to the {{ objstorage-name }} bucket for transfer.
-1. Make sure the new data is added to the `db1.measurements` table of the {{ MY }} target database.
+1. Make sure the new data has been added to the `db1.measurements` table of the {{ MY }} target database.
 
 ## Delete the resources you created {#clear-out}
 
@@ -233,7 +234,7 @@ Delete the other resources depending on how they were created:
     1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
     1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
     1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
-    1. If you had created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+    1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 

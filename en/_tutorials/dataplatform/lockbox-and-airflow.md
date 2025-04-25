@@ -13,6 +13,18 @@ To use configuration data from a {{ lockbox-name }} secret in the graph:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Computing resources and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ maf-name }} cluster fee: Computing resources and disk space (see [{{ AF }} pricing](../../managed-airflow/pricing.md)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for using a {{ lockbox-name }} secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Set up your infrastructure {#create-infrastracture}
 
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:

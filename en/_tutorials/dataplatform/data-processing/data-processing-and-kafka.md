@@ -9,6 +9,17 @@ To configure integration between {{ mkf-name }} and {{ dataproc-name }} clusters
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* {{ dataproc-name }} cluster fee (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* NAT gateway fee (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+
+
 ## Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}

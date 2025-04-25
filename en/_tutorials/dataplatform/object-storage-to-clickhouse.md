@@ -9,11 +9,11 @@ The functionality for loading data from {{ objstorage-name }} in {{ data-transfe
 {% endnote %}
 
 
-You can migrate data from {{ objstorage-full-name }} to the {{ mch-name }} table using {{ data-transfer-name }}. Proceed as follows:
+You can migrate data from {{ objstorage-full-name }} to the {{ mch-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -25,6 +25,7 @@ The support cost includes:
 * {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }}pricin](../../data-transfer/pricing.md) g).
 
 
 ## Getting started {#before-you-begin}
@@ -67,10 +68,10 @@ Set up your infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) required to connect to the cluster.
-        * Service account for creating and accessing the bucket.
-        * {{ lockbox-name }} secret with the static key of the service account for configuring the source endpoint.
-        * {{ objstorage-name }} source bucket.
+        * [Security group](../../vpc/concepts/security-groups.md) required to connect to a cluster.
+        * Service account for creating and accessing the bucket
+        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
+        * Source {{ objstorage-name }} bucket.
         * {{ mch-name }} target cluster.
         * Target endpoint.
         * Transfer.
@@ -120,14 +121,14 @@ Set up your infrastructure:
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data1.csv` file to the {{ objstorage-name }} bucket.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with these settings:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account’s static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
@@ -138,7 +139,7 @@ Set up your infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    For the other properties, leave the default values.
+    Leave the default values for the other properties.
 
 1. Create a target endpoint and transfer:
 
@@ -154,13 +155,13 @@ Set up your infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}**: `user1`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: `<user_password>`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
 
-        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - Using {{ TF }} {#tf}
 
-        1. In the `object-storage-to-clickhouse.tf` file, specify the following parameters:
+        1. In the `object-storage-to-clickhouse.tf` file, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
@@ -181,7 +182,7 @@ Set up your infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Check the transfer performance by testing the copy and replication processes.
 
@@ -249,9 +250,9 @@ Before deleting the resources you created, [deactivate the transfer](../../data-
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* [Transfer](../../data-transfer/operations/transfer.md#delete).
-* [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-* [Objects](../../storage/operations/objects/delete.md) from the bucket.
+* [Transfer](../../data-transfer/operations/transfer.md#delete)
+* [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete)
+* [Objects](../../storage/operations/objects/delete.md) from the bucket
 * Delete the other resources depending on how they were created:
 
     {% list tabs group=instructions %}

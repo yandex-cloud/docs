@@ -9,6 +9,15 @@ To get to know the REST API for {{ mkf-msr }} and {{ KF }}:
 1. [Get messages from a topic](#receive-messages).
 1. [Delete the resources you created](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* Fee for using public IP addresses (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
@@ -238,7 +247,7 @@ Create the relevant data format schemas:
 
     The response to the request contains data format schema IDs (`id`). These IDs will be used later.
 
-    {% cut "Example of response to query" %}
+    {% cut "Sample response" %}
 
      For brevity, the data format schema named `schema` in the form of JSON strings is not provided.
 

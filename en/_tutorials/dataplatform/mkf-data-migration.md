@@ -17,6 +17,15 @@ Both methods are also suitable for [migrating](../../managed-kafka/operations/ho
 1. [Create a connector](#create-cluster-connector).
 1. [Check the target cluster topic for data](#check-data-mkf-connector).
 
+
+## Required paid resources {#paid-resources-connector}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ### Create a cluster and a connector {#create-cluster-connector}
 
 {% list tabs group=instructions %}
@@ -75,7 +84,7 @@ Both methods are also suitable for [migrating](../../managed-kafka/operations/ho
         * Filter template for the topics to be transferred.
         * {{ KF }} version.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -104,6 +113,16 @@ Once created, the connector is automatically activated and data migration begins
 1. [Check the target cluster topic for data](#check-data-mkf).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources-mirrormaker}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee: using computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
 
 ### Getting started {#before-you-begin}
 
@@ -143,9 +162,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * {{ KF }} version.
         * {{ KF }} admin user password.
         * ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with Ubuntu and no GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
+        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image that is currently used. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -286,9 +305,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Topic names in the target cluster are the same as in the source.
    * `<R>` is [the parameter that sets the replication factor for MirrorMaker service topics](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor). The value of this parameter should not exceed the smaller of the number of brokers in the source cluster or the number of brokers in the target cluster.
    * `<M>` is [the default replication factor](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) defined for topics in the target cluster.
-   * `<T>` is the number of concurrent MirrorMaker processes. To distribute replication load evenly, we recommend a value of at least `2`. For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#georeplication-config-syntax).
+   * `<T>` is the number of concurrent MirrorMaker processes. To distribute replication load evenly, we recommend a value of at least `2`. For more information, see the relevant [{{ KF }} documentation](https://kafka.apache.org/documentation/#georeplication-config-syntax).
 
-   You can request {{ mkf-name }} broker FQDNs with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
+   You can request {{ mkf-name }} broker FQDNs with the [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
 
 ### Start replication {#replication-start}
 

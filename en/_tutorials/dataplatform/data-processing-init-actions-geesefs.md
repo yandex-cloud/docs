@@ -11,11 +11,22 @@ To set up GeeseFS:
 1. [Create a cluster that uses the initialization action](#create-cluster).
 1. [Check bucket availability](#check-availability).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ dataproc-name }} cluster fee (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* NAT gateway fee (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -23,11 +34,11 @@ Prepare the infrastructure:
 
   1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
-  1. [Create](../../storage/operations/buckets/create.md) an {{ objstorage-name }} bucket.
+  1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
 
-  1. Grant the service account read access to the bucket. For this, use one of the following methods:
+  1. Grant the service account read access to the bucket. To do this, use one of the following methods:
 
-      * [Set up the bucket's ACL](../../storage/operations/buckets/edit-acl.md) and grant the `READ` access to the service account.
+      * [Set up the bucket's ACL](../../storage/operations/buckets/edit-acl.md) and grant `READ` access to the service account.
 
           The service account will get read access only to the specified bucket.
 
@@ -48,17 +59,17 @@ Prepare the infrastructure:
 
       This file describes:
 
-      * [Network](../../vpc/concepts/network.md#network)
-      * [Subnet](../../vpc/concepts/network.md#subnet)
-      * [Route table](../../vpc/concepts/routing.md#rt-vpc)
-      * [NAT gateway](../../vpc/concepts/gateways.md)
-      * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ dataproc-name }} cluster
-      * [Service account](../../iam/concepts/users/service-accounts.md) with the roles required to work with the {{ objstorage-name }} bucket and {{ dataproc-name }} cluster
-      * [Static key](../../iam/concepts/authorization/access-key.md) for the service account to manage the {{ objstorage-name }} bucket
-      * [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md)
-      * [{{ dataproc-name }} cluster](../../data-proc/concepts/index.md)
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
+      * [Route table](../../vpc/concepts/routing.md#rt-vpc).
+      * [NAT gateway](../../vpc/concepts/gateways.md).
+      * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ dataproc-name }} cluster.
+      * [Service account](../../iam/concepts/users/service-accounts.md) with the roles required to work with the {{ objstorage-name }} bucket and {{ dataproc-name }} cluster.
+      * [Static key](../../iam/concepts/authorization/access-key.md) for the service account to manage the {{ objstorage-name }} bucket.
+      * [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md).
+      * [{{ dataproc-name }} cluster](../../data-proc/concepts/index.md).
 
-  1. In the `data-processing-init-actions-geesefs.tf` file, specify the following parameters:
+  1. In the `data-processing-init-actions-geesefs.tf` file, specify the following settings:
 
       * `dp_network_name`: Name of the network for your {{ dataproc-name }} cluster.
       * `dp_subnet_name`: Name of the subnet for your {{ dataproc-name }} cluster.
@@ -67,9 +78,9 @@ Prepare the infrastructure:
       * `dp_sa_name`: Name of the service account for your {{ dataproc-name }} cluster and {{ objstorage-name }} bucket.
       * `dp_bucket_name`: {{ objstorage-name }} bucket name.
       * `dataproc_name`: {{ dataproc-name }} cluster name.
-      * `ssh-path`: Path to the file of the public SSH key for your {{ dataproc-name }} cluster.
+      * `ssh-path`: Path to the public SSH key file for your {{ dataproc-name }} cluster.
 
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -87,7 +98,7 @@ Prepare the infrastructure:
 
 ## Prepare the initialization action {#prepare-init-scripts}
 
-1. Create the initialization action file named `geesefs_mount.sh` accepting two positional arguments: the name of the {{ objstorage-name }} bucket and the host's file system directory where you are going to mount it.
+1. Create the initialization action file named `geesefs_mount.sh` taking two positional arguments: the name of the {{ objstorage-name }} bucket and the host's file system directory where you are going to mount it.
 
     ```bash
     #!/bin/bash
@@ -114,7 +125,7 @@ Prepare the infrastructure:
 
 1. [Upload](../../storage/operations/objects/upload.md) the `geesefs_mount.sh` file to the previously created {{ objstorage-name }} bucket.
 
-## Create a cluster that would use the initialization action {#create-cluster}
+## Create a cluster that will use the initialization action {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -132,7 +143,7 @@ Prepare the infrastructure:
           s3a://<bucket_name>/geesefs_mount.sh
           ```
 
-      * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** field, specify the name of the [previously created](#before-you-begin) bucket and `/mnt/test` as your mount point. Arguments are specified on separate lines:
+      * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** field, specify the name of the [previously created](#before-you-begin) bucket and `/mnt/test` as your mount point. Specify arguments on separate lines:
 
           ```text
           <bucket_name>
@@ -147,7 +158,7 @@ Prepare the infrastructure:
 
   1. In the `data-processing-init-actions-geesefs.tf` file, set the value for this variable as follows: `create_cluster` = `1`.
 
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -165,15 +176,15 @@ Prepare the infrastructure:
 
 ## Check {#check-availability} bucket availability.
 
-1. After the cluster status changes to **Alive**, [connect](../../data-proc/operations/connect.md#data-proc-ssh) via SSH to any of its hosts as the `ubuntu` user.
+1. After the cluster status changes to **Alive**, [connect](../../data-proc/operations/connect.md#data-proc-ssh) over SSH to any of its hosts as the `ubuntu` user.
 
-1. To make sure that the bucket has been mounted successfully, run the command:
+1. To make sure the bucket has been mounted successfully, run this command:
 
     ```bash
     ls /mnt/test
     ```
 
-    As a result, it will output the list of objects stored in the root folder of the bucket. In this case, the file name `geesefs_mount.sh`.
+    It will output the list of objects stored in the bucket’s root folder. In this case, the name of the `geesefs_mount.sh` file.
 
 ## Delete the resources you created {#clear-out}
 
@@ -191,12 +202,12 @@ Delete the resources you no longer need to avoid paying for them:
 
   1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
   1. If you used static public IP addresses to access the cluster hosts, release and [delete them](../../vpc/operations/address-delete.md).
-  1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
+  1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
   1. [Delete the service account](../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 
-  1. In the terminal, go to the working directory with the `data-processing-init-actions-geesefs.tf` configuration file.
+  1. In the terminal, navigate to the working directory with the `data-processing-init-actions-geesefs.tf` configuration file.
   1. Delete the resources using this command:
 
       ```bash
@@ -205,6 +216,6 @@ Delete the resources you no longer need to avoid paying for them:
 
   1. Type `yes` and press **Enter**.
 
-      All the resources described in the `data-processing-init-actions-geesefs.tf` configuration file will be deleted.
+      This will delete all resources described in the `data-processing-init-actions-geesefs.tf` configuration file.
 
 {% endlist %}

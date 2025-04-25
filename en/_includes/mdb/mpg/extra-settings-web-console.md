@@ -40,7 +40,7 @@
 
 - **{{ ui-key.yacloud.postgresql.cluster.additional-field-pooling_mode }}**: Select one of the [connection pooler modes](../../../managed-postgresql/concepts/pooling.md).
 
-- {% include [Deletion protection](../console/deletion-protection.md) %}
+- **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Protection of the cluster, its databases, and users against deletion.
 
     By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](../../../managed-postgresql/operations/cluster-users.md) and [Database management](../../../managed-postgresql/operations/databases.md) sections.
     

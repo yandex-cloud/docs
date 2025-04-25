@@ -9,7 +9,7 @@ The functionality for loading data from {{ objstorage-name }} in {{ data-transfe
 {% endnote %}
 
 
-You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. Proceed as follows:
+You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
 1. [Set up your transfer](#prepare-transfer).
@@ -25,6 +25,7 @@ The support cost includes:
 * {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -65,9 +66,9 @@ Set up your infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) required to connect to the cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) required to connect to a cluster.
         * Service account for creating and accessing the bucket.
-        * {{ lockbox-name }} secret with the static key of the service account for configuring the source endpoint.
+        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
         * {{ objstorage-name }} source bucket.
         * {{ mpg-name }} target cluster.
         * Target endpoint.
@@ -127,7 +128,7 @@ Set up your infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    For the other properties, leave the default values.
+    Leave the default values for the other properties.
 
 1. Create a target endpoint and transfer:
 

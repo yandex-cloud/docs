@@ -7,8 +7,8 @@ To run data delivery:
 
 1. [Prepare the test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -18,6 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 * {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
 * Fee for using public IP addresses:
     * For {{ mos-name }} cluster hosts.
@@ -170,7 +171,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
 1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
@@ -260,8 +261,8 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
-        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
 
@@ -287,7 +288,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mos-name }} cluster:
 

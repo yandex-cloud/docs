@@ -32,7 +32,7 @@ To link your service account to a {{ mos-name }} cluster, [make sure](../../iam/
 
 {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
-For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 {% list tabs group=instructions %}
 
@@ -40,9 +40,9 @@ For more information about setting up service accounts, see [Configuring access 
 
     To change a service account linked to a {{ mos-name }} cluster:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -60,7 +60,7 @@ For more information about setting up service accounts, see [Configuring access 
 
     You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+    For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 - {{ TF }} {#tf}
 
@@ -79,7 +79,7 @@ For more information about setting up service accounts, see [Configuring access 
         }
         ```
 
-        For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+        For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
     1. Make sure the settings are correct.
 
@@ -95,7 +95,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -119,7 +119,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         * `serviceAccountId`: ID of the service account used for cluster operations.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -130,7 +130,7 @@ For more information about setting up service accounts, see [Configuring access 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -162,7 +162,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         * `service_account_id`: ID of the service account used for cluster operations.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -175,7 +175,7 @@ For more information about setting up service accounts, see [Configuring access 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. In the **{{ ui-key.yacloud.mdb.forms.database_field_admin-password }}** field, enter a new password.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -235,7 +235,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -261,7 +261,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         * `configSpec.adminPassword`: New password for the `admin` user.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -272,7 +272,7 @@ For more information about setting up service accounts, see [Configuring access 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -306,7 +306,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         * `config_spec.admin_password`: New password for the `admin` user.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -335,9 +335,9 @@ For more information about setting up service accounts, see [Configuring access 
 
     Command settings:
 
-    * `--max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see the [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
-    * `--fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings) documentation.
-    * `--reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value in `<host_address>:<port>` format. If you need to specify more than one host, list values separated by commas. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+    * `--max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see the relevant [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
+    * `--fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the relevant [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings) documentation.
+    * `--reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value in `<host_address>:<port>` format. If you need to specify more than one host, list values separated by commas. For more information, see the relevant [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
 
 - REST API {#api}
 
@@ -345,7 +345,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -374,13 +374,13 @@ For more information about setting up service accounts, see [Configuring access 
         * `updateMask`: List of parameters to update as a single string, separated by commas.
         * `configSpec.opensearchSpec.opensearchConfig_2`: {{ OS }} settings:
 
-            * `maxClauseCount`: New maximum allowed number of boolean clauses. For more information, see the [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
+            * `maxClauseCount`: New maximum allowed number of boolean clauses. For more information, see the relevant [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
 
-            * `fielddataCacheSize`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
+            * `fielddataCacheSize`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the relevant [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
 
-            * `reindexRemoteWhitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify the [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+            * `reindexRemoteWhitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the relevant [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -391,7 +391,7 @@ For more information about setting up service accounts, see [Configuring access 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -433,13 +433,13 @@ For more information about setting up service accounts, see [Configuring access 
 
         * `config_spec.opensearch_spec.opensearch_config_2`: {{ OS }} settings:
 
-            * `max_clause_count`: New maximum allowed number of boolean clauses. For more information, see the [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
+            * `max_clause_count`: New maximum allowed number of boolean clauses. For more information, see the relevant [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
 
-            * `fielddata_cache_size`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
+            * `fielddata_cache_size`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the relevant [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
 
-            * `reindex_remote_whitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify the [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+            * `reindex_remote_whitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the relevant [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -451,7 +451,7 @@ For more information about setting up service accounts, see [Configuring access 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Change additional cluster settings:
 
@@ -462,7 +462,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-            {% include [Deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+            Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -495,9 +495,9 @@ For more information about setting up service accounts, see [Configuring access 
 
             Possible `weekday` values: `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`. In the `hour` parameter, specify the maintenance completion time. For example, if you set `14`, maintenance will take place from 13:00 until 14:00 UTC.
 
-    * `--delete-protection`: Cluster protection from accidental deletion by a user.
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
 
     * `--serverless-access`: Access from [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), `true` or `false`.
@@ -536,9 +536,9 @@ For more information about setting up service accounts, see [Configuring access 
         }
         ```
 
-        Where `deletion_protection` means cluster deletion protection.
+        Where `deletion_protection` is the protection against accidental cluster deletion.
 
-        {% include [Deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
     1. Make sure the settings are correct.
 
@@ -554,7 +554,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -573,7 +573,7 @@ For more information about setting up service accounts, see [Configuring access 
                                 "serverless": <access_from_Serverless_Containers:_true_or_false>
                             }
                         },
-                        "deletionProtection": <deletion_protection:_true_or_false>,
+                        "deletionProtection": <cluster_deletion_protection:_true_or_false>,
                         "maintenanceWindow": {
                             "weeklyMaintenanceWindow": {
                                 "day": "<day_of_week>",
@@ -595,16 +595,16 @@ For more information about setting up service accounts, see [Configuring access 
             * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 
 
-        * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+        * `deletionProtection`: Cluster protection from accidental deletion.
 
-            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
         * `maintenanceWindow.weeklyMaintenanceWindow`: Maintenance window schedule:
 
             * `day`: Day of week, in `DDD` format, for scheduled maintenance.
             * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`. Use the UTC time zone.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -615,7 +615,7 @@ For more information about setting up service accounts, see [Configuring access 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -642,7 +642,7 @@ For more information about setting up service accounts, see [Configuring access 
                             "serverless": <access_from_Serverless_Containers:_true_or_false>
                         }
                     },
-                    "deletion_protection": <deletion_protection:_true_or_false>,
+                    "deletion_protection": <cluster_deletion_protection:_true_or_false>,
                     "maintenance_window": {
                         "weekly_maintenance_window": {
                             "day": "<day_of_week>",
@@ -668,16 +668,16 @@ For more information about setting up service accounts, see [Configuring access 
             * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 
 
-        * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
+        * `deletion_protection`: Cluster protection from accidental deletion.
 
-            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
         * `maintenance_window.weekly_maintenance_window`: Maintenance window schedule:
 
             * `day`: Day of week, in `DDD` format, for scheduled maintenance.
             * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`. Use the UTC time zone.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -692,7 +692,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -743,7 +743,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -772,7 +772,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
         * `securityGroupIds`: Security group IDs.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -783,7 +783,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -820,7 +820,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
         * `security_group_ids`: Security group IDs.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

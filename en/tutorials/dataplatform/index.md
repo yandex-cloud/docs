@@ -37,6 +37,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](using-python-sdk-in-airflow.md)
 * [{#T}](airflow-test-smtp-notification.md)
 
+
 ## {{ CH }} {#clickhouse}
 
 * [{#T}](insert-data-ch.md)
@@ -138,7 +139,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](mpg-to-yds.md)
 * [{#T}](rds-to-mpg.md)
 * [{#T}](postgresql-to-opensearch.md)
-
+* [{#T}](postgresql-glibc-collation-issues.md)
 
 ## {{ VLK }} {#redis}
 
