@@ -26,6 +26,18 @@ meta:
   description: >-
     Сервис Yandex Data Transfer предназначен для логического переноса данных
     между источниками и приемниками.
+  keywords:
+    - keyword: '{{ data-transfer-name }}'
+    - keyword: '{{ data-transfer-full-name }}'
+    - keyword: сервис {{ data-transfer-name }}
+    - keyword: перенос данных в {{ yandex-cloud }}
+    - keyword: перенос баз данных в {{ yandex-cloud }}
+    - keyword: миграция в {{ yandex-cloud }}
+    - keyword: трансфер в {{ yandex-cloud }}
+    - keyword: перенос данных
+    - keyword: перенос баз данных
+    - keyword: миграция баз данных
+    - keyword: трансфер данных
 links:
   - title: Доступные трансферы
     description: Список поддерживаемых типов трансферов

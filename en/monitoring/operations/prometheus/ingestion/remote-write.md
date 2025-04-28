@@ -1,11 +1,11 @@
 ---
-title: "How to write\_metrics via the Remote API"
-description: "Use this guide to write\_metrics via the Remote API."
+title: How to write metrics via the Remote API
+description: Follow this guide to write metrics via the Remote API.
 ---
 
 # Writing metrics via the Remote API
 
-To set up metric writes via the Remote API with Prometheus used as an agent for collecting metrics:
+To set up metric writing via the Remote API with Prometheus used as an agent for collecting metrics:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to store data.
 1. [Create a service account](../../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-editor }}` role for the selected folder.
@@ -17,13 +17,13 @@ To set up metric writes via the Remote API with Prometheus used as an agent for 
      ...
      - url: 'https://{{ api-host-monitoring-1 }}/prometheus/workspaces/<workspace_ID>/api/v1/write'
        bearer_token_file: '<name_of_file_with_API_key>'
-       # Or the key itself (not recommended):
+       # Alternatively, you can add the key itself (not recommended):
        # bearer_token: '<API_key>'
        queue_config:
-           max_samples_per_send: 2000 # 10,000 if using vmagent
+           max_samples_per_send: 2000 # 10,000 if using `vmagent`
            min_backoff: 100ms
            max_backoff: 15s
-           # for Prometheus version 2.26 or higher
+           # For Prometheus 2.26 or higher
            # retry_on_http_429: true
        metadata_config:
            send: false
@@ -40,30 +40,30 @@ To set up metric writes via the Remote API with Prometheus used as an agent for 
 | `403` | No write permissions. Make sure the service account has the `{{ roles-monitoring-editor }}` role for the selected folder.| `ts=2024-04-05T17:10:47.706Z caller=dedupe.go:112 component=remote level=error remote_name=a9c26f`<br/>`url=https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/write`<br/>`msg="non-recoverable error" count=205 exemplarCount=0 err="server returned HTTP status 403 Forbidden:`<br/>`{\"error\":\"PERMISSION_DENIED: Permission denied\",\"errorType\":\"\",\"status\":\"error\"}"` |
 | `413` | [Number of unique metrics](../index.md#limits) quota exceeded. | `ts=2024-04-05T16:48:16.002Z caller=dedupe.go:112 component=remote level=error remote_name=37b6df`<br/>`url=https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/write`<br/>`msg="non-recoverable error" count=205 exemplarCount=0 err="server returned HTTP status 413 Request Entity Too Large:`<br/>`{\"status\":\"error\",\"errorType\":\"execution\",\"error\":\"more than 1000000 metrics in shard\"}`| 
 | `413` | [Number of metrics per write request](../index.md#limits) quota exceeded. | `ts=2024-04-05T17:39:29.102Z caller=dedupe.go:112 component=remote level=error remote_name=37b6df`<br/>`url=https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/write`<br/>`msg="non-recoverable error" count=10001 exemplarCount=0 err="server returned HTTP status 413 Request Entity Too Large:`<br/>`{\"status\":\"error\",\"errorType\":\"execution\",\"error\":\"more than 10000 metrics from one URL\"}` |
-| `429` | [Maximum data write speed in Remote Write format](../index.md#limits) quota exceeded. If the `retry_on_http_429` option is enabled, the data will be resent automatically and the load will be distributed over time. If the error persists, contact [support]({{ link-console-support }}). | `ts=2024-04-06T14:31:01.113Z caller=dedupe.go:112 component=remote level=error remote_name=37b6df`<br/>`url=https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/write`<br/>`msg="Failed to send batch, retrying" count=205 exemplarCount=0 err="server returned HTTP status 429 Too Many Requests:`<br/>`{\"status\":\"error\",\"errorType\":\"execution\",\"error\":\"too many requests (bytes/sec)\"}` |
+| `429` | [Maximum data write speed in Remote Write format](../index.md#limits) quota exceeded. If `retry_on_http_429` is enabled, the data will be resent automatically and the load will be distributed over time. If the error persists, contact [support]({{ link-console-support }}). | `ts=2024-04-06T14:31:01.113Z caller=dedupe.go:112 component=remote level=error remote_name=37b6df`<br/>`url=https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/write`<br/>`msg="Failed to send batch, retrying" count=205 exemplarCount=0 err="server returned HTTP status 429 Too Many Requests:`<br/>`{\"status\":\"error\",\"errorType\":\"execution\",\"error\":\"too many requests (bytes/sec)\"}` |
 | `400` | Invalid Remote Write data format. | `ts=2024-04-07T13:42:10.543Z caller=dedupe.go:112 component=remote level=error remote_name=37b6df`<br/>`url=https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/write`<br/>`msg="non-recoverable error" count=499 exemplarCount=0 err="server returned HTTP status 400 Bad Request:`<br/>`{\"status\":\"error\",\"errorType\":\"bad_data\",\"error\":\"unrecognized remote write format (some headers are missing?): monb1piptmdo********\"}` |
 
 ## {{ prometheus-name }} metrics {#metrics}
 
 | Metric name | Units | Comment |
 |----|----|----|
-`prometheus_remote_storage_sent_batch_duration_seconds` | Seconds | Write request execution time histogram.
-`prometheus_remote_storage_highest_timestamp_in_seconds`  | Seconds | The last timestamp written to WAL.
-`prometheus_remote_storage_queue_highest_sent_timestamp_seconds`  | Seconds | The last timestamp sent to remote storage.
-`prometheus_remote_storage_bytes_total`  | Bytes | Total number of bytes of data (not metadata) sent to remote storage after compression.
-`prometheus_remote_storage_enqueue_retries_total`  | Number | Total number of failed sample enqueue retries.
-`prometheus_remote_storage_max_samples_per_send`  | Number | Maximum number of samples sent per write request.
-`prometheus_remote_storage_samples_dropped_total`  | Number | Total number of samples read from the WAL but not sent to remote storage.
-`prometheus_remote_storage_samples_failed_total`  | Number | Total number of samples that failed to be sent to remote storage due to non-recoverable errors.
-`prometheus_remote_storage_samples_pending`  | Number | Number of pending samples to be sent to remote storage.
-`prometheus_remote_storage_samples_retried_total`  | Number | Total number of samples that failed to be sent to remote storage with their sending retried afterwards as the error was recoverable.
-`prometheus_remote_storage_samples_total`  | Number | Total number of samples sent to remote storage.
-`prometheus_remote_storage_shards`  | Number | Total number of shards used for sending samples to remote storage.
-`prometheus_remote_storage_shards_min`  | Number | Minimum number of shards available.
-`prometheus_remote_storage_shards_max`  | Number | Maximum number of shards available.
-`prometheus_remote_storage_shards_desired`  | Number | Result of calculating the optimal number of shards to process the total incoming samples.
-`prometheus_wal_watcher_current_segment`  | Number | Current WAL segment to read from.
-`prometheus_tsdb_wal_segment_current`  | Number | Current WAL segment to write new samples to.
+`prometheus_remote_storage_sent_batch_duration_seconds` | Seconds | Write request execution time histogram
+`prometheus_remote_storage_highest_timestamp_in_seconds`  | Seconds | Most recent timestamp written to the WAL
+`prometheus_remote_storage_queue_highest_sent_timestamp_seconds`  | Seconds | Most recent timestamp sent to remote storage
+`prometheus_remote_storage_bytes_total`  | Bytes | Total data bytes (non-metadata) sent to remote storage after compression
+`prometheus_remote_storage_enqueue_retries_total`  | Count | Total number of failed sample enqueue retries
+`prometheus_remote_storage_max_samples_per_send`  | Count | Maximum number of samples sent per write request
+`prometheus_remote_storage_samples_dropped_total`  | Count | Total samples read from the WAL but not sent to remote storage
+`prometheus_remote_storage_samples_failed_total`  | Count | Total samples that could not be sent to remote storage due to non-recoverable errors.
+`prometheus_remote_storage_samples_pending`  | Count | Number of pending samples to send to remote storage
+`prometheus_remote_storage_samples_retried_total`  | Count | Total samples that could not be sent to remote storage but were retried as the send error was recoverable.
+`prometheus_remote_storage_samples_total`  | Count | Total samples sent to remote storage
+`prometheus_remote_storage_shards`  | Count | Total shards used for sending samples to remote storage
+`prometheus_remote_storage_shards_min`  | Count | Minimum number of shards available
+`prometheus_remote_storage_shards_max`  | Count | Maximum number of shards available
+`prometheus_remote_storage_shards_desired`  | Count | Result of calculating the optimal number of shards to process the total incoming samples.
+`prometheus_wal_watcher_current_segment`  | Number | Current WAL read segment
+`prometheus_tsdb_wal_segment_current`  | Number | Current WAL write segment
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}
 

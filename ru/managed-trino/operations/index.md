@@ -1,7 +1,6 @@
 ---
 title: Инструкции по работе с {{ mtr-full-name }}
 description: Из статьи вы узнаете, как работать с {{ mtr-full-name }} в {{ yandex-cloud }}.
-noIndex: true
 ---
 
 # Пошаговые инструкции для {{ mtr-name }}

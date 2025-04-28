@@ -5,9 +5,9 @@ description: Follow this guide to deliver metrics from hosts outside {{ yandex-c
 
 # Delivering metrics from hosts outside {{ yandex-cloud }}
 
-To deliver metrics to {{ monitoring-full-name }} from hosts located outside {{ yandex-cloud }}:
+To deliver metrics to {{ monitoring-full-name }} from hosts outside {{ yandex-cloud }}:
 
-1. Create an authorized service account [key](../../../iam/concepts/authorization/key.md) to access the folder where the metrics will be delivered.
+1. Create an authorized service account [key](../../../iam/concepts/authorization/key.md) to access the folder that will receive metrics.
 
 1. [Install and configure {{ unified-agent-full-name }}](../../concepts/data-collection/unified-agent/installation.md) to collect and send metrics.
 
@@ -15,15 +15,15 @@ You can also use this method to send metrics from {{ yandex-cloud }} VMs without
 
 {% note warning %}
 
-System metrics can only be delivered from Linux hosts on the AMD platform. Windows and macOS support is planned for future {{ unified-agent-full-name }} releases.
+System metrics can only be delivered from Linux hosts on the AMD platform. Windows and macOS support is planned for upcoming {{ unified-agent-full-name }} releases.
 
 {% endnote %}
 
 ## Delivering metrics using an authorized key {#example}
 
-1. Set up a service account under which metrics will be written to {{ monitoring-full-name }} and create an authorized key.
+1. Set up a service account to use for writing metrics to {{ monitoring-full-name }} and create an authorized key.
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
+   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder for metric storage and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
    1. [Create an authorized key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for your new service account using [YC CLI](../../../cli/quickstart.md):
 
@@ -31,13 +31,13 @@ System metrics can only be delivered from Linux hosts on the AMD platform. Windo
        yc iam key create --service-account-id <service_account_ID> --output jwt_params.json
        ```
 
-       Where `--service-account-id` is the service account ID.
+       Where `--service-account-id` is the ID of the service account you created.
 
       You can find more ways to create authorized keys in [{#T}](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
 
-   1. Deliver the **jwt_params.json** file with the parameters of the authorized key to the host where {{ unified-agent-short-name }} will be installed.
+   1. Deliver the **jwt_params.json** file with the authorized key parameters to the host where {{ unified-agent-short-name }} will be installed.
 
-       Sample **jwt_params.json** file:
+       Example of `jwt_params.json`:
        ```json
        {
            "id": "ajt4yut8vb12********",
@@ -53,7 +53,7 @@ System metrics can only be delivered from Linux hosts on the AMD platform. Windo
 
    1. Install [Docker](https://docs.docker.com).
 
-   1. Create a file named **config.yml** in your home folder.
+   1. Create a file named **config.yml** in your home directory.
 
        **config.yml**:
        ```yaml
@@ -126,7 +126,7 @@ System metrics can only be delivered from Linux hosts on the AMD platform. Windo
        * `$FOLDER_ID`: ID of the folder you want to write metrics to.
        * `iam.jwt.file`: Path to the file with JWT parameters.
 
-   1. Install {{ unified-agent-short-name }} by running the following command in your home folder:
+   1. Install {{ unified-agent-short-name }} by running the following command in your home directory:
 
       ```bash
       docker run \
@@ -143,17 +143,17 @@ System metrics can only be delivered from Linux hosts on the AMD platform. Windo
 
        You can find more ways to install the agent in [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
-1. Make sure the metrics are delivered to {{ monitoring-full-name }}:
+1. Make sure {{ monitoring-full-name }} receives the metrics:
 
     1. On the {{ monitoring-full-name }} [home page]({{ link-monitoring }}), go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 
-    1. In the query block, select:
-      - Folder where metrics are collected.
+    1. In the query string, specify the following:
+      - Folder for storing collected metrics.
       - `service=custom` label value.
-      - Metric name starting with the `sys` prefix.
+      - Metric name prefixed with `sys`.
 
 #### What's next {#what-is-next}
 
-- Read about [{{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
+- [Read about {{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
 - [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
-- [Read the {{ unified-agent-short-name }} operating guidelines](../../concepts/data-collection/unified-agent/best-practices.md)
+- [Read best practices for using {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/best-practices.md)

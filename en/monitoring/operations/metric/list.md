@@ -4,7 +4,7 @@ To get a list of metrics that belong to a specific cloud and folder, use the [li
 
 {% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
-### Sample request {#sample-request}
+### Request example {#sample-request}
 
 Send the request and save the response to a file, e.g., `output.json`:
 
@@ -17,7 +17,7 @@ curl \
   --data-urlencode 'selectors={service="managed-clickhouse", resource_id="c9q5e2a9i24p********"}' > output.json
 ```
 
-Example response to a request to get a list of {{ mch-name }} service metrics for a resource:
+Here is an example of a response to a request that retrieves a list of {{ mch-name }} metrics for a resource:
 
 **output.json:**
 ```json
@@ -55,7 +55,7 @@ Example response to a request to get a list of {{ mch-name }} service metrics fo
 
 Where:
 
-* `resource_id`: Resource ID
-* `metrics`: List of metrics
+* `resource_id`: Resource ID.
+* `metrics`: List of metrics.
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

@@ -42,9 +42,7 @@ description: Следуя данной инструкции, вы сможете
   
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. Укажите идентификатор существующей [приватной подсети](../../concepts/network.md#private-subnet) или нажмите кнопку **{{ ui-key.yacloud.common.create }}** для создания новой.
-
-        Если у вас нет подсетей, нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.action-create-subnetwork }}** и создайте ее:
+     1. Выберите существующую [приватную подсеть](../../concepts/network.md#private-subnet) или нажмите кнопку **{{ ui-key.yacloud.common.create }}** для создания новой:
 
         * В открывшемся окне укажите имя и описание подсети.
         * Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
@@ -57,6 +55,14 @@ description: Следуя данной инструкции, вы сможете
   1. Если вы устанавливаете на сервер операционную систему из публичного образа в {{ marketplace-name }}, в блоке **{{ ui-key.yacloud.baremetal.title_server-access }}** задайте параметры доступа к серверу:
 
       {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
+
+  1. (Опционально) Включите резервное копирование сервера в [{{ backup-full-name }}](../../../backup/index.yaml):
+
+      1. Раскройте блок **{{ ui-key.yacloud.baremetal.title_section-backup }}**.
+      1. Выберите [политику резервного копирования](../../../backup/concepts/policy.md) или [создайте](../../../backup/operations/policy-vm/create.md) новую.
+      1. Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с ролями [baremetal.editor](../../security/index.md#baremetal-editor) и [backup.editor](../../../backup/security/index.md#backup-editor) или [создайте](../../../iam/operations/sa/create.md) новый.
+
+      Подробнее см. в инструкции [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
 
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
 

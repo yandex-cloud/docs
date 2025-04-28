@@ -4,6 +4,6 @@ description: Следуя данной инструкции, вы сможете
 canonical: '{{ link-docs }}/tutorials/archive/backup-baremetal'
 ---
 
-# Подключить сервер {{ baremetal-full-name }} к {{ backup-full-name }}
+# Подключить сервер {{ baremetal-full-name }} к {{ backup-name }}
 
 {% include notitle [backup-baremetal](../../../_tutorials/backup/backup-baremetal.md) %}

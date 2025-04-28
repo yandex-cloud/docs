@@ -1,8 +1,4 @@
-| Service                            | Cost per hour, without VAT |
-| -----------------------------------| ---------------------------|
-| Tests, up to 50 hours     | Free of charge             |
-| Tests, 50 hours or longer | $14.40                     |
-
-> For example, a total of 60 hours of tests will cost:
->
-> (50 * 0) + (10 * 14.40) = $144
+| Service                   | Cost per hour, without VAT |
+| ------------------------- | -------------------------- |
+| Tests, up to 50 hours     | {{ sku|USD|load_testing.test_execution.v1|string }} |
+| Tests, 50 hours or longer | {% calc [currency=USD] {{ sku|USD|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %} |

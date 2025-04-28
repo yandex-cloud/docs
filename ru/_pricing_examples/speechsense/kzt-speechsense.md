@@ -2,30 +2,30 @@
 
 **Стоимость распознавания**
 
-  > 3,00 × 100 000 + 1,80 × 15 000 = 327 000,00&nbsp;₸
+  > {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 %} × 100 000 + {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 %} × 15 000 = {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 %}
   >
-  > Итого: 327 000,00&nbsp;₸ — стоимость 115 000 минут распознавания двухканальных аудиофайлов.
+  > Итого: {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут распознавания двухканальных аудиофайлов.
   
   Где:
-  * 3,00&nbsp;₸ — стоимость распознавания минуты аудио для первых 100 000 минут.
-  * 1,80&nbsp;₸ — стоимость распознавания минуты аудио для последующих 15 000 минуты.
+  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 %} — стоимость распознавания минуты аудио для первых 100 000 минут.
+  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 %} — стоимость распознавания минуты аудио для последующих 15 000 минуты.
 
 **Стоимость аналитики**
 
-  > 6,90 × 100 000 + 5,10 × 15 000 = 766 500,00&nbsp;₸
+  > {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|number }} × 60 %} × 100 000 + {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 %} × 15 000 = {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %}
   >
-  > Итого: 766 500,00&nbsp;₸ — стоимость 115 000 минут аналитики двухканальных аудиофайлов.
+  > Итого: {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут аналитики двухканальных аудиофайлов.
   
   Где:
-  * 6,90&nbsp;₸ — стоимость анализа минуты аудио для первых 100 000 минут.
-  * 5,10&nbsp;₸ — стоимость анализа минуты аудио для последующих 15 000 минуты.
+  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|number }} × 60 %} — стоимость анализа минуты аудио для первых 100 000 минут.
+  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 %} — стоимость анализа минуты аудио для последующих 15 000 минуты.
 
 **Расчет итоговой стоимости** 
 
-  > 327 000,00 + 766 500,00 = 1 093 500,00&nbsp;₸
+  > {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 %} + {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %} = {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 + {{ sku|KZT|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %}
   >
-  > Итого: 1 093 500,00&nbsp;₸ — стоимость 115 000 минут использования сервиса {{ speechsense-name }}.
+  > Итого: {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 + {{ sku|KZT|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут использования сервиса {{ speechsense-name }}.
   
   Где:
-  * 327 000,00&nbsp;₸ — стоимость 115 000 минут распознавания двухканальных аудиофайлов.
-  * 766 500,00&nbsp;₸ — стоимость 115 000 минут аналитики двухканальных аудиофайлов.
+  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут распознавания двухканальных аудиофайлов.
+  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут аналитики двухканальных аудиофайлов.

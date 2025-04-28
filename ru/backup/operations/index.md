@@ -21,6 +21,7 @@ description: На странице представлен список поша�
 
 ## Управление серверами {{ baremetal-name }} в {{ backup-name }} {#connect-baremetal}
 
+* [{#T}](backup-baremetal/lease-server-with-backup.md)
 * [{#T}](backup-baremetal/backup-baremetal.md)
 * [{#T}](backup-baremetal/refresh-connection.md)
 * [{#T}](backup-baremetal/restore-agent.md)

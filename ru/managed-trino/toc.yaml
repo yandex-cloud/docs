@@ -1,7 +1,6 @@
 title: '{{ mtr-full-name }}'
 href: index.yaml
 stage: preview
-noIndex: true
 items:
   - name: Начало работы
     href: quickstart.md
@@ -29,3 +28,5 @@ items:
     href: security.md
   - name: Правила тарификации
     href: pricing.md
+  - name: История изменений
+    href: release-notes.md

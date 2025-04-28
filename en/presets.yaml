@@ -741,7 +741,7 @@ default:
   si-name: Serverless Integrations
   sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
-  sk-operations-host: api.cloud.yandex.net
+  sk-operations-host: operation.api.cloud.yandex.net
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
@@ -788,26 +788,26 @@ default:
   tf-docs-link: https://terraform-provider.yandexcloud.net
   tf-folder-id: b1gia87mbaomkfvsleds
   TF-full: Hashicorp Terraform
-  tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
-  tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
-  tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/DataSources
-  tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
-  tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
-  tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
-  tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/Resources/kubernetes_node_group
+  tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/resources/alb_backend_group
+  tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/resources/alb_target_group
+  tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/data-sources
+  tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/resources/datatransfer_endpoint
+  tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/resources/datatransfer_transfer
+  tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/resources/kubernetes_cluster
+  tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/resources/kubernetes_node_group
   tf-provider-link: https://terraform-provider.yandexcloud.net/
-  tf-provider-maf: https://terraform-provider.yandexcloud.net/Resources/airflow_cluster
-  tf-provider-mch: https://terraform-provider.yandexcloud.net/Resources/mdb_clickhouse_cluster
+  tf-provider-maf: https://terraform-provider.yandexcloud.net/resources/airflow_cluster
+  tf-provider-mch: https://terraform-provider.yandexcloud.net/resources/mdb_clickhouse_cluster
   tf-provider-mes: >-
-    https://terraform-provider.yandexcloud.net/Resources/mdb_elasticsearch_cluster
-  tf-provider-mgp: https://terraform-provider.yandexcloud.net/Resources/mdb_greenplum_cluster
-  tf-provider-mkf: https://terraform-provider.yandexcloud.net/Resources/mdb_kafka_cluster
-  tf-provider-mmg: https://terraform-provider.yandexcloud.net/Resources/mdb_mongodb_cluster
-  tf-provider-mmy: https://terraform-provider.yandexcloud.net/Resources/mdb_mysql_cluster
-  tf-provider-mos: https://terraform-provider.yandexcloud.net/Resources/mdb_opensearch_cluster
-  tf-provider-mpg: https://terraform-provider.yandexcloud.net/Resources/mdb_postgresql_cluster
-  tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
-  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
+    https://terraform-provider.yandexcloud.net/resources/mdb_elasticsearch_cluster
+  tf-provider-mgp: https://terraform-provider.yandexcloud.net/resources/mdb_greenplum_cluster
+  tf-provider-mkf: https://terraform-provider.yandexcloud.net/resources/mdb_kafka_cluster
+  tf-provider-mmg: https://terraform-provider.yandexcloud.net/resources/mdb_mongodb_cluster
+  tf-provider-mmy: https://terraform-provider.yandexcloud.net/resources/mdb_mysql_cluster
+  tf-provider-mos: https://terraform-provider.yandexcloud.net/resources/mdb_opensearch_cluster
+  tf-provider-mpg: https://terraform-provider.yandexcloud.net/resources/mdb_postgresql_cluster
+  tf-provider-mrd: https://terraform-provider.yandexcloud.net/resources/mdb_redis_cluster
+  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
   TF-version: '0.90'
   TR: Trino
   tracker-full-name: Yandex Tracker
@@ -1297,10 +1297,12 @@ default:
   sku|KZT|load_testing:
     storage:
       test_results:
+        v1|number: 0
         v1|pricingRate:
           2160000|number: 0.25
         v1|string: Free
     test_execution:
+      v1|number: 0
       v1|pricingRate:
         180000|number: 2.5
       v1|string: Free
@@ -2866,10 +2868,12 @@ default:
   sku|RUB|load_testing:
     storage:
       test_results:
+        v1|number: 0
         v1|pricingRate:
           2160000|number: 0.05
         v1|string: Free
     test_execution:
+      v1|number: 0
       v1|pricingRate:
         180000|number: 0.5
       v1|string: Free
@@ -4325,6 +4329,18 @@ default:
         hsm|month|string: $2.880000
         software|month|number: 0.02304
         software|month|string: $0.023040
+  sku|USD|load_testing:
+    storage:
+      test_results:
+        v1|number: 0
+        v1|pricingRate:
+          2160000|number: 0.0004
+        v1|string: Free
+    test_execution:
+      v1|number: 0
+      v1|pricingRate:
+        180000|number: 0.004
+      v1|string: Free
   sku|USD|lockbox:
     api:
       v1:
@@ -6486,9 +6502,11 @@ default:
         label_password-lockbox: Lockbox secret
         label_password-plain: New password
         label_public-ip-auto: Automatically
+        label_public-ip-ephemeral: Automatic
         label_public-ip-no: No address
         label_subnetworks: Private subnets
         title_routing-settings: IP addressing and routing
+        title_section-backup: Backup
         title_section-disk: Disk
         title_section-lease-conditions: Lease conditions
         title_section-server-config: Configuration
@@ -6753,7 +6771,6 @@ default:
         confirm: Confirm
         continue: Continue
         create: Create
-        create-new: Create new
         delete: Delete
         description: Description
         disable: Disable
@@ -6920,7 +6937,7 @@ default:
             label_delete: Delete
             popup_settings-submit: Save
         navigation-menu:
-          label_billing: Billing
+          label_billing: Yandex Cloud Billing
           label_load-balancer: Network Load Balancer
           label_managed-clickhouse: Managed Service for ClickHouse
           label_managed-kubernetes: Managed Service for Kubernetes
@@ -6940,11 +6957,10 @@ default:
         service-account-field:
           label_sg-from-list: From list
         service-account-select:
-          button_create-account-new: Create new account
           label_no-service-account: Not selected
         symmetric-key-select:
           button_create-key: Create key
-          button_create-key-new: Create new key
+          button_create-key-new: Create
           label_no-symmetric-key: Not selected
         vpc-security-group-select:
           label_add-security-group: Add security group
@@ -7394,6 +7410,7 @@ default:
         button_create-instance: Create instance
         button_finish-migration: Complete migration
         button_rollback-migration: Cancel migration
+        button_runners_empty-create: Create Runner
         button_setup-omniauth: Configure
         button_start-migration: Move instance
         field_admin-email: Email
@@ -7404,12 +7421,14 @@ default:
         field_domain: Domain
         label_additional-section: Advanced settings
         label_admin-section: Administrator data
+        label_autoscale-section: Autoscale settings
         label_configuration-section: Configuration
         label_instances-title: Instances list
         switch_instances: Instances
         title_backups: Backups
         title_migration: Migration
         title_omniauth: OmniAuth
+        title_runners: Runners
       gpu-cluster:
         action_create-cluster: Create a cluster
         field_name: Name
@@ -7614,8 +7633,6 @@ default:
             label_add-role: Add role
             overview:
               action_download-keys-file: Download file with keys
-              button_action-delete: Delete
-              button_action-delete-api-key: Delete
               button_create_api_key: Create API key
               button_create_key: Create authorized key
               button_create_service-account-key: Create static access key
@@ -7635,7 +7652,7 @@ default:
               popup-key_label_title: New key
               section_api_keys: API keys
               section_keys: Authorized keys
-              section_service-account-keys: Access keys
+              section_service-account-keys: Static access keys
             popup-robot_button_add: Create
             popup-robot_button_save: Save
             popup-robot_field_name: Name
@@ -10392,7 +10409,7 @@ default:
         external-ide-vm-configuration: VM configuration for remote connection
       filestore:
         create-filestore: Create filestore
-        mount-path-key-value: Name at connection
+        mount-path-key-value: Mount path
       import-ipynb:
         open-in-dataSphere: Run in Yandex DataSphere
       invite-link:
@@ -10940,7 +10957,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.6.0
+        tag: v0.6.1
     yc_gitlab-agent:
       helmChart:
         name: >-

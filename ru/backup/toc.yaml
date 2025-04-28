@@ -36,6 +36,10 @@ items:
             href: operations/delete-vm.md
       - name: '{{ baremetal-name }} в {{ backup-name }}'
         items:
+          - name: >-
+              Арендовать сервер {{ baremetal-name }} с подключением к {{
+              backup-name }}
+            href: operations/backup-baremetal/lease-server-with-backup.md
           - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
             href: operations/backup-baremetal/backup-baremetal.md
           - name: >-
