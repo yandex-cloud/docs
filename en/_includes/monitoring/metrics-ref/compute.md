@@ -1,4 +1,4 @@
-The name of the metric is written to the `name` label.
+The `name` label stores the metric name.
 
 All {{ compute-name }} metrics share the `service=compute` label.
 
@@ -62,13 +62,13 @@ instance | [VM](../../../compute/concepts/vm.md) name
 `filestore.read_bytes`<br>`RATE`, bytes per second | Average number of bytes read from the file storage
 `filestore.read_bytes_burst`<br>`DGAUGE`, bytes per second | Maximum number of bytes read from the file storage
 `filestore.read_errors`<br>`RATE`, operations per second | Number of failed reads from the file storage
-`filestore.read_latency`<br>`RATE`, milliseconds | Distribution histogram for file storage read request latency. Special `bin` label: Histogram buckets.
+`filestore.read_latency`<br>`RATE`, milliseconds | Distribution histogram for file storage read request latency. This metric features the `bin` special label containing histogram buckets.
 `filestore.read_ops`<br>`RATE`, operations per second | Average number of reads from the file storage
 `filestore.read_ops_burst`<br>`DGAUGE`, operations per second | Maximum number of reads from the file storage
 `filestore.write_bytes`<br>`RATE`, bytes per second | Average number of bytes written to the file storage
 `filestore.write_bytes_burst`<br>`DGAUGE`, bytes per second | Maximum number of bytes written to the file storage
 `filestore.write_errors`<br>`RATE`, operations per second | Number of failed writes to the file storage
-`filestore.write_latency`<br>`RATE`, milliseconds | Distribution histogram for file storage write request latency. Special `bin` label: Histogram buckets.
+`filestore.write_latency`<br>`RATE`, milliseconds | Distribution histogram for file storage write request latency. This metric features the `bin` special label containing histogram buckets.
 `filestore.write_ops`<br>`RATE`, operations per second | Average number of writes to the file storage
 `filestore.write_ops_burst`<br>`DGAUGE`, operations per second | Maximum number of writes to the file storage
 
@@ -78,14 +78,14 @@ instance | [VM](../../../compute/concepts/vm.md) name
 --- | ---
 `average_utilization_in_zone`<br>`DGAUGE` | Average resource usage for all VM instances in the availability zone.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *zone_id*: Availability zone ID.<br>- *source_metric*: Metric name.
 `average_utilization`<br>`DGAUGE` | Average resource usage for all VM instances.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *source_metric*: Metric name.
-`instances_count_in_zone`<br>`IGAUGE`, number | Number of VM instances in the availability zone.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *zone_id*: Availability zone ID.
-`instances_count`<br>`IGAUGE`, number | Number of VM instances in the group.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.
+`instances_count_in_zone`<br>`IGAUGE`, count | Number of VM instances in the availability zone.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *zone_id*: Availability zone ID.
+`instances_count`<br>`IGAUGE`, count | Number of VM instances in the group.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.
 `measured_percent_in_zone`<br>`DGAUGE`, % | Percentage of VM CPU utilization in the availability zone. This value can exceed 100% if the VM consumes available process resources in excess of its guaranteed allocation.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *zone_id*: Availability zone ID.<br>- *source_metric*: Metric name.
 `summary_capacity_in_zone`<br>`DGAUGE` | Total resource usage for all VM instances in the availability zone, which causes an increase in the instance group size.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *zone_id*: Availability zone ID.<br>- *source_metric*: Metric name.
 `summary_capacity`<br>`DGAUGE` | Total resource usage for all VM instances, which causes an increase in the instance group size.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *source_metric*: Metric name.
 `summary_utilization`<br>`DGAUGE` | Total resource usage for all VM instances.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *source_metric*: Metric name.
-`target_instances_count_in_zone`<br>`IGAUGE`, number | Target number of VM instances in the availability zone.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *zone_id*: Availability zone ID.
-`target_instances_count`<br>`IGAUGE`, number | Target number of VM instances in the group.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.
+`target_instances_count_in_zone`<br>`IGAUGE`, count | Target number of VM instances in the availability zone.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *zone_id*: Availability zone ID.
+`target_instances_count`<br>`IGAUGE`, count | Target number of VM instances in the group.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.
 `target_utilization`<br>`DGAUGE` | Target resource usage per VM.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *source_metric*: Metric name.
 `test_autoscale_target_instances_count_in_zone`<br>`IGAUGE` | Number of target VM instances in the availability zone as set by the autoscaling policy.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.<br>- *zone_id*: Availability zone ID.
 `test_autoscale_target_instances_count`<br>`IGAUGE` | Number of target VM instances in the group as set by the autoscaling policy.<br>Labels:<br>- *resource_id*: Instance group name or ID.<br>- *resource_type*: Resource type. The only available value is `instance_group`.

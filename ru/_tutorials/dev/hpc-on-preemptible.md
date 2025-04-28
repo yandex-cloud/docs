@@ -110,7 +110,7 @@
 1. Перейдите в раздел **{{ ui-key.yacloud.compute.switch_groups }}** и нажмите **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Создайте [группу ВМ](../../compute/concepts/instance-groups/index.md):
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите имя будущей группы ВМ, например `compute-group`.
-   * В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** добавьте [сервисный аккаунт](../../compute/concepts/instance-groups/access.md) к данной группе ВМ. Если у вас нет сервисного аккаунта, нажмите **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**, укажите его имя и нажмите на кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+   * В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** добавьте [сервисный аккаунт](../../compute/concepts/instance-groups/access.md) к данной группе ВМ. Если у вас нет сервисного аккаунта, нажмите **{{ ui-key.yacloud.common.create }}**, укажите его имя и нажмите на кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
      Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль [compute.editor](../../compute/security/index.md#compute-editor). По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
 

@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-В {{ backup-name }} вы можете настроить резервное копирование [серверов {{ baremetal-name }}](../../baremetal/concepts/servers.md).
+В {{ backup-name }} вы можете настроить резервное копирование [серверов {{ baremetal-name }}](../../baremetal/concepts/servers.md) при [заказе](../../baremetal/operations/servers/server-lease.md) сервера или подключить к {{ backup-name }} уже арендованный сервер {{ baremetal-name }}.
 
 Подробнее о работе с серверами см. на странице [Пошаговые инструкции для сервиса {{ baremetal-full-name }}](../../baremetal/operations/index.md).
 
@@ -124,7 +124,7 @@
 
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.action-create-subnetwork }}**.
+      1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** нажмите **{{ ui-key.yacloud.common.create }}**.
       1. (опционально) Если вам требуется включить DHCP для автоматического назначения IP-адресов, сделайте это в блоке **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
       1. Введите имя подсети `bm-subnetwork` и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
       1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.

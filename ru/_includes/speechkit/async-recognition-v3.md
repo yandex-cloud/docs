@@ -3,7 +3,7 @@
 
     ```json
     {
-      "uri": "https://storage.yandexcloud.net/<название_бакета>/<путь_к_WAV-файлу_в_бакете>",
+      "uri": "https://{{ s3-storage-host }}/<название_бакета>/<путь_к_WAV-файлу_в_бакете>",
       "recognition_model": {
         "model": "general",
         "audio_format": {

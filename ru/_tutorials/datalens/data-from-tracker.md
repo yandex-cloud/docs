@@ -142,7 +142,7 @@
     1. Нажмите ![trigger](../../_assets/console-icons/gear-play.svg) → **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
     1. Укажите тип триггера — **{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}**.
     1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** выберите `{{ ui-key.yacloud.common.button_cron-day }}`.
-    1. В разделе **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** нажмите кнопку **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Укажите имя аккаунта. По умолчанию аккаунту присвоена роль `{{ roles-functions-invoker }}` для работы с триггером.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.

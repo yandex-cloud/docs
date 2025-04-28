@@ -89,6 +89,10 @@ items:
           Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
           vpc-name }}
         href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную
+          машину
+        href: tutorials/usb-over-ip.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

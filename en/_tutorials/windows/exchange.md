@@ -137,7 +137,7 @@ Create two virtual machines for Active Directory. These VMs will not have intern
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
-      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then, the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
       * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
@@ -203,7 +203,7 @@ You will use a file server with internet access to configure VMs with Active Dir
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
-      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then, the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
       * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
@@ -431,7 +431,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
          * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
-         * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+         * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
          * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then, the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
          * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
          * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
@@ -529,7 +529,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
          * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
-         * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+         * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
          * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then, the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
          * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
          * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
@@ -874,7 +874,7 @@ Create a VM named `vm-edge-a`:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
-      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then, the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
       * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
@@ -923,7 +923,7 @@ Create a VM named `vm-edge-b`:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
-      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then, the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
       * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.

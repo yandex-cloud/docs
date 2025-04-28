@@ -16,7 +16,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
-      * Нажмите значок ![image](../../_assets/console-icons/pencil.svg) и в открывшемся окне выберите **{{ ui-key.yacloud.common.create-new }}**.
+      * Нажмите значок ![image](../../_assets/console-icons/pencil.svg) и в открывшемся окне выберите **{{ ui-key.yacloud.common.create }}**.
       * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и в списке ниже выберите нужный снимок диска. При необходимости воспользуйтесь фильтром.
       * Задайте имя создаваемого загрузочного диска.
       * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).

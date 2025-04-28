@@ -16,6 +16,15 @@ meta:
   description: >-
     Техническая поддержка Yandex Cloud предоставляется в соответствии с
     Регламентом технического обслуживания на русском и английском языках.
+  keywords:
+    - keyword: Как написать в поддержку {{ yandex-cloud }}
+    - keyword: Как работает техподдержка {{ yandex-cloud }}
+    - keyword: Как работает центр поддержки {{ yandex-cloud }}
+    - keyword: Правила {{ yandex-cloud }} Support
+    - keyword: Как работать в {{ yandex-cloud }} Support Center
+    - keyword: Как получить помощь в {{ yandex-cloud }}
+    - keyword: Решение проблем {{ yandex-cloud }}
+    - keyword: Проблема в {{ yandex-cloud }}
 links:
   - title: Порядок оказания технической поддержки
     description: Как обратиться в службу технической поддержки
