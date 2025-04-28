@@ -13,6 +13,15 @@ meta:
     Yandex Cloud Billing позволяет получать информацию об объеме использованных
     ресурсов, проверять расходы денежных средств и оплачивать потребление
     ресурсов.
+  keywords:
+    - keyword: yandex billing
+    - keyword: cloud billing
+    - keyword: '{{ billing-name }}'
+    - keyword: сервис {{ billing-name }}
+    - keyword: биллинг {{ yandex-cloud }}
+    - keyword: оплата {{ yandex-cloud }}
+    - keyword: оплатить {{ yandex-cloud }}
+    - keyword: потребление ресурсов {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый платежный аккаунт

@@ -21,6 +21,21 @@ meta:
     Предоставляемые сервисом инструменты позволяют обнаруживать уязвимости,
     отслеживать и защищать доступ к данным, а также контролировать соблюдение
     нормативных актов и отраслевых стандартов.
+  keywords:
+    - keyword: '{{ sd-name }}'
+    - keyword: '{{ sd-full-name }}'
+    - keyword: сервис {{ sd-name }}
+    - keyword: сервис CNAPP
+    - keyword: модули {{ atr-name }}
+    - keyword: контроль данных {{ dspm-name }}
+    - keyword: комплаенс яндекс облака
+    - keyword: диагностика доступов {{ ciem-name }}
+    - keyword: портал соответствия требованиям в {{ yandex-cloud }}
+    - keyword: compliance {{ yandex-cloud }}
+    - keyword: информационная безопасность {{ yandex-cloud }}
+    - keyword: диагностика доступа в {{ yandex-cloud }}
+    - keyword: уязвимости {{ yandex-cloud }}
+    - keyword: защита данных в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Начало работы с сервисом Yandex Security Deck

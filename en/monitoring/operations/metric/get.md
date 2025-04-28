@@ -8,7 +8,7 @@ To download metric data, use the [read](../../api-ref/MetricsData/read.md) metho
 
 1. Create a file with the request body, e.g., `body.json`:
     
-    For example, the request below gets metric data on the CPU usage from 00:00 UTC on July 24 to 00:00 UTC on July 31 for the VM with the `epdpfhoh1r83********` ID.
+    For example, the request below gets metric data on the CPU usage for the VM with the `epdpfhoh1r83********` ID from July 24 to July 31 (00:00 UTC).
 
     **body.json:**
     ```json
@@ -24,11 +24,11 @@ To download metric data, use the [read](../../api-ref/MetricsData/read.md) metho
 
     Where:
 
-    * `query`: Request text:
-      * `cpu_usage`: CPU utilization
-      * `resource_id`: VM ID
-    * `fromTime`: Start of the period
-    * `toTime`: End of the period
+    * `query`: Query text:
+      * `cpu_usage`: CPU usage.
+      * `resource_id`: VM ID.
+    * `fromTime`: Start of the period.
+    * `toTime`: End of the period.
 
 
 1. Send the request and save the response to a file, e.g., `output.json`:

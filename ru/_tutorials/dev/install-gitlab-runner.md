@@ -101,23 +101,23 @@
 
 1. Выберите инстанс {{ mgl-name }}, [созданный ранее](#infra).
 
-1. Выберите вкладку **Раннеры**.
+1. Выберите вкладку **{{ ui-key.yacloud.gitlab.title_runners }}**.
 
-1. Нажмите кнопку **Создать раннер**.
+1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_runners_empty-create }}**.
 
 1. Задайте имя раннера:
-    
+
     * длина — от 2 до 63 символов;
     * может содержать строчные буквы латинского алфавита, цифры и дефисы;
     * первый символ — буква, последний — не дефис.
 
 1. Введите токен {{ GLR }}, [полученный ранее](#gitlab-token).
 
-1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). У сервисного аккаунта должны быть роли `compute.admin`, `vpc.admin` и `iam.serviceAccounts.user`.
+1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Он используется только для создания ВМ и не будет привязан к ней. У сервисного аккаунта должны быть роли `compute.admin`, `vpc.admin` и `iam.serviceAccounts.user`.
 
 1. (Опционально) Добавьте метки для раннера.
 
-1. В блоке **Настройки масштабирования** укажите:
+1. В блоке **{{ ui-key.yacloud.gitlab.label_autoscale-section }}** укажите:
 
     * максимальное количество воркеров;
     * минимальное количество воркеров;
@@ -132,9 +132,9 @@
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../compute/concepts/disk.md):
 
     * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
-    * Задайте нужный размер диска. 
+    * Задайте нужный размер диска.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 1. Убедитесь, что раннер работает:
 

@@ -1,4 +1,4 @@
-The name of the metric is written to the `name` label.
+The `name` label contains the metric name.
 
 All {{ unified-agent-short-name }} metrics share the `service=custom` label.
 
@@ -6,11 +6,11 @@ All {{ unified-agent-short-name }} metrics share the `service=custom` label.
 
 | Metric name<br>Type, units | Description |
 | --- | --- |
-| `ua.backlog`<br>`DGAUGE`, number | Number of incoming messages for which no outgoing messages have been sent yet. Includes messages from the storage and all incoming but unsent messages. You can safely delete {{ unified-agent-short-name }} together with directories on the disk if this metric equals zero and is not incrementing. |
-| `ua.bytes_lost`<br>`RATE`, bytes | Amount of data lost in transit. |
-| `ua.errors`<br>`RATE`, number | Number of {{ unified-agent-short-name }} events with the `ERROR` level. For example, data loss due to a corrupted file on disk or exceeded limits, plugin errors while creating a session, or unavailable external services. |
-| `ua.messages_lost`<br>`RATE`, number | Number of messages lost in transit. |
-| `ua.metrics_lost`<br>`RATE`, number | Number of metrics lost in transit. |
+| `ua.backlog`<br>`DGAUGE`, count | Number of incoming messages for which no outgoing messages have been sent yet. It includes messages from the storage and all pending incoming messages. You can safely delete {{ unified-agent-short-name }} along with its on-disk directories if this metric equals zero and shows no increase. |
+| `ua.bytes_lost`<br>`RATE`, bytes | Size of data lost in transit |
+| `ua.errors`<br>`RATE`, count | Number of {{ unified-agent-short-name }} events with the `ERROR` level, such as data loss due to a corrupted file on disk or exceeded limits, plugin errors while creating a session, or unavailable external services. |
+| `ua.messages_lost`<br>`RATE`, count | Number of messages lost in transit |
+| `ua.metrics_lost`<br>`RATE`, count | Number of metrics lost in transit |
 
 ## Memory metrics {#sys-memory-metrics}
 
@@ -106,7 +106,7 @@ These metrics are collected from the `/proc/loadavg` and `/proc/stat` files.
 
 ## Network metrics {#sys-net-metrics}
 
-These metrics are collected from the `/proc/net/dev` structure.
+These metrics are collected from the `/proc/net/dev` file.
 
 | Metric name | Type |
 | --- | --- |
@@ -137,6 +137,6 @@ These metrics are collected from the `/proc/net/dev` structure.
 | `sys.system.UsefulTime` ^1^ | `RATE` |
 | `sys.system.UserTime` | `RATE` |
 
-^1^ Metric is delivered by agent version 24.05.01 or higher
+^1^ Metric is delivered by agent 24.05.01 or higher.
 
-See the description of Linux system metrics in the documentation, e.g., [Linux manual page](https://man7.org/linux/man-pages/man5/proc.5.html).
+See the description of Linux system metrics in the Linux manuals, e.g., [Linux manual page](https://man7.org/linux/man-pages/man5/proc.5.html).

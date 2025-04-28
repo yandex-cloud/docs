@@ -31,6 +31,7 @@
 * [{{ mrd-full-name }}](../managed-redis/release-notes.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/release-notes/index.md)
 * [{{ websql-full-name }}](../websql/release-notes/index.md)
+* [{{ mtr-full-name }}](../managed-trino/release-notes.md)
 
 ## Контейнеры {#containers}
 

@@ -4,9 +4,9 @@ To start writing custom metrics via the API, use the [write](../../api-ref/Metri
 
 ### Getting started {#before-you-begin}
 
-To try the examples in this section:
+To follow the examples in this section:
 
-1. Make sure you have installed the [cURL](https://curl.haxx.se) utility that is used in the examples.
+1. Make sure you have installed [cURL](https://curl.haxx.se) that is used in the examples.
 1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) for which you have the `{{ roles-monitoring-editor }}` role or higher.
 1. Get an IAM token:
 
@@ -16,7 +16,7 @@ To try the examples in this section:
 
 ### Request example {#sample-request}
 
-1. Create a file with the request body, e.g., `body.json`. In the `metrics` property, specify the list of metrics to write. Send the required labels in the query parameters and additional labels in the request body.
+1. Create a file with the request body, e.g., `body.json`. In the `metrics` property, specify the list of metrics to write. Provide the required labels in the query parameters and additional labels in the request body.
 
     **body.json:**
     ```json
@@ -46,7 +46,7 @@ To try the examples in this section:
       'https://monitoring.{{ api-host }}/monitoring/v2/data/write?folderId=aoe6vrq0g3sv********&service=custom' > output.json
     ```
 
-    Sample response:
+    Response example:
 
     **output.json:**
     ```json

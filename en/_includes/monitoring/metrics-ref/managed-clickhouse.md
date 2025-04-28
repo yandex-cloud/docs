@@ -1,25 +1,25 @@
-The name of the metric is written in the `name` label.
+The `name` label stores the metric name.
 
-Common labels for all {{ mch-name }} metrics:
+Labels shared by all {{ mch-name }} metrics: 
 
-| Label | Value |
+Label | Value
 ----|----
-| service | Service ID: `managed-clickhouse` |
-| resource_type | Resource type: `cluster` |
-| resource_id | Cluster ID |
-| host | Host FQDN |
-| node | Host type: `replica`, `follower`, or `leader` |
-| subcluster_name | Subcluster type: `clickhouse_subcluster`, `zookeeper_subcluster` |
-| shard | Shard ID |
+service | Service ID: `managed-clickhouse`
+resource_type | Resource type: `cluster`
+resource_id | Cluster ID
+host | Host FQDN
+node | Host type: `replica`, `follower`, or `leader`
+subcluster_name | Subcluster type: `clickhouse_subcluster` or `zookeeper_subcluster`
+shard | Shard ID
 
 ## CPU metrics {#managed-clickhouse-cpu-metrics}
-Processor core workload.
+These metrics show processor core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share |
-| `cpu.guarantee`<br/>`DGAUGE`, number | Guaranteed number of cores |
-| `cpu.limit`<br/>`DGAUGE`, number | Limit on CPU cores in use |
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance |
+| `cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores |
+| `cpu.limit`<br/>`DGAUGE`, count | Maximum number of cores in use |
 | `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
 | `cpu.idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type |
 | `cpu.iowait`<br/>`DGAUGE`, % | CPU core usage, `iowait` usage type |
@@ -30,72 +30,72 @@ Processor core workload.
 | `cpu.system`<br/>`DGAUGE`, % | CPU core usage, `system` usage type |
 | `cpu.user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type |
 | `load.avg_15min`<br/>`DGAUGE`, % | Average load over 15 minutes |
-| `load.avg_1min`<br/>`DGAUGE`, % | Average load over 1 minute |
-| `load.avg_5min`<br/>`DGAUGE`, % | Average load over 5 minutes |
+| `load.avg_1min`<br/>`DGAUGE`, % | Average load over one minute |
+| `load.avg_5min`<br/>`DGAUGE`, % | Average load over five minutes |
 
 ## Disk metrics {#managed-clickhouse-disk-metrics}
-| Name<br/>Type, unit | Description |
-| ----- | ----- |
-| `ch_s3_disk_parts_size`<br/>`DGAUGE`, bytes | Space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts in {{ objstorage-full-name }} when {{ mch-name }} [hybrid storage](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) is configured. |
-| `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space |
-| `disk.free_inodes`<br/>`DGAUGE`, number | Number of free inodes |
-| `disk.total_bytes`<br/>`DGAUGE`, bytes | Available space |
-| `disk.total_inodes`<br/>`DGAUGE`, number | Available inodes |
-| `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space |
-| `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes |
-
-## Disk operation metrics {#managed-clickhouse-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
-| `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time |
-| `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a specific disk |
-| `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk |
-| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a specific disk |
-| `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Read operations per second for a specific disk |
-| `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Merged read operations per second for a specific disk |
-| `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk; disabled for network drives |
-| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a specific disk |
-| `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk |
-| `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a specific disk |
-| `io.read_bytes`<br/>`DGAUGE`, bytes/s | Disk read speed |
-| `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
-| `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization |
-| `io.write_bytes`<br/>`DGAUGE`, bytes/s | Disk write speed |
-| `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
+| `ch_s3_disk_parts_size`<br/>`DGAUGE`, bytes | Space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts in {{ objstorage-full-name }} with a {{ mch-name }} [hybrid storage](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) configured. |
+| `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space | 
+| `disk.free_inodes`<br/>`DGAUGE`, count | Free inodes | 
+| `disk.total_bytes`<br/>`DGAUGE`, bytes | Available space | 
+| `disk.total_inodes`<br/>`DGAUGE`, count | Available inodes | 
+| `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space | 
+| `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
+
+## Disk I/O metrics {#managed-clickhouse-diskio-metrics}
+| Name<br/>Type, units | Description |
+| ----- | ----- |
+| `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
+| `io.avg_write_time`<br/>`DGAUGE`, milliseconds | Average disk write time | 
+| `io.disk*.avg_read_time`<br/>`DGAUGE`, milliseconds | Average read time for a given disk | 
+| `io.disk*.avg_write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
+| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
+| `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
+| `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk | 
+| `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a given disk; disabled for network drives. | 
+| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a given disk | 
+| `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk | 
+| `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
+| `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read rate | 
+| `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second | 
+| `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second | 
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization | 
+| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
+| `io.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
 ## RAM metrics {#managed-clickhouse-ram-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory |
-| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit |
-| `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary |
-| `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type |
-| `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, `buffers` usage type |
-| `mem.cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
-| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes` |
-| `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type |
-| `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
-| `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by the running processes |
+| `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory allocation | 
+| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit | 
+| `mem.active_bytes`<br/>`DGAUGE`, bytes | Active resident memory (frequently accessed and released when absolutely necessary) | 
+| `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type | 
+| `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, `buffers` usage type  | 
+| `mem.cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type  | 
+| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes`  |
+| `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type  | 
+| `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type  | 
+| `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by running processes  | 
 
 ## Network metrics {#managed-clickhouse-net-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `net.bytes_recv`<br/>`DGAUGE`, bytes/s | Rate of receiving data over the network |
-| `net.bytes_sent`<br/>`DGAUGE`, bytes/s | Rate of sending data over the network |
-| `net.dropin`<br/>`DGAUGE`, number | Packets dropped upon receipt |
-| `net.dropout`<br/>`DGAUGE`, number | Packets dropped when being sent |
-| `net.errin`<br/>`DGAUGE`, number | Number of errors upon receipt |
-| `net.errout`<br/>`DGAUGE`, number | Number of errors at sending |
-| `net.packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network |
-| `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network |
+| `net.bytes_recv`<br/>`DGAUGE`, bytes per second | Network data receive rate | 
+| `net.bytes_sent`<br/>`DGAUGE`, bytes per second | Network data transmit rate | 
+| `net.dropin`<br/>`DGAUGE`, count | Dropped receive packets | 
+| `net.dropout`<br/>`DGAUGE`, count | Dropped transmit packets | 
+| `net.errin`<br/>`DGAUGE`, count | Receive error count | 
+| `net.errout`<br/>`DGAUGE`, count | Transmit error count | 
+| `net.packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
+| `net.packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate |
 
 ## Service metrics {#managed-clickhouse-metrics}
 #### System event metrics {#managed-clickhouse-system-events-metrics}
-{{ CH }} native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
-For each metric, the increment (`inc`) and change `rate` per unit of time are calculated.
+These are {{ CH }} native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
+For each metric, the increment (`inc`) and rate of change (`rate`) per unit of time are calculated.
 
 | Name<br/>Type |
 | ----- |
@@ -325,7 +325,7 @@ For each metric, the increment (`inc`) and change `rate` per unit of time are ca
 | `ch_system_events_WriteBufferFromS3Microseconds_rate`<br/>`DGAUGE` |
 
 #### Current event metrics {#managed-clickhouse-system-metrics}
-{{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/) table.
+These are {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/) table.
 
 | Name<br/>Type |
 | ----- |
@@ -539,7 +539,7 @@ For each metric, the increment (`inc`) and change `rate` per unit of time are ca
 | `ch_system_metrics_ZooKeeperWatch`<br/>`DGAUGE` |
 
 #### Query queue metrics {#managed-clickhouse-query-log-metrics}
-{{ CH }} native metrics from the [system.query_log]({{ ch.docs }}/operations/system-tables/query_log) table.
+These are {{ CH }} native metrics from the [system.query_log]({{ ch.docs }}/operations/system-tables/query_log) table.
 For each metric, the increment per unit of time (second) is calculated.
 
 | Name<br/>Type |
@@ -557,43 +557,43 @@ For each metric, the increment per unit of time (second) is calculated.
 #### Replication metrics {#managed-clickhouse-replication-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `ch_replication-future_parts`<br/>`DGAUGE`, number | Number of data parts after MERGE and INSERT operations are completed |
-| `ch_replication-inserts_in_queue`<br/>`DGAUGE`, number | Number of enqueued data parts to be inserted |
-| `ch_replication-is_alive`<br/>`DGAUGE`, 0/1 | Replication performance indicator.<br/>`1` if DB replication is alive, `0` if it is not. |
-| `ch_replication-max_absolute_delay`<br/>`DGAUGE`, seconds | Maximum replication delay |
-| `ch_replication-merges_in_queue`<br/>`DGAUGE`, number | Merges enqueued |
-| `ch_replication-parts_to_check`<br/>`DGAUGE`, number | Number of data parts to be checked |
-| `ch_replication-queue_size`<br/>`DGAUGE`, number | Merge and insert queue size |
-| `ch_replication-tables`<br/>`DGAUGE`, number | Number of replicated tables |
+| `ch_replication-future_parts`<br/>`DGAUGE`, count | Number of data parts after the `MERGE` and `INSERT` operations| 
+| `ch_replication-inserts_in_queue`<br/>`DGAUGE`, count | Number of data parts enqueued for insert | 
+| `ch_replication-is_alive`<br/>`DGAUGE`, 0/1 | Replication performance indicator.<br/>It can be either `1` if DB replication is alive or `0` if it is not. | 
+| `ch_replication-max_absolute_delay`<br/>`DGAUGE`, seconds | Maximum replication delay | 
+| `ch_replication-merges_in_queue`<br/>`DGAUGE`, count | Merges enqueued | 
+| `ch_replication-parts_to_check`<br/>`DGAUGE`, count | Number of data parts to check | 
+| `ch_replication-queue_size`<br/>`DGAUGE`, count | Merge and insert queue size | 
+| `ch_replication-tables`<br/>`DGAUGE`, count | Number of replicated tables |
 
 #### System metrics {#managed-clickhouse-config-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, number | Threshold value of active table data parts for {{ CH }} to throw a `Too many parts ...` exception if exceeded. Set in the [settings](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). It pays to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
+| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, count | Threshold for active table data parts, which, when surpassed, causes {{ CH }} to throw a `Too many parts ...` exception. It is specified in the [settings](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). It makes sense to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
 | `ch_local_disk_parts_size`<br/>`DGAUGE`, bytes | Local disk partition size |
-| `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, number | Maximum number of data parts per partition |
-| `ch_system_async_metrics_NumberOfDatabases`<br/>`DGAUGE`, number | Total number of databases on the server |
-| `ch_system_async_metrics_NumberOfTables`<br/>`DGAUGE`, number | Total number of tables across all databases on the server, excluding those databases that cannot contain MergeTree tables. Excluded database engines are those that generate a set of tables on the fly, such as Lazy, {{ MY }}, {{ PG }}, and SQLite. |
-| `ch_system_async_metrics_NumberOfTablesSystem`<br/>`DGAUGE`, number | Total number of system database tables stored as MergeTree tables on the server |
-| `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, seconds | Maximum replication delay |
-| `ch_system_async_metrics_ReplicasMaxInsertsInQueue`<br/>`DGAUGE`, number | Maximum number of queued (still subject to replication) insert operations in the replicated tables |
-| `ch_system_async_metrics_ReplicasMaxMergesInQueue`<br/>`DGAUGE`, number | Maximum number of queued merge operations (to be applied yet) for the replicated tables |
-| `ch_system_async_metrics_ReplicasMaxQueueSize`<br/>`DGAUGE`, number | Maximum replication queue size |
-| `ch_system_async_metrics_ReplicasMaxRelativeDelay`<br/>`DGAUGE`, seconds | Maximum difference between the replica delay and the delay of the most recent replica of the same table in different replicated tables |
-| `ch_system_async_metrics_ReplicasSumInsertsInQueue`<br/>`DGAUGE`, number | Total number of queued (still subject to replication) insert operations for the replicated tables |
-| `ch_system_async_metrics_ReplicasSumMergesInQueue`<br/>`DGAUGE`, number | Total number of queued merge operations (to be applied yet) across the replicated tables |
-| `ch_system_async_metrics_ReplicasSumQueueSize`<br/>`DGAUGE`, bytes | Total number of queued operations (e.g., fetch, merge) across the replicated tables |
-| `ch_system_async_metrics_TotalBytesOfMergeTreeTables`<br/>`DGAUGE`, bytes | Total number of compressed bytes (including data and indexes) across all MergeTree tables |
-| `ch_system_async_metrics_TotalBytesOfMergeTreeTablesSystem`<br/>`DGAUGE`, bytes | Total number of compressed bytes (including data and indexes) in MergeTree tables within the system database |
-| `ch_system_async_metrics_TotalPartsOfMergeTreeTables`<br/>`DGAUGE`, number | Total number of data parts across all MergeTree tables. Values greater than 10,000 will impact the server startup time and may indicate a bad choice of partition key. |
-| `ch_system_async_metrics_TotalPartsOfMergeTreeTablesSystem`<br/>`DGAUGE`, number | Total number of data parts in MergeTree tables within the system database |
-| `ch_system_async_metrics_TotalRowsOfMergeTreeTables`<br/>`DGAUGE`, number | Total number of strings (records) across all MergeTree tables |
-| `ch_system_async_metrics_TotalRowsOfMergeTreeTablesSystem`<br/>`DGAUGE`, number | Total number of strings (records) in MergeTree tables within the system database |
-| `ch_system_async_metrics_Uptime`<br/>`DGAUGE`, seconds | Total server uptime in seconds. Includes the server initialization time before it starts accepting connections. |
+| `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, count | Maximum number of data parts per partition | 
+| `ch_system_async_metrics_NumberOfDatabases`<br/>`DGAUGE`, count | Total databases on the server |
+| `ch_system_async_metrics_NumberOfTables`<br/>`DGAUGE`, count | Total tables across all databases on the server, excluding those DBs that cannot contain MergeTree tables. Excluded database engines are those that generate tables dynamically, such as Lazy, {{ MY }}, {{ PG }}, and SQLite. |
+| `ch_system_async_metrics_NumberOfTablesSystem`<br/>`DGAUGE`, count | Total system database tables stored as MergeTree tables on the server |
+| `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, seconds | Maximum replication delay | 
+| `ch_system_async_metrics_ReplicasMaxInsertsInQueue`<br/>`DGAUGE`, count | Maximum number of queued `INSERT` operations (to replicate) in replicated tables | 
+| `ch_system_async_metrics_ReplicasMaxMergesInQueue`<br/>`DGAUGE`, count | Maximum number of queued merge operations (to apply) for replicated tables | 
+| `ch_system_async_metrics_ReplicasMaxQueueSize`<br/>`DGAUGE`, count | Maximum replication queue size |
+| `ch_system_async_metrics_ReplicasMaxRelativeDelay`<br/>`DGAUGE`, seconds | Maximum lag difference between a replica and the most delayed replica of the same table across replicated tables | 
+| `ch_system_async_metrics_ReplicasSumInsertsInQueue`<br/>`DGAUGE`, count | Total queued `INSERT` operations (to replicate) across replicated tables | 
+| `ch_system_async_metrics_ReplicasSumMergesInQueue`<br/>`DGAUGE`, count | Total queued `MERGE` operations (to apply) across replicated tables | 
+| `ch_system_async_metrics_ReplicasSumQueueSize`<br/>`DGAUGE`, bytes | Total queued operations, e.g., `FETCH` and `MERGE`, across replicated tables | 
+| `ch_system_async_metrics_TotalBytesOfMergeTreeTables`<br/>`DGAUGE`, bytes | Total compressed bytes (including data and indexes) across all MergeTree tables | 
+| `ch_system_async_metrics_TotalBytesOfMergeTreeTablesSystem`<br/>`DGAUGE`, bytes | Total compressed bytes (including data and indexes) in MergeTree tables within the system database | 
+| `ch_system_async_metrics_TotalPartsOfMergeTreeTables`<br/>`DGAUGE`, count | Total data parts across all MergeTree tables. Counts above 10,000 will adversely affect server startup time and may indicate a bad choice of partition key. | 
+| `ch_system_async_metrics_TotalPartsOfMergeTreeTablesSystem`<br/>`DGAUGE`, count | Total data parts in MergeTree tables within the system database | 
+| `ch_system_async_metrics_TotalRowsOfMergeTreeTables`<br/>`DGAUGE`, count | Total rows (entries) across all MergeTree tables | 
+| `ch_system_async_metrics_TotalRowsOfMergeTreeTablesSystem`<br/>`DGAUGE`, count | Total rows (records) in MergeTree tables within the system database | 
+| `ch_system_async_metrics_Uptime`<br/>`DGAUGE`, seconds | Server uptime (in seconds), which includes the time used to initialize the server before it starts accepting connections. | 
 
 ## Other metrics {#managed-clickhouse-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if it is not. |
-| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if a cluster is available for writes, `0` if it is not. |
-| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a cluster is available for reads or `0` if it is not. | 
+| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a cluster is available for writes or `0` if it is not. | 
+| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. |

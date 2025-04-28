@@ -2,30 +2,30 @@
 
 **Стоимость распознавания**
 
-> 0,60 × 100 000 + 0,36 × 15 000 = 65 400,00&nbsp;₽
+> {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|number }} × 60 %} × 100 000 + {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 %} × 15 000 = {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 %}
 >
-> Итого: 65 400,00&nbsp;₽ — стоимость 115 000 минут распознавания двухканальных аудиофайлов.
+> Итого: {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут распознавания двухканальных аудиофайлов.
 
 Где:
-* 0,60&nbsp;₽ — стоимость распознавания минуты аудио для первых 100 000 минут.
-* 0,36&nbsp;₽ — стоимость распознавания минуты аудио для последующих 15 001 минуты.
+* {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|number }} × 60 %} — стоимость распознавания минуты аудио для первых 100 000 минут.
+* {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 %} — стоимость распознавания минуты аудио для последующих 15 001 минуты.
 
 **Стоимость аналитики**
 
-> 1,38 × 100 000 + 1,02 × 15 000 = 153 300,00&nbsp;₽
+> {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.v1|number }} × 60 %} × 100 000 + {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 %} × 15 000 = {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %}
 >
-> Итого: 153 300,00&nbsp;₽ — стоимость 115 000 минут аналитики двухканальных аудиофайлов.
+> Итого: {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут аналитики двухканальных аудиофайлов.
 
 Где:
-* 1,38&nbsp;₽ — стоимость анализа минуты аудио для первых 100 000 минут.
-* 1,02&nbsp;₽ — стоимость анализа минуты аудио для последующих 15 000 минуты.
+* {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.v1|number }} × 60 %} — стоимость анализа минуты аудио для первых 100 000 минут.
+* {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 %} — стоимость анализа минуты аудио для последующих 15 000 минуты.
 
 **Расчет итоговой стоимости** 
   
-> 65 400,00 + 153 300,00 = 218 700,00&nbsp;₽
+> {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 %} + {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %} = {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 + {{ sku|RUB|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %}
 >
-> Итого: 218 700,00&nbsp;₽ — стоимость 115 000 минут использования сервиса {{ speechsense-name }}.
+> Итого: {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 + {{ sku|RUB|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут использования сервиса {{ speechsense-name }}.
 
 Где:
-* 65 400,00&nbsp;₽ — стоимость 115 000 минут распознавания двухканальных аудиофайлов.
-* 153 300,00&nbsp;₽ — стоимость 115 000 минут аналитики двухканальных аудиофайлов.
+* {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.audio|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут распознавания двухканальных аудиофайлов.
+* {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.v1|number }} × 60 × 100 000 + {{ sku|RUB|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 × 15 000 %} — стоимость 115 000 минут аналитики двухканальных аудиофайлов.

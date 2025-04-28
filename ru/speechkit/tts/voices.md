@@ -44,11 +44,11 @@ description: Из статьи вы узнаете, какие голоса до
 | `ru-RU` | русский | `anton` | M | (по умолчанию) нейтральный — `neutral` </br> радостный — `good` | v3 |
 | `ru-RU` | русский | `madi_ru` | M | — | v1, v3 |
 | `ru-RU` | русский | `saule_ru` | Ж | (по умолчанию) нейтральный — `neutral`</br>строгая — `strict`</br>шепот — `whisper` | v3 |
-| `ru-RU` | русский | `lola_ru` | Ж | (по умолчанию) нейтральный — `neutral`</br>строгая — `strict` | v3 |
+| `ru-RU` | русский | `lola_ru` | Ж | (по умолчанию) нейтральный — `neutral`</br>строгая — `strict`</br>дружелюбная — `friendly`| v3 |
 | `ru-RU` | русский | `zhanar_ru` | Ж | (по умолчанию) нейтральный — `neutral`</br>строгая — `strict`</br>дружелюбная — `friendly` | v3 |
-| `ru-RU` | русский | `yulduz_ru` | Ж | (по умолчанию) нейтральный — `neutral`</br>строгая — `strict`</br>дружелюбная — `friendly` | v3 |
+| `ru-RU` | русский | `yulduz_ru` | Ж | (по умолчанию) нейтральный — `neutral`</br>строгая — `strict`</br>дружелюбная — `friendly`</br>шепот — `whisper` | v3 |
 | `uz-UZ` | узбекский | `nigora` | Ж | — | v1, v3 |
-| `uz-UZ` | узбекский | `lola` | Ж | — | v3 |
+| `uz-UZ` | узбекский | `lola` | Ж | (по умолчанию) нейтральный — `neutral`</br>строгая — `strict`</br>дружелюбная — `friendly` | v3 |
 | `uz-UZ` | узбекский | `yulduz` | Ж | (по умолчанию) нейтральный — `neutral`</br>строгая — `strict`</br>дружелюбная — `friendly`</br>шепот — `whisper` | v3 |
 
 

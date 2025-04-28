@@ -1,4 +1,4 @@
-Metric name is written in the `name` label.
+The `name` label contains the metric name.
 
 All {{ alb-name }} metrics share the `service=application-load-balancer` label.
 

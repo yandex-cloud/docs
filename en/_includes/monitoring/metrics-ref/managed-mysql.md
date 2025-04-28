@@ -8,7 +8,7 @@ service | Service ID: `managed-mysql`
 resource_type | Resource type: `cluster`
 resource_id | Cluster ID
 host | Host FQDN
-node | Host type: `primary`, `replica`
+node | Host type: `primary` or `replica`
 
 ## CPU metrics {#managed-mysql-cpu-metrics}
 These metrics show processor core workload.
@@ -35,17 +35,17 @@ These metrics show processor core workload.
 | ----- | ----- |
 | `disk.free`<br/>`DGAUGE`, bytes | Free space |
 | `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space | 
-| `disk.free_inodes`<br/>`DGAUGE`, number | Free inodes | 
-| `disk.inodes_free`<br/>`DGAUGE`, number | Free inodes |
-| `disk.inodes_total`<br/>`DGAUGE`, number | Available inodes |
-| `disk.inodes_used`<br/>`DGAUGE`, number | Used inodes |
+| `disk.free_inodes`<br/>`DGAUGE`, count | Free inodes | 
+| `disk.inodes_free`<br/>`DGAUGE`, count | Free inodes |
+| `disk.inodes_total`<br/>`DGAUGE`, count | Available inodes |
+| `disk.inodes_used`<br/>`DGAUGE`, count | Used inodes |
 | `disk.inodes_used_percent`<br/>`DGAUGE`, % | Percentage of used inodes |
 | `disk.total`<br/>`DGAUGE`, bytes | Available space |
 | `disk.total_bytes`<br/>`DGAUGE`, bytes | Available space | 
-| `disk.total_inodes`<br/>`DGAUGE`, number | Available inodes | 
+| `disk.total_inodes`<br/>`DGAUGE`, count | Available inodes | 
 | `disk.used`<br/>`DGAUGE`, bytes | Used space |
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space | 
-| `disk.used_inodes`<br/>`DGAUGE`, number | Used inodes |
+| `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
 | `disk.used_percent`<br/>`DGAUGE`, % | Percentage of used space |
 | `disk.used_percent_inodes`<br/>`DGAUGE`, % | Percentage of used inodes |
 
@@ -63,7 +63,7 @@ These metrics show processor core workload.
 | `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a given disk | 
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk | 
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
-| `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read speed | 
+| `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read rate | 
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second | 
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second | 
 | `io.utilization`<br/>`DGAUGE`, % | Disk utilization | 
@@ -116,10 +116,10 @@ These metrics show processor core workload.
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes per second | Network data receive rate | 
 | `net.bytes_sent`<br/>`DGAUGE`, bytes per second | Network data transmit rate | 
-| `net.dropin`<br/>`DGAUGE`, number | Dropped receive packets | 
-| `net.dropout`<br/>`DGAUGE`, number | Dropped transmit packets | 
-| `net.errin`<br/>`DGAUGE`, number | Receive error count | 
-| `net.errout`<br/>`DGAUGE`, number | Transmit error count | 
+| `net.dropin`<br/>`DGAUGE`, count | Dropped receive packets | 
+| `net.dropout`<br/>`DGAUGE`, count | Dropped transmit packets | 
+| `net.errin`<br/>`DGAUGE`, count | Receive error count | 
+| `net.errout`<br/>`DGAUGE`, count | Transmit error count | 
 | `net.icmpmsg_intype8`<br/>`DGAUGE`, messages | Number of ICMP type 8 (echo request) messages received |
 | `net.icmpmsg_outtype0`<br/>`DGAUGE`, messages | Number of ICMP type 0 (echo reply) messages sent |
 | `net.icmp_outratelimitglobal`<br/>`DGAUGE`, messages | Number of ICMP messages throttled by global rate limits |
@@ -150,8 +150,8 @@ These metrics show processor core workload.
 | `mysql.fileio.reads`<br/>`DGAUGE`, operations per second | Average speed of file reads per second.<br/>Additional labels: `filetype`. | 
 | `mysql.fileio.write_bytes`<br/>`DGAUGE`, bytes per second | Data write speed.<br/>Additional labels: `filetype`. | 
 | `mysql.fileio.writes`<br/>`DGAUGE`, operations per second | Average speed of file writes per second.<br/>Additional labels: `filetype`. | 
-| `mysql.handler`<br/>`DGAUGE`, number | Number of handlers of various operations. For more information, see [this MySQL article](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html). <br/>Additional labels: `handler`. | 
-| `mysql.session`<br/>`DGAUGE`, number | Number of sessions at a certain stage. <br/>Additional labels: `stage`. | 
+| `mysql.handler`<br/>`DGAUGE`, count | Number of handlers of various operations. For more information, see [this MySQL article](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html). <br/>Additional labels: `handler`. | 
+| `mysql.session`<br/>`DGAUGE`, count | Number of sessions at a certain stage. <br/>Additional labels: `stage`. | 
 | `mysql_Aborted_connects_rate`<br/>`DGAUGE`, connections per second | Rate of failed database connection attempts | 
 | `mysql_Binlog_cache_disk_use_rate`<br/>`DGAUGE`, transactions per second | Rate of transactions requiring temporary disk file writes due to binlog cache overflowing | 
 | `mysql_Binlog_cache_use_rate`<br/>`DGAUGE`, transactions per second | Rate of transactions using the binlog cache | 
@@ -159,11 +159,11 @@ These metrics show processor core workload.
 | `mysql_Created_tmp_disk_tables_rate`<br/>`DGAUGE`, tables per second | Rate of temporary tables created on the disk during DB query processing | 
 | `mysql_Created_tmp_files_rate`<br/>`DGAUGE`, files per second | Rate of temporary DB file creation | 
 | `mysql_Created_tmp_tables_rate`<br/>`DGAUGE`, tables per second | Rate of temporary tables created during DB query processing | 
-| `mysql_Innodb_buffer_pool_pages_data`<br/>`DGAUGE`, number | Number of pages with data in the InnoDB buffer. It includes `dirty` and `clean`. | 
-| `mysql_Innodb_buffer_pool_pages_dirty`<br/>`DGAUGE`, number | Number of `dirty` pages in the InnoDB buffer | 
-| `mysql_Innodb_buffer_pool_pages_free`<br/>`DGAUGE`, number | Number of free pages in the InnoDB buffer | 
-| `mysql_Innodb_buffer_pool_pages_misc`<br/>`DGAUGE`, number | Number of service pages in the InnoDB buffer | 
-| `mysql_Innodb_buffer_pool_pages_total`<br/>`DGAUGE`, number | Total pages in the InnoDB buffer | 
+| `mysql_Innodb_buffer_pool_pages_data`<br/>`DGAUGE`, count | Number of pages with data in the InnoDB buffer. It includes `dirty` and `clean`. | 
+| `mysql_Innodb_buffer_pool_pages_dirty`<br/>`DGAUGE`, count | Number of `dirty` pages in the InnoDB buffer | 
+| `mysql_Innodb_buffer_pool_pages_free`<br/>`DGAUGE`, count | Number of free pages in the InnoDB buffer | 
+| `mysql_Innodb_buffer_pool_pages_misc`<br/>`DGAUGE`, count | Number of service pages in the InnoDB buffer | 
+| `mysql_Innodb_buffer_pool_pages_total`<br/>`DGAUGE`, count | Total pages in the InnoDB buffer | 
 | `mysql_Innodb_buffer_pool_read_requests_rate`<br/>`DGAUGE`, operations per second | Rate of InnoDB reads | 
 | `mysql_Innodb_buffer_pool_reads_rate`<br/>`DGAUGE`, operations per second | Rate of InnoDB reads requiring InnoDB to access the disk | 
 | `mysql_Innodb_checkpoint_age`<br/>`DGAUGE`, bytes | Size of InnoDB in-memory data before disk flush | 
@@ -172,62 +172,62 @@ These metrics show processor core workload.
 | `mysql_Innodb_data_reads_rate`<br/>`DGAUGE`, operations per second | Disk read rate in InnoDB | 
 | `mysql_Innodb_data_writes_rate`<br/>`DGAUGE`, operations per second | Write rate in InnoDB | 
 | `mysql_Innodb_page_size`<br/>`DGAUGE`, bytes | Page size in InnoDB (defaults to 16 KB) | 
-| `mysql_Innodb_row_lock_current_waits`<br/>`DGAUGE`, number | Number of row locks in InnoDB | 
+| `mysql_Innodb_row_lock_current_waits`<br/>`DGAUGE`, count | Number of row locks in InnoDB | 
 | `mysql_Innodb_row_lock_time_rate`<br/>`DGAUGE`, milliseconds | Total InnoDB row lock wait time | 
 | `mysql_Innodb_row_lock_waits_rate`<br/>`DGAUGE`, operations per second | Rate of InnoDB operations waiting for row locks | 
 | `mysql_Innodb_rows_deleted_rate`<br/>`DGAUGE`, rows per second | Rate of rows deleted from InnoDB | 
 | `mysql_Innodb_rows_inserted_rate`<br/>`DGAUGE`, rows per second | Rate of rows inserted in InnoDB | 
 | `mysql_Innodb_rows_read_rate`<br/>`DGAUGE`, rows per second | Rate of rows read from InnoDB tables | 
 | `mysql_Innodb_rows_updated_rate`<br/>`DGAUGE`, rows per second | Rate of rows updated in InnoDB | 
-| `mysql_Open_table_definitions`<br/>`DGAUGE`, number | Number of cached table definitions | 
-| `mysql_Open_tables`<br/>`DGAUGE`, number | Number of open tables | 
+| `mysql_Open_table_definitions`<br/>`DGAUGE`, count | Number of cached table definitions | 
+| `mysql_Open_tables`<br/>`DGAUGE`, count | Number of open tables  | 
 | `mysql_Opened_table_definitions_rate`<br/>`DGAUGE`, tables per second | Number of table definitions cached per unit of time | 
 | `mysql_Opened_tables_rate`<br/>`DGAUGE`, tables per second | Number of tables opened per unit of time | 
-| `mysql_Prepared_stmt_count`<br/>`DGAUGE`, number | Number of prepared statements | 
+| `mysql_Prepared_stmt_count`<br/>`DGAUGE`, count | Number of prepared statements | 
 | `mysql_Queries_rate`<br/>`DGAUGE`, queries per second | Number of running queries, including user queries and stored procedures, per unit of time | 
-| `mysql_Questions_rate`<br/>`DGAUGE`, requests per second | Number of running user queries per unit of time | 
-| `mysql_Rpl_semi_sync_master_clients`<br/>`DGAUGE`, number | Number of semi-sync replicas | 
+| `mysql_Questions_rate`<br/>`DGAUGE`, queries per second | Number of running user queries per unit of time | 
+| `mysql_Rpl_semi_sync_master_clients`<br/>`DGAUGE`, count | Number of semi-sync replicas | 
 | `mysql_Rpl_semi_sync_master_tx_avg_wait_time`<br/>`DGAUGE`, microseconds | Average wait time for a transaction on the replication source | 
 | `mysql_Rpl_semi_sync_master_tx_wait_time_rate`<br/>`DGAUGE`, microseconds | Total wait time for a transaction on the replication source, per unit of time | 
-| `mysql_Rpl_semi_sync_master_wait_sessions`<br/>`DGAUGE`, number | Number of sessions waiting for a response from replicas | 
-| `mysql_Select_full_join_rate`<br/>`DGAUGE`, requests per second | Number of Joins that use table scans instead of indexes | 
-| `mysql_Select_full_range_join_rate`<br/>`DGAUGE`, requests per second | Number of Joins that search by range in a reference table | 
-| `mysql_Slow_queries_rate`<br/>`DGAUGE`, requests per second | Number of slow queries taking longer than `long_query_time` seconds, per unit of time | 
-| `mysql_Sort_range_rate`<br/>`DGAUGE`, requests per second | Number of sorts by range per unit of time | 
-| `mysql_Sort_rows_rate`<br/>`DGAUGE`, requests per second | Number of rows sorted per unit of time | 
-| `mysql_Sort_scan_rate`<br/>`DGAUGE`, requests per second | Number of sorts using table scans per unit of time | 
-| `mysql_Table_locks_immediate`<br/>`DGAUGE`, number | Number of immediate table locks | 
-| `mysql_Table_locks_waited`<br/>`DGAUGE`, number | Number of table locks that had to wait | 
-| `mysql_Table_open_cache_hits_rate`<br/>`DGAUGE`, operations per second | Number of hits for a search in the cache of open tables per unit of time | 
-| `mysql_Table_open_cache_misses_rate`<br/>`DGAUGE`, operations per second | Number of failed attempts to search in the cache of open tables per unit of time | 
-| `mysql_Threads_cached`<br/>`DGAUGE`, number | Number of threads cached | 
-| `mysql_Threads_connected`<br/>`DGAUGE`, number | Number of threads handling open DB connections | 
+| `mysql_Rpl_semi_sync_master_wait_sessions`<br/>`DGAUGE`, count | Number of sessions waiting for a response from replicas | 
+| `mysql_Select_full_join_rate`<br/>`DGAUGE`, queries per second | Number of joins using table scans rather than indexes | 
+| `mysql_Select_full_range_join_rate`<br/>`DGAUGE`, queries per second | Number of joins searching by range in the reference table | 
+| `mysql_Slow_queries_rate`<br/>`DGAUGE`, queries per second | Number of slow queries that take more seconds than set in `long_query_time` to run, per unit of time. | 
+| `mysql_Sort_range_rate`<br/>`DGAUGE`, queries per second | Number of sorts by range per unit of time | 
+| `mysql_Sort_rows_rate`<br/>`DGAUGE`, queries per second | Number of rows sorted per unit of time | 
+| `mysql_Sort_scan_rate`<br/>`DGAUGE`, queries per second | Number of sorts using table scans per unit of time | 
+| `mysql_Table_locks_immediate`<br/>`DGAUGE`, count | Number of immediate table locks | 
+| `mysql_Table_locks_waited`<br/>`DGAUGE`, count | Number of table locks that had to wait  | 
+| `mysql_Table_open_cache_hits_rate`<br/>`DGAUGE`, operations per second | Number of hits for open table cache lookups per unit of time | 
+| `mysql_Table_open_cache_misses_rate`<br/>`DGAUGE`, operations per second | Number of misses for open table cache lookups per unit of time | 
+| `mysql_Threads_cached`<br/>`DGAUGE`, count | Number of cached threads | 
+| `mysql_Threads_connected`<br/>`DGAUGE`, count | Number of threads handling open DB connections | 
 | `mysql_Threads_created_rate`<br/>`DGAUGE`, threads per second | Number of threads created per unit of time | 
-| `mysql_Threads_running`<br/>`DGAUGE`, number | Number of threads running at the moment | 
-| `mysql_Uptime`<br/>`DGAUGE`, seconds | Server uptime since last restart | 
-| `mysql_config_innodb_buffer_pool_size`<br/>`DGAUGE`, bytes | Size of the InnoDB buffer pool | 
-| `mysql_config_innodb_log_file_size`<br/>`DGAUGE`, bytes | Log file size in the log group | 
-| `mysql_config_max_connections`<br/>`DGAUGE`, number | Maximum number of concurrent connections | 
-| `mysql_config_table_open_cache`<br/>`DGAUGE`, number | Number of open tables cache for all threads | 
-| `mysql_config_thread_cache_size`<br/>`DGAUGE`, number | Number of threads that need to be cached to be reused | 
-| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is alive or `0` if it is not. | 
+| `mysql_Threads_running`<br/>`DGAUGE`, count | Number of currently running threads | 
+| `mysql_Uptime`<br/>`DGAUGE`, seconds | Server uptime | 
+| `mysql_config_innodb_buffer_pool_size`<br/>`DGAUGE`, bytes | InnoDB buffer pool size | 
+| `mysql_config_innodb_log_file_size`<br/>`DGAUGE`, bytes | Log file size in the log group  | 
+| `mysql_config_max_connections`<br/>`DGAUGE`, count | Maximum number of concurrent connections  | 
+| `mysql_config_table_open_cache`<br/>`DGAUGE`, count | Number of open tables across all threads | 
+| `mysql_config_thread_cache_size`<br/>`DGAUGE`, count | Number of threads to cache for reuse | 
+| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
 | `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>It can be either `1` if a DB host is a master or `0` if it is not. | 
-| `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>It can be either `1` if a DB host is a replica or `0` if it is not. | 
+| `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>It can be either `1` if a DB host is a replica or `0` if it is not.  | 
 | `mysql_latency_query_0.5`<br/>`DGAUGE`, milliseconds | Query execution time, median value | 
-| `mysql_latency_query_0.75`<br/>`DGAUGE`, milliseconds | Query execution time, 0.75 percentile | 
-| `mysql_latency_query_0.90`<br/>`DGAUGE`, milliseconds | Query execution time, 0.90 percentile | 
-| `mysql_latency_query_0.95`<br/>`DGAUGE`, milliseconds | Query execution time, 0.95 percentile | 
-| `mysql_latency_query_0.99`<br/>`DGAUGE`, milliseconds | Query execution time, 0.99 percentile | 
+| `mysql_latency_query_0.75`<br/>`DGAUGE`, milliseconds | Query execution time, 75th percentile | 
+| `mysql_latency_query_0.90`<br/>`DGAUGE`, milliseconds | Query execution time, 90th percentile | 
+| `mysql_latency_query_0.95`<br/>`DGAUGE`, milliseconds | Query execution time, 95th percentile | 
+| `mysql_latency_query_0.99`<br/>`DGAUGE`, milliseconds | Query execution time, 99th percentile | 
 | `mysql_latency_query_avg`<br/>`DGAUGE`, milliseconds | Average query execution time | 
 | `mysql_latency_query_oldest`<br/>`DGAUGE`, milliseconds | Execution time of the oldest query | 
 | `mysql_latency_trx_0.5`<br/>`DGAUGE`, milliseconds | Transaction execution time, median value | 
-| `mysql_latency_trx_0.75`<br/>`DGAUGE`, milliseconds | Transaction execution time, 0.75 percentile | 
-| `mysql_latency_trx_0.90`<br/>`DGAUGE`, milliseconds | Transaction execution time, 0.90 percentile | 
-| `mysql_latency_trx_0.95`<br/>`DGAUGE`, milliseconds | Transaction execution time, 0.95 percentile | 
-| `mysql_latency_trx_0.99`<br/>`DGAUGE`, milliseconds | Transaction execution time, 0.99 percentile | 
+| `mysql_latency_trx_0.75`<br/>`DGAUGE`, milliseconds | Transaction execution time, 75th percentile | 
+| `mysql_latency_trx_0.90`<br/>`DGAUGE`, milliseconds | Transaction execution time, 90th percentile | 
+| `mysql_latency_trx_0.95`<br/>`DGAUGE`, milliseconds | Transaction execution time, 95th percentile | 
+| `mysql_latency_trx_0.99`<br/>`DGAUGE`, milliseconds | Transaction execution time, 99th percentile | 
 | `mysql_latency_trx_avg`<br/>`DGAUGE`, milliseconds | Average transaction execution time | 
 | `mysql_latency_trx_oldest`<br/>`DGAUGE`, milliseconds | Execution time of the oldest transaction | 
-| `mysql_replication_lag`<br/>`DGAUGE`, seconds | Time that a replica lags behind the master | 
+| `mysql_replication_lag`<br/>`DGAUGE`, seconds | Replica's lag behind the master | 
 | `mysql_replication_io_thread_running`<br/>`DGAUGE`, 0/1 | State of {{ MY }} replication I/O thread.</br>It can be either `1` if the thread is running or `0` if it is stopped.</li></ul> |
 | `mysql_replication_sql_thread_running`<br/>`DGAUGE`, 0/1 | State of {{ MY }} replication SQL thread.</br>It can be either `1` if the thread is running or `0` if it is stopped.</li></ul> |
 | `mysql_role`<br/>`DGAUGE`, 1/2 | Current MySQL server role in the replication.<br/>It can be either `2` if the server is a replica (secondary server) or `1` if it is a master (primary server). | 

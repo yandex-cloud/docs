@@ -594,6 +594,10 @@ items:
         href: tutorials/gpu-cluster-deepseek.md
       - name: Запуск библиотеки vLLM с языковой моделью Gemma 3 на ВМ с GPU
         href: tutorials/vllm-gemma-gpu.md
+      - name: >-
+          Доставка USB-устройств на виртуальную машину или сервер {{
+          baremetal-name }}
+        href: tutorials/usb-over-ip.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

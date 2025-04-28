@@ -7,7 +7,7 @@
 К {{ backup-name }} можно подключить:
 * Виртуальные машины, созданные из [поддерживаемых образов {{ marketplace-full-name }}](#os). Агент {{ backup-name }} на таких ВМ устанавливается автоматически.
 * Виртуальные машины, созданные из других образов, если эти образы поддерживаются [провайдером](./index.md#providers) резервного копирования Киберпротект. Агента {{ backup-name }} на такие ВМ необходимо [устанавливать вручную](#self-install).
-* Серверы {{ baremetal-name }} с [поддерживаемой](#self-install) операционной системой. Агента {{ backup-name }} на серверы {{ baremetal-name }} можно установить только [вручную](#self-install).
+* Серверы {{ baremetal-name }} с [поддерживаемой](#self-install) операционной системой. Агента {{ backup-name }} на серверы {{ baremetal-name }} можно установить [вручную](#self-install) или автоматически при [заказе](../../baremetal/operations/servers/server-lease.md) сервера.
 
 Подробнее о подключении к {{ backup-name }} см. в [инструкциях](../operations/index.md).
 
@@ -101,7 +101,7 @@
 
 Когда вы создаете ВМ, для которой хотите настроить резервное копирование в {{ backup-name }}, к ВМ нужно привязать сервисный аккаунт с [ролью](../security/index.md#backup-editor) `backup.editor`.
 
-К серверу {{ baremetal-name }} сервисный аккаунт привязывать не нужно. IAM-токен сервисного аккаунта с [ролью](../security/index.md#backup-editor) `backup.editor` передается агенту {{ backup-name }} при его [установке](../operations/backup-baremetal/backup-baremetal.md#agent-install) на сервер.
+Когда вы создаете сервер {{ baremetal-name }}, для которого хотите настроить резервное копирование в {{ backup-name }}, к серверу нужно привязать сервисный аккаунт с ролями [baremetal.editor](../../baremetal/security/index.md#baremetal-editor) и [backup.editor](../security/index.md#backup-editor).
 
 Вы можете [назначить роль](../../iam/operations/sa/assign-role-for-sa.md) существующему сервисному аккаунту или [создать](../../iam/operations/sa/create.md) новый сервисный аккаунт с нужными ролями.
 

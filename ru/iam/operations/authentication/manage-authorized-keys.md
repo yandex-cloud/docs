@@ -190,7 +190,7 @@ description: Из статьи вы узнаете, как создавать и
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
-  1. В блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}** в строке с ключом, который нужно удалить, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete }}**.
+  1. В блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}** в строке с ключом, который нужно удалить, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне подтвердите удаление.
 
 - CLI {#cli}

@@ -1,3 +1,3 @@
 Например, выполнение тестов суммарной продолжительностью 60 часов будет стоить:
 
-> (50 * 0,00&nbsp;₸) + (10 * 9&nbsp;000,00&nbsp;₸) = 90&nbsp;000,00&nbsp;₸
+> (50 × {% calc [currency=KZT] {{ sku|KZT|load_testing.test_execution.v1|number }} %}) + (10 × {% calc [currency=KZT] {{ sku|KZT|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}) = {% calc [currency=KZT] 50 × {{ sku|KZT|load_testing.test_execution.v1|number }} + 10 × {{ sku|KZT|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}
