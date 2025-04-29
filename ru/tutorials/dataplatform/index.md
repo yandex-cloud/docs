@@ -42,7 +42,6 @@ description: На странице представлен список прак�
 
 * [{#T}](insert-data-ch.md)
 * [{#T}](ch-to-mch-migration.md)
-* [{#T}](clickhouse-migration.md)
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](dp-mch-data-exchange.md)

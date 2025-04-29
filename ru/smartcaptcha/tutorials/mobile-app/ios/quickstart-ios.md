@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/security/quickstart-ios'
+canonical: '{{ link-docs }}/tutorials/security/mobile-app/ios/quickstart-ios'
 ---
 
 # {{ captcha-name }} в приложении на iOS

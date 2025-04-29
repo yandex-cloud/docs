@@ -299,6 +299,8 @@ items:
         href: testing/loadtesting-https-phantom.md
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
         href: testing/loadtesting-https-pandora.md
+      - name: HTTP-тест с нагрузкой по сценарию с помощью Pandora
+        href: testing/loadtesting-http-scenario-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: testing/loadtesting-multiply.md
       - name: Миграция результатов нагрузочного тестирования из OverLoad
@@ -317,6 +319,8 @@ items:
         href: testing/loadtesting-gitlab-ci.md
       - name: Развертывание {{ GLR }} на виртуальной машине {{ compute-name }}
         href: dev/install-gitlab-runner.md
+      - name: Сравнение результатов нагрузочных тестов
+        href: testing/loadtesting-results-compare.md
   - name: Базовая инфраструктура
     items:
       - name: Все руководства
@@ -419,6 +423,10 @@ items:
               Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{
               cloud-logging-name }}
             href: infrastructure-management/ua-http-logging.md
+          - name: >-
+              Запуск языковой модели DeepSeek-R1 в кластере GPU {{ compute-name
+              }}
+            href: infrastructure/gpu-cluster-deepseek.md
       - name: Сеть
         items:
           - name: Настройка синхронизации часов с помощью NTP
@@ -839,8 +847,6 @@ items:
         href: dataplatform/insert-data-ch.md
       - name: Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name }}
         href: dataplatform/ch-to-mch-migration.md
-      - name: Миграция данных в {{ mch-name }} средствами {{ CH }}
-        href: dataplatform/clickhouse-migration.md
       - name: >-
           Поставка данных из {{ mmy-name }} в {{ mch-name }} с помощью {{
           data-transfer-name }}
@@ -1250,6 +1256,16 @@ items:
           Добавление публичного соединения в прямое или партнерское транковое
           подключение
         href: routing/pub-add.md
+      - name: Изменить емкость транкового подключения
+        href: routing/trunk-capacity-change.md
+      - name: Изменить набор IP-префиксов в приватном соединении
+        href: routing/priv-prefixes-change.md
+      - name: Удалить приватное соединение
+        href: routing/priv-del.md
+      - name: Удалить публичное соединение
+        href: routing/pub-del.md
+      - name: Удалить транковое подключение
+        href: routing/trunk-del.md
       - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
         href: routing/bms-vrf-routing.md
       - name: Настройка сетевой связности в подсети {{ baremetal-name }}

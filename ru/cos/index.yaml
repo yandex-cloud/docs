@@ -12,6 +12,17 @@ meta:
     Yandex Container Solution — это сценарии использования на базе виртуальных
     машин с образом Container Optimized Image, оптимизированных для запуска
     Docker-контейнеров.
+  keywords:
+    - keyword: '{{ cos-short-name }}'
+    - keyword: '{{ cos-name }}'
+    - keyword: '{{ cos-full-name }}'
+    - keyword: сервис {{ cos-name }}
+    - keyword: '{{ coi }} в {{ yandex-cloud }}'
+    - keyword: '{{ cos-short-name }} в {{ yandex-cloud }}'
+    - keyword: '{{ coi }}'
+    - keyword: coi
+    - keyword: оптимизация запуска docker-контейнеров
+    - keyword: Docker-контейнеры в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первую ВМ на основе образа Container Optimized Image

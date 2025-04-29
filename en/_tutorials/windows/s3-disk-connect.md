@@ -83,7 +83,7 @@ The cost for bucket support includes:
     --subject serviceAccount:<service_account_ID>
   ```
   
-  For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/folder/add-access-binding).
+  For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 

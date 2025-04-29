@@ -212,3 +212,12 @@ Text string
 * **unavailable.value.placeholder** — значение, которое устанавливается вместо данных, если их тип не поддерживается.
 
     Значение по умолчанию — `__debezium_unavailable_value`.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/mkf-to-mch.md)
+* [{#T}](../tutorials/mkf-to-mpg.md)
+* [{#T}](../tutorials/yds-to-clickhouse.md)
+* [{#T}](../tutorials/yds-to-objstorage.md)
+* [{#T}](../tutorials/data-ingestion.md)
+

@@ -1,5 +1,5 @@
 ---
-title: How to change the trunk capacity in {{ interconnect-full-name }}
+title: How to change the trunk capacity
 description: In this tutorial, we will change the trunk capacity.
 canonical: '{{ link-docs }}/tutorials/routing/trunk-capacity-change'
 ---

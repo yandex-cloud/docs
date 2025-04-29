@@ -611,7 +611,7 @@ Do not enable access to databases containing critical data from the management c
 
 #### 3.19 Access from the management console is disabled in managed databases {#db-console-access}
 
-You may need access to the database from the management console to send [SQL queries](../../..//managed-postgresql/operations/web-sql-query.md) to the database and visualize the data structure.
+You may need access to the database from the management console to send [SQL queries](../../../managed-postgresql/operations/web-sql-query.md) to the database and visualize the data structure.
 
 We recommend that you enable this type of access only if needed, because it raises information security risks. In normal mode, use a standard DB connection as a DB user.
 

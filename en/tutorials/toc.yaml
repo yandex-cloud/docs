@@ -277,6 +277,8 @@ items:
         href: testing/loadtesting-https-phantom.md
       - name: Step-load HTTPS testing with Pandora
         href: testing/loadtesting-https-pandora.md
+      - name: Scripted HTTP load testing with Pandora
+        href: testing/loadtesting-http-scenario-pandora.md
       - name: Load testing using multiple agents
         href: testing/loadtesting-multiply.md
       - name: Migrating load testing results from OverLoad
@@ -293,6 +295,8 @@ items:
         href: testing/server-logs.md
       - name: Invoking load testing from {{ GL }} CI
         href: testing/loadtesting-gitlab-ci.md
+      - name: Comparing load test results
+        href: testing/loadtesting-results-compare.md
       - name: Deploying {{ GLR }} on a {{ compute-name }} virtual machine
         href: dev/install-gitlab-runner.md
   - name: Basic infrastructure
@@ -805,8 +809,6 @@ items:
         href: dataplatform/insert-data-ch.md
       - name: Migrating data to {{ mch-name }} using {{ data-transfer-name }}
         href: dataplatform/ch-to-mch-migration.md
-      - name: Migrating data to {{ mch-name }} using {{ CH }}
-        href: dataplatform/clickhouse-migration.md
       - name: >-
           Delivering data from {{ mmy-name }} to {{ mch-name }} using {{
           data-transfer-name }}
@@ -1200,6 +1202,16 @@ items:
         href: routing/priv-add.md
       - name: Adding a public connection to a direct or partner trunk
         href: routing/pub-add.md
+      - name: Changing the trunk capacity
+        href: routing/trunk-capacity-change.md
+      - name: Changing private connection IP prefixes
+        href: routing/priv-prefixes-change.md
+      - name: Deleting a private connection
+        href: routing/priv-del.md
+      - name: Deleting a public connection
+        href: routing/pub-del.md
+      - name: Deleting a trunk
+        href: routing/trunk-del.md
       - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
         href: routing/bms-vrf-routing.md
       - name: Configuring network connectivity in the {{ baremetal-name }} subnet

@@ -15,6 +15,7 @@ description: Various use cases for development and testing in {{ yandex-cloud }}
 * [Load testing a gRPC service](../testing/loadtesting-grpc.md)
 * [Fixed-load HTTPS testing with Phantom](../testing/loadtesting-https-phantom.md)
 * [Step-load HTTPS testing with Pandora](../testing/loadtesting-https-pandora.md)
+* [Scripted HTTP load testing with Pandora](../testing/loadtesting-http-scenario-pandora.md)
 * [Load testing using multiple agents](../testing/loadtesting-multiply.md)
 * [Migrating load testing results from OverLoad](../testing/loadtesting-overload-migration.md)
 * [Running external agents for load testing](../testing/loadtesting-external-agent.md)
@@ -22,4 +23,5 @@ description: Various use cases for development and testing in {{ yandex-cloud }}
 * [Getting statistics of queries to {{ objstorage-full-name }} objects using {{ yq-full-name }}](../testing/server-logs-yq.md)
 * [Getting the number of {{ objstorage-full-name }} object queries](../testing/server-logs.md)
 * [Invoking load testing from {{ GL }} CI](../testing/loadtesting-gitlab-ci.md)
+* [{#T}](../testing/loadtesting-results-compare.md)
 * [{#T}](install-gitlab-runner.md)

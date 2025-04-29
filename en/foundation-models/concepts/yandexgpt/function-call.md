@@ -73,7 +73,7 @@ request_body = {
 
 You can also specify basic data types, validation of strings, numbers, and arrays, as well as other parameters. For a more detailed description of JSON Schema, see the [official website](https://json-schema.org/learn/getting-started-step-by-step).
 
-The `tools` field in a function call does not mean the model will actually call any of the tools. If the context compels the model to use additional tools, the response to the user’s request will be a message with the [`ToolCallList`](../../text-generation/api-ref/TextGeneration/completion.mc#yandex.cloud.ai.foundation_models.v1.ToolCallList2) field containing a call to the invoked function and the required parameters as a JSON Schema. Send the function output in a message in the [`ToolResultList`](../../text-generation/api-ref/TextGeneration/completion.md#yandex.cloud.ai.foundation_models.v1.ToolResultList) field. The model will use the output to generate its final response.
+The `tools` field in a function call does not mean the model will actually call any of the tools. If the context compels the model to use additional tools, the response to the user’s request will be a message with the [`ToolCallList`](../../text-generation/api-ref/TextGeneration/completion.md#yandex.cloud.ai.foundation_models.v1.ToolCallList2) field containing a call to the invoked function and the required parameters as a JSON Schema. Send the function output in a message in the [`ToolResultList`](../../text-generation/api-ref/TextGeneration/completion.md#yandex.cloud.ai.foundation_models.v1.ToolResultList) field. The model will use the output to generate its final response.
 
 If, based on the request context, the model elects not to use the suggested tools, it will generate its final response right away.
 

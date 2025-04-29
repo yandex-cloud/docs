@@ -25,7 +25,7 @@ A temporary key consists of the following parts:
 * Secret key
 * Session token
 
-To get a temporary access key using {{ sts-name }}, use the [AWS Command Line Interface (AWS CLI)](../..//storage/tools/aws-cli.md) or an HTTP API compatible with the [AWS STS API](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
+To get a temporary access key using {{ sts-name }}, use the [AWS Command Line Interface (AWS CLI)](../../storage/tools/aws-cli.md) or an HTTP API compatible with the [AWS STS API](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
 
 There is a separate [API endpoint](../../api-design-guide/concepts/endpoints.md) for {{ sts-name }}: `https://{{ sts-host }}`.
 

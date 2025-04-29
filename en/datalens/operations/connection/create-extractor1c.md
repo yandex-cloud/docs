@@ -17,4 +17,3 @@ To create a connection to [1C Extractor](https://bi.denvic.ru/products/ekstrakto
 1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 
-For more information on working with 1C Extractor, see [this {{ yandex-cloud }} blog post](/blog/posts/2024/08/1c-to-datalens).

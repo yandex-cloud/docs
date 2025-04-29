@@ -10,6 +10,15 @@ meta:
     Сервис Yandex Serverless Containers позволяет запускать контейнеризированные
     приложения в безопасном, отказоустойчивом и масштабируемом окружении без
     создания и обслуживания виртуальных машин.
+  keywords:
+    - keyword: cloud serverless containers
+    - keyword: '{{ serverless-containers-name }}'
+    - keyword: '{{ serverless-containers-full-name }}'
+    - keyword: сервис {{ serverless-containers-name }}
+    - keyword: контейнеры в {{ yandex-cloud }}
+    - keyword: контейнеры в облаке
+    - keyword: облачные контейнеры
+    - keyword: бессерверные контейнеры
 links:
   - title: Начало работы
     description: Подготовьте Docker-образ и создайте контейнер

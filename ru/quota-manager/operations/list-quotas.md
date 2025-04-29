@@ -61,7 +61,7 @@ title: Как посмотреть список сервисов и квот
   ```
 
   Где:
-  * `--service` — название сервиса в [YC CLI](../cli/cli-ref/).
+  * `--service` — название сервиса в [YC CLI](../../cli/cli-ref/).
   * `--resource-id` — идентификатор [ресурса](../../resource-manager/concepts/resources-hierarchy.md): идентификатор облака, организации или платежного аккаунта.
   * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
 

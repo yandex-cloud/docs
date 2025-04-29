@@ -79,7 +79,7 @@
 
 По умолчанию сайт доступен только по протоколу HTTP, например `http://example.com.{{ s3-web-host }}`. Чтобы поддержать для сайта протокол HTTPS:
 1. Добавьте [собственный сертификат безопасности](../../certificate-manager/operations/import/cert-create.md) или [сертификат от Let's Encrypt](../../certificate-manager/operations/managed/cert-create.md) в сервисе {{ certificate-manager-full-name }}.
-1. [Настройте](../..//storage/operations/hosting/certificate.md) поддержку HTTPS для бакета. После этого сайт будет доступен по протоколу HTTPS `https://example.com.website.yandexcloud.net`.
+1. [Настройте](../../storage/operations/hosting/certificate.md) поддержку HTTPS для бакета. После этого сайт будет доступен по протоколу HTTPS `https://example.com.website.yandexcloud.net`.
 
     {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
@@ -131,7 +131,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** и выберите созданную ранее зону DNS. 
   1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}** и в открывшемся окне задайте параметры записи:
 
-      * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_create-subdomain }}` и введите значение домена, например: `example.com`.
+      * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
       * В поле **{{ ui-key.yacloud.common.type }}** выберите `ANAME`.
       * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите значение ресурсной записи. Например: `example.com.{{ s3-web-host }}`, где `example.com` — имя созданного ранее публичного бакета.
 

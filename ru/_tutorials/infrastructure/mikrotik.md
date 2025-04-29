@@ -20,7 +20,7 @@
 
 {% note alert %}
 
-Пропускная способность роутера при использовании образа Mikrotik Cloud Hosted Router без лицензии ограничена 1 Мбит/с. Чтобы снять ограничение, [установите лицензию](https://wiki.mikrotik.com/wiki/Manual:CHR#CHR_Licensing).
+Пропускная способность роутера при использовании образа Mikrotik Cloud Hosted Router без лицензии ограничена 1 Мбит/с. Чтобы снять ограничение, [установите лицензию](https://help.mikrotik.com/docs/spaces/ROS/pages/18350234/Cloud+Hosted+Router+CHR#CloudHostedRouter,CHR-CHRLicensing).
 
 {% endnote %}
 

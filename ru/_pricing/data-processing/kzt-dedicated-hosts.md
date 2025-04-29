@@ -1,8 +1,8 @@
-| Вычислительные ресурсы | Наценка {{ dataproc-name }} за 1 час, вкл. НДС | Наценка {{ dataproc-name }} за месяц, вкл. НДС |
-|------------------------|-----------------------------------------------:|-----------------------------------------------:|
+| Вычислительные ресурсы | Цена за 1 час,<br>вкл. НДС | Цена за 1 месяц,<br>вкл. НДС |
+|------------------------|---------------------------:|-----------------------------:|
 | **Intel Cascade Lake**                                                                                                    |
-| 100% vCPU              | {{ sku|KZT|mdb.dataproc.v2.cpu.c100|string }}  | {{ sku|KZT|mdb.dataproc.v2.cpu.c100|month|string }}  |
-| RAM (за 1 ГБ)          | {{ sku|KZT|mdb.dataproc.v2.ram|string }}       | {{ sku|KZT|mdb.dataproc.v2.ram|month|string }}       |
+| 100% vCPU              | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.hostgroup.cpu.c100.v1|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c100|month|number }} + {{ sku|KZT|compute.hostgroup.cpu.c100.v1|month|number }} %} |
+| RAM (за 1 ГБ)          | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.hostgroup.ram.v1|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.ram|month|number }} + {{ sku|KZT|compute.hostgroup.ram.v1|month|number }} %} |
 | **Intel Ice Lake**                                                                                                            |
-| 100% vCPU              | {{ sku|KZT|mdb.dataproc.v3.cpu.c100|string }}  | {{ sku|KZT|mdb.dataproc.v3.cpu.c100|month|string }}  |
-| RAM (за 1 ГБ)          | {{ sku|KZT|mdb.dataproc.v3.ram|string }}       | {{ sku|KZT|mdb.dataproc.v3.ram|month|string }}       |
+| 100% vCPU              | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.cpu.c100|number }} + {{ sku|KZT|compute.hostgroup.cpu.c100.v3|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.cpu.c100|month|number }} + {{ sku|KZT|compute.hostgroup.cpu.c100.v3|month|number }} %} |
+| RAM (за 1 ГБ)          | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.ram|number }} + {{ sku|KZT|compute.hostgroup.ram.v3|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.ram|month|number }} + {{ sku|KZT|compute.hostgroup.ram.v3|month|number }} %} |

@@ -1,38 +1,34 @@
-> (1,31 ₽ + 0,12 ₽) × 2 + (0,34 ₽ + 0,03 ₽) × 16 + 0,0190 ₽ × 20 = 9,16 ₽
+> {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }} %} × 2 + {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }} %} × 16 + {{ sku|RUB|compute.filesystem.ssd.v1|string }} × 20 = {% calc [currency=RUB] ({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 16 + {{ sku|RUB|compute.filesystem.ssd.v1|number }} × 20 %}
 >
-> Итого: 9,16 ₽ — стоимость часа использования первого подкластера.
+> Итого: {% calc [currency=RUB] ({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 16 + {{ sku|RUB|compute.filesystem.ssd.v1|number }} × 20 %} — стоимость часа использования первого подкластера.
 
 Где:
 
-* 1,31 ₽ — стоимость часа использования 100% vCPU.
-* 0,12 ₽ — наценка {{ dataproc-name }} за использование 100% vCPU.
+* {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }} %} — стоимость часа использования 100% vCPU.
 * 2 — количество vCPU в хосте-мастере.
-* 0,34 ₽ — стоимость часа использования 1 ГБ RAM.
-* 0,03 ₽ — наценка {{ dataproc-name }} за использование 1 ГБ RAM.
+* {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }} %} — стоимость часа использования 1 ГБ RAM.
 * 16 — объем RAM хоста-мастера (в гигабайтах).
-* 0,0190 ₽  — стоимость часа использования 1 ГБ `network-ssd`.
+* {{ sku|RUB|compute.filesystem.ssd.v1|string }}  — стоимость часа использования 1 ГБ `network-ssd`.
 * 20 — объем хранилища хоста-мастера (в гигабайтах).
 
-> (1,31 ₽ + 0,12 ₽) × 2 + (0,34 ₽ + 0,03 ₽) × 8 + 0,0047 ₽ × 100 = 6,29 ₽
+> {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }} %} × 2 + {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }} %} × 8 + {{ sku|RUB|compute.filesystem.hdd.v1|string }} × 100 = {% calc [currency=RUB] ({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 8 + {{ sku|RUB|compute.filesystem.hdd.v1|number }} × 100 %}
 >
-> Итого: 6,29 ₽ — стоимость часа использования второго подкластера.
+> Итого: {% calc [currency=RUB] ({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 8 + {{ sku|RUB|compute.filesystem.hdd.v1|number }} × 100 %} — стоимость часа использования второго подкластера.
 
 Где:
 
-* 1,31 ₽ — стоимость часа использования 100% vCPU.
-* 0,12 ₽  — наценка {{ dataproc-name }} за использование 100% vCPU.
+* {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }} %} — стоимость часа использования 100% vCPU.
 * 2 — количество vCPU в хосте для хранения данных.
-* 0,34 ₽ — стоимость часа использования 1 ГБ RAM.
-* 0,03 ₽ — наценка {{ dataproc-name }} за использование 1 ГБ RAM.
+* {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }} %} — стоимость часа использования 1 ГБ RAM.
 * 8 — объем RAM хоста для хранения данных (в гигабайтах).
-* 0,0047 ₽ — стоимость часа использования 1 ГБ `network-hdd`.
+* {{ sku|RUB|compute.filesystem.hdd.v1|string }} — стоимость часа использования 1 ГБ `network-hdd`.
 * 100 — объем хранилища хоста для хранения данных (в гигабайтах).
 
-> 9,16 ₽ + 6,29 ₽ = 15,45 ₽
+> {% calc [currency=RUB] ({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 16 + {{ sku|RUB|compute.filesystem.ssd.v1|number }} × 20 %} + {% calc [currency=RUB] ({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 8 + {{ sku|RUB|compute.filesystem.hdd.v1|number }} × 100 %} = {% calc [currency=RUB] (({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 16 + {{ sku|RUB|compute.filesystem.ssd.v1|number }} × 20) + (({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 8 + {{ sku|RUB|compute.filesystem.hdd.v1|number }} × 100) %}
 >
-> Итого: 15,45 ₽ — стоимость часа использования кластера из двух подкластеров.
+> Итого: {% calc [currency=RUB] (({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 16 + {{ sku|RUB|compute.filesystem.ssd.v1|number }} × 20) + (({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 8 + {{ sku|RUB|compute.filesystem.hdd.v1|number }} × 100) %} — стоимость часа использования кластера из двух подкластеров.
 
 Где:
 
-* 9,16 ₽ — стоимость часа использования первого подкластера.
-* 6,29 ₽ — стоимость часа использования второго подкластера.
+* {% calc [currency=RUB] ({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 16 + {{ sku|RUB|compute.filesystem.ssd.v1|number }} × 20 %} — стоимость часа использования первого подкластера.
+* {% calc [currency=RUB] ({{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }}) × 8 + {{ sku|RUB|compute.filesystem.hdd.v1|number }} × 100 %} — стоимость часа использования второго подкластера.

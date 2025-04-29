@@ -104,7 +104,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
           * `subnet-name`: Name of the [subnet](../../../vpc/concepts/network.md#subnet) in the availability zone specified in the `--zone` parameter.
       * `--metadata-from-file`: The `user-data` key with the path to the `cloud-config` YAML configuration file for value, e.g., `--metadata-from-file user-data="/home/user/metadata.yaml"`.
-      * `service-account-id`: [ID](../../..//iam/operations/sa/get-id.md) of the service account with the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer).
+      * `service-account-id`: [ID](../../../iam/operations/sa/get-id.md) of the service account with the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer).
 
       {% cut "Result" %}
 
@@ -203,7 +203,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
           Where:
           * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the VM and disk will reside in.
-          * `service_account_id`: [ID](../../..//iam/operations/sa/get-id.md) of the previously created service account with the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer).
+          * `service_account_id`: [ID](../../../iam/operations/sa/get-id.md) of the previously created service account with the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer).
           * `name`: Name of the new VM, e.g., `my-vm`.
           * `subnet_id`: ID of the [subnet](../../../vpc/concepts/network.md#subnet) in the availability zone specified in the `zone` parameter.
           * `security_group_ids`: [Security group](../../../vpc/concepts/security-groups.md) ID.

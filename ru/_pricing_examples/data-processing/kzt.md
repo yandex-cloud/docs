@@ -1,38 +1,34 @@
-> (6,55 ₸ + 0,60 ₸) × 2 + (1,70 ₸ + 0,15 ₸) × 16 + 0,0951 ₸ × 20 = 45,8020 ₸
+> {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }} %} × 2 + {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }} %} × 16 + {{ sku|KZT|compute.filesystem.ssd.v1|string }} × 20 = {% calc [currency=KZT] ({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 16 + {{ sku|KZT|compute.filesystem.ssd.v1|number }} × 20 %}
 >
-> Итого: 45,8020 ₸ — стоимость часа использования первого подкластера.
+> Итого: {% calc [currency=KZT] ({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 16 + {{ sku|KZT|compute.filesystem.ssd.v1|number }} × 20 %} — стоимость часа использования первого подкластера.
 
 Где:
 
-* 6,55 ₸ — стоимость часа использования 100% vCPU.
-* 0,60 ₸ — наценка {{ dataproc-name }} за использование 100% vCPU.
+* {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }} %} — стоимость часа использования 100% vCPU.
 * 2 — количество vCPU в хосте-мастере.
-* 1,70 ₸ — стоимость часа использования 1 ГБ RAM.
-* 0,15 ₸ — наценка {{ dataproc-name }} за использование 1 ГБ RAM.
+* {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }} %} — стоимость часа использования 1 ГБ RAM.
 * 16 — объем RAM хоста-мастера (в гигабайтах).
-* 0,0951 ₸ — стоимость часа использования 1 ГБ `network-ssd`.
+* {{ sku|KZT|compute.filesystem.ssd.v1|string }}  — стоимость часа использования 1 ГБ `network-ssd`.
 * 20 — объем хранилища хоста-мастера (в гигабайтах).
 
-> (6,55 ₸ + 0,60 ₸) × 2 + (1,70 ₸ + 0,15 ₸) × 8 + 0,0233 ₸ × 100 = 31,43 ₸
+> {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }} %} × 2 + {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }} %} × 8 + {{ sku|KZT|compute.filesystem.hdd.v1|string }} × 100 = {% calc [currency=KZT] ({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 8 + {{ sku|KZT|compute.filesystem.hdd.v1|number }} × 100 %}
 >
-> Итого: 31,43 ₸ — стоимость часа использования второго подкластера.
+> Итого: {% calc [currency=KZT] ({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 8 + {{ sku|KZT|compute.filesystem.hdd.v1|number }} × 100 %} — стоимость часа использования второго подкластера.
 
 Где:
 
-* 6,55 ₸ — стоимость часа использования 100% vCPU.
-* 0,60 ₸ — наценка {{ dataproc-name }} за использование 100% vCPU.
+* {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }} %} — стоимость часа использования 100% vCPU.
 * 2 — количество vCPU в хосте для хранения данных.
-* 1,70 ₸ — стоимость часа использования 1 ГБ RAM.
-* 0,15 ₸ — наценка {{ dataproc-name }} за использование 1 ГБ RAM.
+* {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }} %} — стоимость часа использования 1 ГБ RAM.
 * 8 — объем RAM хоста для хранения данных (в гигабайтах).
-* 0,0233 ₸ — стоимость часа использования 1 ГБ `network-hdd`.
+* {{ sku|KZT|compute.filesystem.hdd.v1|string }} — стоимость часа использования 1 ГБ `network-hdd`.
 * 100 — объем хранилища хоста для хранения данных (в гигабайтах).
 
-> 45,8020 ₸ + 31,43 ₸ = 77,2320 ₸
+> {% calc [currency=KZT] ({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 16 + {{ sku|KZT|compute.filesystem.ssd.v1|number }} × 20 %} + {% calc [currency=KZT] ({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 8 + {{ sku|KZT|compute.filesystem.hdd.v1|number }} × 100 %} = {% calc [currency=KZT] (({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 16 + {{ sku|KZT|compute.filesystem.ssd.v1|number }} × 20) + (({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 8 + {{ sku|KZT|compute.filesystem.hdd.v1|number }} × 100) %}
 >
-> Итого: 77,2320 ₸ — стоимость часа использования кластера из двух подкластеров.
+> Итого: {% calc [currency=KZT] (({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 16 + {{ sku|KZT|compute.filesystem.ssd.v1|number }} × 20) + (({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 8 + {{ sku|KZT|compute.filesystem.hdd.v1|number }} × 100) %} — стоимость часа использования кластера из двух подкластеров.
 
 Где:
 
-* 45,8020 ₸ — стоимость часа использования первого подкластера.
-* 31,43 ₸ — стоимость часа использования второго подкластера.
+* {% calc [currency=KZT] ({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 16 + {{ sku|KZT|compute.filesystem.ssd.v1|number }} × 20 %} — стоимость часа использования первого подкластера.
+* {% calc [currency=KZT] ({{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }}) × 2 + ({{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }}) × 8 + {{ sku|KZT|compute.filesystem.hdd.v1|number }} × 100 %} — стоимость часа использования второго подкластера.

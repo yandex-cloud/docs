@@ -21,6 +21,8 @@ description: На этой странице приведен справочни�
 | [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group) | [Группа безопасности](./concepts/security-groups.md) |
 | [yandex_vpc_security_group_rule]({{ tf-provider-resources-link }}/vpc_security_group_rule) | [Правило группы безопасности](./concepts/security-groups.md#security-groups-rules) |
 | [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) | [Подсеть](./concepts/network.md#subnet) |
+| [yandex_vpc_private_endpoint]({{ tf-provider-resources-link }}/vpc_private_endpoint) | [Сервисное подключение](./concepts/private-endpoint.md) |
+
 
 ## Источники данных {#data-sources}
 
@@ -35,3 +37,4 @@ description: На этой странице приведен справочни�
 | [yandex_vpc_security_group]({{ tf-provider-datasources-link }}/vpc_security_group) | Информация о [группе безопасности](./concepts/security-groups.md) |
 | [yandex_vpc_security_group_rule]({{ tf-provider-datasources-link }}/vpc_security_group_rule) | Информация о [правиле группы безопасности](./concepts/security-groups.md#security-groups-rules) |
 | [yandex_vpc_subnet]({{ tf-provider-datasources-link }}/vpc_subnet) | Информация о [подсети](./concepts/network.md#subnet) |
+| [yandex_vpc_private_endpoint]({{ tf-provider-datasources-link }}/vpc_private_endpoint) | Информация о [сервисном подключении](./concepts/private-endpoint.md) |

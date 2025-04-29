@@ -97,8 +97,6 @@ editable: false
 #### Стандартные хосты {#standard-hosts}
 
 
-{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
-
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
@@ -115,8 +113,6 @@ editable: false
 
 #### Выделенные хосты {#dedicated-hosts}
 
-Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices-dedicated-host) и наценки {{ dataproc-name }} на эти ресурсы.
-
 
 {% list tabs group=pricing %}
 
@@ -131,11 +127,5 @@ editable: false
 {% endlist %}
 
 
-
-{% note info %}
-
-Возможность использовать [GPU](../glossary/gpu.md) на хостах {{ dataproc-name }} предоставляется по запросу в [службу технической поддержки]({{ link-console-support }}).
-
-{% endnote %}
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

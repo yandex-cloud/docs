@@ -29,7 +29,6 @@ description: В этой статье сопоставляются сервис�
 | Azure Machine Learning, Azure Databricks, ONNX Runtime | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Azure Monitor | [{{ monitoring-full-name }}](../../monitoring/) |
 | Azure Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
-| Azure SQL | [{{ mms-full-name }}](../../managed-sqlserver/) |
 | Azure Virtual Desktop | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Blob Storage | [{{ objstorage-full-name }}](../../storage/) |
 | Cognitive Services: Language | [{{ translate-full-name }}](../../translate/) |

@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/containers/docker-images-in-ycr'
+canonical: '{{ link-docs }}/tutorials/container-infrastructure/docker-images-in-ycr'
 ---
 
 # Storing Docker images created in {{ mgl-full-name }} projects

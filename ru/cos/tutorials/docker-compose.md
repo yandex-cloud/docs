@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/containers/docker-compose'
+canonical: '{{ link-docs }}/tutorials/container-infrastructure/docker-compose'
 ---
 
 {% include [docker-compose](../../_tutorials/containers/docker-compose.md) %}

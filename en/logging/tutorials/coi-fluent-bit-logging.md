@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/infrastructure-management/coi-fluent-bit-logging'
+canonical: '{{ link-docs }}/tutorials/security/coi-fluent-bit-logging'
 ---
 
 # Transferring logs from {{ coi }} to {{ cloud-logging-name }}

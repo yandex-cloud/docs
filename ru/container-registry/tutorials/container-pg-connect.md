@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/serverless/container-pg-connect'
+canonical: '{{ link-docs }}/tutorials/container-infrastructure/container-pg-connect'
 ---
 
 # Настройка подключения к {{ mpg-full-name }} из контейнера {{ serverless-containers-name }}

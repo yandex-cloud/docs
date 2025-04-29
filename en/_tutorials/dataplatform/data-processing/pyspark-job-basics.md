@@ -66,7 +66,7 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
         {% endcut %}
 
-    1. [Upload](../../../../storage/operations/objects/upload) the `word_count.py` file to the source data bucket.
+    1. [Upload](../../../storage/operations/objects/upload) the `word_count.py` file to the source data bucket.
 
 1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark#create) with the following parameters:
 
