@@ -23,3 +23,12 @@ CDC (change data capture — [захват изменения данных](http
 
 ^1^ Функциональность находится на стадии Preview.
 Готовность реализации для разных типов инсталляции {{ data-transfer-full-name }} может отличаться. Трансфер для источника {{ MG }} и приемника {{ KF }} пока не поддерживается (cм. [список доступных трансферов](../transfer-matrix.md)).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/cdc-mmy.md)
+* [{#T}](../tutorials/cdc-mpg.md)
+* [{#T}](../tutorials/cdc-ydb.md)
+* [{#T}](../tutorials/ydb-to-yds.md)
+* [{#T}](../tutorials/mpg-to-yds.md)
+* [{#T}](../tutorials/mmy-to-yds.md)

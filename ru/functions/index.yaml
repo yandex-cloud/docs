@@ -10,6 +10,16 @@ meta:
     Сервис Yandex Cloud Functions позволяет запускать приложения в безопасном,
     отказоустойчивом и масштабируемом окружении без создания и обслуживания
     виртуальных машин.
+  keywords:
+    - keyword: '{{ sf-short-name }}'
+    - keyword: '{{ sf-name }}'
+    - keyword: '{{ sf-full-name }}'
+    - keyword: сервис {{ sf-name }}
+    - keyword: functions в {{ yandex-cloud }}
+    - keyword: функции в {{ yandex-cloud }}
+    - keyword: бессерверные функции
+    - keyword: бессерверные вычисления
+    - keyword: облачные функции
 links:
   - title: Начало работы
     description: Создайте первую функцию

@@ -1,5 +1,5 @@
 ---
-title: How to change private connection IP prefixes in {{ interconnect-full-name }}
+title: How to change private connection IP prefixes
 description: In this tutorial, we will change IP prefixes in a private connection
 canonical: '{{ link-docs }}/tutorials/routing/priv-prefixes-change'
 ---

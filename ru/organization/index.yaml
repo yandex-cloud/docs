@@ -34,7 +34,7 @@ links:
     href: concepts/add-federation
   - title: Подключите сервисы
     description: Подключите сервисы, которыми смогут пользоваться сотрудники организации
-    href: concepts/manage-services
+    href: ../resource-manager/concepts/resources-hierarchy
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

@@ -19,7 +19,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% note alert %}
 
-When you use a Mikrotik Cloud Hosted Router image without a license, the router throughput is limited to 1 Mbps. To remove this limit, [install a license](https://wiki.mikrotik.com/wiki/Manual:CHR#CHR_Licensing).
+When you use a Mikrotik Cloud Hosted Router image without a license, the router throughput is limited to 1 Mbps. To remove this limit, [install a license](https://help.mikrotik.com/docs/spaces/ROS/pages/18350234/Cloud+Hosted+Router+CHR#CloudHostedRouter,CHR-CHRLicensing).
 
 {% endnote %}
 

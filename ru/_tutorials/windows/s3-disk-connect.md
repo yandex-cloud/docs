@@ -83,7 +83,7 @@
     --subject serviceAccount:<идентификатор_сервисного_аккаунта>
   ```
   
-  Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/folder/add-access-binding)
+  Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md)
 
 - API {#api}
 

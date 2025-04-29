@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/security/quickstart-android'
+canonical: '{{ link-docs }}/tutorials/security/mobile-app/android/quickstart-android'
 ---
 
 # {{ captcha-name }} в приложении на Android

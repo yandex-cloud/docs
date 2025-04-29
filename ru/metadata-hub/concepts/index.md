@@ -23,11 +23,19 @@ description: Из статьи вы узнаете, что такое подкл
 {% include [connection](../../_includes/metadata-hub/metastore-definition.md) %}
 
 
+### Примеры использования {#examples-metastore}
+
+* [{#T}](../tutorials/metastore-import.md)
+* [{#T}](../tutorials/sharing-tables.md)
+
 ## Реестр схем данных {#schema-registry}
 
 {% include [connection](../../_includes/metadata-hub/schema-registry-definition.md) %}
 
 Реестр схем позволяет вам определять схемы для ваших форматов и версий данных и регистрировать их в реестре. После регистрации схему можно использовать совместно в различных системах и приложениях. Когда поставщик отправляет данные получателю сообщений, схема данных включается в заголовок сообщения, а реестр схемы гарантирует, что схема действительна и совместима с ожидаемой схемой для субъекта.
 
+### Примеры использования {#examples-schema-registry}
 
+* [{#T}](../tutorials/managed-schema-registry.md)
+* [{#T}](../tutorials/schema-registry-cdc-debezium-kafka.md)
 

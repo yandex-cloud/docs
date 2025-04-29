@@ -121,7 +121,7 @@ items:
               - name: Порядок оплаты
                 href: payment/payment-methods-card-business.md
               - name: Чек об оплате
-                href: concepts/individual-bill.md
+                href: concepts/business-bill.md
           - name: Перевод с расчетного счета
             items:
               - name: Порядок оплаты

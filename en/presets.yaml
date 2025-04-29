@@ -137,6 +137,7 @@ default:
   container-registry-short-name: Container Registry
   cos-full-name: Yandex Container Solution
   cos-name: Container Solution
+  cos-short-name: COS
   cr-full-name: Yandex Cloud Router
   cr-name: Cloud Router
   crt-alias: YandexCA
@@ -1034,12 +1035,19 @@ default:
     filesystem:
       hdd:
         v1|month|string: ₸16.79
+        v1|number: 0.0233
+        v1|string: ₸0.0233
       ssd:
         v1|month|string: ₸68.4825
+        v1|number: 0.0951
+        v1|string: ₸0.0951
     hostgroup:
       cpu:
         c100:
+          v1|month|number: 4737.1636
+          v1|number: 6.5794
           v1|string: ₸6.5794
+          v3|month|number: 4258
           v3|number: 5.9139
           v3|string: ₸5.9139
           v4|string: ₸9.70
@@ -1048,7 +1056,10 @@ default:
         v1|number: 0.0611
         v1|string: ₸0.0611
       ram:
+        v1|month|number: 1254.4493
+        v1|number: 1.7423
         v1|string: ₸1.7423
+        v3|month|number: 1127.8636
         v3|number: 1.5665
         v3|string: ₸1.5665
         v4|string: ₸1.75
@@ -1057,6 +1068,8 @@ default:
     vm:
       cpu:
         '50':
+          v2|month|number: 2592
+          v2|number: 3.6
           v2|string: ₸3.60
         c05:
           preemptible:
@@ -1070,23 +1083,34 @@ default:
             v2|string: ₸1.60
             v3|string: ₸1.45
           preemptible|string: ₸1.70
+          v2|month|number: 4284
+          v2|number: 5.95
           v2|string: ₸5.95
+          v3|month|number: 3780
           v3|number: 5.25
           v3|string: ₸5.25
+        c100|month|number: 4032
+        c100|number: 5.6
         c100|string: ₸5.60
         c20:
           preemptible:
             v2|string: ₸0.80
             v3|string: ₸0.70
           preemptible|string: ₸1.35
+          v2|month|number: 1764
+          v2|number: 2.45
           v2|string: ₸2.45
           v3|number: 2.2
           v3|string: ₸2.20
+        c20|month|number: 3168
+        c20|number: 4.4
         c20|string: ₸4.40
         c50:
           preemptible:
             v2|string: ₸1.10
             v3|string: ₸1.00
+          v3|month|number: 2304
+          v3|number: 3.2
           v3|string: ₸3.20
       ram:
         highfreq-v3|string: ₸1.60
@@ -1094,9 +1118,14 @@ default:
           v2|string: ₸0.35
           v3|string: ₸0.35
         preemptible|string: ₸0.60
+        v2|month|number: 1116
+        v2|number: 1.55
         v2|string: ₸1.55
+        v3|month|number: 1008
         v3|number: 1.4
         v3|string: ₸1.40
+      ram|month|number: 1404
+      ram|number: 1.95
       ram|string: ₸1.95
       software_accelerated_network:
         cores:
@@ -1708,18 +1737,32 @@ default:
           ram|number: 2
           ram|string: ₸2.00
     dataproc:
+      v1:
+        cpu:
+          c100|month|number: 396
+          c100|number: 0.55
+          c20|month|number: 72
+          c20|number: 0.1
+        ram|month|number: 108
+        ram|number: 0.15
       v2:
         cpu:
-          c100|month|string: ₸432.00
-          c100|string: ₸0.60
-        ram|month|string: ₸108.00
-        ram|string: ₸0.15
+          c100|month|number: 432
+          c100|number: 0.6
+          c20|month|number: 72
+          c20|number: 0.1
+          c50|month|number: 216
+          c50|number: 0.3
+        ram|month|number: 108
+        ram|number: 0.15
       v3:
         cpu:
-          c100|month|string: ₸432.00
-          c100|string: ₸0.60
-        ram|month|string: ₸108.00
-        ram|string: ₸0.15
+          c100|month|number: 432
+          c100|number: 0.6
+          c50|month|number: 216
+          c50|number: 0.3
+        ram|month|number: 108
+        ram|number: 0.15
     zk:
       clickhouse:
         highfreq-v3:
@@ -2604,12 +2647,19 @@ default:
     filesystem:
       hdd:
         v1|month|string: ₽3.3580
+        v1|number: 0.0047
+        v1|string: ₽0.0047
       ssd:
         v1|month|string: ₽13.6965
+        v1|number: 0.019
+        v1|string: ₽0.0190
     hostgroup:
       cpu:
         c100:
+          v1|month|number: 947.4327
+          v1|number: 1.3159
           v1|string: ₽1.3159
+          v3|month|number: 851.6
           v3|number: 1.1828
           v3|string: ₽1.1828
           v4|string: ₽1.94
@@ -2618,7 +2668,10 @@ default:
         v1|number: 0.0122
         v1|string: ₽0.0122
       ram:
+        v1|month|number: 250.8899
+        v1|number: 0.3485
         v1|string: ₽0.3485
+        v3|month|number: 225.5727
         v3|number: 0.3133
         v3|string: ₽0.3133
         v4|string: ₽0.35
@@ -2627,6 +2680,8 @@ default:
     vm:
       cpu:
         '50':
+          v2|month|number: 518.4
+          v2|number: 0.72
           v2|string: ₽0.72
         c05:
           preemptible:
@@ -2640,23 +2695,34 @@ default:
             v2|string: ₽0.32
             v3|string: ₽0.29
           preemptible|string: ₽0.34
+          v2|month|number: 856.8
+          v2|number: 1.19
           v2|string: ₽1.19
+          v3|month|number: 756
           v3|number: 1.05
           v3|string: ₽1.05
+        c100|month|number: 806.4
+        c100|number: 1.12
         c100|string: ₽1.12
         c20:
           preemptible:
             v2|string: ₽0.16
             v3|string: ₽0.14
           preemptible|string: ₽0.27
+          v2|month|number: 352.8
+          v2|number: 0.49
           v2|string: ₽0.49
           v3|number: 0.44
           v3|string: ₽0.44
+        c20|month|number: 633.6
+        c20|number: 0.88
         c20|string: ₽0.88
         c50:
           preemptible:
             v2|string: ₽0.22
             v3|string: ₽0.20
+          v3|month|number: 460.8
+          v3|number: 0.64
           v3|string: ₽0.64
       ram:
         highfreq-v3|string: ₽0.32
@@ -2664,9 +2730,14 @@ default:
           v2|string: ₽0.07
           v3|string: ₽0.07
         preemptible|string: ₽0.12
+        v2|month|number: 223.2
+        v2|number: 0.31
         v2|string: ₽0.31
+        v3|month|number: 201.6
         v3|number: 0.28
         v3|string: ₽0.28
+      ram|month|number: 280.8
+      ram|number: 0.39
       ram|string: ₽0.39
       software_accelerated_network:
         cores:
@@ -3309,18 +3380,32 @@ default:
           ram|number: 0.4
           ram|string: ₽0.40
     dataproc:
+      v1:
+        cpu:
+          c100|month|number: 79.2
+          c100|number: 0.11
+          c20|month|number: 14.4
+          c20|number: 0.02
+        ram|month|number: 21.6
+        ram|number: 0.03
       v2:
         cpu:
-          c100|month|string: ₽86.40
-          c100|string: ₽0.12
-        ram|month|string: ₽21.60
-        ram|string: ₽0.03
+          c100|month|number: 86.4
+          c100|number: 0.12
+          c20|month|number: 14.4
+          c20|number: 0.02
+          c50|month|number: 43.2
+          c50|number: 0.06
+        ram|month|number: 21.6
+        ram|number: 0.03
       v3:
         cpu:
-          c100|month|string: ₽86.40
-          c100|string: ₽0.12
-        ram|month|string: ₽21.60
-        ram|string: ₽0.03
+          c100|month|number: 86.4
+          c100|number: 0.12
+          c50|month|number: 43.2
+          c50|number: 0.06
+        ram|month|number: 21.6
+        ram|number: 0.03
     zk:
       clickhouse:
         highfreq-v3:
@@ -4071,12 +4156,19 @@ default:
     filesystem:
       hdd:
         v1|month|string: $0.026864
+        v1|number: 0.000037
+        v1|string: $0.000037
       ssd:
         v1|month|string: $0.109572
+        v1|number: 0.000152
+        v1|string: $0.000152
     hostgroup:
       cpu:
         c100:
+          v1|month|number: 7.579462
+          v1|number: 0.010527
           v1|string: $0.010527
+          v3|month|number: 6.8128
           v3|number: 0.009462
           v3|string: $0.009462
           v4|string: $0.015520
@@ -4085,7 +4177,10 @@ default:
         v1|number: 0.000098
         v1|string: $0.000098
       ram:
+        v1|month|number: 2.007119
+        v1|number: 0.002788
         v1|string: $0.002788
+        v3|month|number: 1.804582
         v3|number: 0.002506
         v3|string: $0.002506
         v4|string: $0.002800
@@ -4094,6 +4189,8 @@ default:
     vm:
       cpu:
         '50':
+          v2|month|number: 4.1472
+          v2|number: 0.00576
           v2|string: $0.005760
         c05:
           preemptible:
@@ -4107,23 +4204,34 @@ default:
             v2|string: $0.002560
             v3|string: $0.002320
           preemptible|string: $0.002720
+          v2|month|number: 6.8544
+          v2|number: 0.00952
           v2|string: $0.009520
+          v3|month|number: 6.048
           v3|number: 0.0084
           v3|string: $0.008400
+        c100|month|number: 6.4512
+        c100|number: 0.00896
         c100|string: $0.008960
         c20:
           preemptible:
             v2|string: $0.001280
             v3|string: $0.001120
           preemptible|string: $0.002160
+          v2|month|number: 2.8224
+          v2|number: 0.00392
           v2|string: $0.003920
           v3|number: 0.00352
           v3|string: $0.003520
+        c20|month|number: 5.0688
+        c20|number: 0.00704
         c20|string: $0.007040
         c50:
           preemptible:
             v2|string: $0.001760
             v3|string: $0.001600
+          v3|month|number: 3.6864
+          v3|number: 0.00512
           v3|string: $0.005120
       ram:
         highfreq-v3|string: $0.002560
@@ -4131,9 +4239,14 @@ default:
           v2|string: $0.000560
           v3|string: $0.000560
         preemptible|string: $0.000960
+        v2|month|number: 1.7856
+        v2|number: 0.00248
         v2|string: $0.002480
+        v3|month|number: 1.6128
         v3|number: 0.00224
         v3|string: $0.002240
+      ram|month|number: 2.2464
+      ram|number: 0.00312
       ram|string: $0.003120
       software_accelerated_network:
         cores:
@@ -4743,18 +4856,32 @@ default:
           ram|number: 0.0032
           ram|string: $0.003200
     dataproc:
+      v1:
+        cpu:
+          c100|month|number: 0.6336
+          c100|number: 0.00088
+          c20|month|number: 0.1152
+          c20|number: 0.00016
+        ram|month|number: 0.1728
+        ram|number: 0.00024
       v2:
         cpu:
-          c100|month|string: $0.691200
-          c100|string: $0.000960
-        ram|month|string: $0.172800
-        ram|string: $0.000240
+          c100|month|number: 0.6912
+          c100|number: 0.00096
+          c20|month|number: 0.1152
+          c20|number: 0.00016
+          c50|month|number: 0.3456
+          c50|number: 0.00048
+        ram|month|number: 0.1728
+        ram|number: 0.00024
       v3:
         cpu:
-          c100|month|string: $0.691200
-          c100|string: $0.000960
-        ram|month|string: $0.172800
-        ram|string: $0.000240
+          c100|month|number: 0.6912
+          c100|number: 0.00096
+          c50|month|number: 0.3456
+          c50|number: 0.00048
+        ram|month|number: 0.1728
+        ram|number: 0.00024
     zk:
       clickhouse:
         highfreq-v3:
@@ -9447,28 +9574,20 @@ default:
                 form:
                   elasticsearch:
                     ElasticSearchConnection:
-                      connection_type:
-                        title: Connection type
                       password:
                         title: Password
                       security_groups:
                         title: Security groups
                       user:
                         title: User
-                    ElasticSearchConnectionType:
-                      mdb_cluster_id:
-                        title: Managed Service for Elasticsearch cluster
                     ElasticSearchSource:
                       dump_index_with_mapping:
                         title: Dump an index with type mapping
                     ElasticSearchTarget:
                       cleanup_policy:
                         title: Cleanup policy
-                      connection:
-                        title: Connection
                       sanitize_doc_keys:
                         title: Sanitize documents keys
-                      title: Endpoint parameters
                     OnPremiseElasticSearch:
                       addresses:
                         title: Data nodes

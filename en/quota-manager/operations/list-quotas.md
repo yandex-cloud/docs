@@ -61,7 +61,7 @@ title: How to view the list of services and quotas
   ```
 
   Where:
-  * `--service` is the name of the service in the [YC CLI](../cli/cli-ref/).
+  * `--service` is the name of the service in the [YC CLI](../../cli/cli-ref/).
   * `--resource-id` is the ID of the [resource](../../resource-manager/concepts/resources-hierarchy.md): organization, cloud, folder, or billing account.
   * `--resource-type`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
 

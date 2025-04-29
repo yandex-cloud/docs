@@ -23,7 +23,7 @@ links:
     href: concepts/add-federation
   - title: Manage services
     description: Choose the services your organization's employees will have access to
-    href: concepts/manage-services
+    href: ../resource-manager/concepts/resources-hierarchy
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits

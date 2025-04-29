@@ -1,19 +1,15 @@
 | Вычислительные ресурсы | Цена за 1 час,<br>вкл. НДС | Цена за 1 месяц,<br>вкл. НДС |
-|------------------------|------------------------:|--------------------------:|
+|------------------------|----------------------------:|----------------------------:|
 | **Intel Broadwell**                                                          |
-| 20% vCPU               | 0,90 ₽                  | 648,00 ₽                  |
-| 100% vCPU              | 1,23 ₽                  | 885,60 ₽                  |
-| 1 GPU                  | 274,47 ₽                | 197 618,40 ₽                |
-| RAM (за 1 ГБ)          | 0,42 ₽                  | 302,40 ₽                  |
+| 20% vCPU               | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v1.cpu.c20|number }} + {{ sku|RUB|compute.vm.cpu.c20|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v1.cpu.c20|month|number }} + {{ sku|RUB|compute.vm.cpu.c20|month|number }} %} |
+| 100% vCPU              | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v1.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v1.cpu.c100|month|number }} + {{ sku|RUB|compute.vm.cpu.c100|month|number }} %} |
+| RAM (за 1 ГБ)          | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v1.ram|number }} + {{ sku|RUB|compute.vm.ram|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v1.ram|month|number }} + {{ sku|RUB|compute.vm.ram|month|number }} %} |
 | **Intel Cascade Lake**                                                     |
-| 20% vCPU               | 0,51 ₽                  | 367,20 ₽                  |
-| 50% vCPU               | 0,78 ₽                  | 561,60 ₽                  |
-| 100% vCPU              | 1,31 ₽                  | 943,20 ₽                  |
-| RAM (за 1 ГБ)          | 0,34 ₽                  | 244,80 ₽                  |
+| 20% vCPU               | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c20|number }} + {{ sku|RUB|compute.vm.cpu.c20.v2|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c20|month|number }} + {{ sku|RUB|compute.vm.cpu.c20.v2|month|number }} %} |
+| 50% vCPU               | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c50|number }} + {{ sku|RUB|compute.vm.cpu.50.v2|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c50|month|number }} + {{ sku|RUB|compute.vm.cpu.50.v2|month|number }} %} |
+| 100% vCPU              | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.cpu.c100|month|number }} + {{ sku|RUB|compute.vm.cpu.c100.v2|month|number }} %} |
+| RAM (за 1 ГБ)          | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.ram|number }} + {{ sku|RUB|compute.vm.ram.v2|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v2.ram|month|number }} + {{ sku|RUB|compute.vm.ram.v2|month|number }} %} |
 | **Intel Ice Lake**                                                         |
-| 50% vCPU               | 0,70 ₽                  | 504,00 ₽                  |
-| 100% vCPU              | 1,17 ₽                  | 842,40 ₽                  |
-| RAM (за 1 ГБ)          | 0,31 ₽                  | 223,20 ₽                  |
-| **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | 1,95 ₽ | 1 404,00 ₽ |
-| RAM (за 1 ГБ) | 0,35 ₽ | 252,00 ₽ |
+| 50% vCPU               | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v3.cpu.c50|number }} + {{ sku|RUB|compute.vm.cpu.c50.v3|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v3.cpu.c50|month|number }} + {{ sku|RUB|compute.vm.cpu.c50.v3|month|number }} %} |
+| 100% vCPU              | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v3.cpu.c100|number }} + {{ sku|RUB|compute.vm.cpu.c100.v3|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v3.cpu.c100|month|number }} + {{ sku|RUB|compute.vm.cpu.c100.v3|month|number }} %} |
+| RAM (за 1 ГБ)          | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v3.ram|number }} + {{ sku|RUB|compute.vm.ram.v3|number }} %} | {% calc [currency=RUB] {{ sku|RUB|mdb.dataproc.v3.ram|month|number }} + {{ sku|RUB|compute.vm.ram.v3|month|number }} %} |

@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website-console'
+canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website/console'
 ---
 
 # Fault-tolerant website with load balancing via {{ alb-full-name }} using the management console

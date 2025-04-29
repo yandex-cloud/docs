@@ -31,7 +31,11 @@ _Бюджет_ — это способ контролировать расход
 
 Тип бюджета _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}_ проверяет баланс лицевого счета и сравнивает его с установленным порогом. Уведомления отправляются пользователям, когда баланс лицевого счета становится меньше порогового значения.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md)
+
 ##### См. также {#see-also}
 
 * [{#T}](../operations/budgets.md).
-* [{#T}](../tutorials/serverless-trigger-budget-vm.md).

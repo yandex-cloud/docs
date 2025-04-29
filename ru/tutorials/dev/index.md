@@ -15,6 +15,7 @@ description: Различные сценарии использования по
 * [Нагрузочное тестирование gRPC-сервиса](../testing/loadtesting-grpc.md)
 * [HTTPS-тест с постоянной нагрузкой с помощью Phantom](../testing/loadtesting-https-phantom.md)
 * [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](../testing/loadtesting-https-pandora.md)
+* [HTTP-тест с нагрузкой по сценарию с помощью Pandora](../testing/loadtesting-http-scenario-pandora.md)
 * [Нагрузочное тестирование с нескольких агентов](../testing/loadtesting-multiply.md)
 * [Миграция результатов нагрузочного тестирования из OverLoad](../testing/loadtesting-overload-migration.md)
 * [Запуск внешних агентов для нагрузочного тестирования](../testing/loadtesting-external-agent.md)
@@ -23,3 +24,4 @@ description: Различные сценарии использования по
 * [Получение количества запросов к объектам {{ objstorage-full-name }}](../testing/server-logs.md)
 * [Вызов нагрузочного тестирования из {{ GL }} CI](../testing/loadtesting-gitlab-ci.md)
 * [{#T}](install-gitlab-runner.md)
+* [{#T}](../testing/loadtesting-results-compare.md)

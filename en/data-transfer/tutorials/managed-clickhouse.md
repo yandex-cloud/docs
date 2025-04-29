@@ -1,6 +1,6 @@
 ---
 noIndex: true
-canonical: '{{ link-docs }}/tutorials/dataplatform/managed-clickhouse'
+canonical: '{{ link-docs }}/tutorials/dataplatform/ch-to-mch-migration'
 ---
 
 # Migrating {{ CH }} clusters

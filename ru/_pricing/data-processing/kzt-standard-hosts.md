@@ -1,19 +1,15 @@
 | Вычислительные ресурсы | Цена за 1 час,<br>вкл. НДС | Цена за 1 месяц,<br>вкл. НДС |
-|------------------------|------------------------:|------------------------:|
-| **Intel Broadwell**                                                        |
-| 20% vCPU               | 4,50 ₸                  | 3 240,00 ₸                  |
-| 100% vCPU              | 6,15 ₸                  | 4 428,00 ₸                  |
-| 1 GPU                  | 1 372,35 ₸              | 988 092,00 ₸                  |
-| RAM (за 1 ГБ)          | 2,10 ₸                  | 1 512,00 ₸                  |
+|------------------------|---------------------------:|-----------------------------:|
+| **Intel Broadwell**                                                          |
+| 20% vCPU               | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v1.cpu.c20|number }} + {{ sku|KZT|compute.vm.cpu.c20|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v1.cpu.c20|month|number }} + {{ sku|KZT|compute.vm.cpu.c20|month|number }} %} |
+| 100% vCPU              | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v1.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v1.cpu.c100|month|number }} + {{ sku|KZT|compute.vm.cpu.c100|month|number }} %} |
+| RAM (за 1 ГБ)          | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v1.ram|number }} + {{ sku|KZT|compute.vm.ram|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v1.ram|month|number }} + {{ sku|KZT|compute.vm.ram|month|number }} %} |
 | **Intel Cascade Lake**                                                     |
-| 20% vCPU               | 2,55 ₸                  | 1 836,00 ₸                  |
-| 50% vCPU               | 3,90 ₸                  | 2 808,00 ₸                  |
-| 100% vCPU              | 6,55 ₸                  | 4 716,00 ₸                  |
-| RAM (за 1 ГБ)          | 1,70 ₸                  | 1 224,00 ₸                  |
+| 20% vCPU               | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c20|number }} + {{ sku|KZT|compute.vm.cpu.c20.v2|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c20|month|number }} + {{ sku|KZT|compute.vm.cpu.c20.v2|month|number }} %} |
+| 50% vCPU               | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c50|number }} + {{ sku|KZT|compute.vm.cpu.50.v2|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c50|month|number }} + {{ sku|KZT|compute.vm.cpu.50.v2|month|number }} %} |
+| 100% vCPU              | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.cpu.c100|month|number }} + {{ sku|KZT|compute.vm.cpu.c100.v2|month|number }} %} |
+| RAM (за 1 ГБ)          | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.ram|number }} + {{ sku|KZT|compute.vm.ram.v2|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v2.ram|month|number }} + {{ sku|KZT|compute.vm.ram.v2|month|number }} %} |
 | **Intel Ice Lake**                                                         |
-| 50% vCPU               | 3,50 ₸                  | 2 520,00 ₸                  |
-| 100% vCPU              | 5,85 ₸                  | 4 212,00 ₸                  |
-| RAM (за 1 ГБ)          | 1,55 ₸                  | 1 116,00 ₸                  |
-| **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | 9,75 ₸ | 7 020,00 ₸                  |
-| RAM (за 1 ГБ) | 1,75 ₸ | 1 260,00 ₸                  |
+| 50% vCPU               | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.cpu.c50|number }} + {{ sku|KZT|compute.vm.cpu.c50.v3|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.cpu.c50|month|number }} + {{ sku|KZT|compute.vm.cpu.c50.v3|month|number }} %} |
+| 100% vCPU              | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.cpu.c100|number }} + {{ sku|KZT|compute.vm.cpu.c100.v3|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.cpu.c100|month|number }} + {{ sku|KZT|compute.vm.cpu.c100.v3|month|number }} %} |
+| RAM (за 1 ГБ)          | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.ram|number }} + {{ sku|KZT|compute.vm.ram.v3|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.ram|month|number }} + {{ sku|KZT|compute.vm.ram.v3|month|number }} %} |

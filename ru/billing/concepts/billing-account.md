@@ -66,3 +66,9 @@
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
 {% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/billing-resource-detailing.md)
+* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md)

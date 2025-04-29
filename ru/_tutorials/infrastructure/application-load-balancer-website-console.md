@@ -148,7 +148,7 @@
   1. Введите имя группы бэкендов, например `website-bg`.
   1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. Введите имя бэкенда, например `backend-1`.
-  1. В поле ***{{ ui-key.yacloud.alb.label_target-groups }}** выберите созданную ранее целевую группу `alb-tg`.
+  1. В поле **{{ ui-key.yacloud.alb.label_target-groups }}** выберите созданную ранее целевую группу `alb-tg`.
   1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать входящий трафик от балансировщика: `80`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
   1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать проверочные соединения: `80`.

@@ -104,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet), расположенной в зоне доступности, указанной в параметре `--zone`.
       * `--metadata-from-file` — ключ `user-data`, значением которого является путь к созданному ранее файлу с конфигурацией `cloud-config` в формате YAML. Например: `--metadata-from-file user-data="/home/user/metadata.yaml"`.
-      * `service-account-id` — [идентификатор](../../..//iam/operations/sa/get-id.md) созданного ранее сервисного аккаунта с назначенной [ролью](../../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+      * `service-account-id` — [идентификатор](../../../iam/operations/sa/get-id.md) созданного ранее сервисного аккаунта с назначенной [ролью](../../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
       {% cut "Результат" %}
 
@@ -203,7 +203,7 @@ description: Следуя данной инструкции, вы сможете
 
           Где:
           * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будут находиться ВМ и диск.
-          * `service_account_id` — [идентификатор](../../..//iam/operations/sa/get-id.md) созданного ранее сервисного аккаунта с назначенной [ролью](../../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+          * `service_account_id` — [идентификатор](../../../iam/operations/sa/get-id.md) созданного ранее сервисного аккаунта с назначенной [ролью](../../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
           * `name` — имя создаваемой ВМ. Например: `my-vm`.
           * `subnet_id` — идентификатор [подсети](../../../vpc/concepts/network.md#subnet), расположенной в зоне доступности, указанной в параметре `zone`.
           * `security_group_ids` — идентификатор [группы безопасности](../../../vpc/concepts/security-groups.md).

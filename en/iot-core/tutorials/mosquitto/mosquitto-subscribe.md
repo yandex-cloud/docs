@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/iot/mosquitto-subscribe'
+canonical: '{{ link-docs }}/tutorials/iot/mosquitto/mosquitto-subscribe'
 ---
 
 # Subscribing a device or registry to receive messages using Mosquitto

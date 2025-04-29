@@ -106,7 +106,7 @@ Speech recognition completes and delivers final results upon [EOU (End-of-Uttera
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](../concepts/auth.md)
-* [API v3 reference](../stt-v3/api-ref/grpc/stt_service)
+* [API v3 reference](../stt-v3/api-ref/grpc/index.md)
 * [{#T}](api/streaming-examples-v3.md)
 * [{#T}](api/streaming-api.md)
 * [{#T}](api/streaming-examples.md)

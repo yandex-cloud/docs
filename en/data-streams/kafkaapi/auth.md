@@ -19,7 +19,7 @@ To authenticate, take these steps:
 1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa):
    * For reading from a data stream: `ydb.kafkaApi.client` and `ydb.viewer`.
    * For writing to a data stream: `ydb.kafkaApi.client` and `ydb.editor`.
-1. [Create an API key](../../iam/operations/api-key/create) with the `yc.ydb.topics.manage` scope.
+1. [Create an API key](../../iam/operations/authentication/manage-api-keys.md) with the `yc.ydb.topics.manage` scope.
 
 
 ## Authentication {#auth}

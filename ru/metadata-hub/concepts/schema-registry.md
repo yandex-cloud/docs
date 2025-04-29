@@ -60,3 +60,8 @@ message msg2 {
 * `1` — версия субъекта `test-msg1`, которая содержит схему для референса.
 
 {% endcut %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/managed-schema-registry.md)
+* [{#T}](../tutorials/schema-registry-cdc-debezium-kafka.md)

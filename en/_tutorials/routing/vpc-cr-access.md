@@ -403,7 +403,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 * When deploying NAT instances in two availability zones, use an even number of VMs to evenly distribute them between availability zones.
 * When selecting the number of NAT instances, take into consideration the [load balancer traffic processing locality](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 * Once the solution is deployed, use planned downtime windows for maintenance, e.g., removing NAT instances or changing the `yc_availability_zones` setting, during which the system will not process user requests.
-* If, with increased {{ container-registry-name }} workload, you see a high `CPU steal time` metric value, enable a [software-accelerated network](../..//vpc/concepts/software-accelerated-network.md) for this NAT instance.
+* If, with increased {{ container-registry-name }} workload, you see a high `CPU steal time` metric value, enable a [software-accelerated network](../../vpc/concepts/software-accelerated-network.md) for this NAT instance.
 * If you are using your own DNS server, create the following type `A` resource records in its zone file:
 
    | Name | Type | Value |

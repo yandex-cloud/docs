@@ -103,7 +103,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
         1. Select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
 
-            The permissions of the service account [created earlier](before-you-begin) must allow log collection from the specified scope.
+            The permissions of the service account [created earlier](#before-you-begin) must allow log collection from the specified scope.
 
         1. Depending on the selected log collection scope, select specific clouds or folders to collect events from:
 
@@ -121,7 +121,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
         1. For each such service, select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
 
-            The permissions of the service account [created earlier](before-you-begin) must allow log collection from the specified scope.
+            The permissions of the service account [created earlier](#before-you-begin) must allow log collection from the specified scope.
 
         1. Depending on the selected log collection scope, select specific clouds or folders to collect events from:
 
