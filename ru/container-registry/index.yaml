@@ -26,6 +26,16 @@ meta:
   description: >-
     Yandex Container Registry — сервис для хранения и распространения
     Docker-образов.
+  keywords:
+    - keyword: '{{ container-registry-name }}'
+    - keyword: '{{ container-registry-full-name }}'
+    - keyword: сервис {{ container-registry-name }}
+    - keyword: docker в {{ yandex-cloud }}
+    - keyword: helm в {{ yandex-cloud }}
+    - keyword: хранение docker-образов
+    - keyword: реестр docker-образов
+    - keyword: docker в облаке
+    - keyword: реестр контейнеров
 links:
   - title: Начало работы
     description: Создайте первый реестр

@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/routing/dataproc-nat-instance'
+canonical: '{{ link-docs }}/tutorials/routing/data-processing-nat-instance'
 ---
 
 # Настройка сети для {{ dataproc-full-name }}

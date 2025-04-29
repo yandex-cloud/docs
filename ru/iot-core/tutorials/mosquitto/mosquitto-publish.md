@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/iot/mosquitto-publish'
+canonical: '{{ link-docs }}/tutorials/iot/mosquitto/mosquitto-publish'
 ---
 
 {% include [mosquitto-publish-intro](../../../_tutorials/applied/mosquitto-publish-intro.md) %}

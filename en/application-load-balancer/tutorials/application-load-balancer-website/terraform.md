@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website-terraform'
+canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website/terraform'
 ---
 
 # Fault-tolerant website with load balancing via {{ alb-full-name }} using {{ TF }}

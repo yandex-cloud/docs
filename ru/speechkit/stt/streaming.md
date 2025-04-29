@@ -114,4 +114,4 @@
 * [{#T}](models.md)
 * [{#T}](../concepts/auth.md)
 * [{#T}](api/streaming-api.md)
-* [Справочник API v3](../stt-v3/api-ref/grpc/stt_service)
+* [Справочник API v3](../stt-v3/api-ref/grpc/index.md)

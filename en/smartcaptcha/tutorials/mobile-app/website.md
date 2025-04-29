@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/security/website'
+canonical: '{{ link-docs }}/tutorials/security/mobile-app/website'
 ---
 
 # Adding an HTML page to work with {{ captcha-name }}

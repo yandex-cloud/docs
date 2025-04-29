@@ -79,7 +79,7 @@ To create a bucket for static website files:
 
 By default, the website is accessible only over HTTP, e.g., at `http://example.com.{{ s3-web-host }}`. To provide HTTPS support for your website:
 1. Add your [own security certificate](../../certificate-manager/operations/import/cert-create.md) or a [Let's Encrypt certificate](../../certificate-manager/operations/managed/cert-create.md) in {{ certificate-manager-full-name }}.
-1. [Configure](../..//storage/operations/hosting/certificate.md) HTTPS support for your bucket. Your website will then be accessible over HTTPS at `https://example.com.website.yandexcloud.net`.
+1. [Configure](../../storage/operations/hosting/certificate.md) HTTPS support for your bucket. Your website will then be accessible over HTTPS at `https://example.com.website.yandexcloud.net`.
 
     {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 

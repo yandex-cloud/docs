@@ -101,3 +101,8 @@ description: В сервисе {{ metadata-hub-full-name }} вы можете с
 Вторая особенность касается сетевой безопасности. Для корректной работы {{ metastore-name }} необходима правильная настройка групп безопасности, разрешающих необходимый сетевой трафик. Без этого кластер может отображаться в состоянии `DEAD`, что затрудняет диагностику проблем (см. [инструкцию](../../metadata-hub/operations/metastore/configure-security-group.md) по настройке групп безопасности).
 
 Подробнее о {{ metastore-name }} см. в [документации Apache®](https://cwiki.apache.org/confluence/display/hive/design#Design-Metastore).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/metastore-import.md)
+* [{#T}](../tutorials/sharing-tables.md)

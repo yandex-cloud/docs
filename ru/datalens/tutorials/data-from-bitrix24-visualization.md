@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/data-from-bitrix24-visualization'
+canonical: '{{ link-docs }}/tutorials/datalens/data-from-bitrix24-visualization'
 ---
 
 

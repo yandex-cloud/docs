@@ -22,7 +22,7 @@ Yandex Cloud automatically sends agreements to the specified Electronic Document
 2. Issuance of invoice
 3. Conclusion of a service agreement for Electronic Document Management.
 
-After switching to electronic document management, you will receive the service acceptance certificate in PDF format (non-electronic document) and XML (electronic document format), and the [invoice in the form of a universal transfer document with invoice function (electronic document format)](../../..//billing/concepts/edo.md#document)
+After switching to electronic document management, you will receive the service acceptance certificate in PDF format (non-electronic document) and XML (electronic document format), and the [invoice in the form of a universal transfer document with invoice function (electronic document format)](../../../billing/concepts/edo.md#document)
 
 Please note: when you enable Electronic Document Management, Yandex Cloud will stop sending you electronic versions of closing documents by e-mail and original closing documents by Russian Post to your postal address.
 A document obtained via an Electronic Document Management system is considered legally equivalent to paper.

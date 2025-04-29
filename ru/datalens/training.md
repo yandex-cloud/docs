@@ -9,11 +9,9 @@
 
    Базовый курс по основам работы с {{ datalens-short-name }} на Яндекс Практикуме. Подготовлен командой продукта, аналитиками Яндекса и внешними экспертами. Рекомендуем начинать погружение в {{ datalens-short-name }} именно с него!
 
-
 * [**{{ datalens-full-name }} Festival**](https://yandex.cloud/ru/datalens-festival)
 
    Образовательный фестиваль с примерами и кейсами партнеров. В программе вас также ждет сравнение {{ datalens-short-name }} с лидерами рынка — Power BI, Tableau и Superset. Кроме того, вы изучите особенности построения корпоративной аналитики в облаке: хранилище, ETL, безопасность.
-
 
 * {% include [training-corpplatform](../_includes/training/training-cdp.md) %}
 

@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/security/invisible-captcha-android'
+canonical: '{{ link-docs }}/tutorials/security/mobile-app/android/invisible-captcha-android'
 ---
 
 # Invisible {{ captcha-name }} in Android apps

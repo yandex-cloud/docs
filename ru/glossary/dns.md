@@ -158,7 +158,7 @@ DNS-запросы — это запросы от одного сервера к
 
 ## Управление Cloud DNS {#cloud-dns-management}
 
-[{{ dns-full-name }}](/services/cloud-dns/) предоставляет управление зонами DNS и доменными именами ресурсов из консоли {{ yandex-cloud }} и с помощью интерфейсов API, CLI и Terraform.
+[{{ dns-full-name }}](/services/dns/) предоставляет управление зонами DNS и доменными именами ресурсов из консоли {{ yandex-cloud }} и с помощью интерфейсов API, CLI и Terraform.
 
 1. Создайте [зоны DNS](../dns/operations/zone-create-private.md), где будут храниться ресурсные записи, связывающие IP-адреса ваших виртуальных машин с их доменными именами. Можно создать [внутреннюю DNS-зону](../dns/operations/zone-create-private.md) и [публичную DNS-зону](../dns/operations/zone-create-public.md).
 

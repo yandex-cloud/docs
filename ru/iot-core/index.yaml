@@ -10,6 +10,18 @@ meta:
     Yandex IoT Core — это облачный отказоустойчивый MQTT-сервер, позволяющий
     наладить двустороннюю защищенную связь между устройствами и локальными или
     облачными ресурсами.
+  keywords:
+    - keyword: '{{ iot-full-name }}'
+    - keyword: сервис {{ iot-name }}
+    - keyword: iot в {{ yandex-cloud }}
+    - keyword: internet of things в {{ yandex-cloud }}
+    - keyword: интернет вещей в {{ yandex-cloud }}
+    - keyword: iot
+    - keyword: internet of things
+    - keyword: интернет вещей
+    - keyword: устройства в облаке
+    - keyword: платформа для iot
+    - keyword: облако для интернета вещей
 links:
   - title: Начало работы
     description: Создайте первый реестр устройств или брокер

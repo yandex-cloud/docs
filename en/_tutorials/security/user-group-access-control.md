@@ -324,7 +324,7 @@ Note that VMs, clusters, registries, key, secrets, and many other resources crea
 
 Access permissions to the created resources will be granted to users based on the access permissions settings of the relevant user group.
 
-We recommend managing your infrastructure under [service accounts](/iam/concepts/users/service-accounts) which you can use to authenticate applications. Service accounts are created in folders. You can also add service accounts to user groups.
+We recommend managing your infrastructure under [service accounts](../../iam/concepts/users/service-accounts.md) which you can use to authenticate applications. Service accounts are created in folders. You can also add service accounts to user groups.
 
 If you need to, you can assign additional roles to individual users or service accounts for an entire organization or individual clouds, folders, or resources [at any time](../../iam/operations/roles/grant.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Как изменить емкость транкового подключения в {{ interconnect-full-name }}
+title: Как изменить емкость транкового подключения
 description: Следуя данной инструкции, вы сможете изменить емкость транкового подключения.
 canonical: '{{ link-docs }}/tutorials/routing/trunk-capacity-change'
 ---

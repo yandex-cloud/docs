@@ -9,10 +9,10 @@ In this section, you will learn how to create [channels](../concepts/index.md#ch
 
 To get started with the {{ video-name }} API:
 
-1. [Create a channel](create-channel).
-1. [Create a video](create-video).
-1. [Add a thumbnail to your video](add-thumbnail).
-1. [Get a link to the video player](get-link).
+1. [Create a channel](#create-channel).
+1. [Create a video](#create-video).
+1. [Add a thumbnail to your video](#add-thumbnail).
+1. [Get a link to the video player](#get-link).
 
 ## Getting started {#before-begin}
 

@@ -1,6 +1,6 @@
 ---
 noIndex: true
-canonical: '{{ link-docs }}/tutorials/dataplatform/clickhouse-migration'
+canonical: '{{ link-docs }}/tutorials/dataplatform/ch-to-mch-migration'
 ---
 
 # Миграция данных в {{ mch-name }} средствами {{ CH }}

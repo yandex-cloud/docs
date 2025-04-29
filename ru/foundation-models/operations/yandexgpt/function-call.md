@@ -71,7 +71,7 @@
       * `FOLDER_ID` — идентификатор каталога, на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
       * `IAM_TOKEN` — [IAM-токен](../../../iam/operations/iam-token/create.md) вашего аккаунта.
 
-  1. Модель вернет ответ с [полем `ToolCallList`](../../text-generation/api-ref/TextGeneration/completion.mc#yandex.cloud.ai.foundation_models.v1.ToolCallList2), содержащим обращение к вызываемой функции и необходимые параметры в виде [JSON Schema](https://json-schema.org/).
+  1. Модель вернет ответ с [полем `ToolCallList`](../../text-generation/api-ref/TextGeneration/completion.md#yandex.cloud.ai.foundation_models.v1.ToolCallList2), содержащим обращение к вызываемой функции и необходимые параметры в виде [JSON Schema](https://json-schema.org/).
   
      Пример ответа:
 

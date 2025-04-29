@@ -8,4 +8,4 @@ A version may contain:
 
 * Valid link to the manifest previously uploaded to {{ objstorage-name }} for {{ managed-k8s-name }}
 
-* Disk image optimized to run Docker containers with [{{ cos-name }}](../../../cos/) scenarios
+* Disk image optimized to run Docker containers with {{ cos-name }} scenarios

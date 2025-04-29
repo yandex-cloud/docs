@@ -10,7 +10,7 @@ description: В статье описаны поля для интеграцио
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
 `oauthToken` | `string` | Да | Нет | Да | [OAuth-токен](../../../../../iam/concepts/authorization/oauth-token.md), который будет использоваться для авторизации при обращении к Яндекс Диску.
-`path` | `string` | Нет | `""` | Да | Путь к файлу для записи или скачивания.
+`path` | `string` | Да | Нет | Да | Путь к файлу для записи или скачивания.
 `upload` | [DiskUpload](#DiskUpload) | Нет | Нет | Нет | Конфигурация действия `upload` — запись файла на Яндекс Диск.
 `download` | [DiskDownload](#DiskDownload) | Нет | Нет | Нет | Конфигурация действия `download` — скачивание файла с Яндекс Диска.
 
@@ -19,8 +19,8 @@ description: В статье описаны поля для интеграцио
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`contentType` | `TEXT`\| <br/>`BINARY`\| <br/>`JSON` | Нет | `BINARY` | Нет | Определяет, как будет интерпретирован контент:<ul><li>`TEXT` — текст.</li><li>`BINARY` — набор байт в виде [base64](https://{{ lang }}.wikipedia.org/wiki/Base64)-encoded-строки.</li><li>`JSON` — текст, содержащий [JSON](https://{{ lang }}.wikipedia.org/wiki/JSON), будет преобразован в JSON-структуру.</li></ul>
-`content` | `TEXT`\|<br/>`JSON`\|<br/>`BINARY` | Да | Нет | Да | Записываемый контент.
+`content` | `string` | Да | Нет | Да | Записываемый контент.
+`contentType` | `BINARY`\|<br/>`JSON`\|<br/>`TEXT` | Нет | `TEXT` | Нет | Определяет, как будет интерпретировано переданное в `content` содержимое:<ul><li>`BINARY` — набор байт в виде [base64](https://{{ lang }}.wikipedia.org/wiki/Base64)-encoded-строки.</li><li>`JSON` — текст, содержащий [JSON](https://ru.wikipedia.org/wiki/JSON), будет преобразован в JSON-структуру.</li><li>`TEXT` — текст.</li></ul>
 
 
 ## Объект DiskDownload {#DiskDownload}

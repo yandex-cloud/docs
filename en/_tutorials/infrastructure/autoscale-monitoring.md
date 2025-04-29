@@ -9,7 +9,7 @@ For scaling, we are going to use the [opportunistic shutdown strategy](../../com
 
 To work with this scenario, you will need to:
 
-1. [Get your cloud ready](#prepare).
+1. [Set up your environment](#prepare).
 1. [Create a queue in {{ message-queue-name }}](#create-queue).
 1. [Create an application image](#create-image).
 1. [Create an instance group](#create-ig).
@@ -27,11 +27,11 @@ As an example, we will use a folder named `example-folder`.
 
 The infrastructure cost includes:
 
-* Fee for using VMs and storing an [image](../../compute/concepts/image.md) (see [{{ compute-name }}](../../compute/pricing.md) pricing).
+* Fee for using VMs and storing an [image](../../compute/concepts/image.md) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses and outbound VM traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Fee for queue requests (see [{{ message-queue-name }} pricing](../../message-queue/pricing.md)).
 
-## Prepare your environment {#prepare}
+## Set up your environment {#prepare}
 
 ### Create auxiliary {{ yandex-cloud }} resources {#create-aux-resources}
 
@@ -68,7 +68,7 @@ The infrastructure cost includes:
      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `queue-autoscale-network`.
-     1. Disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
+     1. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      
   1. Create a subnet named `queue-autoscale-subnet-d` in the `{{ region-id }}-d` availability zone:
@@ -85,13 +85,13 @@ The infrastructure cost includes:
 
 - CLI {#cli}
 
-  1. Create the `queue-autoscale-sa` service account:
+  1. Create a service account named `queue-autoscale-sa`:
   
      ```bash
      yc iam service-account create --name queue-autoscale-sa
      ```
      
-     Where `--name` is the service account name: `queue-autoscale-sa`.
+     Where `--name` is the service account name, `queue-autoscale-sa`.
      
      Result:
      
@@ -300,13 +300,13 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
 
    {% note info %}
    
-   {{ yandex-cloud }} requires Packer version 1.5 or higher.
+   {{ yandex-cloud }} requires Packer 1.5 or higher.
    
    {% endnote %}
 
 1. Configure the [Yandex Compute Builder plugin](https://developer.hashicorp.com/packer/plugins/builders/yandex):
 
-    1. Create the `config.pkr.hcl` file with the following contents:
+    1. Create a file named `config.pkr.hcl` with the following contents:
         
         ```hcl
         packer {
@@ -340,7 +340,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
    
 1. In the `server-packer.json` file, change the object in the `builders` array:
 
-   * In the `service_account_id` field, specify the `queue-autoscale-sa` service account ID.
+   * In the `service_account_id` field, specify the `queue-autoscale-sa` ID.
    
      {% cut "How to find the service account ID" %}
      
@@ -351,12 +351,12 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
        1. In the [management console]({{ link-console-main }}), select `example-folder`.
        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
        1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-       1. In the list that opens, select the `queue-autoscale-sa` service account.
+       1. In the list that opens, select `queue-autoscale-sa`.
        1. Copy the service account **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}**.
 
      - CLI {#cli}
      
-       Run the following command:
+       Run this command:
        
        ```bash
        yc iam service-account get queue-autoscale-sa
@@ -379,7 +379,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      
      {% endcut %}
      
-   * In the `folder_id` field, specify the folder ID in {{ yandex-cloud }}.
+   * In the `folder_id` field, specify the {{ yandex-cloud }} folder ID.
    
      {% cut "How to find the folder ID" %}
      
@@ -391,7 +391,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      
      - CLI {#cli}
      
-       Run the following command:
+       Run this command:
        
        ```bash
        yc resource-manager folder get example-folder
@@ -415,7 +415,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      
      {% endcut %}
      
-   * In the `subnet_id` field, specify the `queue-autoscale-subnet-d` subnet ID.
+   * In the `subnet_id` field, specify the `queue-autoscale-subnet-d` ID.
    
      {% cut "How to find the subnet ID" %}
      
@@ -430,7 +430,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
             
      - CLI {#cli}
      
-       Run the following command:
+       Run this command:
        
        ```bash
        yc vpc subnet get queue-autoscale-subnet-d
@@ -517,13 +517,13 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
   
      * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `queue-autoscale-ig`.
-     * Select **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `queue-autoscale-sa`.
+     * Select `queue-autoscale-sa` for **{{ ui-key.yacloud.compute.groups.create.field_service-account }}**.
      
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-d` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
@@ -601,9 +601,9 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
        type: LINUX
      ```
      
-  1. Edit the instance group specification file: `spec.yaml`:
+  1. Edit the `spec.yaml` file specifying the instance group:
   
-     * In the `folder_id` field, specify the folder ID in {{ yandex-cloud }}.
+     * In the `folder_id` field, specify the {{ yandex-cloud }} folder ID.
      * In the `image_id` field, specify the image ID.
      * In the `network_id` field, specify the `queue-autoscale-network` ID, and in the `subnet_ids` field, the `queue-autoscale-subnet-d` ID.
      
@@ -642,9 +642,9 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
         
        {% endcut %}
      
-     * In the `service_account_id` field, specify the `queue-autoscale-sa` service account ID.
+     * In the `service_account_id` field, specify the `queue-autoscale-sa` ID.
      
-     To learn how to get the required IDs (except for the image ID and network ID), see this section: [Create an application image](#create-image).
+     To learn how to get the required IDs (except for the image ID and network ID), see [Create an application image](#create-image).
      
   1. Create the `queue-autoscale-ig` instance group using the following command:
   
@@ -657,9 +657,9 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
 - API {#api}
 
   1. To get the ID of the previously created image from the `queue-autoscale-image` family, use the [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md) gRPC API call or the [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) REST API method.
-  1. Edit the `spec.yaml` instance group specification file:
+  1. Edit the `spec.yaml` file specifying the instance group:
     
-     * In the `folder_id` field, specify the folder ID in {{ yandex-cloud }}.
+     * In the `folder_id` field, specify the {{ yandex-cloud }} folder ID.
      * In the `image_id` field, specify the image ID.
      * In the `network_id` field, specify the `queue-autoscale-network` ID, and in the `subnet_ids` field, the `queue-autoscale-subnet-d` ID.
      
@@ -675,7 +675,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
                
        - CLI {#cli}
         
-         Run the following command:
+         Run this command:
           
          ```bash
          yc vpc network get queue-autoscale-network
@@ -698,11 +698,11 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
         
        {% endcut %}
        
-     * In the `service_account_id` field, specify the `queue-autoscale-sa` service account ID.
+     * In the `service_account_id` field, specify the `queue-autoscale-sa` ID.
      
-     To learn how to get the required IDs (except for the image ID and network ID), see this section: [Create an application image](#create-image).
+     To learn how to get the required IDs (except for the image ID and network ID), see [Create an application image](#create-image).
      
-  1. To create the `queue-autoscale-ig` instance group to the `spec.yaml` specification, use the [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API call or the [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) REST API method.
+  1. To create the `queue-autoscale-ig` instance group as specified in `spec.yaml`, use the [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API call or the [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) REST API method.
 
 {% endlist %}
 

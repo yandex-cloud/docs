@@ -108,17 +108,9 @@ All prices below do not include VAT.
 
 #### Dedicated hosts {#dedicated-hosts}
 
-The cost is made up of two components: [the cost of {{ compute-full-name }}](../compute/pricing.md#prices-dedicated-host) computing resources and {{ dataproc-name }} charges for these resources.
-
 
 
 {% include [usd-dedicated-hosts](../_pricing/data-processing/usd-dedicated-hosts.md) %}
 
-
-{% note info %}
-
-To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technical support]({{ link-console-support }}).
-
-{% endnote %}
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

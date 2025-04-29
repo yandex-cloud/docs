@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website-console'
+canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website/console'
 ---
 
 # Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-full-name }} с помощью консоли управления

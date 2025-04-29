@@ -71,7 +71,7 @@ To enable the model to invoke the function when needed:
       * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
       * `IAM_TOKEN`: Your account's [IAM token](../../../iam/operations/iam-token/create.md).
 
-  1. The model will return a response with the [`ToolCallList` field](../../text-generation/api-ref/TextGeneration/completion.mc#yandex.cloud.ai.foundation_models.v1.ToolCallList2) containing a call to the invoked function and required parameters as a [JSON Schema](https://json-schema.org/).
+  1. The model will return a response with the [`ToolCallList` field](../../text-generation/api-ref/TextGeneration/completion.md#yandex.cloud.ai.foundation_models.v1.ToolCallList2) containing a call to the invoked function and required parameters as a [JSON Schema](https://json-schema.org/).
   
      Response example:
 

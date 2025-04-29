@@ -5,11 +5,6 @@ With our online courses, you can enhance your knowledge about {{ datalens-short-
 ## Courses and educational projects {#courses-and-education}
 
 
-* [**{{ datalens-full-name }} Festival**](https://yandex.cloud/en/datalens-festival)
-
-   An educational fest with examples and partner cases. The agenda includes {{ datalens-short-name }} comparison with the market leaders: Power BI, Tableau, and Superset. Apart from that, you will learn how to build corporate analytics in the cloud in terms of storage, ETL, and security.
-
-
 
 ## Useful materials {#related-links}
 

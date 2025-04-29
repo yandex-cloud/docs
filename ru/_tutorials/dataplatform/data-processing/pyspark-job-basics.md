@@ -66,7 +66,7 @@
 
         {% endcut %}
 
-    1. [Загрузите](../../../../storage/operations/objects/upload) файл `word_count.py` в бакет для исходных данных.
+    1. [Загрузите](../../../storage/operations/objects/upload) файл `word_count.py` в бакет для исходных данных.
 
 1. [Создайте задание PySpark](../../../data-proc/operations/jobs-pyspark#create) с параметрами:
 

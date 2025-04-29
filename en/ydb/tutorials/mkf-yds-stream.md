@@ -1,7 +1,7 @@
 ---
 title: Delivering data from {{ mkf-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}
 description: A {{ yds-name }} stream can get data from {{ KF }} topics in real time.
-canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-yds'
+canonical: '{{ link-docs }}/tutorials/dataplatform/mkf-yds-stream'
 ---
 
 # Delivering data from {{ mkf-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}

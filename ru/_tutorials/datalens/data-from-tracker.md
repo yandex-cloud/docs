@@ -224,6 +224,7 @@
 * [Удалите {{ CH }}-кластер](../../managed-clickhouse/operations/cluster-delete.md);
 * [Удалите функцию {{ sf-name }}](../../functions/operations/function/function-delete.md).
 
+
 #### См. также {#see-also}
 
 * [Аналитика задач в {{ tracker-full-name }}: встроенные возможности и интеграция с {{ datalens-full-name }}](/blog/posts/2023/10/yandex-tracker-and-datalens)

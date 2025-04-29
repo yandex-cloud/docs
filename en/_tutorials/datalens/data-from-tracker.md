@@ -223,6 +223,3 @@ To stop paying for the resources you created:
 * [Delete the {{ CH }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 * [Delete the {{ sf-name }} function](../../functions/operations/function/function-delete.md).
 
-#### See also {#see-also}
-
-* [Task analytics in {{ tracker-full-name }}: built-in features and integration with {{ datalens-full-name }}](/blog/posts/2023/10/yandex-tracker-and-datalens)
