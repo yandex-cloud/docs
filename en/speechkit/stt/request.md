@@ -20,7 +20,10 @@ If your file is larger, longer, or has more audio channels, use [asynchronous re
 
 For more information about each format's special features, see [Supported audio formats](../../speechkit/formats.md).
 
+## Use cases {#examples}
+
+* [{#T}](api/request-examples.md)
+
 #### See also {#see-also}
 
 * [{#T}](api/request-api.md)
-* [{#T}](api/request-examples.md)

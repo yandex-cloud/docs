@@ -37,7 +37,7 @@ When creating datasets for text classification, try to give meaningful names to 
 
 The following limits apply when tuning a classifier model based on {{ yagpt-name }}:
 
-| Limit type | Minimum value | Maximum value |
+| Type of limitation | Minimum value | Maximum value |
 |---|---|---|
 | Number of examples per dataset | 100 | 50,000 |
 | Number of classes | 1 | 100 |

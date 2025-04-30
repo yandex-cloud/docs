@@ -65,9 +65,10 @@ Use the `<phoneme>` tag to control proper pronunciation using phonemes. The text
 
   ```xml
   <speak>
-        In different regions of Russia, the letter <phoneme alphabet="ipa" ph="o">O</phoneme> is pronounced differently in words.
-        
-        In some areas, people say <phoneme alphabet="ipa" ph="məlɐko">молоко</phoneme>, while in others, <phoneme alphabet="ipa" ph="mələko">молоко</phoneme>.
+        In different regions of Russia, the letter
+        <phoneme alphabet="ipa" ph="o">O</phoneme> in words.
+        In some areas, people say <phoneme alphabet="ipa" ph="məlɐko">молоко</phoneme>,
+        while in others, <phoneme alphabet="ipa" ph="mələko">молоко</phoneme>.
         
   </speak>
   ```
@@ -76,9 +77,10 @@ Use the `<phoneme>` tag to control proper pronunciation using phonemes. The text
 
   ```xml
   <speak>
-        In different regions of Russia, the letter <phoneme alphabet="x-sampa" ph="o">O</phoneme> is pronounced differently in words.
-        
-        In some areas, people say <phoneme alphabet="x-sampa" ph="m@l6ko">молоко</phoneme>, while in others, <phoneme alphabet="x-sampa" ph="m@l@ko">молоко</phoneme>.
+        In different regions of Russia, the letter
+        <phoneme alphabet="x-sampa" ph="o">O</phoneme> in words.
+        In some areas, people say <phoneme alphabet="x-sampa" ph="m@l6ko">молоко</phoneme>,
+        while in others, <phoneme alphabet="x-sampa" ph="m@l@ko">молоко</phoneme>.
         
   </speak>
   ```
@@ -115,3 +117,7 @@ Use the `<sub>` tag to replace one text with another when pronouncing it. For ex
   My favorite chemical element is <sub alias="mercury">Hg</sub> because it is shiny.
 </speak>
 ```
+
+## Use cases {#examples}
+
+* [{#T}](../api/tts-ssml.md)

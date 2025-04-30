@@ -27,37 +27,48 @@ You can also use the `deferred-general` tag for asynchronous recognition with th
 
 Use a recognition language code from the table below. All available code values are case insensitive.
 
-| Code | Language                                                        |
-|-------------------------------------------------------------|---|
-| `auto` | Automatic language recognition                          |
-| `de-DE` | German                                                    |
-| `en-US` | English                                                  |
-| `es-ES` | Spanish                                                   |
-| `fi-FI` | Finnish                                                     |
-| `fr-FR` | French                                                 |
-| `he-IL` | Hebrew                                                       |
-| `it-IT` | Italian                                                 |
-| `kk-KZ` | Kazakh                                                   |
-| `nl-NL` | Dutch                                                 |
-| `pl-PL` | Polish                                                    |
-| `pt-PT` | Portuguese                                               |
-| `pt-BR` | Brazilian Portuguese 									|
-| `ru-RU` | Russian (default)                                 |
-| `sv-SE` | Swedish                                                    |
-| `tr-TR` | Turkish                                                    |
-| `uz-UZ` | Uzbek (Latin script)                                        |
+| Code    | Language                               |
+|---------|------------------------------------|
+| `auto`  | [Automatic language recognition](#language-labels) |
+| `de-DE` | German                           |
+| `en-US` | English                         |
+| `es-ES` | Spanish                          |
+| `fi-FI` | Finnish                            |
+| `fr-FR` | French                        |
+| `he-IL` | Hebrew                              |
+| `it-IT` | Italian                        |
+| `kk-KZ` | Kazakh                          |
+| `nl-NL` | Dutch                        |
+| `pl-PL` | Polish                           |
+| `pt-PT` | Portuguese                      |
+| `pt-BR` | Brazilian Portuguese          |
+| `ru-RU` | Russian (default)             |
+| `sv-SE` | Swedish                           |
+| `tr-TR` | Turkish                           |
+| `uz-UZ` | Uzbek (Latin script)               |
 
 
-## Recognition accuracy {#speed_and_accuracy}
+## Automatic language detection {#language-labels}
+
+{% include [stt-language-labels](../../_includes/speechkit/stt-language-labels.md) %}
+
+
+## Recognition accuracy {#speed-and-accuracy}
 
 {% include [accuracy](../../_includes/speechkit/accuracy.md)%}
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/recognizer-bot.md)
+* [{#T}](api/stt-language-labels-example.md)
+* [{#T}](api/streaming-examples-v3.md)
+* [{#T}](api/microphone-streaming.md)
 
 #### See also {#see-also}
 
 * [{#T}](../formats.md)
-* [{#T}](models.md)
 * [{#T}](streaming.md)
 * [{#T}](request.md)
 * [{#T}](transcribation.md)
 * [{#T}](additional-training.md)
+* [{#T}](api/stt-language-labels-example.md)

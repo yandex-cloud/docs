@@ -9,7 +9,7 @@ A [file storage](../../concepts/filestores.md) allows you to store large amounts
 1. Click **{{ ui-key.yc-ui-datasphere.filestore.create-filestore }}**.
 1. In the window that opens, enter a name for the file storage in the **{{ ui-key.yc-ui-datasphere.common.name }}** field.
 
-   {% include [описание](../../../_includes/name-format-2.md) %}
+   {% include [name-format-2](../../../_includes/name-format-2.md) %}
 
 1. In the **{{ ui-key.yc-ui-datasphere.filestore.mount-path-key-value }}** field, enter the name you are going to use to connect to the file storage. The connection name may contain only Latin letters and digits and must begin with a slash, e.g., `/filestore`.
 1. Under **Storage volume, GB**, set the storage size you need. At the bottom of the window, you will see the total cost of storage per month.
