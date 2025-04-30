@@ -35,7 +35,7 @@ items:
     items:
       - name: Overview
         href: concepts/api.md
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

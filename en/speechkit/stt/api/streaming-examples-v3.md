@@ -19,14 +19,14 @@ To implement an example from this section:
 
 1. [Create](../../../iam/operations/sa/create.md) a service account to work with the {{ speechkit-short-name }} API.
 1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `{{ roles-speechkit-stt }}` role or higher for the folder where it was created.
-1. Get an [API key](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) or [IAM token](../../../iam/operations/iam-token/create-for-sa.md) for your service account.
-1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition or use your own one.
-1. Create a client application:
+1. Set up an environment and create a client application:
 
     {% list tabs group=programming_language %}
 
     - Python 3 {#python}
 
+      1. Get an [API key](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) or [IAM token](../../../iam/operations/iam-token/create-for-sa.md) for your service account.
+      1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition or use your own one.
       1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
 
          ```bash
@@ -38,11 +38,10 @@ To implement an example from this section:
          ```bash
          pip install grpcio-tools
          ```
-
-      1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository, create a folder named `output`, and generate the client interface code there:
+      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create a directory named `output`, and generate the client interface code there:
 
          ```bash
-         cd <path_to_cloudapi_folder>
+         cd <path_to_cloudapi_directory>
          mkdir output
          python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
            --python_out=output \
@@ -57,9 +56,8 @@ To implement an example from this section:
              yandex/cloud/ai/stt/v3/stt.proto
          ```
 
-         This will create the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, in the `output` folder.
-
-      1. Create a file (e.g., `test.py`) in the `output` folder root, and add the following code to it:
+         This will create the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, in the `output` directory.
+      1. Create a file (e.g., `test.py`) in the root of the `output` directory, and add the following code to it:
 
          ```python
          #coding=utf8
@@ -154,13 +152,13 @@ To implement an example from this section:
          * `profanity_filter`: [Profanity filter](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
          * `literature_text`: [Flag to present the recognized text in a literary style](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
          * `language_code`: Recognition [language](../index.md#langs).
-
-      1. Use the [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account:
+      1. Save the service account's [IAM token](../../../iam/concepts/authorization/iam-token.md) you got earlier to the `IAM_TOKEN` environment variable:
 
          ```bash
          export IAM_TOKEN=<service_account_IAM_token>
          ```
 
+         To authenticate to the {{ speechkit-name }} API using an API key, save the API key to the `API_KEY` environment variable and edit the `test.py` file as per the comments in the code.
       1. Run the created file:
 
          ```bash
@@ -184,50 +182,49 @@ To implement an example from this section:
 
     - Java {#java}
 
+      1. [Create](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) the service account's API key.
       1. Install the dependencies:
 
           ```bash
-          sudo apt update && sudo apt install --yes default-jdk maven
+          sudo apt update && sudo apt install --yes openjdk-21-jre-headless maven
           ```
 
+          To assemble the project correctly, you need Java `17` or higher.
       1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-speechkit-stt-java) with a Java application configuration:
 
           ```bash
           git clone https://github.com/yandex-cloud-examples/yc-speechkit-stt-java
           ```
-
-      1. Go to the repository directory:
+      1. Navigate to the repository directory:
 
           ```bash
           cd yc-speechkit-stt-java
           ```
-
-      1. Download a [sample](https://{{ s3-storage-host }}/doc-files/speech.wav) audio file in the [WAV format](https://en.wikipedia.org/wiki/WAV). Save the audio file to the directory with the repository.
       1. Compile a project in this directory:
 
           ```bash
           mvn clean install
           ```
-
       1. Go to the `target` directory you created:
 
           ```bash
           cd target
           ```
-
-      1. Specify the service account's [API key](../../../iam/concepts/authorization/api-key.md):
+      1. Save the service account's [API key](../../../iam/concepts/authorization/api-key.md) to the `API_KEY` environment variable:
 
           ```bash
           export API_KEY=<API_key>
-            ```
+          ```
+      1. Download a [sample](https://{{ s3-storage-host }}/doc-files/speech.wav) audio file in [WAV format](https://ru.wikipedia.org/wiki/WAV):
 
+          ```bash
+          wget https://{{ s3-storage-host }}/doc-files/speech.wav
+          ```
       1. Run the Java program for speech recognition:
 
           ```bash
-          java -cp speechkit_examples-1.0-SNAPSHOT.jar yandex.cloud.speechkit.examples.SttV3Client <path_to_the_audio_file>
+          java -cp speechkit_examples-1.0-SNAPSHOT.jar yandex.cloud.speechkit.examples.SttV3Client speech.wav
           ```
-
-          In the command, specify the absolute path to the sample audio file you downloaded.
 
           Result:
 

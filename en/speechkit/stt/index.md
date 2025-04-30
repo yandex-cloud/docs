@@ -53,6 +53,13 @@ The accuracy of speech recognition is also affected by:
 * Speech intelligibility and rate.
 * Utterance complexity and length.
 
+## Use cases {#examples}
+
+* [{#T}](api/streaming-examples-v3.md)
+* [{#T}](api/stt-language-labels-example.md)
+* [{#T}](api/transcribation-api-v3.md)
+* [{#T}](api/request-examples.md)
+
 #### See also {#see-also}
 
 * [{#T}](../formats.md)

@@ -18,4 +18,12 @@
 || Gemma3 12B it | {% calc [currency=KZT] round((1 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
 || Gemma3 27B it | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
 || Qwen 2.5 VL 32B Instruct | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
+|| Qwen3-0.6B | {% calc [currency=KZT] round((0,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
+|| Qwen3-1.7B | {% calc [currency=KZT] round((0,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
+|| Qwen3-4B | {% calc [currency=KZT] round((0,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
+|| Qwen3-8B | {% calc [currency=KZT] round((0,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
+|| Qwen3-14B | {% calc [currency=KZT] round((1 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
+|| Qwen3-32B | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
+|| Qwen3-30B-A3B | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
+|| Qwen3-235B-A22B | {% calc [currency=KZT] round((30 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ||
 |#

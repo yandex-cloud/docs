@@ -82,6 +82,15 @@ To fix this error, do one of the following:
 * Change the image processor settings to account for the rotation angle specified in the `exif` section while viewing images.
 * Remove the `Orientation` attribute from the image `exif` section or set it to `0` when providing the image to {{ vision-full-name }}.
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/archive-from-vision-to-object-storage.md)
+* [{#T}](../../tutorials/recognizer-bot.md)
+* [{#T}](../../operations/ocr/text-detection-image.md)
+* [{#T}](../../operations/ocr/text-detection-pdf.md)
+* [{#T}](../../operations/ocr/text-detection-handwritten.md)
+* [{#T}](../../operations/ocr/text-detection-table.md)
+
 #### What's next {#what-is-next}
 
 * [See the list of supported languages](supported-languages.md)

@@ -1,11 +1,13 @@
 #### Sorting results {#sortby}
 
-The `sortby` field contains a rule for sorting search results that defines the sequence of the returned search results. The possible values include:
+The `sortby` parameter is not supported when getting the result in [HTML format](../../search-api/concepts/html-response.md).
+
+The `sortby` field contains the sorting rule for how the search results must be sorted. The possible values are:
 
 * `rlv`: By relevance (default).
 * `tm`: By document update time.
 
-When sorting by update time, the parameter may contain the `order` attribute with the document sorting order:
+When sorting by update time, the parameter may contain the `order` attribute for document sorting order:
 
-* `descending`: Direct order from most recent to oldest (default).
-* `ascending`: Reverse order from oldest to most recent.
+* `descending`: Direct order, i.e., from most recent to oldest (default).
+* `ascending`: Reverse order, i.e., from oldest to most recent.
