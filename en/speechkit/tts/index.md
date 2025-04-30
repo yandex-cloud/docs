@@ -95,12 +95,18 @@ You can select the audio file format that will be used by {{ speechkit-name }} t
 
 For a full list of available formats and their specifications, see [{#T}](../formats.md).
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/recognizer-bot.md)
+* [{#T}](../tutorials/speechkit-integrarion-via-agi-gw.md)
+* [{#T}](api/tts-examples-v3.md)
+* [{#T}](api/tts-v3-rest.md)
+* [{#T}](api/tts-ogg.md)
+* [{#T}](api/tts-wav.md)
+* [{#T}](api/tts-ssml.md)
+
 #### See also {#see-also}
 
 * Try speech synthesis using our demo on the [service page](/services/speechkit#demo).
 * Review the parameters of the [API v1](request.md) method and [API v3](../tts-v3/api-ref/grpc/) requests.
-* See examples of using the {{ speechkit-name }} API:
-  * [{#T}](api/tts-ogg.md)
-  * [{#T}](api/tts-wav.md)
-  * [{#T}](api/tts-ssml.md)
 

@@ -18,7 +18,7 @@ Streaming mode is designed for real-time audio recognition. To recognize a recor
 
 |  | Streaming recognition |
 |---|---------|
-| **Use cases** | Telephone assistants and robots </br> Virtual assistants |
+| **Use cases** | Phone assistants and robots </br> Virtual assistants |
 | **Input data** | Real-time voice |
 | **How it works** | Exchanging messages with the server over a single connection |
 | **Supported APIs** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/index.md) |
@@ -101,12 +101,17 @@ Speech recognition completes and delivers final results upon [EOU (End-of-Uttera
    * `chunk`: Sound recognized as silence.
    * `silence_chunk`: Silence duration in milliseconds. This parameter allows you to reduce the audio packet size by excluding silence that does not require recognition.
 
+## Use cases {#examples}
+
+* [{#T}](api/streaming-examples-v3.md)
+* [{#T}](api/microphone-streaming.md)
+* [{#T}](api/stt-language-labels-example.md)
+* [{#T}](api/streaming-examples.md)
+
 #### See also {#see-also}
 
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](../concepts/auth.md)
-* [API v3 reference](../stt-v3/api-ref/grpc/index.md)
-* [{#T}](api/streaming-examples-v3.md)
 * [{#T}](api/streaming-api.md)
-* [{#T}](api/streaming-examples.md)
+* [API v3 reference](../stt-v3/api-ref/grpc/stt_service)

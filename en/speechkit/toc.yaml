@@ -233,6 +233,10 @@ items:
           Using {{ api-gw-full-name }} to set up speech synthesis in {{
           speechkit-name }}
         href: tutorials/speechkit-integrarion-via-agi-gw.md
+      - name: >-
+          Regular asynchronous recognition of audio files from {{
+          objstorage-name }}
+        href: tutorials/batch-recognition-stt.md
   - name: Supported audio formats
     href: formats.md
   - name: IVR integration

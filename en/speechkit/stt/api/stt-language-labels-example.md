@@ -41,10 +41,10 @@ To implement an example from this section:
             pip install grpcio-tools
             ```
 
-        1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository, create a folder named `output`, and generate the client interface code there:
+        1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create a directory named `output`, and generate the client interface code there:
 
             ```bash
-            cd <path_to_cloudapi_folder>
+            cd <path_to_cloudapi_directory>
             mkdir output
             python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
                 --python_out=output \
@@ -59,9 +59,9 @@ To implement an example from this section:
                 yandex/cloud/ai/stt/v3/stt.proto
             ```
 
-            This will create the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, in the `output` folder.
+            This will create the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, in the `output` directory.
 
-        1. Create a file (e.g., `test.py`) in the `output` folder root, and add the following code to it:
+        1. Create a file (e.g., `test.py`) in the root of the `output` directory, and add the following code to it:
 
             ```python
             #coding=utf8
@@ -198,3 +198,4 @@ To implement an example from this section:
 
 * [API v3 reference](../../stt-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)
+* [{#T}](../models.md)

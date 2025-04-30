@@ -1,8 +1,12 @@
+{% include [xml-html-fields-differ-notice](./xml-html-fields-differ-notice.md) %}
+
 * `search_type`: Search type. The possible values are:
 
     * `SEARCH_TYPE_RU`: For the `Russian` search type.
     * `SEARCH_TYPE_TR`: For the `Turkish` search type.
     * `SEARCH_TYPE_COM`: For the `International` search type.
+    * `SEARCH_TYPE_KK`: For the `Kazakh` search type.
+    * `SEARCH_TYPE_BE`: For the `Belarusian` search type.
 
 * `query_text`: Search query text. The maximum length is 400 characters.
 
@@ -19,26 +23,40 @@
     * `FIX_TYPO_MODE_ON`: Typo correction enabled (default). Search query typos are corrected automatically.
     * `FIX_TYPO_MODE_OFF`: Typo correction disabled. Search query typos are not corrected. The search is performed strictly as per the query.
 
+    The `fix_typo_mode` parameter is not supported when getting the result in [HTML format](../../search-api/concepts/html-response.md).
+
 * `sort_mode`: Search results sorting mode rule. This is an optional parameter. The possible values are:
 
     * `SORT_MODE_BY_RELEVANCE`: Sorting by relevance (default).
     * `SORT_MODE_BY_TIME`: Sorting by document update time.
+
+    The `sort_mode` parameter is not supported when getting the result in [HTML format](../../search-api/concepts/html-response.md).
 
 * `sort_order`: Search results sorting order. This is an optional parameter. The possible values are:
 
     * `SORT_ORDER_DESC`: Forward sorting order from most recent to oldest (default).
     * `SORT_ORDER_ASC`: Reverse sorting order from oldest to most recent.
 
+    The `sort_order` parameter is not supported when getting the result in [HTML format](../../search-api/concepts/html-response.md).
+
 * `group_mode`: Result grouping method. This is an optional parameter. The possible values are:
 
     * `GROUP_MODE_DEEP`: Grouping by domain. Each group contains documents from one domain (default).
     * `GROUP_MODE_FLAT`: Flat grouping. Each group contains a single document.
 
-* `groups_on_page`: Maximum number of groups that can be returned per page. This is an optional parameter. The values range from `1` to `100`. The default value is `20`.
+    The `group_mode` parameter is not supported when getting the result in [HTML format](../../search-api/concepts/html-response.md).
+
+* `groups_on_page`: Maximum number of groups that can be returned per page. This is an optional parameter. The default value is `20`.
+
+    When getting the result in [XML format](../../search-api/concepts/response.md), the possible values range from `1` to `100`; for [HTML](../../search-api/concepts/html-response.md), the range is from `5` to `50`.
 
 * `docs_in_group`: Maximum number of documents that can be returned per group. This is an optional parameter. The values range from `1` to `3`. The default value is `1`.
 
+    The `docs_in_group` parameter is not supported when getting the result in [HTML format](../../search-api/concepts/html-response.md).
+
 * `max_passages`: Maximum number of passages that can be used when generating a document snippet. This is an optional parameter. The values range from `1` to `5`. By default, a maximum of four passages with search query text is returned per document.
+
+    The `max_passages` parameter is not supported when getting the result in [HTML format](../../search-api/concepts/html-response.md).
 
 * `region`: Search country or region ID that affects the document ranking rules. Only supported for the `Russian` and `Turkish` search types.
 
@@ -57,6 +75,8 @@
 
     * `International`:
         * `LOCALIZATION_EN`: English.
+
+    The `l10n` parameter is not supported when getting the result in [HTML format](../../search-api/concepts/html-response.md).
 
 * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md) of the user or service account you will use for queries.
 

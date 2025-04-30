@@ -5,7 +5,7 @@ description: This article describes the specificities and format of GET requests
 
 # GET requests
 
-With {{ search-api-name }}'s API v1, you can run requests with preset parameters to the Yandex search database. You can submit search parameters to the service as an HTTP request using the GET method. {{ search-api-name }} generates a response as an [XML](./response.md) or [HTML](./html-response.md) document.
+With {{ search-api-name }}'s API v1, you can run requests with preset parameters to the Yandex search database. You can submit search parameters to the service as an HTTP request using the GET method. {{ search-api-name }} will return a response as an [XML](./response.md) or [HTML](./html-response.md) document.
 
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
@@ -17,7 +17,7 @@ If you have any special characters in parameter values, replace them with the re
 
 {% endnote %}
 
-The URL of your request to {{ search-api-name }} will be different depending on the format you want to get the result in: XML or HTML.
+The URL of your request to {{ search-api-name }} and the list of supported parameters will be different depending on the format you want the result in: XML or HTML.
 
 {% list tabs group=search_api_request %}
 
@@ -45,11 +45,7 @@ The URL of your request to {{ search-api-name }} will be different depending on 
     & [apikey=<API_key>]
     & [query=<search_query_text>]
     & [lr=<search_region_ID>]
-    & [l10n=<notification_language>]
-    & [sortby=<sorting_type>]
     & [filter=<filtering_type>]
-    & [maxpassages=<number_of_passages>]
-    & [groupby=<result_grouping_options>]
     & [page=<page_number>]
   ```
 
@@ -85,15 +81,15 @@ attr%3D<service_attribute>.mode%3D<grouping_type>.groups-on-page%3D<number_of_gr
 
 Where:
 
-{% include [groupby-description](../../_includes/search-api/groupby-parameters.md) %}
+{% include [groupby-parameters](../../_includes/search-api/groupby-parameters.md) %}
 
 {% include [page](../../_includes/search-api/page.md) %}
 
-## GET request example  {#example-get-request}
+## GET request example {#example-get-request}
 
 The request below returns the fifth page of search results for the `<table>` query. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Search region: Novosibirsk Oblast. Notification language: Russian. The **Family search** filter is applied to the search results. The number of passages is three. The results are grouped by domain and sorted by relevance. Each group contains three documents, and the number of groups returned per page is five.
 
-The URL of your request to {{ search-api-name }} will be different depending on the format you want to get the result in: XML or HTML.
+The URL of your request to {{ search-api-name }} and the list of supported parameters will be different depending on the format you want the result in: XML or HTML.
 
 {% list tabs group=search_api_request %}
 

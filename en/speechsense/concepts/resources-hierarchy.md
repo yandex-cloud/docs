@@ -38,7 +38,7 @@ A project can be viewed as a cross-section of data uploaded to a connection. Whe
 
 {% note info %}
 
-To link a dialog to a project, the dialog must be 60 days old or less, staring from the current day. If there is a dialog which is more than 60 days old in a new project, it will not be linked to this project.
+To link a dialog to a project, the dialog must be 60 days old or less, starting from the current day. If there is a dialog which is more than 60 days old in a new project, it will not be linked to this project.
 
 {% endnote %}
 

@@ -63,9 +63,9 @@ The {{ speechkit-name }} API v2 and v3 are used for asynchronous speech recognit
    The results contain the entire recognized text and a list of recognized words.
 
 
-## Examples of using the asynchronous recognition API {#examples}
+## Use cases {#examples}
 
-* [{#T}](api/transcribation-lpcm.md).
-* [{#T}](api/transcribation-ogg.md).
-* [{#T}](api/transcribation-api-v3.md).
-* [{#T}](api/batch-transcribation.md).
+* [{#T}](api/transcribation-lpcm.md)
+* [{#T}](api/transcribation-ogg.md)
+* [{#T}](api/transcribation-api-v3.md)
+* [{#T}](api/batch-transcribation.md)

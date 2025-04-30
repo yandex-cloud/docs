@@ -1,6 +1,6 @@
 ---
 title: '{{ foundation-models-full-name }} pricing policy'
-description: This article provides the {{ foundation-models-name }} pricing policy.
+description: This article covers the {{ foundation-models-name }} pricing policy.
 editable: false
 ---
 

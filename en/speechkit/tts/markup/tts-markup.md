@@ -65,13 +65,13 @@ Frost and sun; <[medium]> a wonderful day!
 
 Currently, this feature works only for Russian.
 
-To place emphasis on a word, you can prepend it with `<[accented]>`. For example:
+To place emphasis on a word, you can prepend it with `<[accented]>`. Here is an example:
 
 ```text
 Convenient interfaces for your <[accented]> needs.
 ```
 
-You can also use asterisks to place emphasis on one or more words (`**word**`). For example:
+You can also use asterisks to place emphasis on one or more words (`**word**`). Here is an example:
 
 ```text
 We are **forever** responsible for what we have tamed.
