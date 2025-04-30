@@ -9,6 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 Секреты {{ lockbox-name }}, как и другие пользовательские данные, передаются в ключе `user-data`. Метаданные в [каталог](../../concepts/metadata/directories.md#dir-user) `user-data` можно передавать как при [создании](../index.md#vm-create) ВМ, так и при ее [изменении](../vm-control/vm-update.md).
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 Чтобы передать секрет {{ lockbox-name }} на виртуальную машину через метаданные:
 
 1. [Создайте](../../../lockbox/operations/secret-create.md) секрет {{ lockbox-name }}.
@@ -55,7 +57,7 @@ description: Следуя данной инструкции, вы сможете
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находятся секрет и сервисный аккаунт.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся секрет и сервисный аккаунт.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.

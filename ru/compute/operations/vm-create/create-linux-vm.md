@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать виртуальную машину из публичного образа Linux
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -24,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды [CLI](../../../cli/) для создания [ВМ](../../concepts/vm.md):
+  1. Посмотрите описание команды [CLI](../../../cli/) для создания ВМ:
 
      ```bash
      yc compute instance create --help

@@ -112,7 +112,10 @@ description: Из статьи вы узнаете о моделях векто�
 
 {% endlist %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../operations/embeddings/search.md)
+
 #### См. также {#see-also}
 
-* [Использование эмбеддингов в поиске по базе знаний](../operations/embeddings/search.md)
 * Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)

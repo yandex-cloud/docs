@@ -20,6 +20,8 @@ items:
         href: cli-ref/routing-instance/list.md
       - name: list-operations
         href: cli-ref/routing-instance/list-operations.md
+      - name: move-prefix
+        href: cli-ref/routing-instance/move-prefix.md
       - name: remove-labels
         href: cli-ref/routing-instance/remove-labels.md
       - name: remove-prefixes
@@ -28,5 +30,7 @@ items:
         href: cli-ref/routing-instance/remove-private-connection.md
       - name: update
         href: cli-ref/routing-instance/update.md
+      - name: update-prefix-mask
+        href: cli-ref/routing-instance/update-prefix-mask.md
       - name: upsert-prefixes
         href: cli-ref/routing-instance/upsert-prefixes.md

@@ -17,32 +17,11 @@
 * [словарный поиск](#dictionary-search),
 * [смысловой поиск](#sense-search).
 
+Чтобы получить больше информации о каждом диалоге, [настройте отображение колонок](#set-columns).
+
 ### Фильтры {#filters-dialogs}
 
 Чтобы применить фильтр к диалогам:
-
-Чтобы получить больше информации о каждом диалоге, [настройте отображение колонок](#set-columns).
-
-Для поиска диалогов вы можете использовать [фильтры](#filters-dialogs) и [строку поиска](#find-dialogs).
-
-## Настроить отображение колонок {#set-columns}
-
-По умолчанию в списке диалогов отображаются не все колонки. Вы можете отобразить дополнительные колонки, скрыть ненужные, а также изменить их порядок.
-
-Чтобы настроить отображение колонок:
-
-1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
-1. Перейдите в нужное пространство, затем выберите нужный проект.
-1. В строке заголовков для списка диалогов нажмите ![image](../../../_assets/console-icons/gear.svg). Откроется список всех колонок.
-1. Выполните в списке колонок нужные действия:
-
-    * Чтобы отобразить дополнительные колонки, отметьте их.
-    * Чтобы скрыть ненужные колонки, снимите для них отметки. Некоторые колонки нельзя скрыть, в них снятие отметки недоступно.
-    * Чтобы изменить порядок колонок, слева от названия колонки нажмите ![image](../../../_assets/console-icons/grip.svg) и перетяните колонку на нужную позицию в списке.
-
-1. Нажмите кнопку **Применить**.
-
-## Найти диалоги по фильтрам {#filters-dialogs}
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите нужный проект.
@@ -101,6 +80,23 @@
 
 1. Нажмите кнопку **{{ ui-key.yacloud.common.search }}**.
 
+## Настроить отображение колонок {#set-columns}
+
+По умолчанию в списке диалогов отображаются не все колонки. Вы можете отобразить дополнительные колонки, скрыть ненужные, а также изменить их порядок.
+
+Чтобы настроить отображение колонок:
+
+1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+1. Перейдите в нужное пространство, затем выберите нужный проект.
+1. В строке заголовков для списка диалогов нажмите ![image](../../../_assets/console-icons/gear.svg). Откроется список всех колонок.
+1. Выполните в списке колонок нужные действия:
+
+    * Чтобы отобразить дополнительные колонки, отметьте их.
+    * Чтобы скрыть ненужные колонки, снимите для них отметки. Некоторые колонки нельзя скрыть, в них снятие отметки недоступно.
+    * Чтобы изменить порядок колонок, слева от названия колонки нажмите ![image](../../../_assets/console-icons/grip.svg) и перетяните колонку на нужную позицию в списке.
+
+1. Нажмите кнопку **Применить**.
+
 ## Просмотреть диалог {#view-dialog}
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
@@ -120,6 +116,185 @@
 * Присвоенные диалогу [теги](../../concepts/tags.md).
 
 Подробнее см. в разделе [{#T}](../../concepts/dialogs.md#details).
+
+## Изменить метаданные диалога {#edit-dialog-metadata}
+
+Обновление метаданных диалога может быть полезным в разных ситуациях. Например, можно добавить оценку уже загруженному диалогу после того, как клиент оценил его.
+
+Значения метаданных можно обновлять для ключей, которые были добавлены [при создании подключения](../connection/create.md). Если в настройках подключения нет метаданных, то их нельзя добавить.
+
+Изменить метаданные диалога можно с помощью gRPC API {{ yandex-cloud }}. Для этого:
+
+1. [Получите идентификатор диалога](#get-dialog-id).
+1. [Подготовьте инфраструктуру для работы с gRPC API {{ yandex-cloud }}](#prepare-grpc-api).
+1. [Получите информацию о диалоге](#get-dialog-info).
+1. [Измените метаданные диалога](#edit-metadata).
+
+### Получите идентификатор диалога {#get-dialog-id}
+
+Найдите нужный диалог и скопируйте его идентификатор:
+
+1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+1. Перейдите в нужное пространство, затем выберите нужный проект.
+1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** [найдите нужный диалог](#search-dialogs) и перейдите в него.
+1. Скопируйте идентификатор диалога, находящийся в левом верхнем углу.
+
+### Подготовьте инфраструктуру для работы с gRPC API {{ yandex-cloud }} {#prepare-grpc-api}
+
+{% include [software](../../../_includes/speechsense/data/software.md) %}
+
+1. {% include [create-sa](../../../_includes/speechsense/data/create-sa.md) %}
+1. {% include [role-sa](../../../_includes/speechsense/data/role-sa.md) %}
+1. {% include [create-api-key](../../../_includes/speechsense/data/create-api-key.md) %}
+1. {% include [clone-cloudapi](../../../_includes/speechsense/data/clone-cloudapi.md) %}
+1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
+
+### Получите информацию о диалоге {#get-dialog-info}
+
+Воспользуйтесь вызовом [TalkService/Get](../../api-ref/grpc/Talk/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}.
+
+В примерах используются демонстрационные данные.
+
+**Запрос:**
+
+```bash
+grpcurl \
+    -format json \
+    -import-path ~/cloudapi/ \
+    -import-path ~/cloudapi/third_party/googleapis/ \
+    -proto ~/yandex/cloud/speechsense/v1/talk_service.proto \
+    -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+    -d '{
+          "space_id": "f3fuc***************",
+          "project_id": "eagpe***************",
+          "talk_ids": [
+            "aud78***************"
+          ]
+        }' \
+    api.speechsense.yandexcloud.net:443 \
+    yandex.cloud.api.speechsense.v1.TalkService.Get
+```
+
+**Ответ:**
+
+```json
+{
+  "talk": [
+    {
+      "id": "aud78***************",
+      "organizationId": "yc.organization-manager.example",
+      "spaceId": "f3fuc***************",
+      "connectionId": "eagjj***************",
+      "projectIds": [
+        "eagpe***************"
+      ],
+      "createdBy": "ajegr***************",
+      "createdAt": "2025-04-24T14:35:19.882Z",
+      "modifiedBy": "CLASSIFIER",
+      "modifiedAt": "2025-04-24T14:35:24.470980Z",
+      "talkFields": [
+        {
+          "name": "operator_name",
+          "value": "Иван",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "operator_id",
+          "value": "11111",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "client_name",
+          "value": "Александр",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "client_id",
+          "value": "22222",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "date",
+          "value": "2025-04-24T14:34:19Z",
+          "type": "FIELD_TYPE_DATE"
+        },
+        {
+          "name": "direction_outgoing",
+          "value": "true",
+          "type": "FIELD_TYPE_BOOLEAN"
+        },
+        {
+          "name": "language",
+          "value": "ru-ru",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "score_main",
+          "type": "FIELD_TYPE_STRING"
+        }
+      ],
+    // ...
+    }
+  ]
+}
+```
+
+В ответе, в поле `talkFields`, содержатся метаданные диалога:
+
+* `operator_name` — имя оператора.
+* `operator_id` — идентификатор оператора.
+* `client_name` — имя клиента.
+* `client_id` — идентификатор клиента.
+* `date` — дата и время начала диалога в формате `YYYY-MM-DDTHH:MM:SSSZ`.
+
+   {% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
+
+* `direction_outgoing` — направление диалога (входящий или исходящий).
+* `language` — язык диалога.
+* `score_main` — оценка диалога. Дополнительный ключ, значение будет добавлено при изменении метаданных.
+
+### Измените метаданные диалога {#edit-metadata}
+
+{% note info %}
+
+При изменении метаданных диалога необходимо передавать все ключи, иначе их значения будут удалены.
+
+{% endnote %}
+
+Воспользуйтесь вызовом [TalkService/Upload](../../api-ref/grpc/Talk/upload.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}.
+
+В примере используются демонстрационные данные.
+
+**Запрос:**
+
+В запросе добавляется новое значение ключа `score_main`, остальные значения ключей передаются без изменений.
+
+```bash
+grpcurl \
+    -format json \
+    -import-path ~/cloudapi/ \
+    -import-path ~/cloudapi/third_party/googleapis/ \
+    -proto ~/cloudapi/yandex/cloud/speechsense/v1/talk_service.proto \
+    -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+    -d '{
+          "talkId": "aud78***************",
+          "metadata": {
+            "connectionId": "eagjj***************",
+            "fields": {
+              "date": "2025-04-24T14:34:19Z",
+              "direction_outgoing": "true",
+              "language": "ru-ru",
+              "operator_name": "Иван",
+              "operator_id": "11111",
+              "client_name": "Александр",
+              "client_id": "22222",
+              "score_main": "4"
+            }
+          }
+        }' \
+    api.speechsense.yandexcloud.net:443 \
+    yandex.cloud.speechsense.v1.TalkService.Upload
+```
 
 ## Пример поиска диалогов по периоду и фрагменту текста {#example-find-dialogs-by-period-and-text}
 

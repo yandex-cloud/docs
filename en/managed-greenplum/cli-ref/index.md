@@ -37,6 +37,7 @@ Aliases:
 	- [yc managed-greenplum cluster list-operations](cluster/list-operations.md) — List operations for the specified Greenplum cluster
 	- [yc managed-greenplum cluster move](cluster/move.md) — Move the specified Greenplum cluster into the folder
 	- [yc managed-greenplum cluster remove-labels](cluster/remove-labels.md) — Remove labels from Greenplum cluster
+	- [yc managed-greenplum cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule maintenance for the specified Greenplum cluster
 	- [yc managed-greenplum cluster restore](cluster/restore.md) — Restore Greenplum cluster
 	- [yc managed-greenplum cluster start](cluster/start.md) — Start the specified Greenplum cluster
 	- [yc managed-greenplum cluster stop](cluster/stop.md) — Stop the specified Greenplum cluster
@@ -53,7 +54,19 @@ Aliases:
 	- [yc managed-greenplum pxf-datasource delete](pxf-datasource/delete.md) — Delete pxf-datasource for specified Greenplum cluster
 	- [yc managed-greenplum pxf-datasource get](pxf-datasource/get.md) — Get pxf-datasource for specified Greenplum cluster
 	- [yc managed-greenplum pxf-datasource list](pxf-datasource/list.md) — List pxf-datasources for specified Greenplum cluster
+- [yc managed-greenplum resource-groups](resource-groups/index.md) — Manage Greenplum resource groups
+	- [yc managed-greenplum resource-groups create](resource-groups/create.md) — Create resource group for specified Greenplum cluster
+	- [yc managed-greenplum resource-groups delete](resource-groups/delete.md) — Delete resource group for specified Greenplum cluster
+	- [yc managed-greenplum resource-groups get](resource-groups/get.md) — Get resource group for specified Greenplum cluster
+	- [yc managed-greenplum resource-groups list](resource-groups/list.md) — List resource group for specified Greenplum cluster
+	- [yc managed-greenplum resource-groups update](resource-groups/update.md) — Update resource group for specified Greenplum cluster
 - [yc managed-greenplum resource-preset](resource-preset/index.md) — Manage Greenplum resource presets
+- [yc managed-greenplum users](users/index.md) — Manage Greenplum users
+	- [yc managed-greenplum users create](users/create.md) — Create user for specified Greenplum cluster
+	- [yc managed-greenplum users delete](users/delete.md) — Delete user for specified Greenplum cluster
+	- [yc managed-greenplum users get](users/get.md) — Get user for specified Greenplum cluster
+	- [yc managed-greenplum users list](users/list.md) — List user for specified Greenplum cluster
+	- [yc managed-greenplum users update](users/update.md) — Update user for specified Greenplum cluster
 
 #### Global Flags
 

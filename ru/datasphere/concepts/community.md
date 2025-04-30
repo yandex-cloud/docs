@@ -17,3 +17,5 @@ _Сообщества_ — это способ организации групп
 * [{#T}](../../organization/security/index.md)
 * [{#T}](../operations/index.md#community)
 * [{#T}](../operations/community/link-ba.md)
+* [{#T}](../tutorials/community-for-students.md)
+* [{#T}](../tutorials/automation-community-settings.md)

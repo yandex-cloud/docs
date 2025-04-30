@@ -38,9 +38,9 @@ _Дообучение моделей в {{ foundation-models-full-name }} нах
 
 Чтобы отправлять запросы через API в ноутбуках [{{ ml-platform-name }}]({{ link-datasphere-main }}), добавьте пользовательский или сервисный аккаунт, от имени которого будут выполняться запросы, в список участников проекта {{ ml-platform-name }}. Аккаунт должен иметь роль `ai.languageModels.user`.
 
-## Примеры {#examples}
+## Примеры использования {#examples}
 
-* [{#T}](../../operations/tuning/create.md).
+* [{#T}](../../operations/tuning/create.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
 * [{#T}](../../tutorials/models-fine-tuning.md)
 

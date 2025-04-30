@@ -14,6 +14,8 @@ items:
         href: operations/cluster-create.md
       - name: Изменение кластера
         href: operations/cluster-update.md
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
       - name: Подключение к кластеру
         href: operations/connect.md
       - name: Удаление кластера
@@ -22,6 +24,74 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: Get
+                href: api-ref/Cluster/get.md
+              - name: List
+                href: api-ref/Cluster/list.md
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
+                href: api-ref/Cluster/update.md
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

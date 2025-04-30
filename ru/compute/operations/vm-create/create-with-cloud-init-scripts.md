@@ -9,6 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 Заданная в ключе `user-data` конфигурация обрабатываются агентом [cloud-init](https://cloudinit.readthedocs.io/en/latest/), запущенным на ВМ. Cloud-init поддерживает разные форматы передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/reference/examples.html).
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 ## Создание виртуальной машины с пользовательским скриптом конфигурации {#create-vm-with-user-script}
 
 {% note warning %}
@@ -23,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.

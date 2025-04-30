@@ -10,6 +10,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

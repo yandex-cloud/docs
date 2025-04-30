@@ -121,9 +121,10 @@ keywords:
 
 Примеры работы со ссылками на источники с помощью SDK и API, а также примеры вывода см. в разделе [Создать ассистента с поисковым индексом](../../operations/assistant/create-with-searchindex.md#create-assistant).
 
-#### См. также {#see-also}
+## Примеры использования {#examples}
 
 * [{#T}](../../operations/assistant/create.md)
 * [{#T}](../../operations/assistant/create-with-searchindex.md)
-* [{#T}](../../operations/assistant/create-with-labels.md)
 * [{#T}](../../operations/assistant/request-chunked-response.md)
+* [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
+* [{#T}](../../operations/assistant/create-with-labels.md)

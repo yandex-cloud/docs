@@ -40,6 +40,7 @@ default:
   api-host-operation: operation.api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
+  api-host-trino: trino.api.cloud.yandex.net
   api-url-prefix: /docs
   art-freetier: 10
   assistant-api: AI Assistant API
@@ -6018,6 +6019,7 @@ default:
           notification-channels: Уведомления
           time-shift: Задержка вычисления
       prometheus:
+        action_create: Создать воркспейс
         alert-manager:
           config-action:
             download: Скачать

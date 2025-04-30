@@ -541,6 +541,12 @@
 
 ## Подготовьте метаданные {#prepare-metadata}
 
+{% note info %}
+
+{% include [data-format](../../_includes/speechsense/data/data-format.md) %}
+
+{% endnote %}
+
 Чтобы загрузить файл в {{ speechsense-name }}, подготовьте его метаданные в формате `JSON`. Например:
 
 ```json
@@ -554,7 +560,7 @@
       "operator_name": "Иван Петров",
       "client_id": "327142",
       "client_name": "Петр Иванов",
-      "date": "2024-08-30 19:32:11",
+      "date": "2024-08-30T19:32:11Z",
       "direction_outgoing": "0",
       "language": "RU",
       "file_name": "my_audio.ogg"
@@ -585,7 +591,7 @@
 
     * `client_name` — имя клиента.
 
-    * `date` — дата и время звонка в формате `YYYY-MM-DD HH24:MI:SS`.
+    * `date` — дата и время звонка в формате `YYYY-MM-DDTHH:MM:SSZ`.
 
     * `direction_outgoing` — направление звонка. `0` — для исходящего звонка, `1` — для входящего.
 
