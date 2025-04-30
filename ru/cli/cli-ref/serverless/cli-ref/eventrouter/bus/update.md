@@ -24,6 +24,9 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--deletion-protection`|Prevents accidental bus removal.|
 |`--no-deletion-protection`|Remove bus deletion protection.|
+|`--enable-logging`|Enable logging.|
+|`--disable-logging`|Disable logging.|
+|`--log-options`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Logs delivery options<br/><br/>Possible property names:<br/><ul> <li><code>log-group-id</code>:     Write logs to this log group.</li> <li><code>folder-id</code>:     Write logs to default log group of this folder if log group id is not specified.</li> <li><code>service-account-id</code>:     Write logs on behalf of this service account.</li> <li><code>min-level</code>:     Minimal level of logs to write. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

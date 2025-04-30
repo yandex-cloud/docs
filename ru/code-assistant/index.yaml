@@ -11,7 +11,8 @@ description:
     условия и другие элементы.
   - >-
     Плагин {{ ca-name }} доступен для <a
-    href="https://code.visualstudio.com/">Visual Studio Code</a> и <a
+    href="https://code.visualstudio.com/">Visual Studio Code</a>, <a
+    href="https://vscodium.com/">VSCodium</a> и <a
     href="https://www.jetbrains.com/ides/">IDE от JetBrains</a>, подробнее см.
     <a href="/docs/code-assistant/concepts/#supported-versions">Поддерживаемые
     версии IDE</a>.

@@ -16,18 +16,20 @@ items:
             href: operations/create-vm.md
           - name: Создать и подключить ВМ на Windows
             href: operations/create-vm-windows.md
-          - name: Подключить ВМ на Linux
-            href: operations/connect-vm-linux.md
-          - name: Подключить ВМ на Linux с {{ oslogin }}
-            href: operations/connect-vm-oslogin-linux.md
-          - name: Подключить ВМ на Windows
-            href: operations/connect-vm-windows.md
-          - name: Обновить подключение ВМ к {{ backup-name }}
+          - name: Подключить существующую ВМ к {{ backup-name }}
+            items:
+              - name: Подключить существующую ВМ на Linux
+                href: operations/connect-vm-linux.md
+              - name: Подключить существующую ВМ на Linux с {{ oslogin }}
+                href: operations/connect-vm-oslogin-linux.md
+              - name: Подключить существующую ВМ на Windows
+                href: operations/connect-vm-windows.md
+          - name: Переподключить ВМ к {{ backup-name }}
             href: operations/refresh-connection.md
+          - name: Переподключить ВМ на Linux с {{ oslogin }} к {{ backup-name }}
+            href: operations/refresh-connection-oslogin-linux.md
           - name: Обновить или восстановить агент {{ backup-name }}
             href: operations/update-backup-agent.md
-          - name: Обновить подключение ВМ на Linux с {{ oslogin }}
-            href: operations/refresh-connection-oslogin-linux.md
           - name: Посмотреть статус подключения ВМ
             href: operations/get-connection-status.md
           - name: Посмотреть журнал резервного копирования
@@ -40,11 +42,11 @@ items:
               Арендовать сервер {{ baremetal-name }} с подключением к {{
               backup-name }}
             href: operations/backup-baremetal/lease-server-with-backup.md
-          - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
-            href: operations/backup-baremetal/backup-baremetal.md
           - name: >-
-              Обновить подключение сервера {{ baremetal-name }} к {{ backup-name
-              }}
+              Подключить существующий сервер {{ baremetal-name }} к {{
+              backup-name }}
+            href: operations/backup-baremetal/backup-baremetal.md
+          - name: Переподключить сервер {{ baremetal-name }} к {{ backup-name }}
             href: operations/backup-baremetal/refresh-connection.md
           - name: Восстановить работу агента {{ backup-name }}
             href: operations/backup-baremetal/restore-agent.md

@@ -24,6 +24,8 @@ Syntax:
 |`--snapshot-count`|<b>`uint`</b><br/>Snapshot count.|
 |`--expression`|<b>`string`</b><br/>Cron expression for the snapshot schedule.|
 |`--start-at`|<b>`timestamp`</b><br/>Start timestamp for the snapshot schedule. Format: RFC-3339, HH:MM:SS, or a moment  of time relative to the current time.<br/>Examples: '2006-01-02T15:04:05Z', '15:04:05', '2h' or '3h30m ago'.|
+|`--snapshot-description`|<b>`string`</b><br/>Specifies a textual description for each snapshot created by schedule|
+|`--snapshot-labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add to each snapshot created by schedule. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--snapshot-labels foo=baz,bar=baz'.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -3,7 +3,7 @@ title: Как обновить подключение сервера {{ baremeta
 description: Следуя данной инструкции, вы сможете обновить подключение сервера {{ baremetal-name }} к {{ backup-name }}.
 ---
 
-# Обновить подключение сервера {{ baremetal-full-name }} к {{ backup-name }}
+# Переподключить сервер {{ baremetal-full-name }} к {{ backup-name }}
 
 {% note info %}
 

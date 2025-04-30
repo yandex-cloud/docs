@@ -23,6 +23,9 @@
 
 {% endnote %}
 
-#### См. также {#see-also}
+## Примеры использования {#examples}
 
-* [{#T}](../operations/user-images.md)
+* [{#T}](../tutorials/node-from-docker-fast-api.md)
+* [{#T}](../tutorials/node-from-docker.md)
+* [{#T}](../tutorials/grpc-node.md)
+

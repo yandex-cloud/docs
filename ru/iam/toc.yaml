@@ -292,6 +292,8 @@ items:
             href: cli-ref/user-account/index.md
           - name: get
             href: cli-ref/user-account/get.md
+      - name: whoami
+        href: cli-ref/whoami.md
       - name: workload-identity
         items:
           - name: Overview

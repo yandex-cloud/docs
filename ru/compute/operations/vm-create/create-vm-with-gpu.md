@@ -12,6 +12,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

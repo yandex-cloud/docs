@@ -22,10 +22,12 @@ Syntax:
 	- [yc cloudrouter routing-instance get](routing-instance/get.md) — Get information about a routingInstance.
 	- [yc cloudrouter routing-instance list](routing-instance/list.md) — List routingInstances in a folder.
 	- [yc cloudrouter routing-instance list-operations](routing-instance/list-operations.md) — List operations for a routingInstance.
+	- [yc cloudrouter routing-instance move-prefix](routing-instance/move-prefix.md) — Move VPC network prefixes within the routingInstance.
 	- [yc cloudrouter routing-instance remove-labels](routing-instance/remove-labels.md) — Remove labels from a routingInstance.
 	- [yc cloudrouter routing-instance remove-prefixes](routing-instance/remove-prefixes.md) — Remove announced VPC network prefixes from the routingInstance.
 	- [yc cloudrouter routing-instance remove-private-connection](routing-instance/remove-private-connection.md) — Remove CIC private connection from the routingInstance.
 	- [yc cloudrouter routing-instance update](routing-instance/update.md) — Modify configuration or attributes of a routingInstance.
+	- [yc cloudrouter routing-instance update-prefix-mask](routing-instance/update-prefix-mask.md) — Update mask of a VPC network prefix of the routingInstance.
 	- [yc cloudrouter routing-instance upsert-prefixes](routing-instance/upsert-prefixes.md) — Upsert announced VPC network prefixes to the routingInstance.
 
 #### Global Flags

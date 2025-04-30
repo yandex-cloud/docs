@@ -1,9 +1,11 @@
 
 # Создать виртуальную машину из пользовательского образа
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
-[Подготовьте и загрузите](../image-create/upload.md) [образ](../../concepts/image.md) в {{ compute-name }}, из которого будет создаваться [ВМ](../../concepts/vm.md).
+[Подготовьте и загрузите](../image-create/upload.md) [образ](../../concepts/image.md) в {{ compute-name }}, из которого будет создаваться ВМ.
 
 Убедитесь, что загруженный образ находится в состоянии `READY`.
 
@@ -22,7 +24,7 @@
 
 
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
