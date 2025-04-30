@@ -21,6 +21,7 @@ Syntax:
 |`--federation-id`|<b>`string`</b><br/>Set the Federation ID to use for authentication.|
 |`--federation-endpoint`|<b>`string`</b><br/>Set the Federation endpoint to use for authentication.|
 |`--region`|<b>`string`</b><br/>Set the region flag to use cli with different regions.|
+|`--dpop`|Initialize DPOP authenticator|
 
 #### Global Flags
 

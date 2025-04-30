@@ -30,6 +30,12 @@
 
 ## Загрузить данные {#upload-data}
 
+{% note info %}
+
+{% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
+
+{% endnote %}
+
 1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
 
 1. В папке `upload_data` создайте Python-скрипт `upload_text.py`, который загрузит переписку из чата в {{ speechsense-name }}:
@@ -114,8 +120,6 @@
       <дополнительные_параметры_подключения>
    }
    ```
-
-   Значение поля `date` задайте в формате `ГГГГ-ММ-ДДTЧЧ:ММ:СС.ССС`.
 
    Поля в файле должны соответствовать параметрам подключения, в которое вы загружаете текстовые сообщения. В шаблоне выше указаны обязательные поля для подключений типа **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**. Если вы добавляли другие параметры в подключение, укажите их в файле `metadata.json`. Например, если вы загружаете [связанные чаты](../../concepts/dialogs.md#related-dialogs), добавьте в файл параметр:
 

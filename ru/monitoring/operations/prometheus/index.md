@@ -18,18 +18,16 @@ description: '{{ managed-prometheus-full-name }} — система монито
 
 {{ managed-prometheus-name }} построена на основе системы, которую Яндекс использует для мониторинга внутренних сервисов. Система автоматически масштабирует запись, хранение и чтение метрик в зависимости от рабочей нагрузки. Высокая доступность обеспечивается благодаря тому, что данные мониторинга реплицируются в двух зонах доступности.
 
-## Перед началом работы {#access}
+## Начало работы {#access}
 
-Чтобы начать работать с {{ managed-prometheus-full-name }} в текущем каталоге, необходимо создать воркспейс. Для этого:
-
-1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-full-name }}.
+1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-full-name }} и выберите каталог.
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
-1. Нажмите кнопку **Создать воркспейс**.
-1. На открывшейся странице появятся ссылки на эндпоинты, которые необходимо использовать для текущего каталога.
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.prometheus.action_create }}**.
+1. На открывшейся странице появятся ссылки на эндпоинты.
+   
+   Используйте эти эндпоинты, чтобы настроить [запись](ingestion/index.md) и [чтение](querying/index.md) метрик из воркспейса в формате {{ prometheus-name }}.
 
-Чтобы подключить [запись](ingestion/index.md) и [чтение](querying/index.md) метрик в формате {{ prometheus-name }}, воспользуйтесь соответствующими инструкциями.
-
-## Текущие возможности {#features}
+## Сравнение возможностей {#features}
 
 {% note info %}
 
@@ -43,7 +41,7 @@ description: '{{ managed-prometheus-full-name }} — система монито
 Сбор метрик | [Scrape](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config), [Pushgateway](https://prometheus.io/docs/instrumenting/pushing/), [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Поддерживается запись метрик по протоколу [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write). Для отправки метрик с виртуальной машины в {{ managed-prometheus-full-name }} можно использовать [{{ unified-agent-short-name }} от {{ yandex-cloud }}](ingestion/prometheus-agent.md). Также подходит любой совместимый агент сбора, в том числе сам {{ prometheus-name }}.
 Долгосрочное хранение метрик | Не предназначен для долгосрочного хранения метрик. Полагается на [сторонние решения](https://prometheus.io/docs/prometheus/latest/storage/#existing-integrations). | Поддерживается долгосрочное хранение метрик. При использовании [прореживания](../../concepts/decimation.md) возможно неограниченное по времени хранение.
 Чтение метрик | Поддерживается чтение данных и метаданных через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/). | Поддерживается чтение данных и метаданных через [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) с некоторыми [ограничениями](querying/grafana.md#restrictions).
-Визуализация | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | Поддерживается [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/).
+Визуализация | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | Графики и дашборды в [{{ monitoring-name }}](querying/monitoring.md). Поддерживается [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/).
 Агрегация | Поддерживается агрегация с помощью правил записи ([recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/)). | Поддерживаются существующие файлы с [правилами записи](recording-rules.md) (`recording rules`) в формате YAML. Загрузка файлов и управление ими доступны через пользовательский интерфейс {{ monitoring-name }} и API.
 Алертинг | Поддерживается с помощью правил алертинга ([alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)). | Поддерживаются существующие файлы с [правилами алертинга](alerting-rules.md) (`alerting rules`) в формате YAML. Загрузка файлов и управление ими доступны через пользовательский интерфейс {{ monitoring-name }} и API.
 Интеграции | Клиентские [библиотеки](https://prometheus.io/docs/instrumenting/clientlibs/) и [экспортеры](https://prometheus.io/docs/instrumenting/exporters/). | Можно использовать существующие библиотеки и экспортеры.

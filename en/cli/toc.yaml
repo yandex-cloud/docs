@@ -613,6 +613,8 @@ items:
               - name: list-operations
                 href: >-
                   cli-ref/cloudrouter/cli-ref/routing-instance/list-operations.md
+              - name: move-prefix
+                href: cli-ref/cloudrouter/cli-ref/routing-instance/move-prefix.md
               - name: remove-labels
                 href: cli-ref/cloudrouter/cli-ref/routing-instance/remove-labels.md
               - name: remove-prefixes
@@ -623,6 +625,9 @@ items:
                   cli-ref/cloudrouter/cli-ref/routing-instance/remove-private-connection.md
               - name: update
                 href: cli-ref/cloudrouter/cli-ref/routing-instance/update.md
+              - name: update-prefix-mask
+                href: >-
+                  cli-ref/cloudrouter/cli-ref/routing-instance/update-prefix-mask.md
               - name: upsert-prefixes
                 href: >-
                   cli-ref/cloudrouter/cli-ref/routing-instance/upsert-prefixes.md
@@ -1690,6 +1695,8 @@ items:
                 href: cli-ref/iam/cli-ref/user-account/index.md
               - name: get
                 href: cli-ref/iam/cli-ref/user-account/get.md
+          - name: whoami
+            href: cli-ref/iam/cli-ref/whoami.md
           - name: workload-identity
             items:
               - name: Overview
@@ -2602,6 +2609,9 @@ items:
                 href: cli-ref/managed-greenplum/cli-ref/cluster/move.md
               - name: remove-labels
                 href: cli-ref/managed-greenplum/cli-ref/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: >-
+                  cli-ref/managed-greenplum/cli-ref/cluster/reschedule-maintenance.md
               - name: restore
                 href: cli-ref/managed-greenplum/cli-ref/cluster/restore.md
               - name: start
@@ -2670,6 +2680,20 @@ items:
                   - name: s3
                     href: >-
                       cli-ref/managed-greenplum/cli-ref/pxf-datasource/update/s3.md
+          - name: resource-groups
+            items:
+              - name: Overview
+                href: cli-ref/managed-greenplum/cli-ref/resource-groups/index.md
+              - name: create
+                href: cli-ref/managed-greenplum/cli-ref/resource-groups/create.md
+              - name: delete
+                href: cli-ref/managed-greenplum/cli-ref/resource-groups/delete.md
+              - name: get
+                href: cli-ref/managed-greenplum/cli-ref/resource-groups/get.md
+              - name: list
+                href: cli-ref/managed-greenplum/cli-ref/resource-groups/list.md
+              - name: update
+                href: cli-ref/managed-greenplum/cli-ref/resource-groups/update.md
           - name: resource-preset
             items:
               - name: Overview
@@ -2696,6 +2720,20 @@ items:
                   - name: segment
                     href: >-
                       cli-ref/managed-greenplum/cli-ref/resource-preset/list/segment.md
+          - name: users
+            items:
+              - name: Overview
+                href: cli-ref/managed-greenplum/cli-ref/users/index.md
+              - name: create
+                href: cli-ref/managed-greenplum/cli-ref/users/create.md
+              - name: delete
+                href: cli-ref/managed-greenplum/cli-ref/users/delete.md
+              - name: get
+                href: cli-ref/managed-greenplum/cli-ref/users/get.md
+              - name: list
+                href: cli-ref/managed-greenplum/cli-ref/users/list.md
+              - name: update
+                href: cli-ref/managed-greenplum/cli-ref/users/update.md
       - name: managed-kafka
         items:
           - name: Overview

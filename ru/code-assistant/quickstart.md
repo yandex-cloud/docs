@@ -1,6 +1,6 @@
 ---
 title: Начало работы с {{ ca-full-name }}
-description: Установите плагин {{ ca-name }} для Visual Studio Code и IDE от JetBrains.
+description: Установите плагин {{ ca-name }} для Visual Studio Code, VSCodium и IDE от JetBrains.
 ---
 
 # Как начать работать с {{ ca-full-name }}

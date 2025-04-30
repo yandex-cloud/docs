@@ -15,3 +15,7 @@
 ## Советы для создания промтов для {{ yandexart-name }} {#tips}
 
 {% include [yandexart-prompts-tips](../../../_includes/foundation-models/yandexart/yandexart-prompts-tips.md) %}
+
+## Примеры использования {#examples}
+
+[{#T}](../../operations/yandexart/request.md)

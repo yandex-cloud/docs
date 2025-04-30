@@ -232,7 +232,7 @@ keywords:
 
             * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
-                ```bash
+                ```json
                 "airflow": {
                   "config": {
                     "core.load_examples": "False"
@@ -304,7 +304,7 @@ keywords:
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/<идентификатор_кластера>'
+            --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<идентификатор_кластера>'
             --data '@body.json'
         ```
 
@@ -419,7 +419,7 @@ keywords:
 
             * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
-                ```bash
+                ```json
                 "airflow": {
                   "config": {
                     "core.load_examples": "False"

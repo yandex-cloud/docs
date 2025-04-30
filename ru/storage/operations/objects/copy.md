@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для загрузки объекта в бакет:
+  1. Посмотрите описание команды CLI для копирования объекта:
 
       ```bash
       yc storage s3api copy-object --help

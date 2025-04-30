@@ -207,6 +207,8 @@ items:
             href: cli-ref/cluster/move.md
           - name: remove-labels
             href: cli-ref/cluster/remove-labels.md
+          - name: reschedule-maintenance
+            href: cli-ref/cluster/reschedule-maintenance.md
           - name: restore
             href: cli-ref/cluster/restore.md
           - name: start
@@ -269,6 +271,20 @@ items:
                 href: cli-ref/pxf-datasource/update/jdbc.md
               - name: s3
                 href: cli-ref/pxf-datasource/update/s3.md
+      - name: resource-groups
+        items:
+          - name: Overview
+            href: cli-ref/resource-groups/index.md
+          - name: create
+            href: cli-ref/resource-groups/create.md
+          - name: delete
+            href: cli-ref/resource-groups/delete.md
+          - name: get
+            href: cli-ref/resource-groups/get.md
+          - name: list
+            href: cli-ref/resource-groups/list.md
+          - name: update
+            href: cli-ref/resource-groups/update.md
       - name: resource-preset
         items:
           - name: Overview
@@ -289,6 +305,20 @@ items:
                 href: cli-ref/resource-preset/list/master.md
               - name: segment
                 href: cli-ref/resource-preset/list/segment.md
+      - name: users
+        items:
+          - name: Overview
+            href: cli-ref/users/index.md
+          - name: create
+            href: cli-ref/users/create.md
+          - name: delete
+            href: cli-ref/users/delete.md
+          - name: get
+            href: cli-ref/users/get.md
+          - name: list
+            href: cli-ref/users/list.md
+          - name: update
+            href: cli-ref/users/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

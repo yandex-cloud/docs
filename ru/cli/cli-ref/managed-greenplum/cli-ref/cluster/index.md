@@ -31,6 +31,7 @@ Aliases:
 - [yc managed-greenplum cluster list-operations](list-operations.md) — List operations for the specified Greenplum cluster
 - [yc managed-greenplum cluster move](move.md) — Move the specified Greenplum cluster into the folder
 - [yc managed-greenplum cluster remove-labels](remove-labels.md) — Remove labels from Greenplum cluster
+- [yc managed-greenplum cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule maintenance for the specified Greenplum cluster
 - [yc managed-greenplum cluster restore](restore.md) — Restore Greenplum cluster
 - [yc managed-greenplum cluster start](start.md) — Start the specified Greenplum cluster
 - [yc managed-greenplum cluster stop](stop.md) — Stop the specified Greenplum cluster

@@ -38,6 +38,12 @@ description: Следуя данной инструкции, вы сможете
 
 ## Загрузить данные {#upload-data}
 
+{% note info %}
+
+{% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
+
+{% endnote %}
+
 1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
 1. В папке `upload_data` создайте Python-скрипт `upload_grpc.py`, который загрузит данные в подключение {{ speechsense-name }} одним сообщением:
 
@@ -101,8 +107,8 @@ description: Следуя данной инструкции, вы сможете
                'client_name': 'Client',
                'client_id': '2222',
                'date': str(now),
-               'date_from': '2023-09-13T17:30:00.000',
-               'date_to': '2023-09-13T17:31:00.000',
+               'date_from': '2023-09-13T17:30:00.000Z',
+               'date_to': '2023-09-13T17:31:00.000Z',
                'direction_outgoing': 'true',
             }
          else:
@@ -128,8 +134,6 @@ description: Следуя данной инструкции, вы сможете
       <дополнительные_параметры_подключения>
    }
    ```
-
-   Значение поля `date` задайте в формате `ГГГГ-ММ-ДДTЧЧ:ММ:СС.ССС`.
 
    Поля в файле должны соответствовать параметрам подключения, в которое вы загружаете аудиозаписи. В шаблоне выше указаны обязательные поля для подключений типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**. Если вы добавляли другие параметры в подключение, укажите их в файле `metadata.json`. Например, если вы загружаете [связанные диалоги](../../concepts/dialogs.md#related-dialogs), добавьте в файл параметр:
 

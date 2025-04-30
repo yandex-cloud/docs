@@ -38,6 +38,8 @@
 
    {% cut "Пример metadata.json для загрузки аудиоданных" %}
 
+   {% include [data-format](../_includes/speechsense/data/data-format.md) %}
+
    ```json
    {
       "direction_outgoung": "true",

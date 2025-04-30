@@ -14,6 +14,8 @@ keywords:
 
 Создайте [ВМ](../concepts/vm.md) Linux с помощью сервиса {{ compute-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
 
+{% include [role-note](../../_includes/compute/role-note.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin-linux](../../_includes/compute/before-you-begin-linux.md) %}

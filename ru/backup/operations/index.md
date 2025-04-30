@@ -9,15 +9,18 @@ description: На странице представлен список поша�
 
 * [{#T}](create-vm.md)
 * [{#T}](create-vm-windows.md)
-* [{#T}](connect-vm-linux.md)
-* [{#T}](connect-vm-oslogin-linux.md)
-* [{#T}](connect-vm-windows.md)
 * [{#T}](refresh-connection.md)
-* [{#T}](update-backup-agent.md)
 * [{#T}](refresh-connection-oslogin-linux.md)
+* [{#T}](update-backup-agent.md)
 * [{#T}](get-connection-status.md)
 * [{#T}](get-journal.md)
 * [{#T}](delete-vm.md)
+
+### Подключение уже существующих виртуальных машин к {{ backup-name }} {#connect-running-vm}
+
+* [{#T}](connect-vm-linux.md)
+* [{#T}](connect-vm-oslogin-linux.md)
+* [{#T}](connect-vm-windows.md)
 
 ## Управление серверами {{ baremetal-name }} в {{ backup-name }} {#connect-baremetal}
 
