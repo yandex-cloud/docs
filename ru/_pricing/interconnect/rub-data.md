@@ -17,4 +17,4 @@
 | 12 360              | {{ sku|RUB|interconnect.trunk.direct.40gbps.unmetered.monthly_usage.v1|string }}   |
 | 15 450              | {{ sku|RUB|interconnect.trunk.direct.50gbps.unmetered.monthly_usage.v1|string }}   |
 | 30 900              | {{ sku|RUB|interconnect.trunk.direct.100gbps.unmetered.monthly_usage.v1|string }}  |
-| 61 800              | 3 840 000,00 ₽ |
+| 61 800              | {{ sku|RUB|interconnect.trunk.direct.200gbps.unmetered.monthly_usage.v1|string }}  |

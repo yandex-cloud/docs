@@ -12,7 +12,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using {{ vpc-short-name }} {#rules}
+## What goes into the price of using {{ vpc-short-name }} {#rules}
 
 In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
@@ -58,9 +58,9 @@ All prices are net of VAT.
 {% include [usd-ip.md](../_pricing/vpc/usd-ip.md) %}
 
 
-The cost of an inactive public static address includes the cost of a public IP address plus the cost of reserving an inactive public static IP address.
+The price of an inactive public static address includes the price of a public IP address plus the price of reserving an inactive public static IP address.
 
-For example, the cost of an inactive public static address will be:
+For example, the price of an inactive public static address will be:
 
 
 
