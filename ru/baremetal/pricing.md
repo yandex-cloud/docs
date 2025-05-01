@@ -25,6 +25,9 @@ editable: false
 
   {% include [rub-servers.md](../_pricing/baremetal/rub-servers.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-servers.md](../_pricing/baremetal/kzt-servers.md) %}
 
 {% endlist %}
 
