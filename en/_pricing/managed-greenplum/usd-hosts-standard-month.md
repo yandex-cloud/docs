@@ -1,4 +1,4 @@
-| Resource | price per month,<br>without VAT | price with CVoS for 6 months,<br>without VAT | price with CVoS for 1 year,<br>without VAT |
+| Resource | Price per month,<br>without VAT | Price with CVoS for 6 months,<br>without VAT | Price with CVoS for 1 year,<br>without VAT |
 |---------------|-------------------------------------------------------------:|------------------------------------------------------------------------------------------:|------------------------------------------------------------------------------------------:|
 | **Intel Cascade Lake** |
 | 100% vCPU | {{ sku|USD|mdb.cluster.greenplum.v2.cpu.c100|month|string }} | — | — |

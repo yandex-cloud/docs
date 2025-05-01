@@ -18,3 +18,8 @@ The monthly prices are based on 720 hours per month.
 
 
 
+
+All prices are per month and do not include VAT.
+
+{% include [usd-servers.md](../_pricing/baremetal/usd-servers.md) %}
+

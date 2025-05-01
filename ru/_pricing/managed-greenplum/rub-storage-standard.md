@@ -5,4 +5,4 @@
 | Хранилище на сетевых SSD-дисках         | {{ sku|RUB|mdb.cluster.network-nvme.greenplum|month|string }}              |
 | Сверхбыстрое сетевое хранилище с тремя репликами (SSD) | {{ sku|RUB|mdb.cluster.network-ssd-io-m3.greenplum|month|string }} |
 | Хранилище на локальных SSD-дисках       | {{ sku|RUB|mdb.cluster.local-nvme.greenplum|month|string }}                |
-| Резервные копии сверх размера хранилища | 1,92 ₽                                                                     |
+| Резервные копии сверх размера хранилища | 2,07 ₽ |

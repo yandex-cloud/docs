@@ -5,4 +5,4 @@
 | Хранилище на сетевых SSD-дисках         | -                                                        | {{ sku|KZT|mdb.cluster.network-nvme.greenplum|month|string }}              | {{ sku|KZT|mdb.cluster.network-nvme.greenplum|month|string }}              |
 | Сверхбыстрое сетевое хранилище с тремя репликами (SSD) | - | {{ sku|KZT|mdb.cluster.network-ssd-io-m3.greenplum|month|string }} | {{ sku|KZT|mdb.cluster.network-ssd-io-m3.greenplum|month|string }} |
 | Хранилище на локальных SSD-дисках       | {{ sku|KZT|compute.hostgroup.localssd.v1|month|string }} | {{ sku|KZT|mdb.cluster.local-nvme.greenplum.dedicated|month|string }}      | {{ sku|KZT|mdb.cluster.local-nvme.greenplum|month|string }}                |
-| Резервные копии сверх размера хранилища | -                                                        |                                                                     9,60 ₸ |                                                                     9,60 ₸ |
+| Резервные копии сверх размера хранилища | - | 10.37 ₸ | 10.37 ₸ |
