@@ -1,8 +1,8 @@
-# Fields and annotations of the Service resource
+# `Service` resource fields and annotations
 
-The `Service` resource defines the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service). Services in {{ network-load-balancer-name }} for {{ managed-k8s-name }} are load balancers for incoming traffic.
+The `Service` resource defines a [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service). In {{ network-load-balancer-name }} for {{ managed-k8s-name }}, services are load balancers for incoming traffic.
 
-`Service` is a standard {{ k8s }} resource. This reference describes the resource's fields and annotations supported by {{ network-load-balancer-name }} for {{ managed-k8s-name }}. For a complete reference for the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
+`Service` is a standard {{ k8s }} resource. This reference describes the resource fields and annotations supported by {{ network-load-balancer-name }} for {{ managed-k8s-name }}. For a complete `Service` reference, see [this {{ k8s }} article](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 
 ## Service {#service}
 
@@ -14,13 +14,13 @@ spec: <ServiceSpec>
 ```
 
 #|
-|| **Field**     | **Value or type**   | **Description**                   ||
-|| `apiVersion` | `v1` | **Required**
+|| **Field**     | **Value / Type**   | **Description**                   ||
+|| `apiVersion` | `v1` | **This is a required field**
                                            Kubernetes API version.          ||
 || `kind`       | `Service`              | Resource type                    ||
-|| `metadata`   | `ObjectMeta`           | **Required**
+|| `metadata`   | `ObjectMeta`           | **This is a required field**
                                           [Resource metadata](#metadata). ||
-|| `spec`       | `ServiceSpec`          | **Required**
+|| `spec`       | `ServiceSpec`          | **This is a required field**
                                           [Resource specification](#servicespec).   ||
 |#
 
@@ -57,19 +57,19 @@ annotations:
 ```
 
 #|
-|| **Field**      | **Value or type** | **Description** ||
-|| `name`        | `string`             | **Required**
+|| **Field**      | **Value / Type** | **Description** ||
+|| `name`        | `string`             | **This is a required field**
 [Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-Does not match the balancer name in {{ network-load-balancer-name }}. ||
+It does not match the load balancer name in {{ network-load-balancer-name }}. ||
 || `annotations` | `map[string]string`  | [Resource annotations](#annotations). ||
 |#
 
-### Annotations (metadata.annotations) {#annotations}
+### Metadata.annotations {#annotations}
 
-Annotations are collections of `key:value` pairs used for assigning metadata to objects. Annotation values are always of the `string` data type. See more on annotations in [the Kubernetes documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values are always of the `string` data type. For more information on annotations, see [this Kubernetes article](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
-You can provide the following annotations for a `ObjectMeta` object:
+You can add the following annotations to `ObjectMeta`:
 
 * **yandex.cloud/load-balancer-type**
 
@@ -78,27 +78,27 @@ You can provide the following annotations for a `ObjectMeta` object:
   For a load balancer with an internal IP address, the value is `internal`.
 * **yandex.cloud/subnet-id**
 
-  ID of the subnet in which you need to allocate an IP address for the internal network load balancer.
+  ID of the subnet the internal load balancer will get its IP address.
 * **yandex.cloud/load-balancer-healthcheck-healthy-threshold**
 
-  Number of consecutive successful [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node available.
+  Number of consecutive successful [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node healthy.
 
-  The minimum value is `2`; the maximum value is `10`.
+  It can range from `2` to `10`.
 * **yandex.cloud/load-balancer-healthcheck-interval**
 
   [Health check](../../../network-load-balancer/concepts/health-check.md) interval in seconds.
 
-  The minimum value is `2s`; the maximum value is `300s`.
+  It can range from `2s` to `300s`.
 * **yandex.cloud/load-balancer-healthcheck-timeout**
 
-  Timeout for [health checks](../../../network-load-balancer/concepts/health-check.md) in seconds. A node is considered unavailable if it has not responded within the specified time.
+  [Health check](../../../network-load-balancer/concepts/health-check.md) timeout in seconds. If a node fails to respond within this time, it is considered unavailable.
 
-  The minimum value is `1s`; the maximum value is `60s`.
+  It can range from `1s` to `60s`.
 * **yandex.cloud/load-balancer-healthcheck-unhealthy-threshold**
 
-  Number of consecutive failed [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node unavailable.
+  Number of consecutive failed [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node unhealthy.
 
-  The minimum value is `2`; the maximum value is `10`.
+  It can range from `2` to `10`.
 
 ## ServiceSpec {#servicespec}
 
@@ -112,19 +112,19 @@ externalTrafficPolicy: <string>
 ```
 
 #|
-|| **Field** | **Value or type** | **Description** ||
-|| `type`   | `LoadBalancer` | **Required**
+|| **Field** | **Value / Type** | **Description** ||
+|| `type`   | `LoadBalancer` | **This is a required field**
 Service type.
 
 {% note warning %}
 
-The {{ k8s }} services used as network load balancers must be of the `LoadBalancer` type. For more details on this type, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer).
+The {{ k8s }} services used as network load balancers must be of the `LoadBalancer` type. For more information about this type, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer).
 
 {% endnote %}
 ||
 
-|| `ports`    | `[]ServicePort`      | **Required**
-[List of ports the service is available on](#ports).
+|| `ports`    | `[]ServicePort`      | **This is a required field**
+[List of service ports](#ports).
 ||
 
 || `loadBalancerIP` | `string` | When using an [external load balancer](../../../network-load-balancer/concepts/nlb-types.md), you may specify a static [public IP address](../../../vpc/concepts/address.md#public-addresses) in this field. You need to [reserve such an address in advance](../../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md). If you do not specify a static public IP address, the network load balancer will get a dynamic public IP address.
@@ -133,7 +133,7 @@ When using an [internal load balancer](../../../network-load-balancer/concepts/n
 
 {% note warning %}
 
-If you delete the internal IP address from the specification in the future, it may be automatically assigned to another resource in the same cloud network. We recommend selecting the address closer to the end of the the selected subnet's IP address range.
+Once removed from the specification, the internal IP address may be automatically assigned to a different resource in the same cloud network. We recommend selecting an IP address closer to the upper end of the selected subnet range.
 
 {% endnote %}
 
@@ -141,11 +141,11 @@ If you delete the internal IP address from the specification in the future, it m
 
 || `externalTrafficPolicy` | `string` | [Traffic management policy]({{ k8s-api-link }}#servicespec-v1-core):
 
-* `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. If the required pods are not on the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node. Default value.
+* `Cluster`: Traffic can reach any of the {{ k8s }} cluster nodes. If the target pods are not on that node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) redirects traffic to another node. This is used by default.
 * `Local`: Traffic goes directly to the nodes where the application containers are running. In this case, the following applies:
 
-  * User request IP is saved.
-  * Less horizontal traffic is exchanged between VMs.
+  * User request IP address remains unchanged.
+  * Inter-VM traffic is reduced.
 ||
 |#
 
@@ -159,26 +159,26 @@ nodePort: <int32>
 ```
 
 #|
-|| **Field** | **Value or type** | **Description** ||
-|| `name` | `string` | Port name within the service.
+|| **Field** | **Value / Type** | **Description** ||
+|| `name` | `string` | Service port name
 ||
-|| `port`    | `int32`      | **Required**
+|| `port`    | `int32`      | **This is a required field**
 Port to handle incoming user requests to the service.
 
-The same port will be assigned to the load balancer's [listener](../../../network-load-balancer/concepts/listener.md) as the incoming traffic port.
+This port will also be assigned to the load balancer [listener](../../../network-load-balancer/concepts/listener.md) as the incoming traffic port.
 ||
-|| `targetPort`    | `int32`      | Container port the application will be available on.
+|| `targetPort`    | `int32`      | Container port on which the application will be available.
 
-If you put nothing in this field, the `targetPort` value will be the same as the `port` value.
+If skip this field, the `targetPort` value will be the same as the `port` value.
 
 ||
 || `nodePort`      | `int32`      | Port to handle incoming user requests to the service from outside the cluster.
 
-The same port will be assigned to the load balancer's listener as the target incoming traffic port for the target group resources.
+This port will also be assigned to the load balancer listener as the target incoming traffic port for targets in the target group.
 
-Normally nothing is specified for this field, so `nodePort` is automatically selected from the specified range.
+Typically, this field is skipped and its value is automatically selected from the specified range.
 
-However, you can specify a port explicitly. The selected port must not be used by other {{ k8s }} objects.
+However, you can specify a port explicitly. This port must not be used by other {{ k8s }} objects.
 
 Range of values: `{{ port-range-k8s-nodeport }}`.
 ||

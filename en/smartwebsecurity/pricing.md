@@ -80,8 +80,6 @@ You pay for the actual number of legitimate requests. For each request, you pay 
 
 To use additional protection against DDoS attacks at OSI layers 3 and 4, connect [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). You will be billed for the [public IP address](../vpc/pricing.md#prices-public-ip) and [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection) usage.
 
-
-
 #### Example of {{ sws-name }} billing by requests {#price-example}
 
 {% cut "Pre-calculated request costs" %}

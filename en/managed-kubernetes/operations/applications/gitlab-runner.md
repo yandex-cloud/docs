@@ -6,7 +6,7 @@ description: Follow this guide to install {{ GLR }}.
 # Installing {{ GLR }}
 
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} CI/CD jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that executes {{ GL }} CI/CD pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 
 ## Getting started {#before-you-begin}
 
@@ -31,12 +31,12 @@ description: Follow this guide to install {{ GLR }}.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [{{ GLR }}](/marketplace/products/yc/gitlab-runner) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for {{ GLR }}.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `gitlab-runner-space`. If you leave the default namespace, {{ GLR }} may work incorrectly.
+   * **Application name**: Specify the application name.
    * **{{ GL }}** domain name: Enter a domain for your {{ GL }} instance.
    * **Registration token**: Specify the token you [obtained previously](#before-you-begin).
    * (Optional) **Privileged mode for running docker:dind**: Enable this option if you want to use `docker:dind` images.
@@ -71,6 +71,8 @@ description: Follow this guide to install {{ GLR }}.
      --set runnerRegistrationToken=<previously_obtained_token> \
      gitlab-runner ./gitlab-runner/
    ```
+
+   If you set `namespace` to the default namespace, {{ GLR }} may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `gitlab-runner-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

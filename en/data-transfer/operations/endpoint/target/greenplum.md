@@ -21,6 +21,7 @@ description: In this tutorial, you will learn how to set up a {{ GP }} target en
 
     * [Migrating a {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
     * [Migration with change of storage from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
+    * [Migration with change of storage from {{ OS }} to {{ GP }}](../../../tutorials/opensearch-to-greenplum.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Delivering data from {{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).

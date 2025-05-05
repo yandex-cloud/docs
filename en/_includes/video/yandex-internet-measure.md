@@ -1,0 +1,2 @@
+You can find out your internet speed using [Yandex.Internetometer](https://yandex.ru/internet). It shows the speed of your outgoing internet connection in Mbit/s and MB/s. Bitrate in OBS Studio is measured in Kbps or Kbit/s, 1 Mbit/s = 1,024 Kbps. The optimal video bitrate for a live [Full HD](https://ru.wikipedia.org/wiki/Full_HD) (1080p), 30 fps broadcast is 4,000 Kbps. Your stream bitrate must not exceed the `Outgoing connection` value.
+

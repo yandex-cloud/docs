@@ -52,11 +52,11 @@ The {{ GL }} Agent does not execute CI/CD pipelines. To do this, install [{{ GL 
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [{{ GL }} Agent](/marketplace/products/yc/gitlab-agent) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `gitlab-agent-space`. If you leave the default namespace, {{ GL }} Agent may work incorrectly.
    * **Application name**: Specify the app name, e.g., `gitlab-agent`.
    * **{{ GL }} domain name**: Enter the name of your {{ GL }} domain, e.g., `gitlab-test.gitlab.yandexcloud.net`.
    * **Agent access token**: Paste the {{ GL }} access token you [received earlier](#before-you-begin) into this field.
@@ -83,6 +83,8 @@ The {{ GL }} Agent does not execute CI/CD pipelines. To do this, install [{{ GL 
    ```
 
    This command also creates a new namespace required for the application.
+
+   If you set `namespace` to the default namespace, {{ GL }} Agent may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `gitlab-agent-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

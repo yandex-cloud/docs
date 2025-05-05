@@ -28,12 +28,12 @@ You can get a list of backups created for the past 14 days.
 
     To get a list of cluster backups:
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of the cluster you need and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
     To get a list of all backups in a folder:
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
 - CLI {#cli}
@@ -69,7 +69,7 @@ You can get a list of backups created for the past 14 days.
 
     1. To get a list of cluster backups:
 
-        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -78,13 +78,13 @@ You can get a list of backups created for the past 14 days.
                 --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
     1. To get a list of backups for all the clusters in a folder:
 
-        1. Use the [Backup.List](../api-ref/Backup/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+        1. Use the [Backup.List](../api-ref/Backup/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -109,7 +109,7 @@ You can get a list of backups created for the past 14 days.
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
     1. To get a list of cluster backups:
 
-        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -125,13 +125,13 @@ You can get a list of backups created for the past 14 days.
                 yandex.cloud.mdb.opensearch.v1.ClusterService.ListBackups
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
     1. To get a list of backups for all the clusters in a folder:
 
-        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -163,12 +163,12 @@ You can get a list of backups created for the past 14 days.
 
     To get information about the backup of an existing cluster:
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of the cluster you need and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
     To get information about the backup of a previously deleted cluster:
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
 - CLI {#cli}
@@ -218,7 +218,7 @@ You can get a list of backups created for the past 14 days.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -227,7 +227,7 @@ You can get a list of backups created for the past 14 days.
             --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/backups/<backup_ID>'
         ```
 
-        You can get the backup ID together with a [list of backups](#list-backups).
+        You can request  the backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup) to make sure the request was successful.
 
@@ -238,7 +238,7 @@ You can get a list of backups created for the past 14 days.
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -254,7 +254,7 @@ You can get a list of backups created for the past 14 days.
             yandex.cloud.mdb.opensearch.v1.BackupService.Get
         ```
 
-        You can get the backup ID together with a [list of backups](#list-backups).
+        You can request  the backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup) to make sure the request was successful.
 
@@ -266,7 +266,7 @@ You can get a list of backups created for the past 14 days.
 
 - Management console {#console}
   
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of the cluster you need and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -292,7 +292,7 @@ You can get a list of backups created for the past 14 days.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -302,7 +302,7 @@ You can get a list of backups created for the past 14 days.
             --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>:backup'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -313,7 +313,7 @@ You can get a list of backups created for the past 14 days.
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -329,7 +329,7 @@ You can get a list of backups created for the past 14 days.
             yandex.cloud.mdb.opensearch.v1.ClusterService.Backup
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -344,7 +344,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
 When creating a new cluster, set all required parameters.
 
 
-Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
 
 
 {% list tabs group=instructions %}
@@ -353,7 +353,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
     To restore an existing cluster from a backup:
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of the cluster you need and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
     1. Set up the new cluster.
@@ -361,7 +361,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
     To restore a previously deleted cluster from a backup:
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
     1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_IP>`.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
@@ -477,7 +477,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
         Where:
 
         * `backupId`: ID of the backup copy you are restoring the cluster from. You can get the ID together with a [list of backups](#list-backups).
-        * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -485,7 +485,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
             * `version`: {{ OS }} version.
             * `adminPassword`: `admin` user password.
-            * `opensearchSpec`: Settings for `{{ OS }}` host groups. Contain an array of `nodeGroups` elements. one for each host group. Each element has the following structure:
+            * `opensearchSpec`: `{{ OS }}` host group settings. Contain an array of `nodeGroups` elements. one for each host group. Each element has the following structure:
 
                 * `name`: Host group name.
                 * `resources`: Cluster resources:
@@ -494,12 +494,12 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                     * `diskSize`: Disk size in bytes.
                     * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with the two roles, or different groups with the roles.
-                * `hostsCount`: Number of hosts in the group. It must have at least one `DATA` host and at least three `MANAGER` hosts.
+                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
+                * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                 * `zoneIds`: List of availability zones the cluster hosts are located in.
-                * `subnetIds`: List of subnet IDs.
+                * `subnetIds`: Subnet IDs list.
 
-            * `dashboardsSpec`: Settings for `Dashboards` host groups. Contains an array of `nodeGroups` elements, the array structure matches `opensearchSpec.nodeGroups` structure. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
+            * `dashboardsSpec`: `Dashboards` host group settings. Contains the `nodeGroups` array of elements of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
 
     1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -587,7 +587,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
         Where:
 
         * `backup_id`: ID of the backup copy you are restoring the cluster from. You can get the ID together with a [list of backups](#list-backups).
-        * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -595,7 +595,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
             * `version`: {{ OS }} version.
             * `admin_password`: `admin` user password.
-            * `opensearch_spec`: Settings for `{{ OS }}` host groups. Contain an array of `nodeGroups` elements. one for each host group. Each element has the following structure:
+            * `opensearch_spec`: `{{ OS }}` host group settings. Contain an array of `nodeGroups` elements. One for each host group. Each element has the following structure:
 
                 * `name`: Host group name.
                 * `resources`: Cluster resources:
@@ -604,12 +604,12 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                     * `disk_size`: Disk size in bytes.
                     * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with the two roles, or different groups with the roles.
-                * `hosts_count`: Number of hosts in the group. It must have at least one `DATA` host and at least three `MANAGER` hosts.
+                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
+                * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                 * `zone_ids`: List of availability zones the cluster hosts are located in.
-                * `subnet_ids`: List of subnet IDs.
+                * `subnet_ids`: Subnet IDs list.
 
-            * `dashboards_spec`: Settings for `Dashboards` host groups. Contains an array of `node_groups` elements, the array structure matches `opensearch_spec.node_groups` structure. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
+            * `dashboards_spec`: `Dashboards` host group settings. Contains the `node_groups` array of elements of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
 
     1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 

@@ -56,23 +56,25 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
+1. Make sure you have enough disk snapshot and disk size quotas to create a backup. To do this, you can use the [service for viewing quotas](../../../quota-manager/operations/read-quotas.md).
+
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Velero](/marketplace/products/yc/velero-yc-csi) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Create a [namespace](../../concepts/index.md#namespace) named `velero`. The application uses it by default.
+   * **Namespace**: Create a [namespace](../../concepts/index.md#namespace) named `velero`. The application uses it by default. If you leave the default namespace, Velero may work incorrectly.
 
      {% note info %}
 
-     If you select a different namespace, you will have to specify its name in each command.
+     If you create a namespace with a different name, you will need to specify it in every command using the `--namespace <Velero_application_namespace>` parameter.
 
      {% endnote %}
 
-   * **Application name**: Specify the app name.
-   * **{{ objstorage-name }} static access key** : Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/access-key.md) for the service account. The service account must have the `storage.editor` role.
-   * **{{ objstorage-name }} bucket name** : Specify the name of the {{ objstorage-name }} bucket.
+   * **Application name**: Specify the application name.
+   * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/access-key.md) for the service account. The service account must have the `storage.editor` role.
+   * **{{ objstorage-name }} bucket name**: Specify the name of the {{ objstorage-name }} bucket.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 

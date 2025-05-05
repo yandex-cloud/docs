@@ -15,6 +15,20 @@ meta:
   description: >-
     Yandex Audit Trails is a service for collecting and exporting audit logs of
     Yandex Cloud resources.
+  keywords:
+    - keyword: audit trails
+    - keyword: audit logs
+    - keyword: '{{ at-name }} logs'
+    - keyword: events in {{ at-name }}
+    - keyword: events in {{ at-name }}
+    - keyword: '{{ at-name }} in {{ yandex-cloud }}'
+    - keyword: '{{ at-name }}'
+    - keyword: '{{ at-full-name }}'
+    - keyword: '{{ at-name }}'
+    - keyword: '{{ yandex-cloud }} logs'
+    - keyword: '{{ at-name }} trails'
+    - keyword: trails in {{ yandex-cloud }}
+    - keyword: security events
 links:
   - title: Getting started
     description: Connect the service

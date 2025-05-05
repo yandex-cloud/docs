@@ -10,7 +10,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select a cluster and open the ![hosts-edit](../../_assets/../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.action_expand-open }}** in the top-right corner.
     1. Specify cluster expansion settings:
@@ -111,7 +111,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
 
-        You can get the cluster ID and name with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID and name with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -137,7 +137,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
                     }'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
         Request body parameters:
 
@@ -199,7 +199,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
             yandex.cloud.mdb.greenplum.v1.ClusterService.Expand
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
         Request body parameters:
 
@@ -252,7 +252,7 @@ There are several ways to monitor the [data redistribution process](../../concep
 
         {% include [sql-redistribution-status](../../../_includes/mdb/mgp/expand/sql-redistribution-status.md) %}
 
-    The query result will contain [various information]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) about the progress of the data redistribution process. The `status` column will indicate the current processing status of specific tables:
+    The query result will contain [various information]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) about the progress of the data redistribution process. The `status` column will indicate the current processing status of specific tables:
 
     * `NOT STARTED`: Table data redistribution is scheduled, the table is in the redistribution queue.
 
@@ -290,7 +290,7 @@ To change the rank of redistributed tables:
     WHERE fq_name IN (<list_of_full_table_names>);
     ```
 
-    For more information, see the [{{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution) documentation.
+    For more information, see the relevant [{{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution) documentation.
 
 ### Running data redistribution manually {#start-redistribute}
 
@@ -322,7 +322,7 @@ This will leave some of the data distributed unevenly. As a result, the `Unknown
     * `relname`: Table name.
     * `numsegment`: Number of segments storing the data.
 
-    For more information, see the {{ GP }} documentation on the [gp_distribution_policy]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html) table.
+    For more information, see the {{ GP }} documentation on the [gp_distribution_policy]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html) table.
 
 1. Run data redistribution using the information you got earlier.
 

@@ -1,28 +1,28 @@
 ---
 title: Access management in {{ iam-full-name }} ({{ iam-short-name }})
-description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section covers the resources supporting role assignment, the available service roles, and required permissions for specific actions.
 ---
 
 # Access management in {{ iam-name }}
 
 In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#choosing-roles) for particular actions.
+* [What resources support role assignment](#resources).
+* [What roles exist in the service](#roles-list).
+* [What roles are required](#choosing-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `iam.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user needs the `iam.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources supporing role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 You can assign a role for a [service account](../concepts/users/service-accounts.md) in the [management console]({{ link-console-main }}) or using the {{ yandex-cloud }} [CLI](../../cli/cli-ref/iam/cli-ref/service-account/add-access-binding.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
-## Which roles exist in the service {#roles-list}
+## Available service roles {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -121,7 +121,7 @@ For some services, e.g., [{{ ig-name }}](../../compute/concepts/instance-groups/
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
 
 Action | Methods | Required roles
 ----- | ----- | -----
@@ -138,7 +138,7 @@ Creating and deleting keys for a service account | `create`, `delete` | `iam.ser
 **Resource access management** | |
 [Adding a new user to the cloud](../operations/users/create.md) | `setAccessBindings` | `admin` for the cloud
 [Making a new user the owner of the cloud](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` role for the cloud
-[Granting a role](../operations/roles/grant.md), [revoking a role](../operations/roles/revoke.md), and viewing roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
+[Granting](../operations/roles/grant.md), [revoking](../operations/roles/revoke.md), and viewing assigned resource roles | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
 Getting an IAM token for a service account | `create` | `iam.serviceAccounts.tokenCreator` for the service account
 
 #### What's next {#what-is-next}
@@ -146,4 +146,4 @@ Getting an IAM token for a service account | `create` | `iam.serviceAccounts.tok
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

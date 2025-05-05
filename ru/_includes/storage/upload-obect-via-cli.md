@@ -37,7 +37,23 @@
 
     Результат:
 
-    ```bash
+    ```text
     etag: '"d41d8cd98f00b204e980099********"'
-    request_id: 3f2705f********      
+    request_id: 3f2705f********
     ```
+
+    Альтернативная команда:
+
+    ```bash
+    yc storage s3 cp \
+      <путь_к_локальному_файлу> \
+      s3://<имя_бакета>/<путь_к_объекту>
+    ```
+
+    Результат:
+
+    ```text
+    upload: object.txt to s3://my-bucket/object.txt
+    ```
+
+    {% include [s3-cp-config](s3-cp-config.md) %}

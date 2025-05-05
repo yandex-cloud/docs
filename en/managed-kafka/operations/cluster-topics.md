@@ -16,6 +16,7 @@ A {{ mkf-name }} cluster provides two ways for you to manage topics and partitio
     * [Get a list of topics in a cluster](#list-topics).
     * [Get detailed information about a topic](#get-topic).
     * [Import a topic to {{ TF }}](#import-topic).
+    * [Transfer information about the new topics to the {{ TF }} state file](#move-info-topic).
     * [Delete a topic](#delete-topic).
 
 * Using the [{{ KF }} Admin API](#admin-api). Select this method if you prefer to use your existing solution to manage topics and partitions.
@@ -74,7 +75,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config` if required:
@@ -191,7 +192,7 @@ While running, {{ mkf-name }} is able to create [service topics](../concepts/top
 
 You cannot reduce the number of partitions in {{ mkf-name }} topics. You cannot create new partitions if there is not enough storage space.
 
-To learn more, see [{#T}](../concepts/storage.md#minimal-storage-size).
+For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 {% list tabs group=instructions %}
 
@@ -233,7 +234,7 @@ To learn more, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. Edit the parameter values in the `yandex_mdb_kafka_topic` resource description:
@@ -542,6 +543,158 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
 {% endlist %}
 
+### Transferring information about created topics to the {{ TF }} state file {#move-info-topic}
+
+When switching to a new Terraform provider version, there may be discrepancies between the state file and configuration file in terms of the created topics: the obsolete `topic` attributes and new `yandex_mdb_kafka_topic` resources. To remove the discrepancies, delete the `topic` attributes and transfer information about the created `yandex_mdb_kafka_topic` resources to the `.tfstate` state file. There are two possible ways to do this.
+
+#### First method {#first}
+
+{% list tabs %}
+
+- {{ TF }} {#tf}
+
+  1. Delete the cluster information from the `.tfstate` file using this command:
+
+     ```bash
+     terraform state rm yandex_mdb_kafka_cluster.<cluster_name>
+     ```
+
+  1. Edit the Terraform configuration file:
+     * Delete the `topic` attributes from the `yandex_mdb_kafka_cluster` resource.
+     * [Add]({{ tf-provider-resources-link }}/mdb_kafka_topic) new `yandex_mdb_kafka_topic` resources.
+
+      {% cut "Example of the updated configuration file" %}
+        
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "this" {
+        name = "terraform-test"
+        environment = "PRODUCTION"
+        network_id = data.yandex_vpc_network.this.id
+
+        config {
+          version = "3.4"
+          brokers_count = 1
+          zones = ["ru-central1-a"]
+          kafka {
+            resources {
+              resource_preset_id = "s2.small"
+              disk_size = 30
+              disk_type_id = "network-ssd"
+            }
+            kafka_config {
+              log_segment_bytes = 104857600
+            }
+          }
+        }
+      }
+
+      resource "yandex_mdb_kafka_topic" "topic1" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic1"
+        partitions = 3
+        replication_factor = 1
+      }
+
+
+      resource "yandex_mdb_kafka_topic" "topic2" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic2"
+        partitions = 3
+        replication_factor = 1
+      }
+      ```
+        
+      {% endcut %}
+        
+  1. Import the cluster and topics:
+
+     ```bash
+     terraform import yandex_mdb_kafka_cluster.<cluster_name> <cluster_ID>
+     terraform import yandex_mdb_kafka_topic.<topic_name> <cluster_ID>:<topic_name>
+     terraform import yandex_mdb_kafka_topic.<topic_name> <cluster_ID>:<topic_name>
+     ```
+    
+  1. {% include [terraform-plan](../../_includes/mdb/terraform/plan.md) %}
+
+{% endlist %}
+
+#### Second method {#second}
+
+{% list tabs %}
+
+- {{ TF }} {#tf}
+
+  1. Download the `.tfstate` file using this command:
+
+     ```bash
+     terraform state pull
+     ```
+    
+  1. Open the downloaded file in any text editor and delete the `topic` attributes from the `yandex_mdb_kafka_cluster` resource.
+  1. Push the updated state file using this command:
+
+     ```bash
+     terraform state push
+     ```
+    
+  1. Edit the Terraform configuration file:
+     * Delete the `topic` attributes from the `yandex_mdb_kafka_cluster` resource.
+     * [Add]({{ tf-provider-resources-link }}/mdb_kafka_topic) new `yandex_mdb_kafka_topic` resources.
+
+      {% cut "Example of the updated configuration file" %}
+        
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "this" {
+        name = "terraform-test"
+        environment = "PRODUCTION"
+        network_id = data.yandex_vpc_network.this.id
+
+        config {
+          version = "3.4"
+          brokers_count = 1
+          zones = ["ru-central1-a"]
+          kafka {
+            resources {
+              resource_preset_id = "s2.small"
+              disk_size = 30
+              disk_type_id = "network-ssd"
+            }
+            kafka_config {
+              log_segment_bytes = 104857600
+            }
+          }
+        }
+      }
+
+      resource "yandex_mdb_kafka_topic" "topic1" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic1"
+        partitions = 3
+        replication_factor = 1
+      }
+
+
+      resource "yandex_mdb_kafka_topic" "topic2" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic2"
+        partitions = 3
+        replication_factor = 1
+      }
+      ```
+        
+      {% endcut %}
+
+  1. Import the topics:
+
+     ```bash
+     terraform import yandex_mdb_kafka_topic.<topic_name> <cluster_ID>:<topic_name>
+     terraform import yandex_mdb_kafka_topic.<topic_name> <cluster_ID>:<topic_name>
+     ``` 
+    
+  1. {% include [terraform-plan](../../_includes/mdb/terraform/plan.md) %}
+
+{% endlist %}
+
 ### Deleting a topic {#delete-topic}
 
 {% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
@@ -577,7 +730,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. Delete the `yandex_mdb_kafka_topic` resource with the topic description.

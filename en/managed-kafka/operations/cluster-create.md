@@ -37,7 +37,7 @@ For more information about the differences in cluster configurations with {{ ZK 
 ## Getting started {#before-you-begin}
 
 1. Calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
-1. [Make sure](../../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role or higher](../security/index.md#roles-list).
+1. [Assign](../../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role or higher](../security/index.md#roles-list) to your {{ yandex-cloud }} account.
 
 If you specify security group IDs when creating a {{ mkf-name }} cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
@@ -381,14 +381,14 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 "version": "<{{ KF }}_version>",
                 "kafka": {
                   "resources": {
-                    "resourcePresetId": "<{{ KF }} host_class>",
+                    "resourcePresetId": "<{{ KF }}_host_class>",
                     "diskSize": "<storage_size_in_bytes>",
                     "diskTypeId": "<disk_type>"
                   }
                 },
                 "zookeeper": {
                   "resources": {
-                    "resourcePresetId": "<{{ ZK }} host_class> ",
+                    "resourcePresetId": "<{{ ZK }}_host_class> ",
                     "diskSize": "<storage_size_in_bytes>",
                     "diskTypeId": "<disk_type>"                   
                   }
@@ -567,14 +567,14 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 "version": "<{{ KF }}_version>",
                 "kafka": {
                   "resources": {
-                    "resource_preset_id": "<{{ KF }} host_class>",
+                    "resource_preset_id": "<{{ KF }}_host_class>",
                     "disk_size": "<storage_size_in_bytes>",
                     "disk_type_id": "<disk_type>"
                   }
                 },
                 "zookeeper": {
                   "resources": {
-                    "resource_preset_id": "<{{ ZK }} host_class> ",
+                    "resource_preset_id": "<{{ ZK }}_host_class> ",
                     "disk_size": "<storage_size_in_bytes>",
                     "disk_type_id": "<disk_type>"                   
                   }

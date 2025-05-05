@@ -1,4 +1,4 @@
-# Connecting to a VM serial console via SSH
+# Connecting to a VM serial console over SSH
 
 {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
@@ -42,7 +42,7 @@ How a serial console works depends on how the operating system is set up. {{ com
 
 To connect to a VM, you need its ID. For info on how to get the VM ID, see [{#T}](../vm-info/get-info.md).
 
-Your next steps depend on whether [{{ oslogin }}](../../../organization/concepts/os-login.md) access is enabled for the VM. With OS Login access [enabled](../vm-connect/enable-os-login.md), you can connect to the serial console using the exported SSH certificate. SSH keys are used to connect to VMs with {{ oslogin }} access disabled.
+Your next steps depend on whether [{{ oslogin }}](../../../organization/concepts/os-login.md) access is enabled for the VM. With OS Login access [enabled](../vm-connect/enable-os-login.md), you can connect to the serial console using the exported SSH certificate. To connect to VMs with {{ oslogin }} access disabled, use SSH keys.
 
 Some operating systems may prompt you for your user credentials to access the VM. So, before connecting to the serial console of VMs running on such systems, create a local user password.
 

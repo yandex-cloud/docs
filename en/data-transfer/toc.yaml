@@ -165,7 +165,9 @@ items:
             href: tutorials/mes-to-mos.md
           - name: '{{ OS }} to {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
-          - name: '{{ PG }} to {{ OS }}'
+          - name: '{{ OS }} in {{ GP }}'
+            href: tutorials/opensearch-to-greenplum.md
+          - name: '{{ PG }} in {{ OS }}'
             href: tutorials/postgresql-to-opensearch.md
       - name: Change data capture and delivery to the queue
         items:

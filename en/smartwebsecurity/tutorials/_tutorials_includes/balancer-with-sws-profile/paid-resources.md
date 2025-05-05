@@ -1,0 +1,4 @@
+The infrastructure support costs for an L7 load balancer with a {{ sws-name }} profile include:
+* Fee for continuously running [VMs](../../../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../../../compute/pricing.md)).
+* Fee for using the computing resources of the [L7 load balancer](../../../../application-load-balancer/concepts/index.md) (see [{{ alb-name }} pricing](../../../../application-load-balancer/pricing.md)).
+* Fee for requests processed by [security profile](../../../../smartwebsecurity/concepts/profiles.md) rules (see [{{ sws-full-name }} pricing](../../../../smartwebsecurity/pricing.md)).

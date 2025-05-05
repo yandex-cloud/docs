@@ -1,6 +1,6 @@
 ---
 title: Developing in R in {{ sf-full-name }}. Overview
-description: With {{ sf-name }}, you can run applications written in R. The service provides the runtime environment with R 4.0.5 and Ubuntu 18.04.
+description: With {{ sf-name }}, you can run applications written in R. The service provides the runtime environment with R 4.3.1 and Ubuntu 22.04 LTS.
 ---
 
 # Developing in R. Overview
@@ -9,7 +9,7 @@ With {{ sf-name }}, you can run applications written in [R](https://www.r-projec
 
 {% include [runtime-introduction](../../../_includes/functions/runtime-introduction.md) %}
 
-| Name | Version of R | Operating <br>system | Preloaded | Supported by the service |
+| Name | Version of R | Operating <br>system | Preloaded | Supported by |
 |----|----|----|----|----|
 | r42 | 4.2.2 | Ubuntu 18.04 | No | No |
 | r43 | 4.3.1 | Ubuntu 22.04 LTS | No | Yes |

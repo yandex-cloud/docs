@@ -14,7 +14,7 @@ To set up Auto Unseal:
 
 1. Download the most recent Docker image using the command below:
 
-   ```bash
+      ```bash
    docker pull {{ registry }}/yc/vault
    ```
 
@@ -53,7 +53,7 @@ To set up Auto Unseal:
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
+The infrastructure support costs include:
 * Fee for a continuously running VM (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
 * Fee for a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for the number of active {{ kms-short-name }} key versions and completed cryptographic operations (see [{{ vpc-full-name }} pricing](../../kms/pricing.md)).

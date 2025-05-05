@@ -28,12 +28,12 @@ You can install Crossplane in any of the following ways:
 
 ## Installation in the management console using {{ marketplace-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Crossplane with {{ yandex-cloud }} support](/marketplace/products/yc/crossplane) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) for Crossplane or create a new one.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `crossplane-space`. If you leave the default namespace, Crossplane may work incorrectly.
+   * **Application name**: Specify the application name.
    * **Service account key**: Paste the contents of the file with the service account [authorized key](../../../iam/concepts/authorization/key.md) you [obtained earlier](#before-you-begin) or create a new one.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
@@ -56,6 +56,8 @@ You can install Crossplane in any of the following ways:
      --set-file providerJetYc.creds=key.json \
      crossplane ./crossplane/
    ```
+
+   If you set `namespace` to the default namespace, Crossplane may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `crossplane-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

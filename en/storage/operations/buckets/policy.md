@@ -44,7 +44,16 @@ To apply or update a bucket policy:
      1. Configure rule settings:
         * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}**: Allow or deny.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}**: Include or exclude users.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users or specific users. To specify a list of specific users or service accounts, select their names from the drop-down list.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: Select all users or list specific subjects.
+
+            To list specific subjects:
+            
+            * Select `{{ ui-key.yacloud.storage.bucket.policy.label_select-users }}`.
+
+            * {% include [select-subject-console](../../../_includes/storage/select-subject-console.md) %}
+
+                You can select multiple subjects; to do this, select them one by one.
+
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** for which you are creating the rule. You can also enable **All actions**.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: Defaults to the selected bucket. To add other resources to the rule, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
 
@@ -57,7 +66,7 @@ To apply or update a bucket policy:
      1. If required, add a [condition](../../s3/api-ref/policy/conditions.md) for the rule:
         * Select **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** from the list.
         * Select **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** from the list. If you want the operator to apply solely to the existing fields, select **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. This way, if the field is missing, the condition will be considered met.
-        * Enter **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
+        * Specify **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
         * Click **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}** to add another value to the condition.
 
         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
@@ -103,12 +112,13 @@ To apply or update a bucket policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: ID of the subject requesting the permission. This can be either a [user](../../../iam/operations/users/get.md) or a [service account](../../../iam/operations/sa/get-id.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
          
          You can get the IDs in the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
+         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
@@ -183,12 +193,13 @@ To apply or update a bucket policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: ID of the subject requesting the permission. This can be a [user](../../../iam/operations/users/get.md) or [service account](../../../iam/operations/sa/get-id.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
          
          You can get the IDs in the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
+         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
@@ -219,7 +230,7 @@ To apply or update a bucket policy:
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
 
@@ -276,20 +287,21 @@ To apply or update a bucket policy:
 
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
-     * `bucket`: Bucket name. This is a required parameter.
-     * `policy`: Policy name. This is a required parameter.
+     * `bucket`: Bucket name. This is a required setting.
+     * `policy`: Policy name. This is a required setting.
 
      Policy settings:
 
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: ID of the subject requesting the permission. This can be a [user](../../../iam/operations/users/get.md) or [service account](../../../iam/operations/sa/get-id.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
          
          You can get the IDs in the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
+         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
@@ -302,14 +314,14 @@ To apply or update a bucket policy:
 
      For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -319,7 +331,7 @@ To apply or update a bucket policy:
 
      1. Confirm creating the resources.
 
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -387,7 +399,7 @@ To delete a bucket policy:
 
 - AWS CLI {#aws-cli}
 
-  Run this command:
+  Run the following command:
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \

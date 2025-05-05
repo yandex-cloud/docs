@@ -32,7 +32,7 @@ description: This section contains {{ at-name }} release notes.
   `StopServerProlongation` | Disabling auto-renewal of {{ baremetal-name }} server lease
   `UpdatePrivateSubnet` | Updating a private subnet
   `UpdateServer` | Updating a {{ baremetal-name }} server
-  `UpdateVRF` | Updating a virtual network segment (VRF)
+  `UpdateVRF` | Updating a virtual routing and forwarding (VRF) segment
 
   {% endcut %}
 
@@ -314,6 +314,18 @@ description: This section contains {{ at-name }} release notes.
   `StartCluster` | Starting a {{ metastore-full-name }} cluster
   `StopCluster` | Stopping a {{ metastore-full-name }} cluster
   `UpdateCluster` | Updating an {{ metastore-full-name }} cluster
+
+  {% endcut %}
+
+* Deleted events for:
+
+  {% cut "{{ managed-k8s-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event name | Description
+  --- | ---
+  `ApiServerAuditEvent` | {{ managed-k8s-name }} cluster audit event
 
   {% endcut %}
 

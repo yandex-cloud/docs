@@ -57,6 +57,10 @@ items:
         items:
           - name: Uploading an object
             href: operations/objects/upload.md
+          - name: Multipart upload of an object
+            href: operations/objects/multipart-upload.md
+          - name: Get a list of bucket objects
+            href: operations/objects/list.md
           - name: Getting information about an object
             href: operations/objects/info.md
           - name: Downloading an object

@@ -9,6 +9,8 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2025 год {#2025}
 
+* Создание Telegram-бота на базе LLM с RAG и Function Calling. [Видео](https://www.youtube.com/live/gQEpthYWN38).
+
 * Как дообучить LLM с помощью LoRA Fine-tuning. [Видео](https://www.youtube.com/watch?v=PVeuQu1j6Y4).
 
 * Deep-dive для разработчиков: создание AI-ассистентов. [Видео](https://www.youtube.com/watch?v=Xjutc_T0p8s).
@@ -32,6 +34,10 @@ description: Видеозаписи конференций и вебинаров
 * Тренды машинного обучения. [Видео](https://www.youtube.com/watch?v=1fRV83AIq1s).
 
 ## Статьи {#articles}
+
+### 2025 год {#2025-articles}
+
+* Встречаем {{ yagpt-name }} 5 — в Алисе, облаке и опенсорсе. [Статья](https://habr.com/ru/companies/yandex/articles/885218/).
 
 ### 2024 год {#2024-articles}
 

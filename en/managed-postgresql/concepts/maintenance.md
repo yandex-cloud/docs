@@ -15,7 +15,7 @@ Changing a major DBMS version is not part of maintenance. For more information a
 
 ## Maintenance window {#maintenance-window}
 
-You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md):
+You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/cluster-maintenance.md#set-maintenance-window):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 

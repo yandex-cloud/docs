@@ -78,6 +78,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
      * `--location`: [Availability zone](../../../overview/concepts/geo-scope.md) and [subnet](../../../vpc/concepts/network.md#subnet) to host {{ managed-k8s-name }} nodes. You can specify more than one option but only a single subnet per zone. Use a separate `--location` parameter for each of the availability zones.
 
+       {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
        If you provide `--location`, `--network-interface`, and `--public-ip` in the same command, you will [get an error](../../qa/troubleshooting.md#conflicting-flags). It is enough to specify the location of a {{ managed-k8s-name }} node group either in `--location` or `--network-interface`.
 
        {% include [assign-public-ip-addresses](../../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
@@ -153,11 +155,12 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
         ```
 
 - {{ TF }} {#tf}
+
   To create a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
 
   1. In the folder containing the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create), create a configuration file with the new {{ managed-k8s-name }} node group's parameters.
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -182,6 +185,12 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        ...
        scale_policy {
          <node_group_scaling_settings>
+       }
+       ...
+       allocation_policy {
+         location {
+           zone = "<availability_zone>"
+         }
        }
      }
      ```
@@ -208,11 +217,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
          You cannot change the scaling type after you create a node group.
 
-     {% note warning %}
+       * `allocation_policy`: Placement settings. These contain the `location` section with the `zone` parameter that represents the [availability zone](../../../overview/concepts/geo-scope.md) you want to place the group nodes in. You can place nodes of a group with the fixed scaling type in multiple availability zones. To do this, specify each of the availability zones you need in a separate `location` section.
 
-     The {{ managed-k8s-name }} node group configuration file must be in the same folder as the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
-
-     {% endnote %}
+         {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
      * To create a node group with a constant number of nodes, add a `fixed_scale` section:
 
@@ -295,7 +302,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 - API {#api}
 
   Use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) API method and include the following information in the request:
-  * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can get it with a [list of {{ managed-k8s-name }} clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
+  * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can get it with the [list of {{ managed-k8s-name }} clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [{{ managed-k8s-name }} node group configuration](../../concepts/index.md#config) in the `nodeTemplate` parameter.
   * [Network acceleration type](../../../compute/concepts/software-accelerated-network.md) in the `nodeTemplate.networkSettings.type` parameter.
 
@@ -308,6 +315,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   
     You cannot change the scaling type after you create a node group.
   * {{ managed-k8s-name }} node group [placement settings](../../../overview/concepts/geo-scope.md) in the `allocationPolicy` parameters.
+
+    {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
   * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
   * List of settings being changed in the `updateMask` parameter.
 
@@ -387,7 +397,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 
 - CLI {#cli}
 
-  Run this command:
+  Run the following command:
 
   ```bash
   {{ yc-k8s }} node-group create \

@@ -25,8 +25,8 @@ You can set up logging in {{ sws-full-name }} using either [{{ cloud-logging-ful
 
    In {{ at-name }}, events are delivered directly from {{ sws-name }} without using an L7 load balancer. There are two types of events in {{ at-name }}:
 
-   * [Management events](../at-ref.md#control-plane-events), which include actions related to {{ yandex-cloud }} resource configuration, e.g., creating or deleting a security profile.
-   * [Data events](../at-ref.md#data-plane-events), i.e., actions taken with resources within {{ yandex-cloud }} services, such as triggering a WAF profile rule.
+   * [Management events](../at-ref.md#control-plane-events), which include actions related to {{ yandex-cloud }} resource configuration. For example, creating or deleting a security profile.
+   * [Service-level events](../at-ref.md#data-plane-events) are actions performed on resources within {{ yandex-cloud }} services. E.g., triggering a rule from a WAF profile.
 
    You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, or data stream in {{ yds-name }}.
 
@@ -83,7 +83,7 @@ To get started with {{ sws-name }} logs:
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Go to the **{{ ui-key.yacloud.common.logs }}** section.
-  1. Select the number of messages per page and the period: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
+  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
   1. In the **Request** row, specify you request using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
 
      You can find examples of requests below.
@@ -101,7 +101,7 @@ To get started with {{ sws-name }} logs:
 
   #### Filters for active rules {#active-rule-filters}
 
-  * Show requests blocked by basic rules with specific [conditions](../concepts/conditions.md), such as an IP list or region:
+  * Show requests blocked by basic rules with specific [conditions](../concepts/conditions.md). E.g., by IP list or region:
     ```
     json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
     ```
@@ -120,7 +120,7 @@ To get started with {{ sws-name }} logs:
 
   ### Filters for rules in logging mode {#dry-run-filters}
 
-  * Show requests which triggered [Smart Protection](../concepts/rules.md##smart-protection-rules) rules with a CAPTCHA challenge:
+  * Show requests which triggered [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
     ```
     json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
     ```
@@ -137,7 +137,7 @@ To get started with {{ sws-name }} logs:
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the log group to which the {{ at-name }} events are sent.
-  1. Select the number of messages per page and the period: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
+  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
   1. In the **Request** row, specify you request using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
 
      {{ at-name }} logs are written in JSON format. To find a specific [event](../at-ref.md#data-plane-events), specify its name in the following format:

@@ -16,7 +16,7 @@ Each of these stages [may take a long time](#duration). You cannot influence the
 At this stage, the following processes take place:
 
 1. New segment hosts are added to the cluster.
-1. The [gpexpand]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpexpand.html) utility gears up for for table redistribution:
+1. The [gpexpand]({{ gp.docs.vmware }}/7/greenplum-database/utility_guide-ref-gpexpand.html) utility gears up for for table redistribution:
 
     1. Creates the `gpexpand` service data schema in the `postgres` database.
 
@@ -26,7 +26,7 @@ At this stage, the following processes take place:
 
         [You can manage their priorities](../operations/hosts/cluster-expand.md#table-priority) provided that data redistribution for a particular table [has not started yet](../operations/hosts/cluster-expand.md#redistribute-monitoring) and the cluster is not [closed from load](#setting-close-cluster).
 
-    1. Prepares [partitioned tables]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-ddl-ddl-partition.html#about-table-partitioning) for data redistribution.
+    1. Prepares [partitioned tables]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-ddl-ddl-partition.html#about-table-partitioning) for data redistribution.
 
 The approximate duration of this stage is several hours; there is no way to influence it. For more information on how long the stages take, see [below](#duration).
 
@@ -40,11 +40,11 @@ Technically, new segment hosts will be added to the cluster already at this stag
 
 At this stage, the following processes take place:
 
-1. The cluster's table data is redistributed using the [gpexpand]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpexpand.html) utility for even distribution across all segment hosts.
+1. The cluster's table data is redistributed using the [gpexpand]({{ gp.docs.vmware }}/7/greenplum-database/utility_guide-ref-gpexpand.html) utility for even distribution across all segment hosts.
 
 1. The `gpexpand` service data schema is deleted.
 
-The approximate duration of this stage is several days. You can influence it using [settings](#settings). For more information on how long the stages take, see [below](#duration).
+The approximate duration of this stage is several days. You can influence it using [settings](#settings). For more information on stage durations, see [below](#duration).
 
 ## Stage duration and duration control {#duration}
 
@@ -55,15 +55,15 @@ The approximate durations of the stages:
 
 The actual duration of each stage depends not only on the size of the cluster databases and the total number of tables but also on the level and nature of the cluster load.
 
-This is because the [gpexpand]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpexpand.html) utility, which operates at every stage of cluster expansion, captures exclusive [locks]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-LOCK.html) at the individual table level. User requests may also capture locks when they are executed. This may considerably slow down both `gpexpand` and user request processing: it depends on which process captures the lock first and which one has to wait for the lock to be released. Both of these processes can generate increased load on the cluster.
+This is because the [gpexpand]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpexpand.html) utility, which operates at every stage of cluster expansion, captures exclusive [locks]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-LOCK.html) at the individual table level. User requests may also capture locks when they are executed. This may considerably slow down both `gpexpand` and user request processing: it depends on which process captures the lock first and which one has to wait for the lock to be released. Both of these processes can generate increased load on the cluster.
 
-You cannot shorten the preparation stage, but you can influence the duration of the data redistribution stage. To do this, before you run the procedure, [configure](../operations/hosts/cluster-expand.md) the [settings](#settings) that control the cluster's behavior at this stage. By combining the settings, you can strike the right balance between data redistribution speed and user request processing speed.
+You cannot shorten the preparation stage, but you can influence the duration of the data redistribution stage. To do this, before you run the procedure, [configure](../operations/hosts/cluster-expand.md) the [settings](#settings) that control the cluster's behavior at this stage. By combining settings, you can find the right balance between the speed of data redistribution and the speed of processing user requests.
 
 As the data redistribution stage can potentially take a long time, there are tools for {{ mgp-name }} clusters to [monitor](../operations/hosts/cluster-expand.md#redistribute-monitoring) the data redistribution process. Use these tools while cluster expansion is ongoing to get more accurate information about its progress and be able to estimate its completion time.
 
 ## Settings affecting data redistribution process {#redistribution}
 
-You can use the following settings:
+The following settings are available:
 
 * **{{ ui-key.yacloud.greenplum.field_expand-close-cluster }}**{#setting-close-cluster} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 

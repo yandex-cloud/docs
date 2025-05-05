@@ -33,14 +33,6 @@ The cost of using {{ translate-full-name }} is calculated based on the total num
 
 ## Prices for the Russia region {#prices}
 
-
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ translate-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2scoh2b9945dep39ih).
-
-{% endnote %}
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Translation and language detection {#prices-translate-detect}

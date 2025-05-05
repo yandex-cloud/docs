@@ -39,15 +39,6 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 ## Prices for the Russia region {#prices}
 
-
-
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ data-transfer-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2dtfaj8fno5r3beac3).
-
-{% endnote %}
-
-
 ### Number of transferred rows {#data}
 
 

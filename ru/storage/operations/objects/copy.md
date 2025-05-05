@@ -76,6 +76,22 @@ description: Следуя данной инструкции, вы сможете
       copy_source_version_id: "null"
       ```
 
+      Альтернативная команда:
+
+      ```bash
+      yc storage s3 cp \
+        s3://<бакет_источник>/<ключ_объекта-оригинала> \
+        s3://<бакет_приемник>/<ключ_объекта-копии>
+      ```
+
+      Результат:
+
+      ```text
+      copy: s3://my-bucket/object.txt to s3://new-bucket/object-copy.txt
+      ```
+
+      {% include [s3-cp-config](../../../_includes/storage/s3-cp-config.md) %}
+
 - AWS CLI {#aws-cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -104,6 +120,56 @@ description: Следуя данной инструкции, вы сможете
 ## Копирование всех объектов бакета в другой бакет {#copy-from-bucket-to-bucket}
 
 {% list tabs group=instructions %}
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для копирования объектов:
+
+      ```bash
+      yc storage s3 cp --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3 cp \
+        s3://<бакет_источник>/ \
+        s3://<бакет_приемник>/ \
+        --recursive
+      ```
+
+      Где `--recursive` — параметр для копирования всех объектов.
+
+      Результат:
+
+      ```text
+      copy: s3://my-bucket/object-1.txt to s3://new-bucket/object-1-copy.txt
+      copy: s3://my-bucket/object-2.txt to s3://new-bucket/object-2-copy.txt
+      ...
+      copy: s3://my-bucket/object-n.txt to s3://new-bucket/object-n-copy.txt
+      ```
+
+      {% include [s3-cp-config](../../../_includes/storage/s3-cp-config.md) %}
 
 - AWS CLI {#cli}
 

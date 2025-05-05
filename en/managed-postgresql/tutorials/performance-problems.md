@@ -4,6 +4,6 @@ description: In this tutorial, you will run diagnostics of a {{ mpg-name }} clus
 canonical: '{{ link-docs }}/tutorials/dataplatform/mpg-performance-problems'
 ---
 
-# Identifying {{ mpg-name }} cluster performance issues
+# Diagnosing {{ mpg-name }} cluster performance issues
 
 {% include notitle [article-body](../../_tutorials/dataplatform/mpg-performance-problems.md) %}

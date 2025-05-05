@@ -484,7 +484,6 @@ default:
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/ru-ru
-  msp-full-name: Yandex Managed Service for Apache Spark™
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino

@@ -257,7 +257,7 @@ items:
     items:
       - name: All tutorials
         href: dev/index.md
-      - name: Enabling blue-green and canary deployment of web service versions
+      - name: Enabling a blue-green and canary deployment of web service versions
         href: web/blue-green-canary-deployment.md
       - name: Automating image builds using Jenkins and Packer
         href: infrastructure-management/jenkins.md
@@ -481,7 +481,7 @@ items:
             href: container-infrastructure/time-slicing-gpu.md
           - name: Migrating resources to a different availability zone
             href: container-infrastructure/migration-to-an-availability-zone.md
-          - name: Encrypting secrets in {{ managed-k8s-name }}
+          - name: Encrypting secrets
             href: container-infrastructure/kms-k8s.md
           - name: Setting up and testing scaling
             items:
@@ -988,6 +988,10 @@ items:
           data-transfer-name }}
         href: dataplatform/opensearch-to-ydb.md
       - name: >-
+          Copying data from {{ mos-name }} to {{ mgp-name }} using {{
+          data-transfer-full-name }}
+        href: dataplatform/opensearch-to-greenplum.md
+      - name: >-
           Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
           data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
@@ -1043,7 +1047,9 @@ items:
           Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
           data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
-      - name: Fixing string sorting issues in {{ PG }} after upgrading glibc
+      - name: >-
+          Troubleshooting string sorting issues in {{ PG }} after upgrading
+          glibc
         href: dataplatform/postgresql-glibc-collation-issues.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
@@ -1055,6 +1061,10 @@ items:
           Loading data from {{ objstorage-name }} to {{ mgp-name }} using {{
           data-transfer-name }}
         href: dataplatform/object-storage-to-greenplum.md
+      - name: >-
+          Copying data from {{ mos-name }} to {{ mgp-name }} using {{
+          data-transfer-full-name }}
+        href: dataplatform/opensearch-to-greenplum.md
       - name: >-
           Creating an external table from a {{ objstorage-name }} bucket table
           using a configuration file
@@ -1145,7 +1155,7 @@ items:
         href: windows/mssql-alwayson-lb.md
       - name: Deploying Remote Desktop Gateway
         href: windows/rds-gw.md
-      - name: Mounting a bucket as a disk in Windows
+      - name: Connecting a bucket as a disk in Windows
         href: windows/s3-disk-connect.md
   - name: Architecture and networking
     items:

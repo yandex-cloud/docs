@@ -23,7 +23,7 @@ To add your own geobase to a {{ CH }} cluster:
 1. To add an alternative hierarchy of regions, create the `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function. For example:
 
     * `regionToCountry(RegionID)`: Uses the default `regions_hierarchy.txt` dictionary.
-    * `regionToCountry(RegionID, 'alt')`: Uses the dictionary with the `alt` suffix: `regions_hierarchy_alt.txt`.
+    * `regionToCountry(RegionID, 'alt')`: Uses the dictionary with the `alt` suffix, `regions_hierarchy_alt.txt`.
 
 1. Create a file named `regions_names.txt`. The file must be in [TSV tabular format](https://ru.wikipedia.org/wiki/TSV) without headers and with the following columns:
 
@@ -38,7 +38,7 @@ To add your own geobase to a {{ CH }} cluster:
 {{ mch-short-name }} only works with publicly readable geobases that are uploaded to {{ objstorage-full-name }}:
 
 
-1. To link your [service account](../../iam/concepts/users/service-accounts.md) to the cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+1. To link your [service account](../../iam/concepts/users/service-accounts.md) to a cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 1. [Upload](../../storage/operations/objects/upload.md) the geobase archive to {{ objstorage-full-name }}.
 1. [Connect the service account to the cluster](s3-access.md#connect-service-account). You will use this [service account](../../iam/concepts/users/service-accounts.md) to configure access to the geobase archive.
 1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
@@ -52,7 +52,7 @@ To add your own geobase to a {{ CH }} cluster:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. In the **Geobase uri** field, enter a link to the geobase archive in {{ objstorage-full-name }}.
@@ -65,7 +65,7 @@ To add your own geobase to a {{ CH }} cluster:
 
     To add a geobase:
 
-    1. View a description of the update cluster configuration CLI command:
+    1. View the description of the CLI command to update the cluster configuration:
 
         ```bash
         {{ yc-mdb-ch }} cluster update-config --help
@@ -78,11 +78,11 @@ To add your own geobase to a {{ CH }} cluster:
              --set geobase_uri="<link_to_geobase_archive_in_Object_Storage>"
         ```
 
-        You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -150,7 +150,7 @@ To add your own geobase to a {{ CH }} cluster:
 
         * `configSpec.clickhouse.config.geobaseUri`: Link to the geobase archive in {{ objstorage-name }}.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure the request was successful.
 
@@ -199,7 +199,7 @@ To add your own geobase to a {{ CH }} cluster:
 
         * `config_spec.clickhouse.config.geobase_uri`: Link to the geobase archive in {{ objstorage-name }}.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

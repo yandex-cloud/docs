@@ -4,4 +4,4 @@
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) the service account the `license-manager.saasSubscriptionSupervisor` role for the [partner profile](../../marketplace/concepts/publisher.md) and your [product](../../marketplace/concepts/product.md).
 1. [Get](../../iam/concepts/authorization/iam-token.md) an IAM token for the service account you will use to authenticate in the License Manager API.
 
-To use the examples, install [cURL](https://curl.haxx.se) and [gRPCurl](https://github.com/fullstorydev/grpcurl) (if using the [gRPC API](../../marketplace/api-ref/ImageProductUsage/index.md)).
+To use the examples, install [cURL](https://curl.haxx.se) and [gRPCurl](https://github.com/fullstorydev/grpcurl) (if using the [gRPC API](../../marketplace/license-manager/saas/api-ref/grpc/index.md)).

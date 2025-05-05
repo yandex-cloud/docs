@@ -20,12 +20,12 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Kyverno. Make sure it contains no applications or objects; otherwise, Kyverno will not run properly.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `kyverno-space`. If you leave the default namespace, Kyverno may work incorrectly.
+   * **Application name**: Specify the application name.
    * **Activating Kyverno Policies**: Select to install the Kyverno Policies extension.
    * **Pod Security Standard profile**: Select a [Pod Security Standard profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/):
      * `baseline`: Policy with minimum restrictions which prevents known risks of privilege abuse.
@@ -55,7 +55,7 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
      multi-kyverno ./multi-kyverno/
    ```
 
-   Select a namespace that does not contain any applications or objects, or else Kyverno will not run properly.
+   If you set `namespace` to the default namespace, Kyverno may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `kyverno-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
@@ -78,7 +78,7 @@ If you no longer need the Kyverno application, uninstall it:
 
 - {{ marketplace-full-name }} {#marketplace}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Click the name of the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
    1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, in the row of the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) application, first click ![image](../../../_assets/marketplace/three_dots.png =22x13) and then **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
    1. [Connect to the cluster](../connect/index.md#kubectl-connect) using kubectl.

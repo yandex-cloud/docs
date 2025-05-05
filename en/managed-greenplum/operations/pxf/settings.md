@@ -1,6 +1,6 @@
 # Changing PXF settings
 
-The [PXF](../external-tables.md) settings you can configure using the {{ yandex-cloud }} tools match those in the {{ GP }} [pxf-application.properties]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/config_files.html#pxfapplicationproperties-1) configuration file. It describes the features of the PXF protocol. In {{ GP }} clusters, PXF settings have the default values. To optimize working with [external tables](../../concepts/external-tables.md), you can update the PXF settings using the {{ yandex-cloud }} interfaces rather than edit the file.
+The [PXF](../external-tables.md) settings you can configure using the {{ yandex-cloud }} tools match those in the {{ GP }} [pxf-application.properties]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfapplicationproperties-1) configuration file. It describes the features of the PXF protocol. In {{ GP }} clusters, PXF settings have the default values. To optimize working with [external tables](../../concepts/external-tables.md), you can update the PXF settings using the {{ yandex-cloud }} interfaces rather than edit the file.
 
 {% list tabs group=instructions %}
 
@@ -17,7 +17,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * **Upload Timeout**: Timeout for connection to the Apache Tomcat® server when making write queries. The value range is from `5` to `600` seconds. You can specify the values in various time units.
         * **Max Threads**: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
 
         * **Pool Allow Core Thread Timeout**: Determines whether a timeout for core streaming threads is allowed.
         * **Pool Core Size**: Number of core streaming threads per pool. The value range is from `1` to `1024`.
@@ -36,7 +36,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
     To change the PXF settings:
 
-    1. View a description of the update cluster configuration CLI command:
+    1. View the description of the CLI command to update the cluster configuration:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
@@ -63,7 +63,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `pxf-upload-timeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `pxf-max-threads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
 
         * `pxf-pool-allow-core-thread-timeout`: Determines whether a timeout for core streaming threads is allowed. The default value is `false`.
         * `pxf-poll-core-size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
@@ -72,13 +72,13 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `pxf-xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `pxf-xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can [get the cluster name with a list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can [get the cluster name with the list of clusters in the folder](../cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
     To change the PXF settings:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [{#T}](../cluster-create.md).
 
@@ -109,7 +109,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `upload_timeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `max_threads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
 
         * `pool_allow_core_thread_timeout`: Determines whether a timeout for core streaming threads is allowed. The default value is `false`.
         * `pool_core_size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
@@ -132,7 +132,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../../_includes/note-api-updatemask.md) %}
 
@@ -167,7 +167,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `uploadTimeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `maxThreads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
 
         * `poolAllowCoreThreadTimeout`: Determines whether a timeout for core streaming threads is allowed. The default value is `false`.
         * `poolCoreSize`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
@@ -176,7 +176,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. View the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -188,7 +188,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -239,7 +239,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `upload_timeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `max_threads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
 
         * `pool_allow_core_thread_timeout`: Determines whether a timeout for core streaming threads is allowed. The default value is `false`.
         * `pool_core_size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
@@ -248,7 +248,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. View the [server response](../../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

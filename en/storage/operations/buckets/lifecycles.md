@@ -97,7 +97,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
       * `transitions`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
           * `date`: Date after which you want the rule to take effect, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DDT00:00:00Z`. The time is always 00:00 UTC. You cannot use `date` together with `days`. This is an optional parameter.
           * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional parameter.
-          * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
+          * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required setting.
 
           It is provided as an array, such as follows:
 
@@ -105,18 +105,23 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
           "transitions": [{ "days": "<number_of_days>", "storage_class": "<storage_class>" }]
           ```
 
-      * `expiration`: Parameter of a rule used to delete any objects. This is an optional parameter. It may contain:
+          For buckets with [versioning](versioning.md) enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `noncurrent_transitions` parameter.
+
+      * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
           * `date`: Date after which you want the rule to take effect, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DDT00:00:00Z`. The time is always 00:00 UTC. You cannot use `date` together with `days`. This is an optional parameter.
           * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional parameter.
           * `expired_object_delete_marker`: Removes the delete marker for which expired object versions no longer exist. It can either be `true` or `false`. This is an optional parameter.
+
+          For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `noncurrent_expiration` parameter.
+
       * `noncurrent_transitions`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
-          * `noncurrent_days`: Number of days before transition. The minimum value is `1`. This is a required parameter.
-          * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
+          * `noncurrent_days`: Number of days before transition. The minimum value is `1`. This is a required setting.
+          * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required setting.
       * `noncurrent_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter. It may contain:
-          * `noncurrent_days`: Number of days before expiration. The minimum value is `1`. This is a required parameter.
+          * `noncurrent_days`: Number of days before expiration. The minimum value is `1`. This is a required setting.
       * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional parameter.
       * `noncurrent_delete_markers`: Parameter of a rule for deleting non-current delete markers. This is an optional parameter. It may contain:
-          * `noncurrent_days`: Number of days that must elapse after the delete marker version is classified as non-current before the rule takes effect. The minimum value is `0`. This is a required parameter.
+          * `noncurrent_days`: Number of days that must elapse after the delete marker version is classified as non-current before the rule takes effect. The minimum value is `0`. This is a required setting.
 
       Make sure to specify at least one of the following parameters: `transitions`, `expiration`, `noncurrent_transitions`, `noncurrent_expiration`, or `abort_incomplete_multipart_upload_days`.
 
@@ -236,13 +241,13 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
           Without a specified object filter, the rule applies to all objects in the bucket.
 
-      * `Status`: Rule status. This is a required parameter. It can take one of the following values:
+      * `Status`: Rule status. This is a required setting. It can take one of the following values:
           * `Enabled`: Rule enabled.
           * `Disabled`: Rule disabled.
       * `Transitions`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
           * `Date`: Date after which the storage class will change, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DD`. The time is always 00:00 UTC. You cannot use `Date` together with `Days`. This is an optional parameter.
           * `Days`: Number of days from the object creation date after which the storage class will change. The minimum value is `1`. You cannot use `Days` together with `Date`. This is an optional parameter.
-          * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
+          * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required setting.
 
           It is provided as an array, such as follows:
 
@@ -251,13 +256,19 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
           ```
 
           To set the `Transitions` parameter, you must specify the `Prefix` parameter in the configuration file. The `Prefix` value may be empty (`""`).
+
+          For buckets with [versioning](versioning.md) enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `NoncurrentVersionTransition` parameter.
+
       * `Expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
           * `Date`: Date after which the object will be deleted, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DD`. The time is always 00:00 UTC. You cannot use `Date` together with `Days`. This is an optional parameter.
           * `Days`: Number of days from the object creation date after which the object will be deleted. The minimum value is `1`. You cannot use `Days` together with `Date`. This is an optional parameter.
           * `ExpiredObjectDeleteMarker`: Removes the delete marker for which expired object versions no longer exist. It can either be `true` or `false`. This is an optional parameter.
+
+          For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `NoncurrentVersionExpiration` parameter.
+
       * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
-          * `NoncurrentDays`: Number of days before the storage class of a non-current object version is changed. The minimum value is `1`. This is a required parameter.
-          * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
+          * `NoncurrentDays`: Number of days before the storage class of a non-current object version is changed. The minimum value is `1`. This is a required setting.
+          * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required setting.
 
           To set the `NoncurrentVersionTransitions` parameter, you must specify the `Prefix` parameter in the configuration file. The `Prefix` value may even be empty (`""`).
       * `NoncurrentVersionExpiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter. 
@@ -290,7 +301,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -395,7 +406,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
      Where:
 
-     * `bucket`: Bucket name. This is a required parameter.
+     * `bucket`: Bucket name. This is a required setting.
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
 
@@ -432,10 +443,10 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
          Without a specified object filter, the rule applies to all objects in the bucket.
 
-     * `enabled`: Rule state. This is a required parameter.
+     * `enabled`: Rule state. This is a required setting.
      * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional parameter.
-     * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter.
-     * `transition`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter.
+     * `expiration`: Parameter of a rule for deleting any objects. For buckets with [versioning](versioning.md) enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `noncurrent_version_expiration` parameter. This is an optional parameter.
+     * `transition`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `noncurrent_version_transition` parameter. This is an optional parameter.
      * `noncurrent_version_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter.
      * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter.
 
@@ -449,26 +460,26 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
      `transition` parameters:
      * `date`: Date after which you want the rule to take effect, You cannot use `date` together with `days`. This is an optional parameter.
      * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional parameter.
-     * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
+     * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required setting.
 
      `noncurrent_version_expiration` parameters:
-     * `days`: Number of days before expiration. The minimum value is `1`. This is a required parameter.
+     * `days`: Number of days before expiration. The minimum value is `1`. This is a required setting.
 
      `noncurrent_version_transition` parameters:
-     * `days`: Number of days before transition. The minimum value is `1`. This is a required parameter.
-     * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
+     * `days`: Number of days before transition. The minimum value is `1`. This is a required setting.
+     * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required setting.
 
      For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
@@ -479,7 +490,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
      1. Confirm creating the resources.
 
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

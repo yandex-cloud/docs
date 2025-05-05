@@ -13,6 +13,19 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Click the name of the object you need.
+  1. Click **Add label**.
+  1. Enter label key and value separated by a colon (key:value).
+
+  To edit a label:
+  
+  1. Click **Add label**.
+  1. Enter the key of the label you want to edit and its new value.
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -129,6 +142,15 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  You can see the labels in the list of bucket objects and on the individual object's page.
+
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket in question.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Click the name of the object you need.
+
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -226,6 +248,13 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 ## Deleting labels {#delete-tag}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Click the name of the object you need.
+  1. Click the cross next to the label you want to delete.
 
 - {{ yandex-cloud }} CLI {#cli}
 

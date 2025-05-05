@@ -1,10 +1,17 @@
 ### {{ sw-name }}
 
+#### Квоты {#sw-quotas}
+
+
+Вид ограничения | Значение
+--- | ---
+Максимальное количество [рабочих процессов](../serverless-integrations/concepts/workflows/workflow.md) в облаке | 30
+Максимальное количество активных [запусков рабочих процессов](../serverless-integrations/concepts/workflows/execution.md) в облаке | 100
+
 #### Лимиты {#sw-limits}
 
 Вид ограничения | Значение
 --- | ---
-Максимальное количество активных запусков [рабочих процессов](../serverless-integrations/concepts/workflows/workflow.md) в облаке | 100
 Максимальное количество шагов рабочего процесса с учетом всех веток выполнения [Parallel](../serverless-integrations/concepts/workflows/yawl/management/parallel.md) и [Foreach](../serverless-integrations/concepts/workflows/yawl/management/foreach.md) | 1000
 Максимальное время выполнения шага | 15 минут
 Максимальное время выполнения шага с учетом повторных попыток | 24 часа

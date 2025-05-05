@@ -92,7 +92,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
       If a table is partitioned, to exclude it from the list, make sure to list all of its partitions.
 
-      The lists include the name of the [schema]({{gp.docs.vmware}}/6/greenplum-database/admin_guide-ddl-ddl-schema.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
+      The lists include the name of the [schema]({{gp.docs.vmware}}/7/greenplum-database/admin_guide-ddl-ddl-schema.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
       * `<schema_name>.<table_name>`: Full table name.
       * `<schema_name>.*`: All tables in the specified schema.
@@ -122,7 +122,7 @@ With parallel copy disabled, a transfer will move data from these {{ GP }} objec
 
 ### Snapshot consistency {#snapshot-consistency}
 
-When you start a transfer with parallel copy off (default), the service interacts only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md) when copying data. The tables being copied are accessed in `ACCESS SHARE` [lock mode]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
+When you start a transfer with parallel copy off (default), the service interacts only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md) when copying data. The tables being copied are accessed in `ACCESS SHARE` [lock mode]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
 
 When you start a transfer with parallel copy on, the service interacts with both the master host and the {{ GP }} cluster's [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode. The tables being copied are accessed in `ACCESS SHARE` or `SHARE` lock mode, depending on the snapshot consistency setting.
 

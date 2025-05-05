@@ -4,16 +4,31 @@ description:
     Yandex Monitoring allows you to collect metrics, store them, and display
     them in dashboard charts.
   - >-
-    The service is subject to a <a
-    href="https://yandex.ru/legal/cloud_sla">service-level agreement</a>. The
-    service level is defined the <a
-    href="https://yandex.ru/legal/cloud_sla_ym">Yandex Monitoring service-level
-    agreement</a>.
+    This service is subject to a <a
+    href="https://yandex.ru/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.ru/legal/cloud_sla_ym">Yandex Monitoring Service
+    Level</a>.
 meta:
   title: Yandex Monitoring
   description: >-
     Yandex Monitoring allows you to collect metrics, store them, and display
     them in dashboard charts.
+  keywords:
+    - keyword: monitoring
+    - keyword: Monitoring
+    - keyword: '{{ monitoring-name }} metric'
+    - keyword: '{{ monitoring-name }}'
+    - keyword: '{{ monitoring-name }}'
+    - keyword: alerting
+    - keyword: time series in {{ monitoring-name }}
+    - keyword: dashboard in {{ monitoring-name }}
+    - keyword: '{{ monitoring-name }} in {{ yandex-cloud }}'
+    - keyword: metric collection agent
+    - keyword: '{{ unified-agent-short-name }}'
+    - keyword: '{{ unified-agent-full-name }}'
+    - keyword: '{{ prometheus-name }}'
+    - keyword: notification channel in {{ monitoring-name }}
 links:
   - title: Getting started
     description: Start monitoring your metrics

@@ -1,6 +1,6 @@
 ---
 title: '{{ captcha-full-name }} pricing policy'
-description: This article provides the {{ captcha-name }} pricing policy.
+description: This article covers the {{ captcha-name }} pricing policy.
 editable: false
 ---
 

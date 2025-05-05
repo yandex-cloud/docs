@@ -44,7 +44,7 @@ Connect to the selected database and run:
 CREATE EXTENSION <extension_name>;
 ```
 
-For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-CREATE_EXTENSION.html).
+For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-CREATE_EXTENSION.html).
 
 ## Supported {{ GP }} extensions {#greenplum}
 
@@ -83,7 +83,7 @@ Allows GIS (Geographic Information Systems) objects to be stored and processed i
 || [postgres_fdw]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-modules-postgres_fdw.html)
 Adds a wrapper for {{ PG }} remote database queries.
 | 1.0 ||
-|| [pxf]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/intro_pxf.html)
+|| [pxf]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/intro_pxf.html)
 Allows you to work with heterogeneous data sources.
 | 2.0 ||
 || uuid-cb

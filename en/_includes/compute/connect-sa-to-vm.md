@@ -54,7 +54,7 @@ To link a service account to a VM, you need a permission to use this account. Th
 
      {{ TF }} will change all required resources. You can check the new resources using the [management console]({{ link-console-main }}).
 
-  For more information about the `yandex_compute_instance` resource parameters, see the [relevant {{ TF }} documentation]({{ tf-provider-datasources-link }}/compute_instance).
+  For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/compute_instance).
 
 - API {#api}
 
@@ -101,13 +101,13 @@ To link a service account to a VM, you need a permission to use this account. Th
       }
       ```
 
-  1. Create the resources:
+  1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
 
-  For more information about the `yandex_compute_instance` resource parameters, see the [relevant {{ TF }} documentation]({{ tf-provider-datasources-link }}/compute_instance).
+  For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/compute_instance).
 
 - API {#api}
 

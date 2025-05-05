@@ -82,6 +82,7 @@ The list of resources will vary depending on the {{ yandex-cloud }} interface us
 
   **{{ certificate-manager-full-name }}**
   * [Custom certificate](../../../certificate-manager/concepts/imported-certificate.md)
+  * [Let's Encrypt certificate](../../../certificate-manager/concepts/managed-certificate.md)
 
   **{{ cloud-desktop-full-name }}**
   * [Desktop groups](../../../cloud-desktop/concepts/desktops-and-groups.md)
@@ -141,6 +142,10 @@ The list of resources will vary depending on the {{ yandex-cloud }} interface us
 
   {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
 
+  **{{ certificate-manager-full-name }}**
+  * [Custom certificate](../../../certificate-manager/concepts/imported-certificate.md)
+  * [Let's Encrypt certificate](../../../certificate-manager/concepts/managed-certificate.md)
+
   **{{ compute-full-name }}**
 
   {% include notitle [compute-resources-tf](../../../_includes/iam/resources-with-access-control/compute-tf.md) %}
@@ -183,6 +188,7 @@ The list of resources will vary depending on the {{ yandex-cloud }} interface us
 
   **{{ certificate-manager-full-name }}**
   * [Custom certificate](../../../certificate-manager/concepts/imported-certificate.md)
+  * [Let's Encrypt certificate](../../../certificate-manager/concepts/managed-certificate.md)
 
   **{{ billing-name }}**
   * [Billing account](../../../billing/concepts/billing-account.md)

@@ -1,4 +1,4 @@
-# Information about existing network load balancers
+# Information about current network load balancers
 
 You can request detailed information about each network load balancer you created.
 
@@ -8,7 +8,7 @@ You can request detailed information about each network load balancer you create
 
 - Management console {#console}
 
-    In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 
 - CLI {#cli}
 
@@ -35,18 +35,18 @@ You can request detailed information about each network load balancer you create
 
 - API {#api}
 
-    Use the [list](../api-ref/NetworkLoadBalancer/list.md) API method and provide the folder ID in the `folderId` request parameter.
+    Use the [list](../api-ref/NetworkLoadBalancer/list.md) API method, providing the folder ID in the `folderId` parameter of your request.
 
 {% endlist %}
 
-## Get detailed information about a network load balancer {#get}
+## Getting detailed information about a network load balancer {#get}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-    1. Click the name of the required network load balancer.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. Click the name of the load balancer in question.
 
 - CLI {#cli}
 
@@ -64,7 +64,7 @@ You can request detailed information about each network load balancer you create
 
 - API {#api}
 
-    Use the [get](../api-ref/NetworkLoadBalancer/get.md) API method and provide the network load balancer ID in the `networkLoadBalancerId` request parameter.
+    Use the [get](../api-ref/NetworkLoadBalancer/get.md) API method, providing the network load balancer ID in the `networkLoadBalancerId` parameter of your request.
 
     You can get the network load balancer ID with the [list of network load balancers in the folder](#list).
 

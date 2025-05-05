@@ -3,13 +3,12 @@ description:
   - >-
     Yandex Identity and Access Management (IAM) is an identification and access
     control tool that helps you centrally manage user access permissions to your
-    Yandex Cloud resources. With IAM, you can be sure that only users with
-    appropriate permissions can work with the resources.
+    Yandex Cloud resources. IAM makes sure all operations with resources are
+    only performed by users who have the required permissions.
   - >-
-    The Yandex Cloud infrastructure <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">fis
-    protected</a> pursuant to the Russian Federal Law No. 152-FZ on Personal
-    Data.
+    The Yandex Cloud infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
+    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
 meta:
   title: Yandex Identity and Access Management
   description: >-

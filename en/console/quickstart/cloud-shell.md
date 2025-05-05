@@ -1,14 +1,13 @@
 ---
 title: Getting started with {{ cloud-shell-full-name }}
 description: With {{ cloud-shell-name }}, you can use the {{ yandex-cloud }} CLI and other terminal tools directly in your browser, no prior setup required.
-noIndex: true
 ---
 
 # Getting started with {{ cloud-shell-full-name }}
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-With {{ cloud-shell-name }}, you can use [{{ yandex-cloud }} CLI](../../cli/) and other terminal tools without any prior setup, directly in your browser. The {{ cloud-shell-name }} environment includes basic tools for working with the cloud and popular SDKs for programming languages.
+With {{ cloud-shell-name }}, you can use the [{{ yandex-cloud }} CLI](../../cli/) and other terminal tools directly in your browser, no prior setup required. The {{ cloud-shell-name }} environment provides essential cloud management tools and popular programming language SDKs.
 
 To get started with {{ cloud-shell-name }}:
 
@@ -40,7 +39,7 @@ To get started with {{ cloud-shell-name }}:
 
     {% note info %}
 
-    The {{ cloud-shell-name }} VM will be automatically stopped and deleted 15 after the last active session ends. All system changes, including installed applications and packages, will be reset.
+    The {{ cloud-shell-name }} VM will be automatically stopped and deleted 15 after the last active session ends. Any system changes, including installed applications and packages, will be reset.
 
     {% endnote %}
 

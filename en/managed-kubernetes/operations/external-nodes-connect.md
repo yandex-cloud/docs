@@ -31,7 +31,7 @@ For external nodes to connect to a {{ managed-k8s-name }} cluster, both the clus
 
 {% note info %}
 
-To create an external node group, make sure the {{ managed-k8s-name }} cluster is running in tunnel mode. To learn more, see [{#T}](../concepts/external-nodes.md#requirements).
+To create an external node group, make sure the {{ managed-k8s-name }} cluster is running in tunnel mode. For more information, see [{#T}](../concepts/external-nodes.md#requirements).
 
 {% endnote %}
 
@@ -249,7 +249,7 @@ If there are any issues, review the events in the `yandex-system` namespace firs
 If there is not enough information, review the system component logs on the appropriate server:
 
 ```bash
-journalctl -u maintainer
+journalctl -u yandex-maintainer
 journalctl -u kubelet
 ```
 
