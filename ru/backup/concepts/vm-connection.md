@@ -11,7 +11,7 @@
 
 Подробнее о подключении к {{ backup-name }} см. в [инструкциях](../operations/index.md).
 
-Чтобы подключение на виртуальной машине работало корректно, привяжите к ВМ [сервисный аккаунт](#sa) с ролью `backup.editor` и настройте [сетевой доступ](#vm-network-access). К серверам {{ baremetal-name }} привязывать сервисный аккаунт не нужно.
+Чтобы подключение к {{ backup-name }} работало корректно, привяжите к защищаемому ресурсу [сервисный аккаунт](#sa) (с ролью `backup.editor` для ВМ или ролями `baremetal.editor` и `backup.editor` для сервера {{ baremetal-name }}) и настройте [сетевой доступ](#vm-network-access).
 
 После подключения к {{ backup-name }} [добавьте](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ или сервер {{ baremetal-name }} в [политику резервного копирования](policy.md).
 

@@ -11,7 +11,7 @@ You can connect the following to {{ backup-name }}:
 
 For more information about connecting to {{ backup-name }}, see these [guides](../operations/index.md).
 
-For the connection to work properly on the VM, link a [service account](#sa) with the `backup.editor` role to the VM and configure [network access](#vm-network-access). You do not need to link the service account to {{ baremetal-name }} servers.
+For the connection to work properly on the VM, link a [service account](#sa) with the `backup.editor` role to the VM and configure [network access](#vm-network-access).
 
 After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the VM or the {{ baremetal-name }} server to the [backup policy](policy.md).
 
