@@ -18,8 +18,11 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
-  1. Select the bucket you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
-  1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window, grant or revoke the relevant permissions.
+  1. In the bucket row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+
+      Alternatively, you can click the bucket name, then, on the page that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) at the top right and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+
+      {% include [acl-edit-console](../../../_includes/storage/acl-edit-console.md) %}
 
       {% note info %}
 
@@ -209,7 +212,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket" "test" {
@@ -265,14 +268,14 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -284,7 +287,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
      1. Confirm creating the resources.
 
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

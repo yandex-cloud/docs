@@ -9,9 +9,9 @@ description: Follow this guide to delete a network load balancer.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to delete a load balancer from.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a load balancer.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. In the line of the load balancer to delete, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Next to the load balancer you need to delete, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -20,7 +20,7 @@ description: Follow this guide to delete a network load balancer.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's delete network load balancer command:
+  1. See the description of the CLI command for deleting a network load balancer:
 
      ```bash
      yc load-balancer network-load-balancer delete --help
@@ -41,7 +41,7 @@ description: Follow this guide to delete a network load balancer.
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To delete a network load balancer created with {{ TF }}:
-  1. Open the {{ TF }} configuration file and delete the fragment with the network load balancer description.
+  1. Open the {{ TF }} configuration file and delete the section describing the network load balancer.
 
      ```hcl
      ...

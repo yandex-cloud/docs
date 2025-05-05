@@ -12,14 +12,14 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
 ## Transferring data to the default log group {#default}
 
-1. [Make sure](../../iam/operations/roles/get-assigned-roles.md) the service account has been assigned the `managed-airflow.integrationProvider` [role](../../iam/roles-reference.md#managed-airflow-integrationProvider).
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `managed-airflow.integrationProvider` [role](../../iam/roles-reference.md#managed-airflow-integrationProvider) to the cluster service account.
 1. Specify logging settings in the {{ maf-name }} cluster:
 
    {% list tabs group=instructions %}
 
    * Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
       1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
       1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
@@ -98,7 +98,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * CLI {#cli}
 
-      To view the records in JSON format, run the command:
+      To see the messages in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=default --format=json
@@ -134,7 +134,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * API {#api}
 
-      To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+      To view log group messages, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
    {% endlist %}
 
@@ -143,14 +143,14 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 ## Sending data to a custom log group {#custom}
 
 1. [Create a log group](../../logging/operations/create-group.md) named `airflow-log-group`.
-1. [Make sure](../../iam/operations/roles/get-assigned-roles.md) the service account has been assigned the `managed-airflow.integrationProvider` [role](../../iam/roles-reference.md#managed-airflow-integrationProvider).
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `managed-airflow.integrationProvider` [role](../../iam/roles-reference.md#managed-airflow-integrationProvider) to the cluster service account.
 1. Specify logging settings in the {{ maf-name }} cluster:
 
    {% list tabs group=instructions %}
 
    * Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
       1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
       1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
@@ -223,7 +223,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * CLI {#cli}
 
-      To view the records in JSON format, run the command:
+      To see the messages in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=airflow-log-group --format=json
@@ -259,7 +259,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * API {#api}
 
-      To view log group records, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+      To view log group messages, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
    {% endlist %}
 

@@ -3,7 +3,7 @@ title: Updating an {{ dataproc-name }} cluster
 description: After creating a {{ dataproc-name }} cluster, you can edit its basic and advanced settings.
 ---
 
-# Updating a {{ dataproc-name }} cluster
+# Updating an {{ dataproc-name }} cluster
 
 After creating a cluster, you can edit its basic and advanced settings.
 
@@ -20,7 +20,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
     To change {{ dataproc-name }} cluster settings:
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Change the name and description of the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** and **{{ ui-key.yacloud.mdb.forms.base_field_description }}** fields.
     1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field:
@@ -30,7 +30,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
             Select an existing service account or [create a new one](../../iam/operations/sa/create.md).
 
-            To change your service account in a {{ dataproc-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+            To update a service account in a {{ dataproc-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 
             {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
@@ -74,7 +74,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         This option manages cluster protection against accidental deletion by a user.
 
-        Even if enabled, one can still connect to the cluster manually and delete the data.
+        Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete the data.
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -108,7 +108,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
            --deletion-protection
         ```
 
-        Even if enabled, one can still connect to the cluster manually and delete the data.
+        Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete the data.
 
     1. To update [component properties](../concepts/settings-list.md), provide the required properties in the `--property` parameter:
 
@@ -129,7 +129,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
     To change {{ dataproc-name }} cluster settings:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 

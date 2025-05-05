@@ -11,7 +11,7 @@ The charts you create in this section are not saved. They are used for real-time
 
 ## Building charts based on metrics {#add-graph}
 
-1. Open the [home page]({{ link-monitoring }}) of the service.
+1. Open the [service home page]({{ link-monitoring }}).
 1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** on the left.
 1. In the query string, select the service for which you want to view metrics.
 1. Specify the [metrics and labels](../../concepts/data-model.md) of the service (tokens) to plot on the chart.

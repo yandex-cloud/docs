@@ -26,12 +26,12 @@ description: Follow this tutorial to install Fluent Bit with a plugin for {{ clo
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Fluent Bit with a plugin for {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `fluent-bit-space`. If you leave the default namespace, Fluent Bit may work incorrectly.
+   * **Application name**: Specify the application name.
    * **Target log group ID**: Specify the [ID of the log group](../../../logging/operations/list.md) to which Fluent Bit logs will be saved.
    * **Cluster ID**: Specify the [{{ managed-k8s-name }} cluster ID](../kubernetes-cluster/kubernetes-cluster-list.md).
    * **Service account key for {{ cloud-logging-name }}**: Paste the contents of the `sa-key.json` file.
@@ -59,6 +59,8 @@ description: Follow this tutorial to install Fluent Bit with a plugin for {{ clo
    ```
 
    This command also creates a new namespace required for Fluent Bit.
+
+   If you set `namespace` to the default namespace, Fluent Bit may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `fluent-bit-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

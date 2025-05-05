@@ -3,59 +3,119 @@ title: OBS Studio setup recommendations
 description: Follow this guide to set up OBS Studio, the video recording and live streaming software.
 ---
 
+
 # OBS Studio setup recommendations
 
 OBS Studio provides different tools and functions for streaming. We recommend the following OBS Studio settings:
 
-1. In the right-hand **Management** panel, click **Settings** and select **File** → **Settings** in the top main menu.
-1. In the window that opens, select **General** in the left-hand panel.
-1. Under **Output**, enable **Automatically record when streaming**.
-1. In the left-hand panel, under **Stream** → **Assign**:
+{% list tabs group=operating_system %}
 
-   * In the **Service** field, select **Custom...**.
-   * In the **Server** field, specify the server address you [got](../../streaming.md#create-stream) earlier.
-   * In the **Stream Key** field, specify the broadcast key you got earlier.
+- macOS {#macos}
 
-1. In the left-hand panel, select **Output**.
-1. In the **Output mode** field, select **Advanced**.
-1. On the **Stream** tab:
+  1. In the **Management** panel on the right, click **Settings** and select **OBS** → **Preferences** in the top main menu.
+  1. In the window that opens, select **General** in the left-hand panel.
+  1. Under **Output**, enable **Automatically record when streaming**.
+  1. In the left-hand panel, select **Broadcast**.
+  1. In the **Service** field, select **Custom...**.
+  1. In the **Destination** section:
 
-   1. Under **Streaming settings**, select **х264** in the **Encoder** field. This setting is suitable for most devices and tasks.
-   1. Under **Encoder settings**:
+       * In the **Server** field, specify the server address you [got](../../streaming.md#create-stream) earlier.
+       * In the **Stream Key** field, specify the broadcast key you got earlier.
 
-      * In the **Rate Control** field, select **CBR** for a stable, consistent quality image.
-      * Set the **Bitrate** field to a recommended value based on screen resolution and internet speed.
+  1. In the left-hand panel, select **Output**.
+  1. In the **Output mode** field, select **Advanced**.
+  1. On the **Stream** tab:
 
-        | Screen resolution | Recommended bitrate, kbps |
-        | --- | --- |
-        | 426 x 240 | 300 – 700 |
-        | 640 x 360 | 400 – 1000 |
-        | 854 x 480 | 500 – 2000 |
-        | 1280 x 720 | 1000 – 3000 |
-        | 1920 x 1080 | 2000 – 5000 |
+     1. Under **Streaming settings**, select **x264** in the **Encoder** field. This setting is suitable for most devices and tasks.
+     1. Under **Encoder settings**:
 
-       You can measure your internet speed using [Yandex.Internetometer](https://yandex.ru/internet). Your stream bitrate must not exceed the `Outgoing connection` value. The optimal video bitrate for a live [Full HD](https://ru.wikipedia.org/wiki/Full_HD) (1080p), 30 fps broadcast is 4,000 kbps.
+        * In the **Rate Control** field, select **CBR** for a stable, consistent quality image.
+        * Set the **Bitrate** field to a recommended value based on screen resolution and internet speed.
 
-      * Set the **Keyframe interval** field to `1 s`. This means that a bigger volume keyframe is sent every second to serve as a reference for small changes in the following frames.
-      * In the **CPU Usage Preset (higher = less CPU)** field, select `veryfast`. The slower this parameter, the better your stream quality is going to be. Increase this parameter if your device is not powerful enough for smooth streaming. 
-      * In the **Profile** field, select `baseline`.
+          | Screen resolution | Recommended bitrate, kbps |
+          | --- | --- |
+          | 426 x 240 | 300 – 700 |
+          | 640 x 360 | 400 – 1000 |
+          | 854 x 480 | 500 – 2000 |
+          | 1024 x 640 | 1000 – 3000 |
+          | 1440 x 900 | 2000 – 4000 |
+          | 1680 x 1050 | 2000 – 5000 |
+          | 3024 x 1964 | 4000 – 8000 |
+          
+        {% include [yandex-internet-measure](../../../_includes/video/yandex-internet-measure.md) %}
 
-1. On the **Recording** tab:
+        * Set the **Keyframe interval (0 is auto)** field to `1 s`. This means that a bigger volume keyframe is sent every second to serve as a reference for small changes in the following frames.
+        * In the **CPU Usage Preset (higher = less CPU)** field, select `veryfast`. The slower this parameter, the better your stream quality is going to be. Increase this parameter if your device is not powerful enough for smooth streaming. 
+        * In the **Profile** field, select `baseline`.
 
-   * In the **Recording Path** field, specify the path to save your stream to.
-   * In the **Recording Format** field, select the video file format.
+   1. On the **Recording** tab:
 
-1. Leave the default settings on the **Audio** tab. Stream speed of 160 kbps is suitable for most platforms unless it is a music stream.
-1. In the left-hand panel, select **Video** in the **General** section:
+      * In the **Recording Path** field, specify the path to save your stream to.
+      * In the **Recording Format** field, select the video file format.
 
-   * Select your monitor resolution in the **Base (Canvas) Resolution** field.
-   * In the **Output (Scaled) Resolution** field, select the resolution that will be sent to {{ video-name }}. If you set a lower value, it will reduce your traffic and CPU consumption.
-   * Set the **Downscale Filter** field to `Bilinear`. If the picture looks blurry during the test stream, try setting the filter to `Bicubic`.
-   * Set the **General FPS Values** field to 30 fps. This is an optimal value. However, 720p at 60 fps looks better than 1080p at 30 fps with lower bitrate.
+   1. Leave the default settings on the **Audio** tab. Stream speed of 160 kbps is suitable for most platforms unless it is a music stream.
+   1. In the left-hand panel, select **Video** in the **General** section:
 
-1. In the left-hand panel, select **Advanced**. Set the **Process priority** field to **Normal**.
+      * Select your monitor resolution in the **Base (Canvas) Resolution** field.
+      * In the **Output (Scaled) Resolution** field, select the resolution that will be sent to {{ video-name }}. If you set a lower value, it will reduce your traffic and CPU consumption.
+      * Set the **Downscale Filter** field to `Bilinear`. If the picture looks blurry during the test stream, try setting the filter to `Bicubic`.
+      * Set the **General FPS Values** field to 30 fps. This is an optimal value. However, 720p at 60 fps looks better than 1080p at 30 fps with lower bitrate.
 
-We recommend leaving other options at their defaults.
+   We recommend leaving other options at their defaults.
+
+- Windows {#windows}
+
+  1. In the right-hand **Management** panel, click **Settings** and select **File** → **Settings** in the top main menu.
+  1. In the window that opens, select **General** in the left-hand panel.
+  1. Under **Output**, enable **Automatically record when streaming**.
+  1. In the left-hand panel, under **Stream** → **Assign**:
+
+     * In the **Service** field, select **Custom...**.
+     * In the **Server** field, specify the server address you [got](../../streaming.md#create-stream) earlier.
+     * In the **Stream Key** field, specify the broadcast key you got earlier.
+
+  1. In the left-hand panel, select **Output**.
+  1. In the **Output mode** field, select **Advanced**.
+  1. On the **Stream** tab:
+
+     1. Under **Streaming settings**, select **x264** in the **Encoder** field. This setting is suitable for most devices and tasks.
+     1. Under **Encoder settings**:
+
+        * In the **Rate Control** field, select **CBR** for a stable, consistent quality image.
+        * Set the **Bitrate** field to a recommended value based on screen resolution and internet speed.
+
+          | Screen resolution | Recommended bitrate, kbps |
+          | --- | --- |
+          | 426 x 240 | 300 – 700 |
+          | 640 x 360 | 400 – 1000 |
+          | 854 x 480 | 500 – 2000 |
+          | 1280 x 720 | 1000 – 3000 |
+          | 1920 x 1080 | 2000 – 5000 |
+
+        {% include [yandex-internet-measure](../../../_includes/video/yandex-internet-measure.md) %}
+
+        * Set the **Keyframe interval (0 is auto)** field to `1 s`. This means that a bigger volume keyframe is sent every second to serve as a reference for small changes in the following frames.
+        * In the **CPU Usage Preset (higher = less CPU)** field, select `veryfast`. The slower this parameter, the better your stream quality is going to be. Increase this parameter if your device is not powerful enough for smooth streaming. 
+        * In the **Profile** field, select `baseline`.
+
+   1. On the **Recording** tab:
+
+      * In the **Recording Path** field, specify the path to save your stream to.
+      * In the **Recording Format** field, select the video file format.
+
+   1. Leave the default settings on the **Audio** tab. Stream speed of 160 kbps is suitable for most platforms unless it is a music stream.
+   1. In the left-hand panel, select **Video** in the **General** section:
+
+      * Select your monitor resolution in the **Base (Canvas) Resolution** field.
+      * In the **Output (Scaled) Resolution** field, select the resolution that will be sent to {{ video-name }}. If you set a lower value, it will reduce your traffic and CPU consumption.
+      * Set the **Downscale Filter** field to `Bilinear`. If the picture looks blurry during the test stream, try setting the filter to `Bicubic`.
+      * Set the **General FPS Values** field to 30 fps. This is an optimal value. However, 720p at 60 fps looks better than 1080p at 30 fps with lower bitrate.
+
+   1. In the left-hand panel, select **For advanced users**. Under **General**, set the **Process priority** field to `Normal`.
+
+   We recommend leaving other options at their defaults.
+
+{% endlist %}
 
 
 ## Scenes and sources {#scenes-and-sources}

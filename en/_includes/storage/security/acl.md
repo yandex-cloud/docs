@@ -48,8 +48,6 @@ ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well 
 
   To get the ID, navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
-  You can specify a user group using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API. For more information, see [Editing a bucket ACL](../../../storage/operations/buckets/edit-acl.md) and [Editing an object ACL](../../../storage/operations/objects/edit-acl.md).
-
 ## ACL operations {#acl-operations}
 
 * In the management console, you can edit ACLs for [buckets](../../../storage/operations/buckets/edit-acl.md) and [objects](../../../storage/operations/objects/edit-acl.md).

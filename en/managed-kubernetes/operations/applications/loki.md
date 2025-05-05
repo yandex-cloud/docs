@@ -33,13 +33,13 @@ description: Follow this guide to install Loki.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Loki](/marketplace/products/yc/loki) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 
-   * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Loki.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `loki-space`. If you leave the default namespace, Loki may work incorrectly.
+   * **Application name**: Specify the application name.
    * **Bucket name**: Specify the name of the [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}.
    * **Static access key**: Paste the contents of the `sa-key.json` file.
    * **Install Promtail**: Leave the option enabled to deliver local logs to the Grafana Loki instance using the [Promtail agent](https://grafana.com/docs/loki/latest/clients/promtail/). This agent is usually used for applications that require regular monitoring.
@@ -66,6 +66,8 @@ description: Follow this guide to install Loki.
       --set-file global.serviceaccountawskeyvalue=<path_to_sa-key.json> \
       loki ./loki/
     ```
+
+    If you set `namespace` to the default namespace, Loki may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `loki-space`).
 
     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

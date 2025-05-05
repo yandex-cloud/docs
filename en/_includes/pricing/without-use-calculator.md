@@ -1,1 +1,1 @@
-To calculate the cost of using our service, see the prices in this section.
+To estimate your service costs, see the pricing in this section.

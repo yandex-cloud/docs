@@ -18,7 +18,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
 
@@ -26,7 +26,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `{{ roles.maf.integrationProvider }}` role. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
-        To change your service account in a {{ maf-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+        To update a service account in a {{ maf-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 
         {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
@@ -110,7 +110,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -285,7 +285,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `serviceAccountId`: ID of the service account with the `managed-airflow.integrationProvider` [role](../../iam/concepts/access-control/roles.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
-            To change your service account in a {{ maf-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+            To update a service account in a {{ maf-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 
             {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
@@ -472,7 +472,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `service_account_id`: ID of the service account with the `managed-airflow.integrationProvider` [role](../../iam/concepts/access-control/roles.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
-            To change your service account in a {{ maf-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+            To update a service account in a {{ maf-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 
             {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 

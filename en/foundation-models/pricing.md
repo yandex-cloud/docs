@@ -75,14 +75,6 @@ You are charged for each generation request in {{ yandexart-name }}. The request
 
 ## Prices for the Russia region {#prices}
 
-
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ foundation-models-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2o984h40l32p7t5nsv).
-
-{% endnote %}
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Text generation {#pricing-generating}

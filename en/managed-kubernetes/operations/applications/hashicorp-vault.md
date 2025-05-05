@@ -71,12 +71,12 @@ When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ km
 
 {% endnote %}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `hashicorp-vault-space`. If you leave the default namespace, HashiCorp Vault may work incorrectly.
+   * **Application name**: Specify the application name.
    * **Service account key for Vault**: Copy the contents of the `authorized-key.json` file to this field.
    * **{{ kms-short-name }} key ID for Vault**: Specify the [previously obtained](#before-you-begin) {{ kms-name }} key ID.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -107,7 +107,7 @@ When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ km
 
    Command parameters:
    * `<path_to_file_with_authorized_key>`: Path to the `authorized-key.json` file you [saved earlier](#before-you-begin).
-   * `<namespace>`: New namespace that will be created for HashiCorp Vault.
+   * `<namespace>`: New namespace that will be created for HashiCorp Vault. If you specify the default namespace, HashiCorp Vault may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `hashicorp-vault-space`).
    * `<KMS_key_ID>`: [Previously obtained](#before-you-begin) {{ kms-name }} key ID.
 
    This command will install HashiCorp Vault with KMS support and the [Agent injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector) secret delivery tool to the cluster. To use the alternative [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi) mechanism, add the following parameters to the command:

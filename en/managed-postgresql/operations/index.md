@@ -1,9 +1,9 @@
 ---
-title: Step-by-step guide for {{ mpg-full-name }}
+title: Step-by-step guides for {{ mpg-full-name }}
 description: This page provides a list of step-by-step guides for {{ mpg-name }}.
 ---
 
-# Step-by-step guide for {{ mpg-name }}
+# Step-by-step guides for {{ mpg-name }}
 
 ## Clusters {#clusters}
 
@@ -16,6 +16,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [Managing replication slots](replication-slots.md)
 * [Managing backups](cluster-backups.md)
 * [Managing disk space](storage-space.md)
+* [Maintenance](cluster-maintenance.md)
 * [{{ PG }} version upgrade](cluster-version-update.md)
 * [Deleting a cluster](cluster-delete.md)
 
@@ -28,17 +29,17 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 
 ## {{ PG }} users {#users}
 
-* [Managing users](cluster-users.md)
+* [User management](cluster-users.md)
 * [Assigning privileges and roles to users](grant.md)
 
 ## {{ PG }} extensions and dictionaries {#extensions-and-dictionaries}
 
 * [Managing extensions](./extensions/cluster-extensions.md)
-* [Using pg_cron](./extensions/pg_cron.md)
-* [Using pg_repack](./extensions/pg_repack.md)
-* [Using pgaudit](./extensions/pgaudit.md)
-* [Using pgcrypto](./extensions/pgcrypto.md)
-* [Using postgresql_anonymizer](./extensions/pg_anon.md)
+* [Using `pg_cron`](./extensions/pg_cron.md)
+* [Using `pg_repack`](./extensions/pg_repack.md)
+* [Using `pgaudit`](./extensions/pgaudit.md)
+* [Using `pgcrypto`](./extensions/pgcrypto.md)
+* [Using `postgresql_anonymizer`](./extensions/pg_anon.md)
 * [Using a Hunspell dictionary for full-text search](./extensions/hunspell.md)
 
 ## Logs and monitoring {#logs-and-monitoring}

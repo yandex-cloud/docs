@@ -13,6 +13,48 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для переименования объекта в бакете:
+
+      ```bash
+      yc storage s3 mv --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3 mv \
+        s3://<имя_бакета>/<ключ_объекта> \
+        s3://<имя_бакета>/<новый_ключ_объекта>
+      ```
+
+      Результат:
+
+      ```text
+      move: s3://my-bucket/object.txt to s3://my-bucket/renamed-object.txt
+      ```
+
 - AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
@@ -41,6 +83,48 @@ description: Следуя данной инструкции, вы сможете
 ## Перемещение {#move}
 
 {% list tabs group=instructions %}
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для перемещения объекта:
+
+      ```bash
+      yc storage s3 mv --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3 mv \
+        s3://<имя_бакета-источника>/<ключ_объекта> \
+        s3://<имя_целевого_бакета>/<ключ_объекта>
+      ```
+
+      Результат:
+
+      ```text
+      move: s3://my-bucket/object.txt to s3://new-bucket/object.txt
+      ```
 
 - AWS CLI {#cli}
 

@@ -1,6 +1,6 @@
 # {{ sts-name }}
 
-_{{ sts-name }}_: {{ iam-name }} component to get _temporary access keys_ compatible with [AWS S3 API](../../storage/s3/index.md).
+_{{ sts-name }}_: {{ iam-name }} component used to get _temporary access keys_ compatible with [AWS S3 API](../../storage/s3/index.md).
 
 Temporary access keys as an authentication method are only supported in [{{ objstorage-full-name }}](../../storage/).
 
@@ -29,7 +29,7 @@ To get a temporary access key using {{ sts-name }}, use the [AWS Command Line In
 
 There is a separate [API endpoint](../../api-design-guide/concepts/endpoints.md) for {{ sts-name }}: `https://{{ sts-host }}`.
 
-For more information, see [{#T}](../../iam/operations/sa/create-sts-key.md).
+For more information, see this [{#T}](../../iam/operations/sa/create-sts-key.md) article.
 
 {% note warning %}
 

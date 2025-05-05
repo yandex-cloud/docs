@@ -26,7 +26,7 @@ You can change the number of hosts in data storage and processing subclusters:
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Enter or select the required number of hosts in the **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}** field.
@@ -61,7 +61,7 @@ You can change the number of hosts in data storage and processing subclusters:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -99,7 +99,7 @@ You can change the computing power of hosts in a separate subcluster. It depends
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
-    1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
+    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Select the required platform and configuration under **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
     1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
@@ -149,7 +149,7 @@ You can change the computing power of hosts in a separate subcluster. It depends
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -195,9 +195,9 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 * **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**
 * **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**
 * **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**.
 
-To enable autoscaling, make sure the {{ dataproc-name }} cluster service account has the following [roles assigned](../../iam/operations/sa/assign-role-for-sa.md):
+To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the {{ dataproc-name }} cluster's service account:
 
 {% include [sa-roles](../../_includes/data-processing/sa-roles.md) %}
 
@@ -207,7 +207,7 @@ To enable autoscaling, make sure the {{ dataproc-name }} cluster service account
 
     To configure autoscaling for subclusters:
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select a cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
     1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_scaling }}**, enable **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}** if it is disabled.
@@ -248,7 +248,7 @@ To enable autoscaling, make sure the {{ dataproc-name }} cluster service account
 
         * `--hosts-count`: Minimum number of hosts (VMs) in a subcluster. The minimum value is `1`, and the maximum value is `32`.
         * `--max-hosts-count`: Maximum number of hosts (VMs) in a subcluster. The minimum value is `1`, and the maximum value is `100`.
-        * `--enable-preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can either be `true` or `false`.
+        * `--enable-preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can be either `true` or `false`.
         * `--warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
         * `--stabilization-duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` and the maximum value is `1800s`.
         * `--measurement-duration`: Period, in seconds, for which the average utilization is calculated for each VM, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
@@ -261,7 +261,7 @@ To enable autoscaling, make sure the {{ dataproc-name }} cluster service account
 
     To configure autoscaling for subclusters:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -294,7 +294,7 @@ To enable autoscaling, make sure the {{ dataproc-name }} cluster service account
        * `measurement_duration`: Period, in seconds, for which the average utilization is calculated for each VM, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
        * `warmup_duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
        * `stabilization_duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` and the maximum value is `1800s`.
-       * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can either be `true` or `false`.
+       * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can be either `true` or `false`.
        * `cpu_utilization_target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.
        * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0`, and the maximum value is `86400` (24 hours).
 
@@ -306,7 +306,7 @@ To enable autoscaling, make sure the {{ dataproc-name }} cluster service account
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
+    For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -336,7 +336,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
-    1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
+    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Enter or select the required amount of storage under **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -373,7 +373,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
     To increase the subcluster storage size:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -404,7 +404,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
+    For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -414,7 +414,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
     1. Click the host name.
     1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
@@ -423,7 +423,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -444,7 +444,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
+    For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
 

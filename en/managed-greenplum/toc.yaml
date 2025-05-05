@@ -111,6 +111,10 @@ items:
           Loading data from {{ objstorage-name }} to {{ mgp-name }} using {{
           data-transfer-name }}
         href: tutorials/object-storage-to-greenplum.md
+      - name: >-
+          Copying data from {{ mos-name }} to {{ mgp-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/opensearch-to-greenplum.md
       - name: Delivering data using {{ data-transfer-name }}
         items:
           - name: Delivering data from {{ KF }} to {{ GP }}

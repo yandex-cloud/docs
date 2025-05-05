@@ -18,14 +18,6 @@ The cost of using {{ search-api-name }} is calculated based on the number of sea
 
 ## Prices for the Russia region {#prices}
 
-
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ search-api-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn21smrl41t3kuid1qm5).
-
-{% endnote %}
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 Free tier includes 1,000 synchronous queries per user per month using [API v1](concepts/index.md#api-v1) during night hours^1^ from 00:00:00 to 07:59:59. Requests in excess of this threshold are priced as detailed below. Free tier does not apply to requests run via [API v2](concepts/index.md#api-v2).

@@ -11,9 +11,26 @@ description:
   - >-
     At the Preview stage, you can send personalized push notifications to iOS
     and Android devices, browsers, and via SMS.
-  - Moving forward, we will be adding notifications to messengers.
+  - Moving forward, we will add notifications to messengers.
 meta:
   title: Yandex Cloud Notification Service
+  keywords:
+    - keyword: notification
+    - keyword: notification service
+    - keyword: push notifications
+    - keyword: '{{ cns-name }}'
+    - keyword: '{{ cns-name }}'
+    - keyword: push {{ cns-name }}
+    - keyword: '{{ cns-name }} push'
+    - keyword: notifications
+    - keyword: SMS {{ cns-name }}
+    - keyword: SMS notifications in {{ yandex-cloud }}
+    - keyword: CNS in {{ yandex-cloud }}
+    - keyword: pop-ups
+    - keyword: push notifications in {{ yandex-cloud }}
+    - keyword: SMS in {{ yandex-cloud }}
+    - keyword: '{{ cns-name }} in {{ yandex-cloud }}'
+    - keyword: notifications in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Create the first notification channel

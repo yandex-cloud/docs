@@ -8,6 +8,21 @@ meta:
   description: >-
     Yandex Cloud Quota Manager allows you to manage quotas for your cloud
     resources.
+  keywords:
+    - keyword: resource quotas
+    - keyword: '{{ yandex-cloud }} quotas'
+    - keyword: '{{ quota-manager-name }} in {{ yandex-cloud }}'
+    - keyword: quota manager
+    - keyword: limits in {{ quota-manager-name }}
+    - keyword: quotas in {{ quota-manager-name }}
+    - keyword: quota allocation in {{ yandex-cloud }}
+    - keyword: quotas and limits
+    - keyword: quota limit {{ quota-manager-name }}
+    - keyword: quota usage
+    - keyword: limitations in {{ quota-manager-name }}
+    - keyword: quota {{ yandex-cloud }}
+    - keyword: limit {{ yandex-cloud }}
+    - keyword: usage {{ yandex-cloud }}
 links:
   - title: Getting started
     description: View service quotas

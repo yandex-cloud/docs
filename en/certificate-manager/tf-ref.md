@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ certificate-manager-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ certificate-manager-name }}.
+description: This page provides information about {{ TF }} resources and data sources supported by {{ certificate-manager-name }}.
 ---
 
 # {{ TF }} reference for {{ certificate-manager-full-name }}
@@ -9,15 +9,18 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ certificate-manager-name }}:
+{{ certificate-manager-name }} supports the following {{ TF }} resources :
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate) | [TLS certificate](./concepts/index.md#types) |
+| [yandex_cm_certificate_iam_binding]({{ tf-provider-resources-link }}/cm_certificate_iam_binding)| [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a TLS certificate. It has a limit of 1,000 bindings per resource. <br>We recommend using `yandex_cm_certificate_iam_member` instead of `yandex_cm_certificate_iam_binding`. |
+| [yandex_cm_certificate_iam_member]({{ tf-provider-resources-link }}/cm_certificate_iam_member) |  [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a TLS certificate. |
+
 
 ## Data sources {#data-sources}
 
-{{ certificate-manager-name }} supports the following {{ TF }} provider data sources:
+{{ certificate-manager-name }} supports the following {{ TF }} data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |

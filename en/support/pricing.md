@@ -25,14 +25,6 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 ## Prices for the Russia region {#prices}
 
 
-{% note warning %}
-
-Starting May 1, 2025, the prices for technical support in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2m1lagd9bf5oopu2r0).
-
-{% endnote %}
-
-
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

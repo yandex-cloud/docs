@@ -32,7 +32,7 @@ Jaeger is able to use the following types of data storage:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `2135`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`)
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
 ### Preparing {{ ydb-name }} {#create-ydb}
 
@@ -88,12 +88,12 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 ### Installing Jaeger {#install-jaeger}
 
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the cluster you need and select the ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `jaeger-space`. If you leave the default namespace, Jaeger may work incorrectly.
+   * **Application name**: Specify the application name.
    * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, e.g., `lb.etnk1hv0jol3********.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
    * **Database**: Specify a database name, e.g., `/{{ region-id }}/b1gkgm9daf46********/etnk2hv0jol5********`.
    * **Database directory**: `jaeger`.
@@ -117,7 +117,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Add the `jaegertracing` repository:
+1. Add a repository named `jaegertracing`:
 
    ```bash
    helm repo add jaegertracing https://jaegertracing.github.io/helm-charts

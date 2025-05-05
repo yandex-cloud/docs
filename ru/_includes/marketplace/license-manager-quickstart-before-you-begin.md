@@ -4,4 +4,4 @@
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) сервисному аккаунту роль `license-manager.saasSubscriptionSupervisor` на [профиль партнера](../../marketplace/concepts/publisher.md) и на ваш [продукт](../../marketplace/concepts/product.md).
 1. [Получите](../../iam/concepts/authorization/iam-token) IAM-токен для сервисного аккаунта, от имени которого вы будете аутентифицироваться в License Manager API.
 
-Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se) и [gRPCurl](https://github.com/fullstorydev/grpcurl) (при использовании [gRPC API](../../marketplace/api-ref/ImageProductUsage/index)).
+Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se) и [gRPCurl](https://github.com/fullstorydev/grpcurl) (при использовании [gRPC API](../../marketplace/license-manager/saas/api-ref/grpc/index.md)).

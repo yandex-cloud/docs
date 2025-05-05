@@ -1,10 +1,10 @@
 # {{ GP }} settings
 
-For {{ mgp-name }} clusters, you can configure {{ GP }} settings. Some settings are configured [at the cluster level](#dbms-cluster-settings), while others, at the level of external data sources, such as [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), and [Hive](#hive-settings).
+For {{ mgp-name }} clusters, you can configure {{ GP }} settings. Some settings are configured [at the cluster level](#dbms-cluster-settings), while others, at the level of external data sources, such as [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).
 
 The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or Terraform. The {{ tag-all }} label means that all of the above interfaces are supported.
 
-Depending on the selected interface, the same setting may be represented in a different way. For example, **Max connections** in the management console is:
+Depending on the interface you select, the same setting will be represented differently. For example, **Max connections** in the management console is the same as:
 
 * `max_connections` in the gRPC API
 * `maxConnections` in the REST API
@@ -23,25 +23,25 @@ The settings that depend on the storage size are:
 
 ## Cluster-level DBMS settings {#dbms-cluster-settings}
 
-You can use the following settings:
+The following settings are available:
 
 {% include [mgp-dbms-settings](../../_includes/mdb/mgp/dbms-settings.md) %}
 
 ## External S3 data source settings {#s3-settings}
 
-You can use the following settings:
+The following settings are available:
 
 * **Access Key**{#setting-access-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage public access key.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
 
 * **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage secret access key.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
 
 * **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -49,25 +49,25 @@ You can use the following settings:
 
     Fast upload is enabled by default.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
 
 * **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage address. {{ objstorage-full-name }} is set to `{{ s3-storage-host }}`. This is a default value.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/s3_objstore_cfg.html#minio-server-configuration-1).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
 
 ## External JDBC data source settings {#jdbc-settings}
 
-You can use the following settings:
+The following settings are available:
 
 * **Driver**{#setting-driver} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    JDBC driver class in Java. The possible values include:
+    JDBC driver class in Java. The possible values are:
 
     {% include [JBDC driver](../../_includes/mdb/mgp/jdbc-driver.md) %}
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
 
 * **Url**{#setting-url} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -75,19 +75,19 @@ You can use the following settings:
 
     {% include [URL examples](../../_includes/mdb/mgp/url-examples.md) %}
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
 
 * **User**{#setting-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     DB owner username.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
 
 * **Password**{#setting-password} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     DB user password.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#jdbc-server-configuration-2).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
 
 * **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -95,7 +95,7 @@ You can use the following settings:
 
     The default value is `100`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#statementlevel-properties-5).
 
 * **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -103,7 +103,7 @@ You can use the following settings:
 
     The default value is `1000`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#statementlevel-properties-5).
 
 * **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -111,13 +111,13 @@ You can use the following settings:
 
     The default value is `60`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#statementlevel-properties-5).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#statementlevel-properties-5).
 
 * **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     This setting determines whether the JDBC connection pool is used. It is enabled by default.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
 * **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -125,7 +125,7 @@ You can use the following settings:
 
     The default value is `5`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
 * **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -133,7 +133,7 @@ You can use the following settings:
 
     The default value is `30000`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
 * **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -141,7 +141,7 @@ You can use the following settings:
 
     The default value is `30000`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
 * **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -149,11 +149,11 @@ You can use the following settings:
 
     The default value is `0`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
 
 ## External HDFS data source settings {#hdfs-settings}
 
-You can use the following settings:
+The following settings are available:
 
 {% include [HDFS and Hive settings](../../_includes/mdb/mgp/external-sources-additional-settings.md) %}
 
@@ -205,15 +205,15 @@ You can use the following settings:
 
 ## External Hive data source settings {#hive-settings}
 
-You can use the following settings:
+The following settings are available:
 
 {% include [HDFS and Hive settings](../../_includes/mdb/mgp/external-sources-additional-settings.md) %}
 
 * **Ppd**{#setting-ppd} {{ tag-con }} {{ tag-api }}
 
-    This setting determines whether predicate pushdown is enabled for external table queries. It is enabled by default.
+    This setting determines whether predicate pushdown is enabled for external table queries. Enabled by default.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/cfg_server.html#about-the-pxfsitexml-configuration-file-3).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/cfg_server.html#about-the-pxfsitexml-configuration-file-3).
 
 * **Metastore Uris**{#setting-metastore-uris} {{ tag-con }} {{ tag-api }}
 

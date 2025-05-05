@@ -10,7 +10,7 @@ description: In this article, you will learn about available platforms when crea
 
 {% note warning %}
 
-The `{{ region-id }}-d` zone does not support VMs based on the Intel Broadwell platform. To [move](../operations/vm-control/vm-change-zone.md) such VMs to `{{ region-id }}-d`, do one of the following:
+The `{{ region-id }}-d` zone does not support VMs based on Intel Broadwell, {{ v100-broadwell }}, {{ v100-cascade-lake }}, and {{ a100-epyc }}. To [move](../operations/vm-control/vm-change-zone.md) such VMs to `{{ region-id }}-d`, do one of the following:
 
 * Take a disk snapshot and use it to create a new VM in the `{{ region-id }}-d` zone on a different platform.
 * Stop the VM, change the platform, and move the VM by running `relocate`.
@@ -19,7 +19,7 @@ The `{{ region-id }}-d` zone does not support VMs based on the Intel Broadwell p
 
 ## Standard platforms {#standard-platforms}
 
-Platform | Processor | Maximum number of</br> cores (vCPUs) per VM | CPU base</br> clock rate (GHz)
+Platform | Processor | Maximum number of</br> cores (vCPUs)per VM | CPU base</br> clock rate (GHz)
 --- | --- | --- | ---
 Intel Broadwell</br>(`standard-v1`) | [Intel® Xeon® Processor E5-2660 v4](https://ark.intel.com/content/www/us/en/ark/products/91772/intel-xeon-processor-e5-2660-v4-35m-cache-2-00-ghz.html) | 32 | 2.00
 Intel Cascade Lake</br>(`standard-v2`) | [Intel® Xeon® Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 80 | 2.10

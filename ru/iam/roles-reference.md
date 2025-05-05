@@ -1493,31 +1493,7 @@ description: В статье приведен полный справочник 
 
 Подробнее см. [{#T}](../managed-redis/security/index.md).
 
-## {{ msp-full-name }} {#msp-roles}
 
-#### managed-spark.auditor {#managed-spark-auditor}
-
-{% include [managed-spark.auditor](../_roles/managed-spark/auditor.md) %}
-
-#### managed-spark.viewer {#managed-spark-viewer}
-
-{% include [managed-spark.viewer](../_roles/managed-spark/viewer.md) %}
-
-#### managed-spark.user {#managed-spark-user}
-
-{% include [managed-spark.user](../_roles/managed-spark/user.md) %}
-
-#### managed-spark.editor {#managed-spark-editor}
-
-{% include [managed-spark.editor](../_roles/managed-spark/editor.md) %}
-
-#### managed-spark.admin {#managed-spark-admin}
-
-{% include [managed-spark.admin](../_roles/managed-spark/admin.md) %}
-
-#### managed-spark.integrationProvider {#managed-spark-integrationProvider}
-
-{% include [managed-spark.integrationProvider](../_roles/managed-spark/integrationProvider.md) %}
 
 
 ## {{ mms-full-name }} {#mms-roles}

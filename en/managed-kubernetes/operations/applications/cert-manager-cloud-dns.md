@@ -36,11 +36,11 @@ The cert-manager app with the {{ dns-full-name }} ACME webhook plugin supports [
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select the [cert-manager app with the {{ dns-full-name }} ACME webhook plugin](/marketplace/products/yc/cert-manager-webhook-yandex) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `cert-manager-dns-space`. If you leave the default namespace, cert-manager with the {{ dns-full-name }} plugin may work incorrectly.
    * **Application name**: Specify the app name, e.g., `cert-manager`.
    * **Service account key**: Paste the contents of the `key.json` file or create a new [key](../../../iam/concepts/authorization/key.md).
    * **Folder ID**: Specify the ID of the folder hosting the {{ dns-name }} zone, to confirm domain ownership at the DNS-01 challenge.
@@ -76,6 +76,8 @@ The cert-manager app with the {{ dns-full-name }} ACME webhook plugin supports [
    * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 
    This command also creates a new namespace required for cert-manager.
+
+   If you set `namespace` to the default namespace, cert-manager may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `cert-manager-dns-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

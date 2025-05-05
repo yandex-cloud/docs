@@ -27,6 +27,8 @@ items:
             href: operations/cluster-backups.md
           - name: Managing disk space
             href: operations/storage-space.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
           - name: Updating the PostgreSQL version
             href: operations/cluster-version-update.md
           - name: Deleting a cluster
@@ -133,7 +135,7 @@ items:
         href: tutorials/yq-postgre.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md
-      - name: Fixing string sorting issues after upgrading glibc
+      - name: Fixing string sorting issues after upgrading _glibc_
         href: tutorials/glibc-collation-issues.md
       - name: Writing data from a device into a database
         href: tutorials/data-recording.md

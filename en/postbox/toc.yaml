@@ -31,6 +31,8 @@ items:
         href: concepts/notification.md
       - name: Terms and definitions
         href: concepts/glossary.md
+      - name: Limitations on email attachments
+        href: concepts/restrictions.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tutorials

@@ -29,8 +29,8 @@ The provider transforms the request to collect external metrics from a {{ manage
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [{{ MP }}](/marketplace/products/yc/metric-provider) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `metrics-provider-space`. If you leave the default namespace, {{ MP }} may work incorrectly.
+   * **Application name**: Specify the application name.
    * **Folder ID**: Specify the [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where {{ MP }} will run.
    * **Time window**: Specify the time window to collect metrics for (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
    * (Optional) **Disable decimation**: Select this option not to apply a data [decimation function](../../../monitoring/concepts/decimation.md).
@@ -64,6 +64,8 @@ The provider transforms the request to collect external metrics from a {{ manage
      --version {{ mkt-k8s-key.yc_metric-provider.helmChart.tag }} \
      --untar
    ```
+
+   If you set `namespace` to the default namespace, {{ MP }} may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `metrics-provider-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

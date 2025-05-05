@@ -19,7 +19,7 @@ description: Follow this guide to create a broker.
 
       * Broker **{{ ui-key.yacloud.common.name }}**, e.g., `my-broker`.
       * (Optional) **{{ ui-key.yacloud.common.description }}**: Additional information about the broker.
-      * (Optional) **{{ ui-key.yacloud.common.password }}** if you are going to use it instead of a certificate to access the broker. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
+      * (Optional) **{{ ui-key.yacloud.common.password }}** if you are going to use it instead of a certificate to access the broker. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
 
           {% note info %}
 
@@ -102,7 +102,7 @@ description: Follow this guide to create a broker.
       Where:
 
       * `--broker-name`: Broker name.
-      * `--certificate-file`: Path to the public key of the certificate, e.g., `cert.pem`.
+      * `--certificate-file`: Path to the public key of the certificate, such as `cert.pem`.
 
       Result:
 
@@ -121,7 +121,7 @@ description: Follow this guide to create a broker.
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-
+   
   {% note info %}
 
   To add certificates to a broker, [generate](../certificates/create-certificates.md) them in advance.
@@ -139,7 +139,7 @@ description: Follow this guide to create a broker.
        * `certificates`: List of broker certificates for authentication with [certificates](../certificates/create-certificates.md).
 
       Here is an example of the resource structure in the configuration file:
-
+      
       ```
       resource "yandex_iot_core_broker" "my_broker" {
         name        = "test-broker"
@@ -159,19 +159,19 @@ description: Follow this guide to create a broker.
       }
       ```
 
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
 
   1. Make sure the configuration files are correct.
-      1. In the command line, go to the folder where you created the configuration file.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
 
@@ -179,9 +179,9 @@ description: Follow this guide to create a broker.
           terraform apply
           ```
 
-      1. Confirm that you want to create the resources.
+      1. Confirm creating the resources.
       
-          All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+          This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
           ```bash
           yc iot broker list

@@ -1,6 +1,6 @@
-# Installing the {{ alb-name }} Ingress controller
+# Installing the {{ alb-name }} Ingress Controller
 
-To balance the load and distribute traffic between {{ k8s }} applications, you can use an [{{ alb-full-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md). It will launch the L7 load balancer and its auxiliary resources when you create an `Ingress` resource in a {{ managed-k8s-name }} cluster.
+To balance the load and distribute traffic between {{ k8s }} applications, you can use an [{{ alb-full-name }} Ingress Controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md). It will launch the L7 load balancer and its auxiliary resources when you create an `Ingress` resource in a {{ managed-k8s-name }} cluster.
 
 ## Getting started {#before-you-begin}
 
@@ -35,7 +35,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 
-   * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) other than `default` or create a new one. If you select a default namespace, ALB Ingress Controller may run incorrectly.
+   * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `alb-ingress-controller-space`. If you leave the default namespace, ALB Ingress Controller may work incorrectly.
    * **Application name**: Specify the application name.
    * **Folder ID**: Specify the [folder ID](../../resource-manager/operations/folder/get-id.md).
    * **Cluster ID**: Specify the [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
@@ -61,7 +61,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
    sudo apt update && sudo apt install jq
    ```
 
-1. To install the [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress controller, run this command:
+1. To install the [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress Controller, run this command:
 
    ```bash
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
@@ -80,9 +80,9 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   If you set the `namespace` setting to `default`, ALB Ingress Controller may run incorrectly. We recommend you to specify a setting other than `default`.
+   If you set `namespace` to the default namespace, ALB Ingress Controller may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `alb-ingress-controller-space`).
 
-   The `enableDefaultHealthChecks` option enables application health checks in a cluster. With this option selected, ALB Ingress controller installs [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) in the node group network.
+   The `enableDefaultHealthChecks` option enables application health checks in a cluster. With this option selected, ALB Ingress Controller installs [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) in the node group network.
 
    DaemonSet adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring process, which means you get accurate traffic monitoring data. If the number of cluster nodes increases or decreases, DaemonSet adds or removes monitoring agents, respectively.
 
@@ -90,8 +90,8 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
 ## Use cases {#examples}
 
-* [{{ alb-name }} Ingress controller configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
-* [{{ alb-name }} Ingress controller logging configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
+* [{{ alb-name }} Ingress Controller configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+* [{{ alb-name }} Ingress Controller logging configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
 ## See also {#see-also}
 

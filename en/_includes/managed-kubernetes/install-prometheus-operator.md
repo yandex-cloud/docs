@@ -1,4 +1,4 @@
-{{ prometheus-name }} Operator with {{ monitoring-full-name }} support makes it easy to install and manage the [{{ managed-prometheus-full-name }}](../../monitoring/operations/prometheus/index.md) monitoring system. You can use it to collect, store, and read metrics from your containers, applications, and infrastructure. The system uses the {{ prometheus-name }} data model and the [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/) query language. This allows you to work with dashboards existing in [{{ grafana-name }}](https://grafana.com/grafana/).
+{{ prometheus-name }} Operator with {{ monitoring-full-name }} support facilitates deployment and management of the [{{ managed-prometheus-full-name }}](../../monitoring/operations/prometheus/index.md) monitoring system. You can use it to collect, store, and query metrics from your containers, applications, and infrastructure. The system leverages the {{ prometheus-name }} data model and [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/), enabling you to use your current [{{ grafana-name }}](https://grafana.com/grafana/) dashboards.
 
 ## Getting started {#before-you-begin}
 
@@ -9,7 +9,7 @@
 1. [Create a service account](../../iam/operations/sa/create.md) with the [monitoring.editor](../../monitoring/security/index.md#monitoring-editor) role.
 1. [Create an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key) for the service account:
 
-   * If you want to install {{ prometheus-name }} Operator using [{{ marketplace-full-name }}](#marketplace-install), create an API key in JSON format and save it to the `sa-key.json` file:
+   * If you want to install {{ prometheus-name }} Operator using [{{ marketplace-full-name }}](#marketplace-install), create an API key in JSON format and save it to a file named `sa-key.json`:
 
       ```bash
       yc iam api-key create \
@@ -27,13 +27,13 @@
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ k8s }} cluster you need and select the ![image](../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [{{ prometheus-name }} Operator with {{ monitoring-full-name }} support](/marketplace/products/yc/prometheus-operator) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.
-   * **Application name**: Specify the app name.
-   * **{{ prometheus-name }} Workspace**: Select the required {{ prometheus-name }} workspace.
+   * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `prometheus-operator-space`. If you leave the default namespace, {{ prometheus-name }} Operator may work incorrectly.
+   * **Application name**: Specify the application name.
+   * **{{ prometheus-name }} Workspace**: Select the {{ prometheus-name }} workspace.
    * **API key**: Specify the contents of the `sa-key.json` file you got earlier.
 1. Click **Install**.
 1. Wait for the application to change its status to `Deployed`.
@@ -41,10 +41,10 @@
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [Install Helm](../managed-kubernetes/helm-install.md) %}
-1. Get the {{ prometheus-name }} workspace ID, you will need it for further setup:
+1. Get the {{ prometheus-name }} workspace ID as you will need it for further setup:
 
    1. On the {{ monitoring-full-name }} [home page]({{ link-monitoring }}), select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** in the left-hand panel.
-   1. Go to the page of the required workspace. The page displays its ID.
+   1. Go to the page of the workspace in question. You will find its ID there.
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with {{ prometheus-name }} Operator, run the following command:
 
@@ -60,7 +60,9 @@
      prometheus ./kube-prometheus-stack/
    ```
 
-   The command will also create a new namespace required for {{ prometheus-name }} Operator.
+   This command will also create a new namespace for {{ prometheus-name }} Operator.
+
+   If you set `namespace` to the default namespace, {{ prometheus-name }} Operator may work incorrectly. We recommend that you specify a value different from all existing namespaces (e.g., `prometheus-operator-space`).
 
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
@@ -75,14 +77,14 @@
 
 To connect to a {{ grafana-name }} dashboard:
 
-1. Get the name of the pod with the running {{ grafana-name }} application:
+1. Get the name of the pod running {{ grafana-name }}:
 
    ```bash
    kubectl get pods --namespace=<namespace_for_{{ prometheus-name }}_Operator> \
      | grep grafana
    ```
 
-1. Configure `grafana` port forwarding to the local computer:
+1. Set up `grafana` port forwarding to your local computer:
 
    ```bash
    kubectl port-forward --namespace=<namespace_for_{{ prometheus-name }}_Operator> \
@@ -96,4 +98,4 @@ To connect to a {{ grafana-name }} dashboard:
    {% endnote %}
 
 1. In your browser, open the {{ grafana-name }} dashboard at `http://localhost:8080`.
-1. Sign in using the `admin` username and `prom-operator` password.
+1. Sign in using `admin` as the username and `prom-operator` as the password.

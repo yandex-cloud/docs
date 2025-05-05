@@ -84,7 +84,7 @@
 
     If set to `0`, the runtime of all statements is logged.
 
-    The minimum value is `-1` (disables runtime logging), the maximum value is `2147483647`. The default value is `-1`.
+    The minimum value is `-1` (disables runtime logging); the maximum value is `2147483647`; the default value is `-1`.
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement).
 

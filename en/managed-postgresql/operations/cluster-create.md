@@ -27,6 +27,22 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mpg.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 
+### {{ connection-manager-name }} {#conn-man}
+
+Cluster DB connections are managed by {{ connection-manager-name }}.
+
+Creating a cluster automatically creates:
+
+* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) with information about the database connection.
+
+* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) that stores the DB owner's user password. Storing passwords in {{ lockbox-name }} ensures their security.
+
+The connection and secret will be created for each new database user. To view all connections, select the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
+
+You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }} to configure access to connections](../../metadata-hub/operations/connection-access.md).
+
+You can use {{ connection-manager-name }} and secrets you create there free of charge.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -76,14 +92,23 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       If you have set up the storage size to increase within the maintenance window, set up a schedule for the maintenance window.
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
+
      * DB name. The name must be unique within the folder.
 
        {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     * DB owner username and password. By default, the new user is assigned 50 connections to each host in the cluster. You can change the allowed number of connections using the [Conn limit](../concepts/settings-list.md#setting-conn-limit) setting.
+     * DB owner username. By default, the new user is assigned 50 connections to each host in the cluster. You can change the allowed number of connections using the [Conn limit](../concepts/settings-list.md#setting-conn-limit) setting.
+       
+       {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
-       {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+     * Password:
 
+       * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select to enter your password. The password must be from 8 to 128 characters long.
+
+       * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select to generate a password with the help of {{ connection-manager-name }}.
+
+       To view the password, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab after you create the cluster and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+     
      * Collation (sorting) locale and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual DB level.
 
        {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
@@ -193,11 +218,23 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 
 
-     The available [connection pooler modes](../concepts/pooling.md) include `SESSION`, `TRANSACTION`, and `STATEMENT`.
-
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+     The password must be from 8 to 128 characters long.
+
+     {% note info %}
+
+     You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command, setting the user parameters as follows:
+     
+     ```bash
+       --user name=<username>,generate-password=true
+     ```
+
+     To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+     {% endnote %}
+
+     The available [connection pooler modes](../concepts/pooling.md) include `SESSION`, `TRANSACTION`, and `STATEMENT`.
 
      You can also set the additional `replication-source` option in the `--host` parameter to [manually manage replication threads](../concepts/replication.md#replication-manual).
 
@@ -312,7 +349,15 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+     The password must be from 8 to 128 characters long.
+
+     {% note info %}
+
+     You can also generate a password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `"password" = "<user_password>"`.
+
+     To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+     {% endnote %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
@@ -463,7 +508,12 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
 
        * `name`: Username.
-       * `password`: User password.
+       * `password`: User password. The password must be from 8 to 128 characters long.
+       
+          You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generatePassword": true` instead of `"password": "<user_password>"`.
+
+          To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
        * `permissions.databaseName`: Name of the database the user gets access to.
        * `login`: User permission to connect to the DB.
 
@@ -621,7 +671,12 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      * `user_specs`: User settings as an array of elements, one for each user. Each element has the following structure:
 
        * `name`: Username.
-       * `password`: User password.
+       * `password`: User password. The password must be from 8 to 128 characters long.
+       
+          You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
+
+          To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
        * `permissions.database_name`: Name of the database the user gets access to.
        * `login`: User permission to connect to the DB.
 
@@ -863,7 +918,3 @@ To create an {{ PG }} cluster copy:
 
 
 {% endlist %}
-
-
-{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
-

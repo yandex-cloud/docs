@@ -21,6 +21,7 @@ description: In this tutorial, you will learn how to configure a {{ OS }} source
 * [Migrating a {{ OS }} cluster](../../../tutorials/os-to-mos.md).
 * [Loading data from {{ OS }} to {{ objstorage-name }}](../../../tutorials/opensearch-to-object-storage.md).
 * [Migration with change of storage from {{ OS }} to {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
+* [Migration with change of storage from {{ OS }} to {{ GP }}](../../../tutorials/opensearch-to-greenplum.md).
 
 * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 

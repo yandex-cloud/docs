@@ -31,7 +31,7 @@ To get started:
 
 Create your first [security profile](concepts/profiles.md) and connect it to an existing [virtual host](../application-load-balancer/concepts/http-router.md#virtual-host) of an L7 load balancer in {{ alb-full-name }}.
 
-If you have no L7 load balancer configured, you can deploy a [test infrastructure](tutorials/balancer-with-sws-profile.md).
+If you have no L7 load balancer configured, you can deploy a [test infrastructure](tutorials/balancer-with-sws-profile/index.md).
 
 ### Create a security profile {#profile-create}
 
@@ -69,9 +69,9 @@ If you have no L7 load balancer configured, you can deploy a [test infrastructur
   1. Select the `test-sp1` profile you created earlier.
   1. Make sure the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab contains a rule with the following parameters:
 
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`.
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`.
 
       This rule sends all incoming traffic of the protected resource for automatic analysis using ML and behavioral analysis algorithms. As a result of automatic analysis:
 
@@ -214,7 +214,7 @@ ARL allows limiting the number of requests to the protected resource to avoid an
   1. On the ARL profile's review page that opens, click **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `arl-rule-1`.
   1. In the **{{ ui-key.yacloud.smartcaptcha.field_security-rule_priority }}** field, set the rule's priority within the ARL profile, e.g., `1000`.
-  1. (Optional) To test the ARL rule, enable the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (Dry run)** mode. Requests will not be blocked in this mode.
+  1. (Optional) To test the ARL rule, enable the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode. Requests will not be blocked in this mode.
   1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, select `All traffic` or `On condition`.
   1. To set [traffic conditions](concepts/conditions.md), select one or more items from the **Conditions** list:
 

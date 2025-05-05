@@ -66,18 +66,6 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
-{% note warning %}
-
-С 1 мая 2025 года увеличатся цены на ресурсы {{ ml-platform-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
-
-* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn24j84p743fhjngkebd%2Cdn2scoh2b9945dep39ih)
-* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn24j84p743fhjngkebd%2Cdn2scoh2b9945dep39ih)
-
-{% endnote %}
-
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 Цены использования конфигураций действуют при запуске вычислений в [{{ ds-nb }}](concepts/project.md#mode), запуске заданий [{{ ds-jobs }}](concepts/jobs/index.md) и работе [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).

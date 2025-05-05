@@ -24,13 +24,13 @@ Test failure scenarios on a test cluster first to make sure they do not affect t
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Chaos Mesh](/marketplace/products/yc/chaos-mesh) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 
-   * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Chaos Mesh.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `chaos-mech-space`. If you leave the default namespace, Chaos Mesh may work incorrectly.
+   * **Application name**: Specify the application name.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
@@ -51,6 +51,8 @@ Test failure scenarios on a test cluster first to make sure they do not affect t
      --create-namespace \
      chaos-mesh ./chaos-mesh/
    ```
+
+   If you set `namespace` to the default namespace, Chaos Mesh may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `chaos-mesh-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

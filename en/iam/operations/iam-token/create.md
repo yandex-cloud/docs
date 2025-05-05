@@ -3,10 +3,15 @@ title: How to get an IAM token for an account
 description: Follow this guide to get an IAM token for an account.
 ---
 
+{% note info %}
+
+These methods of getting an [IAM token](../../concepts/authorization/iam-token.md) are intended for requests by a [Yandex user account](../../concepts/users/accounts.md#passport) and are not recommended for automated solutions. If you want to automate your work with the {{ yandex-cloud }} API and get IAM tokens in software, see [{#T}](create-for-sa.md).
+
+{% endnote %}
 
 # Getting an IAM token for a Yandex account
 
-You can get an [IAM token](../../concepts/authorization/iam-token.md) for your [Yandex account](../../concepts/users/accounts.md#passport) in two ways:
+You can get an IAM token for your Yandex account in two ways:
 
 * [Using the CLI](#via-cli) (recommended). This is the most secure method. To get an IAM token, you need to install the [YC CLI](../../../cli/).
 * [Using an OAuth token](#exchange-token). This method is the simplest. Get an [OAuth token](../../concepts/authorization/oauth-token.md), which every Yandex account has, and exchange it for an IAM-token using any HTTP client you like, e.g., cURL or PowerShell.

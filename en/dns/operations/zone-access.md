@@ -29,13 +29,13 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       yc dns zone list
       ```
 
-  1. View the list of roles already assigned for the resource:
+  1. View a list of roles already assigned for the resource in question:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
       ```
 
-  1. Assign the role using the command:
+  1. Assign the role using this command:
 
       * To a user:
 
@@ -60,8 +60,8 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
         Where:
 
-        * `--service-account-id` is the [service account ID](../../iam/operations/sa/get-id.md).
-        * `--role`: [Role](../security/index.md#roles-list) to assign.
+        * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
+        * `--role`: [Role](../security/index.md#roles-list).
 
 - {{ TF }} {#tf}
 
@@ -71,7 +71,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   To assign a role for a DNS zone using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_dns_zone_iam_binding" "zone-viewers" {
@@ -84,16 +84,16 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       Where:
 
       * `dns_zone_id`: DNS zone ID.
-      * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list).
+      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_dns_zone_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+       For more information about the `yandex_dns_zone_iam_binding` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using this [CLI](../../cli/) command:
+      {{ TF }} will create all required resources. You can check the new resources using this [CLI](../../cli/) command:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -101,7 +101,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  To assign a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
 
 {% endlist %}
 
@@ -119,7 +119,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% note alert %}
 
-  The `set-access-binding` method completely rewrites access permissions for the resource! All current resource roles will be deleted.
+  The `set-access-binding` method completely rewrites access permissions for the resource! All current roles for the resource will be deleted.
 
   {% endnote %}
 
@@ -147,8 +147,8 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
      * `--access-binding`: Parameters for setting access permissions:
 
-       * `role`: [Role](../security/index.md#roles-list) to assign.
-       * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+       * `role`: [Role](../security/index.md#roles-list).
+       * `subject`: Type and ID of the [entity](../../iam/concepts/access-control/index.md#subject) assigned the role.
 
      For example, assign the `dns.editor` roles to multiple users and a service account:
 
@@ -166,7 +166,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   To assign multiple roles for a DNS zone using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_dns_zone_iam_binding" "role1" {
@@ -185,10 +185,10 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       Where:
 
       * `dns_zone_id`: DNS zone ID.
-      * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list).
+      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_dns_zone_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+      For more information about the `yandex_dns_zone_iam_binding` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Create resources:
 
@@ -206,7 +206,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `DnsZoneService/SetAccessBindings` call completely overwrite access permissions for the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method and the `DnsZoneService/SetAccessBindings` call completely overwrite access permissions for the resource. All current roles for the resource will be deleted.
 
   {% endnote %}
 
@@ -228,7 +228,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       yc dns zone add-access-binding --help
       ```
 
-  1. View the list of roles already assigned for the resource:
+  1. View a list of roles already assigned for the resource in question:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -261,9 +261,9 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To revoke a role assigned for a DNS zone using {{ TF }}:
+  To revoke a role assigned for a DNS zone:
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the role description.
+  1. Open the {{ TF }} configuration file and delete the section specifying the role:
 
       ```hcl
       ...
@@ -286,6 +286,6 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
 
 {% endlist %}

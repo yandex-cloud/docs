@@ -1,6 +1,6 @@
 ---
 title: '{{ container-registry-full-name }} pricing policy'
-description: This article provides the {{ container-registry-name }} pricing policy.
+description: This article covers the {{ container-registry-name }} pricing policy.
 editable: false
 ---
 
@@ -14,15 +14,15 @@ editable: false
 
 ## What goes into the cost of using {{ container-registry-name }} {#rules}
 
-The {{ container-registry-name }} usage cost is based on:
+The {{ container-registry-name }} usage cost includes:
 * Amount of storage used by your data.
 * Amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### Using storage {#rules-storage}
+### Using the storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
+Storage usage is measured in GB per month. The volume of data stored for a month is calculated as the average value based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% note info %}
 

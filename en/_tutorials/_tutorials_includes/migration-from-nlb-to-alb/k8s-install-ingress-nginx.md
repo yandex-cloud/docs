@@ -1,4 +1,4 @@
-1. [Install the {{ alb-full-name }}](../../../managed-kubernetes/operations/applications/alb-ingress-controller.md) Ingress controller.
+1. [Install an {{ alb-full-name }}](../../../managed-kubernetes/operations/applications/alb-ingress-controller.md) Ingress controller.
 
 1. Create an [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource for the L7 load balancer's Ingress controller:
 
@@ -70,7 +70,7 @@
             * `path`: Incoming request URI path (if `Exact`) or its prefix (if `Prefix`).
             * `backend`: Reference to a [backend or group of backends](../../../managed-kubernetes/alb-ref/ingress.md#backend) to process the requests with the specified domain name and URI path. Specify either a service backend (`service`) or a backend group (`resource`) but not both.
 
-                * `service`: {{ managed-k8s-name }} service to process the requests as a backend:
+                * `service`: {{ managed-k8s-name }} backend service for processing requests:
 
                     * `name`: {{ managed-k8s-name }} service name. The `Service` resource this field refers to must be described in line with [this configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
                     * `port`: Service port `Ingress` is going to address. For the service port, specify either a number (`number`) or a name (`name`) but not both.
@@ -81,7 +81,7 @@
 
                     {% endnote %}
 
-                * `resource`: Reference to the `HttpBackendGroup` group of backends to process the requests. A group like this may have {{ managed-k8s-name }} services or [{{ objstorage-full-name }}](../../../storage/concepts/bucket.md) buckets as backends. When using a backend group, advanced {{ alb-name }} functionality is available. You can also specify relative backend weights to allocate traffic to them in proportion.
+                * `resource`: Reference to the `HttpBackendGroup` group of backends to process the requests. A backend group can route traffic to either {{ managed-k8s-name }} services or [{{ objstorage-full-name }} buckets](../../../storage/concepts/bucket.md). When using a backend group, advanced {{ alb-name }} functionality is available. You can also specify relative backend weights to allocate traffic to them in proportion.
 
                     * `kind`: `HttpBackendGroup`
                     * `name`: Backend group name. The name must match the value specified in the `metadata.name` field of the `HttpBackendGroup` resource. The `HttpBackendGroup` resource this field refers to must be described in line with [this configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md).

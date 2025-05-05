@@ -13,6 +13,12 @@ Install the Velero application as follows:
 
     {% endnote %}
 
+    {% note info %}
+
+    Velero does not include the `restic` plugin for creating snapshots of [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [local](https://kubernetes.io/docs/concepts/storage/volumes/#local), and any other volume types without native snapshot support.
+
+    {% endnote %}
+
 
 - Manually {#manual}
 
@@ -63,7 +69,7 @@ Install the Velero application as follows:
         * `--secret-file`: Full path to the file with static access key data.
         * `--features`: List of enabled features.
         * `--snapshot-location-config`: Availability zone to host disk snapshots.
-        * (Optional) `--uploader-type=restic`: Enables the restic plugin.
+        * `--uploader-type=restic`: Optionally, enables the `restic` plugin for creating snapshots of [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [local](https://kubernetes.io/docs/concepts/storage/volumes/#local), and any other volume types without native snapshot support.
 
         Result:
 
