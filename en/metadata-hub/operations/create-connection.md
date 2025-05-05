@@ -113,7 +113,7 @@ You can create connections of the following types:
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
     1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
-    1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ VLK }}**.
+    1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ VLK }}**.
     1. Under **Connection to {{ VLK }}**, select **{{ mrd-short-name }}** cluster as the connection type and specify the cluster you need.
     1. Under **Authentication**, select how to set the password:
          * **Enter manually**: Enter the password manually.
@@ -280,7 +280,7 @@ You can create connections of the following types:
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
     1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
-    1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ RD }}**.
+    1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ RD }}**.
     1. Under **Connection to {{ RD }}**, specify the connection parameters:
        1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
        1. In the **Hosts** field, specify the [FQDNs](../../managed-redis/operations/connect/index#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the shard name.
@@ -305,7 +305,7 @@ You can create connections of the following types:
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
     1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
-    1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ VLK }}**.
+    1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ VLK }}**.
     1. Under **Connection to {{ VLK }}**, specify the connection parameters:
        1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
        1. In the **Hosts** field, specify the [FQDNs](../../managed-redis/operations/connect/index#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the [shard](../../managed-redis/operations/connect/sharded.md) name.

@@ -11,11 +11,11 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
 {{ mch-short-name }} only works with readable models uploaded to {{ objstorage-full-name }}:
 
 
-1. To link your [service account](../../iam/concepts/users/service-accounts.md) to the cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+1. To link your [service account](../../iam/concepts/users/service-accounts.md) to a cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 1. [Upload](../../storage/operations/objects/upload.md) the trained model file to {{ objstorage-full-name }}.
 1. [Connect the service account to the cluster](s3-access.md#connect-service-account). You will use your [service account](../../iam/concepts/users/service-accounts.md) to configure permissions to access the model file.
 1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
-1. In the bucket's ACL, [add the `READ` permission](../../storage/operations/buckets/edit-acl.md) to the service account.
+1. In the bucket's ACL, [add](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the service account.
 1. [Get a link](s3-access.md#get-link-to-object) to the model file.
 
 
@@ -40,7 +40,7 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
     {{ yc-mdb-ch }} ml-model list --cluster-name=<cluster_name>
     ```
 
-    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -57,7 +57,7 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) to make sure the request was successful.
 
@@ -84,7 +84,7 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
             yandex.cloud.mdb.clickhouse.v1.MlModelService.List
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) to make sure the request was successful.
 
@@ -177,7 +177,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
     1. Select the cluster:
 
-        1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
         1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button-action_add-ml-model }}**.
 
@@ -204,11 +204,11 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
       --uri=<link_to_model_file_in_Object_Storage>
     ```
 
-    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -264,7 +264,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         * `type`: Model type, always takes the `ML_MODEL_TYPE_CATBOOST` value.
         * `uri`: Link to the model file in {{ objstorage-name }}.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/MlModel/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -300,7 +300,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         * `type`: Model type, always takes the `ML_MODEL_TYPE_CATBOOST` value.
         * `uri`: Link to the model file in {{ objstorage-name }}.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -368,7 +368,7 @@ To update the contents of a model that is already connected to the cluster:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -427,7 +427,7 @@ To update the contents of a model that is already connected to the cluster:
 
         * `uri`: Link to the new model file in {{ objstorage-name }}.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/MlModel/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -470,7 +470,7 @@ To update the contents of a model that is already connected to the cluster:
 
         * `uri`: Link to the new model file in {{ objstorage-name }}.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -511,7 +511,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -572,7 +572,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
             yandex.cloud.mdb.clickhouse.v1.MlModelService.Delete
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -625,7 +625,7 @@ To upload data to {{ CH }} and test the model:
 1. Upload the data to the table:
 
     ```sql
-    INSERT INTO ml_test_table FROM INFILE '<path_to_file>/train.csv' FORMAT CSVWithNames;
+    INSERT INTO ml_test_table FROM INFILE '<file_path>/train.csv' FORMAT CSVWithNames;
     ```
 
 1. Test the model:

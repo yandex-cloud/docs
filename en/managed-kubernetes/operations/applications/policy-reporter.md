@@ -45,12 +45,12 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Policy Reporter](/marketplace/products/yc/policy-reporter) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Policy Reporter.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `policy-reporter-space`. If you leave the default namespace, Policy Reporter may work incorrectly.
+   * **Application name**: Specify the application name.
    * **Cluster ID**: Select the desired {{ managed-k8s-name }} cluster from the list.
    * **Install Policy Reporter UI**: Enable to install the **Policy Reporter UI** component for displaying results in a graphical view.
    * **Export to {{ objstorage-name }}**: Enable this option to export results to {{ objstorage-name }}. You also need to fill in the additional fields:
@@ -87,6 +87,8 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
      --set target.kinesis.streamName=<Data_Streams_stream_name> \
      policy-reporter ./policy-reporter/
    ```
+
+   If you set `namespace` to the default namespace, Policy Reporter may work incorrectly. We recommend that you specify a value different from all existing namespaces (e.g., `policy-reporter-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

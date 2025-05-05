@@ -17,7 +17,15 @@ description: In this tutorial, you will learn how to start and stop {{ unified-a
 
   To start a container with the agent, run the following command:
 
-
+  ```bash
+  sudo docker run \
+    -p 16241:16241 -it --detach --uts=host \
+    --name=ua \
+    -v /proc:/ua_proc \
+    -e PROC_DIRECTORY=/ua_proc \
+    -e FOLDER_ID=a1bs81qpemb4******** \
+    {{ registry }}/yc/unified-agent
+  ```
 
   Where `FOLDER_ID` is the ID of the folder to write metrics to.
 
@@ -30,7 +38,17 @@ description: In this tutorial, you will learn how to start and stop {{ unified-a
 
   Example of container start command with a custom configuration file:
 
-
+  ```bash
+  docker run \
+    -p 16241:16241 -it --detach --uts=host \
+    --name=ua \
+    -v /proc:/ua_proc \
+    -v `pwd`/config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
+    --entrypoint="" \
+    -e PROC_DIRECTORY=/ua_proc \
+    -e FOLDER_ID=a1bs81qpemb4******** \
+    {{ registry }}/yc/unified-agent
+  ```
 
   By default, the [status](services.md#status) section of the agent's configuration file specifies `host: null`. Please keep this in mind if you are using your own configuration file.
 
@@ -154,6 +172,6 @@ Environment variable | Default value | Description
 
 #### What's next {#what-is-next}
 
-- [Read about {{ unified-agent-short-name }} concepts](./index.md).
-- [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md).
-- [Read the {{ unified-agent-short-name }} operating guidelines](./best-practices.md).
+- [Read about {{ unified-agent-short-name }} concepts](./index.md)
+- [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md)
+- [Read the {{ unified-agent-short-name }} operating guidelines](./best-practices.md)

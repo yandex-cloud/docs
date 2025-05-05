@@ -7,18 +7,15 @@ items:
         href: quickstart/console.md
       - name: '{{ cloud-shell-name }}'
         href: quickstart/cloud-shell.md
-        hidden: true
   - name: Step-by-step guides
     items:
       - name: Updating management console settings
         href: operations/update.md
       - name: Managing {{ cloud-shell-name }}
         href: operations/cloud-shell-options.md
-        hidden: true
       - name: Using search in the management console
         href: operations/search.md
   - name: Limits in {{ cloud-shell-name }}
     href: concepts/cloud-shell/limits.md
-    hidden: true
   - name: Pricing policy
     href: pricing.md

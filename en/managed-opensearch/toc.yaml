@@ -76,6 +76,8 @@ items:
             href: tutorials/opensearch-to-ydb.md
           - name: Copying data to {{ mch-full-name }}
             href: tutorials/opensearch-to-clickhouse.md
+          - name: Copying data to {{ mgp-name }}
+            href: tutorials/opensearch-to-greenplum.md
       - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
         href: tutorials/filebeat-oss-monitoring.md
   - name: Concepts

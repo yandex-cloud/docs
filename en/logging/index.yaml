@@ -9,6 +9,19 @@ meta:
   description: >-
     This service allows you to read and write logs of services and user
     applications by grouping messages into log groups.
+  keywords:
+    - keyword: logging {{ yandex-cloud }}
+    - keyword: service logs
+    - keyword: log groups
+    - keyword: '{{ cloud-logging-short-name }} in {{ yandex-cloud }}'
+    - keyword: '{{ cloud-logging-short-name }}'
+    - keyword: logging in {{ cloud-logging-short-name }}
+    - keyword: Log Group
+    - keyword: '{{ cloud-logging-short-name }}'
+    - keyword: '{{ cloud-logging-short-name }} logs'
+    - keyword: '{{ cloud-logging-short-name }} log group'
+    - keyword: logging sink
+    - keyword: '{{ yandex-cloud }} logging'
 links:
   - title: Getting started
     description: Add records to a log group and read them

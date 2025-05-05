@@ -13,6 +13,8 @@ You can use several types of automatic scaling in the same cluster. However, usi
 
 {{ k8s-ca }} automatically modifies the number of nodes in a group depending on the load.
 
+{% include [autoscaled-node-group-restriction](../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
 When [creating a node group](../operations/node-group/node-group-create.md), select an automatic scaling type and set the minimum, maximum, and initial number of nodes in the group. {{ k8s }} will periodically check the pod status and node load on the nodes, adjusting the group size as required:
 * If pods cannot be assigned due to a lack of vCPUs or RAM on the existing nodes, the number of nodes in the group will gradually increase to the specified maximum size.
 * If the load on the nodes is insufficient, and all pods can be assigned with fewer nodes per group, the number of nodes per group will gradually decrease to the specified minimum size. If a node's pods cannot be evicted within the specified period of time ({{ k8s-decomission-timeout }}), the node is forced to stop. The waiting time cannot be changed.

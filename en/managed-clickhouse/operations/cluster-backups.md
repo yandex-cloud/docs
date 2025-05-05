@@ -109,7 +109,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
 You can restore an individual [shard](../concepts/sharding.md) or the whole cluster. You can restore the whole cluster only by using the CLI or API.
 
 
-Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) your account in {{ yandex-cloud }} has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
 
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}

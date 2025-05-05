@@ -1,10 +1,8 @@
-1. Using the command line, navigate to the folder that contains the up-to-date {{ TF }} configuration files with an infrastructure plan.
-
-1. Run the command:
+1. In the command line, navigate to the directory that contains the current {{ TF }} configuration files defining the infrastructure.
+1. Run this command:
 
    ```bash
    terraform validate
    ```
 
-   If there are errors in the configuration files, {{ TF }} will point to them.
-
+   {{ TF }} will show any errors found in your configuration files.

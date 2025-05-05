@@ -20,13 +20,13 @@ description: Learn how to install Ingress NGINX in a {{ managed-k8s-name }} clus
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Ingress NGINX](/marketplace/products/yc/ingress-nginx) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 
-   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) for Ingress NGINX or create a new one.
-   * **Application name**: Specify the app name.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `ingress-nginx-space`. If you leave the default namespace, Ingress NGINX may work incorrectly.
+   * **Application name**: Specify the application name.
    * **Number of controller replicas**: Set the number of Ingress controller replicas to improve fault tolerance. If only one replica is used, then, in case of its failure, the applications deployed using the Ingress controller will be unavailable.
 
       The default value is `1`.
@@ -66,6 +66,8 @@ description: Learn how to install Ingress NGINX in a {{ managed-k8s-name }} clus
       --create-namespace \
       ingress-nginx ./ingress-nginx/
    ```
+
+   If you set `namespace` to the default namespace, Ingress NGINX may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `ingress-nginx-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

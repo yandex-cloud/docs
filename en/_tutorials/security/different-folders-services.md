@@ -7,14 +7,14 @@ To implement this approach, you can use such {{ yandex-cloud }} services as [{{ 
 
 {{ alb-name }} enables you to create [OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI) L7 load balancers to evenly distribute traffic across your services and applications and publish them online.
 
-{{ sws-name }} protects your resources against L7 DDoS attacks and bots. You can additionally connect a [WAF](../../smartwebsecurity/concepts/waf.md) and limit the load on your resource using the [Advanced Rate Limiter](../../smartwebsecurity/concepts/arl.md) (ARL) module. To configure parameters for protecting your resources, you will need a {{ sws-name }} profile, which you then connect to the L7 load balancer.
+{{ sws-name }} protects your resources against L7 DDoS attacks and bots. You can additionally connect a [WAF](../../smartwebsecurity/concepts/waf.md) and limit the load on your resource using the [Advanced Rate Limiter](../../smartwebsecurity/concepts/arl.md) (ARL) module. Configure parameters for protecting your resources in the {{ sws-name }} profile. Connect your security profile to the L7 load balancer.
 
 To set up such a workflow, you need to do the following:
 
 * Set up centralized online publication of services by using an L7 load balancer.
 * Scan inbound traffic for information security threats by using {{ sws-name }}.
 * Restrict team access to L7 load balancers and security profiles by placing L7 load balancers in a separate folder. Access to this folder must be restricted to a limited number of authorized personnel, e.g., IS employees.
-* Establish network communication between L7 load balancers and team targets in different folders through [Multi-folder VPC](../../vpc/tutorials/multi-folder-vpc.md). L7 load balancers and team resources must reside in different subnets of the same VPC network.
+* Establish network communication between L7 load balancers and team targets in different folders through a [Multi-folder VPC](../../vpc/tutorials/multi-folder-vpc.md). L7 load balancers and team resources must reside in different subnets of the same VPC network.
 
 ## {{ yandex-cloud }} resource placement chart {#resource-allocation-scheme}
 
@@ -24,13 +24,13 @@ The chart displays the following resources:
 
 * **ALB**: L7 load balancers created in {{ alb-name }} and used to publish services online.
 * **SWS**: {{ sws-name }} to implement protection at the application layer (L7).
-* **IS folder**: ALB L7 load balancer folder accessible only to IS employees.
+* **IS folder**: ALB L7 folder accessible only to IS employees.
 * **VPC**: Cloud network hosting ALB and team subnets.
   * **alb-subnet-a**, **alb-subnet-b**, and **alb-subnet-d**: Subnets with ALB nodes.
   * **subnet-team-1** and **subnet-team-2**: Subnets with team resources.
 * **Team folders**: Folders containing team targets, e.g., virtual machines (VMs), databases, [NLB](../../network-load-balancer/) L3-L4 load balancers, and more.
 
-This tutorial assumes that you have already created targets for your services and placed them in different folders.
+This guide assumes that you have already created targets for your services and placed them in different folders.
 Therefore, consider the following:
 
 * [Requirements and best practices for further resource configuration](#requirements-recommendations).
@@ -51,7 +51,7 @@ Therefore, consider the following:
 ### L7 load balancers {#l7-balancer-requirements}
 
 * Place all L7 load balancers in a single folder accessible exclusively to IS employees.
-* Optionally, enable L3-L4 [DDoS protection](../../vpc/ddos-protection/). Proceed as follows:
+* Optionally, enable L3-L4 [DDoS protection](../../vpc/ddos-protection/). To do this:
     * [Reserve](../../vpc/operations/get-static-ip.md) a public static IP address with DDoS protection and use it for the L7 load balancer's listener.
     * [Configure]({{ link-console-support }}) a trigger threshold for the L3-L4 protection mechanisms, aligned with the amount of legitimate traffic to your services.
     * [Set the MTU](../../vpc/operations/adjust-mtu-ddos-protection.md) to `1450` on your targets.
@@ -69,12 +69,12 @@ Therefore, consider the following:
   * Traffic processed per second
 * In case of high load on the L7 load balancer, consider its [limits](../../application-load-balancer/concepts/limits.md). If you cannot scale the service using resources within a single load balancer, distribute it across multiple L7 load balancers.
 * Assign a dedicated L7 load balancer to each service under high load.
-* When publishing multiple services through a single ALB L7 load balancer, consider the relevant [SLA](https://yandex.ru/legal/cloud_sla_apploadbalancer).
+* When publishing multiple services through a single ALB L7, consider the relevant [SLA](https://yandex.ru/legal/cloud_sla_apploadbalancer).
 * Note that external requests to web servers will originate from IP addresses within the internal IP range of the L7 load balancer subnets. IP addresses of request sources (users) will be included in the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) HTTP header. Therefore, to log user IP addresses from XFF on the target web servers, you may need to update the configuration.
 
 ### Targets {#target-resources-requirements}
 
-* In the L7 load balancer target group, provide the IP addresses of your services from team folders to make available on the internet.
+* In the L7 load balancer target group, provide the IP addresses of your services from team folders to publish on the internet.
 * These IP addresses must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3).
 * If the target internal IP address changes, manually update the L7 load balancer's target group configuration.
 
@@ -140,7 +140,7 @@ Your application backends will be deployed on the VM instance of the [target gro
 
 - Management console {#console}
 
-  1. Enter the target group name: `test-target-group`.
+  1. Enter `test-target-group` as the target group name.
   1. Provide the internal IP address of your target, which is either your service's internal NLB listener address or the VM address.
   1. Select the subnet hosting your service resources.
 
@@ -162,7 +162,7 @@ Your application backends will be deployed on the VM instance of the [target gro
   1. Enable **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
   1. Enter the backend group name: `test-backend-group`.
   1. Leave `HTTP` as the group type.
-  1. To ensure that requests from a single user session are handled by the same backend resource, enable **{{ ui-key.yacloud.alb.label_session-affinity }}**. If your target is an NLB internal load balancer, you do not have to enable session affinity.
+  1. To ensure that requests from a single user session are handled by the same backend resource, enable **{{ ui-key.yacloud.alb.label_session-affinity }}**. If your target is an internal NLB, you do not have to enable session affinity.
    
   1. Under **{{ ui-key.yacloud_billing.alb.label_backends }}**:
 
@@ -171,7 +171,7 @@ Your application backends will be deployed on the VM instance of the [target gro
      * Leave the previously created target group, `test-target-group`.
      * Specify the TCP port of your service. It is usually `80` for HTTP and `443` for HTTPS.
      * If your target is a VM, make sure to set up a [health check](../../application-load-balancer/concepts/best-practices.md).
-     * If your target is an NLB internal load balancer, disable the health check.
+     * If your target is an internal NLB, disable the health check.
   
   1. Click **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 

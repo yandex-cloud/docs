@@ -16,6 +16,28 @@ meta:
     Yandex Key Management Service helps you create and manage encryption keys
     that you can use to protect your data in the Yandex Cloud infrastructure and
     encrypt or decrypt any of your data.
+  keywords:
+    - keyword: key management
+    - keyword: kms
+    - keyword: key {{ kms-name }}
+    - keyword: '{{ kms-name }}'
+    - keyword: encryption keys
+    - keyword: keys in {{ kms-name }}
+    - keyword: '{{ yandex-cloud }} encryption keys'
+    - keyword: symmetric key
+    - keyword: symmetric key in {{ kms-name }}
+    - keyword: asymmetric key
+    - keyword: asymmetric key in {{ kms-name }}
+    - keyword: key pair
+    - keyword: public key
+    - keyword: public key {{ kms-name }}
+    - keyword: private key
+    - keyword: private key {{ kms-name }}
+    - keyword: envelope encryption
+    - keyword: AES
+    - keyword: RSA
+    - keyword: '{{ kms-name }}'
+    - keyword: '{{ kms-name }} in {{ yandex-cloud }}'
 links:
   - title: Getting started
     description: Use a KMS key to encrypt and decrypt text

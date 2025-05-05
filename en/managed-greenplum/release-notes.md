@@ -53,7 +53,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 * You can now [expand a cluster](operations/hosts/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments.
 * You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI releases](../cli/release-notes.md#version0.100.0).
 * Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the relevant [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
-* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gp_toolkit.html#topic34).
+* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Improved the algorithm for creating clusters via the wizard:
     * Cluster size cannot exceed `<maximum_number_of_hosts> × <maximum_disk_size_per_host>`.
     * You can select groups of dedicated hosts to deploy the cluster.
@@ -74,10 +74,10 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 * Added CLI support: `{{ yc-mdb-gp }} cluster` and `{{ yc-mdb-gp }} hosts` commands are available.
 * You can now migrate databases from/to {{ mgp-name }} using {{ data-transfer-full-name }}. See the [documentation](../data-transfer/concepts/index.md#connectivity-matrix) for available targets and sources. This feature is at the [Preview](../overview/concepts/launch-stages.md) stage.
-* Added support for the [pgcrypto]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-modules-pgcrypto.html) extension.
+* Added support for the [pgcrypto]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-modules-pgcrypto.html) extension.
 * [Optimized](https://github.com/wal-g/wal-g/pull/1257) backup creation through special processing of append-only segments.
-* Added the [diskquota]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-modules-diskquota.html) module that enables you to limit the amount of disk space used by schemas in a database.
-* Implemented automatic switchover to a standby master host using the [gpactivatestandby]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpactivatestandby.html) utility.
+* Added the [diskquota]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-modules-diskquota.html) module that enables you to limit the amount of disk space used by schemas in a database.
+* Implemented automatic switchover to a standby master host using the [gpactivatestandby]({{ gp.docs.vmware }}/7/greenplum-database/utility_guide-ref-gpactivatestandby.html) utility.
 * Added the `max_statement_mem` and `log_statement` settings that are available when creating and changing a cluster.
 * Added the ability to create a cluster with an odd number of segments.
 * Limited the minimum storage size on network SSD disks for a master host to 100 GB.

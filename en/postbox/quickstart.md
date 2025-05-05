@@ -42,13 +42,15 @@ Use this guide to create your address and send a verification email.
 
 {% endlist %}
 
-## Pass domain ownership verification {#verify-domain}
+## Pass a domain rights check {#verify-domain}
 
 {% include [check-domain](../_includes/postbox/check-domain.md) %}
 
 ## Send a verification email {#send-test-email}
 
 You can send a test email using the [AWS CLI](#aws-cli-send) or from your email client over [SMTP](#smtp-send).
+
+{% include [tls](../_includes/postbox/tls.md) %}
 
 ### AWS CLI {#aws-cli-send}
 

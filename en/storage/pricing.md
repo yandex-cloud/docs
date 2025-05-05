@@ -57,15 +57,6 @@ You pay for data operations according to the following policy:
 
 
 
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ objstorage-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2li5qddoc5cad2n6br).
-
-{% endnote %}
-
-
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

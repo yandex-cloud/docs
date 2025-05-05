@@ -14,7 +14,7 @@ To get started with {{ managed-k8s-name }}:
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
-1. Install the {{ k8s }} command line tool, [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/).
+1. Install the {{ k8s }} CLI, [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
 1. If you do not have a [network](../vpc/concepts/network.md#network) yet, [create one](../vpc/operations/network-create.md).
 1. If you do not have any [subnets](../vpc/concepts/network.md#subnet) yet, [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
@@ -119,7 +119,7 @@ With kubectl, you can manage the {{ managed-k8s-name }} cluster. To configure th
 
      {% include [note-connect-button](../_includes/managed-kubernetes/note-connect-button.md) %}
 
-     {% endnote %}        
+     {% endnote %}
 
      * By default, credentials are added to the `$HOME/.kube/config` directory.
      * If you need to change the configuration location, use `--kubeconfig <file_path>`.

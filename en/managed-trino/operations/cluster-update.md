@@ -20,7 +20,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -33,7 +33,7 @@ After creating a cluster, you can edit its basic and advanced settings.
             {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cluster security group.
-    1. Change the configuration of the coordinator and workers.
+    1. Change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable or disable cluster deletion protection.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable or disable logging. If logging is enabled, specify the log group or folder to write logs to and the minimum logging level.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.

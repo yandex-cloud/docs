@@ -20,6 +20,8 @@ You can view expenses for the labeled resources in a CSV [file with usage detail
 
 ## Object labels {#object-tags}
 
+You can work with object labels in the [management console]({{ link-console-main }}) as well as in the [YC CLI](../../cli/quickstart.md), [AWS CLI](../tools/aws-cli.md), [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket), and [S3 API](../s3/index.md).
+
 Object label operation limits are as follows:
 
 * Maximum number of labels per object: 10.

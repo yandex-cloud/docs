@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Удаление всех объектов из бакета
 
+{% include [restore-only-versioning](../../../_includes/storage/restore-only-versioning.md) %}
+
 {% include [auto-delete-all-multipart](../../../_includes/storage/auto-delete-all-multipart.md) %}
 
 Чтобы очистить бакет и не [платить](../../pricing.md) за хранение:
@@ -82,6 +84,25 @@ description: Следуя данной инструкции, вы сможете
         - key: file-2
           version_id: "null"
       request_id: 4c35e7d4********
+      ```
+
+      Альтернативная команда:
+
+      ```bash
+      yc storage s3 rm \
+        s3://<имя_бакета>/ \
+        --recursive
+      ```
+
+      Где `--recursive` — параметр для удаления всех объектов.
+
+      Результат:
+
+      ```text
+      delete: s3://my-bucket/object-1.txt
+      delete: s3://my-bucket/object-2.txt
+      ...
+      delete: s3://my-bucket/object-n.txt
       ```
 
 - AWS CLI {#aws-cli}

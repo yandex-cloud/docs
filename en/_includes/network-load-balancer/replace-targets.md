@@ -5,7 +5,7 @@
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [network load balancer](../../network-load-balancer/concepts/index.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
-  1. Select the [target group](../../network-load-balancer/concepts/target-resources.md) you need.
+  1. Select the [target group](../../network-load-balancer/concepts/target-resources.md) in question.
   1. Under **{{ ui-key.yacloud.load-balancer.target-group.label_targets-section-title }}**, remove the old [VMs](../../compute/concepts/vm.md) and add new ones.
 
 - CLI {#cli}
@@ -14,7 +14,7 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  1. View a description of the [CLI](../../cli/) command for removing resources from a [target group](../../network-load-balancer/concepts/target-resources.md):
+  1. See the description of the [CLI](../../cli/) command for removing targets from a [target group](../../network-load-balancer/concepts/target-resources.md):
 
      ```bash
      yc load-balancer target-group remove-targets --help
@@ -22,7 +22,7 @@
 
   1. [Get](../../network-load-balancer/operations/target-group-list.md#list) a list of [{{ network-load-balancer-name }}](../../network-load-balancer/) target groups in the default [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Get](../../network-load-balancer/operations/target-group-list.md#get) a list of targets linked to the target group.
-  1. Remove the old [VMs](../../compute/concepts/vm.md) from the target group:
+  1. Remove old [VMs](../../compute/concepts/vm.md) from the target group:
 
      ```bash
      yc load-balancer target-group remove-targets <target_group_ID> \
@@ -34,7 +34,7 @@
 
      Where:
      * `<target_group_ID>`: ID of the target group to remove targets from.
-     * `--target`: Resource parameters in the target group:
+     * `--target`: Settings of the target within the target group:
        * `subnet-id`: [Subnet](../../vpc/concepts/network.md#subnet) ID of the target to remove.
        * `address`: [Internal IP address](../../vpc/concepts/address.md#internal-addresses) of the target to remove.
 
@@ -50,7 +50,7 @@
      targets:
      ```
 
-  1. View a description of the CLI command for adding targets to a target group:
+  1. See the description of the CLI command for adding targets to a target group:
 
      ```bash
      yc load-balancer target-group add-targets --help
@@ -92,7 +92,7 @@
      +----------------------+------------+-------------------+---------+-----------------+--------------+
      ```
 
-  1. Add targets to your target group:
+  1. Add targets to the target group:
 
      ```bash
      yc load-balancer target-group add-targets <target_group_ID> \
@@ -104,9 +104,9 @@
 
      Where:
      * `<target_group_ID>`: ID of the target group to add targets to.
-     * `--target`: Resource parameters in the target group:
-       * `subnet-id`: ID of the subnet of the target to be added.
-       * `address`: Internal IP address of the target to be added.
+     * `--target`: Settings of the target within the target group:
+       * `subnet-id`: Subnet ID of the target to add.
+       * `address`: Internal IP address of the target to add.
 
      Result:
 
@@ -126,9 +126,9 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the [target group](../../network-load-balancer/concepts/target-resources.md) description fragment in the {{ TF }} configuration file and edit the `subnet_id` and `address` field values in the `target` section:
+  1. Open the {{ TF }} configuration file, find the section describing the [target group](../../network-load-balancer/concepts/target-resources.md), and edit the `subnet_id` and `address` values under `target`:
 
-     {% cut "Sample target group description" %}
+     {% cut "Target group description example" %}
 
      ```hcl
      resource "yandex_lb_target_group" "foo" {
@@ -148,7 +148,7 @@
 
   {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 
   ```bash
   yc load-balancer target-group get <target_group_name>

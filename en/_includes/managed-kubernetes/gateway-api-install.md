@@ -10,7 +10,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-1. [Create a service account](../../iam/operations/sa/create.md) required for Gateway API.
+1. [Create a Gateway API service account](../../iam/operations/sa/create.md).
 1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create resources.
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
@@ -34,7 +34,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.
+   * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `gateway-api-space`. If you leave the default namespace, Gateway API may work incorrectly.
    * **Application name**: Specify the application name.
    * **Folder ID**: Select the folder where you want to create your load balancers.
    * **Network ID**: Select the [cloud network](../../vpc/concepts/network.md#network) where your [load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) will reside.
@@ -66,6 +66,8 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
    ```
 
    In this command, specify the network and its subnets where your [load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) will reside.
+
+   If you set `namespace` to the default namespace, Gateway API may work incorrectly. We recommend that you specify a value different from all existing namespaces (e.g., `gateway-api-space`).
 
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

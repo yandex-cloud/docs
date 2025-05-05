@@ -8,7 +8,7 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the {{ mmg-name }} cluster.
   1. Select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
 
@@ -106,7 +106,7 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
 - Management console {#console}
 
   To add a host to your {{ mmg-name }} cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the {{ mmg-name }} cluster you need and go to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Specify the host parameters:
@@ -178,7 +178,7 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
 - {{ TF }} {#tf}
 
   To add a host to your {{ mmg-name }} cluster:
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. Add the following to the {{ mmg-name }} cluster description:
@@ -282,7 +282,7 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
                         "hidden": <hide_host>,
                         "secondaryDelaySecs": "<replica_lag_in_seconds>",
                         "priority": "<host_priority>",
-                        "tags": "<host_labels>"
+                        "tags": "<host_tags>"
                       }
                     ]
                   }'
@@ -300,7 +300,7 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
       * `priority`: * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
       * `secondaryDelaySecs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
       * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
-      * `tags`: Host labels.
+      * `tags`: Host tags.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -334,7 +334,7 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
                     "hidden": <hide_host>,
                     "secondary_delay_secs": "<replica_lag_in_seconds>",
                     "priority": "<host_priority>",
-                    "tags": "<host_labels>"
+                    "tags": "<host_tags>"
                   }
                 ]
               }' \
@@ -352,7 +352,7 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
       * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
       * `secondaryDelaySecs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
       * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
-      * `tags`: Host labels.
+      * `tags`: Host tags.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -381,7 +381,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
     To change the parameters of a host in a cluster, run the command below:
 
     ```bash
-    {{ yc-mdb-mg }} host update <host_name> \
+    {{ yc-mdb-mg }} host update \
       --cluster-name <cluster_name> \
       --host hostname=<host_name>,`
             `assign-public-ip=<public_access_to_host>,`
@@ -404,7 +404,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
     To change the parameters of the cluster host:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -558,7 +558,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 - Management console {#console}
 
   To remove a host from a {{ mmg-name }} cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, check **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
@@ -581,7 +581,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 - {{ TF }} {#tf}
 
   To remove a host from a {{ mmg-name }} cluster:
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. Delete the corresponding `host` block from the {{ mmg-name }} cluster description.
@@ -670,7 +670,7 @@ During this operation:
 
    {% note info %}
 
-   * During syncing, the host can't fully respond to any request, because it has only part of the {{ mmg-name }} cluster data.
+   * During syncing, the host cannot fully respond to any request, because it has only a part of the {{ mmg-name }} cluster data.
    * Estimated sync rate: 300 GB per day or more.
 
    {% endnote %}
@@ -680,7 +680,7 @@ During this operation:
 - Management console {#console}
 
   To forcibly resync a host:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.mdb.clusters.button_action-resetup }}**.
 
@@ -781,7 +781,7 @@ You can only restart one host at a time.
 - Management console {#console}
 
   To restart a host:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
   1. Confirm the host restart.

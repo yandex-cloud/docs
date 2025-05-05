@@ -7,6 +7,7 @@ description: Follow this guide to send an email in {{ postbox-name }}.
 
 In {{ postbox-name }}, you can send an email using the [AWS CLI](#aws-cli-send) or from your email client over [SMTP](#smtp-send).
 
+{% include [tls](../../_includes/postbox/tls.md) %}
 
 ## Getting started {#before-begin}
 

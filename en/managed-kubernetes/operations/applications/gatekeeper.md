@@ -10,15 +10,15 @@
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 
 1. Click the name of the cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gatekeeper](https://yandex.cloud/ru/marketplace/products/yc/gatekeeper) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 
 1. Configure the application:
-    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-    * **Application name**: Specify the app name.
+    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `gatekeeper-space`. If you leave the default namespace, Gatekeeper may work incorrectly.
+    * **Application name**: Specify the application name.
     * **Audit interval**: Set the interval between audits in seconds. `0` disables audits.
     * **Constraint violations limit**: Set the maximum number of violations to be logged for each constraint.
     * **Only matching resource types**: Select this option if you need to validate only those {{ k8s }} resource types for each constraint that are explicitly specified in the constraint. If no resource types are specified or the option is disabled, all resources will be validated.
@@ -50,6 +50,8 @@
       --create-namespace \
       gatekeeper ./gatekeeper/
     ```
+
+  If you set `namespace` to the default namespace, Gatekeeper may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `gatekeeper-space`).
 
   You can redefine optional parameters in the install command using the following key: `--set <parameter_name>=<new_value>`.
 

@@ -4,24 +4,44 @@ description:
     <i>Yandex Cloud Video is at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
   - >-
-    Yandex Cloud Video is a service for organizing streaming broadcasts and
-    video hosting. You can upload, store and process videos for further
-    publication on external resources, as well as launch online broadcasts.
-    Broadcasts and videos are played in an integrated video player.
+    Yandex Cloud Video is an end-to-end video content management platform. Use
+    the complete set of tools for video storage, processing, hosting, and online
+    streaming. Broadcasts and videos are played in an integrated video player.
 meta:
   title: Yandex Cloud Video
+  keywords:
+    - keyword: '{{ video-name }}'
+    - keyword: videos in {{ video-name }}
+    - keyword: '{{ video-name }} in {{ yandex-cloud }}'
+    - keyword: video content in {{ yandex-cloud }}
+    - keyword: streams in {{ video-name }}
+    - keyword: channels in {{ video-name }}
+    - keyword: broadcasts in {{ video-name }}
+    - keyword: playlists in {{ video-name }}
+    - keyword: video hosting in {{ yandex-cloud }}
+    - keyword: streaming broadcasts in {{ yandex-cloud }}"
+    - keyword: '{{ video-name }} live stream'
+    - keyword: video feed in {{ yandex-cloud }}"
+    - keyword: '{{ video-name }} line'
+    - keyword: episode in {{ video-name }}
+    - keyword: '{{ video-name }} video player'
+    - keyword: '{{ video-name }} content'
+    - keyword: hosting in {{ video-name }}
 links:
-  - title: Getting started with video hosting
-    description: Download your first video
-    href: hosting
-  - title: Getting started with video broadcasts
-    description: Create your first broadcast
-    href: streaming
+  - title: Getting started
+    description: Upload a video or create your first broadcast
+    href: quickstart-overview
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
   - title: Concepts
-    description: Find out about channels, broadcasts, lines and videos
+    description: Learn about channels, broadcasts, lines, and videos
     href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

@@ -28,7 +28,7 @@ You can request detailed information about each {{ mtr-name }} cluster you creat
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
 
 {% endlist %}

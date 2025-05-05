@@ -42,7 +42,7 @@ description: Follow this guide to delete function scaling settings.
 
     To delete any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
 
-    1. In the configuration file, describe the parameters of the resources you want to create:
+    1. In the configuration file, describe the resources you want to create:
 
        * `yandex_function_scaling_policy`: Description of function scaling settings.
          * `function_id`: Function ID.
@@ -84,14 +84,14 @@ description: Follow this guide to delete function scaling settings.
        terraform plan
        ```
         
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
          
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
 
     You can check the deletion of the scaling settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
     

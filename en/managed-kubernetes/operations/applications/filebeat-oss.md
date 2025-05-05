@@ -61,11 +61,11 @@ description: Follow this guide to install Filebeat OSS.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Filebeat OSS](/marketplace/products/yc/filebeat-oss) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `filebeat-oss-space`. If you leave the default namespace, Filebeat OSS may work incorrectly.
    * **Application name**: Specify the app name, e.g., `filebeat-oss`.
    * **{{ OS }} username**: Enter the username that Filebeat OSS will use to connect to the {{ mos-name }} cluster.
    * **{{ OS }} connection password**: Enter the user password for the {{ mos-name }} cluster.
@@ -94,6 +94,8 @@ description: Follow this guide to install Filebeat OSS.
 
    This command will also create a new namespace required for Filebeat OSS.
 
+   If you set `namespace` to the default namespace, Filebeat OSS may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `filebeat-oss-space`).
+
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 1. Make sure the Filebeat OSS pod has changed its status to `Running`:
@@ -104,7 +106,7 @@ description: Follow this guide to install Filebeat OSS.
 
 ## Use cases {#examples}
 
-* [Monitoring a {{ managed-k8s-name }} cluster using Filebeat OSS](../../tutorials/filebeat-oss-monitoring.md).
+* [{{ managed-k8s-name }} cluster monitoring with Filebeat OSS](../../tutorials/filebeat-oss-monitoring.md)
 
 ## See also {#see-also}
 

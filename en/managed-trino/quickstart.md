@@ -47,21 +47,21 @@ To get started:
     1. Specify a name for the cluster.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the previously created service account.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../vpc/operations/network-create.md), [subnet](../vpc/operations/subnet-create.md), and [security group](../vpc/concepts/security-groups.md) for the cluster.
-    1. Configure the coordinator and workers.
-    1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add folders:
+    1. Configure the [coordinator](concepts/index.md#coordinator) and [workers](concepts/index.md#workers).
+    1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add [catalogs](concepts/index.md#catalog) one by one:
 
-        1. For the {{ mpg-name }} cluster, with the following properties:
+        1. For the [previously created](#before-you-begin) {{ mpg-name }} cluster:
 
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `test`.
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `PostgreSQL`.
-           * **URL**: `jdbc:postgresql://<FQDN_of_host_of_Managed_Service_for_Postgresql>:6432/<DB_name>?ssl=true&sslmode=verify-full`
+           * **URL**: `jdbc:postgresql://<{{ PG }}_cluster_host_FQDN>:6432/<DB_name>?ssl=true&sslmode=verify-full`.
 
                To learn how to get the FQDN of a host in a {{ mpg-name }} cluster, see [this guide](../managed-postgresql/operations/connect.md#fqdn).
 
-           * **User name**: Username in the {{ mpg-name }} cluster.
+           * **Username**: Username in the {{ mpg-name }} cluster.
            * **Password**: User password.
 
-        1. For test data, with the following properties:
+        1. To generate test data:
 
             * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `data`.
             * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `TPC-H`.
@@ -155,4 +155,5 @@ Expected response:
 
 # What's next {#whats-next}
 
-* Learn other [methods of connection to a {{ mtr-name }} cluster](operations/connect.md).
+* Learn about [service resource relationships](concepts/index.md).
+* Explore other [methods of connecting to a {{ mtr-name }} cluster](operations/connect.md).

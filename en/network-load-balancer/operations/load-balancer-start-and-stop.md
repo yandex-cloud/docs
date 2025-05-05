@@ -1,8 +1,8 @@
 # Stopping and starting a load balancer
 
-You can stop and restart a network load balancer, if required.
+You can stop and restart a network load balancer as needed.
 
-## Stop a network load balancer {#stop}
+## Stopping a network load balancer {#stop}
 
 {% list tabs group=instructions %}
 
@@ -10,7 +10,7 @@ You can stop and restart a network load balancer, if required.
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to stop a load balancer.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. In the line of the load balancer you need to stop, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Stop**.
+  1. Next to the load balancer you need to stop, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Stop**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.stop }}**.
 
 - CLI {#cli}
@@ -19,7 +19,7 @@ You can stop and restart a network load balancer, if required.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To stop a load balancer in the `ACTIVE` status, run this command:
+  To stop a load balancer with the `ACTIVE` status, run this command:
 
   ```bash
   yc load-balancer network-load-balancer stop <load_balancer_name_or_ID>
@@ -35,9 +35,9 @@ You can stop and restart a network load balancer, if required.
 
 {% endlist %}
 
-## Start a network load balancer {#start}
+## Starting a network load balancer {#start}
 
-You can restart a network load balancer in the `Stopped` status.
+You can restart a network load balancer with the `Stopped` status.
 
 {% list tabs group=instructions %}
 
@@ -45,7 +45,7 @@ You can restart a network load balancer in the `Stopped` status.
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to start a load balancer.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. In the line of the load balancer you need to start, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Start**.
+  1. Next to the load balancer you need to start, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Start**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}
@@ -54,7 +54,7 @@ You can restart a network load balancer in the `Stopped` status.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To start a load balancer in the `STOPPED` status, run this command:
+  To start a load balancer with the `STOPPED` status, run this command:
 
   ```bash
   yc load-balancer network-load-balancer start <load_balancer_name_or_ID>

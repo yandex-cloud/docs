@@ -178,6 +178,7 @@ description: Из статьи вы узнаете про доступные м�
 * `data-tooltip-content`
 * `data-tooltip-placement`
 
+
 {% endcut %}
 
 #### Поддерживаемые виды чартов {#gen-html-charts}

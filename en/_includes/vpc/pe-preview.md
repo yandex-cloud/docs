@@ -1,5 +1,5 @@
 {% note warning %}
 
-The **Service connections** (VPC Private Endpoints) functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage. To request access, contact your account manager.
+The **VPC Private Endpoints** feature is at the [Preview stage](../../overview/concepts/launch-stages.md). To request access to the feature, contact your account manager.
 
 {% endnote %}

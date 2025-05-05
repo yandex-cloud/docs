@@ -14,7 +14,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the name of the key pair.
    1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -81,9 +81,45 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
             --subject group:<group_ID>
          ```
 
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To assign a role for an asymmetric encryption key pair through {{ TF }}:
+
+   1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+
+       ```hcl
+       resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-viewers" {
+         asymmetric_encryption_key_id = "<key_pair_ID>"
+         role                         = "<role_1>"
+         members                      = ["<subject_type>:<subject_ID>"]
+       }
+       ```
+
+       Where:
+
+       * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
+       * `role`: [Role](../security/index.md#roles-list).
+       * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+
+       For more information about the `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
+
+   1. Create resources:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+       {{ TF }} will create all required resources. You can check the new resources using this [CLI](../../cli/) command:
+
+       ```bash
+       yc kms asymmetric-key list-access-bindings <key_ID>
+       ```
+
 - API {#api}
 
-   Use the [AsymmetricEncryptionKeyService/UpdateAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/updateAccessBindings.md) gRPC API call and provide the following in the request:
+   Use the [UpdateAccessBindings](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/updateAccessBindings.md) method for the [AsymmetricEncryptionKey](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/index.md) resource or the [AsymmetricEncryptionKeyService/UpdateAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/updateAccessBindings.md) gRPC API call and provide the following in the request:
 
    * `ADD` value in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
@@ -99,7 +135,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the name of the key pair.
    1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -171,7 +207,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
             --access-binding role=<role>,subject=group:<group_ID>
          ```
 
-      Provide a separate `--access-binding` flag for each role. Example:
+      Provide a separate `--access-binding` flag for each role. For example:
 
       ```bash
       yc kms asymmetric-encryption-key set-access-bindings \
@@ -181,11 +217,55 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
          --access-binding role=<role_3>,service-account-id=<service_account_ID>
       ```
 
+- {{ TF }} {#tf}
+
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To assign multiple roles for an asymmetric encryption key pair through {{ TF }}:
+
+   1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+
+       ```hcl
+       # Role 1
+       resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-viewers" {
+         asymmetric_encryption_key_id = "<key_pair_ID>"
+         role                         = "<role_1>"
+         members                      = ["<subject_type>:<subject_ID>"]
+       }
+
+       # Role 2
+       resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-editors" {
+         asymmetric_encryption_key_id = "<key_pair_ID>"
+         role                         = "<role_2>"
+         members                      = ["<subject_type>:<subject_ID>"]
+       }
+       ```
+
+       Where:
+
+       * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
+       * `role`: [Role](../security/index.md#roles-list).
+       * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+
+       For more information about the `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
+
+   1. Create resources:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+       {{ TF }} will create all required resources. You can check the new resources using this [CLI](../../cli/) command:
+
+       ```bash
+       yc kms asymmetric-key list-access-bindings <key_ID>
+       ```
+
 - API {#api}
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [AsymmetricEncryptionKeyService/SetAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [SetAccessBindings method](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/setAccessBindings.md) for the [AsymmetricEncryptionKey](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/index.md) resource or the [AsymmetricEncryptionKeyService/SetAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
    * ID of the subject getting the roles in the `access_bindings[].subject.id` parameter.

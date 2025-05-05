@@ -1,6 +1,6 @@
 ---
-title: Configuring access to {{ objstorage-full-name }} from an {{ OS }} cluster
-description: In this tutorial, you will learn how to set up access to {{ objstorage-name }} storage to use it as an {{ OS }} snapshot repository.
+title: Configuring access to {{ objstorage-full-name }} from a {{ OS }} cluster
+description: In this tutorial, you will learn how to configure access to {{ objstorage-name }} to use it as an {{ OS }} snapshot repository.
 ---
 
 # Configuring access to {{ objstorage-name }} from an {{ OS }} cluster
@@ -16,7 +16,7 @@ To access {{ objstorage-name }} bucket data from a cluster:
 1. [Connect a snapshot repository](#register-snapshot-repository).
 
 
-Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. You will need this role in the following cases:
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role in the following cases:
 
 
 * To create or modify a cluster and link it to a service account.
@@ -27,7 +27,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
 1. When [creating](cluster-create.md) or [updating](update.md) a cluster, either select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
 
-1. Make sure this account [has](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role.
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to this account.
 
 
 ## Configure access permissions {#configure-acl}

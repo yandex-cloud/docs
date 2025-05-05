@@ -1,6 +1,6 @@
 # Working with PXF
 
-The [{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/intro_pxf.html) (PXF) protocol is used to access data in external DBMS's.
+The [{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/intro_pxf.html) (PXF) protocol is used to access data in external databases.
 
 Let's say there is a table with sales data over several years. It contains three data types:
 
@@ -25,10 +25,10 @@ For such tables, you can specify external data source settings in the SQL query.
 
 1. Add a data source to {{ mgp-name }}. The steps needed to add a source depend on the source connection type:
 
-   * [S3](pxf/create-s3-source.md)
-   * [JDBC](pxf/create-jdbc-source.md)
-   * [HDFS](pxf/create-hdfs-source.md)
-   * [Hive](pxf/create-hive-source.md)
+    * [S3](pxf/create-s3-source.md)
+    * [JDBC](pxf/create-jdbc-source.md)
+    * [HDFS](pxf/create-hdfs-source.md)
+    * [Hive](pxf/create-hive-source.md)
 
 1. [Create an external table](pxf/create-table.md) using PXF.
 

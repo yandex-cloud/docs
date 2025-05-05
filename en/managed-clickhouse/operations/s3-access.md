@@ -28,7 +28,7 @@ If no service account is specified, SQL queries will be sent:
 See also [Examples of working with objects](#examples).
 
 
-Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) your account in {{ yandex-cloud }} has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. You will need this role in the following cases:
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role in the following cases:
 
 
 * To create or modify a cluster and link it to a service account.
@@ -38,7 +38,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
 1. When [creating](cluster-create.md) or [updating](update.md) a cluster, either select an existing service account or create a new one.
 
-1. Make sure that this account is assigned the correct roles from the `storage.*` role group. If required, assign it the appropriate roles, e.g., `storage.viewer` and `storage.uploader`.
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the correct roles to the service account from the `storage.*` role group, e.g., `storage.viewer` and `storage.uploader`.
 
 {% note tip %}
 

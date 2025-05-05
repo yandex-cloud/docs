@@ -36,7 +36,7 @@ Such key is managed on the user side, which provides additional opportunities:
 
 ## Encrypting {{ k8s }} secrets {#k8s-secrets-encryption}
 
-A [_{{ k8s }} secret_](https://kubernetes.io/docs/concepts/configuration/secret/) is confidential information used by {{ k8s }} clusters when managing pods, e.g., OAuth keys, passwords, SSH keys, etc.
+A [_{{ k8s }} secret_](https://kubernetes.io/docs/concepts/configuration/secret/) is private information the {{ k8s }} clusters use when managing pods, e.g., OAuth keys, passwords, SSH keys, etc.
 
 By default, cluster secrets are stored in an open format. If you specified an encryption key when [creating a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md), the cluster secrets will be encrypted.
 

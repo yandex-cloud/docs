@@ -1,14 +1,10 @@
----
-noIndex: true
----
-
 # Limits in {{ cloud-shell-full-name }}
 
 {% include notitle [preview](../../../_includes/note-preview.md) %}
 
 The following limitations apply when using the {{ cloud-shell-name }} terminal:
 
-| Limit type                                                             | Value      |
+| Type of limitation                                                             | Value      |
 |:----------------------------------------------------------------------------|:--------------|
 | Maximum active session time                                          | 12 hours      |
 | Maximum number of concurrent active sessions                        | 4             |

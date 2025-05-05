@@ -6,7 +6,7 @@ description: In this tutorial, you will learn about what a trail is, its setting
 # Trail
 
 
-Trail is an {{ at-name }} resource collecting and writing {{ yandex-cloud }} audit logs to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}, [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}, or [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-name }}.
+A trail is an {{ at-name }} resource that collects audit logs of {{ yandex-cloud }} resources and writes them to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), or {{ yds-name }} [data flow](../../data-streams/concepts/glossary.md#stream-concepts).
 
 ## Audit log collection scope {#collecting-area}
 

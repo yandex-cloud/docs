@@ -73,7 +73,7 @@ These rules apply to [synchronous recognition](stt/request.md) and [streaming mo
 
 The billing unit is a 15-second segment of a single-channel audio file. Shorter segments are rounded up (1 second becomes 15 seconds).
 
-{% note info %}
+{% note warning %}
 
 In [streaming mode](stt/streaming.md), billing begins as soon as you send a [message with recognition settings](stt/streaming.md#specification-msg). If you do not send any audio after this message, it will be treated as one consumed billing unit.
 
@@ -118,14 +118,6 @@ The cost of an empty request to any type of speech recognition is equal to that 
 
 
 ## Prices for the Russia region {#prices}
-
-
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ speechkit-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn20fgh8pg8d27h1cp7f).
-
-{% endnote %}
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

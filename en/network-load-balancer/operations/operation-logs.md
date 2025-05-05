@@ -1,6 +1,6 @@
-# Viewing operations with {{ network-load-balancer-name }} resources
+# Viewing {{ network-load-balancer-name }} resource operations
 
-All actions with {{ network-load-balancer-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ network-load-balancer-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,16 +8,16 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
 
 - Management console {#console}
 
-  To view all operations with {{ compute-name }} resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
+  To view all operations with {{ network-load-balancer-name }} resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a network load balancer. The same steps apply to a target group.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for a network load balancer. The same steps apply to target groups as well.
 
-  1. In the [management console]({{ link-console-main }}), open the folder the network load balancer is in.
+  1. In the [management console]({{ link-console-main }}), open the folder with your network load balancer.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. Select the appropriate network load balancer.
-  1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel.
+  1. Select the network load balancer in question.
+  1. Navigate to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel.
 
-      You will see a list of network load balancer operations.
+      You will see a list of operations with the selected network load balancer.
 
 - CLI {#cli}
 
@@ -51,7 +51,7 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
   +----------------------+---------------------+----------------------+---------------------+--------+----------------------------+
   ```
 
-  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is displayed as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc load-balancer network-load-balancer list-operations enp87akr8sdr******** --format yaml
@@ -78,7 +78,7 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
 
   To get a list of operations, use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
-  For example, for a network load balancer, use the [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/ListOperations](../api-ref/grpc/NetworkLoadBalancer/listOperations.md) gRPC API call. Provide the network load balancer ID in the `networkLoadBalancerId` parameter of the request.
+  For example, for a network load balancer, use the [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/ListOperations](../api-ref/grpc/NetworkLoadBalancer/listOperations.md) gRPC API call, providing the network load balancer ID in the `networkLoadBalancerId` parameter of your request.
 
   You can get the network load balancer ID with the [list of network load balancers in the folder](load-balancer-list.md#list).
 

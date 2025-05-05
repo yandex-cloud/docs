@@ -12,6 +12,11 @@ You can use your own file with a Linux [VM](../../concepts/vm.md) [disk](../../c
 
 If you have developed software that might be helpful to others, consider [listing](../../../marketplace/operations/create-product.md) it in {{ marketplace-full-name }}.
 
+{% note warning %}
+
+Images with an [UEFI/EFI](https://en.wikipedia.org/wiki/UEFI) bootloader are not compatible with {{ compute-name }}. To boot from disks larger than 2 TB with the [GUID Partition Table (GPT)](https://en.wikipedia.org/wiki/GUID_Partition_Table), use the [GRUB 2](https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html) bootloader.
+
+{% endnote %}
 
 ## Configuring the OS to meet the requirements {#requirements}
 
@@ -92,7 +97,7 @@ Follow the steps below to check if the drivers are installed in your OS. If not,
 
    - Debian/Ubuntu {#ubuntu}
 
-     Run this command:
+     Run the following command:
 
      ```sh
      lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|_pci|fs)"

@@ -9,6 +9,25 @@ description:
     Limiter (ARL)</a>.
 meta:
   title: Yandex Smart Web Security
+  keywords:
+    - keyword: SWS
+    - keyword: '{{ sws-name }}'
+    - keyword: DDoS protection
+    - keyword: '{{ sws-name }} in {{ yandex-cloud }}'
+    - keyword: bot protection
+    - keyword: '{{ sws-name }} profile'
+    - keyword: WAF in {{ yandex-cloud }}"
+    - keyword: ARL
+    - keyword: Firewall in {{ yandex-cloud }}"
+    - keyword: security profile
+    - keyword: '{{ sws-name }}'
+    - keyword: traffic filtering
+    - keyword: filtering in {{ sws-name }}
+    - keyword: '{{ sws-name }} IP blacklist'
+    - keyword: '{{ sws-name }} IP whitelist'
+    - keyword: traffic analysis
+    - keyword: traffic in {{ sws-name }}
+    - keyword: web security
 links:
   - title: Getting started
     description: Create your first security profile and connect it to the L7 load balancer
@@ -29,10 +48,10 @@ links:
     description: Leverage out-of-the-box use cases to protect your web apps
     href: tutorials/balancer-with-sws-profile
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access permissions to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

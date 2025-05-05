@@ -2,7 +2,7 @@
 
 {{ GP }} allocates a separate process for each established connection. With numerous client connections, it creates multiple processes and manages distributed data structures. This may cause a lack of computing resources affecting the DBMS performance.
 
-To address the lack of resources issue, a connection pooler is added before the {{ GP }} cluster. The pooler manages connections to allow large numbers of clients to connect to the DBMS without degrading performance. A relatively small number of re-usable connections are maintained between the connection pooler and the DBMS. After the client is disconnected, the connection is returned to the pool and can be reused by the same or a new client.
+To address the lack of resources issue, a connection pooler is added before the {{ GP }} cluster. That pooler manages connections to allow a large number of clients to connect to the DBMS without affecting performance. A relatively small number of re-usable connections are maintained between the connection pooler and the DBMS. After the client is disconnected, the connection is returned to the pool and can be reused by the same or a new client.
 
 This deployment method complicates the administration because the servers hosting the connection pooler are added to the DBMS infrastructure.
 
@@ -24,8 +24,8 @@ Odyssey supports two modes of connection management:
 
     The transaction mode provides high performance and allows you to load the DBMS as efficiently as possible. However, this mode is not supported by certain {{ GP }} clients and does not allow using:
 
-    * [Temporary tables]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-DECLARE.html), and [advisory locks]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
-    * [Prepared statements]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-PREPARE.html).
+    * [Temporary tables]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-DECLARE.html), and [advisory locks]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
+    * [Prepared statements]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-PREPARE.html).
 
     {% note info %}
 
@@ -37,13 +37,13 @@ You can [change](../operations/update.md#change-additional-settings) the connect
 
 ## Odyssey features {#features}
 
-Integrating {{ mgp-name }} with the Odyssey connection pooler has several advantages, e.g., compared to the [PgBouncer]({{ gp.docs.vmware }}/6/greenplum-database/admin_guide-access_db-topics-pgbouncer.html) connection pooler:
+Integrating {{ mgp-name }} with the Odyssey connection pooler has several advantages, e.g., compared to the [PgBouncer]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-access_db-topics-pgbouncer.html) connection pooler:
 
 | Comparison criterion | Odyssey | PgBouncer |
 |------------------------|---------|-----------|
 | Resource usage | {{ mgp-name }} clusters are less prone to running out of computing resources with multiple client connections. This is because of asynchronous multithreading built into the Odyssey architecture. This is especially important if most client connections to the DBMS use SSL/TLS. | PgBouncer uses a single-threaded architecture. This may lead to problems with resource consumption and scalability under high load. |
 | Supporting client connections | Odyssey strives to keep the client connection alive as long as possible after the transaction ends in order to re-use it if this client returns with a new transaction. | PgBouncer seeks to return such kind of connection to the pool as quickly as possible. |
-| Handling errors | {{ mgp-name }} clusters provide improved error handling capabilities, thus ensuring that errors on the {{ GP }} side are sent to the client application without any changes. | PgBouncer hides {{ GP }} error messages. As a result, all errors look like a PgBouncer connection error to the client. |
+| Handling errors | {{ mgp-name }} clusters provide improved error handling capabilities, thus ensuring that errors on the {{ GP }} side are sent to the client application without changes. | PgBouncer hides {{ GP }} error messages. As a result, all errors look like a PgBouncer connection error to the client. |
 
 In addition, thanks to its integration with Odyssey, a {{ mgp-name }} cluster:
 
@@ -51,7 +51,7 @@ In addition, thanks to its integration with Odyssey, a {{ mgp-name }} cluster:
 * Requires no extra connection pooler configuration effort or additional infrastructure for it to operate.
 * Allow you to limit the number of concurrent cluster connections.
 * Support advanced transaction pooling, such as automatic operation cancel and transaction rollback when a client connection is broken.
-* Provides detailed logging of all events. Each client connection also gets a unique ID, which helps track the entire process of establishing a connection.
+* Provides detailed logging of all events that occur. Each client connection also gets a unique ID, which helps track the entire process of establishing a connection.
 
     {% note tip %}
 

@@ -49,15 +49,6 @@ The size of resource backups can fall short of the resource disk size, e.g., if 
 
 ## Prices for the Russia region {#prices}
 
-
-
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ backup-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn21j2nquomme940r5rt).
-
-{% endnote %}
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 The monthly prices are based on 720 hours per month.

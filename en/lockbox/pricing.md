@@ -1,6 +1,6 @@
 ---
 title: '{{ lockbox-full-name }} pricing policy'
-description: This article provides the {{ lockbox-name }} pricing policy.
+description: This article covers the {{ lockbox-name }} pricing policy.
 editable: false
 ---
 
@@ -14,6 +14,8 @@ The cost of using {{ lockbox-name }} is calculated based on:
 
 * Number of secret versions.
 * Number of completed [get](api-ref/Payload/get) operations on a secret.
+
+There is no charge for using secrets created with {{ connection-manager-name }}.
 
 
 {% note info %}

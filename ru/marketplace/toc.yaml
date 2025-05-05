@@ -51,16 +51,22 @@ items:
         items:
           - name: Начало работы с API
             href: api-ref/quickstart.md
-          - name: REST
+          - name: REST (англ.)
             items:
-              - name: Обзор
-                href: api-ref/index.md
+              - name: Overview
+                href: metering/api-ref/index.md
               - name: ImageProductUsage
                 items:
-                  - name: Описание
-                    href: api-ref/ImageProductUsage/index.md
-                  - name: write
-                    href: api-ref/ImageProductUsage/write.md
+                  - name: Overview
+                    href: metering/api-ref/ImageProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/ImageProductUsage/write.md
+              - name: ProductUsage
+                items:
+                  - name: Overview
+                    href: metering/api-ref/ProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/ProductUsage/write.md
           - name: gRPC (англ.)
             items:
               - name: Overview

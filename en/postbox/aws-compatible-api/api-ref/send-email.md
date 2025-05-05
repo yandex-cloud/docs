@@ -85,7 +85,11 @@ Address the email is sent from. The address must be verified. ||
 Used exclusively for compatibility with AWS. ||
 || `Destination` | **Type**: Object.
 
-Object containing parameters that describe your email. ||
+Object containing the address for sending the letter. 
+
+* `ToAddresses`: Addresses the email is sent to. Type: Array. 
+* `CcAddresses`: Addresses the email copy is sent to. Type: Array.
+* `ToAddresses`: Addresses a BCC of the email is sent to. Type: Array. ||
 || `Simple` | **Type**: Object.
 
 Simple type. You cannot use it together with `Raw` or `Template`. Suitable if you need to send an email without any additional setup. Such an email consists of a subject line and content. Type: Object. ||
@@ -93,7 +97,7 @@ Simple type. You cannot use it together with `Raw` or `Template`. Suitable if yo
 
 Describes the subject:
   * `Data`: Text of the subject. Type: String.
-  * `Charset`: Encoding. Type: String. The possible values are `UTF-8`, `ISO-8859-1`, and `Shift_JIS`. ||
+  * `Charset`: Encoding. Type: String. The possible value is `UTF-8`. ||
 || `Headers` | **Type**: Array.
   * `Name`: Header name. Type: String.
   * `Value`: Header value. Type: String. 
@@ -105,10 +109,10 @@ Describes the subject:
 Describes the content:
   * `Text`: Object responsible for displaying the email in clients without HTML support. Type: Object.
       * `Data`: Email text. Type: String.
-      * `Charset`: Encoding. Type: String. The possible values are `UTF-8`, `ISO-8859-1`, and `Shift_JIS`.
+      * `Charset`: Encoding. Type: String. The possible value is `UTF-8`.
   * `Html`: Object responsible for displaying the email in clients with HTML support. Type: Object.
       * `Data`: Email text. Type: String.
-      * `Charset`: Encoding. Type: String. The possible values are `UTF-8`, `ISO-8859-1`, and `Shift_JIS`. ||
+      * `Charset`: Encoding. Type: String. The possible value is `UTF-8`. ||
 || `Template` | **Type**: Object.
 
 Template type. You cannot use it together with `Simple` or `Raw`. Suitable if you need to send an email based on a template. Only the templates provided in the request are supported.||

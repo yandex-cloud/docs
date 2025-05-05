@@ -1,3 +1,3 @@
-You can download videos in the following formats: [MP4](https://en.wikipedia.org/wiki/MP4_file_format), [AVI](https://en.wikipedia.org/wiki/Audio_Video_Interleave), [MKV](https://en.wikipedia.org/wiki/Matroska), [FLV](https://en.wikipedia.org/wiki/Flash_Video), and [MOV](https://en.wikipedia.org/wiki/QuickTime_File_Format).
+You can upload videos in various supported formats, such as [MP4](https://en.wikipedia.org/wiki/MP4_file_format), [AVI](https://en.wikipedia.org/wiki/Audio_Video_Interleave), [MKV](https://en.wikipedia.org/wiki/Matroska), [FLV](https://en.wikipedia.org/wiki/Flash_Video), [MOV](https://en.wikipedia.org/wiki/QuickTime_File_Format), [WebM](https://en.wikipedia.org/wiki/WebM), etc.
 
 {{ video-name }} [limits](../../video/concepts/limits.md) the resolution of the videos you are publishing.
