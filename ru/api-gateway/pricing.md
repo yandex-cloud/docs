@@ -16,7 +16,7 @@ editable: false
 
 В рамках сервиса {{ api-gw-name }} тарифицируется количество запросов к созданным API-шлюзам и исходящий трафик. 
 
-{% note info %}
+{% note warning %}
 
 {{ api-gw-name }} обрабатывает только запросы по протоколу HTTPS. Сервис автоматически перенаправляет все запросы к API-шлюзам по протоколу HTTP на их HTTPS-версии. 
 
@@ -48,18 +48,6 @@ editable: false
 {% include [prices-example](../_includes/api-gateway/prices-example.md) %}
 
 ## Цены для региона Россия {#prices}
-
-
-{% note warning %}
-
-С 1 мая 2025 года увеличатся цены на ресурсы {{ api-gw-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
-
-* [Цены в рублях](https://yandex.cloud/ru/price-list?installationCode=ru&currency=RUB&services=dn25mc2lq81eqg1ohe4i)
-* [Цены в тенге](https://yandex.cloud/ru/price-list?installationCode=ru&currency=KZT&services=dn25mc2lq81eqg1ohe4i)
-
-{% endnote %}
-
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

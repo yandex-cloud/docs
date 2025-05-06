@@ -14,9 +14,9 @@ There is no guarantee that records will be deleted as soon as the specified rete
 ----- | -----
 | **Adding records** |
 | Maximum number of records per request | 100 |
-| Maximum record size | 128 KB |
-| Maximum `message` size | 64 KB |
-| Maximum `json-payload` size | 64 KB |
+| Maximum record size | 1.6 MB |
+| Maximum `message` size | 0.8 MB |
+| Maximum `json-payload` size | 0.8 MB |
 | **Reading records** |
 | Maximum number of requests per second | 5 |
 | **Other restrictions** |

@@ -36,7 +36,7 @@ links:
     description: Prepare a multi-page document for print
     href: reports/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
     description: Permissions required to use the service

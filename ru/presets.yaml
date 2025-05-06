@@ -6763,12 +6763,7 @@ default:
         column_baremetal-instance-status: Статус сервера
         context_current-bms: текущий
         context_current-vm: текущая
-        field_auto-delete: Хранение копий
-        field_backup-scheme: Тип
-        field_days-of-week: Дни недели
         field_delete-old-vm: Удалить неактуальную ВМ
-        field_repeat-period-type: Создавать копии
-        field_time: Время
         field_type-full: Полный
         field_type-incremental: Инкрементальный
         field_vm-instances: Cloud Backup
@@ -6787,11 +6782,22 @@ default:
         policy-form:
           field_action-on-task-failure: Повторение операций при сбое задания
           field_attempts-qty: Количество попыток
+          field_backup-periodicity: Периодичность
+          field_backup-type: Тип резервных копий
           field_interval-between-attempts: Интервал между попытками
+          field_retention: Хранение копий
           field_snapshot-reaatempt: В случае ошибки при создании снимка повторить попытку
+          field_start-time: Время запуска
+          field_week-days: Дни недели
           title_additional-section: Дополнительно
+          title_incremental-backup-card: Инкрементальные
           title_retention-section: Настройки хранения
           title_schedule-section: Расписание запуска
+          value_periodicity-daily: Каждый день
+          value_periodicity-monthly: По месяцам
+          value_periodicity-weekly: Каждую неделю
+          value_retention-variant-save-all: Хранить все копии
+          value_retention-variant-save-last-f: Только последнюю
           value_weekly-full-copy: Раз в неделю создавать полную копию
         policy-overview:
           field_compression: Уровень сжатия
@@ -6808,14 +6814,6 @@ default:
         title_backup: Резервное копирование
         title_linked-recourses: Привязанные ресурсы
         value_bms-recourses: Серверы BareMetal
-        value_day-fri: Пятница
-        value_period-time-daily: Каждый день
-        value_period-time-hourly: Каждый час
-        value_period-time-monthly: По месяцам
-        value_period-time-weekly: Каждую неделю
-        value_retention-save-all: Хранить все копии
-        value_retention-save-last-f: Только последнюю
-        value_type-incremental: Инкрементальный
         value_vm-recourses: Виртуальные машины
       baremetal:
         action_destroy-raid: Разобрать RAID
@@ -7183,6 +7181,7 @@ default:
         stop: Остановить
         type: Тип
         units:
+          label_day-Fr: Пт
           label_gigabyte: ГБ
           label_megabyte: МБ
           label_time-min_many: минут

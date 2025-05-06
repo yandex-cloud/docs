@@ -161,7 +161,7 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      curl \
        --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | \
-         base64 -d >> signature
+         base64 -d > signature
      ```
 
   1. Получите идентификационный документ и сохраните его в файл `document`:
@@ -197,7 +197,7 @@ description: Следуя данной инструкции, вы сможете
   1. Извлеките из сертификата публичный ключ и сохраните его в файл `key`:
 
      ```bash
-     openssl x509 -pubkey -noout -in certificate >> key
+     openssl x509 -pubkey -noout -in certificate > key
      ```
 
   1. Проверьте подпись и сохраните содержимое документа в файл `document`:
