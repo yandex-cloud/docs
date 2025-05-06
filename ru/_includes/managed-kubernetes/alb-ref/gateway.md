@@ -8,12 +8,12 @@
 
 `Gateway` предназначен для оператора кластера. Разработчики приложений должны использовать `TLSRoute` или `HTTPRoute`.
 
-`Gateway` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
+`Gateway` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
 
 ## Gateway {#gateway}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: <string>
@@ -25,14 +25,14 @@ spec: <GatewaySpec>
 
 Где:
 
-* `apiVersion`: `gateway.networking.k8s.io/v1alpha2`
+* `apiVersion`: `gateway.networking.k8s.io/v1`
 * `kind`: `Gateway`
 * `metadata` (`ObjectMeta`, обязательное)
   
   Метаданные ресурса.
 
   * `name` (`string`, обязательное)
-    
+
     Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем балансировщика в {{ alb-name }}.

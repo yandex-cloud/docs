@@ -1,6 +1,6 @@
 ---
 title: FAQ about dashboards
-description: This page addresses the FAQs about dashboards.
+description: This page covers FAQ about dashboards.
 ---
 
 # Dashboards

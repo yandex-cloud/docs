@@ -28,7 +28,7 @@ _[Распознавание речи](../../glossary/transcribation.md) (speech
 | **Сценарии использования** | Телефонные ассистенты и роботы </br> Виртуальные ассистенты         | Виртуальные ассистенты </br> Голосовое управление </br> Распознавание коротких голосовых сообщений в мессенджерах | Транскрибация аудиозвонков и выступлений </br> Создание субтитров </br> Контроль соблюдения скриптов колл-центров </br> Выявление успешных скриптов </br> Оценка качества работы операторов колл-центров |
 | **Входные данные** | Голос в режиме реального времени | Предзаписанные одноканальные короткие аудиофайлы | Предзаписанные многоканальные и длинные аудиофайлы |
 | **Принцип работы** | Обмен сообщениями с сервером в рамках одного соединения | Запрос — быстрый ответ | Запрос — отложенный ответ |
-| **Поддерживаемые API** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/) | [REST v1](api/request-api.md) | [REST v2](api/transcribation-api.md) </br> [gRPC v3](api/transcribation-api-v3.md) |
+| **Поддерживаемые API** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/index.md) | [REST v1](api/request-api.md) | [REST v2](api/transcribation-api.md) </br> [REST v3](../stt-v3/api-ref/index.md) </br> [gRPC v3](api/transcribation-api-v3.md) |
 | **Максимальная длительность аудиоданных** | {{ stt-streaming-audioLength }} | {{ stt-short-audioLength }} | {{ stt-long-audioLength }} |
 | **Максимальный объем переданных данных** | {{ stt-streaming-fileSize }} | {{ stt-short-fileSize }} | {{ stt-long-fileSize }} |
 | **Количество распознаваемых каналов** | 1  | 1 | 2  |

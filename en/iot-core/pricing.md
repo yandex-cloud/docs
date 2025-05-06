@@ -51,15 +51,6 @@ List of commands charged under {{ iot-name }}:
 
 ## Prices for the Russia region {#prices}
 
-
-
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ iot-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2hj92de1icl8k3m3bg).
-
-{% endnote %}
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Data volume {#volumes}

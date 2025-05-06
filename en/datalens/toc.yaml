@@ -803,7 +803,7 @@ items:
             href: operations/dashboard/add-support-message.md
           - name: Adding an access error message
             href: operations/dashboard/add-access-message.md
-          - name: Configuring links on the dashboard
+          - name: Configuring links on a dashboard
             href: operations/dashboard/dashboard-links.md
           - name: Creating an alias
             href: operations/dashboard/create-alias.md
