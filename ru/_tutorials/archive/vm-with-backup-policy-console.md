@@ -273,11 +273,11 @@
   1. Укажите параметры политики:
 
       * **{{ ui-key.yacloud.common.name }}** — `weekly-backup`.
-      * **{{ ui-key.yacloud.backup.field_repeat-period-type }}** — `{{ ui-key.yacloud.backup.value_period-time-weekly }}`.
-      * **{{ ui-key.yacloud.backup.field_days-of-week }}** — `{{ ui-key.yacloud.backup.value_day-fri }}`.
-      * **{{ ui-key.yacloud.backup.field_time }}** — `03:00`.
-      * **{{ ui-key.yacloud.backup.field_backup-scheme }}** — `{{ ui-key.yacloud.backup.value_type-incremental }}`.
-      * **{{ ui-key.yacloud.backup.field_auto-delete }}** — `{{ ui-key.yacloud.backup.value_retention-save-all }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_backup-periodicity }}** — `{{ ui-key.yacloud.backup.policy-form.value_periodicity-weekly }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_week-days }}** — `{{ ui-key.yacloud.common.units.label_day-Fr }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_start-time }}** — `03:00`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_backup-type }}** — `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_retention }}** — `{{ ui-key.yacloud.backup.policy-form.value_retention-variant-save-all }}`.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

@@ -8,7 +8,9 @@
 
 ## Привязка банковской карты {#pin-card}
 
-При [создании](../quickstart/index.md) платежного аккаунта необходимо привязать банковскую карту.
+При [создании](../quickstart/index.md) платежного аккаунта необходимо привязать банковскую карту. С этой банковской карты будут списываться средства за оплату ресурсов {{ yandex-cloud }}.
+
+{% include [no-card](../../_includes/billing/create-ba-without-card.md) %}
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 

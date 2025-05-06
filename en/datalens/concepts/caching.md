@@ -41,7 +41,7 @@ The cache will be purged if:
 
 {% cut "Can I track it in the Chart inspector whether a query has been cached?" %}
 
-This is not supported yet. However, if you use time functions, such as `NOW()`, you can see the difference between the current real time and the current cached time. By this difference you can understand how current the cached data is.
+This is not supported yet. However, if you use time functions, e.g., `NOW()`, in your request, you may see the difference between the current real time and the current cached time. By this difference you can understand how current the cached data is.
 
 {% endcut %}
 

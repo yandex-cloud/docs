@@ -212,7 +212,7 @@
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: Gateway
    metadata:
      name: gateway-api-dev
@@ -267,7 +267,7 @@
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: HTTPRoute
    metadata:
      name: dev-app-http-route
@@ -348,7 +348,7 @@
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: Gateway
    metadata:
      name: gateway-api-prod
@@ -403,7 +403,7 @@
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: HTTPRoute
    metadata:
      name: prod-app-http-route

@@ -7,18 +7,18 @@
   * `{{ ui-key.yacloud.backup.field_type-full }}` — сохраняются все данные виртуальной машины или сервера {{ baremetal-name }}.
 
 * В блоке **{{ ui-key.yacloud.backup.policy-form.title_schedule-section }}** укажите:
-  * **{{ ui-key.yacloud.backup.field_repeat-period-type }}** выберите частоту создания копий:
-      *  `{{ ui-key.yacloud.backup.value_period-time-daily }}`. Настройте создание резервной копии либо один раз в день в указанное время, либо несколько раз в день с заданной периодичностью в указанном временном интервале.
-      * `{{ ui-key.yacloud.backup.value_period-time-weekly }}`. Выберите дни недели и время, в которое в эти дни будет выполняться резервное копирование.
-      * `{{ ui-key.yacloud.backup.value_period-time-monthly }}`. Укажите месяцы, день месяца и время, в которые будет выполняться резервное копирование.
+  * **{{ ui-key.yacloud.backup.policy-form.field_backup-periodicity }}** выберите частоту создания копий:
+      *  `{{ ui-key.yacloud.backup.policy-form.value_periodicity-daily }}`. Настройте создание резервной копии либо один раз в день в указанное время, либо несколько раз в день с заданной периодичностью в указанном временном интервале.
+      * `{{ ui-key.yacloud.backup.policy-form.value_periodicity-weekly }}`. Выберите дни недели и время, в которое в эти дни будет выполняться резервное копирование.
+      * `{{ ui-key.yacloud.backup.policy-form.value_periodicity-monthly }}`. Укажите месяцы, день месяца и время, в которые будет выполняться резервное копирование.
 
   Резервные копии создаются по локальному времени ВМ или сервера {{ baremetal-name }}. Возможно небольшое отставание от расписания в зависимости от текущей нагрузки на сервис.
 
 * Для инкрементальных копий вы можете включить **{{ ui-key.yacloud.backup.policy-form.value_weekly-full-copy }}** и выбрать день недели, в который будет создаваться полная копия. В выбранный день вместо инкрементальной копии будет создана полная резервная копия.
 
 * В блоке **{{ ui-key.yacloud.backup.policy-form.title_retention-section }}** задайте политику [хранения копий](../../backup/concepts/policy.md#retention):
-  * `{{ ui-key.yacloud.backup.value_retention-save-all }}` — будут храниться все копии, созданные по этой политике резервного копирования.
-  * `{{ ui-key.yacloud.backup.value_retention-save-last-f }}` — укажите количество последних копий, которые нужно хранить, или количество дней, недель или месяцев, копии за которые нужно хранить. Остальные копии будут удаляться автоматически.
+  * `{{ ui-key.yacloud.backup.policy-form.value_retention-variant-save-all }}` — будут храниться все копии, созданные по этой политике резервного копирования.
+  * `{{ ui-key.yacloud.backup.policy-form.value_retention-variant-save-last-f }}` — укажите количество последних копий, которые нужно хранить, или количество дней, недель или месяцев, копии за которые нужно хранить. Остальные копии будут удаляться автоматически.
 
       {% note info %}
 

@@ -6759,12 +6759,7 @@ default:
         column_baremetal-instance-status: Server status
         context_current-bms: current
         context_current-vm: current
-        field_auto-delete: Retain backups
-        field_backup-scheme: Type
-        field_days-of-week: Days of the week
         field_delete-old-vm: Delete the outdated VM
-        field_repeat-period-type: Frequency
-        field_time: Time
         field_type-full: Full
         field_type-incremental: Incremental
         field_vm-instances: Cloud Backup
@@ -6783,11 +6778,22 @@ default:
         policy-form:
           field_action-on-task-failure: Repeat operation on task failure
           field_attempts-qty: Number of attempts
+          field_backup-periodicity: Frequency
+          field_backup-type: Backup type
           field_interval-between-attempts: Time between attempts
+          field_retention: Copy retention
           field_snapshot-reaatempt: Retry in case of an error while creating a snapshot
+          field_start-time: Start time
+          field_week-days: Days of the week
           title_additional-section: Additional
+          title_incremental-backup-card: Incremental
           title_retention-section: Retention settings
           title_schedule-section: Schedule
+          value_periodicity-daily: Every day
+          value_periodicity-monthly: Monthly
+          value_periodicity-weekly: Weekly
+          value_retention-variant-save-all: Retain all copies
+          value_retention-variant-save-last-f: Only the last
           value_weekly-full-copy: Create a full copy once a week
         policy-overview:
           field_compression: Compression
@@ -6800,14 +6806,6 @@ default:
         title_backup: Backups
         title_linked-recourses: Attached resources
         value_bms-recourses: BareMetal servers
-        value_day-fri: Friday
-        value_period-time-daily: Daily
-        value_period-time-hourly: Hourly
-        value_period-time-monthly: Monthly
-        value_period-time-weekly: Weekly
-        value_retention-save-all: Retain all backups
-        value_retention-save-last-f: Only the last
-        value_type-incremental: Incremental
         value_vm-recourses: Virtual machines
       baremetal:
         action_destroy-raid: Remove RAID
@@ -7175,6 +7173,7 @@ default:
         stop: Stop
         type: Type
         units:
+          label_day-Fr: Fri
           label_gigabyte: GB
           label_megabyte: MB
           label_time-min_many: minutes

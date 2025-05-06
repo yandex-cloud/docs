@@ -1,6 +1,6 @@
 ---
 title: Charts
-description: This page addresses FAQs about charts.
+description: This page covers FAQ about charts.
 ---
 
 # Charts

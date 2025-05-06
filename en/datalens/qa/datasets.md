@@ -1,6 +1,6 @@
 ---
 title: Datasets
-description: This page addresses FAQs about datasets.
+description: This page covers FAQ about datasets.
 ---
 
 # Datasets

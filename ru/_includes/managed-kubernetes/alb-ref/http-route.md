@@ -4,12 +4,12 @@
 
 `HTTPRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`HTTPRoute` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.HTTPRoute).
+`HTTPRoute` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
 
 ## HTTPRoute {#httproute}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: <string>
@@ -19,7 +19,7 @@ spec: <HTTPRouteSpec>
 
 Где:
 
-* `apiVersion`: `gateway.networking.k8s.io/v1alpha2`
+* `apiVersion`: `gateway.networking.k8s.io/v1`
 * `kind`: `HTTPRoute`
 * `metadata` (`ObjectMeta`, обязательное)
 
@@ -124,7 +124,7 @@ rules:
           value: /bar
     ```
     
-    Поддерживаются только поля, перечисленные ниже. Другие поля, описанные в [справочнике Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) (`headers`, `queryParams`), не поддерживаются.
+    Поддерживаются только поля, перечисленные ниже. Другие поля, описанные в [справочнике Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRouteMatch) (`headers`, `queryParams`), не поддерживаются.
 
     * `path` (`HTTPPathMatch`)
   
