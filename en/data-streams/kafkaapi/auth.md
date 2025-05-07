@@ -46,13 +46,13 @@ The example uses the following parameters:
  * `<kafka-api-endpoint>`: [Endpoint](#endpoint).
  * `<stream-name>`: [Stream](../concepts/glossary.md#stream-concepts) name.
 
-1. Install an SSL certificate:
+1. Install an SSL certificate if you are using a dedicated database:
 
    ```bash
-    mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-    wget "https://crls.yandex.net/YandexInternalRootCA.crt" \
+    sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
+    wget "{{ crt-web-path }}" \
      --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-    chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+    sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
 
    The certificate will be saved to the `/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt` file.
@@ -65,31 +65,59 @@ The example uses the following parameters:
 
 1. Run this command to get messages from the stream:
 
-    ```ini
-    kcat -C \
+    {% list tabs %}
+    - Serverless database
+      ```bash
+      kcat -C \
+        -b <kafka-api-endpoint> \
+        -t <stream-name> \
+        -X security.protocol=SASL_SSL \
+        -X sasl.mechanism=PLAIN \
+        -X sasl.username="<sasl.username>" \
+        -X sasl.password="<sasl.password>"
+      ```
+    - Dedicated database
+      ```bash
+      kcat -C \
         -b <kafka-api-endpoint> \
         -t <stream-name> \
         -X security.protocol=SASL_SSL \
         -X sasl.mechanism=PLAIN \
         -X sasl.username="<sasl.username>" \
         -X sasl.password="<sasl.password>" \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
-    ```
+        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+    {% endlist %}
 
     The command will continuously read new messages from the stream.
 
 1. In a separate terminal, run this command to send a message to the stream:
 
-    ```ini
-    echo "test message" | kcat -P \
-        -b <kafka-api-endpoint> \
-        -t <stream-name> \
-        -k key \
-        -X security.protocol=SASL_SSL \
-        -X sasl.mechanism=PLAIN \
-        -X sasl.username="<sasl.username>" \
-        -X sasl.password="<sasl.password>" \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
-    ```
+    {% list tabs %}
+    - Serverless database
+      ```bash
+      echo "test message" | kcat -P \
+          -b <kafka-api-endpoint> \
+          -t <stream-name> \
+          -k key \
+          -X security.protocol=SASL_SSL \
+          -X sasl.mechanism=PLAIN \
+          -X sasl.username="<sasl.username>" \
+          -X sasl.password="<sasl.password>"
+      ```
+    - Dedicated database
+      ```bash
+      echo "test message" | kcat -P \
+          -b <kafka-api-endpoint> \
+          -t <stream-name> \
+          -k key \
+          -X security.protocol=SASL_SSL \
+          -X sasl.mechanism=PLAIN \
+          -X sasl.username="<sasl.username>" \
+          -X sasl.password="<sasl.password>" \
+          -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+    {% endlist %}
+
 
 For core information on how to work with {{ yds-name }} using the Kafka API, see the [YDB documentation]({{ ydb.docs }}/reference/kafka-api).

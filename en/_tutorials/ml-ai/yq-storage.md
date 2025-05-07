@@ -1,10 +1,10 @@
-{{ yq-full-name }} is an interactive service for serverless data analysis. It enables you to process information from different storages without the need to create a dedicated cluster. The service supports working with [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
+{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without having to to create a dedicated cluster. The service supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
 
-In this tutorial, you will connect to the {{ objstorage-name }} data source and run queries against it from the {{ jlab }}Lab notebook using {{ yq-name }}.
+In this tutorial, you will connect to an {{ objstorage-name }} data source and run queries against it from the {{ jlab }}Lab notebook using {{ yq-name }}.
 
-1. [Prepare the infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Get started in {{ yq-name }}](#yq-begin).
-1. [Connect to the {{ objstorage-name }} data](#storage-connect).
+1. [Connect to {{ objstorage-name }} data](#storage-connect).
 1. [Configure data partitioning in {{ objstorage-name }}](#partitioning).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -16,13 +16,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-For working with {{ objstorage-name }} data, the cost of infrastructure support includes:
+The cost of infrastructure support for working with {{ objstorage-name }} data includes:
 
-* Fee for [{{ ml-platform-name }} computing resource](../../datasphere/pricing.md) usage.
-* Fee for [storing data](../../storage/pricing.md#prices-storage) in a bucket.
-* Fee for the amount of read data when executing [{{ yq-name }} queries](../../query/pricing.md).
+* Fee for [{{ ml-platform-name }} computing resource usage](../../datasphere/pricing.md).
+* Fee for [storing data in a bucket](../../storage/pricing.md#prices-storage).
+* Fee for the amount of read data when executing [queries using {{ yq-name }}](../../query/pricing.md).
 
-## Prepare the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -35,7 +35,7 @@ For working with {{ objstorage-name }} data, the cost of infrastructure support 
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Name your folder, e.g., `data-folder`.
+   1. Give your folder a name, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -46,12 +46,12 @@ For working with {{ objstorage-name }} data, the cost of infrastructure support 
 
 - Management console {#console}
 
-  1. Go to `data-folder`.
+  1. Navigate to `data-folder`.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `yq-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following roles to the service account:
-     * `yq.editor`: To run {{ yq-name }} queries.
+     * `yq.editor`: To run queries using {{ yq-name }}.
      * `storage.viewer`: To view the contents of the {{ objstorage-name }} bucket and objects.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -66,7 +66,7 @@ To enable the service account to run a {{ ml-platform-name }} project, add it to
 1. Select the `yq-sa` account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
 1. Change your service account role to **Editor**.
 
-### Create an authorized key for a service account {#create-key}
+### Create an authorized key for the service account {#create-key}
 
 To allow the service account to send {{ yq-name }} queries, create an [authorized key](../../iam/concepts/authorization/key.md).
 
@@ -76,7 +76,7 @@ To allow the service account to send {{ yq-name }} queries, create an [authorize
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to `data-folder`.
+  1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `yq-sa` service account.
@@ -94,7 +94,7 @@ To get an authorized key from the notebook, create a [secret](../../datasphere/c
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `yq_access_key`.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the full contents of the downloaded file with the authorized key.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the full contents of the authorized key file you downloaded.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ### Create a notebook {#create-notebook}
@@ -108,9 +108,9 @@ To get an authorized key from the notebook, create a [secret](../../datasphere/c
 
 {% include [yq-begin](../../_tutorials/_tutorials_includes/yq-begin.md) %}
 
-## Connect to data in {{ objstorage-name }} {#storage-connect}
+## Connect to {{ objstorage-name }} data {#storage-connect}
 
-As an example, let's take the data on New York Yellow Taxi rides. The data was pre-uploaded to a public {{ objstorage-name }} bucket named `yq-sample-data`, the `nyc_taxi_csv` folder.
+As an example, let's use data on New York Yellow Taxi rides. The data was pre-uploaded to a public {{ objstorage-name }} bucket named `yq-sample-data`, in the `nyc_taxi_csv` folder.
 
 {% note info %}
 
@@ -140,7 +140,7 @@ Create a {{ yq-name }} [connection](../../query/concepts/glossary.md#connection)
 
 ### Create a data binding {#create-binding}
 
-A data [binding](../../query/concepts/glossary.md#binding) contains information about file formats and locations in the bucket and about the list of data fields and their types. {{ yq-name }} can process data in CSV, TSV, JSON, and Parquet formats. For data in CSV, TSV, Json formats, you can additionally use an external archiver: gzip, zstd, and others. For data in Parquet format, Snappy, LZ4, ZSTD, and other compression types are supported.
+A [data binding](../../query/concepts/glossary.md#binding) contains information about file formats and locations in the bucket as well as about the list of data fields and their types. {{ yq-name }} can process data in CSV, TSV, JSON, and Parquet formats. For data in CSV, TSV, and Json formats, you can additionally use an external archiver: `gzip`, `zstd`, and others. For data in Parquet format, you can use Snappy, LZ4, ZSTD, and other compression types.
 
 To create a data binding:
 
@@ -165,12 +165,12 @@ To create a data binding:
   
   1. Under **{{ ui-key.yql.yq-binding-form.binding-format-settings.title }}**, select `csv_with_names` in the **{{ ui-key.yql.yq-binding-form.binding-format.title }}** field.
 
-  1. Under **{{ ui-key.yql.yq-binding-form.binding-fields.title }}**, add two columns with the following names and data types:
+  1. Under **{{ ui-key.yql.yq-binding-form.binding-fields.title }}**, add two columns with these names and data types:
 
      * `tpep_pickup_datetime`: `DATETIME`
      * `trip_distance`: `DOUBLE`
   
-  1. To verify that the specified data is correct, click **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**. The table should appear below.
+  1. To verify the data you specified is correct, click **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**. A table should appear below.
   1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 {% endlist %}
@@ -183,13 +183,13 @@ To check the connection, get the table data from the notebook cell:
 
 ## Configure partitioning in {{ objstorage-name }} {#partitioning}
 
-In {{ yq-name }}, you can significantly reduce query time if you set up rules for [partitioning](../../query/concepts/partitioning.md) (placing) data in {{ objstorage-name }} to read only the required data. For example, if files in a bucket are sorted in folders by year, {{ yq-name }} will only look for data in the specified folders when queried.
+In {{ yq-name }}, you can significantly reduce query time by setting up rules for [partitioning](../../query/concepts/partitioning.md) (placing) data in {{ objstorage-name }} to only read the required data. For example, if files in a bucket are sorted in folders by year, {{ yq-name }} will only look for data in the specified folders when queried.
 
-{{ yq-name }} supports two ways to specify data placement rules: [Hive partitioning](../../query/concepts/partitioning.md#formats) and [Partition projection](../../query/concepts/partition-projection.md).
+{{ yq-name }} supports two options for specifying data placement rules: [Hive partitioning](../../query/concepts/partitioning.md#formats) and [Partition projection](../../query/concepts/partition-projection.md).
 
 ### Hive partitioning {#hive}
 
-In Apache Hive™, data is placed in a folder structure in `key=value/key2=value2/...` format. This format is used in systems originally built around the Apache Hadoop™ ecosystem, such as Apache Spark™.
+In Apache Hive™, data is placed in a folder structure in this format: `key=value/key2=value2/...`. This format is used in systems originally built around the Apache Hadoop™ ecosystem, such as Apache Spark™.
 
 For example, data from the Yellow Taxi dataset is placed in folders according to the Hive partitioning rules:
 
@@ -215,14 +215,14 @@ Configure Hive partitioning:
      1. Under **{{ ui-key.yql.yq-schema.schema-partitioning.section-header }}**:
 
         1. Select **{{ ui-key.yql.yq-binding-form.projection-radio.disabled.label }}**.
-        1. Add a column titled `year` with `UINT32` for data type.
-        1. Add a column titled `month` with `UINT32` for data type.
+        1. Add a column named `year` with the `UINT32` data type.
+        1. Add a column named `month` with the `UINT32` data type.
 
      1. Click **{{ ui-key.yql.yq-binding-form.binding-modify.button-text }}**.
    
    {% endlist %}
 
-1. To check the result, run the following query:
+1. To check the result, run this query:
 
    ```sql
    %yq SELECT * FROM yq_tutorial_hive_partitioned WHERE year=2021
@@ -250,14 +250,14 @@ Configure partition projection:
      1. Under **{{ ui-key.yql.yq-schema.schema-partitioning.section-header }}**:
         
         1. Select **{{ ui-key.yql.yq-binding-form.projection-radio.enabled.label }}**.
-        1. Add a column titled `year` with `UINT32` for data type:
+        1. Add a column named `year` with the `UINT32` data type:
            * **{{ ui-key.yql.yq-binding-form.projection-format-type.title }}**: `integer`
            * **{{ ui-key.yql.yq-binding-form.projection-int-interval.title }}**:
              * **{{ ui-key.yql.yq-binding-form.projection-date-interval-min.placeholder }}**: `2019`
              * **{{ ui-key.yql.yq-binding-form.projection-date-interval-max.placeholder }}**: `2024`
              * **{{ ui-key.yql.yq-binding-form.projection-date-interval-step.title }}**: 1
            * **{{ ui-key.yql.yq-binding-form.projection-int-fixed-width.title }}**: 2
-        1. Add a column titled `month` with `UINT32` for data type:
+        1. Add a column named `month` with the `UINT32` data type:
            * **{{ ui-key.yql.yq-binding-form.projection-format-type.title }}**: `integer`
            * **{{ ui-key.yql.yq-binding-form.projection-int-interval.title }}**:
              * **{{ ui-key.yql.yq-binding-form.projection-date-interval-min.placeholder }}**: `1`
@@ -269,7 +269,7 @@ Configure partition projection:
    
    {% endlist %}
 
-1. To check the result, run the following query:
+1. To check the result, run this query:
 
    ```sql
    %yq SELECT * FROM yq_tutorial_partition_projection WHERE year=2021

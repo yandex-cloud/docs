@@ -1,6 +1,6 @@
 
 
-With {{ data-transfer-name }}, you can transfer data from a [{{ yds-name }} data stream](../../data-streams/concepts/glossary.md#stream-concepts) to an {{ objstorage-full-name }} bucket.
+With {{ data-transfer-name }}, you can transfer data from a [{{ yds-name }}-enabled stream](../../data-streams/concepts/glossary.md#stream-concepts) to an {{ objstorage-full-name }} bucket.
 
 1. [Set up a stream in {{ yds-name }}](#prepare-source).
 1. [Set up and activate your transfer](#prepare-transfer).
@@ -86,7 +86,7 @@ Set up your infrastructure:
 
 ## Set up a {{ yds-name }}-enabled stream {#prepare-source}
 
-1. [Create a {{ yds-name }} data stream](../../data-streams/operations/aws-cli/create.md).
+1. [Create a {{ yds-name }}-enabled stream](../../data-streams/operations/aws-cli/create.md).
 
 1. [Send test data to the data stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle sensors in JSON format as a message:
 

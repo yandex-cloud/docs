@@ -448,7 +448,7 @@ To visualize the number of requests ratio by object type, create a bar chart:
 
 1. Copy the chart from the previous step:
 
-   1. In the top-right corner, click the check mark next to the **Save** button.
+   1. In the top-right corner, click the down arrow next to the **Save** button.
    1. Click **Save as**.
    1. In the window that opens, enter the `S3 - Object type bars` name for the new chart and click **Save**.
 

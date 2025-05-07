@@ -2,21 +2,22 @@ title: Yandex Message Queue
 description:
   - >-
     Yandex Message Queue is a universal, scalable solution to enable messaging
-    between applications. You can use familiar tools to work with {{
-    message-queue-name}}, since its API is compatible with the Amazon SQS API.
+    between applications. You can use well-known and familiar tools to work with
+    {{ message-queue-name}}, since its API is compatible with the Amazon SQS
+    API.
   - 'Message Queue allows you to:'
   - >-
-    <ul><li>Set up communication between applications within your system.</li>
-    <li>Scale a system relying on information exchange between individual
-    applications.</li> <li>Increase fault tolerance of information exchange in
-    case an application fails.</li> <li>Free up resources to handle urgent
-    requests by delegating incoming message processing to dedicated
+    <ul><li>Set up communication between individual applications within your
+    system.</li> <li>Scale a system relying on information exchange between
+    individual applications.</li> <li>Increase fault tolerance of information
+    exchange in case an application fails.</li> <li>Free up resources to handle
+    urgent requests by delegating incoming message processing to dedicated
     applications.</li></ul>
   - >-
-    The service is subject to a <a
+    This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
     service level is set out in the document titled <a
-    href="https://yandex.com/legal/cloud_sla_ymq"> Yandex Message Queue Service
+    href="https://yandex.com/legal/cloud_sla_ymq">Yandex Message Queue Service
     Level</a>.
 meta:
   title: Yandex Message Queue

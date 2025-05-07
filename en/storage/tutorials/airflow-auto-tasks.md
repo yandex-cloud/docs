@@ -1,6 +1,6 @@
 ---
 title: Automating tasks using {{ maf-full-name }}
-description: In this guide, you will learn how to use {{ maf-full-name }} for automating operations with {{ yq-full-name }} data.
+description: In this tutorial, you will learn how to use {{ maf-full-name }} for automating operations with {{ yq-full-name }} data.
 canonical: '{{ link-docs }}/tutorials/dataplatform/airflow-auto-tasks'
 ---
 

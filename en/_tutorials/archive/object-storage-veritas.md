@@ -1,8 +1,8 @@
-# Backing up to {{ objstorage-full-name }} with Veritas Backup Exec
+# {{ objstorage-full-name }} backup with Veritas Backup Exec
 
 You can use {{ objstorage-full-name }} for backup and recovery using Veritas Backup Exec.
 
-To set up a backup to {{ objstorage-name }} using Veritas Backup Exec:
+To set up {{ objstorage-name }} backup using Veritas Backup Exec:
 
 1. [Get your cloud ready](#before-begin).
 1. [Create a bucket](#create-bucket).
@@ -11,7 +11,7 @@ To set up a backup to {{ objstorage-name }} using Veritas Backup Exec:
 1. [Configure cloud storage](#setup-cloud).
 1. [Add a server for backup](#add-source).
 1. [Configure the backup settings](#add-target).
-1. [Test your backup](#test-backup).
+1. [Test backup](#test-backup).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -124,7 +124,7 @@ To create a service account:
    Select the cloud device you created earlier as the storage.
 1. Click **OK**.
 
-## Test your backup {#test-backup}
+## Test backup {#test-backup}
 
 {% list tabs group=instructions %}
 

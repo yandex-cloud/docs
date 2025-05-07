@@ -35,18 +35,6 @@ editable: false
 ## Цены для региона Россия {#prices}
 
 
-{% note warning %}
-
-С 1 мая 2025 года увеличатся цены на ресурсы {{ kms-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
-
-* [Цены в рублях](https://yandex.cloud/ru/price-list?currency=RUB&installationCode=ru&services=dn2kmsd7hrdeb1u7c4nb)
-* [Цены в тенге](https://yandex.cloud/ru/price-list?currency=KZT&installationCode=ru&services=dn2kmsd7hrdeb1u7c4nb)
-
-{% endnote %}
-
-
-
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

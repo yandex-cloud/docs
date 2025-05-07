@@ -26,7 +26,7 @@ The support cost includes:
 
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -225,7 +225,7 @@ If you no longer need the resources you created, delete them:
 
 - Manually {#manual}
 
-  * [Delete the clusters {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  * [Delete the {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   * If you reserved [public static IP addresses](../../vpc/concepts/address.md#public-addresses) for the {{ managed-k8s-name }} clusters, [delete them](../../vpc/operations/address-delete.md).
   * [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
   * [Delete the service account](../../iam/operations/sa/delete.md) used to work with Velero.

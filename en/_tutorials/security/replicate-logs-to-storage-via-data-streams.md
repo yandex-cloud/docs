@@ -2,10 +2,10 @@
 
 With [{{ yds-full-name }}](../../data-streams/), you can set up automatic replication of service and user application logs to [{{ objstorage-full-name }}](../../storage/).
 
-The solution works as described below:
+The solution works as follows:
 1. Logs, for example, from a [VM instance](../../compute/concepts/vm.md), are sent to a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md).
-1. The log group settings specify the {{ yds-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) where the logs are transmitted automatically.
-1. A {{ data-transfer-name }} [transfer](../../data-transfer/concepts/#transfer) is set up to fetch data from the stream and save it to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
+1. The log group settings specify the {{ yds-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) to which the logs are transmitted automatically.
+1. A {{ data-transfer-name }}-enabled [transfer](../../data-transfer/concepts/#transfer) is set up to fetch data from the stream and save it to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
 
 To set up log replication:
 
@@ -28,9 +28,9 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 
 The cost of data storage support includes:
 
-* Data stream maintenance fees (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
+* Fees for data stream maintenance (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
 * Fees for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
-* Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 
 
 ## Set up your environment {#prepare-environment}

@@ -1,7 +1,7 @@
 # Using hybrid storage in {{ mch-name }}
 
 
-Hybrid storage allows you to store frequently used data on the network disks of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage tiers is only supported for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. To learn more, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+Hybrid storage allows you to store frequently used data on the network disks of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage tiers is only supported for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 To use hybrid storage:
 
@@ -23,7 +23,7 @@ The support cost includes:
 
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -35,7 +35,7 @@ The support cost includes:
         * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
 
 
-        * **{{ ui-key.yacloud.mdb.forms.label_disk-size }}**: At least 15 GB.
+        * **{{ ui-key.yacloud.mdb.forms.label_disk-size }}**: At least 15 GB.
         * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**: Disabled.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
         * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: Enabled.
@@ -125,7 +125,7 @@ The `TTL ...` expression sets a policy for handling expiring data:
    * If the number of days from the current date to `EventDate` is less than the TTL value (i.e., the lifetime has not expired yet), this data is kept in network disk storage.
    * If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data will be placed in object storage under the `TO DISK 'object_storage'` policy.
 
-You do not need to specify TTL for hybrid storage, but this allows you to explicitly manage which data will be in {{ objstorage-name }}. If you do not specify TTL, data will only be placed in object storage when you run out of space in your network disk storage. To learn more, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+You do not need to specify TTL for hybrid storage, but this allows you to explicitly manage which data will be in {{ objstorage-name }}. If you do not specify TTL, data will only be placed in object storage when you run out of space in your network disk storage. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 {% note info %}
 
@@ -168,7 +168,7 @@ For more information on setting up TTL, see the [{{ CH }} documentation]({{ ch.d
 
 1. Wait for the operation to complete, as data insertion may take some time.
 
-For more information, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#import-data).
+For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#import-data).
 
 ## Check data placement in a cluster {#check-table-tiering}
 

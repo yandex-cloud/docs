@@ -31,7 +31,7 @@ The support cost includes:
 ## Getting started {#before-you-begin}
 
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=resources %}
 
@@ -66,9 +66,9 @@ Set up your infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) required to connect to a cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) required to connect to the cluster.
         * Service account for creating and accessing the bucket.
-        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
+        * {{ lockbox-name }} secret with the static key of the service account for configuring the source endpoint.
         * {{ objstorage-name }} source bucket.
         * {{ mpg-name }} target cluster.
         * Target endpoint.
@@ -128,7 +128,7 @@ Set up your infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    Leave the default values for the other properties.
+    For the other properties, leave the default values.
 
 1. Create a target endpoint and transfer:
 
