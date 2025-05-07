@@ -7,7 +7,7 @@ To create and host a static website in {{ objstorage-name }}:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Register a domain name](#register-domain).
-1. [Create and configure an {{ objstorage-name }}](#create-and-configure-bucket) bucket.
+1. [Create and configure an {{ objstorage-name }} bucket](#create-and-configure-bucket).
 1. [Link the domain name to the bucket](#bind-domain).
 1. [Add a TLS certificate to {{ certificate-manager-full-name }}](#issue-certificate).
 1. [Configure HTTPS access to the bucket](#configure-https).
@@ -23,21 +23,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Install and configure the AWS CLI
 
-Install and configure the AWS CLI by following [this guide](../../storage/tools/aws-cli.md#before-you-begin).
+Install and configure the AWS CLI by following [this tutorial](../../storage/tools/aws-cli.md#before-you-begin).
 
 ### Required paid resources {#paid-resources}
 
 The cost of support for the new infrastructure includes:
 
 * Fee for using a public DNS zone and for public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
-* Fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for data storage in {{ objstorage-name }}, data operations, and outbound traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 ## Register a domain name {#register-domain}
 
 1. In your domain registrar's account, register a domain name, e.g., `gatsbytest.ru`.
 1. To get access to public zone domain names, delegate the domain. To do this, in your domain registrar's account, specify the DNS server addresses: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
 
-    Delegation does not take effect immediately. It usually takes up to 24 hours for the internet service providers to update records.
+    Delegation does not take effect immediately. It usually takes up to 24 hours for internet service providers to update records.
     You can check the domain delegation using [Whois](https://www.reg.ru/whois/check_site) or the `dig` utility:
 
     ```bash
@@ -59,8 +59,8 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a [bucket](../../storage/concepts/bucket.md) in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify the domain name you registered, e.g., `gatsbytest.ru`.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field, specify `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -70,8 +70,8 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
   1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
-  1. In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website home page. For the website from the Gatsby template, specify `index.html`.
-  1. (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display in the event of `4xx` errors. For the website from the Gatsby template, specify `404.html`.
+  1. In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the website home page file. For the website from the Gatsby template, specify `index.html`.
+  1. Optionaly, in the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display in the event of `4xx` errors. For the website from the Gatsby template, specify `404.html`.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 
@@ -151,7 +151,7 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
         --acl public-read
       ```
 
-      Where `--bucket` is the name of the bucket. Specify the domain name you registered, e.g., `gatsbytest.ru`.
+      Where `--bucket` is the bucket name. Specify the domain name you registered, e.g., `gatsbytest.ru`.
 
       Result:
 
@@ -180,30 +180,30 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
       Where:
       
       * `--bucket`: Name of the bucket you created earlier, e.g., `gatsbytest.ru`.
-      * `IndexDocument.Suffix`: Absolute path to the website home page file. For the website from the Gatsby template, specify `index.html`.
+      * `IndexDocument.Suffix`: Absolute path to the website home page file. For the website from the template, specify `index.html`.
       * `ErrorDocument.Key`: Absolute path to the file the user will see in case of `4xx` errors. For the website from the Gatsby template, specify `404.html`.
 
 - API {#api}
 
   To create a bucket, use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
 
-  To set up static website hosting, use the [update](../../storage/api-ref/Bucket/update.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Update](../../storage/api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../storage/s3/api-ref/hosting/upload.md) S3 API method.
+  To set up hosting for a static website, use the [update](../../storage/api-ref/Bucket/update.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Update](../../storage/api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../storage/s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
 ## Link the domain name to the bucket {#bind-domain}
 
-On the DNS server, create a public [DNS zone](../../dns/concepts/dns-zone.md) and an [ANAME resource record](../../dns/concepts/resource-record.md#aname) which links your domain name to the bucket.
+On the DNS sever, create a public [DNS zone](../../dns/concepts/dns-zone.md) and an [ANAME resource record](../../dns/concepts/resource-record.md#aname) linking your domain name to the bucket.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the bucket created earlier.
+  1. In the [management console]({{ link-console-main }}), navigate to the bucket you created earlier.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.dns.button_zone-create }}** and select the domain zone of the same name with the bucket, e.g., `gatsbytest.ru.` (ending with a period). Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.dns.button_zone-create }}** and select the domain zone under the same name as the bucket, e.g., `gatsbytest.ru.` (ending with a period). Click **{{ ui-key.yacloud.common.create }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
       Wait until the record is created.
@@ -221,7 +221,7 @@ On the DNS server, create a public [DNS zone](../../dns/concepts/dns-zone.md) an
         --public-visibility
       ```
 
-      Where `--zone` is your domain name, e.g., `gatsbytest.ru.`. The `--zone` parameter value must end with a period, e.g., `gatsbytest.ru.` for the `gatsbytest.ru` domain.
+      Where `--zone` is your domain name, e.g., `gatsbytest.ru.`. The `--zone` parameter value must end with a period. For example, `gatsbytest.ru.` matches the `gatsbytest.ru` domain.
 
       Result:
 
@@ -266,7 +266,7 @@ On the DNS server, create a public [DNS zone](../../dns/concepts/dns-zone.md) an
 
 ## Add a TLS certificate to {{ certificate-manager-full-name }} {#issue-certificate}
 
-To configure access to your website over a secure protocol, get a TLS certificate and configure HTTPS access to the bucket.
+To configure access to your website over a secure protocol, get a TLS certificate and configure HTTPS access to your bucket.
 
 {% list tabs group=instructions %}
 
@@ -275,7 +275,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
   1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domain the website will be using.
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your certificate in.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, specify a name for the certificate being created in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, e.g., `gatsbytestcert`.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `gatsbytest.ru`.
@@ -286,11 +286,11 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
   1. To successfully issue the certificate, pass the domain rights check:
 
-      1. In the list of certificates, select `gatsbytestcert`.
+      1. From the list of certificates, select `gatsbytestcert`.
       1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record`.
-      1. Click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** and, in the window that opens, click **{{ ui-key.yacloud.common.create }}**.
+      1. Click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** and in the window that opens, click **{{ ui-key.yacloud.common.create }}**.
 
-      Checking rights for a domain may take from a few minutes to a few days. Wait until the check is complete. As the result, the certificate will be issued and get the `Issued` status.
+      Checking rights for a domain may take from a few minutes to a few days. Wait until the check is complete. As a result, the certificate will be issued and get the `Issued` status.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -324,7 +324,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
       Save the ID (`id`) of the created certificate as you will need it to pass the domain rights check.
 
-  1. To successfully issue the certificate, pass the domain rights check:
+  1. To successfully issue the certificate, pass a domain rights check:
 
       1. Get values of the resource records required for passing the check:
 
@@ -371,11 +371,11 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
           For more information about the `yc certificate-manager certificate get` command, see the [CLI reference](../../cli/cli-ref/certificate-manager/cli-ref/certificate/get.md).
 
-          Save the value of the `value` field from the `CNAME` type section under `challenges.dns_challenge`. You will need this value in the next step.
+          Save the value of the `value` field from the `CNAME` type section under `challenges.dns_challenge`. You will need this value at the next step.
 
           A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
-      1. Create a CNAME [resource record](../../dns/concepts/resource-record.md) to pass the domain rights check:
+      1. Create a CNAME [resource record](../../dns/concepts/resource-record.md) to pass a domain rights check:
 
           ```bash
           yc dns zone add-records \
@@ -383,7 +383,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
             --record "_acme-challenge 600 CNAME <dns_challenge_value>"
           ```
 
-          Where `<dns_challenge_value>` is the value saved in the previous step that is required to check rights to the relevant domain using a CNAME record.
+          Where `<dns_challenge_value>` is the value saved at the previous step, required to check rights to a domain using a CNAME record.
 
           Result:
 
@@ -397,7 +397,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
           For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
-          The domain permission check may take from a few minutes to a few days. Wait until it is complete. As the result, the certificate will be issued and get the `Issued` status.
+          The domain rights check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
 
       1. Make sure that the certificate status has changed to `Issued`:
 
@@ -433,7 +433,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
       A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
-  1. To successfully issue the certificate, pass the domain rights check:
+  1. To successfully issue the certificate, pass a domain rights check:
 
       To get the information required to pass the rights check for a domain, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
 
@@ -495,18 +495,18 @@ It may take some time to activate the settings.
 {% endnote %}
 
 
-## Create the website locally {#create-local-site}
+## Create a website locally {#create-local-site}
 
 For testing purposes, create a website on your local computer using a template from [Gatsby Starter Library](https://www.gatsbyjs.com/starters/).
 
-1. To create the website, run these commands:
+1. To create a website, run these commands:
 
     ```bash
     sudo npm install -g gatsby-cli
     gatsby new my-gatsby-project https://github.com/gatsbyjs/gatsby-starter-blog
     ```
 
-1. Go to the website directory:
+1. Navigate to the website directory:
 
     ```bash
     cd my-gatsby-project
@@ -531,7 +531,7 @@ To build and upload a working version of the website to your bucket, use [AWS CL
 
 ### Install the S3 plugin {#setup-s3-plugin}
 
-1. On your local machine, go to the `my-gatsby-project` website directory and run this command:
+1. On your local machine, navigate to the `my-gatsby-project` website directory and run this command:
 
     ```bash
     npm i gatsby-plugin-s3
@@ -595,5 +595,5 @@ To shut down the resources you created and stop paying for them:
 
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
-1. Delete the [resource records](../../dns/operations/resource-record-delete.md) and [domain zone](../../dns/operations/zone-delete.md) if you need to.
-1. [Delete](../../certificate-manager/operations/managed/cert-delete.md) the TLS certificate if you need to.
+1. Delete the [resource records](../../dns/operations/resource-record-delete.md) and [domain zone](../../dns/operations/zone-delete.md) if required.
+1. [Delete](../../certificate-manager/operations/managed/cert-delete.md) the TLS certificate if required.

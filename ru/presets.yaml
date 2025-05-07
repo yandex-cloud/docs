@@ -2086,6 +2086,13 @@ default:
           1|number: 86.4
           1|string: "86,40\_₸"
         v1|string: Не тарифицируется
+  sku|KZT|smart_captcha:
+    check:
+      requests:
+        v1|pricingRate:
+          10|string: "540,00\_₸"
+          100|string: "378,00\_₸"
+        v1|string: Не тарифицируется
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0125
@@ -3700,6 +3707,13 @@ default:
           1|number: 17.28
           1|string: "17,28\_₽"
         v1|string: Не тарифицируется
+  sku|RUB|smart_captcha:
+    check:
+      requests:
+        v1|pricingRate:
+          10|string: "108,00\_₽"
+          100|string: "75,60\_₽"
+        v1|string: Не тарифицируется
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0025
@@ -5293,6 +5307,13 @@ default:
         v1|pricingRate:
           1|number: 0.144
           1|string: "0,144000\_$"
+        v1|string: Не тарифицируется
+  sku|USD|smart_captcha:
+    check:
+      requests:
+        v1|pricingRate:
+          10|string: "0,900000\_$"
+          100|string: "0,630000\_$"
         v1|string: Не тарифицируется
   sku|USD|speechkit:
     stt_long_running_deferred:
@@ -8120,6 +8141,7 @@ default:
             label_network-ssd-io-m3: SSD IO
             label_network-ssd-nonreplicated: Нереплицируемый SSD
             label_platform: Платформа
+            label_tab-nodes: Узлы
             section_placement-policy: Размещение
         node-groups:
           create:

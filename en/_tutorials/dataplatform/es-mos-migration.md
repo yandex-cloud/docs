@@ -84,7 +84,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
         * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
         * Service account for working with the {{ objstorage-name }} bucket.
         * {{ objstorage-name }} bucket.
-        * {{ mos-name }} target cluster.
+        * Target {{ mos-name }} cluster.
 
     1. In the `es-mos-migration-snapshot.tf` file, specify these variables:
 
@@ -140,7 +140,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
-1. Run snapshot creation in the repository you created at the previous step. You can create a snapshot of the entire cluster or some of the data. For more information, see this [{{ ES }} guide]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html) on snapshots.
+1. Run snapshot creation in the repository you created at the previous step. You can create a snapshot of the entire cluster or some of the data. For more information, see [this {{ ES }} guide on snapshots]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html).
 
     Example of creating a snapshot named `snapshot_1` for the entire cluster:
 
@@ -148,7 +148,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
 
 
-    Creating a snapshot may take a while. Track the operation progress [using {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot) tools, such as:
+    Creating a snapshot may take a while. Track the operation progress [using {{ ES }} tools]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
 
     
     {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
@@ -303,7 +303,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
             * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
-            * {{ mos-name }} target cluster.
+            * Target {{ mos-name }} cluster.
 
         1. In the `es-mos-migration-reindex.tf` file, specify these variables:
 

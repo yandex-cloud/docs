@@ -1,10 +1,10 @@
 # Connecting a bucket as a disk in Windows
 
-In this tutorial, you will use [rclone](https://rclone.org) to set up synchronization of data between an {{ objstorage-full-name }} bucket and your local desktop. The bucket will be mounted as a disk in Windows.
+In this tutorial, you will use [rclone](https://rclone.org) to set up data synchronization between an {{ objstorage-full-name }} bucket and your local desktop. You will mount the bucket as a disk in Windows.
 
 {% note info %}
 
-This section describes how to connect a bucket in Windows. When connecting in other OSs, see the official [rclone documentation](https://rclone.org/install/). For [rclone configuring](#rclone-config) and [bucket mounting](#bucket-mount), follow the same steps used in Windows.
+This section describes how to connect a bucket in Windows. When connecting with other OSs, see [this rclone guide](https://rclone.org/install/). For [rclone configuring](#rclone-config) and [bucket mounting](#bucket-mount), the steps are identical to those for Windows.
 
 {% endnote %}
 
@@ -36,10 +36,10 @@ The cost for bucket support includes:
 
 ## Set up the runtime environment {#environment-prepare}
 
-1. Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the developer website.
-1. Download the [archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/) from the developer's website and unpack it to your local working folder.
-1. Download the [Windows Service Wrapper (WinSW) executable file](https://github.com/winsw/winsw/releases) depending on your OS configuration and save it to a separate folder.
-1. Download the [archive with the rclone utility](https://rclone.org/downloads/) from the developer's website and unpack it to your local working folder.
+1. Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the `winfsp` website.
+1. Download the [sysinternals suite utilities archive](https://docs.microsoft.com/en-us/sysinternals/downloads/) from the Microsoft website and unpack it to your local working folder.
+1. Download the [Windows Service Wrapper (WinSW) executable](https://github.com/winsw/winsw/releases) depending on your OS configuration and save it to a dedicated folder.
+1. Download the [rclone utility archive](https://rclone.org/downloads/) from the `rclone` website and unpack it to your local working folder.
 1. Add the folders containing the utilities and the distribution to the `PATH` variable. To do this:
 
     {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
@@ -51,7 +51,7 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
@@ -69,7 +69,7 @@ The cost for bucket support includes:
   yc iam service-account create --name sa-win-disk-connect
   ```
 
-  The naming requirements are as follows:
+  The name format requirements are as follows:
 
   {% include [name-format](../../_includes/name-format.md) %}
 
@@ -87,10 +87,10 @@ The cost for bucket support includes:
 
 - API {#api}
 
-  1. To create the service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
+  1. To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
   1. [Assign](../../organization/operations/add-role) the `storage.editor` role to the service account.
-  
+
 {% endlist %}
 
 
@@ -107,11 +107,11 @@ The cost for bucket support includes:
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the list that opens, select the `sa-win-disk-connect` service account.
+  1. From the list that opens, select the `sa-win-disk-connect` service account.
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and secret key. After you close this dialog, the key value will not be shown again.
+  1. Save the ID and secret key. After you close this dialog, the key value will no longer be available.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -185,7 +185,7 @@ The cost for bucket support includes:
 
      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
-  1. Add a section with bucket parameters to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
+  1. Add a section with bucket properties to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
   
      ```hcl
      resource "yandex_storage_bucket" "<bucket_name>" {
@@ -199,14 +199,14 @@ The cost for bucket support includes:
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
   
@@ -216,7 +216,7 @@ The cost for bucket support includes:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources by type `yes` in the terminal and pressing **Enter**.
 
 - API {#api}
 
@@ -226,14 +226,14 @@ The cost for bucket support includes:
 
 ## Set up a connection to {{ objstorage-name }} {#rclone-config}
 
-1. Open the command line in your working folder as an admin user and run the following command:
+1. Open the command line in your working folder as an admin and run the following command:
 
    ```powershell
    .\psexec -i -s cmd.exe
    ```
 
 1. In the console that opens, run `whoami` and make sure the session has been started by the system user.
-1. Go to the folder with the `rclone` utility and run its configuration session:
+1. Navigate to the folder with the `rclone` utility and run its configuration session:
 
    ```powershell
    rclone.exe config
@@ -254,21 +254,21 @@ The cost for bucket support includes:
 
 {% note info %}
 
-You can perform advanced connection setup if needed. To do this, type `y` at the `Edit advanced config?` step. For more information about advanced settings, see the `rclone` [documentation](https://rclone.org/s3/).
+You can perform advanced connection setup if required. To do this, type `y` at the `Edit advanced config?` step. For more information about advanced settings, see the `rclone` [documentation](https://rclone.org/s3/).
 
 {% endnote %}
 
 ## Mount a bucket {#bucket-mount}
 
-1. Check your connection to the bucket. In the same command line you used to configure the connection, run the following command with the bucket name specified:
+1. Check your connection to the bucket. In the same command line you used to configure the connection, run the following command while specifying the bucket name:
 
    ```powershell
    rclone.exe ls s3-connect:<bucket_name>
    ```
 
-   If the configuration is set up correctly, the objects in the bucket will be listed in the console.
+   If your configuration is correct, you will see a list of objects in the bucket.
 
-1. Mount the bucket to the file system specifying the bucket name and an available drive letter in the file system:
+1. Mount the bucket to the file system while specifying the bucket name and an available drive letter in the file system:
 
    ```powershell
    rclone.exe mount s3-connect:<bucket_name> <disk_letter>: --vfs-cache-mode full
@@ -296,7 +296,7 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
    </service>
    ```
 
-1. In the same folder, open the command prompt as an admin user and run the following command:
+1. In the same folder, open the command prompt as an admin and run the following command:
 
    * If you have a 64-bit version of Windows:
 
@@ -310,17 +310,17 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
       .\WinSW-x86.exe install .\WinSW-x86.xml
       ```
 
-1. Open the Windows services panel and make sure `rclone-s3-disk` is listed:
+1. Open the Windows services panel and make sure you can see `rclone-s3-disk` in the list:
 
-   1. Press **Win**+**R**.
+   1. Press **Win** + **R**.
    1. In the window that opens, enter `services.msc` and click **OK**.
    1. In the list of services, find `rclone-s3-disk`.
    
-1. Reboot your desktop and check that the disk is available.
+1. Reboot your desktop and make sure the disk is available.
 
 {% note info %}
 
-You can also configure the service to be run by a system user (for more information, see [Service account](https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md#service-account) in the `WinSW` utility documentation).
+You can also configure running the service on behalf of a system user (for more information, see [Service account](https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md#service-account) in the `WinSW` utility documentation).
 
 {% endnote %}
 

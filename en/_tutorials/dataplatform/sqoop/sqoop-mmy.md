@@ -28,12 +28,12 @@ You can create other resources manually or using {{ TF }}.
 
 ### Manually {#create-manual}
 
-1. [Create a {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md) of any suitable [configuration](../../../managed-mysql/concepts/instance-types.md) with the following settings:
+1. [Create a {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md)of any suitable [configuration](../../../managed-mysql/concepts/instance-types.md) with the following settings:
 
     * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
     * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
 
-1. To import the data to the {{ objstorage-name }} bucket:
+1. To import data to an {{ objstorage-name }} bucket:
 
     1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access.
     1. [Create a service account](../../../iam/operations/sa/create.md) with the following roles:
@@ -50,11 +50,11 @@ You can create other resources manually or using {{ TF }}.
 
     {% include [Settings for DataProc cluster](./data-processing-cluster-settings.md) %}
 
-1. [Create a virtual machine](../../../compute/operations/vm-create/create-linux-vm.md) to connect to {{ mmy-name }} and {{ dataproc-name }} clusters.
+1. [Create a virtual machine](../../../compute/operations/vm-create/create-linux-vm.md) for connecting to {{ mmy-name }} and {{ dataproc-name }} clusters.
 
-1. If you are using security groups for the clusters and the VM instance, configure them to allow connecting:
+1. If you are using security groups for your clusters and VM instance, configure them to allow connecting:
 
-    * [To the VM instance and the {{ dataproc-name }} cluster](../../../data-proc/operations/connect.md).
+    * [To the VM instance and {{ dataproc-name }} cluster](../../../data-proc/operations/connect.md).
     * [To the {{ mmy-name }} cluster](../../../managed-mysql/operations/connect.md#configure-security-groups).
 
 ### Using {{ TF }} {#create-terraform}
@@ -75,21 +75,21 @@ You can create other resources manually or using {{ TF }}.
     * {{ dataproc-name }} cluster.
     * Virtual machine with public internet access.
 
-1. Specify the infrastructure parameters in the `clusters-mysql-data-proc-and-vm.tf` configuration file under `locals`:
+1. Specify the infrastructure settings in the `clusters-mysql-data-proc-and-vm.tf` configuration file under `locals`:
 
     * `folder_id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create resources in.
-    * `network_id`: ID of the cloud network you previously created.
-    * `subnet_id`: ID of the previously created subnet.
+    * `network_id`: ID of the cloud network you created earlier.
+    * `subnet_id`: ID of the subnet you created earlier.
     * `storage_sa_id`: ID of the service account to use for creating a bucket in {{ objstorage-name }}.
     * `data_proc_sa`: Name of the {{ dataproc-name }} cluster service account. The name must be unique within the folder.
     * `my_cluster_version`: {{ MY }} version of the {{ mmy-name }} cluster.
     * `my_cluster_password`: Password for `user1` of the {{ mmy-name }} database named `db1`.
-    * `vm_image_id`: ID of the public [image](../../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-    * `vm_username` and `vm_public_key`: Username and absolute path to the [public SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
+    * `vm_image_id`: ID of the public [image](../../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+    * `vm_username` and `vm_public_key`: Username and absolute path to the [public SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use for accessing the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
     * `bucket_name`: Bucket name in {{ objstorage-name }}. The name must be unique within the entire {{ objstorage-name }}.
     * `dp_public_key`: Absolute path to the [public SSH key](../../../data-proc/operations/connect.md#data-proc-ssh) for the {{ dataproc-name }} cluster.
 
-        For an SSH connection to the hosts of a {{ dataproc-name }} cluster version 1.x , use the `root` username.
+        For an SSH connection to the hosts of a {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
 1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -140,7 +140,7 @@ You can create other resources manually or using {{ TF }}.
 
 ## Importing the database {#import}
 
-To enable [database parallelism](https://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html#_controlling_parallelism), Sqoop allows you to split imported data not only by the primary key but also other table columns. In the example, the data is split by the `age` column.
+To enable [database parallelism](https://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html#_controlling_parallelism), Sqoop allows you to split imported data not only by the primary key but also by other table columns. In this example, the data is split by the `age` column.
 
 Let's assume that:
 
@@ -151,7 +151,7 @@ Let's assume that:
 
 - {{ objstorage-name }} {#storage}
 
-    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#object-storage).
+    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#object-storage).
     1. Run this command:
 
         ```bash
@@ -166,7 +166,7 @@ Let's assume that:
 
 - HDFS directory {#hdfs}
 
-    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#hdfs).
+    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#hdfs).
     1. Run this command:
 
         ```bash
@@ -181,7 +181,7 @@ Let's assume that:
 
 - Apache Hive {#hive}
 
-    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hive).
+    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hive).
     1. Run this command:
 
         ```bash
@@ -199,7 +199,7 @@ Let's assume that:
 
 - Apache HBase {#hbase}
 
-    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hbase).
+    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hbase).
     1. Run this command:
 
         ```bash
@@ -244,15 +244,15 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-    To delete the infrastructure created with {{ TF }}:
+    To delete an infrastructure created with {{ TF }}:
 
     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     Delete the resources you created manually:
 
-    1. [Subnet](../../../vpc/operations/subnet-delete.md).
-    1. [Route table](../../../vpc/operations/delete-route-table.md).
-    1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
-    1. [Cloud network](../../../vpc/operations/network-delete.md).
+    1. [Subnet](../../../vpc/operations/subnet-delete.md)
+    1. [Route table](../../../vpc/operations/delete-route-table.md)
+    1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
+    1. [Cloud network](../../../vpc/operations/network-delete.md)
 
 {% endlist %}

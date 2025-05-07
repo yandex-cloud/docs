@@ -80,6 +80,10 @@ items:
               Назначить политику доступа в Object Storage для сервисного
               подключения
             href: operations/private-endpoint-storage-policy.md
+          - name: >-
+              Настроить ограничение в Object Storage для доступа только из
+              сервисных подключений
+            href: operations/private-endpoint-storage-restriction.md
           - name: Удалить сервисное подключение
             href: operations/private-endpoint-delete.md
       - name: Группы безопасности

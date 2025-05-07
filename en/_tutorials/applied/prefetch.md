@@ -1,13 +1,13 @@
 # Publishing game updates using {{ cdn-full-name }}
 
 
-Create and configure a {{ cdn-name }} [CDN resource](../../cdn/concepts/resource.md) to host content that is expected to handle a large number of requests over a short period of time, such as game update files (patches, [DLC](https://en.wikipedia.org/wiki/Downloadable_content), and so on). To prevent CDN servers from increasing the workload on the content origins during this period, files will be [preloaded](../../cdn/concepts/caching.md#prefetch) to the server cache once.
+Create and configure a {{ cdn-name }}-enabled [CDN resource](../../cdn/concepts/resource.md) to host content that is expected to handle a large number of requests over a short time period, such as game update files (patches, [DLCs](https://en.wikipedia.org/wiki/Downloadable_content), and so on). To prevent CDN servers from increasing workload on content origins over this period, files will be [preloaded](../../cdn/concepts/caching.md#prefetch) to the server cache once.
 
 Let's assume a patch is a single file named `ycgame-update-v1.1.exe`. It will be uploaded to a [{{ objstorage-full-name }}](../../storage/) [bucket](../../storage/concepts/bucket.md).
 
 {% note info %}
 
-We do not recommend preloading files smaller than 200 MB or larger than 5 GB.
+We do not recommend preloading files smaller than 200 MB or larger than 5 GB.
 
 {% endnote %}
 
@@ -19,7 +19,7 @@ To create a CDN infrastructure:
 1. [Upload a file to the bucket](#upload-object).
 1. [Create a CDN resource and enable caching](#create-cdn-resource).
 1. [Set up DNS for your domain](#dns-setup).
-1. [Preload content to the cache of CDN servers](#prefetch-content).
+1. [Preload content to the cache of the CDN servers](#prefetch-content).
 1. [Test the CDN](#check-cdn-working).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -34,8 +34,8 @@ Make sure you have a domain name and can access the DNS settings on the website 
 ### Required paid resources {#paid-resources}
 
 The cost of supporting the CDN infrastructure includes:
-* Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
-* Fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for outbound traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
+* Fee for data storage in {{ objstorage-name }}, data operations, and outbound traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
@@ -47,7 +47,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
 ## Create buckets in {{ objstorage-name }} {#create-buckets}
 
-Create two buckets: one will store files and the other will store request logs for the first one.
+Create two buckets: one will store files and the other, request logs for the first one.
 
 {% list tabs group=instructions %}
 
@@ -103,13 +103,13 @@ Create two buckets: one will store files and the other will store request logs f
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Before you start, obtain [static access keys](../../iam/operations/authentication/manage-access-keys.md#create-access-key), i.e., a [secret key and key ID](../../iam/concepts/authorization/access-key.md) used for authentication in {{ objstorage-name }}.
-  1. In the configuration file, describe the bucket parameters:
+  Before you start, get [static access keys](../../iam/operations/authentication/manage-access-keys.md#create-access-key), i.e., a [secret key and key ID](../../iam/concepts/authorization/access-key.md) used for authentication in {{ objstorage-name }}.
+  1. In the configuration file, describe the bucket settings:
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
      * `bucket`: Name of the bucket you are creating.
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      provider "yandex" {
@@ -133,15 +133,15 @@ Create two buckets: one will store files and the other will store request logs f
      }
      ```
 
-  1. Make sure that the configuration files are correct:
-     1. In the command line, go to the directory where you created the configuration file.
+  1. Make sure the configuration files are correct:
+     1. In the command line, navigate to the folder where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display the parameters of the bucket being created. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display the settings of the bucket being created. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the bucket:
      1. If the configuration does not contain any errors, run this command:
 
@@ -149,7 +149,7 @@ Create two buckets: one will store files and the other will store request logs f
         terraform apply
         ```
 
-     1. Confirm that you want to create the bucket.
+     1. Confirm creating the bucket.
 
 - API {#api}
 
@@ -159,7 +159,7 @@ Create two buckets: one will store files and the other will store request logs f
 
 ## Enable logging for the bucket with files {#enable-logging}
 
-Make sure that, when a user sends a request, files are downloaded from the CDN server cache rather than directly from the bucket. To do this, enable bucket logging.
+Make sure that when a user sends a request, files are downloaded from the CDN server cache rather than directly from the bucket. To do this, enable bucket logging.
 
 {% list tabs group=instructions %}
 
@@ -192,7 +192,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
       Where:
 
-      * `--bucket`: Name of the source bucket to enable logging for.
+      * `--bucket`: Name of the source bucket to enable action logging for.
       * `--bucket-logging-status`: Path to the logging settings file.
 
 - API {#api}
@@ -246,12 +246,12 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 - {{ TF }} {#tf}
 
-  1. Add the parameters of the [object](#create-buckets) to upload to the configuration file you created in the [bucket creation step](../../storage/concepts/object.md):
-     * `bucket`: Name of the bucket where to add the object.
-     * `key`: Name of the object in the bucket, `ycgame-update-v1.1.exe`. This is a required parameter.
-     * `source`: Relative or absolute path to the file you upload as an object.
+  1. Add the settings of the [object](#create-buckets) you need to upload to the configuration file you created at the [bucket creation step](../../storage/concepts/object.md):
+     * `bucket`: Name of the bucket for adding the object.
+     * `key`: Name of the object in the bucket, `ycgame-update-v1.1.exe`. This is a required setting.
+     * `source`: Relative or absolute path to the file you are uploading as an object.
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      ...
@@ -265,14 +265,14 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
      ```
 
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory with the configuration file.
+     1. In the command line, navigate to the directory with the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -280,7 +280,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
         terraform apply
         ```
 
-     1. Confirm that you want to create the object.
+     1. Confirm creating the object.
 
 - API {#api}
 
@@ -299,7 +299,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
   1. Create a CDN resource:
      1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-     1. Set up the main parameters of the CDN resource as follows:
+     1. Configure the basic settings of the CDN resource as follows:
         * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
         * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
         * **{{ ui-key.yacloud.cdn.label_bucket }}**: `<name_of_bucket_with_files>`.
@@ -321,7 +321,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
   1. Enable a client redirect from HTTP to HTTPS:
      1. In the **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the resource you created previously.
-     1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_section-additional }}** changes to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
+     1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_section-additional }}** has changed to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
      1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
      1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -338,7 +338,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. If the CDN provider is not activated yet, run this command:
+  1. If the CDN provider has not been activated yet, run this command:
 
      ```bash
      yc cdn provider activate --folder-id <folder_ID> --type gcore
@@ -368,7 +368,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
      ```
 
      For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
-  1. Enable a client redirect for a resource:
+  1. Enable a client redirect for the resource:
 
      ```bash
      yc cdn resource update <resource_ID> --redirect-http-to-https
@@ -376,7 +376,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 - {{ TF }} {#tf}
 
-  1. Add parameters of the CDN resources to the configuration file:
+  1. Add the settings of the CDN resources to the configuration file:
 
      ```hcl
      ...
@@ -403,16 +403,16 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
      }
      ```
 
-     For more information, see the description of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
+     For more information, see the description of [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) in the {{ TF }} provider documentation.
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the folder where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
   1. Apply the configuration changes:
      1. If the configuration does not contain any errors, run this command:
 
@@ -420,10 +420,10 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
 
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
-  1. Enable client redirect for a resource. In CDN resource parameters, add this field at the top of the `options` section:
+     This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+  1. Enable a client redirect for the resource. In the CDN resource settings, add this field at the top of the `options` section:
 
      ```hcl
      ...
@@ -438,26 +438,26 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
      terraform plan
      ```
 
-     If the configuration is described correctly, the terminal will display a list of updated resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is described correctly, the terminal will display a list of updated resources and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. If there are no errors, run this command:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the resource update: type `yes` in the terminal and press **Enter**.
+  1. Confirm updating the resource by typing `yes` in the terminal and pressing **Enter**.
 
   This enables a redirect for the resource.
 
 - API {#api}
 
-  Use the gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/Resource/create.md) call or the REST API [create](../../cdn/api-ref/Resource/create.md) method. To enable [caching](../../cdn/concepts/caching.md) on CDN servers, add the `edge_cache_settings` field to the request body.
+  Use the [ResourceService/Create](../../cdn/api-ref/grpc/Resource/create.md) gRPC API call or the [create](../../cdn/api-ref/Resource/create.md) REST API method. To enable [caching](../../cdn/concepts/caching.md) on CDN servers, add the `edge_cache_settings` field to the request body.
 
 {% endlist %}
 
 ## Set up DNS for your domain {#dns-setup}
 
-1. Get a `.edgecdn.ru` domain name generated for the CDN resource you created:
+1. Get an `.edgecdn.ru` domain name generated for the CDN resource you created:
 
    {% list tabs group=instructions %}
 
@@ -469,8 +469,8 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
    {% endlist %}
 
-1. Go to your domain's DNS settings on the site of your DNS hosting provider.
-1. Edit the [CNAME record](../../dns/concepts/resource-record.md#cname) for `cdn` so that it points to the previously copied `.edgecdn.ru` URL. For example:
+1. Navigate to your domain DNS settings on the website of your DNS hosting provider.
+1. Edit the [CNAME record](../../dns/concepts/resource-record.md#cname) for `cdn` so that it points to the previously copied `.edgecdn.ru` URL, e.g.:
 
    ```http
    cdn CNAME cl-********.edgecdn.ru.
@@ -478,7 +478,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
 
-   If you use {{ dns-name }}, follow this guide to configure the record:
+   If you use {{ dns-name }}, follow this tutorial to configure the record:
 
    {% cut "Configuring DNS records for {{ dns-name }}" %}
 
@@ -490,15 +490,15 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
      1. If you do not have a public DNS zone, create one:
         1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
         1. Specify the zone **{{ ui-key.yacloud.common.name }}**: `cdn-dns-a`.
-        1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, specify your domain with a period at the end: `ycprojectblue.example.`.
-        1. Select a **{{ ui-key.yacloud.common.type }}** of the zone: `{{ ui-key.yacloud.dns.label_public }}`.
+        1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, specify your domain with a trailing dot: `ycprojectblue.example.`.
+        1. Select the zone **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
         1. Click **{{ ui-key.yacloud.common.create }}**.
      1. Create a [record](../../dns/concepts/resource-record.md) in the zone:
         1. In the list of zones, click `cdn-dns-a`.
         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. Under **{{ ui-key.yacloud.common.name }}**, specify `cdn` so that the record matches the `cdn.ycprojectblue.example` domain name.
         1. Select the record **{{ ui-key.yacloud.common.type }}**: `CNAME`.
-        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the `.edgecdn.ru` URL you copied with a dot at the end.
+        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the `.edgecdn.ru` URL you copied with a trailing dot.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}
@@ -511,7 +511,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
         Where:
         * `--name`: Zone name.
-        * `--zone`: Domain zone (your domain with a dot at the end).
+        * `--zone`: Domain zone (your domain with a trailing dot).
         * `--public-visibility`: Zone public visibility option.
 
         Result:
@@ -534,7 +534,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
         Where:
         * `--name`: Zone name.
         * `--record`: Resource record.
-     1. Check that the record was created:
+     1. Make sure the record has been created:
 
         ```bash
         yc dns zone list-records --name cdn-dns-a
@@ -559,14 +559,14 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
    - API {#api}
 
-     1. If you do not have a public DNS zone, create one using a gRPC API call to [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) or the REST API [create](../../dns/api-ref/DnsZone/create.md) method. To make the zone public, add the `public_visibility` (gRPC) or `publicVisibility` (REST) field to the request body.
+     1. If you do not have a public DNS zone, create one using the [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) gRPC API call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method. To make the zone public, add the `public_visibility` (gRPC) or `publicVisibility` (REST) field to the request body.
      1. Create the `cdn CNAME cl-********.edgecdn.ru.` [record](../../dns/concepts/resource-record.md) in the zone using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 
    {% endcut %}
 
-## Preload content to the cache of CDN servers {#prefetch-content}
+## Preload content to the cache of the CDN servers {#prefetch-content}
 
 {% list tabs group=instructions %}
 
@@ -576,7 +576,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
   1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
   1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
-  1. In the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field, specify the path to the file stored in the origin, omitting the domain name:
+  1. In the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field, specify the path to the file stored in the origin while omitting the domain name:
 
      ```text
      /ycgame-update-v1.1.exe
@@ -601,7 +601,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 - API {#api}
 
-  Use the gRPC API [CacheService/Prefetch](../../cdn/api-ref/grpc/Cache/prefetch.md) call or the [prefetch](../../cdn/api-ref/Cache/prefetch.md) REST API method.
+  Use the [CacheService/Prefetch](../../cdn/api-ref/grpc/Cache/prefetch.md) gRPC API call or the [prefetch](../../cdn/api-ref/Cache/prefetch.md) REST API method.
 
 {% endlist %}
 
@@ -645,7 +645,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
         2021-10-01 13:38:02         73 2021-10-01-13-38-02-E69EAEC1C9083756
         ```
 
-     1. In the resulting list, find the object with the log saved after downloading `ycgame-update-v1.1.exe` and download it:
+     1. In the list you got, find the object with the log saved after downloading `ycgame-update-v1.1.exe` and download it:
 
         ```bash
         aws --endpoint-url=https://{{ s3-storage-host }} \
@@ -662,7 +662,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
    - API {#api}
 
      1. Get a list of objects in the bucket with logs using the [listObjects](../../storage/s3/api-ref/bucket/listobjects.md) API method.
-     1. In the resulting list, find the object whose log was saved after downloading `ycgame-update-v1.1.exe` and download it using the [get](../../storage/s3/api-ref/object/get.md) API method.
+     1. In the list you got, find the object whose log was saved after downloading `ycgame-update-v1.1.exe` and download it using the [get](../../storage/s3/api-ref/object/get.md) API method.
 
    {% endlist %}
 
@@ -670,8 +670,8 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down your CDN resource and stop paying for the created resources:
-1. [Disable](../../cdn/operations/resources/disable-resource.md) the created resource.
+To shut down your CDN resource and stop paying for the resources you created:
+1. [Disable](../../cdn/operations/resources/disable-resource.md) the resource you created.
 1. [Delete](../../storage/operations/objects/delete.md) the `ycgame-update-v1.1.exe` object from the bucket with files.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket with files.
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket with logs.

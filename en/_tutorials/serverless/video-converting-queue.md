@@ -1,13 +1,13 @@
 # Converting a video to a GIF in Python
 
-You will create a video converter using [FFmpeg](https://ffmpeg.org/) and {{ message-queue-full-name }}. This guide is intended for Linux and macOS users.
+You will create a video converter using [FFmpeg](https://ffmpeg.org/) and {{ message-queue-full-name }}. This tutorial is intended for Linux and macOS users.
 
 
 
 To create an application:
 
 1. [Get your cloud ready](#before-begin).
-1. [Prepare the resources](#create-resources).
+1. [Create resources](#create-resources).
 1. [Create an API function](#create-api-function).
 1. [Create a converter function](#create-converter-function).
 1. [Create a trigger](#create-trigger).
@@ -27,11 +27,10 @@ The infrastructure support cost includes:
 * Fee for querying the database  (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)). 
 * Fee for storing data in a bucket (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 
-
-## Prepare the resources {#create-resources}
+## Create resources {#create-resources}
 
 1. [Download](https://{{ s3-storage-host }}/doc-files/video-converting.zip) the archive with the files required to create a video converter.
-1. [Create](../../iam/operations/sa/create.md) a service account named `ffmpeg-sa` and [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to it:
+1. [Create](../../iam/operations/sa/create.md) a service account named `ffmpeg-sa` and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the following roles:
 
    * `ymq.reader`
    * `ymq.writer`
@@ -44,8 +43,8 @@ The infrastructure support cost includes:
 1. [Create a static key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the **Key ID** and **Your secret key**.
 1. [Create a secret](../../lockbox/quickstart.md) named `ffmpeg-sa-secret` in {{ lockbox-name }}. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**, specify:
 
-   * `ACCESS_KEY_ID` as the key with **Key ID** from the previous step for value.
-   * `SECRET_ACCESS_KEY` as the key with **Your secret key** from the previous step for value.
+   * `ACCESS_KEY_ID` as the key and **Key ID** from the previous step as the value.
+   * `SECRET_ACCESS_KEY` as the key and **Your secret key** from the previous step as the value.
 
    Save the secret **{{ ui-key.yacloud.lockbox.label_secret-id }}** from the **{{ ui-key.yacloud.lockbox.label_secret-general-section }}** section.
 
@@ -55,7 +54,7 @@ The infrastructure support cost includes:
 
     * **{{ ui-key.yacloud.ydb.table.form.field_name }}**: `tasks`.
     * **{{ ui-key.yacloud.ydb.table.form.field_type }}**:  [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../../ydb/operations/schema.md#create-table). 
-    * **{{ ui-key.yacloud.ydb.table.form.label_columns }}**: One column titled `task_id` with `String` for type.  Set the [{{ ui-key.yacloud.ydb.table.form.column_shard }}](../../ydb/operations/schema.md#create-table) attribute. 
+    * **{{ ui-key.yacloud.ydb.table.form.label_columns }}**: One column named `task_id` of the `String` type.  Set the [{{ ui-key.yacloud.ydb.table.form.column_shard }}](../../ydb/operations/schema.md#create-table) attribute. 
 
 1. [Create a bucket](../../storage/operations/buckets/create) with restricted access in {{ objstorage-full-name }}.
 
@@ -63,8 +62,8 @@ The infrastructure support cost includes:
 
 The function implements an API which you can use to perform the following actions:
 
-* `convert`: Provide a video for conversion. The function writes the task to the `tasks` table  using the [Document API](../../ydb/docapi/tools/aws-http.md). 
-* `get_task_status`: Get the task status. The function checks whether the task is completed and returns a link to a GIF file.
+* `convert`: Provide a video to convert. The function writes the task to the `tasks` table  using the [Document API](../../ydb/docapi/tools/aws-http.md). 
+* `get_task_status`: Get the task status. The function checks whether the task has been completed and returns a link to a GIF file.
 
 {% list tabs group=instructions %}
 
@@ -73,13 +72,13 @@ The function implements an API which you can use to perform the following action
   1. [Create](../../functions/operations/function/function-create.md) a function named `ffmpeg-api`.
   1. [Create](../../functions/operations/function/version-manage.md) a function version:
 
-     1. Create a file named `requirements.txt` and specify the library in it:
+     1. Create a file named `requirements.txt` and specify this library in it:
 
         ```
         boto3
         ```
 
-     1. Create a file named `index.py` and paste into it the contents of the `ffmpeg-api.py` file from the archive.
+     1. Create a file named `index.py` and paste the contents of `ffmpeg-api.py` from the archive into it.
      1. Specify the following settings:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
@@ -91,22 +90,22 @@ The function implements an API which you can use to perform the following action
 
         * `DOCAPI_ENDPOINT`: **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the database configuration.
         * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.label_secret-id }}**.
-        * `YMQ_QUEUE_URL`: {{ message-queue-name }} queue **{{ ui-key.yacloud.ymq.queue.overview.label_url }}**.
+        * `YMQ_QUEUE_URL`: **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** of the {{ message-queue-name }}-enabled queue.
 
 {% endlist %}
 
 ## Create a converter function {#create-converter-function}
 
-A converter function is run by a trigger. It performs video processing and registers the execution result in the `tasks` table.
+A converter function is run by a trigger. It processes videos and registers the result in the `tasks` table.
 
-Video conversion is performed using the FFmpeg utility. The FFmpeg executable file is larger than 70 MB. To upload it along with the function code, create a ZIP archive and upload it via {{ objstorage-name }}. Learn more about [code upload formats](../../functions/concepts/function.md).
+Video conversion is based on the FFmpeg utility. The FFmpeg executable is larger than 70 MB. To upload it along with the function code, create a ZIP archive and upload it via {{ objstorage-name }}. Learn more about [code upload formats](../../functions/concepts/function.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. [Create](../../functions/operations/function/function-create.md) a function named `ffmpeg-converter`.
-  1. Create an archive named `src.zip` with the following files:
+  1. Create an `src.zip` archive with the following files:
 
      * `requirements.txt` file:
 
@@ -116,34 +115,34 @@ Video conversion is performed using the FFmpeg utility. The FFmpeg executable fi
        ```
       
      * The `index.py` file with the contents of `ffmpeg-converter.py` from the archive.
-     * The FFmpeg executable file. On the [FFmpeg official website](http://ffmpeg.org/download.html), download the 64-bit FFmpeg archive from the **Linux Static Builds** section and make the file executable by running the `chmod +x ffmpeg` command.
+     * The FFmpeg executable. Go to the [FFmpeg official website](http://ffmpeg.org/download.html), navigate to the **Linux Static Builds** section, download the archive with the 64-bit FFmpeg version, and make the file executable by running the `chmod +x ffmpeg` command.
 
-  1. [Upload](../../storage/operations/objects/upload.md) the `src.zip` archive to the bucket you created earlier.
+  1. [Upload](../../storage/operations/objects/upload.md) `src.zip` to the bucket you created earlier.
   1. [Create](../../functions/operations/function/version-manage.md) a function version:
 
      1. Specify the following settings:
 
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` upload method
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` upload method.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_bucket }}**: Name of the bucket you created earlier.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}**: `src.zip`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handle_process_event`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `2048 {{ ui-key.yacloud.common.units.label_megabyte }}`
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `ffmpeg-sa`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}**: `src.zip`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handle_process_event`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `2048 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `ffmpeg-sa`.
 
      1. Add these environment variables:
 
         * `DOCAPI_ENDPOINT`: **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the database configuration.
         * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.label_secret-id }}**.
-        * `YMQ_QUEUE_URL`: {{ message-queue-name }} queue **{{ ui-key.yacloud.ymq.queue.overview.label_url }}**.
+        * `YMQ_QUEUE_URL`: **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** of the {{ message-queue-name }}-enabled queue.
         * `S3_BUCKET`: Name of the bucket you created earlier.
 
 {% endlist %}
 
 ## Create a trigger {#create-trigger}
 
-The message queue is processed using a [trigger for {{ message-queue-name }}](../../functions/concepts/trigger/ymq-trigger.md). It invokes the converter function when messages get into `converter-queue`. 
+A message queue is handled using a [trigger for {{ message-queue-name }}](../../functions/concepts/trigger/ymq-trigger.md). It invokes the converter function as messages arrive in `converter-queue`. 
 
 {% list tabs group=instructions %}
 
@@ -156,11 +155,11 @@ The message queue is processed using a [trigger for {{ message-queue-name }}](..
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
      * Enter a name for the trigger: `ffmpeg-trigger`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select the `converter-queue` message queue and the `ffmpeg-sa` service account with permissions to read from it.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select the message queue named `converter-queue` and the `ffmpeg-sa` service account with rights to read messages from it.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
      * Select the function for the trigger to invoke: `ffmpeg-converter`.
      * Specify the [function version tag](../../functions/concepts/function.md#tag): `$latest`.
-     * Specify the service account that will be used to invoke the function: `ffmpeg-sa`.
+     * Specify the service account which will invoke the function: `ffmpeg-sa`.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 {% endlist %}
@@ -196,17 +195,17 @@ The message queue is processed using a [trigger for {{ message-queue-name }}](..
 
 ### View the queue statistics {#ymq-stat}
 
-After the task is created, the number of messages in the queue increases by one and a trigger fires. Make sure that messages make it into the queue and get processed. To do this, view the queue statistics.
+After the task is created, the number of messages in the queue increases by one and a trigger fires. Make sure messages arrive in the queue and are handled. To do this, view the queue statistics.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing `converter-queue`.
+  1. In the [management console]({{ link-console-main }}), select the folder housing `converter-queue`.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Select the `converter-queue` queue.
-  1. Under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, you can see how many messages are in the queue and how many are being processed.
-  1. Go to **{{ ui-key.yacloud.common.monitoring }}**. View the **Overall queue stats** charts.
+  1. Under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, you can see the number of enqueued messages and those being handled.
+  1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**. View the **Overall queue stats** charts.
 
 {% endlist %}
 
@@ -221,7 +220,7 @@ The trigger should invoke the converter function for each message in the queue. 
   1. In the [management console]({{ link-console-main }}), select the folder containing the `ffmpeg-converter` function.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the `ffmpeg-converter` function.
-  1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** tab and specify the period to view them for.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** tab and specify the period over which you want to view them.
 
 {% endlist %}
 
@@ -242,7 +241,7 @@ The trigger should invoke the converter function for each message in the queue. 
      ```
 
   1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
-  1. If video conversion to GIF is not completed, the **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** field returns:
+  1. If video conversion to GIF has not been completed, the **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** field will return:
 
      ```json
      {
@@ -270,4 +269,4 @@ To shut down the infrastructure and stop paying for the resources you created:
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../functions/operations/function/function-delete.md) the `ffmpeg-api` and `ffmpeg-converter` functions.
-1. [Delete](../../functions/operations/trigger/trigger-delete.md) the `ffmpeg-trigger` trigger.
+1. [Delete](../../functions/operations/trigger/trigger-delete.md) `ffmpeg-trigger`.

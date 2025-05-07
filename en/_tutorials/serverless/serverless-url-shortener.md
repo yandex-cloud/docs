@@ -1,7 +1,7 @@
 # URL shortener
 
 
-With this script, you will create a URL shortening service using {{ yandex-cloud }} serverless technologies.
+With this script, you will create a URL shortener using serverless technologies available in {{ yandex-cloud }}.
 
 The service accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The [hosting](../../storage/concepts/hosting.md) service sends the user an HTML page with a field for entering the URL. The [function](../../functions/concepts/function.md) sends the entered URL for storage in a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user enters the shortened URL, the function finds the full URL in the database and redirects the user's request to it.
 
@@ -28,10 +28,9 @@ The cost of resources for the script includes:
 * Fee for function calls (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for requests to the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
-
 ## Set up hosting for the URL shortener page {#object-storage}
 
-To create a bucket to place the HTML page of your service in and configure it for hosting static websites:
+To create a bucket, place the HTML page of your service in it, and configure it for hosting static websites:
 
 {% list tabs group=instructions %}
 
@@ -50,7 +49,7 @@ To create a bucket to place the HTML page of your service in and configure it fo
         {% endnote %}
 
      1. Set the maximum size to `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-     1. Choose `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` access to read objects.
+     1. Select the `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` access to read objects.
      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
   1. Copy the HTML code and paste it into the `index.html` file:
 
@@ -103,7 +102,7 @@ To create a bucket to place the HTML page of your service in and configure it fo
 
      {% endcut %}
 
-  1. Click the name of the created bucket.
+  1. Click the name of the bucket you created.
   1. Click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
   1. Specify the `index.html` file you prepared.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
@@ -123,15 +122,15 @@ To create a service account for the service components to interact:
 
 - Management console {#console}
 
-  1. Go to your working folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to your working folder.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Specify a name for the service account: `serverless-shortener`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. Click on the name of the created service account.
+  1. Click on the name of the service account you created.
 
-     Save the service account ID, you will need it in the next steps.
+     Save the service account ID, as you will need it later on.
 
 {% endlist %}
 
@@ -143,8 +142,8 @@ To create a {{ ydb-name }} database and configure it to store URLs:
 
 - Management console {#console}
 
-  1. Go to your working folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to your working folder.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Enter the database name: `for-serverless-shortener`.
   1. Select the **{{ ui-key.yacloud.ydb.forms.label_serverless-type }}** database type.
@@ -154,7 +153,7 @@ To create a {{ ydb-name }} database and configure it to store URLs:
      While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
   1. Click the name of the database you created.
 
-     Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value, you will need it in the next steps.
+     Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value, as you will need it later on.
   1. In the left-hand panel, select the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
   1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
   1. Copy the SQL query and paste it into the **{{ ui-key.yacloud.ydb.sql.label_query }}** field:
@@ -180,12 +179,12 @@ To create and set up a URL shortening function:
 
 - Management console {#console}
 
-  1. Go to your working folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to your working folder.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter the name: `for-serverless-shortener`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. In the **Python** drop-down list, choose the `python312` runtime environment.
+  1. From the **Python** drop-down list, choose the `python312` runtime environment.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
   1. Copy the function code and paste it into the `index.py` file under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**.
 
@@ -277,8 +276,8 @@ To create and set up a URL shortening function:
          body = decode(event, body)
          original_host = event.get('headers').get('Origin')
          link_id = hashlib.sha256(body.encode('utf8')).hexdigest()[:6]
-         # The URL may contain encoded characters, e.g., %. This will interfere with API Gateway when redirecting,
-         # therefore, you should get rid of these characters by invoking urllib.parse.unquote.
+         # The URL may contain encoded characters, e.g., %. This will interfere with API Gateway when redirecting;
+         # therefore, you should get rid of these characters by invoking `urllib.parse.unquote`.
          insert_link(link_id, urllib.parse.unquote(body))
          return response(200, {'Content-Type': 'application/json'}, False, json.dumps({'url': f'{original_host}/r/{link_id}'}))
        return response(400, {}, False, 'The url parameter is missing in the request body')
@@ -330,7 +329,7 @@ To create and set up a URL shortening function:
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}**, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
 
-  Save the function ID, you will need it at the next steps.
+  Save the function ID, as you will need it later on.
 
 {% endlist %}
 
@@ -342,8 +341,8 @@ To publish the service via {{ api-gw-name }}:
 
 - Management console {#console}
 
-  1. Go to your working folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to your working folder.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `for-serverless-shortener`.
   1. Copy and paste the following code into the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section:
@@ -391,26 +390,26 @@ To publish the service via {{ api-gw-name }}:
      {% endcut %}
 
      Edit the specification code:
-     * Replace `<service_account_id>` with the ID of the previously created service account.
-     * Replace `<function_id>` with the ID of the previously created function.
-     * Replace `<bucket_name>` with the name of the previously created bucket.
+     * Replace `<service_account_id>` with the ID of the service account you created earlier.
+     * Replace `<function_id>` with the ID of the function you created earlier.
+     * Replace `<bucket_name>` with the name of the bucket you created earlier.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Click the name of the API gateway you created.
   1. Copy the `url` value from the specification.
 
-     Use this URL to work with the created service.
+     Use this URL to operate the service you created.
 
 {% endlist %}
 
 ## Test the URL shortener {#test-shortener}
 
-To check that the service components interact properly:
-1. Open the copied URL in the browser.
-1. In the input field, enter the URL that you want to shorten.
+To make sure the service components interact properly:
+1. Open the URL you copied in the browser.
+1. In the input field, enter the URL you want to shorten.
 1. Click **Shorten**.
 
    You will see the shortened URL below.
-1. Follow this link. As a result, the same page should open as when using the full URL.
+1. Follow this link. The same page should open as when using the full URL.
 
 ## How to delete the resources you created {#clear-out}
 

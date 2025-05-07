@@ -12,10 +12,11 @@ description: Управление доступом в сервисе {{ objstora
 * [Публичный доступ](#anonymous).
 * [{{ sts-name }}](#sts).
 * [Подписанные (pre-signed) URL](#pre-signed).
+* [Сервисные подключения {{ vpc-short-name }} (Private Endpoints)](#pe-vpc).
 
 Также в {{ objstorage-name }} на доступ к бакетам и объектам может влиять включенное шифрование. Подробнее о работе с зашифрованными бакетами см. на странице [{#T}](../concepts/encryption.md).
 
-На схеме показана взаимосвязь механизмов управления доступом в {{ objstorage-name }}.
+На схеме показана взаимосвязь механизмов управления доступом в {{ objstorage-name }}. {#scheme}
 
 ![access-scheme](../../_assets/storage/access-scheme.svg)
 
@@ -107,7 +108,19 @@ description: Управление доступом в сервисе {{ objstora
 
 Доступ выдается на [бакет](../concepts/bucket.md) или [объект](../concepts/object.md).
 
-### См. также {#see-also}
+## Сервисные подключения {{ vpc-short-name }} (Private Endpoints) {#pe-vpc}
+
+{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
+
+{% include [intro-access-via-vpc](../../_includes/storage/intro-access-via-vpc.md) %}
+
+В {{ objstorage-name }} есть возможность настроить бакет так, чтобы доступ в него был возможен только через сервисные подключения {{ vpc-short-name }}. Предусмотрены следующие механизмы:
+* **Ограничение доступа в бакет на уровне политики** — доступ в бакет разрешается из сервисных подключений {{ vpc-short-name }} с идентификаторами, указанными в [политике](#policy). Однако, согласно [схеме](#scheme), все еще остается возможность доступа в бакет из публичной сети, например с помощью [ACL](#acl) объекта или при наличии другого разрешающего правила в политике. Также при такой настройке остается возможность [копирования объектов на стороне сервера (Server Side Copy)](../operations/objects/copy.md) в такой бакет и из него. Подробнее см. на странице [Настройте политику для доступа из сервисных подключений](../operations/buckets/access-via-vpc.md#setup-policy).
+* **Ограничение доступа в бакет на уровне сервиса** — доступ в бакет разрешается только из сервисных подключений {{ vpc-short-name }}. Нужно указать конкретные названия подключений. При этом доступ в бакет из публичной сети будет невозможен. В текущей реализации этой функциональности также будет невозможен доступ в бакет с помощью [консоли управления]({{ link-console-main }}). Подробнее см. на странице [Настройте ограничение для доступа только из сервисных подключений](../operations/buckets/access-via-vpc.md#setup-service-restriction).
+
+{% include [private-endpoint-ssc](../../_includes/storage/private-endpoint-ssc.md) %}
+
+## См. также {#see-also}
 
 * [{#T}](../operations/buckets/iam-access.md)
 * [{#T}](../operations/buckets/edit-acl.md)
@@ -115,3 +128,4 @@ description: Управление доступом в сервисе {{ objstora
 * [{#T}](../operations/buckets/policy.md)
 * [{#T}](../operations/buckets/bucket-availability.md)
 * [{#T}](../operations/buckets/create-sts-key.md)
+* [{#T}](../operations/buckets/access-via-vpc.md)

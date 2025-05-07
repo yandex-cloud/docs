@@ -325,9 +325,9 @@ To install an agent on the VMs you need to back up:
 1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
 1. On the left-hand panel, click **Download agents**.
 1. Select the agent type for the OS you need:
-   * VMware
-   * Windows
-   * Linux
+   * VMware.
+   * Windows.
+   * Linux.
 1. Click **Next**.
 1. Download and install an agent on the VMs you need to back up:
 
@@ -376,7 +376,7 @@ After the agent is installed on the VMs under protection, they will appear in th
 
 To enable VM protection:
 1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
-1. Under **Machines Groups**, deploy an instance group, e.g., `Default`.
+1. Under **Machines Groups**, deploy an instance group, such as `Default`.
 1. In the VM list on the right, click ![image](../../_assets/console-icons/ellipsis.svg).
 1. In the** Edit replication settings** menu, set up a replication schedule for the instance group by hour, day, or week, or select continuous protection. Under **Volume type**, specify the drive type for VM recovery: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`. 
 1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax tutorials](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
@@ -437,7 +437,7 @@ Make sure you specified a valid IP address for each VM.
 
 ## Run recovery {#run-recover}
 
-To recover a VM from a backup, Hystax Acura Backup will create a new VM with Hystax Acura Cloud Agent in your cloud. This VM will perform all operations in the cloud.
+To recover a VM from a backup, Hystax Acura Backup will create a new VM with a Hystax Acura Cloud Agent in your cloud. This VM will perform all operations in the cloud.
 
 To recover a VM from a backup:
 1. Open the Hystax Acura Backup control panel. Click the Hystax logo.

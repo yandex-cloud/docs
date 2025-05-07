@@ -18,7 +18,7 @@ The cost of using {{ lockbox-name }} is calculated based on:
 There is no charge for using secrets created with {{ connection-manager-name }}.
 
 
-{% note info %}
+{% note warning %}
 
 The prices are valid as of March 10, 2024.
 
@@ -27,15 +27,6 @@ The prices are valid as of March 10, 2024.
 
 
 ## Prices for the Russia region {#prices}
-
-
-
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ lockbox-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2k9ntpr7hljm0o71sg).
-
-{% endnote %}
-
 
 
 

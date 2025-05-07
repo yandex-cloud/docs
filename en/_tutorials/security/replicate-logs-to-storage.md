@@ -7,18 +7,18 @@ In this tutorial, you will learn how to replicate VM logs automatically to an {{
 
 The solution described below works in the following way:
 1. Fluent Bit runs on an active VM as a [systemd](https://ru.wikipedia.org/wiki/Systemd) module.
-1. Fluent Bit collects logs according to the configuration settings and sends them to a {{ yds-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) via the [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/) protocol.
-1. In the working folder, you set up a {{ data-transfer-name }} [transfer](../../data-transfer/concepts/#transfer) that fetches data from the stream and saves it to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
+1. Fluent Bit collects logs as per the configuration settings and sends them to a {{ yds-name }}-enabled [stream](../../data-streams/concepts/glossary.md#stream-concepts) over the [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/) protocol.
+1. In your working folder, you set up a {{ data-transfer-name }}-enabled [transfer](../../data-transfer/concepts/#transfer) that fetches data from the stream and saves it to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
 
 To set up log replication:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Set up your environment](#setup).
 1. [Create an {{ objstorage-name }} bucket for storing your logs](#create-bucket).
-1. [Create a data stream {{ yds-name }}](#create-stream).
-1. [Create a transfer {{ data-transfer-name }}](#create-transfer).
+1. [Create a {{ yds-name }}-enabled data stream](#create-stream).
+1. [Create a {{ data-transfer-name }}-enabled transfer](#create-transfer).
 1. [Install Fluent Bit](#install-fluent-bit).
-1. [Connect Fluent Bit to a data stream](#connect).
+1. [Connect Fluent Bit to your data stream](#connect).
 1. [Test sending and receiving data](#check-ingestion).
 
 If you no longer want to store logs, [delete the resources allocated to them](#clear-out).
@@ -32,9 +32,9 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 
 The cost of data storage support includes:
 
-* Data stream maintenance fees (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
+* Fees for data stream maintenance (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
 * Fees for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
-* Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 
 
 ## Set up your environment {#setup}
@@ -43,13 +43,13 @@ The cost of data storage support includes:
 1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the ID and secret key. You will need them to log in to AWS.
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the service account you created at the previous step.
 1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
-1. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) utility on the VM.
+1. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) utility on your VM.
 1. Run this command:
 
     ```bash
     aws configure
     ```
-1. Enter the following one by one:
+1. Enter the following, one by one:
 
     * `AWS Access Key ID [None]:`: Service account [key ID](../../iam/concepts/authorization/access-key.md).
     * `AWS Secret Access Key [None]:`: Service account [secret key](../../iam/concepts/authorization/access-key.md).
@@ -65,21 +65,21 @@ The cost of data storage support includes:
 
 {% note info %}
 
-This tutorial uses the current Fluent Bit version 1.9.
+This tutorial uses the current Fluent Bit version, 1.9.
 
 {% endnote %}
 
-1. To install Fluent Bit to your VM, run the command:
+1. To install Fluent Bit on your VM, run this command:
     ```bash
     curl https://raw.githubusercontent.com/fluent/fluent-bit/master/install.sh | sh
     ```
-    For more information on how to install Fluent Bit, see the [official documentation](https://docs.fluentbit.io/manual/installation/linux/ubuntu).
+    For more information on how to install Fluent Bit, see [this Fluent Bit guide](https://docs.fluentbit.io/manual/installation/linux/ubuntu).
 
 1. Start `fluent-bit`:
     ```bash
     sudo systemctl start fluent-bit
     ```
-1. Check `fluent-bit` status; the service must be active:
+1. Make sure the `fluent-bit` status is active:
     ```bash
     sudo systemctl status fluent-bit
     ```
@@ -103,16 +103,16 @@ This tutorial uses the current Fluent Bit version 1.9.
      
     ``` 
 
-## Connect Fluent Bit to the data stream {#connect}
+## Connect Fluent Bit to your data stream {#connect}
 
 {% note info %}
 
-If running Fluent Bit version below 1.9, which comes with the `td-agent-bit` package, edit the `/etc/td-agent-bit/td-agent-bit.conf`, `/lib/systemd/system/td-agent-bit.service` files and restart `td-agent-bit`.
+If running Fluent Bit version below 1.9, which comes with the `td-agent-bit` package, edit the `/etc/td-agent-bit/td-agent-bit.conf` and `/lib/systemd/system/td-agent-bit.service` files and restart `td-agent-bit`.
 
 {% endnote %}
 
 
-1. Open the `/etc/fluent-bit/fluent-bit.conf` file: 
+1. Open `/etc/fluent-bit/fluent-bit.conf`: 
 
    ```bash
    sudo vim  /etc/fluent-bit/fluent-bit.conf
@@ -129,16 +129,16 @@ If running Fluent Bit version below 1.9, which comes with the `td-agent-bit` pac
     ```
     Where:
 
-    * `stream`: {{ yds-name }} data stream ID. 
+    * `stream`: ID of the {{ yds-name }}-enabled data stream. 
         >For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logs-stream` if:
         >* `logs-stream`: Stream name.
         >* `{{ region-id }}`: Region
         >* `aoeu1kuk2dht********`: Folder ID.
         >* `cc8029jgtuab********`: {{ ydb-short-name }} database ID.
 
-    For more information on how to install Fluent Bit, see the [official documentation](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file).
+    For more information on how to install Fluent Bit, see [this Fluent Bit guide](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file).
 
-1. Open the `/lib/systemd/system/fluent-bit.service` file: 
+1. Open `/lib/systemd/system/fluent-bit.service`: 
    ```bash
    sudo vim  /lib/systemd/system/fluent-bit.service
    ```
@@ -155,7 +155,7 @@ If running Fluent Bit version below 1.9, which comes with the `td-agent-bit` pac
    sudo systemctl daemon-reload
    sudo systemctl restart fluent-bit
    ```
-1. Check `fluent-bit` status. It must not contain any error messages:
+1. Check the `fluent-bit` status. It must not contain any error messages:
     ```bash
     sudo systemctl status fluent-bit
     ```
