@@ -259,9 +259,9 @@ Before deleting the resources you created, [deactivate the transfer](../../data-
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* [Transfer](../../data-transfer/operations/transfer.md#delete).
-* [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-* [Objects](../../storage/operations/objects/delete.md) from the bucket.
+* [Transfer](../../data-transfer/operations/transfer.md#delete)
+* [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete)
+* [Objects](../../storage/operations/objects/delete.md) from the bucket
 * Delete the other resources depending on how they were created:
 
     {% list tabs group=instructions %}

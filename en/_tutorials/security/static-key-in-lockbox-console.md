@@ -1,6 +1,6 @@
-1. [Prepare the environment](#prepare).
+1. [Set up your environment](#prepare).
 1. [Save the static access key to a {{ lockbox-name }} secret](#store-key-into-secret).
-1. [Use the key from the {{ lockbox-name }} secret to work with the service](#use-key).
+1. [Use the key from the {{ lockbox-name }} secret for your operations with the service](#use-key).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [paid-resources](../_tutorials_includes/static-key-in-lockbox/paid-resources.md) %}
 
 
-## Prepare the environment {#prepare}
+## Set up your environment {#prepare}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Create a service account, e.g., `storage-bucket-sa`, you will use to perform operations in {{ objstorage-name }}:
+  1. Create a service account, e.g., `storage-bucket-sa`, that you will use to perform operations in {{ objstorage-name }}:
 
       ```bash
       yc iam service-account create storage-bucket-sa
@@ -60,7 +60,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Where:
 
-      * `<folder_name_or_ID>`: Name or [ID](../../resource-manager/operations/folder/get-id.md) of the folder where the service account was created.
+      * `<folder_name_or_ID>`: Name or [ID](../../resource-manager/operations/folder/get-id.md) of the folder where you created the service account.
       * `<service_account_ID>`: Service account ID you saved in the previous step.
 
       Result:
@@ -114,8 +114,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Where:
 
-      * `--cloud-id`: [ID](../../resource-manager/operations/cloud/get-id.md) of the cloud the service account was created in.
-      * `--folder-id`: ID of the folder the service account was created in.
+      * `--cloud-id`: [ID](../../resource-manager/operations/cloud/get-id.md) of the cloud you created the service account in.
+      * `--folder-id`: ID of the folder you created the service account in.
       * `--deletion-protection`: Secret deletion protection. You cannot delete a secret with this option enabled. This is an optional parameter.
 
       Result:
@@ -144,7 +144,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The service account's static access key is now saved inside the {{ lockbox-name }} secret.
 
 
-## Use the key from the {{ lockbox-name }} secret to work with the service {#use-key}
+## Use the key from the {{ lockbox-name }} secret for your operations with the service {#use-key}
 
 {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
 
@@ -170,7 +170,7 @@ The service account's static access key is now saved inside the {{ lockbox-name 
       && export AWS_DEFAULT_REGION="{{ region-id }}"
     ```
 
-    The AWS CLI will use the environment variables you created for authentication when performing operations with the service's resources.
+    The AWS CLI will use the environment variables you created for authentication when performing operations with the service resources.
 
 1. Create a bucket in {{ objstorage-name }} by specifying a unique [bucket name](../../storage/concepts/bucket.md#naming) in the command:
 

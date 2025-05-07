@@ -9,9 +9,9 @@ items:
         href: quickstart.md
       - name: Getting started with the AWS CLI
         href: quickstart/quickstart-aws-cli.md
-  - name: Step-by-step guides
+  - name: Step-by-step tutorials
     items:
-      - name: All guides
+      - name: All tutorials
         href: operations/index.md
       - name: Buckets
         items:
@@ -21,7 +21,7 @@ items:
             href: operations/buckets/delete.md
           - name: Limiting the maximum size of a bucket
             href: operations/buckets/limit-max-volume.md
-          - name: Bucket encryption
+          - name: Encrypting a bucket
             href: operations/buckets/encrypt.md
           - name: Managing object lifecycles
             href: operations/buckets/lifecycles.md
@@ -29,9 +29,9 @@ items:
             href: operations/buckets/cors.md
           - name: Configuring access permissions using {{ iam-short-name }}
             href: operations/buckets/iam-access.md
-          - name: Editing a bucket ACL
+          - name: Editing a bucket's ACL
             href: operations/buckets/edit-acl.md
-          - name: Access policy management
+          - name: Managing access policies
             href: operations/buckets/policy.md
           - name: Configuring public access to a bucket
             href: operations/buckets/bucket-availability.md
@@ -73,7 +73,7 @@ items:
             href: operations/objects/copy.md
           - name: Getting a public link to an object
             href: operations/objects/link-for-download.md
-          - name: Configuring object locks
+          - name: Configuring an object lock
             href: operations/objects/edit-object-lock.md
           - name: Deleting an object
             href: operations/objects/delete.md
@@ -81,19 +81,19 @@ items:
             href: operations/objects/delete-all.md
           - name: Deleting a partially uploaded object
             href: operations/objects/deleting-multipart.md
-          - name: Editing an object ACL
+          - name: Editing an object's ACL
             href: operations/objects/edit-acl.md
           - name: Managing object labels
             href: operations/objects/tagging.md
-          - name: Managing user-defined object metadata
+          - name: Managing object custom metadata
             href: operations/objects/object-meta.md
       - name: Hosting static websites
         items:
           - name: Setting up hosting
             href: operations/hosting/setup.md
-          - name: Custom domain support
+          - name: Support for your own domain
             href: operations/hosting/own-domain.md
-          - name: Multiple domain name support
+          - name: Support for multiple domain names
             href: operations/hosting/multiple-domains.md
           - name: Configuring HTTPS
             href: operations/hosting/certificate.md
@@ -101,13 +101,15 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Getting object query statistics using S3 Select
+      - name: Getting statistics on object queries with S3 Select
         href: tutorials/server-logs.md
-      - name: Getting website traffic statistics using S3 Select
+      - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
-      - name: Getting object query statistics using {{ yq-full-name }}
+      - name: Getting statistics on object queries using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
-      - name: Cost analysis by resource
+      - name: >-
+          Generating a resource-by-resource cost breakdown report using S3
+          Select
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md
@@ -115,7 +117,7 @@ items:
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
-      - name: Analyzing logs using DataLens
+      - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
       - name: Event search in audit logs
         items:
@@ -149,7 +151,7 @@ items:
         href: tutorials/opensearch-to-object-storage.md
       - name: Automatically copying objects from one bucket to another
         href: tutorials/bucket-to-bucket.md
-      - name: Regular asynchronous recognition of audio files in a bucket
+      - name: Recognizing audio files in a bucket on a regular basis
         href: tutorials/batch-recognition-stt.md
       - name: >-
           Training a model in {{ ml-platform-full-name }} on data from {{
@@ -244,13 +246,13 @@ items:
         href: tutorials/hystax-backup.md
       - name: Backing up to {{ objstorage-name }} with CloudBerry Desktop Backup
         href: tutorials/object-storage-cloudberry.md
-      - name: Backing up to {{ objstorage-name }} via Duplicati
+      - name: Backing up to {{ objstorage-name }} with Duplicati
         href: tutorials/object-storage-duplicati.md
-      - name: Backing up to {{ objstorage-name }} via Bacula
+      - name: Backing up to {{ objstorage-name }} with Bacula
         href: tutorials/backup-with-bacula.md
       - name: Backing up to {{ objstorage-full-name }} with Veeam Backup
         href: tutorials/backup-with-veeam.md
-      - name: Backing up to {{ objstorage-name }} via Veritas Backup Exec
+      - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
         href: tutorials/object-storage-veritas.md
       - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
         href: tutorials/kubernetes-backup.md
@@ -278,11 +280,11 @@ items:
         href: tutorials/export-logs-to-splunk.md
       - name: Creating an MLFlow server for logging experiments and artifacts
         href: tutorials/mlflow-datasphere.md
-      - name: Working with data using {{ yq-full-name }}
+      - name: Operations with data using {{ yq-full-name }}
         href: tutorials/yq-storage.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md
-      - name: Recognizing text in image archives in {{ vision-name }}
+      - name: Recognizing text in image archives using {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
@@ -338,7 +340,7 @@ items:
         href: concepts/presigned-post-forms.md
       - name: Storage class
         href: concepts/storage-class.md
-      - name: Bucket logging
+      - name: Bucket actions logging mechanism
         href: concepts/server-logs.md
       - name: Backups
         href: concepts/backup.md
@@ -346,7 +348,7 @@ items:
         href: concepts/tls.md
       - name: Labels
         href: concepts/tags.md
-      - name: S3 Select
+      - name: S3 Select query language
         href: concepts/s3-select-language.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -602,7 +604,7 @@ items:
                     href: s3/api-ref/object/deleteobjecttagging.md
               - name: Multipart upload
                 items:
-                  - name: Multipart upload process
+                  - name: General multipart upload procedure
                     href: s3/api-ref/multipart.md
                   - name: startUpload
                     href: s3/api-ref/multipart/startupload.md
@@ -634,7 +636,7 @@ items:
                 items:
                   - name: All methods
                     href: s3/api-ref/cors.md
-                  - name: CORS configuration in XML format
+                  - name: XML structure of CORS configuration
                     href: s3/api-ref/cors/xml-config.md
                   - name: upload
                     href: s3/api-ref/cors/upload.md
@@ -646,7 +648,7 @@ items:
                 items:
                   - name: All methods
                     href: s3/api-ref/lifecycles.md
-                  - name: Lifecycle configuration in XML format
+                  - name: XML structure of lifecycle configuration
                     href: s3/api-ref/lifecycles/xml-config.md
                   - name: upload
                     href: s3/api-ref/lifecycles/upload.md
@@ -658,7 +660,7 @@ items:
                 items:
                   - name: All methods
                     href: s3/api-ref/acl.md
-                  - name: ACL configuration in XML format
+                  - name: XML structure of ACL configuration
                     href: s3/api-ref/acl/xml-config.md
                   - name: objectGetAcl
                     href: s3/api-ref/acl/objectget.md

@@ -1,6 +1,6 @@
-1. [Prepare the environment](#prepare).
+1. [Set up your environment](#prepare).
 1. [Create an infrastructure](#deploy).
-1. [Use the key from the {{ lockbox-name }} secret to work with the service](#use-key).
+1. [Use the key from the {{ lockbox-name }} secret for your operations with the service](#use-key).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [paid-resources](../_tutorials_includes/static-key-in-lockbox/paid-resources.md) %}
 
 
-## Prepare the environment {#prepare}
+## Set up your environment {#prepare}
 
 {% include [prepare](../_tutorials_includes/static-key-in-lockbox/prepare.md) %}
 
@@ -54,7 +54,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    For more information about the properties of {{ TF }} resources, see the provider documentation:
+    Learn more about the properties of {{ TF }} resources in the provider documentation:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * Assigning a [role](../../iam/concepts/access-control/roles.md) to a service account: [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
@@ -70,10 +70,10 @@ To create an infrastructure using {{ TF }}:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-Once the infrastructure is created, [use the key from the secret to work with the service](#use-key).
+Once the infrastructure is created, [use the key from the secret for your operations with the service](#use-key).
 
 
-## Use the key from the {{ lockbox-name }} secret to work with the service {#use-key}
+## Use the key from the {{ lockbox-name }} secret for your operations with the service {#use-key}
 
 {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
 
@@ -87,7 +87,7 @@ Use the key from the {{ lockbox-name }} secret and create a bucket in {{ objstor
     AWS_DEFAULT_REGION="{{ region-id }}"
     ```
 
-    The AWS CLI will use the environment variables you created for authentication when performing operations with the service's resources.
+    The AWS CLI will use the environment variables you created for authentication when performing operations with the service resources.
 
 1. Create a bucket in {{ objstorage-name }} by specifying a unique [bucket name](../../storage/concepts/bucket.md#naming) in the command:
 
@@ -119,7 +119,7 @@ Use the key from the {{ lockbox-name }} secret and create a bucket in {{ objstor
 To stop paying for the resources you created:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
-1. Open the `static-key-in-lockbox-config.tf` configuration file and delete your infrastructure description.
+1. Open the `static-key-in-lockbox-config.tf` configuration file and delete the description of the new infrastructure from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

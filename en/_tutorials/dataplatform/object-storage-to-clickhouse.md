@@ -37,7 +37,7 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) target cluster of any suitable configuration with the following settings:
+    1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable configuration with the following settings:
 
         * Number of {{ CH }} hosts: At least two, which is required to enable replication in the cluster.
         * Public access to cluster hosts: Allowed.
@@ -69,10 +69,10 @@ Set up your infrastructure:
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * [Security group](../../vpc/concepts/security-groups.md) required to connect to a cluster.
-        * Service account for creating and accessing the bucket
+        * Service account for creating and accessing the bucket.
         * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
         * Source {{ objstorage-name }} bucket.
-        * {{ mch-name }} target cluster.
+        * Target {{ mch-name }} cluster.
         * Target endpoint.
         * Transfer.
 
@@ -149,10 +149,10 @@ Set up your infrastructure:
 
         1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md#endpoint-settings) of the `{{ CH }}` type and specify the cluster connection settings in it:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.managed.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.managed.title }}`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: `<{{ CH }}_target_cluster_name>` from the drop-down list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: `db1`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}**: `user1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: `db1`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}**: `user1`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: `<user_password>`.
 
         1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.

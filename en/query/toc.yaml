@@ -118,7 +118,7 @@ items:
       - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
         href: tutorials/search-events-query.md
       - name: >-
-          Delivering data from {{ forms-full-name }} to {{ datalens-full-name }}
+          Migrating data from {{ forms-full-name }} to {{ datalens-full-name }}
           using {{ sf-full-name }} and {{ yq-full-name }}
         items:
           - name: Overview
@@ -177,7 +177,7 @@ items:
             href: api/yql-json-conversion-rules.md
       - name: '{{ AF }}'
         href: airflow/operator.md
-  - name: Integration options
+  - name: Integration
     href: integrations.md
   - name: '{{ at-name }} events'
     href: at-ref.md

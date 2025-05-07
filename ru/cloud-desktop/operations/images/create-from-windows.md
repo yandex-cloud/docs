@@ -174,7 +174,7 @@ description: Следуя данной инструкции, вы сможете
     mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"
     cp .\desktopagentInstall\desktopagent.exe 'C:\Program Files\Yandex.Cloud\Cloud Desktop\'
 
-    # create service
+    # Create Desktop Agent service
     $ServiceName = "cloud-desktop-agent"
     $ServicePort = 5050
     $ServicePath = "C:\Program Files\Yandex.Cloud\Cloud Desktop\desktopagent.exe"
@@ -191,10 +191,10 @@ description: Следуя данной инструкции, вы сможете
     & sc.exe config $ServiceName start= delayed-auto
     & sc.exe failure $ServiceName reset= 86400 actions= restart/1000/restart/1000/restart/1000
 
-    ### Agent startup outside Cloud Desktop environment will fail - thus no need to do it right after install during image prepare stage 
+    ### The agent startup is commented because starting the agent outside the Cloud Desktop will fail. Do not start the agent during the image preparation stage.
     # Start-Service $ServiceName
 
-    # create firewall rule
+    # Create firewall rule for Desktop Agent
     if ($Rule = Get-NetFirewallRule -Name "DESKTOP-AGENT-HTTPS-In-TCP" -ErrorAction SilentlyContinue) {
         $Rule | Remove-NetFirewallRule
     }
@@ -211,24 +211,14 @@ description: Следуя данной инструкции, вы сможете
 
 1. Создайте задачу для корректной работы ВМ после первого запуска в сервисе:
 
-    ```bash
-     $outNull = New-Item -Path "C:\Scripts" -ItemType Directory -Force -ErrorAction SilentlyContinue
-
-    # Debug for 2025/11
-    $Debug = Get-Item C:\Scripts | Select Attributes
-
-    # Fix for Win24h2/11
-    if($Debug.Attributes -ne "Directory") {
-        $outNull = Remove-Item -Path "C:\Scripts" -Force -Confirm:$false
-        Start-Sleep 2
-        $outNull = New-Item -Path "C:\Scripts" -ItemType Directory -Force -Confirm:$false
-    } 
-    & schtasks /Create /TN "SetNetSettings" /RU System /SC ONSTART /RL HIGHEST /TR "Powershell -NoProfile -ExecutionPolicy Bypass -File \`"C:\Scripts\SetNetAdapterSettings.ps1`"" | Out-Null 
+    ```powershell
+    & mkdir "C:\Scripts"
+    & schtasks /Create /TN "SetNetSettings" /RU System /SC ONSTART /RL HIGHEST /TR "Powershell -NoProfile -ExecutionPolicy Bypass -File \`"C:\Scripts\StartupSettings.ps1`"" | Out-Null
     ```
 
-1. В папке `C:\Scripts` создайте файл `SetNetAdapterSettings.ps1` с содержимым:
+1. В папке `C:\Scripts` создайте файл `StartupSettings.ps1` с содержимым:
   
-    ```bash
+    ```powershell
     # Getting IPv6 Net Adapter
     $IPv6Adapter = Get-NetAdapter | where {$_.Linklayeraddress -like "D0-1D*"}
 
@@ -246,7 +236,7 @@ description: Следуя данной инструкции, вы сможете
         mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"
         cp .\desktopagentInstall\desktopagent.exe 'C:\Program Files\Yandex.Cloud\Cloud Desktop\'
 
-        # create service
+        # Create Desktop Agent service
         $ServiceName = "cloud-desktop-agent"
         $ServicePort = 5050
         $ServicePath = "C:\Program Files\Yandex.Cloud\Cloud Desktop\desktopagent.exe"
@@ -265,7 +255,7 @@ description: Следуя данной инструкции, вы сможете
 
         Start-Service $ServiceName
 
-        # create firewall rule
+        # Create firewall rule for Desktop Agent
         if ($Rule = Get-NetFirewallRule -Name "DESKTOP-AGENT-HTTPS-In-TCP" -ErrorAction SilentlyContinue) {
             $Rule | Remove-NetFirewallRule
         }
@@ -279,6 +269,50 @@ description: Следуя данной инструкции, вы сможете
             -Protocol "TCP" `
             -Program "$ServicePath"
     }
+    
+    # Stores Windows RE (WinRE) configuration info $nfo string
+    [string]$nfo = reagentc /info
+
+    # Checks if Windows RE (WinRE) is enabled and extracts its disk/partition info
+    # If enabled, disables WinRE via reagentc and deletes its partition using DiskPart
+    if($nfo -match ".*Windows RE status:.*Enabled.*"){
+        # Locate the disk number it is on
+        $nfo -match ".*Windows RE location.*harddisk(\d+)" | Out-Null
+        $disk = $Matches[1]
+        # Locate the partition it is on
+        $nfo -match ".*Windows RE location.*partition(\d+)" | Out-Null
+        $partition = $Matches[1]
+
+        $WinREInfo = New-Object -TypeName psobject -Property $([ordered]@{Enabled='True';Disk=$disk;Partition=$partition;Resizable=(((Get-Disk -Number $disk | Get-Partition).PartitionNumber | Measure-Object -Maximum).Maximum -eq $partition);CurrentSize=([string]((Get-Disk -Number $disk | Get-Partition | Where-Object PartitionNumber -eq $partition).Size / 1MB) +'MB');A1_Key=[System.GUID]::NewGuid()})
+    } else {
+        $WinREInfo = New-Object -TypeName psobject -Property $([ordered]@{Enabled='False';Disk='N/A';Partition='N/A';Resizable='N/A';CurrentSize='N/A';A1_Key=[System.GUID]::NewGuid()})
+    }
+
+    if($WinREInfo.Enabled -eq "True" -and $WinREInfo.Partition -ne "N/A") {
+        & reagentc /disable
+        $outScript = "select disk $($WinREInfo.Disk)
+    select partition $($WinREInfo.Partition)
+    delete partition override
+    exit
+    "
+        $outScript | Out-File C:\Scripts\winre.txt -Encoding ascii
+        & diskpart /s C:\Scripts\winre.txt
+        $outNull = Remove-Item "C:\Scripts\winre.txt" -Force -Confirm:$false
+    }
+
+    # Force extend partition
+    $DiskSpace = Get-PartitionSupportedSize -DriveLetter "C"
+    if((Get-Partition -DriveLetter "C").Size -lt $DiskSpace.SizeMax) {
+        $outNull = Resize-Partition -DriveLetter "C" -Size $DiskSpace.SizeMax
+    }
+
+    # Format RAW disks
+    $RAWDisks = Get-Disk | where {$_.PartitionStyle -eq "RAW"} 
+    if($RAWDisks) { 
+        foreach($RAWDisk in $RAWDisks) { 
+            $outNull = Initialize-Disk -Number $RAWDisk.Number -PartitionStyle GPT -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "UserData" -Confirm:$false
+        } 
+    }  
     ```
 
 ## Установка Cloudbase-Init {#cloudbase-init}
@@ -288,7 +322,7 @@ description: Следуя данной инструкции, вы сможете
 Чтобы установить Cloudbase-Init, выполните команды PowerShell:
 
 ```powershell
-# Install cloudbase-init
+# Install Cloudbase-Init
 $WorkDirectory = "C:\Scripts"
 $outNull = Start-BITSTransfer -Source "https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x64.msi" -Destination $WorkDirectory
 $outNull = Start-Process -FilePath 'msiexec.exe' -ArgumentList "/i $WorkDirectory\CloudbaseInitSetup_Stable_x64.msi /qn" -Wait
@@ -323,11 +357,40 @@ $outScript | Out-File -FilePath "C:\Program Files\Cloudbase Solutions\Cloudbase-
 
 ## Завершение работы с образом {#generalize}
 
-1. (Опционально) Выполните [генерализацию образа](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) при помощи утилиты `Sysrep`. Это подготовит Windows для клонирования и последующего использования на других компьютерах.
+После настройки рекомендуем выполнить [генерализацию образа](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) при помощи утилиты `Sysrep`. Это подготовит Windows для клонирования и последующего использования на других компьютерах. 
 
-1. Выключите виртуальную машину.
+Чтобы генерализировать образ, запустите PowerShell от имени администратора и выполните команды:
 
-В результате получится файл дискового образа `image.qcow2` в формате QCOW2.
+```powershell
+# Global vars
+$WorkDirectory = "C:\sysprep"
+
+# Download the unattend.xml file for Sysprep
+New-Item -Path $WorkDirectory -ItemType Directory
+Start-BitsTransfer https://storage.yandexcloud.net/cloudbase/sysprepunattend-cloudbase-init.xml -Destination $WorkDirectory\unattend.xml
+
+# Start Sysprep
+& $env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit /unattend:"$WorkDirectory\unattend.xml"
+
+# Wait for correct system state
+do {
+    Start-Sleep -s 5
+    $SetupState = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State"
+    $ImageState = $SetupState | Select-Object -ExpandProperty ImageState
+} while ($ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE')
+
+Remove-Item $WorkDirectory -Recurse -Force
+Remove-Item "C:\Windows\Setup\Scripts\*" -Force -ErrorAction SilentlyContinue
+
+# Wait for Sysprep tag
+while (-not (Test-Path 'C:\Windows\System32\Sysprep\Sysprep_succeeded.tag') ) {
+    Start-Sleep -s 1
+}
+
+Stop-Computer -Force
+```
+
+Выключите виртуальную машину. В результате получится файл дискового образа `image.qcow2` в формате QCOW2.
 
 
 ## Добавление образа в {{ compute-name }} {#image-to-compute}
@@ -373,38 +436,4 @@ $outScript | Out-File -FilePath "C:\Program Files\Cloudbase Solutions\Cloudbase-
 Если вы не используете Cloudbase-Init и хотите изменить размер загрузочного диска в группе рабочих столов:
 
 1. Расширьте размер файловой системы загрузочного диска на рабочем столе. Например, с помощью утилиты `diskmgmt.msc`.
-
-    Если в конце диска находится раздел Recovery, удалите его, чтобы освободить полезное место на диске. Утилита `diskmgmt.msc` не позволяет удалить раздел Recovery, используйте для этого [diskpart](https://learn.microsoft.com/ru-ru/windows-server/administration/windows-commands/diskpart):
-
-    1. Запустите командную строку от имени администратора.
-    1. Отключите режим восстановления с помощью команды:
-        ```cmd
-        reagentc.exe /disable
-        ```
-    1. Запустите diskpart:
-        ```cmd
-        diskpart
-        ```
-    1. Посмотрите номер диска:
-        ```cmd
-        list disk
-        ```
-    1. Выберите диск, указав его номер (`N`):
-       ```cmd
-        select disk N
-        ```
-    1. Посмотрите номер раздела Recovery:
-        ```cmd
-        list partition
-        ```
-    1. Выберите раздел Recovery, указав его номер (`M`):
-       ```cmd
-        select partition M
-        ```
-    1. Удалите выбранный раздел Recovery:
-        ```cmd
-        delete partition override
-        ```
-    1. С помощью проводника или командной строки найдите на диске `C:` файл `Recovery.wim` и удалите его.
-
 1. [Создайте новый образ](create-from-desktop.md) {{ cloud-desktop-name }} из этого рабочего стола.

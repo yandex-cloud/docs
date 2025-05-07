@@ -1,4 +1,4 @@
-# Backing up to {{ objstorage-full-name }} with MSP360 Backup (CloudBerry Desktop Backup)
+# Backup to {{ objstorage-full-name }} using MSP360 Backup (CloudBerry Desktop Backup)
 
 You can use {{ objstorage-full-name }} to backup and restore data using [MSP360 Backup](https://www.msp360.com/msp360-free-backup/).
 
@@ -10,7 +10,7 @@ To set up backup in {{ objstorage-name }} using MSP360 Backup:
 1. [Create a bucket](#create-bucket).
 1. [Install MSP360 Backup](#install-cloudberry).
 1. [Configure MSP360 Backup](#configure-cloudberry).
-1. [Test your backup](#test-backup).
+1. [Test backup](#test-backup).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of backup using MSP360 Backup includes:
 * Fee for data storage.
 * Fee for data operations.
-* Fee for outbound traffic from {{ yandex-cloud }} to the internet.
+* Fee for outbound traffic from {{ yandex-cloud }} to the web.
 
 To learn more, see the [{{ objstorage-full-name }} pricing plans](../../storage/pricing.md#prices).
 
@@ -83,10 +83,10 @@ To create a service account:
   1. From the list of providers, select **S3 Compatible**.
   1. In the window that opens, enter the storage properties:
       * **Display Name**: `{{ yandex-cloud }}`.
-      * **Access Key**: Static access key ID.
+      * **Access Key**: ID of the static access key.
       * **Secret Key**: Private key.
       * **Service point**: `http://{{ s3-storage-host }}/` The **Bucket name** field should display a list of your buckets.
-      * **Bucket name**: Bucket you will keep your backups in.
+      * **Bucket name**: Bucket where you will keep your backups.
 
       Click **OK**. If the configuration is correct, the `{{ yandex-cloud }}` storage will appear in the **Storaged accounts** window. Close the window.
   1. Click **Home**.
@@ -98,7 +98,7 @@ To create a service account:
   1. To retain copies of all files in the selected folders, click **Backup all files in selected folders**. Click **Next**.
   1. On the screen warning you that you cannot compress and encrypt your backups in the free version, click **Next**.
   1. To check your backups for integrity, leave the **Enable Full Consistency Check** option enabled. Click **Next**.
-  1. By default, you make backups manually. If you need to set a backup schedule, select **Enable schedule**. Click **Next**.
+  1. By default, backup is manual. If you need to set a backup schedule, select **Enable schedule**. Click **Next**.
   1. Set the file storage duration. By default, backups are stored permanently. Click **Next**.
   1. On the **Pre / Post Actions** (actions before and after the backup) screen, leave the default settings and click **Next**.
   1. To get notified about the results of copying, enable **I want to receive a notification email** and specify the cases:
@@ -116,17 +116,17 @@ To create a service account:
   1. Click **+** and select **S3 Compatible**. 
   1. In the window that opens, enter the storage properties:
      * **Display Name**: `{{ yandex-cloud }}`.
-     * **Access Key**: Static access key ID.
+     * **Access Key**: ID of the static access key.
      * **Secret Key**: Private key.
      * **Endpoint**: `http://{{ s3-storage-host }}/` The **Bucket** field will display a list of your buckets.
-     * **Bucket**: Bucket you will keep your backups in.
+     * **Bucket**: Bucket where you will keep your backups.
      * **Advanced settings**. Leave the default values.
 
      Click **OK**. If the configuration is correct, the `{{ yandex-cloud }}` storage will appear in the **Backup plan: cloud storage** window.
   1. Select the **{{ yandex-cloud }}** storage and click **Continue**.
   1. Enter the backup plan name: `cloud-backup-plan`. Click **Continue**.
   1. In the file tree, specify the directories and files you want to back up. Click **Continue**.
-  1. To add all files from the selected directories to the backup, leave the toggle at **Backup all files in selected folders**. Click **Continue**.
+  1. To add all files from the selected directories to the backup, opt for the **Backup all files in selected folders** setting. Click **Continue**.
   1. On the screen warning you that you cannot compress and encrypt your backups in the free version, click **Continue**.
   1. To check your backups for integrity, leave the **Enable Full Consistency Check** option enabled. Click **Continue**.
   1. By default, you make backups manually. If you need to set a backup schedule, select **Enable schedule**. Click **Continue**.
@@ -140,7 +140,7 @@ To create a service account:
 
 {% endlist %}
 
-## Test your backup {#test-backup}
+## Test backup {#test-backup}
 
 {% list tabs group=operating_system %}
 

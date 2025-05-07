@@ -37,10 +37,10 @@ The support cost includes:
 
     - Manually {#manual}
 
-        1. [Create a {{ mgp-name }} target cluster](../../managed-greenplum/operations/cluster-create.md) in any suitable configuration with publicly available hosts and the following settings:
+        1. [Create a target {{ mgp-name }} cluster](../../managed-greenplum/operations/cluster-create.md) in any suitable configuration with publicly available hosts and the following settings:
 
-            * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
-            * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`
+            * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
+            * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
 
         
         1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-greenplum/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
@@ -153,10 +153,10 @@ The support cost includes:
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md#gp) of the `{{ GP }}` type and specify the cluster connection settings in it:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<{{ GP }}_target_cluster_name>` from the drop-down list
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<target_{{ GP }}_cluster_name>` from the drop-down list
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: `db1`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: `user1`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: `<user_password>`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: `<user_password>`.
 
 1. Create and activate your transfer:
 
@@ -254,10 +254,10 @@ Check the transfer performance by testing the copy and replication processes.
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-* [Transfer](../../data-transfer/operations/transfer.md#delete).
-* [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-* [Target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-* [Objects](../../storage/operations/objects/delete.md) from the bucket.
+* [Transfer](../../data-transfer/operations/transfer.md#delete)
+* [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete)
+* [Target endpoint](../../data-transfer/operations/endpoint/index.md#delete)
+* [Objects](../../storage/operations/objects/delete.md) from the bucket
 * Delete the other resources depending on how they were created:
 
     {% list tabs group=instructions %}

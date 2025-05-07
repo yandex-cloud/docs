@@ -61,7 +61,7 @@ Here is a brief description of the SQL syntax elements of the `MATCH_RECOGNIZE` 
 DEFINE <variable_1> AS <predicate_1> [ ... , <variable_N> AS <predicate_N> ]
 ```
 
-`DEFINE` declares variables that are searched for in the input data. Variables are names of SQL expressions computed over the input data. SQL expressions in `DEFINE` have the same meaning as search expressions in a `WHERE` SQL clause. For example, the `button = 1` expression searches for all rows that contain the `button` column with the `1` value. Any SQL expressions that can be used to perform a search, including aggregate functions like `LAST` or `FIRST`, can act as conditions, e.g., `button > 2 AND zone_id < 12` or `LAST(button) > 10`.
+`DEFINE` declares variables that are searched for in the input data. Variables are names of SQL expressions computed over the input data. SQL expressions in `DEFINE` have the same meaning as search expressions in a `WHERE` SQL clause. For example, the `button = 1` expression searches for all rows that contain the `button` column with the `1` value. Any SQL expressions that can be used to perform a search, including aggregation functions like `LAST` or `FIRST`, can act as conditions, e.g., `button > 2 AND zone_id < 12` or `LAST(button) > 10`.
 
 In your SQL statements, make sure to specify the variable name for which you are searching for matches. For instance, in the following SQL command, you need to specify the variable name for which the calculation is being performed (`A`), for the `button = 1` condition:
 

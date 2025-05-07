@@ -1,4 +1,4 @@
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a public bucket](#create-public-bucket).
 1. [Enable a website for a bucket](#turn-on-hosting).
 1. [Configure DNS](#configure-dns).
@@ -7,7 +7,7 @@
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud environment {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -34,7 +34,7 @@ To create a bucket for static website files:
 
      {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
-     If you have a registered domain name (e.g., `example.com`) and you want your website to be accessible at `example.com`, specify `example.com` as the bucket name.
+     If you have a registered domain name (e.g., `example.com`) and want your website to be accessible at `example.com`, specify `example.com` as the bucket name.
 
      {% note info %}
 
@@ -49,25 +49,25 @@ To create a bucket for static website files:
 
 ## Enable a website for a bucket {#turn-on-hosting}
 
-1. Upload and configure the home page and error handling page for the future website. To do this, create the following files on your computer:
+1. Upload and configure the home page and error handling page for your intended website. To do this, create the following files on your computer:
 
     * `index.html` containing the text `Hello world!`. The file contents will be displayed on the website's home page.
     * `error.html` containing the text `Error!`. The file contents will be displayed when the website responds with `4xx` errors.
 
-1. Upload the created files to the bucket:
+1. Upload the files you created to the bucket:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the bucket is located.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. In the window that opens, select the bucket created earlier.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. In the window that opens, select the bucket created earlier.
       1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**. In the window that opens, select the created files and confirm the upload.
+      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**. In the window that opens, select the files you created and confirm the upload.
       1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:
 
-          1. Go to the `{{ ui-key.yacloud.storage.bucket.switch_website }}` tab and select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+          1. Navigate to the `{{ ui-key.yacloud.storage.bucket.switch_website }}` tab and select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
           1. In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify `index.html`.
           1. In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify `error.html`.
           1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
@@ -77,7 +77,7 @@ To create a bucket for static website files:
 1. Make sure your website's home page opens. To do this, access the website from a browser at `http://<bucket_name>.{{ s3-web-host }}`.
 1. Make sure the error page opens. To do this, access the website from a browser at `http://<bucket_name>.{{ s3-web-host }}/error-check`.
 
-By default, the website is accessible only over HTTP, e.g., at `http://example.com.{{ s3-web-host }}`. To provide HTTPS support for your website:
+By default, the website is only accessible over HTTP, e.g., at `http://example.com.{{ s3-web-host }}`. To provide HTTPS support for your website:
 1. Add your [own security certificate](../../certificate-manager/operations/import/cert-create.md) or a [Let's Encrypt certificate](../../certificate-manager/operations/managed/cert-create.md) in {{ certificate-manager-full-name }}.
 1. [Configure](../../storage/operations/hosting/certificate.md) HTTPS support for your bucket. Your website will then be accessible over HTTPS at `https://example.com.website.yandexcloud.net`.
 
@@ -108,10 +108,10 @@ To create a public DNS zone:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a public zone.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**. In the window that opens, specify the DNS zone settings:
 
-      * **{{ ui-key.yacloud.dns.label_zone }}**: Specify your registered domain name, e.g., `example.com.`. The field value must end with a dot.
+      * **{{ ui-key.yacloud.dns.label_zone }}**: Specify your registered domain name, e.g., `example.com.`. The field value must end with a trailing dot.
       * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
       * **{{ ui-key.yacloud.common.name }}**: `example-zone-1`.
 
@@ -128,18 +128,18 @@ Create an [ANAME](../../dns/concepts/resource-record.md#aname) resource record i
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder that houses the public DNS zone.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and select the DNS zone you created earlier. 
-  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. In the window that opens, set the record parameters:
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and then, the DNS zone you created earlier. 
+  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. In the window that opens, set the record properties:
 
       * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_create-subdomain }}` and enter the domain value, e.g., `example.com`.
       * In the **{{ ui-key.yacloud.common.type }}** field, select `ANAME`.
-      * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the resource record value, e.g., `example.com.{{ s3-web-host }}`, where `example.com` is the name of the public bucket created earlier.
+      * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the resource record value, e.g., `example.com.{{ s3-web-host }}`, where `example.com` is the name of the public bucket you created earlier.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
-The domain name in the ANAME record must match the name of the bucket. For example, if you are creating an ANAME record named `example.com`, your bucket name should be `example.com`.
+The domain name in the ANAME record must match the bucket name. For example, if you are creating an ANAME record named `example.com`, your bucket name should also be `example.com`.
 
 ### Delegate the domain name {#delegate-domain}
 
@@ -147,9 +147,9 @@ Delegation is the transfer of authority from the registrar's servers to yours. F
 
 To delegate a domain, specify its DNS servers in the registrar's account.
 
-Delegation does not take effect immediately. It usually takes up to 24 hours (86,400 seconds) for internet service providers to update records. This depends on the [TTL](https://en.wikipedia.org/wiki/Time_to_live) value which specifies how long domain records are cached.
+Delegation does not take effect immediately. It usually takes up to 24 hours (86,400 seconds) for internet service providers to update records. This depends on the [TTL](https://en.wikipedia.org/wiki/Time_to_live) value, which specifies how long domain records are cached.
 
-You can check the domain delegation using [Whois](https://www.reg.com/whois/check_site) or the `dig` utility:
+You can check domain delegation using [Whois](https://www.reg.com/whois/check_site) or the `dig` utility:
 
 ```bash
 dig +short NS example.com
@@ -164,7 +164,7 @@ ns1.{{ dns-ns-host-sld }}.
 
 ## Upload the website files {#upload-files}
 
-After you configure and test availability, upload the remaining files that are necessary for website operation. To do this, use the [management console]({{ link-console-main }}), [S3 API](../../storage/s3/api-ref/object/upload.md), [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md), or other [tools for working with {{ objstorage-name }}](../../storage/tools/).
+After you configure and test availability, upload the remaining files required for website operation. To do this, use the [management console]({{ link-console-main }}), [S3 API](../../storage/s3/api-ref/object/upload.md), [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md), or other [tools for operating {{ objstorage-name }}](../../storage/tools/).
 
 ## Test the website {#test-site}
 
@@ -173,6 +173,6 @@ After you configure and test availability, upload the remaining files that are n
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources:
-1. [Delete the uploaded files](../../storage/operations/objects/delete.md).
+1. [Delete the files you uploaded](../../storage/operations/objects/delete.md).
 1. [Delete the bucket](../../storage/operations/buckets/delete.md).
 1. [Delete the DNS zone](../../dns/operations/zone-delete.md).

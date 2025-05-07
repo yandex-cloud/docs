@@ -1,4 +1,4 @@
-# Backing up to {{ objstorage-full-name }} via Duplicati
+# {{ objstorage-full-name }} backup with Duplicati
 
 You can use {{ objstorage-full-name }} for data backup and recovery using [Duplicati](https://www.duplicati.com/).
 
@@ -9,7 +9,7 @@ To set up backup in {{ objstorage-name }} using Duplicati:
 1. [Set up a service account](#configure-service-account).
 1. [Install Duplicati](#install-duplicati).
 1. [Set up Duplicati](#configure-duplicati).
-1. [Test your backup](#test-backup).
+1. [Test backup](#test-backup).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -27,7 +27,7 @@ The cost of Duplicati backup includes:
 
 ## Create a bucket {#create-bucket}
 
-To create a backup bucket:
+To create a bucket for backups:
 
 {% list tabs group=instructions %}
 
@@ -81,9 +81,9 @@ To configure Duplicati to work with {{ objstorage-name }}:
 1. Set the backup schedule or deselect the **Automatically run backups** option to create backups manually. Click **Next**.
 1. Specify the volume size and set the storage duration. Click **Save**.
 
-## Test your backup {#test-backup}
+## Test backup {#test-backup}
 
-To test your backup:
+To test backup:
 
 1. In the Duplicati interface, click **Home**.
 1. In the list of backup plans next to the `{{ yandex-cloud }}` plan, click **Run now**. Wait for the operation to complete.
