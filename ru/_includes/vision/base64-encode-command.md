@@ -28,7 +28,7 @@
   # Создайте функцию, которая кодирует файл и возвращает результат.
   def encode_file(file_path):
     with open(file_path, "rb") as fid:
-        file_content = fid.read()
+      file_content = fid.read()
     return base64.b64encode(file_content).decode("utf-8")
   ```
   
@@ -57,10 +57,10 @@
   
   ```go
   import (
-      "bufio"
-      "encoding/base64"
-      "io/ioutil"
-      "os"
+    "bufio"
+    "encoding/base64"
+    "io/ioutil"
+    "os"
   )
   
   // Откройте файл
