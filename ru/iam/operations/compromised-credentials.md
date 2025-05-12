@@ -32,7 +32,7 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 
 Чтобы злоумышленник не смог использовать токен:
 
-1. [Отзовите OAuth-токен](https://yandex.ru/dev/id/doc/dg/oauth/reference/token-invalidate.html).
+1. [Отзовите OAuth-токен](https://passport.yandex.ru/profile/access). Для этого нужно отозвать приложение Яндекс Облако (Yandex Cloud). ID: 1a6990aa636648e9b2ef855fa7bec2fb
 1. [Отзовите](./iam-token/revoke-iam-token.md) все IAM-токены, для получения которых использовался скомпрометированный OAuth-токен.
 1. [Получите новый OAuth-токен]({{ link-cloud-oauth }}).
 
