@@ -31,4 +31,4 @@ For more information, see [{#T}](../../../organization/concepts/add-federation.m
 
 {% include [sa-def](../../_includes_service/sa-def.md) %}
 
-Service accounts allow you to set up flexible access to your resources and minimize risks associated with excessive permissions. Use this account type for your applications, YC CLI, {{ TF }}, and {{ yandex-cloud }} API. For more information, see [{#T}](service-accounts.md).
+Service accounts allow you to set up flexible access to your resources and minimize risks associated with excessive permissions. Use this account type for your applications, CLI, {{ TF }}, and {{ yandex-cloud }} API. For more information, see [{#T}](service-accounts.md).

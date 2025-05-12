@@ -1,4 +1,4 @@
-| Resource | Cost of 1 GB per month, without VAT |
+| Resource | Price of 1 GB per month, without VAT |
 --- | ---
 | Project storage size, up to 10 GB | Free of charge |
 | Project storage size, over 10 GB | {% calc [currency=USD] 0.003829269547325 × 2592000 × 0.0000108 %} |

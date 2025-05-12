@@ -8,7 +8,7 @@ If a resource has child resources, all permissions from the parent resource will
 
 For more information on access management in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/index.md).
 
-## Which resources you can assign a role for {#resources}
+## Resources supporing role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -16,7 +16,7 @@ You can assign a role for individual resources within the service using the [{{ 
 
 {% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Available service roles {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -93,7 +93,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [assign-role-to-user](../../_includes/organization/assign-role-to-user.md) %}
 
@@ -138,7 +138,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
        * `serviceAccount:{service_account_id}`: Service account ID.
        * `federatedUser:{federated_user_id}`: Federated user ID.
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -154,7 +154,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. Make sure the configuration files are correct.
     
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
  
        ```
@@ -229,7 +229,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [revoke-role-from-user](../../_includes/organization/revoke-role-from-user.md) %}
 

@@ -40,11 +40,11 @@ In this case, users are assigned different roles for accessing the created subac
 
 * Users and service accounts that created a subaccount for a customer:
    * The `billing.accounts.admin` [role](../security/index.md#billing-accounts-admin) for the subaccount.
-   * The `organization-manager.admin` [role](../../iam/roles-reference.md#organization-manager-admin) for the organization:
+   * The `admin` [role](../../iam/roles-reference.md#admin) for the organization:
 
 * Users whose email addresses were specified when creating a subaccount:
    * The `billing.accounts.admin` [role](../security/index.md#billing-accounts-admin) for the subaccount.
-   * The `organization-manager.admin` [role](../../iam/roles-reference.md#organization-manager-admin) for the organization:
+   * The `admin` [role](../../iam/roles-reference.md#admin) for the organization:
 
 {% note info %}
 

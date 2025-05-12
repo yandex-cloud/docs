@@ -83,6 +83,14 @@ Let’s assume an organization has 5 Business plan users of {{ datalens-name }} 
 
 {% endcut %}
 
+
+{% note warning %}
+
+Starting May 1, 2025, prices for {{ datalens-full-name }} resources will increase in the Russia region. You can view the new prices in USD [here](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn2ur946qdu9rhas29ag).
+
+{% endnote %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

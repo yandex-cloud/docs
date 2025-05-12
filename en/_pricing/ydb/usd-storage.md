@@ -1,4 +1,4 @@
-| Service | Cost of 1 GB per month, without VAT |
+| Service | Price of 1 GB per month, without VAT |
 | ----- | ----- |
 | Data storage in storage groups of SSD drives | {{ sku|USD|ydb.cluster.v1.ssd|month|string }} |
 | Storage of on-demand backups in {{ objstorage-full-name }} | {{ sku|USD|ydb.db.backup.v1|month|string }} |

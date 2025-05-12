@@ -1,6 +1,8 @@
 # IAM token
 
-An IAM token is a unique sequence of characters issued to a user after authentication. You can only get an IAM token using the [CLI](../../../cli/) or [API](../../../overview/api.md).
+An IAM token is a unique sequence of characters issued to a user after authentication. This is the preferred authentication method for both users and applications (using [service accounts](../users/service-accounts.md)). You can get an IAM token using the [CLI](../../../cli/) or [API](../../../overview/api.md).
+
+IAM token authentication is supported by all services except those with [AWS-compatible APIs](access-key.md#supported-services) and services that support [API key](api-key.md#supported-services) authentication.
 
 ## Using the token {#use}
 
@@ -40,11 +42,7 @@ The {{ iam-short-name }} API may return the same token in response to different 
 
 If your IAM token has been [compromised](../../operations/compromised-credentials.md), or you want to terminate your old IAM token when issuing a new one for security reasons, you can [revoke](../../operations/iam-token/revoke-iam-token.md) the token before its lifetime expires.
 
-Any authenticated user can revoke an IAM token using the [YC CLI](../../../cli/quickstart.md) or [API](../../api-ref/authentication.md).
-
-## Services that support this authentication method {#supported-services}
-
-This authentication method is supported by all services, except for those with AWS-compatible APIs. Such services require an IAM token only for managing [access keys](access-key.md) and [service accounts](../users/service-accounts.md).
+Any authenticated user can revoke an IAM token using the [CLI](../../../cli/quickstart.md) or [API](../../api-ref/authentication.md).
 
 ## Token representation {#iam-token-format}
 

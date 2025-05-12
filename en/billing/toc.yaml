@@ -6,7 +6,7 @@ items:
     href: quickstart/index.md
   - name: Step-by-step guides
     items:
-      - name: All guides
+      - name: All tutorials
         href: operations/index.md
       - name: Working with documents
         items:
@@ -30,7 +30,7 @@ items:
             href: operations/change-organization.md
           - name: Deleting a billing account
             href: operations/delete-account.md
-          - name: Activate the paid version
+          - name: Activating the paid version
             href: operations/activate-commercial.md
       - name: Managing payment methods
         items:

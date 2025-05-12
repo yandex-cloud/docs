@@ -5,7 +5,7 @@ description: This article describes the fields for the Foreach control step.
 
 # Foreach
 
-Executes the sequence of steps specified in `do` on each input data item. Outputs are an array of execution results of the steps specified in `do`. In the `next` field in `do`, only steps listed in `do` can be specified. Read more about the [workflow state during the Foreach step](../../workflow.md#state-for-Foreach).
+Executes the sequence of steps specified in `do` on each input data item. Outputs are an array of execution results of the steps specified in `do`. For steps from `do`, in the `next` field, you can only specify steps listed in `do`. Read more about the [workflow state during the Foreach step](../../workflow.md#state-for-Foreach).
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---

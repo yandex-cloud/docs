@@ -15,9 +15,9 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
-  1. Specify a name for the registry. Follow these naming requirements:
+  1. Specify a name for the registry. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -86,7 +86,7 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-     The `--name` flag is optional. You can create a registry without a name and use its ID to access it. The `name` field is user-defined. It is used when listing in the YC CLI and **not used** in the Docker CLI.
+     The `--name` flag is optional. You can create a registry without a name and use its ID to access it. The `name` field is user-defined. It is used when listing in the {{ yandex-cloud }} CLI and **not used** in the Docker CLI.
   1. Make sure the registry was created:
 
      ```bash

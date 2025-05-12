@@ -37,7 +37,7 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
 
     ```bash
     cosign generate-key-pair \
-        --kms yckms:///folder/<folder_ID>/keyname/<key_pair_name>
+      --kms yckms:///folder/<folder_ID>/keyname/<key_pair_name>
     ```
 
     Where:
@@ -60,9 +60,9 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
 
     ```bash
     cosign sign-blob \
-        --key yckms:///<key_pair_ID> \
-        --tlog-upload=false \
-        <path_to_file>
+      --key yckms:///<key_pair_ID> \
+      --tlog-upload=false \
+      <file_path>
     ```
 
     Where:
@@ -72,7 +72,7 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
     Result:
 
     ```bash
-    Using payload from: <path_to_file>
+    Using payload from: <file_path>
     client.go:183: Using IAM Token from 'YC_IAM_TOKEN' environment variable as credentials
     <digital_signature_value>
     ```
@@ -85,10 +85,10 @@ To verify the signature, run the following command:
 
 ```bash
 cosign verify-blob \
-    --key yckms:///<key_pair_ID> \
-    --insecure-ignore-tlog \
-    --signature "<digital_signature_value>" \
-    <path_to_file>
+  --key yckms:///<key_pair_ID> \
+  --insecure-ignore-tlog \
+  --signature "<digital_signature_value>" \
+  <file_path>
 ```
 
 Where:

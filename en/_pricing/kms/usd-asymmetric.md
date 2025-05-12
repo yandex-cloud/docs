@@ -1,4 +1,4 @@
-| Service | Cost, without VAT |
+| Service | Price, without VAT |
 | --- | --- |
 | Use of one asymmetric key [version](../../kms/concepts/version.md) per month | {{ sku|USD|kms.storage.asymmetric.v1|string }} |
 | 10,000 cryptographic operations for the RSA2048 or ECDSA algorithms | {{ sku|USD|kms.api.asymmetric.v1|string }} |

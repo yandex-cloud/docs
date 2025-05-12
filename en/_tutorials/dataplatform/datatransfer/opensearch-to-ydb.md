@@ -6,7 +6,7 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} clust
 To transfer data:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -71,7 +71,7 @@ Set up your infrastructure:
 
         * `mos_version`: {{ OS }} version.
         * `mos_password`: User password of the {{ OS }} database owner.
-        * `profile_name`: Your YC CLI profile name. 
+        * `profile_name`: Name of your CLI profile. 
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -148,7 +148,7 @@ Set up your infrastructure:
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
 

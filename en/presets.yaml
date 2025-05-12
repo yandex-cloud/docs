@@ -8458,6 +8458,8 @@ default:
             column_attributes-name: Name
             column_attributes-nullValue: Default value
             column_attributes-type: Data type
+            field_access-to-key-from-attributes: Access to key from attributes
+            field_allow-read-expired-keys: Allow read expired keys
             field_collection: Collection
             field_db: Database
             field_fixed-lifetime: Period duration
@@ -8465,12 +8467,17 @@ default:
             field_hosts: Hosts
             field_http-format: File format
             field_http-url: URL
+            field_initial-array-size: Initial array size
             field_invalidate-query: Check dictionary status
             field_layout-type: Memory storage
+            field_max-array-size: Max array size
+            field_max-threads-for-updates: Max threads for updates
+            field_max-update-queue-size: Max update queue size
             field_name: Name
             field_password: Password
             field_port: Port
             field_postgresql-ssl-mode: SSL mode
+            field_query-wait-timeout-milliseconds: Query wait timeout
             field_range-lifetime-max: Maximum
             field_range-lifetime-min: Minimum
             field_replicas: Replicas
@@ -8480,6 +8487,7 @@ default:
             field_structure-id: Numeric key
             field_table: Table
             field_update-interval: Period
+            field_update-queue-push-timeout-milliseconds: Update queue push timeout
             field_user: User
             field_where: Selection condition
             label_fixed-lifetime: fixed
@@ -8528,6 +8536,7 @@ default:
           shards:
             action_add-shard: Create shard
             button_sharding-enable: Enable
+            label_title: Shards
             popup-confirm_button_delete: Remove
           start-dialog:
             popup-confirm_button: Start

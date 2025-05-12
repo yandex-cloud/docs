@@ -1,4 +1,4 @@
-| Service | Cost, without VAT |
+| Service | Price, without VAT |
 | --- | --- |
 | **Standard storage** |
 | First 10,000 PUT operations per month | {{ sku|USD|storage.api.put.standard|string }} |

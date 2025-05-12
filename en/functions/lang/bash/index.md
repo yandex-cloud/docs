@@ -1,6 +1,6 @@
 ---
 title: Developing in Bash in {{ sf-full-name }}. Overview
-description: 'With {{ sf-name }}, you can run applications written in Bash. The Bash runtime has the following utilities pre-installed: jq, {{ yandex-cloud }} CLI, and AWS CLI version 2.'
+description: 'With {{ sf-name }}, you can run applications written in Bash. The Bash runtime has the following utilities installed by default: `jq`, {{ yandex-cloud }} CLI, and AWS CLI version 2.'
 ---
 
 # Developing in Bash. Overview
@@ -12,7 +12,7 @@ The [Bash runtime](../../concepts/runtime/index.md#runtimes) has the following u
 | Name | What for | 
 |----|----|
 |[jq](https://stedolan.github.io/jq/)| For working with JSON. | 
-|[CLI {{ yandex-cloud }}](../../../cli)| For working with the {{ yandex-cloud }} API. | 
+|[{{ yandex-cloud }} CLI](../../../cli)| For working with the {{ yandex-cloud }} API. | 
 |[AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html)| For using AWS-compatible services. |
 
 For more information about how to use the SDK, see [Using the SDK](sdk.md).

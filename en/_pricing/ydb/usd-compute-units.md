@@ -2,7 +2,7 @@
 
 - Costs per hour
 
-    | Resource | Cost for 1 hour, without VAT | With CVoS for 6 months,<br>without VAT | With CVoS for 1 year,<br>without VAT |
+    | Resource | Price for 1 hour, without VAT | With CVoS for 6 months,<br>without VAT | With CVoS for 1 year,<br>without VAT |
     |----------------|----------------------------------------:|--------------------------------------------------------------------------:|--------------------------------------------------------------------------:|
     | **Intel Cascade Lake** |
     | 100% vCPU | {{ sku|USD|ydb.cluster.v2.cpu|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.ydb.cpu.c100.v2|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.ydb.cpu.c100.v2|string }} (-22%) |
@@ -10,7 +10,7 @@
 
 - Costs per month
 
-    | Resource | Cost for 1 month, without VAT | With CVoS for 6 months,<br>without VAT | With CVoS for 1 year,<br>without VAT |
+    | Resource | Price for 1 month, without VAT | With CVoS for 6 months,<br>without VAT | With CVoS for 1 year,<br>without VAT |
     |----------------|----------------------------------------------:|--------------------------------------------------------------------------------:|--------------------------------------------------------------------------------:|
     | **Intel Cascade Lake** |
     | 100% vCPU | {{ sku|USD|ydb.cluster.v2.cpu|month|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.ydb.cpu.c100.v2|month|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.ydb.cpu.c100.v2|month|string }} (-22%) |

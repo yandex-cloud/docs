@@ -1,4 +1,4 @@
-| Number of requests per month, million | Cost per million requests, without VAT |
+| Number of requests per month, million | Price per million requests, without VAT |
 | --- | --- |
 | Up to 0.01 (10,000 requests) inclusive | {{ sku|USD|sws.requests.v1|string }} |
 | From 0.01 to 1 inclusive | {{ sku|USD|sws.requests.v1|pricingRate.0.01|string }} |

@@ -13,7 +13,7 @@ To add a public SSH key to a profile:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
@@ -125,7 +125,7 @@ To add a public SSH key to a profile:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_user_ssh_key" "my_user_ssh_key" {
@@ -149,14 +149,14 @@ To add a public SSH key to a profile:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -168,7 +168,7 @@ To add a public SSH key to a profile:
 
       1. Confirm creating the resources.
 
-      The SSH key will then be uploaded to the user profile. To make sure the SSH key is added, run the YC CLI command, specifying the organization ID:
+      The SSH key will then be uploaded to the user profile. To make sure the SSH key is added, run this CLI command by specifying the organization ID:
 
       ```bash
       yc organization-manager oslogin user-ssh-key list --organization-id <organization_ID>

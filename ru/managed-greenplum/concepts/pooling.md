@@ -24,8 +24,8 @@ Odyssey поддерживает два режима управления сое
 
     Транзакционный режим обеспечивает высокую производительность и позволяет максимально эффективно нагрузить СУБД. Однако такой режим поддерживается не всеми клиентами {{ GP }}, и в нем недоступно использование:
 
-    * временных таблиц ([temporary tables]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html)), курсоров ([cursors]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-DECLARE.html)) и рекомендательных блокировок ([advisory locks]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-system_catalogs-pg_locks.html)), которые существуют дольше одной транзакции;
-    * подготовленных операторов ([prepared statements]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-PREPARE.html)).
+    * временных таблиц ([temporary tables]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html)), курсоров ([cursors]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-DECLARE.html)) и рекомендательных блокировок ([advisory locks]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-pg_locks.html)), которые существуют дольше одной транзакции;
+    * подготовленных операторов ([prepared statements]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-PREPARE.html)).
 
     {% note info %}
 
@@ -37,7 +37,7 @@ Odyssey поддерживает два режима управления сое
 
 ## Особенности Odyssey {#features}
 
-Интеграция {{ mgp-name }} с менеджером подключений Odyssey имеет ряд преимуществ, например по сравнению с менеджером подключений [PgBouncer]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-access_db-topics-pgbouncer.html):
+Интеграция {{ mgp-name }} с менеджером подключений Odyssey имеет ряд преимуществ, например по сравнению с менеджером подключений [PgBouncer]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-access_db-topics-pgbouncer.html):
 
 | Сравнительный критерий | Odyssey | PgBouncer |
 |------------------------|---------|-----------|

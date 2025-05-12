@@ -82,7 +82,7 @@ To minimize fault handling time, especially in case of API faults, it is essenti
 ## Tools for ensuring fault tolerance {#ha-tools}
 
 * Load balancers: 
-   * [{{network-load-balancer-name}}](../network-load-balancer/concepts/)
+   * [{{ network-load-balancer-name }}](../network-load-balancer/concepts/)
    * [{{ alb-name }}](../application-load-balancer/concepts/)
 
 * Platform services: 
@@ -123,7 +123,7 @@ To minimize delays during request processing, locality aware routing should be e
 
 The recommendations for {{ alb-name }} target availability checks are the same as for {{ network-load-balancer-name }}.
 
-You can give {{ alb-name }} extra resilience to faults related to malicious activities by connecting to it such web application protection services as [{{ sws-name }}](../smartwebsecurity/), [ARL](../smartwebsecurity/concepts/arl.md), [WAF](../smartwebsecurity/concepts/waf.md), and [{{ captcha-name }}](../smartcaptcha/).  
+You can give {{ alb-name }} extra resilience to faults related to malicious activities by connecting to it such web application protection services as [{{ sws-name }}](../smartwebsecurity/), [ARL](../smartwebsecurity/concepts/arl.md), [WAF](../smartwebsecurity/concepts/waf.md), and [{{ captcha-name }}](../smartcaptcha/).
 
 Here is an [example](../tutorials/web/application-load-balancer-website/index.md) of creating a fault-tolerant website with load balancing using {{ alb-name }} between three availability zones with fault protection in one zone.
 

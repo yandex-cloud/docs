@@ -62,7 +62,7 @@ Set up your infrastructure:
         * `pg_password`: {{ PG }} user password.
         * `mos_version`: {{ OS }} version.
         * `mos_password`: {{ OS }} user password.
-        * `profile_name`: Your YC CLI profile name.
+        * `profile_name`: Name of your CLI profile.
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 

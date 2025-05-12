@@ -60,7 +60,7 @@ Federated credentials are created within an identity federation and require conf
 * `Workload identity federation ID`: Data of the workload identity federation for which federated credentials are being added.
 * `subject`: ID assigned by the OIDC provider to the external subject submitting a request to the {{ yandex-cloud }} API.
 
-You can use the [YC CLI](../../cli/quickstart.md) to create federated credentials.
+You can use the [CLI](../../cli/quickstart.md) to create federated credentials.
 
 To create federated credentials, the user needs the following:
 * The `iam.serviceAccounts.federatedCredentialEditor` [role](../security/index.md#iam-serviceAccounts-federatedCredentialEditor) or higher for the service account that will be used in the federated credentials.

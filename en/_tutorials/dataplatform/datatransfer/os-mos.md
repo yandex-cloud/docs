@@ -6,7 +6,7 @@ With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }}
 1. [Set up the source cluster](#configure-source).
 1. [Prepare the test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
-1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -50,12 +50,12 @@ The support cost includes:
 
             * `os_admin_password`: {{ mos-name }} admin user password.
             * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
-            * `profile_name`: Your YC CLI profile name.
+            * `profile_name`: Name of your CLI profile.
 
               {% include [cli-install](../../../_includes/cli-install.md) %}
 
         1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -159,7 +159,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
     1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the [source {{ OS }} cluster](../../../data-transfer/operations/endpoint/source/opensearch.md#on-premise).
 

@@ -5,7 +5,7 @@ description: '{{ GP }} позволяет использовать два тип
 
 # Типы хранения данных в {{ GP }}
 
-{{ GP }} позволяет использовать два [типа хранения данных в таблицах]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-ddl-ddl-storage.html):
+{{ GP }} позволяет использовать два [типа хранения данных в таблицах]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-ddl-ddl-storage.html):
 
 * _Без кластеризованных индексов_ (heap storage).
 

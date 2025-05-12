@@ -7,7 +7,7 @@ description: Follow this guide to build a table based on an SQL query to the dat
 
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
 
-Follow this guide to build a table based on an SQL query to the data source in Editor. For convenience, we will use a connection and dataset from a deployed demo workbook as the data source.
+Follow this guide to build a table based on an SQL query to the data source in Editor. For convenience, we will use the connection and dataset from the deployed demo workbook as the data source.
 
 ## Getting started {#before-you-begin}
 
@@ -15,7 +15,7 @@ Follow this guide to build a table based on an SQL query to the data source in E
 
 ## Deploy a demo workbook {#create-template}
 
-1. Deploy a demo workbook titled [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
+1. Deploy the [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) demo workbook from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
 
 1. Go to the deployed workbook and on the **Connections** tab, find the connection named `00: Demo Dashboard. Connection`.
 
@@ -45,7 +45,7 @@ Follow this guide to build a table based on an SQL query to the data source in E
 
    {% endnote %}
 
-1. Get data from the data source by opening the **Source** tab and specifying the following:
+1. Get data from the data source: to do this, open the **Source** tab and specify:
 
    ```javascript
    module.exports = {
@@ -66,7 +66,7 @@ Follow this guide to build a table based on an SQL query to the data source in E
    };
    ```
 
-   `salesSourceData`: Any alias name you assign to the object with requested chart data and use for access on the **Prepare** tab.
+   `salesSourceData`: An arbitrary alias name you assign to the object with requested chart data, used for access on the **Prepare** tab.
 
    The `sql_query` field describes the query to the connection data source.
 
@@ -112,15 +112,15 @@ Follow this guide to build a table based on an SQL query to the data source in E
    // Common styles for table header cells
    const headStyles = {background: 'var(--g-color-base-misc-light)', verticalAlign: 'middle'};
    
-   // Configuration of table header cells
+   // Table header cell configuration
    const head = [
        {
            name: 'Payment type',
            formattedName: Editor.generateHtml({
                tag: 'span',
                content: [
-                   {tag: 'span', content: 'Payment type'}
-   				// tooltip for cell header
+                   {tag: 'span', content: 'Payment type'},
+   				// tooltip for a cell header
                    {
                        tag: 'dl-tooltip',
                        content: ' ℹ',
@@ -179,7 +179,7 @@ Follow this guide to build a table based on an SQL query to the data source in E
            d += d === "" ? "M" : " L";
            d += `${coords[x][0]} ${coords[x][1]}`;
        });
-       // Creating an SVG with line color var(--g-color-base-brand) and thickness 2px
+       // Creating an SVG with var(--g-color-base-brand) for line color and thickness of 2px
        return `
            <svg width="${chartWidth}" height="${chartHeight}">
                <path 
@@ -250,4 +250,4 @@ Follow this guide to build a table based on an SQL query to the data source in E
 
    ![image.png](../../../../_assets/datalens/editor/quick-start-2.png) 
 
-1. To save the chart, click **Save** in the top-right corner and enter a name for the chart.
+1. To save a chart, click **Save** in the top-right corner and enter a name for the chart.

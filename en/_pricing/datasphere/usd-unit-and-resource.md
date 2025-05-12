@@ -1,12 +1,12 @@
 ### Unit cost {#unit}
 
-| Number | Cost per 1 second of computations, <br>without VAT |
+| Number | Price per 1 second of computations, <br>without VAT |
 ---- | ----
 | One unit | $0.0000108 |
 
 ### Computing resource {#paug}
 
-| Configuration | Consumption in units<br> per second<br> of configuration operation | Cost per hour <br>of computations, <br>without VAT |
+| Configuration | Consumption in units<br> per second<br> of configuration operation | Price per hour <br>of computations, <br>without VAT |
 |:---|:---:|:---:|
 | c1.4 (4 vCPUs, 0 GPU) | 4 | {% calc [currency=USD] 4 × 3600 × 0.0000108 %} |
 | c1.8 (8 vCPUs, 0 GPU) | 8 | {% calc [currency=USD] 8 × 3600 × 0.0000108 %} |

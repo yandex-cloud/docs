@@ -5,7 +5,7 @@ items:
     href: quickstart/index.md
   - name: Step-by-step guides
     items:
-      - name: All guides
+      - name: All tutorials
         href: operations/index.md
       - name: Symmetric encryption
         items:

@@ -1,4 +1,4 @@
-| Number of requests per month, million | Cost of requests allowed by the security profile, without VAT | Cost of requests allowed by the security profile and WAF, without VAT |
+| Number of requests per month, million | Cost of requests allowed by the security profile, without VAT | Cost of requests allowed by the security and WAF profiles, without VAT |
 | --- | --- | --- |
 | 1 | {{ sku|USD|sws.requests.v1|pricingRate.0.01|string }} | {% calc [currency=USD] {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|USD|sws.waf.requests.v1|pricingRate.0.01|number }} %} |
 | 10 | {% calc [currency=USD] {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|USD|sws.requests.v1|pricingRate.1|number }} × 9 %} | {% calc [currency=USD] ({{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|USD|sws.requests.v1|pricingRate.1|number }} × 9) + ({{ sku|USD|sws.waf.requests.v1|pricingRate.0.01|number }} + {{ sku|USD|sws.waf.requests.v1|pricingRate.1|number }} × 9) %} |

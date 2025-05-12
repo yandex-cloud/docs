@@ -1,6 +1,6 @@
 ---
 title: '{{ cloud-desktop-full-name }} pricing policy'
-description: This article provides the {{ cloud-desktop-name }} pricing policy.
+description: This article covers the {{ cloud-desktop-name }} pricing policy.
 editable: false
 ---
 

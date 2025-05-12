@@ -5,11 +5,11 @@ description: Следуя данной инструкции, вы сможете
 
 # Вспомогательные утилиты
 
-Пакет Greenplum Database 6 содержит [ряд полезных утилит]({{ gp.docs.vmware }}/6/greenplum-database/client_tool_guides-tools-ref.html) для работы с базой данных {{ GP }}. В частности:
+Пакет Greenplum Database 6 содержит [ряд полезных утилит]({{ gp.docs.broadcom }}/6/greenplum-database/client_tool_guides-tools-ref.html) для работы с базой данных {{ GP }}. В частности:
 
-* [gpfdist]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpfdist.html) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Подробную информацию см. в разделе [{#T}](gpfdist/connect.md).
-* [gpload]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpload.html) — утилита для запуска задач, описанных в управляющем YAML-файле.
-* [psql]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-psql.html) — интерфейс командной строки для работы с {{ GP }}.
+* [gpfdist]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Подробную информацию см. в разделе [{#T}](gpfdist/connect.md).
+* [gpload]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpload.html) — утилита для запуска задач, описанных в управляющем YAML-файле.
+* [psql]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-psql.html) — интерфейс командной строки для работы с {{ GP }}.
 
 Чтобы установить Greenplum Database 6 на рабочую или виртуальную машину под управлением OC Ubuntu 22.04 или Ubuntu 20.04:
 
@@ -97,7 +97,7 @@ description: Следуя данной инструкции, вы сможете
     psql --version
     ```
 
-Инструкции по установке утилит на другие операционные системы доступны [на сайте VMware]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpfdist.html).
+Инструкции по установке утилит на другие операционные системы доступны [на сайте VMware]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html).
 
 
 {% note info %}

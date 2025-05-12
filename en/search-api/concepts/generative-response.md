@@ -350,17 +350,18 @@ Each query seeking a generative response must contain the following request body
   [
     {
       "message": {
-        "content": "**Containerization** (OS-level virtualization) is a **virtualization method** in which the OS core supports multiple isolated user space instances instead of a single one.
+        "content": "**Containerization** (OS-level virtualization) is a **virtualization method** in which the OS kernel manages several isolated user-space instances instead of a single one.
         [1] These instances (containers or zones) are identical to a separate OS instance in terms of the processes running inside them.
-        [1] The core provides complete container isolation, so programs from different containers have no impact on one another.
+        [1] The kernel provides complete container isolation, so applications from different containers have no impact on one another.
         [1]\n\n**In {{ yandex-cloud }}, containerization is implemented with the help of 
-        {{ serverless-containers-full-name }}** [5][6] It allows you to run in {{ yandex-cloud }} the application contained in a Docker image. [6] \n\n**Some aspects of containerization in 
-        {{ yandex-cloud }}:**\n\n* **Creating a container revision**. [6] You can only create a container revision from a Docker image uploaded to a registry in {{ container-registry-full-name }}.
+        {{ serverless-containers-full-name }}**. [5][6] A container allows you to run in {{ yandex-cloud }} the application contained in a Docker image.
+        [6] \n\n**Some aspects of containerization in 
+        {{ yandex-cloud }}:**\n\n* **Creating a container revision**. [6] You can only create a container revision from a Docker image uploaded to a registry in {{ container-registry-full-name }}. 
         [6] Other registries are not supported.
         [6] The revision contains all the information you need to run the container. [6]\n* 
-        **Invoking a container**. [6] Once you have created a revision, you can invoke the container via HTTPS using a trigger or {{ api-gw-full-name }} extension.
-        [6]\n* **Scaling a container**. [6] If the container is invoked faster than the instance can process the query, the service scales the container by running additional instances of it.
-        [6] This ensures parallel processing of queries.
+        **Invoking a container**. [6] Once you have created a revision, you can invoke the container via HTTPS using a trigger or the {{ api-gw-full-name }} extension.
+        [6]\n* **Scaling a container**. [6] If the container is invoked faster than the instance can process the request, the service scales the container by running its additional instances.
+        [6] This ensures parallel processing of requests.
         [6]\n* **Provisioned instances**. [6] A provisioned instance is a container instance that is guaranteed not to have a cold start when you run it.
         [6]",
         "role": "ROLE_ASSISTANT"
@@ -389,7 +390,7 @@ Each query seeking a generative response must contain the following request body
         {
           "used": false,
           "url": "https://yandex.cloud/ru/docs/serverless-containers/operations/",
-          "title": "Guides on using {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation"
+          "title": "How to work with {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation"
         },
         {
           "used": true,
@@ -513,19 +514,20 @@ Each query seeking a generative response must contain the following request body
   ```json
   {
     "message": {
-      "content": "**Containerization** (OS-level virtualization) is a **virtualization method** in which the OS core supports multiple isolated user space instances instead of a single one.
+      "content": "**Containerization** (OS-level virtualization) is a **virtualization method in which the OS kernel manages several isolated user-space instances instead of a single one.
       [1] These instances (containers or zones) are identical to a separate OS instance in terms of the processes running inside them.
-      [1] The core provides complete container isolation, so programs from different containers have no impact on one another.
-      [1]\n\n**In {{ yandex-cloud }}, containerization is implemented with the help of {{ serverless-containers-full-name }}**. [7] It allows you to run in {{ yandex-cloud }} the application contained in a Docker image.
+      [1] The kernel provides complete container isolation, so applications from different containers have no impact on one another.
+      [1]\n\n**In {{ yandex-cloud }}, containerization is implemented with the help of 
+      {{ serverless-containers-full-name }}**. [7] It allows you to run in {{ yandex-cloud }} the application contained in a Docker image.
       [7] \n\n**Some aspects of containerization in 
       {{ yandex-cloud }}:**\n\n* **Creating a container revision**. [7] You can only create a revision from a Docker image uploaded to a registry in {{ container-registry-full-name }}.
       [7] Other registries are not supported.
       [7] The revision contains all the information you need to run the container. [7]\n* **Invoking a container**.
-      [7] Once you have created a revision, you can invoke the container via HTTPS using a trigger or {{ api-gw-full-name }} extension.
-      [7]\n* **Scaling a container**. [7] If the container is invoked faster than the instance can process the query, the service scales the container by running additional instances of it.
+      [7] Once you have created a revision, you can invoke the container via HTTPS using a trigger or the {{ api-gw-full-name }} extension.
+      [7]\n* **Scaling a container**. [7] If the container is invoked faster than the instance can process the request, the service scales the container by running additional container instances.
       [7] This ensures parallel processing of queries. [7]\n* 
       **Provisioned instances**. [7] This is a container instance that is guaranteed not to have a cold start when you run it.
-      [7] In a provisioned instance, before the container is invoked, the {{ serverless-containers-name }} runtime components are initialized and the user application is loaded and initialized.
+      [7] In a provisioned instance, before the container is invoked, the {{ serverless-containers-name }} runtime components are initialized, and the user application is loaded and initialized.
       [7]",
       "role": "ROLE_ASSISTANT"
     },
@@ -572,7 +574,7 @@ Each query seeking a generative response must contain the following request body
       },
       {
         "url": "https://yandex.cloud/ru/docs/serverless-containers/operations/",
-        "title": "Guides on using {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation",
+        "title": "How to work with {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation",
         "used": false
       },
       {
