@@ -1,6 +1,6 @@
 ---
 title: '{{ search-api-full-name }} pricing policy'
-description: This article provides the {{ search-api-name }} pricing policy.
+description: This article covers the {{ search-api-name }} pricing policy.
 editable: false
 ---
 
@@ -20,7 +20,7 @@ The cost of using {{ search-api-name }} is calculated based on the number of sea
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-Free tier includes 1,000 synchronous queries per user per month using [API v1](concepts/index.md#api-v1) during night hours^1^ from 00:00:00 to 07:59:59. Requests in excess of this threshold are priced as detailed below. Free tier does not apply to requests run via [API v2](concepts/index.md#api-v2).
+Free tier includes 1,000 synchronous queries per user per month using [API v1](concepts/index.md#api-v1) during night hours^1^ from 00:00:00 to 07:59:59. Queries in excess of this threshold are priced as detailed below. Free tier does not apply to queries run via [API v2](concepts/index.md#api-v2).
 
 
 

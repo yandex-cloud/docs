@@ -52,7 +52,7 @@ The standard can be used as the basis for developing company-specific recommenda
 The standard describes recommendations for the following security objectives:
 * Authentication and access management
 * Network security
-* Secure configuration of a virtual environment
+* Secure virtual environment configuration.
 * Data encryption and key management
 * Collecting, monitoring, and analyzing audit logs
 * Backup
@@ -63,7 +63,7 @@ The standard describes recommendations for the following security objectives:
 ### Requirements and preparation {#requirements-and-preparation}
 
 Before you perform checks, make sure that:
-* You have the YC CLI installed and set up according to the [instructions](../../../cli/quickstart.md).
+* You have the CLI is installed and configured according to [this guide](../../../cli/quickstart.md).
 * You have logged in to the [management console]({{ link-console-main }}).
 * The jq utility is installed.
 
@@ -73,7 +73,7 @@ You can automate the audit of compliance with all the recommendations using avai
 
 ### Responsibility limitation {#liability-limit}
 
-{{ yandex-cloud }} uses the concept of [Shared responsibility](/security/shared-responsibility). Where the lines are drawn for who is responsible for security depends on the services used by the system in the cloud, their usage model, i.e., infrastructure as a service (IaaS), platform as a service (PaaS), or software as a service (SaaS), and the security tools and policies the cloud provider has in place.
+{{ yandex-cloud }} uses the [Shared responsibility](/security/shared-responsibility) concept. Where the lines are drawn for who is responsible for security depends on the services used by the system in the cloud, their usage model, i.e., infrastructure as a service (IaaS), platform as a service (PaaS), or software as a service (SaaS), and the security tools and policies the cloud provider has in place.
 
 ### Terms and abbreviations {#terms}
 

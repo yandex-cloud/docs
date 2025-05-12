@@ -40,6 +40,6 @@ description: Следуя данной инструкции, вы сможете
 SELECT * FROM <имя_таблицы>;
 ```
 
-Подробнее об информационных таблицах базы данных `gpperfmon` в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gpperfmon-dbref.html).
+Подробнее об информационных таблицах базы данных `gpperfmon` в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-gpperfmon-dbref.html).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

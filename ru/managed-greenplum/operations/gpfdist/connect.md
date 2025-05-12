@@ -1,6 +1,6 @@
 # Подключение к внешнему файловому серверу
 
-[{{ GP }} Parallel File Server]({{ gp.docs.vmware }}/5/greenplum-database/utility_guide-admin_utilities-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера {{ mgp-name }} и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу дистрибуции](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.
+[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}/5/greenplum-database/utility_guide-admin_utilities-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера {{ mgp-name }} и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу дистрибуции](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.
 
 Утилита `gpfdist` может работать с любыми текстовыми файлами, которые содержат разделители, а также со сжатыми файлами gzip и bzip2.
 
@@ -18,7 +18,7 @@
 {% endnote %}
 
 
-1. Скачайте и установите пакет {{ GP }} Loader с [сайта VMware]({{ gp.docs.vmware }}/5/greenplum-database/client_tool_guides-load-windows-win_load_install.html) или пакет {{ GP }} Database из бакета {{ objstorage-full-name }} по [инструкции](../greenplum-db.md).
+1. Скачайте и установите пакет {{ GP }} Loader с [сайта VMware]({{ gp.docs.broadcom }}/5/greenplum-database/client_tool_guides-load-windows-win_load_install.html) или пакет {{ GP }} Database из бакета {{ objstorage-full-name }} по [инструкции](../greenplum-db.md).
 
 1. Запустите утилиту `gpfdist`:
 

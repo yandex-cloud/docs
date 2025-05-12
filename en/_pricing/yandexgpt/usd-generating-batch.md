@@ -1,5 +1,5 @@
 #|
-|| **Model** | **Cost per 1,000 tokens,</br>batch processing mode,</br>without VAT** ||
+|| **Model** | **Price per 1,000 tokens,</br>batch processing mode,</br>without VAT** ||
 || Qwen2.5 7B Instruct | {% calc [currency=USD] 0,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} ||
 || Qwen2.5 72B Instruct | {% calc [currency=USD] 3 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} ||
 || QwQ 32B Instruct | {% calc [currency=USD] 2 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} ||

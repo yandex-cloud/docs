@@ -86,7 +86,7 @@ FROM <имя_таблицы>;
     * `estimated_col` — имя столбца в исходной таблице, для которого вычисляется оценка.
     * `original_table` — имя исходной таблицы.
 
-1. Создайте новую [агрегатную функцию](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-sql_commands-CREATE_AGGREGATE.html) на основе `gp_hyperloglog_merge`:
+1. Создайте новую [агрегатную функцию]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-CREATE_AGGREGATE.html) на основе `gp_hyperloglog_merge`:
 
     ```sql
     CREATE AGGREGATE gp_hyperloglog_merge(gp_hyperloglog_estimator) (

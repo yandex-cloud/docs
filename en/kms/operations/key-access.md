@@ -14,7 +14,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the secret is stored.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the name of the key you need.
   1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -49,36 +49,36 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
         ```bash
         yc kms symmetric-key add-access-binding \
-           --id <key_ID> \
-           --role <role> \
-           --user-account-id <user_ID>
+          --id <key_ID> \
+          --role <role> \
+          --user-account-id <user_ID>
         ```
 
      * To a federated user:
 
         ```bash
         yc kms symmetric-key add-access-binding \
-           --id <key_ID> \
-           --role <role> \
-           --subject federatedUser:<user_ID>
+          --id <key_ID> \
+          --role <role> \
+          --subject federatedUser:<user_ID>
         ```
 
      * To a service account:
 
         ```bash
         yc kms symmetric-key add-access-binding \
-           --id <key_ID> \
-           --role <role> \
-           --service-account-id <service_account_ID>
+          --id <key_ID> \
+          --role <role> \
+          --service-account-id <service_account_ID>
         ```
 
      * To a user group:
 
         ```bash
         yc kms symmetric-key add-access-binding \
-           --id <key_ID> \
-           --role <role> \
-           --subject group:<group_ID>
+          --id <key_ID> \
+          --role <role> \
+          --subject group:<group_ID>
         ```
 
 - {{ TF }} {#tf}
@@ -108,7 +108,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
       For more information about the `yandex_kms_symmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -136,7 +136,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the secret is stored.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the name of the key you need.
   1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -158,7 +158,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
      ```bash
      yc kms symmetric-key list-access-bindings \
-        --id <key_ID>
+       --id <key_ID>
      ```
 
   1. See the description of the CLI role assignment command:
@@ -180,43 +180,43 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
         ```bash
         yc kms symmetric-key set-access-bindings \
-           --id <key_ID> \
-           --access-binding role=<role>,user-account-id=<user_ID>
+          --id <key_ID> \
+          --access-binding role=<role>,user-account-id=<user_ID>
         ```
 
      * To a federated user:
 
         ```bash
         yc kms symmetric-key set-access-bindings \
-           --id <key_ID> \
-           --access-binding role=<role>,subject=federatedUser:<user_ID>
+          --id <key_ID> \
+          --access-binding role=<role>,subject=federatedUser:<user_ID>
         ```
 
      * To a service account:
 
         ```bash
         yc kms symmetric-key set-access-bindings \
-           --id <key_ID> \
-           --access-binding role=<role>,service-account-id=<service_account_ID>
+          --id <key_ID> \
+          --access-binding role=<role>,service-account-id=<service_account_ID>
         ```
 
      * To a user group:
 
         ```bash
         yc kms symmetric-key set-access-bindings \
-           --id <key_ID> \
-           --access-binding role=<role>,subject=group:<group_ID>
+          --id <key_ID> \
+          --access-binding role=<role>,subject=group:<group_ID>
         ```
 
      Provide a separate `--access-binding` flag for each role. For example:
 
       ```bash
-     yc kms symmetric-key set-access-bindings \
+      yc kms symmetric-key set-access-bindings \
         --id <key_ID> \
-        --access-binding role=<role_1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_3>,service-account-id=<service_account_ID>
-     ```
+        --access-binding role=<role1>,service-account-id=<service_account_ID> \
+        --access-binding role=<role2>,service-account-id=<service_account_ID> \
+        --access-binding role=<role3>,service-account-id=<service_account_ID>
+      ```
 
 - {{ TF }} {#tf}
 
@@ -254,7 +254,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
       For more information about the `yandex_kms_symmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

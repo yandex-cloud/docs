@@ -21,7 +21,7 @@ description: Из статьи вы узнаете, как управлять п
 * [Настроить привилегии роли](#privileges).
 * [Удалить роль](#remove).
 
-Подробнее о командах взаимодействия с ролями см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-sql_ref.html).
+Подробнее о командах взаимодействия с ролями см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-sql_ref.html).
 
 ## Посмотреть список ролей {#list}
 

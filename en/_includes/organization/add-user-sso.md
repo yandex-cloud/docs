@@ -2,7 +2,7 @@
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
     {% include [add-users-to-fed](./add-users-to-fed.md) %}
 
@@ -12,7 +12,7 @@
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    1. View a description of the add user command:
+    1. View the description of the add user command:
 
         ```bash
         yc organization-manager federation saml add-user-accounts --help
@@ -32,12 +32,12 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation_user_account" "some_account" {
         federation_id = "<federation_ID>"
-        name_id       = "<User_name_ID>"
+        name_id       = "<user_name_ID>"
       }
       ```
 
@@ -45,13 +45,13 @@
       * `federation_id`: ID of the federation to add the user to.
       * `name_id`: Name ID of the user.
 
-      For more information about the `yandex_organizationmanager_saml_federation_user_account` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
+      For more information about `yandex_organizationmanager_saml_federation_user_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 
       ```bash
       yc organization-manager federations saml \

@@ -25,7 +25,7 @@ The infrastructure support cost includes:
 * Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for storing the created Docker images and for the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Fee for using the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ## Getting started {#before-begin}
 
@@ -134,7 +134,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
               - gl-container-scanning-report-yc.json
           script:
             - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
-            # Install YC CLI.
+            # Install CLI.
             - curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
             # Start scanning.
             - echo "Scanning image $IMAGE_NAME ${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}..."
@@ -201,7 +201,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
               - gl-container-scanning-report-yc.json
           script:
             - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
-            # Install YC CLI.
+            # Install CLI.
             - curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
             # Start scanning.
             - echo "Scanning image $IMAGE_NAME ${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}..."

@@ -6,7 +6,7 @@ The error info is also written to the [execution log](logging.md). You can [view
 
 #### Examples of error handling {#examples}
 
-Case 1: User code goes outside the array boundaries, resulting in `IndexOutOfRangeException`. The [runtime environment](../../concepts/runtime/index.md) intercepts the exception and generates a JSON document stating the error message (`errorMessage` field), error type (`errorType` field), and [stack trace](https://en.qwe.wiki/wiki/Stack_trace) (`stackTrace` field).
+Case 1: User code goes outside the array boundaries, resulting in `IndexOutOfRangeException`. The [runtime environment](../../concepts/runtime/index.md) intercepts the exception and generates a JSON document containing the error message (`errorMessage` field), error type (`errorType` field), and [stack trace](https://en.qwe.wiki/wiki/Stack_trace) (`stackTrace` field).
 
 Function code:
 

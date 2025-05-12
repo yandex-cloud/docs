@@ -220,6 +220,8 @@ default:
   GP: Greenplum®
   gp:
     docs:
+      broadcom: >-
+        https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum
       vmware: https://docs.vmware.com/en/VMware-Greenplum
   gpt-freetier: 10
   gpt-lite: YandexGPT Lite
@@ -8468,6 +8470,8 @@ default:
             column_attributes-name: Имя
             column_attributes-nullValue: Значение по умолчанию
             column_attributes-type: Тип данных
+            field_access-to-key-from-attributes: Доступ к ключу из атрибутов
+            field_allow-read-expired-keys: Чтение просроченных ключей
             field_collection: Коллекция
             field_db: База данных
             field_fixed-lifetime: Длительность периода
@@ -8475,12 +8479,17 @@ default:
             field_hosts: Хосты
             field_http-format: Формат файла
             field_http-url: URL
+            field_initial-array-size: Начальный размер массива
             field_invalidate-query: Проверка статуса словаря
             field_layout-type: Размещение в памяти
+            field_max-array-size: Макс. размер массива
+            field_max-threads-for-updates: Макс. кол-во потоков обновления
+            field_max-update-queue-size: Макс. размер очереди обновления
             field_name: Имя
             field_password: Пароль
             field_port: Порт
             field_postgresql-ssl-mode: SSL mode
+            field_query-wait-timeout-milliseconds: Таймаут ожидания очереди
             field_range-lifetime-max: Максимум
             field_range-lifetime-min: Минимум
             field_replicas: Реплики
@@ -8490,6 +8499,7 @@ default:
             field_structure-id: Числовой ключ
             field_table: Таблица
             field_update-interval: Период
+            field_update-queue-push-timeout-milliseconds: Таймаут размещения в очереди
             field_user: Пользователь
             field_where: Условие выбора
             label_fixed-lifetime: фиксированный
@@ -8538,6 +8548,7 @@ default:
           shards:
             action_add-shard: Создать шард
             button_sharding-enable: Включить
+            label_title: Шарды
             popup-confirm_button_delete: Удалить
           start-dialog:
             popup-confirm_button: Запустить

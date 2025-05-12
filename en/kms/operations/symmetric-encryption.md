@@ -96,8 +96,8 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
 #### See also {#see-also}
 
-* [Command line interface (YC CLI)](../../cli).
-* [Symmetric encryption in {{ kms-full-name }}](../concepts/symmetric-encryption.md).
-* [Asymmetric encryption in {{ kms-full-name }}](../concepts/asymmetric-encryption.md).
-* [Managing keys in KMS](./index.md).
-* [Encrypting secrets in Hashicorp Terraform](../../kms/tutorials/terraform-secret.md).
+* [Command line interface CLI](../../cli)
+* [Symmetric encryption in {{ kms-full-name }}](../concepts/symmetric-encryption.md)
+* [Asymmetric encryption in {{ kms-full-name }}](../concepts/asymmetric-encryption.md)
+* [Managing keys in KMS](./index.md)
+* [Encrypting secrets in Hashicorp Terraform](../../kms/tutorials/terraform-secret.md)

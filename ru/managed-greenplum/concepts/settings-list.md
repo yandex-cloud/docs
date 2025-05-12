@@ -35,13 +35,13 @@
 
     Публичный ключ доступа к S3-хранилищу.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 * **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Секретный ключ доступа к S3-хранилищу.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 * **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -49,13 +49,13 @@
 
     По умолчанию быстрая загрузка включена.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 * **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Адрес S3-хранилища. Значение для {{ objstorage-full-name }} — `{{ s3-storage-host }}`. Это значение используется по умолчанию.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 ## Настройки внешнего источника данных JDBC {#jdbc-settings}
 
@@ -67,7 +67,7 @@
 
     {% include [JBDC driver](../../_includes/mdb/mgp/jdbc-driver.md) %}
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **Url**{#setting-url} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -75,19 +75,19 @@
 
     {% include [URL examples](../../_includes/mdb/mgp/url-examples.md) %}
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **User**{#setting-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Имя пользователя, владельца БД.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **Password**{#setting-password} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Пароль пользователя БД.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -95,7 +95,7 @@
 
     Значение по умолчанию — `100`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#statementlevel-properties-5).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
 
 * **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -103,7 +103,7 @@
 
     Значение по умолчанию — `1000`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#statementlevel-properties-5).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
 
 * **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -111,13 +111,13 @@
 
     Значение по умолчанию — `60`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#statementlevel-properties-5).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
 
 * **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Определяет, используется ли пул подключений JDBC. По умолчанию используется.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -125,7 +125,7 @@
 
     Значение по умолчанию — `5`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -133,7 +133,7 @@
 
     Значение по умолчанию — `30000`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -141,7 +141,7 @@
 
     Значение по умолчанию — `30000`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -149,7 +149,7 @@
 
     Значение по умолчанию — `0`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 ## Настройки внешнего источника данных HDFS {#hdfs-settings}
 
@@ -213,7 +213,7 @@
 
     Определяет, включено ли выталкивание предикатов (predicate pushdown) для запросов к внешним таблицам. По умолчанию включено.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/cfg_server.html#about-the-pxfsitexml-configuration-file-3).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **Metastore Uris**{#setting-metastore-uris} {{ tag-con }} {{ tag-api }}
 

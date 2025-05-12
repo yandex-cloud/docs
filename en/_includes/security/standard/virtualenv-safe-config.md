@@ -185,7 +185,7 @@ Paid solutions are also available in Yandex Cloud marketplace, such as [Kaspersk
 
 ##### 3.5.2 VM runtime environment integrity control {#vm-integrity-control}
 
-To control a VM's runtime environment (e.g., to enable access from the VM to a secure repository only when running it in the YC CLI cloud), you can use the [identity document](../../../compute/concepts/metadata/identity-document.md) mechanism. When you create a VM, an identity document that stores information about the VM is generated. It contains the IDs of the VM, [{{ marketplace-full-name }}](/marketplace) product, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/metadata/identity-document.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
+If you need to control a VM runtime environment (e.g., for access from the VM to a secure repository only when run in the {{ yandex-cloud }} CLI cloud), there is the [identity document](../../../compute/concepts/metadata/identity-document.md) mechanism. When you create a VM, an identity document that stores information about the VM is generated. It contains the IDs of the VM, [{{ marketplace-full-name }}](/marketplace) product, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/metadata/identity-document.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
 
 {% list tabs group=instructions %}
 
@@ -252,7 +252,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. From the list of services, select **{{ objstorage-name }}**.
+  1. In the list of services, select **{{ objstorage-name }}**.
   1. Click the three dots next to each bucket and check its ACL for `allUsers` and `allAuthenticatedUsers`.
   1. Open the bucket and check the ACL of each of its objects for `allUsers` and `allAuthenticatedUsers`.
   1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to "Guides and solutions to use".
@@ -330,7 +330,7 @@ The storage period of critical data in a bucket is determined by the customer's 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. From the list of services, select **{{ objstorage-name }}**.
+  1. In the list of services, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
   1. Go to the **Versioning** tab and make sure it is enabled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -382,7 +382,7 @@ If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_r
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. From the list of services, select **{{ objstorage-name }}**.
+  1. In the list of services, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
   1. Go to the **CORS** tab and make sure that the configuration is set up. Otherwise, proceed to "Guides and solutions to use".
 
@@ -1153,7 +1153,7 @@ Check the recommendations in [{#T}](../../../security/standard/kubernetes-securi
 
 #### 3.35 {{ oslogin }} is used for connection to a VM or {{ k8s }} node {#os-login-onto-hosts}
 
-[{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to [VMs](../../../compute/concepts/vm.md) and {{ managed-k8s-full-name }} [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes via SSH through the [YC CLI](../../../cli/quickstart.md) or via a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or [service account](../../../iam/concepts/users/service-accounts.md) in {{ org-full-name }}.
+[{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to {{ managed-k8s-full-name }} [VMs](../../../compute/concepts/vm.md) and [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH via the [CLI](../../../cli/quickstart.md) or a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or [service account](../../../iam/concepts/users/service-accounts.md) in {{ org-full-name }}.
 
 {{ oslogin }} links the account of a virtual machine or {{ k8s }} node user with that of an organization or service account user. To manage access to virtual machines and {{ k8s }} nodes, [enable](../../../organization/operations/os-login-access.md) the OS Login access option at the organization level and then [activate](../../../compute/operations/vm-connect/enable-os-login.md) {{ oslogin }} access on each virtual machine or {{ k8s }} node separately.
 
@@ -1237,7 +1237,7 @@ An API gateway is an interface for working with services in {{ yandex-cloud }} o
 
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. With no roles assigned, a user cannot perform most operations.
 
-[{{ iam-full-name }}](../../../iam/) checks all transactions in {{ yandex-cloud }}. If an entity does not have required permissions, this service returns an error.
+[{{ iam-full-name }}](../../../iam/) checks all operations in {{ yandex-cloud }}. If an entity does not have required permissions, {{ iam-short-name }} returns an error.
 
 Make sure that the {{ yandex-cloud }} user has access to the [{{ api-gw-name }}](../../../api-gateway/concepts/index.md) resources. The user needs proper roles for it. Roles for an API gateway can be issued by users with the `api-gateway.admin` role or one of the following roles:
 
@@ -1275,7 +1275,7 @@ If you specify a network in the API gateway settings, this will create an auxili
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure the cloud network is specified in the **Overview** section.
 
@@ -1283,7 +1283,7 @@ If you specify a network in the API gateway settings, this will create an auxili
 
 **Guides and solutions to use:** 
 
-If the API gateway does not require access to resources from the specified cloud network, delete it from the gateway settings. For more information, see [{#T}](../../../api-gateway/operations/api-gw-update.md). 
+If the API gateway does not require access to resources from the specified cloud network, delete it from the gateway settings. To learn more, see [{#T}](../../../api-gateway/operations/api-gw-update.md).
 
 #### 3.42 Recommendations for using custom domains are followed {#using-own-domain}
 
@@ -1321,7 +1321,7 @@ We recommend that you use the following when connecting to the API gateway via W
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Set up integrations in the OpenAPI specification using the following operations: `x-yc-apigateway-websocket-message`, `x-yc-apigateway-websocket-connect`, or `x-yc-apigateway-websocket-disconnect`.
 
@@ -1338,7 +1338,7 @@ Make sure that security enhancement extensions were added to the {{ api-gw-name 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. OpenAPI 3.0 is used in the **Specification** section.
 
@@ -1357,7 +1357,7 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure the **Specification** section uses the `x-yc-apigateway:smartWebSecurity` extension, which protects the API gateway as well as your application, function, or container from DDoS attacks based on the {{ sws-full-name }} profile rules.
 
@@ -1367,15 +1367,15 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 
 We recommend using the OpenAPI 3.0 authentication and authorization mechanisms that are standard for {{ api-gw-name }}. Currently, you can use authorization via a function and via a JWT.
 
-* [Authorization via Cloud Functions](../../../api-gateway/concepts/extensions/function-authorizer.md). For HTTP request authorization, {{ api-gw-name }} calls the `x-yc-apigateway-authorizer:function` extension, which currently supports three types:  `HTTP Basic`, `HTTP Bearer`, and `API Key`.
-* [Authorization via a JWT](../../../api-gateway/concepts/extensions/jwt-authorizer.md). For HTTP request authorization, {{ api-gw-short-name }} validates a token and verifies its signature using the following supported public keys: address, place, fields, body, time, caching mode, and cache storage period.
+* [Authorization via Cloud Functions](../../../api-gateway/concepts/extensions/function-authorizer.md). For HTTP request authorization, {{ api-gw-name }} calls the `x-yc-apigateway-authorizer:function` extension. Currently these three types are supported: `HTTP Basic`, `HTTP Bearer`, and `API Key`.
+* [Authorization via a JWT](../../../api-gateway/concepts/extensions/jwt-authorizer.md). For HTTP request authorization, {{ api-gw-name }} validates a token and verifies its signature using the following supported public keys: address, place, fields, body, time, caching mode, and cache retention period.
 
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure that the **Specification** section has the `x-yc-apigateway-authorizer:jwt` or `x-yc-apigateway-authorizer:function` extension configured.
 
@@ -1402,7 +1402,7 @@ We recommend to keep logging enabled when creating an API gateway. For more info
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure that the **Write logs** option is enabled in the **Logging** section and that the gateway logging level and destination are set up.
 

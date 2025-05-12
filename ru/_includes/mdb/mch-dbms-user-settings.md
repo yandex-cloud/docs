@@ -95,6 +95,14 @@
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#async-insert-threads).
 
+* **Async insert use adaptive busy timeout**{#setting-async-insert-use-adaptive-busy-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, использовать ли адаптивную асинхронную вставку, при которой {{ CH }} ограничивает количество вставок в зависимости от нагрузки на сервер.
+
+  По умолчанию настройка включена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#async_insert_use_adaptive_busy_timeout).
+
 * **Cancel HTTP readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
   Если настройка включена, сервис отменяет HTTP readonly запросы (например, SELECT) в момент, когда клиент обрывает соединение до получения ответа.
@@ -139,6 +147,14 @@
   По умолчанию используется функция `uniqExact`.
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#settings-count_distinct_implementation).
+
+* **Data type default nullable**{#setting-data-type-default-nullable} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, использовать ли по умолчанию тип данных `Nullable` в определении столбца без явных модификаторов `NULL` или `NOT NULL`.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#data_type_default_nullable).
 
 * **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-sql }}
 
@@ -208,6 +224,14 @@
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#distributed-product-mode).
 
+* **Do not merge across partitions select final** {#setting-do-not-merge-across-partitions-select-final} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, выполнять ли независимую обработку разделов таблицы для запросов `SELECT` с оператором `FINAL`.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree).
+
 * **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Определяет, в каком формате возвращается результат при агрегации данных без ключей (без `GROUP BY`) для пустого множества (например, `SELECT count(*) FROM table WHERE 0`):
@@ -226,6 +250,26 @@
   По умолчанию сжатие данных в ответе на HTTP-запрос выключено.
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/interfaces/http/).
+
+* **Enable reads from query cache**{#setting-enable-reads-from-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, будут ли результаты запросов `SELECT` извлекаться из кеша запросов.
+
+  По умолчанию настройка включена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#enable_reads_from_query_cache).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
+
+* **Enable writes to query cache**{#setting-enable-writes-to-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, будут ли результаты запросов `SELECT` сохраняться в кеш запросов.
+
+  По умолчанию настройка включена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#enable_writes_to_query_cache).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
 
 * **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -267,6 +311,12 @@
   По умолчанию настройка выключена (выполнение запросов разрешено).
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-force_primary_key).
+
+* **Format avro schema registry url**{#setting-format-avro-schema-registry-url} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  URL реестра схем Confluent для формата AvroConfluent.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/formats#format_avro_schema_registry_url).
 
 * **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-sql }}
 
@@ -317,7 +367,7 @@
 
   Время в миллисекундах, за которое нужно установить соединение с репликой для работы с хеджированными запросами. Используется вместе с настройкой [Use hedged requests](#setting-use-hedged-requests).
 
-  Значение по умолчанию — 50 миллисекунд.
+  Значение по умолчанию — `50`.
 
   Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#hedged_connection_timeout_ms).
 
@@ -327,11 +377,27 @@
 
   Минимальное значение — `1`, по умолчанию — `1000` (одна секунда).
 
-* **HTTP headers progress interval**{#setting-http-headers progress interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP headers progress interval**{#setting-http-headers-progress-interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Задает минимальный интервал (в миллисекундах) между уведомлениями о ходе выполнения запроса с помощью HTTP-заголовка `X-ClickHouse-Progress`.
 
   Минимальное значение — `1`, по умолчанию — `100`.
+
+* **HTTP max field name size**{#setting-http-max-field-name-size} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Максимальная длина имени поля в HTTP-заголовке.
+
+  Значение по умолчанию — `131072`.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#http_max_field_name_size).
+
+* **HTTP max field value size**{#setting-http-max-field-value-size} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Максимальная длина значения поля в HTTP-заголовке.
+
+  Значение по умолчанию — `131072`.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#http_max_field_value_size).
 
 * **HTTP receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -354,6 +420,14 @@
   Значение по умолчанию — `360000` (шесть минут).
 
   Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout).
+
+* **Ignore materialized views with dropped target table**{#setting-ignore-materialized-views-with-dropped-target-table} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, игнорировать ли материализованные представления с удаленной целевой таблицей при переходе к представлениям.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#ignore_materialized_views_with_dropped_target_table).
 
 * **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -438,6 +512,8 @@
 
   При чтении данных, записанных с помощью Insert quorum, можно использовать настройку [Select sequential consistency](#setting-select-sequential-consistency).
 
+  По умолчанию кворумная запись выключена (`0`).
+
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-insert_quorum).
 
 * **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-sql }}
@@ -465,7 +541,7 @@
   * `prefer_partial_merge` — алгоритм `partial_merge`. Применяется, когда это возможно, иначе используется `hash`.
   * `sorting_merge` — соединения слиянием отсортированных списков (sort-merge join).
 
-  По умолчанию используется алгоритм `hash`.
+  По умолчанию для версий {{ CH }} 24.11 и ниже выбрано значение `direct,auto`, а для 24.12 и выше – `direct,parallel_hash,hash`. Доступный алгоритм будет выбран для конкретного запроса в зависимости от типа и движка таблицы.
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-join_algorithm).
 
@@ -546,15 +622,39 @@
 
   Значение по умолчанию — `pread`.
 
+* **Log processors profiles**{#setting-log-processors-profiles} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, будет ли логироваться информация о профилировании на уровне процессоров. Логи записываются в таблицу `system.processors_profile_log`.
+
+  По умолчанию настройка выключена. Изменение настройки приводит к перезапуску серверов {{ CH }} на хостах кластера.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#log_processors_profiles).
+
+* **Log queries probability**{#setting-log-queries-probability} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, записывать ли в системные таблицы `system.query_log`, `system.query_thread_log` и `system.query_views_log` только запросы, выбранные случайным образом с заданной вероятностью. Случайная выборка помогает снизить нагрузку при большом количестве запросов в секунду.
+
+  Значение настройки — положительное число с плавающей запятой в диапазоне [0..1]. Например, если указано значение `0,5`, то примерно половина запросов регистрируется в системных таблицах. При значении `0` запросы не регистрируются в системных таблицах. При значении `1` (по умолчанию) все запросы регистрируются в системных таблицах.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#log_queries_probability).
+
 * **Log query threads**{#setting-log-query-threads} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Включает логирование потоков, которые выполняют запросы. Логи записываются в таблицу [system.query_thread_log]({{ ch.docs }}/operations/system-tables/query_thread_log).
 
-  Настройка работает, только когда также включена настройка [Query thread log enabled](../../managed-clickhouse/concepts/settings-list.md#setting-query-thread-log-enabled). По умолчанию обе настройки включены.
+  Настройка работает, только если включена настройка [Query thread log enabled](../../managed-clickhouse/concepts/settings-list.md#setting-query-thread-log-enabled). По умолчанию настройка выключена.
 
   Настройку можно применить только для части пользователей или запросов.
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#settings-log-query-threads).
+
+* **Log query views**{#setting-log-query-views} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, будет ли логироваться информация о зависимых представлениях в запросах. Логи записываются в таблицу `system.query_views_log`.
+
+  По умолчанию настройка включена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#log_query_views).
 
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1045,6 +1145,90 @@
 
   Минимальное значение и значение по умолчанию — `0`.
 
+* **Query cache max entries**{#setting-query-cache-max-entries} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Максимальное количество результатов запроса, которое текущий пользователь может сохранить в кеше запросов.
+
+  Минимальное значение и значение по умолчанию — `0` (нет ограничения).
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#query_cache_max_entries).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
+
+* **Query cache max size in bytes**{#setting-query-cache-max-size-in-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Максимальный размер кеша (в байтах) для пользователя.
+
+  Минимальное значение и значение по умолчанию — `0` (нет ограничения).
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#query_cache_max_size_in_bytes).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
+
+* **Query cache min query duration**{#setting-query-cache-min-query-duration} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Минимальная продолжительность (в миллисекундах) запроса `SELECT`, при которой результаты будут записываться в кеш запросов.
+
+  Минимальное значение и значение по умолчанию — `0` (нет ограничения).
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#query_cache_min_query_duration).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
+
+* **Query cache min query runs**{#setting-query-cache-min-query-runs} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Минимальное количество выполненных запросов `SELECT`, при котором результаты будут записываться в кеш запросов.
+
+  Минимальное значение и значение по умолчанию — `0` (нет ограничения).
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#query_cache_min_query_runs).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
+
+* **Query cache nondeterministic function handling**{#setting-query-cache-nondeterministic-function-handling} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, как кеш запросов будет обрабатывать запросы `SELECT` с недетерминированными функциями, такими как `rand()` или `now()`.
+
+  Возможные значения:
+
+  * `throw` — сгенерировать исключение и не кешировать результат запроса.
+  * `save` — кешировать результат запроса.
+  * `ignore` — не генерировать исключение и не кешировать результат запроса.
+
+  По умолчанию значение не выбрано (эквивалентно `throw`).
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#query_cache_nondeterministic_function_handling).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
+
+* **Query cache share between users**{#setting-query-cache-share-between-users} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, могут ли результаты запросов `SELECT`, сохраненные в кеше запросов, быть прочитаны другими пользователями. Не рекомендуется включать этот параметр по соображениям безопасности.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#query_cache_share_between_users).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
+
+* **Query cache tag**{#setting-query-cache-tag} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Строка, которая служит меткой для записей кеша запросов. Настройка позволяет кешировать несколько результатов одного и того же запроса. Запросы с разными тегами считаются разными.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#query_cache_tag).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
+
+* **Query cache ttl**{#setting-query-cache-ttl} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Время (в секундах), по истечении которого записи в кеше запросов устаревают.
+
+  Значение по умолчанию — `60`.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#query_cache_ttl).
+
+  См. также настройку [Use query cache](#setting-use-query-cache).
+
 * **Quota mode**{#setting-quota-mode} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
   Режим учета потребляемых ресурсов при включенных [квотах]({{ link-console-quotas }}):
@@ -1153,9 +1337,9 @@
 
 * **Timeout before checking execution speed**{#setting-timeout-before-checking-execution-speed} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-  Время ожидания (в секундах) между проверками скорости выполнения запроса. Проверяется, что скорость выполнения не ниже указанной в параметре [**Min execution speed**](#setting-min-execution-speed).
+  Время ожидания (в миллисекундах) между проверками скорости выполнения запроса. Проверяется, что скорость выполнения не ниже указанной в параметре [**Min execution speed**](#setting-min-execution-speed).
 
-  Значение по умолчанию — `10`.
+  Значение по умолчанию — `60000` (1 минута).
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/query-complexity/#timeout-before-checking-execution-speed).
 
@@ -1194,6 +1378,16 @@
   По умолчанию настройка включена.
 
   Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#use_hedged_requests).
+
+* **Use query cache**{#setting-use-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Определяет, могут ли запросы `SELECT` использовать кеш запросов.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#use_query_cache).
+
+  См. также настройки [Enable reads from query cache](#setting-enable-reads-from-query-cache) и [Enable writes to query cache](#setting-enable-writes-to-query-cache).
 
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 

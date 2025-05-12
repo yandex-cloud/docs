@@ -19,7 +19,7 @@ You can only use one specification at a time, the COI or Docker Compose.
 
 In a {{ coi }}, the Docker container description is in a YAML specification file based on a [{{ k8s }} pod spec](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
-[Creating a VM from a {{ coi }}](../tutorials/vm-create.md) in the management console or YC CLI automatically generates the specification file using the provided data. When [creating an instance group from a {{ coi }}](../tutorials/ig-create.md), you set the specification manually. Below are a sample specification file and the required keys.
+[Creating a VM from a {{ coi }}](../tutorials/vm-create.md) in the management console or CLI automatically generates the specification file using the provided data. When [creating an instance group from a {{ coi }}](../tutorials/ig-create.md), you set the specification manually. Below are a sample specification file and the required keys.
 
 ### Example of the COI specification for a Docker container {#coi-spec-example}
 

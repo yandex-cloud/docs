@@ -1,6 +1,6 @@
 ---
 title: '{{ cloud-logging-full-name }} pricing policy'
-description: This article describes the {{ cloud-logging-name }} pricing policy.
+description: This article covers the {{ cloud-logging-name }} pricing policy.
 editable: false
 ---
 

@@ -1,4 +1,4 @@
-Service | Cost of scanning Docker image, without VAT
+Service | Price of scanning Docker image, without VAT
 --- | ---
 First-time scan, first six scans of different Docker images, per month | {{ sku|USD|cr.vulnerabilityscanner.scan.v1|string }}
 First-time scan, over six scans per month | {{ sku|USD|cr.vulnerabilityscanner.scan.v1|pricingRate.6|string }}

@@ -2,11 +2,11 @@
 
 If a [handler](handler.md) reports a R function runtime or loading error, the [runtime environment](../../concepts/runtime/index.md) automatically captures the error and returns a JSON document with the error type in the response. For more information about the JSON document format, see [Calling a function](../../concepts/function-invoke.md#error).
 
-The error data is also written to the [execution log](logging.md). You can [view](../../operations/function/function-logs.md) it using the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) or the [management console]({{ link-console-main }}).
+The error info is also written to the [execution log](logging.md). You can [view](../../operations/function/function-logs.md) the log via the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) or the [management console]({{ link-console-main }}).
 
 #### Examples of error handling {#examples}
 
-Case 1: user code goes outside the array boundaries, the `non-numeric argument to binary operator` error is returned. The [runtime environment](../../concepts/runtime/index.md) captures the error and generates a JSON document that contains the error message (the `errorMessage` field) and its type (the `errorType` field).
+Case 1: User code goes outside the array boundaries, resulting in `non-numeric argument to binary operator`. The [runtime environment](../../concepts/runtime/index.md) intercepts the exception and generates a JSON document stating the error message (`errorMessage` field) and error type (`errorType` field).
 
 Function code:
 
@@ -25,7 +25,7 @@ JSON document returned:
 }
 ```
 
-Case 2: user code indicates an error by [throwing](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stop) an exception from the function.
+Case 2: User code indicates an error by [throwing](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stop) an exception from the function.
 
 Function code:
 

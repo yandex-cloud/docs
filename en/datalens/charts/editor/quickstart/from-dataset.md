@@ -15,7 +15,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
 ## Deploy a demo workbook {#create-template}
 
-1. Deploy a demo workbook titled [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
+1. Deploy the [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) demo workbook from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
 
 1. Go to the workbook you deployed and find a dataset named `00: Sales` on the **Datasets** tab.
 
@@ -63,7 +63,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
    {% note info %}
    
-   In this example, the `const {buildSource} = require('libs/dataset/v2');` service module is used to make operations with datasets more convenient.
+   In this example, the `const {buildSource} = require('libs/dataset/v2');` service module is used for more convenient operations with datasets.
 
    {% endnote %}
 
@@ -71,11 +71,21 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
 1. On the **Prepare** tab, create a table:
 
+   {% note info %}
+
+   In this example, the `const Dataset = require('libs/dataset/v2')` service module is used for more convenient operations with datasets. The `Dataset.getDatasetRows()` method extracts data from the source specified in the `datasetName` parameter and provides the data in a convenient compact form.
+
+   If you need to, you can use the `Editor.getLoadedData()` method to get the full data.
+
+   {% endnote %}
+
    ```javascript
    const Dataset = require('libs/dataset/v2');
    const loadedData = Editor.getLoadedData();
+
    // Getting data from the dataset in a convenient format using the service module
-   const data = Dataset.processData(loadedData, 'salesSourceData', Editor);
+   // datasetName: Dataset name on the Sources tab
+   const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
    
    // Helper function to group data by a specified dataset field name 
    function groupBy(arr, field) {
@@ -96,15 +106,15 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
    // Common styles for table header cells
    const headStyles = {background: 'var(--g-color-base-misc-light)', verticalAlign: 'middle'};
    
-   // Configuration of table header cells
+   // Table header cell configuration
    const head = [
        {
            name: 'Payment type',
            formattedName: Editor.generateHtml({
                tag: 'span',
                content: [
-                   {tag: 'span', content: 'Payment type'}
-   				// tooltip for cell header
+                   {tag: 'span', content: 'Payment type'},
+   				// tooltip for a cell header
                    {
                        tag: 'dl-tooltip',
                        content: ' ℹ',
@@ -163,7 +173,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
            d += d === "" ? "M" : " L";
            d += `${coords[x][0]} ${coords[x][1]}`;
        });
-       // Creating an SVG with line color var(--g-color-base-brand) and thickness 2px
+       // Creating an SVG with var(--g-color-base-brand) for line color and thickness of 2px
        return `
            <svg width="${chartWidth}" height="${chartHeight}">
                <path 

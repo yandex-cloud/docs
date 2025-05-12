@@ -1,4 +1,4 @@
-| Usable data size, TB | Cost per month, without VAT |
+| Usable data size, TB | Price per month, without VAT |
 | -------------------| -------------- |
 | 15 | {{ sku|USD|interconnect.trunk.direct.50mbps.unmetered.monthly_usage.v1|string }} |
 | 30 | {{ sku|USD|interconnect.trunk.direct.100mbps.unmetered.monthly_usage.v1|string }} |
