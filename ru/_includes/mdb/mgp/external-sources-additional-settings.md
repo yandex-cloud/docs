@@ -16,7 +16,7 @@
 
     Настройки сетевого протокола аутентификации Kerberos.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-kerberos.html).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-kerberos.html).
 
     * **Enable**{#setting-enable}
 
@@ -52,13 +52,13 @@
 
     По умолчанию аутентификация запрещена.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **Username**{#setting-username} {{ tag-con }} {{ tag-api }}
 
     Имя пользователя, с помощью которого выполняется подключение к внешнему файловому хранилищу или СУБД, если аутентификация от имени другого пользователя отключена.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#about-the-pxfsitexml-configuration-file-3).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **Sasl Connection Retries**{#setting-sasl-connection-retries} {{ tag-con }} {{ tag-api }}
 
@@ -66,7 +66,7 @@
 
     Значение по умолчанию — `5`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#about-the-pxfsitexml-configuration-file-3).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **ZK Hosts**{#setting-zk-hosts} {{ tag-con }} {{ tag-api }}
 

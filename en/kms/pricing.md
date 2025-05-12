@@ -1,6 +1,6 @@
 ---
 title: '{{ kms-full-name }} pricing policy'
-description: This article provides the {{ kms-name }} pricing policy.
+description: This article covers the {{ kms-name }} pricing policy.
 editable: false
 ---
 
@@ -11,7 +11,7 @@ editable: false
 
 
 
-To calculate the cost of [symmetric](https://yandex.cloud/en/prices?state=58d53a138d2f#calculator), [asymmetric](https://yandex.cloud/en/prices?state=0f25db3ff729#calculator) encryption and [asymmetric signature](https://yandex.cloud/en/prices?state=b0cf7fa8b77f#calculator), use the calculator on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of [symmetric](https://yandex.cloud/en/prices?state=58d53a138d2f#calculator) and [asymmetric](https://yandex.cloud/en/prices?state=0f25db3ff729#calculator) encryption and [asymmetric signature](https://yandex.cloud/en/prices?state=b0cf7fa8b77f#calculator), use the calculator on the {{ yandex-cloud }} website or see the pricing info in this section.
 
 
 
@@ -25,7 +25,7 @@ The cost of using {{ kms-name }} is based on:
 
   {% note alert %}
 
-  After a key is deleted, all of its versions continue to be charged for 3 days [pursuant to the deletion procedure](operations/key.md#delete).
+  After a key is deleted, all its versions are still charged for three days, [as per the deletion process](operations/key.md#delete).
 
   {% endnote %}
 

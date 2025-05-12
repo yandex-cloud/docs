@@ -1,20 +1,20 @@
 ---
 title: How to create an image from a {{ compute-full-name }} Linux instance in {{ cloud-desktop-full-name }}
-description: In this tutorial, you will create an image from a Linux instance.
+description: Follow this guide to create an image from a Linux instance.
 ---
 
 # Creating an image from a {{ compute-name }} Linux instance
 
 In {{ cloud-desktop-name }}, you can create desktops from pre-installed [system images](../../concepts/images.md) or your own [custom images](../../concepts/images.md#custom-images).
 
-Currently, you can add a Linux-based image. Later on, we are going to add support for Windows images.
+Custom images can be [Windows](create-from-windows.md) or Linux-based.
 
-A custom image is created from a {{ compute-name }} [instance](../../../compute/concepts/vm.md).
+A Linux image is created from a {{ compute-name }} [instance](../../../compute/concepts/vm.md).
 
-To add a custom image to {{ cloud-desktop-name }}:
+To add a custom Linux image to {{ cloud-desktop-name }}:
 
 1. [Create](../../../compute/operations/vm-create/create-linux-vm.md) or select a previously created VM instance with the following parameters:
-   * Access: Via an **SSH key**. {{ cloud-desktop-name }} does not support access via OS Login.
+   * Access: Via an **SSH key**. {{ cloud-desktop-name }} does not support {{ oslogin }} access.
    * Connecting to the internet to install additional software.
 
 1. Configure the instance to create the image you need.
@@ -79,17 +79,6 @@ To add a custom image to {{ cloud-desktop-name }}:
     sudo systemctl enable desktop-agent.service
     ```
 
-1. Reboot the VM and make sure the agent starts automatically.
-   
-    Example of checking autorun for an OS with the SystemD init system:
-
-   1. Run this command:
-    
-      ```bash
-      sudo systemctl status desktop-agent-updater
-      ```
-
-    1. Make sure the command output contains `Active: active (running)` or `Active: activating (auto-restart)`.
 
 1. Before creating a boot disk image, clean the instance’s OS from the data you do not need. For example, in distributions with the `apt` package manager, you can clear the cache:
 
@@ -112,7 +101,7 @@ To add a custom image to {{ cloud-desktop-name }}:
 
     {% endlist %}
 
-1. Add the image to {{ cloud-desktop-name }}:
+1. Add this image to {{ cloud-desktop-name }}:
 
     {% list tabs group=instructions %}
 
@@ -123,7 +112,7 @@ To add a custom image to {{ cloud-desktop-name }}:
       1. Click **{{ ui-key.yacloud.vdi.button_add-image }}**.
       1. In the **{{ ui-key.yacloud.vdi.label_image-source }}** field, select `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.
       1. In the **{{ ui-key.yacloud.vdi.label_image }}** field, select the previously created image.
-      1. Enter a name for the image.
+      1. Specify the image name.
       1. Click **{{ ui-key.yacloud.common.add }}**.
 
     {% endlist %}

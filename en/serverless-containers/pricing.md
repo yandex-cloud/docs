@@ -1,6 +1,6 @@
 ---
 title: '{{ serverless-containers-full-name }} pricing policy'
-description: This article provides the {{ serverless-containers-name }} pricing policy.
+description: This article covers the {{ serverless-containers-name }} pricing policy.
 editable: false
 ---
 
@@ -29,7 +29,7 @@ You are only charged for the container invocations that have caused your applica
 
 {% endnote %}
 
-### Pricing formula {#formula}
+### Cost calculation formula {#formula}
 
 
 

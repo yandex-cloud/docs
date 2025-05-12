@@ -1,4 +1,4 @@
-| Resource | Cost per hour, without VAT |
+| Resource | Price per hour, without VAT |
 | --- | --- |
 | 50% vCPU | {{ sku|USD|cloud_desktop.vcpu.c50.v1|string }} |
 | 100% vCPU | {{ sku|USD|cloud_desktop.vcpu.c100.v1|string }} |

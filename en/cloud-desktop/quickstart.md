@@ -11,7 +11,7 @@ Follow this guide to create and set up a [desktop group](concepts/desktops-and-g
 
 {% endnote %}
 
-{{ cloud-desktop-name }} is a service to manage virtual Linux-based desktop infrastructure.
+{{ cloud-desktop-name }} is a virtual desktop infrastructure management service.
 
 Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) and deploy a {{ cloud-desktop-name }} [desktop group](./concepts/desktops-and-groups.md) for it:
 
@@ -68,6 +68,11 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 
 ## Deploy a desktop group {#create-desktop-group}
 
+Follow this guide to create a desktop group based on pre-installed `Ubuntu 20.04 LTS`. Also, you can:
+
+* [{#T}](operations/images/create-from-compute-linux.md)
+* [{#T}](operations/images/create-from-windows.md)
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -83,7 +88,7 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}** on the **{{ ui-key.yacloud.component.compute.resources.label_tab-standard }}** tab, click **Basic**.
   1. Select `Ubuntu 20.04 LTS` for the OS [image](./concepts/images.md).
   1. Under **{{ ui-key.yacloud.vdi.section_disks }}**:
-      * Select `SSD` for the boot and data [disk](./concepts/disks.md) [types](../compute/concepts/disk.md#disks-types).
+      * Select the boot and data [disk](./concepts/disks.md) [types](../compute/concepts/disk.md#disks-types): `SSD`.
       * Set the boot disk size to `60 GB`.
       * Set the data disk size to `4 GB`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [cloud network](../vpc/concepts/network.md#network) and [subnets](../vpc/concepts/network.md#subnet) where your desktops will reside.

@@ -11,6 +11,7 @@ Event name | Description
 `CreatePlaylist` | Creating a playlist
 `CreateStream` | Creating a stream
 `CreateStreamLine` | Creating a stream line
+`CreateStylePreset` | Creating a player preset
 `CreateSubtitle` | Subtitling
 `CreateThumbnail` | Creating a thumbnail
 `CreateVideo` | Creating a video
@@ -19,6 +20,7 @@ Event name | Description
 `DeletePlaylist` | Deleting a playlist
 `DeleteStream` | Deleting a stream
 `DeleteStreamLine` | Deleting a stream line
+`DeleteStylePreset` | Deleting a player preset
 `DeleteSubtitle` | Deleting subtitles
 `DeleteThumbnail` | Deleting a thumbnail
 `DeleteVideo` | Deleting a video
@@ -34,5 +36,6 @@ Event name | Description
 `UpdatePlaylist` | Updating a playlist
 `UpdateStream` | Updating a stream
 `UpdateStreamLine` | Updating a stream line
+`UpdateStylePreset` | Updating a player preset
 `UpdateVideo` | Updating a video
 `VideoPerformAction` | Performing actions with a video

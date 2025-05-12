@@ -1,6 +1,6 @@
 ---
 title: '{{ data-transfer-full-name }} pricing policy'
-description: This article explains the {{ data-transfer-name }} pricing policy.
+description: This article covers the {{ data-transfer-name }} pricing policy.
 editable: false
 ---
 

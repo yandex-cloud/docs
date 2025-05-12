@@ -6,8 +6,8 @@ To set up CDC using {{ data-transfer-name }}:
 
 1. [Prepare the source cluster](#prepare-source).
 1. [Prepare the target cluster](#prepare-target).
-1. [Set up and activate your transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -88,7 +88,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 - {{ yandex-cloud }} interfaces {#yc}
 
-    If topics are managed using standard {{ yandex-cloud }} interfaces (management console, YC CLI, {{ TF }}, API):
+    If topics are managed using standard {{ yandex-cloud }} interfaces (management console, CLI, {{ TF }}, or API):
 
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `cdc.public.measurements`.
 
@@ -109,7 +109,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 {% endlist %}
 
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create).
 
@@ -147,9 +147,9 @@ The settings vary depending on the [topic management method](../../managed-kafka
         * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}**: Created target endpoint.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**.
 
-1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. In a separate terminal, run the `kafkacat` utility in consumer mode:
 
@@ -167,7 +167,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
         -K:
     ```
 
-    You can get the FQDNs of broker hosts with a [list of hosts in the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-hosts.md).
+    You can get the FQDNs of broker hosts with the [list of hosts in the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-hosts.md).
 
     The output will return the data format schema of the `public.measurements` table and information about the previously added rows.
 

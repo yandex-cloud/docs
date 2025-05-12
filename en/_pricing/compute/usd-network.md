@@ -1,4 +1,4 @@
-| Software network acceleration | Cost per hour, without VAT |
+| Software network acceleration | Price per hour, without VAT |
 --- | ---
 **Intel Broadwell** |
 For VMs with less than 18 cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.v1|number }} × 2 %}

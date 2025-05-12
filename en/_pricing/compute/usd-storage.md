@@ -1,4 +1,4 @@
-| Type | Cost of 1 GB per month, without VAT |
+| Type | Price of 1 GB per month, without VAT |
 --- | ---
 | Fast network drive (SSD) | {{ sku|USD|nbs.network-nvme.allocated|month|string }} |
 | Standard disk drive (HDD) | {{ sku|USD|nbs.network-hdd.allocated|month|string }} |

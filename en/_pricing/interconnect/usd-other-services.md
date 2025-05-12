@@ -1,4 +1,4 @@
-| Service | Cost per month, without VAT |
+| Service | Price per month, without VAT |
 | ------------------------------------------ | ------------- |
 | Private or public network connection | {{ sku|USD|interconnect.trunk.hosted_connections.v1|string }} |
 | 1000BASE-LX physical port | {{ sku|USD|interconnect.trunk.physical_port.1000base_lx.monthly_usage.v1|string }} |

@@ -4,7 +4,7 @@
 
     По умолчанию настройка выключена (параметры сжатия данных, заданные для таблицы, не учитываются).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting).
 
 * **Gp workfile compression**{#setting-gp-workfile-compression} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -12,7 +12,7 @@
 
     По умолчанию настройка выключена (временные файлы не сжимаются).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
 
     {% include [requires-restart](../note-requires-restart.md) %}
 
@@ -22,7 +22,7 @@
 
     Максимальное значение — `1099511627776` (1 ТБ), минимальное — `0` (объем не ограничен), по умолчанию — `0`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
 
 * **Gp workfile limit files per query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -30,7 +30,7 @@
 
     Максимальное значение — `100000`, минимальное — `0` (количество временных файлов не ограничено), по умолчанию — `10000`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
 
 * **Gp workfile limit per segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -42,7 +42,7 @@
     0.1 × <размер_хранилища_хоста-сегмента> / <количество_сегментов_на_хост>
     ```
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
 
 * **Log connections**{#setting-log-connections} {{ tag-con }}
 
@@ -50,7 +50,7 @@
 
     По умолчанию настройка выключена (логирование не ведется).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_connections).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_connections).
 
 * **Log disconnections**{#setting-log-disconnections} {{ tag-con }}
 
@@ -58,7 +58,7 @@
 
     По умолчанию настройка выключена (логирование не ведется).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_disconnections).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_disconnections).
 
 * **Log error verbosity**{#setting-log-error-verbosity} {{ tag-con }}
 
@@ -68,7 +68,7 @@
     * `default` (значение по умолчанию).
     * `verbose`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_error_verbosity).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_error_verbosity).
 
 * **Log hostname**{#setting-log-hostname} {{ tag-con }}
 
@@ -76,7 +76,7 @@
 
     По умолчанию настройка выключена.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_hostname).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_hostname).
 
 * **Log min duration statement**{#setting-log-min-duration-statement} {{ tag-con }}
 
@@ -86,7 +86,7 @@
 
     Минимальное значение — `-1` (отключает логирование времени работы), максимальное значение — `2147483647`, по умолчанию — `-1`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement).
 
 * **Log min messages**{#setting-log-min-messages} {{ tag-con }}
 
@@ -96,7 +96,7 @@
 
     Чтобы отключить запись большинства сообщений, выберите значение `PANIC`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages).
 
 * **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -111,7 +111,7 @@
 
     Выражения `PREPARE` и `EXPLAIN ANALYZE` также записываются в лог, если содержат команды соответствующего типа.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
 
 * **Log statement stats**{#setting-log-statement-stat} {{ tag-con }}
 
@@ -119,7 +119,7 @@
 
     По умолчанию настройка выключена (логирование не ведется).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_statement_stats).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#log_statement_stats).
 
 * **Master shared buffers**{#setting-master-shared-buffers} {{ tag-con }}
 
@@ -133,7 +133,7 @@
     min(<размер_хранилища_хоста-мастера> / 4, 8 * <размер_данных_в_базе>)
     ```
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
 
     {% include [requires-restart](../note-requires-restart.md) %}
 
@@ -147,7 +147,7 @@
 
     При изменении настройки проводится проверка, что объем доступной оперативной памяти на одно подключение (как на мастере, так и на сегменте) будет составлять не меньше 20 МБ. Если это условие не выполняется, возникает [ошибка](../../../managed-greenplum/qa/cluster-hosts.md#memory-limit).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
 
 * **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -157,7 +157,7 @@
 
     Для настройки не рекомендуется выбирать значение ниже, чем у [Max connections](#setting-max-connections).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
 
 * **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -169,7 +169,7 @@
     0.1 × <размер_хранилища_хоста-сегмента> / <количество_сегментов_на_хост>
     ```
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
 
 * **Max statement mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -177,7 +177,7 @@
 
     Минимальное значение — `134217728` (128 МБ), максимальное — `1099511627776` (1 ТБ), по умолчанию — `2097152000` (2000 МБ).
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_statement_mem).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#max_statement_mem).
 
 * **Segment shared buffers**{#setting-segment-shared-buffers} {{ tag-con }}
 
@@ -191,6 +191,6 @@
     min(<размер_хранилища_хоста-сегмента> / (4 * <количество_сегментов_на_хост>), 8 * <размер_данных_в_базе>)
     ```
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
 
     {% include [requires-restart](../note-requires-restart.md) %}

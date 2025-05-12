@@ -1,6 +1,6 @@
 ---
 title: '{{ sf-full-name }} pricing policy'
-description: This article provides the {{ sf-name }} pricing policy.
+description: This article covers the {{ sf-name }} pricing policy.
 editable: false
 ---
 
@@ -26,7 +26,7 @@ You are only charged for the [function calls](concepts/function-invoke.md) that 
 
 {% endnote %}
 
-### Pricing formula {#price-formula}
+### Cost calculation formula {#price-formula}
 
 
 
@@ -63,7 +63,7 @@ However, if the function uses other {{ yandex-cloud }} resources, they are bille
 
 {% include [usd.md](../_pricing/functions/usd-invocations.md) %}
 
-You pay for the actual number of invocations. For instance, 1000 calls over the included number cost {% calc [currency=USD] {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|number }} × 1000 / 1000000 %} if 1000000 calls are {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|string }}.
+You pay for the actual number of invocations. For instance, 1,000 calls over the included number cost {% calc [currency=USD] {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|number }} × 1000 / 1000000 %} if 1000000 calls are {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|string }}.
 
 
 ### Function execution time {#execution}

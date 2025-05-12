@@ -21,6 +21,7 @@ Event name | Description
 `MoveWorkbooks`                | Moving workbooks
 `DeleteWorkbooks`              | Deleting one or multiple workbooks
 `CopyWorkbook`                 | Copying a workbook
+`SwitchWorkbookFileExportProhibition` | Updating the restriction on file export from a workbook
 `UpdateWorkbookAccessBindings` | Updating access permissions for a workbook
 `CreateEmbeddingSecret` | Creating a key for an [embedding](../../../datalens/security/embedded-objects.md)
 `DeleteEmbeddingSecret` | Deleting a key for an embedding
@@ -31,6 +32,7 @@ Event name | Description
 `UpdateColorPalette` | Updating a color palette
 `DeleteColorPalette` | Deleting a color palette
 `DisableFolders`                | [Disabling](../../../datalens/settings/disable-folder-navigation.md) folder navigation
+`SwitchDataExportProhibition`   | Updating the data export restriction
 `SwitchPublicationProhibition`  | Updating the prohibition to publish objects
 `EnableBillingInstanceService`  | Receiving a notification from {{ billing-name }} that the [billing account](../../../billing/concepts/billing-account.md) linked to {{ datalens-name }} is active
 `DisableBillingInstanceService` | Receiving a notification from {{ billing-name }} that the billing account linked to {{ datalens-name }} is inactive

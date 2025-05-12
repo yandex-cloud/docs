@@ -5,12 +5,17 @@ description: Follow this guide to get an IAM token for a service account.
 
 # Getting an IAM token for a service account
 
-There are multiple ways to get an [IAM token](../../concepts/authorization/iam-token.md) for the [service account](../../concepts/users/service-accounts.md):
+## Selecting a method to get an IAM token {#choose-method}
 
-* [Using the CLI](#via-cli) (the easiest way).
-* [Using JSON Web Token](#via-jwt). This method is good for automating your API operations.
-* [Using a virtual machine](../../../compute/operations/vm-connect/auth-inside-vm.md) in {{ compute-name }}. This method is convenient for running apps on {{ yandex-cloud }} virtual machines.
-* [Using a function](../../../functions/operations/function-sa.md) in {{ sf-name }}. This method is good for getting an IAM token from your function code.
+There are multiple options you can use to get an [IAM token](../../concepts/authorization/iam-token.md) for the [service account](../../concepts/users/service-accounts.md):
+
+![choose-method](../../../_assets/iam/choose-method.svg)
+
+* [VM metadata service](../../../compute/operations/vm-connect/auth-inside-vm.md): Preferred method when using a [{{ compute-full-name }}](../../../compute/) VM instance.
+* [Workload identity federation](../../concepts/workload-identity.md): If you want to authenticate to the {{ yandex-cloud }} API upon request from an external system compatible with the [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) protocol. For example, when integrating with GitHub, [{{ mgl-full-name }}](../../../managed-gitlab/), or a custom {{ k8s }} installation.
+* [CLI](#via-cli): This is the easiest way if the external system is not OIDC-compatible but allows you to install the CLI.
+* [JSON Web Token](#via-jwt): Allows you to control IAM token generation at every step.
+* [Function](../../../functions/operations/function-sa.md): To get an IAM token from the function code in [{{ sf-name }}](../../../functions/).
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 

@@ -1,4 +1,4 @@
-| Resource category | Cost per million messages, without VAT |
+| Resource category | Price per million messages, without VAT |
 | ----- | ----- |
 | 100000 messages or less per month | Free of charge |
 | Message count, up to 1 million | $1.036833 |

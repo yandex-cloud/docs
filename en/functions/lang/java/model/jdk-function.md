@@ -4,7 +4,7 @@ You can set a handler function in Java by implementing the [Function](https://do
 
 {% note warning %}
 
-You should specify both values for the `Function` type parameters: the first one being the input argument type and the second one the type of the return value.
+You should specify both values for the `Function` type parameters: the first one being the input argument type and the second one, the type of the returned value.
 
 {% endnote %}
 
@@ -23,7 +23,7 @@ public class Handler implements Function<Integer, String> {
 Examples of invalid handlers:
 ```java
 import java.util.function.Function;
-// the Function has only one parameter type specified
+// Function has only one parameter type specified
 // Handler should not have any type parameters (see the handler requirements)
 public class Handler<T> implements Function<T, Integer> {
   @Override
@@ -35,7 +35,7 @@ public class Handler<T> implements Function<T, Integer> {
 
 ```java
 import java.util.function.Function;
-// Function does not have both parameter types specified
+// Function has neither parameter type specified
 public class Handler implements Function {
   @Override
   public Object apply(Object i) {
@@ -64,7 +64,7 @@ To invoke the function, use the [{{ yandex-cloud }} CLI](../../../concepts/funct
 
 {% endnote %}
 
-The `Request.java` file:
+`Request.java` file:
 ```java
 public class Request {
   public String message;
@@ -72,7 +72,7 @@ public class Request {
 }
 ```
 
-The `Handler.java` file:
+`Handler.java` file:
 ```java
 import java.util.function.Function;
 
@@ -138,7 +138,7 @@ public class Response {
 }
 ```
 
-The Handler.java file:
+Handler.java:
 ```java
 import java.util.function.Function;
 import org.json.*;
@@ -153,7 +153,7 @@ public class Handler implements Function<Request, Response> {
 
     var jsonObject = new JSONObject(body);
     // here, the "name" parameter is obtained from the request body
-    // if you do not pass it, an error is thrown
+    // if you do not provide it, an error will be thrown
     var name = jsonObject.getString("name");
     return new Response(200, String.format("Hello, %s", name));
   }

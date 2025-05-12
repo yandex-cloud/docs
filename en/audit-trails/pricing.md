@@ -1,6 +1,6 @@
 ---
 title: '{{ at-full-name }} pricing policy'
-description: This article provides the {{ at-name }} pricing policy.
+description: This article covers the {{ at-name }} pricing policy.
 editable: false
 ---
 
@@ -26,7 +26,7 @@ Delivered [data events](./concepts/events-data-plane.md) are billed.
 
 
 
-### Pricing formula {#price-formula}
+### Cost calculation formula {#price-formula}
 
 The cost of delivered data events is calculated in proportion to their number.
 

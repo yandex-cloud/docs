@@ -24,7 +24,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. (Optional) Enable encryption for the bucket:
 
-        [Make sure](../../iam/operations/roles/get-assigned-roles.md) your account has the `kms.editor` role for the folder the bucket encryption key will be created in.
+        [Make sure](../../iam/operations/roles/get-assigned-roles.md) the account you are going to use to create an encryption key for the bucket has the `kms.editor` role for the folder.
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 

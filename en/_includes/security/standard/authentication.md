@@ -486,13 +486,13 @@ Follow the principle of least privilege and [assign to the service account](../.
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Check the list of service accounts.
   1. Repeat the steps for other folders.
   1. Go to the **Access permissions** tab at the cloud and folder levels.
 
-  To view organization-level access permissions, you need to use the YC CLI.
+  Organization-level access permissions can be viewed only in the CLI.
 
 - Performing a check via the CLI {#cli}
 
@@ -565,7 +565,7 @@ Each service account with extended permissions should be placed as a resource in
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and go to the **Access permissions** tab.
   1. Check the access permissions assigned to the service account.
@@ -620,7 +620,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and see the date of each key's generation under **Access key properties**.
   1. Repeat the steps for each of your folders.
@@ -764,14 +764,14 @@ Follow the [guide](../../../iam/operations/compromised-credentials.md#key-reissu
 
 {% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
 
-In addition to service account access permissions, you can define [scopes](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) to restrict the use of [API keys](../../../iam/concepts/authorization/api-key.md). You can reduce the risk of unauthorized use of your keys by configuring their scope limits and validity periods. Assign only the strictly required scopes to API keys.
+In addition to service account access permissions, you can define [scopes](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) to restrict the use of [API keys](../../../iam/concepts/authorization/api-key.md). Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys. Assign only the strictly required scopes to API keys.
 
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, check the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** field in the table with your API keys’ details.
   1. If all API keys have their minimum required scopes specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
@@ -1849,7 +1849,7 @@ To learn more, see [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account with access keys belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you need.
   1. You can see the time of the last key use in the table with key info under **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_last-used-at }}**.

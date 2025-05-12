@@ -41,13 +41,13 @@ The username (login) an account gets in the {{ oslogin }} profile by default dep
 
 A single user or service account in a {{ org-name }} can have multiple {{ oslogin }} profiles: different profiles allow you to connect to VMs as different local users of those VMs. To learn more about creating additional {{ oslogin }} profiles, see [{#T}](../operations/os-login-profile-create.md).
 
-You can manage user {{ oslogin }} profiles via the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) as well as the [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/oslogin/index.md) and [API](../api-ref/OsLogin/index.md). To manage {{ oslogin }} profiles for service accounts, you can only use the CLI or API.
+You can manage user {{ oslogin }} profiles via the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) as well as the [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/oslogin/index.md) and [API](../api-ref/OsLogin/index.md). {{ oslogin }} profiles of service accounts can be managed only via the {{ yandex-cloud }} CLI or API.
 
 {% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 
 ### SSH keys of users and service accounts {#ssh-keys}
 
-By enabling [Mode 2](#modes), an [organization administrator](../security/index.md#organization-manager-admin) can allow the use of public SSH keys to connect users and service accounts to VMs via {{ oslogin }}. When this mode is enabled, the administrator will be responsible for loading the public SSH keys of users and service accounts into their [{{ oslogin }} profiles](#os-login-profiles).
+The [organization administrator](../security/index.md#organization-manager-admin) can enable [Mode 2](#modes) to allow the use of public SSH keys for users and service accounts to connect to VMs via {{ oslogin }}. With this mode on, the administrator will have to load the public SSH keys of users and service accounts into their [{{ oslogin }} profiles](#os-login-profiles).
 
 An organization administrator can also allow users to manage their public SSH keys themselves by additionally [enabling](../operations/os-login-access.md) the **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}** option in the organization's security settings.
 
@@ -84,7 +84,7 @@ To connect to a VM via a standard SSH client with an SSH certificate, you need t
 
 {% cut "Example of connecting using a short-lived SSH certificate" %}
 
-```
+```bash
 # 1. Getting the `my-oslogin-vm` VM public IP address and organization ID
 PUB_IP=$(yc compute instance get my-oslogin-vm \
   --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')

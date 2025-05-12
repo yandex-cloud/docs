@@ -1,4 +1,4 @@
-| Data<br/>retention period | Cost of storing<br/>data with a<br/>throughput<br/>limit per shard of 128 KB/s,<br/>without VAT | Cost of storing<br/>data with a<br/>throughput<br/>limit per shard of 512 KB/s,<br/>without VAT | Cost of storing<br/>data with a<br/>throughput<br/>limit per shard of 1 MB/s,<br/>without VAT |
+| Data<br/>retention period | Price of storing<br/>data with a<br/>throughput<br/>limit per shard of 128 KB/s,<br/>without VAT | Price of storing<br/>data with a<br/>throughput<br/>limit per shard of 512 KB/s,<br/>without VAT | Price of storing<br/>data with a<br/>throughput<br/>limit per shard of 1 MB/s,<br/>without VAT |
 ---|---|---|---
 | 1 hour, the first 744 hours of use per month | {{ sku|USD|yds.reserved_resources.128k.1h|string }} | Not provided | Not provided |
 | 1 hour, over 744 hours of use per month^*^ | {{ sku|USD|yds.reserved_resources.128k.1h|pricingRate.744|string }} | Not provided | Not provided |

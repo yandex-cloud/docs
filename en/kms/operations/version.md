@@ -20,13 +20,13 @@ To make a version primary:
 
   1. Get a list of versions for the desired key:
 
-     ```
+     ```bash
      yc kms symmetric-key list-versions example-key
      ```
-	 
-	 Result:
-	 
-	 ```
+
+     Result:
+
+     ```text
      +----------------------+---------+--------+-----------+
      |          ID          | PRIMARY | STATUS | ALGORITHM |
      +----------------------+---------+--------+-----------+
@@ -39,7 +39,7 @@ To make a version primary:
 
   1. Change the key version by specifying the ID of the desired version:
 
-     ```
+     ```bash
      yc kms symmetric-key set-primary-version example-key-1 \
        --version-id abj8cvn99nam********
      ```
@@ -82,13 +82,13 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
   1. Get a list of versions for the desired key:
 
-     ```
+     ```bash
      yc kms symmetric-key list-versions example-key
-	 ```
-	 
-	 Result:
-	 
-	 ```
+     ```
+
+     Result:
+
+     ```text
      +----------------------+---------+--------+-----------+
      |          ID          | PRIMARY | STATUS | ALGORITHM |
      +----------------------+---------+--------+-----------+
@@ -101,7 +101,7 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
   1. Schedule the destruction of a version:
 
-     ```
+     ```bash
      yc kms symmetric-key schedule-version-destruction example-key \
        --version-id abjed9ciau8e********
      ```
@@ -134,13 +134,13 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
   1. Get a list of versions for the desired key:
 
-     ```
+     ```bash
      yc kms symmetric-key list-versions example-key
-	 ```
-	 
-	 Result:
-	 
-	 ```
+     ```
+
+     Result:
+
+     ```text
      +----------------------+---------+---------------------------+-----------+
      |          ID          | PRIMARY |          STATUS           | ALGORITHM |
      +----------------------+---------+---------------------------+-----------+
@@ -153,7 +153,7 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
   1. Cancel the destruction of a version:
 
-     ```
+     ```bash
      yc kms symmetric-key cancel-version-destruction example-key \
        --version-id abjed9ciau8e********
      ```

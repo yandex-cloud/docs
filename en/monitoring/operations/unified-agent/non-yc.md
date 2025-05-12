@@ -25,7 +25,7 @@ System metrics can only be delivered from Linux hosts on the AMD platform. Windo
 
    1. [Create a service account](../../../iam/operations/sa/create.md) in the folder for metric storage and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
-   1. [Create an authorized key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for your new service account using [YC CLI](../../../cli/quickstart.md):
+   1. [Create an authorized key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for your new service account using the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md):
 
        ```bash
        yc iam key create --service-account-id <service_account_ID> --output jwt_params.json

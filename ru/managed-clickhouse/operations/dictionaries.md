@@ -379,6 +379,13 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
+    1. Измените [настройки словаря](#settings).
+
 - REST API {#api}
 
     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -667,7 +674,7 @@
 
 - Консоль управления {#console}
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}** — имя нового словаря.
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}** — имя нового словаря. После создания словаря нельзя будет изменить его имя.
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_source }}** — настройки источника словаря. Выберите один из перечисленных источников и укажите его настройки:
 
@@ -734,10 +741,28 @@
 
     Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-source/).
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}** — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}** — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_hashed`, `complex_key_cache`:
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_allow-read-expired-keys }}** — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+  * Настройки очереди обновлений, в которой создаются задачи обновления кэша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-update-queue-size }}** — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-queue-push-timeout-milliseconds }}** — максимальное время ожидания в миллисекундах для отправки задачи обновления в очередь. Значение по умолчанию — `10`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_query-wait-timeout-milliseconds }}** — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-threads-for-updates }}** — максимальное количество потоков для обновления словаря кэша. Значение по умолчанию — `4`.
+
+    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+
+  * Настройки размера плоских массивов. Используются для способа `flat`.
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_initial-array-size }}** — начальный размер ключа словаря. Значение по умолчанию — `1024`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-array-size }}** — максимальный размер ключа словаря. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Значение по умолчанию — `500000`.
+
+    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#flat).
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_access-to-key-from-attributes }}** — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `ip_trie`. Включение этой настройки увеличивает нагрузку на оперативную память.
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}** — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_*` и `ip_trie`:
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}** — имя столбца.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-type }}** — тип данных столбца.
@@ -838,11 +863,28 @@
 
   * `--postgresql-invalidate-query` — запрос для проверки изменений словаря {{ PG }}. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
 
-  * `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+  * `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
   * `--layout-size-in-cells` — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-  * `--layout-max-array-size` — максимальное значение ключа для способа `flat`. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Подробнее о значении ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
-  * `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
-  * `--structure-key` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_hashed`, `complex_key_cache`:
+  * `--layout-allow-read-expired-keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+  * Настройки очереди обновлений, в которой создаются задачи обновления кэша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
+
+    * `--layout-max-update-queue-size` — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
+    * `--layout-update-queue-push-timeout-milliseconds` — максимальное время ожидания в миллисекундах для отправки задачи обновления в очередь. Значение по умолчанию — `10`.
+    * `--layout-query-wait-timeout-milliseconds` — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
+    * `--layout-max-threads-for-updates` — максимальное количество потоков для обновления словаря кэша. Значение по умолчанию — `4`.
+
+    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+
+  * Настройки размера плоских массивов. Используются для способа `flat`.
+
+    * `--layout-initial-array-size` — начальный размер ключа словаря. Значение по умолчанию — `1024`.
+    * `--layout-max-array-size` — максимальный размер ключа словаря. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Значение по умолчанию — `500000`.
+
+    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#flat).
+
+  * `--layout-access-to-key-from-attributes` — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `ip_trie`. Включение этой настройки увеличивает нагрузку на оперативную память.
+  * `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+  * `--structure-key` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_*` и `ip_trie`:
 
     * `name` — имя столбца.
     * `type` — тип данных столбца.
@@ -956,11 +998,28 @@
 
       {% endcut %}
 
-    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
     * `layout.sizeInCells` — количество ячеек кэша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-    * `layout.maxArraySize` — максимальное значение ключа для способа `FLAT`. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Подробнее о значении ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
-    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
-    * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`:
+    * `layout.allowReadExpiredKeys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+    * Настройки очереди обновлений, в которой создаются задачи обновления кэша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
+
+      * `layout.maxUpdateQueueSize` — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
+      * `layout.updateQueuePushTimeoutMilliseconds` — максимальное время ожидания в миллисекундах для отправки задачи обновления в очередь. Значение по умолчанию — `10`.
+      * `layout.queryWaitTimeoutMilliseconds` — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
+      * `layout.maxThreadsForUpdates` — максимальное количество потоков для обновления словаря кэша. Значение по умолчанию — `4`.
+
+      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+
+    * Настройки размера плоских массивов. Используются для способа `FLAT`.
+
+      * `layout.initialArraySize` — начальный размер ключа словаря. Значение по умолчанию — `1024`.
+      * `layout.maxArraySize` — максимальный размер ключа словаря. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Значение по умолчанию — `500000`.
+
+      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#flat).
+
+    * `layout.accessToKeyFromAttributes` — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `IP_TRIE`. Включение этой настройки увеличивает нагрузку на оперативную память.
+    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_*` и `IP_TRIE`:
 
       * `name` — имя столбца.
       * `type` — тип данных столбца.
@@ -1066,11 +1125,28 @@
 
       {% endcut %}
 
-    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
     * `layout.size_in_cells` — количество ячеек кэша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-    * `layout.max_array_size` — максимальное значение ключа для способа `FLAT`. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Подробнее о значении ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
-    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
-    * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`:
+    * `layout.allow_read_expired_keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+    * Настройки очереди обновлений, в которой создаются задачи обновления кэша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
+
+      * `layout.max_update_queue_size` — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
+      * `layout.update_queue_push_timeout_milliseconds` — максимальное время ожидания в миллисекундах для отправки задачи обновления в очередь. Значение по умолчанию — `10`.
+      * `layout.query_wait_timeout_milliseconds` — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
+      * `layout.max_threads_for_updates` — максимальное количество потоков для обновления словаря кэша. Значение по умолчанию — `4`.
+
+      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+
+    * Настройки размера плоских массивов. Используются для способа `FLAT`.
+
+      * `layout.initial_array_size` — начальный размер ключа словаря. Значение по умолчанию — `1024`.
+      * `layout.max_array_size` — максимальный размер ключа словаря. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Значение по умолчанию — `500000`.
+
+      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#flat).
+
+    * `layout.access_to_key_from_attributes` — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `IP_TRIE`. Включение этой настройки увеличивает нагрузку на оперативную память.
+    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_*` и `IP_TRIE`:
 
       * `name` — имя столбца.
       * `type` — тип данных столбца.

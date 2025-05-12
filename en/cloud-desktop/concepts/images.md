@@ -14,8 +14,12 @@ You cannot delete such images.
 
 ## Custom images {#custom-images}
 
-You can add custom images created from a [desktop](../operations/images/create-from-desktop.md) VM, to {{ cloud-desktop-name }}.
+In {{ cloud-desktop-name }}, you can add custom images created from:
 
-This way, you can deploy and configure the required software environment on your desktop and replicate it to users through images.
+* {{ cloud-desktop-name }} [desktop](../operations/images/create-from-desktop.md)
+* [Linux VM](../operations/images/create-from-compute-linux.md) in {{ compute-name }}
+* [Your own Windows image](../operations/images/create-from-windows.md)
+
+This way, you can deploy and configure the required software environment on your desktop, VM, or in an image, and replicate it to users through {{ cloud-desktop-name }} images.
 
 You can [delete](../operations/images/delete.md) custom images.

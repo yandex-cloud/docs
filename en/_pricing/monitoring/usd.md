@@ -1,4 +1,4 @@
-| Service | Cost per 1 million values, <br>without VAT |
+| Service | Price per 1 million values, <br>without VAT |
 | ----- | ----- |
 | Reading any metric values through API<br/>(up to 50 million values) | {{ sku|USD|monitoring.point.api.read|string }} |
 | Reading any metric values through API<br/>(over 50 million values) | {{ sku|USD|monitoring.point.api.read|pricingRate.50|string }} |
