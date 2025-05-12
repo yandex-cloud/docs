@@ -32,7 +32,7 @@ You can revoke an OAuth token. In this case, the IAM tokens obtained using the O
 
 To prevent a hacker from using your token:
 
-1. [Revoke the OAuth token](https://passport.yandex.ru/profile/access). To do this you need to revoke Yandex Cloud application. ID: 1a6990aa636648e9b2ef855fa7bec2fb 
+1. [Revoke the OAuth token](https://passport.yandex.com/profile/access). To do this you need to revoke Yandex Cloud application. ID: 1a6990aa636648e9b2ef855fa7bec2fb 
 1. [Revoke](./iam-token/revoke-iam-token.md) all IAM tokens obtained using the compromised OAuth token.
 1. [Get a new OAuth token]({{ link-cloud-oauth }}).
 
