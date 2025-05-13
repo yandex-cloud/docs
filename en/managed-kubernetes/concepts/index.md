@@ -20,7 +20,7 @@ The main entity {{ k8s }} operates is a _{{ k8s }}_ cluster.
 
 {{ k8s }} clusters in the {{ yandex-cloud }} infrastructure use the following resources:
 
-Resource | Amount | Comment
+Resource | Quantity | Comment
 --- | --- | ---
 Subnet | 2 | {{ k8s }} reserves IP address ranges to be used for pods and services.
 Public IP | N | N includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address for **each** node in the group if you use one-to-one NAT.
@@ -154,7 +154,7 @@ For {{ managed-k8s-name }}, only [containerd](https://containerd.io/) is availab
 
 You can connect to nodes in a group in the following ways:
 * Via an SSH client using a standard SSH key pair, see [{#T}](../operations/node-connect-ssh.md).
-* Via an SSH client and the YC CLI using {{ oslogin }}, see [{#T}](../operations/node-connect-oslogin.md).
+* Via an SSH client and the CLI using {{ oslogin }}, see [{#T}](../operations/node-connect-oslogin.md).
 
 ### Taints and tolerations policies {#taints-tolerations}
 
@@ -242,7 +242,7 @@ _Node labels_ is a mechanism for grouping nodes in {{ managed-k8s-name }}. There
 
   {% include [k8s-labels-restrictions-nodes](../../_includes/managed-kubernetes/k8s-labels-restrictions-nodes.md) %}
 
-You can use the [{{ managed-k8s-name }} API](../managed-kubernetes/api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. Their features:
+  You can use the [{{ managed-k8s-name }} API](../managed-kubernetes/api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. Their features:
 
   * {{ k8s }} labels added via the {{ k8s }} API may be lost because, when [updating or modifying a node group](../operations/node-group/node-group-update.md), some nodes are recreated with different names and some of the old ones are deleted.
   * If {{ k8s }} labels are created via the {{ managed-k8s-name }} API, you cannot delete them using the {{ k8s }} API. Otherwise, the labels will be restored once they are deleted.

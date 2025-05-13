@@ -144,7 +144,7 @@ All prices below do not include VAT.
 ### {{ CH }} host computing resources {#prices-clickhouse}
 
 
-{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+{% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
 
@@ -156,7 +156,7 @@ All prices below do not include VAT.
 ### {{ ZK }} host computing resources {#prices-zookeeper}
 
 
-{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+{% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
 

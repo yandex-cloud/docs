@@ -23,3 +23,5 @@ When creating a cluster, you can select the following disk types for data storag
   * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments only.
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+
+{% include [available-storage](../available-storage.md) %}

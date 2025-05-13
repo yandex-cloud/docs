@@ -1,6 +1,6 @@
 > (1 + 2 + 3) × {{ sku|USD|speechkit.tts.v3_request.v1|string }} = {% calc [currency=USD] (1 + 2 + 3) × {{ sku|USD|speechkit.tts.v3_request.v1|number }} %}
 >
-> Total: {% calc [currency=USD] (1 + 2 + 3) × {{ sku|USD|speechkit.tts.v3_request.v1|number }} %}
+> Total: {% calc [currency=USD] (1 + 2 + 3) × {{ sku|USD|speechkit.tts.v3_request.v1|number }} %}.
 
 Where:
 

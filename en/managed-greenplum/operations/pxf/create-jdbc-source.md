@@ -22,7 +22,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Open the page of the {{ mgp-name }} cluster you need.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
@@ -58,7 +58,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
         Where:
 
-        * `cluster-id`: Cluster ID. You can get it with a [list of clusters in the folder](../cluster-list.md#list-cluster).
+        * `cluster-id`: Cluster ID. You can get it with the [list of clusters in the folder](../cluster-list.md#list-cluster).
         * `driver`: JDBC driver class in Java. The possible values are:
 
             {% include [JBDC driver](../../../_includes/mdb/mgp/jdbc-driver.md) %}
@@ -105,7 +105,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
         * `name`: External data source name.
         * `jdbc`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#jdbc-settings).
 
-        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. View the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -148,7 +148,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
         * `name`: External data source name.
         * `jdbc`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#jdbc-settings).
 
-        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

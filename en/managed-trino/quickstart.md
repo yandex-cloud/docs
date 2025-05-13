@@ -1,7 +1,6 @@
 ---
 title: Getting started with {{ mtr-full-name }}
 description: Follow this guide to create a {{ TR }} cluster and connect to it.
-noIndex: true
 ---
 
 # Getting started with {{ mtr-full-name }}
@@ -31,7 +30,7 @@ To get started:
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
-1. [Create a service account](../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles.    
+1. [Create a service account](../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles.
 
 1. [Create](../managed-postgresql/operations/cluster-create.md#create-cluster) a {{ mpg-full-name }} cluster {{ TR }} will work with.
 

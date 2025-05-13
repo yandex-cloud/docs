@@ -54,7 +54,7 @@
 
     - Docker credential helper {#docker}
 
-      1. If you do not have a YC CLI profile yet, [create one](../../../cli/quickstart.md#initialize).
+      1. If you do not have a CLI profile yet, [create one](../../../cli/quickstart.md#initialize).
       1. Configure Docker to use `docker-credential-yc`:
 
           ```bash

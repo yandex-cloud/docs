@@ -10,7 +10,7 @@
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
     1. Specify the time period you want the log info for: enter it manually or select in the calendar using the date input field.
     1. Select the service type for which you want to output logs:
@@ -44,7 +44,7 @@
            --limit <entry_number_limit> \
            --format <output_format> \
            --service-type <service_type> \
-           --columns <list_of_columns_for_data_output> \
+           --columns <list_of_data_columns> \
            --filter <entry_filtration_settings> \
            --since <time_range_left_boundary> \
            --until <time_range_right_boundary>
@@ -58,15 +58,15 @@
             * `greenplum`: {{ GP }} operations log.
             * `greenplum-pooler`: Connection manager operations log.
             * `greenplum-pxf`: [PXF](../concepts/external-tables.md) protocol log.
-        * `--columns`: List of columns for data output:
-            * `hostname`: [Host name](./hosts/cluster-hosts.md).
+        * `--columns`: List of data columns:
+            * `hostname`: [Host name](cluster-list.md#get-hosts).
             * `level`: Logging level, e.g., `info`.
             * `pid`: ID of the current session’s server process.
             * `text`: Message output by the component.
 
             {% note info %}
 
-            A list of columns to output depends on the selected `--service-type`. The example shows only the main columns for the `greenplum-pooler` type.
+            The list of data columns depends on the selected `--service-type`. The example shows only the main columns for the `greenplum-pooler` type.
 
             {% endnote %}
 
@@ -84,7 +84,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -105,16 +105,16 @@
             * `GREENPLUM_POOLER`: [Connection manager](../concepts/pooling.md) operations.
             * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol.
 
-        * `column_filter`: Name of the data column:
+        * `columnFilter`: Name of the data column:
 
-            * `hostname`: [Host name](./hosts/cluster-hosts.md).
+            * `hostname`: [Host name](cluster-list.md#get-hosts).
             * `level`: Logging level, e.g., `info`.
             * `pid`: ID of the current session’s server process.
             * `text`: Message output by the component.
 
             {% note info %}
 
-            A list of columns to output depends on the selected `serviceType`. The example shows only the main columns for the `GREENPLUM_POOLER` type.
+            The list of data columns depends on the selected `serviceType`. The example shows only the main columns for the `GREENPLUM_POOLER` type.
 
             {% endnote %}
 
@@ -124,7 +124,7 @@
 
         * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.greenplum.v1.ListClusterLogsResponse) to make sure the request was successful.
 
@@ -136,7 +136,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -164,18 +164,18 @@
 
             * `GREENPLUM`: {{ GP }} operations.
             * `GREENPLUM_POOLER`: [Connection manager](../concepts/pooling.md) operations.
-            * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol.
+            * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol log.
 
-        * `column_filter`: List of columns for data output:
+        * `column_filter`: List of data columns:
 
-            * `hostname`: [Host name](./hosts/cluster-hosts.md).
+            * `hostname`: [Host name](cluster-list.md#get-hosts).
             * `level`: Logging level, e.g., `info`.
             * `pid`: ID of the current session’s server process.
             * `text`: Message output by the component.
 
             {% note info %}
 
-            A list of columns to output depends on the selected `serviceType`. The example shows only the main columns for the `GREENPLUM_POOLER` type.
+            The list of data columns depends on the selected `serviceType`. The example shows only the main columns for the `GREENPLUM_POOLER` type.
 
             {% endnote %}
 
@@ -185,7 +185,7 @@
 
         * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.greenplum.v1.ListClusterLogsResponse) to make sure the request was successful.
 
@@ -217,7 +217,7 @@ This method allows you to get cluster logs in real time.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -239,16 +239,16 @@ This method allows you to get cluster logs in real time.
             * `GREENPLUM_POOLER`: [Connection manager](../concepts/pooling.md) operations.
             * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol.
 
-        * `column_filter`: Name of the data column:
+        * `columnFilter`: Name of the data column:
 
-            * `hostname`: [Host name](./hosts/cluster-hosts.md).
+            * `hostname`: [Host name](cluster-list.md#get-hosts).
             * `level`: Logging level, e.g., `info`.
             * `pid`: ID of the current session’s server process.
             * `text`: Message output by the component.
 
             {% note info %}
 
-            A list of columns to output depends on the selected `serviceType`. The example shows only the main columns for the `GREENPLUM_POOLER` type.
+            The list of data columns depends on the selected `serviceType`. The example shows only the main columns for the `GREENPLUM_POOLER` type.
 
             {% endnote %}
 
@@ -264,7 +264,7 @@ This method allows you to get cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamClusterLogsRequest).
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamLogRecord) to make sure the request was successful.
 
@@ -276,7 +276,7 @@ This method allows you to get cluster logs in real time.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -305,18 +305,18 @@ This method allows you to get cluster logs in real time.
 
             * `GREENPLUM`: {{ GP }} operations.
             * `GREENPLUM_POOLER`: [Connection manager](../concepts/pooling.md) operations.
-            * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol.
+            * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol log.
 
-        * `column_filter`: List of columns for data output:
+        * `column_filter`: List of data columns:
 
-            * `hostname`: [Host name](./hosts/cluster-hosts.md).
+            * `hostname`: [Host name](cluster-list.md#get-hosts).
             * `level`: Logging level, e.g., `info`.
             * `pid`: ID of the current session’s server process.
             * `text`: Message output by the component.
 
             {% note info %}
 
-            A list of columns to output depends on the selected `service_type`. The example shows only the main columns for the `GREENPLUM_POOLER` type.
+            The list of data columns depends on the selected `service_type`. The example shows only the main columns for the `GREENPLUM_POOLER` type.
 
             {% endnote %}
 
@@ -332,7 +332,7 @@ This method allows you to get cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamLogRecord) to make sure the request was successful.
 

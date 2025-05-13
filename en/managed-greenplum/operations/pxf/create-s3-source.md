@@ -12,7 +12,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
     To create an external S3 data source:
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Open the page of the {{ mgp-name }} cluster you need.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
@@ -51,7 +51,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
         * `cluster-id`: Cluster ID. You can get it with the [list of clusters in the folder](../cluster-list.md#list-cluster).
         * `access-key`, `secret-key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
         * `endpoint`: S3 storage address. {{ objstorage-name }} is set to `{{ s3-storage-host }}`. This is a default value.
-        * `fast-upload`: Fast upload of large files to S3 storage. The possible values are as follows:
+        * `fast-upload`: Fast upload of large files to S3 storage. The possible values are:
             * `true` (default): PXF generates files on the disk before sending them to S3 storage.
             * `false`: PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
 
@@ -88,7 +88,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
         * `s3`: External data source settings:
 
             * `accessKey`, `secretKey`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
-            * `fastUpload`: Fast upload of large files to S3 storage. The possible values are as follows:
+            * `fastUpload`: Fast upload of large files to S3 storage. The possible values are:
                 * `true` (default): PXF generates files on the disk before sending them to S3 storage.
                 * `false`: PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
 
@@ -137,7 +137,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
         * `s3`: External data source settings:
 
             * `access_key`, `secret_key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
-            * `fast_upload`: Fast upload of large files to S3 storage. The possible values are as follows:
+            * `fast_upload`: Fast upload of large files to S3 storage. The possible values are:
                 * `true` (default): PXF generates files on the disk before sending them to S3 storage.
                 * `false`: PXF generates files in RAM (if RAM capacity is reached, it writes them to disk).
 

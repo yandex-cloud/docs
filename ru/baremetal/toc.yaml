@@ -93,6 +93,10 @@ items:
           Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную
           машину
         href: tutorials/usb-over-ip.md
+      - name: >-
+          Настройка межсетевого экрана OPNsense в режиме кластера высокой
+          доступности
+        href: tutorials/opnsense-failover-cluster.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

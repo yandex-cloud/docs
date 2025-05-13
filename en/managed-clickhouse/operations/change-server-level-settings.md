@@ -25,8 +25,8 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
 
    To configure {{ CH }}:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. Specify the [{{ CH }}](../concepts/settings-list.md#server-level-settings) settings.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -45,7 +45,7 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
       {{ yc-mdb-ch }} cluster get <cluster_name_or_ID> --full
       ```
 
-   1. View a description of the update cluster configuration CLI command:
+   1. View the description of the CLI command to update the cluster configuration:
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config --help
@@ -62,7 +62,7 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
 
    To configure {{ CH }}:
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -170,7 +170,7 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
       * `updateMask`: List of parameters to update as a single string, separated by commas.
       * `configSpec.clickhouse.config`: {{ CH }} server-level settings. For the list of possible parameters and their values, see the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -222,7 +222,7 @@ You cannot directly update the [Max server memory usage]({{ ch.docs }}/operation
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
       * `config_spec.clickhouse.config`: {{ CH }} server-level settings. For the list of possible parameters and their values, see the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

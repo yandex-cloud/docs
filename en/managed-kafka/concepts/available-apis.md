@@ -121,3 +121,8 @@ For descriptions of the client APIs, see the [{{ KF }} documentation](https://ka
 * You can manage topics via the Admin API with the following limitations:
 
     {% include [admin-api-limits](../../_includes/mdb/mkf/admin-api-limits.md) %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/managed-schema-registry-rest.md)

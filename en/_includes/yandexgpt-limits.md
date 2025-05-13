@@ -1,6 +1,6 @@
 #### Quotas {#yandexgpt-quotas}
 
-Limit type | Value
+Type of limitation | Value
 ----- | -----
 **[Text vectorization](../foundation-models/concepts/embeddings.md)** |
 Number of text vectorization requests per second | 10
@@ -14,22 +14,26 @@ Number of requests per second, [asynchronous mode](../foundation-models/concepts
 Number of requests per second, asynchronous mode (getting a response) | 50
 Number of requests per hour, asynchronous mode (request) | 5,000
 Number of [tokenization](../foundation-models/text-generation/api-ref/grpc/Tokenizer/index.md) requests per second | 50
+**Model working mode: Batch**
+Number of runs per hour | 10
+Number of runs per day | 100
 **[Text classification](../foundation-models/concepts/classifier/index.md)** |
 Number of text classification requests per second | 1
 **[Image generation](../foundation-models/concepts/yandexart/index.md)** |
 Number of generation requests per minute | 500
 Number of generation requests per day | 5,000
 Number of result requests per second | 50
-**[Model tuning](../foundation-models/concepts/tuning/index.md)**
-Number of uploaded datasets | 10 
-Maximum size of one dataset | 5 GB
-Total size of datasets | 300 GB
+**[Model tuning](../foundation-models/concepts/tuning/index.md)** |
 Number of fine-tuning runs per day | 10
 Number of fine-tuning runs per hour | 3
+**[Datasets](../foundation-models/concepts/resources/dataset.md)** |
+Number of uploaded datasets | 100 
+Maximum size of one dataset | 5 GB
+Total size of datasets | 300 GB
 
 #### Limits {#yandexgpt-limits}
 
-Limit type | Value
+Type of limitation | Value
 ----- | -----
 Period to store results of asynchronous requests on the server | 3 days
 **[Text vectorization](../foundation-models/concepts/embeddings.md)** |
@@ -43,7 +47,6 @@ Total number of tokens in request and response, [4th generation](../foundation-m
 Total number of tokens in request and response, [5th generation](../foundation-models/concepts/yandexgpt/models.md) {{ gpt-lite }} model | 32,000
 Total number of tokens in request and response, synchronous mode of the [4th generation](../foundation-models/concepts/yandexgpt/models.md) {{ gpt-pro }} model | {{ yagpt-max-tokens }}
 Total number of tokens in request and response, asynchronous mode of the [4th generation](../foundation-models/concepts/yandexgpt/models.md) {{ gpt-pro }} model | 32,000
-Total number of tokens in request and response, {{ gpt-pro }} model of [5th generation models](../foundation-models/concepts/yandexgpt/models.md) | 32,000
 Total number of tokens in request and response, {{ gpt-pro }} 32k model | 32,000
 Total number of tokens in request and response, [5th generation {{ gpt-pro }} model](../foundation-models/concepts/yandexgpt/models.md) | 32,000
 Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }}

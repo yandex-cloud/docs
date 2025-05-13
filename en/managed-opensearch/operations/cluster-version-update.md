@@ -1,4 +1,4 @@
-# Upgrading the {{ OS }} version
+# {{ OS }} version upgrade
 
 You can update a {{ mos-name }} cluster to a newer {{ OS }} version.
 
@@ -10,17 +10,17 @@ To learn more about updates within a single version and host maintenance, see [M
 
 - Management console {#console}
 
-   In the [management console]({{ link-console-main }}), open the page where {{ mos-name }} clusters are [created](cluster-create.md) or [updated](update.md). You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+    In the [management console]({{ link-console-main }}), open the {{ mos-name }} cluster [create](cluster-create.md) or [update](update.md) page. You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 {% endlist %}
 
-## Before updating the version {#before-version-update}
+## Before a version upgrade {#before-version-update}
 
 Make sure the update does not affect your applications:
 
-1. See the {{ OS }} [changelog](https://opensearch.org/docs/latest/version-history/) to check how updates might affect your applications.
-1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
-1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
+1. See {{ OS }} [changelog](https://opensearch.org/docs/latest/version-history/) for how upgrades may affect your applications.
+1. Try a version upgrade on a test cluster. You can deploy it from a backup of the main cluster.
+1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
 ## Updating the version {#start-version-update}
 
@@ -28,65 +28,65 @@ Make sure the update does not affect your applications:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Select a cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the appropriate {{ OS }} version.
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the appropriate {{ OS }} version.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Get the name and ID of the cluster you need with the list of all {{ OS }} clusters:
+    1. Get the name and ID of the cluster you need with the list of all {{ OS }} clusters:
 
-      ```bash
-      {{ yc-mdb-os }} cluster list
-      ```
+        ```bash
+        {{ yc-mdb-os }} cluster list
+        ```
 
-   1. Get information about the cluster you need and check the version in the `config.version` parameter:
+    1. Get information about the cluster you need and check the version in the `config.version` parameter:
 
-      ```bash
-      {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
-      ```
+        ```bash
+        {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
+        ```
 
-   1. Update the {{ OS }} version:
+    1. Update the {{ OS }} version:
 
-      ```bash
-      {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
-         --version <{{ OS }}_version>
-      ```
+        ```bash
+        {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
+           --version <{{ OS }}_version>
+        ```
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+        For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
-   1. In the cluster description, change the value of the `version` parameter under `config`. If there is no such parameter, add it.
+    1. In the cluster description, change the `version` parameter value under `config`. If there is no such parameter, add it.
 
-      ```hcl
-      resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
-        ...
-        config {
-          version = "<{{ OS }}_version>"
+        ```hcl
+        resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
           ...
+          config {
+            version = "<{{ OS }}_version>"
+            ...
+          }
         }
-      }
-      ```
+        ```
 
-   1. Make sure the settings are correct.
+    1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+    1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -94,7 +94,7 @@ Make sure the update does not affect your applications:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -120,7 +120,7 @@ Make sure the update does not affect your applications:
 
         * `configSpec.version`: New {{ OS }} version.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -131,7 +131,7 @@ Make sure the update does not affect your applications:
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -165,7 +165,7 @@ Make sure the update does not affect your applications:
 
         * `config_spec.version`: New {{ OS }} version.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

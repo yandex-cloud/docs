@@ -223,7 +223,7 @@ items:
           Backing up to {{ objstorage-name }} with MSP360 Backup (CloudBerry
           Desktop Backup)
         href: archive/object-storage-cloudberry.md
-      - name: Backing up to {{ objstorage-name }} via Duplicati
+      - name: Backing up to {{ objstorage-name }} with Duplicati
         href: archive/object-storage-duplicati.md
       - name: Backing up to {{ objstorage-name }} with Bacula
         href: archive/backup-with-bacula.md
@@ -303,7 +303,7 @@ items:
     items:
       - name: All tutorials
         href: infrastructure/index.md
-      - name: Basic internet service architecture and protection
+      - name: Architecture and protection of a basic internet service
         href: routing/web-service.md
       - name: Cost analysis by resource using {{ objstorage-name }}
         href: infrastructure/billing-resource-detailing.md
@@ -441,6 +441,14 @@ items:
             href: infrastructure-management/dns-integration.md
           - name: Creating an ACME resolver webhook for responses to DNS01 checks
             href: infrastructure-management/cert-manager-webhook.md
+      - name: GPU
+        items:
+          - name: Launching the DeepSeek-R1 language model in a GPU cluster
+            href: infrastructure-management/gpu-cluster-deepseek.md
+          - name: >-
+              Running a vLLM library with the Gemma 3 language model on a VM
+              with GPU
+            href: infrastructure-management/vllm-gemma-gpu.md
   - name: Container infrastructure
     items:
       - name: All tutorials
@@ -655,7 +663,7 @@ items:
             href: web/gatsby-static-website.md
           - name: Migrating to {{ cdn-name }} from a third-party CDN provider
             href: web/migrate-to-yc-cdn.md
-          - name: Getting website traffic statistics using S3 Select
+          - name: Getting website traffic statistics with S3 Select
             href: web/user-agent-statistics.md
       - name: 1C
         items:
@@ -844,9 +852,9 @@ items:
       - name: Data resharding in a {{ mch-name }} cluster
         href: dataplatform/mch-mch-resharding.md
       - name: >-
-          Loading data from {{ yandex-direct }} to a data mart enabled by {{
-          mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{
-          data-transfer-name }}
+          Loading data from {{ yandex-direct }} to a {{ mch-name }} data mart
+          using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name
+          }}
         href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
           Loading data from {{ objstorage-name }} to {{ mch-name }} using {{
@@ -1047,9 +1055,7 @@ items:
           Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
           data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
-      - name: >-
-          Troubleshooting string sorting issues in {{ PG }} after upgrading
-          glibc
+      - name: Fixing string sorting issues in {{ PG }} after upgrading glibc
         href: dataplatform/postgresql-glibc-collation-issues.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
@@ -1266,7 +1272,7 @@ items:
                   Geocoding with the Yandex Maps API for data visualization in
                   {{ datalens-short-name }}
                 href: datalens/data-from-ch-geocoder.md
-              - name: Visualizing data using Heat Maps
+              - name: Visualizing data using heat maps
                 hidden: true
                 href: datalens/data-on-heat-map-dashboard.md
           - name: Service analytics
@@ -1441,7 +1447,7 @@ items:
             href: ml-ai/yq-federative-queries.md
       - name: Image, text, and speech recognition
         items:
-          - name: Recognizing text in image archives in {{ vision-name }}
+          - name: Recognizing text in image archives using {{ vision-name }}
             href: ml-ai/archive-from-vision-to-object-storage.md
           - name: Developing a Telegram bot for text and audio recognition
             href: ml-ai/recognizer-bot.md

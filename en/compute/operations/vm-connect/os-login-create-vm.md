@@ -11,11 +11,11 @@ With [{{ oslogin }}](../../../organization/concepts/os-login.md), you can provid
 
 {% include [os-login-roles-needed-for-vm-access](../../../_includes/organization/os-login-roles-needed-for-vm-access.md) %}
 
-You can use either the [YC CLI](os-login.md#connect-with-yc-cli) or a [standard SSH client](os-login.md#connect-with-ssh-client) to connect to VMs with {{ oslogin }} access enabled. To connect, you can use an SSH certificate or SSH key, which you first need to [add](../../../organization/operations/add-ssh.md) to the {{ oslogin }} profile of a {{ org-full-name }} user or service account.
+You can use either the [CLI](os-login.md#connect-with-yc-cli) or a [standard SSH client](os-login.md#connect-with-ssh-client) to connect to VMs with {{ oslogin }} access enabled. The connection can be established using an SSH certificate or SSH key, which first needs to be [added](../../../organization/operations/add-ssh.md) to the {{ org-full-name }} user's or service account's {{ oslogin }} profile.
 
 {% note info %}
 
-We recommend creating a local user on the new VM and providing a separate SSH key for that user: this way you will still be able to [connect to the VM via SSH](./ssh.md#vm-connect) even if you disable the {{ oslogin }} access for it. You can create a local user and provide an SSH key for them using [metadata](../../concepts/vm-metadata.md#how-to-send-metadata):
+We recommend creating a local user on the new VM and providing a separate SSH key for that user: this way you will still be able to [connect to the VM via SSH](./ssh.md#vm-connect) even if you disable the {{ oslogin }} access for it. You can create a local user and provide an SSH key for them using [metadata](../../concepts/metadata/sending-metadata.md):
 
 {% include [metadata-keys](../../../_includes/compute/metadata-keys.md) %}
 
@@ -31,9 +31,9 @@ To create a VM with {{ oslogin }}:
 
   1. [Create a VM](../images-with-pre-installed-software/create.md) from a pre-built image with {{ oslogin }} access support. Such images are available on [{{ marketplace-full-name }}](/marketplace).
   
-     When creating a VM, select **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** under **{{ ui-key.yacloud.compute.instances.create.section_access }}**. If this option is not available, the selected image does not support {{ oslogin }} access.
+     When creating a VM, select **{{ ui-key.yacloud.compute.instances.create.section_access }}** under **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**. If this option is not available, the selected image does not support {{ oslogin }} access.
   
-     To be able to [connect](./ssh.md#vm-connect) to the VM via SSH without {{ oslogin }}, [update](../vm-control/vm-update.md) the VM settings and select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** under **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
+     To be able to [connect](./ssh.md#vm-connect) to the VM via SSH without {{ oslogin }}, [update](../vm-control/vm-update.md) the VM settings and select **{{ ui-key.yacloud.compute.instances.create.section_access }}** under **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}**.
 
 - CLI {#cli}
 

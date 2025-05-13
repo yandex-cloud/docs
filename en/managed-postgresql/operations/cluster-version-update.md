@@ -1,6 +1,6 @@
 # {{ PG }} version upgrade
 
-You can upgrade a {{ mpg-name }} cluster to any supported version.
+You can upgrade a {{ mpg-name }} cluster to version 16 or lower.
 
 {% note info %}
 
@@ -12,7 +12,7 @@ You can only upgrade to a version that immediately follows the current one, e.g.
 
 {% note warning %}
 
-You can upgrade to version 16 and 17 only using {{ data-transfer-full-name }}. To do so, [create a cluster](cluster-create.md#create-cluster) with the new version and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
+You can upgrade to version 17 only using {{ data-transfer-full-name }}. To do so, [create a cluster](cluster-create.md#create-cluster) with the new version and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
 
 {% endnote %}
 
@@ -33,7 +33,7 @@ To learn more about updates within a single version and host maintenance, see [M
 
 Make sure this does not affect your applications:
 
-1. See the {{ PG }} [changelog](https://www.postgresql.org/docs/release/) to see how upgrades may affect your applications or installed [extensions](./extensions/cluster-extensions.md).
+1. See {{ PG }} [changelog](https://www.postgresql.org/docs/release/) for how upgrades may affect your applications or installed [extensions](./extensions/cluster-extensions.md).
 1. Try a version upgrade on a test cluster. You can [deploy](cluster-backups.md#restore) it from a backup of the main cluster.
 1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
@@ -46,19 +46,19 @@ Make sure this does not affect your applications:
 
 {% endnote %}
 
-### Upgrading a cluster to {{ PG }} 16 or 17 {#update-to-v16}
+### Upgrading a cluster to {{ PG }} 17 {#update-to-v17}
 
-1. [Create a cluster](cluster-create.md#create-cluster) with {{ PG }} 16 or 17.
+1. [Create a cluster](cluster-create.md#create-cluster) with {{ PG }} 17.
 1. Use {{ data-transfer-name }} to [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
 
-### Upgrading a cluster to {{ PG }} 15 or lower {#update-to-v15-or-lower}
+### Upgrading a cluster to {{ PG }} 16 or lower {#update-to-v16-or-lower}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Select the cluster you need from the list and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Select the cluster you need from the list and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -91,7 +91,7 @@ Make sure this does not affect your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -150,7 +150,7 @@ Make sure this does not affect your applications:
 
      * `configSpec.version`: New {{ PG }} version.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -195,7 +195,7 @@ Make sure this does not affect your applications:
 
      * `config_spec.version`: New {{ PG }} version.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -204,6 +204,12 @@ Make sure this does not affect your applications:
 As soon as you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 Cluster upgrade time depends on the database size.
+
+{% note tip %}
+
+Contact [support](../../support/overview.md) if you have issues upgrading to version 16.
+
+{% endnote %}
 
 ## Examples {#examples}
 
@@ -248,3 +254,4 @@ Let's assume you need to upgrade a cluster from version 14 to version 15.
       ```
 
 {% endlist %}
+

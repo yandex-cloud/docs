@@ -1,11 +1,11 @@
 ---
 title: Getting started with {{ mmg-full-name }}
-description: Follow this guide to create and set up a {{ MG }} cluster.
+description: Follow this guide to create and set up an {{ MG }} cluster.
 ---
 
 # Getting started with {{ mmg-name }}
 
-To get started with the service:
+To get started:
 1. [Create a cluster](#cluster-create).
 1. [Connect to the DB](#connect).
 
@@ -24,7 +24,7 @@ To get started with the service:
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
 
-   * To connect from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (on [Linux](../compute/quickstart/quick-create-linux.md)).
+   * To connect from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
 
    * To connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
@@ -68,6 +68,7 @@ To get started with the service:
    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
 
     To learn how to get host FQDN, see [this guide](operations/connect/index.md#get-fqdn).
+
 
 ## What's next {#whats-next}
 

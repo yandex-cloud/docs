@@ -1,5 +1,5 @@
 ---
-title: Disk space management in {{ mpg-name }}
+title: '{{ mpg-name }} disk space management'
 description: When the storage is more than 97% full, the host automatically switches to read-only mode. You can track storage usage, configure its automatic expansion, and disable the read-only mode.
 ---
 
@@ -19,7 +19,7 @@ To avoid issues with writing to the database, use one of the following methods:
 
 ## Set up alerts in {{ monitoring-full-name }} {#set-alert}
 
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Select **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following properties:
@@ -76,7 +76,7 @@ To disable the read-only mode:
 > COMMIT;
 > ```
 
-## Increasing storage size {#change-disk-size}
+## Changing the disk type and increasing the storage size {#change-disk-size}
 
 {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
@@ -92,8 +92,8 @@ To disable the read-only mode:
 
     To change the disk type and increase the storage size for a cluster:
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
         * Select the [disk type](../concepts/storage.md).
@@ -127,7 +127,7 @@ To disable the read-only mode:
 
     To change the disk type and increase the storage size for a cluster:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -264,7 +264,7 @@ To disable the read-only mode:
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ mpg-name }}**.
+    1. Navigate to the folder dashboard and select **{{ mpg-name }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
 
@@ -363,7 +363,7 @@ To disable the read-only mode:
      * `maintenanceWindow`: Maintenance window schedule. It is required only if the `plannedUsageThreshold` parameter is set. Contains the following parameters:
 
        * `day`: Day of week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`.
+       * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -436,7 +436,7 @@ To disable the read-only mode:
      * `maintenance_window`: Maintenance window schedule. It is required only if the `planned_usage_threshold` parameter is set. Contains the following parameters:
 
        * `day`: Day of week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`.
+       * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

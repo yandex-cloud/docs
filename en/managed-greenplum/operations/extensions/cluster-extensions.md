@@ -2,7 +2,7 @@
 
 {{ mgp-short-name }} supports some {{ GP }} extensions. See the [full list of available extensions and their versions](#greenplum).
 
-## Retrieving a list of extensions available to install {#available-extensions}
+## Retrieving a list of extensions available for installation {#available-extensions}
 
 Connect to the selected database and run:
 
@@ -55,7 +55,7 @@ Adds a data type for case-insensitive string comparison.
 | 1.0 ||
 || [dblink]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-modules-dblink.html)
 Enables support for connections to other {{ GP }} databases within a session.
-| 1.1  ||
+| 1.1 ||
 || [diskquota]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-modules-diskquota.html)
 Allows limiting the size of disk space for schemas and roles in a database.
 | 1.0 ||
@@ -65,6 +65,9 @@ Contains functions used to establish the degree of similarity and distance betwe
 || [gp_internal_tools]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-managing-monitor.html#creating-the-session_level_memory_consumption-view)
 Contains various internal utilities for {{ GP }}.
 | 1.0.0 ||
+|| [gp_url_tools](https://github.com/open-gpdb/gp_url_tools)
+Contains functions for working with URLs. For more information, see [gp_url_tools usage](./gp-url-tools.md).
+| 1.0 ||
 || [hstore]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-modules-hstore.html)
 Adds a data type for storing <q>key-value</q> pairs in a single field.
 | 1.3 ||

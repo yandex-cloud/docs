@@ -9,11 +9,10 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
+* [Editing cluster configuration](cluster-config.md)
 * [Updating cluster settings](update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
-* [Information about cluster hosts](./hosts/cluster-hosts.md)
-* [{#T}](./hosts/cluster-expand.md)
-* [Migrating cluster hosts to a different availability zone](./hosts/host-migration.md)
+* [{#T}](cluster-expand.md)
 * [Managing backups](cluster-backups.md)
 * [Deleting a cluster](cluster-delete.md)
 
@@ -52,6 +51,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 ## Logs and monitoring {#logs-and-monitoring}
 
 * [Viewing cluster logs](cluster-logs.md)
+* [Viewing cluster operations](cluster-operations.md)
 * [{#T}](performance-diagnostics.md)
 * [Monitoring the state of clusters and hosts](monitoring.md)
 

@@ -5,7 +5,7 @@ description: Follow this guide to create a {{ MY }} cluster and connect to it.
 
 # Getting started with {{ mmy-name }}®
 
-To get started with the service:
+To get started:
 * [Create a database cluster](#cluster-create).
 * [Connect to the DB](#connect).
 
@@ -60,6 +60,7 @@ To get started with the service:
 1. Use the `mysql` command to connect:
 
    {% include [default-connstring](../_includes/mdb/mmy/default-connstring.md) %}
+
 
 ## What's next {#whats-next}
 

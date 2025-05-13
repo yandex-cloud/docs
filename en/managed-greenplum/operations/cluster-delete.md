@@ -7,7 +7,10 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
 ## Before deleting a cluster {#before-you-delete}
 
-[Disable deletion protection](./update.md#change-additional-settings) for the cluster if it is enabled.
+* [Disable deletion protection](update.md#change-additional-settings) for the cluster if it is enabled.
+* [Save the cluster ID](cluster-list.md#list-clusters).
+
+  {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 ## Deleting a cluster {#delete}
 
@@ -15,8 +18,8 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate cluster, select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**, and confirm the deletion.
 
 - CLI {#cli}
 
@@ -30,7 +33,7 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
     {{ yc-mdb-gp }} cluster delete <cluster_name_or_ID>
     ```
 
-    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -53,7 +56,7 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
             --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -81,7 +84,7 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
             yandex.cloud.mdb.greenplum.v1.ClusterService.Delete
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

@@ -120,6 +120,8 @@ items:
     href: monitoring/index.yaml
   - name: Network Load Balancer
     href: network-load-balancer/index.yaml
+  - name: Neurosupport
+    href: neurosupport/index.yaml
   - name: Cloud Organization
     href: organization/index.yaml
   - name: Cloud Postbox

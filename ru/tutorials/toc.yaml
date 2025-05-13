@@ -1278,6 +1278,10 @@ items:
           Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную
           машину
         href: routing/usb-over-ip.md
+      - name: >-
+          Настройка межсетевого экрана OPNsense в режиме кластера высокой
+          доступности на серверах {{ baremetal-name }}
+        href: routing/opnsense-failover-cluster.md
   - name: Анализ и визуализация данных
     items:
       - name: Все руководства

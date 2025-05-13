@@ -1,6 +1,6 @@
 ---
 title: '{{ mmg-full-name }} pricing policy'
-description: This article provides the {{ mmg-name }} pricing policy.
+description: This article covers the {{ mmg-name }} pricing policy.
 editable: false
 ---
 
@@ -30,7 +30,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 ## What goes into the cost of using {{ mmg-short-name }} {#rules}
 
-The {{ mmg-name }} usage cost is based on:
+The {{ mmg-name }} usage cost includes:
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
@@ -64,7 +64,7 @@ You pay for the following:
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the free volume of backups.
 
-The price covers one month of use based on 720 hours per month.  The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 

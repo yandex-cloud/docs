@@ -28,6 +28,16 @@ A _connection_ is a {{ speechsense-name }} entity that contains:
 
    The metadata contains such properties as the names and IDs of the agent, customer, and bot (only for chats), as well as the conversation date and language. You can use this metadata to analyze one or more [conversations](dialogs.md) using [reports](reports/index.md).
 
+   Here are the possible types of metadata:
+
+   * Date in `YYYY-MM-DDTHH:MM:SS.SSS` format
+   * String
+   * Number
+   * Fractional number
+   * Boolean value
+   * JSON
+   * URL (link to the CRM system)
+
 If various groups of conversations have different metadata or record types, you can create a separate connection for each group.
 
 ### Project {#project}

@@ -1,13 +1,12 @@
 title: '{{ mtr-full-name }}'
 href: index.yaml
 stage: preview
-noIndex: true
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step guides
+  - name: Step-by-step tutorials
     items:
-      - name: All guides
+      - name: All tutorials
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
@@ -29,3 +28,5 @@ items:
     href: security.md
   - name: Pricing policy
     href: pricing.md
+  - name: Release notes
+    href: release-notes.md

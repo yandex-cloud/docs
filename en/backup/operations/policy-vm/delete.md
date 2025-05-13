@@ -1,6 +1,6 @@
 ---
 title: Deleting a backup policy
-description: In this tutorial, you will learn how to delete a backup policy in **{{ backup-name }}**.
+description: In this tutorial, you will learn how to delete a backup policy in {{ backup-name }}.
 ---
 
 # Deleting a backup policy
@@ -11,7 +11,7 @@ description: In this tutorial, you will learn how to delete a backup policy in *
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to delete a [backup policy](../../../backup/concepts/policy.md) from.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+  1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to delete and select **{{ ui-key.yacloud.common.delete }}**. 
   1. Confirm the backup policy deletion.
 
@@ -109,12 +109,12 @@ description: In this tutorial, you will learn how to delete a backup policy in *
 
      {% endcut %}
 
-     For more information about the `yandex_backup_policy` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/backup_policy).
+     For more information about `yandex_backup_policy` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/backup_policy).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc backup policy list

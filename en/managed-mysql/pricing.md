@@ -15,7 +15,7 @@ In this section, you can find the {{ mmy-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=7f776c1fc309#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=7f776c1fc309#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
 
 
 {% endnote %}
@@ -31,7 +31,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 ## What goes into the cost of using {{ mmy-short-name }} {#rules}
 
-The {{ mmy-name }} usage cost is based on:
+The {{ mmy-name }} usage cost includes:
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
@@ -175,7 +175,7 @@ The cost is made up of two components: [the cost of {{ compute-full-name }}](../
 
 - Dedicated hosts
 
-  The cost is made up of two components: the [{{ compute-full-name }} storage cost](../compute/pricing.md#prices) and the {{ mmy-name }} price for it. All prices are shown per 1 GB per month.
+  The cost is made up of two components: the [{{ compute-full-name }} storage cost](../compute/pricing.md#prices) and the {{ mmy-name }} price for it. All prices are per 1 GB per month.
 
   {% include [usd-storage-dedicated.md](../_pricing/managed-mysql/usd-storage-dedicated.md) %}
 

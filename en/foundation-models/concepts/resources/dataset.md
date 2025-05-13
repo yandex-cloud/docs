@@ -5,31 +5,55 @@ description: In this article, you will learn what datasets are in {{ foundation-
 
 # Datasets
 
-In {{ foundation-models-full-name }}, datasets store sets of model [tuning](../tuning/index.md) data. You can create datasets in the management console, via API, and [{{ ml-sdk-full-name }}](../../sdk/index.md).
+In {{ foundation-models-full-name }}, datasets store sets of data you need to [tune](../tuning/index.md) and run models in batch mode. You can [create](../../operations/resources/create-dataset.md) datasets in the management console, via API, and [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
-All datasets are created based on [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8)-encoded [JSON Lines](https://jsonlines.org/) files. Dataset contents format depends on the type of dataset. You can create datasets of the following types:
+All datasets are created based on [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8)-encoded [JSON Lines](https://jsonlines.org/) files. Dataset contents structure depends on the type of dataset. You can create datasets of the following types:
 
-* Text generation: `TextToTextGeneration`.
-* Multi-label classification: `TextClassificationMultilabel`.
-* Binary and multi-class classification: `TextClassificationMulticlass`.
-* Embedding tuning pairs: `TextEmbeddingPairParams`.
-* Embedding tuning triplets: `TextEmbeddingTripletParams`.
+{% include [dataset-types](../../../_includes/foundation-models/dataset-types.md) %}
+
+To get the current list of available dataset types, run this query:
+
+```bash
+grpcurl \
+  -H "Authorization: Bearer <IAM_token>" \
+  llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService.ListTypes 
+```
 
 ## Text generation datasets {#generating}
 
-Text generation datasets contain a guide, an example question and an answer to it. Each line contains a separate example in JSON format:
+{{ foundation-models-name }} allows you to create two types of text generation datasets.
+
+### Text generation requests {#text-requests}
+
+Datasets with only the texts of requests in them can be used to run text generation models in [batch mode](../index.md#working-mode). Each line contains a separate JSON request to initiate text generation. A request can contain either a single message with the `user` role or a dialogue with `user` and `assistant` roles, and, optionally, also an instruction for the model:
 
 ```json
-{"request": [{"role": "system", "text": "<guide>"}, {"role": "user", "text": "<Question>"}], "response": "<Answer>"}
-{"request": [{"role": "system", "text": "<guide>"}, {"role": "user", "text": "<Question>"}], "response": "<Answer>"}
-{"request": [{"role": "system", "text": "<guide>"}, {"role": "user", "text": "<Question>"}], "response": "<Answer>"}
+{"request": [{"role": "user", "text": "<Question>"}]}
+{"request": [{"role": "system", "text": "<instruction>"}, {"role": "user", "text": "<Question>"}]}
+{"request": [{"role": "system", "text": "<instruction>"}, {"role": "user", "text": "<Replica_1>"}, {"role": "assistant", "text": "<Replica_2>"}, {"role": "user", "text": "<Replica_3>"}, {"role": "assistant", "text": "<Replica_4>"}]}
 ```
 
-You will need text generation datasets to fine-tune {{ gpt-lite }} and {{ llama }} 8B^1^ [models](../yandexgpt/models.md). To fine-tune a text generation model, prepare a file with examples of at least ten prompts and reference responses. The maximum prompt length is 8,000 [tokens](../yandexgpt/tokens.md); the maximum reference response length is 2,000 tokens. The maximum length of a prompt and reference must not exceed 8,000 tokens.
+### Text generation requests and responses {#text-complitions-requests}
+
+Datasets with questions and answers are used to fine-tune models. The response is also returned in this format when accessing models in batch mode. Each line contains a separate example in JSON format:
+
+```json
+{"request": [{"role": "user", "text": "<Question>"}], "response": "<Response>"}
+{"request": [{"role": "system", "text": "<instruction>"}, {"role": "user", "text": "<Question>"}], "response": "<Answer>"}
+{"request": [{"role": "system", "text": "<instruction>"}, {"role": "user", "text": "<Replica_1>"}, {"role": "assistant", "text": "<Replica_2>"}, {"role": "user", "text": "<Replica_3>"}, {"role": "assistant", "text": "<Replica_4>"}], "response": "<Response>"}
+```
+
+{% note tip %}
+
+When fine-tuning models, use the same instruction for each tuning example and use it when accessing the fine-tuned model. This improves fine-tuning efficiency.
+
+{% endnote %}
+
+The training dataset must include at least ten prompts and reference responses. The maximum prompt length is 8,000 [tokens](../yandexgpt/tokens.md); the maximum reference response length is 2,000 tokens. The maximum length of a prompt and response must not exceed 8,000 tokens.
 
 Example of the contents of a text generation model tuning dataset:
 
-{% include [fine-tuning-file-requirements](../../../_includes/datasphere/fine-tuning-file-requirements.md) %}
+{% include [fine-tuning-file-example](../../../_includes/datasphere/fine-tuning-file-requirements.md) %}
 
 ## Text classification datasets {#classifier}
 
@@ -75,9 +99,27 @@ Multi-label classification datasets should contain examples of texts and their c
 {% include [multiclass](../../../_includes/foundation-models/classifier/multilable-example.md) %}
 
 
-^1^ {{ meta-disclaimer }}
+## Vision language datasets {#vlm-datasets}
 
-#### See also {#see-also}
+You need vision language datasets when working with [multimodal models](../multimodal/index.md) in batch mode. {{ foundation-models-name }} supports two types of datasets.
+
+### Request datasets {#vlm-requests}
+
+Request datasets for vision language models contain request texts and Base64-encoded images. Each line contains a separate example in JSON format.
+
+```json
+{"request": [{"role": "user", "text": "<Question>"}, {"image": "<base64-encoded_image>"}]}
+```
+
+### Response datasets {#vlm-response}
+
+Response datasets for vision language models contain request texts, Base64-encoded images, and a generated response for each request. Each line contains a separate example in JSON format.
+
+```json
+{"request": [{"role": "user", "text": "<Question>"}, {"image": "<base64-encoded_image>"}], "response": "Response"}
+```
+
+#### Use cases {#examples}
 
 * [{#T}](../../operations/resources/create-dataset-gpt.md)
 * [{#T}](../../operations/resources/create-dataset-classifier.md)

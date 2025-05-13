@@ -34,6 +34,21 @@ nav:
 meta:
   title: Yandex Object Storage
   description: Yandex Object Storage is a universal, scalable data storage solution.
+  keywords:
+    - keyword: storage
+    - keyword: cloud storage
+    - keyword: yandex storage
+    - keyword: '{{ objstorage-name }}'
+    - keyword: '{{ yandex-cloud }} {{ objstorage-name }}'
+    - keyword: '{{ objstorage-full-name }}'
+    - keyword: '{{ objstorage-name }}'
+    - keyword: bucket
+    - keyword: storage
+    - keyword: '{{ objstorage-name }} bucket'
+    - keyword: '{{ objstorage-name }} buckets'
+    - keyword: '{{ yandex-cloud }} bucket'
+    - keyword: '{{ yandex-cloud }} buckets'
+    - keyword: '{{ yandex-cloud }} storage'
 links:
   - title: Getting started
     description: Create your first bucket and upload data

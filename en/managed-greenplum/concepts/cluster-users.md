@@ -30,7 +30,7 @@ Some roles can become a part of other roles and inherit their privileges. When p
 
 Privileges determine what a role can do with database objects.
 
-Do not use the `mdb_admin` role for routine tasks, because an incorrect command sent on its behalf may cause the cluster to fail. For these tasks, create separate roles with the minimum required privileges:
+Do not use the `mdb_admin` role for routine tasks because an incorrect command sent on its behalf may cause the cluster to fail. For these tasks, create separate roles with the minimum required privileges:
 
 #|
 ||**Object type**
@@ -115,7 +115,7 @@ In a {{ mgp-name }} cluster, superuser permissions are not granted. Instead, you
    * Creating external tables.
    * Accessing user credentials. This data is transmitted over PXF in an open format.
 
-* [Expanding the cluster](../operations/hosts/cluster-expand.md): Adding segment hosts to it and redistributing data between them using `gp_expand`.
+* [Expanding the cluster](../operations/cluster-expand.md): adding segment hosts to it and redistributing data between them using `gp_expand`.
 * Connecting to the `gpperfmon` database and [diagnosing cluster performance](../operations/performance-diagnostics.md).
 
 The admin username and password are created [together with the cluster](../operations/cluster-create.md#create-cluster).

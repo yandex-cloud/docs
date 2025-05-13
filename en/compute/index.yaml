@@ -27,6 +27,17 @@ meta:
   description: >-
     Yandex Compute Cloud provides scalable computing capacity to create and
     manage virtual machines.
+  keywords:
+    - keyword: compute
+    - keyword: yandex compute
+    - keyword: '{{ compute-name }}'
+    - keyword: '{{ compute-full-name }}'
+    - keyword: '{{ compute-name }}'
+    - keyword: VMs in {{ yandex-cloud }}
+    - keyword: '{{ yandex-cloud }} VM'
+    - keyword: '{{ yandex-cloud }} virtual resources'
+    - keyword: virtual machines
+    - keyword: cloud resources
 links:
   - title: Getting started
     description: Create your first VM instance or instance group

@@ -21,15 +21,15 @@ You can upload a [two-channel audio](#create-connection-audio) or text [chat](#c
 
        By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}. You can also add a description, if required.
 
-       To specify additional metadata for the agent and the customer, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+       To specify additional metadata for the agent and the customer, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**. Make sure to enter the new key name and select a [metadata type](../../concepts/resources-hierarchy.md#connection).
 
 1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent or the customer.
 
     By default, connections include required keys with the date, direction, and language of the call. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}. You can also add a description, if required.
 
-    {{ speechsense-name }} can analyze audio recordings in Russian and Kazakh. First it recognizes your recording in Kazakh and then translates the transcript into Russian for further analysis. Each audio metadata must contain a string indicating the languages supposedly used in the conversation. When uploading an audio file in Kazakh, provide the `language: ru-RU, kk-KZ` string in the metadata. For Russian, provide `language: ru-RU`. Language codes are case-insensitive.
+    To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**. Make sure to enter the new key name and select a [metadata type](../../concepts/resources-hierarchy.md#connection).
 
-    To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+    {{ speechsense-name }} can analyze audio recordings in Russian and Kazakh. First it recognizes your recording in Kazakh and then translates the transcript into Russian for further analysis. Each audio metadata must contain a string indicating the languages supposedly used in the conversation. When uploading an audio file in Kazakh, provide the `language: ru-RU, kk-KZ` string in the metadata. For Russian, provide `language: ru-RU`. Language codes are case-insensitive.
 
     To upload [related dialogs](../../concepts/dialogs.md#related-dialogs) into the connection, add the `ticket_id` string key. The dialogs will be linked by this key. Enter a name the key will have in {{ speechsense-name }}, e.g., `Task number`. You can also add a description, if required.
 
@@ -46,15 +46,15 @@ You can upload a [two-channel audio](#create-connection-audio) or text [chat](#c
 
     By default, connections include keys with agent's, customer's, and bot's names and IDs. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}. You can also add a description, if required.
 
-    To specify additional agent, customer, and bot metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+    To specify additional agent, customer, and bot metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**. Make sure to enter the new key name and select a [metadata type](../../concepts/resources-hierarchy.md#connection).
 
 1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent, customer, and bot.
 
     By default, keys with date, direction, and dialog language are added to the connection. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name the key will have in {{ speechsense-name }}. You can also add a description, if required.
 
-    {{ speechsense-name }} can analyze dialogs in Russian and Kazakh; it translates the transcript into Russian for further analysis. Each dialog metadata must contain a string indicating the languages supposedly used in the conversation. When uploading dialogs in Kazakh, provide the `language: ru-RU, kk-KZ` string in the metadata. For Russian, provide `language: ru-RU`. Language codes are case-insensitive.
+    To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**. Make sure to enter the new key name and select a [metadata type](../../concepts/resources-hierarchy.md#connection).
 
-    To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+    {{ speechsense-name }} can analyze dialogs in Russian and Kazakh; it translates the transcript into Russian for further analysis. Each dialog metadata must contain a string indicating the languages supposedly used in the conversation. When uploading dialogs in Kazakh, provide the `language: ru-RU, kk-KZ` string in the metadata. For Russian, provide `language: ru-RU`. Language codes are case-insensitive.
 
     To upload [related dialogs](../../concepts/dialogs.md#related-dialogs) into the connection, add the `ticket_id` string key. The dialogs will be linked by this key. Enter a name the key will have in {{ speechsense-name }}, e.g., `Task number`. You can also add a description, if required.
 

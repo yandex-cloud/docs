@@ -1,15 +1,81 @@
 ---
-title: YC CLI releases
-description: This page presents a list of YC CLI releases and the updates of each.
+title: CLI releases
+description: This page presents a list of CLI releases and the updates of each.
 ---
 
-# YC CLI Releases
+# CLI releases
 
 ## Current version {#latest-release}
 
+### Version 0.147.0 (02/04/25) {#version0.147.0}
+
+#### Changes to {{ yandex-cloud }} services {#version0.147.0-services}
+
+##### Managed database services {#managed-db}
+
+* Added the `--rest-api-enabled` parameter to the `yc managed-kafka user create` and `yc managed-kafka user update` commands to enable the REST API on the cluster.
+
+* Added support for the `--user generate-password` argument in the `yc managed-mysql cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
+
+* Added support for the `--user generate-password` argument in the `yc managed-postgresql cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
+
+* Added support for the `--user generate-password` argument in the `yc managed-clickhouse cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
+
+* The `yc clickhouse cluster create` and `yc clickhouse cluster restore` commands now support the `--shard` flag you can use to specify one or more shards. Here is an example: `yc clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
+
+* Added support for the `--shard` repeatable composite flag in the `yc managed-clickhouse shard add` command.
+  * The command will create as many shards as there are `--shard` flags.
+  * For each shard, you need to specify a name, and you can also specify a weight: `yc managed-clickhouse shard add --shard name=myshard,weight=200`.
+  * You cannot use the `--shard` flag with the `--name` and `--weight` flags or when specifying a shard name as a positional argument.
+
+* Deleting multiple shards via `yc managed-clickhouse shards delete` now takes less time.
+
+* Added the following parameters to the `yc clickhouse cluster add-external-dictionary` command:
+  * `--layout-allow-read-expired-keys `
+  * `--layout-max-update-queue-size`
+  * `--layout-update-queue-push-timeout-milliseconds`
+  * `--layout-query-wait-timeout-milliseconds`
+  * `--layout-max-threads-for-updates`
+  * `--layout-initial-array-size`
+  * `--layout-access-to-key-from-attributes`
+  
+##### {{ alb-name }} {#alb}
+
+* Added commands to manage manual switching of a load balancer’s availability zone:
+  * `yc application-load-balancer load-balancer start-zonal-shift`
+  * `yc application-load-balancer load-balancer cancel-zonal-shift`
+
+* Added the `--allow-zonal-shift` parameter to indicate that the balancer can operate in case an availability zone fails:
+  * `yc application-load-balancer load-balancer create`
+  * `yc application-load-balancer load-balancer update`
+
+##### {{ iam-name }} {#iam}
+
+Added commands to manage access to workload identity federations:
+* `yc iam workload-identity oidc federation list-access-bindings`
+* `yc iam workload-identity oidc federation set-access-bindings`
+* `yc iam workload-identity oidc federation add-access-binding`
+* `yc iam workload-identity oidc federation remove-access-binding`
+
+##### {{ ydb-name }} {#ydb}
+
+Added support for the storage-class argument in the `yc ydb database backup` command to specify the storage type.
+
+##### {{ compute-name }} {#compute}
+
+Added commands to link instances to reserved VM pools.
+
+##### {{ objstorage-name }} {#storage}
+
+* Added the `yc storage s3 cp` command for copying objects between the file system and object storage or between object storage buckets.
+* Added the `yc storage s3 mv` command for moving objects between the file system and object storage or between object storage buckets.
+* Added the `yc storage s3 rm` command for deleting objects in a bucket.
+
+## Previous releases {#previous-release}
+
 ### Version 0.146.1 (03/04/25) {#version0.146.1}
 
-#### Changes in {{ yandex-cloud }} services
+#### Changes to {{ yandex-cloud }} services {#version0.146.1-services}
 
 ##### {{ compute-name }} {#compute}
 
@@ -20,11 +86,9 @@ description: This page presents a list of YC CLI releases and the updates of eac
   * `yc compute reserved-instance-pool update`
   * `yc compute reserved-instance-pool delete`
 
-## Previous releases {#previous-release}
-
 ### Version 0.146.0 (02/04/25) {#version0.146.0}
 
-#### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to {{ yandex-cloud }} services {#version0.146.0-services}
 
 ##### {{ at-name }} {#audit-trails}
 
@@ -435,7 +499,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `yc storage s3api head-object`: Getting object metadata.
   * `yc storage s3api delete-objects`: Deleting an object group.
 
-  To work with objects, in the `~/.config/yandex-cloud/config.yaml` YC CLI configuration file, specify the {{ objstorage-name }} endpoint.
+  To work with objects, in the `~/.config/yandex-cloud/config.yaml` CLI configuration file, specify the {{ objstorage-name }} endpoint:
 
   ```yaml
   ...
@@ -687,7 +751,7 @@ Added support for {{ sws-name }}:
 * Added the `{{ yc-mdb-ch }} hosts add` and `{{ yc-mdb-ch }} shards add` commands. The `copy-schema` parameter is enabled by default.
 * Added the `yc managed-clickhouse backup delete` backup delete command.
 * Added the `--disk-type` parameter to the `yc managed-kafka cluster update` command.
-* Added the `--backup-retain-period-days` parameter to configure the automatic backup storage period.
+* Added the `--backup-retain-period-days` parameter to configure the automatic backup retention period.
 
 ##### {{ marketplace-name }} {#marketplace}
 
@@ -3035,7 +3099,7 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 **Fixed**
 
-* Fixed the issue with federated user authorization when initializing a new YC CLI profile.
+* Fixed the issue with federated user authorization when initializing a new CLI profile.
 
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -3502,7 +3566,7 @@ Added support for {{ api-gw-full-name }}.
 
 **Improved**
 
-* When running the YC CLI with the `--debug` flag, the API call response log line now returns the gRPC status code as well as its description.
+* When running the CLI with the `--debug` flag, the API call response log line now returns the gRPC status code as well as its description.
 
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -3524,7 +3588,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Improved**
 
-* When updating the YC CLI, the version currently being installed is now displayed.
+* When updating the CLI, you can now see which version is being installed.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 

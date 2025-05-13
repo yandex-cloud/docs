@@ -75,7 +75,7 @@ To learn more about updates within a single version and host maintenance, see [M
 
 Make sure this does not affect your applications:
 
-1. See the {{ CH }} [changelog](https://clickhouse.com/docs/category/changelog) to check how updates might affect your applications.
+1. See {{ CH }} [changelog](https://clickhouse.com/docs/category/changelog) for how upgrades may affect your applications.
 1. Try a version upgrade on a test cluster. You can deploy it from a backup of the main cluster. In this case, you will only recover MergeTree tables.
 1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
@@ -87,7 +87,7 @@ Make sure this does not affect your applications:
 
     1. In the [management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** page in the folder where you want to update the {{ CH }} version.
     1. In the list of clusters, select the one to change.
-    1. Click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. Click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the appropriate version in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -123,7 +123,7 @@ Make sure this does not affect your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -182,7 +182,7 @@ Make sure this does not affect your applications:
 
         * `configSpec.version`: target {{ CH }} version, {{ versions.api.str }}.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -228,7 +228,7 @@ Make sure this does not affect your applications:
 
         * `config_spec.version`: target {{ CH }} version, {{ versions.api.str }}.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

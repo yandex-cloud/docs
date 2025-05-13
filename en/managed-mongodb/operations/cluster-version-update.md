@@ -13,7 +13,7 @@ After upgrading, you cannot roll a cluster back to the previous version.
 
 Make sure this does not affect your applications:
 
-1. See the {{ MG }} [changelog](https://docs.mongodb.com/manual/release-notes/) to check how updates might affect your applications.
+1. See {{ MG }} [changelog](https://docs.mongodb.com/manual/release-notes/) for how upgrades may affect your applications.
 1. Try a version upgrade on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster.
 1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
 
@@ -23,8 +23,8 @@ Make sure this does not affect your applications:
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Select the cluster from the list and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Select the cluster from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -64,7 +64,7 @@ Make sure this does not affect your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
   
        For more information about creating this file, see [Creating clusters](cluster-create.md).
   
@@ -211,7 +211,7 @@ Make sure this does not affect your applications:
                }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.mongodb.v1.ClusterService.Update
-        ```    
+        ```
 
 {% endlist %}
 

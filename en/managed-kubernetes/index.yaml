@@ -28,6 +28,18 @@ meta:
   description: >-
     Managed Service for Kubernetes provides an environment for managing
     containerized applications in the Yandex Cloud infrastructure.
+  keywords:
+    - keyword: k8s
+    - keyword: managed {{ k8s }}
+    - keyword: '{{ k8s }}'
+    - keyword: yandex {{ k8s }}
+    - keyword: '{{ managed-k8s-name }}'
+    - keyword: '{{ managed-k8s-full-name }}'
+    - keyword: '{{ managed-k8s-name }}'
+    - keyword: '{{ k8s }} cluster'
+    - keyword: '{{ k8s }} clusters'
+    - keyword: '{{ k8s }} cluster in {{ yandex-cloud }}'
+    - keyword: kubernetes in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Create your first Kubernetes cluster

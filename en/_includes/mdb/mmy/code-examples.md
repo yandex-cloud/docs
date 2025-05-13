@@ -29,13 +29,14 @@ sudo apt update && sudo apt install --yes mysql-client
 
 When running any command, enter the DB user password.
 
-Once connected to the DBMS, run `SELECT @@version;`.
+After connecting to the DBMS, run the `SELECT version();` command.
 
 {% include [Successful connection](successful-connect.md) %}
 
+
 ### Go
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes golang git && \
@@ -174,7 +175,7 @@ Before connecting:
    sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
-1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MY }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password for additional storage security using the `-storepass` parameter:
+1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MY }} driver can use this certificate for secure connections to the cluster hosts. Set a password in the `-storepass` parameter for storage protection:
 
    ```bash
    cd ~/.mysql && \
@@ -186,7 +187,7 @@ Before connecting:
                 --noprompt
    ```
 
-   Where `storepass` is the certificate store password, at least 6 characters long.
+   Where `storepass` is your certificate store password, a minimum of 6 characters.
 
 1. Create a folder for the Maven project:
 
@@ -196,81 +197,81 @@ Before connecting:
 
 1. Create a configuration file for Maven:
 
-   {% cut "pom.xml" %}
+    {% cut "pom.xml" %}
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <project
-   	    xmlns="http://maven.apache.org/POM/4.0.0"
-   	    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-   	    <modelVersion>4.0.0</modelVersion>
-   	    <groupId>com.example</groupId>
-   	    <artifactId>app</artifactId>
-   	    <packaging>jar</packaging>
-   	    <version>0.1.0</version>
-   	    <properties>
-   		    <maven.compiler.source>1.8</maven.compiler.source>
-   		    <maven.compiler.target>1.8</maven.compiler.target>
-   	    </properties>
-   	    <dependencies>
-           <dependency>
-               <groupId>mysql</groupId>
-               <artifactId>mysql-connector-java</artifactId>
-               <version>8.0.21</version>
-           </dependency>
-   	</dependencies>
-   	<build>
-   	     	<finalName>${project.artifactId}-${project.version}</finalName>
-   	     	<sourceDirectory>src</sourceDirectory>
-   	 	<resources>
-   	     		<resource>
-   		 	     	<directory>src</directory>
-   	     		</resource>
-   	     	</resources>
-   	    	<plugins>
-   	    		<plugin>
-   		     		<groupId>org.apache.maven.plugins</groupId>
-   		     		<artifactId>maven-assembly-plugin</artifactId>
-   		     		<executions>
-   		     			<execution>
-   		     				<goals>
-   		 	    				<goal>attached</goal>
-   		     				</goals>
-   		 	    			<phase>package</phase>
-   		 	    			<configuration>
-   		 		    			<descriptorRefs>
-   		 			    			<descriptorRef>jar-with-dependencies</descriptorRef>
-   		 		    			</descriptorRefs>
-   		 			    		<archive>
-   		 			    			<manifest>
-   		 			    				<mainClass>com.example.App</mainClass>
-   		 			    			</manifest>
-   		 	    				</archive>
-   		 	    			</configuration>
-   		 	    		</execution>
-   		     		</executions>
-   	    		</plugin>
-   	 		<plugin>
-   	     			<groupId>org.apache.maven.plugins</groupId>
-   		     		<artifactId>maven-jar-plugin</artifactId>
-   	     			<version>3.1.0</version>
-   	    			<configuration>
-   		     			<archive>
-   		     				<manifest>
-   		      					<mainClass>com.example.App</mainClass>
-   		  	     			</manifest>
-   		 	    		</archive>
-   	    			</configuration>
-   	    		</plugin>
-   	 	</plugins>
-   	</build>
-   </project>
-   ```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project
+      xmlns="http://maven.apache.org/POM/4.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>com.example</groupId>
+      <artifactId>app</artifactId>
+      <packaging>jar</packaging>
+      <version>0.1.0</version>
+      <properties>
+ 	      <maven.compiler.source>1.8</maven.compiler.source>
+ 	      <maven.compiler.target>1.8</maven.compiler.target>
+      </properties>
+      <dependencies>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.21</version>
+            </dependency>
+    	</dependencies>
+    	<build>
+      	<finalName>${project.artifactId}-${project.version}</finalName>
+      	<sourceDirectory>src</sourceDirectory>
+    	 	<resources>
+      		<resource>
+ 	 	     	  <directory>src</directory>
+      		</resource>
+      	</resources>
+     	  <plugins>
+     		  <plugin>
+ 	     		  <groupId>org.apache.maven.plugins</groupId>
+ 	     		  <artifactId>maven-assembly-plugin</artifactId>
+ 	     		  <executions>
+ 	     			  <execution>
+ 	     				  <goals>
+ 	 	    				  <goal>attached</goal>
+ 	     				  </goals>
+ 	 	    			  <phase>package</phase>
+ 	 	    			  <configuration>
+ 	 		    			  <descriptorRefs>
+ 	 			    			  <descriptorRef>jar-with-dependencies</descriptorRef>
+ 	 		    			  </descriptorRefs>
+ 	 			    		  <archive>
+ 	 			    			  <manifest>
+ 	 			    				  <mainClass>com.example.App</mainClass>
+ 	 			    			  </manifest>
+ 	 	    				  </archive>
+ 	 	    			  </configuration>
+ 	 	    		  </execution>
+ 	     		  </executions>
+     		  </plugin>
+    	 		<plugin>
+      			<groupId>org.apache.maven.plugins</groupId>
+ 	     		  <artifactId>maven-jar-plugin</artifactId>
+      			<version>3.1.0</version>
+     			  <configuration>
+ 	     			  <archive>
+ 	     				  <manifest>
+ 	      					  <mainClass>com.example.App</mainClass>
+ 	  	     			  </manifest>
+ 	 	    		  </archive>
+     			  </configuration>
+     		  </plugin>
+    	  </plugins>
+      </build>
+    </project>
+    ```
 
-   {% endcut %}
+    {% endcut %}
 
-   You can check the current `mysql-connector-java` version on the [project page in the Maven repository](https://mvnrepository.com/artifact/mysql/mysql-connector-java).
+    You can check the current `mysql-connector-java` version on the [project page in the Maven repository](https://mvnrepository.com/artifact/mysql/mysql-connector-java).
 
 {% list tabs group=connection %}
 
@@ -306,7 +307,7 @@ Before connecting:
    }
    ```
 
-   This code must specify the full path to the `YATrustStore` certificate store for the {{ MY }} driver in the `javax.net.ssl.trustStore` property.
+   In this code, the `javax.net.ssl.trustStore` property must specify the full path to the `YATrustStore` certificate store for the {{ MY }} driver.
 
 - Connecting without SSL {#without-ssl}
 
@@ -352,7 +353,7 @@ java -jar target/app-0.1.0-jar-with-dependencies.jar
 
 ### Node.js
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes nodejs npm && \
@@ -432,7 +433,7 @@ node app.js
 
 ### ODBC
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes unixodbc && \
@@ -442,7 +443,7 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
 
 The {{ MY }} Connector/ODBC driver will be registered automatically in `/etc/odbcinst.ini`. Current version of the driver: [mysql-connector-odbc](https://dev.mysql.com/downloads/connector/odbc/).
 
-Set the connection parameters in the `/etc/odbc.ini` file.
+Set the connection parameters in `/etc/odbc.ini`.
 
 {% list tabs group=connection %}
 
@@ -462,7 +463,7 @@ Set the connection parameters in the `/etc/odbc.ini` file.
    SSLVERIFY=1
    ```
 
-   For this connection method, the `/etc/odbc.ini` file must include the full path to the `root.crt` certificate for {{ MY }} in the `SSLCA` parameter.
+   For this connection method, the `SSLCA` parameter in `/etc/odbc.ini` must specify the full path to the `root.crt` certificate for {{ MY }}.
 
 - Connecting without SSL {#without-ssl}
 
@@ -488,13 +489,13 @@ Connecting:
 isql -v mysql
 ```
 
-Once connected to the DBMS, run `SELECT @@version;`.
+After connecting to the DBMS, run the `SELECT version();` command.
 
 {% include [Successful connection](successful-connect.md) %}
 
 ### PHP
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && apt install --yes php php-mysql
@@ -512,7 +513,7 @@ sudo apt update && apt install --yes php php-mysql
 
        $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
        $conn->ssl_set(NULL, NULL, '/home/<home_directory>/.mysql/root.crt', NULL, NULL);
-       $conn->real_connect('<FQDN_of_any_{{ MY }}_host>', '<username>', '<user_password>', '<DB_name>', {{ port-mmy }}, NULL, MYSQLI_CLIENT_SSL);
+       $conn->real_connect('<FQDN_of_any_{{ MY }}_host>', '<username>', '<user_password>', '<database_name>', {{ port-mmy }}, NULL, MYSQLI_CLIENT_SSL);
 
        $q = $conn->query('SELECT version()');
        $result = $q->fetch_row();
@@ -534,7 +535,7 @@ sudo apt update && apt install --yes php php-mysql
        $conn = mysqli_init();
 
        $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
-       $conn->real_connect('<FQDN_of_any_{{ MY }}_host>', '<username>', '<user_password>', '<DB_name>', {{ port-mmy }}, NULL, NULL);
+       $conn->real_connect('<FQDN_of_any_{{ MY }}_host>', '<username>', '<user_password>', '<database_name>', {{ port-mmy }}, NULL, NULL);
 
        $q = $conn->query('SELECT version()');
        $result = $q->fetch_row();
@@ -559,7 +560,7 @@ php connect.php
 
 ### PowerShell
 
-Before connecting, [download](https://dev.mysql.com/downloads/shell/) and install the `MySQL Shell` utility.
+Before connecting, [download](https://dev.mysql.com/downloads/shell/) and install `MySQL Shell`.
 
 {% list tabs group=connection %}
 
@@ -593,13 +594,13 @@ Before connecting, [download](https://dev.mysql.com/downloads/shell/) and instal
 
 When running any command, enter the DB user password.
 
-Once connected to the DBMS, run `SELECT @@version;`.
+After connecting to the DBMS, run the `SELECT version();` command.
 
 {% include [Successful connection](successful-connect.md) %}
 
 ### Python
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes python3 python3-pip libmysqlclient-dev && \
@@ -667,7 +668,7 @@ python3 connect.py
 
 ### Ruby
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes ruby ruby-mysql2

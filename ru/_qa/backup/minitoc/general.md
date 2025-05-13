@@ -13,3 +13,5 @@
 * [Почему после обновления ОС перестало работать резервное копирование?](#kernel-update-consequences)
 
 * [Создание инкрементальных резервных копий занимает больше времени, чем обычно](#av-interaction)
+
+* [Out-Of-Memory Killer (OOM Killer) в Linux завершает процесс агента {{ backup-name }}](#oom-solution)

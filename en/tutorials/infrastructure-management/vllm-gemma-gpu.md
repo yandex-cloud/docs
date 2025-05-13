@@ -1,0 +1,1 @@
+{% include [vllm-gemma-gpu](../../_tutorials/infrastructure/vllm-gemma-gpu.md) %}

@@ -11,7 +11,7 @@ items:
         href: quickstart/ig.md
   - name: Step-by-step guides
     items:
-      - name: All guides
+      - name: All tutorials
         href: operations/index.md
       - name: Creating a VM
         items:
@@ -143,7 +143,7 @@ items:
             href: operations/vm-create/create-with-lockbox-secret.md
       - name: Using a VM
         items:
-          - name: Connecting to a VM via SSH
+          - name: Connecting to a VM over SSH
             href: operations/vm-connect/ssh.md
           - name: Exchanging files with VMs
             href: operations/vm-connect/scp-sftp.md
@@ -289,7 +289,7 @@ items:
         items:
           - name: Getting started
             href: operations/serial-console/index.md
-          - name: Connecting to a serial console via SSH
+          - name: Connecting to a serial console over SSH
             href: operations/serial-console/connect-ssh.md
           - name: Connecting to a serial console using the CLI
             href: operations/serial-console/connect-cli.md
@@ -586,10 +586,12 @@ items:
             href: tutorials/mlflow-datasphere.md
           - name: Deploying {{ GLR }} on a virtual machine
             href: tutorials/install-gitlab-runner.md
-      - name: >-
-          Launching the DeepSeek-R1 language model in a {{ compute-full-name }}
-          GPU cluster
+      - name: Launching the DeepSeek-R1 language model in a GPU cluster
         href: tutorials/gpu-cluster-deepseek.md
+      - name: >-
+          Running a vLLM library with the Gemma 3 language model on a VM with
+          GPU
+        href: tutorials/vllm-gemma-gpu.md
   - name: Concepts
     items:
       - name: Resource relationships

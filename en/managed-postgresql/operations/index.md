@@ -15,6 +15,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Managing replication slots](replication-slots.md)
 * [Managing backups](cluster-backups.md)
+* [Managing backup policies](backup-retention-policies.md)
 * [Managing disk space](storage-space.md)
 * [Maintenance](cluster-maintenance.md)
 * [{{ PG }} version upgrade](cluster-version-update.md)

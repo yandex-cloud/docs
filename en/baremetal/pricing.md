@@ -8,7 +8,7 @@ editable: false
 
 
 
-In {{ baremetal-name }}, you pay for leasing a server of a [certain configuration](concepts/server-configurations.md). The leased server is charged for the entire rental period, regardless of whether it is enabled or disabled.
+In {{ baremetal-name }}, you pay for leasing a server of a [certain configuration](concepts/server-configurations.md). A leased server is billable for the entire lease period, whether it is on or off.
 
 The monthly prices are based on 720 hours per month.
 

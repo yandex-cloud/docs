@@ -15,17 +15,21 @@ With {{ yagpt-name }} classifiers, you can classify various texts. Special model
 
 To create images in {{ foundation-models-name }} use the {{ yandexart-name }} neural network that will help you create detailed and realistic images based on a text prompt.
 
+In addition to models working with a single type of data, {{ foundation-models-name }} provides [multimodal models](./multimodal/index.md). 
+
 For information on the {{ foundation-models-name }} restrictions, refer to [{#T}](limits.md).
 
 ## {{ foundation-models-name }} working modes {#working-mode}
 
-In {{ foundation-models-name }}, you can use models in either _synchronous_ or _asynchronous_ mode. The modes differ in response time and operation logic.
+In {{ foundation-models-name }}, you can use models in three modes: _synchronous_, _asynchronous_, or _batch_ mode. The modes differ in response time and operation logic.
 
 In synchronous mode, the model gets your request and returns the result immediately after processing. The response delay in synchronous mode is minimal but not instant: the model takes time to do the work. With the `stream` option enabled, the model sends intermediate generation results during the process. You may opt for synchronous mode if you need to maintain a chatbot dialog. 
 
-In asynchronous mode, the model responds to a request by sending an [Operation object](../../api-design-guide/concepts/operation.md) containing the ID of the operation it is performing. You can use the ID to learn the status of the request and later get the result of it by submitting a request to a special output endpoint. Intermediate generation results are not available in asynchronous mode. In asynchronous mode, generation usually takes longer (from a couple of minutes to several hours) than in synchronous mode but is cheaper. Use asynchronous mode if you do not need an urgent response.
+In asynchronous mode, the model responds to a request by sending an [Operation object](../../api-design-guide/concepts/operation.md) containing the ID of the operation it is performing. You can use the ID to learn the status of the request and later get the result of it by submitting a request to a special output endpoint (its value depends on the model). Intermediate generation results are not available in asynchronous mode. In asynchronous mode, generation usually takes longer (from a couple of minutes to several hours) than in synchronous mode but is cheaper. Use asynchronous mode if you do not need an urgent response.
 
-Different models support different operating modes. 
+Batch processing mode allows you to process a large data array in a single request to the model. Input data is provided as a [dataset](./resources/dataset.md) whose type depends on the model. For each request, {{ foundation-models-name }} runs an individual instance of the model to process the dataset and then stops it. The result is saved as another dataset, which you can download in [Parquet](https://parquet.apache.org/) format or use immediately, e.g., to tune another model. It may take several hours to generate the result.
+
+Different models support different operating modes.
 
 ## Prompt {#prompt}
 

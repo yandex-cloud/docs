@@ -101,18 +101,25 @@ To get back the ability to [connect](ssh.md) to the VM over SSH without using {{
 
     - CLI {#cli}
 
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
       Run this command:
 
       ```bash
-      yc compute instance update --name <VM_name> \
-      --folder-id <folder_ID> \
-      --metadata enable-oslogin=false
+      yc compute instance update
+        --name <VM_name> \
+        --folder-id <folder_ID> \
+        --metadata enable-oslogin=false
       ```
 
       Make sure {{ oslogin }} access is now disabled:
 
       ```bash
-      yc compute ssh --name <VM_name> --folder-id <folder_ID>
+      yc compute ssh
+        --name <VM_name> \
+        --folder-id <folder_ID>
       ```
 
       Result:

@@ -12,8 +12,8 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Select a cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Select a cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_configuration }}**, enable **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -38,7 +38,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
     * `true` in the `uiProxy` parameter.
-    * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `uiProxy`).
+    * List of editable cluster configuration fields in the `updateMask` parameter (in this case, `uiProxy`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -50,7 +50,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the cluster name.
     1. Connection links for the component web interfaces can be found under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 

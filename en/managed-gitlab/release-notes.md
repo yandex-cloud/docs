@@ -5,6 +5,18 @@ description: This section contains {{ mgl-name }} release notes.
 
 # {{ mgl-full-name }} release notes
 
+## Q1 2025 {#q1-2025}
+
+### New features {#q1-2025-new-features}
+
+* Added an option to issue Let's Encrypt TLS certificates via [{{ certificate-manager-full-name }}](../certificate-manager/). To start using {{ certificate-manager-name }} to issue certificates, contact [support]({{ link-console-support }}).
+* Added support for the [{{ GL }} Pages](https://docs.gitlab.com/user/project/pages/) feature at the [Preview](../overview/concepts/launch-stages.md) stage. 
+
+### Fixes and improvements {#q1-2025-problems-solved}
+
+* Improved generation of the main {{ GL }} configuration file, which reduces the probability of mismatch between configurations.
+* Improved the mechanism for automatic {{ GL }} instance updates.
+
 ## October 2024 {#oct-2024}
 
 You can now monitor the state of your {{ GL }} instance from the {{ yandex-cloud }} management console. You can view the state charts in the **{{ ui-key.yacloud.common.monitoring }}** tab or in [{{ monitoring-full-name }}](../monitoring/concepts/index.md). This feature is at the [Preview](../overview/concepts/launch-stages.md) stage.

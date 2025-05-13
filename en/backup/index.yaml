@@ -9,6 +9,16 @@ meta:
   description: >-
     With Yandex Cloud Backup, you can set up automatic backups for Yandex
     Compute Cloud VMs.
+  keywords:
+    - keyword: backup
+    - keyword: yandex backup
+    - keyword: '{{ backup-name }}'
+    - keyword: '{{ backup-full-name }}'
+    - keyword: '{{ backup-name }}'
+    - keyword: backups in {{ yandex-cloud }}
+    - keyword: backing up in {{ yandex-cloud }}
+    - keyword: backups
+    - keyword: backing up
 links:
   - title: Getting started
     description: Create a VM and attach it to a backup policy

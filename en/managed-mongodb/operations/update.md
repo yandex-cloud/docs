@@ -33,7 +33,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
   1. {% include [mmg-settings-host-class](../../_includes/mdb/mmg/settings-host-class.md) %}
 
@@ -104,7 +104,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
   
       For more information about creating this file, see [Creating clusters](cluster-create.md).
   
@@ -157,7 +157,7 @@ We recommend changing the host class only when the cluster has no active workloa
                         "<{{ MG }}_host_type>": {
                           "resources": {
                             "resourcePresetId": "<host_class>"
-                          }    
+                          }
                         }
                       }
                     }
@@ -208,7 +208,7 @@ We recommend changing the host class only when the cluster has no active workloa
                     "<{{ MG }}_host_type>": {
                       "resources": {
                         "resource_preset_id": "<host_class>"
-                      }    
+                      }
                     }
                   }
                 }
@@ -244,7 +244,7 @@ We recommend changing the host class only when the cluster has no active workloa
   To change the disk type and  increase the storage size for a cluster:
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       * Select the [disk type](../concepts/storage.md).
@@ -308,7 +308,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -363,12 +363,12 @@ We recommend changing the host class only when the cluster has no active workloa
                           "resources": {
                             "diskTypeId": "<disk_type>",
                             "diskSize": "<storage_size_in_bytes>"
-                          }  
+                          }
                         }
                       }
                     }
                   }'
-      ```             
+      ``` 
 
       Where:
 
@@ -417,7 +417,7 @@ We recommend changing the host class only when the cluster has no active workloa
                       "resources": {
                         "disk_type_id": "<disk_type>",
                         "disk_size": "<storage_size_in_bytes>"
-                      }    
+                      }
                     }
                   }
                 }
@@ -507,7 +507,7 @@ You can change the DBMS settings of the hosts in your cluster.
                             "<setting_N>": "<value_N>"
                           }
                         }
-                      }    
+                      }
                     }
                   }'
       ```
@@ -553,7 +553,7 @@ You can change the DBMS settings of the hosts in your cluster.
                   ]
                 },
                 "config_spec": {
-                  "mongodb": {    
+                  "mongodb": {
                     "<{{ MG }}_host_type>": {
                       "config": {
                         "<setting_1>": "<value_1>",
@@ -590,7 +590,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change additional cluster settings:
 
      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
@@ -651,7 +651,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
       
        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -731,7 +731,7 @@ You can change the DBMS settings of the hosts in your cluster.
             "day": "<day_of_week>",
             "hour": "<hour>"
           }
-        },    
+        },
         "deletionProtection": <cluster_deletion_protection:_true_or_false>
       }
       ```
@@ -918,7 +918,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -1008,7 +1008,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -1035,7 +1035,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
       
        For more information about creating this file, see [Creating clusters](cluster-create.md).
 

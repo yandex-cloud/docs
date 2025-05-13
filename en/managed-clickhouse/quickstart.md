@@ -5,7 +5,7 @@ description: Follow this guide to create a {{ CH }} cluster and connect to it.
 
 # Getting started with {{ mch-name }}
 
-To get started with the service:
+To get started:
 * [Create a database cluster](#cluster-create).
 * [Connect to the DB](#connect).
 
@@ -96,6 +96,7 @@ To get started with the service:
    1. Run the {{ CH }} CLI with the following parameters:
 
       {% include [default-connstring](../_includes/mdb/mch/default-connstring.md) %}
+
 
 ## What's next {#whats-next}
 

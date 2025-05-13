@@ -9,7 +9,7 @@ When you delete a VM from {{ backup-name }}, it remains in {{ compute-full-name 
 
 {% note info %}
 
-If you delete a VM from {{ compute-name }} using the management console it is also deleted from {{ backup-name }}. If you use the YC CLI, {{ TF }}, or an API request, the VM remains available in {{ backup-name }}.
+If you delete a VM from {{ compute-name }} using the management console it is also deleted from {{ backup-name }}. If you use the CLI, {{ TF }}, or an API request, the VM remains available in {{ backup-name }}.
 
 {% endnote %}
 

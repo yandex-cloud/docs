@@ -1,6 +1,6 @@
 ---
 title: '{{ objstorage-full-name }} pricing policy'
-description: This article explains the {{ objstorage-name }} pricing policy.
+description: This article covers the {{ objstorage-name }} pricing policy.
 editable: false
 ---
 

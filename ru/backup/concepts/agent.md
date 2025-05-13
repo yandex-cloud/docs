@@ -39,3 +39,4 @@
 * [{#T}](../operations/refresh-connection-oslogin-linux.md)
 * [{#T}](../operations/backup-baremetal/backup-baremetal.md)
 * [{#T}](../operations/backup-baremetal/refresh-connection.md)
+* [{#T}](../operations/limit-agent-memory-usage.md)

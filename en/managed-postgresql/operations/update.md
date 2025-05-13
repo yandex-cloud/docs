@@ -56,7 +56,7 @@ We recommend changing the host class only when the cluster has no active workloa
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for the {{ PG }} hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -236,7 +236,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -420,7 +420,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change additional cluster settings:
 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
@@ -489,7 +489,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
         If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     
     * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
@@ -585,7 +585,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
       If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   1. Make sure the settings are correct.
 
@@ -700,7 +700,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
         If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -833,7 +833,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
         If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -872,7 +872,7 @@ You need the `connection-manager.viewer` role to view connection info. You can [
 
 {% note info %}
 
-You can use {{ connection-manager-name }} and secrets you create there free of charge.
+You can use {{ connection-manager-name }} and secrets you create with it free of charge.
 
 {% endnote %}
 
@@ -1132,7 +1132,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
 - CLI {#cli}

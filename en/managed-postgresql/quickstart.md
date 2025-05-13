@@ -5,7 +5,7 @@ description: Follow this guide to create a {{ PG }} cluster and connect to it.
 
 # Getting started with {{ mpg-name }}
 
-To get started with the service:
+To get started:
 * [Create a DB cluster](#cluster-create).
 * [Connect to the DB](#connect).
 
@@ -64,6 +64,7 @@ To get started with the service:
 1. Use the `psql` command to connect:
 
     {% include [default-connstring](../_includes/mdb/mpg/default-connstring.md) %}
+
 
 ## What's next {#whats-next}
 

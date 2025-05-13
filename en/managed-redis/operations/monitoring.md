@@ -29,6 +29,10 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
   The following charts will open on the page:
 
+  * **Can Read**: Displays clusters available for reading.
+
+  * **Can Write**: Displays clusters available for writing.
+
   * **Cache Hit Rate**: Percentage of cache hits for each host.
 
       Values approaching 1 indicate efficient use of the cluster as a caching server. If the percentage of cache hits is close to 0, you may need to modify the application logic, the key lifetime, or the [RAM management policy](../concepts/settings-list.md#settings-maxmemory-policy) in case of memory pressure.
@@ -37,19 +41,18 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
   * **Client recent max output buffer size**: Memory usage to handle client connections to retrieve data:
 
-      * **soft_limit**: Soft memory usage limit.
-      * **hard_limit**: Hard memory usage limit.
-      * **buffer**: Current amount of data in buffer.
+      * **Soft Limit**: Soft memory usage limit.
+      * **Hard Limit**: Hard memory usage limit.
 
-      If the value of **buffer** reaches the **soft_limit**, the cluster will wait a few seconds for it to decrease. If the value of **buffer** does not decrease, the connection will be closed.
-      If the value of **buffer** becomes equal to the value of **hard_limit**, the connection will shut down immediately.
+      If the **Soft Limit** value is exceeded, the cluster will wait a few seconds for it to decrease. If the value does not decrease, the connection will be closed.
+      If the **Hard Limit** value is exceeded, the connection will be closed immediately.
 
   * **Commands Processed**: Average number of commands processed by each cluster host.
 
   * **Connected Clients**: Number of open connections for each cluster host.
 
       If a cluster is [sharded](../concepts/sharding.md) or uses [replication](../concepts/replication.md), some of the connections will be used for exchanging data between cluster hosts.
-      Errors occuring when connecting to a cluster may result from inactive applications keeping connections open too long. If this is the case, [modify the {{ VLK }}](../operations/update.md#change-redis-config) settings to change the value of the [Timeout](../concepts/settings-list.md#settings-timeout) parameter.
+      Errors occuring when connecting to a cluster may result from inactive applications keeping connections open too long. If this is the case, [update the {{ VLK }} settings](../operations/update.md#change-redis-config) by editing the [Timeout](../concepts/settings-list.md#settings-timeout) value.
 
   * **Copy-on-write allocation**: Memory consumption by {{ VLK }} processes when using [COW (copy-on-write)](https://en.wikipedia.org/wiki/Copy-on-write) (in bytes).
 
@@ -80,15 +83,6 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
       {% endnote %}
 
-  * **Is Alive**: Indicates cluster accessibility as the sum of its hosts' states.
-
-      Each **Alive** host increases the overall availability by 1. When one of the hosts fails, the overall availability is reduced by 1.
-      To increase the availability of a cluster, [add hosts](hosts.md#add).
-
-  * **Is Master**: Shows which host is and how long it has been master.
-
-      With [sharding](../concepts/sharding.md) enabled, the graph will display information on master hosts in each shard.
-
   * **Outer memory limit**: Shows the total amount of RAM (in bytes) available for use on hosts:
 
       * **memory_limit**: Amount of memory allocated to each host.
@@ -109,6 +103,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
       * **mem_replication_backlog**: For a circular replication buffer.
       * **used_memory_startup**: For {{ VLK }} processes at startup (for example, after a cluster reboot).
       * **used_memory_dataset**: For data storage.
+      * **mem_cluster_links**: For network connections in cluster mode.
 
   * **Redis Used Memory on Replicas**: RAM usage on replicas (in bytes):
 
@@ -120,8 +115,9 @@ To view detailed information about the {{ mrd-name }} cluster state:
       * **mem_replication_backlog**: For a circular replication buffer.
       * **used_memory_startup**: For {{ VLK }} processes at startup (for example, after a cluster reboot).
       * **used_memory_dataset**: For data storage.
+      * **mem_cluster_links**: For network connections in cluster mode.
 
-  * **Redis-server OOM kills**: Number of {{ VLK }} processes terminated because of a RAM shortage (_OOM_ stands for out-of-memory).
+  * **Redis-server OOM kills (for last hour)**: Number of {{ VLK }} processes terminated because of a RAM shortage (_OOM_ stands for out-of-memory) for the last hour.
 
       To reduce the number of terminations:
       * Change the application logic to reduce the amount of data stored in {{ VLK }}.
@@ -141,9 +137,13 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
       For more information, see [{#T}](../concepts/replication.md).
 
-  * **Slowlog top operations**: List of the 5 slowest commands executed on each host in the course of one minute.
+  * **Slowlog top operations on Master**: List of the 5 slowest commands executed on the master host within one minute.
+  
+  * **Slowlog top operations on Replicas**: List of the 5 slowest commands executed on each replica host within one minute.
 
-      A slow command is a command whose running time has exceeded the [Slowlog log slower than](../concepts/settings-list.md#settings-slowlog-slower-than) setting. The graph shows only the first part of a command as well as the number of times it was called in one minute.
+  * **Slowlog new records**: Displays new entries in the slow log.
+
+      A slow command is a command whose runtime has exceeded the [Slowlog log slower than](../concepts/settings-list.md#settings-slowlog-slower-than) setting. The graph shows only the first part of a command as well as the number of times it was called in one minute.
 
 {% endlist %}
 
@@ -162,16 +162,17 @@ To view detailed information about the state of individual {{ mrd-name }} hosts:
 
   This page displays charts showing the load on an individual host in the cluster:
 
-  * **CPU**: Load on processor cores. As the load goes up, the `Idle` value goes down.
-  * **Disk bytes**: Speed of disk operations (bytes per second).
+  * **CPU usage**: Usage of processor cores. As the load goes up, the `idle` value goes down.
+  * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
   * **Disk IOPS**: Number of disk operations per second.
-  * **Memory**: Use of RAM, in bytes. At high loads, the `Free` value goes down, while the other values go up.
-  * **Network bytes**: Speed of data exchange over the network, in bytes per second.
-  * **Network packets**: Number of packets exchanged over the network, per second.
+  * **Disk space usage**: Amount of used and total disk space.
+  * **Memory usage**: Use of RAM, in bytes. At high loads, the `Free` value goes down, while the other values go up.
+  * **Network bytes**: Speed of network data exchange (bytes per second).
+  * **Network packets**: Network packet transmission activity (packets per second).
 
-  The **Disk bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
+  The **Disk read/write bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
 
-  For hosts with the **Replica** role, **Received** is normally greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
+  For hosts with the **Replica** role, **Received** is normally greater than **Sent** on the **Network bytes** and **Network packets** charts.
 
 {% endlist %}
 

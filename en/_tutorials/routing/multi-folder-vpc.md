@@ -1,17 +1,17 @@
 # Connecting resources from different folders
 
 
-In {{ yandex-cloud }}, you create network resources, e.g., cloud networks and subnets, in separate folders disconnected from each other and you often need to connect them. You can do it using the `Multi-folder VPC` method extending the scope of a {{ vpc-short-name }} network to multiple folders.
+In {{ yandex-cloud }}, network resources, such as cloud network and subnets, are usually created in a single resource cloud folder that is not linked to resources in other cloud folders. When deploying resources in {{ yandex-cloud }}, it is often necessary to ensure networking between resources residing in different folders. One of the ways to do that is using the `Multi-folder VPC` method that extends the scope of an individual {{ vpc-short-name }} network to multiple rather than one folder.
 
 Depending on the selected {{ yandex-cloud }} tools, you can extend your network scope to other folders by:
 
-* Moving subnets to other folders using the `management console (UI)` and `YC CLI`.
-* Creating subnets in target folders with `YC CLI`.
+* Moving subnets to other folders using the `management console (UI)` and `CLI`.
+* Creating subnets in target folders with `CLI`.
 * Creating subnets in target folders with `Terraform`.
 
 Once you placed a subnet into the target folder, you can connect other folder resources to it, including VMs, {{ managed-k8s-name }} clusters, database hosts, load balancers, load testing agents, etc. As a result, you will have a network connecting resources from different folders.
 
-In this tutorial, we will set up three VMs residing in different folders and connected by a shared network. We will create a cloud network in one of these folders and then extend its scope to other folders, thus connecting the resources located there.
+This guide provides an example of how to create an infrastructure consisting of three VM instances, each residing in a different folder. These instances are connected via a shared internal network. Network connectivity between cloud resources hosted in different folders is established by creating a cloud network in one of these folders and then extending its scope to other folders. This way, a single-folder network is extended to multiple folders, which allows connecting required resources to `extended subnets` residing in these folders.
 
 {% note warning %}
 
@@ -228,7 +228,7 @@ In `net-folder`, create the `shared-net` network and three subnets with the foll
         terraform apply
         ```
 
-     1. Enter `yes` to confirm changes.
+     1. Confirm updating the resources.
 
      1. Wait for the operation to complete.
 
@@ -250,7 +250,7 @@ In `net-folder`, create the `shared-net` network and three subnets with the foll
      1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Specify the subnet name: `subnet-a`, `subnet-b`, or `subnet-d`.
      1. Select the availability zone from the drop-down list: `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`, respectively.
-     1. Specify the subnet CIDR: `10.1.11.0` as IP address and `24` as subnet mask. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+     1. Enter the subnet CIDR: IP address `10.1.11.0` and subnet mask `24`. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
      1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
    - CLI {#cli}
@@ -693,4 +693,4 @@ Create [VMs](../../compute/concepts/vm.md) with the following settings:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, [delete VMs](../../compute/operations/vm-control/vm-delete.md): `net-vm`, `dev-vm`, and `prod-vm`.
+To stop paying for the resources you created, [delete these VMs](../../compute/operations/vm-control/vm-delete.md): `net-vm`, `dev-vm`, and `prod-vm`.

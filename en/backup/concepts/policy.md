@@ -2,7 +2,15 @@
 
 Backups of {{ yandex-cloud }} resources are created in {{ backup-name }} automatically according to _backup policies_.
 
-Creating policies becomes available after you [activate](index.md#providers) {{ backup-name }}.
+You can start [creating](../operations/policy-vm/create.md) the policies after you [activate](index.md#providers) {{ backup-name }}.
+
+{% note info %}
+
+You can create or [update](../operations/policy-vm/update.md) a policy using the {{ yandex-cloud }} management console, {{ TF }}, or a [JSON](https://en.wikipedia.org/wiki/JSON) [specification](#specification) via the {{ yandex-cloud }} [CLI](../../cli/quickstart.md) or API.
+
+The {{ yandex-cloud }} management console does not support some parameters from the JSON specification for policies.
+
+{% endnote %}
 
 {% include [default-policies](../../_includes/backup/default-policies.md) %}
 
@@ -17,7 +25,7 @@ The backup policy specifies:
 
   {% include [av-note](../../_includes/backup/av-note.md) %}
 
-* Settings for [storing backups](#retention).
+* [Backup retention](#retention) settings.
 
 {% include [policy-execute-time](../../_includes/backup/policy-execute-time.md) %}
 
