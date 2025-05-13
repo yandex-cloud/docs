@@ -12,7 +12,7 @@ When creating a cluster, you can select the following disk types for data storag
   Such disks can be increased in size only in 93 GB increments.
 
   Access to high-performance SSDs is available on request. Contact [support]({{ link-console-support }}) or your account manager.
-  
+
 
 * **Local SSDs** (`local-ssd`): Disks with the best performance.
 
@@ -23,3 +23,5 @@ When creating a cluster, you can select the following disk types for data storag
   * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments only.
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+
+{% include [available-storage](../available-storage.md) %}

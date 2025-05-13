@@ -9,7 +9,7 @@ items:
         href: quickstart/yandexart.md
   - name: Step-by-step guides
     items:
-      - name: All guides
+      - name: All tutorials
         href: operations/index.md
       - name: Disabling request logging
         href: operations/disable-logging.md
@@ -31,6 +31,8 @@ items:
         items:
           - name: Generating an image
             href: operations/yandexart/request.md
+      - name: Batch processing
+        href: operations/batch/create.md
       - name: Classification
         items:
           - name: Using prompt-based classifiers
@@ -43,6 +45,8 @@ items:
             href: operations/embeddings/search.md
       - name: Working with datasets
         items:
+          - name: Creating a dataset
+            href: operations/resources/create-dataset.md
           - name: Creating a dataset for tuning a text generation model
             href: operations/resources/create-dataset-gpt.md
           - name: Creating a dataset for tuning a text classifier
@@ -59,7 +63,7 @@ items:
             href: operations/assistant/create.md
           - name: Creating a search assistant
             href: operations/assistant/create-with-searchindex.md
-          - name: Creating a search assistant that uses file and index metadata
+          - name: Creating a search assistant specifying file metadata and indexes
             href: operations/assistant/create-with-labels.md
           - name: Getting intermediate response generation results
             href: operations/assistant/request-chunked-response.md
@@ -85,6 +89,8 @@ items:
             href: concepts/yandexart/index.md
           - name: Models
             href: concepts/yandexart/models.md
+      - name: Multimodal models
+        href: concepts/multimodal/index.md
       - name: Classification
         items:
           - name: Overview
@@ -232,6 +238,24 @@ items:
                     href: image-generation/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: image-generation/api-ref/grpc/Operation/cancel.md
+      - name: Batch Inference API
+        items:
+          - name: gRPC
+            items:
+              - name: Overview
+                href: batch-inference/api-ref/grpc/index.md
+              - name: BatchInference
+                items:
+                  - name: Overview
+                    href: batch-inference/api-ref/grpc/BatchInference/index.md
+                  - name: Describe
+                    href: batch-inference/api-ref/grpc/BatchInference/describe.md
+                  - name: List
+                    href: batch-inference/api-ref/grpc/BatchInference/list.md
+                  - name: Cancel
+                    href: batch-inference/api-ref/grpc/BatchInference/cancel.md
+                  - name: Delete
+                    href: batch-inference/api-ref/grpc/BatchInference/delete.md
       - name: Text Classification API
         items:
           - name: REST

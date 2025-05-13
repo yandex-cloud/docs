@@ -496,6 +496,8 @@ default:
   network-load-balancer-name: Network Load Balancer
   network-load-balancer-short-name: Network Load Balancer
   network-name: default
+  neurosupport-full-name: Yandex Neurosupport
+  neurosupport-name: Neurosupport
   nodejs-cli-ver: nodejs18
   nodejs-full-ver: Node.js 18
   objstorage-full-name: Yandex Object Storage
@@ -1004,6 +1006,12 @@ default:
         12_month|string: "424\_150,00\_₸"
         3_month|string: "474\_050,00\_₸"
         6_month|string: "464\_070,00\_₸"
+      ba_i112_10s_10g:
+        1_day|string: "517\_000,00\_₸"
+        1_month|string: "501\_490,00\_₸"
+        12_month|string: "439\_450,00\_₸"
+        3_month|string: "491\_150,00\_₸"
+        6_month|string: "480\_810,00\_₸"
       ba_i200_h:
         1_day|string: "93\_000,00\_₸"
         1_month|string: "90\_210,00\_₸"
@@ -1064,6 +1072,12 @@ default:
         12_month|string: "424\_575,00\_₸"
         3_month|string: "474\_525,00\_₸"
         6_month|string: "464\_535,00\_₸"
+      ba_i212_10s_10g:
+        1_day|string: "517\_500,00\_₸"
+        1_month|string: "501\_975,00\_₸"
+        12_month|string: "439\_875,00\_₸"
+        3_month|string: "491\_625,00\_₸"
+        6_month|string: "481\_275,00\_₸"
       ba_i407_s_10g:
         1_day|string: "431\_000,00\_₸"
         1_month|string: "418\_070,00\_₸"
@@ -2624,6 +2638,12 @@ default:
         12_month|string: "84\_830,00\_₽"
         3_month|string: "94\_810,00\_₽"
         6_month|string: "92\_814,00\_₽"
+      ba_i112_10s_10g:
+        1_day|string: "103\_400,00\_₽"
+        1_month|string: "100\_298,00\_₽"
+        12_month|string: "87\_890,00\_₽"
+        3_month|string: "98\_230,00\_₽"
+        6_month|string: "96\_162,00\_₽"
       ba_i200_h:
         1_day|string: "18\_600,00\_₽"
         1_month|string: "18\_042,00\_₽"
@@ -2684,6 +2704,12 @@ default:
         12_month|string: "84\_915,00\_₽"
         3_month|string: "94\_905,00\_₽"
         6_month|string: "92\_907,00\_₽"
+      ba_i212_10s_10g:
+        1_day|string: "103\_500,00\_₽"
+        1_month|string: "100\_395,00\_₽"
+        12_month|string: "87\_975,00\_₽"
+        3_month|string: "98\_325,00\_₽"
+        6_month|string: "96\_255,00\_₽"
       ba_i407_s_10g:
         1_day|string: "86\_200,00\_₽"
         1_month|string: "83\_614,00\_₽"
@@ -4236,6 +4262,12 @@ default:
         12_month|string: "706,916384\_$"
         3_month|string: "790,083017\_$"
         6_month|string: "773,449691\_$"
+      ba_i112_10s_10g:
+        1_day|string: "861,666322\_$"
+        1_month|string: "835,816332\_$"
+        12_month|string: "732,416374\_$"
+        3_month|string: "818,583006\_$"
+        6_month|string: "801,349679\_$"
       ba_i200_h:
         1_day|string: "154,999938\_$"
         1_month|string: "150,349940\_$"
@@ -4296,6 +4328,12 @@ default:
         12_month|string: "707,624717\_$"
         3_month|string: "790,874684\_$"
         6_month|string: "774,224690\_$"
+      ba_i212_10s_10g:
+        1_day|string: "862,499655\_$"
+        1_month|string: "836,624665\_$"
+        12_month|string: "733,124707\_$"
+        3_month|string: "819,374672\_$"
+        6_month|string: "802,124679\_$"
       ba_i407_s_10g:
         1_day|string: "718,333046\_$"
         1_month|string: "696,783055\_$"
@@ -6868,7 +6906,9 @@ default:
         label_create-network: Создать VRF
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
+        label_images: Загрузочные образы
         label_kvm-console: KVM-консоль
+        label_load-image: Загрузить образ
         label_lockbox-key: Ключ
         label_lockbox-name: Имя
         label_lockbox-version: Версия

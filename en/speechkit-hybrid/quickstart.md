@@ -59,16 +59,15 @@ In case of errors, use our [debugging guide](quickstart-debugging.md).
 
 On a local machine:
 
-1. [Install the {{ yandex-cloud }} command line interface](../cli/operations/install-cli.md) (YC CLI).
-1. [Authenticate your service account](../cli/operations/authentication/service-account.md) via the YC CLI.
+1. [Install the {{ yandex-cloud }} command line interface](../cli/operations/install-cli.md) (CLI).
+1. [Authenticate your service account](../cli/operations/authentication/service-account.md) via the CLI.
 1. [Install {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 ## Prepare a repository with the {{ TF }} configuration {#repository}
 
 On a local machine:
 
-1. Clone the [repository with the {{ TF }} configuration](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/) 
-1.  from which the required infrastructure will be deployed:
+1. Clone the [repository with the {{ TF }} configuration](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/) from which the required infrastructure will be deployed:
 
    ```bash
    git clone git@github.com:yandex-cloud-examples/yc-speechkit-hybrid-deployment.git
@@ -101,7 +100,7 @@ You will need the SSH keys for authentication when connecting to the {{ yandex-c
 
 ## Add variables for the {{ TF }} configuration {#variables}
 
-The `yc-speechkit-hybrid-deployment` repository directory contains the `terraform.tfvars.template` file. It is a {{ TF }} template by which environment variables are set. These variables are provided to the YC CLI and {{ TF }} when running commands.
+The `yc-speechkit-hybrid-deployment` repository directory contains the `terraform.tfvars.template` file. It is a {{ TF }} template by which environment variables are set. These variables are provided to the CLI and {{ TF }} when executing commands.
 
 To set variables for the {{ TF }} configuration, perform the following steps on the local machine:
 

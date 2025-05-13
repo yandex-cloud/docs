@@ -1,5 +1,5 @@
 ---
-title: Connecting to a {{ CH }} cluster in {{ mch-full-name }}
+title: Connecting to an {{ CH }} cluster in {{ mch-full-name }}
 description: Follow this guide to connect to a database in a {{ CH }} cluster using command line tools, browser, graphical IDEs, and Docker container.
 ---
 
@@ -29,6 +29,7 @@ The examples for Windows were tested in the following environment:
 ## Command line tools {#command-line-tools}
 
 {% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
+
 
 ### clickhouse-client {#clickhouse-client}
 
@@ -149,7 +150,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
 1. Create a data source:
     1. Select **File** → **New** → **Data Source** → **{{ CH }}**.
     1. On the **General** tab:
-        1. Specify the connection parameters:
+        1. Specify the connection settings:
             * **Host**: [Any {{ CH }} host FQDN](fqdn.md) or a [special FQDN](fqdn.md#auto).
             * **Port**: `{{ port-mch-http }}`.
             * **User**, **Password**: DB user's name and password.
@@ -190,7 +191,7 @@ To run SQL queries from your browser, use:
 * [{{ CH }}](#inline-editor) built-in SQL editor
 
 
-* [{{ websql-full-name }} service](#websql)
+* [{{ websql-full-name }}](#websql)
 
 
 
@@ -217,7 +218,7 @@ When connecting from the built-in editor, SQL queries run separately without cre
 
 
 
-### {{ websql-full-name }} service {#websql}
+### {{ websql-full-name }} {#websql}
 
 {% include notitle [preview](../../../_includes/note-preview.md) %}
 

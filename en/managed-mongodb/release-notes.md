@@ -5,6 +5,12 @@ description: This section contains {{ mmg-name }} release notes.
 
 # {{ mmg-full-name }} release notes
 
+
+## March 2025 {#mar-2025}
+
+You can now connect to a cluster database via [{{ websql-full-name }}](../websql/operations/create-connection.md).
+
+
 ## December 2024 {#dec-2024}
 
 Creating {{ MG }} 5.0 clusters became unavailable starting December 2, 2024, as the version was [discontinued](https://www.mongodb.com/support-policy) by the vendor.

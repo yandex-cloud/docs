@@ -1,6 +1,6 @@
 ---
 title: '{{ maf-full-name }} pricing policy'
-description: This article provides the {{ maf-name }} pricing policy.
+description: This article covers the {{ maf-name }} pricing policy.
 editable: false
 ---
 
@@ -47,15 +47,6 @@ The cost of using a cluster with the following parameters for 30 days:
 
 
 ## Prices for the Russia region {#prices}
-
-
-
-{% note warning %}
-
-Starting May 1, 2025, the prices for {{ maf-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2o8879r181fgps5lb3).
-
-{% endnote %}
-
 
 
 

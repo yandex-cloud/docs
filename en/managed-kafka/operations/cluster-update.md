@@ -8,13 +8,13 @@ description: Follow this guide to change {{ KF }} cluster settings.
 
 After creating a {{ mkf-name }} cluster, you can:
 
-* [Change the cluster name and description](#change-name-and-description)
-* [Change the class and number of broker hosts](#change-brokers)
-* [Change the {{ ZK }} host class](#change-zookeeper)
-* [Change security group and public access settings](#change-sg-set)
-* [Change additional cluster settings](#change-additional-settings)
-* [Change {{ KF }} settings](#change-kafka-settings)
-* [Move a cluster to another folder](#move-cluster)
+* [Changing cluster name and description](#change-name-and-description)
+* [Changing the broker host class and number](#change-brokers)
+* [Changing the {{ ZK }} host class](#change-zookeeper)
+* [Changing security group and public access settings](#change-sg-set)
+* [Changing additional cluster settings](#change-additional-settings)
+* [Changing {{ KF }} settings](#change-kafka-settings)
+* [Moving a cluster to another folder](#move-cluster)
 
 Learn more about other cluster updates:
 
@@ -22,14 +22,14 @@ Learn more about other cluster updates:
 * [{#T}](storage-space.md).
 * [{#T}](host-migration.md).
 
-## Changing the cluster name and description {#change-name-and-description}
+## Changing cluster name and description {#change-name-and-description}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -67,7 +67,7 @@ Learn more about other cluster updates:
 
     To update the cluster description:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -203,7 +203,7 @@ We recommend changing broker host class only when there is no active workload on
   To change the class and number of hosts:
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change the required settings:
      * To edit the broker host class, select a new [**{{ ui-key.yacloud.mdb.forms.section_resource }}**](../concepts/instance-types.md).
      * Change **{{ ui-key.yacloud.kafka.label_brokers-per-az }}**.
@@ -247,7 +247,7 @@ We recommend changing broker host class only when there is no active workload on
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -433,7 +433,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Select a new [**{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**](../concepts/instance-types.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -469,7 +469,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -631,7 +631,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
   1. Enable or disable public access to a cluster via the **Public access** option.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -667,7 +667,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -826,7 +826,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change additional cluster settings:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -880,7 +880,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -1082,7 +1082,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings-kafka }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
 
      For more information, see [{{ KF }} settings](../concepts/settings-list.md).
@@ -1121,7 +1121,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -1304,7 +1304,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 

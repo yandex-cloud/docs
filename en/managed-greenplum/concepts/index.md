@@ -21,7 +21,7 @@ If the primary master fails, the standby one takes over. This way, a cluster wit
 
 Segment hosts have standalone DBMS's (_segments_) deployed on them. They store data fragments and perform most operations for handling queries. Each cluster segment has a replica, i.e., a mirror segment that is located on another host and stores a copy of the data from the main segment.
 
-The number of segments is the same for each host. When [expanding a cluster](../operations/hosts/cluster-expand.md), you can increase the number of segments. They will be added to all hosts — both new and existing ones. You cannot add segments to existing hosts without expanding the cluster.
+The number of segments is the same for each host. When [expanding a cluster](../operations/cluster-expand.md), you can increase the number of segments. They will be added to all hosts — both new and existing ones. You cannot add segments to existing hosts without expanding the cluster.
 
 
 
@@ -33,11 +33,11 @@ The number of segments is the same for each host. When [expanding a cluster](../
 
 * _Dedicated {{ yandex-cloud }} hosts_:
 
-    These are physical servers that only host your VMs. VMs on dedicated hosts have all features of regular VMs; additionally, they are physically isolated from other users' VMs and have access to all local disks of the physical server.
+    These are physical servers reserved exclusively for your VMs. VMs on dedicated hosts have all the features of regular VMs. In addition, they are physically isolated from other users' VMs and have access to the whole volume of the physical server's local disks.
 
     Dedicated hosts are selected from _dedicated host groups_ specified when creating a cluster. You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
-    For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
+    To learn more, see [{#T}](../../compute/concepts/dedicated-host.md).
 
 
 All {{ mgp-name }} cluster hosts are placed in the same availability zone, `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`.

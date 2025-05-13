@@ -11,6 +11,7 @@ This is why the developers on both the producer and consumer side should:
 
 To automate handling of data format schemas, a _data format schema registry_ is used. It significantly simplifies working with data, especially when a schema changes over time. The registry automatically checks data version compatibility and ensures the backward compatibility of schema versions.
 
+
 ## How data format schema registry works {#how-sr-works}
 
 1. A producer transmits data format schemas to the registry. The following data schema formats are supported:
@@ -28,6 +29,7 @@ To automate handling of data format schemas, a _data format schema registry_ is 
 1. Upon receiving a message, a consumer extracts the version number of the data format schema in it.
 1. If the required data format schema is missing from the local cache, the consumer looks it up in the registry. After getting the appropriate schema, it correctly interprets the received message.
 
+
 ## {{ mkf-msr }} {#msr}
 
 {{ mkf-name }} clusters already have a built-in {{ mkf-msr }} data format schema registry. The registry is deployed on each cluster broker host and is accessible via HTTPS on port 443.
@@ -42,7 +44,8 @@ To enable management, activate the option when [creating](../operations/cluster-
 To work with {{ mkf-msr }}, you need an advanced [security group configuration](../operations/connect/index.md#configuring-security-groups).
 
 
-## {{ mkf-msr }} subjects {#subjects}
+
+### {{ mkf-msr }} subjects {#subjects}
 
 The schemas use _[subjects](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects)_, i.e., names they are registered under. To write and read schemas, {{ KF }} uses the `<topic_name>-key` or `<topic_name>-value` subjects, depending on whether the schema is registered for a key or a value. The subject specifies the topic to publish messages to.
 
@@ -52,7 +55,8 @@ Subject access depends on permissions [granted](../operations/cluster-accounts.m
 * The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a topic formatted as `<prefix>*` allows the user to manage subjects with the same `<prefix>*` format. Topic and subject names start with the same prefix.
 * The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in a {{ mkf-name }} cluster.
 
-## Authorization in {{ mkf-msr }} {#msr-auth}
+
+### Authorization in {{ mkf-msr }} {#msr-auth}
 
 When working with the {{ mkf-msr }} API over an SSL connection, you need to configure the same client [SSL certificate](../operations/connect#get-ssl-cert) as for broker host connections.
 
@@ -74,6 +78,14 @@ Access to schemas depends on the selected [topic management method](./topics.md#
 
 For more information about roles, see [User management](../operations/cluster-accounts.md).
 
+
+### Use cases {#examples-msr}
+
+* [{#T}](../tutorials/schema-registry-overview.md)
+* [{#T}](../tutorials/managed-schema-registry.md)
+* [{#T}](../tutorials/managed-schema-registry-rest.md)
+
+
 ## Confluent Schema Registry {#confluent-sr}
 
 [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) is one of the software solutions that helps resolve the issue of data format schema synchronization between producers and consumers.
@@ -82,7 +94,8 @@ Confluent Schema Registry allows you to store data format schemas in the {{ KF }
 
 For more information about the registry, see the [Confluent documentation](https://docs.confluent.io/platform/current/schema-registry/index.html).
 
-## See also {#see-also}
 
-* [Working with the managed schema registry](../tutorials/managed-schema-registry.md)
-* [Working with Confluent Schema Registry](../tutorials/confluent-schema-registry.md)
+### Use cases {#examples-confluent}
+
+* [{#T}](../tutorials/schema-registry-overview.md)
+* [{#T}](../tutorials/confluent-schema-registry.md)

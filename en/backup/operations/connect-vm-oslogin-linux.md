@@ -1,19 +1,19 @@
 ---
-title: How to connect a Linux VM with OS Login to {{ backup-full-name }}
-description: Follow this guide to connect a Linux VM with OS Login to {{ backup-name }}.
+title: How to connect a Linux VM with {{ oslogin }} to {{ backup-full-name }}
+description: Follow this guide to connect a Linux VM with {{ oslogin }} to {{ backup-name }}.
 ---
 
-# Connecting a Linux VM with OS Login to {{ backup-name }}
+# Connecting a Linux VM with {{ oslogin }} to {{ backup-name }}
 
-You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Linux-based operating systems and OS Login](../concepts/vm-connection.md#linux).
+You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Linux-based operating systems with {{ oslogin }}](../concepts/vm-connection.md#linux).
 
 {% include [requirements](../../_includes/backup/requirements.md) %}
 
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
-If you have [deleted](delete-vm.md) a VM with OS Login from {{ backup-name }} and want to reconnect it, follow the steps below.
+If you have [deleted](delete-vm.md) a VM with {{ oslogin }} from {{ backup-name }} and want to reconnect it, follow the steps below.
 
-To connect a Linux VM with OS Login to {{ backup-name }}:
+To connect a Linux VM with {{ oslogin }} to {{ backup-name }}:
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../security/index.md#backup-editor).
 1. [Connect](../../compute/operations/vm-control/vm-connect-sa.md) the previously created service account to the VM.
@@ -41,7 +41,7 @@ To connect a Linux VM with OS Login to {{ backup-name }}:
 
         Where:
 
-        * `id`: VM unique ID. This is a required parameter.
+        * `id`: VM unique ID. This is a required setting.
         * `policy-ids`: IDs of the [backup policies](../concepts/policy.md) for attaching to the VM after installing the {{ backup-name }} agent. This is an optional parameter. Attaching a policy to a VM is an asynchronous operation which may take several minutes.
 
         Once you execute the command, you will get the {{ backup-name }} agent installation warning: `This command will launch commands on specified instance to install backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Confirm the installation: in the terminal, type `yes` and press `Enter`. The {{ backup-name }} agent installation will start. It will take some time.

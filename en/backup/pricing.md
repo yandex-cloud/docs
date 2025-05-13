@@ -1,6 +1,6 @@
 ---
 title: '{{ backup-full-name }} pricing policy'
-description: This article provides the {{ backup-name }} pricing policy.
+description: This article covers the {{ backup-name }} pricing policy.
 editable: false
 ---
 
@@ -20,7 +20,7 @@ The cost of {{ backup-name }} depends on the number of resources to back up, suc
 
 In {{ backup-name }}, you start paying for a {{ compute-name }} instance or {{ baremetal-name }} server as soon as you link it to a [backup policy](./concepts/policy.md). Regardless of the resource status, you will be charged until you unlink it from the policy.
 
-If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), this will also unlink such a VM from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from policies automatically. You need to unlink it yourself.
+If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), this will also unlink such a VM from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from the policies automatically, so you will have to do it yourself.
 
 If you need to unlink a {{ baremetal-name }} from a policy, you will still have to do it on your own.
 
@@ -34,9 +34,9 @@ The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-If a secured resource is stopped or deleted, its backups are still stored in {{ backup-name }} and you continue to pay for their total size. The backup size depends on the following:
+If a secured resource is stopped or deleted, its backups are still stored in {{ backup-name }} and you continue to pay for their total size. Such backup size depends on the following:
 * VM disk usage or {{ baremetal-name }} server disk usage
-* Amount of data updated during regular backups
+* Amount of data changes during regular backups
 * Data compression option
 
 {% note info %}

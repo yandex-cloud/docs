@@ -2,7 +2,6 @@
 title: '{{ mtr-name }} quotas and limits'
 description: '{{ mtr-name }} has limits and quotas for the number of clusters, total number of processor cores for all cluster components, and total amount of virtual memory for all cluster components. For more information about the service limitations, read this article.'
 editable: false
-noIndex: true
 ---
 
 # Quotas and limits in {{ mtr-name }}
@@ -10,7 +9,7 @@ noIndex: true
 {% include [preview](../../_includes/managed-trino/note-preview.md) %}
 
 
-{{ mtr-name }} has the following limits:
+{{ mtr-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

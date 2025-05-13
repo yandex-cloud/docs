@@ -21,8 +21,8 @@ To use the examples:
 - cURL {#curl}
 
   1. {% include notitle [ai-before-beginning](./yandexgpt/ai-before-beginning.md) %}
-  1. Install [gRPCurl](https://github.com/fullstorydev/grpcurl).
   1. {% include [curl](../curl.md) %}
+  1. Install [gRPCurl](https://github.com/fullstorydev/grpcurl).
   1. (Optional) Install the [jq](https://stedolan.github.io/jq/) JSON stream processor.
   1. [Get an IAM token](../../iam/operations/iam-token/create.md) used for authentication in the API.
   

@@ -20,7 +20,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, edit the cluster name and description, delete labels, or add new ones.
 

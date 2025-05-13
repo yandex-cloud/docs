@@ -1,6 +1,6 @@
 ---
 title: '{{ dns-full-name }} pricing policy'
-description: This article provides the {{ dns-name }} pricing policy.
+description: This article covers the {{ dns-name }} pricing policy.
 editable: false
 ---
 
@@ -17,7 +17,7 @@ editable: false
 
 {% note warning %}
 
-Starting May 1, 2025, the prices for {{ dns-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2dns25hpthhkqn2cps).
+Starting May 1, 2025, prices for {{ dns-full-name }} resources will increase in the Russia region. You can view the new prices in USD the [website](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2dns25hpthhkqn2cps).
 
 {% endnote %}
 

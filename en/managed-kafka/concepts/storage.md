@@ -10,7 +10,7 @@ description: In this article, you will learn what a storage is in {{ mkf-name }}
 
 {% include [storage-type-nrd](../../_includes/mdb/mkf/storage-type.md) %}
 
-## Selecting the disk type during cluster creation {#storage-type-selection}
+## Selecting disk type when creating a cluster {#storage-type-selection}
 
 
 The number of broker hosts you can create together with an {{ KF }} cluster depends on the selected disk type:
@@ -85,3 +85,10 @@ You can use either one or both thresholds. If you set both, make sure the immedi
 You can configure automatic increase of storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/kafka-connect.md)
+* [{#T}](../tutorials/managed-schema-registry.md)
+* [{#T}](../tutorials/confluent-schema-registry.md)

@@ -45,7 +45,7 @@ We recommend changing the host class only when the cluster has no active workloa
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the class of {{ MY }} hosts, under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -94,7 +94,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -220,7 +220,7 @@ We recommend changing the host class only when the cluster has no active workloa
   To change the disk type and increase the storage size for a cluster:
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       * Select the [disk type](../concepts/storage.md).
@@ -254,7 +254,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -384,7 +384,7 @@ We recommend changing the host class only when the cluster has no active workloa
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Configure the [{{ MY }}](../concepts/settings-list.md#dbms-cluster-settings) settings by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -416,7 +416,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -550,7 +550,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change additional cluster settings:
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -610,7 +610,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -945,7 +945,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -1035,7 +1035,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
 - CLI {#cli}
@@ -1061,7 +1061,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](./cluster-create.md).
 

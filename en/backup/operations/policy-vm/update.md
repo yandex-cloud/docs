@@ -14,6 +14,14 @@ description: In this tutorial, you will learn how to update a backup policy in {
 {% list tabs group=instructions %}
 
 - Management console {#console}
+  
+  {% note warning %}
+  
+  You cannot update backup policies with some advanced settings in the {{ yandex-cloud }} management console. To update the settings of such policies, use the {{ yandex-cloud }} CLI, {{ TF }}, or API.
+
+  If the changes in the backup policy settings have not taken effect on the VM or {{ baremetal-name }} server the policy was linked to, [detach](detach-vm.md) the policy from the VM and then [reattach](attach-and-detach-vm.md) it.
+
+  {% endnote %}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a [backup policy](../../../backup/concepts/policy.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -22,6 +30,8 @@ description: In this tutorial, you will learn how to update a backup policy in {
   1. Edit the backup policy parameters:
 
      {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+
+       {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -192,12 +202,12 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% endcut %}
 
-     For more information about the `yandex_backup_policy` resource parameters, see [this Terraform article]({{ tf-provider-resources-link }}/backup_policy).
+     For more information about `yandex_backup_policy` properties, see [this Terraform article]({{ tf-provider-resources-link }}/backup_policy).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc backup policy get <backup_policy_ID>

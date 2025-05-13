@@ -1,6 +1,6 @@
 ### 1C:Enterprise {#1c}
 
-If the cluster uses a {{ PG }} version optimized to work with <q>1C:Enterprise</q>, specify the following in the settings:
+If the cluster uses a {{ PG }} version optimized to work with <q>1C:Enterprise</q>, specify in the settings:
 
 * **Secure connection**: Disabled.
 * **DBMS type**: `PostgreSQL`.
@@ -12,7 +12,7 @@ If the cluster uses a {{ PG }} version optimized to work with <q>1C:Enterprise</
 
 ### Bash {#bash}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes postgresql-client
@@ -28,7 +28,7 @@ sudo apt update && sudo apt install --yes postgresql-client
       psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
             port=6432 \
             sslmode=disable \
-            dbname=<db_name> \
+            dbname=<DB_name> \
             user=<username> \
             target_session_attrs=read-write"
       ```
@@ -57,6 +57,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 {% endlist %}
 
+
 ### C++ (userver framework) {#cpp-userver}
 
 The asynchronous [userver](https://userver.tech/) framework provides a rich set of abstractions for creating utilities, services, and microservices in C++. Among other things, the framework provides opportunities to work with {{ PG }}.
@@ -75,7 +76,7 @@ Before connecting, access the framework in one of the following ways:
     1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string for the `dbconnection` variable:
 
         ```url
-        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<db_name>
+        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>
         ```
 
     1. Build a project and run the service:
@@ -92,7 +93,7 @@ Before connecting, access the framework in one of the following ways:
     1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string for the `dbconnection` variable:
 
         ```url
-        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<db_name>?ssl=true&sslmode=verify-full
+        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>?ssl=true&sslmode=verify-full
         ```
 
     1. Build a project and run the service:
@@ -139,7 +140,7 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
           {
               var host       = "c-<cluster_ID>.rw.{{ dns-zone }}";
               var port       = "{{ port-mpg }}";
-              var db         = "<db_name>";
+              var db         = "<DB_name>";
               var username   = "<username>";
               var password   = "<user_password>";
               var connString = $"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=VerifyFull;";
@@ -164,7 +165,7 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
 
 ### Go {#go}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes golang git && \
@@ -195,7 +196,7 @@ go mod init example && go get github.com/jackc/pgx/v4
         port     = 6432
         user     = "<username>"
         password = "<user_password>"
-        dbname   = "<db_name>"
+        dbname   = "<DB_name>"
       )
 
       func main() {
@@ -261,7 +262,7 @@ go mod init example && go get github.com/jackc/pgx/v4
         port     = 6432
         user     = "<username>"
         password = "<user_password>"
-        dbname   = "<db_name>"
+        dbname   = "<DB_name>"
         ca       = "/home/<home_directory>/.postgresql/root.crt"
       )
 
@@ -432,7 +433,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<db_name>?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user_password>";
 
@@ -470,7 +471,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<db_name>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user_password>";
 
@@ -499,7 +500,7 @@ Before connecting:
 
 ### Node.js {#nodejs}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes nodejs npm && \
@@ -518,7 +519,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<db_name>"
+            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>"
     };
 
     const conn = new pg.Client(config);
@@ -544,7 +545,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<db_name>",
+            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>",
         ssl: {
             rejectUnauthorized: true,
             ca: fs
@@ -579,7 +580,7 @@ node app.js
 
 ### ODBC {#odbc}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
@@ -601,7 +602,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       Servername=c-<cluster_ID>.rw.{{ dns-zone }}
       Username=<username>
       Password=<user_password>
-      Database=<db_name>
+      Database=<DB_name>
       Port=6432
       Pqopt=target_session_attrs=read-write
       ```
@@ -626,7 +627,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       Servername=c-<cluster_ID>.rw.{{ dns-zone }}
       Username=<username>
       Password=<user_password>
-      Database=<db_name>
+      Database=<DB_name>
       Port=6432
       Pqopt=target_session_attrs=read-write
       Sslmode=verify-full
@@ -644,7 +645,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
 
 ### PHP {#php}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes php php-pgsql
@@ -664,7 +665,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
             host=c-<cluster_ID>.rw.{{ dns-zone }}
             port=6432
             sslmode=disable
-            dbname=<db_name>
+            dbname=<DB_name>
             user=<username>
             password=<user_password>
             target_session_attrs=read-write
@@ -696,7 +697,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
             host=c-<cluster_ID>.rw.{{ dns-zone }}
             port=6432
             sslmode=verify-full
-            dbname=<db_name>
+            dbname=<DB_name>
             user=<username>
             password=<user_password>
             target_session_attrs=read-write
@@ -720,7 +721,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 ### PowerShell {#powershell}
 
-Before connecting, install the same version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/) that is used in the cluster. Select the *Command Line Tools* installation only.
+Before connecting, install the same version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/) that is used in the cluster. Select the *Command Line Tools* install only.
 
 {% list tabs group=connection %}
 
@@ -739,7 +740,7 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
            --host=c-<cluster_ID>.rw.{{ dns-zone }} `
            --port={{ port-mpg }} `
            --username=<username> `
-           <db_name>
+           <DB_name>
      ```
 
      After running the command, enter the user password to complete the connection process.
@@ -765,7 +766,7 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
         --host=c-<cluster_ID>.rw.{{ dns-zone }} `
         --port={{ port-mpg }} `
         --username<username> `
-        <db_name>
+        <DB_name>
       ```
 
       After running the command, enter the user password to complete the connection process.
@@ -780,7 +781,7 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
 
 ### Python {#python}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip && \
@@ -802,7 +803,7 @@ pip3 install psycopg2-binary
           host=c-<cluster_ID>.rw.{{ dns-zone }}
           port=6432
           sslmode=disable
-          dbname=<db_name>
+          dbname=<DB_name>
           user=<username>
           password=<user_password>
           target_session_attrs=read-write
@@ -835,7 +836,7 @@ pip3 install psycopg2-binary
           host=c-<cluster_ID>.rw.{{ dns-zone }}
           port=6432
           sslmode=verify-full
-          dbname=<db_name>
+          dbname=<DB_name>
           user=<username>
           password=<user_password>
           target_session_attrs=read-write
@@ -887,7 +888,7 @@ Before connecting:
         library(DBI)
 
         conn <- dbConnect(RPostgres::Postgres(),
-            dbname="<db_name>",
+            dbname="<DB_name>",
             host="c-<cluster_ID>.rw.{{ dns-zone }}",
             port={{ port-mpg }},
             user="<username>",
@@ -917,7 +918,7 @@ Before connecting:
         library(DBI)
 
         conn <- dbConnect(RPostgres::Postgres(),
-            dbname="<db_name>",
+            dbname="<DB_name>",
             host="c-<cluster_ID>.rw.{{ dns-zone }}",
             port={{ port-mpg }},
             sslmode="verify-full",
@@ -942,7 +943,7 @@ Before connecting:
 
 ### Ruby {#ruby}
 
-Before connecting, install the dependencies:
+Before connecting, install the following dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes ruby ruby-pg
@@ -962,7 +963,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       conn = PG.connect("
               host=c-<cluster_ID>.rw.{{ dns-zone }}
               port=6432
-              dbname=<db_name>
+              dbname=<DB_name>
               user=<username>
               password=<user_password>
               target_session_attrs=read-write
@@ -993,7 +994,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       conn = PG.connect("
               host=c-<cluster_ID>.rw.{{ dns-zone }}
               port=6432
-              dbname=<db_name>
+              dbname=<DB_name>
               user=<username>
               password=<user_password>
               target_session_attrs=read-write

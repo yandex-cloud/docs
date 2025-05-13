@@ -7,35 +7,76 @@ description: In this tutorial, you will learn about the text generation models a
 
 {{ foundation-models-full-name }} provides access to large text models from different vendors. If an out-of-the-box model is not enough, you can [fine-tune](../tuning/index.md) some models to respond to your requests more accurately.
 
-## Generation models {#generation}
+{% include [release-cycle](../../../_includes/foundation-models/release-cycle.md) %}
 
-All basic models are subject to the update rules described in [Model lifecycle](#model-lifecycle). When updating models, generations available in different branches (`/latest`, `/rc`, and `/deprecated` segments) may change. 
+## Models available in synchronous and asynchronous mode {#generation}
+
+All basic models are subject to the update rules described in [Model lifecycle](#model-lifecycle). When updating models, generations available in different branches (`/latest`, `/rc`, and `/deprecated` segments) may change. Modified models share usage [quotas](../limits.md#quotas) with their basic models.
 
 #|
-|| **URI** | **Generation** | **[Operating modes](../index.md#working-mode)** ||
-|| **{{ gpt-lite }}** ||
-|| `gpt://<folder_ID>/yandexgpt-lite/deprecated`</br>`gpt://<folder_ID>/yandexgpt-lite/latest`</br>`gpt://<folder_ID>/yandexgpt-lite/rc`	| 4</br>4</br>5 |  Asynchronous, synchronous ||
-|| **{{ gpt-pro }}** ||
-|| `gpt://<folder_ID>/yandexgpt/deprecated`</br>`gpt://<folder_ID>/yandexgpt/latest`</br>`gpt://<folder_ID>/yandexgpt/rc` | 4</br>4</br>5  | Asynchronous, synchronous ||
-|| **{{ gpt-pro }} 32k** ||
-|| `gpt://<folder_ID>/yandexgpt-32k/deprecated`</br>`gpt://<folder_ID>/yandexgpt-32k/latest`</br>`gpt://<folder_ID>/yandexgpt/rc` | 4</br>4</br>5  | Synchronous^1^ ||
-|| **{{ llama }} 8B**^2^ ||
-|| `gpt://<folder_ID>/llama-lite/deprecated`</br>`gpt://<folder_ID>/llama-lite/latest`</br>`gpt://<folder_ID>/llama-lite/rc` | 3.1</br>3.1</br>3.1 | Asynchronous, synchronous ||
-|| **{{ llama }} 70B**^2^ ||
-|| `gpt://<folder_ID>/llama/deprecated`</br>`gpt://<folder_ID>/llama/latest`</br>`gpt://<folder_ID>/llama/rc` | 3.3</br>3.3</br>3.3 | Asynchronous, synchronous ||
-|| [**Fine-tuned models**](../tuning/index.md) ||
-|| `gpt://<basic_model_URI>/<version>@<tuning_suffix>` | Depends on the basic model | Asynchronous, synchronous ||
-|| **Model fine-tuned in {{ ml-platform-full-name }}** ||
-|| `ds://<folder_ID>/<fine-tuning_ID>` | 3 | Asynchronous, synchronous ||
+|| **Model and URI** | **Generation** | **Context** | **[Operating modes](../index.md#working-mode)** ||
+|| **{{ gpt-lite }}** </br>`gpt://<folder_ID>/yandexgpt-lite`	| Deprecated 4</br>Latest 4</br>RC 5 | {{ yagpt-max-tokens }}</br>{{ yagpt-max-tokens }}</br>32 000 | Asynchronous, synchronous ||
+|| **{{ gpt-pro }}** </br>`gpt://<folder_ID>/yandexgpt` | Deprecated 4</br>Latest 4</br>RC 5 | {{ yagpt-max-tokens }}</br>32 000^1^</br>32 000 | Asynchronous, synchronous ||
+|| **{{ gpt-pro }} 32k**^2^ </br>`gpt://<folder_ID>/yandexgpt-32k`| Deprecated 4</br>Latest 4</br>RC 5 | 32 000 | Synchronous ||
+|| **{{ llama }} 8B**^3^ </br>`gpt://<folder_ID>/llama-lite` | Deprecated 3.1</br>Latest 3.1</br>RC 3.1 | 8 192 | Asynchronous, synchronous ||
+|| **{{ llama }} 70B**^3^ </br>`gpt://<folder_ID>/llama` | Deprecated 3.3</br>Latest 3.3</br>RC 3.3 | 8 192 | Asynchronous, synchronous ||
+|| [**Fine-tuned models**](../tuning/index.md) </br>`gpt://<basic_model_URI>/<version>@<tuning_suffix>` | Depends on the basic model | Depends on the basic model | Asynchronous, synchronous ||
+|| **Model fine-tuned in {{ ml-platform-full-name }}** </br>`ds://<folder_ID>/<fine-tuning_ID>` | 3 | {{ yagpt-max-tokens }} | Asynchronous, synchronous ||
 |#
 
-Modified models share usage [quotas](../limits.md#quotas) with their basic models.
+^1^ The context size depends on the mode. In synchronous mode, a 4th generation {{ gpt-pro }} model can process up to {{ yagpt-max-tokens }} tokens; in asynchronous, 32,000 tokens. 
 
-^1^ {{ gpt-pro }} 32k features an expanded context and is designed specifically to handle large texts in synchronous mode. In asynchronous mode, the {{ gpt-pro }} model supports the same amount of context. 
+^2^ {{ gpt-pro }} 32k features a larger context window compared to the 4th generation {{ gpt-pro }}. This model was designed specifically to process large texts in synchronous mode. The 5th generation {{ gpt-pro }} models have the same context windows size in synchronous and asynchronous mode. We recommend using them instead of {{ gpt-pro }} 32k, which is getting obsolete. 
 
-^2^ {{ meta-disclaimer }}
+^3^ {{ meta-disclaimer }}
 
-{% include [release-cycle](../../../_includes/foundation-models/release-cycle.md) %}
+## Models available in batch mode {#batch}
+
+#|
+|| **Model** | **URI** | **Context** ||
+|| **Qwen2.5 7B Instruct** 
+[Model card](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct)
+[Apache 2.0]({{ license-apache }}) license  | `gpt://<folder_ID>/qwen2.5-7b-instruct` | 32 768 ||
+|| **Qwen2.5 72B Instruct** 
+[Model card](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct)
+[Qwen license](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct/blob/main/LICENSE)  | `gpt://<folder_ID>/qwen2.5-72b-instruct` | 16 384 ||
+|| **QwQ 32B Instruct** 
+[Model card](https://huggingface.co/Qwen/QwQ-32B)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwq-32b` | 32 768 ||
+|| **Llama-3.3-70B-Instruct**^3^ 
+[Model card](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
+[Llama 3.3 license](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE) | `gpt://<folder_ID>/llama3.3-70b-instruct` | 8 192 ||
+|| **Llama-3.1-70B-Instruct**^3^
+[Model card](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct)
+[Llama 3.1 license](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct/blob/main/LICENSE)  | `gpt://<folder_ID>/llama3.1-70b-instruct` | 8 192 ||
+|| **DeepSeek-R1-Distill-Llama-70B** 
+[Model card](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B)
+[MIT]({{ license-mit }}) license
+Based on Llama-3.3-70B-Instruct. [Llama-3.3-70B-Instruct Terms of Use](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE) | `gpt://<folder_ID>/deepseek-r1-distill-llama-70b` | 8 192 ||
+|| **Qwen2.5 32B Instruct** 
+[Model card](https://huggingface.co/Qwen/Qwen2.5-32B-Instruct)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen2.5-32b-instruct` | 32 768 ||
+|| **DeepSeek-R1-Distill-Qwen-32B** 
+[Model card](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B)
+[MIT]({{ license-mit }}) license | `gpt://<folder_ID>/deepseek-r1-distill-qwen-32b` | 32 768 ||
+|| **phi-4** 
+[Model card](https://huggingface.co/microsoft/phi-4)
+[MIT]({{ license-mit }}) license  | `gpt://<folder_ID>/phi-4` | 16 384 ||
+|| **Gemma3 1B it**
+[Model card](https://huggingface.co/google/gemma-3-1b-it)
+[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-1b-it/latest` | 32 768 ||
+|| **Gemma3 4B it**
+[Model card](https://huggingface.co/google/gemma-3-4b-it)
+[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-4b-it/latest` | 131 072 ||
+|| **Gemma3 12B it**
+[Model card](https://huggingface.co/google/gemma-3-4b-it)
+[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-12b-it/latest` | 65 536 ||
+|| **Gemma3 27B it**
+[Model card](https://huggingface.co/google/gemma-3-4b-it)
+[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-27b-it/latest` | 32 768 ||
+|# 
+
+^3^ {{ meta-disclaimer }}
 
 ## Accessing models {#addressing-models}
 

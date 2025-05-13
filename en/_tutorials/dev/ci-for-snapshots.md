@@ -40,8 +40,8 @@ Create a VM where you will install a web server, your test application, and its 
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts) public image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these parameters:
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these settings:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -51,7 +51,7 @@ Create a VM where you will install a web server, your test application, and its 
 1. In **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet where you will connect your VM.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the VM user name, e.g., `yc-user`.
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `yc-user`.
 
       {% note alert %}
 
@@ -288,8 +288,8 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [{{ GL }}](/marketplace/products/yc/gitlab) image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these parameters:
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these settings:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -299,7 +299,7 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
 1. In **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet where you will connect your VM.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the VM user name, e.g., `yc-user`.
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `yc-user`.
 
       {% note alert %}
 
@@ -398,7 +398,7 @@ Runner is a tool for running user tasks. You need to create a runner on your VM 
    Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
    ```
 
-1. Install the {{ yandex-cloud }} CLI so you will be able to create VMs with the CI script:
+1. Install the {{ yandex-cloud }} CLI to create VMs with the CI script:
 
    ```bash
    curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} --output install.sh

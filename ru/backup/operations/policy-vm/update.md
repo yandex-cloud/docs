@@ -154,8 +154,6 @@ description: Из статьи вы узнаете, как изменить по
          multi_volume_snapshotting_enabled = true
          name                              = "<имя_политики_резервного_копирования>"
          performance_window_enabled        = true
-         preserve_file_security_settings   = true
-         quiesce_snapshotting_enabled      = true
          silent_mode_enabled               = true
          splitting_bytes                   = "9223372036854775807"
          vss_provider                      = "NATIVE"
@@ -182,14 +180,16 @@ description: Из статьи вы узнаете, как изменить по
              scheme               = "ALWAYS_INCREMENTAL"
              weekly_backup_day    = "MONDAY"
 
-             execute_by_time {
-                 include_last_day_of_month = true
-                 monthdays                 = []
-                 months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
-                 repeat_at                 = ["04:10"]
-                 repeat_every              = "30m"
-                 type                      = "MONTHLY"
-                 weekdays                  = []
+             backup_sets {
+                 execute_by_time {
+                     type                      = "MONTHLY"
+                     include_last_day_of_month = true
+                     monthdays                 = []
+                     months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
+                     repeat_at                 = ["04:10"]
+                     repeat_every              = "30m"
+                     weekdays                  = []
+                 }
              }
          }
 
@@ -198,7 +198,7 @@ description: Из статьи вы узнаете, как изменить по
              interval     = "1m"
              max_attempts = 10
          }
-     } 
+     }
      ```
 
      {% endcut %}

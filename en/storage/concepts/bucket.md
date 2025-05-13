@@ -20,7 +20,7 @@ You can also use buckets to [host static websites](./hosting.md).
 
 For more information on getting started with buckets, see [{#T}](../quickstart.md).
 
-You can [create a bucket](../operations/buckets/create.md) via the [management console]({{ link-console-main }}), [YC CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket), [API](../../api-design-guide/concepts/general.md), or using some popular [tools](../tools/index.md) designed to work with the Amazon S3 HTTP API.
+You can [create a bucket](../operations/buckets/create.md) via the [management console]({{ link-console-main }}), [CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket), [API](../../api-design-guide/concepts/general.md), or using popular [tools](../tools/index.md) designed to work with the Amazon S3 HTTP API.
 
 ## Naming buckets {#naming}
 

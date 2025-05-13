@@ -1,0 +1,8 @@
+title: '{{ neurosupport-full-name }}'
+href: index.yaml
+items:
+  - name: '{{ neurosupport-full-name }}'
+    href: quick-start.md
+    hidden: true
+  - name: Правила тарификации
+    href: pricing.md

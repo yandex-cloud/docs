@@ -4,11 +4,11 @@ This section provides general recommendations for calculating cluster configurat
 
 These are generic recommendations. The actual resource usage depends on factors that are hard to foresee at the planning stage: query complexity, amount of data processed by queries, actual query concurrency, settings of data storage in tables, compression rate, percentage of archived data, etc.
 
-We recommend load testing the production cluster before deployment. If required, {{ mgp-name }} allows you to [update the cluster configuration](../operations/update.md) with minimum downtime.
+We recommend load testing the production cluster before deployment. If required, {{ mgp-name }} allows you to [update the cluster configuration](../operations/cluster-config.md) with minimum downtime.
 
 ## Segment host configuration {#segment}
 
-Segment hosts are used to store all your data and run queries, which makes them resource-intensive. When choosing a configuration, make sure to consider at least the following factors:
+Segment hosts are used to store all data and run queries, which makes them resource-intensive. When choosing a configuration, make sure to consider at least the following factors:
 
 * Estimated amount of data.
 * Estimated concurrency, i.e., the number of queries running at the same time.

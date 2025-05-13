@@ -12,9 +12,9 @@ You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) 
 
 You can manage dictionaries either via SQL (recommended) or via {{ yandex-cloud }} cloud interfaces.
 
-{% note warning %}
+{% note info %}
 
-Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
+The number of dictionaries you can connect to a cluster is limited. To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 {% endnote %}
 
@@ -24,7 +24,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
 
 - CLI {#cli}
@@ -64,7 +64,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/externalDictionaries'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/listExternalDictionaries.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse) to make sure the request was successful.
 
@@ -92,7 +92,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListExternalDictionaries
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/listExternalDictionaries.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse) to make sure the request was successful.
 
@@ -115,7 +115,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% endnote %}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
     1. Specify the [dictionary settings](#settings).
@@ -237,7 +237,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
               --data '@body.json'
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/createExternalDictionary.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -316,7 +316,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -463,7 +463,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
               --data '@body.json'
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/updateExternalDictionary.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -539,7 +539,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -566,7 +566,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dictionary you want to delete and select **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
@@ -613,7 +613,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         Where `externalDictionaryName` is the name of the dictionary you need to delete. You can request the dictionary name with a [list of external dictionaries in the cluster](#get-dicts-list).
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/deleteExternalDictionary.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -644,7 +644,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         Where `external_dictionary_name` is the name of the dictionary you need to delete. You can request the dictionary name with a [list of external dictionaries in the cluster](#get-dicts-list).
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/deleteExternalDictionary.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -656,6 +656,12 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 {% endlist %}
 
 ## Dictionary settings {#settings}
+
+{% note warning %}
+
+Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

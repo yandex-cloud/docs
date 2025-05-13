@@ -17,7 +17,7 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
 ## Set up alerts in {{ monitoring-full-name }} {#set-alert}
 
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following properties:
 
@@ -54,8 +54,8 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
     To increase the cluster storage size:
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_storage }}** section.
 
         You cannot change the disk type for an {{ KF }} cluster once you create it.
@@ -100,7 +100,7 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
   To increase the cluster storage size:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -260,11 +260,11 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
 
 * Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) that will trigger an increase in storage size when reached: 
     
-        {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}        
+        {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
 
 * CLI {#cli}
 
@@ -330,7 +330,7 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
 
         {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
-        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -385,7 +385,7 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
 
         {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
 
-        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

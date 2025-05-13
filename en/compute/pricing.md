@@ -1,6 +1,6 @@
 ---
 title: '{{ compute-full-name }} pricing policy'
-description: This article provides the {{ compute-name }} pricing policy.
+description: This article covers the {{ compute-name }} pricing policy.
 editable: false
 ---
 
@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=577e4326f11d#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=577e4326f11d#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
 
 
 {% endnote %}
@@ -25,7 +25,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 ## What goes into the cost of using {{ compute-short-name }} {#rules}
 
-The {{ compute-name }} usage cost is based on:
+The {{ compute-name }} usage cost includes:
 * VM computing resources:
   * Type and number of cores (vCPUs).
   * Number of graphics accelerators ([GPUs](concepts/gpus.md)). 
@@ -108,11 +108,11 @@ To learn how to use Microsoft licenses, see [{#T}](../microsoft/licensing.md).
 
 ### Storage usage (disks, snapshots, and images) {#disk}
 
-When creating a disk, you specify its size, meaning the amount of block storage that the disk occupies. The cost of the service depends on the amount of time between when the disk is created and deleted, the amount of disk space, and the disk type selected during creation.
+When creating a disk, you specify its size, meaning the amount of block storage the disk uses. The cost depends on the amount of time between when the disk is created and deleted, the amount of disk space, and the disk type selected during creation.
 
 You are charged for using disks whether the VM is running or not.
 
-If you created an image or snapshot, you pay for the storage of this object separately depending on its size.
+If you created an image or snapshot, you pay for its storage separately depending on its size.
 
 After deleting a VM instance, you will still be charged for disks, snapshots, and images. If you no longer need these resources, delete them.
 
@@ -129,9 +129,9 @@ If you connect such a disk to a VM as additional storage, you will be charged fo
 
 ### {{ ig-name }} usage {#instance-groups}
 
-The {{ ig-name }} component can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
+Using {{ ig-name }} is free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
-All other {{ yandex-cloud }} services, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) the same as in other services.
+All other {{ yandex-cloud }} services, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) in the same way as in other services.
 
 
 
@@ -176,7 +176,7 @@ CVoS discount is only available for certain types of resources. A dash in the re
 
 {% note warning %}
 
-Starting May 1, 2025, the prices for {{ compute-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn22pas77ftg9h3f2djj%2Cdn28okfvqh19eiue6l2m).
+Starting May 1, 2025, prices for {{ compute-full-name }} resources will increase in the Russia region. You can view the new prices in USD [here](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn22pas77ftg9h3f2djj%2Cdn28okfvqh19eiue6l2m).
 
 {% endnote %}
 

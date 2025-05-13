@@ -84,6 +84,8 @@ items:
             href: operations/backup-vm/batch-delete.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+      - name: Ограничить использование оперативной памяти агентом {{ backup-name }}
+        href: operations/limit-agent-memory-usage.md
       - name: Посмотреть статистику резервного копирования
         href: operations/get-stats.md
   - name: Практические руководства

@@ -55,7 +55,7 @@ If the master host fails, any of the cluster hosts available for replication may
 
 You can set host priority:
 
-* When [creating a cluster](../operations/cluster-create.md) with the YC CLI, API, or {{ TF }}.
+* When [creating a cluster](../operations/cluster-create.md) with the CLI, API, or {{ TF }}.
 * When [changing the host settings](../operations/hosts.md#update).
 
 The lowest priority is `0` (default), while the highest one is `100`.

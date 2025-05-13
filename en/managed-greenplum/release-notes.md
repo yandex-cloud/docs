@@ -50,7 +50,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 ## Q4 2022 {#q4-2022}
 
-* You can now [expand a cluster](operations/hosts/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments.
+* You can now [expand a cluster](operations/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments.
 * You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI releases](../cli/release-notes.md#version0.100.0).
 * Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the relevant [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
 * Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
@@ -64,7 +64,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 * You can now change the administrator password.
 * You can now [configure the DBMS and the connection pooler in {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022).
 * Added support for the [postgis]({{gp.docs.vmware}}/5/greenplum-database/ref_guide-extensions-postGIS.html) extension.
-* Added the ability to edit clusters and cluster settings via CLI as well as to grant access from {{ data-transfer-full-name }}. For more information, see [YC CLI releases](../cli/release-notes.md#version0.94.0).
+* Added the ability to edit clusters and cluster settings via CLI as well as to grant access from {{ data-transfer-full-name }}. For more information, see [CLI releases](../cli/release-notes.md#version0.94.0).
 * Updated the master failover mechanism: a former master is returned to a cluster as a replica and becomes available for another failover right after the first one completes.
 * Added the `gp_cancel_backend` function to forcibly stop user queries.
 * Added the `gp_terminate_backend` function to forcibly terminate user DB connections.

@@ -9,11 +9,11 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 - Management console {#console}
 
     To get a list of cluster backups:
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
 
     To get a list of all backups in a folder:
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -143,11 +143,11 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 - Management console {#console}
 
     To get information about the backup of an existing cluster:
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
 
     To get information about the backup of a previously deleted cluster:
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - REST API {#api}
@@ -205,7 +205,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -271,7 +271,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
 For a new cluster, you should set all the parameters that are required at creation.
 
-To migrate {{ mgp-name }} cluster hosts to a different availability zone, restore your cluster from a backup. During cluster recovery from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), familiarize yourself with the [migration process in {{ data-transfer-name }}](hosts/host-migration.md#data-transfer) before recovering from a backup.
+To migrate {{ mgp-name }} cluster hosts to a different availability zone, restore your cluster from a backup. During cluster recovery from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), after recovering it from a backup, create the [endpoint](../../data-transfer/operations/endpoint/index.md#create) and the [transfer](../../data-transfer/operations/transfer.md#create) again.
 
 {% note warning %}
 
@@ -289,7 +289,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
     To restore an existing cluster from a backup:
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
     1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
@@ -314,7 +314,7 @@ If you set the current time as the recovery time, the new cluster will match the
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
     To restore a previously deleted cluster from a backup:
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
     1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_ID>`.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -438,7 +438,7 @@ If you set the current time as the recovery time, the new cluster will match the
           "config": {
             "zoneId": "<availability_zone>",
             "subnetId": "<subnet_ID>",
-            "assignPublicIp": "<public_access_to_cluster_hosts>"
+            "assignPublicIp": <public_access_to_cluster_hosts>
           },
           "masterResources": {
             "resourcePresetId": "<host_class>",

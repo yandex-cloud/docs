@@ -150,7 +150,7 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
 
 ### 2.0.48 {#2-0-48}
 
-* Added the ability to use [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). For more information, see [{#T}](../concepts/settings-list.md#spark-thrift-server).
+* Added the ability to use [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). To learn more, see [{#T}](../concepts/settings-list.md#spark-thrift-server).
 * Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error which could appear on lightweight Apache Spark configurations.
 
 ### 2.0.47 {#2-0-47}
@@ -196,11 +196,11 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
 
 ### 2.0.37 {#2-0-37}
 
-* Added the YC CLI to `PATH` for initialization scripts.
+* Added the CLI to `PATH` for initialization scripts.
 
 ### 2.0.36 {#2-0-36}
 
-* The YC CLI is installed on all cluster hosts by default.
+* The CLI is installed on all cluster hosts by default.
 * Added the following values to environment variables for initialization scripts: `CLUSTER_ID`, `S3_BUCKET`, `ROLE`, `CLUSTER_SERVICES`, `MIN_WORKER_COUNT`, and `MAX_WORKER_COUNT`.
 
 ### 2.0.35 {#2-0-35}

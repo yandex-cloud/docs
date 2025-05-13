@@ -89,20 +89,9 @@ You can use filtering separately or as an addition to [full-text search](rest-fu
         * `userMeta.<field_name>`: Filtering by metadata. Here `<field_name>` is the metadata field specified when uploading the dialog. Example: `userMeta.date`.
         * `talk.classifiers.<classifier_name>.count`: Filtering by classifiers. It takes into account the number of times a certain classifier has been triggered in a dialog.
         * `talk.summarization.points.<question_ID>`: Filtering by dialog summary. You can get question IDs from the dialog summary [together with the dialog data](rest-get-dialog-data.md).
-        * `talk.statistics.<statistics_name>`: Filtering by statistics (for audio only):
+        * `talk.statistics.<statistics_name>`: Filtering by statistics:
 
-          * `talk.statistics.duration_seconds`: Dialog duration in seconds.
-          * `talk.statistics.simultaneous_silence.duration_seconds`: Simultaneous silence duration in seconds.
-          * `talk.statistics.simultaneous_silence.ratio`: Ratio of simultaneous silence to total dialog duration.
-          * `talk.statistics.simultaneous_speech.duration_seconds`: Simultaneous speech duration in seconds.
-          * `talk.statistics.simultaneous_speech.ratio`: Ratio of simultaneous speech to total dialog duration.
-          * `talk.statistics.interrupts.count`: Number of dialog partner interruptions.
-          * `talk.statistics.phrases.count`: Number of phrases in a dialog.
-          * `talk.statistics.words.count`: Number of words in a dialog.
-          * `talk.statistics.letters.count`: Number of characters in a dialog.
-          * `talk.statistics.words.count_per_second`: Number of words per second in the channel specified in the `channelNumber` parameter.
-          * `talk.statistics.letters.count_per_second`: Number of characters per second in the channel specified in the `channelNumber` parameter.
-          * `talk.statistics.interrupts.duration_seconds`: Duration of speaker interruptions by another speaker, in seconds. The channel of the interrupting speaker is specified in the `channelNumber` parameter.
+          {% include [api-statistics-filter](../../../_includes/speechsense/data/api-statistics-filter.md) %}
 
       * `channelNumber`: Channel number. If you specify this number, filtering is applied to metadata, classifier positives, or statistics related to this channel.
 

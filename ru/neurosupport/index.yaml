@@ -1,0 +1,34 @@
+title: '{{ neurosupport-full-name }}'
+description:
+  - >-
+    Сервис {{ neurosupport-full-name }} предоставляет умные и своевременные
+    подсказки оператору поддержки на базе {{ yagpt-name }}. Благодаря подсказкам
+    оператор может быстрее и точнее отвечать на вопросы пользователей, уделять
+    больше времени сложным и креативным задачам. Сервис не заменяет работу
+    оператора, но помогает автоматизировать рутинные задачи и повысить качество
+    обслуживания.
+  - >-
+    Сервис находится на стадии <a
+    href="https://yandex.cloud/ru/docs/overview/concepts/launch-stages">Preview</a>
+    и предоставляется по <a
+    href="https://yandex.cloud/ru/services/neurosupport#contact-form">запросу</a>.
+  - >-
+    Инфраструктура {{ yandex-cloud }} <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с Федеральным законом Российской Федерации «О персональных
+    данных» № 152-ФЗ.
+meta:
+  title: '{{ neurosupport-full-name }}'
+  description: >-
+    С помощью сервиса {{ neurosupport-full-name }} оператор поддержки может
+    получать подсказки от {{ yagpt-name }}.
+  keywords:
+    - keyword: '{{ neurosupport-name }}'
+    - keyword: '{{ neurosupport-full-name }}'
+    - keyword: сервис {{ neurosupport-name }}
+    - keyword: помощник оператора поддержки
+    - keyword: помощник на базе {{ yagpt-name }}
+links:
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

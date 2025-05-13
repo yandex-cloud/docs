@@ -133,10 +133,10 @@
 
      * `organization_id` — [идентификатор](../operations/organization-get-id.md) организации.
      * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
-     * `members` — массив идентификаторов пользователей, которым будет назначена роль: 
+     * `members` — массив идентификаторов пользователей, которым будет назначена роль:
        * `userAccount:{user_id}` — идентификатор аккаунта пользователя на Яндексе.
        * `serviceAccount:{service_account_id}` — идентификатор сервисного аккаунта.
-       * `federatedUser:{federated_user_id}` —  идентификатор федеративного пользователя.
+       * `federatedUser:{federated_user_id}` — идентификатор федеративного пользователя.
 
      Пример структуры конфигурационного файла:
 
@@ -360,3 +360,8 @@
 #### Назначить роль на организацию {#access-binding-organization}
 
 {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
+
+
+## Какие роли назначены в организации {#list-access-bingings}
+
+{% include [org-list-access-bingings](../../_includes/organization/org-list-access-bingings.md) %}

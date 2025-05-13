@@ -1,7 +1,6 @@
 ---
 title: Information about clusters in {{ mtr-name }}
 description: You can request detailed information about each {{ mtr-name }} cluster you created. To get a list of clusters in a folder, go to the folder page and select {{ mtr-name }}.
-noIndex: true
 ---
 
 # Information about existing clusters in {{ mtr-name }}
@@ -17,7 +16,7 @@ You can request detailed information about each {{ mtr-name }} cluster you creat
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 
 {% endlist %}
 
@@ -28,7 +27,7 @@ You can request detailed information about each {{ mtr-name }} cluster you creat
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
 
 {% endlist %}

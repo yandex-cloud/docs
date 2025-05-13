@@ -35,7 +35,7 @@ Where:
 
 > Example. Source data:
 >
-> * Enabled evaluation parameter **{{ ui-key.yc-ui-talkanalytics.dialogs.client-tags }}: {{ ui-key.yc-ui-talkanalytics.dialogs.classifier.appreciation-key-value }}**. The condition specified is that the customer has thanked the agent at least three times during the conversation.
+> * Enabled the **{{ ui-key.yc-ui-talkanalytics.dialogs.client-tags }} evaluation parameter: {{ ui-key.yc-ui-talkanalytics.dialogs.classifier.appreciation-key-value }}**. The condition specified is that the customer has thanked the agent at least three times during the conversation.
 > * The parameter weight is 60%.
 > * Among the filtered dialogs, there are seven in which the customer thanked the agent three times or more.
 > * The total number of filtered dialogs is 14.
@@ -55,13 +55,13 @@ There are several types of evaluation parameters:
 * **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**: Agent data.
 * **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**: Customer data.
 * **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}** (only for chats): Bot data.
-* **{{ ui-key.yc-ui-talkanalytics.dialogs.speech-statistics }}** (only for audio): Agent and customer speech quality criteria, e.g., speech rate, mutual interruptions, etc.
+* **{{ ui-key.yc-ui-talkanalytics.dialogs.speech-statistics }}**: Quality criteria for speech or text messages exchanged between the agent and the customer. For example, for audio, it is the agent's or customer's speech rate, whether any of them interrupted the other party; for chats it is the number of characters in the dialog, how long it was taking the agent to respond to the customer's message.
 * **{{ ui-key.yc-ui-talkanalytics.dialogs.common-metadata }}**: Data on the conversation audio (collected via PBX) or text chat. Metadata is uploaded to {{ speechsense-name }} together with the conversation audio or text chat and contains its key characteristics, e.g., date, topic, and dialog language.
 * **{{ ui-key.yc-ui-talkanalytics.tags.tags }}**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} detects specific keywords, phrases, or intonations in the dialog, classifies and tags the dialog.
 
    {{ speechsense-name }} has preconfigured tags. These can give you a clue as to whether there was an informal greeting or goodbye, whether the agent thanked the customer for waiting, whether it was the customer's repeat call to support, etc. To learn more about tags, see [Concepts](../../../speechsense/concepts/tags.md).
 
-   In your report, you can reflect the agent's performance criteria and the client's behavior, e.g., whether the agent was polite, whether the client was rude, etc. To do this, create a semantic tag and apply it as a parameter in the report. For more information, see [this guide](../../operations/data/manage-reports.md#use-sense-tags-for-analysis).
+   You can specify in the report the quality criteria of the agent's work and the specifics of the client's behavior, such as whether the agent was polite or the client was rude, etc. To do this, create a semantic tag and apply it as a parameter in the report. For more information, see [this guide](../../operations/data/manage-reports.md#use-sense-tags-for-analysis).
 
 * **Semantic attributes**: Dialog properties, such as reasons, topics, or outcomes. Read more about semantic attributes [here](sense-attributes.md).
 

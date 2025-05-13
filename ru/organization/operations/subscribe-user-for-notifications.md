@@ -12,8 +12,8 @@
   
       Чтобы подписать пользователя на получение технических уведомлений, необходима [роль](../../iam/roles-reference.md#editor) `editor` или выше на организацию.
 
-      Если у вас несколько организаций, вы можете [переключиться](./manage-organizations.md#switch-to-another-org) на нужную. Для этого в левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужную организацию. В результате текущая организация изменится.
-  
+      {% include [switch-org-note](../../_includes/organization/switch-org-note.md) %}
+
       На открывшейся главной странице сервиса {{ cloud-center }} приведены основные сведения о вашей организации.
 
   1. Пролистайте страницу вниз до блока **{{ ui-key.yacloud_org.dashboard.notify.title.notify }}** и нажмите ![PersonPlus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.dashboard.notify.placeholder_add-user-action }}**. В открывшемся окне:

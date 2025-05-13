@@ -8,7 +8,7 @@ description: Follow this guide to upgrade your {{ mkf-name }} cluster.
 
 {% note info %}
 
-Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions. We recommend that you upgrade your clusters to version 3.5.
+Starting March 1, 2025, support for {{ KF }} 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions. We recommend that you upgrade your clusters to version 3.5.
 
 {% endnote %}
 
@@ -37,8 +37,8 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -69,7 +69,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -128,7 +128,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
         * `configSpec.version`: target {{ KF }} version, {{ versions.cli.str-without-latest }}.
 
-       You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -174,7 +174,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
         * `config_spec.version`: target {{ KF }} version, {{ versions.cli.str-without-latest }}.
 
-        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

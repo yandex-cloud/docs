@@ -5,6 +5,12 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 24/04/2025 {#240425}
+
+[Vision language models](../concepts/multimodal/index.md) are now available in {{ foundation-models-name }}.
+
+Added [batch mode](../concepts/index.md#working-mode) for working with models: now you can process large amounts of data with a single request. The batch mode is supported for [text generation models](../concepts/yandexgpt/models.md#batch) and vision language models. Added new types of [datasets](../concepts/resources/dataset.md) to use in batch mode.
+
 ## Release as of 31/03/2025 {#310325}
 
 1. The `RC` branch now features the {{ gpt-lite }} 5th generation model, which supports contexts of up to 32,000 tokens in both synchronous and asynchronous modes.

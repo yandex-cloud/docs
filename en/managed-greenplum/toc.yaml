@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step guides
+  - name: Step-by-step tutorials
     items:
-      - name: All guides
+      - name: All tutorials
         href: operations/index.md
       - name: Clusters
         items:
@@ -13,18 +13,14 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
+          - name: Expanding a cluster
+            href: operations/cluster-expand.md
+          - name: Editing the cluster configuration
+            href: operations/cluster-config.md
           - name: Updating cluster settings
             href: operations/update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
-          - name: Managing cluster hosts
-            items:
-              - name: Information about hosts
-                href: operations/hosts/cluster-hosts.md
-              - name: Expanding a cluster
-                href: operations/hosts/cluster-expand.md
-              - name: Migrating hosts to a different availability zone
-                href: operations/hosts/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
           - name: Deleting a cluster
@@ -67,6 +63,8 @@ items:
         items:
           - name: Managing extensions
             href: operations/extensions/cluster-extensions.md
+          - name: gp_url_tools
+            href: operations/extensions/gp-url-tools.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
           - name: uuid-cb
@@ -83,6 +81,8 @@ items:
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
+          - name: Viewing cluster operations
+            href: operations/cluster-operations.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
           - name: Monitoring the state of clusters and hosts

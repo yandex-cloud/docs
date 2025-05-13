@@ -1,7 +1,6 @@
 # Brokers
 
 Brokers are hosts in a {{ mkf-name }} cluster where [{{ KF }} topics and partitions](topics.md) reside.
-
 Topic partitions store messages that clients [(producers and consumers)](producers-consumers.md) work with.
 
 A broker performs the following functions:

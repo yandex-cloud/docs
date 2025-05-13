@@ -284,7 +284,10 @@ default:
   kraft-short-name: KRaft
   lang: en
   lets-encrypt: Let's Encrypt®
+  license-apache: https://choosealicense.com/licenses/apache-2.0/
+  license-gemma: https://ai.google.dev/gemma/terms
   license-manager: License Manager
+  license-mit: https://opensource.org/license/mit
   link-adfs: >-
     https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
@@ -998,6 +1001,12 @@ default:
         12_month|string: ₸424150.00
         3_month|string: ₸474050.00
         6_month|string: ₸464070.00
+      ba_i112_10s_10g:
+        1_day|string: ₸517000.00
+        1_month|string: ₸501490.00
+        12_month|string: ₸439450.00
+        3_month|string: ₸491150.00
+        6_month|string: ₸480810.00
       ba_i200_h:
         1_day|string: ₸93000.00
         1_month|string: ₸90210.00
@@ -1058,6 +1067,12 @@ default:
         12_month|string: ₸424575.00
         3_month|string: ₸474525.00
         6_month|string: ₸464535.00
+      ba_i212_10s_10g:
+        1_day|string: ₸517500.00
+        1_month|string: ₸501975.00
+        12_month|string: ₸439875.00
+        3_month|string: ₸491625.00
+        6_month|string: ₸481275.00
       ba_i407_s_10g:
         1_day|string: ₸431000.00
         1_month|string: ₸418070.00
@@ -2618,6 +2633,12 @@ default:
         12_month|string: ₽84830.00
         3_month|string: ₽94810.00
         6_month|string: ₽92814.00
+      ba_i112_10s_10g:
+        1_day|string: ₽103400.00
+        1_month|string: ₽100298.00
+        12_month|string: ₽87890.00
+        3_month|string: ₽98230.00
+        6_month|string: ₽96162.00
       ba_i200_h:
         1_day|string: ₽18600.00
         1_month|string: ₽18042.00
@@ -2678,6 +2699,12 @@ default:
         12_month|string: ₽84915.00
         3_month|string: ₽94905.00
         6_month|string: ₽92907.00
+      ba_i212_10s_10g:
+        1_day|string: ₽103500.00
+        1_month|string: ₽100395.00
+        12_month|string: ₽87975.00
+        3_month|string: ₽98325.00
+        6_month|string: ₽96255.00
       ba_i407_s_10g:
         1_day|string: ₽86200.00
         1_month|string: ₽83614.00
@@ -4230,6 +4257,12 @@ default:
         12_month|string: $706.916384
         3_month|string: $790.083017
         6_month|string: $773.449691
+      ba_i112_10s_10g:
+        1_day|string: $861.666322
+        1_month|string: $835.816332
+        12_month|string: $732.416374
+        3_month|string: $818.583006
+        6_month|string: $801.349679
       ba_i200_h:
         1_day|string: $154.999938
         1_month|string: $150.349940
@@ -4290,6 +4323,12 @@ default:
         12_month|string: $707.624717
         3_month|string: $790.874684
         6_month|string: $774.224690
+      ba_i212_10s_10g:
+        1_day|string: $862.499655
+        1_month|string: $836.624665
+        12_month|string: $733.124707
+        3_month|string: $819.374672
+        6_month|string: $802.124679
       ba_i407_s_10g:
         1_day|string: $718.333046
         1_month|string: $696.783055
@@ -6858,7 +6897,9 @@ default:
         label_create-network: Create VRF
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
+        label_images: Boot images
         label_kvm-console: KVM console
+        label_load-image: Upload image
         label_lockbox-key: Key
         label_lockbox-name: Name
         label_lockbox-version: Version

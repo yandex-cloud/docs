@@ -51,6 +51,7 @@ description: На странице представлен список поша�
 ## Сервисные операции {#service-operations}
 
 * [{#T}](activate-service.md)
+* [{#T}](limit-agent-memory-usage.md)
 * [{#T}](get-stats.md)
 
 ## Получение дополнительной информации {#get-additional-info}

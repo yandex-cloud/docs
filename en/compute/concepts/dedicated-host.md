@@ -3,7 +3,7 @@ title: Dedicated host in {{ compute-full-name }}
 description: In this article, you will learn about dedicated hosts, relationship between the host configuration and type, host maintenance in {{ compute-name }}, host troubleshooting, etc.
 ---
 
-# Dedicated hosts
+# Dedicated host
 
 
 A _dedicated host_ is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}. VMs on dedicated hosts have all features of regular VMs; additionally, they are physically isolated from other users' VMs. You can also distinguish your VMs used for different projects:
@@ -107,7 +107,7 @@ When working with local disks attached to VMs on dedicated hosts, you cannot:
 * Attach additional network disks to a `stopped` VM. You can only attach additional network disks to a [running](../operations/vm-control/vm-stop-and-start.md#start) VM.
 * Attach additional local disks to a VM or delete the attached ones. To change the local disks attached, recreate the VM. For more information about creating VMs with local disks on dedicated hosts, see the [guides](../operations/index.md#dedicated-host).
 
-You can connect a local disk to a VM on a dedicated host only if you [create](../operations/dedicated-host/running-host-vms.md) the VM using the [YC CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md) or [API](../api-ref/Instance/create.md). To connect multiple local disks, when running the `yc compute instance create` command, set the `--attach-local-disk` parameter as many times as you need, once for each disk you are connecting.
+You can connect a local disk to a VM on a dedicated host only if you [create](../operations/dedicated-host/running-host-vms.md) the VM using the [{{ yandex-cloud }} CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md) or [API](../api-ref/Instance/create.md). To connect multiple local disks, when running the `yc compute instance create` command, set the `--attach-local-disk` parameter as many times as you need, once for each disk you are connecting.
 
 If a dedicated host fails, the data stored on local disks will be lost. To ensure data security, set up replication yourself, e.g., using [{{ backup-full-name }}](../../backup/concepts/index.md).
 
@@ -215,9 +215,9 @@ If the physical server is completely stopped, {{ compute-name }} proceeds as fol
 
 To uniquely map a VM and a physical server, you can create a VM that is linked:
 * To a group of dedicated hosts:
-  When the VM is stopped, it will not be available on the group hosts, and when it is restarted, it may be linked to a different host of the group.
+  Once stopped, the VM becomes unavailable on the group hosts and can be linked to a different host from the group when you restart it.
 * To the selected host of a group of hosts:
-  When the VM is stopped, it will not be available on the host, and when it is restarted, it will be linked to the same host from the group.
+  Once stopped, the VM becomes unavailable on the host, but it will be linked to the same host when you restart it.
 
 Linking a VM ensures that it will run on the same physical server or group of servers even after scheduled maintenance.
 

@@ -8,26 +8,22 @@ description: Follow this guide to change {{ GP }} cluster settings.
 
 After creating a cluster, you can:
 
-* [Change the cluster name and description](#change-name-and-description).
+* [Change cluster name and description](#change-name-and-description).
 * [Change the public access setting](#change-public-access).
 * [Change additional cluster settings](#change-additional-settings).
-* [Edit the scheduled maintenance operations settings](#change-background-settings).
-* [Update {{ GP }} settings](#change-gp-settings) according to the {{ GP }} documentation.
-* [Change the host class](#change-resource-preset).
-* [Change the disk type and increase the storage size](#change-disk-size).
+* [Change scheduled maintenance operation settings](#change-background-settings).
+* [Change {{ GP }} settings](#change-gp-settings) according to the {{ GP }} documentation.
+* [Change PXF protocol settings to optimize external data operations](./pxf/settings.md).
+* [Change authentication settings in the pg_hba.conf file](user-auth-rules.md).
 
-To move a cluster to a different availability zone, [restore it from a backup](cluster-backups.md#restore). While restoring the cluster, specify a new availability zone. You will thus move the cluster hosts.
-
-If you use [external data sources](../concepts/external-tables.md) for PXF operations, [learn how to configure the protocol](./pxf/settings.md). This will allow you to optimize operations with external data.
-
-## Changing the cluster name and description {#change-name-and-description}
+## Changing cluster name and description {#change-name-and-description}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** at the top of the page.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** at the top of the page.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -69,7 +65,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
     To update the cluster description:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -169,8 +165,8 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** at the top of the page.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ mgp-name }}**.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** at the top of the page.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, enable or disable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -295,7 +291,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 - Management console {#console}
 
     1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change additional cluster settings:
 
         * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
@@ -383,7 +379,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -723,16 +719,16 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 {% endlist %}
 
-## Editing the scheduled maintenance operations settings {#change-background-settings}
+## Changing scheduled maintenance operations settings {#change-background-settings}
 
-You can edit your cluster's [scheduled maintenance operations](../concepts/maintenance.md#regular-ops) settings.
+You can change your cluster's [scheduled maintenance operations](../concepts/maintenance.md#regular-ops) settings.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.greenplum.section_background-activities }}**, change the parameters:
 
         {% include [background activities](../../_includes/mdb/mgp/background-activities-console.md) %}
@@ -850,14 +846,32 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
 ## Changing {{ GP }} settings {#change-gp-settings}
 
-You can change the DBMS settings of the hosts in your cluster.
+You can change your cluster's [global DBMS settings](../concepts/settings-list.md). For a list of settings you can edit, see [{#T}](../concepts/settings-list.md).
+
+{% note info %}
+
+To change user-level settings, including those not managed by {{ mgp-name }} at the cluster level, use the following command:
+
+```sql
+ALTER ROLE <role_name> SET <setting> = <value>;
+```
+
+To change settings at the individual database level, use the following command:
+
+```sql
+ALTER DATABASE <DB_name> SET <setting> = <value>;
+```
+
+For a full list of settings, see the [{{ GP }} documentation](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change the [{{ GP }}](../concepts/settings-list.md) settings by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -895,7 +909,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -1041,7 +1055,7 @@ We recommend changing the host class only when the cluster has no active workloa
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for {{ GP }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -1096,7 +1110,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -1240,7 +1254,7 @@ We recommend changing the host class only when the cluster has no active workloa
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster.
-  1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
       * Select the [disk type](../concepts/storage.md).
@@ -1272,7 +1286,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 

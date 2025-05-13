@@ -2,7 +2,7 @@
 
 Because the {{ GP }} DBMS is based on {{ PG }}, the same tools are used to connect to both DBMSs.
 
-You can connect to a {{ mgp-short-name }} cluster only via the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](./hosts/cluster-hosts.md).
+You can connect to a {{ mgp-short-name }} cluster only via the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](cluster-list.md#get-hosts).
 
 You can connect to a cluster:
 
@@ -94,12 +94,12 @@ You can obtain the {{ GP }} host FQDN by doing one of the following:
 * Look up the FQDN in the management console:
 
     1. Go to the cluster page.
-    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
 * In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
-* [Request a list of cluster hosts](hosts/cluster-hosts.md) using the CLI or API.
+* [Request a list of cluster hosts](cluster-list.md#get-hosts) using the CLI or API.
 
 ### Special primary master FQDN {#fqdn-master}
 
@@ -132,7 +132,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
         1. Select **File** → **New** → **Data Source** → **{{ GP }}**.
         1. On the **General** tab:
 
-            1. Specify the connection parameters:
+            1. Specify the connection settings:
 
                 * **User**, **Password**: DB user's name and password.
                 * **URL**: Connection string. Use the [special primary master FQDN](#fqdn-master):
@@ -241,7 +241,7 @@ To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-s
 * `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
-You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](#fqdn-master). To learn how to get a host FQDN, see [this guide](#fqdn).
+You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](#fqdn-master). To learn how to get host FQDN, see [this guide](#fqdn).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

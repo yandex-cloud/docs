@@ -27,7 +27,7 @@ In a cluster with DB management via SQL enabled:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
@@ -43,7 +43,7 @@ In a cluster with DB management via SQL enabled:
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -60,7 +60,7 @@ In a cluster with DB management via SQL enabled:
         --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/databases'
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse) to make sure the request was successful.
 
@@ -87,7 +87,7 @@ In a cluster with DB management via SQL enabled:
         yandex.cloud.mdb.clickhouse.v1.DatabaseService.List
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse) to make sure the request was successful.
 
@@ -106,11 +106,13 @@ In a cluster with DB management via SQL enabled:
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
+To learn more about limits, see [Quotas and limits](../concepts/limits.md).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name.
   1. Select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
@@ -133,13 +135,13 @@ In a cluster with DB management via SQL enabled:
 
   {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   {{ mch-short-name }} runs the create database operation.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -191,7 +193,7 @@ In a cluster with DB management via SQL enabled:
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -223,7 +225,7 @@ In a cluster with DB management via SQL enabled:
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -248,7 +250,7 @@ In a cluster with DB management via SQL enabled:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
@@ -265,11 +267,11 @@ In a cluster with DB management via SQL enabled:
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -302,7 +304,7 @@ In a cluster with DB management via SQL enabled:
           --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/databases/<DB_name>'
       ```
 
-      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -330,7 +332,7 @@ In a cluster with DB management via SQL enabled:
           yandex.cloud.mdb.clickhouse.v1.DatabaseService.Delete
       ```
 
-      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

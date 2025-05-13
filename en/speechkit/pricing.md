@@ -1,6 +1,6 @@
 ---
 title: '{{ speechkit-full-name }} pricing policy'
-description: This article provides the {{ speechkit-full-name }} pricing policy.
+description: This article covers the {{ speechkit-full-name }} pricing policy.
 editable: false
 ---
 
@@ -152,7 +152,7 @@ The cost of an empty request to any type of speech recognition is equal to that 
 
 The cost of using {{ speechkit-short-name }} for speech synthesis using the API v1 with the following parameters:
 
-* **Number of characters sent per month**: 2,023.
+* **Number of characters sent per month**: 2023.
 
 
 

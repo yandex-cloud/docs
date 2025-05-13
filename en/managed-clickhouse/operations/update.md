@@ -38,7 +38,7 @@ To link your service account to a {{ mch-name }} cluster, [assign](../../iam/ope
     To change the service account settings:
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, select the service account you need from the list, or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
 {% endlist %}
@@ -69,7 +69,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the {{ CH }} host class, select the platform, VM type, and required host class under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**.
   1. To change the {{ ZK }} host class, select the platform, VM type, and required {{ ZK }} host class under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -317,7 +317,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
   To increase the cluster storage size:
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -516,7 +516,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To [manage users via SQL](./cluster-users.md#sql-user-management), enable the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** setting under **{{ ui-key.yacloud.mdb.forms.section_settings }}** and specify the `admin` user password.
   1. To [manage databases via SQL](./databases.md#sql-database-management), enable the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** settings under **{{ ui-key.yacloud.mdb.forms.section_settings }}** and specify the `admin` user password.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -687,7 +687,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, change the additional cluster settings:
 
      {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
@@ -746,9 +746,9 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
     * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.Default value: `false`.
 
-    * {% include [Защита от удаления кластера](../../_includes/mdb/cli/deletion-protection.md) %}
+    * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
@@ -816,7 +816,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
         }
         ```
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Make sure the settings are correct.
 
@@ -1131,7 +1131,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
 
 - CLI {#cli}

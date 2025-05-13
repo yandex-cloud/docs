@@ -20,6 +20,8 @@ If the connection to the cluster is successful and the test query is executed, t
 
 The setup method depends on whether cluster [sharding](../../concepts/sharding.md) is enabled:
 
+
+
 ### Linux (Bash) {#bash}
 
 Before connecting, install the [MongoDB Shell utility](index.md#install-mongosh).
@@ -179,14 +181,14 @@ You can only use graphical IDEs to connect to public cluster hosts with an [SSL 
 1. Create a data source:
    1. Select **File** → **New** → **Data Source** → **{{ MG }}**.
    1. On the **General** tab:
-      1. Specify the connection parameters:
+      1. Specify the connection settings:
          * **User**, **Password**: DB user's name and password.
          * **URL**: Connection string.
 
               For a non-sharded cluster:
 
               ```http
-            mongodb://<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},..,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}/<DB_name>
+              mongodb://<{{ MG }}_host_1_FQDN>:{{ port-mmg }},..,<{{ MG }}_host_N_FQDN>:{{ port-mmg }}/<DB_name>
               ```
 
               For a [sharded](../../concepts/sharding.md) cluster:
@@ -220,13 +222,13 @@ To connect to a cluster:
            For a non-sharded cluster:
 
            ```http
-         mongodb://<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},..,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}/<DB_name>
+           mongodb://<{{ MG }}_host_1_FQDN>:{{ port-mmg }},..,<{{ MG }}_host_N_FQDN>:{{ port-mmg }}/<DB_name>
            ```
 
            For a [sharded](../../concepts/sharding.md) cluster:
 
            ```http
-         mongodb://<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:{{ port-mmg-sharded }},...<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:{{ port-mmg-sharded }}/<DB_name>
+           mongodb://<MONGOINFRA_or_MONGOS_host_1_FQDN>:{{ port-mmg-sharded }},...<MONGOINFRA_or_MONGOS_host_N_FQDN>:{{ port-mmg-sharded }}/<DB_name>
            ```
 
            {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}

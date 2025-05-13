@@ -21,8 +21,8 @@ You can update a {{ mes-name }} cluster to a newer [{{ ES }} version](../concept
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 {% endlist %}
@@ -31,8 +31,8 @@ You can update a {{ mes-name }} cluster to a newer [{{ ES }} version](../concept
 
 Make sure this does not affect your applications:
 
-1. See the {{ ES }} [changelog](https://www.elastic.co/downloads/past-releases#elasticsearch) to check how updates might affect your applications.
-1. Try upgrading the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. See {{ ES }} [changelog](https://www.elastic.co/downloads/past-releases#elasticsearch) for how upgrades may affect your applications.
+1. Try a version upgrade on a test cluster. You can deploy it from a backup of the main cluster.
 1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
 ### Updating the {{ ES }} version {#start-version-update}
@@ -41,8 +41,8 @@ Make sure this does not affect your applications:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the appropriate {{ ES }} version.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -72,7 +72,7 @@ Make sure this does not affect your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -108,7 +108,7 @@ Make sure this does not affect your applications:
       {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
     * New {{ ES }} version in the `configSpec.version` parameter.
-    * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.version`).
+    * List of editable cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.version`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -128,8 +128,8 @@ You can change the [{{ ES }} edition](../concepts/es-editions.md) used by the cl
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.elasticsearch.base_field_edition }}** field, select the {{ ES }} edition you need: `Basic` or `Platinum`.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -162,7 +162,7 @@ You can change the [{{ ES }} edition](../concepts/es-editions.md) used by the cl
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -202,7 +202,7 @@ You can change the [{{ ES }} edition](../concepts/es-editions.md) used by the cl
       {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
       
     * New {{ ES }} edition in the `configSpec.edition` parameter.
-    * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.edition`).
+    * List of editable cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.edition`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

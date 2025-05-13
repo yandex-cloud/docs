@@ -89,7 +89,7 @@
                limits:
                  memory: "500Mi"
                  cpu: "1"
-
+   ---
    ### Service.
    apiVersion: v1
    kind: Service

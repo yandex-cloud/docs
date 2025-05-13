@@ -20,7 +20,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
    * Management console {#console}
 
       1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-      1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+      1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
       1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
       1. Specify the folder whose log group you want to be using.
@@ -138,7 +138,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    {% endlist %}
 
-   For more information, see [{#T}](../../logging/operations/read-logs.md).
+   To learn more, see [{#T}](../../logging/operations/read-logs.md).
 
 ## Sending data to a custom log group {#custom}
 
@@ -151,7 +151,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
    * Management console {#console}
 
       1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-      1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+      1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
       1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
       1. Specify the log group, `airflow-log-group`.
@@ -263,4 +263,4 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    {% endlist %}
 
-   For more information, see [{#T}](../../logging/operations/read-logs.md).
+   To learn more, see [{#T}](../../logging/operations/read-logs.md).

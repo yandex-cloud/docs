@@ -1,4 +1,11 @@
-# Connecting to an {{ TR }} cluster
+---
+title: Connecting to a {{ TR }} cluster
+description: Follow this guide to connect to a {{ TR }} cluster.
+keywords:
+  - connecting to a {{ TR }} cluster
+---
+
+# Connecting to a {{ TR }} cluster
 
 You can connect to a {{ mtr-name }} cluster:
 
@@ -78,7 +85,7 @@ Before connecting:
      1. Select **{{ TR }}** from the list.
      1. Click **Next**.
      1. Specify the connection parameters on the **Main** tab:
-        * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.  
+        * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.
         * **Port**: `443`.
         * Under **Authentication**, specify:
             * Username: `iam`.
@@ -248,7 +255,7 @@ Before connecting:
 
     ```
 
-    {% endcut %}  
+    {% endcut %}
 
 1. Create an [IAM token](../../iam/concepts/authorization/iam-token.md) and put it to the `TOKEN` environment variable:
 

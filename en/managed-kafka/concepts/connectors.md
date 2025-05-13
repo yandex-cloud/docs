@@ -34,3 +34,10 @@ The **S3 Sink** connector is only used as a target for data export from {{ KF }}
 The connector requests data from {{ KF }} on a regular basis and uploads it to S3 storage. The data is split into chunks, which are S3 file objects. The size of each data chunk depends on the specified maximum number of records it contains.
 
 For more information about how S3 transfers data, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka).
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/kafka-connect.md)
+* [{#T}](../tutorials/kafka-connectors.md)
+* [{#T}](../tutorials/mkf-to-mkf-transfer.md)
