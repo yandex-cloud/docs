@@ -15,3 +15,5 @@
 * [Why does it take a long time to restore a cluster from a backup?](#long-restore)
 
 * [How do I move an existing {{ CH }} cluster to {{ yandex-cloud }}?](#migration)
+
+* [Can I restore a shard from a backup into a shard in an existing cluster?](#shard-to-shard)

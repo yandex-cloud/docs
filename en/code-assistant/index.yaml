@@ -12,15 +12,25 @@ description:
   - >-
     The {{ ca-name }} plugin is available for <a
     href="https://code.visualstudio.com/">Visual Studio Code</a> and <a
-    href="https://www.jetbrains.com/ides/">JetBrains IDE</a>. For more
-    information, see <a
-    href="/docs/code-assistant/concepts/#supported-versions">Supported IDE
-    versions</a>.
+    href="https://www.jetbrains.com/ides/">JetBrains IDE</a>.  To learn more,
+    see <a href="/docs/code-assistant/concepts/#supported-versions">Supported
+    IDE versions</a>.
   - >-
     <a href="https://yandex.com/legal/cloud_terms_code_assistant/">{{
     ca-full-name }} terms of use</a>
 meta:
   title: '{{ ca-full-name }}'
+  keywords:
+    - keyword: source craft
+    - keyword: yandex code assistant
+    - keyword: yandex source craft
+    - keyword: '{{ ca-name }}'
+    - keyword: '{{ ca-full-name }}'
+    - keyword: '{{ ca-name }}'
+    - keyword: ai assistant in {{ yandex-cloud }}
+    - keyword: developer assistant in {{ yandex-cloud }}
+    - keyword: ai assistant
+    - keyword: developer assistant
 links:
   - title: Getting started
     description: Install {{ ca-name }} for your IDE

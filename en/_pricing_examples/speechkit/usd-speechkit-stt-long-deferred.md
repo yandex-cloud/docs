@@ -1,6 +1,6 @@
 > (15 + 30 + 40) × {{ sku|USD|speechkit.stt_long_running_deferred.v1|string }} = {% calc [currency=USD] (15 + 30 + 40) × {{ sku|USD|speechkit.stt_long_running_deferred.v1|number }} %}
 >
-> Total: {% calc [currency=USD] (15 + 30 + 40) × {{ sku|USD|speechkit.stt_long_running_deferred.v1|number }} %}
+> Total: {% calc [currency=USD] (15 + 30 + 40) × {{ sku|USD|speechkit.stt_long_running_deferred.v1|number }} %}.
 
 Where:
 

@@ -27,7 +27,7 @@ To search data using the {{ yandex-cloud }} gRPC API:
     - Bash {#bash}
 
         ```bash
-        cd <path_to_cloudapi_folder> && \
+        cd <path_to_cloudapi_directory> && \
         mkdir search_data && \
         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
             --python_out=./search_data/ \
@@ -277,19 +277,11 @@ To search data using the {{ yandex-cloud }} gRPC API:
   * `userMeta.<field_name>`: Filtering by user metadata. Where `<field_name>` is the user metadata field that was specified when uploading the dialog, e.g., `userMeta.date`. The filter type must match the metadata field type, which you specified when creating the connection.
   * `talk.classifiers.<classifier_name>.count`: Filtering by classifiers.
   * `talk.summarization.points.<question_ID>`: Filtering by dialog summary. You can view IDs of the questions from the dialog summary in the response to the GET request.
-  * Searching by statistics (only for audio):
+  * Search by statistics:
 
-    * `talk.statistics.duration_seconds`: Dialog duration in seconds.
-    * `talk.statistics.simultaneous_silence.duration_seconds`: Simultaneous silence duration in seconds.
-    * `talk.statistics.simultaneous_silence.ratio`: Simultaneous silence ratio.
-    * `talk.statistics.simultaneous_speech.duration_seconds`: Simultaneous speech duration in seconds.
-    * `talk.statistics.simultaneous_speech.ratio`: Simultaneous speech ratio.
-    * `talk.statistics.interrupts.count`: Number of dialog partner interruptions.
-    * `talk.statistics.phrases.count`, `talk.statistics.words.count`, `talk.statistics.letters.count`: Number of phrases, words, or characters in the dialog.
-    * `talk.statistics.words.count_per_second`, `talk.statistics.letters.count_per_second`: Number of words or characters per second in the specified channel (the channel should be specified in the filter).
-    * `talk.statistics.interrupts.duration_seconds`: Duration of speaker interruptions by another speaker, in seconds. The channel of the interrupting speaker is specified in the filter.
+    {% include [api-statistics-filter](../../../_includes/speechsense/data/api-statistics-filter.md) %}
 
-Under `Filter` and `Query`, you can provide a channel. For a full-text search, it means that the search will only be conducted in the audio text transcript for the specified channel. For filters, this means that filtering will be done only by metadata, classifier positives, or statistics related to this channel.
+In `Filter` and `Query`, you can use the `channel_number` parameter to provide a channel. For a full-text search, it means that the search will only be conducted in the audio text transcript for the specified channel. For filters, this means that filtering will be done only by metadata, classifier positives, or statistics related to this channel.
 
 In connections for chats, the channels are numbered as follows:
 

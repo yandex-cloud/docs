@@ -16,7 +16,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
+  1. Go to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../../../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
   1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
   1. Make sure that the [account](../../../iam/concepts/users/accounts.md) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
@@ -135,7 +135,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
           --enable-network-policy
         ```
 
-      * To enable the Cilium [tunnel mode](../../concepts/network-policy.md#cilium), provide the `--cilium` flag in the {{ managed-k8s-name }} cluster create command:
+      * To enable Cilium's [tunnel mode](../../concepts/network-policy.md#cilium), provide the `--cilium` flag in the {{ managed-k8s-name }} cluster create command:
 
         ```bash
         {{ yc-k8s }} cluster create \
@@ -179,7 +179,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a {{ managed-k8s-name }} cluster:
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
      * {{ managed-k8s-name }} cluster: Cluster description.
      * [Network](../../../vpc/concepts/network.md#network): Description of the cloud network to host the {{ managed-k8s-name }} cluster. If you already have a suitable network, you do not need to describe it again.
 
@@ -188,7 +188,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      * [Subnets](../../../vpc/concepts/network.md#subnet): Description of the subnets to connect the {{ managed-k8s-name }} cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
      * [Service account](#before-you-begin) for the {{ managed-k8s-name }} cluster and [nodes](../../concepts/index.md#node-group) and [role settings]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) for this account. Create separate [service accounts](../../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and nodes, as required. If you already have a suitable service account, you do not need to describe it again.
 
-     >Here is the configuration file example:
+     >Here is an example of the configuration file structure:
      >
      >```hcl
      >resource "yandex_kubernetes_cluster" "<Managed_Service_for_Kubernetes_cluster_name>" {
@@ -248,6 +248,26 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      {% note info %}
      
       Cloud labels for a {{ k8s }} cluster are composed according to certain [rules](../../concepts/index.md#cluster-labels).
+
+     {% endnote %}
+
+     To enable the Cilium [tunnel mode](../../concepts/network-policy.md#cilium), add the following block to the {{ managed-k8s-name }} cluster description:
+
+     ```hcl
+     network_implementation {
+      cilium {}
+     }
+     ```
+
+     To enable the Calico [network policy controller](../../concepts/network-policy.md#calico), add the following line to the {{ managed-k8s-name }} cluster description:
+
+     ```hcl
+     network_policy_provider = "CALICO"
+     ```
+
+     {% note warning %}
+
+      You cannot enable the Calico network policy controller and the Cilium tunnel mode at the same time. Also, you cannot enable them after creating a cluster.
 
      {% endnote %}
 

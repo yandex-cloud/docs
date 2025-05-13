@@ -10,17 +10,25 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   1. Select **{{ objstorage-name }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
   1. On the bucket creation page:
+
       1. Enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
 
           
           By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
 
 
+      1. Add [labels](../../storage/concepts/tags.md), if required:
+
+          1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          1. Enter a label in `key: value` format.
+          1. Press **Enter**.
+
       1. Limit the maximum bucket size, if required.
 
           {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
       1. Configure [public access](../../storage/security/public-access.md) to read [objects](../../storage/concepts/object.md) in the bucket, get a list of objects, and read bucket settings:
+
           * `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`: Authorized {{ yandex-cloud }} users only.
           * `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`: All users.
 
@@ -33,10 +41,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
           "Cold" classes are for long-term storage of objects you intend to use less frequently. The "colder" the storage, the cheaper it is to store data in, but the more expensive it is to read from and write to it.
 
-      1. Add [labels](../../storage/concepts/tags.md), if required:
-          1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-          1. Enter a label in `key: value` format.
-          1. Press **Enter**.
+      1. Enable encryption if you need to: in the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select an existing [symmetric key](../../kms/concepts/key.md) or [create](../../kms/operations/key.md#create) a new one.
 
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
@@ -50,7 +55,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
 - AWS CLI {#aws-cli}
 
-  If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
+  {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
   To create a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../storage/security/#storage-editor) to the service account used by the AWS CLI.
 
@@ -154,7 +159,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) and add them to environment variables.
 
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       # Creating a bucket using an IAM token
@@ -166,7 +171,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       ```
 
       Where:
-      * `bucket`: Bucket name. This is a required parameter.
+      * `bucket`: Bucket name. This is a required setting.
 
         
         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
@@ -180,18 +185,18 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
          {% endnote %}
 
-      For more information about the `yandex_storage_bucket` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information about `yandex_storage_bucket` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 
   **Creating a bucket using a static key**
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       {% cut "Creating a bucket using a key" %}
 
@@ -262,7 +267,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       Where:
       * `yandex_iam_service_account`: Description of the [service account](../../iam/concepts/users/service-accounts.md) to create and use the [bucket](../../storage/concepts/bucket.md):
 
-        * `name`: Service account name. This is a required parameter.
+        * `name`: Service account name. This is a required setting.
         * `bucket`: Bucket name.
 
           
@@ -286,13 +291,13 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         * `tags`: Bucket [labels](../../storage/concepts/tags.md) in `key = "value"` format.
 
-      For more information about the `yandex_storage_bucket` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information about `yandex_storage_bucket` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

@@ -1,6 +1,6 @@
 ---
 title: '{{ cdn-full-name }} pricing policy'
-description: This article describes the {{ cdn-full-name }} pricing policy.
+description: This article covers the {{ cdn-full-name }} pricing policy.
 editable: false
 ---
 
@@ -13,14 +13,14 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 The cost of using {{ cdn-name }} is based on:
-* Amount of outgoing traffic from CDN servers, including traffic requested from user resources on {{ yandex-cloud }}, e.g., {{ compute-full-name }} [virtual machines](../compute/concepts/vm.md). Incoming traffic received by CDN servers from the {{ yandex-cloud }} services and resources or from the Internet, is not charged.
+* Amount of outgoing traffic from CDN servers, including traffic requested by user {{ yandex-cloud }} resources, such as {{ compute-full-name }} [virtual machines](../compute/concepts/vm.md). Incoming traffic received by CDN servers from the {{ yandex-cloud }} services and resources or from the Internet, is not charged.
 * Paid features enabled for resources, such as [origin shielding](concepts/origins-shielding.md) and [log export](concepts/logs.md).
 
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Egress traffic {#traffic}
+### Outgoing traffic {#traffic}
 
 
 

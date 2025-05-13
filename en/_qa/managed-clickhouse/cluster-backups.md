@@ -35,3 +35,13 @@ The approximate average speed of restoring a cluster from a backup is 100 Mbps. 
 #### How do I move an existing {{ CH }} cluster to {{ yandex-cloud }}? {#migration}
 
 Use [{{ data-transfer-full-name }}](../../data-transfer/quickstart.md).
+
+#### Can I restore a shard from a backup into a shard in an existing cluster? {#shard-to-shard}
+
+This option is not currently supported.
+
+However, you can [restore your shard](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup to a new {{ CH }} cluster and transfer data from that cluster into an existing one. To do this, explore the below options:
+
+* [{{ data-transfer-name }}](../../managed-clickhouse/tutorials/ch-to-mch-migration.md). You can use this service to transfer a database or separate tables to a {{ mch-name }} cluster.
+* [{{ CH }}'s built-in `remote`](../../managed-clickhouse/tutorials/data-migration.md#transfer-remote) function. Use it to transfer separate tables to a {{ mch-name }} cluster.
+* [{{ CH }} `BACKUP` and `RESTORE`](../../managed-clickhouse/tutorials/data-migration.md#backup-objstorage) commands. These will help you to back up a database or single table to a [{{ objstorage-full-name}}](../../storage) bucket and then restore your data from the bucket to a {{ mch-name }} cluster.

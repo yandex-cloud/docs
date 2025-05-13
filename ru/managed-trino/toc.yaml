@@ -24,6 +24,8 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Имперсонация
+        href: concepts/impersonation.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

@@ -116,7 +116,7 @@ Make sure the new configuration of {{ managed-k8s-name }} nodes is within the [q
      yc managed-kubernetes cluster list-nodes <cluster_ID>
      ```
 
-     A message saying that the allowed amount of {{ managed-k8s-name }} cluster resources has been exceeded is displayed in the first column of the command output. Example:
+     A message saying that the allowed amount of {{ managed-k8s-name }} cluster resources has been exceeded is displayed in the first column of the command output. For example:
 
      ```text
      +--------------------------------+-----------------+------------------+-------------+--------------+
@@ -197,7 +197,7 @@ Make sure all the pods have the `Running` status.
 
 ##### Make sure the cluster has enough CPU resources available {#check-cpu}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** tab and click the name of any {{ managed-k8s-name }} node.
 1. Go to the **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}** tab.
@@ -301,3 +301,21 @@ If you assigned public IP addresses to the cluster nodes and then configured the
 #### Why cannot I choose Docker as the container runtime environment? {#docker-runtime}
 
 There is no support for Docker as a container runtime environment in clusters with {{ k8s }} version 1.24 or higher. Only [containerd](https://containerd.io/) is available.
+
+#### Error when connecting a {{ GL }} repository to Argo CD {#argo-cd}
+
+Error message:
+
+```text
+FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed
+```
+
+This error occurs if access to {{ GL }} over HTTP(S) is disabled.
+
+**Solution**: Enable access. To do this:
+
+  1. In {{ GL }}, on the left-hand panel, select **Admin → Settings → General**.
+  1. Under **Visibility and access controls**, find the **Enabled Git access protocols** setting.
+  1. In the list, select the item which allows access over HTTP(S).
+
+  [For more information, see the {{ GL }} documentation](https://docs.gitlab.com/administration/settings/visibility_and_access_controls/#configure-enabled-git-access-protocols).

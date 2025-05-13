@@ -2,6 +2,24 @@
 
 Updates appear in the service's [release channels](./concepts/release-channels-and-updates.md) in a sequence. First, updates with new features and improvements are released in the `rapid` channel, after a while, in the `regular` channel, and only then they become available in the `stable` channel.
 
+## Q1 2025 {#q1-2025}
+
+### New features {#q1-2025-new-features}
+
+* You can now configure [computing resources](./concepts/index.md#master-resources) for masters; the relevant [quotas](./concepts/limits.md#managed-k8s-quotas) were added.
+* Updated master configuration types: 
+  * _Basic_: Contains one master host in one availability zone. Its former name is _zonal_.
+  * _Highly available in three availability zones_: Contains three master hosts in three different availability zones. Its former name is _regional_.
+  * _Highly available in one availability zone_: Contains three master hosts in one availability zone and one subnet. New configuration.
+
+  For more information, see the [master description](./concepts/index.md#master).
+  
+### Fixes and improvements {#q1-2025-problems-solved}
+
+* Encrypting cluster secrets in [etcd](https://kubernetes.io/docs/concepts/architecture/#etcd) is switched to [KMS v2](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#kms-v2).
+* Fixed an error that would, in some cases, prevent creating a {{ managed-k8s-name }} cluster with logging enabled.
+* Fixed the issue where {{ network-load-balancer-name }} load balancers with deletion protection enabled, managed by the {{ managed-k8s-name }} cluster, would block cluster deletion. The cluster deletion process is no longer blocked, and the load balancers remain in the user's folder.
+
 ## Q4 2024 {#q4-2024}
 
 ### New features {#q4-2024-new-features}

@@ -1,6 +1,6 @@
 ---
 title: '{{ vpc-full-name }} pricing policy'
-description: This article provides the {{ vpc-name }} pricing policy.
+description: This article covers the {{ vpc-name }} pricing policy.
 editable: false
 ---
 
@@ -12,7 +12,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the price of using {{ vpc-short-name }} {#rules}
+## What goes into the cost of using {{ vpc-short-name }} {#rules}
 
 In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
@@ -29,7 +29,7 @@ After deleting or stopping resources, you will continue to pay for the reserved 
 
 {% note warning %}
 
-Starting May 1, 2025, the prices for {{ vpc-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn21qssbrdtcaus362kp).
+Starting May 1, 2025, prices for {{ vpc-full-name }} resources will increase in the Russia region. You can view the new prices in USD [here](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn21qssbrdtcaus362kp).
 
 {% endnote %}
 
@@ -58,9 +58,9 @@ All prices are net of VAT.
 {% include [usd-ip.md](../_pricing/vpc/usd-ip.md) %}
 
 
-The price of an inactive public static address includes the price of a public IP address plus the price of reserving an inactive public static IP address.
+The cost of an inactive public static address includes the cost of a public IP address plus the cost of reserving an inactive public static IP address.
 
-For example, the price of an inactive public static address will be:
+For example, the cost of an inactive public static address will be:
 
 
 
@@ -82,7 +82,7 @@ You will be charged per hour of NAT gateway usage and for outgoing traffic via t
 
 Outgoing traffic via a NAT gateway exceeding 100 GB per month is billable.
 
-Please note that traffic transmitted via a NAT gateway is charged separately from other [outgoing traffic](#prices-traffic) but according to the same pricing policy.
+Please note that the traffic transmitted via a NAT gateway is charged separately from other [outgoing traffic](#prices-traffic) but according to the same pricing policy.
 
 > For example:
 >
@@ -125,7 +125,7 @@ Legitimate traffic is incoming traffic that passes through the DDoS Protection s
 
 For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded to the VM 2 GB of legitimate files from the internet. When the attack ended, the user downloaded another 2 GB of legitimate files.
 
-In which case the user will be charged only for these 4 GB of legitimate traffic: 2 GB that passed through DDoS Protection to the cloud resources during the attack and 2 GB downloaded after the attack ended. Malicious traffic is filtered at no charge to the user.
+In this case, the user will be charged only for these 4 GB of legitimate traffic: 2 GB that passed through DDoS Protection to the cloud resources during the attack and 2 GB downloaded after the attack ended. Malicious traffic is filtered at no charge to the user.
 
 ### {{ adv-ddos-protection }} {#prices-ddos-advanced}
 
@@ -133,7 +133,7 @@ In which case the user will be charged only for these 4 GB of legitimate traffic
 
 {% note info %}
 
-Please note that the subscription fee for {{ adv-ddos-protection }} and Managed Web Application Firewall is charged for the whole month and is not calculated in proportion to the number of days. For example, if you activate or deactivate the services mid-month you will still be charged the full subscription fee.
+Please note that the subscription fee for {{ adv-ddos-protection }} and Managed Web Application Firewall is charged for the whole month and is not calculated in proportion to the number of days. For example, if you activate or deactivate the services mid-month, you will still be charged the full subscription fee.
 
 Usage beyond the subscription fee is billed in the next reporting month. For example, services consumed in July will be included into the August bill.
 

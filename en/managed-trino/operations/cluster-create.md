@@ -5,7 +5,6 @@ keywords:
   - creating an {{ TR }} cluster
   - '{{ TR }} cluster'
   - '{{ TR }}'
-noIndex: true
 ---
 
 # Creating a {{ TR }} cluster

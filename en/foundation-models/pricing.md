@@ -16,9 +16,7 @@ editable: false
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
 
-### Billing unit {#unit}
-
-{{ foundation-models-name }} usage is detailed out in _billing units_. The cost of a billing unit is different for text [generation](./concepts/yandexgpt/index.md) and [vectorization](./concepts/embeddings.md).
+[In {{ billing-name }}](../billing/operations/check-charges.md), {{ foundation-models-name }} usage is detailed in _billing units_. The billing unit value is different for text [generation](./concepts/yandexgpt/index.md) and [vectorization](./concepts/embeddings.md).
 
 ### Text generation {#rules-generating}
 
@@ -29,7 +27,7 @@ Text generation cost is based on the total number of [prompt](concepts/index.md#
 
 The number of [prompt](concepts/yandexgpt/tokens.md) and response [tokens](concepts/index.md) for the same text may vary depending on model.
 
-When using models in batch processing mode, there is a minimum launch cost of 200,000 tokens.
+With models in batch mode, the minimum cost per run is 200,000 tokens.
 
 The total number of billing units is based on the overall number of prompt and response tokens and is rounded up to a whole number.
 
@@ -91,9 +89,9 @@ You are charged for each generation request in {{ yandexart-name }}. The request
 {% include [usd-generating.md](../_pricing/yandexgpt/usd-generating_new.md) %}
 
 
-#### Cost of using models in batch processing mode {#batch}
+#### Cost of using models in batch mode {#batch}
 
-When using models in batch processing mode, there is a minimum launch cost of 200,000 tokens.
+With models in batch mode, the minimum cost per run is 200,000 tokens.
 
 
 

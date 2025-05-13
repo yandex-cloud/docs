@@ -5,6 +5,11 @@ description: This section contains {{ backup-name }} release notes.
 
 # {{ backup-full-name }} release notes
 
+
+## Q1 2025 {#q1-2025}
+
+You can now use the [{{ yandex-cloud }} CLI](../cli/quickstart.md) to [delete](./operations/backup-vm/batch-delete.md) all backups of a specific VM or {{ baremetal-full-name }} server.
+
 ## Q4 2024 {#q4-2024}
 
 * Added support for new operating systems:
@@ -23,11 +28,11 @@ description: This section contains {{ backup-name }} release notes.
 
 ## Q3 2024 {#q3-2024}
 
-* Enabled setting an existing backup policy when [creating a VM with a {{ backup-name }} connection](./operations/create-vm.md) in the management console, YC CLI, {{ TF }}, and API.
+* You can now add an existing backup policy when [creating a VM with a {{ backup-name }} connection](./operations/create-vm.md) from the management console, CLI, {{ TF }}, and API.
 * Added support for a new data source in {{ TF }} [yandex_backup_policy]({{ tf-provider-datasources-link }}/backup_policy) to get information about a backup policy.
 * Added a new resource in {{ TF }} [yandex_backup_policy_bindings]({{ tf-provider-resources-link }}/backup_policy_bindings) to link VMs to backup policies.
 * Implemented sending [service metrics](metrics.md) to {{ monitoring-full-name }}.
-* Added the ability to [create](./operations/backup-vm/create.md) VM backups outside the backup policy schedule using the YC CLI.
+* You can now [create](./operations/backup-vm/create.md) VM backups outside the backup policy schedule using the CLI.
 * Added support for [{{ baremetal-full-name }}](./tutorials/backup-baremetal.md) server backups.
 
 ## Q2 2024 {#q2-2024}
@@ -54,5 +59,5 @@ description: This section contains {{ backup-name }} release notes.
 ## Q1 2024 {#q1-2024}
 
 * In the management console, on the ![list-check](../_assets/console-icons/list-check.svg) **Operations** tab, some inherently long-running tasks are now considered asynchronous operations, with a completion percentage added for certain actions.
-* Updated the process of applying changes for [backup storage](./concepts/policy.md#retention) rules. By default, new rules will now take effect as soon as another backup is created.
+* Updated the process of applying changes for [backup retention](./concepts/policy.md#retention) rules. By default, new rules will now take effect as soon as another backup is created.
 * Added support for creation of a policy with the `scheduling.scheme=CUSTOM` custom backup schedule scheme. For more information, see [Backup policy specification](./concepts/policy.md#specification).

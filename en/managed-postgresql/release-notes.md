@@ -5,6 +5,11 @@ description: This section contains {{ mpg-name }} release notes.
 
 # {{ mpg-full-name }} release notes
 
+## March 2025 {#mar-2025}
+
+* [Backup policies](operations/backup-retention-policies.md) can now be used.
+* The [{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}](operations/cluster-maintenance.md) section was added to the management console.
+
 ## February 2025 {#feb-2025}
 
 Now, you can [upgrade clusters](operations/cluster-version-update.md) to {{ PG }} 16 version using standard tools without {{ data-transfer-full-name }}.

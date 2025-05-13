@@ -9,7 +9,7 @@ You can use filtering to select the dialogs to include in your report. To do thi
     * **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**: Agent data.
     * **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**: Customer data.
     * **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}** (only for chats): Bot data.
-    * **{{ ui-key.yc-ui-talkanalytics.dialogs.speech-statistics }}** (only for audio): Agent and customer speech quality criteria, e.g., speech rate, mutual interruptions, etc.
+    * **{{ ui-key.yc-ui-talkanalytics.dialogs.speech-statistics }}**: Quality criteria for speech or text messages exchanged between the agent and the customer. For example, for audio, it is the agent's or customer's speech rate, whether any of them interrupted the other party; for chats it is the number of characters in the dialog, how long it was taking the agent to respond to the customer's message.
     * **{{ ui-key.yc-ui-talkanalytics.dialogs.common-metadata }}**: Data on the conversation audio (collected via PBX) or text chat. Metadata is uploaded to {{ speechsense-name }} together with the conversation audio or text chat and contains its key characteristics, e.g., date, topic, and dialog language.
     * **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}**: Classifiers applied to conversation audio recognition results or text chat messages.
 

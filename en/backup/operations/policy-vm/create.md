@@ -1,11 +1,19 @@
 ---
 title: Creating a backup policy
-description: In this tutorial, you will learn how to create a backup policy in **{{ backup-name }}**.
+description: In this tutorial, you will learn how to create a backup policy in {{ backup-name }}.
 ---
 
 # Creating a backup policy
 
-Creating a policy becomes available after you [activate](../../concepts/index.md#providers) {{ backup-name }}.
+Creating a [policy](../../concepts/policy.md) becomes available after you [activate](../../concepts/index.md#providers) {{ backup-name }}.
+
+You can create or [update](update.md) a policy using the {{ yandex-cloud }} management console, {{ TF }}, or a [JSON](https://en.wikipedia.org/wiki/JSON) [specification](../../concepts/policy.md#specification) via the {{ yandex-cloud }} [CLI](../../../cli/quickstart.md) or API.
+
+{% note info %}
+
+You cannot create backup policies with some advanced settings in the {{ yandex-cloud }} management console. Use the CLI, {{ TF }}, or API to create such policies.
+
+{% endnote %}
 
 {% include [default-policies](../../../_includes/backup/default-policies.md) %}
 
@@ -17,11 +25,21 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [backup policy](../../../backup/concepts/policy.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+  1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. On the backup policy creation page:
 
-     {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+      {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+
+        * Optionally, select a data **{{ ui-key.yacloud.backup.policy-overview.field_compression }}** in the backup. The higher the compression level, the longer it takes to create a backup, but such a backup will be smaller in size. How efficient compression is depends on the type of data you are backing up: files that are already compressed, such as JPG, PDF, or MP3, are difficult to compress further, unlike, for example, DOC or XLS. 
+
+          {% note info %}
+
+          You can only select a compression level when creating a policy. You cannot change it for an existing policy.
+
+          {% endnote %}
+
+        {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -199,14 +217,14 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
        * `Unique ID`: Unique ID.
 
        Make sure the last character in the generated archive name is not a variable.
-     * `cbt`: Configuration for tracking [backup](../../concepts/backup.md) contents. This is an optional parameter. The possible values include:
+     * `cbt`: Configuration for tracking [backup](../../concepts/backup.md) contents. This is an optional parameter. It can take either of these two values:
        * `CHANGED_BLOCK_TRACKING_UNSPECIFIED`: Not specified.
        * `USE_IF_ENABLED`: Use if enabled.
        * `ENABLE_AND_USE`: Enable and use.
        * `DO_NOT_USE`: Do not use.
 
        The default value is `DO_NOT_USE`.
-     * `compression`: Backup compression ratio. This is an optional parameter. The possible values include:
+     * `compression`: Backup compression ratio. This is an optional parameter. It can take either of these two values:
        * `NORMAL`: Standard compression ratio.
        * `HIGH`: High compression ratio.
        * `MAX`: Maximum compression ratio.
@@ -214,7 +232,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
 
        The default value is `NORMAL`.
      * `fast_backup_enabled`: Fast backup for tracking changes to files. When enabled, file changes are detected by the file size and its timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. It can either be `true` or `false`.
-     * `format`: Backup format. This is an optional parameter. The possible values include:
+     * `format`: Backup format. This is an optional parameter. It can take either of these two values:
        * `VERSION_11`: Deprecated format, not recommended.
        * `VERSION_12`: Recommended format for high-speed backup and recovery.
        * `AUTO`: Automatic format selection. The default option is `VERSION_12`, unless you are creating [incremental](../../concepts/backup.md#types) backups for the images created in other versions.
@@ -242,7 +260,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
        * `enabled`: Enable backup scheduling. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
        * `max_parallel_backups`: Maximum number of concurrent backups. This is an optional parameter. The default value is `0` (unlimited).
        * `random_max_delay`: Sets a random delay between concurrent jobs. This is an optional parameter. The default value is `30m`.
-       * `scheme`: Backup schedule scheme. This is an optional parameter. The possible values include:
+       * `scheme`: Backup schedule scheme. This is an optional parameter. It can take either of these two values:
          * `ALWAYS_INCREMENTAL`: Always incremental.
          * `ALWAYS_FULL`: Always full.
          * `WEEKLY_FULL_DAILY_INCREMENTAL`: Create an incremental backup every day and a full one weekly.
@@ -263,12 +281,12 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
        * `interval`: Interval between retries. This is an optional parameter. The default value is `5m`.
        * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
 
-     For more information about the `yandex_backup_policy` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/backup_policy).
-  1. Create resources:
+     For more information about `yandex_backup_policy` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/backup_policy).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+     {{ TF }} will create all required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc backup policy list

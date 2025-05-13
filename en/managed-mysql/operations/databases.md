@@ -10,7 +10,7 @@ You can add and remove databases, view information about them, and manage some d
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
@@ -43,7 +43,7 @@ You can add and remove databases, view information about them, and manage some d
         --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases'
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure the request was successful.
 
@@ -70,7 +70,7 @@ You can add and remove databases, view information about them, and manage some d
         yandex.cloud.mdb.mysql.v1.DatabaseService.List
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure the request was successful.
 
@@ -84,7 +84,7 @@ You can add and remove databases, view information about them, and manage some d
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name.
   1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
   1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
@@ -123,7 +123,7 @@ You can add and remove databases, view information about them, and manage some d
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -171,7 +171,7 @@ You can add and remove databases, view information about them, and manage some d
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -203,7 +203,7 @@ You can add and remove databases, view information about them, and manage some d
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -215,9 +215,9 @@ You can add and remove databases, view information about them, and manage some d
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the DB you need and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the DB and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
 
@@ -235,7 +235,7 @@ You can add and remove databases, view information about them, and manage some d
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -266,7 +266,7 @@ You can add and remove databases, view information about them, and manage some d
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases/<DB_name>'
       ```
 
-      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -294,7 +294,7 @@ You can add and remove databases, view information about them, and manage some d
           yandex.cloud.mdb.mysql.v1.DatabaseService.Delete
       ```
 
-      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
   1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -314,8 +314,8 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. In the list of the settings, locate the **sql_mode** parameter.
   1. Configure a set of SQL modes in the drop-down list. To restore default settings, click **{{ ui-key.yacloud.component.mdb.settings.button_reset }}**.
@@ -342,7 +342,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -376,7 +376,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -402,14 +402,14 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
-      * `configSpec.mysqlConfig_<version_{{ MY }}>.sqlMode`: List of SQL modes. For available modes, see the {{ MY }} documentation:
+      * `configSpec.mysqlConfig_<{{ MY }}_version>.sqlMode`: List of SQL modes. For available modes, see the {{ MY }} documentation:
 
-          * [for version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          * [for version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
+          * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+          * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -420,7 +420,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -454,14 +454,14 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
-      * `config_spec.mysql_config_<version_{{ MY }}>.sql_mode`: List of SQL modes. For available modes, see the {{ MY }} documentation:
+      * `config_spec.mysql_config_<{{ MY }}_version>.sql_mode`: List of SQL modes. For available modes, see the {{ MY }} documentation:
 
-          * [for version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          * [for version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
+          * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+          * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -469,7 +469,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
 ## Changing a character set and collation rules {#charset-collate}
 
-To set the `CHARACTER SET` and `COLLATE` settings for the database:
+To configure the `CHARACTER SET` and `COLLATE` database settings:
 
 1. [Connect](connect.md) to the database under the account of the database owner or as a user with the `ALTER` privilege for this database.
 1. Run the [ALTER DATABASE](https://dev.mysql.com/doc/refman/5.7/en/charset-database.html) query:

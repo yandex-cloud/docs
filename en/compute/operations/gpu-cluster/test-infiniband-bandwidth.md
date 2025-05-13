@@ -1,6 +1,6 @@
 ---
 title: Testing InfiniBand throughput
-description: Follow this guide to run a InfiniBand throughput test on a single machine with NUMA node resource isolation.
+description: Follow this guide to run an InfiniBand throughput test on a single machine with NUMA node resource isolation.
 ---
 
 # Testing InfiniBand throughput
@@ -57,7 +57,7 @@ description: Follow this guide to run a InfiniBand throughput test on a single m
    q=1
 
    # Specify CPU numbers and network device names for different NUMA nodes
-   # Example:
+   # For example:
    numa0_cpu=40      # Client CPU (NUMA node 0)
    numa1_cpu=130     # Server CPU (NUMA node 1)
    numa0_net=mlx5_0  # Network interface for the client

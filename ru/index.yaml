@@ -117,6 +117,9 @@ links:
   - title: Yandex Lockbox
     description: Создание и хранение секретов
     href: lockbox/
+  - title: Yandex Neurosupport
+    description: Помощник оператора поддержки на базе YandexGPT
+    href: neurosupport/
   - title: Managed Service for Apache Airflow™
     description: Управление кластерами Apache Airflow™
     href: managed-airflow/

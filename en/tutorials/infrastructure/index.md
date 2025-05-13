@@ -57,3 +57,8 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [{#T}](../dataplatform/clickhouse-dns-peering.md)
 * [{#T}](../infrastructure-management/dns-integration.md)
 * [Creating an ACME resolver webhook for responses to DNS01 checks](../infrastructure-management/cert-manager-webhook.md)
+
+## GPU {#gpu}
+
+* [Launching the DeepSeek-R1 language model in a GPU cluster](../infrastructure-management/gpu-cluster-deepseek.md)
+* [Running a vLLM library with the Gemma 3 language model on a VM with GPU](../infrastructure-management/vllm-gemma-gpu.md)

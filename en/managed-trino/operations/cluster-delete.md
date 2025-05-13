@@ -5,7 +5,6 @@ keywords:
   - deleting an {{ TR }} cluster
   - '{{ TR }} cluster'
   - '{{ TR }}'
-noIndex: true
 ---
 
 # Deleting a {{ TR }} cluster

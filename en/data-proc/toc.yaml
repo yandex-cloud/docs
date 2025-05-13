@@ -13,6 +13,8 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
+          - name: Creating a cluster with autoscaling in another folder's network
+            href: operations/cluster-create-autoscale.md
           - name: Connecting to a cluster
             href: operations/connect.md
           - name: Updating a cluster
@@ -33,7 +35,7 @@ items:
             href: operations/connect-interfaces.md
           - name: Using Sqoop
             href: operations/sqoop-usage.md
-          - name: Setup {{ IBRG }}
+          - name: Configuration {{ IBRG }}
             href: operations/apache-iceberg.md
           - name: Delta Lake
             items:

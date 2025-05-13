@@ -94,7 +94,7 @@ Intel Broadwell is not available in the `{{ region-id }}-d` [availability zone](
 
   To add {{ ZK }} hosts to a cluster:
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -207,7 +207,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and required {{ ZK }} host class.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, set {{ ZK }} storage size.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -254,7 +254,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   To change {{ ZK }} host settings:
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -473,7 +473,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
    To delete a {{ ZK }} host:
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
    1. Delete the `ZOOKEEPER` type `host` block from the {{ mch-name }} cluster description.

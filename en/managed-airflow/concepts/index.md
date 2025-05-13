@@ -43,6 +43,7 @@ The main entity {{ maf-name }} operates is a _cluster_. Inside a cluster, [{{ AF
 
 A workflow running in a cluster may access any {{ yandex-cloud }} resource within the cloud network where the cluster is located. For example, a workflow can send requests to {{ yandex-cloud }} VMs or managed DB clusters. You can build a workflow using multiple resources, e.g., a workflow that collects data from one DB and sends it to another DB or [{{ dataproc-full-name }}](../../data-proc/index.yaml).
 
+
 ## {{ AF }} main components {#components}
 
 The main {{ AF }} components are shown below:
@@ -100,3 +101,9 @@ See how to work with Triggerer in the figure below:
 ![triggerer](../../_assets/managed-airflow/triggerer.svg)
 
 For more information about deferrable operators, triggers, and the Triggerer service, see the [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/deferring.html#deferrable-operators-triggers) documentation.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-processing-automation.md)
+* [{#T}](../tutorials/airflow-auto-tasks.md)

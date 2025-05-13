@@ -15,7 +15,7 @@ In this section, you can find the {{ mpg-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=ae5598bac8c3#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=ae5598bac8c3#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
 
 
 {% endnote %}
@@ -31,7 +31,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 ## What goes into the cost of using {{ mpg-short-name }} {#rules}
 
-The {{ mpg-name }} usage cost is based on:
+The {{ mpg-name }} usage cost includes:
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 

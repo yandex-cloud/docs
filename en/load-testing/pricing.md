@@ -1,6 +1,6 @@
 ---
 title: '{{ load-testing-full-name }} pricing policy'
-description: This article provides the {{ load-testing-name }} pricing policy.
+description: This article covers the {{ load-testing-name }} pricing policy.
 editable: false
 ---
 
@@ -24,7 +24,7 @@ Tests run by multiple agents are charged as a sum of tests run by each agent.
 
 {% note warning %}
 
-Starting May 1, 2025, the prices for {{ load-testing-full-name }} resources in the Russia region will increase. For new USD prices, see our [price list](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2ul6hj517ba5ckvl0i).
+Starting May 1, 2025, prices for {{ load-testing-full-name }} resources will increase in the Russia region. You can view the new prices in USD [here](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2ul6hj517ba5ckvl0i).
 
 {% endnote %}
 

@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step guides
+  - name: Step-by-step tutorials
     items:
-      - name: All guides
+      - name: All tutorials
         href: operations/index.md
       - name: Clusters
         items:
@@ -25,6 +25,8 @@ items:
             href: operations/replication-slots.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing backup policies
+            href: operations/backup-retention-policies.md
           - name: Managing disk space
             href: operations/storage-space.md
           - name: Maintenance

@@ -1,4 +1,4 @@
-# Launching the DeepSeek-R1 language model in a {{ compute-full-name }} GPU cluster
+# Running the DeepSeek-R1 language model in a {{ compute-full-name }} GPU cluster
 
 
 
@@ -25,6 +25,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
+Make sure the cloud has enough [quotas](../../compute/concepts/limits.md#compute-quotas) for the total number of GPU clusters, total number of `AMD EPYC™ 9474F with Gen2` GPUs, amount of RAM, number of vCPUs, and SSD size to create the VMs. To do this, use [{{ quota-manager-full-name }}](../../quota-manager/).
+
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
@@ -40,7 +42,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a cluster.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.compute.gpu_clusters }}**.
    1. Click **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
    1. In the **{{ ui-key.yacloud.gpu-cluster.field_name }}** field, enter cluster name: `test-gpu-cluster`.
@@ -65,7 +67,7 @@ The infrastructure support costs include:
 
             * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `AMD Epyc 9474F with Gen2`.
             * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: `8`.
-            * **{{ ui-key.yacloud.component.compute.resources.field_gpu-cluster }}**: Select the previously created `test-gpu-cluster` cluster.
+            * **{{ ui-key.yacloud.component.compute.resources.field_gpu-cluster }}**: Select the `test-gpu-cluster` cluster you created earlier.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
             * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.

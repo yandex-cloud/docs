@@ -1,7 +1,7 @@
 #### Quotas {#speechkit-quotas}
 
 
-Type of limit | Value
+Type of limitation | Value
 ----- | -----
 [**Streaming speech recognition**](../{{ speechkit-slug }}/stt/streaming.md) |
 Requests per second | 40
@@ -9,7 +9,8 @@ Requests per second | 40
 Requests per second | 20
 [**Asynchronous recognition**](../{{ speechkit-slug }}/stt/transcribation.md) |
 Recognition requests per hour | 500
-Operation status check requests per hour | 2,500
+Operation status check requests via API v2 per hour | 2,500
+Operation status check requests via API v3 per second | 5
 Billable hours of audio per day^1^ | 10,000
 [**Speech synthesis**](../{{ speechkit-slug }}/tts/request.md) |
 Requests per second | 40
@@ -21,7 +22,7 @@ Requests per second | 40
 
 #### Limits {#speechkit-limits}
 
-Type of limit | Value
+Type of limitation | Value
 ----- | -----
 [**Streaming speech recognition**](../{{ speechkit-slug }}/stt/streaming.md) |
 Maximum duration of transmitted audio for entire session | {{ stt-streaming-audioLength }}

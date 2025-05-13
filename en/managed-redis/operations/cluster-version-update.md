@@ -14,8 +14,8 @@ All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain avai
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select a cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 {% endlist %}
@@ -24,7 +24,7 @@ All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain avai
 
 Make sure this does not affect your applications:
 
-1. See the {{ VLK }} [changelog](https://docs.redis.com/latest/rs/release-notes/) to check how updates might affect your applications.
+1. See {{ VLK }} [changelog](https://docs.redis.com/latest/rs/release-notes/) for how upgrades may affect your applications.
 1. Try a version upgrade on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, provided {{ mrd-name }} [supports](#version-supported) the {{ VLK }} version in the backup.
 1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
 
@@ -43,7 +43,7 @@ Make sure this does not affect your applications:
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the cluster to upgrade.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster from the list and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. Select the cluster from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -75,6 +75,36 @@ Make sure this does not affect your applications:
      ```
 
      As soon as you run the upgrade, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+
+    1. Under `config`, change the `version` parameter to the {{ VLK }} version you want to upgrade to.
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+            ...
+            config {
+                version  = "<new_version_number>"
+                ...
+            }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - REST API {#api}
 

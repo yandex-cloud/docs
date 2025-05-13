@@ -21,7 +21,7 @@ description: Из этой статьи вы узнаете, как измени
 
       На открывшейся главной странице сервиса {{ cloud-center }} приведены основные сведения о вашей организации.
 
-      Если у вас несколько организаций, вы можете [переключиться](./manage-organizations.md#switch-to-another-org) на нужную. Для этого в левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужную организацию. В результате текущая организация изменится.
+      {% include [switch-org-note](../../_includes/organization/switch-org-note.md) %}
 
   1. Чтобы изменить название и описание текущей организации, нажмите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.dashboard.organization.action.edit-button }}** в блоке с названием организации в центральной части экрана.
 

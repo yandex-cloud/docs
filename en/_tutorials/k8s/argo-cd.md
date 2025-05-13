@@ -20,8 +20,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ managed-k8s-name }} cluster fee: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * NAT gateway fee if used instead of public IP addresses for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
 * Fee for {{ container-registry-name }} [storage](../../container-registry/pricing).
@@ -33,7 +33,7 @@ The support cost includes:
 
 ## Getting started {#before-you-begin}
 
-### Set up your infrastructure {#deploy-infrastructure}
+### Prepare the infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -169,7 +169,7 @@ Install the following tools in the local environment:
    git push
    ```
 
-1. This will run the build script. To track its progress, in the drop-down menu, select **Build** → **Pipelines**. Wait until both build steps are complete.
+1. This will run the build script. To view its progress, in the left-hand panel in {{ GL }}, select **Build** → **Pipelines**. Wait until both build steps are complete.
 1. Open the completed build and copy the following line from the log (you will need it at the next step):
 
    ```text
@@ -184,13 +184,6 @@ Install the following tools in the local environment:
 
    {% include [Install kubectl](../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
 
-1. Configure ArgoCD port forwarding onto the local computer:
-
-   ```bash
-   kubectl port-forward service/<Argo_CD_app_name>-argocd-server \
-     --namespace <namespace> 8080:443
-   ```
-
 1. Get the administrator password from a {{ k8s }} secret:
 
    ```bash
@@ -198,8 +191,15 @@ Install the following tools in the local environment:
      --output jsonpath="{.data.password}" | base64 -d
    ```
 
+1. Configure ArgoCD port forwarding onto the local computer:
+
+   ```bash
+   kubectl port-forward service/<Argo_CD_app_name>-argocd-server \
+     --namespace <namespace> 8080:443
+   ```
+
 1. Open the Argo CD console at `https://127.0.0.1:8080` in your browser.
-1. Log in to the console as `admin` using the password you got in the previous step.
+1. Log in to the console as `admin` using the password you got earlier.
 
 ### Add a {{ GL }} repository to Argo CD {#create}
 
@@ -211,7 +211,18 @@ Install the following tools in the local environment:
 1. Click **Create project access token**.
 1. Copy the value of the token you created.
 1. In the Argo CD console, go to **Settings** → **Repositories**.
-1. Click **Connect Repo Using HTTPS**.
+1. Click **Connect Repo** and select **VIA HTTPS** from the list.
+
+   {% note info %}
+
+   If you get the `FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed` error when connecting a repository, enable access to {{ GL }} via HTTP(S).
+
+   To enable access, from the left-hand panel in {{ GL }}, select **Admin → Settings → General**. Under **Visibility and access controls**, find the **Enabled Git access protocols** setting and select the option that allows HTTP(S) access from the list.
+
+   [For more information, see the {{ GL }} documentation](https://docs.gitlab.com/administration/settings/visibility_and_access_controls/#configure-enabled-git-access-protocols).
+
+   {% endnote %}
+
 1. In the resulting form, enter the settings:
    * **Repository URL**: Repository URL in the following format: `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_username>/gitlab-test.git`.
    * **Username**: `gitlab-ci-token`.

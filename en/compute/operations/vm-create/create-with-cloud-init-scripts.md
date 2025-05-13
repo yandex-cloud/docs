@@ -24,7 +24,7 @@ To create a VM with a custom configuration script:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** from the list of services.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. [Set](create-linux-vm.md) the required VM parameters.
@@ -237,7 +237,7 @@ To make sure the configuration scripts ran successfully, [get the serial port ou
       content: |
         #!/bin/bash
 
-        # YC CLI
+        # CLI
         echo "Installing Yandex Cloud CLI"
         curl \
           --silent \

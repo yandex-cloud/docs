@@ -56,3 +56,8 @@ If you assign no security group for the {{ maf-name }} cluster, it will automati
 When connecting to a {{ yandex-cloud }} resource from the cloud network of a {{ maf-name }} cluster, also set up security groups for the resource the cluster is connecting to.
 
 {% endnote %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/airflow-auto-tasks.md)

@@ -1,1 +1,1 @@
-In the management console, you can only grant permissions to service accounts created in the same folder as the bucket. You can grant permissions to service accounts belonging to other folders using the YC CLI (only for ACL buckets), AWS CLI, {{ TF }}, or API.
+In the management console, you can only grant permissions to service accounts created in the same folder as the bucket. You can grant permissions to service accounts belonging to other folders using the {{ yandex-cloud }} CLI (only for ACL buckets), AWS CLI, {{ TF }}, or API.

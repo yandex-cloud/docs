@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to change settings for a {{ VL
 
 After creating a cluster, you can:
 
-* [Change the cluster name and description](#change-name-and-description).
+* [Change cluster name and description](#change-name-and-description).
 
 * [Configure the use of FQDNs instead of IP addresses](#configure-fqdn-ip-behavior).
 
@@ -35,7 +35,7 @@ Learn more about other cluster updates:
 
 * [Migrating hosts to a different availability zone](host-migration.md).
 
-## Changing the cluster name and description {#change-name-and-description}
+## Changing cluster name and description {#change-name-and-description}
 
 {% list tabs group=instructions %}
 
@@ -44,7 +44,7 @@ Learn more about other cluster updates:
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
-  1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -80,7 +80,7 @@ Learn more about other cluster updates:
 
     To update the cluster description:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -189,7 +189,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
-    1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable or disable **{{ ui-key.yacloud.redis.field_announce-hostnames }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -222,7 +222,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     To enable or disable the use of FQDNs instead of IP addresses:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -356,7 +356,7 @@ We recommend changing the host class only when the cluster has no active workloa
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
-  1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
      
 	 * Select a platform in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** field.
@@ -417,7 +417,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -546,7 +546,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
-  1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
   
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -584,7 +584,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
   To increase the cluster storage size:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -726,7 +726,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
-  1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. Configure the available parameters according to the [{{ VLK }} documentation](https://valkey.io/documentation).
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
@@ -735,7 +735,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
     To update the [DBMS settings](../concepts/settings-list.md) for the cluster:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -878,7 +878,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
-  1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change additional cluster settings:
 
      {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
@@ -928,6 +928,72 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+
+    1. In the {{ mrd-name }} cluster description, edit the parameters you need:
+    
+        * To set the backup start time, add the `backup_window_start` section.
+        
+            ```hcl
+            resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+                ...
+                backup_window_start {
+                    hours   = <hours>
+                    minutes = <minutes>
+                }
+            }
+            ```
+
+            Where:
+
+            * `hours`: Backup start hour, UTC, in `HH` format: `0` to `23`.
+            * `minutes`: Backup start minute, UTC, in `mm` format: `0` to `59`.
+
+        * To set up the [maintenance window](../concepts/maintenance.md) (for disabled clusters as well), add the `maintenance_window` section to the cluster description:
+
+            ```hcl
+            resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+            ...
+                maintenance_window {
+                    day  = <day_of_week>
+                    hour = <start_hour>
+                    type = "ANYTIME"
+                }
+            }
+            ```
+
+            Where `type` is the maintenance type, which can be:
+
+            * `ANYTIME`: Anytime.
+            * `WEEKLY`: On a schedule. When specifying this value, you also need to set the following parameters:
+                * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+
+        * To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
+
+            ```hcl
+            resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+            ...
+                    deletion_protection = false
+            }
+            ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -1090,7 +1156,7 @@ You cannot disable sharding in a cluster where it is already enabled.
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
-    1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -1119,6 +1185,39 @@ You cannot disable sharding in a cluster where it is already enabled.
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     {% include [enable-sharding-shard-note](../../_includes/mdb/mrd/enable-sharding-shard-note.md) %}
+
+- {{ TF }} {#tf}
+
+    To enable sharding:
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+
+    1. Add the `sharded` parameter set to `true` to the {{ mrd-name }} cluster description:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+            ...
+            sharded = true
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    {% include [enable-sharding-shard-note](../../_includes/mdb/mrd/enable-sharding-shard-note.md) %}
+
+    You can also [manage shards](../operations/shards.md).
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -1210,7 +1309,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
@@ -1256,7 +1355,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         Where `destinationFolderId` is the ID of the folder to move the cluster to.
 
-        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
     1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1287,7 +1386,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         Where `destination_folder_id` is the ID of the folder to move the cluster to.
 
-        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
     1. View the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1303,7 +1402,7 @@ You cannot disable sharding in a cluster where it is already enabled.
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
-    1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
 - CLI {#cli}
@@ -1329,7 +1428,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 

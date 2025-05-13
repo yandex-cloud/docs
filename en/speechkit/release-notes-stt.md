@@ -6,6 +6,17 @@ For more information about speech recognition methods, see [About technology](st
 
 
 
+## Release as of 24/04/2025 {#240425}
+
+Updates to `general:rc`:
+
+* Improved recognition quality for Uzbek.
+* Improved recognition quality for medical topics in Russian.
+
+## Release as of 11/04/2025 {#110425}
+
+`general:rc` updates are now available in the `general` model.
+
 ## Release as of 05/03/2025 {#050325}
 
 Improved recognition quality for Uzbek and Russian in `general:rc`.

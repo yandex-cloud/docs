@@ -123,7 +123,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 - Management console {#console}
 
    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Select the cluster you need from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. Select the cluster you need from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -162,7 +162,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -323,7 +323,7 @@ Let's look at a case where a cluster is upgraded from version 5.7 to 8.0. This s
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file that defines your infrastructure.
    1. In the `version` field, specify the `8.0` value in the `yandex_mdb_mysql_cluster` resource:
 
       ```hcl

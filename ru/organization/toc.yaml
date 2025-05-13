@@ -90,6 +90,8 @@ items:
             href: operations/add-role.md
           - name: Назначить роль группе пользователей
             href: operations/groups-access-binding.md
+          - name: Посмотреть роли, назначенные в организации
+            href: operations/org-list-bindings.md
           - name: Отозвать роль у пользователя
             href: operations/revoke-role.md
   - name: Практические руководства

@@ -46,6 +46,8 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
            {% include [zone-cannot-be-changed](../../_includes/mdb/mgp/zone-cannot-be-changed.md) %}
 
+           {% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+
         * The **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option to enable connecting to the cluster from the internet.
 
     1. Optionally, enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
@@ -81,7 +83,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-            {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. (Optional) Configure the operating mode and [connection pooler](../concepts/pooling.md) parameters under **{{ ui-key.yacloud.mdb.forms.section_pooler }}**:
 
@@ -357,7 +359,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 
 
-      To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-mgp }}).
+      For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-mgp }}).
 
   
   1. Optionally, specify [dedicated host](../../compute/concepts/dedicated-host.md) groups to place master or segment hosts on dedicated hosts:
@@ -729,7 +731,7 @@ To create a {{ GP }} cluster copy:
         export GREENPLUM_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-greenplum/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Import the settings of the initial {{ GP }} cluster into the {{ TF }} configuration:
 

@@ -1,7 +1,6 @@
 ---
 title: Access management in {{ mtr-full-name }}
-description: Access management in {{ TR }}, a cluster creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
-noIndex: true
+description: Access management in {{ TR }}, a cluster creation and management service. This section covers the resources supporting role assignment, the available service roles, and required permissions for specific actions.
 ---
 
 # Managing access to {{ mtr-name }}
@@ -11,9 +10,9 @@ noIndex: true
 
 In this section, you will learn:
 
-* [What resources you can assign a role for](#resources).
-* [Roles existing in this service](#roles-list).
-* [What roles are required for particular actions](#required-roles).
+* [What resources support role assignment](#resources).
+* [What roles are available in the service](#roles-list).
+* [What roles are required for specific actions](#required-roles).
 
 To use the service, log in to the management console with a [Yandex account](../iam/concepts/users/accounts.md#passport) or [federated account](../iam/concepts/users/accounts.md#saml-federation).
 
@@ -23,13 +22,13 @@ To assign a role for a resource, a user needs the `managed-trino.admin` role or 
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources supporing role assignment {#resources}
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
 To allow access to {{ mtr-name }} resources, such as clusters and accounts, give the user the relevant roles for the folder, cloud, or organization containing those resources.
 
-## Roles existing in this service {#roles-list}
+## Available service roles {#roles-list}
 
 Below is a list of all roles that are used to verify access rights in the service.
 
@@ -78,5 +77,5 @@ You can always assign a role with more permissions. For example, you can assign 
 * [How to assign a role](../iam/operations/roles/grant.md).
 * [How to revoke a role](../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

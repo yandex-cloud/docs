@@ -33,5 +33,5 @@ You can create a network load balancer by specifying only its name. The other pa
 
 A network load balancer can be deployed in {{ yandex-cloud }} using the following tools:
 * [Cloud console]({{ link-console-main }})
-* [YC CLI](../../cli/quickstart.md)
+* [CLI](../../cli/quickstart.md)
 * [Terraform](https://terraform-provider.yandexcloud.net/Resources/lb_network_load_balancer)

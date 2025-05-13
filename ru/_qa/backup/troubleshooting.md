@@ -107,3 +107,11 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 #### Создание инкрементальных резервных копий ВМ или сервера {{ baremetal-name }} занимает больше времени, чем обычно {#av-interaction}
 
 На время создания [инкрементальных копий](../../backup/concepts/backup.md#types) в рамках политики с включенной [опцией](../../backup/concepts/policy.md#specification) быстрого резервного копирования `fastBackupEnabled` может влиять работа антивируса. Подробнее см. в [{#T}](../../backup/concepts/av-interaction.md).
+
+#### Out-Of-Memory Killer (OOM Killer) в Linux завершает процесс агента {{ backup-name }} {#oom-solution}
+
+{% include [agent-ram-usage-paragraph](../../_includes/backup/operations/agent-ram-usage-paragraph.md) %}
+
+{% include [agent-ram-usage-second-paragraph](../../_includes/backup/operations/agent-ram-usage-second-paragraph.md) %}
+
+{% include [agent-ram-usage-notice](../../_includes/backup/operations/agent-ram-usage-notice.md) %}

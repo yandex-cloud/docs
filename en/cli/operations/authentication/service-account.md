@@ -14,7 +14,7 @@ Learn how to authenticate in the CLI:
 ## Getting started {#before-begin}
 
 1. Authenticate in the CLI as a [user](user.md) or a [federated user](federated-user.md).
-1. If you don't have a service account yet, [create one](../../../iam/operations/sa/create.md) and [configure access rights for it](../../../iam/operations/sa/assign-role-for-sa.md).
+1. If you do not have a service account yet, [create one](../../../iam/operations/sa/create.md) and [configure access permissions for it](../../../iam/operations/sa/assign-role-for-sa.md).
 
 ## Authenticate as a service account {#auth-as-sa}
 

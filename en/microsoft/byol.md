@@ -1,6 +1,6 @@
-# Use of personal licenses for Microsoft products
+# Using personal licenses for Microsoft products
 
-{{ yandex-cloud }} allows you to use your own Microsoft product licenses on [dedicated hosts](../compute/concepts/dedicated-host.md). In this case, the license relationships regulate only you as a client and Microsoft as a license vendor. You are fully responsible for complying with the Microsoft license [terms and conditions](https://www.microsoft.com/en-us/useterms).
+{{ yandex-cloud }} allows you to use your own Microsoft product licenses on [dedicated hosts](../compute/concepts/dedicated-host.md). The licensing relationship exists solely between you as a client and Microsoft as a license vendor. You are fully responsible for complying with the Microsoft license [terms and conditions](https://www.microsoft.com/en-us/useterms). 
 
 When using Microsoft license products in {{ yandex-cloud }}, the cost of license is deducted from the cost of VM usage. You need to settle all license-related matters with your supplier.
 
@@ -46,69 +46,69 @@ You can import the image using the [{{ compute-name }} REST API](../compute/api-
 
    - Bash {#bash}
 
-      ```bash
-      curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
-      ```
+     ```bash
+     curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
+     ```
 
    - PowerShell {#powershell}
 
-      ```powershell
-      function Create-YCImage {
-        param(
-          [ValidateNotNullOrEmpty()]
-          [string]$folderId = "",
+     ```powershell
+     function Create-YCImage {
+       param(
+         [ValidateNotNullOrEmpty()]
+         [string]$folderId = "",
 
-          [ValidateNotNullOrEmpty()]
-          [string]$name = "",
+         [ValidateNotNullOrEmpty()]
+         [string]$name = "",
 
-          [string]$description = "",
+         [string]$description = "",
 
-          [ValidateNotNullOrEmpty()]
-          [string]$os_type = "WINDOWS",
+         [ValidateNotNullOrEmpty()]
+         [string]$os_type = "WINDOWS",
 
-          [int64]$minDiskSizeGb = 50GB,
+         [int64]$minDiskSizeGb = 50GB,
 
-          [ValidateNotNullOrEmpty()]
-          [string]$uri = ""
-        )
+         [ValidateNotNullOrEmpty()]
+         [string]$uri = ""
+       )
 
-        $body = @"
-      {
-        "folderId": "$folderId",
-        "name": "$name",
-        "description": "$description",
-        "os.type": "$os_type",
-        "minDiskSize": "$minDiskSizeGb",
-        "os": {
-          "type": "$os_type"
-        },
-        "uri": "$uri"
-      }
-      "@
+       $body = @"
+     {
+       "folderId": "$folderId",
+       "name": "$name",
+       "description": "$description",
+       "os.type": "$os_type",
+       "minDiskSize": "$minDiskSizeGb",
+       "os": {
+         "type": "$os_type"
+       },
+       "uri": "$uri"
+     }
+     "@
 
-        Invoke-WebRequest `
-          -Method POST `
-          -URI https://compute.{{ api-host }}/compute/v1/images `
-          -header @{ "Authorization" = "Bearer $(& yc iam create-token)" } `
-          -ContentType 'Application/json' `
-          -body $body
-      }
+       Invoke-WebRequest `
+         -Method POST `
+         -URI https://compute.{{ api-host }}/compute/v1/images `
+         -header @{ "Authorization" = "Bearer $(& yc iam create-token)" } `
+         -ContentType 'Application/json' `
+         -body $body
+     }
 
 
-      $folderId = "<ID of your folder>"
+     $folderId = "<ID of your folder>"
 
-      Create-YCImage `
-        -folderId $folderId `
-        -name "<image name>" `
-        -uri "<link to image in Object Storage>"
+     Create-YCImage `
+       -folderId $folderId `
+       -name "<image name>" `
+       -uri "<link to image in Object Storage>"
 
-      ```
+     ```
 
    {% endlist %}
 
-1. Open the [management console]({{ link-console-cloud }}), and choose the folder whose ID you specified in the `folderId` parameter in the first step.
+1. Open the [management console]({{ link-console-cloud }}) and select the folder whose ID you specified in the `folderId` parameter in the first step.
 1. Go to {{ compute-name }} and choose the **Images** tab.
-1. Find the image to be imported, it's in `Creating` status. Wait for the status to change from `Creating` to `Ready`.
+1. Find the image you are importing; it will have the `Creating` status. Wait until its status changes from `Creating` to `Ready`.
 
 ### Create a group of dedicated hosts {#create-host-group}
 
@@ -120,26 +120,26 @@ You can use your own licenses only on VMs created on dedicated hosts. Contact yo
 
 On the dedicated host, create a VM with the boot disk from the imported image. Specify the ID of the dedicated host in the `--host-id` parameter. You can only create a VM using the CLI, API, or Terraform. Run this command:
 
-{% list tabs group=instructions %}
+   {% list tabs group=instructions %}
 
-- CLI {#cli}
+   - CLI {#cli}
 
-   ```bash
-   yc compute instance create \
-   --host-id <ID of dedicated host> \
-   --name 'win-test' \
-   --folder-id <folder ID> \
-   --cores <number of vCPUs> \
-   --core-fraction 100 \
-   --memory <amount of RAM, GB> \
-   --network-interface subnet-id=<subnet ID>,nat-ip-version=ipv4 \
-   --create-boot-disk image-id=<ID of imported image> \
-   --zone <availability zone> \
-   ```
+     ```bash
+     yc compute instance create \
+     --host-id <dedicated host ID> \
+     --name 'win-test' \
+     --folder-id <folder ID> \
+     --cores <number of vCPUs> \
+     --core-fraction 100 \
+     --memory <amount of RAM in GB> \
+     --network-interface subnet-id=<subnet ID>,nat-ip-version=ipv4 \
+     --create-boot-disk image-id=<ID of imported image> \
+     --zone <availability zone> \
+     ```
 
-{% endlist %}
+   {% endlist %}
 
-## Reset the administrator password {#reset-password}
+## Reset the admin password {#reset-password}
 
 To access the VM, [reset the default administrator password](../compute/operations/vm-guest-agent/reset-password.md) and generate a new one.
 
