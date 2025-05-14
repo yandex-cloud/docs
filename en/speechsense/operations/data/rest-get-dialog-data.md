@@ -66,7 +66,7 @@ To get information about a dialog via the {{ yandex-cloud }} REST API: 
 
 ## Request body example for getting information about a dialog {#get-chat-info-example}
 
-For example, you need to get a summary of a dialog with technical support where the agent proposed filing a ticket for a technician's visit. To get the ID of the dialog, use [this request example for full-text search](#full-text-search-example).
+For example, you need to get a summary of a dialog with technical support where the agent proposed filing a ticket for a technician's visit. To get the ID of the dialog, use [this request example for full-text search](rest-full-text-search.md#full-text-search-example).
 
 Your JSON file with the request parameters will look as follows:
 

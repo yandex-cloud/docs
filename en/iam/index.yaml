@@ -15,6 +15,17 @@ meta:
     Yandex Identity and Access Management (IAM) is an identification and access
     control service that helps you centrally manage user access rights to your
     Yandex Cloud resources.
+  keywords:
+    - keyword: '{{ iam-short-name }}'
+    - keyword: '{{ iam-name }}'
+    - keyword: '{{ iam-full-name }}'
+    - keyword: '{{ iam-name }}'
+    - keyword: identification in {{ yandex-cloud }}
+    - keyword: access control in {{ yandex-cloud }}
+    - keyword: access management in {{ yandex-cloud }}
+    - keyword: identification and access control
+    - keyword: managing user permissions
+    - keyword: access management
 links:
   - title: Getting started
     description: Add a user and assign a role

@@ -45,7 +45,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
             --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>:stop'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -73,7 +73,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
             yandex.cloud.airflow.v1.ClusterService.Stop
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -119,7 +119,7 @@ You can restart clusters with the `Stopped` status.
             --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -147,7 +147,7 @@ You can restart clusters with the `Stopped` status.
             yandex.cloud.airflow.v1.ClusterService.Start
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

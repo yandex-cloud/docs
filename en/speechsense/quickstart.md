@@ -38,6 +38,8 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
    {% cut "Example of metadata.json for loading audio data" %}
 
+   {% include [data-format](../_includes/speechsense/data/data-format.md) %}
+
    ```json
    {
       "direction_outgoung": "true",

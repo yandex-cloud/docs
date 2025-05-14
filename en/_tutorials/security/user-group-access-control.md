@@ -103,7 +103,7 @@ In your new organization, create two [clouds](../../resource-manager/concepts/re
 
     {% list tabs group=instructions %}
 
-    - {{ cloud-center }} interface {#cloud-center}
+    - {{ cloud-center }} UI {#cloud-center}
 
       1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
       1. Select your billing account.
@@ -139,7 +139,7 @@ Create three [user groups](../../organization/concepts/groups.md): `security` fo
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
@@ -177,7 +177,7 @@ To grant the required access permissions to the `security` user group:
 
     {% list tabs group=instructions %}
 
-    - {{ cloud-center }} interface {#cloud-center}
+    - {{ cloud-center }} UI {#cloud-center}
 
       1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
       1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
@@ -268,7 +268,7 @@ To enable your employees to use {{ yandex-cloud }} resources, add them to the {{
 
     {% list tabs group=instructions %}
 
-    - {{ cloud-center }} interface {#cloud-center}
+    - {{ cloud-center }} UI {#cloud-center}
 
       1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
       1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
@@ -292,7 +292,7 @@ To enable your employees to use {{ yandex-cloud }} resources, add them to the {{
 
     {% list tabs group=instructions %}
 
-    - {{ cloud-center }} interface {#cloud-center}
+    - {{ cloud-center }} UI {#cloud-center}
 
       1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
       1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.

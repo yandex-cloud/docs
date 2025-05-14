@@ -232,7 +232,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
             * `airflow.config`: [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
 
-                ```bash
+                ```json
                 "airflow": {
                   "config": {
                     "core.load_examples": "False"
@@ -304,7 +304,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/<cluster_ID>'
+            --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>'
             --data '@body.json'
         ```
 
@@ -419,7 +419,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
             * `airflow.config`: [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
 
-                ```bash
+                ```json
                 "airflow": {
                   "config": {
                     "core.load_examples": "False"

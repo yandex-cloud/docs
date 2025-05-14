@@ -18,7 +18,7 @@ To create a service account authorized key:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
    1. In the list that opens, select the service account to create an authorized key for.
    1. In the top panel, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
@@ -86,7 +86,7 @@ To create a service account authorized key:
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    1. In the configuration file, define the parameters of the resources you want to create:
+    1. In the configuration file, describe the resources you want to create:
 
        ```
        resource "yandex_iam_service_account_key" "sa-auth-key" {
@@ -110,18 +110,18 @@ To create a service account authorized key:
            * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the private part of the authorized key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
            * `entry_for_secret_key`: Secret key to assign to the private part of the authorized key value you are saving.
 
-       To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
+       For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/iam_service_account_key).
 
     1. Make sure the configuration files are correct.
 
-       1. In the command line, go to the directory where you created the configuration file.
+       1. In the command line, navigate to the directory where you created the configuration file.
        1. Run a check using this command:
 
           ```
           terraform plan
           ```
 
-       If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+       If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Deploy the cloud resources.
 
@@ -131,7 +131,7 @@ To create a service account authorized key:
           terraform apply
           ```
 
-       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+       1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
 
        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) and this CLI command:
 
@@ -188,8 +188,8 @@ To delete a service account authorized key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the required service account.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
 
@@ -248,14 +248,14 @@ To delete a service account authorized key:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -267,7 +267,7 @@ To delete a service account authorized key:
 
       1. Confirm creating and deleting the resources by typing `yes` in the terminal and clicking **Enter**.
 
-      This will create or delete all resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
+      This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
 
       ```bash
       yc iam key list --service-account-id <service_account_ID>

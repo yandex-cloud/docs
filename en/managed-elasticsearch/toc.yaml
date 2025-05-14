@@ -41,7 +41,7 @@ items:
             href: operations/s3-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: Managing users
+      - name: User management
         href: operations/cluster-users.md
       - name: Logs and monitoring
         items:

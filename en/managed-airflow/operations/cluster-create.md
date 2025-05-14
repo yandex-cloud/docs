@@ -220,7 +220,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-maf }}).
 
@@ -307,7 +307,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             * `versionId`: {{ AF }} version.
             * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
 
-                ```bash
+                ```json
                 "airflow": {
                   "config": {
                     "core.load_examples": "False"
@@ -485,7 +485,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             * `version_id`: {{ AF }} version.
             * `airflow.config`: [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties. Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
 
-                ```bash
+                ```json
                 "airflow": {
                   "config": {
                     "core.load_examples": "False"
