@@ -229,12 +229,11 @@ Benefits of being listed in the catalog:
 * Acquisition of new customers: You can make a statement as a reliable {{ yandex-cloud }} partner with an added benefit of gaining the attention of potential customers.
 * Acknowledgment of competence: Being listed in the catalog is a seal of excellence for your potential customers, and a confirmation of your expertise with {{ yandex-cloud }} solutions.
 
-To be eligible for the partner catalog, your company must satisfy the following conditions:
+To be eligible for the partner catalog, your company must satisfy the following criteria:
 
 * You have a partner agreement signed.
-* You have at least one project or customer in {{ yandex-cloud }}.
-* You have your own products developed based on {{ yandex-cloud }}.
-* You have a dedicated team for {{ yandex-cloud }} projects.
+* There is at least one technical specialist who has completed the [**Cloud services engineer**](https://practicum.yandex.ru/ycloud/) course.
+* There are at least two completed projects and/or subaccounts in {{ yandex-cloud }}.
 
 If you meet all the requirements and want your company in the partner catalog, contact your partner manager or write to [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru).
 

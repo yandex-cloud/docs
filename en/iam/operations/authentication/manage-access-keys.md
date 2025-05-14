@@ -18,7 +18,7 @@ To create a service account static access key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the service account to create a static access key for.
   1. In the top panel, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
@@ -82,7 +82,7 @@ To create a service account static access key:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
@@ -99,7 +99,7 @@ To create a service account static access key:
 
      Where:
 
-     * `service_account_id`: This is a required parameter.
+     * `service_account_id`: Service account ID. This is a required setting.
      * `description`: Key description. This is an optional parameter.
      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
 
@@ -108,18 +108,18 @@ To create a service account static access key:
          * `entry_for_access_key`: Secret key to assign to the static access key ID value you are saving.
          * `entry_for_secret_key`: Secret key to assign to the secret key value you are saving.
 
-     For more information about the `yandex_iam_service_account_static_access_key` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     For more information about `yandex_iam_service_account_static_access_key` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -129,10 +129,10 @@ To create a service account static access key:
         terraform apply
         ```
 
-     1. Confirm creating the static access key: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the static access key by typing `yes` in the terminal and pressing **Enter**.
 
-        If any errors occur when creating the key, {{ TF }} will indicate them.
-        If the key is successfully created, {{ TF }} will write it into its configuration, but will not show it to the user. The terminal will display only the ID of the created key.
+        In there were any errors when creating the key, {{ TF }} will point them out.
+        If the key has been created successfully, {{ TF }} will write it into its configuration without showing it to the user. The terminal will display only the ID of the created key.
 
         You can check the new service account key in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
          
@@ -197,7 +197,7 @@ To delete a service account static access key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_service-account-keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
@@ -257,14 +257,14 @@ To delete a service account static access key:
 
     1. Make sure the configuration files are correct.
 
-        1. In the command line, go to the directory where you created the configuration file.
+        1. In the command line, navigate to the directory where you created the configuration file.
         1. Run a check using this command:
 
             ```bash
             terraform plan
             ```
 
-        If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+        If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Deploy the cloud resources.
 
@@ -276,7 +276,7 @@ To delete a service account static access key:
 
         1. Confirm creating and deleting the resources by typing `yes` in the terminal and clicking **Enter**.
 
-        This will create or delete all resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
+        This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
 
         ```bash
         yc iam access-key list --service-account-id <service_account_ID>

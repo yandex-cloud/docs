@@ -38,6 +38,12 @@ To prepare for uploading audio recordings:
 
 ## Uploading data {#upload-data}
 
+{% note info %}
+
+{% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
+
+{% endnote %}
+
 1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
 1. In the `upload_data` directory , create the `upload_grpc.py` Python script to upload your data to a {{ speechsense-name }} connection as a single message:
 
@@ -101,8 +107,8 @@ To prepare for uploading audio recordings:
                'client_name': 'Client',
                'client_id': '2222',
                'date': str(now),
-               'date_from': '2023-09-13T17:30:00.000',
-               'date_to': '2023-09-13T17:31:00.000',
+               'date_from': '2023-09-13T17:30:00.000Z',
+               'date_to': '2023-09-13T17:31:00.000Z',
                'direction_outgoing': 'true',
             }
          else:
@@ -128,8 +134,6 @@ To prepare for uploading audio recordings:
       <additional_connection_parameters>
    }
    ```
-
-   Set the `date` field value in `YYYY-MM-DDTHH:MM:SS.SSS` format.
 
    The file's fields must match the parameters of the connection you are uploading audio recordings to. The template above shows the required fields for **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** type connections. If you added other parameters to the connection, specify them in the `metadata.json` file; e.g., to upload [linked dialogs](../../concepts/dialogs.md#related-dialogs), add the following parameter to your file:
 

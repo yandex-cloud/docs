@@ -6406,6 +6406,9 @@ default:
           action:
             delete-button: Delete
             edit-button: Edit
+        products:
+          action:
+            console: Cloud Console
       entity:
         certificate:
           action:

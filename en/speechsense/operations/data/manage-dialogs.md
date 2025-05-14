@@ -17,32 +17,11 @@ Use the following to search for dialogs:
 * [Dictionary search](#dictionary-search)
 * [Semantic search](#sense-search)
 
+To get more information about each dialog, [customize the columns](#set-columns).
+
 ### Filters {#filters-dialogs}
 
 To apply a filter to dialogs:
-
-To get more information about each dialog, [customize the columns](#set-columns).
-
-You can use [filters](#filters-dialogs) and the [search bar](#find-dialogs) to search for dialogs.
-
-## Customizing column display {#set-columns}
-
-By default, not all columns are displayed in the dialog list. You can display additional columns, hide the ones you do not need, and reorder them.
-
-To customize column display:
-
-1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the space you need and select a project.
-1. In the title row for the list of dialogs, click ![image](../../../_assets/console-icons/gear.svg). This will open the list of all columns.
-1. Do one of the following in the list of columns:
-
-    * Check any additional columns you want displayed.
-    * Uncheck columns you do not need to hide them. Some columns cannot be hidden, so you cannot uncheck them.
-    * To reorder columns, click ![image](../../../_assets/console-icons/grip.svg) to the left of the column name and drag the column to a new position in the list.
-
-1. Click **Apply**.
-
-## Finding dialogs using filters {#filters-dialogs}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
@@ -101,6 +80,23 @@ To perform a search:
 
 1. Click **{{ ui-key.yacloud.common.search }}**.
 
+## Customizing column display {#set-columns}
+
+By default, not all columns are displayed in the dialog list. You can display additional columns, hide the ones you do not need, and reorder them.
+
+To customize column display:
+
+1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
+1. Go to the space you need and select a project.
+1. In the title row for the list of dialogs, click ![image](../../../_assets/console-icons/gear.svg). This will open the list of all columns.
+1. Do one of the following in the list of columns:
+
+    * Check any additional columns you want displayed.
+    * Uncheck columns you do not need to hide them. Some columns cannot be hidden, so you cannot uncheck them.
+    * To reorder columns, click ![image](../../../_assets/console-icons/grip.svg) to the left of the column name and drag the column to a new position in the list.
+
+1. Click **Apply**.
+
 ## Viewing a dialog {#view-dialog}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
@@ -120,6 +116,185 @@ The dialog page displays the following information:
 * [Tags](../../concepts/tags.md) assigned to the dialog.
 
 To learn more, see [{#T}](../../concepts/dialogs.md#details).
+
+## Editing dialog metadata {#edit-dialog-metadata}
+
+Editing dialog metadata can be of use in some situations. For example, you can add a score to an already uploaded dialog after the customer has rated it.
+
+You can update metadata values for keys that were added [when creating the connection](../connection/create.md). You cannot add metadata if there is none in the connection settings.
+
+You can edit dialog metadata via the {{ yandex-cloud }} gRPC API. To do this:
+
+1. [Get the dialog ID](#get-dialog-id).
+1. [Get your infrastructure ready for the {{ yandex-cloud }} gRPC API](#prepare-grpc-api).
+1. [Get the dialog information](#get-dialog-info).
+1. [Edit the dialog metadata](#edit-metadata).
+
+### Get the dialog ID {#get-dialog-id}
+
+Find the dialog you need and copy its ID:
+
+1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
+1. Go to the space you need and select a project.
+1. On the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** tab, [find the dialog](#search-dialogs) and navigate to it.
+1. Copy the dialog ID from the upper-left corner.
+
+### Get your infrastructure ready for the {{ yandex-cloud }} gRPC API {#prepare-grpc-api}
+
+{% include [software](../../../_includes/speechsense/data/software.md) %}
+
+1. {% include [create-sa](../../../_includes/speechsense/data/create-sa.md) %}
+1. {% include [role-sa](../../../_includes/speechsense/data/role-sa.md) %}
+1. {% include [create-api-key](../../../_includes/speechsense/data/create-api-key.md) %}
+1. {% include [clone-cloudapi](../../../_includes/speechsense/data/clone-cloudapi.md) %}
+1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
+
+### Get the dialog information {#get-dialog-info}
+
+Use the [TalkService/Get](../../api-ref/grpc/Talk/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}.
+
+The examples use demo data.
+
+**Request:**
+
+```bash
+grpcurl \
+    -format json \
+    -import-path ~/cloudapi/ \
+    -import-path ~/cloudapi/third_party/googleapis/ \
+    -proto ~/yandex/cloud/speechsense/v1/talk_service.proto \
+    -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+    -d '{
+          "space_id": "f3fuc***************",
+          "project_id": "eagpe***************",
+          "talk_ids": [
+            "aud78***************"
+          ]
+        }' \
+    api.speechsense.yandexcloud.net:443 \
+    yandex.cloud.api.speechsense.v1.TalkService.Get
+```
+
+**Response:**
+
+```json
+{
+  "talk": [
+    {
+      "id": "aud78***************",
+      "organizationId": "yc.organization-manager.example",
+      "spaceId": "f3fuc***************",
+      "connectionId": "eagjj***************",
+      "projectIds": [
+        "eagpe***************"
+      ],
+      "createdBy": "ajegr***************",
+      "createdAt": "2025-04-24T14:35:19.882Z",
+      "modifiedBy": "CLASSIFIER",
+      "modifiedAt": "2025-04-24T14:35:24.470980Z",
+      "talkFields": [
+        {
+          "name": "operator_name",
+          "value": "John",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "operator_id",
+          "value": "11111",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "client_name",
+          "value": "Alexander",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "client_id",
+          "value": "22222",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "date",
+          "value": "2025-04-24T14:34:19Z",
+          "type": "FIELD_TYPE_DATE"
+        },
+        {
+          "name": "direction_outgoing",
+          "value": "true",
+          "type": "FIELD_TYPE_BOOLEAN"
+        },
+        {
+          "name": "language",
+          "value": "ru-ru",
+          "type": "FIELD_TYPE_STRING"
+        },
+        {
+          "name": "score_main",
+          "type": "FIELD_TYPE_STRING"
+        }
+      ],
+    // ...
+    }
+  ]
+}
+```
+
+The response contains the dialog metadata in the `talkFields` field:
+
+* `operator_name`: Agent name.
+* `operator_id`: Agent ID.
+* `client_name`: Customer name.
+* `client_id`: Customer ID.
+* `date`: Dialog start date and time, in `YYYY-MM-DDTHH:MM:SSSZ` format.
+
+   {% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
+
+* `direction_outgoing`: Dialog direction (incoming or outgoing).
+* `language`: Dialog language.
+* `score_main`: Dialog score. Optional key; the value will be added when editing the metadata.
+
+### Edit the dialog metadata {#edit-metadata}
+
+{% note info %}
+
+When editing the dialog metadata, remember to provide all keys; otherwise, their values will be deleted.
+
+{% endnote %}
+
+Use the [TalkService/Upload](../../api-ref/grpc/Talk/upload.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}.
+
+The example uses demo data.
+
+**Request:**
+
+The request adds a new `score_main` key value; other key values are provided unchanged.
+
+```bash
+grpcurl \
+    -format json \
+    -import-path ~/cloudapi/ \
+    -import-path ~/cloudapi/third_party/googleapis/ \
+    -proto ~/cloudapi/yandex/cloud/speechsense/v1/talk_service.proto \
+    -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+    -d '{
+          "talkId": "aud78***************",
+          "metadata": {
+            "connectionId": "eagjj***************",
+            "fields": {
+              "date": "2025-04-24T14:34:19Z",
+              "direction_outgoing": "true",
+              "language": "ru-ru",
+              "operator_name": "John",
+              "operator_id": "11111",
+              "client_name": "Alexander",
+              "client_id": "22222",
+              "score_main": "4"
+            }
+          }
+        }' \
+    api.speechsense.yandexcloud.net:443 \
+    yandex.cloud.speechsense.v1.TalkService.Upload
+```
 
 ## Example of searching dialogs by time period and text fragment {#example-find-dialogs-by-period-and-text}
 

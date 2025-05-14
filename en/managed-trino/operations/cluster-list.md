@@ -18,6 +18,54 @@ You can request detailed information about each {{ mtr-name }} cluster you creat
     1. In the [management console]({{ link-console-main }}), go to the relevant folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.list](../api-ref/Cluster/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters' \
+            --url-query folderId=<folder_ID>
+        ```
+
+        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+    1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.trino.v1.ListClustersResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/List](../api-ref/grpc/Cluster/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "folder_id": "<folder_ID>"
+                }' \
+            {{ api-host-trino }}:{{ port-https }} \
+            yandex.cloud.trino.v1.ClusterService.List
+        ```
+
+        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+    1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.trino.v1.ListClustersResponse) to make sure the request was successful.
+
 {% endlist %}
 
 ## Getting detailed information about a cluster {#get-cluster}
@@ -29,6 +77,53 @@ You can request detailed information about each {{ mtr-name }} cluster you creat
     1. In the [management console]({{ link-console-main }}), go to the relevant folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.get](../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>'
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.trino.v1.Cluster) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Get](../api-ref/grpc/Cluster/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-trino }}:{{ port-https }} \
+            yandex.cloud.trino.v1.ClusterService.Get
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.trino.v1.Cluster) to make sure the request was successful.
 
 {% endlist %}
 
@@ -51,6 +146,53 @@ All actions with {{ mtr-name }} clusters are logged as a list of operations. Eac
     1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected cluster.
 
         You will see a list of operations with the selected cluster.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.listOperations](../api-ref/Cluster/listOperations.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>/operations'
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.trino.v1.ListClusterOperationsResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-trino }}:{{ port-https }} \
+            yandex.cloud.trino.v1.ClusterService.ListOperations
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.trino.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
 {% endlist %}
 

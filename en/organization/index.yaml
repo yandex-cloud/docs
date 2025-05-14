@@ -9,6 +9,15 @@ meta:
     Yandex Cloud Organization is an enterprise solution that allows you to
     connect your organization to Yandex Cloud services and manage employee
     access to these services.
+  keywords:
+    - keyword: '{{ org-name }}'
+    - keyword: '{{ org-full-name }}'
+    - keyword: '{{ org-name }}'
+    - keyword: '{{ yandex-cloud }} for businesses'
+    - keyword: corporate access to {{ yandex-cloud }}
+    - keyword: corporate cloud
+    - keyword: cloud for corporate customers
+    - keyword: how to manage employee access
 links:
   - title: Getting started
     description: Create an organization

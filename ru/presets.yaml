@@ -6411,6 +6411,9 @@ default:
           action:
             delete-button: Удалить
             edit-button: Редактировать
+        products:
+          action:
+            console: Cloud Console
       entity:
         certificate:
           action:
