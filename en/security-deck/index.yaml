@@ -19,6 +19,21 @@ meta:
     Portal. Its tools enable you to discover vulnerabilities, track and protect
     access to data, and monitor compliance with regulations and industry
     standards.
+  keywords:
+    - keyword: '{{ sd-name }}'
+    - keyword: '{{ sd-full-name }}'
+    - keyword: '{{ sd-name }}'
+    - keyword: CNAPP
+    - keyword: '{{ atr-name }} modules'
+    - keyword: data security posture management ({{ dspm-name }})
+    - keyword: yandex cloud compliance
+    - keyword: cloud infrastructure entitlement management ({{ ciem-name }})
+    - keyword: compliance portal in {{ yandex-cloud }}
+    - keyword: compliance {{ yandex-cloud }}
+    - keyword: '{{ yandex-cloud }} information security'
+    - keyword: cloud infrastructure entitlement management in {{ yandex-cloud }}
+    - keyword: '{{ yandex-cloud }} vulnerabilities'
+    - keyword: data protection in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Getting started with Yandex Security Deck

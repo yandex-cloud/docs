@@ -60,7 +60,7 @@ To create a service account API key:
 
       Where:
       
-      * `--service-account-name`: Service account name. This is a required parameter.
+      * `--service-account-name`: Service account name. This is a required setting.
       * `--scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional parameter.
 
           If the scope is not specified, the API key will be assigned the following scopes by default:
@@ -123,13 +123,13 @@ To create a service account API key:
           * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the API key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
           * `entry_for_secret_key`: Secret key to assign to the API key value being saved.
 
-      To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
+      For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+      {{ TF }} will create all required resources. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
 
       ```bash
       yc iam api-key list --service-account-id <service_account_ID>
@@ -156,8 +156,8 @@ To create a service account API key:
 
   Where:
 
-  * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required parameter.
-  * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
+  * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required setting.
+  * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required setting.
   * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional parameter.
 
       If the scope is not specified, the API key will be assigned the following scopes by default:
@@ -230,7 +230,7 @@ To add an API key description when creating the key:
 
   Where:
 
-  * `--service-account-name`: Service account [name](../sa/get-id.md). This is a required parameter.
+  * `--service-account-name`: Service account [name](../sa/get-id.md). This is a required setting.
   * `--description`: API key description. This is an optional parameter.
   * `--scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
 
@@ -271,8 +271,8 @@ To add an API key description when creating the key:
 
   Where:
 
-  * `SERVICEACCOUNT_ID`: [Service account ID](../sa/get-id). This is a required parameter.
-  * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
+  * `SERVICEACCOUNT_ID`: [Service account ID](../sa/get-id). This is a required setting.
+  * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required setting.
   * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
 
 {% endlist %}
@@ -286,8 +286,8 @@ To delete a service account API key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the required service account.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the API key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
 
@@ -341,14 +341,14 @@ To delete a service account API key:
 
     1. Make sure the configuration files are correct.
 
-        1. In the command line, go to the directory where you created the configuration file.
+        1. In the command line, navigate to the directory where you created the configuration file.
         1. Run a check using this command:
 
             ```bash
             terraform plan
             ```
 
-        If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out.
+        If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Deploy the cloud resources.
 
@@ -360,7 +360,7 @@ To delete a service account API key:
 
         1. Confirm creating and deleting the resources by typing `yes` in the terminal and clicking **Enter**.
 
-        This will create or delete all resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
+        This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
 
         ```bash
         yc iam api-key list --service-account-id <service_account_ID>

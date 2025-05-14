@@ -845,6 +845,8 @@ items:
         href: dataplatform/airflow-test-smtp-notification.md
       - name: Добавление данных в БД {{ CH }}
         href: dataplatform/insert-data-ch.md
+      - name: Миграция данных в {{ mch-name }} средствами {{ CH }}
+        href: dataplatform/clickhouse-migration.md
       - name: Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name }}
         href: dataplatform/ch-to-mch-migration.md
       - name: >-

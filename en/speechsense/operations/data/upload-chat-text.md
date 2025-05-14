@@ -16,7 +16,7 @@ Prepare to upload a chat conversation:
 
 1. [Create a connection](../connection/create.md#create-chat-connection) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** type.
 
-   If you want to upload [linked dialogs](../../concepts/dialogs.md#related-dialogs), add the `ticket_id` string key to the connection's general metadata. The chats will be linked by this key.
+   If you want to upload [linked dialogs](../../concepts/dialogs.md#related-dialogs), add the `ticket_id` string key in the general metadata for your connection. The chats will be linked by this key.
 
 1. [Create a project](../project/create.md) with the new connection.
 
@@ -29,6 +29,12 @@ Prepare to upload a chat conversation:
 1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
 
 ## Uploading data {#upload-data}
+
+{% note info %}
+
+{% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
+
+{% endnote %}
 
 1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
 
@@ -98,7 +104,7 @@ Prepare to upload a chat conversation:
          upload_talk(args.connection_id, metadata, args.key, text_data)
       ```
 
-1. In the `upload_data` directory , create a file named `metadata.json` with your conversation metadata:
+1. In the `upload_data` folder, create a file named `metadata.json` with your conversation metadata:
 
    ```json
    {
@@ -114,8 +120,6 @@ Prepare to upload a chat conversation:
       <additional_connection_parameters>
    }
    ```
-
-   Set the `date` field value in `YYYY-MM-DDTHH:MM:SS.SSS` format.
 
    The file's fields must match the parameters of the connection you are uploading text messages to. The template above shows the required fields for **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** type connections. If you added other parameters to the connection, specify them in the `metadata.json` file; e.g., to upload [linked chats](../../concepts/dialogs.md#related-dialogs), add the following parameter to your file:
 

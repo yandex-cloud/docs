@@ -30,7 +30,10 @@ A _connection_ is a {{ speechsense-name }} entity that contains:
 
    Here are the possible types of metadata:
 
-   * Date in `YYYY-MM-DDTHH:MM:SS.SSS` format
+   * Date in `YYYY-MM-DDTHH:MM:SSZ` format
+      
+      {% include [data-format](../../_includes/speechsense/data/data-format.md) %}
+   
    * String
    * Number
    * Fractional number

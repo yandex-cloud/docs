@@ -6,12 +6,24 @@ description:
   - >-
     The Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
+    pursuant to the Russian Federal Law 152-FZ on Personal Data.
 meta:
   title: Yandex Resource Manager
   description: >-
     Yandex Resource Manager defines the Yandex Cloud resource model and allows
     you to use folders to structure your resources.
+  keywords:
+    - keyword: '{{ resmgr-name }}'
+    - keyword: '{{ resmgr-full-name }}'
+    - keyword: '{{ resmgr-name }}'
+    - keyword: '{{ yandex-cloud }} resources'
+    - keyword: '{{ yandex-cloud }} resource model'
+    - keyword: '{{ yandex-cloud }} resource manager'
+    - keyword: '{{ yandex-cloud }} management'
+    - keyword: cloud resource manager
+    - keyword: managing cloud resources
+    - keyword: managing a cloud
+    - keyword: cloud resource model
 links:
   - title: Getting started
     description: Create your first folder

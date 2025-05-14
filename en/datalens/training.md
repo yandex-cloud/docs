@@ -10,7 +10,7 @@ With our online courses, you can enhance your knowledge about {{ datalens-short-
 
 
 
-* Read news and success stories in our [{{ yandex-cloud }} blog](https://yandex.cloud/en/blog?services=23).
+* See the [{{ yandex-cloud }} blog](https://yandex.cloud/en/blog?services=23) for news and success stories.
 
 * {{ datalens-short-name }} [demo dashboard]({{ link-datalens-main }}/marketplace/f2eui5ar8omalpcg1j3r).
 

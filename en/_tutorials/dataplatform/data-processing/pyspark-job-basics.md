@@ -12,7 +12,7 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
 1. [Create a {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) cluster with the following settings:
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
