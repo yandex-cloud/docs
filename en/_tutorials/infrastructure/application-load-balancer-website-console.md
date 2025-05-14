@@ -7,7 +7,7 @@
 1. [Create an HTTP router](#create-http-routers-sites).
 1. [Create an L7 load balancer](#create-alb).
 1. [Configure DNS](#configure-dns).
-1. [Run a fault tolerance test](#test-ha).
+1. [Test the fault tolerance](#test-ha).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a cloud network {#create-network}
 
-All the resources created in the use case will belong to the same [cloud network](../../vpc/concepts/network.md).
+All the resources created in this tutorial will belong to the same [cloud network](../../vpc/concepts/network.md).
 
 To create a network:
 
@@ -55,7 +55,7 @@ To create security groups for the load balancer and an [instance group](../../co
      1. Select the network to assign the security group to.
      1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
-        Traffic<br>direction | Description | Port<br>range | Protocol | Source /<br>target type | Source /<br>target
+        Traffic<br>direction | Description | Port<br>range | Protocol | Source /<br>destination type | Source /<br>destination
         --- | --- | --- | --- | --- | ---
         `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
         `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
@@ -65,25 +65,25 @@ To create security groups for the load balancer and an [instance group](../../co
         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a port range for traffic to come to or from.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic transmission over any protocol.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic over any protocol.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the rule purpose:
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks the traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
-        1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all rules from the table.
+        1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
      1. Click **{{ ui-key.yacloud.common.save }}**.
   1. Similarly, create a security group named `alb-vm-sg` for an instance group, with the same network and the following rules:
 
-     Traffic<br>direction | Description | Port<br>range | Protocol | Origin type | Source
+     Traffic<br>direction | Description | Port<br>range | Protocol | Source type | Source
      --- | --- | --- | --- | --- | ---
      `Incoming` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `alb-sg`
      `Incoming` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
 {% endlist %}
 
-## Creating an instance group {#create-vms}
+## Create an instance group {#create-vms}
 
-Your application [backends](../../application-load-balancer/concepts/backend-group.md) will be deployed on the VM instance of the [target group](../../application-load-balancer/concepts/target-group.md). The target group will be connected to the load balancer to enable requests to the application backend endpoints.
+Your application [backends](../../application-load-balancer/concepts/backend-group.md) will be deployed on the VM instance of the [target group](../../application-load-balancer/concepts/target-group.md). The target group will be associated with the load balancer to enable requests to the application backend endpoints.
 
 To create an instance group with the minimum configuration:
 
@@ -111,9 +111,9 @@ To create an instance group with the minimum configuration:
        * Select a cloud network and its subnets.
        * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**.
        * Select the `alb-vm-sg` security group.
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for accessing the instance:
-       * In the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field, select the service account to link to the VM.
-       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username.
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
+       * In the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field, select the service account to attach to the VM.
+       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
        To establish an SSH connection, you need to create a key pair. For more information, see [Connecting to a Linux VM via SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -148,7 +148,7 @@ To create a backend group:
   1. Name the backend group, e.g., `website-bg`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
   1. Name the backend, e.g., `backend-1`.
-  1. In the ***{{ ui-key.yacloud.alb.label_target-groups }}** field, select the `alb-tg` target group you created earlier.
+  1. In the **{{ ui-key.yacloud.alb.label_target-groups }}** field, select the `alb-tg` target group you created earlier.
   1. Specify **{{ ui-key.yacloud.alb.label_port }}** the backend VMs will use to receive incoming traffic from the load balancer: `80`.
   1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
   1. Specify **{{ ui-key.yacloud.alb.label_port }}** the backend VMs will use to accept health check connections: `80`.
@@ -159,7 +159,7 @@ To create a backend group:
 
 ## Create an HTTP router {#create-http-routers-sites}
 
-The backend group should be linked to an [HTTP router](../../application-load-balancer/concepts/http-router.md) that defines HTTP routing rules.
+The backend group should be associated with the [HTTP router](../../application-load-balancer/concepts/http-router.md) that defines HTTP routing rules.
 
 To create an HTTP router and add a route to it:
 
@@ -176,7 +176,7 @@ To create an HTTP router and add a route to it:
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Enter a name, e.g., `route-1`.
   1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select `website-bg`, which you created earlier.
-  1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
+  1. Do not change other settings. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -196,7 +196,7 @@ To create a load balancer:
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**.
   1. Name the listener, e.g., `alb-listener`.
   1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, enable outbound traffic.
-  1. Set `80` as the port.
+  1. Set the port to `80`.
   1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select the previously created `website-router`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -212,7 +212,7 @@ You need to link the `alb-example.com` domain name you want to use for your webs
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Copy the IP address of the load balancer that you created.
-  1. On the site of your DNS hosting provider, go to the DNS settings.
+  1. On the website of your DNS hosting provider, navigate to the DNS settings.
   1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) and [CNAME record](../../dns/concepts/resource-record.md#cname) for `alb-example.com`:
 
       ```text
@@ -230,7 +230,7 @@ You need to link the `alb-example.com` domain name you want to use for your webs
       1. If you do not have a public [DNS zone](../../dns/concepts/dns-zone.md), create one:
           1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
           1. Specify the zone **{{ ui-key.yacloud.common.name }}**: `alb-zone`.
-          1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the website's domain name with a trailing dot: `alb-example.com.`.
+          1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the website domain name with a trailing dot: `alb-example.com.`.
           1. Select a **{{ ui-key.yacloud.common.type }}** of the zone: `{{ ui-key.yacloud.dns.label_public }}`.
           1. Click **{{ ui-key.yacloud.common.create }}**.
       1. Create an A record in the zone:
@@ -252,7 +252,7 @@ You need to link the `alb-example.com` domain name you want to use for your webs
 
 {% endlist %}
 
-## Run a fault tolerance test {#test-ha}
+## Test the fault tolerance {#test-ha}
 
 {% include [test-ha](../../_tutorials/_tutorials_includes/alb-website/test-ha.md) %}
 

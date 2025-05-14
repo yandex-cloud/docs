@@ -36,11 +36,11 @@ Create a service account you will use to authenticate in the {{ video-name }} AP
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are going to use to work with the {{ video-name }} API.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account, e.g., `sa-video-api`.
 
-      Follow these naming requirements:
+      The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -87,7 +87,7 @@ To grant a service account permissions to access an organization, you need the `
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.

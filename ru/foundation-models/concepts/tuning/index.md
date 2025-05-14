@@ -5,7 +5,7 @@ description: '{{ foundation-models-full-name }} позволяет дообуч�
 
 # Дообучение моделей
 
-{{ foundation-models-full-name }} позволяет дообучать по методу [{{ lora }}](https://arxiv.org/abs/2106.09685) (_Low-Rank Adaptation of Large Language Models_) модели генерации текста {{ gpt-lite }} и {{ llama }} 8B^1^, а также [классификаторы](../classifier/index.md) на базе {{ gpt-lite }}.
+{{ foundation-models-full-name }} позволяет дообучать по методу [{{ lora }}](https://arxiv.org/abs/2106.09685) (_Low-Rank Adaptation of Large Language Models_) модели генерации текста {{ gpt-lite }} и {{ llama }} 8B^1^, [классификаторы](../classifier/index.md) на базе {{ gpt-lite }} и модель [эмбеддингов](../embeddings.md).
 
 _Дообучение моделей в {{ foundation-models-full-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md)._
 

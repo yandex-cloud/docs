@@ -85,7 +85,7 @@ Create the `rdgw-network` cloud network with a subnet in the availability zone w
         1. Click the name of your cloud network.
         1. Click **Add subnet**.
         1. Specify `rdgw-subnet` as the subnet name and select the availability zone from the drop-down list (e.g., `{{ region-id }}-d`).
-        1. Specify the subnet CIDR IP address range: `10.1.0.0/16`. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+        1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
         1. Click **Create subnet**.
    
     - CLI {#cli}
@@ -147,9 +147,9 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
         1. In the **Port range** field of the window that opens, specify a port or range of ports open for inbound or outbound traffic.
         1. In the **Protocol** field, specify the protocol or leave **Any** to allow traffic over any protocol.
         1. In the **Source** or **Destination** field, select the scope of the rule:
-           * **CIDR**: Rule will apply to a range of IP addresses. In the **CIDR blocks** field, specify CIDR IP address ranges of source or destination subnets, respectively. To add multiple CIDRs, click **Add CIDR**.
+           * **CIDR**: Rule will apply to a range of IP addresses. In the **CIDR blocks** field, specify CIDR IP address ranges of source or destination subnets, respectively. To add more CIDRs, click **Add CIDR**.
            * **Security group**: Rule will apply to the current or the selected security group VMs.
-        1. Click **Save**. Repeat the steps to create all the rules from the table.
+        1. Click **Save**. Repeat these steps to create all rules from the table.
      
    1. Click **Save**.
    
@@ -205,21 +205,21 @@ Create a VM and give it a public IP address:
          * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
          * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
          * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload a Microsoft disk image, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-         * Optionally, in the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** to automatically delete this disk when deleting the VM.
+         * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
          * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
-         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `rdgw-subnet`
-         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
-         * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `my-rdgw-sg`
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `rdgw-subnet`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `my-rdgw-sg`.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `my-rds-gw`.
      1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -408,20 +408,20 @@ The RDGW VM allows members of the `BUILTIN\Administrators` group to connect to i
             * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
             * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
             * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload a Microsoft disk image, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-            * Optionally, in the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** to automatically delete this disk when deleting the VM.
+            * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
             * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
         1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-        1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot disk size: `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, set `60 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-            * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-            * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-            * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-            * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+            * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
-            * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `rdgw-subnet`
-            * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`
+            * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `rdgw-subnet`.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `test-vm`.
         1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

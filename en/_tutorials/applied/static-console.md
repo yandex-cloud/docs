@@ -131,7 +131,7 @@ Create an [ANAME](../../dns/concepts/resource-record.md#aname) resource record i
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and then, the DNS zone you created earlier. 
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. In the window that opens, set the record properties:
 
-      * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_create-subdomain }}` and enter the domain value, e.g., `example.com`.
+      * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
       * In the **{{ ui-key.yacloud.common.type }}** field, select `ANAME`.
       * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the resource record value, e.g., `example.com.{{ s3-web-host }}`, where `example.com` is the name of the public bucket you created earlier.
 

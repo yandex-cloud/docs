@@ -51,7 +51,7 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
@@ -69,7 +69,7 @@ The cost for bucket support includes:
   yc iam service-account create --name sa-win-disk-connect
   ```
 
-  The name format requirements are as follows:
+  The naming requirements are as follows:
 
   {% include [name-format](../../_includes/name-format.md) %}
 
@@ -90,7 +90,7 @@ The cost for bucket support includes:
   1. To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
   1. [Assign](../../organization/operations/add-role) the `storage.editor` role to the service account.
-
+  
 {% endlist %}
 
 
@@ -195,7 +195,7 @@ The cost for bucket support includes:
      }
      ```
      
-     For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about `yandex_storage_bucket`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
      
   1. Make sure the configuration files are correct.
 
@@ -216,7 +216,7 @@ The cost for bucket support includes:
         terraform apply
         ```
 
-     1. Confirm creating the resources by type `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
 
 - API {#api}
 
@@ -260,7 +260,7 @@ You can perform advanced connection setup if required. To do this, type `y` at t
 
 ## Mount a bucket {#bucket-mount}
 
-1. Check your connection to the bucket. In the same command line you used to configure the connection, run the following command while specifying the bucket name:
+1. Check your connection to the bucket. In the same command line you used to configure the connection, run the following command with the bucket name specified:
 
    ```powershell
    rclone.exe ls s3-connect:<bucket_name>
@@ -268,7 +268,7 @@ You can perform advanced connection setup if required. To do this, type `y` at t
 
    If your configuration is correct, you will see a list of objects in the bucket.
 
-1. Mount the bucket to the file system while specifying the bucket name and an available drive letter in the file system:
+1. Mount your bucket to the file system specifying the bucket name and an available drive letter in the file system:
 
    ```powershell
    rclone.exe mount s3-connect:<bucket_name> <disk_letter>: --vfs-cache-mode full

@@ -10,6 +10,15 @@ meta:
     Yandex Serverless Containers allows you to run containerized applications in
     a secure, fault-tolerant, and scalable environment without creating or
     maintaining VMs.
+  keywords:
+    - keyword: cloud serverless containers
+    - keyword: '{{ serverless-containers-name }}'
+    - keyword: '{{ serverless-containers-full-name }}'
+    - keyword: '{{ serverless-containers-name }}'
+    - keyword: containers in {{ yandex-cloud }}
+    - keyword: containers in cloud
+    - keyword: cloud containers
+    - keyword: serverless containers
 links:
   - title: Getting started
     description: Prepare a Docker image and create a container

@@ -20,18 +20,6 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-
-{% note warning %}
-
-С 1 мая 2025 года увеличатся цены на ресурсы {{ load-testing-full-name }} в регионе Россия. Новые цены можно посмотреть на сайте:
-
-* [Цены в рублях](https://yandex.cloud/ru/price-list?currency=RUB&installationCode=ru&services=dn2ul6hj517ba5ckvl0i)
-* [Цены в тенге](https://yandex.cloud/ru/price-list?currency=KZT&installationCode=ru&services=dn2ul6hj517ba5ckvl0i)
-
-{% endnote %}
-
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Время выполнения тестов {#test-time}

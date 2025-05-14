@@ -1,6 +1,6 @@
 ---
 title: How to delete a private connection from a trunk
-description: In this tutorial, we will delete a private connection from a trunk.
+description: Follow this guide to delete a private connection from a trunk.
 canonical: '{{ link-docs }}/tutorials/routing/priv-del'
 ---
 

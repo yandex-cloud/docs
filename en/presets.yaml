@@ -51,14 +51,6 @@ default:
   atr-name: Access Transparency
   auth-host: console.cloud.yandex.ru
   auth-main-host: auth.yandex.cloud
-  b1-medium: b1.medium (2 × 50% vCPU, 4 GB)
-  b1-micro: b1.micro (2× 20% vCPU, 2 GB)
-  b1-nano: b1.nano (2 × 5% vCPU, 2 GB)
-  b1-small: b1.small (2 × 20% vCPU, 4 GB)
-  b2-medium: b2.medium (2 × 50% vCPU, 4 GB)
-  b2-micro: b2.micro (2 × 20% vCPU, 2 GB)
-  b2-nano: b2.nano (2 × 5% vCPU, 2 GB)
-  b2-small: b2.small (2 × 20% vCPU, 4 GB)
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
   backup-short-name: Cloud Backup
@@ -227,20 +219,6 @@ default:
   graph-update-burstable: 150 seconds
   grpcio-tools-version: 1.46.3
   highfreq-ice-lake: Intel Ice Lake Compute-Optimized
-  hm1-2xlarge: hm1.2xlarge (4 vCPU, 64 GB)
-  hm1-3xlarge: hm1.3xlarge (4 vCPU, 80 GB)
-  hm1-4xlarge: hm1.4xlarge (8 vCPU, 96 GB)
-  hm1-5xlarge: hm1.5xlarge (8 vCPU, 128 GB)
-  hm1-6xlarge: hm1.6xlarge (8 vCPU, 160 GB)
-  hm1-7xlarge: hm1.7xlarge (8 vCPU, 192 GB)
-  hm1-8xlarge: hm1.8xlarge (8 vCPU, 224 GB)
-  hm1-9xlarge: hm1.9xlarge (8 vCPU, 256 GB)
-  hm1-large: hm1.large (4 vCPU, 32 GB)
-  hm1-medium: hm1.medium (4 vCPU, 24 GB)
-  hm1-micro: hm1.micro (2 vCPU, 12 GB)
-  hm1-nano: hm1.nano (2 vCPU, 8 GB)
-  hm1-small: hm1.small (2 vCPU, 16 GB)
-  hm1-xlarge: hm1.xlarge (4 vCPU, 48 GB)
   host-class: s2.micro
   host-name: rc1a-goh2a9tr********
   host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch64
@@ -366,24 +344,6 @@ default:
   lockbox-short-name: Lockbox
   login-example: login@yandex.com
   lora: LoRA
-  m1-2xlarge: m1.2xlarge (16 vCPU, 128 GB)
-  m1-3xlarge: m1.3xlarge (24 vCPU, 192 GB)
-  m1-4xlarge: m1.4xlarge (32 vCPU, 256 GB)
-  m1-large: m1.large (8 vCPU, 64 GB)
-  m1-medium: m1.medium (6 vCPU, 48 GB)
-  m1-micro: m1.micro (2 vCPU, 16 GB)
-  m1-small: m1.small (4 vCPU, 32 GB)
-  m1-xlarge: m1.xlarge (12 vCPU, 96 GB)
-  m2-2xlarge: m2.2xlarge (16 vCPU, 128 GB)
-  m2-3xlarge: m2.3xlarge (24 vCPU, 192 GB)
-  m2-4xlarge: m2.4xlarge (32 vCPU, 256 GB)
-  m2-5xlarge: m2.5xlarge (40 vCPU, 320 GB)
-  m2-6xlarge: m2.6xlarge (48 vCPU, 384 GB)
-  m2-large: m2.large (8 vCPU, 64 GB)
-  m2-medium: m2.medium (6 vCPU, 48 GB)
-  m2-micro: m2.micro (2 vCPU, 16 GB)
-  m2-small: m2.small (4 vCPU, 32 GB)
-  m2-xlarge: m2.xlarge (12 vCPU, 96 GB)
   maf-full-name: Yandex Managed Service for Apache Airflow™
   maf-name: Managed Service for Apache Airflow™
   maf-short-name: Managed Service for Apache Airflow™
@@ -690,21 +650,8 @@ default:
       admin: managed-redis.admin
       editor: managed-redis.editor
       viewer: managed-redis.viewer
-  s1-large: s1.large (16 vCPU, 64 GB)
   s1-medium: s1.medium (8 vCPU, 32 GB)
   s1-micro: s1.micro (2 vCPU, 8 GB)
-  s1-nano: s1.nano (1 vCPU, 4 GB)
-  s1-small: s1.small (4 vCPU, 16 GB)
-  s1-xlarge: s1.xlarge (32 vCPU, 128 GB)
-  s2-2xlarge: s2.2xlarge (24 vCPU, 96 GB)
-  s2-3xlarge: s2.3xlarge (32 vCPU, 128 GB)
-  s2-4xlarge: s2.4xlarge (40 vCPU, 160 GB)
-  s2-5xlarge: s2.5xlarge (48 vCPU, 192 GB)
-  s2-large: s2.large (12 vCPU, 48 GB)
-  s2-medium: s2.medium (8 vCPU, 32 GB)
-  s2-micro: s2.micro (2 vCPU, 8 GB)
-  s2-small: s2.small (4 vCPU, 16 GB)
-  s2-xlarge: s2.xlarge (16 vCPU, 64 GB)
   s3-c2-m8: s3-c2-m8 (2 vCPU, 8 GB)
   s3-dotnet-sdk-host: s3.yandexcloud.net
   s3-storage-host: storage.yandexcloud.net
@@ -7585,6 +7532,7 @@ default:
             image_value_custom_new: Custom
             image_value_marketplace: Marketplace
             label_add-network-interface: Add network interface
+            label_title: Create a virtual machine
             placeholder_search_marketplace-product: Product search
             section_access: Access
             section_additional: Additional
@@ -8470,6 +8418,9 @@ default:
         button_use: Use
         label_available-products: Application available for installation
         label_licenses: Subscriptions
+        label_product-filter-search-placeholder: Product search
+        label_service-name: Marketplace
+        label_service-short-description: Ready-made solutions
         label_tariff-type: Pricing type
         section_tariff-section: Pricing method
       mdb:
@@ -9420,6 +9371,8 @@ default:
         addition-params: Advanced settings
         classification: Classification
         classification-task: Type of classification
+        embedding: Embedding
+        embedding-type: Embeddings type
         generation: Generation
         start-tuning: Start fine-tuning
         task: Task

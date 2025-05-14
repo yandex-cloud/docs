@@ -120,17 +120,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before January 1, 2019
-            href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
-            href: pricing-archive/pricing-01032019.md
-          - name: From March 1, 2019 to February 1, 2020
-            href: pricing-archive/pricing-01022020.md
+    href: pricing.md
   - name: CLI reference
     items:
       - name: Overview

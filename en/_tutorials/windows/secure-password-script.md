@@ -34,9 +34,9 @@ The infrastructure support cost includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Specify the service account name, e.g., `win-secret-sa`.
+   1. Enter a name for the service account, e.g., `win-secret-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -124,7 +124,7 @@ The infrastructure support cost includes:
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. In the dialog that opens, click **Add role** and select the `kms.keys.encrypterDecrypter` role.
+      1. In the dialog that opens, click **Add role** and select `kms.keys.encrypterDecrypter`.
 
    - CLI {#cli}
 
@@ -258,7 +258,7 @@ These password requirements are:
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. In the dialog that opens, click **Add role** and select the `lockbox.payloadViewer` role.
+      1. In the dialog that opens, click **Add role** and select `lockbox.payloadViewer`.
 
    - CLI {#cli}
 

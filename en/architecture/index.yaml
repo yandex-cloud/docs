@@ -8,6 +8,12 @@ meta:
   description: >-
     Architecture solutions and recommendations for implementing custom use cases
     in Yandex Cloud.
+  keywords:
+    - keyword: Architecture solutions in {{ yandex-cloud }}
+    - keyword: Custom use cases in {{ yandex-cloud }}
+    - keyword: Recommendations {{ yandex-cloud }}
+    - keyword: Architecture solutions
+    - keyword: Use cases
 links:
   - title: Recommendations on fault tolerance in {{ yandex-cloud }}
     href: fault-tolerance

@@ -68,13 +68,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Policy before January 1, 2019
-            href: pricing-archive/pricing-01012019.md
+    href: pricing.md
   - name: Troubleshooting
     items:
       - name: Handling errors

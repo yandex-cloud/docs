@@ -10,7 +10,7 @@ Interacting with files on Yandex Disk. The `upload` and `download` fields are mu
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
 `oauthToken` | `string` | Yes | No | Yes | [OAuth token](../../../../../iam/concepts/authorization/oauth-token.md) for authorization when accessing Yandex Disk
-`path` | `string` | No | `""` | Yes | Path to the file to upload or download
+`path` | `string` | Yes | No | Yes | Path to the file to upload or download
 `upload` | [DiskUpload](#DiskUpload) | No | No | No | `upload` configuration: uploading a file to Yandex Disk
 `download` | [DiskDownload](#DiskDownload) | No | No | No | `download` configuration: downloading a file from Yandex Disk
 
@@ -19,8 +19,8 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`contentType` | `TEXT`\| <br/>`BINARY`\| <br/>`JSON` | No | `BINARY` | No | Defines how to interpret the content:<ul><li>`TEXT`: Text.</li><li>`BINARY`: Set of bytes as a [base64](https://{{ lang }}.wikipedia.org/wiki/Base64)-encoded string.</li><li>`JSON`: Text containing [JSON](https://{{ lang }}.wikipedia.org/wiki/JSON) will be converted to a JSON structure.</li></ul>
-`content` | `TEXT`\|<br/>`JSON`\|<br/>`BINARY` | Yes | No | Yes | Content to upload
+`content` | `string` | Yes | No | Yes | Content to upload
+`contentType` | `BINARY`\|<br/>`JSON`\|<br/>`TEXT` | No | `TEXT` | No | Sets how to interpret the data delivered to `content`:<ul><li>`BINARY`: Set of bytes as a [base64](https://{{ lang }}.wikipedia.org/wiki/Base64)-encoded string.</li><li>`JSON`: Text containing [JSON](https://en.wikipedia.org/wiki/JSON) will be converted to a JSON structure.</li><li>`TEXT`: Text.</li></ul>
 
 
 ## DiskDownload object {#DiskDownload}

@@ -89,9 +89,13 @@ items:
           Setting up network connectivity between {{ baremetal-name }} and {{
           vpc-name }} subnets
         href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Delivering USB devices to a {{ baremetal-name }} server or virtual
+          machine
+        href: tutorials/usb-over-ip.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

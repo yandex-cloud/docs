@@ -31,7 +31,11 @@ Budgets keep usage totals over the entire tracking period. For example, a budget
 
 The _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}_ budget type keeps track of your personal account balance and checks it against a specified threshold. Users get notified when a personal account balance falls below the threshold value.
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md)
+
 ##### See also {#see-also}
 
 * [{#T}](../operations/budgets.md)
-* [{#T}](../tutorials/serverless-trigger-budget-vm.md)
