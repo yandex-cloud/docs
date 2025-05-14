@@ -212,3 +212,12 @@ Automatic selection of serialization settings depending on the source type.
 * **unavailable.value.placeholder**: Value that replaces data if its type is not supported.
 
     The default value is `__debezium_unavailable_value`.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/mkf-to-mch.md)
+* [{#T}](../tutorials/mkf-to-mpg.md)
+* [{#T}](../tutorials/yds-to-clickhouse.md)
+* [{#T}](../tutorials/yds-to-objstorage.md)
+* [{#T}](../tutorials/data-ingestion.md)
+

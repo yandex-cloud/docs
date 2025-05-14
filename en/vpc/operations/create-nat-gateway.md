@@ -36,7 +36,7 @@ To create and set up a NAT gateway:
   Next, associate the route table with a subnet to route traffic from it through the NAT gateway:
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. In the row with the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
+  1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. In the window that opens, select the created table from the list.
   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -65,7 +65,7 @@ To create and set up a NAT gateway:
      yc vpc gateway list
      ```
 
-     The command result will be as follows:
+     Result:
 
      ```text
      +----------------------+--------------+-------------+
@@ -148,7 +148,7 @@ To create and set up a NAT gateway:
   1. Associate the NAT gateway with the new route table by using the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request:
 
       * ID of the folder the route table will reside in, in the `folderId` parameter.
-      * Route table name in the `name` parameter. The name format is as follows:
+      * Route table name in the `name` parameter. Follow these naming requirements:
 
         {% include [name-format](../../_includes/name-format.md) %}
       * ID of the network the route table will reside in, in the `networkId` parameter.

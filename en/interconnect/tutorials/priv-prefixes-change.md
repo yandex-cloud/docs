@@ -1,6 +1,6 @@
 ---
-title: How to change private connection IP prefixes
-description: In this tutorial, we will change IP prefixes in a private connection
+title: How to change an IP prefix set in a private connection
+description: Follow this guide to change an IP prefix set in a private connection.
 canonical: '{{ link-docs }}/tutorials/routing/priv-prefixes-change'
 ---
 

@@ -60,7 +60,7 @@ Create a new VRF segment:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF segment: `vrrp-vrf`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -76,7 +76,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `subnet-m3`.
@@ -115,7 +115,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
   1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, select the period you want to lease the server for. When this period expires, server lease will be automatically renewed for the same period.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
+     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:

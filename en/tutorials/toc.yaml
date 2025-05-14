@@ -81,7 +81,7 @@ items:
             href: security/tls-termination/terraform.md
       - name: Delivering logs from a VM instance to {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
-      - name: Writing load balancer logs to {{ PG }}
+      - name: Storing load balancer logs to {{ PG }}
         href: security/logging.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: security/gitlab-lockbox-integration.md
@@ -257,7 +257,9 @@ items:
     items:
       - name: All tutorials
         href: dev/index.md
-      - name: Enabling a blue-green and canary deployment of web service versions
+      - name: >-
+          Enabling a blue-green and canary deployment of the web service
+          versions
         href: web/blue-green-canary-deployment.md
       - name: Automating image builds using Jenkins and Packer
         href: infrastructure-management/jenkins.md
@@ -295,10 +297,10 @@ items:
         href: testing/server-logs.md
       - name: Invoking load testing from {{ GL }} CI
         href: testing/loadtesting-gitlab-ci.md
-      - name: Comparing load test results
-        href: testing/loadtesting-results-compare.md
       - name: Deploying {{ GLR }} on a {{ compute-name }} virtual machine
         href: dev/install-gitlab-runner.md
+      - name: Comparing load test results
+        href: testing/loadtesting-results-compare.md
   - name: Basic infrastructure
     items:
       - name: All tutorials
@@ -312,7 +314,7 @@ items:
           - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
             href: infrastructure-management/fault-tolerance.md
           - name: >-
-              Fault-tolerant website with load balancing via {{
+              Fault-tolerant website with load balancing via an {{
               network-load-balancer-name }}
             items:
               - name: Overview
@@ -321,7 +323,7 @@ items:
                 href: web/load-balancer-website/console.md
               - name: '{{ TF }}'
                 href: web/load-balancer-website/terraform.md
-          - name: Fault-tolerant website with load balancing via {{ alb-name }}
+          - name: Fault-tolerant website with load balancing via an {{ alb-name }}
             items:
               - name: Overview
                 href: web/application-load-balancer-website/index.md
@@ -395,6 +397,10 @@ items:
               Transferring logs through {{ unified-agent-short-name }} HTTP
               input to {{ cloud-logging-name }}
             href: infrastructure-management/ua-http-logging.md
+          - name: >-
+              Running the DeepSeek-R1 language model in a {{ compute-name }} GPU
+              cluster
+            href: infrastructure/gpu-cluster-deepseek.md
       - name: Network
         items:
           - name: Configuring time synchronization using NTP
@@ -443,11 +449,11 @@ items:
             href: infrastructure-management/cert-manager-webhook.md
       - name: GPU
         items:
-          - name: Launching the DeepSeek-R1 language model in a GPU cluster
+          - name: Running the DeepSeek-R1 language model in a GPU cluster
             href: infrastructure-management/gpu-cluster-deepseek.md
           - name: >-
               Running a vLLM library with the Gemma 3 language model on a VM
-              with GPU
+              with a GPU
             href: infrastructure-management/vllm-gemma-gpu.md
   - name: Container infrastructure
     items:
@@ -1236,6 +1242,10 @@ items:
           Setting up network connectivity between {{ baremetal-name }} and {{
           vpc-name }} subnets
         href: routing/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Delivering USB devices to a {{ baremetal-name }} server or virtual
+          machine
+        href: routing/usb-over-ip.md
   - name: Data analysis and visualization
     items:
       - name: All tutorials

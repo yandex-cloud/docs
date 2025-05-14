@@ -6,7 +6,7 @@ items:
     href: quickstart/index.md
   - name: Step-by-step guides
     items:
-      - name: All tutorials
+      - name: All guides
         href: operations/index.md
       - name: Working with documents
         items:
@@ -172,7 +172,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

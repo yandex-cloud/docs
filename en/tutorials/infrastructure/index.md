@@ -34,6 +34,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [{#T}](../infrastructure/coi-with-terraform.md)
 * [Running a Docker image on a VM](../infrastructure-management/run-docker-on-vm/index.md)
 * [Transferring logs through {{ unified-agent-short-name }} HTTP input to {{ cloud-logging-full-name }}](../infrastructure-management/ua-http-logging.md)
+* [{#T}](gpu-cluster-deepseek.md)
 
 ## Network {#routing}
 
@@ -60,5 +61,5 @@ description: Various use cases for core infrastructure management systems in {{ 
 
 ## GPU {#gpu}
 
-* [Launching the DeepSeek-R1 language model in a GPU cluster](../infrastructure-management/gpu-cluster-deepseek.md)
+* [Running the DeepSeek-R1 language model in a GPU cluster](../infrastructure-management/gpu-cluster-deepseek.md)
 * [Running a vLLM library with the Gemma 3 language model on a VM with GPU](../infrastructure-management/vllm-gemma-gpu.md)

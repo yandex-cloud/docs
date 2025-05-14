@@ -13,7 +13,7 @@ CDC ([change data capture](https://en.wikipedia.org/wiki/Change_data_capture)) i
 
 In {{ yandex-cloud }}, one way CDC can be implemented is with a transfer from the database to the message broker. All database updates are tracked by the transfer and sent to the message broker, and consumers are connected to the broker and read the incoming messages.
 
-{{ data-transfer-name }} supports CDC for transfers from {{ PG }}, {{ ydb-short-name }}, and {{ MY }} databases to {{ KF }} and {{ yds-full-name }}^1^. Data is sent to the target in [Debezium](https://debezium.io/) format.
+{{ data-transfer-name }} supports CDC for transfers from {{ PG }}, {{ MY }}, and {{ ydb-short-name }} databases to {{ KF }} and {{ yds-full-name }}^1^. Data is sent to the target in [Debezium](https://debezium.io/) format.
 
 ![image](../../_assets/data-transfer/concepts/cdc-flow.png)
 
@@ -22,4 +22,13 @@ In {{ yandex-cloud }}, one way CDC can be implemented is with a transfer from th
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 
 ^1^ This feature is at the Preview stage.
-The implementation maturity may vary among different {{ data-transfer-full-name }} installation types. Transfers between {{ MG }} sources and {{ KF }} targets are not supported yet. See the list of available transfers [here](../transfer-matrix.md).
+Implementation maturity may vary for different {{ data-transfer-full-name }} installation types. Transfers between a {{ MG }} source and an {{ KF }} target are not supported yet. See the [list of available transfers](../transfer-matrix.md).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/cdc-mmy.md)
+* [{#T}](../tutorials/cdc-mpg.md)
+* [{#T}](../tutorials/cdc-ydb.md)
+* [{#T}](../tutorials/ydb-to-yds.md)
+* [{#T}](../tutorials/mpg-to-yds.md)
+* [{#T}](../tutorials/mmy-to-yds.md)

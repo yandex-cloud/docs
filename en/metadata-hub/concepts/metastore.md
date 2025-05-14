@@ -101,3 +101,8 @@ Additionally, {{ metastore-name }} is only accessible via an internal VPC IP add
 One more aspect to consider is network security. For {{ metastore-name }} to work properly, you need to configure security groups correctly to allow the required network traffic. Othewise clusters may indicate a `DEAD` state, which makes it difficult to diagnose issues (see [Security group setup guide](../../metadata-hub/operations/metastore/configure-security-group.md)).
 
 For more information about {{ metastore-name }}, see the [Apache® documentation](https://cwiki.apache.org/confluence/display/hive/design#Design-Metastore).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/metastore-import.md)
+* [{#T}](../tutorials/sharing-tables.md)

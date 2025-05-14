@@ -42,9 +42,7 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
   
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. Specify the ID of an existing [private subnet](../../concepts/network.md#private-subnet) or click **{{ ui-key.yacloud.common.create }}** to create a new one.
-
-        If you do not have a subnet, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.action-create-subnetwork }}** and create one:
+     1. Select an existing [private subnet](../../concepts/network.md#private-subnet) or click **{{ ui-key.yacloud.common.create }}** to create a new one:
 
         * In the window that opens, enter a name and description for your subnet.
         * Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
@@ -58,10 +56,16 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
 
       {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
 
+  1. Optionally, enable server backup in [{{ backup-full-name }}](../../../backup/index.yaml):
+
+      1. Expand **{{ ui-key.yacloud.baremetal.title_section-backup }}**.
+      1. Select a [backup policy](../../../backup/concepts/policy.md) or [create](../../../backup/operations/policy-vm/create.md) a new one.
+      1. Select a [service account](../../../iam/concepts/users/service-accounts.md) with the [baremetal.editor](../../security/index.md#baremetal-editor) and [backup.editor](../../../backup/security/index.md#backup-editor) roles or [create](../../../iam/operations/sa/create.md) a new one.
+
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
 
      1. Enter the server name in the **{{ ui-key.yacloud.baremetal.field_name }}** field.
-     1. (Optional) Add **{{ ui-key.yacloud.baremetal.field_description }}** to the server.
+     1. Optionally, add **{{ ui-key.yacloud.baremetal.field_description }}** to the server.
      1. Optionally, set **{{ ui-key.yacloud.component.label-set.label_labels }}**.
   
   1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.

@@ -53,7 +53,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Create a virtual routing and forwarding segment:
         1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
         1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF segment: `my-vrf`.
@@ -95,11 +95,11 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
 
         1. Click **{{ ui-key.yacloud.common.save }}**.
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select an image. For example: [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select an image. For example, [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
   1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, select the period you want to lease the server for. When this period expires, server lease will be automatically renewed for the same period.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
+     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
@@ -118,7 +118,7 @@ Getting the server ready and installing an operating system on it may take up to
 {% endnote %}
 
 
-### Create a cloud network with a subnet {#setup-vpc}
+### Create a cloud network and subnet {#setup-vpc}
 
 Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 
@@ -127,7 +127,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Create a cloud network:
 
       1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -160,13 +160,13 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create the infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the VM image you need. For example: [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the VM image you need. For example, [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `subnet-{{ region-id }}-b` subnet you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-{{ region-id }}-b`, which you created earlier.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
@@ -244,7 +244,7 @@ vpc:
 ```
 
 Where:
-* `folder_id`: [Folder](../../resource-manager/operations/folder/get-id.md) ID.
+* `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 * `region_id`: [Region](../../overview/concepts/region.md) ID.
 * `vpc_net_id`: Cloud network [ID](../../vpc/operations/network-get-info.md).
 * `vpc_subnets`: List of [announced](../../interconnect/concepts/priv-con.md#prc-announce) address prefixes for each [availability zone](../../overview/concepts/geo-scope.md). For example, for the {{ vpc-short-name }} subnet you created earlier, you will specify `{{ region-id }}-b: [192.168.11.0/24]`.
@@ -280,7 +280,7 @@ A network connectivity check assumes that:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the `server-m3` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   
       You will see an authentication line in the KVM console terminal window that opens:
@@ -373,7 +373,7 @@ To stop paying for the resources you created:
     - Management console {#console} 
     
       1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
       1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and select the `my-vrf` VRF segment.
       1. Under **Private connection to cloud networks**, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **Disable connection**.
       1. In the window that opens, confirm the deletion.

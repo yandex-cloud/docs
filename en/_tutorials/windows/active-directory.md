@@ -44,7 +44,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-networ
      To create a cloud network:
      1. Open the **{{ vpc-name }}** section of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a cloud network.
      1. Click **Create network**.
-     1. Enter the network name: `ad-network`.
+     1. Specify `ad-network` as the network name.
      1. Click **Create network**.
 
    - CLI {#cli}
@@ -69,9 +69,9 @@ Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-networ
 
        To create a subnet:
        1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
-       1. Click the cloud network name.
+       1. Click the name of your cloud network.
        1. Click **Add subnet**.
-       1. Fill out the form: enter `ad-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
+       1. Specify `ad-subnet-a` as the name and select the `{{ region-id }}-a` availability zone from the drop-down list.
        1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`.
        1. Click **Create subnet**.
 
@@ -128,23 +128,23 @@ Create two VMs for Active Directory domain controllers. These VMs will not have 
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the folder dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+      * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
-      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload a Microsoft disk image, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
+      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
@@ -195,13 +195,13 @@ A file server with internet access is used to configure VMs with Active Director
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the folder dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+      * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create }}** in the window that opens.
-      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload a Microsoft disk image, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
+      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
   
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` availability zone.

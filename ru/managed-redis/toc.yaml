@@ -94,13 +94,7 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
-    items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
-        items:
-          - name: До 1 февраля 2020 года
-            href: pricing-archive/pricing-01022020.md
+    href: pricing.md
   - name: Справочник CLI (англ.)
     items:
       - name: Overview

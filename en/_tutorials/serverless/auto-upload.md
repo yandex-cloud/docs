@@ -109,7 +109,7 @@ Create two service accounts:
         --role <role> \
         --subject serviceAccount:<service_account_ID>
       ```
-  
+
       The command only accepts one role at a time.
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
@@ -136,8 +136,8 @@ Create an API key for the `speechsense-sa` service account.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the service account.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the service account.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense-sa` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -159,7 +159,7 @@ Create an API key for the `speechsense-sa` service account.
     --service-account-name speechsense-sa \
     > api_key.yaml
   ```
-  
+
   As a result, you will get the `api_key.yaml` file with the API key value in the `secret` field:
 
   ```yaml
@@ -192,13 +192,13 @@ Create an API key for the `speechsense-sa` service account.
 
   You can also create an API key using the [ApiKeyService.Create](../../iam/api-ref/grpc/ApiKey/create.md) gRPC API call.
 
-{% endlist %}      
+{% endlist %}
 
 ### Create a space {#create-space}
 
 {% list tabs group=instructions %}
 
-- {{ speechsense-name }} interface {#speechsense}
+- {{ speechsense-name }} UI {#speechsense}
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
@@ -213,7 +213,7 @@ Add the `speechsense-sa` service account to the {{ speechsense-name }} space.
 
 {% list tabs group=instructions %}
 
-- {{ speechsense-name }} interface {#speechsense}
+- {{ speechsense-name }} UI {#speechsense}
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Go to your [new space](#create-space).
@@ -232,7 +232,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
 {% list tabs group=instructions %}
 
-- {{ speechsense-name }} interface {#speechsense}
+- {{ speechsense-name }} UI {#speechsense}
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Go to the space of your choice.
@@ -244,13 +244,13 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
       1. Specify the channels with the agent's voice and customer's voice.
       1. Specify agent and customer keys from the metadata file. This file contains the call information collected from CRM systems, PBXs, or other sources.
 
-        By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name for the key to display in {{ speechsense-name }}.
+        By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}.
 
         To specify additional metadata for the agent and the customer, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
   1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent or the customer.
 
-      By default, connections include keys with the date, direction, and language of the call. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name for the key to display in {{ speechsense-name }}.
+      By default, connections include keys with the date, direction, and language of the call. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}.
 
       To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
@@ -262,7 +262,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
 {% list tabs group=instructions %}
 
-- {{ speechsense-name }} interface {#speechsense}
+- {{ speechsense-name }} UI {#speechsense}
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Go to the space of your choice.
@@ -271,13 +271,13 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
   1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
   1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}**, specify the keys from the metadata file. This file contains the dialog information collected from chats, CRM systems, or other sources.
 
-      By default, connections include keys with agent's, customer's, and bot's names and IDs. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name for the key to display in {{ speechsense-name }}.
+      By default, connections include keys with agent's, customer's, and bot's names and IDs. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}.
 
       To specify additional agent, customer, and bot metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
   1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent, customer, and bot.
 
-      By default, keys with date, direction, and dialog language are added to the connection. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter a name for the key to display in {{ speechsense-name }}.
+      By default, keys with date, direction, and dialog language are added to the connection. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}.
 
       To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
@@ -289,7 +289,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
 {% list tabs group=instructions %}
 
-- {{ speechsense-name }} interface {#speechsense}
+- {{ speechsense-name }} UI {#speechsense}
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Go to the space of your choice.
@@ -300,7 +300,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
 {% endlist %}
 
-## Create an infrastructure {#infra}
+## Create your infrastructure {#infra}
 
 1. Clone the [yc-serverless-speechsense-workflows](https://github.com/yandex-cloud-examples/yc-serverless-speechsense-workflows) repository:
 
@@ -352,7 +352,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
           ```bash
           yc config set service-account-key <key_file_path>
-          ```   
+          ```
 
     {% endlist %}
 
@@ -379,9 +379,9 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret's name: `speechsense-secret`.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `speechsense-secret`.
 
   1. Under **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
 
@@ -389,17 +389,17 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
         
         1. Add the service account's API key:
 
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, put: `speechsense_api_key`.
+            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `speechsense_api_key`.
             * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the value of the `speechsense-sa` service account's API key you [created earlier](#create-key).
 
         1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and add the {{ speechsense-name }} connection ID:
 
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, put: `speechsense_connection_id`.
+            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `speechsense_connection_id`.
             * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the ID of the connection you [created earlier](#create-connection).
 
         1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and add the format for the dialog files that will be uploaded to {{ speechsense-name }}:
 
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, put: `speechsense_file_format`.
+            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `speechsense_file_format`.
             * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the file format. Acceptable values: `mp3`, `wav`, `ogg`, and `text`.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -450,7 +450,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
     values ('<origin_ID>', '<secret_ID>', '<source_description>');
     ```
 
-    Where:  
+    Where:
 
     * `source_system_id`: Data source ID to use in metadata. Specify any unique string value, e.g., `000001`.
     * `lockbox_secret_id`: ID of the {{ lockbox-name }} secret you [created earlier](#create-secret), e.g., `e6qigo0vbci2********`.
@@ -462,7 +462,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
     - Management console {#console}
 
-        1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Click the name of the cluster you [created earlier](#infra). By default, it is `speechsense-upload-metadata`.
         1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab.
         1. Click the connection name that ends with `-uploader`.
@@ -487,7 +487,7 @@ Make sure the directories are not nested one inside the other.
   To create a directory:
 
     1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket you need.
     1. Click **{{ ui-key.yacloud.storage.bucket.button_create }}** and specify the directory name.
     1. Click **{{ ui-key.yacloud.storage.bucket.popup-create-folder_button_create }}**.
@@ -507,7 +507,7 @@ Make sure the directories are not nested one inside the other.
     ```bash
     etag: '"d41d8cd98f00b204e9800998********"'
     request_id: ba96231*********
-    ```        
+    ```
 
 - AWS CLI {#aws-cli}
 
@@ -539,6 +539,12 @@ Make sure the directories are not nested one inside the other.
 
 ## Prepare the metadata {#prepare-metadata}
 
+{% note info %}
+
+{% include [data-format](../../_includes/speechsense/data/data-format.md) %}
+
+{% endnote %}
+
 To upload a file to {{ speechsense-name }}, first prepare the file metadata in `JSON` format. For example:
 
 ```json
@@ -552,7 +558,7 @@ To upload a file to {{ speechsense-name }}, first prepare the file metadata in `
       "operator_name": "James Doe",
       "client_id": "327142",
       "client_name": "Jane Smith",
-      "date": "2024-08-30 19:32:11",
+      "date": "2024-08-30T19:32:11Z",
       "direction_outgoing": "0",
       "language": "RU",
       "file_name": "my_audio.ogg"
@@ -583,7 +589,7 @@ Where:
 
     * `client_name`: Customer name.
 
-    * `date`: Call date and time, in `YYYY-MM-DD HH24:MI:SS` format.
+    * `date`: Call date and time, in `YYYY-MM-DDTHH:MM:SSZ` format.
 
     * `direction_outgoing`: Call direction, `0` for outgoing call, `1` for incoming call.
 
@@ -659,7 +665,7 @@ If there are more than 1,000 files, do not use the management console for upload
     ```bash
     etag: '"d41d8cd98f00b204e980099********"'
     request_id: 3f2705f********
-    ```    
+    ```
 
 - AWS CLI {#aws-cli}
 

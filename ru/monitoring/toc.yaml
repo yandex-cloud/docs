@@ -168,13 +168,7 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
-    items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
-        items:
-          - name: Правила до 1 октября 2020 года
-            href: pricing-archive/pricing-01102020.md
+    href: pricing.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

@@ -15,13 +15,12 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 `put` | [ObjectStoragePut](#ObjectStoragePut) | No | No | No | Configuring the `put` action to add the object to the bucket.
 `get` | [ObjectStorageGet](#ObjectStorageGet) | No | No | No | Configuring the `get` action to get the object from the bucket.
 
-
 ## ObjectStoragePut object {#ObjectStoragePut}
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
 `content` | `string` | Yes | No | Yes | Object contents.
-
+`contentType` | `BINARY`\|<br/>`JSON`\|<br/>`TEXT` | No | `TEXT` | No | Sets how to interpret the data delivered to `content`:<ul><li>`BINARY`: Set of bytes as a [base64](https://{{ lang }}.wikipedia.org/wiki/Base64)-encoded string.</li><li>`JSON`: Text containing [JSON](https://en.wikipedia.org/wiki/JSON) will be converted to a JSON structure.</li><li>`TEXT`: Text.</li></ul>
 
 ## ObjectStorageGet object {#ObjectStorageGet}
 

@@ -4,6 +4,7 @@ Event name | Description
 `AddLoadBalancerListener` | Adding a listener to a load balancer
 `AddLoadBalancerSniMatch` | Adding an SNI listener to a load balancer
 `AddTargetGroupTargets` | Adding a VM to a target group
+`CancelZonalShift` | Stopping the process of outputting traffic from any availability zone
 `CreateBackendGroup` | Creating a backend group
 `CreateHttpRouter` | Creating an HTTP router
 `CreateLoadBalancer` | Creating a load balancer
@@ -20,6 +21,7 @@ Event name | Description
 `RemoveTargetGroupTargets` | Removing a VM from a target group
 `RemoveVirtualHostRoute` | Deleting a virtual host route
 `StartLoadBalancer` | Starting a load balancer
+`StartZonalShift` | Starting the process of outputting traffic from any availability zone
 `StopLoadBalancer` | Stopping a load balancer
 `UpdateBackendGroup` | Updating a backend group
 `UpdateBackendGroupBackend` | Updating a backend in a backend group

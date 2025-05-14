@@ -7,6 +7,8 @@ description: Следуя данной инструкции, вы научите
 
 С помощью [эмбеддингов](../../concepts/embeddings.md) вы можете найти в базе знаний наиболее близкий ответ на заданный вопрос.
 
+Если базовая модель эмбеддингов вам не подходит, вы можете [дообучить](../tuning/create-embeddings.md) ее.
+
 ## Перед началом работы {#before-begin}
 
 Чтобы воспользоваться примерами:
@@ -91,3 +93,4 @@ description: Следуя данной инструкции, вы научите
 
 * [{#T}](../../concepts/embeddings.md)
 * Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)
+* [{#T}](../tuning/create-embeddings.md)

@@ -25,6 +25,18 @@ meta:
   description: >-
     Yandex Data Transfer is designed for logically transferring data between
     sources and targets.
+  keywords:
+    - keyword: '{{ data-transfer-name }}'
+    - keyword: '{{ data-transfer-full-name }}'
+    - keyword: '{{ data-transfer-name }}'
+    - keyword: transferring data to {{ yandex-cloud }}
+    - keyword: transferring databases to {{ yandex-cloud }}
+    - keyword: migrating to {{ yandex-cloud }}
+    - keyword: transfer to {{ yandex-cloud }}
+    - keyword: data transfer
+    - keyword: transferring databases
+    - keyword: migrating databases
+    - keyword: data transfer
 links:
   - title: Available transfers
     description: List of supported transfer types

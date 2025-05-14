@@ -4,9 +4,9 @@ You will learn to configure an SAP server and write your first program exporting
 
 To create an SAP program in {{ yandex-cloud }}:
 1. [Get your cloud ready](#before-begin).
-1. [Create a VM for SAP](#vm-sap).
-1. [Set up the VM file system](#fs-settings).
-1. [Set up an install configuration](#install-config).
+1. [Create an SAP VM](#vm-sap).
+1. [Set up your VM file system](#fs-settings).
+1. [Configure SAP installation](#install-config).
 1. [Install SAP](#sap-install).
 1. [Configure SAP](#sap-settings).
 1. [Make sure the program runs correctly](#sap-app).
@@ -23,7 +23,6 @@ The cost of an SAP installation includes:
 * Fee for a continuously running [VM](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-
 ## Create an SAP VM {#vm-sap}
 
 Create a VM and give it a public IP address:
@@ -32,7 +31,7 @@ Create a VM and give it a public IP address:
 
 - Management console {#console}
 
-  1. On the [folder dashboard](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder dashboard](../../resource-manager/concepts/resources-hierarchy.md#folder) of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the `SLES for SAP 15 SP2` image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
@@ -53,13 +52,12 @@ Create a VM and give it a public IP address:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not there, [create it](../../vpc/operations/subnet-create.md).
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random external IP address to your VM from the {{ yandex-cloud }} pool. Alternatively, select a static address from the list if you reserved one.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
-
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other reserved usernames. To run commands requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vhcalnplci` that will be used in the SAP installation script.

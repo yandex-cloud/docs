@@ -155,6 +155,8 @@ items:
             href: operations/prometheus/querying/index.md
           - name: Remote Read
             href: operations/prometheus/querying/remote-read.md
+          - name: Visualization in {{ monitoring-name }}
+            href: operations/prometheus/querying/monitoring.md
           - name: Grafana
             href: operations/prometheus/querying/grafana.md
       - name: Recording rules
@@ -166,18 +168,12 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Policy before October 1, 2020
-            href: pricing-archive/pricing-01102020.md
+    href: pricing.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST
         items:

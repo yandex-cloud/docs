@@ -18,10 +18,15 @@ description: In this tutorial, you will learn about connection and schema regist
 
 {% include [connection](../../_includes/metadata-hub/connection-definition.md) %}
 
-## Storing table data {#metastore}
+## Table metadata management {#metastore}
 
 {% include [connection](../../_includes/metadata-hub/metastore-definition.md) %}
 
+
+### Use cases {#examples-metastore}
+
+* [{#T}](../tutorials/metastore-import.md)
+* [{#T}](../tutorials/sharing-tables.md)
 
 ## Data schema registry {#schema-registry}
 
@@ -29,5 +34,8 @@ description: In this tutorial, you will learn about connection and schema regist
 
 With a schema registry, you can define schemas for your data formats and versions and register them in the registry. After registering a schema, you can use it jointly in various systems and applications. When a supplier sends data to a message recipient, the data schema is included in the message title, and the schema registry ensures that the schema is valid and compatible with the expected one for the subject.
 
+### Use cases {#examples-schema-registry}
 
+* [{#T}](../tutorials/managed-schema-registry.md)
+* [{#T}](../tutorials/schema-registry-cdc-debezium-kafka.md)
 
