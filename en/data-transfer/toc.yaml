@@ -293,13 +293,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before August 1, 2024
-            href: pricing-archive/pricing01082024.md
+    href: pricing.md
   - name: CLI reference
     items:
       - name: Overview

@@ -25,6 +25,16 @@ meta:
   description: >-
     Yandex Container Registry is a service for storing and distributing Docker
     images.
+  keywords:
+    - keyword: '{{ container-registry-name }}'
+    - keyword: '{{ container-registry-full-name }}'
+    - keyword: '{{ container-registry-name }}'
+    - keyword: docker in {{ yandex-cloud }}
+    - keyword: helm in {{ yandex-cloud }}
+    - keyword: storing docker images
+    - keyword: docker image registry
+    - keyword: docker in cloud
+    - keyword: Container registry
 links:
   - title: Getting started
     description: Create your first registry
@@ -36,7 +46,7 @@ links:
     description: Learn more about the service's concepts and resources
     href: concepts/
   - title: API reference
-    description: HTTP API method descriptions
+    description: HTTP API methods
     href: api-ref/
   - title: Tutorials
     description: Address common Docker image management tasks using Container Registry

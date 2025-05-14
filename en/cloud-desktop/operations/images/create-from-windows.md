@@ -52,11 +52,11 @@ To configure an image you will need:
     ```bash
     qemu-img create -f qcow2 image.qcow2 20480M
     ```
-    
+
     Where:
     * `image.qcow2`: Boot disk name.
     * `20480M`: OS boot disk size in the image, MB.
-    
+
       {% note info %}
 
       We recommend that you specify a size of at least `16384M`. Otherwise, your boot disk may have not enough space when installing or later configuring the OS.
@@ -109,7 +109,7 @@ To configure an image you will need:
      ```
 
 1. Run `PowerShell` as an administrator.
-  
+
 1. For virtualized hardware clocks, set the time format to UTC:
 
      ```powershell
@@ -368,7 +368,9 @@ The result will be a disk image file named `image.qcow2` in QCOW2 format.
 
 Once the image is created, you can use it as a boot disk image for desktop groups.
 
-If you are not using Cloudbase-Init and you want to resize the boot disk in a desktop group for it to differ in size from the original image:
+## Resizing boot disk without Cloudbase-Init {#resize-disk}
+
+If you are not using Cloudbase-Init and you want to resize the boot disk in a desktop group:
 
 1. Increase the boot disk file system size on your desktop, e.g., using the `diskmgmt.msc` utility.
 

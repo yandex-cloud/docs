@@ -27,7 +27,7 @@ To configure network connectivity in a {{ baremetal-full-name }} subnet:
 1. [Create a VRF segment and enable routing in the private subnet](#setup-vrf).
 1. [Enable DHCP on the network interfaces](#re-enable-dhcp).
 
-See also [How to cancel server lease](#clear-out).
+See also [How to cancel a server lease](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -46,7 +46,7 @@ Create a private subnet in the `{{ region-id }}-m3` [server pool](../../baremeta
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `subnet-m3`.
@@ -82,7 +82,7 @@ Create a private subnet in the `{{ region-id }}-m3` [server pool](../../baremeta
   1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, select the period you want to lease the server for. When this period expires, server lease will be automatically renewed for the same period.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
+     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
@@ -116,7 +116,7 @@ No public IP addresses were assigned to the servers, so you cannot connect to th
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   
       You will see an authentication line in the KVM console terminal window that opens:
@@ -227,7 +227,7 @@ By reconfiguring the network interfaces of the servers in the private subnet, yo
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   1. Authenticate as the `root` user in the KVM console terminal with the password you saved when leasing the server.
   1. In the KVM console terminal, run the `ping` command to check you can access `server-m3-2` by its IP address, `192.168.1.102`:
@@ -267,7 +267,7 @@ To activate the DHCP server in the private subnet, create a virtual network segm
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF segment: `my-vrf`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -281,7 +281,7 @@ To activate the DHCP server in the private subnet, create a virtual network segm
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}**.
   1. In the `subnet-m3` row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
   
@@ -311,7 +311,7 @@ The DHCP server that serves the VRF-enabled private subnets can only assign IP a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   1. Authenticate as the `root` user in the KVM console terminal with the password you saved when leasing the server. Perform all further actions described in this step in the KVM console terminal:
   
@@ -375,7 +375,7 @@ Make sure the servers retained network connectivity after obtaining IP addresses
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   1. Authenticate as the `root` user in the KVM console terminal with the password you saved when leasing the server.
   1. In the KVM console terminal, run the `ping` command to check you can access `server-m3-2` by the IP address you saved in the previous step, e.g., `192.168.1.3`:

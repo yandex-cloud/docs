@@ -60,3 +60,8 @@ To link these schemas, add a reference with the following parameters when loadin
 * `1`: `test-msg1` subject version containing the referenced schema.
 
 {% endcut %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/managed-schema-registry.md)
+* [{#T}](../tutorials/schema-registry-cdc-debezium-kafka.md)

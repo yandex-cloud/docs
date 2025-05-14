@@ -21,15 +21,6 @@ For a network load balancer with a public IP address, you additionally pay for o
 
 
 
-{% note warning %}
-
-Starting May 1, 2025, prices for {{ network-load-balancer-full-name }} resources will increase in the Russia region. You can view the new prices in USD [here](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2pr3ni7eesvh97h5ro).
-
-{% endnote %}
-
-
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

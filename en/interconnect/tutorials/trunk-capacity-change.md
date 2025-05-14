@@ -1,6 +1,6 @@
 ---
 title: How to change the trunk capacity
-description: In this tutorial, we will change the trunk capacity.
+description: Follow this guide to change the trunk capacity.
 canonical: '{{ link-docs }}/tutorials/routing/trunk-capacity-change'
 ---
 

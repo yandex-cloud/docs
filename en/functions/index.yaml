@@ -10,6 +10,16 @@ meta:
     Yandex Cloud Functions allows you to run your applications in a secure,
     fault-tolerant, and scalable environment without creating or maintaining
     VMs.
+  keywords:
+    - keyword: '{{ sf-short-name }}'
+    - keyword: '{{ sf-name }}'
+    - keyword: '{{ sf-full-name }}'
+    - keyword: '{{ sf-name }}'
+    - keyword: functions in {{ yandex-cloud }}
+    - keyword: '{{ yandex-cloud }} functions'
+    - keyword: serverless functions
+    - keyword: serverless computing
+    - keyword: cloud functions
 links:
   - title: Getting started
     description: Create your first function
@@ -57,7 +67,7 @@ links:
     description: HTTP API method descriptions
     href: triggers/api-ref/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
     description: Permissions required to use the service

@@ -1,6 +1,6 @@
 ---
 title: How to change the trunk capacity in {{ interconnect-full-name }}
-description: In this tutorial, we will change the trunk capacity in {{ interconnect-name }}.
+description: Follow this guide to change the trunk capacity in {{ interconnect-name }}.
 ---
 
 # Changing the trunk capacity

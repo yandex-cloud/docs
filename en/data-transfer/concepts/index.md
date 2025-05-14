@@ -78,3 +78,8 @@ For more information about the differences between transfer types, see [{#T}](./
 {% include [include](../../_includes/data-transfer/connectivity-marix.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/index.md)
+* [{#T}](../operations/index.md)

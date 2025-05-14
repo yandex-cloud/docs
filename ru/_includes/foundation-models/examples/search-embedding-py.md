@@ -15,6 +15,7 @@ doc_texts = [
 ]
 query_text = "когда день рождения Пушкина?"
 
+# Создаем эмбеддинг запроса
 def get_embedding(text: str, text_type: str = "doc") -> np.array:
     query_data = {
         "modelUri": doc_uri if text_type == "doc" else query_uri,
@@ -25,6 +26,7 @@ def get_embedding(text: str, text_type: str = "doc") -> np.array:
         requests.post(embed_url, json=query_data, headers=headers).json()["embedding"]
     )
 
+# Создаем эмбеддинг текстов
 query_embedding = get_embedding(query_text, text_type="query")
 docs_embedding = [get_embedding(doc_text) for doc_text in doc_texts]
 

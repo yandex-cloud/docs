@@ -152,12 +152,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. On the left side of the window, select ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
 1. Click **Create connection**.
 1. Specify the connection settings:
-    * **Connection**: `Select in a folder`.
-    * **Cluster**: Cluster specified when [creating a database](#database-create).
-    * **Hostname**: Host specified when [creating a database](#database-create).
+    * **Connection**: `Select in folder`.
+    * **Cluster**: Cluster specified when [creating the database](#database-create).
+    * **Hostname**: Host specified when [creating the database](#database-create).
     * **HTTP interface port**: `8443`.
-    * **Username**: Username specified when [creating a database](#database-create).
-    * **Password**: Password specified when [creating a database](#database-create).
+    * **Username**: Username specified when [creating the database](#database-create).
+    * **Password**: Password specified when [creating the database](#database-create).
     * **Cache TTL in seconds**: `Default`.
     * **Raw SQL level**: `Forbid`.
     * **HTTPS**: `{{ ui-key.yacloud.common.enabled }}`.

@@ -6,10 +6,12 @@ Event name | Description
 `AddClusterZookeeper` | Adding a {{ ZK }} subcluster to a cluster
 `BackupCluster` | Creating backups
 `CreateCluster` | Creating a cluster
+`CreateClusterExtension` | Creating an extension
 `CreateClusterExternalDictionary` | Creating an external dictionary
 `CreateShardGroup` | Creating a shard group
 `DeleteBackup` | Deleting backups
 `DeleteCluster` | Deleting a cluster
+`DeleteClusterExtension` | Deleting an extension
 `DeleteClusterExternalDictionary` | Deleting an external dictionary
 `DeleteClusterHosts` | Deleting hosts from a cluster
 `DeleteClusterShard` | Deleting a shard from a cluster
@@ -22,6 +24,7 @@ Event name | Description
 `StartCluster` | Starting a cluster
 `StopCluster` | Stopping a cluster
 `UpdateCluster` | Updating a cluster
+`UpdateClusterExtension` | Updating an extension
 `UpdateClusterExternalDictionary` | Editing an external dictionary
 `UpdateClusterHosts` | Editing hosts in a cluster
 `UpdateClusterShard` | Editing a cluster shard

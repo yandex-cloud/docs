@@ -11,18 +11,20 @@ The charts you create in this section are not saved. They are used for real-time
 
 ## Building charts based on metrics {#add-graph}
 
+For information on how to build charts based on {{ prometheus-name }} metrics, see [this article](../prometheus/querying/monitoring.md).
+
 1. Open the [service home page]({{ link-monitoring }}).
 1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** on the left.
 1. In the query string, select the service for which you want to view metrics.
 1. Specify the [metrics and labels](../../concepts/data-model.md) of the service (tokens) to plot on the chart.
 
    You can select tokens with your cursor from the drop-down lists in the query string or by typing the first letters of the token name.
-   
+
    To view query string hotkey hints, click **{{ ui-key.yacloud_monitoring.querystring.hint.search-hotkey }}**.
 
 1. To visualize a modified metric on the chart, select [functions](../../concepts/querying.md#functions) in ![image](../../../_assets/monitoring/function.svg).
 1. To display another metric on the chart, click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** and enter the metric and label values.
-   
+
    Hide any intermediate queries used for calculating another query on the chart. To do this, click ![image](../../../_assets/monitoring/concepts/visualization/chart-query-hide.svg) next to the query.
 1. Click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** or press **Cmd/Ctrl + Enter**.
 
@@ -44,7 +46,7 @@ You can set the time interval for displaying metrics in one of the following way
 1. Under **{{ ui-key.yacloud_monitoring.wizard.tab.visualization }}**, configure the following:
    1. **{{ ui-key.yacloud_monitoring.wizard.vis.chart-type }}**: Select one of the metric display options: line chart, shaded areas, bar chart, scatter chart, pie chart, or tile chart.
    1. **{{ ui-key.yacloud_monitoring.wizard.vis.color-scheme }}**: Chart line colors. 
-   
+
       To maintain consistent colors for lines with the same names across various charts, select **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-hash }}**.
 
    1. **{{ ui-key.yacloud_monitoring.wizard.vis.normalize }}**: Normalizing all data to a range of 0 to 100%.
@@ -78,13 +80,13 @@ To view the legend and statistics for a time interval:
 ## Viewing metrics in numeric format {#view-source}
 
 1. To view the numeric values of the metrics, click **{{ ui-key.yacloud_monitoring.wizard.tab.table }}** under the chart.
-  
+
    It will give you a list of data for all the time points with collected metrics. To change the period, select the time interval you need at the top.
 
 1. To view statistics for the metrics (minimum and maximum values, sum, etc.), click **{{ ui-key.yacloud_monitoring.wizard.tab.pivot-table }}**.
 
 1. To save the pivot table data, click **{{ ui-key.yacloud_monitoring.wizard.legend.copy-as-csv }}** on the right.
-   
+
 ## Splitting a chart by a parameter {#repeated-graphs}
 
 1. Select the metrics and [build a chart](#add-graph).

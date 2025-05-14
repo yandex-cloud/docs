@@ -33,6 +33,15 @@ meta:
   description: >-
     Yandex Cloud Registry is a service to store and manage your development
     artifacts.
+  keywords:
+    - keyword: '{{ cloud-registry-name }}'
+    - keyword: '{{ cloud-registry-full-name }}'
+    - keyword: '{{ cloud-registry-name }}'
+    - keyword: registries in {{ yandex-cloud }}
+    - keyword: artifacts in {{ yandex-cloud }}
+    - keyword: application registry
+    - keyword: cloud registry
+    - keyword: development artifacts
 links:
   - title: Getting started
     description: Create your first artifact registry

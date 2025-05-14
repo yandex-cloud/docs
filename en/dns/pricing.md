@@ -15,15 +15,6 @@ editable: false
 
 
 
-{% note warning %}
-
-Starting May 1, 2025, prices for {{ dns-full-name }} resources will increase in the Russia region. You can view the new prices in USD the [website](https://yandex.cloud/en/price-list?currency=USD&installationCode=ru&services=dn2dns25hpthhkqn2cps).
-
-{% endnote %}
-
-
-
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

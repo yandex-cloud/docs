@@ -252,6 +252,8 @@ items:
   - name: Пользователям
     expanded: true
     items:
+      - name: Начало работы
+        href: operations/users/quickstart.md
       - name: Пошаговые инструкции
         items:
           - name: Покупка подписки

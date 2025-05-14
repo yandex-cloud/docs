@@ -23,16 +23,17 @@ Packer создаст и запустит виртуальную машину с
 
 ### Настройте окружение и инфраструктуру {#prepare-environment}
 
-1. Установите [интерфейс командной строки](../../cli/quickstart.md#install) {{ yandex-cloud }} (CLI).
-
-    {% note tip %}
-
-    Если вы работаете с облаком с помощью [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation) и хотите использовать CLI изнутри ВМ, [аутентифицируйтесь в CLI от имени сервисного аккаунта](../../cli/operations/authentication/service-account.md#vm-auth-as-sa).
-
-    {% endnote %}
-
 1. [Создайте](../../vpc/quickstart.md) в вашем каталоге облачную сеть с одной подсетью.
-1. Получите [OAuth-токен]({{ link-cloud-oauth }}) для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport) или [IAM-токен](../../iam/operations/iam-token/create-for-federation.md) для [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation).
+1. В зависимости от типа аккаунта, от имени которого вы работаете, получите:
+
+    * [OAuth-токен]({{ link-cloud-oauth }}) для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport).
+    * [IAM-токен](../../iam/concepts/authorization/iam-token.md) для [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [сервисного](../../iam/concepts/users/accounts.md#sa) аккаунтов.
+
+1. Убедитесь, что у вашего аккаунта достаточно прав для создания ресурсов в сервисе {{ compute-name }}. У вас должна быть минимальная [роль](../../compute/security/index.md#compute-editor) `compute.editor` на каталог.
+
+    Если вы работаете от имени сервисного аккаунта, [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `compute.editor` на каталог.
+
+    Если вы хотите создавать ресурсы в других сервисах {{ yandex-cloud }}, например подсети в {{ vpc-short-name }}, то также назначьте соответствующие [сервисные роли](../../iam/roles-reference.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
@@ -201,8 +202,7 @@ Packer создаст и запустит виртуальную машину с
 
 1. [Узнайте](../../resource-manager/operations/folder/get-id.md) идентификатор каталога.
 1. [Узнайте](../../vpc/operations/subnet-get-info.md) идентификатор подсети и [зону доступности](../../overview/concepts/geo-scope.md), в которой она расположена.
-1. Подготовьте идентификатор подсети, выполнив команду `yc vpc subnet list`.
-1. Создайте JSON-файл с любым именем, например, `image.json`. Запишите туда следующую конфигурацию:
+1. Создайте JSON-файл с любым именем, например: `image.json`. Запишите туда следующую конфигурацию:
 
     
     ```json
@@ -245,9 +245,10 @@ Packer создаст и запустит виртуальную машину с
 
 
     Где:
-    * `<зона_доступности>` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Например: `{{ region-id }}-d`.
-    * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного аккаунта.
+
+    * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного или сервисного аккаунтов.
     * `folder_id` — идентификатор каталога, в котором будет создана ВМ и ее образ.
+    * `zone` — зона доступности, в которой будет создана ВМ. Например: `{{ region-id }}-d`.
     * `subnet_id` — идентификатор подсети, в которой будет создана ВМ и ее образ.
 
 {% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
@@ -312,6 +313,7 @@ Packer создаст и запустит виртуальную машину с
 
 ### Удалите созданные ресурсы {#clear-out}
 
-Если созданный образ вам больше не нужен, [удалите его](../../compute/operations/image-control/delete.md).
+Чтобы перестать платить за созданные ресурсы:
 
-Удалите [подсеть](../../vpc/operations/subnet-delete.md) и [облачную сеть](../../vpc/operations/network-delete.md), если вы их создавали специально для выполнения руководства.
+* [Удалите](../../compute/operations/image-control/delete.md) созданный образ.
+* Удалите [подсеть](../../vpc/operations/subnet-delete.md) и [облачную сеть](../../vpc/operations/network-delete.md), если вы их создавали специально для выполнения руководства.

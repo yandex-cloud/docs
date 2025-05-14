@@ -23,6 +23,21 @@ description:
 meta:
   title: '{{ si-full-name }}'
   description: '{{ si-full-name }} enables integrating multiple {{ yandex-cloud }} services.'
+  keywords:
+    - keyword: cloud serverless integrations
+    - keyword: '{{ si-name }}'
+    - keyword: '{{ si-full-name }}'
+    - keyword: '{{ sw-full-name }}'
+    - keyword: '{{ er-full-name }}'
+    - keyword: '{{ si-name }}'
+    - keyword: '{{ sw-name }}'
+    - keyword: '{{ er-name }}'
+    - keyword: integration in {{ yandex-cloud }}
+    - keyword: '{{ yandex-cloud }} workflows'
+    - keyword: '{{ yandex-cloud }} event router'
+    - keyword: serverless integration
+    - keyword: cloud integration
+    - keyword: integration in cloud
 links:
   - title: Getting started with {{ sw-name }}
     description: Create a workflow and run it.
@@ -34,7 +49,7 @@ links:
     description: Learn more about {{ si-name }} concepts
     href: concepts/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations

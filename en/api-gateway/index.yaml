@@ -9,6 +9,15 @@ meta:
   description: >-
     Yandex API Gateway is an API gateway management service supporting OpenAPI
     3.0 and extensions for compatibility with other cloud services.
+  keywords:
+    - keyword: '{{ api-gw-name }}'
+    - keyword: '{{ api-gw-full-name }}'
+    - keyword: '{{ api-gw-name }}'
+    - keyword: api gateways in {{ yandex-cloud }}
+    - keyword: gateways in {{ yandex-cloud }}
+    - keyword: OpenAPI specification in {{ yandex-cloud }}
+    - keyword: api gateways
+    - keyword: gateways
 links:
   - title: Getting started
     description: Create your first API gateway

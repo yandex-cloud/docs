@@ -1,4 +1,4 @@
-{% include [include](../../_includes/cli-install.md) %}
+{% include [cli-install](../../_includes/cli-install.md) %}
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -12,9 +12,9 @@
 
     ```bash
     yc vpc private-endpoint create \
-      --name s3-vpc-link \
-      --description "Private Endpoint to the Object Storage" \
-      --network-name default-net \
+      --name <service_connection_name> \
+      --description "<service_connection_description>" \
+      --network-name <network_name> \
       --object-storage 
     ```
 
@@ -39,22 +39,7 @@
 
     * `--private-dns-records-enabled`: (Optional) Parameter to create additional DNS [resource records](../../dns/concepts/resource-record.md) to override the public FQDN of the service to which the connection is created.
 
-      Depending on whether the parameter is enabled, the following resource records will be created automatically for access to {{ objstorage-name }}:
-      * The parameter is _not used_:
-
-        Name | Type | Value
-        --- | --- | ---
-        storage.pe.yandexcloud.net | A | <internal_IP_address_of_service_connection>
-        *.storage.pe.yandexcloud.net | A | <internal_IP_address_of_service_connection>
-
-      * The parameter is _used_:
-
-        Name | Type | Value
-        --- | --- | ---
-        storage.pe.yandexcloud.net | A | <internal_IP_address_of_service_connection>
-        *.storage.pe.yandexcloud.net | A | <internal_IP_address_of_service_connection>
-        {{ s3-storage-host }} | A | <internal_IP_address_of_service_connection>
-        *.{{ s3-storage-host }} | A | <internal_IP_address_of_service_connection>
+      {% include [private-endpoint-create-dns](private-endpoint-create-dns.md) %}
 
 1. Make sure the service connection is created:
 
@@ -62,7 +47,7 @@
     yc vpc private-endpoint list
     ```
     
-    The command result will be as follows:
+    Result:
 
     ```text
     +----------------------+-------------+--------------------------------+
@@ -73,4 +58,3 @@
     +----------------------+-------------+--------------------------------+
     ```
 
-Learn how to get the parameters of the service connection you created in [{#T}](../../vpc/operations/private-endpoint-get-info.md).
