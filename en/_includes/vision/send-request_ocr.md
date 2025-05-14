@@ -41,7 +41,7 @@ Send a request using the [recognize](../../vision/ocr/api-ref/TextRecognition/re
             "x-folder-id": "<folder_ID>",
             "x-data-logging-enabled": "true"}
     
-    w = requests.post(url=url, headers=headers, data=json.dumps(data))
+  w = requests.post(url=url, headers=headers, data=json.dumps(data))
   ```
 
 {% endlist %}
