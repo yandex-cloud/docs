@@ -7,7 +7,7 @@ description: Follow this guide to copy an object from a bucket in {{ objstorage-
 
 {{ objstorage-name }} supports server-side copy.
 
-If [bucket](../../concepts/bucket.md) [encryption](../../concepts/encryption.md) is disabled, [objects](../../concepts/object.md) will be copied to server-side buckets. The host running the copy command and {{ objstorage-name }} only exchange object [keys](../../concepts/object.md#key). Since the transfer is internal to the object storage, no fee is charged for copying traffic in this case. However, you will be [billed](../../pricing.md#prices-operations) for copy requests.
+If [bucket](../../concepts/bucket.md) [encryption](../../concepts/encryption.md) is disabled, [objects](../../concepts/object.md) will be copied to server-side buckets. The host running the copy command and {{ objstorage-name }} only exchange object [keys](../../concepts/object.md#key). No fee is charged for the copying traffic in this case because the traffic is internal for the object storage. However, you will be [billed](../../pricing.md#prices-operations) for copy requests.
 
 If bucket objects are encrypted, they will first be copied to the host running the command and then uploaded to the target bucket.
 
@@ -29,7 +29,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for uploading an object to a bucket:
+  1. See the description of the CLI command to copy an object:
 
       ```bash
       yc storage s3api copy-object --help
@@ -89,7 +89,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `s3 cp`: Command to copy objects.
+      * `s3 cp`: Copy object command.
 
       Result:
 

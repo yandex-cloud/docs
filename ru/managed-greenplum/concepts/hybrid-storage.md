@@ -39,4 +39,8 @@ description: Как устроено гибридное хранилище в к
 
 Подробнее про архитектуру гибридного хранилища читайте в [статье на Хабре](https://habr.com/ru/companies/yandex_cloud_and_infra/articles/831780/). В статье также приводятся тесты производительности для разных типов хранилищ.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/yezzey.md)
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

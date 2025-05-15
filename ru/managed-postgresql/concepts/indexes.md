@@ -134,3 +134,8 @@ REINDEX INDEX idx_orders_status;
 ### Расширение pg_repack {#pg-repack}
 
 Расширение [pg_repack](https://github.com/reorg/pg_repack) обеспечивает реорганизацию таблиц и индексов без длительных блокировок. О том, как установить и запустить `pg_repack` в кластере {{ mpg-name }}, см. в разделе [Использование pg_repack](../operations/extensions/pg_repack.md).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/postgresql-to-opensearch.md)
+* [{#T}](../tutorials/glibc-collation-issues.md)

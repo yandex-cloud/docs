@@ -694,7 +694,7 @@ items:
                 href: charts/editor/widgets/index.md
               - name: Таблица
                 href: charts/editor/widgets/table.md
-              - name: График (Gravity Charts)
+              - name: График (Gravity UI Charts)
                 href: charts/editor/widgets/chart.md
               - name: Markdown
                 href: charts/editor/widgets/markdown.md
@@ -882,12 +882,6 @@ items:
         href: pricing.md
       - name: Настройка тарифного плана
         href: settings/service-plan.md
-      - name: Архив
-        items:
-          - name: До 1 июня 2024 года
-            href: pricing-archive/pricing01062024.md
-          - name: До 23 апреля 2024 года
-            href: pricing-archive/pricing23042024.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

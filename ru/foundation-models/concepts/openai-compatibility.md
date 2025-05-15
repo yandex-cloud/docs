@@ -12,24 +12,24 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
 - Python {#python}
 
-   ```python
-   import openai
+  ```python
+  import openai
 
-   client = openai.OpenAI(
+  client = openai.OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1"
-   )
-   ```
+      base_url="{{ api-host-llm }}/v1"
+  )
+  ```
 
 - Node.js {#node}
 
-   ```node
-   import OpenAI from "openai";
+  ```js
+  import OpenAI from "openai";
 
-   const openai = new OpenAI(
-      api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1");
-   ```
+  const openai = new OpenAI({
+    apiKey:"<значение_API-ключа>",
+    baseURL:"{{ api-host-llm }}/v1"});
+  ```
 
 {% endlist %}
 
@@ -41,76 +41,75 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
 {% list tabs group=programming_language %}
 
-
 - Python {#python}
 
-   ```python
-   # Установите OpenAI SDK с помощью pip
-   # pip install openai 
-   import openai
+  ```python
+  # Установите OpenAI SDK с помощью pip
+  # pip install openai 
+  import openai
 
-   client = openai.OpenAI(
+  client = openai.OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1"
-   )
+      base_url="{{ api-host-llm }}/v1"
+  )
 
-   response = client.chat.completions.create(
-       model="gpt://<идентификатор_каталога>/yandexgpt/latest",
-       messages=[
+  response = client.chat.completions.create(
+      model="gpt://<идентификатор_каталога>/yandexgpt/latest",
+      messages=[
           {"role": "assistant", "content": "Ты очень умный ассистент."},
           {"role": "user", "content": "Сколько стоит запрос к {{ gpt-pro }}?"}
-       ],
-       max_tokens=10000,
-       temperature=0.7,
-       stream=True
-   )
+      ],
+      max_tokens=10000,
+      temperature=0.7,
+      stream=True
+  )
 
-   for chunk in response:
-       if chunk.choices[0].delta.content is not None:
-           print(chunk.choices[0].delta.content, end="")
-   ```
+  for chunk in response:
+      if chunk.choices[0].delta.content is not None:
+          print(chunk.choices[0].delta.content, end="")
+  ```
 
 - Node.js {#node}
 
-   ```node
-   import OpenAI from "openai";
+  ```js
+  import OpenAI from "openai";
 
-   const openai = new OpenAI(
-      api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1");
+  const openai = new OpenAI({
+    apiKey:"<значение_API-ключа>",
+    baseURL:"{{ api-host-llm }}/v1"});
 
-   async function main() {
-     const completion = await openai.chat.completions.create({
-       messages: [{"role": "assistant", "content": "Ты очень умный ассистент."},
-             {"role": "user", "content": "Сколько стоит запрос к {{ gpt-pro }}?"}],
-       model: "gpt://<идентификатор_каталога>/yandexgpt/latest",
-     });
+  async function main() {
+    const completion = await openai.chat.completions.create({
+      messages: [{"role": "assistant", "content": "Ты очень умный ассистент."},
+        {"role": "user", "content": "Сколько стоит запрос к {{ gpt-pro }}?"}],
+      model: "gpt://<идентификатор_каталога>/yandexgpt/latest",
+    });
 
-     console.log(completion.choices[0]);
-   }
-   main();
-   ```
+  console.log(completion.choices[0]);
+  }
+  main();
+  ```
 
 - cURL {#curl}
 
-   ```bash
-   curl https://llm.api.cloud.yandex.net/v1/chat/completions
-     -H "Content-Type: application/json"
-     -H "Authorization: Bearer <API-ключ>"
-     -d '{
-       "model": "gpt://<идентификатор_каталога>/yandexgpt/latest",
-       "messages": [
-         {
-           "role": "system",
-           "content": "Ты очень умный ассистент."
-         },
-         {
-           "role": "user",
-           "content": "Сколько стоит запрос к {{ gpt-pro }}?"
-         }
-       ]
-     }'
-   ```
+  ```bash
+  curl {{ api-host-llm }}/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <API-ключ>" \
+    -d '{
+      "model": "gpt://<идентификатор_каталога>/yandexgpt/latest",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Ты очень умный ассистент."
+        },
+        {
+          "role": "user",
+          "content": "Сколько стоит запрос к {{ gpt-pro }}?"
+        }
+      ]
+    }'
+  ```
 
 {% endlist %}
 

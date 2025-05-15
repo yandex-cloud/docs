@@ -427,15 +427,7 @@ items:
       - name: '{{ sts-name }}'
         href: security/sts.md
   - name: Правила тарификации
-    items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
-        items:
-          - name: До 1 января 2019 года
-            href: pricing-archive/pricing-01012019.md
-          - name: С 1 января до 1 марта 2019 года
-            href: pricing-archive/pricing-01032019.md
+    href: pricing.md
   - name: Справочник YC CLI (англ.)
     items:
       - name: Overview

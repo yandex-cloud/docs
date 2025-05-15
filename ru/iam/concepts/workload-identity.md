@@ -65,3 +65,8 @@ _Привязка_ — это связь, настроенная между фе
 Чтобы создать привязку, пользователю необходимы:
 * [роль](../security/index.md#iam-serviceAccounts-federatedCredentialEditor) `iam.serviceAccounts.federatedCredentialEditor` или выше, выданная на сервисный аккаунт, который будет использоваться в привязке.
 * [роль](../security/index.md#iam-workloadIdentityFederations-user) `iam.workloadIdentityFederations.user` или выше на каталог, в котором находится нужная федерация сервисных аккаунтов.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/wlif-github-integration.md)
+* [{#T}](../tutorials/wlif-k8s-integration.md)

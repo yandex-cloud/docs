@@ -5,7 +5,7 @@ description: Various use cases for development and testing in {{ yandex-cloud }}
 
 # Development and testing guides
 
-* [Enabling blue-green and canary deployment of web service versions](../web/blue-green-canary-deployment.md)
+* [Enabling a blue-green and canary deployment of the web service versions](../web/blue-green-canary-deployment.md)
 * [Automating image builds using Jenkins and Packer](../infrastructure-management/jenkins.md)
 * [Continuous deployment of containerized applications using {{ GL }}](../infrastructure-management/gitlab-containers.md)
 * [App testing with {{ GL }}](../testing/gitlab.md)
@@ -23,5 +23,5 @@ description: Various use cases for development and testing in {{ yandex-cloud }}
 * [Getting statistics of queries to {{ objstorage-full-name }} objects using {{ yq-full-name }}](../testing/server-logs-yq.md)
 * [Getting the number of {{ objstorage-full-name }} object queries](../testing/server-logs.md)
 * [Invoking load testing from {{ GL }} CI](../testing/loadtesting-gitlab-ci.md)
-* [{#T}](../testing/loadtesting-results-compare.md)
 * [{#T}](install-gitlab-runner.md)
+* [{#T}](../testing/loadtesting-results-compare.md)

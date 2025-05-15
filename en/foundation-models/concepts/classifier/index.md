@@ -164,3 +164,8 @@ Where:
     In multi-class classification, the sum of the `confidence` values for all classes is always `1`.
 
     In multi-label classification, the `confidence` value for each class is calculated independently (the sum of the values is not equal to `1`).
+
+## Use cases {#examples}
+
+* [{#T}](../../operations/classifier/additionally-trained.md)
+* [{#T}](../../operations/classifier/readymade.md)

@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Настроить NAT-шлюз
 
 
-Минимально необходимые [роли](../security/#roles-list) для создания и настройки NAT-шлюза: `vpc.admin` и `vpc.gateways.user`.
+Минимально необходимые [роли](../security/#roles-list) для создания и настройки [NAT-шлюза](../concepts/gateways.md): `vpc.admin` и `vpc.gateways.user`.
 
 Чтобы создать и настроить NAT-шлюз:
 
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**. 
 
-  Затем привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
+  Затем привяжите [таблицу маршрутизации](../concepts/routing.md) к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
 
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. В строке нужной подсети нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).

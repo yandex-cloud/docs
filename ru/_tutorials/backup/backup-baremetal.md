@@ -1,4 +1,4 @@
-# Подключить сервер {{ baremetal-full-name }} к {{ backup-full-name }}
+# Подключить существующий сервер {{ baremetal-full-name }} к {{ backup-full-name }}
 
 {% note info %}
 
@@ -6,15 +6,17 @@
 
 {% endnote %}
 
-В {{ backup-name }} вы можете настроить резервное копирование [серверов {{ baremetal-name }}](../../baremetal/concepts/servers.md) при [заказе](../../baremetal/operations/servers/server-lease.md) сервера или подключить к {{ backup-name }} уже арендованный сервер {{ baremetal-name }}.
+Вы можете подключить существующий [сервер {{ baremetal-name }}](../../baremetal/concepts/servers.md) к {{ backup-name }} и настроить на нем резервное копирование данных.
 
-Подробнее о работе с серверами см. на странице [Пошаговые инструкции для сервиса {{ baremetal-full-name }}](../../baremetal/operations/index.md).
+Информацию о том, как подключить сервер {{ baremetal-name }} к {{ backup-name }} при его заказе, см. в инструкции [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md).
 
-Поддерживаются следующие операционные системы серверов: {#os-support}
+Подробнее о работе с серверами {{ baremetal-name }} см. в разделе [Пошаговые инструкции для сервиса {{ baremetal-full-name }}](../../baremetal/operations/index.md).
+
+Подключение к {{ backup-name }} поддерживается для серверов под управлением следующих операционных систем: {#os-support}
 
 {% include [baremetal-os-list](../../_includes/backup/baremetal-os-list.md) %}
 
-Чтобы подключить сервер к {{ backup-name }}:
+Чтобы подключить существующий сервер к {{ backup-name }}:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#prepare-service-account).
 1. [Активируйте {{ backup-name }}](#activate-provider).
@@ -97,56 +99,27 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите арендовать сервер.
-  1. В списке сервисов выберите **{{ baremetal-name }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-m`.
-  1. Выберите пул `{{ region-id }}-m3`.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
+  1. {% include [server-lease-step1](../../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
+  1. {% include [server-lease-step3](../../_includes/baremetal/instruction-steps/server-lease-step3.md) %}
+  1. {% include [server-lease-step4](../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
+  1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
+  1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
 
-      1. Выберите конфигурацию сервера, например `BA-i203-S-10G`.
-      1. Настройте разметку диска:
+      {% include [server-lease-backup-partitioning-notice](../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
 
-          1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-          1. Оставьте разметку по умолчанию и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. {% include [server-lease-step7-backup](../../_includes/baremetal/instruction-steps/server-lease-step7-backup.md) %}
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**:
 
-          {% note info %}
-
-          Параметры разметки диска важны для дальнейшего восстановления сервера из резервной копии. Подробнее см. в подразделе [Восстановите сервер из резервной копии](#server-recovery).
-
-          {% endnote %}
-
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Ubuntu 22.04 LTS`.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** укажите:
-
-      1. **{{ ui-key.yacloud.baremetal.field_server-count }}** — `1`.
-      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** — `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`.
-
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
-
-      1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** нажмите **{{ ui-key.yacloud.common.create }}**.
-      1. (опционально) Если вам требуется включить DHCP для автоматического назначения IP-адресов, сделайте это в блоке **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
-      1. Введите имя подсети `bm-subnetwork` и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-      1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
-
-          Чтобы [агент {{ backup-name }}](../../backup/concepts/agent.md) мог обмениваться данными с серверами [провайдера резервного копирования](../../backup/concepts/index.md#providers), на сервере должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }} согласно таблице: {#ip-access}
-
-          {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %} 
-
+      1. В поле **{{ ui-key.yacloud.baremetal.field_server-count }}** укажите `1`.
+      1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
+  1. {% include [server-lease-step9-backup](../../_includes/baremetal/instruction-steps/server-lease-step9-backup.md) %}
   1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
-      1. Сгенерируйте пароль для root-пользователя. Для этого напротив поля **{{ ui-key.yacloud.baremetal.field_password }}** нажмите кнопку **{{ ui-key.yacloud.component.password-input.label_button-generate }}**.
+      {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
-      {% note warning %}
-
-      После заказа сервера пароль больше нигде нельзя посмотреть. Сразу сохраните пароль в надежном месте.
-
-      {% endnote %}
-
-      1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** введите **{{ ui-key.yacloud.baremetal.field_name }}** сервера — `bm-server`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step11](../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
+  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
 
 {% endlist %}
 
@@ -227,11 +200,26 @@
     curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
     ```
 
-1. Установите утилиту [jq](https://jqlang.github.io/jq/):
+1. Установите необходимые пакеты и утилиты:
 
-    ```bash
-    apt update && apt install -y jq
-    ```
+    {% list tabs group=operating_system %}
+
+    - Debian/Ubuntu {#ubuntu}
+
+      ```bash
+      apt update && apt install -y jq
+      ```
+
+    - CentOS {#centos}
+
+      ```bash
+      yum install epel-release -y && \
+      yum update -y && \
+      yum install jq -y && \
+      yum install wget -y
+      ```
+
+    {% endlist %}
 
 1. Аутентифицируйтесь в {{ yandex-cloud }} CLI от имени сервисного аккаунта:
 
@@ -250,7 +238,7 @@
     ```bash
     wget https://{{ s3-storage-host }}/backup-distributions/agent_installer_bms.sh && \
     sudo bash ./agent_installer_bms.sh \
-      -t=<IAM-токен>
+    -t=<IAM-токен>
     ```
 
     Дождитесь сообщения о регистрации агента {{ backup-name }}:
@@ -403,3 +391,7 @@
 
 1. [Откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от аренды сервера {{ baremetal-name }}.
 1. [Удалите](../../backup/operations/backup-vm/delete.md) резервную копию в {{ backup-name }} с помощью CLI.
+
+#### См. также {#see-also}
+
+* [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md)

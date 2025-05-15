@@ -33,3 +33,10 @@ description: Из статьи вы узнаете, какие типы диск
 
 Подробнее об ограничениях на количество хостов в кластере см. в разделе [Квоты и лимиты](./limits.md).
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/sync-mysql.md)
+* [{#T}](../tutorials/bitrix-shop/index.md)
+* [{#T}](../tutorials/bitrix-website/index.md)
+* [{#T}](../tutorials/opencart/index.md)

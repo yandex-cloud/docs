@@ -8,6 +8,6 @@ editable: false
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
 
-This section describes [{{ cns-name }}](../../cns/) metrics delivered to {{ monitoring-name }}.
+This section describes [{{ cns-name }}](../../notifications/) metrics delivered to {{ monitoring-name }}.
 
 {% include [cns](../../_includes/monitoring/metrics-ref/cns.md) %}

@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  Чтобы удалить правило из группы безопасности:
+  Чтобы удалить [правило](../concepts/security-groups.md#security-groups-structure) из [группы безопасности](../concepts/security-groups.md):
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется изменить группу безопасности.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
 - CLI {#cli}
 
-  Чтобы удалить правило из группы:
+  Чтобы удалить [правило](../concepts/security-groups.md#security-groups-structure) из [группы](../concepts/security-groups.md):
 
   1. Узнайте имя или идентификатор группы, которую требуется изменить:
 
@@ -90,7 +90,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы удалить правило из группы безопасности, созданное с помощью {{ TF }}:
+  Чтобы удалить [правило](../concepts/security-groups.md#security-groups-structure) из [группы безопасности](../concepts/security-groups.md), созданное с помощью {{ TF }}:
 
   1. Откройте файл конфигурации {{ TF }} и удалите блок `ingress` или `egress` в описании группы безопасности:
 
@@ -161,7 +161,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить правило из группы безопасности, воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/SecurityGroup/updateRules.md) и передайте в запросе:
+  Чтобы удалить [правило](../concepts/security-groups.md#security-groups-structure) из [группы безопасности](../concepts/security-groups.md), воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/SecurityGroup/updateRules.md) и передайте в запросе:
 
   * Идентификатор группы безопасности, из которой будут удалены правила, в параметре `securityGroupId`.
   * Идентификаторы правил, которые будут удалены, в массиве `deletionRuleIds[]`.

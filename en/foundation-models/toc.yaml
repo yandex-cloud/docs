@@ -713,8 +713,6 @@ items:
           Implementing an AI assistant with search capabilities for PDF files
           with complex formatting
         href: tutorials/pdf-searchindex-ai-assistant.md
-      - name: Model tuning in {{ ml-platform-name }}
-        href: tutorials/models-fine-tuning.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

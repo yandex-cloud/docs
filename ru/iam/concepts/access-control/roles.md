@@ -17,3 +17,8 @@ _Роль_ — это набор разрешений, который опред
 С 14 февраля 2024 года расширенный перечень ролей всех сервисов {{ yandex-cloud }} находится на странице [{#T}](../../roles-reference.md).
 
 {% endnote %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/user-group-access-control.md)
+* [{#T}](../../tutorials/sa-oslogin-ansible.md)

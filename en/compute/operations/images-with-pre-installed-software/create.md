@@ -6,18 +6,20 @@ description: Follow this guide to create a VM from a public image.
 # Creating a VM from a public image
 
 
-To create a [VM](../../concepts/vm.md):
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
+To create a VM:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** from the list of services.
+  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) the VM will reside in.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Optionally, configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
@@ -59,7 +61,7 @@ To create a [VM](../../concepts/vm.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to create a VM:
+  1. See the description of the CLI command for creating a VM:
 
      ```bash
      yc compute instance create --help
@@ -216,14 +218,14 @@ To create a [VM](../../concepts/vm.md):
 
      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_instance).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -231,7 +233,7 @@ To create a [VM](../../concepts/vm.md):
         terraform apply
         ```
 
-     1. When asked to confirm changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
 
      {% include [vm-create-check](../../../_includes/compute/vm-create-check.md) %}
 

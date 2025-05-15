@@ -21,7 +21,7 @@ To get the database connection details:
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}).
+  1. Navigate to the [management console]({{ link-console-main }}).
   1. Select the folder hosting your DB and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the DB you want to get the endpoint and path for.
       

@@ -102,4 +102,9 @@ description: Из статьи вы узнаете, что такое шарди
     └────────────┴──────────────┘
     ```
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/sharding.md)
+* [{#T}](../tutorials/mch-mch-resharding.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

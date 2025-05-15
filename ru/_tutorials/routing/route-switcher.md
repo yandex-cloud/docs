@@ -414,13 +414,13 @@
 
    - CLI {#cli}
 
-      1. Посмотрите описание команды CLI для остановки ВМ:
+      1. Посмотрите описание команды CLI для запуска ВМ:
 
          ```bash
          yc compute instance start --help
          ```
 
-      1. Остановите ВМ:
+      1. Запустите ВМ:
 
          ```bash
          yc compute instance start nat-a

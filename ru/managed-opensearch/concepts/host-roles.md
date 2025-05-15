@@ -23,6 +23,13 @@ description: Из статьи вы узнаете про роли хостов 
 
 Для обеспечения отказоустойчивости создать кластер только из двух хостов с ролью `DATA` невозможно. Для этого добавьте группу хостов с ролью `MANAGER`.
 
+### Примеры использования {#examples-data}
+
+* [{#T}](../tutorials/migration-to-opensearch.md)
+* [{#T}](../tutorials/opensearch-index-policy.md)
+* [{#T}](../tutorials/opensearch-to-object-storage.md)
+* [{#T}](../tutorials/opensearch-yandex-lemmer.md)
+
 ## Хосты с ролью MANAGER {#manager}
 
 Хосты с этой ролью отслеживают состояние кластера и управляют его конфигурацией, обеспечивая работоспособность всех компонентов {{ OS }}.
@@ -34,3 +41,9 @@ description: Из статьи вы узнаете про роли хостов 
 ## Хосты с ролью DASHBOARDS {#dashboards}
 
 Хосты с этой ролью размещают {{ OS }} Dashboards — инструмент визуализации данных, например, для мониторинга приложений в режиме реального времени, обнаружения угроз, управления инцидентами или персонализированного поиска.
+
+### Примеры использования {#examples-dashboards}
+
+* [{#T}](../tutorials/saml-keycloak.md)
+* [{#T}](../tutorials/trails-to-opensearch.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)

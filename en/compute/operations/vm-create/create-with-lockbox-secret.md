@@ -3,11 +3,13 @@ title: How to create a VM with access to a {{ lockbox-name }} secret
 description: Follow this guide to get the value of a {{ lockbox-full-name }} secret provided via metadata when creating a VM from inside the VM.
 ---
 
-# Creating a VM instance with access to a {{ lockbox-full-name }} secret
+# Creating a VM with access to a {{ lockbox-full-name }} secret
 
 You can use the [metadata](../../concepts/vm-metadata.md) service to provide the ID of a [{{ lockbox-full-name }} secret](../../../lockbox/concepts/secret.md) to a [VM](../../concepts/vm.md) and then get the value of that secret from inside the VM using the [IAM token](../../../iam/concepts/authorization/iam-token.md) of the [service account](../../../iam/concepts/users/service-accounts.md) linked to the VM.
 
 Just like other user data, {{ lockbox-name }} secrets are provided in the `user-data` key. You can provide metadata to the `user-data` [folder](../../concepts/metadata/directories.md#dir-user) both when [creating](../index.md#vm-create) and [updating](../vm-control/vm-update.md) a VM.
+
+{% include [role-note](../../../_includes/compute/role-note.md) %}
 
 To provide a {{ lockbox-name }} secret to a VM via metadata:
 
@@ -55,12 +57,12 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your secret and service account.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder containing your secret and service account.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-2404-lts-oslogin) image.
-      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) the VM will reside in.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, in the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM's availability zone or select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
@@ -160,7 +162,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      1. In the configuration file, define the parameters of the resources you want to create:
+      1. In the configuration file, describe the resources you want to create:
 
           ```hcl
           # Creating a boot disk for the VM

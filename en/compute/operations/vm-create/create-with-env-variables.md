@@ -11,6 +11,8 @@ This use case demonstrates creating a VM on [Ubuntu 22.04 LTS](/marketplace/prod
 
 Also, these two variables from the `data` configuration section will be provided to the VM metadata: `var1` set to `value1` and `var2` set to `value2`. These variables and their values will be available in the `user-data` [folder](../../concepts/metadata/directories.md#dir-user) of the metadata service from inside the VM after you create it.
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 To create a VM with metadata from environment variables:
 
 1. Specify the environment variables containing the VM local user's name and SSH key; these will be substituted into the VM metadata when the {{ yandex-cloud }} CLI command is executed later on:
@@ -88,7 +90,7 @@ To create a VM with metadata from environment variables:
 
           Note that the CLI command for the `HOSTNAME` variable will not substitute its value into the metadata. Instead, the `$HOSTNAME` variable name will be provided to the `cloud-init` configuration when executing the CLI command; the hostname value of the new VM will be substituted in place of that variable later what creating the VM.
 
-          This is why the `HOSTNAME` variable is specified using the two-dollar syntax in the `user-data` key: `$$HOSTNAME`. For more information, see [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
+          This is why the `HOSTNAME` variable is specified using the two-dollar syntax in the `user-data` key: `$$HOSTNAME`. To learn more, see [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
 
           {% endnote %}
 

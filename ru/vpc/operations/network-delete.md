@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для удаления облачных сетей:
+  1. Посмотрите описание команды CLI для удаления [облачных сетей](../concepts/network.md#network):
 
       ```
       yc vpc network delete --help
@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  Чтобы удалить облачную сеть, созданную с помощью {{ TF }}:
+  Чтобы удалить [облачную сеть](../concepts/network.md#network), созданную с помощью {{ TF }}:
 
   1. Откройте файл конфигураций {{ TF }} и удалите фрагмент с описанием облачной сети.
 

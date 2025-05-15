@@ -24,6 +24,15 @@ meta:
   description: >-
     Yandex Message Queue is a universal, scalable solution to enable messaging
     between applications.
+  keywords:
+    - keyword: '{{ message-queue-name }}'
+    - keyword: '{{ message-queue-full-name }}'
+    - keyword: '{{ message-queue-name }}'
+    - keyword: queues in {{ yandex-cloud }}
+    - keyword: message queues in {{ yandex-cloud }}
+    - keyword: message exchange between applications in {{ yandex-cloud }}
+    - keyword: message queues
+    - keyword: message exchange between applications
 links:
   - title: Getting started
     description: Create and configure your first message queue

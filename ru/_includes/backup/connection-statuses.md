@@ -1,7 +1,7 @@
-Информация о статусе подключения ВМ к {{ backup-name }} отображается в [консоли управления]({{ link-console-main }}) в сервисе {{ compute-name }} на странице со списком ВМ. Доступны следующие статусы:
+Информация о статусе подключения ВМ к {{ backup-name }} отображается в [консоли управления]({{ link-console-main }}) в сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** на странице со списком ВМ. Доступны следующие статусы:
 
-* `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-ok }}` — сервис {{ backup-name }} подключен к ВМ, бэкапы создаются в рамках указанных политик, агент {{ backup-name }} онлайн.
-* `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-no-applications }}` — сервис подключен, но не привязана ни одна политика, бэкапы не создаются.
+* `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-ok }}` — сервис {{ backup-name }} подключен к ВМ, резервные копии создаются в рамках указанных политик, агент {{ backup-name }} онлайн.
+* `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-no-applications }}` — сервис подключен, но не привязана ни одна политика, резервные копии не создаются.
 * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-failed }}` — агент не онлайн или произошла ошибка регистрации агента.
 * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-not-connected }}` — сервис не подключен к ВМ.
 

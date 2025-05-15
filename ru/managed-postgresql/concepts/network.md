@@ -46,3 +46,9 @@ description: При создании кластера {{ PG }} вы можете
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/cdc-data-transfer.md)
+* [{#T}](../tutorials/cdc-debezium.md)
+* [{#T}](../tutorials/outbound-replication.md)

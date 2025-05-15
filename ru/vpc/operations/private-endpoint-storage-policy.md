@@ -12,6 +12,6 @@ description: Следуя данной инструкции, вы сможете
 
 Минимально необходимая роль для применения или изменения политики доступа — `storage.configurer`. См. [описание роли](../../storage/security/index.md#storage-configurer).
 
-Чтобы назначить политику доступа в {{ objstorage-short-name }} для сервисного подключения:
+Чтобы назначить политику доступа в {{ objstorage-short-name }} для [сервисного подключения](../concepts/private-endpoint.md):
 
 {% include [private-endpoint-policy-tabs](../../_includes/storage/private-endpoint-policy-tabs.md) %}

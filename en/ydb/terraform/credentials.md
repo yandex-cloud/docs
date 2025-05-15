@@ -27,7 +27,7 @@ Go to **Service account** and create an authorized key for {{ TF }}authenticatio
 
 1. Click **Download key file** to download the key file locally.
 
-Now to the final step in authentication setup: create a special profile for connecting to {{ yandex-cloud }} on the local machine using yc CLI.
+Now, to the final authentication setup step: create a special profile for connection to {{ yandex-cloud }} on the local machine using the {{ yandex-cloud }} CLI.
 
 Run the following commands:
 1. Create a `yc` profile to run operations under the service account. Specify the profile name: `yc config profile create <profile_name>`. The terminal will display the following message: `Profile '<profile_name>' created and activated.`
@@ -43,7 +43,7 @@ Where:
 * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
 * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-Add the credentials to the environment variables:
+Add your credentials to the environment variables:
 
 {% list tabs group=programming_language %}
 

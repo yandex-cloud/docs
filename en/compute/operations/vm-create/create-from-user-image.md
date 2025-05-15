@@ -1,9 +1,15 @@
+---
+title: How to create a VM from a custom image
+description: Follow this guide to create a VM from a custom image.
+---
 
 # Creating a VM from a custom image
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 ## Getting started {#before-you-begin}
 
-[Prepare and upload](../image-create/upload.md) an [image](../../concepts/image.md) to {{ compute-name }} to create a [VM](../../concepts/vm.md) from.
+[Prepare and upload](../image-create/upload.md) an [image](../../concepts/image.md) to {{ compute-name }} to create a VM from.
 
 Make sure the image you upload has the `READY` status.
 
@@ -17,8 +23,8 @@ Make sure the image you upload has the `READY` status.
 
 
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** from the list of services.
+  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -64,7 +70,7 @@ Make sure the image you upload has the `READY` status.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to create a VM:
+  1. See the description of the CLI command for creating a VM:
 
      ```bash
      yc compute instance create --help
@@ -138,7 +144,7 @@ Make sure the image you upload has the `READY` status.
 
          * `size`: Disk size in GB.
          * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
-         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional parameter.
 
            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
            

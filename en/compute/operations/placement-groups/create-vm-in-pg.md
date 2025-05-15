@@ -10,6 +10,8 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -132,8 +134,8 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Apply the changes:
 
      ```bash
      terraform apply
@@ -141,7 +143,7 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check that the VM has been created and added to the placement group using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check that the VM has been created and added to the placement group using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

@@ -1,0 +1,1 @@
+В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.

@@ -5,12 +5,12 @@
 
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+      * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click ![image](../../_assets/console-icons/pencil.svg), and, in the window that opens, select **{{ ui-key.yacloud.common.create }}**.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the disk snapshot you need from the list below. Use the filter as needed.
       * Enter a name for the new boot disk.

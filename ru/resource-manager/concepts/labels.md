@@ -100,6 +100,10 @@ _Метка_ — это пара ключ-значение в формате `<�
 * [{{ org-full-name }}](../../organization/index.yaml)
 * [{{ resmgr-full-name }}](../../resource-manager/index.yaml)
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/infrastructure-management/serverless-trigger-budget-vm.md)
+
 #### См. также {#see-also}
 
 * [Управление метками](../operations/manage-labels.md)

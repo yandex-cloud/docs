@@ -23,7 +23,6 @@ The costs for hosting servers include:
 * Fee for multiple continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-
 ## Create a master VM in the cloud {#create-master-vm}
 
 ### Create a VM {#create-vm}
@@ -47,16 +46,16 @@ To create a VM:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
         * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
         * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-            * In the window that opens, enter the network name and select the folder to host the network.
+            * In the window that opens, specify the network name and select the folder to host the network.
             * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
             * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool. Alternatively, select a static address from the list if you reserved one.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random external IP address from the {{ yandex-cloud }} pool to the VM. Alternatively, select a static address from the list if you reserved one.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
@@ -115,7 +114,7 @@ To create a VM:
 
      To create, update, and delete VMs in the group, assign the [compute.editor](../../compute/security/index.md#compute-editor) role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
 
-   * In the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field, select the availability zone where the `master-node` VM resides. Make sure the VMs are in the same availability zone to reduce latency between them.
+   * In the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field, select the availability zone the `master-node` VM resides in. Make sure the VMs are in the same availability zone to reduce latency between them.
    * Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**. This will open a screen for creating a [template](../../compute/concepts/instance-groups/instance-template.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**. In the window that opens, specify:
        * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: [SSD](../../compute/concepts/disk.md#disks-types).

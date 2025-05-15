@@ -5,6 +5,10 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 30/04/2025 {#290425}
+
+New text models of the Qwen3 family are now available in batch mode.
+
 ## Release as of 24/04/2025 {#240425}
 
 [Vision language models](../concepts/multimodal/index.md) are now available in {{ foundation-models-name }}.

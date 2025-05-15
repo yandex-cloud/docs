@@ -841,8 +841,6 @@ items:
           Реализация AI-ассистента с поиском по PDF-файлам со сложным
           форматированием
         href: tutorials/pdf-searchindex-ai-assistant.md
-      - name: Дообучение моделей в {{ ml-platform-name }}
-        href: tutorials/models-fine-tuning.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

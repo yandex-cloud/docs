@@ -48,3 +48,7 @@ FQDN можно использовать для доступа к хосту в 
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/migration-from-kafka.md)

@@ -189,7 +189,7 @@ description: Из статьи вы узнаете про доступные м�
 
 #### Поддерживаемые виды чартов {#gen-html-charts}
 
-* [График (Gravity Charts)](./widgets/chart.md)
+* [График (Gravity UI Charts)](./widgets/chart.md)
 * [Таблица](./widgets/table.md)
 * [Advanced-чарт](./widgets/advanced.md)
 
@@ -554,7 +554,7 @@ module.exports = {
 
 #### Поддерживаемые виды чартов {#get-action-params-charts}
 
-* [График (Gravity Charts)](./widgets/chart.md)
+* [График (Gravity UI Charts)](./widgets/chart.md)
 * [Таблица](./widgets/table.md)
 * [Advanced-чарт](./widgets/advanced.md)
 
@@ -1036,7 +1036,7 @@ JSON-объект вида:
 
 #### Поддерживаемые виды чартов {#get-widget-config-charts}
 
-* [График (Gravity Charts)](./widgets/chart.md)
+* [График (Gravity UI Charts)](./widgets/chart.md)
 * [Таблица](./widgets/table.md)
 * [Advanced-чарт](./widgets/advanced.md)
 
@@ -1438,7 +1438,7 @@ const params = Editor.getParams();
 
 #### Поддерживаемые виды чартов {#update-action-params-charts}
 
-* [График (Gravity Charts)](./widgets/chart.md)
+* [График (Gravity UI Charts)](./widgets/chart.md)
 * [Таблица](./widgets/table.md)
 * [Advanced-чарт](./widgets/advanced.md)
 
@@ -1583,7 +1583,7 @@ JSON-объект вида:
 
 #### Поддерживаемые виды чартов {#wrap-charts}
 
-* [График (Gravity Charts)](./widgets/chart.md)
+* [График (Gravity UI Charts)](./widgets/chart.md)
 * [Advanced-чарт](./widgets/advanced.md)
 
 #### Аргументы {#wrap-args}

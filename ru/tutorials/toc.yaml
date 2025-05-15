@@ -207,6 +207,8 @@ items:
       - name: Загрузка аудитных логов в {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
+      - name: Передача логов кластера {{ mgp-name }} в {{ cloud-logging-full-name }}
+        href: security/mgp-to-cloud-logging.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства

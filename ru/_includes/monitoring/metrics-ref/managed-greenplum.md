@@ -120,7 +120,7 @@ fqdn | FQDN хоста
 | `net.icmp_inparmprobs`<br/>`DGAUGE`, штуки | Количество полученных сообщений о неполадках с параметрами ICMP. |
 | `net.icmp_inredirects`<br/>`DGAUGE`, штуки | Количество полученных сообщений о перенаправлении ICMP.  |
 | `net.icmp_insrcquenchs`<br/>`DGAUGE`, штуки | Количество полученных ICMP-сообщений Source Quench.  |
-| `net.icmp_intimeexcds`<br/>`DGAUGE`, штуки | Количество полученных сообщений с превышением времени ICMP превысило количество полученных сообщений.  | 
+| `net.icmp_intimeexcds`<br/>`DGAUGE`, штуки | Количество полученных сообщений о превышении времени ICMP.  | 
 | `net.icmp_intimestampreps`<br/>`DGAUGE`, штуки | Количество полученных ответных сообщений с меткой времени ICMP.  |
 | `net.icmp_intimestamps`<br/>`DGAUGE`, штуки | Количество полученных сообщений (запросов) с меткой времени ICMP.  |
 | `net.icmp_outaddrmaskreps`<br/>`DGAUGE`, штуки | Количество отправленных ответных сообщений по маске ICMP-адреса.  |
@@ -133,7 +133,7 @@ fqdn | FQDN хоста
 | `net.icmp_outparmprobs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений о проблемах с параметрами ICMP.  |
 | `net.icmp_outredirects`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с перенаправлениями маршрута.  |
 | `net.icmp_outsrcquenchs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений Source Quench по протоколу ICMP.  |
-| `net.icmp_outtimeexcds`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с превышением времени ICMP превысило количество отправленных сообщений.  |
+| `net.icmp_outtimeexcds`<br/>`DGAUGE`, штуки | Количество отправленных сообщений о превышении времени ICMP.  |
 | `net.icmp_outtimestampreps`<br/>`DGAUGE`, штуки | Количество отправленных ответных сообщений с меткой времени ICMP.  |
 | `net.icmp_outtimestamps`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с меткой времени ICMP.  |
 | `net.icmpmsg_intype0`<br/>`DGAUGE`, штуки | Количество полученных ICMP-сообщений типа 0 (Echo Reply).  |

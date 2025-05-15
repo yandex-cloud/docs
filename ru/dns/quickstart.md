@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
      1. **{{ ui-key.yacloud.common.type }}**: `А`.
      1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
      1. **{{ ui-key.yacloud.dns.label_records }}**: внутренний IP-адрес ВМ `test-vm2`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

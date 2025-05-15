@@ -101,23 +101,23 @@ The infrastructure support cost includes:
 
 1. Select the {{ mgl-name }} instance [created earlier](#infra).
 
-1. Select the **Runners** tab.
+1. Select the **{{ ui-key.yacloud.gitlab.title_runners }}** tab.
 
-1. Click **Create runner**.
+1. Click **{{ ui-key.yacloud.gitlab.button_runners_empty-create }}**.
 
 1. Enter a name for the runner:
-    
+
     * The name must be 2 to 63 characters long.
     * It may contain lowercase Latin letters, numbers, and hyphens.
     * It must start with a letter and cannot end with a hyphen.
 
 1. Enter the [previously obtained](#gitlab-token) {{ GLR }} token.
 
-1. Select or create a [service account](../../iam/concepts/users/service-accounts.md). The service account must have the following roles: `compute.admin`, `vpc.admin`, and `iam.serviceAccounts.user`.
+1. Select or create a [service account](../../iam/concepts/users/service-accounts.md). This account will be used only to create the VM and will not be linked to it. The service account must have the following roles: `compute.admin`, `vpc.admin`, and `iam.serviceAccounts.user`.
 
 1. Optionally, add labels for the runner.
 
-1. Under **Scaling settings**, specify:
+1. Under **{{ ui-key.yacloud.gitlab.label_autoscale-section }}**, specify:
 
     * Maximum number of workers
     * Minimum number of workers
@@ -132,9 +132,9 @@ The infrastructure support cost includes:
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot [disk](../../compute/concepts/disk.md):
 
     * Select the [disk type](../../compute/concepts/disk.md#disks_types).
-    * Specify the required disk size. 
+    * Specify the required disk size.
 
-1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+1. Click **{{ ui-key.yacloud.common.create }}**.
 
 1. Make sure the runner works:
 

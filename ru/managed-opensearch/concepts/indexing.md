@@ -9,3 +9,12 @@
 Подробнее об устройстве индексов см. в [документации {{ OS }}]({{ os.docs }}/opensearch/index-data/).
 
 В многохостовых кластерах доступны [шардирование и репликация](scalability-and-resilience.md) индексов. Это упрощает масштабирование кластера и повышает его отказоустойчивость.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/migration-from-mkf.md)
+* [{#T}](../tutorials/migration-from-standalone.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)
+* [{#T}](../tutorials/opensearch-index-policy.md)
+* [{#T}](../tutorials/opensearch-to-clickhouse.md)
+* [{#T}](../tutorials/opensearch-yandex-lemmer.md)

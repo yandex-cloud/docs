@@ -19,18 +19,7 @@ description: Следуя данной инструкции, вы сможете
   1. В открывшемся окне:
 
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите один из доступных образов ОС.
-      1. (Опционально) Настройте разметку дисков:
-
-          1. В разделе **{{ ui-key.yacloud.baremetal.title_section-disk }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-          1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
-
-             {% note info %}
-
-             Чтобы самостоятельно собрать RAID-массивы и настроить разделы дисков, нажмите кнопку **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
-
-             {% endnote %}
-
-          1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      1. {% include [server-lease-step6](../../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
 
           Если не вносить изменений в разметку дисков, на сервере сохранятся заданные ранее настройки RAID-массивов и распределения дискового пространства.
       1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:

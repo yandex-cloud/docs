@@ -9,18 +9,22 @@ description: This page provides a list of step-by-step guides for {{ backup-name
 
 * [{#T}](create-vm.md)
 * [{#T}](create-vm-windows.md)
-* [{#T}](connect-vm-linux.md)
-* [{#T}](connect-vm-oslogin-linux.md)
-* [{#T}](connect-vm-windows.md)
 * [{#T}](refresh-connection.md)
-* [{#T}](update-backup-agent.md)
 * [{#T}](refresh-connection-oslogin-linux.md)
+* [{#T}](update-backup-agent.md)
 * [{#T}](get-connection-status.md)
 * [{#T}](get-journal.md)
 * [{#T}](delete-vm.md)
 
+### Connecting existing VMs to {{ backup-name }} {#connect-running-vm}
+
+* [{#T}](connect-vm-linux.md)
+* [{#T}](connect-vm-oslogin-linux.md)
+* [{#T}](connect-vm-windows.md)
+
 ## Managing {{ baremetal-name }} servers in {{ backup-name }} {#connect-baremetal}
 
+* [{#T}](backup-baremetal/lease-server-with-backup.md)
 * [{#T}](backup-baremetal/backup-baremetal.md)
 * [{#T}](backup-baremetal/refresh-connection.md)
 * [{#T}](backup-baremetal/restore-agent.md)

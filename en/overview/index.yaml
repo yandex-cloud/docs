@@ -1,18 +1,18 @@
 title: Yandex Cloud overview
 description:
   - >-
-    Yandex Cloud is a suite of services allowing you to quickly and securely get
-    as much computing power as you need on a pay-as-you-go basis. You access the
-    computing power over the internet. This approach to computing resource usage
-    is called <i>cloud computing</i>.
+    Yandex Cloud is a suite of connected services allowing you to quickly and
+    securely get as much computing power as you need on a pay-as-you-go basis.
+    You access the computing power over the internet. This approach to computing
+    resource consumption is called <i>cloud computing</i>.
   - >-
-    Cloud computing can replace or supplement traditional data centers and local
-    on-premise servers. Yandex Cloud will handle maintaining the health and
-    performance of cloud platform hardware and software.
+    Cloud computing can replace or supplement traditional data centers and
+    on-premise servers. Yandex Cloud undertakes to maintain the health and
+    performance of the cloud platform's hardware and software.
   - >-
-    Yandex Cloud offers different categories of cloud resources, e.g., virtual
-    machines, disks, and databases. You can manage the resources under each
-    category using a dedicated service.
+    Yandex Cloud offers different categories of cloud resources, such as virtual
+    machines, disks, databases, etc. There is a dedicated service you can use to
+    manage the resources in each category.
   - >-
     The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is
@@ -21,8 +21,8 @@ description:
 meta:
   title: Yandex Cloud overview
   description: >-
-    Yandex Cloud is a suite of services allowing you to quickly and securely get
-    as much computing power as you need on a pay-as-you-go basis.
+    Yandex Cloud is a suite of connected services allowing you to quickly and
+    securely get as much computing power as you need on a pay-as-you-go basis.
 links:
   - title: Yandex Cloud services
     description: ''
