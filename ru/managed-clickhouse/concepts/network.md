@@ -49,4 +49,8 @@ description: При создании кластера в {{ mch-name }} вы м�
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/dns-peering.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

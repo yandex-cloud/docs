@@ -132,3 +132,8 @@ FROM system.storage_policies;
 
 Подробнее об ограничениях на количество хостов в кластере см. в разделе [Квоты и лимиты](./limits.md).
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/hybrid-storage.md)
+* [{#T}](../tutorials/sharding.md)

@@ -8,12 +8,14 @@ description: Access management in {{ compute-full-name }}, a service providing s
 
 In this section, you will learn:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [Roles existing in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `compute.admin` role or one of the following roles for that resource:
+{% include [role-note](../../_includes/compute/role-note.md) %}
+
+To assign a role for a resource, a user needs the `compute.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -51,7 +53,7 @@ You can also assign roles for individual resources of the service:
 
 {% endlist %}
 
-## Which roles exist in the service {#roles-list}
+## Available service roles {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -126,4 +128,4 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

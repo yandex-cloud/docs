@@ -44,11 +44,11 @@ The table lists the properties of the supported voices that use deep neural netw
 | `ru-RU` | Russian | `anton` | M | (Default) Neutral: `neutral` </br> Cheerful: `good` | v3 |
 | `ru-RU` | Russian | `madi_ru` | M | — | v1, v3 |
 | `ru-RU` | Russian | `saule_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Whisper: `whisper` | v3 |
-| `ru-RU` | Russian | `zamira_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict` | v3 |
+| `ru-RU` | Russian | `zamira_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Friendly: `friendly` | v3 |
 | `ru-RU` | Russian | `zhanar_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Friendly: `friendly` | v3 |
-| `ru-RU` | Russian | `yulduz_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Friendly: `friendly` | v3 |
+| `ru-RU` | Russian | `yulduz_ru` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Friendly: `friendly`</br>Whisper: `whisper` | v3 |
 | `uz-UZ` | Uzbek | `nigora` | F | — | v1, v3 |
-| `uz-UZ` | Uzbek | `zamira` | F | — | v3 |
+| `uz-UZ` | Uzbek | `zamira` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Friendly: `friendly` | v3 |
 | `uz-UZ` | Uzbek | `yulduz` | F | (Default) Neutral: `neutral`</br>Strict: `strict`</br>Friendly: `friendly`</br>Whisper: `whisper` | v3 |
 
 

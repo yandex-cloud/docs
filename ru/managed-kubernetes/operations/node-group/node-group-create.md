@@ -483,6 +483,7 @@ description: Следуя данной инструкции, вы сможете
         }
         allowed_unsafe_sysctls = ["kernel.msg*", "net.core.somaxconn"]
       }
+      ```
 
   1. Проверьте корректность конфигурационного файла.
 

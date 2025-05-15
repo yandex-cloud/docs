@@ -10,4 +10,6 @@ You can create a VM with disks recovered from snapshots available in the folder.
 
 {% include [independent-resources](../../../_includes/compute/independent-resources.md) %}
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 {% include [create-from-snapshot](../../../_includes/compute/create-from-snapshot.md) %}

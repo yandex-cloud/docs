@@ -14,7 +14,6 @@ keywords:
 
 {{ assistant-api }} is a tool for creating AI assistants. It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
 
-
 You can create your AI assistant using the [{{ ml-sdk-full-name }}](../../sdk/index.md) or through API requests in a programming language.
 
 To use {{ assistant-api }} in {{ foundation-models-full-name }}, you need the `ai.assistants.editor` and `ai.languageModels.user` [roles](../../security/index.md#service-roles) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -120,9 +119,10 @@ Once the search index is created, you can delete the files. However, if you do t
 
 For examples of how to work with source citations using the SDK and API, and for output examples, see [Creating an assistant with a search index](../../operations/assistant/create-with-searchindex.md#create-assistant).
 
-#### See also {#see-also}
+## Use cases {#examples}
 
 * [{#T}](../../operations/assistant/create.md)
 * [{#T}](../../operations/assistant/create-with-searchindex.md)
-* [{#T}](../../operations/assistant/create-with-labels.md)
 * [{#T}](../../operations/assistant/request-chunked-response.md)
+* [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
+* [{#T}](../../operations/assistant/create-with-labels.md)

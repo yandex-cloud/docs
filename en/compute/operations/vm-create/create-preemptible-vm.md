@@ -8,6 +8,8 @@ description: Follow this guide to make a VM preemptible.
 
 You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of a VM that already exists.
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 ## Creating a preemptible VM {#create-preemptible}
 
 To create a [preemptible VM](../../concepts/preemptible-vm.md):
@@ -16,7 +18,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your preemptible VM.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your preemptible VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -103,7 +105,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
      * `--preemptible`: Select to create a preemptible VM.
      * `--create-boot-disk`: VM boot disk settings:
          * `image-family`: [Image family](../../concepts/image.md#family), e.g., `centos-7`. This option allows you to install the latest version of the OS from the specified family.
-         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional parameter.
 
            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
            
@@ -318,14 +320,14 @@ To change the type of a VM, such as making it non-preemptible:
 
      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}/).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 

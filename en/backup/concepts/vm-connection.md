@@ -7,11 +7,11 @@ If you want to back up your [{{ compute-full-name }}](../../compute/) [instances
 You can connect the following to {{ backup-name }}:
 * VMs created from [supported {{ marketplace-full-name }} images](#os). The {{ backup-name }} agent is installed automatically on such VMs.
 * VMs created from other images, if those images are supported by the Cyberprotect backup [provider](./index.md#providers). You will need to [install the {{ backup-name }} agent on such VMs manually](#self-install).
-* {{ baremetal-name }} servers running a [supported](#self-install) operating system. You can only install the {{ backup-name }} agent on {{ baremetal-name }} servers [manually](#self-install).
+* {{ baremetal-name }} servers running a [supported](#self-install) operating system. You can install the {{ backup-name }} agent on {{ baremetal-name }} servers either [manually](#self-install) or automatically when [ordering](../../baremetal/operations/servers/server-lease.md) a server .
 
 For more information about connecting to {{ backup-name }}, see these [guides](../operations/index.md).
 
-For the connection to work properly on the VM, link a [service account](#sa) with the `backup.editor` role to the VM and configure [network access](#vm-network-access).
+For the connection to work properly on the VM, link a [service account](#sa) with the `backup.editor` role to the VM and configure [network access](#vm-network-access). You do not need to link the service account to {{ baremetal-name }} servers.
 
 After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the VM or the {{ baremetal-name }} server to the [backup policy](policy.md).
 
@@ -101,7 +101,7 @@ To update the Linux kernel header versions, follow these guides: [Restoring the 
 
 When creating a VM you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the `backup.editor` [role](../security/index.md#backup-editor).
 
-You do not need to link the service account to the {{ baremetal-name }} server. The IAM token of the service account with the `backup.editor` [role](../security/index.md#backup-editor) is provided to the {{ backup-name }} agent when [installing](../operations/backup-baremetal/backup-baremetal.md#agent-install) it on the server.
+When creating a {{ baremetal-name }} server you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the [baremetal.editor](../../baremetal/security/index.md#baremetal-editor) and [backup.editor](../security/index.md#backup-editor) roles.
 
 You can [assign the role](../../iam/operations/sa/assign-role-for-sa.md) to an existing service account or [create](../../iam/operations/sa/create.md) a new service account with required roles.
 

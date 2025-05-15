@@ -1,6 +1,8 @@
 # Creating a VM from a public DSVM image
 
-In the {{ yandex-cloud }} management console, create a [VM](../../concepts/vm.md) from a DSVM image using {{ compute-name }} and connect to it via SSH.
+In the {{ yandex-cloud }} management console, create a VM from a DSVM image using {{ compute-name }} and connect to it via SSH.
+
+{% include [role-note](../../../_includes/compute/role-note.md) %}
 
 ## Getting started {#before-you-begin}
 
@@ -10,9 +12,9 @@ In the {{ yandex-cloud }} management console, create a [VM](../../concepts/vm.md
 
 {% include [create-instance-via-console-dsvm](../../_includes_service/create-instance-via-console-dsvm.md) %}
 
-## Connecting to a VMs via SSH {#first-login}
+## Connecting to a VMs over SSH {#first-login}
 
-You can connect to a VM via SSH once it gets the `RUNNING` status. To do this, use `ssh` in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
+You can connect to a VM over SSH once it gets the `RUNNING` status. To do this, use `ssh` in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
 For more information about SSH connections, see [Connecting to a VM](../../quickstart/quick-create-linux.md#connect-to-vm).
 

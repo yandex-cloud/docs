@@ -3,7 +3,7 @@
 
     ```json
     {
-      "uri": "https://storage.yandexcloud.net/<bucket_name>/<path_to_WAV_file_in_bucket>",
+      "uri": "https://{{ s3-storage-host }}/<bucket_name>/<path_to_WAV_file_in_bucket>",
       "recognition_model": {
         "model": "general",
         "audio_format": {
@@ -24,7 +24,7 @@
     * `model`: Speech recognition model.
     * `container_audio_type`: Audio container format.
 
-1. Run the request using one of the service account authentication methods:    
+1. Run the request using one of the service account authentication methods:
     * With an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
       ```bash
@@ -171,7 +171,7 @@
                          "endTimeMs": "2800"
                       },
                       {
-                         "text: "turn",
+                         "text": "turn",
                          "startTimeMs": "2860",
                          "endTimeMs": "3360"
                       },

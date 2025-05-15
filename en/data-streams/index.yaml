@@ -13,6 +13,16 @@ meta:
   description: >-
     Yandex Data Streams is a scalable service that allows you to manage data
     streams in real time.
+  keywords:
+    - keyword: yds
+    - keyword: '{{ yds-name }}'
+    - keyword: '{{ yds-full-name }}'
+    - keyword: '{{ yds-name }}'
+    - keyword: '{{ yandex-cloud }} streams'
+    - keyword: data transfer streams in {{ yandex-cloud }}
+    - keyword: data streams
+    - keyword: data transfer streams
+    - keyword: managing data streams in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Create a stream, set up data streaming and saving

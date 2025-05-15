@@ -1,3 +1,4 @@
+* CentOS 7;
 * Debian 10;
 * Debian 11;
 * Ubuntu 16.04 LTS;

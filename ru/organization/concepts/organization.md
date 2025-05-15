@@ -44,6 +44,13 @@ _Организация_ — это высший ресурс в иерархи�
 
    Чтобы управлять остальными сервисами, нажмите **{{ ui-key.yacloud_org.dashboard.products.action.console }}** в правом верхнем углу.
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/security/user-group-access-control.md)
+* [{#T}](../../tutorials/security/integration-gworkspace.md)
+* [{#T}](../../tutorials/security/integration-azure.md)
+* [{#T}](../../tutorials/security/integration-adfs.md)
+
 ## Что дальше {#what-is-next}
 
 * [{#T}](membership.md)

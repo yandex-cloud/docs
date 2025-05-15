@@ -107,4 +107,11 @@ ORDER BY
 
 Об организации взаимодействия реплицированных и распределенных таблиц в кластере {{ CH }} см. в разделе [Шардирование](sharding.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/rdbms-to-clickhouse.md)
+* [{#T}](../tutorials/ydb-to-clickhouse.md)
+* [{#T}](../tutorials/object-storage-to-clickhouse.md)
+* [{#T}](../tutorials/mysql-to-clickhouse.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

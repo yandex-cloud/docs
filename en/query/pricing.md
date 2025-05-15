@@ -1,6 +1,6 @@
 ---
 title: '{{ yq-full-name }} pricing policy'
-description: This article provides the {{ yq-name }} pricing policy.
+description: This article covers the {{ yq-name }} pricing policy.
 editable: false
 ---
 

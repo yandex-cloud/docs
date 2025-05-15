@@ -30,6 +30,7 @@ Once created, your S3 connector becomes available for the project. Like any othe
 
 {% include [s3-connectors-nat-gateway](../../_includes/datasphere/s3-connectors-nat-gateway.md) %}
 
-#### See also {#see-also}
+## Use cases {#examples}
 
 * [Connecting to an S3 storage using an S3 connector](../operations/data/s3-connectors.md)
+* [{#T}](../tutorials/s3-to-datasphere.md)

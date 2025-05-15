@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-In {{ backup-name }}, you can configure [{{ baremetal-name }}](../../baremetal/concepts/servers.md) server backup.
+In {{ backup-name }}, you can configure [{{ baremetal-name }} server](../../baremetal/concepts/servers.md) backup when [ordering](../../baremetal/operations/servers/server-lease.md) a server or connect an already leased {{ baremetal-name }} server to {{ backup-name }}.
 
 For more information on managing servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
 
@@ -44,7 +44,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to lease a {{ baremetal-name }} server in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md). The naming requirements are as follows:
 
@@ -73,7 +73,7 @@ To activate {{ backup-name }}, you need _at least_ the `backup.editor` [role](..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to lease a server and connect it to {{ backup-name }}.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. If you have not activated {{ backup-name }} yet, click **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
       If there is no **{{ ui-key.yacloud.backup.button_action-activate }}** button, {{ backup-name }} is already activated. Proceed to the next step.
@@ -124,7 +124,7 @@ If you are already leasing a server with an [appropriate OS](#os-support), go to
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.action-create-subnetwork }}**.
+      1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, click **{{ ui-key.yacloud.common.create }}**.
       1. Optionally, if you need to enable DHCP for automatic IP address assignment, do so in the **{{ ui-key.yacloud.baremetal.title_routing-settings }}** section.
       1. Enter `bm-subnetwork` for the subnet name and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
       1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
@@ -271,7 +271,7 @@ To link a server to a backup policy:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder where you want to link a server to a backup policy.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Select the policy to link the server to.
   
@@ -318,7 +318,7 @@ To start creating a {{ baremetal-name }} server backup outside of the backup pol
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![bms](../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
   1. In the row with the server, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. In the window that opens, select the backup policy for creating the backup and click **{{ ui-key.yacloud.common.create }}**.
@@ -362,7 +362,7 @@ To restore your server from a backup:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** and open the **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. In the row with the backup to restore the {{ baremetal-name }} server from, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
   1. In the window that opens, select the server you created the selected backup from. This server will be marked in the list as `({{ ui-key.yacloud.backup.context_current-bms }})`.

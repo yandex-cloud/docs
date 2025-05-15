@@ -101,4 +101,9 @@ description: Из статьи вы узнаете, какие типы диск
 > COMMIT;
 > ```
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/object-storage-to-greenplum.md)
+* [{#T}](../tutorials/yezzey.md)
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

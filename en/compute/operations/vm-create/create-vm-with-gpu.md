@@ -1,6 +1,6 @@
 ---
 title: How to create a VM with a GPU
-description: Use this guide to create a VM with a GPU.
+description: Follow this guide to create a VM with a GPU.
 ---
 
 # Creating a VM with a GPU
@@ -11,6 +11,8 @@ This section explains how to create a [VM](../../concepts/vm.md) with a GPU. For
 By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has a zero [quota](../../concepts/limits.md#quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [support]({{ link-console-support }}).
 
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
+
+{% include [role-note](../../../_includes/compute/role-note.md) %}
 
 {% list tabs group=instructions %}
 
@@ -80,7 +82,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
      * `--create-boot-disk`: OS [image](../images-with-pre-installed-software/get-list.md).
 
          * `image-family`: [Image family](../../concepts/image.md#family), e.g., `ubuntu-1604-lts-gpu`. This option allows you to install the latest version of the OS from the specified family.
-         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional parameter.
 
            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
            

@@ -30,4 +30,8 @@ _Словарь_ в {{ CH }} — это хранилище данных типа
 
 О том, как подключить и настроить словарь с помощью {{ mch-full-name }}, читайте в разделе [Подключение внешних словарей](../operations/dictionaries.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../operations/dictionaries.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

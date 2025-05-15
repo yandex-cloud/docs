@@ -25,7 +25,7 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Убедитесь, что в облаке достаточно [квот](../../compute/concepts/limits#compute-quotas) на суммарное количество кластеров GPU, суммарное количество GPU на платформе `AMD EPYC™ 9474F with Gen2`, объем RAM, количество vCPU и объем SSD-дисков для создания ВМ. Для этого используйте сервис [{{ quota-manager-full-name }}](../../quota-manager/).
+Убедитесь, что в облаке достаточно [квот](../../compute/concepts/limits.md#compute-quotas) на суммарное количество кластеров GPU, суммарное количество GPU на платформе `AMD EPYC™ 9474F with Gen2`, объем RAM, количество vCPU и объем SSD-дисков для создания ВМ. Для этого используйте сервис [{{ quota-manager-full-name }}](../../quota-manager/).
 
 ### Необходимые платные ресурсы {#paid-resources}
 

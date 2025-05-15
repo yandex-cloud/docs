@@ -9,6 +9,8 @@ You can create a VM with a preset software configuration by using the `user-data
 
 The [cloud-init](https://cloudinit.readthedocs.io/en/latest/) agent running on the VM will process the configuration you set in the `user-data` key. `Cloud-init` supports different metadata transmission formats, e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/reference/examples.html).
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 ## Creating a VM with a custom configuration script {#create-vm-with-user-script}
 
 {% note warning %}
@@ -23,7 +25,7 @@ To create a VM with a custom configuration script:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -69,7 +71,7 @@ To create a VM with a custom configuration script:
   * `--create-boot-disk`: VM boot disk settings:
 
       * `image-family`: [Image family](../../concepts/image.md#family), e.g., `ubuntu-2204-lts`. This option allows you to install the latest version of the OS from the specified family.
-      * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional parameter.
+      * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional parameter.
 
         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
         

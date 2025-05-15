@@ -11,12 +11,22 @@ description:
   - >-
     The Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
+    pursuant to the Russian Federal Law 152-FZ on Personal Data.
 meta:
   title: Yandex Managed Service for YDB
   description: >-
     Yandex Managed Service for YDB allows you to deploy and maintain YDB
     databases in the Yandex Cloud infrastructure.
+  keywords:
+    - keyword: yandex db
+    - keyword: yandex data base
+    - keyword: '{{ ydb-name }}'
+    - keyword: '{{ ydb-full-name }}'
+    - keyword: '{{ ydb-name }}'
+    - keyword: '{{ ydb-short-name }} database'
+    - keyword: '{{ ydb-short-name }} cluster'
+    - keyword: '{{ ydb-short-name }} in {{ yandex-cloud }}'
+    - keyword: distributed fault-tolerant DBMS
 links:
   - title: Getting started
     description: Create your first database

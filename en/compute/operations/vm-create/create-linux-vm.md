@@ -5,6 +5,8 @@ description: Use this tutorial to create a Linux VM.
 
 # Creating a VM from a public Linux image
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -19,7 +21,7 @@ description: Use this tutorial to create a Linux VM.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) command to create a [VM](../../concepts/vm.md):
+  1. See the description of the [CLI](../../../cli/) command for creating a VM:
 
      ```bash
      yc compute instance create --help
@@ -58,7 +60,7 @@ description: Use this tutorial to create a Linux VM.
      ```
 
      Where:
-     * `--name`: VM name. Follow these naming requirements:
+     * `--name`: VM name. The naming requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -74,7 +76,7 @@ description: Use this tutorial to create a Linux VM.
      * `--create-boot-disk`: VM boot disk settings:
          * `auto-delete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
          * `image-family`: [Image family](../../concepts/image.md#family), e.g., `centos-7`. This option allows you to install the latest version of the OS from the specified family.
-         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional parameter.
 
            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
 

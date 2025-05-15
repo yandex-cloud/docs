@@ -42,6 +42,15 @@ description: "Сервисный аккаунт\_— аккаунт, от име
 
 {% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+* [{#T}](../../../tutorials/analysis/search-events-query.md)
+* [{#T}](../../../tutorials/archive/kubernetes-backup.md)
+* [{#T}](../../tutorials/wlif-github-integration.md)
+* [{#T}](../../tutorials/wlif-gitlab-integration.md)
+* [{#T}](../../tutorials/wlif-k8s-integration.md)
+
 #### См. также {#see-also}
 
 - [{#T}](../../quickstart-sa.md)

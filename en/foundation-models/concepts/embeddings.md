@@ -112,7 +112,10 @@ This primitive example demonstrates how you can use embeddings to find the close
 
 {% endlist %}
 
+## Use cases {#examples}
+
+* [{#T}](../operations/embeddings/search.md)
+
 #### See also {#see-also}
 
-* [Using embeddings to search through the knowledge base](../operations/embeddings/search.md)
 * Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)

@@ -862,7 +862,7 @@ description: Из статьи вы узнаете, как изменить на
 
 Для каждого пользователя БД будут созданы:
 
-* [Подключение]((../../metadata-hub/concepts/connection-manager.md)) {{ connection-manager-name }} с информацией о соединении с БД.
+* [Подключение](../../metadata-hub/concepts/connection-manager.md) {{ connection-manager-name }} с информацией о соединении с БД.
 
 * [Секрет {{ lockbox-name }}](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя. Хранение паролей в сервисе {{ lockbox-name }} обеспечивает их безопасность.
 

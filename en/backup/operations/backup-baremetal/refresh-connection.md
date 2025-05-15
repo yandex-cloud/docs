@@ -3,7 +3,7 @@ title: How to update a {{ baremetal-full-name }} server connection to {{ backup-
 description: Follow this guide to update a {{ baremetal-name }} server connection to {{ backup-name }}.
 ---
 
-# Updating a {{ baremetal-full-name }} server connection to {{ backup-name }}
+# Reconnecting a {{ baremetal-full-name }} server to {{ backup-name }}
 
 {% note info %}
 

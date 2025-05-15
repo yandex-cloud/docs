@@ -11,7 +11,7 @@ items:
         href: quickstart/ig.md
   - name: Step-by-step guides
     items:
-      - name: All tutorials
+      - name: All guides
         href: operations/index.md
       - name: Creating a VM
         items:
@@ -399,7 +399,7 @@ items:
             href: operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
           - name: Testing InfiniBand throughput
             href: operations/gpu-cluster/test-infiniband-bandwidth.md
-      - name: Viewing operations with resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
@@ -586,12 +586,16 @@ items:
             href: tutorials/mlflow-datasphere.md
           - name: Deploying {{ GLR }} on a virtual machine
             href: tutorials/install-gitlab-runner.md
-      - name: Launching the DeepSeek-R1 language model in a GPU cluster
+      - name: Running the DeepSeek-R1 language model in a GPU cluster
         href: tutorials/gpu-cluster-deepseek.md
       - name: >-
           Running a vLLM library with the Gemma 3 language model on a VM with
           GPU
         href: tutorials/vllm-gemma-gpu.md
+      - name: >-
+          Delivering USB devices to a {{ baremetal-name }} virtual machine or
+          server
+        href: tutorials/usb-over-ip.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -715,17 +719,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before January 1, 2019
-            href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
-            href: pricing-archive/pricing-01032019.md
-          - name: From March 1 to May 1, 2019
-            href: pricing-archive/pricing-30042019.md
+    href: pricing.md
   - name: CLI reference
     items:
       - name: Overview
@@ -1186,7 +1180,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

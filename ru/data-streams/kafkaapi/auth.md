@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Назначить сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa):
    * Для чтения из потока данных: `ydb.kafkaApi.client` и `ydb.viewer`.
    * Для записи в поток данных: `ydb.kafkaApi.client` и `ydb.editor`.
-1. [Создать API-ключ](../../iam/operations/api-key/create) c областью действия `yc.ydb.topics.manage`.
+1. [Создать API-ключ](../../iam/operations/authentication/manage-api-keys.md) c областью действия `yc.ydb.topics.manage`.
 
 
 ## Аутентификация {#auth}

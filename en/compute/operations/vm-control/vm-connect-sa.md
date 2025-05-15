@@ -1,4 +1,4 @@
-# Linking a service account to a VM
+# Linking the service account to your VM
 
 {% include [what-for-to-use-sa-with-vm](../../../_includes/compute/what-for-to-use-sa-with-vm.md) %}
 

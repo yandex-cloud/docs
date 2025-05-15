@@ -26,4 +26,5 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./network-create.md)
 * [{#T}](./subnet-create.md)
+* [{#T}](./reserve-public-subnet.md)
 * [{#T}](./create-vpc-connection.md)

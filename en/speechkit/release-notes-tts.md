@@ -4,13 +4,21 @@
 
 For more information about voice models, see [About technology](tts/index.md#voices).
 
+## Release as of 30/04/25 {#300425}
+
+Renamed the `lola` and `lola_ru` voices to `zamira` and `zamira_ru`.
+
+## Release as of 29/04/25 {#290425}
+
+Added new roles for the following voices: `zamira`, `zamira_ru`, and `yulduz_ru`.
+
 ## Release as of 28/03/25 {#280325}
 
-Added Russian equivalents for the `lola` and `yulduz` voices, `lola_ru` and `yulduz_ru`, with multiple roles. Additional roles are now available for the following voices: `saule`, `saule_ru`, `zhanar`, `zhanar_ru`, and `yulduz`. For the full list of available voices, see [{#T}](tts/voices.md).
+Added Russian equivalents for the `zamira` and `yulduz` voices, `zamira_ru` and `yulduz_ru`, with multiple roles. Additional roles are now available for the following voices: `saule`, `saule_ru`, `zhanar`, `zhanar_ru`, and `yulduz`. For the full list of available voices, see [{#T}](tts/voices.md).
 
 ## Release as of 24/01/25 {#240125}
 
-Added new [voices](tts/voices.md). For synthesis in Kazakh, the `zhanar` female voice is now available. For synthesis in Uzbek, added the female voices `lola` and `yulduz`.
+Added new [voices](tts/voices.md). For synthesis in Kazakh, the `zhanar` female voice is now available. For synthesis in Uzbek, added the female voices `zamira` and `yulduz`.
 
 
 

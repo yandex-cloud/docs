@@ -182,7 +182,7 @@ Generates secure HTML markup in a chart.
 
 #### Supported chart types {#gen-html-charts}
 
-* [Chart (Gravity Charts)](./widgets/chart.md)
+* [Chart (Gravity UI Charts)](./widgets/chart.md)
 * [Table](./widgets/table.md)
 * [Advanced chart](./widgets/advanced.md)
 
@@ -547,7 +547,7 @@ Returns an object with normalized [filtering (action) parameters](./cross-filtra
 
 #### Supported chart types {#get-action-params-charts}
 
-* [Chart (Gravity Charts)](./widgets/chart.md)
+* [Chart (Gravity UI Charts)](./widgets/chart.md)
 * [Table](./widgets/table.md)
 * [Advanced chart](./widgets/advanced.md)
 
@@ -1029,7 +1029,7 @@ Returns the current widgets settings from a dashboard or report. Can be used to 
 
 #### Supported chart types {#get-widget-config-charts}
 
-* [Chart (Gravity Charts)](./widgets/chart.md)
+* [Chart (Gravity UI Charts)](./widgets/chart.md)
 * [Table](./widgets/table.md)
 * [Advanced chart](./widgets/advanced.md)
 
@@ -1431,7 +1431,7 @@ Updates an object with [filtering (action) parameters](./cross-filtration.md).
 
 #### Supported chart types {#update-action-params-charts}
 
-* [Chart (Gravity Charts)](./widgets/chart.md)
+* [Chart (Gravity UI Charts)](./widgets/chart.md)
 * [Table](./widgets/table.md)
 * [Advanced chart](./widgets/advanced.md)
 
@@ -1576,7 +1576,7 @@ The `Editor.wrapFn` function is sensitive to syntax errors. So if you have issue
 
 #### Supported chart types {#wrap-charts}
 
-* [Chart (Gravity Charts)](./widgets/chart.md)
+* [Chart (Gravity UI Charts)](./widgets/chart.md)
 * [Advanced chart](./widgets/advanced.md)
 
 #### Arguments {#wrap-args}

@@ -15,6 +15,14 @@ description: Вы можете объединять пользователей �
 
 Если вы используете группы пользователей в вашем поставщике удостоверений при работе с [федерациями](add-federation.md), вы можете [сопоставить группы](add-federation.md#group-mapping) в поставщике удостоверений и в {{ org-name }}.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/user-group-access-control.md)
+* [{#T}](../tutorials/federations/group-mapping/adfs.md)
+* [{#T}](../tutorials/federations/group-mapping/entra-id.md)
+* [{#T}](../tutorials/federations/group-mapping/keycloak.md)
+* [{#T}](../../tutorials/security/integration-azure.md)
+
 #### Что дальше {#what-is-next}
 
 * [Управление группами пользователей](../operations/manage-groups.md).

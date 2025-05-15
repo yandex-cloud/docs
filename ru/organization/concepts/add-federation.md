@@ -84,3 +84,7 @@
 
 {% endnote %}
 
+
+## Примеры использования {#examples}
+
+* [Управление федерациями удостоверений](../tutorials/federations/index.md)

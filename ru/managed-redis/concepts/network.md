@@ -73,3 +73,8 @@ FQDN можно использовать для подключения к хос
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/redis-as-php-sessions-storage.md)
+* [{#T}](../tutorials/data-migration.md)

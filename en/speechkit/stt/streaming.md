@@ -114,4 +114,4 @@ Speech recognition completes and delivers final results upon [EOU (End-of-Uttera
 * [{#T}](models.md)
 * [{#T}](../concepts/auth.md)
 * [{#T}](api/streaming-api.md)
-* [API v3 reference](../stt-v3/api-ref/grpc/stt_service)
+* [API v3 reference](../stt-v3/api-ref/grpc/index.md)

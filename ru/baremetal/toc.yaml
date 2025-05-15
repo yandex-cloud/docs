@@ -38,14 +38,18 @@ items:
             href: operations/servers/restore-grub.md
           - name: Загрузить образ
             href: operations/image-upload.md
-          - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
+          - name: >-
+              Подключить существующий сервер {{ baremetal-name }} к {{
+              backup-name }}
             href: operations/backup-baremetal.md
       - name: Сеть
         items:
           - name: Создать VRF
             href: operations/network-create.md
-          - name: Создать подсеть
+          - name: Создать приватную подсеть
             href: operations/subnet-create.md
+          - name: Заказать публичную подсеть
+            href: operations/reserve-public-subnet.md
           - name: Создать приватное соединение с облачными сетями
             href: operations/create-vpc-connection.md
   - name: Концепции
@@ -79,7 +83,9 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Подключение сервера {{ baremetal-name }} к {{ backup-name }}
+      - name: >-
+          Подключение существующего сервера {{ baremetal-name }} к {{
+          backup-name }}
         href: tutorials/backup-baremetal.md
       - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
         href: tutorials/bms-vrf-routing.md

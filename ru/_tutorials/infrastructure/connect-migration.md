@@ -25,7 +25,7 @@
 
   1. [Создайте новую запись](../../dns/operations/resource-record-create.md) соответствующего типа.
   1. Укажите в поле **{{ ui-key.yacloud.dns.label_records }}** значение переносимой записи Яндекс 360 без изменений формата.
-  1. Укажите в поле **{{ ui-key.yacloud.dns.label_form-ttl }}**  значение параметра TTL из Яндекс 360.
+  1. Укажите в поле **{{ ui-key.yacloud.dns.label_form-ttl }}** значение параметра TTL из Яндекс 360.
 
   Пример:
 
@@ -37,7 +37,7 @@
 
   1. [Создайте новую MX-запись](../../dns/operations/resource-record-create.md).
   1. Укажите в поле **{{ ui-key.yacloud.dns.label_records }}** параметры переносимой MX-записи Яндекс 360 в формате `<приоритет> <значение_записи>`.
-  1. Укажите в поле **{{ ui-key.yacloud.dns.label_form-ttl }}**  значение параметра TTL из Яндекс 360.
+  1. Укажите в поле **{{ ui-key.yacloud.dns.label_form-ttl }}** значение параметра TTL из Яндекс 360.
 
   Пример:
   
@@ -56,7 +56,7 @@
 
       {% endnote %}
 
-  1. Укажите в поле **{{ ui-key.yacloud.dns.label_form-ttl }}**  значение параметра TTL из Яндекс 360.
+  1. Укажите в поле **{{ ui-key.yacloud.dns.label_form-ttl }}** значение параметра TTL из Яндекс 360.
 
   Пример:
 
@@ -69,7 +69,7 @@
   1. Скопируйте из значения SRV-записи Яндекс 360 все символы после `SRV`. Например, из значения `86400 IN SRV 0 5 5060 _sip._tcp.example.com.` скопируйте только строку `0 5 5060 _sip._tcp.example.com.`.
   1. [Создайте новую SRV-запись](../../dns/operations/resource-record-create.md).
   1. Вставьте в поле **{{ ui-key.yacloud.dns.label_records }}** скопированную строку.
-  1. Укажите в поле **{{ ui-key.yacloud.dns.label_form-ttl }}**  значение параметра TTL из Яндекс 360.
+  1. Укажите в поле **{{ ui-key.yacloud.dns.label_form-ttl }}** значение параметра TTL из Яндекс 360.
 
   Пример:
 

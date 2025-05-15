@@ -10,7 +10,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для обновления параметров облачной сети:
+  1. Посмотрите описание команды CLI для обновления параметров [облачной сети](../concepts/network.md):
 
       ```
       yc vpc network update --help
@@ -72,7 +72,7 @@
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием облачной сети:
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием [облачной сети](../concepts/network.md):
 
      ```hcl
      ...

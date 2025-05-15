@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. Посмотрите описание команды CLI для получения информации о сервисном подключении (Private Endpoint):
+  1. Посмотрите описание команды CLI для получения информации о [сервисном подключении](../concepts/private-endpoint.md) (Private Endpoint):
 
       ```bash
       yc vpc private-endpoint get --help

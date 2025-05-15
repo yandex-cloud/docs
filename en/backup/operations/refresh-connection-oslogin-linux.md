@@ -3,7 +3,7 @@ title: How to update a connection of a Linux VM with {{ oslogin }} to {{ backup-
 description: Follow this guide to update a connection of a Linux VM with {{ oslogin }} to {{ backup-name }}.
 ---
 
-# Updating a connection of a Linux VM with {{ oslogin }} to {{ backup-name }}
+# Reconnecting a Linux VM with {{ oslogin }} to {{ backup-name }}
 
 {% note info %}
 

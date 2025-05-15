@@ -217,8 +217,6 @@ items:
             href: concepts/spark-connector.md
           - name: Модели
             href: concepts/models/index.md
-          - name: Дообученные фундаментальные модели
-            href: concepts/models/tuned-models.md
           - name: Файловые хранилища
             href: concepts/filestores.md
       - name: Фундаментальные модели

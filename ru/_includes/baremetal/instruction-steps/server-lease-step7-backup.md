@@ -1,0 +1,1 @@
+В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите опцию `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` и [операционную систему, поддерживаемую в {{ backup-name }}](#os-support).

@@ -3,7 +3,7 @@ title: How to update a VM connection to {{ backup-full-name }}
 description: Follow this guide to update a VM connection to {{ backup-name }}.
 ---
 
-# Updating a VM connection to {{ backup-name }}
+# Reconnecting a VM to {{ backup-name }}
 
 {% note info %}
 

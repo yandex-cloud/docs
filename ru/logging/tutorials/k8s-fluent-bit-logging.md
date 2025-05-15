@@ -11,4 +11,4 @@ canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-fluent-bit-lo
 
 ## Отправка логов подов и сервисов с помощью Fluent Bit {#fluent-bit}
 
-{% include notitle [Настройка Managed K8S Fluent Bit](../../_tutorials/containers/k8s-fluent-bit-logging.md) %}
+{% include notitle [Настройка Managed K8S Fluent Bit](../../_tutorials/containers/config-k8s-fluent-bit-logging.md) %}
