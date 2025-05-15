@@ -57,3 +57,10 @@ description: Из статьи вы узнаете, что такое храни
    {% endnote %}
 
 * [Принудительно синхронизируйте](../operations/hosts.md#resetup) данные между хостами. Это поможет, если из кластера был удален большой объем данных, но дисковое пространство не было освобождено (т. е. помечено как доступное к переиспользованию).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/data-migration.md)
+* [{#T}](../tutorials/mongodb-migration-with-data-transfer.md)
+* [{#T}](../tutorials/mongodb-versions.md)
+* [{#T}](../tutorials/profiling.md)

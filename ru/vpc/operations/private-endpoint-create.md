@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [private-endpoint-create-roles](../../_includes/vpc/private-endpoint-create-roles.md) %}
 
-Чтобы создать сервисное подключение:
+Чтобы создать [сервисное подключение](../concepts/private-endpoint.md):
 
 {% list tabs group=instructions %}
 

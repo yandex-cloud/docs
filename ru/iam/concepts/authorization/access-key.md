@@ -63,6 +63,10 @@ description: Из статьи вы узнаете, зачем нужен ста
 * [{{ yds-full-name }}](../../../data-streams/index.yaml)
 * [{{ postbox-full-name }}](../../../postbox/aws-compatible-api/index.md)
 
+## Примеры использования {#examples}
+
+* [Использование секрета {{ lockbox-full-name }} для хранения статического ключа доступа](../../tutorials/static-key-in-lockbox/index.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../../operations/authentication/manage-access-keys.md#create-access-key)

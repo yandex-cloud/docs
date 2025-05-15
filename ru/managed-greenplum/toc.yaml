@@ -87,6 +87,8 @@ items:
             href: operations/performance-diagnostics.md
           - name: Мониторинг состояния кластера и хостов
             href: operations/monitoring.md
+          - name: Передача логов кластера в {{ cloud-logging-full-name }}
+            href: operations/mgp-to-cloud-logging.md
       - name: Вспомогательные утилиты
         href: operations/greenplum-db.md
   - name: Практические руководства

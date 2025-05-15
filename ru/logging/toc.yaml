@@ -89,6 +89,8 @@ items:
             href: tutorials/search-events-audit-logs/examples.md
           - name: Настройка работы с {{ yq-full-name }}
             href: tutorials/search-events-audit-logs/query.md
+      - name: Передача логов кластера {{ mgp-name }} в {{ cloud-logging-full-name }}
+        href: tutorials/mgp-to-cloud-logging.md
   - name: Концепции
     items:
       - name: Лог-группа

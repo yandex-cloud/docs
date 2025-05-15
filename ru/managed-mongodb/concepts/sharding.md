@@ -80,3 +80,9 @@ description: MongoDB поддерживает шардирование для р
 - В кластере с включенным шардированием:
   - Все запросы к {{ mmg-name }} должны направляться к хостам `MONGOS` или `MONGOINFRA` вместо `MONGOD`.
   - Нельзя отключить шардирование или полностью удалить хосты, которые поддерживают работу шардирования: в кластере всегда будет поддерживаться минимальное количество хостов `MONGOS` и `MONGOCFG` или `MONGOINFRA`.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/mongodb-migration-with-data-transfer.md)
+* [{#T}](../tutorials/mongodb-versions.md)
+* [{#T}](../tutorials/sharding.md)

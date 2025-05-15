@@ -25,8 +25,8 @@
 
 ![usb-over-ip](../../_assets/tutorials/usb-over-ip.svg)
 
-* **USB-клиент** на облачной площадке – виртуальная машина или физический сервер под управлением ОС Windows или Linux. В данном руководстве в качестве клиента будет использован физический сервер под управлением ОС Linux [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts), арендованный в сервисе {{ baremetal-full-name }}.
-* **USB-сервер** на удаленной площадке – устройство под управлением ОС Linux с подключением к локальной сети и VPN-доступом (если доставка данных USB-устройства осуществляется через интернет). В USB-порты USB-сервера будут физически вставляться USB-устройства. В качестве сервера могут использоваться микро-компьютеры, например [Raspberry Pi](https://ru.wikipedia.org/wiki/Raspberry_Pi). В данном руководстве в качестве сервера будет использован компьютер под управлением ОС Linux [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts), оснащенный несколькими USB-портами.
+* **USB-клиент** на облачной площадке – виртуальная машина или физический сервер под управлением ОС Windows или Linux. В данном руководстве в качестве клиента будет использован физический сервер под управлением ОС Linux Ubuntu 24.04 LTS, арендованный в сервисе {{ baremetal-full-name }}.
+* **USB-сервер** на удаленной площадке – устройство под управлением ОС Linux с подключением к локальной сети и VPN-доступом (если доставка данных USB-устройства осуществляется через интернет). В USB-порты USB-сервера будут физически вставляться USB-устройства. В качестве сервера могут использоваться микро-компьютеры, например [Raspberry Pi](https://ru.wikipedia.org/wiki/Raspberry_Pi). В данном руководстве в качестве сервера будет использован компьютер под управлением ОС Linux Ubuntu 22.04 LTS, оснащенный несколькими USB-портами.
 * **Программное обеспечение**. В данном руководстве доставка USB-устройства на клиент будет осуществлена с помощью программы `usbip` с использованием стандартного набора системных утилит и модулей ядра, входящих в пакет `linux-tools`.
 * **Подключаемое USB-оборудование**:
     * USB-накопитель с данными.
@@ -172,26 +172,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете облачную инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. В поле **{{ ui-key.yacloud.baremetal.field_server-pool }}** выберите пул серверов `{{ region-id }}-m3`.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}** выберите подходящую [конфигурацию сервера](../../baremetal/concepts/server-configurations.md).
-  1. (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** настройте разметку дисков:
-
-        1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-        1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
-
-           {% note info %}
-
-           Чтобы самостоятельно собрать RAID-массивы и настроить разделы дисков, нажмите кнопку **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
-
-           {% endnote %}
-
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts).  
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** выберите период, на который вы арендуете сервер.
-  
-      По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно отказаться от дальнейшего продления аренды сервера.
+  1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
+  1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Ubuntu 24.04`.  
+  1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
      1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
@@ -202,7 +188,7 @@
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `my-usbip-client`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
 
 {% endlist %}
 

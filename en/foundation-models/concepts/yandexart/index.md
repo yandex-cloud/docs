@@ -6,7 +6,7 @@ To generate an image, apart from a text description, you need to provide a speci
 
 You can also specify the format of the final image in the `mime_type` parameter. Currently, the supported value is `image/jpeg`.
 
-By default, {{ yandexart-name }} generates an image of 1024 х 1024 pixels. This size may increase or decrease based on the specified aspect ratio, but by no more than 10%.
+By default, {{ yandexart-name }} generates an image of 1024 × 1024 pixels. This size may increase or decrease based on the specified aspect ratio, but by no more than 10%.
 
 To use the {{ yandexart-name }} image generation models, you need the `ai.imageGeneration.user` [role](../../security/index.md#imageGeneration-user) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
@@ -14,3 +14,7 @@ To use the {{ yandexart-name }} image generation models, you need the `ai.imageG
 ## Recommendations on creating prompts for {{ yandexart-name }} {#tips}
 
 {% include [yandexart-prompts-tips](../../../_includes/foundation-models/yandexart/yandexart-prompts-tips.md) %}
+
+## Use cases {#examples}
+
+[{#T}](../../operations/yandexart/request.md)

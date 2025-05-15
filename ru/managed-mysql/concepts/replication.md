@@ -59,3 +59,11 @@
 * при [изменении настроек хоста](../operations/hosts.md#update).
 
 Наименьший приоритет — `0` (по умолчанию), наивысший — `100`.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/cdc-data-transfer.md)
+* [{#T}](../tutorials/mmy-to-mgp.md)
+* [{#T}](../tutorials/mmy-to-mysql-migration.md)
+* [{#T}](../tutorials/mpg-to-mmy.md)
+* [{#T}](../tutorials/mysql-to-clickhouse.md)

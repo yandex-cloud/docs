@@ -1,25 +1,25 @@
 title: Yandex Cloud CDN
 description:
   - >-
-    Yandex Cloud CDN allows you to organize content delivery to your end users
-    using a content delivery network (CDN).
+    Yandex Cloud CDN enables you to set up content delivery to your end users
+    over a content delivery network (CDN).
   - |-
     This will allow you to: <ul>
-      <li>Use caching to partially shift loads from data origins to CDN servers.</li>
-      <li>Reduce content waiting time for the end user.</li>
+      <li>Partially shift loads from data origins to CDN servers through caching.</li>
+      <li>Reduce content waiting time for end users.</li>
     </ul>
-  - You can manage the service using the management console.
+  - You can manage Yandex Cloud CDN using the management console.
   - >-
     This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
     service level is set out in the document titled <a
-    href="https://yandex.com/legal/cloud_sla_cdn">Yandex Cloud CDN service
-    level</a>.
+    href="https://yandex.com/legal/cloud_sla_cdn">Yandex Cloud CDN Service
+    Level</a>.
 meta:
   title: Yandex Cloud CDN
   description: >-
-    Yandex Cloud CDN allows you to organize content delivery to your end users
-    using a content delivery network (CDN).
+    Yandex Cloud CDN enables you to set up content delivery to your end users
+    over a content delivery network (CDN).
   keywords:
     - keyword: cdn
     - keyword: yandex cdn
@@ -34,13 +34,13 @@ meta:
     - keyword: content delivery
 links:
   - title: Getting started
-    description: How to get started with CDN content delivery
+    description: How to get started with content delivery over a CDN
     href: quickstart
   - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: CDN operation and basic terminology
+    description: How a CDN works and core Cloud CDN concepts
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations

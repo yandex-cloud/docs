@@ -1,9 +1,9 @@
 ---
-title: Chart (Gravity Charts) in Editor
-description: In this article, you will learn about charts (Gravity Charts) in Editor.
+title: Chart (Gravity UI Charts) in Editor
+description: In this article, you will learn about charts (Gravity UI Charts) in Editor.
 ---
 
-# Chart (Gravity Charts)
+# Chart (Gravity UI Charts)
 
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
 

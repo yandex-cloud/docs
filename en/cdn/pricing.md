@@ -13,14 +13,14 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 The cost of using {{ cdn-name }} is based on:
-* Amount of outgoing traffic from CDN servers, including traffic requested by user {{ yandex-cloud }} resources, such as {{ compute-full-name }} [virtual machines](../compute/concepts/vm.md). Incoming traffic received by CDN servers from the {{ yandex-cloud }} services and resources or from the Internet, is not charged.
-* Paid features enabled for resources, such as [origin shielding](concepts/origins-shielding.md) and [log export](concepts/logs.md).
+* Amount of outbound traffic from CDN servers, including traffic requested from user resources on {{ yandex-cloud }}, e.g., {{ compute-full-name }} [virtual machines](../compute/concepts/vm.md). Inbound traffic to the CDN servers from {{ yandex-cloud }} services and resources or from the internet is free of charge.
+* Paid features enabled for your resources, such as [origin shielding](concepts/origins-shielding.md) and [log export](concepts/logs.md).
 
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Outgoing traffic {#traffic}
+### Outbound traffic {#traffic}
 
 
 
@@ -29,7 +29,7 @@ The cost of using {{ cdn-name }} is based on:
 
 ### Paid features {#paid-features}
 
-Billing occurs on a monthly basis. If a function is enabled or disabled on any day of a month, the full monthly price will be charged for the month on the last day.
+Billing occurs on a monthly basis. The full monthly price for a feature will be charged on the last day of the month, regardless of when you enabled or disabled it.
 
 
 

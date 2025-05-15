@@ -76,3 +76,11 @@ description: Из статьи вы узнаете, как работает ре
 * [pgoutput](https://www.npgsql.org/doc/replication.html#logical-streaming-replication-protocol-pgoutput-plugin) — преобразует данные из WAL в [формат протокола логической репликации](https://www.postgresql.org/docs/current/protocol-logicalrep-message-formats.html).
 
 [Создавать](../operations/replication-slots.md#create) слоты репликации могут пользователи с [ролью `mdb_replication`](./roles.md#mdb-replication).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/data-migration.md)
+* [{#T}](../tutorials/mmy-to-mpg.md)
+* [{#T}](../tutorials/mpg-to-mmy.md)
+* [{#T}](../tutorials/outbound-replication.md)
+* [{#T}](../tutorials/rdbms-to-clickhouse.md)

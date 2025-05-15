@@ -25,3 +25,8 @@ description: Из статьи вы узнаете, какие типы диск
 
 Подробнее об ограничениях на количество хостов в кластере или шарде см. в разделе [Квоты и лимиты](./limits.md).
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/redis-as-php-sessions-storage.md)
+* [{#T}](../tutorials/data-migration.md)

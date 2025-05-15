@@ -6,7 +6,7 @@ You cannot change Docker images after you create them.
 
 Like other {{ ml-platform-name }} resources, a Docker image can be [published](../operations/user-images.md#share) in a community and used in multiple projects. To do this, you need at least the `Editor` role in the project and the `Developer` role in the community in which you want to publish it. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the Docker image view page. The resource available to the community will appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
-For more information about working with Docker images, see [{#T}](../operations/user-images.md).
+For more information on using Docker images, see [{#T}](../operations/user-images.md).
 
 ## Docker image requirements {#requirements}
 
@@ -23,6 +23,8 @@ The Docker image templates available in {{ ml-platform-name }} already meet thes
 
 {% endnote %}
 
-#### See also {#see-also}
+## Use cases {#examples}
 
-* [{#T}](../operations/user-images.md)
+* [{#T}](../tutorials/node-from-docker-fast-api.md)
+* [{#T}](../tutorials/node-from-docker.md)
+* [{#T}](../tutorials/grpc-node.md)

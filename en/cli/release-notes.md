@@ -7,6 +7,55 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.148.0 (30/04/25) {#version0.148.0}
+
+#### Changes to {{ yandex-cloud }} services {#version0.148.0-services}
+
+##### {{ compute-name }}
+
+* In the scheduled snapshot creation command, added the option to specify the description and labels for your snapshots:
+  
+  ```bash
+  yc compute snapshot-schedule create --snapshot-description --snapshot-labels
+  ```
+
+##### {{ iam-name }}
+* Added the `yc iam whoami` command that gives you information about your account.
+
+##### {{ mos-name }}
+
+Fixed the error message that would appear after a successful OpenSearch cluster restart or master host change.
+
+##### {{ mpg-name }}
+Added commands for user management in {{ GP }} resource groups:
+  * `yc managed-greenplum user create`
+  * `yc managed-greenplum user get`
+  * `yc managed-greenplum user list`
+  * `yc managed-greenplum user update`
+  * `yc managed-greenplum`
+
+##### {{ er-name }}
+* Added the `yc serverless eventrouter connector create event-service` command to create an `event_service` type connector for messages to the bus via gRPC.
+* Added the `yc serverless eventrouter send-event` command to send messages to the bus via gRPC for `event_service` type connector.
+
+##### {{ objstorage-name }}
+
+* Fixed the issue where the bucket would sometimes be treated as empty when running the `yc storage s3 cp` command and no copying was taking place.
+
+* Added the `yc storage s3 cp` command setup parameters to the CLI configuration:
+  * `s3.max-queue-size`: Maximum number of issues per queue. The default value is `1000`.
+  * `s3.max-concurrent-requests`: Maximum number of simultaneous requests. The default value is `10`.
+  * `s3.multipart-threshold`: Object threshold size to trigger a multipart upload if exceeded. The default value is `8MB`.
+  * `s3.multipart-chunksize`: Size of parts the object will be split into in a multipart upload. The default value is `8MB`.
+
+   To set these parameters, use the `us config set <parameter> <value>` command.
+
+##### {{ mpg-name }}
+
+Fixed the `--log-enabled` flag support for {{ cloud-logging-name }} in the `yc managed-greenplum cluster update` command.
+
+## Previous releases {#previous-release}
+
 ### Version 0.147.0 (02/04/25) {#version0.147.0}
 
 #### Changes to {{ yandex-cloud }} services {#version0.147.0-services}
@@ -71,7 +120,6 @@ Added commands to link instances to reserved VM pools.
 * Added the `yc storage s3 mv` command for moving objects between the file system and object storage or between object storage buckets.
 * Added the `yc storage s3 rm` command for deleting objects in a bucket.
 
-## Previous releases {#previous-release}
 
 ### Version 0.146.1 (03/04/25) {#version0.146.1}
 
@@ -1164,7 +1212,7 @@ Added the following parameter to the `yc serverless container revision deploy` c
 
 #### {{ cdn-name }} {#cdn}
 
-Added the following parameters to the `yc cdn resource update` and `yc cdn resource create` commands for configuring access to a resource via a _secure token_:
+Added the following parameters to the `yc cdn resource update` and `yc cdn resource create` commands to configure access to a resource via a _secure token_:
 
 * `--secure-key`: Secret key to generate custom links.
 * `--enable-ip-url-signing`: Optional parameter to restrict access to resources by IP address.

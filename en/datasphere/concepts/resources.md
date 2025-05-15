@@ -16,7 +16,6 @@ You can use resources in multiple projects without recreating them. To make a re
 * [{{ dataproc-name }} templates](data-processing-template.md)
 * [Spark connectors](spark-connector.md)
 * [Models](models/index.md)
-* [Fine-tuned foundation models](models/tuned-models.md)
 * [File storages](filestores.md)
 
 For more information about the {{ ml-platform-name }} resource model, see [{#T}](resource-model.md).

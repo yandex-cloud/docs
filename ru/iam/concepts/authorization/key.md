@@ -22,6 +22,10 @@ _Авторизованные ключи_ — это ключи с алгори�
 
 Закрытая часть авторизованного ключа {{ yandex-cloud }} начинается со строки `PLEASE DO NOT REMOVE THIS LINE! Yandex.Cloud SA Key ID…` согласно стандарту [RFC 7468](https://datatracker.ietf.org/doc/html/rfc7468#section-2). Данная строка предназначена для облегчения [обнаружения секретов](../../../security/operations/search-secrets.md) в случае их утечки.
 
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/infrastructure-management/autoscale-monitoring.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../../operations/authentication/manage-authorized-keys.md#create-authorized-key)

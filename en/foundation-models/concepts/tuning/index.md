@@ -38,11 +38,10 @@ To make sure the fine-tuned model works properly, specify the prompt used for tr
 
 To send API requests in [{{ ml-platform-name }}]({{ link-datasphere-main }}) notebooks, add the user or service account you are going to use for requests to the list of {{ ml-platform-name }} project members. The account must have the `ai.languageModels.user` role.
 
-## Examples {#examples}
+## Use cases {#examples}
 
-* [{#T}](../../operations/tuning/create.md).
+* [{#T}](../../operations/tuning/create.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
-* [{#T}](../../tutorials/models-fine-tuning.md)
 
 
 ^1^ {{ meta-disclaimer }}

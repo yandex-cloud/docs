@@ -36,10 +36,10 @@ All basic models are subject to the update rules described in [Model lifecycle](
 || **Model** | **URI** | **Context** ||
 || **Qwen2.5 7B Instruct** 
 [Model card](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct)
-[Apache 2.0]({{ license-apache }}) license  | `gpt://<folder_ID>/qwen2.5-7b-instruct` | 32 768 ||
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen2.5-7b-instruct` | 32 768 ||
 || **Qwen2.5 72B Instruct** 
 [Model card](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct)
-[Qwen license](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct/blob/main/LICENSE)  | `gpt://<folder_ID>/qwen2.5-72b-instruct` | 16 384 ||
+[Qwen license](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct/blob/main/LICENSE) | `gpt://<folder_ID>/qwen2.5-72b-instruct` | 16 384 ||
 || **QwQ 32B Instruct** 
 [Model card](https://huggingface.co/Qwen/QwQ-32B)
 [Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwq-32b` | 32 768 ||
@@ -48,7 +48,7 @@ All basic models are subject to the update rules described in [Model lifecycle](
 [Llama 3.3 license](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE) | `gpt://<folder_ID>/llama3.3-70b-instruct` | 8 192 ||
 || **Llama-3.1-70B-Instruct**^3^
 [Model card](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct)
-[Llama 3.1 license](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct/blob/main/LICENSE)  | `gpt://<folder_ID>/llama3.1-70b-instruct` | 8 192 ||
+[Llama 3.1 license](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct/blob/main/LICENSE) | `gpt://<folder_ID>/llama3.1-70b-instruct` | 8 192 ||
 || **DeepSeek-R1-Distill-Llama-70B** 
 [Model card](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B)
 [MIT]({{ license-mit }}) license
@@ -61,19 +61,43 @@ Based on Llama-3.3-70B-Instruct. [Llama-3.3-70B-Instruct Terms of Use](https://h
 [MIT]({{ license-mit }}) license | `gpt://<folder_ID>/deepseek-r1-distill-qwen-32b` | 32 768 ||
 || **phi-4** 
 [Model card](https://huggingface.co/microsoft/phi-4)
-[MIT]({{ license-mit }}) license  | `gpt://<folder_ID>/phi-4` | 16 384 ||
+[MIT]({{ license-mit }}) license | `gpt://<folder_ID>/phi-4` | 16 384 ||
 || **Gemma3 1B it**
 [Model card](https://huggingface.co/google/gemma-3-1b-it)
-[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-1b-it/latest` | 32 768 ||
+[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-1b-it` | 32 768 ||
 || **Gemma3 4B it**
 [Model card](https://huggingface.co/google/gemma-3-4b-it)
-[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-4b-it/latest` | 131 072 ||
+[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-4b-it` | 131 072 ||
 || **Gemma3 12B it**
 [Model card](https://huggingface.co/google/gemma-3-4b-it)
-[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-12b-it/latest` | 65 536 ||
+[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-12b-it` | 65 536 ||
 || **Gemma3 27B it**
 [Model card](https://huggingface.co/google/gemma-3-4b-it)
-[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-27b-it/latest` | 32 768 ||
+[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-27b-it` | 32 768 ||
+|| **Qwen3-0.6B** 
+[Model card](https://huggingface.co/Qwen/Qwen3-0.6B)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-0.6b` | 32 768 ||
+|| **Qwen3-1.7B** 
+[Model card](https://huggingface.co/Qwen/Qwen3-1.7B)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-1.7b` | 32 768 ||
+|| **Qwen3-4B** 
+[Model card](https://huggingface.co/Qwen/Qwen3-4B)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-4b` | 32 768 ||
+|| **Qwen3-8B** 
+[Model card](https://huggingface.co/Qwen/Qwen3-8B)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-8b` | 32 768 ||
+|| **Qwen3-14B** 
+[Model card](https://huggingface.co/Qwen/Qwen3-14B)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-14b` | 32 768 ||
+|| **Qwen3-32B** 
+[Model card](https://huggingface.co/Qwen/Qwen3-32B)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-32b` | 32 768 ||
+|| **Qwen3-30B-A3B** 
+[Model card](https://huggingface.co/Qwen/Qwen3-30B-A3B)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-30b-a3b` | 32 768 ||
+|| **Qwen3-235B-A22B** 
+[Model card](https://huggingface.co/Qwen/Qwen3-235B-A22B)
+[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-235b-a22b` | 32 768 ||
 |# 
 
 ^3^ {{ meta-disclaimer }}
@@ -100,11 +124,11 @@ You can access text generation models of different versions in a number of ways.
 
       ```python
       model = (
-        sdk.models.completions(model_name="yandexgpt-32k", model_version="rc")
+        sdk.models.completions(model_name="yandexgpt-lite", model_version="rc")
       )
       ```
 
-      The above example explicitly specifies the `Release Candidate` version of the `{{ gpt-pro }} 32k` model.
+      The above example explicitly specifies the `Release Candidate` version of the `{{ gpt-lite }}` model.
 
   * **Model URI**, provided as a string containing the full [URI](#generation) of the required model version. You can also use this method to access fine-tuned models.
 

@@ -41,10 +41,10 @@ If you do not have a WAV audio file, you can use [this sample file](https://{{ s
       pip install grpcio-tools
       ```
 
-  1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository, create a folder named `output`, and generate the client interface code there:
+  1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create a directory named `output`, and generate the client interface code there:
 
       ```bash
-      cd <path_to_cloudapi_folder>
+      cd <path_to_cloudapi_directory>
       mkdir output
       python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
         --python_out=output \

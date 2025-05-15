@@ -1,9 +1,9 @@
 ---
-title: График (Gravity Charts) в Editor
-description: Из статьи вы узнаете, что такое график (Gravity Charts) в Editor.
+title: График (Gravity UI Charts) в Editor
+description: Из статьи вы узнаете, что такое график (Gravity UI Charts) в Editor.
 ---
 
-# График (Gravity Charts)
+# График (Gravity UI Charts)
 
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
 

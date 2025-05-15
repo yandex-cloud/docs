@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ cdn-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ cdn-name }}.
+description: This page provides information about {{ TF }} resources and data sources supported by {{ cdn-name }}.
 ---
 
 # {{ TF }} reference for {{ cdn-full-name }}
@@ -9,16 +9,16 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ cdn-name }}:
+{{ cdn-name }} supports the following {{ TF }} resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) | [Origin group](./concepts/origins.md#groups) |
 | [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) | [CDN resource](./concepts/resource.md) |
 
-## {#data-sources} data sources
+## Data sources {#data-sources}
 
-{{ cdn-name }} supports the following {{ TF }} provider data sources:
+{{ cdn-name }} supports the following {{ TF }} data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |

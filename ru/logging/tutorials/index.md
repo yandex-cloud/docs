@@ -18,3 +18,4 @@ description: Различные сценарии использования {{ c
 * [{#T}](logging-functions.md)
 * [{#T}](search-events-logging.md)
 * [{#T}](search-events-audit-logs/index.md)
+* [Передача логов кластера {{ mgp-full-name }} в {{ cloud-logging-name }}](mgp-to-cloud-logging.md)

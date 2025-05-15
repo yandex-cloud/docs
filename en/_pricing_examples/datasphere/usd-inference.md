@@ -1,7 +1,7 @@
 > 72 × 185,760 × 2 = 26,749,440 units for the node
-> 26,749,440 × $0.0000108 = $288,893952
+> 26,749,440 × $0.0000108 = $288.893952
 >
-> Total: $288,893952, cost of using {{ ml-platform-name }}.
+> Total: $288.893952, cost of using {{ ml-platform-name }}.
 
 Where:
 * 72: Number of units per g1.1 configuration.

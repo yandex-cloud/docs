@@ -95,24 +95,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. В поле **{{ ui-key.yacloud.baremetal.field_server-pool }}** выберите пул серверов `{{ region-id }}-m3`.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}** выберите подходящую [конфигурацию сервера](../../baremetal/concepts/server-configurations.md).
-  1. (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** настройте разметку дисков:
-
-        1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-        1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
-
-           {% note info %}
-
-           Чтобы самостоятельно собрать RAID-массивы и настроить разделы дисков, нажмите кнопку **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
-
-           {% endnote %}
-
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** выберите период, на который арендуете сервер. По окончании указанного периода аренда сервера будет автоматически продлена на такой же период.
+  1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
+  1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Ubuntu 24.04`.
+  1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
      1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
@@ -123,7 +111,7 @@
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `master-server-m3`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
   1. Аналогичным способом арендуйте еще два сервера: с именем `backup-server-m3` в пуле серверов `{{ region-id }}-m3` и с именем `client-server-m4` и подсетью `subnet-m4` в пуле серверов `{{ region-id }}-m4`.
 
 {% endlist %}

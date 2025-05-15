@@ -81,4 +81,8 @@ keywords:
 
 Удалить можно только резервные копии, созданные вручную. Чтобы удалить такую резервную копию, [следуйте инструкции](../operations/cluster-backups.md#delete-backup).
 
+## Примеры использования {#examples}
+
+* [{#T}](../operations/cluster-backups.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -899,6 +899,21 @@ default:
       v1|month|number: 22.68
       v1|month|string: ₸22.68
   sku|KZT|baremetal:
+    public_network:
+      subnet_24|number: 851
+      subnet_24|string: ₸851.00
+      subnet_25|number: 425.5
+      subnet_25|string: ₸425.50
+      subnet_26|number: 212.5
+      subnet_26|string: ₸212.50
+      subnet_27|number: 106.5
+      subnet_27|string: ₸106.50
+      subnet_28|number: 53
+      subnet_28|string: ₸53.00
+      subnet_29|number: 26.5
+      subnet_29|string: ₸26.50
+      subnet_31|number: 6.5
+      subnet_31|string: ₸6.50
     server:
       ba_i100_h:
         1_day|string: ₸91000.00
@@ -2531,6 +2546,21 @@ default:
       v1|month|number: 4.536
       v1|month|string: ₽4.5360
   sku|RUB|baremetal:
+    public_network:
+      subnet_24|number: 170.2
+      subnet_24|string: ₽170.20
+      subnet_25|number: 85.1
+      subnet_25|string: ₽85.10
+      subnet_26|number: 42.5
+      subnet_26|string: ₽42.50
+      subnet_27|number: 21.3
+      subnet_27|string: ₽21.30
+      subnet_28|number: 10.6
+      subnet_28|string: ₽10.60
+      subnet_29|number: 5.3
+      subnet_29|string: ₽5.30
+      subnet_31|number: 1.3
+      subnet_31|string: ₽1.30
     server:
       ba_i100_h:
         1_day|string: ₽18200.00
@@ -4155,6 +4185,21 @@ default:
       v1|month|number: 0.0378
       v1|month|string: $0.037800
   sku|USD|baremetal:
+    public_network:
+      subnet_24|number: 1.418333
+      subnet_24|string: $1.418333
+      subnet_25|number: 0.709166
+      subnet_25|string: $0.709166
+      subnet_26|number: 0.354167
+      subnet_26|string: $0.354167
+      subnet_27|number: 0.1775
+      subnet_27|string: $0.177500
+      subnet_28|number: 0.088333
+      subnet_28|string: $0.088333
+      subnet_29|number: 0.044167
+      subnet_29|string: $0.044167
+      subnet_31|number: 0.010833
+      subnet_31|string: $0.010833
     server:
       ba_i100_h:
         1_day|string: $151.666606
@@ -6818,6 +6863,7 @@ default:
         value_bms-recourses: BareMetal servers
         value_vm-recourses: Virtual machines
       baremetal:
+        action_create-public-subnet-from-server: Order
         action_destroy-raid: Remove RAID
         action_disk-layout-settings: Configure disk layout
         action_reboot-server: Reboot
@@ -6825,7 +6871,6 @@ default:
         action_reinstall-server-os-menu: Re-install OS
         action_stop-prolongation-server: Disable autorenewal
         action_stop-prolongation-server-dialog: Disable
-        action-create-subnetwork: Create a private subnet
         actions_add-partition: Add partition
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: No OS
@@ -6844,7 +6889,10 @@ default:
         field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
         field_subnet-id: Private subnet
+        field_subnetwork-name: Name
         label_create-network: Create VRF
+        label_create-public-subnet: Order
+        label_create-public-subnet-full: Order a public subnet
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
         label_images: Boot images
@@ -6859,12 +6907,16 @@ default:
         label_password-plain: New password
         label_public-ip-auto: Automatically
         label_public-ip-ephemeral: Automatic
+        label_public-ip-from-dedicated-subnet: From a dedicated subnet
         label_public-ip-no: No address
+        label_public-subnets: Public addresses and subnets
         label_subnetworks: Private subnets
+        title_common-info: General information
         title_routing-settings: IP addressing and routing
         title_section-backup: Backup
         title_section-disk: Disk
         title_section-lease-conditions: Lease conditions
+        title_section-server-backups: Backup
         title_section-server-config: Configuration
         title_section-server-info: Server information
         title_section-server-network-settings: Network settings
@@ -10733,7 +10785,6 @@ default:
         port: Port
         prefix: Prefix
         projects: Projects
-        projects-resources: Project
         resize: Resize
         resources: Resources
         response: Response
@@ -10748,7 +10799,6 @@ default:
         submit: Confirm
         suspend: Suspend
         timeout: Timeout
-        tuned-foundation-models: Tuned foundation models
         type: Type
       data-proc:
         available-clusters: Available clusters

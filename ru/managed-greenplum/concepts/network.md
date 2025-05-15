@@ -52,4 +52,8 @@ FQDN можно использовать для доступа к хостам-�
 Подробнее см. в [документации {{ vpc-name }}](../../vpc/concepts/security-groups.md).
 
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/config-server-for-s3.md)
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

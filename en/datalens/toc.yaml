@@ -695,7 +695,7 @@ items:
                 href: charts/editor/widgets/index.md
               - name: Table
                 href: charts/editor/widgets/table.md
-              - name: Chart (Gravity Charts)
+              - name: Chart (Gravity UI Charts)
                 href: charts/editor/widgets/chart.md
               - name: Markdown
                 href: charts/editor/widgets/markdown.md
@@ -883,12 +883,6 @@ items:
         href: pricing.md
       - name: Configuring a service plan
         href: settings/service-plan.md
-      - name: Archive
-        items:
-          - name: Before June 1, 2024
-            href: pricing-archive/pricing01062024.md
-          - name: Before April 23, 2024
-            href: pricing-archive/pricing23042024.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

@@ -12,7 +12,3 @@ The following foundation models are currently available in {{ ml-platform-name }
   * [Saiga/Mistral](https://huggingface.co/IlyaGusev/saiga_mistral_7b_lora): Fine-tuned Russian version of Mistral.
 
 If you want to fine-tune a model, use [model tuning](../../../foundation-models/concepts/tuning/index.md) in {{ foundation-models-full-name }}.
-
-#### See also {#see-also}
-
-[{#T}](tuned-models.md)

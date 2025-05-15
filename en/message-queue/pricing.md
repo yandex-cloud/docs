@@ -1,6 +1,6 @@
 ---
 title: '{{ message-queue-full-name }} pricing policy'
-description: This article provides the {{ message-queue-name }} pricing policy.
+description: This article covers the {{ message-queue-name }} pricing policy.
 editable: false
 ---
 
@@ -30,6 +30,8 @@ editable: false
 
 {% include [usd.md](../_pricing/message-queue/usd.md) %}
 
+
+You pay for the actual number of requests. For example, the cost per one thousand requests is $0.00039008, while the cost of 1M requests is $0.390080.
 
 For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).
 

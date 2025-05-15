@@ -29,6 +29,9 @@ The secret page also contains sample bash and Python code for running the resour
 
 Once created, a secret is available for a project. Like any other resource, you can [share](../operations/data/secrets.md#share) the secret in the community to use it in other projects. To do this, you need at least the `Editor` role in the project and the `Developer` role in the community in which you want to publish it. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the secret view page. The secret available to the community will appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
-#### See also {#see-also}
+## Use cases {#examples}
 
 * [How to create, edit, copy, and delete a secret](../operations/data/secrets.md)
+* [{#T}](../tutorials/video-recognition.md)
+* [{#T}](../tutorials/mlflow-datasphere.md)
+* [{#T}](../tutorials/node-from-docker.md)

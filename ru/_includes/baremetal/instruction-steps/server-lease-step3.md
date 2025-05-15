@@ -1,0 +1,1 @@
+В поле **{{ ui-key.yacloud.baremetal.field_server-zone }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет арендован сервер.

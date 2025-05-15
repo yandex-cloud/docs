@@ -219,8 +219,6 @@ items:
             href: concepts/spark-connector.md
           - name: Models
             href: concepts/models/index.md
-          - name: Fine-tuned foundation models
-            href: concepts/models/tuned-models.md
           - name: File storages
             href: concepts/filestores.md
       - name: Foundation models

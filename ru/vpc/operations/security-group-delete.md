@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-Чтобы удалить группу безопасности: 
+Чтобы удалить [группу безопасности](../concepts/security-groups.md): 
 
 {% list tabs group=instructions %}
 

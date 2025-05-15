@@ -79,6 +79,10 @@ API-ключи в качестве способа аутентификации �
 * {{ ydb-full-name }} — только в режиме совместимости с {{ PG }}. Для других режимов работы используйте соответствующий [способ аутентификации](../../../ydb/operations/connection#auth).
 * [{{ metadata-hub-full-name }}](../../../metadata-hub/concepts/index.md) — в рамках [{{ schema-registry-full-name }}](../../../metadata-hub/operations/connect-to-namespace.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/serverless/auto-upload.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../../operations/authentication/manage-api-keys.md#create-api-key)

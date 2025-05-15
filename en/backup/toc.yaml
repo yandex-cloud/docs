@@ -16,19 +16,21 @@ items:
             href: operations/create-vm.md
           - name: Creating and connecting a Windows VM
             href: operations/create-vm-windows.md
-          - name: Connecting a Linux VM
-            href: operations/connect-vm-linux.md
-          - name: Connecting a Linux VM with {{ oslogin }}
-            href: operations/connect-vm-oslogin-linux.md
-          - name: Connecting a Windows VM
-            href: operations/connect-vm-windows.md
-          - name: Updating a VM connection to {{ backup-name }}
+          - name: Connecting an existing VM to {{ backup-name }}
+            items:
+              - name: Connecting an existing Linux VM
+                href: operations/connect-vm-linux.md
+              - name: Connecting an existing Linux VM with {{ oslogin }}
+                href: operations/connect-vm-oslogin-linux.md
+              - name: Connecting an existing Windows VM
+                href: operations/connect-vm-windows.md
+          - name: Reconnecting a VM to {{ backup-name }}
             href: operations/refresh-connection.md
+          - name: Reconnecting a Linux VM with {{ oslogin }} to {{ backup-name }}
+            href: operations/refresh-connection-oslogin-linux.md
           - name: Updating or restoring a {{ backup-name }} agent
             href: operations/update-backup-agent.md
-          - name: Updating a Linux VM connection with {{ oslogin }}
-            href: operations/refresh-connection-oslogin-linux.md
-          - name: Viewing VM connection settings
+          - name: Viewing VM connection status
             href: operations/get-connection-status.md
           - name: Viewing backup log
             href: operations/get-journal.md
@@ -36,11 +38,15 @@ items:
             href: operations/delete-vm.md
       - name: '{{ baremetal-name }} in {{ backup-name }}'
         items:
-          - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
-            href: operations/backup-baremetal/backup-baremetal.md
           - name: >-
-              Updating a {{ baremetal-name }} server connection to {{
+              Leasing a {{ baremetal-name }} server with a connection to {{
               backup-name }}
+            href: operations/backup-baremetal/lease-server-with-backup.md
+          - name: >-
+              Connecting an existing {{ baremetal-name }} server to {{
+              backup-name }}
+            href: operations/backup-baremetal/backup-baremetal.md
+          - name: Reconnecting a {{ baremetal-name }} server to {{ backup-name }}
             href: operations/backup-baremetal/refresh-connection.md
           - name: Restoring a {{ backup-name }} agent
             href: operations/backup-baremetal/restore-agent.md
@@ -76,7 +82,7 @@ items:
             href: operations/backup-vm/delete.md
           - name: Deleting all backups of a VM or {{ baremetal-name }} server
             href: operations/backup-vm/batch-delete.md
-      - name: Viewing operations with resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
       - name: Viewing backup statistics
         href: operations/get-stats.md
@@ -113,13 +119,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before April 1, 2024
-            href: pricing-archive/pricing-20240401.md
+    href: pricing.md
   - name: CLI reference
     items:
       - name: Overview
@@ -198,7 +198,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/backup/authentication.md
       - name: gRPC
         items:

@@ -62,6 +62,8 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
       1. Select a [backup policy](../../../backup/concepts/policy.md) or [create](../../../backup/operations/policy-vm/create.md) a new one.
       1. Select a [service account](../../../iam/concepts/users/service-accounts.md) with the [baremetal.editor](../../security/index.md#baremetal-editor) and [backup.editor](../../../backup/security/index.md#backup-editor) roles or [create](../../../iam/operations/sa/create.md) a new one.
 
+      For more information, see [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
 
      1. Enter the server name in the **{{ ui-key.yacloud.baremetal.field_name }}** field.

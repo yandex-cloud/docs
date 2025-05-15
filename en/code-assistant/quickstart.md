@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ ca-full-name }}
-description: Install the {{ ca-name }} plugin for Visual Studio Code and JetBrains IDE.
+description: Install the {{ ca-name }} plugin for Visual Studio Code, VSCodium, and JetBrains IDE.
 ---
 
 # Getting started with {{ ca-full-name }}

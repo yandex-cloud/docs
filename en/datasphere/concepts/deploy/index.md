@@ -30,8 +30,8 @@ With nodes from [models](../models/index.md), you can [deploy](../../operations/
 
 * [LightGBM](https://lightgbm.readthedocs.io)
 * [ONNX](https://onnx.ai/)
-* [TensorFlow.Keras](https://keras.io)
-* [TensorFlow](https://www.tensorflow.org)
+* [Tensorflow.Keras](https://keras.io)
+* [Tensorflow](https://www.tensorflow.org)
 * [PyTorch](https://pytorch.org)
 * [XGBoost](https://lightgbm.readthedocs.io)
 
@@ -89,8 +89,7 @@ An _alias_ is a special resource used for publishing and updating a service. It 
 
 [Create an alias](../../../datasphere/operations/deploy/alias-create.md) and use it as your service endpoint. You can update related nodes, balance the load across them, and remove deprecated Docker image versions without affecting the user experience.
 
-
-#### See also {#see-also}
+## Use cases {#examples}
 
 * [{#T}](../../operations/deploy/node-create.md)
 * [{#T}](../../operations/deploy/alias-create.md)

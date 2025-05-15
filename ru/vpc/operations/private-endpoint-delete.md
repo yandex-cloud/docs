@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. Посмотрите описание команды CLI для удаления сервисного подключения (Private Endpoint):
+  1. Посмотрите описание команды CLI для удаления [сервисного подключения](../concepts/private-endpoint.md) (Private Endpoint):
 
       ```bash
       yc vpc private-endpoint delete --help
@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы удалить сервисное подключение, созданное с помощью {{ TF }}:
+  Чтобы удалить [сервисное подключение](../concepts/private-endpoint.md), созданное с помощью {{ TF }}:
   1. Откройте файл конфигураций {{ TF }} и удалите фрагмент с описанием ресурса `yandex_vpc_private_endpoint`:
 
      ```hcl

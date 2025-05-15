@@ -141,7 +141,7 @@ grpcurl \
 Датасеты запросов к визуально-текстовым моделям содержат тексты запросов и изображения в кодировке Base64. Каждая строка содержит отдельный пример в формате JSON.
 
 ```json
-{"request": [{"role": "user", "text": "<Вопрос>"}, {"image": "<Изображение_в_base64>"}]}
+{"request": [{"role": "user", "content": [{"type": "text", "text": "Вопрос"}, { "type": "image", "image": "Base64 код картинки"}]}]}
 ```
 
 ### Датасеты ответов {#vlm-response}
@@ -149,14 +149,13 @@ grpcurl \
 Датасеты ответов визуально-текстовых моделям содержат тексты запросов, изображения в кодировке Base64 и сгенерированный ответ для каждого запроса. Каждая строка содержит отдельный пример в формате JSON.
 
 ```json
-{"request": [{"role": "user", "text": "<Вопрос>"}, {"image": "<Изображение_в_base64>"}], "response": "Ответ"}
+{"request": [{"role": "user", "content": [{"type": "text", "text": "Вопрос"}, {"type": "image", "image": "Base64 код картинки"}]}], "response": "тут нарисован робот"}
 ```
 
 #### Примеры использования {#examples}
 
 * [{#T}](../../operations/tuning/create.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
-* [{#T}](../../tutorials/models-fine-tuning.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
 * [{#T}](../../operations/resources/create-dataset-gpt.md)
 * [{#T}](../../operations/resources/create-dataset-classifier.md)

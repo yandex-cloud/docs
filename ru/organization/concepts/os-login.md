@@ -123,6 +123,11 @@ ssh -i ~/Downloads/cert/yc-organization-id-bpfdp4pdeg8d********-username usernam
 
 {% endnote %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/sa-oslogin-ansible.md)
+* [{#T}](../../tutorials/security/user-group-access-control.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../operations/os-login-access.md)

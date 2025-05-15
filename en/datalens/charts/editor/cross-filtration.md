@@ -25,6 +25,6 @@ By default, when opening a filtering chart from the navigation panel, no filters
 
 * [Filtering for tables](https://datalens.yandex/nvkfwnekf9xy9?tab=Ow#Таблица)
 
-* [Filtering for charts (Gravity Charts)](https://datalens.yandex/nvkfwnekf9xy9?tab=Ow#График%20Gravity%20Сharts)
+* [Filtering for charts (Gravity UI Charts)](https://datalens.yandex/nvkfwnekf9xy9?tab=Ow#График%20Gravity%20Сharts)
 
 * [Filtering for advanced charts](https://datalens.yandex/nvkfwnekf9xy9?tab=Ow#Advanced%20чарт)

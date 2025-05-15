@@ -118,7 +118,7 @@ After deleting a VM instance, you will still be charged for disks, snapshots, an
 
 The price covers one month of use. You are charged per second of usage.
 
-{% note info %}
+{% note warning %}
 
 Disks with installed [{{ marketplace-name }}](/marketplace) products contain the license IDs (`product_ids`) of these products.
 
@@ -171,15 +171,6 @@ CVoS discount is only available for certain types of resources. A dash in the re
 
 
 ## Prices for the Russia region {#prices}
-
-
-
-{% note warning %}
-
-Starting May 1, 2025, prices for {{ compute-full-name }} resources will increase in the Russia region. You can view the new prices in USD [here](https://yandex.cloud/en/price-list?installationCode=ru&currency=USD&services=dn22pas77ftg9h3f2djj%2Cdn28okfvqh19eiue6l2m).
-
-{% endnote %}
-
 
 
 

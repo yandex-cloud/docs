@@ -46,4 +46,8 @@ description: Из статьи вы узнаете, что такое резер
 
 Для проверки возможностей резервного копирования [восстановите кластер из резервной копии](../operations/cluster-backups.md#restore) и проверьте целостность ваших данных.
 
+## Примеры использования {#examples}
+
+* [{#T}](../operations/cluster-backups.md)
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
