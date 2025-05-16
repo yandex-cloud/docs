@@ -29,7 +29,6 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 ### {{ vpc-short-name }} {#vpc-prices}
 
 #### Публичные IP-адреса {#prices-public-ip}

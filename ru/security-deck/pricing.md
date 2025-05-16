@@ -28,12 +28,6 @@ editable: false
 
 ### {{ atr-name }} {#atr-pricing}
 
-{% note info %}
-
-Цены действуют с 13 марта 2025 года.
-
-{% endnote %}
-
 
 
 {% list tabs group=pricing %}

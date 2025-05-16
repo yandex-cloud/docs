@@ -117,7 +117,6 @@ CVoS discount is only available for certain types of resources. A dash in the re
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-
 All prices below do not include VAT.
 
 
@@ -192,6 +191,40 @@ You cannot order {{ ZK }} host resources via CVoS.
 {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
 For cost details, contact [technical support]({{ link-console-support }}).
+
+
+
+
+
+### Computing resources of {{ kraft-name }} {#prices-kraft}
+
+#### Standard hosts {#prices-kraft-standard}
+
+{% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+
+{% list tabs %}
+
+- Prices per hour
+
+  {% include [usd-hosts-kraft-standard-hour](../_pricing/managed-kafka/usd-hosts-kraft-standard-hour.md) %}
+
+- Prices per month
+
+  {% include [usd-hosts-kraft-standard-month](../_pricing/managed-kafka/usd-hosts-kraft-standard-month.md) %}
+
+{% endlist %}
+
+
+
+#### Dedicated hosts {#prices-kraft-dedicated}
+
+{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
+
+
+{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-kraft-dedicated.md) %}
 
 
 

@@ -33,7 +33,6 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-
 ### Мастер {#master}
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.

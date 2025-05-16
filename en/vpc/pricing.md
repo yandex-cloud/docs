@@ -29,7 +29,6 @@ After deleting or stopping resources, you will continue to pay for the reserved 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 ### {{ vpc-short-name }} {#vpc-prices}
 
 #### Public IP addresses {#prices-public-ip}

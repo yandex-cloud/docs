@@ -60,7 +60,6 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-
 ### Хранение данных {#prices-storage}
 
 Цены за ГБ в месяц фиксированы и не зависят от количества дней в месяце.

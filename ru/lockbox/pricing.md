@@ -18,13 +18,11 @@ editable: false
 Использование секретов, созданных с помощью сервиса {{ connection-manager-name }}, не тарифицируется.
 
 
-
 ## Цены для региона Россия {#prices}
 
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Цена хранения секретов {#secrets}
 

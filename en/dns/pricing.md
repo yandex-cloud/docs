@@ -17,7 +17,6 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 ### Public DNS queries {#public-dns-requests}
 
 
