@@ -28,12 +28,6 @@ When {{ atr-name }} is used from the second day of the calendar month or later, 
 
 ### {{ atr-name }} {#atr-pricing}
 
-{% note info %}
-
-These prices are valid as of March 13, 2025.
-
-{% endnote %}
-
 
 
 

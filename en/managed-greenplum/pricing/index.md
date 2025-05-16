@@ -124,7 +124,6 @@ CVoS discount is only available for certain types of resources. A dash in the re
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 
-
 All prices below do not include VAT.
 
 

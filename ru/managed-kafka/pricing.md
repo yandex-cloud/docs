@@ -127,7 +127,6 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-
 Все цены указаны с включением НДС.
 
 
@@ -244,6 +243,66 @@ editable: false
 {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
 Уточняйте стоимость в [технической поддержке]({{ link-console-support }}).
+
+
+
+
+
+### Вычислительные ресурсы хостов {{ kraft-name }} {#prices-kraft}
+
+#### Стандартные хосты {#prices-kraft-standard}
+
+{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
+**Цены в час**
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-hosts-kraft-standard-hour](../_pricing/managed-kafka/rub-hosts-kraft-standard-hour.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-hosts-kraft-standard-hour](../_pricing/managed-kafka/kzt-hosts-kraft-standard-hour.md) %}
+
+{% endlist %}
+
+**Цены в месяц**
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-hosts-kraft-standard-month](../_pricing/managed-kafka/rub-hosts-kraft-standard-month.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-hosts-kraft-standard-month](../_pricing/managed-kafka/kzt-hosts-kraft-standard-month.md) %}
+
+{% endlist %}
+
+
+
+
+#### Выделенные хосты {#prices-kraft-dedicated}
+
+{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-kraft-dedicated.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [KZT: dedicated broker hosts](../_pricing/managed-kafka/kzt-hosts-kraft-dedicated.md) %}
+
+{% endlist %}
+
 
 
 

@@ -18,20 +18,11 @@ The cost of using {{ lockbox-name }} is calculated based on:
 There is no charge for using secrets created with {{ connection-manager-name }}.
 
 
-{% note warning %}
-
-The prices are valid as of March 10, 2024.
-
-{% endnote %}
-
-
-
 ## Prices for the Russia region {#prices}
 
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
 
 ### Secret storage price {#secrets}
 
