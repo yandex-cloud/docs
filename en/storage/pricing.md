@@ -60,7 +60,6 @@ You pay for data operations according to the following policy:
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-
 ### Data storage {#prices-storage}
 
 The cost of 1 GB per month is fixed and does not depend on the number of days in the month.

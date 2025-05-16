@@ -37,7 +37,6 @@ If multiple [Docker images](concepts/docker-image.md) in the same registry use t
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 ### Data storage {#prices-storage}
 
 The cost of 1 GB per month is fixed and does not depend on the number of days in the month. The storage cost per day is higher for shorter months and lower for longer months.

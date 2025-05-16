@@ -51,7 +51,6 @@ editable: false
 
 
 
-
 ### {{ monitoring-short-name }} API {#monitoring-api}
 
 

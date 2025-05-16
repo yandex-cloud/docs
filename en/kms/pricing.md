@@ -38,7 +38,6 @@ The cost of using {{ kms-name }} is based on:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 Billed hourly. The price per month is provided for reference based on 720 hours per month. The value is rounded.
 
 ### Symmetric encryption {#symmetric}
