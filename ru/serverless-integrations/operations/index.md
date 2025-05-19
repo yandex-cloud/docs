@@ -26,13 +26,38 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](workflows/workflow/monitoring.md)
 * [{#T}](workflows/workflow/delete.md)
 
+### Конструктор шагов рабочего процесса {#constructor}
+
+* [{{ sf-short-name }}](workflows/constructor/functioncall.md)
+* [{{ serverless-containers-name }}](workflows/constructor/containercall.md)
+* [{{ postbox-short-name }}](workflows/constructor/postbox.md)
+* [{{ tracker-name }}](workflows/constructor/tracker.md)
+* [HTTP](workflows/constructor/httpcall.md)
+* [gRPC](workflows/constructor/grpccall.md)
+* [{{ objstorage-name }}](workflows/constructor/objectstorage.md)
+* [{{ foundation-models-name }}](workflows/constructor/foundationmodelscall.md)
+* [{{ ydb-name }}](workflows/constructor/ydbdocument.md)
+* [{{ yds-name }}](workflows/constructor/yds.md)
+* [{{ message-queue-name }}](workflows/constructor/ymq.md)
+* [Яндекс Диск](workflows/constructor/yadisk.md)
+* [{{ sw-name }}](workflows/constructor/workflow.md)
+* [AI-агент](workflows/constructor/aiagent.md)
+* [Switch](workflows/constructor/switch.md)
+* [Foreach](workflows/constructor/foreach.md)
+* [Parallel](workflows/constructor/parallel.md)
+* [No op](workflows/constructor/noop.md)
+* [Fail](workflows/constructor/fail.md)
+* [Success](workflows/constructor/success.md)
+* [Wait](workflows/constructor/wait.md)
+* [{#T}](workflows/constructor/setup-restart-policy.md)
+
 ### Получение информации о запуске рабочего процесса {#execution-get-info}
 
 * [{#T}](workflows/execution/get-list.md)
 * [{#T}](workflows/execution/get-info.md)
 * [{#T}](workflows/execution/get-history.md)
 
-### Управление запуском рабочего процесса {#workflow-control}
+### Управление запуском рабочего процесса {#execution-control}
 
 * [{#T}](workflows/execution/start.md)
 * [{#T}](workflows/execution/stop.md)
@@ -106,6 +131,6 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](eventrouter/access-rights/role-add.md)
 * [{#T}](eventrouter/access-rights/role-revoke.md)
 
-## Получение дополнительной информации {#get-additional-info}
+### Получение дополнительной информации {#get-additional-info}
 
 * [Просмотр операций с ресурсами сервиса](operation-logs.md)

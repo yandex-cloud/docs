@@ -122,7 +122,7 @@ keywords:
     1. Выберите шину `sample-bus`.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-event-router.label_rules }}**.
     1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-event-router.button_create-rule }}**.
-    1. Разверните блок **{{ ui-key.yacloud.serverless-event-router.label_filter }}** и укажите следующее jq-выражение для фильтрации сообщений:
+    1. Разверните блок **{{ ui-key.yacloud.serverless-event-router.label_filter }}** и укажите следующий jq-шаблон для фильтрации сообщений:
         ```
         .httpMethod == "GET" and (.headers.Host | test("^d5dm"))
         ```
@@ -130,7 +130,7 @@ keywords:
     1. В поле **{{ ui-key.yacloud.serverless-event-router.label_target-type }}** выберите `{{ sw-full-name }}`.
     1. В поле **Рабочий процесс** укажите `sample-workflow`.
     1. В поле **Сервисный аккаунт** укажите `sa-for-eventrouter`.
-    1. Разверните блок **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** и укажите jq-выражение для преобразования сообщений:
+    1. Разверните блок **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** и укажите jq-шаблон для преобразования сообщений:
         ```
         {
            "message": "API gateway host is \(.headers.Host)."

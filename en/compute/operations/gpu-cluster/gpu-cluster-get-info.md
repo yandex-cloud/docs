@@ -12,7 +12,7 @@ description: Follow this guide to get information about a GPU cluster.
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [GPU cluster](../../concepts/gpus.md#gpu-clusters).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.compute.gpu_clusters }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the cluster.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the GPU cluster details.
 

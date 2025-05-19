@@ -1,24 +1,24 @@
 ---
 title: Access management in {{ alb-full-name }}
-description: Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for termination of TLS encryption. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ alb-full-name }}, a service terminating TLS connections and routing requests to backend applications. This section covers the resources supporting role assignment, the available service roles, and required permissions for specific actions.
 ---
 
 # Access management in {{ alb-name }}
 
 In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#required-roles) for particular actions.
+* [What resources support role assignment](#resources).
+* [What roles are available in this service](#roles-list).
+* [What roles are required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources supporing role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Available service roles {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -46,11 +46,11 @@ In this section, you will learn:
 
 {% include [alb.admin](../../_roles/alb/admin.md) %}
 
-   {% note info %}
+{% note info %}
 
-   To connect a public IP address to a new or existing L7 load balancer, you need to assign the `vpc.publicAdmin` role to the network where the load balancer is located, apart from the `alb.editor` or `alb.admin` roles.
+Assigning a public IP address to an L7 load balancer requires `vpc.publicAdmin` and `alb.editor` / `alb.admin` role permissions for the network where the load balancer is located.
 
-   {% endnote %}
+{% endnote %}
 
 ### Primitive roles {#primitive-roles}
 
@@ -60,41 +60,41 @@ In this section, you will learn:
 
 ## What roles do I need {#required-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
 
-| Action | Methods | Required roles |
+Action | Methods | Required roles
 ----- | ----- | -----
-| **View data** | |
-| View information about any resource | `get`, `list`, `listOperations` | `alb.viewer` for this resource |
-| **Manage L7 load balancers** | |
-| [Create](../operations/application-load-balancer-create.md) and [update](../operations/application-load-balancer-update.md) L7 load balancers with public IP addresses | `create` | `alb.editor` and `vpc.publicAdmin` to the network where the load balancer is located |
-| Create and update L7 load balancers without a public IP address | `create` | `alb.editor` |
-| [Delete L7 load balancers](../operations/application-load-balancer-delete.md) | `update`, `delete` | `alb.editor` |
-| Get the status of target groups | `getTargetStates` | `alb.viewer` |
-| Add, update, and remove listeners | `addListener`, `updateListener`, `removeListener` | `alb.editor` |
-| Add, update, and remove an SNI match | `addSniMatch`, `updateSniMatch`, `removeSniMatch` | `alb.editor` |
-| Getting certificates for listeners with TLS encryption | `addListener`, `updateListener` | `certificate-manager.certificates.downloader` |
-| Stop and start an L7 load balancer | `stop`, `start` | `alb.editor` |
-| **Manage HTTP routers** | |
-| [Create an HTTP router](../operations/http-router-create.md) | `create` | `alb.editor` |
-| [Update an HTTP router](../operations/http-router-update.md) | `update` | `alb.editor` |
-| [Delete an HTTP router](../operations/http-router-delete.md) | `delete` | `alb.editor` |
-| **Manage backend groups** | |
-| [Create](../operations/backend-group-create.md) and [update](../operations/backend-group-update.md) backend groups | `create`, `update`, `updateBackend` | `alb.editor` |
-| [Delete backend groups](../operations/backend-group-delete.md) | `delete` | `alb.editor` |
-| Add resources in a backend group | `addBackend` | `alb.editor` |
-| Remove resources in a backend group | `removeBackend` | `alb.editor` |
-| **Manage target groups** | |
-| [Create](../operations/target-group-create.md) and [update](../operations/target-group-update.md) target groups in a folder | `create`, `update` | `alb.editor` |
-| [Delete target groups](../operations/target-group-delete.md) | `delete` | `alb.editor` |
-| Add resources in a target group | `addTargets` | `alb.editor` |
-| Remove resources in a target group | `removeTargets` | `alb.editor` |
-| **Manage resource access** | |
-| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
+**Viewing data** | |
+Viewing resource details | `get`, `list`, `listOperations` | `alb.viewer` for the required resource
+**Managing L7 load balancers** | |
+[Creating](../operations/application-load-balancer-create.md) and [updating](../operations/application-load-balancer-update.md) L7 load balancers with public IP addresses | `create` | `alb.editor` and `vpc.publicAdmin` for the network containing the load balancer
+Creating and updating L7 load balancers without public IP addresses | `create` | `alb.editor`
+[Deleting L7 load balancers](../operations/application-load-balancer-delete.md) | `update`, `delete` | `alb.editor`
+Getting target group statuses | `getTargetStates` | `alb.viewer`
+Adding, updating, and removing listeners | `addListener`, `updateListener`, `removeListener` | `alb.editor`
+Adding, updating, and removing SNI listeners | `addSniMatch`, `updateSniMatch`, `removeSniMatch` | `alb.editor`
+Getting TLS listener certificates | `addListener`, `updateListener` | `certificate-manager.certificates.downloader`
+Stopping and starting an L7 load balancer | `stop`, `start` | `alb.editor`
+**Managing HTTP routers** | |
+[Creating an HTTP router](../operations/http-router-create.md) | `create` | `alb.editor`
+[Updating an HTTP router](../operations/http-router-update.md) | `update` | `alb.editor`
+[Deleting an HTTP router](../operations/http-router-delete.md) | `delete` | `alb.editor`
+**Managing backend groups** | |
+[Creating](../operations/backend-group-create.md) and [updating](../operations/backend-group-update.md) backend groups | `create`, `update`, `updateBackend` | `alb.editor`
+[Deleting backend groups](../operations/backend-group-delete.md) | `delete` | `alb.editor`
+Adding resources to a backend group | `addBackend` | `alb.editor`
+Removing resources from a backend group | `removeBackend` | `alb.editor`
+**Managing target groups** | |
+[Creating](../operations/target-group-create.md) and [updating](../operations/target-group-update.md) target groups in a folder | `create`, `update` | `alb.editor`
+[Deleting target groups](../operations/target-group-delete.md) | `delete` | `alb.editor`
+Adding resources to a target group | `addTargets` | `alb.editor`
+Removing resources from a target group | `removeTargets` | `alb.editor`
+**Resource access management** | |
+[Granting](../../iam/operations/roles/grant.md), [revoking](../../iam/operations/roles/revoke.md), and viewing assigned resource roles | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the required resource
 
 #### What's next
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

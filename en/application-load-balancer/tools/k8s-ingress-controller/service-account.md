@@ -1,35 +1,35 @@
 ---
-title: Service account for {{ alb-full-name }} tools for {{ managed-k8s-full-name }}
-description: In this tutorial, you will learn which roles a service account requires to use {{ alb-name }} tools for {{ managed-k8s-name }}.
+title: Service account for {{ managed-k8s-full-name }} {{ alb-full-name }} tools
+description: In this tutorial, you will learn about the service account roles required to use {{ managed-k8s-name }} {{ alb-name }} tools.
 ---
 
-# Service account for {{ alb-name }} tools for {{ managed-k8s-name }}
+# Service account for {{ managed-k8s-name }} {{ alb-name }} tools
 
-The {{ alb-name }} tools for {{ managed-k8s-name }}, i.e., [Ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), deploy the infrastructure on behalf of a [service account](../../../iam/concepts/users/service-accounts.md). This account requires the following permissions:
+{{ managed-k8s-name }} {{ alb-name }} tools, e.g., [ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), use a [service account](../../../iam/concepts/users/service-accounts.md) to deploy infrastructure. This account requires the following permissions:
 
 {% list tabs %}
 
 - Ingress controller
 
-  | Service | Type of permission required | Minimum role |
+  | Service | Type of permission required | Minimum required permissions |
   | ----- | ----- | ----- |
-  | {{ alb-name }}<br/>([roles](../../security/index.md)) | Manage service resources | `alb.editor` |
-  | {{ vpc-name }}<br/>([roles](../../../vpc/security/index.md)) | Manage internal or external connectivity depending on load balancer type | `vpc.publicAdmin` (external)<br/>`vpc.privateAdmin` (internal) |
-  | {{ certificate-manager-name }}<br/>([roles](../../../certificate-manager/security/index.md)) | Obtain certificates (for HTTPS load balancers) | `certificate-manager.certificates.downloader` |
-  | {{ compute-name }}<br/>([roles](../../../compute/security/index.md)) | Get information on virtual machines created as {{ managed-k8s-name }} cluster nodes | `compute.viewer` |
+  | {{ alb-name }}<br/>([roles](../../security/index.md)) | Service resource management | `alb.editor` |
+  | {{ vpc-name }}<br/>([roles](../../../vpc/security/index.md)) | Managing internal or external connectivity based on the load balancer type | `vpc.publicAdmin` (external)<br/>`vpc.privateAdmin` (internal) |
+  | {{ certificate-manager-name }}<br/>([roles](../../../certificate-manager/security/index.md)) | Obtaining HTTPS load balancer certificates | `certificate-manager.certificates.downloader` |
+  | {{ compute-name }}<br/>([roles](../../../compute/security/index.md)) | Getting information about {{ managed-k8s-name }} cluster node VMs | `compute.viewer` |
 
 - Gateway API
 
-  | Service | Type of permission required | Minimum role |
+  | Service | Type of permission required | Minimum required permissions |
   | ----- | ----- | ----- |
-  | {{ alb-name }}<br/>([roles](../../security/index.md)) | Manage service resources | `alb.editor` |
-  | {{ vpc-name }}<br/>([roles](../../../vpc/security/index.md)) | Manage internal or external connectivity depending on load balancer type | `vpc.publicAdmin` (external)<br/>`vpc.privateAdmin` (internal) |
-  | {{ certificate-manager-name }}<br/>([roles](../../../certificate-manager/security/index.md)) | Manage certificates (for HTTPS load balancers) | `certificate-manager.certificates.admin` |
-  | {{ compute-name }}<br/>([roles](../../../compute/security/index.md)) | Get information on virtual machines created as {{ managed-k8s-name }} cluster nodes | `compute.viewer` |
+  | {{ alb-name }}<br/>([roles](../../security/index.md)) | Service resource management | `alb.editor` |
+  | {{ vpc-name }}<br/>([roles](../../../vpc/security/index.md)) | Managing internal or external connectivity based on the load balancer type | `vpc.publicAdmin` (external)<br/>`vpc.privateAdmin` (internal) |
+  | {{ certificate-manager-name }}<br/>([roles](../../../certificate-manager/security/index.md)) | Managing HTTPS load balancer certificates | `certificate-manager.certificates.admin` |
+  | {{ compute-name }}<br/>([roles](../../../compute/security/index.md)) | Getting information about {{ managed-k8s-name }} cluster node VMs | `compute.viewer` |
   
 {% endlist %}
 
-An [authorized key](../../../iam/concepts/authorization/key.md) is used to authenticate the service account. You must specify the key in the `saKeySecretKey` value when installing a Helm chart with an Ingress controller or Gateway API. For example, if you created the key via the [`yc iam key create`](../../../cli/cli-ref/iam/cli-ref/key/create.md) CLI command and saved it to `sa-key.json`, the chart installation command may look like this:
+The service account authenticates using an [authorized key](../../../iam/concepts/authorization/key.md). You must specify this key in the `saKeySecretKey` field when deploying a Helm chart with an ingress controller or Gateway API. For example, if you created your authorized key using the [`yc iam key create`](../../../cli/cli-ref/iam/cli-ref/key/create.md) CLI command and stored it to `sa-key.json`, the Helm chart installation command may look like this:
 
 ```bash
 helm install \
@@ -38,4 +38,4 @@ helm install \
   ...
 ```
 
-The key will be stored in the `yc-alb-ingress-controller-sa-key` or `yc-alb-gateway-api-controller-sa-key` secret in the namespace specified when installing the chart (`yc-alb` in the above example).
+The system will store the authorized key as either Secret `yc-alb-ingress-controller-sa-key` or Secret `yc-alb-gateway-api-controller-sa-key` in the namespace specified during Helm chart deployment, e.g.,`yc-alb`.

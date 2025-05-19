@@ -236,3 +236,7 @@ description: Следуя данной инструкции, вы сможете
   Подробности см. в документе [{#T}](../operations/objects/link-for-download.md).
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../s3/s3-api-quickstart.md)

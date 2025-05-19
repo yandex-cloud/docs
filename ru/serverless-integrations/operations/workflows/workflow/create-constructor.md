@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
   1. Выберите способ `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_visual-editor }}`.
-  1. Добавьте необходимые шаги в рабочий процесс.
+  1. Добавьте необходимые шаги в рабочий процесс. Подробнее о настройке шагов с помощью конструктора см. раздел [{#T}](../constructor/index.md).
   1. {% include [workflows-additional-console](../../../../_includes/serverless-integrations/workflows-additional-console.md) %}
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 

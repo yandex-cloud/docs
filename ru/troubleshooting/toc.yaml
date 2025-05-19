@@ -589,7 +589,7 @@ items:
         href: functions/how-to/index.md
         hidden: true
       - name: Как узнать количество вызовов функции за период
-      - href: functions/how-to/get-function-invokes-count.md
+        href: functions/how-to/get-function-invokes-count.md
       - name: Как подключиться к функции из MDB
         href: functions/how-to/accessing-function-from-mdb.md
       - name: Как настроить статический IP-адрес

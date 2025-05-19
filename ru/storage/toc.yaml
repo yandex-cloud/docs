@@ -522,6 +522,8 @@ items:
             href: s3/index.md
           - name: Подписывание запросов
             href: s3/signing-requests.md
+          - name: Начало работы с S3 API
+            href: s3/s3-api-quickstart.md
           - name: REST
             items:
               - name: Все сервисы и методы

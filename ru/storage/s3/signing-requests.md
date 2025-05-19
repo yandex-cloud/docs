@@ -91,5 +91,6 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 #### См. также {#see-also}
 
+* [{#T}](./s3-api-quickstart.md)
 * [Пример отправки подписанного запроса с помощью утилиты curl](../api-ref/authentication.md#s3-api-example)
 * [Пример кода для генерации подписи](../concepts/pre-signed-urls.md#code-examples)

@@ -1,8 +1,8 @@
 ---
-title: Authentication in the {{ alb-name }} API
-description: To perform operations via the API in {{ alb-full-name }}, a service for managing IP gateways, get an IAM token for your account.
+title: '{{ alb-name }} API authentication'
+description: Before you can work with API in {{ alb-name }} (API gateway management service), you need to get an IAM token for your account.
 ---
 
-# Authentication in the {{ alb-name }} API
+# {{ alb-name }} API authentication
 
 {% include notitle [auth](../../_includes/authentication.md) %}

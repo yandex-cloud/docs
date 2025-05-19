@@ -129,6 +129,8 @@ description: Из статьи вы узнаете, какие методы S3 A
 [DeleteBucketPolicy](policy/delete.md) | Удаляет политику доступа заданного бакета.
 
 ## См. также {#see-also}
+
+* [{#T}](../../s3/s3-api-quickstart.md)
 * [{#T}](../../s3/index.md)
 * [{#T}](../../tools/index.md)
 * [Отладка запросов с помощью утилиты AWS CLI](../signing-requests.md#debugging)

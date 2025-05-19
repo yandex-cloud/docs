@@ -27,7 +27,7 @@
    - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
-     1. Скачайте [архив](https://{{ s3-storage-host }}/www.example.com/doc-files/wordpress.zip) (1 КБ).
+     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/wordpress.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `wordpress.tf`.
 
    - Вручную {#manual}
