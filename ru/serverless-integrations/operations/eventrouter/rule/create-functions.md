@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc serverless eventrouter rule create \
         --bus-id <идентификатор_шины> \
-        --filter '<jq-выражение>' \
+        --filter '<jq-шаблон>' \
         --function-target \
       function-id=<идентификатор_функции>,\
       function-tag=<тег_версии_функции>,\
@@ -136,7 +136,7 @@ description: Следуя данной инструкции, вы сможете
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
         bus_id    = "<идентификатор_шины>"
-        jq_filter = "<jq-выражение>"
+        jq_filter = "<jq-шаблон>"
        
         function {
           function_id        = "<идентификатор_функции>"
@@ -165,7 +165,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
-      * `jq_filter` — [jq-выражение](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
+      * `jq_filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
       * `function` — блок для настройки приемника с типом `{{ sf-full-name }}` и его параметры:
 
           * `function_id` — идентификатор [функции](../../../../functions/concepts/function.md), в которую будут отправляться сообщения, соответствующие правилу.

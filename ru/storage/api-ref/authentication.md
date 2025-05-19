@@ -38,9 +38,9 @@ description: Для выполнения операций через API в ма
 
 Ниже приведены примеры запросов для загрузки объекта в бакет.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Версия curl 8.3.0 и выше
+- Версия curl 8.3.0 и выше {#curl-830}
 
   ```bash
   AWS_KEY_ID="<идентификатор_статического_ключа>"
@@ -85,7 +85,7 @@ description: Для выполнения операций через API в ма
 
   Где `DIRECTORY_PATH` — путь к директории, которую вы хотите заархивировать.
 
-- Версия curl 8.2.1 и ниже
+- Версия curl 8.2.1 и ниже {#curl-821}
 
   ```bash
   AWS_KEY_ID="<идентификатор_статического_ключа>"
@@ -138,9 +138,9 @@ description: Для выполнения операций через API в ма
 
 В примере создается бакет со стандартным классом хранилища и размером 50 ГБ.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- gRPC
+- gRPC API {#grpc-api}
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
@@ -188,7 +188,7 @@ description: Для выполнения операций через API в ма
   }
   ```
 
-- REST
+- REST API {#api}
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
@@ -254,3 +254,7 @@ description: Для выполнения операций через API в ма
   ```
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../s3/s3-api-quickstart.md)

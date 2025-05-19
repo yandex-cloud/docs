@@ -48,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc serverless eventrouter rule create \
         --bus-id <идентификатор_шины> \
-        --filter '<jq-выражение>' \
+        --filter '<jq-шаблон>' \
         --gateway-websocket-broadcast-target \
       gateway-id=<идентификатор_API-шлюза>,\
       path=<путь>,\
@@ -139,7 +139,7 @@ description: Следуя данной инструкции, вы сможете
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
         bus_id    = "<идентификатор_шины>"
-        jq_filter = "<jq-выражение>"
+        jq_filter = "<jq-шаблон>"
        
         gateway_websocket_broadcast {
           gateway_id         = "<идентификатор_API-шлюза>"
@@ -168,7 +168,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
-      * `jq_filter` — [jq-выражение](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
+      * `jq_filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
       * `gateway_websocket_broadcast` — блок для настройки приемника с типом `{{ api-gw-full-name }}` и его параметры:
 
           * `gateway_id` — идентификатор [API-шлюза](../../../../api-gateway/concepts/index.md). Сообщения, соответствующие правилу, будут отправляться в [WebSocket-соединения](../../../../api-gateway/concepts/index.md#websocket), подключенные к указанному API-шлюзу.

@@ -329,6 +329,7 @@ default:
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.ru/
   link-wiki-cloudless: https://yandex.ru/support/wiki/ru
+  link-yadisk-doc: https://yandex.ru/dev/disk-api/doc/ru/
   link-yandex: https://yandex.ru
   links:
     es:
@@ -520,6 +521,7 @@ default:
   postbox-full-name: Yandex Cloud Postbox
   postbox-host: postbox.cloud.yandex.net
   postbox-name: Yandex Cloud Postbox
+  postbox-short-name: Yandex Cloud Postbox
   preview-stage: <code><b><small>Preview</small></b></code>
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   prometheus-name: Prometheus
@@ -6112,7 +6114,7 @@ default:
         label_billing-name: Биллинг
         label_event-name: Мероприятия
         label_monitoring-name: Мониторинг
-        label_promo_banner-name: Рекламные баннеры
+        label_promo_banner-name: Новости сервисов
         label_security-name: Безопасность
         label_tech-name: Технические работы
         label_telegram: Telegram
@@ -7426,7 +7428,6 @@ default:
           popup_detach-disk_button_detach: Отсоединить
         field_additional: Дополнительно
         field_disk-autodelete: Удалять вместе с виртуальной машиной
-        gpu_clusters: Кластеры GPU
         group:
           edit:
             label_title: Изменение группы виртуальных машин
@@ -9143,7 +9144,10 @@ default:
           button_create: Создать подключение
       serverless-workflows:
         button_create-workflow: Создать рабочий процесс
+        edit-switch-choice_default-field: Условие по умолчанию
         label_additional-parameters: Дополнительные параметры
+        label_create-workflow-title: Создание рабочего процесса
+        label_edit-workflow-title: Изменение рабочего процесса
         label_input_data: Данные на входе
         label_input-data: Данные на входе
         label_network: Сеть
@@ -9156,6 +9160,20 @@ default:
         label_workflows: Рабочие процессы
         spec-editor-type_label_text-editor: YaML-спецификация
         spec-editor-type_label_visual-editor: Конструктор
+        workflow-editor_backoff-rate-field: Скорость изменения задержки
+        workflow-editor_error-list-field: Ошибки
+        workflow-editor_error-list-mode-field: Режим выбора ошибок
+        workflow-editor_initial-delay-field: Начальная задержка, мс
+        workflow-editor_integration-group-label: Интеграционные шаги
+        workflow-editor_main-settings-label: Общие настройки
+        workflow-editor_management-group-label: Управляющие шаги
+        workflow-editor_max-delay-field: Максимальная задержка, мс
+        workflow-editor_push-next-block-placeholder-label: Добавить шаг
+        workflow-editor_retry-count-field: Количество повторных попыток
+        workflow-editor_step-name-label: Имя шага
+        workflow-viewer_node-input-label: Вход
+        workflow-viewer_node-output-label: Выход
+        workflow-viewer_node-settings-label: Настройки
       smart-web-security:
         action_empty: Создать профиль
         arl:

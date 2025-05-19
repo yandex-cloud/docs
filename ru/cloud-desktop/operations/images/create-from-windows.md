@@ -168,7 +168,7 @@ description: Следуя данной инструкции, вы сможете
 1. Установите облачный агент:
 
     ```powershell
-    Invoke-WebRequest 'https://storage.yandexcloud.net/vdi-agent-internal/install.ps1' -OutFile "$($Env:temp)\install.ps1"
+    Invoke-WebRequest 'https://storage.yandexcloud.net/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
     cd $($Env:temp)
     Powershell.exe -ExecutionPolicy Bypass -File .\install.ps1
     mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"
@@ -230,7 +230,7 @@ description: Следуя данной инструкции, вы сможете
     }
 
     if(!$(Get-Service -DisplayName "Yandex Desktop Agent") -or !$(Get-Item -Path "C:\Program Files\Yandex.Cloud\Cloud Desktop\desktopagent.exe" -ErrorAction SilentlyContinue)) {
-        Invoke-WebRequest 'https://storage.yandexcloud.net/vdi-agent-internal/install.ps1' -OutFile "$($Env:temp)\install.ps1"
+        Invoke-WebRequest 'https://storage.yandexcloud.net/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
         cd $($Env:temp)
         Powershell.exe -ExecutionPolicy Bypass -File .\install.ps1
         mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"

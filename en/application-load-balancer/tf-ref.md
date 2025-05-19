@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ alb-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ alb-name }}.
+description: This page provides information about {{ TF }} resources and data sources supported by {{ alb-name }}.
 ---
 
 # {{ TF }} reference for {{ alb-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ alb-name }}:
+{{ alb-name }} supports the following {{ TF }} resources :
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -21,12 +21,12 @@ The following {{ TF }} provider resources are supported for {{ alb-name }}:
 
 ## Data sources {#data-sources}
 
-{{ alb-name }} supports the following {{ TF }} provider data sources:
+{{ alb-name }} supports the following {{ TF }} data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_alb_backend_group]({{ tf-provider-datasources-link }}/alb_backend_group) | Information about a [backend group](./concepts/backend-group.md) |
-| [yandex_alb_http_router]({{ tf-provider-datasources-link }}/alb_http_router) | Information about an [HTTP router](./concepts/http-router.md) |
-| [yandex_alb_load_balancer]({{ tf-provider-datasources-link }}/alb_load_balancer) | Information about an [L7 load balancer](./concepts/application-load-balancer.md) |
-| [yandex_alb_target_group]({{ tf-provider-datasources-link }}/alb_target_group) | Information about a [target group](./concepts/target-group.md) |
-| [yandex_alb_virtual_host]({{ tf-provider-datasources-link }}/alb_virtual_host) | Information about a [virtual host](./concepts/http-router.md#virtual-host) |
+| [yandex_alb_backend_group]({{ tf-provider-datasources-link }}/alb_backend_group) | [Backend group](./concepts/backend-group.md) information |
+| [yandex_alb_http_router]({{ tf-provider-datasources-link }}/alb_http_router) | [HTTP router](./concepts/http-router.md) information |
+| [yandex_alb_load_balancer]({{ tf-provider-datasources-link }}/alb_load_balancer) | [L7 load balancer](./concepts/application-load-balancer.md) information |
+| [yandex_alb_target_group]({{ tf-provider-datasources-link }}/alb_target_group) | [Target group](./concepts/target-group.md) information |
+| [yandex_alb_virtual_host]({{ tf-provider-datasources-link }}/alb_virtual_host) | [Virtual host](./concepts/http-router.md#virtual-host) information |

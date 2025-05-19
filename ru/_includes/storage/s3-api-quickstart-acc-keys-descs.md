@@ -1,0 +1,2 @@
+* `AWS_KEY_ID` — [идентификатор](../../iam/concepts/authorization/access-key.md#key-id) статического ключа доступа.
+* `AWS_SECRET_KEY` — [секретный ключ](../../iam/concepts/authorization/access-key.md#private-key).

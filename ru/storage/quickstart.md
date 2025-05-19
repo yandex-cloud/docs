@@ -70,4 +70,5 @@ description: Следуя данной инструкции, вы сможете
 
 ## См. также {#see-also}
 
-* [{#T}](quickstart/quickstart-aws-cli.md).
+* [{#T}](quickstart/quickstart-aws-cli.md)
+* [Как начать работать с AWS S3 API в {{ objstorage-full-name }}](./s3/s3-api-quickstart.md)
