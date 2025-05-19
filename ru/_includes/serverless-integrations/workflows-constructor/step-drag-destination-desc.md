@@ -1,0 +1,1 @@
+Перетаскивать шаги можно в обозначенные пунктирной линией блоки на графической схеме рабочего процесса, такие как **{{ ui-key.yacloud.serverless-workflows.workflow-editor_push-next-block-placeholder-label }}** и т.п.

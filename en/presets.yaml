@@ -326,6 +326,7 @@ default:
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.com/
   link-wiki-cloudless: https://yandex.ru/support/wiki/ru
+  link-yadisk-doc: https://yandex.ru/dev/disk-api/doc/en/
   link-yandex: https://yandex.com
   links:
     es:
@@ -6107,7 +6108,7 @@ default:
         label_billing-name: Billing
         label_event-name: Events
         label_monitoring-name: Monitoring
-        label_promo_banner-name: Advertising banners
+        label_promo_banner-name: Service news
         label_security-name: Security
         label_tech-name: Maintenance work
         label_telegram: Telegram
@@ -7417,7 +7418,6 @@ default:
           popup_detach-disk_button_detach: Detach
         field_additional: Additional
         field_disk-autodelete: Delete along with the virtual machine
-        gpu_clusters: GPU clusters
         group:
           edit:
             label_title: Changing an instance group
@@ -9132,7 +9132,10 @@ default:
           button_create: Create connection
       serverless-workflows:
         button_create-workflow: Create workflow
+        edit-switch-choice_default-field: Default condition
         label_additional-parameters: Additional parameters
+        label_create-workflow-title: Create workflow
+        label_edit-workflow-title: Edit workflow
         label_input_data: Input data
         label_input-data: Input data
         label_network: Network
@@ -9145,6 +9148,20 @@ default:
         label_workflows: Workflows
         spec-editor-type_label_text-editor: YaML specification
         spec-editor-type_label_visual-editor: Constructor
+        workflow-editor_backoff-rate-field: Backoff rate
+        workflow-editor_error-list-field: Errors
+        workflow-editor_error-list-mode-field: Error selection mode
+        workflow-editor_initial-delay-field: Initial delay, ms
+        workflow-editor_integration-group-label: Integration steps
+        workflow-editor_main-settings-label: Main settings
+        workflow-editor_management-group-label: Control steps
+        workflow-editor_max-delay-field: Maximum delay, ms
+        workflow-editor_push-next-block-placeholder-label: Add a step
+        workflow-editor_retry-count-field: Maximum number of retries
+        workflow-editor_step-name-label: Step name
+        workflow-viewer_node-input-label: Input
+        workflow-viewer_node-output-label: Output
+        workflow-viewer_node-settings-label: Settings
       smart-web-security:
         action_empty: Create profile
         arl:

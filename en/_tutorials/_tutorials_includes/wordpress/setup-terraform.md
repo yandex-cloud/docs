@@ -27,7 +27,7 @@ To create an infrastructure using {{ TF }}:
    - Ready-made archive {#ready}
 
      1. Create a folder for the files.
-     1. Download the [archive](https://{{ s3-storage-host }}/www.example.com/doc-files/wordpress.zip) (1 KB).
+     1. Download the [archive](https://{{ s3-storage-host }}/doc-files/wordpress.zip) (1 KB).
      1. Unpack the archive to the folder. As a result, the `wordpress.tf` configuration file should appear in it.
 
    - Manually {#manual}

@@ -46,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc serverless eventrouter rule create \
         --bus-id <идентификатор_шины> \
-        --filter '<jq-выражение>' \
+        --filter '<jq-шаблон>' \
         --ymq-target \
       queue-arn=<ARN_очереди>,\
       service-account-id=<идентификатор_сервисного_аккаунта_очереди>,\
@@ -125,7 +125,7 @@ description: Следуя данной инструкции, вы сможете
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
         bus_id    = "<идентификатор_шины>"
-        jq_filter = "<jq-выражение>"
+        jq_filter = "<jq-шаблон>"
 
         ymq {
           queue_arn            = "<ARN_очереди>"
@@ -147,7 +147,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
-      * `jq_filter` — [jq-выражение](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
+      * `jq_filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
       * `ymq` — блок для настройки приемника с типом `{{ message-queue-full-name }}` и его параметры:
 
           * `queue_arn` — ARN [очереди](../../../../message-queue/concepts/queue.md), в которую будут отправляться сообщения, соответствующие правилу.

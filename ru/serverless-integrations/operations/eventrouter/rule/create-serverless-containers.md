@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc serverless eventrouter rule create \
         --bus-id <идентификатор_шины> \
-        --filter '<jq-выражение>' \
+        --filter '<jq-шаблон>' \
         --container-target \
       container-id=<идентификатор_контейнера>,\
       container-revision-id=<идентификатор_ревизии_контейнера>,\
@@ -148,7 +148,7 @@ description: Следуя данной инструкции, вы сможете
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
         bus_id    = "<идентификатор_шины>"
-        jq_filter = "<jq-выражение>"
+        jq_filter = "<jq-шаблон>"
        
         container {
           container_id          = "<идентификатор_контейнера>"
@@ -178,7 +178,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
-      * `jq_filter` — [jq-выражение](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
+      * `jq_filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
       * `container` — блок для настройки приемника с типом `{{ serverless-containers-full-name }}` и его параметры:
 
           * `container_id` — идентификатор [контейнера](../../../../serverless-containers/concepts/container.md), в который будут отправляться сообщения, соответствующие правилу.

@@ -1,0 +1,1 @@
+(Опционально) Перейдите на вкладку **{{ ui-key.yacloud.serverless-workflows.workflow-viewer_node-output-label }}** и задайте [jq-шаблон](../../../serverless-integrations/concepts/workflows/templating.md) для фильтрации выходных данных шага, которые добавляются в [состояние рабочего процесса](../../../serverless-integrations/concepts/workflows/workflow.md#state).

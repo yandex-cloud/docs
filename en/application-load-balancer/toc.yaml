@@ -35,7 +35,7 @@ items:
             href: operations/http-router-create.md
           - name: Creating an HTTP router for gRPC traffic
             href: operations/http-router-create-grpc.md
-          - name: Getting information about an HTTP router
+          - name: Getting HTTP router information
             href: operations/http-router-get.md
           - name: Editing an HTTP router
             href: operations/http-router-update.md
@@ -55,15 +55,15 @@ items:
             href: operations/application-load-balancer-get-logs.md
           - name: Setting up L7 load balancer logging
             href: operations/application-load-balancer-manage-logs.md
-          - name: Getting log group ID of an L7 load balancer
+          - name: Getting a log group ID of an L7 load balancer
             href: operations/application-load-balancer-get-log-group-id.md
           - name: Stopping and starting an L7 load balancer
             href: operations/application-load-balancer-stop-and-start.md
-          - name: Moving a VM to a target group in a new availability zone
+          - name: Moving a VM to a target group in a different availability zone
             href: operations/application-load-balancer-relocate.md
           - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
-      - name: Viewing operations with resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -80,11 +80,11 @@ items:
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
       - name: >-
-          Creating an L7 load balancer with a {{ sws-name }} security profile
-          through an {{ alb-name }} Ingress controller
+          Creating an L7 load balancer with a {{ sws-name }} profile through an
+          {{ alb-name }} ingress controller
         href: tutorials/alb-ingress-with-sws-profile.md
       - name: >-
-          Migrating services from an NLB to L7 ALB for DDoS protection using {{
+          Migrating services from NLB to ALB for DDoS protection using {{
           sws-name }}
         items:
           - name: Overview
@@ -145,23 +145,19 @@ items:
             href: tutorials/tls-termination/console.md
           - name: '{{ TF }}'
             href: tutorials/tls-termination/terraform.md
-      - name: Writing load balancer logs to {{ PG }}
+      - name: Storing load balancer logs to {{ PG }}
         href: tutorials/logging.md
       - name: >-
-          Deploying and load testing a gRPC service with scaling in {{
+          Deploying and load testing a scalable gRPC service in {{
           managed-k8s-full-name }}
         href: tutorials/load-testing-grpc-autoscaling.md
-      - name: Setting up Gateway API in {{ managed-k8s-full-name }}
+      - name: Setting up the Gateway API in {{ managed-k8s-full-name }}
         href: tutorials/gateway-api.md
-      - name: >-
-          Configuring an {{ alb-name }} L7 load balancer using an Ingress
-          controller
+      - name: Configuring an L7 {{ alb-name }} via an ingress controller
         href: tutorials/alb-ingress-controller.md
-      - name: >-
-          Configuring logging for an {{ alb-name }} L7 load balancer using an
-          Ingress controller
+      - name: Configuring an L7 {{ alb-name }} logging via an ingress controller
         href: tutorials/alb-ingress-controller-log-options.md
-      - name: Fault-tolerant website with load balancing via {{ alb-name }}
+      - name: Fault-tolerant website with load balancing via an {{ alb-name }}
         items:
           - name: Overview
             href: tutorials/application-load-balancer-website/index.md
@@ -170,16 +166,14 @@ items:
           - name: '{{ TF }}'
             href: tutorials/application-load-balancer-website/terraform.md
       - name: >-
-          Health checking your apps in a {{ managed-k8s-name }} cluster using an
-          {{ alb-name }} L7 load balancer
+          Performing health checks on {{ managed-k8s-name }} cluster
+          applications via an L7 {{ alb-name }}
         href: tutorials/custom-health-checks.md
       - name: >-
           Implementing a secure high-availability network infrastructure with a
-          dedicated DMZ based on the next-generation firewall
+          dedicated DMZ using the next-generation firewall
         href: tutorials/high-accessible-dmz.md
-      - name: >-
-          Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name }}
-          profile
+      - name: Creating an L7 {{ alb-name }} with a {{ sws-name }} profile
         href: tutorials/balancer-with-sws-profile.md
   - name: Concepts
     items:
@@ -211,7 +205,7 @@ items:
             href: tools/k8s-ingress-controller/principles.md
           - name: Installing an Ingress controller
             href: operations/k8s-ingress-controller-install.md
-          - name: Updating an Ingress controller
+          - name: Upgrading an Ingress controller
             href: operations/k8s-ingress-controller-upgrade.md
           - name: Resource configuration
             items:
@@ -223,13 +217,13 @@ items:
                 href: k8s-ref/grpc-backend-group.md
               - name: IngressClass
                 href: k8s-ref/ingress-class.md
-              - name: Service for Ingress
+              - name: Ingress service
                 href: k8s-ref/service-for-ingress.md
       - name: Gateway API
         items:
           - name: Overview
             href: tools/k8s-gateway-api/index.md
-          - name: Installing Gateway API
+          - name: Installing the Gateway API
             href: operations/k8s-gateway-api-install.md
           - name: Resource configuration
             items:
@@ -239,13 +233,13 @@ items:
                 href: k8s-ref/http-route.md
               - name: TLSRoute
                 href: k8s-ref/tls-route.md
-              - name: Service for Gateway API
+              - name: Gateway API service
                 href: k8s-ref/service-for-gateway.md
       - name: Configuring security groups
         href: tools/k8s-ingress-controller/security-groups.md
       - name: Working with service accounts
         href: tools/k8s-ingress-controller/service-account.md
-      - name: Creating or updating resources based on a configuration
+      - name: Creating and updating resources via Ingress controller configurations
         href: operations/k8s-ingress-controller-apply.md
   - name: Access management
     href: security/index.md
@@ -415,7 +409,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

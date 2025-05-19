@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
         bus_id    = "<идентификатор_шины>"
-        jq_filter = "<jq-выражение>"
+        jq_filter = "<jq-шаблон>"
 
         ymq {
           queue_arn            = "<ARN_очереди>"

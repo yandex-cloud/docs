@@ -52,6 +52,58 @@ items:
                     href: operations/workflows/workflow/logs-write.md
               - name: Удалить рабочий процесс
                 href: operations/workflows/workflow/delete.md
+          - name: Конструктор шагов рабочего процесса
+            items:
+              - name: Обзор
+                href: operations/workflows/constructor/index.md
+              - name: Интеграционные шаги
+                items:
+                  - name: '{{ sf-short-name }}'
+                    href: operations/workflows/constructor/functioncall.md
+                  - name: '{{ serverless-containers-name }}'
+                    href: operations/workflows/constructor/containercall.md
+                  - name: '{{ postbox-short-name }}'
+                    href: operations/workflows/constructor/postbox.md
+                  - name: '{{ tracker-name }}'
+                    href: operations/workflows/constructor/tracker.md
+                  - name: HTTP
+                    href: operations/workflows/constructor/httpcall.md
+                  - name: gRPC
+                    href: operations/workflows/constructor/grpccall.md
+                  - name: '{{ objstorage-name }}'
+                    href: operations/workflows/constructor/objectstorage.md
+                  - name: '{{ foundation-models-name }}'
+                    href: operations/workflows/constructor/foundationmodelscall.md
+                  - name: '{{ ydb-name }}'
+                    href: operations/workflows/constructor/ydbdocument.md
+                  - name: '{{ yds-name }}'
+                    href: operations/workflows/constructor/yds.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/workflows/constructor/ymq.md
+                  - name: Яндекс Диск
+                    href: operations/workflows/constructor/yadisk.md
+                  - name: '{{ sw-name }}'
+                    href: operations/workflows/constructor/workflow.md
+                  - name: AI-агент
+                    href: operations/workflows/constructor/aiagent.md
+              - name: Управляющие шаги
+                items:
+                  - name: Switch
+                    href: operations/workflows/constructor/switch.md
+                  - name: Foreach
+                    href: operations/workflows/constructor/foreach.md
+                  - name: Parallel
+                    href: operations/workflows/constructor/parallel.md
+                  - name: No op
+                    href: operations/workflows/constructor/noop.md
+                  - name: Fail
+                    href: operations/workflows/constructor/fail.md
+                  - name: Success
+                    href: operations/workflows/constructor/success.md
+                  - name: Wait
+                    href: operations/workflows/constructor/wait.md
+              - name: Настроить политику повторных попыток для рабочего процесса
+                href: operations/workflows/constructor/setup-restart-policy.md
           - name: Получение информации о запуске рабочего процесса
             items:
               - name: Получить список запусков рабочего процесса

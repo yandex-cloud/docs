@@ -531,7 +531,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Изменения в CLI {#cli}
 
-* Добавлен глобальный флаг `--jq`. Используется для фильтрации и преобразования вывода при помощи jq-выражений. Примеры:
+* Добавлен глобальный флаг `--jq`. Используется для фильтрации и преобразования вывода при помощи jq-шаблонов. Примеры:
   * `yc iam role list --jq '.[].id'`
   * `ID="instance_id" yc compute instance list --jq '.[] | select(.id == env.ID)'`
 

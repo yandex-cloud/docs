@@ -1,5 +1,5 @@
   {% note info %}
 
-  Security group rules can only contain addresses in CIDR format. You cannot assign a group where another security group is used.
+  Security group rules must specify IP ranges in CIDR format. You cannot assign a group that uses a different security group.
 
   {% endnote %}

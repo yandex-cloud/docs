@@ -43,7 +43,7 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан кластер.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.compute.gpu_clusters }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
    1. В поле **{{ ui-key.yacloud.gpu-cluster.field_name }}** задайте имя кластера: `test-gpu-cluster`.
    1. В поле **{{ ui-key.yacloud.gpu-cluster.label_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.

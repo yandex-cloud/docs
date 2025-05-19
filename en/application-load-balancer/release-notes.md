@@ -7,34 +7,34 @@ description: This section contains {{ alb-name }} release notes.
 
 ## Q4 2024 {#q4-2024}
 
-* Added the Global RateLimit module you can use to set a limit on the number of HTTP and gRPC requests to a virtual host. You can set this limit for the entire virtual host or its individual route.
+* Added the Global RateLimit module to limit HTTP and gRPC requests per virtual host. The limit can be applied to the entire virtual host or individual routes.
   
-  This feature is at the [Preview](../overview/concepts/launch-stages.md) stage. To access this feature, contact [support]({{ link-console-support }}).
+  This feature is currently in [preview](../overview/concepts/launch-stages.md). To enable it, contact [support]({{ link-console-support }}).
 
-* You can now add your own HTTP status codes that [backend health checks](concepts/backend-group.md#health-checks) will treat as correct. Code values can range from 100 to 599.
+* Added support for custom HTTP status codes (100-599) as valid responses for [backend health checks](concepts/backend-group.md#health-checks).
   
-* Added an option of keeping a connection alive even if the health check fails. This option is only available for [Stream checks](concepts/backend-group.md#health-checks).
+* Added an option to maintain connections even when health checks fail. This option is only available for [Stream health checks](concepts/backend-group.md#health-checks).
 
-* Added an option to set an idle timeout for Stream and SNI [listeners](concepts/application-load-balancer#listener).
+* Added configurable idle timeout settings for Stream and SNI [listeners](concepts/application-load-balancer#listener).
   
-* Added a description of the [x_forwarded_for](logs-ref.md) field that is provided in load balancer logs.
+* Added a description for the [x_forwarded_for](logs-ref.md) field in load balancer logs.
 
-All new features are currently supported in the CLI, API, and {{ TF }} interfaces.
+All new features are now available through CLI, API, and {{ TF }} interfaces.
 
 ## Q2 2024 {#q2-2024}
 
-* Added validation of internal IPv4 addresses when creating or updating a load balancer.
-* Fixed the validation issue when creating and updating a target group that could place a backend without a specified weight in a group of backends with specified weights.
+* Added validation for internal IPv4 addresses during load balancer creation and updates.
+* Fixed the validation issue causing mixing weighted and non-weighted backends in target groups during their creation and updates.
 
 ## Q1 2024 {#q1-2024}
 
-* Improved stability of data processing and transmission (data plane) within the service.
+* Improved data plane stability for more reliable service data processing and transmission.
 * Implemented integration with [{{ sws-full-name }}](../smartwebsecurity/):
-  * Connecting a [virtual host](./concepts/http-router.md#virtual-host) to a [security profile](../smartwebsecurity/concepts/profiles.md) (management console, CLI, {{ TF }}, API).
-  * Sending {{ sws-name }} event logs to a {{ cloud-logging-full-name }} [log group](../logging/concepts/log-group.md).
-  * Sending {{ sws-name }} metrics to [{{ monitoring-full-name }}](../monitoring/).
-* Changed behavior of the [load balancer](./concepts/application-load-balancer.md) with `Stream` [backend groups](./concepts/backend-group.md): now connections to a backend will be closed if the backend fails a [health check](./concepts/backend-group.md#health-checks).
-* Optimized the process of working with the list of operations with service resources.
-* Added the ability to search for a load balancer in the management console by internal IP address.
-* Added the ability to granularly place load balancer nodes in different availability zones using the management console.
-* Improved the {{ TF }} provider performance: eliminated the validation error when changing a load balancer listener's type from `TLS` to `Stream` and vice versa.
+  * Associating [virtual hosts](./concepts/http-router.md#virtual-host) with [security profiles](../smartwebsecurity/concepts/profiles.md) using the management console, CLI, {{ TF }}, or API.
+  * {{ sws-name }} event log forwarding to the{{ cloud-logging-full-name }} [log group](../logging/concepts/log-group.md).
+  * {{ sws-name }} metric forwarding to [{{ monitoring-full-name }}](../monitoring/).
+* Changed behavior for `Stream` [backend groups](./concepts/backend-group.md): The [load balancer](./concepts/application-load-balancer.md) now terminates connections to backends that fail [health checks](./concepts/backend-group.md#health-checks).
+* Optimized work with the service resource operation list.
+* Added support for searching load balancers by internal IP address in the management console.
+* Added granular availability zone selection for load balancer nodes in the management console.
+* Resolved validation errors when changing load balancer listener types between `TLS` and `Stream` in the {{ TF }} provider.

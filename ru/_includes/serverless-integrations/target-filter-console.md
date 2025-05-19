@@ -1,1 +1,1 @@
-(Опционально) Раскройте блок **{{ ui-key.yacloud.serverless-event-router.label_filter }}** и введите [jq-выражение](https://jqlang.github.io/jq/manual/) для [фильтрации](../../serverless-integrations/concepts/eventrouter/rule.md#filter) событий.
+(Опционально) Раскройте блок **{{ ui-key.yacloud.serverless-event-router.label_filter }}** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../serverless-integrations/concepts/eventrouter/rule.md#filter) событий.

@@ -1,51 +1,51 @@
 ---
 title: Getting started with {{ alb-full-name }}
-description: Follow this guide to create and test the {{ alb-name }} infrastructure.
+description: In this tutorial, you will create and test the {{ alb-name }} infrastructure.
 ---
 
 # Getting started with {{ alb-full-name }}
 
 
-{{ alb-full-name }} enables distributing requests across backends of your network applications and terminating TLS encryption. {{ alb-name }} runs on Layer 7 of the [OSI model](https://ru.wikipedia.org/wiki/OSI_model) using HTTP and HTTPS.
+{{ alb-full-name }} is a cloud service terminating TLS connections and routing requests to backend applications. {{ alb-name }} operates at Layer 7 of the [OSI model](https://ru.wikipedia.org/wiki/OSI_model), supporting HTTP and HTTPS protocols.
 
-This guide will help you deploy the {{ alb-name }} infrastructure and set up traffic to the test application backend.
+In this tutorial, you will deploy the {{ alb-name }} infrastructure and configure traffic routing to the test application backend.
 
-The {{ alb-full-name }} infrastructure includes:
+This infrastructure includes:
 
-* [Target group](concepts/target-group.md).
-* [Backend group](concepts/backend-group.md).
-* [HTTP router](concepts/http-router.md).
-* [L7 load balancer](concepts/application-load-balancer.md).
+* [Target group](concepts/target-group.md)
+* [Backend group](concepts/backend-group.md)
+* [HTTP router](concepts/http-router.md)
+* [L7 load balancer](concepts/application-load-balancer.md)
 
-Below is a description of how to create each component individually. You can also [use the wizard](quickstart-wizard.md) to create all components on the same page.
+Below we explain how to create each component individually. Alternatively, you can [use the wizard](quickstart-wizard.md) to create all components at once.
 
 ## Getting started {#before-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Log in to the [management console]({{ link-console-main }}) or sign up. If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, check whether you have a [billing account](../billing/concepts/billing-account.md) with `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 
 
-## Create a VM and launch a test web server on it {#create-vm}
+## Create a VM and set up a test web server on it {#create-vm}
 
 {% include [create-web-server](../_includes/application-load-balancer/create-web-server.md) %}
 
 ## Create a target group {#create-target-group}
 
-Your application backends will be deployed on the VM instance of the [target group](concepts/target-group.md). The target group will be connected to the load balancer so that requests might be sent to the backend endpoints of your application.
+The system will deploy your application backends on the [target group](concepts/target-group.md) VM. The load balancer will distribute requests to your application backend endpoints via the target group.
 
-In this example, we will assume there is only one VM in the target group.
+In our example, the target group will consist of a single VM.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your target group in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your target group.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
-  1. Enter the target group name: `test-target-group`.
-  1. Select the VM named `test-vm1`.
+  1. Specify the target group name: `test-target-group`.
+  1. Select `test-vm1`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -63,7 +63,7 @@ In this example, we will assume there is only one VM in the target group.
 
 ## Create a backend group {#create-backend-group}
 
-[Backend groups](concepts/backend-group.md) contain settings for traffic balancing and target resource health check. Create a group and add one backend to it.
+[Backend groups](concepts/backend-group.md) contain traffic distribution rules and health check configurations for targets. Create a group and add a backend to it.
 
 {% list tabs group=instructions %}
 
@@ -71,14 +71,14 @@ In this example, we will assume there is only one VM in the target group.
 
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
-  1. Enter the backend group name: `test-backend-group`.
+  1. Specify your backend group name: `test-backend-group`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**. Specify the backend settings:
-      1. Enter the backend name: `backend-1`.
+      1. Specify the backend name: `backend-1`.
       1. In the **{{ ui-key.yacloud.alb.label_target-group }}** list, select `test-target-group`.
-      1. Specify **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
-  1. Expand the **{{ ui-key.yacloud.alb.label_protocol-settings }}** field and set the parameters:
+      1. Set **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
+  1. Expand **{{ ui-key.yacloud.alb.label_protocol-settings }}**:
       1. Select the `{{ ui-key.yacloud.alb.label_proto-http-plain }}` type.
-  1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}** and set up the check:
+  1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}** and configure health checks:
       1. **{{ ui-key.yacloud.alb.label_timeout }}**: `1`.
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
@@ -95,7 +95,7 @@ In this example, we will assume there is only one VM in the target group.
       yc alb backend-group create test-backend-group
       ```
 
-  1. Create a backend and health check:
+  1. Create a backend and a health check:
 
       ```bash
       yc alb backend-group add-http-backend \
@@ -111,7 +111,7 @@ In this example, we will assume there is only one VM in the target group.
 
 ## Create an HTTP router {#create-http-router}
 
-[HTTP routers](concepts/http-router.md) define the rules for routing requests sent to backends and allow you to modify requests directly in the balancer.
+[HTTP routers](concepts/http-router.md) implement rules for client-to-backend traffic and allow you to modify requests at the load balancer layer.
 
 {% list tabs group=instructions %}
 
@@ -119,15 +119,15 @@ In this example, we will assume there is only one VM in the target group.
 
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
-  1. Enter the router name: `test-http-router`.
+  1. Specify the router name: `test-http-router`.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
-  1. Enter the host name: `test-virtual-host`.
+  1. Specify the host name: `test-virtual-host`.
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
-  1. Enter `test-route` as **{{ ui-key.yacloud.common.name }}**.
+  1. Set **{{ ui-key.yacloud.common.name }}** to `test-route`.
   1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select `{{ ui-key.yacloud.alb.label_match-prefix }}` and specify the `/` path.
   1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, keep `{{ ui-key.yacloud.alb.label_route-action-route }}`.
-  1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `test-backend-group`.
-  1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
+  1. From the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `test-backend-group`.
+  1. Do not change other settings. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -157,9 +157,9 @@ In this example, we will assume there is only one VM in the target group.
 
 ## Create an L7 load balancer {#create-load-balancer}
 
-A [load balancer](concepts/application-load-balancer.md) receives requests and distributes them across target group VMs according to the rules specified in the HTTP router. Load balancers use [listeners](concepts/application-load-balancer.md#listener) to receive traffic.
+A [load balancer](concepts/application-load-balancer.md) uses [listeners](concepts/application-load-balancer.md#listener) to receive incoming requests which it then distributes across target group VMs according to the rules specified in the HTTP router.
 
-As an example, let's create a balancer with a node in the same subnet and same availability zone.
+In the following example, we will deploy a load balancer and its backend node in the same subnet and availability zone.
 
 {% list tabs group=instructions %}
 
@@ -167,24 +167,24 @@ As an example, let's create a balancer with a node in the same subnet and same a
 
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
-  1. Enter the load balancer name: `test-load-balancer`.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network whose subnet will host the load balancer node.
-  1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select a subnet in one [availability zone](../overview/concepts/geo-scope.md) and enable incoming traffic in this subnet.
+  1. Specify the load balancer name: `test-load-balancer`.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network containing the subnet where you want to place your load balancer node.
+  1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select a subnet in your preferred [availability zone](../overview/concepts/geo-scope.md) and configure it to enable incoming traffic.
 
-      Remove the other availability zones by clicking ![xmark](../_assets/console-icons/xmark.svg) in the relevant row.
+      Remove other availability zones by clicking ![xmark](../_assets/console-icons/xmark.svg) in each zone’s row.
 
 
-  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
-      1. Enter the listener name: `test-listener`.
+  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and specify listener settings:
+      1. Specify the listener name: `test-listener`.
       1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, enable traffic.
-      1. Set the port to `80`.
+      1. Specify the `80` port.
       1. Select the **{{ ui-key.yacloud.alb.label_address-auto }}** type.
   1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `test-http-router`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  1. Create a load balancer with a node in the same subnet:
+  1. Create a load balancer and its backend node in the same subnet:
 
       ```bash
       yc alb load-balancer create test-load-balancer \
@@ -205,15 +205,15 @@ As an example, let's create a balancer with a node in the same subnet and same a
 
 ## Test the load balancer {#test}
 
-In the terminal, run the following command:
+In the terminal, run this command:
 
 ```bash
 curl --verbose <load_balancer_public_IP_address>:80
 ```
 
-The response must return the HTTP status code `200` and an HTML list of folders from the test VM folder.
+The response must return HTTP `200` with an HTML list of test VM web root subdirectories.
 
-After that, you can add other VMs to the target group, create new backends for your application, and build routes to the application endpoints.
+Next, you can expand your target group by adding more VMs, create additional application backends, and set up routes to their endpoints.
 
 ## How to delete the resources you created {#clear-out}
 

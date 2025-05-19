@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc serverless eventrouter rule create \
         --bus-id <идентификатор_шины> \
-        --filter '<jq-выражение>' \
+        --filter '<jq-шаблон>' \
         --yds-target \
       database=<путь_к_базе_данных>,\
       stream-name=<имя_потока_данных>,\
@@ -128,7 +128,7 @@ description: Следуя данной инструкции, вы сможете
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
         bus_id    = "<идентификатор_шины>"
-        jq_filter = "<jq-выражение>"
+        jq_filter = "<jq-шаблон>"
 
         yds {
           database           = "<путь_к_базе_данных>"
@@ -151,7 +151,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
-      * `jq_filter` — [jq-выражение](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
+      * `jq_filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
       * `yds` — блок для настройки приемника с типом `{{ yds-full-name }}` и его параметры:
 
           * `database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) {{ ydb-name }}, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}, в который будут отправляться сообщения, соответствующие правилу.
