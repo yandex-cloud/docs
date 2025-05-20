@@ -7,6 +7,28 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.149.0 (20.05.25) {#version0.149.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#version0.149.0-services}
+
+##### {{ mkf-name }}
+
+* В командах `yc kafka cluster create` и `yc kafka cluster update` удален параметр `--log-preallocate` для управления соответствующей настройкой брокера Apache Kafka.
+* В командах `yc kafka topic create` и `yc kafka topic update` удален параметр `--preallocate` для управления соответствующей настройкой топика Apache Kafka.
+
+##### {{ mch-name }}
+
+Добавлены команды для управления расширениями:
+* `yc clickhouse extension list`
+* `yc clickhouse extension get`
+* `yc clickhouse cluster add-extension`
+* `yc clickhouse cluster update-extension`
+* `yc clickhouse cluster get-extension`
+* `yc clickhouse cluster list-extensions`
+* `yc clickhouse cluster remove-extension`
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.148.0 (30.04.25) {#version0.148.0}
 
 ####  Изменения в сервисах {{ yandex-cloud }} {#version0.148.0-services}
@@ -53,8 +75,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ mpg-name }}
 
 В команде `yc managed-greenplum cluster update` исправлена поддержка флага `--log-enabled` для {{ cloud-logging-name }}.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.147.0 (21.04.25) {#version0.147.0}
 

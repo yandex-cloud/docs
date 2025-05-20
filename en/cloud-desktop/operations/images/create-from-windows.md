@@ -52,11 +52,11 @@ To configure an image you will need:
     ```bash
     qemu-img create -f qcow2 image.qcow2 20480M
     ```
-
+    
     Where:
     * `image.qcow2`: Boot disk name.
     * `20480M`: OS boot disk size in the image, MB.
-
+    
       {% note info %}
 
       We recommend that you specify a size of at least `16384M`. Otherwise, your boot disk may have not enough space when installing or later configuring the OS.
@@ -109,7 +109,7 @@ To configure an image you will need:
      ```
 
 1. Run `PowerShell` as an administrator.
-
+  
 1. For virtualized hardware clocks, set the time format to UTC:
 
      ```powershell
@@ -174,7 +174,7 @@ To configure an image you will need:
     mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"
     cp .\desktopagentInstall\desktopagent.exe 'C:\Program Files\Yandex.Cloud\Cloud Desktop\'
 
-    # create service
+    # Create Desktop Agent service
     $ServiceName = "cloud-desktop-agent"
     $ServicePort = 5050
     $ServicePath = "C:\Program Files\Yandex.Cloud\Cloud Desktop\desktopagent.exe"
@@ -191,10 +191,10 @@ To configure an image you will need:
     & sc.exe config $ServiceName start= delayed-auto
     & sc.exe failure $ServiceName reset= 86400 actions= restart/1000/restart/1000/restart/1000
 
-    ### Agent startup outside Cloud Desktop environment will fail - thus no need to do it right after install during image prepare stage 
+    ### The agent startup is commented because starting the agent outside the Cloud Desktop will fail. Do not start the agent during the image preparation stage.
     # Start-Service $ServiceName
 
-    # create firewall rule
+    # Create firewall rule for Desktop Agent
     if ($Rule = Get-NetFirewallRule -Name "DESKTOP-AGENT-HTTPS-In-TCP" -ErrorAction SilentlyContinue) {
         $Rule | Remove-NetFirewallRule
     }
@@ -211,24 +211,14 @@ To configure an image you will need:
 
 1. Create a task for the VM to run correctly after it is first started:
 
-    ```bash
-     $outNull = New-Item -Path "C:\Scripts" -ItemType Directory -Force -ErrorAction SilentlyContinue
-
-    # Debug for 2025/11
-    $Debug = Get-Item C:\Scripts | Select Attributes
-
-    # Fix for Win24h2/11
-    if($Debug.Attributes -ne "Directory") {
-        $outNull = Remove-Item -Path "C:\Scripts" -Force -Confirm:$false
-        Start-Sleep 2
-        $outNull = New-Item -Path "C:\Scripts" -ItemType Directory -Force -Confirm:$false
-    } 
-    & schtasks /Create /TN "SetNetSettings" /RU System /SC ONSTART /RL HIGHEST /TR "Powershell -NoProfile -ExecutionPolicy Bypass -File \`"C:\Scripts\SetNetAdapterSettings.ps1`"" | Out-Null 
+    ```powershell
+    & mkdir "C:\Scripts"
+    & schtasks /Create /TN "SetNetSettings" /RU System /SC ONSTART /RL HIGHEST /TR "Powershell -NoProfile -ExecutionPolicy Bypass -File \`"C:\Scripts\StartupSettings.ps1`"" | Out-Null
     ```
 
-1. In the `C:\Scripts` folder, create a file named `SetNetAdapterSettings.ps1` with the contents as follows:
+1. In the `C:\Scripts` directory, create a file named `StartupSettings.ps1` with the contents as follows:
   
-    ```bash
+    ```powershell
     # Getting IPv6 Net Adapter
     $IPv6Adapter = Get-NetAdapter | where {$_.Linklayeraddress -like "D0-1D*"}
 
@@ -246,7 +236,7 @@ To configure an image you will need:
         mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"
         cp .\desktopagentInstall\desktopagent.exe 'C:\Program Files\Yandex.Cloud\Cloud Desktop\'
 
-        # create service
+        # Create Desktop Agent service
         $ServiceName = "cloud-desktop-agent"
         $ServicePort = 5050
         $ServicePath = "C:\Program Files\Yandex.Cloud\Cloud Desktop\desktopagent.exe"
@@ -265,7 +255,7 @@ To configure an image you will need:
 
         Start-Service $ServiceName
 
-        # create firewall rule
+        # Create firewall rule for Desktop Agent
         if ($Rule = Get-NetFirewallRule -Name "DESKTOP-AGENT-HTTPS-In-TCP" -ErrorAction SilentlyContinue) {
             $Rule | Remove-NetFirewallRule
         }
@@ -279,6 +269,50 @@ To configure an image you will need:
             -Protocol "TCP" `
             -Program "$ServicePath"
     }
+    
+    # Stores Windows RE (WinRE) configuration info $nfo string
+    [string]$nfo = reagentc /info
+
+    # Checks if Windows RE (WinRE) is enabled and extracts its disk/partition info
+    # If enabled, disables WinRE via reagentc and deletes its partition using DiskPart
+    if($nfo -match ".*Windows RE status:.*Enabled.*"){
+        # Locate the disk number it is on
+        $nfo -match ".*Windows RE location.*harddisk(\d+)" | Out-Null
+        $disk = $Matches[1]
+        # Locate the partition it is on
+        $nfo -match ".*Windows RE location.*partition(\d+)" | Out-Null
+        $partition = $Matches[1]
+
+        $WinREInfo = New-Object -TypeName psobject -Property $([ordered]@{Enabled='True';Disk=$disk;Partition=$partition;Resizable=(((Get-Disk -Number $disk | Get-Partition).PartitionNumber | Measure-Object -Maximum).Maximum -eq $partition);CurrentSize=([string]((Get-Disk -Number $disk | Get-Partition | Where-Object PartitionNumber -eq $partition).Size / 1MB) +'MB');A1_Key=[System.GUID]::NewGuid()})
+    } else {
+        $WinREInfo = New-Object -TypeName psobject -Property $([ordered]@{Enabled='False';Disk='N/A';Partition='N/A';Resizable='N/A';CurrentSize='N/A';A1_Key=[System.GUID]::NewGuid()})
+    }
+
+    if($WinREInfo.Enabled -eq "True" -and $WinREInfo.Partition -ne "N/A") {
+        & reagentc /disable
+        $outScript = "select disk $($WinREInfo.Disk)
+    select partition $($WinREInfo.Partition)
+    delete partition override
+    exit
+    "
+        $outScript | Out-File C:\Scripts\winre.txt -Encoding ascii
+        & diskpart /s C:\Scripts\winre.txt
+        $outNull = Remove-Item "C:\Scripts\winre.txt" -Force -Confirm:$false
+    }
+
+    # Force extend partition
+    $DiskSpace = Get-PartitionSupportedSize -DriveLetter "C"
+    if((Get-Partition -DriveLetter "C").Size -lt $DiskSpace.SizeMax) {
+        $outNull = Resize-Partition -DriveLetter "C" -Size $DiskSpace.SizeMax
+    }
+
+    # Format RAW disks
+    $RAWDisks = Get-Disk | where {$_.PartitionStyle -eq "RAW"} 
+    if($RAWDisks) { 
+        foreach($RAWDisk in $RAWDisks) { 
+            $outNull = Initialize-Disk -Number $RAWDisk.Number -PartitionStyle GPT -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "UserData" -Confirm:$false
+        } 
+    }
     ```
 
 ## Installing Cloudbase-Init {#cloudbase-init}
@@ -288,7 +322,7 @@ You can install [Cloudbase-Init](https://cloudbase.it/cloudbase-init/) to the im
 To install Cloudbase-Init, run these PowerShell commands:
 
 ```powershell
-# Install cloudbase-init
+# Install Cloudbase-Init
 $WorkDirectory = "C:\Scripts"
 $outNull = Start-BITSTransfer -Source "https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x64.msi" -Destination $WorkDirectory
 $outNull = Start-Process -FilePath 'msiexec.exe' -ArgumentList "/i $WorkDirectory\CloudbaseInitSetup_Stable_x64.msi /qn" -Wait
@@ -323,11 +357,40 @@ $outScript | Out-File -FilePath "C:\Program Files\Cloudbase Solutions\Cloudbase-
 
 ## Finalizing the image {#generalize}
 
-1. Optionally, [generalize your image](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) with the help of the `Sysrep` utility. This will prepare Windows for cloning and for later use on other computers.
+After you are done with configuration, we recommend you to [generalize your image](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) with the help of the `Sysrep` utility. This will prepare Windows for cloning and for later use on other computers. 
 
-1. Turn off the VM.
+To generalize the image, run PowerShell as an administrator and run the following commands:
 
-The result will be a disk image file named `image.qcow2` in QCOW2 format.
+```powershell
+# Global vars
+$WorkDirectory = "C:\sysprep"
+
+# Download the unattend.xml file for Sysprep
+New-Item -Path $WorkDirectory -ItemType Directory
+Start-BitsTransfer https://storage.yandexcloud.net/cloudbase/sysprepunattend-cloudbase-init.xml -Destination $WorkDirectory\unattend.xml
+
+# Start Sysprep
+& $env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit /unattend:"$WorkDirectory\unattend.xml"
+
+# Wait for correct system state
+do {
+    Start-Sleep -s 5
+    $SetupState = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State"
+    $ImageState = $SetupState | Select-Object -ExpandProperty ImageState
+} while ($ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE')
+
+Remove-Item $WorkDirectory -Recurse -Force
+Remove-Item "C:\Windows\Setup\Scripts\*" -Force -ErrorAction SilentlyContinue
+
+# Wait for Sysprep tag
+while (-not (Test-Path 'C:\Windows\System32\Sysprep\Sysprep_succeeded.tag') ) {
+    Start-Sleep -s 1
+}
+
+Stop-Computer -Force
+```
+
+Turn off the VM. The result will be a disk image file named `image.qcow2` in QCOW2 format.
 
 
 ## Adding an image to {{ compute-name }} {#image-to-compute}
@@ -373,5 +436,4 @@ Once the image is created, you can use it as a boot disk image for desktop group
 If you are not using Cloudbase-Init and you want to resize the boot disk in a desktop group:
 
 1. Increase the boot disk file system size on your desktop, e.g., using the `diskmgmt.msc` utility.
-
 1. [Create a new {{ cloud-desktop-name }} image](create-from-desktop.md) from that desktop.

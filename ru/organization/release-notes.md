@@ -9,9 +9,14 @@ description: В разделе представлена история изме�
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
 
+## I квартал 2025 {#q1-2025}
+
+* [Обновлено](../organization/operations/hide-user-info.md) управление видимостью пользователей в [организации](concepts/organization.md). {{ tag-con }}
+
+
 ## IV квартал 2024 {#q4-2024}
 
-* [Добавлено](../organization/operations/hide-user-info.md) управление видимостью пользователей в [организации](../billing/concepts/organization.md). {{ tag-con }}
+* [Добавлено](../organization/operations/hide-user-info.md) управление видимостью пользователей в [организации](concepts/organization.md). {{ tag-con }}
 * Появился скрипт сборки пакетов [{{ oslogin }}](../organization/concepts/os-login.md) в ВМ с Ubuntu 24.04.
 * [Добавлена](../iam/roles-reference.md#organization-manager-passportUserAdmin) роль `organization-manager.passportUserAdmin` для управления [пользователями](../organization/concepts/membership.md) организации с [аккаунтами на Яндексе](https://yandex.ru/id/about).
 * В [{{ at-full-name }}](../audit-trails/) [добавлены](../audit-trails/concepts/events.md#organization) события управления группами федеративных пользователей: `CreateGroupMapping`, `DeleteGroupMapping` и `UpdateGroupMapping`.

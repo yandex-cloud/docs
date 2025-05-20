@@ -49,6 +49,7 @@ description: This page provides a list of step-by-step guides for {{ vpc-name }}
 - [{#T}](private-endpoint-create.md)
 - [{#T}](private-endpoint-get-info.md)
 - [{#T}](private-endpoint-storage-policy.md)
+- [{#T}](private-endpoint-storage-restriction.md)
 - [{#T}](private-endpoint-delete.md)
 
 ## Security groups {#security-groups}

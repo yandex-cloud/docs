@@ -1,12 +1,12 @@
 # {{ backup-name }} agent
 
-The {{ backup-name }} agent enables protected resources to work with {{ backup-name }} and the backup provider. It is installed on [{{ compute-full-name }}](../../compute/index.yaml) VMs or [{{ baremetal-full-name }}](../../baremetal/index.yaml) servers.
+The {{ backup-name }} agent interfaces the resources with {{ backup-name }} and the backup provider. It is installed on [{{ compute-full-name }}](../../compute/index.yaml) VMs or [{{ baremetal-full-name }}](../../baremetal/index.yaml) servers.
 
 For more information about the backup provider and the data sent to it, see [{#T}](index.md#providers).
 
-The {{ backup-name }} agent performs the following actions on the protected resource:
+The {{ backup-name }} agent performs the following actions on the resource:
 
-* Registers the protected resource in {{ backup-name }} under a [service account](vm-connection.md#sa).
+* Registers the resource in {{ backup-name }} under a [service account](vm-connection.md#sa).
 * Reports the resource's connection status to {{ backup-name }}.
 * Backs up the resource according to the [backup policy](policy.md).
 * Recovers the resource from a backup.
@@ -14,7 +14,7 @@ The {{ backup-name }} agent performs the following actions on the protected reso
 
 {% note info %}
 
-To perform operations in {{ backup-name }}, including deleting backups, your [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) must have at least one active protected resource (VM in `RUNNING` status or {{ baremetal-name }} server in `READY` status) with the {{ backup-name }} agent installed. If there are no such VMs or servers, [create](../operations/create-vm.md) a temporary new VM connected to {{ backup-name }} to take the actions you need.
+To perform operations in {{ backup-name }}, including deleting backups, your [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) must have at least one active resource (VM in `RUNNING` status or {{ baremetal-name }} server in `READY` status) with the {{ backup-name }} agent installed. If there are no such VMs or servers, [create](../operations/create-vm.md) a temporary new VM connected to {{ backup-name }} to take the actions you need.
 
 {% endnote %}
 
@@ -39,3 +39,4 @@ You can install the {{ backup-name }} agent on a VM [manually](vm-connection.md#
 * [{#T}](../operations/refresh-connection-oslogin-linux.md)
 * [{#T}](../operations/backup-baremetal/backup-baremetal.md)
 * [{#T}](../operations/backup-baremetal/refresh-connection.md)
+* [{#T}](../operations/limit-agent-memory-usage.md)

@@ -46,3 +46,19 @@
     server_side_encryption: aws:kms
     sse_kms_key_id: abj497vtg3h0********
     ```
+
+    Alternative command:
+
+    ```bash
+    yc storage s3 cp \
+      s3://<bucket_name>/<object_key> \
+      <download_path>
+    ```
+
+    Result:
+
+    ```text
+    download: s3://my-bucket/object.txt to object.txt
+    ```
+
+    {% include [s3-cp-config](s3-cp-config.md) %}

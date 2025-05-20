@@ -5,7 +5,11 @@ description: '{{ speechkit-name }} recognizes and synthesizes audio in LPCM, Ogg
 
 # Supported audio formats
 
-{% include [audio-formats](../_includes/speechkit/audio-formats.md) %}
+{{ speechkit-name }} allows you to recognize and synthesize the following audio formats:
+
+* LPCM
+* OggOpus
+* MP3
 
 #### LPCM {#lpcm}
 

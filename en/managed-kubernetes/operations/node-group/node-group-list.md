@@ -10,7 +10,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
   1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 
@@ -46,10 +46,12 @@ To access a node group, use the `ID` or `NAME` parameters from the [previous](no
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
   1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Click the name of the node group.
+
+  To view info about a specific node, navigate to the **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** tab and click the node name. {#get-node}
 
 - CLI {#cli}
 

@@ -23,13 +23,17 @@
 
 
 
+
 К — [Копирование](../../data-transfer/concepts/transfer-lifecycle.md#copy)
 Р — [Репликация](../../data-transfer/concepts/transfer-lifecycle.md#replication)
 КР — [Копирование и репликация](../../data-transfer/concepts/transfer-lifecycle.md#copy-and-replication)
+«—» — Трансфер не реализован
+
 
 
 ![GA](../../_assets/console-icons/credit-card.svg) — трансфер находится на стадии [GA](../../overview/concepts/launch-stages.md) и тарифицируется в соответствии с [правилами тарификации](../../data-transfer/pricing.md) сервиса.
 Остальные трансферы находятся на стадии [Preview](../../overview/concepts/launch-stages.md) и активируются по запросу в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+
 
 
 #### Эндпоинты {{ AB }} {#airbyte}
@@ -42,3 +46,4 @@
 * [S3](../../data-transfer/operations/endpoint/source/s3.md)
 
 {{ AB }} уже встроен в {{ data-transfer-name }}, поэтому вам не нужно создавать отдельную виртуальную машину и развертывать {{ AB }}.
+

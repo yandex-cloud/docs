@@ -30,6 +30,12 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
 
 ## 2.1.x images {#2-1-x}
 
+### 2.1.21 {#2-1-21}
+* Added the option to set the following environment variables:
+
+    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for `hadoop`.
+    * `HADOOP_HEAPSIZE` for `hive`.
+
 ### 2.1.19 {#2-1-19}
 * Fixed an error where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving a memory share for YARN NodeManager.
 
@@ -75,6 +81,12 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
 
 ## Image 2.0.x {#2-0-x}
 
+### 2.0.80 {#2-0-80}
+* Added the option to set the following environment variables:
+
+    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for `hadoop`.
+    * `HADOOP_HEAPSIZE` for `hive`.
+
 ### 2.0.78 {#2-0-78}
 * Fixed an error where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving a memory share for YARN NodeManager.
 
@@ -94,12 +106,12 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
 
 ### 2.0.66 {#2-0-66}
 
-* Fixed the issue when YARN NodeManager was run on a new host before the initialization scripts were executed.
+* Fixed an issue where YARN NodeManager would run on a new host before the initialization scripts were executed.
 
 ### 2.0.64 {#2-0-64}
 
 * Added support for Helium.
-* Fixed the issue with redundant decommission.
+* Fixed the redundant decommission issue.
 * Log delivery to {{ cloud-logging-name }} is run once a node is started.
 
 ### 2.0.62 {#2-0-62}
@@ -133,7 +145,7 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
 
 ### 2.0.53 {#2-0-53}
 
-* Fixed the error with cores/memory configuration for Spark/Yarn when specifying the `spark:spark.submit.deployMode` cluster property.
+* Fixed an error with cores/memory configuration for Spark/Yarn when specifying the `spark:spark.submit.deployMode` cluster property.
 * Fixed the `spark-defaults.yaml` configuration file update when updating the cluster properties.
 
 ### 2.0.52 {#2-0-52}

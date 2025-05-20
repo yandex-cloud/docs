@@ -90,6 +90,8 @@ items:
             href: operations/add-role.md
           - name: Assigning a role to a user group
             href: operations/groups-access-binding.md
+          - name: Viewing roles assigned in an organization
+            href: operations/org-list-bindings.md
           - name: Revoking a user's role
             href: operations/revoke-role.md
   - name: Tutorials

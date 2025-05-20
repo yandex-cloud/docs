@@ -37,7 +37,23 @@
 
     Result:
 
-    ```bash
+    ```text
     etag: '"d41d8cd98f00b204e980099********"'
-    request_id: 3f2705f********      
+    request_id: 3f2705f********
     ```
+
+    Alternative command:
+
+    ```bash
+    yc storage s3 cp \
+      <local_file_path> \
+      s3://<bucket_name>/<object_path>
+    ```
+
+    Result:
+
+    ```text
+    upload: object.txt to s3://my-bucket/object.txt
+    ```
+
+    {% include [s3-cp-config](s3-cp-config.md) %}

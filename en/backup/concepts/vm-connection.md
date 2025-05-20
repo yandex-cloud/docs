@@ -7,11 +7,11 @@ If you want to back up your [{{ compute-full-name }}](../../compute/) [instances
 You can connect the following to {{ backup-name }}:
 * VMs created from [supported {{ marketplace-full-name }} images](#os). The {{ backup-name }} agent is installed automatically on such VMs.
 * VMs created from other images, if those images are supported by the Cyberprotect backup [provider](./index.md#providers). You will need to [install the {{ backup-name }} agent on such VMs manually](#self-install).
-* {{ baremetal-name }} servers running a [supported](#self-install) operating system. You can install the {{ backup-name }} agent on {{ baremetal-name }} servers either [manually](#self-install) or automatically when [ordering](../../baremetal/operations/servers/server-lease.md) a server .
+* {{ baremetal-name }} servers running a [supported](#self-install) operating system. You can install the {{ backup-name }} agent on {{ baremetal-name }} servers either [manually](#self-install) or automatically when [ordering](../../baremetal/operations/servers/server-lease.md) a server.
 
 For more information about connecting to {{ backup-name }}, see these [guides](../operations/index.md).
 
-For the connection to work properly on the VM, link a [service account](#sa) with the `backup.editor` role to the VM and configure [network access](#vm-network-access). You do not need to link the service account to {{ baremetal-name }} servers.
+For the {{ backup-name }} connection to work correctly, link a [service account](#sa) (with the `backup.editor` role for the VM and the `baremetal.editor` and the `backup.editor` roles for the {{ baremetal-name }} server) to the resource and configure [network access](#vm-network-access).
 
 After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the VM or the {{ baremetal-name }} server to the [backup policy](policy.md).
 
@@ -111,7 +111,7 @@ For the {{ backup-name }} agent to be able to exchange data with the [backup pr
 
 {% list tabs group=traffic %}
 
-- Outgoing traffic {#outgoing}
+- Outbound traffic {#outgoing}
 
   {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %}
 
