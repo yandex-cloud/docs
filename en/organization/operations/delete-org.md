@@ -19,14 +19,14 @@ To delete an organization:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) with an administrator or organization owner account.
 
-      The {{ cloud-center }} home page that opens displays the basic information about your organization.
+      On the {{ cloud-center }} home page that opens, you can view general info about your organization.
 
-      If you have more than one organization, you can [switch](./manage-organizations.md#switch-to-another-org) to the one you need. To do this, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization in the top-left corner of the screen and select another one. This will switch you to a different organization.
-  
+      {% include [switch-org-note](../../_includes/organization/switch-org-note.md) %}
+
   1. To delete your current organization, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.dashboard.organization.action.delete-button }}** in the box with its name in the center of the screen.
 
   1. In the window that opens, specify when you want the organization to be deleted. Select one of the suggested periods or `Delete now`. The default organization deletion delay is seven days.

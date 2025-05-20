@@ -22,7 +22,7 @@ To request an identity document:
      --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document
    ```
 
-   Response example:
+   Here is a response example:
 
    ```json
    {"instanceId":"fhmm5252k8vl********","productCodes":null,"imageId":"fd8evlqsgg4e********","productIds":["f2e3ia802lab********"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}
@@ -38,7 +38,7 @@ If you created your VM before June 9, 2023, and you cannot get its identity docu
 
 Apart from the identity document itself, the VM instance [metadata service](../../../compute/concepts/vm-metadata.md) provides its cryptographic signatures.
 
-You can use these signatures to verify the document's origin, validity, and integrity. To do this:
+You can use these signatures to verify the document's origin, authenticity, and integrity. To do this:
 
 {% list tabs %}
 
@@ -139,7 +139,7 @@ You can use these signatures to verify the document's origin, validity, and inte
      ```bash
      curl \
        --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/base64 | \
-         base64 -d >> signature
+         base64 -d > signature
      ```
 
   1. Get an identity document and save it to a file named `document`:
@@ -175,7 +175,7 @@ You can use these signatures to verify the document's origin, validity, and inte
   1. Extract a public key from the certificate and save it to a file named `key`:
 
      ```bash
-     openssl x509 -pubkey -noout -in certificate >> key
+     openssl x509 -pubkey -noout -in certificate > key
      ```
 
   1. Verify the signature and save the contents of the document to a file named `document`:

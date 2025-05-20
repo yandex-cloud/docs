@@ -28,7 +28,7 @@ You can also work with {{ speechkit-name }} using the [Python SDK](../sdk/python
 | **Use cases** | Phone assistants and robots </br> Virtual assistants         | Virtual assistants </br> Voice control </br> Speech recognition of short voice messages in messengers | Transcribing audio calls and presentations </br> Subtitling </br> Call center script compliance monitoring </br> Identifying successful scripts </br> Evaluating performance of call center agents |
 | **Input data** | Real-time voice | Pre-recorded short single-channel audio files | Pre-recorded multi-channel and long audio files |
 | **How it works** | Exchanging messages with the server over a single connection | Request — quick response | Request — delayed response |
-| **Supported APIs** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/) | [REST v1](api/request-api.md) | [REST v2](api/transcribation-api.md) </br> [gRPC v3](api/transcribation-api-v3.md) |
+| **Supported APIs** | [gRPC v2](api/streaming-api.md) </br> [gRPC v3](../stt-v3/api-ref/grpc/index.md) | [REST v1](api/request-api.md) | [REST v2](api/transcribation-api.md) </br> [REST v3](../stt-v3/api-ref/index.md) </br> [gRPC v3](api/transcribation-api-v3.md) |
 | **Maximum duration of audio data** | {{ stt-streaming-audioLength }} | {{ stt-short-audioLength }} | {{ stt-long-audioLength }} |
 | **Maximum amount of transmitted data** | {{ stt-streaming-fileSize }} | {{ stt-short-fileSize }} | {{ stt-long-fileSize }} |
 | **Number of recognition channels** | 1  | 1 | 2  |

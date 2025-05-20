@@ -4,12 +4,12 @@ The `HTTPRoute` resource contains traffic routing and redirection rules for {{ k
 
 The `HTTPRoute` resource is designed for application developers. Cluster operators should use the `Gateway` resource.
 
-`HTTPRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.HTTPRoute).
+`HTTPRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
 
 ## HTTPRoute {#httproute}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: <string>
@@ -19,7 +19,7 @@ spec: <HTTPRouteSpec>
 
 Where:
 
-* `apiVersion`: `gateway.networking.k8s.io/v1alpha2`
+* `apiVersion`: `gateway.networking.k8s.io/v1`
 * `kind`: `HTTPRoute`
 * `metadata` (`ObjectMeta`, required)
 
@@ -27,7 +27,7 @@ Where:
 
   * `name` (`string`, required)
 
-    Resource name. For more information about the name format, see the relevant [{{ k8s }} guides](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the group name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Do not mistake this name for the {{ alb-name }} route name.
  
@@ -86,18 +86,18 @@ Where:
   Routes must also comply with the [Gateway configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) rules specified in the `spec.listeners.allowedRoutes` field.
   
   * `namespace` (`string`)
-    
+
     `Gateway` namespace specified in its `metadata.namespace` field.
-  
-    By default, it matches the `HTTPRoute` namespace specified in its `metadata.namespace` field.
+
+    By default, it matches the `HTTPRoute` resource namespace (`metadata.namespace` field).
 
   * `name` (`string`, required)
-    
+
     `Gateway` name specified in its `metadata.name` field.
 
   * `sectionName` (`string`)
-  
-    `Gateway` listener specified in its `spec.listeners.name` field.
+
+    Name of the listener specified in the `Gateway` resource (specified in the `spec.listeners.name` field).
 
 * `hostnames` (`[]string`)
 
@@ -110,11 +110,11 @@ Where:
   Request routing and redirection rules.
 
   * `matches` (`[]HTTPRouteMatch`)
-  
+
     List of conditions, where the request must meet at least one, for the rule to apply.
-  
+
     For example, the conditions below allow `POST` requests to the `/foo` endpoint and any requests to the `/bar` endpoint:
-  
+
     ```yaml
     matches:
       - path:
@@ -123,15 +123,15 @@ Where:
       - path:
           value: /bar
     ```
-    
-    You can only use fields listed below. Other fields described in the [Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch), e.g.,`headers` and `queryParams`, are not supported.
+
+    You can only use fields listed below. Other fields described in the [Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRouteMatch), e.g.,`headers` and `queryParams`, are not supported.
 
     * `path` (`HTTPPathMatch`)
-  
+
       Request URI path.
 
       * `type` (`string`)
-        
+
         Request URI path type:
 
         * `Exact`: Path must _match_ `rules.matches.path.value`.
@@ -144,13 +144,13 @@ Where:
         Incoming request URI full path or its prefix, depending on whether the `Exact` or `PathPrefix` option is selected, respectively.
  
     * `method` (`HTTPMethod`)
-  
+
       Request HTTP method.
 
   * `filters` (`[]HTTPRouteFilter`)
-    
+
     Filters specifying request header modifications for backend routing and redirection. For more information, see [below](#filter).
-  
+
     You can specify either the `RequestHeaderModifier` or the `RequestRedirect` filter, but not both at the same time.
 
   * `backendRefs` (`[]HTTPBackendRef`)
@@ -158,35 +158,35 @@ Where:
     [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) backends for processing requests.
 
     The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
-  
+
      * `name` (`string`)
 
        {{ k8s }} service name.
 
      * `namespace` (`string`)
-  
+
        Service namespace.
 
      * `port` (`int32`)
 
        Service port number.
 
-       The port number must match one of the `Service` resource `spec.ports.port` field values. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+       This number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
 
        This field is designed for the Gateway API and has no equivalents in {{ alb-name }}.
-       
+
      * `weight` (`int32`)
 
        Backend weight. Backends in a group receive traffic in proportion to their weights.
 
        You should either specify weights for all backends in a group, or not specify them at all. If weights are not specified, traffic will be equally distributed across backends.
-    
+
        A backend with zero or negative weight will not be receiving traffic.
 
      * `filters` (`[]HTTPRouteFilter`)
 
-       Request header modification settings for backend routing. For more information, see this [example](#filter).
-  
+       Request header modification settings for backend routing. For more information, see [below](#filter).
+
        You can only specify the `RequestHeaderModifier` filter.
 
 
@@ -220,7 +220,7 @@ requestRedirect:
 Where:
 
 * `type` (`string`)
-  
+
   Filter type:
 
   * `RequestHeaderModifier`: Request header modification. Specify the required settings in the `requestHeaderModifier` field.
@@ -231,31 +231,31 @@ Where:
   Request header modification settings for the `RequestHeaderModifier` filter type.
 
   * `set` (`[]HTTPHeader`)
-  
+
     Headers that will be overwritten.
 
     * `name` (`string`)
-      
-      Header name.
+
+      Overwritable header name.
 
     * `value` (`string`)
-  
+
       Header new value.
 
   * `add` (`[]HTTPHeader`)
-  
+
     Headers that will be added to requests.
 
     * `name` (`string`)
-      
-      Header name.
+
+      Added header's name.
 
     * `value` (`string`)
-  
-      Header value.
+
+      Added header's value.
  
   * `remove` (`[]string`)
-  
+
     Headers to be removed from requests.
 
 * `requestRedirect` (`HTTPRequestRedirectFilter`)
@@ -263,36 +263,36 @@ Where:
   Request redirect settings for the `RequestRedirect` filter type.
 
   * `scheme` (`string`)
-    
+
     New request URI scheme, e.g., `http` or `https`. By default, the scheme remains unchanged.
 
   * `hostname` (`string`)
-    
+
     New request URI hostname. By default, the hostname remains unchanged.
 
   * `path` (`HTTPPathModifier`)
-  
+
     Request URI path replacement settings.
 
     * `type` (`string`)
-      
+
       Path replacement type:
-  
+
       * `ReplaceFullPath`: Full path replacement. Specify the new path in the `replaceFullPath` field.
       * `ReplacePrefixMatch`: Full path or prefix replacement based on the [`HTTPRoute`](#spec) `spec.rules.matches.path` value: `Exact` or `PathPrefix`, respectively. Specify the new path or its prefix in the `replacePrefixMatch` field.
 
     * `replaceFullPath` (`string`)
-      
+
       New path for the `ReplaceFullPath` replacement type.
 
     * `replacePrefixMatch` (`string`)
-  
+
       New path or its prefix for the `ReplacePrefixMatch` replacement type.
 
   * `port` (`int32`)
-    
+
     New request URI port.
-    
+
   * `statusCode` (`int`)
-  
+
     Redirect HTTP status code.

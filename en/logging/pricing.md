@@ -39,4 +39,4 @@ The monthly prices are based on 720 hours per month.
 {% include [usd-storage.md](../_pricing/logging/usd-storage.md) %}
 
 
-The unused balance of free services is reset at the end of the month.
+Any unused free service balance is reset at the end of each calendar month.

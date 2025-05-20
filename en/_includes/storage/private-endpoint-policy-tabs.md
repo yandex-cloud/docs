@@ -1,3 +1,11 @@
+{% note info %}
+
+At the [access policy](../../storage/concepts/policy.md) level, you can grant access to the bucket from {{ vpc-short-name }} service connections with IDs specified in the policy. However, as the [access flow chart](../../storage/security/overview.md#scheme) shows, the bucket will still be accessible from the public network, e.g., though an object [ACL](../../storage/concepts/acl.md) or under another enabling rule in the policy.
+
+In addition, a bucket configured this way still supports [server-side copy](../../storage/operations/objects/copy.md), both from and to the bucket.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -31,7 +39,7 @@
 
           * In the **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** field, select `private-endpoint-id`.
           * In the **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** field, select `StringEquals`.
-          * In the **{{ ui-key.yacloud.storage.bucket.policy.field_value }}** field, specify the service connection (Private Endpoint) ID, e.g., `enpd7rq1s3f5********`.
+          * In the **{{ ui-key.yacloud.storage.bucket.policy.field_value }}** field, specify the service connection (private endpoint) ID, e.g., `enpd7rq1s3f5********`.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#aws-cli}
@@ -59,7 +67,7 @@
         --policy file://policy.json
       ```
 
-  Once the bucket policy is applied, you can access the bucket only from the {{ vpc-short-name }} cloud network in which you created the relevant service connection (Private Endpoint).
+  Once the bucket policy is applied, you can access the bucket only from the {{ vpc-short-name }} cloud network in which you created the relevant service connection (private endpoint).
 
 {% endlist %}
 

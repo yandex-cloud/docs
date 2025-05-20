@@ -5,6 +5,20 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## April {#april}
+
+### New features {#new-features-apr}
+
+1. You can now resize the columns in the query output section.
+
+1. Added the **Open support chat** item to the **Support center** menu.
+
+### Fixed issues {#fixes-apr}
+
+1. Fixed timestamp operations for all databases: the database time zone is now used.
+
+1. After a query is run, the cursor focuses on the query editor.
+
 ## March {#march}
 
 1. Now you can run subqueries within a [muli-query](../operations/query-executor.md#multiple-queries) in all available database types.
@@ -115,7 +129,7 @@ Fixed the filter workflow on the completed queries page.
 
 #### Fixed issues {#fixes-july}
 
-1. Fixed the error when running all DML queries in a {{ CH }} cluster.
+1. Fixed an error when running all DML queries in a {{ CH }} cluster.
 
 1. Fixed the query editor issue for Safari version 15.
 
@@ -143,7 +157,7 @@ Updated the service favicon ![](../../_assets/websql/favicon.svg).
 
 #### Fixed issues {#fixes-may}
 
-Fixed the error occurring on connection to a database in which no tables or schemas (for {{ PG }}) were created.
+Fixed an error on connection to a database in which no tables or schemas (for {{ PG }}) had been created.
 
 ### April {#april}
 

@@ -10,7 +10,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-1. [Create a Gateway API service account](../../iam/operations/sa/create.md).
+1. [Create a service account](../../iam/operations/sa/create.md) required for Gateway API.
 1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create resources.
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
@@ -70,6 +70,31 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
    If you set `namespace` to the default namespace, Gateway API may work incorrectly. We recommend that you specify a value different from all existing namespaces (e.g., `gateway-api-space`).
 
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+## Application autoupdate {#auto-update}
+
+Gateway API 0.6.0 contains a Gateway API CRD upgrade from version [0.6.2](https://github.com/kubernetes-sigs/gateway-api/releases/tag/v0.6.2) to [1.2.1](https://github.com/kubernetes-sigs/gateway-api/releases/tag/v1.2.1). When upgrading your Gateway API from version 0.5.0 or lower to version 0.6.0, installing from the Helm chart will automatically upgrade Gateway API CRDs and all dependent resources in the {{ managed-k8s-name }} cluster. The upgrade is secure, meaning that none of your {{ alb-name }} resources will be deleted or recreated.
+
+An autoupdate from version 0.5.0 or lower follows this procedure:
+
+1. The cluster is checked for `GRPCRoute` or `ReferenceGrant` user resources. If it does, the update is blocked to avoid conflicts, as the new version CRDs for these resources are incompatible with the previous version. For manual updates, see below.
+1. The Gateway API controller is stopped; the number of replicas is reduced to zero.
+1. The CRDs of the `GRPCRoute` resources are removed; the CRDs of the remaining dependent resources of the new Gateway API version are applied.
+1. The Gateway API controller is started; the number of replicas is back at the original level.
+
+To disable CRD autoupdate, add this Helm chart installation command parameter: `--set crdsAutoUpgrade=false`. In which case your resources will be updated, but you will need to update the Gateway API CRDs manually. For the CRD file, go to the `crds` directory in the Helm chart archive.
+
+{% cut "Upgrading Gateway API manually" %}
+
+1. Create a backup of your Gateway API resources.
+1. Stop the Gateway API controller.
+1. Remove all `GRPCRoute` resources from your cluster.
+1. Apply the new versions of the Gateway API resource CRDs. For the CRD file, go to the `crds` directory in the Helm chart archive.
+1. Start the Gateway API controller.
+1. In your `GRPCRoute` resource specification, replace the `apiVersion` value with `gateway.networking.k8s.io/v1` and apply the specification.
+1. Install the new Helm chart version.
+
+{% endcut %}
 
 ## Use cases {#examples}
 

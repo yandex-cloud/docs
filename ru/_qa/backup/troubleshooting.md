@@ -115,3 +115,7 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 {% include [agent-ram-usage-second-paragraph](../../_includes/backup/operations/agent-ram-usage-second-paragraph.md) %}
 
 {% include [agent-ram-usage-notice](../../_includes/backup/operations/agent-ram-usage-notice.md) %}
+
+#### Как восстановить ВМ или сервер {{ baremetal-name }} с LVM из резервной копии? {#restore-lvm}
+
+{% include [lvm-restoration-notice](../../_includes/backup/lvm-restoration-notice.md) %}

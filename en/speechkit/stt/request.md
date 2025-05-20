@@ -16,7 +16,10 @@ The audio you send must meet the following requirements:
 
 If your file is larger, longer, or has more audio channels, use [asynchronous recognition](transcribation.md).
 
-{% include [audio-formats](../../_includes/speechkit/audio-formats.md) %}
+{{ speechkit-name }} can recognize audio in the following formats:
+
+* LPCM
+* OggOpus
 
 For more information about each format's special features, see [Supported audio formats](../../speechkit/formats.md).
 

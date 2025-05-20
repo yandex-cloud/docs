@@ -84,6 +84,8 @@ items:
             href: operations/backup-vm/batch-delete.md
       - name: Viewing service resource operations
         href: operations/operation-logs.md
+      - name: Limiting RAM usage by the {{ backup-name }} agent
+        href: operations/limit-agent-memory-usage.md
       - name: Viewing backup statistics
         href: operations/get-stats.md
   - name: Tutorials

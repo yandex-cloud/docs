@@ -45,7 +45,7 @@ Below you can see a sample `Gateway` and `HTTPRoute` resource configuration desc
 
 ```yaml
 ---
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: alb-gwapi-gw
@@ -80,7 +80,7 @@ metadata:
     gatewayName: alb-gwapi-gw
 
 ---
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: alb-gwapi-route

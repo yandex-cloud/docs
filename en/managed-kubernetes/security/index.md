@@ -5,22 +5,22 @@ description: Access management in {{ managed-k8s-name }}, a containerized applic
 
 # Access management in {{ managed-k8s-name }}
 
-In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required for managing {{ managed-k8s-name }}](#required-roles).
-* [What roles are required for the {{ managed-k8s-name }} cluster service accounts](#sa-annotation).
+In this section, you will learn about:
+* [Resources supporting role assignment](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required for managing {{ managed-k8s-name }}](#required-roles).
+* [Roles required for the {{ managed-k8s-name }} cluster service accounts](#sa-annotation).
 * [What roles are required to work with {{ managed-k8s-name }} via the {{ yandex-cloud }} management console](#ui-annotation).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -115,8 +115,8 @@ With {{ k8s }} RBAC, you can provide users with granular access to the cluster n
       name: <role_name>
     rules:
     - apiGroups: [""]
-      resources: ["*"]   
-      verbs: ["*"]                   
+      resources: ["*"]
+      verbs: ["*"]
     ```
 
 1. Bind this role to a user account:
@@ -167,13 +167,13 @@ If you use a cloud network from a different folder in a {{ managed-k8s-name }} c
 
 ## Accessing the {{ managed-k8s-name }} management console {#ui-annotation}
 
-To access {{ managed-k8s-name }} via the {{ yandex-cloud }} [management console]({{ link-console-main }}), the minimum required role is `k8s.viewer`.
+`k8s.viewer` is the minimum required role for access to {{ managed-k8s-name }} via the {{ yandex-cloud }} [management console]({{ link-console-main }}). The role provides access only to basic information about [node groups](../operations/node-group/node-group-list.md#get). 
 
-To get detailed information about a {{ managed-k8s-name }} cluster and a node group, you will need the additional `k8s.cluster-api.viewer` role. This role corresponds to the `view` role in {{ k8s }} RBAC and grants access permissions to a limited pool of resources in the {{ k8s }} API, so the console will have a limited set of features.
+The combination of the `k8s.viewer` and `k8s.clusters.agent` roles allows you to view all information about node groups, but not about individual cluster nodes.
 
-Users with the `k8s.cluster-api.cluster-admin` role have full access to the {{ managed-k8s-name }} cluster's {{ k8s }} API and can use all the management console features.
+The combination of the `k8s.cluster-api.cluster-admin`, `k8s.clusters.agent`, and `monitoring.viewer` roles allows you to view detailed information about node groups and individual [cluster nodes](../operations/node-group/node-group-list.md#get-node). All tabs become available for each node in the management console, including the **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}** tab.
 
-To provide more granular access to the necessary resources, you can:
+To provide more granular access to resources, you can:
 * Configure additional permissions in {{ k8s }} RBAC for the appropriate users.
 * Use [role aggregation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) to expand the `view` and `edit` roles in {{ k8s }} RBAC. For example, you can allow all users with the `view` role in the {{ k8s }} API (including users with the `k8s.cluster-api.viewer` cloud role) to view information about nodes by adding the following role to the {{ managed-k8s-name }} cluster:
 

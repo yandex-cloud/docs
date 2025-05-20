@@ -105,6 +105,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+{% note info %}
+
+{% include [lvm-restoration-notice](../../../_includes/backup/lvm-restoration-notice.md) %}
+
+{% endnote %}
+
 После восстановления из резервной копии исходная ВМ (если при восстановлении в консоли управления не была включена опция **{{ ui-key.yacloud.backup.field_delete-old-vm }}**) или исходный сервер {{ baremetal-name }}, из которых была создана копия, станут неактуальными. Чтобы получить возможность вновь создавать резервные копии исходных ВМ или сервера {{ baremetal-name }}, обновите их подключение к {{ backup-name }}. Подробнее см. в инструкциях [{#T}](../refresh-connection.md) и [{#T}](../backup-baremetal/refresh-connection.md).
 
 {% include [non-native-bms-restore-connectivity-loss](../../../_includes/backup/operations/non-native-bms-restore-connectivity-loss.md) %}

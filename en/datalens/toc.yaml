@@ -695,7 +695,7 @@ items:
                 href: charts/editor/widgets/index.md
               - name: Table
                 href: charts/editor/widgets/table.md
-              - name: Chart (Gravity UI Charts)
+              - name: Chart (Gravity Charts)
                 href: charts/editor/widgets/chart.md
               - name: Markdown
                 href: charts/editor/widgets/markdown.md
@@ -867,7 +867,7 @@ items:
     items:
       - name: UI customization
         href: settings/ui-customization.md
-      - name: Disabling folder navigation
+      - name: Disabling navigation through directories
         href: settings/disable-folder-navigation.md
   - name: Marketplace
     items:
@@ -887,8 +887,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: March 2025
+      - name: April 2025
         href: release-notes/index.md
+      - name: March 2025
+        href: release-notes/2503.md
       - name: February 2025
         href: release-notes/2502.md
       - name: January 2025
@@ -897,10 +899,10 @@ items:
         href: release-notes/2412.md
       - name: November 2024
         href: release-notes/2411.md
-      - name: October 2024
-        href: release-notes/2410.md
       - name: Archive
         items:
+          - name: October 2024
+            href: release-notes/2410.md
           - name: September 2024
             href: release-notes/2409.md
           - name: August 2024

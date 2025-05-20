@@ -87,6 +87,12 @@ description: Следуя данной инструкции, вы сможете
 
 Также чтобы подключить существующую ВМ к {{ backup-name }}, вы можете [сделать](../../compute/operations/disk-control/create-snapshot.md) снимки дисков этой ВМ и [создать](../../compute/operations/vm-create/create-from-snapshots.md) новую ВМ из этих снимков, выбрав опцию резервного копирования.
 
+{% note info %}
+
+{% include [lvm-restoration-notice](../../_includes/backup/lvm-restoration-notice.md) %}
+
+{% endnote %}
+
 #### См. также {#see-also}
 
 * [{#T}](create-vm.md)

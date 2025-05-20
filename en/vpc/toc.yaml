@@ -80,6 +80,10 @@ items:
               Assigning an access policy in Object Storage for a service
               connection
             href: operations/private-endpoint-storage-policy.md
+          - name: >-
+              Configuring an Object Storage restriction for access only from
+              service connections
+            href: operations/private-endpoint-storage-restriction.md
           - name: Deleting a service connection
             href: operations/private-endpoint-delete.md
       - name: Security groups
@@ -414,7 +418,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST
         items:

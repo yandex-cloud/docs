@@ -47,3 +47,9 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 Подробнее об аренде сервера см. в [документации {{ baremetal-name }}](../../../baremetal/operations/servers/server-lease.md).
+
+{% note info %}
+
+{% include [lvm-restoration-notice](../../../_includes/backup/lvm-restoration-notice.md) %}
+
+{% endnote %}

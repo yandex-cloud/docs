@@ -16,6 +16,12 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создание ВМ {#creating-vm}
 
+{% note info %}
+
+{% include [lvm-restoration-notice](../../_includes/backup/lvm-restoration-notice.md) %}
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

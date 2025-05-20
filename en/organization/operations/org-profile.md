@@ -15,13 +15,13 @@ To edit your organization data:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) with an administrator or organization owner account.
 
-      The {{ cloud-center }} home page that opens displays the basic information about your organization.
+      On the {{ cloud-center }} home page that opens, you can view general info about your organization.
 
-      If you have more than one organization, you can [switch](./manage-organizations.md#switch-to-another-org) to the one you need. To do this, in the top-left corner, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization and select another one. This will switch you to a different organization.
+      {% include [switch-org-note](../../_includes/organization/switch-org-note.md) %}
 
   1. Click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.dashboard.organization.action.edit-button }}** in the organization name section at the center of the screen to edit the name and description of the current organization.
 
