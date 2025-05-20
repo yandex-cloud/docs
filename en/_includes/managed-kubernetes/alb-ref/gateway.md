@@ -8,12 +8,12 @@ The `Gateway` resource defines rules for accepting and routing incoming traffic.
 
 The `Gateway` resource is designed for cluster operators. Application developers should use `TLSRoute` or `HTTPRoute` resources.
 
-`Gateway` is a [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/) resource. Below, we describe its fields and annotations used by {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
+`Gateway` is a [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/) resource. Below, we describe its fields and annotations used by {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
 
 ## Gateway {#gateway}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: <string>
@@ -25,21 +25,21 @@ spec: <GatewaySpec>
 
 Where:
 
-* `apiVersion`: `gateway.networking.k8s.io/v1alpha2`
+* `apiVersion`: `gateway.networking.k8s.io/v1`
 * `kind`: `Gateway`
 * `metadata`: `ObjectMeta`. This is a required field.
   
   Resource metadata.
 
-  * `name`: `string`. This is a required field.
-    
-    Resource name. For more information about the name format, see the relevant [{{ k8s }} guides](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+  * `name` (`string`, required):
+
+    Resource name. For more information about the group name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Do not mistake this name for the {{ alb-name }} load balancer name.
   
   * `namespace` (`string`)
   
-    Resource [namespace](../../../managed-kubernetes/concepts/index.md#namespace). The default namespace is `default`.
+    Resource [namespace](../../../managed-kubernetes/concepts/index.md#namespace). The default value is `default`.
    
   * `annotations` (`map[string]string`, required)
     
@@ -47,7 +47,7 @@ Where:
 
     * `gateway.alb.yc.io/security-groups` (`string`, required)
 
-      Comma separated list of load balancer’s {{ vpc-name }} [security group](../../../vpc/concepts/security-groups.md) IDs, e.g.:
+      Load balancer {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md). This is a comma separated list of group IDs, e.g.:
     
       ```
       gateway.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
@@ -116,7 +116,7 @@ Where:
   
     For example, `example`, `example.com`, and `foo.example.com` are valid internal names, while `example.com/bar` and `-example.` are not.
     
-    The internal name can be up to 63 characters long.
+    The name can be up to 63 characters long.
     
   * `hostname` (`string`)
 
@@ -215,7 +215,7 @@ Where:
 
   * `type`: `IPAddress`
   * `value` (`string`)
-  
+
     {{ vpc-full-name }} Load balancer public IP address.
   
     To use a public IP address, first, you need to reserve it by following [this guide](../../../vpc/operations/get-static-ip.md).

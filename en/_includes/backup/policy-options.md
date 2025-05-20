@@ -8,7 +8,7 @@
 
 * Under **{{ ui-key.yacloud.backup.policy-form.title_schedule-section }}**, specify:
   * **{{ ui-key.yacloud.backup.policy-form.field_backup-periodicity }}**: Select the backup frequency:
-      *  `{{ ui-key.yacloud.backup.policy-form.value_periodicity-daily }}`. Either once a day at a specified time or several times a day at a particular interval within the specified time period.
+      * `{{ ui-key.yacloud.backup.policy-form.value_periodicity-daily }}`. Either once a day at a specified time or several times a day at a particular interval within the specified time period.
       * `{{ ui-key.yacloud.backup.policy-form.value_periodicity-weekly }}`. Select days of the week and time for backups on those days.
       * `{{ ui-key.yacloud.backup.policy-form.value_periodicity-monthly }}`. Specify the months, day of the month, and time for backups.
 

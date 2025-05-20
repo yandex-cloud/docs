@@ -18,6 +18,8 @@ items:
         href: operations/cluster-stop.md
       - name: Подключение к кластеру
         href: operations/connect.md
+      - name: Просмотр логов кластера
+        href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Концепции

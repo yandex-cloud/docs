@@ -5,6 +5,8 @@ description: Follow this guide to delete an object from a bucket in {{ objstorag
 
 # Deleting an object
 
+{% include [restore-only-versioning](../../../_includes/storage/restore-only-versioning.md) %}
+
 ## Deleting an object or object version without a lock {#wo-object-lock}
 
 Any object or object version without a [lock](../../concepts/object-lock.md) (with no locks enabled in the bucket) can be deleted without further confirmation.
@@ -32,7 +34,7 @@ To delete an object:
 
      {% note info %}
 
-     You can delete a folder with objects. This is an asynchronous operation, so the objects will not disappear from the bucket right away but will be deleted gradually. Meanwhile, you can continue working in the management console, even uploading new objects to the folder being deleted. You can learn more [here](../../concepts/object.md#folder).
+     You can delete a directory with objects. This is an asynchronous operation, so the objects will not disappear from the bucket right away but will be deleted gradually. Meanwhile, you can continue with other operations in the management console, including uploading new objects to the directory which is being deleted. You can learn more [here](../../concepts/object.md#folder).
 
      {% endnote %}
 
@@ -87,6 +89,19 @@ To delete an object:
 
       ```bash
       request_id: 0311ec7********
+      ```
+
+      Alternative command:
+
+      ```bash
+      yc storage s3 rm \
+        s3://<bucket_name>/<object_key>
+      ```
+
+      Result:
+
+      ```text
+      delete: s3://my-bucket/object.txt
       ```
 
 - AWS CLI {#aws-cli}
@@ -168,7 +183,7 @@ To delete an object:
       * `--bucket`: Bucket name.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
 
-      Here is an example of the command that deletes all objects located in the `screenshots` folder and having filenames starting with `20231002` from `sample-bucket`:
+      Here is an example of the command that deletes all objects with filenames starting with `20231002` from `sample-bucket` from in the `screenshots` directory:
 
       ```bash
       aws s3api list-objects \
@@ -184,7 +199,7 @@ To delete an object:
       Foreach($x in (aws s3api list-objects `
         --endpoint-url https://{{ s3-storage-host }} `
         --bucket <bucket_name> `
-        --query '<query>' `
+        --query '<request>' `
         --output text)) `
         {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <bucket_name> --key $x}
       ```
@@ -193,7 +208,7 @@ To delete an object:
       * `--bucket`: Bucket name.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
 
-      Here is an example of the command that deletes all objects located in the `screenshots` folder and having filenames starting with `20231002` from `sample-bucket`:
+      Here is an example of the command that deletes all objects with filenames starting with `20231002` from `sample-bucket` from in the `screenshots` directory:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
@@ -233,7 +248,7 @@ To delete an object:
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
      ```bash
@@ -252,8 +267,8 @@ To delete an object:
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Apply the changes:
 
      ```bash
      terraform apply
@@ -310,12 +325,12 @@ To check for a lock and delete the object version where possible:
 
      If there is a lock for the version, you will see the following:
 
-     ```text     
+     ```text
      object_lock_mode: GOVERNANCE
      object_lock_retain_until_date: "2024-10-11T10:23:12Z"
      ```
 
-     Alternatively, you may see the following line:
+     Or:
 
      ```text
      object_lock_legal_hold_status: ON
@@ -365,7 +380,7 @@ To check for a lock and delete the object version where possible:
       * `--bucket`: Name of your bucket.
       * `--key`: Object [key](../../concepts/object.md#key).
       * `--version-id`: Object version ID.
-      * `--bypass-governance-retention`: Flag to enable bypassing the lock.
+      * `--bypass-governance-retention`: Lock bypass flag.
 
       Result:
 
@@ -407,7 +422,7 @@ To check for a lock and delete the object version where possible:
 
      Where:
      * `ObjectLockMode`: [Type](../../concepts/object-lock.md#types) of retention:
-       * `GOVERNANCE`: Governance-mode retention. To delete the object version, you need the `storage.admin` role.
+       * `GOVERNANCE`: Temporary managed lock. To delete the object version, you need the `storage.admin` role.
        * `COMPLIANCE`: Compliance-mode retention. You cannot delete the object version.
 
      * `ObjectLockRetainUntilDate`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`.
@@ -433,7 +448,7 @@ To check for a lock and delete the object version where possible:
      * `--bucket`: Name of your bucket.
      * `--key`: Object [key](../../concepts/object.md#key).
      * `--version-id`: Object version ID.
-     * `--bypass-governance-retention`: Flag to enable bypassing the lock.
+     * `--bypass-governance-retention`: Lock bypass flag.
 
 - API {#api}
 

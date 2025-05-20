@@ -299,6 +299,12 @@
 
 ## Запустите создание резервной копии {#execute-policy}
 
+{% note info %}
+
+{% include [lvm-restoration-notice](../../_includes/backup/lvm-restoration-notice.md) %}
+
+{% endnote %}
+
 Чтобы запустить создание резервной копии сервера {{ baremetal-name }} вне расписания политики резервного копирования:
 
 {% list tabs group=instructions %}

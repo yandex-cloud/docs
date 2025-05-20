@@ -12,6 +12,7 @@ description: Follow this guide to set up access to a bucket using a service conn
 To enable access to a bucket using a service connection from {{ vpc-short-name }}:
 1. [Create a {{ vpc-short-name }} service connection](#create-endpoint).
 1. [Configure a bucket policy](#setup-policy).
+1. [Configure a restriction for access only from service connections](#setup-service-restriction).
 
 ## Create a {{ vpc-short-name }} service connection {#create-endpoint}
 
@@ -31,9 +32,15 @@ Save the service connection ID.
 
 ## Configure a bucket policy {#setup-policy}
 
-To restrict access to a bucket to _{{ vpc-short-name }} internal IP addresses_, configure a bucket policy for the service connection.
+To allow access to a bucket only by {{ vpc-short-name }} internal IP addresses, configure a bucket policy for the service connection.
 
 {% include [private-endpoint-policy-tabs](../../../_includes/storage/private-endpoint-policy-tabs.md) %}
+
+## Configure a restriction for access only from service connections {#setup-service-restriction}
+
+{% include [private-endpoint-storage-restriction](../../../_includes/storage/private-endpoint-storage-restriction.md) %}
+
+{% include [private-endpoint-ssc](../../../_includes/storage/private-endpoint-ssc.md) %}
 
 #### See also {#see-also}
 
@@ -41,3 +48,4 @@ To restrict access to a bucket to _{{ vpc-short-name }} internal IP addresses_, 
 * [Managing {{ vpc-short-name }} service connections](../../../vpc/operations/index.md#private-endpoint)
 * [Bucket policy](../../../storage/concepts/policy.md)
 * [Connecting to {{ objstorage-name }} from {{ vpc-name }}](../../../storage/tutorials/storage-vpc-access.md)
+* [{#T}](../../security/overview.md)

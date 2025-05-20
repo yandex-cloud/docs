@@ -39,6 +39,8 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+{% include [vat.md](../_includes/vat.md) %}
+
 ### Количество строк, перенесенных трансфером {#data}
 
 

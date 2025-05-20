@@ -80,6 +80,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+{% note info %}
+
+{% include [lvm-restoration-notice](../../../_includes/backup/lvm-restoration-notice.md) %}
+
+{% endnote %}
+
 #### См. также {#see-also}
 
 * [{#T}](non-native-recovery.md)

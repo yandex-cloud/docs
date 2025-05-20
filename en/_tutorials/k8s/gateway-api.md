@@ -5,7 +5,7 @@
 In this tutorial, you will learn how to set up access to the applications deployed in two test environments, `dev` and `prod`, using [{{ alb-full-name }}](../../application-load-balancer/) via Gateway API. For this you will need to create a [public domain zone](../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../dns).
 
 To integrate Gateway API and {{ alb-name }}:
-1. [Create the {{ managed-k8s-name }} resources](#k8s-create).
+1. [Create {{ managed-k8s-name }} resources](#k8s-create).
 1. [Install Gateway API and set up the domain zones](#install-gateway-api).
 1. [Prepare test applications](#prepare-apps).
 1. [Create test applications](#install-apps).
@@ -19,8 +19,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
@@ -33,7 +33,7 @@ The support cost includes:
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 
-## Create the {{ managed-k8s-name }} resources {#k8s-create}
+## Create {{ managed-k8s-name }} resources {#k8s-create}
 
 1. Create a {{ k8s }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group).
 
@@ -70,7 +70,7 @@ The support cost includes:
         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
         * {{ k8s }} version for the {{ k8s }} cluster and node groups.
         * {{ k8s }} cluster CIDR.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -87,7 +87,7 @@ The support cost includes:
 
 1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. [Create a service account](../../iam/operations/sa/create.md) required for Gateway API:
+1. [Create a service account](../../iam/operations/sa/create.md) required for Gateway API.
 1. [Assign the following roles to it](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `certificate-manager.admin`: To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
@@ -212,7 +212,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: Gateway
    metadata:
      name: gateway-api-dev
@@ -267,7 +267,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: HTTPRoute
    metadata:
      name: dev-app-http-route
@@ -348,7 +348,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: Gateway
    metadata:
      name: gateway-api-prod
@@ -403,7 +403,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: HTTPRoute
    metadata:
      name: prod-app-http-route
@@ -489,7 +489,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
    kubectl apply -f dev-route.yaml
    ```
 
-1. Make sure the app [pods](../../managed-kubernetes/concepts/index.md#pod) have entered the `Running` state:
+1. Make sure the app [pods](../../managed-kubernetes/concepts/index.md#pod) switched the state to `Running`:
 
    ```bash
    kubectl get pods --namespace dev-app && \

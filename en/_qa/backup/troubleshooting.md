@@ -107,3 +107,11 @@ To update Linux kernel header versions, follow these tutorials: [Restoring the {
 #### Creating incremental backups of a VM or {{ baremetal-name }} server is taking longer than usual {#av-interaction}
 
 Antivirus activity may affect the time required to create [incremental backups](../../backup/concepts/backup.md#types) under a policy with the fast backup [option](../../backup/concepts/policy.md#specification) enabled (`fastBackupEnabled`). For more information, see [{#T}](../../backup/concepts/av-interaction.md).
+
+#### In Linux, Out-Of-Memory Killer (OOM Killer) kills the {{ backup-name }} agent process {#oom-solution}
+
+{% include [agent-ram-usage-paragraph](../../_includes/backup/operations/agent-ram-usage-paragraph.md) %}
+
+{% include [agent-ram-usage-second-paragraph](../../_includes/backup/operations/agent-ram-usage-second-paragraph.md) %}
+
+{% include [agent-ram-usage-notice](../../_includes/backup/operations/agent-ram-usage-notice.md) %}

@@ -9,6 +9,8 @@ description: Videos of conferences and webinars dedicated to {{ foundation-model
 
 ### 2025 {#2025}
 
+* Creating a Telegram bot based on LLM with RAG and Function Calling. [Click here to view the video](https://www.youtube.com/live/gQEpthYWN38).
+
 * How to fine-tune LLMs using LoRA. [Click here to view the video](https://www.youtube.com/watch?v=PVeuQu1j6Y4).
 
 * Deep-dive for developers: creating AI assistants. [Click here to view the video](https://www.youtube.com/watch?v=Xjutc_T0p8s).
@@ -32,6 +34,10 @@ description: Videos of conferences and webinars dedicated to {{ foundation-model
 * Machine learning trends. [Click here to view the video](https://www.youtube.com/watch?v=1fRV83AIq1s).
 
 ## Articles {#articles}
+
+### 2025 {#2025-articles}
+
+* Meet {{ yagpt-name }} 5 in Alice, cloud, and open source. [Read our article](https://habr.com/ru/companies/yandex/articles/885218/)
 
 ### 2024 {#2024-articles}
 

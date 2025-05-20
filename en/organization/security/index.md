@@ -8,7 +8,7 @@ If a resource has child resources, all permissions from the parent resource will
 
 For more information on access management in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/index.md).
 
-## Resources supporing role assignment {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -16,7 +16,7 @@ You can assign a role for individual resources within the service using the [{{ 
 
 {% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
 
-## Available service roles {#roles-list}
+## Roles this service has {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -161,11 +161,11 @@ For information about roles available in {{ yandex-cloud }} and their associated
        terraform plan
        ```
 
-      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will point them out. 
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. {{ TF }} will show any errors found in the configuration. 
  
   1. Assign roles.
   
-     If the configuration does not contain any errors, run this command:
+     If the configuration has no errors, run this command:
 
        ```
        terraform apply
@@ -360,3 +360,8 @@ In {{ org-full-name }}, you can assign a group a role for an organization, cloud
 #### Assigning a role for an organization {#access-binding-organization}
 
 {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
+
+
+## What roles are assigned in an organization {#list-access-bingings}
+
+{% include [org-list-access-bingings](../../_includes/organization/org-list-access-bingings.md) %}

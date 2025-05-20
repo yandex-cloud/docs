@@ -15,3 +15,5 @@
 * [Создание инкрементальных резервных копий занимает больше времени, чем обычно](#av-interaction)
 
 * [Out-Of-Memory Killer (OOM Killer) в Linux завершает процесс агента {{ backup-name }}](#oom-solution)
+
+* [Как восстановить ВМ или сервер {{ baremetal-name }} с LVM из резервной копии?](#restore-lvm)
