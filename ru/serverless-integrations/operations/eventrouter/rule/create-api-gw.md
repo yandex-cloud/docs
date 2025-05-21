@@ -71,7 +71,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--gateway-websocket-broadcast-target` — флаг для настройки приемника с типом `{{ api-gw-full-name }}` и его параметры:
+      * `--gateway-websocket-broadcast-target` — параметр для настройки приемника с типом `{{ api-gw-full-name }}` и его свойства:
 
           * `gateway-id` — идентификатор [API-шлюза](../../../../api-gateway/concepts/index.md). Сообщения, соответствующие правилу, будут отправляться в [WebSocket-соединения](../../../../api-gateway/concepts/index.md#websocket), подключенные к указанному API-шлюзу.
           * `path` — путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.

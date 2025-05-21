@@ -7,6 +7,20 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
+### April {#april25}
+
+#### New features {#new-features-april25}
+
+
+* Now creating a new [{{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) cluster automatically creates connections in [{{ connection-manager-name }}](../concepts/connection-manager.md). Migration is available for old clusters.
+
+
+#### Fixed issues {#problems-solved-april25}
+
+* Fixed the {{ schema-registry-name }} configuration to eliminate the `too many active clients for user` error.
+* Fixed subject and schema deletion in {{ schema-registry-name }}.
+
+
 ### March {#march25}
 
 #### New features {#new-features-march25}

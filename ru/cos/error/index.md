@@ -93,7 +93,7 @@ Oct 23 19:43:36 instance-name yc-container-daemon[781]: {"level":"ERROR","ts":"2
 Sep 29 08:10:10 instance-name yc-container-daemon[743]: {"level":"ERROR","ts":"2024-09-29T08:10:10.133Z","caller":"mdtracking/checker.go:135","msg":"OnChange callback failed: device /dev/disk/by-id/virtio-coi-data access error: stat /dev/disk/by-id/virtio-coi-data: no such file or directory"}
 ```
 
-**Как исправить**: задайте параметр `device-name`, равный значению `device_name` в [спецификации Docker Compose](../concepts/coi-specifications.md#compose-spec-example). Параметр `device-name` можно задать в флагах и командах CLI по добавлению дисков на ВМ или в консоли управления при [подключении](../../compute/operations/vm-control/vm-attach-disk#attach) диска к ВМ. В примере логов выше `device-name` будет `coi-data`.
+**Как исправить**: задайте параметр `device-name`, равный значению `device_name` в [спецификации Docker Compose](../concepts/coi-specifications.md#compose-spec-example). Параметр `device-name` можно задать в параметрах и командах CLI по добавлению дисков на ВМ или в консоли управления при [подключении](../../compute/operations/vm-control/vm-attach-disk#attach) диска к ВМ. В примере логов выше `device-name` будет `coi-data`.
 
 ## Платформа запрошенного образа не соответствует платформе хоста {#platforms-not-match}
 

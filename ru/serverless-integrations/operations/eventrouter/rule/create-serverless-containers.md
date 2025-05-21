@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--container` — флаг для настройки приемника с типом `{{ serverless-containers-full-name }}` и его параметры:
+      * `--container` — параметр для настройки приемника с типом `{{ serverless-containers-full-name }}` и его свойства:
 
           * `container-id` — идентификатор [контейнера](../../../../serverless-containers/concepts/container.md), в который будут отправляться сообщения, соответствующие правилу.
           * `container-revision-id` — идентификатор [ревизии контейнера](../../../../serverless-containers/concepts/container.md#revision).

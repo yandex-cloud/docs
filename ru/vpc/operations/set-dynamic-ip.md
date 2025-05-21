@@ -42,7 +42,7 @@
 
       Значение `true` параметра RESERVED для IP-адреса с ID `e2l46k8conff********` показывает, что этот адрес статический.
 
-   1. Сделайте адрес динамическим, используя ключ `--reserved=false` и ID адреса:
+   1. Сделайте адрес динамическим, используя параметр `--reserved=false` и ID адреса:
 
       ```bash
       yc vpc address update --reserved=false e2l46k8conff********

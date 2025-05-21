@@ -1,6 +1,6 @@
 ---
 title: '{{ yandex-cloud }} support chat in Telegram'
-description: In this tutorial, you will set up a {{ yandex-cloud }} support chat in Telegram.
+description: This tutorial will help you to set up a {{ yandex-cloud }} support chat in Telegram.
 ---
 
 # {{ yandex-cloud }} support chat in Telegram

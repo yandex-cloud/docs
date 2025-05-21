@@ -51,7 +51,6 @@ Syntax:
 |`--log-retention-minutes`|<b>`int`</b><br/>Allows to set Kafka cluster configuration property "log.retention.minutes". The number of minutes to keep a log file before deleting it.|
 |`--log-retention-ms`|<b>`int`</b><br/>Allows to set Kafka cluster configuration property "log.retention.ms". The number of milliseconds to keep a log file before deleting it.|
 |`--log-segment-bytes`|<b>`int`</b><br/>Allows to set Kafka cluster configuration property "log.segment.bytes". The maximum size of a single log file.|
-|`--log-preallocate`|Allows to set Kafka cluster configuration property "log.preallocate". Should pre allocate file when create new segment?|
 |`--auto-create-topics-enable`|Allows to set Kafka cluster configuration property "auto.create.topics.enable". Enable auto creation of topic on the server.|
 |`--num-partitions`|<b>`int`</b><br/>Allows to set Kafka cluster configuration property "num.partitions". Default number of partitions per topic on the whole cluster.|
 |`--default-replication-factor`|<b>`int`</b><br/>Allows to set Kafka cluster configuration property "default.replication.factor". Default replication factor of the topic on the whole cluster.|

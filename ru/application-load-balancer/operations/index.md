@@ -44,6 +44,11 @@ description: Пошаговые инструкции по работе с {{ alb
 * [{#T}](application-load-balancer-relocate.md)
 * [{#T}](application-load-balancer-delete.md)
 
+### Управление зоной доступности {#manage-zone}
+
+* [{#T}](manage-zone/allow-and-deny-shift.md)
+* [{#T}](manage-zone/start-and-cancel-shift.md)
+
 ## Инструменты для {{ managed-k8s-name }} {#k8s-ingress-controller}
 
 * [{#T}](k8s-ingress-controller-install.md)

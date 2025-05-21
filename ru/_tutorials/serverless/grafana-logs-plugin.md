@@ -455,7 +455,7 @@
 
    {% note info %}
 
-   Флаги `--group-name` и `--message` можно опустить и указать только значения параметров. Например: `grafana-plugin "My message"`.
+   Параметры `--group-name` и `--message` можно опустить и указать только значения параметров. Например: `grafana-plugin "My message"`.
 
    {% endnote %}
 

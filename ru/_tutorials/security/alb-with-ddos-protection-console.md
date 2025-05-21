@@ -65,7 +65,7 @@
 
      Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте [подсети](../../vpc/concepts/network.md#subnet) в каждой [зоне доступности](../../overview/concepts/geo-scope.md), указав идентификатор облачной сети с помощью флага `--network-name`:
+  1. Создайте [подсети](../../vpc/concepts/network.md#subnet) в каждой [зоне доступности](../../overview/concepts/geo-scope.md), указав идентификатор облачной сети с помощью параметра `--network-name`:
 
      ```bash
      yc vpc subnet create \

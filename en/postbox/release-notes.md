@@ -5,6 +5,13 @@ description: This section contains {{ postbox-name }} release notes.
 
 # {{ postbox-full-name }} release notes
 
+## March 2025 {#march-2025}
+
+### Updates {#updates}
+
+* Added support for SMTPS: users whose email client does not support STARTTLS can now send emails using {{ postbox-full-name }}.
+* Added support for [email templating](operations/send-templated-email.md).
+
 ## January 2025 {#january-2025}
 
 ### Updates {#updates}

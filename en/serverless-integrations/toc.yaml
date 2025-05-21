@@ -234,6 +234,8 @@ items:
                     href: concepts/workflows/yawl/integration/workflow.md
                   - name: Disk
                     href: concepts/workflows/yawl/integration/disk.md
+                  - name: AIAgent
+                    href: concepts/workflows/yawl/integration/aiagent.md
               - name: Control steps
                 items:
                   - name: Switch

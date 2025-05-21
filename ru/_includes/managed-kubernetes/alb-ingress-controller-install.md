@@ -90,8 +90,8 @@
 
 ## Примеры использования {#examples}
 
-* [Практическое руководство по настройке Ingress-контроллера {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
-* [Практическое руководство по настройке логирования для Ingress-контроллеров {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
+* [Настройка Ingress-контроллера {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+* [Настройка логирования для Ingress-контроллеров {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
 ## См. также {#see-also}
 

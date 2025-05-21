@@ -378,7 +378,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -478,6 +478,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: April 2025
+        href: release-notes/2504.md
       - name: March 2025
         href: release-notes/2503.md
       - name: February 2025

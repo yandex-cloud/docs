@@ -148,7 +148,7 @@ description: Следуя данной инструкции, вы сможете
        --origin-protocol <протокол_для_источников>
      ```
 
-     * Вместо группы источников `--origin-group-id` можно указать доменное имя [источника](../../concepts/origins.md), используя флаг `--origin-custom-source`.
+     * Вместо группы источников `--origin-group-id` можно указать доменное имя [источника](../../concepts/origins.md), используя параметр `--origin-custom-source`.
      * Для `--origin-protocol` доступны значения `HTTP`, `HTTPS` и `MATCH` (как у клиента).
 
      {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}

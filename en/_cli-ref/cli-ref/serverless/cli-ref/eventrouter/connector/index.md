@@ -28,6 +28,7 @@ Syntax:
 - [yc serverless eventrouter connector create](create/index.md) — Create connector
 	- [yc serverless eventrouter connector create data-stream](create/data-stream.md) — Create a data stream connector
 	- [yc serverless eventrouter connector create message-queue](create/message-queue.md) — Create a message queue connector
+	- [yc serverless eventrouter connector create timer](create/timer.md) — Create a timer connector
 
 #### Global Flags
 
