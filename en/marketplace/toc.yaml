@@ -280,21 +280,19 @@ items:
                 href: tutorials/fluent-bit-logging.md
               - name: Setting up Gateway API
                 href: tutorials/gateway-api.md
-              - name: >-
-                  Configuring an {{ alb-name }} L7 load balancer using an
-                  Ingress controller
+              - name: Configuring an L7 {{ alb-name }} via an ingress controller
                 href: tutorials/alb-ingress-controller.md
               - name: >-
-                  Configuring logging for an {{ alb-name }} L7 load balancer
-                  using an Ingress controller
+                  Configuring an L7 {{ alb-name }} logging via an ingress
+                  controller
                 href: tutorials/alb-ingress-controller-log-options.md
               - name: >-
                   Creating an L7 load balancer with a {{ sws-name }} security
                   profile through an {{ alb-name }} Ingress controller
                 href: tutorials/alb-ingress-with-sws-profile.md
               - name: >-
-                  Health checking your apps in a {{ managed-k8s-name }} cluster
-                  using an {{ alb-name }} L7 load balancer
+                  Performing health checks on {{ managed-k8s-name }} cluster
+                  applications via an L7 {{ alb-name }}
                 href: tutorials/custom-health-checks.md
               - name: Using Jaeger to trace requests in {{ ydb-name }}
                 href: tutorials/jaeger-over-ydb.md
@@ -302,7 +300,7 @@ items:
                 href: tutorials/kyverno.md
               - name: Using {{ MP }} to stream metrics
                 href: tutorials/metrics-provider.md
-              - name: Editing website images using Thumbor
+              - name: Editing website images with Thumbor
                 href: tutorials/thumbor.md
               - name: Using Istio
                 href: tutorials/istio.md

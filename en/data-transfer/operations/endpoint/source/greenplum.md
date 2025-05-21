@@ -92,7 +92,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
       If a table is partitioned, to exclude it from the list, make sure to list all of its partitions.
 
-      The lists include the name of the [schema]({{gp.docs.vmware}}/7/greenplum-database/admin_guide-ddl-ddl-schema.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
+      The lists include the name of the [schema]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-ddl-ddl-schema.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
       * `<schema_name>.<table_name>`: Full table name.
       * `<schema_name>.*`: All tables in the specified schema.
@@ -112,17 +112,17 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {{ data-transfer-name }} supports {{ GP }} version 6 only. {{ GP }} versions 4 and 5 are not supported.
 
-The service performs operations with a {{ GP }} cluster in transactions with the `READ COMMITTED` [level of isolation]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-SET_TRANSACTION.html).
+The service performs operations with a {{ GP }} cluster in transactions with the `READ COMMITTED` [level of isolation]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-SET_TRANSACTION.html).
 
 {{ data-transfer-name }} supports operation with [parallel copy](../../../concepts/sharded.md) enabled for a {{ GP }} source.
 
 During operation with parallel copy enabled, {{ data-transfer-name }} maintains an open transaction on the {{ GP }} master host. If this transaction is interrupted, a transfer will return an error.
 
-With parallel copy disabled, a transfer will move data from these {{ GP }} objects: `TABLE`, `VIEW`, `FOREIGN TABLE`, and `EXTERNAL TABLE`. Data from these objects will be treated as data from ordinary tables and processed by the target accordingly. With parallel copy enabled, a transfer will only move tables (`TABLE` objects). However, tables with the `DISTRIBUTED REPLICATED` [allocation policy]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) will not be transferred.
+With parallel copy disabled, a transfer will move data from these {{ GP }} objects: `TABLE`, `VIEW`, `FOREIGN TABLE`, and `EXTERNAL TABLE`. Data from these objects will be treated as data from ordinary tables and processed by the target accordingly. With parallel copy enabled, a transfer will only move tables (`TABLE` objects). However, tables with the `DISTRIBUTED REPLICATED` [allocation policy]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) will not be transferred.
 
 ### Snapshot consistency {#snapshot-consistency}
 
-When you start a transfer with parallel copy off (default), the service interacts only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md) when copying data. The tables being copied are accessed in `ACCESS SHARE` [lock mode]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
+When you start a transfer with parallel copy off (default), the service interacts only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md) when copying data. The tables being copied are accessed in `ACCESS SHARE` [lock mode]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
 
 When you start a transfer with parallel copy on, the service interacts with both the master host and the {{ GP }} cluster's [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode. The tables being copied are accessed in `ACCESS SHARE` or `SHARE` lock mode, depending on the snapshot consistency setting.
 

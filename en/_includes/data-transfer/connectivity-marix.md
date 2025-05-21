@@ -23,13 +23,17 @@ Possible source and target combinations:
 
 
 
+
 C: [Copy](../../data-transfer/concepts/transfer-lifecycle.md#copy)
 R: [Replicate](../../data-transfer/concepts/transfer-lifecycle.md#replication)
 CR: [Copy and replicate](../../data-transfer/concepts/transfer-lifecycle.md#copy-and-replication)
+"—": Transfer not implemented
+
 
 
 ![GA](../../_assets/console-icons/credit-card.svg): Transfer is at the [GA](../../overview/concepts/launch-stages.md) stage and charged as per the relevant [pricing policy](../../data-transfer/pricing.md).
 The remaining transfers are at the [Preview](../../overview/concepts/launch-stages.md) stage; you can activate them through a request to our [technical support]({{ link-console-support }}) or your account manager.
+
 
 
 #### {{ AB }} endpoints {#airbyte}

@@ -136,8 +136,8 @@ Going forward, you will also be able to request quota updates via the CLI and AP
   **Configure operations via the API**
 
   1. To check that you can work with quotas via the API, install these utilities:
-     * [cURL](https://curl.haxx.se) if using the [REST API](../../../workload/api-ref/)
-     * [gRPCurl](https://github.com/fullstorydev/grpcurl) if using the [gRPC API](../../../workload/api-ref/grpc/)
+     * [cURL](https://curl.haxx.se) if using the [REST API](api-ref/)
+     * [gRPCurl](https://github.com/fullstorydev/grpcurl) if using the [gRPC API](api-ref/grpc/)
   
   1. [Create a service account](../iam/operations/sa/create.md) with the `quota-manager.viewer` [role](../iam/operations/roles/grant.md).
   

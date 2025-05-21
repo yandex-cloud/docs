@@ -65,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--logging-target` — флаг для настройки приемника с типом `{{ cloud-logging-full-name }}` и его параметры:
+      * `--logging-target` — параметр для настройки приемника с типом `{{ cloud-logging-full-name }}` и его свойства:
 
           * `log-group-id` — идентификатор [лог-группы](../../../../logging/concepts/log-group.md), в которую будут отправляться сообщения, соответствующие правилу.
 

@@ -5,6 +5,12 @@ description: This section contains {{ api-gw-name }} release notes.
 
 # {{ api-gw-full-name }} release notes
 
+## March 2025 {#march-2025}
+
+### Updates {#updates}
+
+* Added the request execution timeout setting.
+
 ## February 2025 {#february-2025}
 
 ### Fixes and improvements {#fixes-improvements}
@@ -70,7 +76,7 @@ description: This section contains {{ api-gw-name }} release notes.
 
 * Updates to the [x-yc-apigateway-authorizer:jwt](concepts/extensions/jwt-authorizer.md) extension:
     * Added an alternative name for the `scopes` parameter: `scp`.
-    * Added an option to select the array data type for one of the `scopes`/`scp` objects.
+    * Added the option to select the array data type for one of the `scopes`/`scp` objects.
 * Added support for automatic sending of the result of invoking an integration to a [WebSocket connection](concepts/extensions/websocket.md) when running the `x-yc-apigateway-websocket-connect` operation.
 
 ### Fixes and improvements {#fixes-improvements}
@@ -96,6 +102,6 @@ description: This section contains {{ api-gw-name }} release notes.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Fixed the error with validation of the names of variables in the API gateway specification.
-* Fixed the error with transferring the array of query parameter values in the [HTTP Access](concepts/extensions/http.md) integration.
+* Fixed an error with validation of the names of variables in the API gateway specification.
+* Fixed the error of transferring an array of query parameter values in the [HTTP Access](concepts/extensions/http.md) integration.
 * Reduced API gateway response time at high RPS.

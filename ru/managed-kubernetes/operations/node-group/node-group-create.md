@@ -146,7 +146,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}:
      1. Получите список групп размещения с помощью команды `yc compute placement-group list`.
-     1. Передайте имя или идентификатор группы размещения во флаге `--placement group` при создании группы узлов {{ managed-k8s-name }}:
+     1. Передайте имя или идентификатор группы размещения в параметре `--placement-group` при создании группы узлов {{ managed-k8s-name }}:
 
         ```bash
         {{ yc-k8s }} node-group create \

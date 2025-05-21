@@ -210,6 +210,8 @@ default:
   GP: Greenplum®
   gp:
     docs:
+      broadcom: >-
+        https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum
       vmware: https://docs.vmware.com/en/VMware-Greenplum
   gpt-freetier: 10
   gpt-lite: YandexGPT Lite
@@ -2064,7 +2066,9 @@ default:
     check:
       requests:
         v1|pricingRate:
+          10|number: 540
           10|string: ₸540.00
+          100|number: 378
           100|string: ₸378.00
         v1|string: Free
   sku|KZT|speechkit:
@@ -3712,7 +3716,9 @@ default:
     check:
       requests:
         v1|pricingRate:
+          10|number: 108
           10|string: ₽108.00
+          100|number: 75.6
           100|string: ₽75.60
         v1|string: Free
   sku|RUB|speechkit:
@@ -5340,7 +5346,9 @@ default:
     check:
       requests:
         v1|pricingRate:
+          10|number: 0.9
           10|string: $0.900000
+          100|number: 0.63
           100|string: $0.630000
         v1|string: Free
   sku|USD|speechkit:
@@ -9506,6 +9514,11 @@ default:
           security-groups:
             button_add-rule: Add
             button_create: Create security group
+            column_sg-rules-description: Description
+            column_sg-rules-ports: Port range
+            column_sg-rules-protocol: Protocol
+            column_sg-rules-source-target: Source
+            column_sg-rules-source-type: Source type
             forms:
               button_select-all-port-range: Select entire range
               field_sg-name: Name

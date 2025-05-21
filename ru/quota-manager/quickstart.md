@@ -136,8 +136,8 @@ description: Следуя данной инструкции, вы сможете
   **Настройте работу с API**
 
   1. Чтобы проверить работу с квотами через API, установите утилиты:
-     * [cURL](https://curl.haxx.se) при использовании [REST API](../../../workload/api-ref/).
-     * [gRPCurl](https://github.com/fullstorydev/grpcurl) при использовании [gRPC API](../../../workload/api-ref/grpc/).
+     * [cURL](https://curl.haxx.se) при использовании [REST API](api-ref/).
+     * [gRPCurl](https://github.com/fullstorydev/grpcurl) при использовании [gRPC API](api-ref/grpc/).
   
   1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с [ролью](../iam/operations/roles/grant.md) `quota-manager.viewer`.
   

@@ -42,6 +42,7 @@ description: Ознакомьтесь с историей изменений в 
 
 ### Исправления в чартах {#charts-fixes}
 
+* Добавили [настройки](../concepts/chart/settings.md#common-settings) **Центр** и **Масштаб**, позволяющие показать определенный участок [карты](../visualization-ref/map-chart.md).
 * Исправили проблему, при которой в [комбинированной диаграмме](../visualization-ref/combined-chart.md) не работала сортировка на слое с [линейной диаграммой](../visualization-ref/line-chart.md).
 * В [визарде](../concepts/chart/dataset-based-charts.md) исправили проблему, при которой после смены [настройки](../concepts/chart/settings.md#field-settings) типа поля с `Дата` на `Дата и время` или обратно сбрасывался формат даты.
 * В чартах с [иерархией](../operations/chart/add-hierarchy.md) исправили некорректную работу фильтрующего запроса по клику на значение с кавычками.

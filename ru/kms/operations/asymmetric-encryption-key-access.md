@@ -207,7 +207,7 @@ description: Следуя данной инструкции, вы сможете
            --access-binding role=<роль>,subject=group:<идентификатор_группы>
          ```
 
-      Для каждой роли передайте отдельный флаг `--access-binding`. Пример:
+      Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
       ```bash
       yc kms asymmetric-encryption-key set-access-bindings \

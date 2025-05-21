@@ -742,14 +742,14 @@
     Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-source/).
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}** — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}** — количество ячеек кеша для способов `cache`, `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_allow-read-expired-keys }}** — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
-  * Настройки очереди обновлений, в которой создаются задачи обновления кэша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
+  * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-update-queue-size }}** — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-queue-push-timeout-milliseconds }}** — максимальное время ожидания в миллисекундах для отправки задачи обновления в очередь. Значение по умолчанию — `10`.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_query-wait-timeout-milliseconds }}** — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-threads-for-updates }}** — максимальное количество потоков для обновления словаря кэша. Значение по умолчанию — `4`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-threads-for-updates }}** — максимальное количество потоков для обновления словаря кеша. Значение по умолчанию — `4`.
 
     Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
 
@@ -864,14 +864,14 @@
   * `--postgresql-invalidate-query` — запрос для проверки изменений словаря {{ PG }}. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
 
   * `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-  * `--layout-size-in-cells` — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+  * `--layout-size-in-cells` — количество ячеек кеша для способов `cache`, `complex_key_cache`. Подробнее о кеше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
   * `--layout-allow-read-expired-keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
-  * Настройки очереди обновлений, в которой создаются задачи обновления кэша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
+  * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
 
     * `--layout-max-update-queue-size` — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
     * `--layout-update-queue-push-timeout-milliseconds` — максимальное время ожидания в миллисекундах для отправки задачи обновления в очередь. Значение по умолчанию — `10`.
     * `--layout-query-wait-timeout-milliseconds` — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
-    * `--layout-max-threads-for-updates` — максимальное количество потоков для обновления словаря кэша. Значение по умолчанию — `4`.
+    * `--layout-max-threads-for-updates` — максимальное количество потоков для обновления словаря кеша. Значение по умолчанию — `4`.
 
     Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
 
@@ -999,14 +999,14 @@
       {% endcut %}
 
     * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-    * `layout.sizeInCells` — количество ячеек кэша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+    * `layout.sizeInCells` — количество ячеек кеша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кеше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
     * `layout.allowReadExpiredKeys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
-    * Настройки очереди обновлений, в которой создаются задачи обновления кэша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
+    * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
 
       * `layout.maxUpdateQueueSize` — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
       * `layout.updateQueuePushTimeoutMilliseconds` — максимальное время ожидания в миллисекундах для отправки задачи обновления в очередь. Значение по умолчанию — `10`.
       * `layout.queryWaitTimeoutMilliseconds` — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
-      * `layout.maxThreadsForUpdates` — максимальное количество потоков для обновления словаря кэша. Значение по умолчанию — `4`.
+      * `layout.maxThreadsForUpdates` — максимальное количество потоков для обновления словаря кеша. Значение по умолчанию — `4`.
 
       Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
 
@@ -1126,14 +1126,14 @@
       {% endcut %}
 
     * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-    * `layout.size_in_cells` — количество ячеек кэша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+    * `layout.size_in_cells` — количество ячеек кеша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кеше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
     * `layout.allow_read_expired_keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
-    * Настройки очереди обновлений, в которой создаются задачи обновления кэша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
+    * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
 
       * `layout.max_update_queue_size` — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
       * `layout.update_queue_push_timeout_milliseconds` — максимальное время ожидания в миллисекундах для отправки задачи обновления в очередь. Значение по умолчанию — `10`.
       * `layout.query_wait_timeout_milliseconds` — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
-      * `layout.max_threads_for_updates` — максимальное количество потоков для обновления словаря кэша. Значение по умолчанию — `4`.
+      * `layout.max_threads_for_updates` — максимальное количество потоков для обновления словаря кеша. Значение по умолчанию — `4`.
 
       Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
 

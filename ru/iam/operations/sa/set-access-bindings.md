@@ -385,7 +385,7 @@
 
 ### Настроить имперсонацию {#impersonation}
 
-[Имперсонация](../../concepts/access-control/index.md#impersonation) позволяет пользователю выполнять действия от имени сервисного аккаунта с помощью флага `--impersonate-service-account-id`. Для этого у сервисного аккаунта должны быть нужные права, а у пользователя — роль `iam.serviceAccounts.tokenCreator`.
+[Имперсонация](../../concepts/access-control/index.md#impersonation) позволяет пользователю выполнять действия от имени сервисного аккаунта с помощью параметра `--impersonate-service-account-id`. Для этого у сервисного аккаунта должны быть нужные права, а у пользователя — роль `iam.serviceAccounts.tokenCreator`.
 
 {% list tabs group=instructions %}
 
@@ -426,7 +426,7 @@
         --subject userAccount:gfei8n54hmfh********
       ```
 
-  1. Пользователь может выполнить команду от имени сервисного аккаунта `test-sa` с помощью флага `--impersonate-service-account-id`.
+  1. Пользователь может выполнить команду от имени сервисного аккаунта `test-sa` с помощью параметра `--impersonate-service-account-id`.
 
       Например, пользователь может получить список виртуальных машин в каталоге `my-folder`:
 

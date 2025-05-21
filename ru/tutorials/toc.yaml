@@ -411,6 +411,8 @@ items:
             href: infrastructure-management/terraform-state-lock.md
           - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
             href: infrastructure-management/terraform-modules.md
+          - name: Управление ресурсами {{ k8s }} с помощью провайдера {{ TF }}
+            href: infrastructure-management/kubernetes-terraform-provider.md
           - name: Создать ВМ и группу ВМ с {{ coi }} с помощью {{ TF }}
             href: infrastructure/coi-with-terraform.md
           - name: Запуск Docker-образа на виртуальной машине
@@ -509,6 +511,10 @@ items:
             href: container-infrastructure/new-kubernetes-project.md
           - name: Создание кластера {{ k8s }} без доступа в интернет
             href: container-infrastructure/k8s-cluster-with-no-internet.md
+          - name: >-
+              Создание кластера {{ k8s }} с помощью провайдера {{ yandex-cloud
+              }} для {{ k8s }} Cluster API
+            href: container-infrastructure/k8s-cluster-api-provider-yandex.md
           - name: Запуск рабочих нагрузок с GPU
             href: container-infrastructure/running-pod-gpu.md
           - name: Использование групп узлов c GPU без предустановленных драйверов

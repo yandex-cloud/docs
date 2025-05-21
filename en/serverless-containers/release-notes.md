@@ -5,6 +5,12 @@ description: This section contains {{ serverless-containers-name }} release note
 
 # {{ serverless-containers-full-name }} release notes
 
+## April 2025 {#april-2025}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Container revision building was accelerated more than two-fold.
+
 ## February 2025 {#february-2025}
 
 ### Updates {#updates}

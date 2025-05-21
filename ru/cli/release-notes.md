@@ -90,12 +90,12 @@ description: На странице представлены релизы CLI, а
 
 * В команде `yc managed-clickhouse cluster create` поддержан аргумент `--user generate-password` для автоматической генерации пароля с использованием {{ connection-manager-full-name }}.
 
-* В команды `yc clickhouse cluster create` и `yc clickhouse cluster restore` добавлен флаг `--shard`, позволяющий задать один или несколько шардов& Пример: `yc clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
+* В команды `yc clickhouse cluster create` и `yc clickhouse cluster restore` добавлен параметр `--shard`, позволяющий задать один или несколько шардов. Пример: `yc clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
 
-* В команде `yc managed-clickhouse shard add` поддержан повторяемый композитный флаг `--shard`:
-  * Будет создано столько шардов, сколько раз встретился флаг `--shard`.
+* В команде `yc managed-clickhouse shard add` поддержан повторяемый композитный параметр `--shard`:
+  * Будет создано столько шардов, сколько раз встретился параметр `--shard`.
   * Для каждого шарда необходимо указать имя, также можно задать вес: `yc managed-clickhouse shard add --shard name=myshard,weight=200`.
-  * Флаг `--shard` несовместим с флагами `--name` и `--weight`, как и с заданием имени шарда через позиционный аргумент.
+  * Параметр `--shard` несовместим с параметрами `--name` и `--weight`, как и с заданием имени шарда через позиционный аргумент.
 
 * Ускорено удаление нескольких шардов через `yc managed-clickhouse shards delete`.
 
@@ -160,15 +160,15 @@ description: На странице представлены релизы CLI, а
 
 ##### {{ at-name }} {#audit-trails}
 
-* В командах `yc audit-trails trail create` и `yc audit-trails trail update` больше не проверяются флаги `--filter-from-*`. В следующем релизе эти флаги будут удалены.
+* В командах `yc audit-trails trail create` и `yc audit-trails trail update` больше не проверяются параметры `--filter-from-*`. В следующем релизе эти параметры будут удалены.
 
 ##### {{ interconnect-name }} {#interconnect}
 
-* В команде `yc cic trunk-connection update` удалены флаги `--capacity` и `--pop`.
+* В команде `yc cic trunk-connection update` удалены параметры `--capacity` и `--pop`.
  
 ##### {{ iam-name }} {#iam}
 
-* В команде `yc iam api-key create` флаг `--scope` помечен как **DEPRECATED**.
+* В команде `yc iam api-key create` параметр `--scope` помечен как **DEPRECATED**.
 
 ##### {{ objstorage-name }} {#storage}
 
@@ -183,7 +183,7 @@ description: На странице представлены релизы CLI, а
 
 **{{ mkf-name }}**
 
-* В командах `yc managed-kafka user create` и `yc managed-kafka user update`, во флаге `--permission`, для ключа `role` добавилось новое возможное значение `topic_admin`.
+* В командах `yc managed-kafka user create` и `yc managed-kafka user update` в параметре `--permission` для ключа `role` добавилось новое возможное значение `topic_admin`.
 
 **{{ mgp-name }}**
 
@@ -191,14 +191,14 @@ description: На странице представлены релизы CLI, а
 
 **{{ mos-name }}**
 
-* Добавлена команда `yc managed-opensearch cluster restart-opensearch` для перезапуска сервиса на хосте, указанном во флаге `--host`.
+* Добавлена команда `yc managed-opensearch cluster restart-opensearch` для перезапуска сервиса на хосте, указанном в параметре `--host`.
 * Добавлена команда `yc managed-opensearch cluster switch-master` для переключения текущего мастера.
   * В параметре `--from-hosts host,[host...]` можно указать список хостов, с которых должен быть переключен мастер. Если мастер уже не находится ни на одном из указанных хостов, никаких изменений не произойдет.
   * Если параметр `--from-hosts` отсутствует, мастер будет переключен с хоста, на котором он находится в данный момент.
 
 **{{ ydb-name }}**
 
-* В команды `yc ydb database create` и `yc ydb database update` добавлены флаги `--security-group-name` и `--security-group-id`.
+* В команды `yc ydb database create` и `yc ydb database update` добавлены параметры `--security-group-name` и `--security-group-id`.
 
 ### Версия 0.145.0 (18.03.25) {#version0.145.0}
 
@@ -397,7 +397,7 @@ yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=
 
 **{{ mgp-name }}**
 
-В команду `yc managed-greenplum cluster create` добавлен флаг `--cloud-storage`, который позволяет указать параметры работы с облачным хранилищем. Пример включения облачного хранилища: 
+В команду `yc managed-greenplum cluster create` добавлен параметр `--cloud-storage`, который позволяет указать параметры работы с облачным хранилищем. Пример включения облачного хранилища: 
 
 ```bash 
 yc managed-greenplum cluster create --cloud-storage enabled=true
@@ -422,7 +422,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ data-transfer-name }} {#data-transfer}
 
-* В команду `yc datatransfer endpoint create <endpoint_type>` для эндпоинтов `postgres-target`, `clickhouse-target`, `mysql-target` и `mongo-target` добавлен флаг `--cleanup-policy`, который позволяет задавать политики очистки приемника при активации и переактивации трансфера (`drop`, `truncte` или `disabled`).
+* В команду `yc datatransfer endpoint create <endpoint_type>` для эндпоинтов `postgres-target`, `clickhouse-target`, `mysql-target` и `mongo-target` добавлен параметр `--cleanup-policy`, который позволяет задавать политики очистки приемника при активации и переактивации трансфера (`drop`, `truncate` или `disabled`).
 
 ##### {{ iot-name }} {#iot}
 
@@ -467,7 +467,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ interconnect-name }} {#interconnect}
 
-* Команды `yc cic point-of-presence get` и `yc cic partner get` теперь работают только с ID без флагов.
+* Команды `yc cic point-of-presence get` и `yc cic partner get` теперь работают только с ID без параметров.
 * Для `trunk-connection`, `private-connection` и `public-connection` в {{ interconnect-name }} и для `routing-instance` в Cloud Router исправлен формат результата команды `list` — удалена часть полей и преобразованы форматы отображения.
 
 ### Версия 0.137.0 (01.11.24) {#version0.137.0}
@@ -551,7 +551,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Изменения в CLI {#cli}
 
-* Добавлен глобальный флаг `--jq`. Используется для фильтрации и преобразования вывода при помощи jq-шаблонов. Примеры:
+* Добавлен глобальный параметр `--jq`. Используется для фильтрации и преобразования вывода при помощи jq-шаблонов. Примеры:
   * `yc iam role list --jq '.[].id'`
   * `ID="instance_id" yc compute instance list --jq '.[] | select(.id == env.ID)'`
 
@@ -624,7 +624,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mkf-name }}**
 
-*  В командах `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, `yc managed-kafka cluster revoke-permission` расширен флаг `--permission`. Его значение задается в формате `key=value,...`, в качестве `key` теперь можно использовать `allow_host` — хост, с которого дейcтвует данное правило для пользователя.
+* В командах `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, `yc managed-kafka cluster revoke-permission` расширен параметр `--permission`. Его значение задается в формате `key=value,...`, в качестве `key` теперь можно использовать `allow_host` — хост, с которого действует данное правило для пользователя.
 
 **{{ maf-name }}**
 
@@ -711,7 +711,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ backup-name }} {#backup}
 
-* Добавлен флаг `--type` в команду `backup vm list` для указания типа ресурсов, которые должны вернуться в списке.
+* Добавлен параметр `--type` в команду `backup vm list` для указания типа ресурсов, которые должны возвращаться в списке.
 
 ##### {{ vpc-name }} {#vpc}
 
@@ -763,7 +763,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ data-transfer-name }}
 
-* В команду `yc datatransfer endpoint create clickhouse-source` добавлен флаг `--cluster-name`, позволяющий указать имя ClickHouse-кластера для переноса данных.
+* В команду `yc datatransfer endpoint create clickhouse-source` добавлен параметр `--cluster-name`, позволяющий указать имя ClickHouse-кластера для переноса данных.
 
 ##### {{ marketplace-name }}
 
@@ -775,7 +775,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ compute-name }}
 
-* В команду `yc compute host-group list-instances` добавлен флаг `--host-id`, позволяющий указать id хоста в группе хостов для листинга виртуальных машин.
+* В команду `yc compute host-group list-instances` добавлен параметр `--host-id`, позволяющий указать ID хоста в группе хостов для листинга виртуальных машин.
 
 ##### {{ load-testing-name }}
 
@@ -793,7 +793,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ load-testing-name }}
 
-* В командe `yc loadtesting test get-report-table` исправлена ошибка для тестов без табличного отчета.
+* В команде `yc loadtesting test get-report-table` исправлена ошибка для тестов без табличного отчета.
 
 ##### {{ captcha-name }}
 
@@ -817,7 +817,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Добавлены команды для управления правами `yc managed-kafka user grant-permission` и `yc managed-kafka user revoke-permission`.
 * Добавлены команды `{{ yc-mdb-ch }} hosts add` и `{{ yc-mdb-ch }} shards add`. Параметр `copy-schema` включен по умолчанию.
-* Добавлена команда для удаления бекапа `yc managed-clickhouse backup delete`.
+* Добавлена команда для удаления бэкапа `yc managed-clickhouse backup delete`.
 * В команду `yc managed-kafka cluster update` добавлен параметр `--disk-type`.
 * Добавлен параметр `--backup-retain-period-days` для настройки периода хранения автоматических бэкапов.
 
@@ -880,31 +880,31 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ sf-name }} {#cloud-functions}
 
-* Для команды `yc serverless function version create` добавлен новый флаг `concurrency`.
+* Для команды `yc serverless function version create` добавлен новый параметр `concurrency`.
 
 ### Версия 0.126.0 (04.06.24) {#version0.126.0}
 
 #### Изменения в CLI {#cli}
 
 * В профиль добавлено поле `region`, предназначенное для работы с различными регионами.
-* В команду `init` добавлен флаг `--region`, предназначенный для инициализации CLI с определенным регионом.
+* В команду `init` добавлен параметр `--region`, предназначенный для инициализации CLI с определенным регионом.
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ resmgr-name }} {#resmgr}
 
 * Добавлена команда `yc resource-manager cloud create` для создания облака.
-   * Флаг `--billing-account-id` позволяет автоматически привязать созданное облако к платежному аккаунту.
+   * Параметр `--billing-account-id` позволяет автоматически привязать созданное облако к платежному аккаунту.
 * Добавлена команда `yc resource-manager cloud delete` для удаления облака.
-   * Флаг `--delete-after` позволяет удалить облако через указанное время.
-* В команду `yc resource-manager folder delete` добавлен флаг `--delete-after` для отложенного удаления через указанное время.
+   * Параметр `--delete-after` позволяет удалить облако через указанное время.
+* В команду `yc resource-manager folder delete` добавлен параметр `--delete-after` для отложенного удаления через указанное время.
 
 ##### {{ load-testing-name }} {#load-testing}
 
-* В команду `yc loadtesting agent create` добавлен флаг `--platform-id` для создания виртуальной машины на указанной платформе.
+* В команду `yc loadtesting agent create` добавлен параметр `--platform-id` для создания виртуальной машины на указанной платформе.
 * В команду `yc loadtesting test create` добавлены параметры для управления выгрузкой артефактов агента в {{ objstorage-name }}:
   * `--artifacts-output-bucket` для указания имени бакета, в который будут выгружаться артефакты.
-  * `--artifacts-make-archive` для определения того, будут ли артефкаты выгружаться одним архивом или по отдельности.
+  * `--artifacts-make-archive` для определения того, будут ли артефакты выгружаться одним архивом или по отдельности.
   * `--artifacts` для указания конкретных файлов, которые будут выгружены.
 
 ##### {{ mos-name }} {#mos}
@@ -942,12 +942,12 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc serverless trigger create`.
 
-  Флаги `--gateway-name`, `--gateway-id` и `--gateway-websocket-broadcast-path` позволяют указывать для триггера параметры рассылки сообщений в вебсокетные соединения {{ api-gw-name }}.
+  Параметры `--gateway-name`, `--gateway-id` и `--gateway-websocket-broadcast-path` позволяют указать для триггера параметры рассылки сообщений в веб-сокетные соединения {{ api-gw-name }}.
 
 ##### {{ org-name }} {#organization}
 
 * Добавлена группа команд `yc organization-manager oslogin profile` для управления пользовательскими профилями {{ oslogin }}.
-* В командах `yc organization-manager oslogin user-ssh-key create` и `yc organization-manager oslogin user-ssh-key update` исправлен флаг `--expires-at` при указании значения в виде интервала. Например значение `5h` теперь отсылает значение в будущем.
+* В командах `yc organization-manager oslogin user-ssh-key create` и `yc organization-manager oslogin user-ssh-key update` исправлен параметр `--expires-at` при указании значения в виде интервала. Например, значение `5h` теперь отсылает к значению в будущем.
 
 ### Версия 0.124.0 (22.04.24) {#version0.124.0}
 
@@ -1026,7 +1026,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Добавлено дерево команд `yc managed-greenplum pxf-datasource` с командами `get`, `list`, `delete`.
 * Добавлены деревья команд `yc managed-greenplum pxf-datasource s3` и `yc managed-greenplum pxf-datasource jdbc` с командами `create` и `update`.
-* Добавлены флаги `--pxf-connection-timeout`, `--pxf-upload-timeout`, `--pxf-max-threads`, `--pxf-pool-allow-core-thread-timeout`, `--pxf-poll-core-size`, `--pxf-pool-queue-capacity`, `--pxf-pool-max-size`, `--pxf-xmx`, `--pxf-xms` для команды `yc managed-greenplum cluster update`.
+* Добавлены параметры `--pxf-connection-timeout`, `--pxf-upload-timeout`, `--pxf-max-threads`, `--pxf-pool-allow-core-thread-timeout`, `--pxf-poll-core-size`, `--pxf-pool-queue-capacity`, `--pxf-pool-max-size`, `--pxf-xmx`, `--pxf-xms` для команды `yc managed-greenplum cluster update`.
 
 ##### {{ org-name }} {#organization}
 
@@ -1040,13 +1040,13 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Добавлена команда `yc loadtesting test wait` для ожидания окончания нагрузочного теста.
 * В команде `yc loadtesting test create` добавлены флаги `--wait` и `--wait-idle-timeout` для ожидания окончания созданного нагрузочного теста.
-* В команду `yc loadtesting test create` добавлены флаги `--configuration agent-by-filter=""` и `--configuration anonymous-agent=true` для выбора агента нагрузочного тестирования по фильтру и выбора анонимного агента соответственно.
-* В команду `yc loadtesting agent list` добавлен флаг `--filter` для фильтрации списка агентов.
+* В команду `yc loadtesting test create` добавлены параметры `--configuration agent-by-filter=""` и `--configuration anonymous-agent=true` для выбора агента нагрузочного тестирования по фильтру и выбора анонимного агента соответственно.
+* В команду `yc loadtesting agent list` добавлен параметр `--filter` для фильтрации списка агентов.
 
 ##### {{ vpc-name }} {#vpc}
 
-* В команду `yc vpc address create` добавлен флаг `--dns-record` для указания DNS-спецификаций адреса.
-* В команду `yc vpc address update` добавлены флаги:
+* В команду `yc vpc address create` добавлен параметр `--dns-record` для указания DNS-спецификаций адреса.
+* В команду `yc vpc address update` добавлены параметры:
 
   * `--dns-record` для указания DNS-спецификаций адреса;
   * `--clear-dns-records` для удаления всех DNS-спецификаций адреса.
@@ -1086,11 +1086,11 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ compute-name }}
 
-* В команду `yc compute ssh` добавлен флаг `--identity-file` для подключения к ВМ по SSH с указанием пользовательского ключа.
+* В команду `yc compute ssh` добавлен параметр `--identity-file` для подключения к ВМ по SSH с указанием пользовательского ключа.
 
 ##### {{ data-transfer-name }}
 
-- Для следующих команд добавлен флаг `--file` для указания YAML-файла для конфигурации запроса:
+- Для следующих команд добавлен параметр `--file` для указания YAML-файла для конфигурации запроса:
   * `yc datatransfer transfer create`
   * `yc datatransfer transfer update`
   * `yc datatransfer endpoint create`
@@ -1116,7 +1116,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mgp-name }}**
 
-Для команды `yc managed-greenplum cluster restore` добавлен флаг `restore-only`, который позволяет восстановить только указанные объекты.
+Для команды `yc managed-greenplum cluster restore` добавлен параметр `restore-only`, который позволяет восстановить только указанные объекты.
 
 ##### {{ iot-name }} {#iot}
 
@@ -1182,7 +1182,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mgp-name }}**
 
-* В команды `yc managed-greenplum cluster create` и `yc managed-greenplum cluster update` добавлен флаг `--backup-retain-period-days`.
+* В команды `yc managed-greenplum cluster create` и `yc managed-greenplum cluster update` добавлен параметр `--backup-retain-period-days`.
 
 **{{ mch-name }}**
 
@@ -1223,7 +1223,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * В команде `yc compute ssh` пользовательские параметры теперь ставятся в конец запускаемой команды `ssh`.
 * В команды `yc compute disk relocate` и `yc compute instance relocate` добавлена возможность релокации нереплицируемых дисков с заданными группами размещения и ВМ с такими дисками.
 * В команды `yc compute instance create` и `yc compute instance update` добавлены параметры `--maintenance-policy` и `--maintenance-grace-period`.
-* Добавлена проверка на одновременное указание флагов `--spread-strategy` и `--partitions` при создании группы размещения.
+* Добавлена проверка на одновременное указание параметров `--spread-strategy` и `--partitions` при создании группы размещения.
 * Исправлена работа PAGER для справки `help`. Теперь при запуске команды с флагом `--help` открывается окно `less`.
 
 ##### {{ cloud-logging-name }} {#cloud-logging}
@@ -1297,7 +1297,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ mpg-name }}
 
-* В команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore` добавлено значение `16` для флага `--postgresql-version string`. Оно позволяет создать кластер {{ PG }} версии 16.
+* В команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore` добавлено значение `16` для параметра `--postgresql-version string`. Оно позволяет создать кластер {{ PG }} версии 16.
 
 
 ##### {{ iot-name }} {#iot}
@@ -1350,19 +1350,19 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ compute-name }} {#compute}
 
-* В командах `yc compute instance create` и `yc compute instance update` добавлен флаг `--placement-group-partition` для указания номера раздела в группе размещения (partition).
+* В командах `yc compute instance create` и `yc compute instance update` добавлен параметр `--placement-group-partition` для указания номера раздела в группе размещения (partition).
 
 
 ##### {{ cloud-logging-name }} {#cloud-logging}
 
-* В команде `yc logging read` убрали ограничение для флага `--limit`. Теперь можно выводить более 1000 записей.
+* В команде `yc logging read` убрали ограничение для параметра `--limit`. Теперь можно выводить более 1000 записей.
 
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mmg-name }}**
 
-* Добавлена возможность создавать шардированый кластер. Если в конфигурации присутствуют соответствующие типы хостов, то кластер будет создан автоматически.
+* Добавлена возможность создавать шардированный кластер. Если в конфигурации присутствуют соответствующие типы хостов, то кластер будет создан автоматически.
 * В команды `yc mongodb cluster create`, `yc mongodb cluster update` и `yc mongodb cluster restore` добавлен параметр `--performance-diagnostics`.
 
 **{{ mpg-name }}**
@@ -1402,8 +1402,8 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 ##### {{ compute-name }} {#compute}
 
 * В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен параметр `--strategy` для указания стартегии размещения. Может принимать значения `SPREAD` или `PARTITION`.
-* В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен флаг `--partition-count`. Задает количество разделов для группы со стратегией `PARTITION`.
-* В команду создания диска `yc compute disk create` добавлен флаг `--disk-placement-group-partition` для указания номера раздела в группе размещения.
+* В команду создания группы размещения дисков `yc compute disk-placement-group create` добавлен параметр `--partition-count`. Задает количество разделов для группы со стратегией `PARTITION`.
+* В команду создания диска `yc compute disk create` добавлен параметр `--disk-placement-group-partition` для указания номера раздела в группе размещения.
 * Добавлена колонка `PLACEMENT GROUP` в таблице со списком дисков, получаемых командой `yc compute disk list`.
 * Добавлена колонка `STRATEGY` в таблице со списком групп размещения дисков, получаемых командой `yc compute disk-placement-group list`.
 
@@ -1436,7 +1436,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 #### Изменения в CLI {#cli}
 
 * Добавлена команда `oslogin`, предназначенная для получения логина текущего пользователя ОС.
-* Отключено отображение глобальных флагов по умолчанию для всех команд при вызове `yc [command] -h`. Для просмотра глобальных флагов используйте команду `yc help [command]`.
+* Отключено отображение глобальных параметров по умолчанию для всех команд при вызове `yc [command] -h`. Для просмотра глобальных параметров используйте команду `yc help [command]`.
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -1652,7 +1652,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-В команду `yc serverless container revision deploy` добавлены флаги:
+В команду `yc serverless container revision deploy` добавлены параметры:
 * `--zone-instances-limit` — максимальное количество экземпляров контейнера в зоне доступности;
 * `--zone-requests-limit` — максимальное количество одновременно выполняемых вызовов контейнера в зоне доступности.
 
@@ -1694,24 +1694,24 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mes-name }}**
 
-* В команде `{{ yc-mdb-es }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
+* В команде `{{ yc-mdb-es }} cluster restore` с параметром `--folder-id` можно передать каталог для восстановления кластера.
 
 **{{ mmg-name }}**
 
-* В команде `{{ yc-mdb-mg }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
+* В команде `{{ yc-mdb-mg }} cluster restore` с параметром `--folder-id` можно передать каталог для восстановления кластера.
 
 **{{ mmy-name }}**
 
-* В команде `{{ yc-mdb-my }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
+* В команде `{{ yc-mdb-my }} cluster restore` с параметром `--folder-id` можно передать каталог для восстановления кластера.
 
 **Managed Service for Redis**
 
-* В команде `{{ yc-mdb-rd }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
+* В команде `{{ yc-mdb-rd }} cluster restore` с параметром `--folder-id` можно передать каталог для восстановления кластера.
 
 
 **{{ mms-name }}**
 
-* В команде `{{ yc-mdb-ms }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
+* В команде `{{ yc-mdb-ms }} cluster restore` с параметром `--folder-id` можно передать каталог для восстановления кластера.
 
 
 
@@ -1740,7 +1740,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mpg-name }}**
 
-* В команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore` добавлено значение `15` для флага `--postgresql-version string`. Оно позволяет создать кластер {{ PG }} версии 15.
+* В команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore` добавлено значение `15` для параметра `--postgresql-version string`. Оно позволяет создать кластер {{ PG }} версии 15.
 
 * Для команды `yc managed-postgresql cluster create` изменено значение по умолчанию для версии создаваемого кластера {{ PG }}. Новое значение по умолчанию — `15`.
 
@@ -1782,18 +1782,18 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `--min-zone-size` — минимальное число ресурсных единиц в одной зоне;
   * `--max-size` — максимальное числа ресурсных единиц во всех зонах суммарно.
 
-* В команду `yc alb load-balancer create` добавлены флаги:
+* В команду `yc alb load-balancer create` добавлены параметры:
   * `--log-group-id`, `--log-group-name` — для задания лог-группы из {{ cloud-logging-name }};
   * `--disable-logging` — для создания балансировщика без записи логов в лог-группу из {{ cloud-logging-name }}.
 
-* В команду `yc alb load-balancer update` добавлены флаги:
+* В команду `yc alb load-balancer update` добавлены параметры:
   * `--log-group-id`, `--log-group-name` — для задания лог-группы из {{ cloud-logging-name }};
   * `--enable-logging` и `--disable-logging` — для включения и выключения записи логов балансировщика в лог-группу из {{ cloud-logging-name }}.
 
 ##### {{ compute-name }} {#compute}
 
 * Добавлена группа команд `yc compute snapshot-schedule` для управления снимками диска по расписанию.
-* В команду `yc compute instance create` добавлен флаг `--metadata-options` для управления доступом к метаданным ВМ.
+* В команду `yc compute instance create` добавлен параметр `--metadata-options` для управления доступом к метаданным ВМ.
 
 ###### {{ dns-name }} {#dns}
 
@@ -1804,7 +1804,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mpg-name }}**
 
-* Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`: для флага `--postgresql-version string` добавлено значение `11-1c`, `12-1c`, `13-1c`, `14-1c`  для создания кластера {{ PG }} версий 11-1c, 12-1c, 13-1c, 14-1c.
+* Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`: для параметра `--postgresql-version string` добавлены значения `11-1c`, `12-1c`, `13-1c`, `14-1c` для создания кластера {{ PG }} версий 11-1c, 12-1c, 13-1c, 14-1c.
 
 
 ##### {{ iot-name }} {#iot}
@@ -1822,7 +1822,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-В команду `yc serverless container revision deploy` добавлены флаги:
+В команду `yc serverless container revision deploy` добавлены параметры:
 * `--secret` — для добавления секретов к ревизии;
 * `--min-instances` — чтобы указать минимальное количество подготовленных экземпляров контейнера.
 
@@ -1917,14 +1917,14 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 **Managed Service for Redis**
 
 * В команды `yc managed-redis cluster create`, `yc managed-redis cluster restore`,
-  `yc managed-redis hosts add`, `yc managed-redis hosts update`, `yc managed-redis shards add` добавлены флаги:
+  `yc managed-redis hosts add`, `yc managed-redis hosts update`, `yc managed-redis shards add` добавлены параметры:
 
   * `--assign-public-ip=true|false` — привязывает или удаляет публичный IP-адрес хоста.
   * `--replica-priority=50` — выставляет приоритет реплики (только для нешардированного кластера).
 
 **{{ mch-name }}**
 
-* В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster update` добавлены флаги:
+* В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster update` добавлены параметры:
 
   * `--cloud-storage-move-factor` — для указания доли свободного места на локальном диске, при котором начнется перенос данных на {{ objstorage-name }}.
   * `--cloud-storage-data-cache` — для разрешения использования локального кеша для {{ objstorage-name }}.
@@ -1964,7 +1964,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Если эти параметры не были указаны, они будут взяты из исходного кластера.
   Хосты **{{ CH }}** и **{{ ZK }}** будут восстановлены с той же конфигурацией, что и в исходном кластере.
-  Хосты **{{ CH }}** будут восстановлены только для тех шардов, чьи бекапы указаны для восстановления.
+  Хосты **{{ CH }}** будут восстановлены только для тех шардов, чьи бэкапы указаны для восстановления.
 
 **{{ mpg-name }}**
 
@@ -1981,15 +1981,15 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`:
 
-  * Добавлен флаг `--node-name`, позволяющий указать шаблон именования узлов в группе.
+  * Добавлен параметр `--node-name`, позволяющий указать шаблон именования узлов в группе.
 
-  * Добавлены флаги `--template-labels` и `--template-labels-from-files`, позволяющие указать [ресурсные метки {{ yandex-cloud }}](../resource-manager/concepts/labels.md) для ВМ — узлов группы (не путать с [метками узлов {{ k8s }}](../managed-kubernetes/concepts/index.md#node-labels)).
+  * Добавлены параметры `--template-labels` и `--template-labels-from-files`, позволяющие указать [ресурсные метки {{ yandex-cloud }}](../resource-manager/concepts/labels.md) для ВМ — узлов группы (не путать с [метками узлов {{ k8s }}](../managed-kubernetes/concepts/index.md#node-labels)).
 
 
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-* В команду `yc serverless container revision deploy` добавлены флаги `--network-id` и `--network-name`, чтобы указывать сеть, которую будет использовать ревизия контейнера. Также в команду добавлен флаг `--subnets`, позволяющий получить детальный список подсетей.
+* В команду `yc serverless container revision deploy` добавлены параметры `--network-id` и `--network-name`, чтобы указывать сеть, которую будет использовать ревизия контейнера. Также в команду добавлен флаг `--subnets`, позволяющий получить детальный список подсетей.
 
 
 ### Версия 0.92.0 (05.07.22) {#version0.92.0}
@@ -2061,7 +2061,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 ##### {{ ydb-name }} {#ydb}
 
 * В группу команд `yc ydb database` добавлены команды `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для баз данных.
-* В группу команд `yc ydb backup` добавлены команды `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для бекапов баз данных.
+* В группу команд `yc ydb backup` добавлены команды `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для бэкапов баз данных.
 
 
 ##### Сервисы управляемых баз данных {#managed-db}
@@ -2105,7 +2105,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ dataproc-name }} {#dataproc}
 
-* В команду `yc dataproc cluster create` добавлен флаг `--initialization-action` для указания скрипта инициализации для кластера.
+* В команду `yc dataproc cluster create` добавлен параметр `--initialization-action` для указания скрипта инициализации кластера.
 
 ##### {{ compute-name }} {#compute}
 
@@ -2113,7 +2113,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ alb-name }} {#alb}
 
-* В команды `yc alb backend-group add-stream-backend` и `yc alb backend-group update-stream-backend` добавлен флаг `--enable-proxy-protocol` для включения proxy-протокол для бэкэнда.
+* В команды `yc alb backend-group add-stream-backend` и `yc alb backend-group update-stream-backend` добавлен флаг `--enable-proxy-protocol` для включения proxy-протокол для бэкенда.
 
 ##### {{ dns-name }} {#dns}
 
@@ -2124,7 +2124,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mch-name }}**
 
-* В команду `yc managed-clickhouse cluster restore` добавлен флаг `--folder-id` для указания каталога, в котором будет создан восстановленный кластер.
+* В команду `yc managed-clickhouse cluster restore` добавлен параметр `--folder-id` для указания каталога, в котором будет создан восстановленный кластер.
 
 * В команду `yc managed-clickhouse cluster update` добавлен флаг:
 
@@ -2135,7 +2135,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 **{{ mmy-name }}**
 
 
-* В команду `yc managed-mysql cluster update` добавлен флаг `--performance-diagnostics`, позволяющий управлять настройками сервиса диагностики производительности.
+* В команду `yc managed-mysql cluster update` добавлен параметр `--performance-diagnostics`, позволяющий управлять настройками сервиса диагностики производительности.
 
 
 ### Версия 0.89.0 (23.03.22) {#version0.89.0}
@@ -2203,12 +2203,12 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ cdn-name }} {#cdn}
 
-* Добавлена возможность делать полную очистку кэша ресурса: `yc cdn cache purge --all`.
+* Добавлена возможность делать полную очистку кеша ресурса: `yc cdn cache purge --all`.
 * Исправлено создание ресурса, когда источник — бакет или балансер.
 
 ##### {{ api-gw-name }} {#api-gw}
 
-* В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены флаги `--network-id` и `--network-name` для указания сети API-шлюза, а также флаги `--subnet-id` и `--subnet-name` для детального списка подсетей.
+* В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены параметры `--network-id` и `--network-name` для указания сети API-шлюза, а также параметры `--subnet-id` и `--subnet-name` для детального списка подсетей.
 
 ##### {{ compute-name }} {#compute}
 
@@ -2238,14 +2238,14 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 **{{ mes-name }}**
 
 * В информацию о кластере добавлена информация о текущем окне обслуживания и запланированной операции обслуживания.
-* В команду `yc managed-elasticsearch cluster update` добавлены флаги `--maintenance-window-anytime` и `--maintenance-window-weekly` для указания параметров окна обслуживания.
+* В команду `yc managed-elasticsearch cluster update` добавлены параметры `--maintenance-window-anytime` и `--maintenance-window-weekly` для указания параметров окна обслуживания.
 * Добавлена команда `yc managed-elasticsearch cluster reschedule-maintenance` для управления запланированной задачей по обслуживанию кластера.
 * Добавлена команда `yc managed-elasticsearch cluster backup` для снятия снапшота с кластера.
 * Добавлена команда `yc managed-elasticsearch cluster restore` для восстановления кластера из бэкапа.
 * Добавлена команда `yc managed-elasticsearch cluster list-backups` для просмотра бэкапов данного кластера.
 * Добавлена команда `yc managed-elasticsearch backup list` для просмотра бэкапов всех кластеров в каталоге.
 * Добавлена команда `yc managed-elasticsearch backup get` для просмотра информации о конкретном бэкапе.
-* В команды `yc managed-sqlserver cluster create` и `yc managed-sqlserver cluster restore` добавлен флаг `--host-group-ids`, который задает список хостов для размещение кластера на выделенных серверах.
+* В команды `yc managed-sqlserver cluster create` и `yc managed-sqlserver cluster restore` добавлен параметр `--host-group-ids`, который задает список хостов для размещения кластера на выделенных серверах.
 * В команду `yc managed-sqlserver cluster restore` добавлен флаг `--deletion-protection`, который позволяет установить защиту от случайного удаления кластера.
 
 ### Версия 0.86.0 (15.12.21) {#version0.86.0}
@@ -2482,11 +2482,11 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Изменения в CLI {#cli}
 
-* Добавлено описание флагов и команд в автодополнении по умолчанию.
+* Добавлено описание параметров и команд в автодополнении по умолчанию.
 * Команда `yc completion <SHELL>`.
 
   Добавлен флаг `--without-desc` для отключения описания в автодополнении.
-* Поддержено автодополнение флагов: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
+* Поддержано автодополнение параметров: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -2510,7 +2510,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ ig-name }} {#instance-groups}
 
-* Добавлены новые флаги для команды обновления группы ВМ (`yc compute instance-group update`):
+* Добавлены новые параметры для команды обновления группы ВМ (`yc compute instance-group update`):
   * `--new-name`
   * `--description`
   * `--labels`
@@ -2614,7 +2614,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc serverless trigger create`.
 
-  Флаги `--invoke-container-name`, `--invoke-container-id` и `--invoke-container-path` позволяют указывать для триггера контейнер {{ serverless-containers-name }}.
+  Параметры `--invoke-container-name`, `--invoke-container-id` и `--invoke-container-path` позволяют указать для триггера контейнер {{ serverless-containers-name }}.
 
 
 ### Версия 0.79.0 (13.07.21) {#version0.79.0}
@@ -2637,7 +2637,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлена команда `yc serverless function remove-scaling-policy` для удаления настроек масштабирования функции.
 * Команда `yc serverless function version create`.
 
-  Исправлена обработка директорий для флага `--source-path` на Windows.
+  Исправлена обработка директорий для параметра `--source-path` на Windows.
 
 
 #### Сервисы управляемых баз данных {#managed-db}
@@ -2646,7 +2646,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-clickhouse cluster update`.
 
-  Добавлен флаг `--cloud-storage` для включения хранения данных в {{ objstorage-name }}.
+  Добавлен параметр `--cloud-storage` для включения хранения данных в {{ objstorage-name }}.
 
 ### Версия 0.78.0 (29.06.21) {#version0.78.0}
 
@@ -2656,7 +2656,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`.
 
-  Добавлен флаг `--network-acceleration-type`, который позволяет указать для группы узлов тип сети: стандартная или программно-ускоренная.
+  Добавлен параметр `--network-acceleration-type`, который позволяет указать для группы узлов тип сети: стандартная или программно-ускоренная.
 
 * Команда `yc managed-kubernetes cluster create`.
 
@@ -2690,23 +2690,23 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-elasticsearch cluster list-logs`.
 
-  Добавлен флаг `--service-type` для получения логов Kibana.
+  Добавлен параметр `--service-type` для получения логов Kibana.
 
 * Команды `yc managed-elasticsearch cluster create` и `yc managed-elasticsearch cluster update`.
 
-  Добавлен флаг `--service-account`.
+  Добавлен параметр `--service-account`.
 
 **{{ mkf-name }}**
 
 * Команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update`.
 
-  Добавлены флаги `--num-partitions` и `--default-replication-factor` для задания и изменения конфигурационных настроек брокеров {{ KF }}.
+  Добавлены параметры `--num-partitions` и `--default-replication-factor` для задания и изменения конфигурационных настроек брокеров {{ KF }}.
 
 **Managed Service for Redis**
 
 * Команды `yc managed-redis cluster create\update`.
 
-  Добавлены флаги `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases` и `--notify-keyspace-events` (см. описание в redis.conf).
+  Добавлены параметры `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases` и `--notify-keyspace-events` (см. описание в redis.conf).
 
 ### Версия 0.76.0 (19.05.21) {#version0.76.0}
 
@@ -2737,7 +2737,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc compute create-with-container`.
 
-  Добавлен флаг `--gpus`, который позволяет создать {{ coi }} с [GPU](../glossary/gpu.md).
+  Добавлен параметр `--gpus`, который позволяет создать {{ coi }} с [GPU](../glossary/gpu.md).
 
 
 #### Сервисы управляемых баз данных {#managed-db}
@@ -2746,13 +2746,13 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-redis cluster create`.
 
-  Добавлен ключ `--disk-type-id [local-ssd|network-ssd]`, который позволяет выбрать тип диска.
+  Добавлен параметр `--disk-type-id [local-ssd|network-ssd]`, который позволяет выбрать тип диска.
 
 **{{ mmy-name }}**
 
 * Команда `yc managed-mysql cluster list-logs`.
 
-  Теперь логи по умолчанию выводятся в необработанном формате (as is). Чтобы включить старый формат логов, используйте флаг `--format=yaml`.
+  Теперь логи по умолчанию выводятся в необработанном формате (as is). Чтобы включить старый формат логов, используйте параметр `--format=yaml`.
 
 **{{ mes-name }}**
 
@@ -2765,20 +2765,20 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Удалены команды `yc managed-elasticsearch user`. Управление пользователями теперь доступно нативными средствами {{ ES }} через пользователя `admin`.
 * Команда `yc managed-elasticsearch create`.
 
-  Добавлен флаг `--edition [basic|gold|platinum]`, который позволяет указать редакцию {{ ES }} при создании кластера.
+  Добавлен параметр `--edition [basic|gold|platinum]`, который позволяет указать редакцию {{ ES }} при создании кластера.
 
 **{{ mkf-name }}**
 
 * Команда `yc managed-kafka cluster create`.
 
-  Добавлен флаг `--host-group-ids`, контролирующий размещение кластера на выделенных серверах.
+  Добавлен параметр `--host-group-ids`, контролирующий размещение кластера на выделенных серверах.
 
 
 #### {{ dataproc-name }} {#dataproc}
 
 * Команда `yc dataproc cluster create`.
 
-  Добавлен флаг `--host-group-ids`, контролирующий размещение кластера на выделенных серверах.
+  Добавлен параметр `--host-group-ids`, контролирующий размещение кластера на выделенных серверах.
 
 
 ### Версия 0.74.0 (29.03.21) {#version0.74.0}
@@ -2792,7 +2792,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc dataproc cluster create` и `yc dataproc cluster update`.
 
-  Добавлен флаг `--security-group-ids`, который позволяет установить набор групп безопасности для кластера.
+  Добавлен параметр `--security-group-ids`, который позволяет установить набор групп безопасности для кластера.
 
 
 ### Версия 0.73.0 (17.03.21) {#version0.73.0}
@@ -2812,12 +2812,12 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc serverless function version create`.
 
-  Добавлены значения по умолчанию для флагов:
+  Добавлены значения по умолчанию для параметров:
   * `--execution-timeout` – три секунды;
   * `--memory` – 128 МБ.
 * Команда `yc serverless function version create`.
 
-  Добавлен флаг `--add-service-account` для указания дополнительных сервисных аккаунтов к версии.
+  Добавлен параметр `--add-service-account` для указания дополнительных сервисных аккаунтов для версии.
 
 #### {{ cloud-logs-name }} {#logs}
 
@@ -2830,7 +2830,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-kafka cluster create`.
 
-  Для флагов `--disk-size`, `--disk-type`, `--resource-preset`, `--zookeeper-disk-size`, `--zookeeper-disk-type` и `--zookeeper-resource-preset` теперь не указываются значения по умолчанию. Если значения не указаны, будут применяться значения по умолчанию, задаваемые на сервере.
+  Для параметров `--disk-size`, `--disk-type`, `--resource-preset`, `--zookeeper-disk-size`, `--zookeeper-disk-type` и `--zookeeper-resource-preset` теперь не указываются значения по умолчанию. Если значения не указаны, будут применяться значения по умолчанию, заданные на сервере.
 * Команда `yc managed-kafka cluster create`.
 
   Добавлен флаг `--unmanaged-topics`, позволяющий включить управление топиками {{ KF }} через AdminAPI.
@@ -2880,7 +2880,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-kubernetes node-group create`.
 
-  Добавлен флаг `--placement-group` позволяющий указать `placement policy group` для группы узлов при создании.
+  Добавлен параметр `--placement-group`, позволяющий указать `placement policy group` для группы узлов при создании.
 
 
 #### Сервисы управляемых баз данных {#managed-db}
@@ -2889,7 +2889,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`.
 
-  Для флага `--postgresql-version string` добавлено значение `13` для создания кластера {{ PG }} версии 13.
+  Для параметра `--postgresql-version string` добавлено значение `13` для создания кластера {{ PG }} версии 13.
 
 **{{ mmy-name }}**
 
@@ -2942,16 +2942,16 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc <имя сервиса управляемой БД> cluster create`, `yc <имя сервиса управляемой БД> cluster update` и `yc <имя сервиса управляемой БД> cluster restore`.
 
-  Флаг `--security-group-ids` позволяет установить для кластера набор групп безопасности.
+  Параметр `--security-group-ids` позволяет установить для кластера набор групп безопасности.
 
 **{{ mkf-name }}**
 
 * Команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update`.
 
-  Добавлены флаги для задания и изменения конфигурационных настроек {{ KF }} брокеров: `--compression-type`, `--log-flush-interval-messages`, `--log-flush-interval-ms`, `--log-flush-scheduler-interval-ms`, `--log-retention-bytes`, `--log-retention-hours`, `--log-retention-minutes`, `--log-retention-ms`, `--log-segment-bytes`, `--log-preallocate`.
+  Добавлены параметры для задания и изменения конфигурационных настроек {{ KF }} брокеров: `--compression-type`, `--log-flush-interval-messages`, `--log-flush-interval-ms`, `--log-flush-scheduler-interval-ms`, `--log-retention-bytes`, `--log-retention-hours`, `--log-retention-minutes`, `--log-retention-ms`, `--log-segment-bytes`, `--log-preallocate`.
 * Команды `yc managed-kafka topic create` и `yc managed-kafka topic update`.
 
-  Добавлены флаги для задания и изменения настроек топика: `--cleanup-policy`, `--compression-type`, `--delete-retention-ms`, `--file-delete-delay-ms`, `--flush-messages`, `--flush-ms`, `--min-compaction-lag-ms`, `--retention-bytes`, `--retention-ms`, `--max-message-bytes`, `--min-insync-replicas`, `--segment-bytes`, `--preallocate`.
+  Добавлены параметры для задания и изменения настроек топика: `--cleanup-policy`, `--compression-type`, `--delete-retention-ms`, `--file-delete-delay-ms`, `--flush-messages`, `--flush-ms`, `--min-compaction-lag-ms`, `--retention-bytes`, `--retention-ms`, `--max-message-bytes`, `--min-insync-replicas`, `--segment-bytes`, `--preallocate`.
 
 **{{ mes-name }}**
 
@@ -2982,7 +2982,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-mysql user grant-permission`.
 
-  Флаг `--permissions` поддерживает привилегию `REFERENCES`.
+  Параметр `--permissions` поддерживает привилегию `REFERENCES`.
 
 **{{ mmy-name }}, {{ mpg-name }}**
 
@@ -3024,7 +3024,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-mysql user grant-permission`.
 
-  Добавлен флаг `--permissions`, который поддерживает привилегии `ALL_PRIVILEGES` (синоним для `ALL`).
+  Добавлен параметр `--permissions`, который поддерживает привилегии `ALL_PRIVILEGES` (синоним для `ALL`).
 
 
 #### {{ managed-k8s-name }} {#k8s}
@@ -3034,10 +3034,10 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   Добавлены флаги `--cluster-ipv6-range`, `--dual-stack` и `--service-ipv6-range`, которые позволяют создавать кластеры {{ k8s }} с параллельным использованием IPv4 и IPv6.
 * Команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update`.
 
-  Добавлен флаг `--security-group-ids`, который устанавливает для кластера группу безопасности.
+  Добавлен параметр `--security-group-ids`, который устанавливает для кластера группу безопасности.
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`.
 
-  Добавлен флаг `--network-interface`, который позволяет более детально задавать сетевые спецификации для узлов. Например, управлять настройкой групп безопасности для сетевых интерфейсов и настраивать интерфейсы узлов для параллельного использования IPv4 и IPv6 в кластерах {{ k8s }}.
+  Добавлен параметр `--network-interface`, который позволяет более детально задавать сетевые спецификации для узлов. Например, управлять настройкой групп безопасности для сетевых интерфейсов и настраивать интерфейсы узлов для параллельного использования IPv4 и IPv6 в кластерах {{ k8s }}.
 
 
 ### Версия 0.67.0 (05.10.20) {#version0.67.0}
@@ -3075,7 +3075,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-mongodb cluster restore --help`.
 
-  Добавлен пример использования флага `--recovery-target-timestamp`.
+  Добавлен пример использования параметра `--recovery-target-timestamp`.
 
 ### Версия 0.65.0 (22.09.20) {#version0.65.0}
 
@@ -3089,7 +3089,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Команды `yc dataproc cluster create` и `yc dataproc cluster update`.
   Добавлен параметр `--ui-proxy`, позволяющий включить функциональность UI Proxy для кластера {{ dataproc-full-name }}.
 * Команды `yc dataproc cluster create`, `yc dataproc subcluster create`, `yc dataproc subcluster update`.
-  Добавлены флаги для автомасштабируемых подкластеров: `--autoscaling-decommission-timeout`, `--cpu-utilization-target`, `--max-hosts-count`, `--measurement-duration`, `--preemptible`, `--stabilization-duration` и `--warmup-duration`.
+  Добавлены параметры для автомасштабируемых подкластеров: `--autoscaling-decommission-timeout`, `--cpu-utilization-target`, `--max-hosts-count`, `--measurement-duration`, `--preemptible`, `--stabilization-duration` и `--warmup-duration`.
 * Команда `yc dataproc subcluster list`.
   В ответ добавлено поле `instance group id` с идентификаторами групп ВМ автомасштабируемых подкластеров.
 
@@ -3140,7 +3140,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлена команда `yc managed-clickhouse versions list` для получения списка версий, доступных для установки.
 * Команды `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster restore`.
 
-  Добавлен флаг `--cloud-storage` для включения хранения данных в {{ objstorage-name }}.
+  Добавлен параметр `--cloud-storage` для включения хранения данных в {{ objstorage-name }}.
 
 **{{ mmg-name }}**
 
@@ -3185,8 +3185,8 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 #### {{ sf-name }} {#serverless-functions}
 
 * Команда `yc serverless function version create`.
-  * Добавлен флаг `--source-version-id` для указания базовой версии функции.
-  * Добавлены флаги `--network-id` и `--network-name` для указания сети для версии функции, детальный список подсетей можно указать с помощью флагов `--subnet-id` и `--subnet-name`.
+  * Добавлен параметр `--source-version-id` для указания базовой версии функции.
+  * Добавлены параметры `--network-id` и `--network-name` для указания сети для версии функции. Детальный список подсетей можно указать с помощью параметров `--subnet-id` и `--subnet-name`.
 
 
 #### Сервисы управляемых баз данных {#managed-db}
@@ -3201,14 +3201,14 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc <имя сервиса управляемой БД> cluster update`.
 
-  Добавлены флаги `--maintenance-window-anytime` и `--maintenance-window-weekly` для указания параметров окон обслуживания. Они будут использованы для планирования времени работ с кластером.
+  Добавлены параметры `--maintenance-window-anytime` и `--maintenance-window-weekly` для указания параметров окон обслуживания. Они будут использованы для планирования времени работ с кластером.
 * Добавлена команда `yc <имя сервиса управляемой БД> cluster reschedule-maintenance` для управления запланированной задачей по обслуживанию кластера.
 
 **{{ mmg-name }}**
 
 * Команда `yc managed-mongodb cluster restore`.
 
-  Добавлен флаг `--recovery-target-timestamp` для указания точки восстановления резервной копии.
+  Добавлен параметр `--recovery-target-timestamp` для указания точки восстановления резервной копии.
 
 ### Версия 0.61.0 (03.08.20) {#version0.61.0}
 
@@ -3220,25 +3220,25 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-kubernetes cluster create`.
 
-  Теперь значение флага `--version` корректно учитывается при создании регионального кластера.
+  Теперь значение параметра `--version` корректно учитывается при создании регионального кластера.
 
 ##### {{ compute-name }} {#compute}
 
 * Команда `yc compute instance update-network-interface`.
 
-  Флаг `--security-group-id` теперь принимает список значений, разделенных запятыми.
+  Параметр `--security-group-id` теперь принимает список значений, разделенных запятыми.
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
 
-  Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](../cos/concepts/coi-specifications.md#coi-spec-example).
+  Добавлен параметр `--coi-spec-file` для передачи [спецификации образа](../cos/concepts/coi-specifications.md#coi-spec-example).
 
-  Добавлен флаг `--coi-spec-file` для передачи спецификации образа.
+  Добавлен параметр `--coi-spec-file` для передачи спецификации образа.
 
 ##### {{ vpc-name }} {#vpc}
 
 * Команды `yc vpc subnet create` и `yc vpc subnet update`.
 
-  Флаги `--domain-name-server` и `--ntp-server` теперь принимают список значений, разделенных запятыми.
+  Параметры `--domain-name-server` и `--ntp-server` теперь принимают список значений, разделенных запятыми.
 * Добавлена команда `yc vpc subnet list-used-addresses`.
 
   Команда выводит список используемых в подсети адресов.
@@ -3268,7 +3268,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster update` и `yc managed-clickhouse cluster restore`.
 
-  Добавлен флаг `--service account` для выбора сервисного аккаунта, привязанного к хостам.
+  Добавлен параметр `--service-account` для выбора сервисного аккаунта, привязанного к хостам.
 * Добавлены команды для управления группами шардов `yc managed-clickhouse shard-groups`.
 
 ### Версия 0.59.0 (02.07.20) {#version0.59.0}
@@ -3308,13 +3308,13 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc vpc subnet create` и `yc vpc subnet update`.
 
-  Добавлены флаги для настройки опций DHCP: `--domain-name`, `--domain-name-server` и `--ntp-server`.
+  Добавлены параметры для настройки опций DHCP: `--domain-name`, `--domain-name-server` и `--ntp-server`.
 
 ##### {{ managed-k8s-name }} {#k8s}
 
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`.
 
-  Добавлен флаг `--gpus=GPUS` для указания количества GPU, которые будут на узлах.
+  Добавлен параметр `--gpus=GPUS` для указания количества GPU, которые будут на узлах.
 
 ##### {{ container-registry-name }} {#container-registry}
 
@@ -3402,7 +3402,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
 
-  При передаче файла с переменными окружения через флаг `--container-env-file` корректно обрабатываются символы `=` в значениях переменных.
+  При передаче файла с переменными окружения через параметр `--container-env-file` корректно обрабатываются символы `=` в значениях переменных.
 
 
 ### Версия 0.55.0 (13.04.20) {#version0.55.0}
@@ -3426,10 +3426,10 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-kubernetes cluster create`.
 
-  Добавлен флаг `--node-ipv4-mask-size` для настройки размера `CIDR`, выделяемых на каждый узел кластера.
+  Добавлен параметр `--node-ipv4-mask-size` для настройки размера `CIDR`, выделяемого на каждый узел кластера.
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`.
 
-  Добавлены флаги `--max-unavailable` и `--max-expansion` для контроля количества удаляемых и создаваемых узлов в процессе обновления группы.
+  Добавлены параметры `--max-unavailable` и `--max-expansion` для контроля количества удаляемых и создаваемых узлов в процессе обновления группы.
 
 
 #### Сервисы управляемых баз данных {#managed-db}
@@ -3438,7 +3438,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc <имя сервиса управляемой БД> cluster create`, `yc <имя сервиса управляемой БД> cluster restore`, `yc <имя сервиса управляемой БД> host add`.
 
-  Добавлено свойство `subnet-name` к флагу `--host` для указания подсети по имени.
+  Добавлено свойство `subnet-name` к параметру `--host` для указания подсети по имени.
 
 **{{ mmg-name }}, {{ mch-name }}, Managed Service for Redis**
 
@@ -3451,7 +3451,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc compute instance create-with-container`.
 
-  Добавлена возможность монтирования `docker volumes` в Docker-контейнер, созданный в {{ coi }} с помощью флагов `container-volume-tmpfs` и `container-volume-host-path`.
+  Добавлена возможность монтирования `docker volumes` в Docker-контейнер, созданный в {{ coi }} с помощью параметров `container-volume-tmpfs` и `container-volume-host-path`.
 * Команда `yc compute instance update-container`.
 
   Добавлена возможность обновления `docker volumes` в Docker-контейнере, созданном в {{ coi }}.
@@ -3463,7 +3463,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **Улучшено**
 
-* Стали более понятными сообщения, при ошибках ввода команд и флагов.
+* Стали более понятными сообщения при ошибках ввода команд и параметров.
 
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -3472,7 +3472,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-kubernetes cluster create`.
 
-  Добавлены флаги `--kms-key-id` и `--kms-key-name` для создания кластера {{ k8s }} с шифрованием секретов в KMS.
+  Добавлены параметры `--kms-key-id` и `--kms-key-name` для создания кластера {{ k8s }} с шифрованием секретов в KMS.
 
 
 ### Версия 0.53.0 (04.03.20) {#version0.53.0}
@@ -3547,13 +3547,13 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc compute instance create`.
 
-  В флаг `--network-interface` добавлен параметр `nat-address`, позволяющий указать создаваемому инстансу конкретный NAT-адрес.
+  В параметр `--network-interface` добавлено свойство `nat-address`, позволяющее указать создаваемому инстансу конкретный NAT-адрес.
 * Добавлены команды `yc compute instance add-one-to-one-nat` и `yc compute instance remove-one-to-one-nat`.
 
   Команды позволяют управлять NAT на уже созданных инстансах.
 * Команды `yc compute instance create` и `yc compute instance update`.
 
-  Добавлен флаг `--network-settings`, с помощью которого можно изменить тип сети на `Software accelerated` и обратно в `Standard`.
+  Добавлен параметр `--network-settings`, с помощью которого можно изменить тип сети на `Software accelerated` и обратно в `Standard`.
 
 #### {{ kms-name }} {#kms}
 
@@ -3568,7 +3568,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   Добавлен флаг `--enable-network-policy` для создания кластера {{ k8s }} с поддержкой [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 * Команда `yc k8s cluster get-credentials`.
 
-  Добавлен флаг `--context-name`, позволяющий пользователю указать имя создаваемого `context` в `kubeconfig`.
+  Добавлен параметр `--context-name`, позволяющий пользователю указать имя создаваемого `context` в `kubeconfig`.
 
   Имя создаваемого контекста по умолчанию стало более понятным: `yc-<cluster-name>`.
 
@@ -3588,13 +3588,13 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   Например, вместо команды `yc managed-kubernetes cluster create --name my-cluster ...` теперь можно использовать команду `yc managed-kubernetes cluster create my-cluster ...`.
 * Команды `yc <сервис> <ресурс> set-access-binding`.
 
-  Добавлено предупреждение, что команда удаляет назначеные роли. Если команда вызвана пользователем напрямую (а не с помощью другой команды или скрипта), будет запрошено подтверждение.
+  Добавлено предупреждение, что команда удаляет назначенные роли. Если команда вызвана пользователем напрямую (а не с помощью другой команды или скрипта), будет запрошено подтверждение.
 
 **Исправлено**
 
 * Команда `yc init`.
 
-  Теперь значения флагов `--cloud-id`, `--folder-id` и `--folder-name` учитываются корректно.
+  Теперь значения параметров `--cloud-id`, `--folder-id` и `--folder-name` учитываются корректно.
 * Отключены сообщения о наличии новой версии `yc` при неинтерактивном вызове команды.
 
 
@@ -3613,7 +3613,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Для [ресурсов, на которые можно назначать роли](../iam/concepts/access-control/resources-with-access-control.md).
 
-  Добавлены альтернативы флагу `--subject` для команд управления ролями: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login` и `--all-authenticated-users`.
+  Добавлены альтернативы параметру `--subject` для команд управления ролями: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login` и `--all-authenticated-users`.
 
 #### {{ managed-k8s-name }} {#k8s}
 
@@ -3666,10 +3666,10 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлена возможность работы с группой размещения `yc compute placement-group --help`.
 * Команды `yc compute instance create` и `yc compute instance update`.
 
-  Флаг для указания платформы переименован с `--platform-id` на `--platform`. Старое именование продолжает поддерживаться.
+  Параметр для указания платформы переименован с `--platform-id` на `--platform`. Старое именование продолжает поддерживаться.
 * Команда `yc compute instance create`.
 
-  SSH-ключ, добавленный с помощью флага `--ssh-key`, записывается в метаданные с ключом `ssh-keys` вместо `ec2-user-data`.
+  SSH-ключ, добавленный с помощью параметра `--ssh-key`, записывается в метаданные с ключом `ssh-keys` вместо `ec2-user-data`.
 
 
 #### Сервисы управляемых баз данных {#managed-db}
@@ -3680,26 +3680,26 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлена команда для ручного переключения мастера для указанного кластера {{ MY }} `{{ yc-mdb-my }} cluster start-failover`.
 * Команда `{{ yc-mdb-my }} cluster update`.
 
-  Добавлена возможность переименовать кластер с помощью флага `--new-name`.
+  Добавлена возможность переименовать кластер с помощью параметра `--new-name`.
 
 **{{ mpg-name }}**
 
 * Добавлена команда для ручного переключение мастера для указанного кластера {{ PG }} `{{ yc-mdb-pg }} cluster start-failover`.
 * Команда `{{ yc-mdb-pg }} cluster update`.
 
-  Добавлена возможность переименовать кластер с помощью флага `--new-name`.
+  Добавлена возможность переименовать кластер с помощью параметра `--new-name`.
 
 **{{ mch-name }}**
 
 * Команда `{{ yc-mdb-ch }} cluster update`.
 
-  Добавлена возможность переименовать кластер с помощью флага `--new-name`.
+  Добавлена возможность переименовать кластер с помощью параметра `--new-name`.
 
 **Managed Service for Redis**
 
 * Команда `{{ yc-mdb-rd }} cluster update`.
 
-  Добавлена возможность переименовать кластер с помощью флага `--new-name`.
+  Добавлена возможность переименовать кластер с помощью параметра `--new-name`.
 
 ### Версия 0.47.0 (17.12.19) {#version0.47.0}
 
@@ -3825,7 +3825,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
 
-  Для значений "always", "never", "on-failure" флага `--container-restart-policy` добавлено альтернативное написание: "Always", "Never", "OnFailure".
+  Для значений "always", "never", "on-failure" параметра `--container-restart-policy` добавлено альтернативное написание: "Always", "Never", "OnFailure".
 
 #### {{ managed-k8s-name }} {#k8s}
 
@@ -3840,7 +3840,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`.
 
-  Для флага `--postgresql-version string` добавлено значение `10_1с` для создания кластера {{ PG }} версии 10-1с.
+  Для параметра `--postgresql-version string` добавлено значение `10_1c` для создания кластера {{ PG }} версии 10-1c.
 
 ### Версия 0.41.1 (26.09.19) {#version0.41.1}
 
@@ -3856,19 +3856,19 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc compute instance create-with-container`.
 
-  Из флага `--create-boot-disk` удалена поддержка параметров `snapshot-*`.
+  Из параметра `--create-boot-disk` удалена поддержка свойств `snapshot-*`.
 
 #### {{ managed-k8s-name }} {#k8s}
 
 * Команда `yc managed-kubernetes cluster create`.
 
-  Добавлены флаги для управления типом мастера: `--regional`, `--region` и `--master-location`.
+  Добавлены параметры для управления типом мастера: `--regional`, `--region` и `--master-location`.
 * Команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update`.
 
-  Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.
+  Добавлены параметры для управления политикой обслуживания: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.
 * Команда `yc managed-kubernetes node-groups update`.
 
-  Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.
+  Добавлены параметры для управления политикой обслуживания: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.
 
 
 ### Версия 0.40.0 (20.09.19) {#version0.40.0}
@@ -3890,13 +3890,13 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc <имя сервиса управляемой БД> create clusters`.
 
-  Для флагов `--*resource-preset` добавлено значение по умолчанию: s2.micro.
+  Для параметра `--*resource-preset` добавлено значение по умолчанию: s2.micro.
 
 **{{ mmg-name }}**
 
 * Команда `{{ yc-mdb-mg }} create clusters`.
 
-  Для флага `--mongodb-version` изменено значение по умолчанию: с 3.6 на 4.0.
+  Для параметра `--mongodb-version` изменено значение по умолчанию: с 3.6 на 4.0.
 
 ### Версия 0.39.0 (16.09.19) {#version0.39.0}
 
@@ -3953,10 +3953,10 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc managed-kubernetes cluster update`.
 
-  Добавлены флаги `--node-service-account-id` и `--node-service-account-name`, позволяющие добавить или изменить сервисный аккаунт для узлов у существующего кластера {{ k8s }}.
+  Добавлены параметры `--node-service-account-id` и `--node-service-account-name`, позволяющие добавить или изменить сервисный аккаунт для узлов у существующего кластера {{ k8s }}.
 * Команда `yc managed-kubernetes node-group update`.
 
-  Добавлены флаги для изменения параметров существующей группы узлов: `--metadata`, `--metadata-from-file`, `--platform-id`, `--memory`, `--cores`, `--core-fraction`, `--disk-type`, `--disk-size`, `--preemptible`.
+  Добавлены параметры для изменения параметров существующей группы узлов: `--metadata`, `--metadata-from-file`, `--platform-id`, `--memory`, `--cores`, `--core-fraction`, `--disk-type`, `--disk-size`, `--preemptible`.
 * Добавлены команды для управления метками: `yc managed-kubernetes node-group add-labels` и `yc managed-kubernetes node-group remove-labels`.
 * Добавлены команды для управления метаданными группы узлов: `yc managed-kubernetes node-group add-metadata` и `yc managed-kubernetes node-group remove-metadata`.
 
@@ -3970,7 +3970,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   Добавлен флаг `--connection-pool-discard` для отключения менеджера подключений.
 * Команды `{{ yc-mdb-pg }} user create` и `yc managed-postgresql user update`.
 
-  Добавлена возможность указать логин и задать права доступа для пользователя с помощью флагов `--login` и `--grants`.
+  Добавлена возможность указать логин и задать права доступа для пользователя с помощью параметров `--login` и `--grants`.
 
 ### Версия 0.36.0 (27.08.19) {#version0.36.0}
 
@@ -4013,7 +4013,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `{{ yc-mdb-pg }} cluster create`.
 
-  Для флага `--user` добавлены параметры: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement`.
+  Для параметра `--user` добавлены свойства: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement`.
 
 ### Версия 0.34.0 (26.07.19) {#version0.34.0}
 
@@ -4055,7 +4055,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `{{ yc-mdb-pg }} user create` и `{{ yc-mdb-pg }} user update`.
 
-  Добавлена настройка параметров пользователя с помощью флагов `--lock_timeout`, `--log_min_duration_statement` и т. д.
+  Добавлена настройка параметров пользователя с помощью параметров `--lock_timeout`, `--log_min_duration_statement` и т. д.
 
 ### Версия 0.32.0 (05.07.19) {#version0.32.0}
 
@@ -4098,7 +4098,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update`.
 
-  Для флага `--listener` появилась возможность задать параметр `target-port`, позволяющий настроить NAT так, чтобы целевые ресурсы принимали трафик на порту, отличном от порта `listener`.
+  Для параметра `--listener` появилась возможность задать свойство `target-port`, позволяющее настроить NAT так, чтобы целевые ресурсы принимали трафик на порту, отличном от порта `listener`.
 
 
 #### Сервисы управляемых баз данных {#managed-db}
@@ -4107,7 +4107,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `{{ yc-mdb-ch }} user create` и `{{ yc-mdb-ch }} user update`.
 
-  Добавлен флаг `--settings`, позволяющий задать пользовательские настройки.
+  Добавлен параметр `--settings`, позволяющий задать пользовательские настройки.
 
 ### Версия 0.30.0 (18.06.19) {#version0.30.0}
 
@@ -4119,7 +4119,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc compute instance update`.
 
-  Добавлены флаги `--service-account-id` и `--service-account-name`, позволяющие добавить или изменить сервисный аккаунт для существующей ВМ.
+  Добавлены параметры `--service-account-id` и `--service-account-name`, позволяющие добавить или изменить сервисный аккаунт для существующей ВМ.
 * Команда `yc compute instance create`.
 
   Изменено количество ядер, используемое по умолчанию при создании ВМ с платформой Intel Cascade Lake (`standard-v2`). Теперь `cores: 2`.
@@ -4148,7 +4148,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc compute instance create`.
 
-  Добавлен флаг `--gpus`, позволяющий указать количество графических процессоров у виртуальной машины.
+  Добавлен параметр `--gpus`, позволяющий указать количество графических процессоров у виртуальной машины.
 
 
 #### Сервисы управляемых баз данных {#managed-db}
@@ -4160,7 +4160,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   Улучшен вывод информации о кластере.
 * Команда `yc <имя сервиса управляемой БД> cluster create`.
 
-  Добавлен флаг `--backup-window-start`, позволяющий при создании кластера настроить время его ежедневного резервного копирования.
+  Добавлен параметр `--backup-window-start`, позволяющий при создании кластера настроить время его ежедневного резервного копирования.
 
 **{{ mch-name }}**
 
@@ -4170,8 +4170,8 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Команда: `{{ yc-mdb-ch }} shards add`.
 
   Изменена логика создания шардов:
-  * Если не указан флаг `--host`, параметры для шарда копируются из самого старого шарда.
-  * Если указан флаг `--host`, требуется введение всех параметров.
+  * Если не указан параметр `--host`, параметры для шарда копируются из самого старого шарда.
+  * Если указан параметр `--host`, требуется введение всех параметров.
   * Если шарды отсутствуют, для создания шарда также требуется введение всех параметров.
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

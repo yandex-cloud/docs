@@ -19,6 +19,7 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-clickhouse cluster add-extension](add-extension.md) — Add an extension to a ClickHouse cluster.
 - [yc managed-clickhouse cluster add-external-dictionary](add-external-dictionary.md) — Add an external dictionary to a ClickHouse cluster.
 - [yc managed-clickhouse cluster add-graphite-rollup](add-graphite-rollup.md) — Apply graphite configuration to a ClickHouse cluster.
 - [yc managed-clickhouse cluster add-labels](add-labels.md) — Assign labels to a ClickHouse cluster.
@@ -29,12 +30,15 @@ Aliases:
 - [yc managed-clickhouse cluster create](create.md) — Create a ClickHouse cluster.
 - [yc managed-clickhouse cluster delete](delete.md) — Delete a ClickHouse cluster.
 - [yc managed-clickhouse cluster get](get.md) — Get information about a ClickHouse cluster.
+- [yc managed-clickhouse cluster get-extension](get-extension.md) — Get information about a ClickHouse cluster extension.
 - [yc managed-clickhouse cluster list](list.md) — List ClickHouse clusters in a folder.
 - [yc managed-clickhouse cluster list-backups](list-backups.md) — List available backups for a ClickHouse cluster.
+- [yc managed-clickhouse cluster list-extensions](list-extensions.md) — List extensions in a ClickHouse cluster.
 - [yc managed-clickhouse cluster list-external-dictionaries](list-external-dictionaries.md) — Retrieve a list of external dictionaries that belong to ClickHouse cluster.
 - [yc managed-clickhouse cluster list-logs](list-logs.md) — Retrieve logs for a ClickHouse cluster.
 - [yc managed-clickhouse cluster list-operations](list-operations.md) — List operations for a ClickHouse cluster.
 - [yc managed-clickhouse cluster move](move.md) — Move the specified ClickHouse cluster into the folder
+- [yc managed-clickhouse cluster remove-extension](remove-extension.md) — Remove an extension from a ClickHouse cluster.
 - [yc managed-clickhouse cluster remove-external-dictionary](remove-external-dictionary.md) — Remove an external dictionary from a ClickHouse cluster.
 - [yc managed-clickhouse cluster remove-graphite-rollup](remove-graphite-rollup.md) — Remove graphite rollup configuration from a ClickHouse cluster.
 - [yc managed-clickhouse cluster remove-labels](remove-labels.md) — Remove labels from a ClickHouse cluster.
@@ -46,6 +50,7 @@ Aliases:
 - [yc managed-clickhouse cluster stop](stop.md) — Stop the specified ClickHouse cluster
 - [yc managed-clickhouse cluster update](update.md) — Modify configuration or attributes of a ClickHouse cluster.
 - [yc managed-clickhouse cluster update-config](update-config.md) — Update the configuration of a ClickHouse cluster.
+- [yc managed-clickhouse cluster update-extension](update-extension.md) — Modify configuration or attributes of a ClickHouse cluster extension.
 
 #### Global Flags
 
