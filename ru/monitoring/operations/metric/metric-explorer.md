@@ -52,7 +52,7 @@ description: С помощью инструкции вы сможете посм
    1. **{{ ui-key.yacloud_monitoring.wizard.vis.normalize }}** — приведение всех данных к диапазону от 0 до 100%.
    1. **{{ ui-key.yacloud_monitoring.wizard.vis.interpolate-key-value }}** — способ заполнения недостающих данных между двумя точками: по прямой линии между точками, по известной точке слева, по известной точке справа.
 1. В разделах **{{ ui-key.yacloud_monitoring.wizard.axes.primary-y }}** и **{{ ui-key.yacloud_monitoring.wizard.axes.secondary-y }}** настройте подпись, масштаб, минимальное и максимальное значения для графика, единицы измерения величин на графике и количество знаков в дробной части.
-1. В разделе **{{ ui-key.yacloud_monitoring.wizard.tab.downsampling }}** настройте, как отображать на графике [исторические данные](../../concepts/decimation.md).
+1. В разделе **{{ ui-key.yacloud_monitoring.wizard.tab.downsampling }}** настройте механизм [агрегации данных при чтении](../../concepts/decimation.md#reading-decimation).
 1. После настройки графика закройте панель настроек. Все изменения отображаются на графике в момент настройки.
 
 ## Изучить значения на графике {#graph-exploring}

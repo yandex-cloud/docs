@@ -26,6 +26,7 @@ description: Различные сценарии использования ко
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](kms-k8s.md)
+* [{#T}](k8s-cluster-api-provider-yandex.md)
 
 ### Настройка и тестирование масштабирования {#scaling}
 

@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--workflow-target` — флаг для настройки приемника с типом `{{ sw-full-name }}` и его параметры:
+      * `--workflow-target` — параметр для настройки приемника с типом `{{ sw-full-name }}` и его свойства:
 
           * `workflow-id` — идентификатор [рабочего процесса](../../../concepts/workflows/workflow.md), на вход которого будут отправляться сообщения, соответствующие правилу.
           * `service-account-id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), которому назначена роль `serverless.workflowsExecutor` или выше на выбранный процесс.

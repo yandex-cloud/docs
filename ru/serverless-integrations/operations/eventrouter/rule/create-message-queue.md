@@ -65,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--ymq-target` — флаг для настройки приемника с типом `{{ message-queue-full-name }}` и его параметры:
+      * `--ymq-target` — параметр для настройки приемника с типом `{{ message-queue-full-name }}` и его свойства:
 
           * `queue-arn` — ARN [очереди](../../../../message-queue/concepts/queue.md), в которую будут отправляться сообщения, соответствующие правилу.
           * `service-account-id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../../message-queue/security/index.md#ymq-writer) `ymq.writer` или выше на выбранную очередь.

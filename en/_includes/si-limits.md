@@ -1,10 +1,17 @@
 ### {{ sw-name }}
 
+#### Quotas {#sw-quotas}
+
+
+Limit type | Value
+--- | ---
+Maximum number of [workflows](../serverless-integrations/concepts/workflows/workflow.md) per cloud | 30
+Maximum number of active [workflow runs](../serverless-integrations/concepts/workflows/execution.md) per cloud | 100
+
 #### Limits {#sw-limits}
 
-Type of limit | Value
+Limit type | Value
 --- | ---
-Maximum number of active [workflow](../serverless-integrations/concepts/workflows/workflow.md) runs per cloud | 100
 Maximum number of workflow steps considering all [Parallel](../serverless-integrations/concepts/workflows/yawl/management/parallel.md) and [Foreach](../serverless-integrations/concepts/workflows/yawl/management/foreach.md) execution branches | 1000
 Maximum step execution time | 15 minutes
 Maximum step execution time, including retry attempts | 24 hours
@@ -16,7 +23,7 @@ Maximum input and output data size per workflow step | 2 MB
 
 #### Quotas {#er-quotas}
 
-Type of limit | Value
+Limit type | Value
 --- | ---
 Maximum number of buses per cloud | 10
 Maximum number of connectors across all buses per cloud | 20
@@ -24,7 +31,7 @@ Maximum number of rules across all buses per cloud | 50
 
 #### Limits {#er-limits}
 
-Type of limit | Value
+Limit type | Value
 --- | ---
 Maximum number of targets per rule | 5
 Maximum size of a message transmitted to the bus | 256 KB

@@ -13,7 +13,7 @@ set -e
 HOME=/tmp yc --format json resource-manager folder list --cloud-id <идентификатор_облака> | jq -c  '{body:. | tostring}'
 ```
 
-Чтобы команды {{ yandex-cloud }} CLI выполнялись успешно, указывайте в них идентификатор нужного [каталога](../../../resource-manager/operations/folder/get-id.md) или [облака](../../../resource-manager/operations/cloud/get-id.md) с помощью флагов `--folder-id` или `--cloud-id`.
+Чтобы команды {{ yandex-cloud }} CLI выполнялись успешно, указывайте в них идентификатор нужного [каталога](../../../resource-manager/operations/folder/get-id.md) или [облака](../../../resource-manager/operations/cloud/get-id.md) с помощью параметров `--folder-id` или `--cloud-id`.
  
 Также для работы с совместимыми сервисами {{ yandex-cloud }} — [{{ objstorage-full-name }}](../../../storage/index.yaml) и [{{ message-queue-full-name }}](../../../message-queue/index.yaml) — в среду выполнения установлена утилита [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html).
 

@@ -33,7 +33,6 @@ Syntax:
 |`--max-message-bytes`|<b>`int`</b><br/>Allows to set topic configuration property "max.message.bytes". The largest record batch size allowed in topic.|
 |`--min-insync-replicas`|<b>`int`</b><br/>Allows to set topic configuration property "min.insync.replicas". This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write to be considered successful (when a producer sets acks to "all").|
 |`--segment-bytes`|<b>`int`</b><br/>Allows to set topic configuration property "segment.bytes". This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention.|
-|`--preallocate`|Allows to set topic configuration property "preallocate". True if we should preallocate the file on disk when creating a new log segment.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

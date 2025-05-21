@@ -45,7 +45,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
   1. Настройте остальные параметры ВМ по [инструкции](../../compute/operations/vm-create/create-linux-vm.md).
 
-- CLI с помощью флагов {#cli}
+- CLI с помощью параметров {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

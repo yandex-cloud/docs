@@ -2070,7 +2070,9 @@ default:
     check:
       requests:
         v1|pricingRate:
+          10|number: 540
           10|string: "540,00\_₸"
+          100|number: 378
           100|string: "378,00\_₸"
         v1|string: Не тарифицируется
   sku|KZT|speechkit:
@@ -3718,7 +3720,9 @@ default:
     check:
       requests:
         v1|pricingRate:
+          10|number: 108
           10|string: "108,00\_₽"
+          100|number: 75.6
           100|string: "75,60\_₽"
         v1|string: Не тарифицируется
   sku|RUB|speechkit:
@@ -5346,7 +5350,9 @@ default:
     check:
       requests:
         v1|pricingRate:
+          10|number: 0.9
           10|string: "0,900000\_$"
+          100|number: 0.63
           100|string: "0,630000\_$"
         v1|string: Не тарифицируется
   sku|USD|speechkit:
@@ -9518,6 +9524,11 @@ default:
           security-groups:
             button_add-rule: Добавить правило
             button_create: Создать группу безопасности
+            column_sg-rules-description: Описание
+            column_sg-rules-ports: Диапазон портов
+            column_sg-rules-protocol: Протокол
+            column_sg-rules-source-target: Источник
+            column_sg-rules-source-type: Тип источника
             forms:
               button_select-all-port-range: Выбрать весь диапазон
               field_sg-name: Имя

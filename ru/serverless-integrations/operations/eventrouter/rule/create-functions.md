@@ -70,7 +70,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--function-target` — флаг для настройки приемника с типом `{{ sf-full-name }}` и его параметры:
+      * `--function-target` — параметр для настройки приемника с типом `{{ sf-full-name }}` и его свойства:
 
           * `function-id` — идентификатор [функции](../../../../functions/concepts/function.md), в которую будут отправляться сообщения, соответствующие правилу.
           * `function-tag` — [тег версии](../../../../functions/concepts/function.md#tag) функции.

@@ -23,6 +23,8 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Desktop description.|
 |`--resource-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Resources specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>memory</code>:     Specifies how much memory desktop should have. (required)</li> <li><code>cores</code>:     Amount of cores to attach to the desktop. (required)</li> <li><code>core-fraction</code>:     Amount of core-fraction to attach to the desktop. (required)</li> </ul>|
 |`--network-interface-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Resources specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>network-id</code>:     Network id (required)</li> <li><code>subnet-id</code>:     Subnet IDs (required)</li> </ul>|
+|`--boot-disk-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Boot disk specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>disk-type</code>:     Disk type (required)</li> <li><code>disk-size</code>:     Disk size (required)</li> </ul>|
+|`--data-disk-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Data disk specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>disk-type</code>:     Disk type (required)</li> <li><code>disk-size</code>:     Disk size (required)</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

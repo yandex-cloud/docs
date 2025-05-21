@@ -9,6 +9,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](node-connect-oslogin.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
+* [{#T}](apply-tf-provider.md)
 
 ## Подключение к кластеру {#cluster-connect}
 

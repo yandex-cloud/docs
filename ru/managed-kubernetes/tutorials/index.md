@@ -6,12 +6,18 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](k8s-cluster-with-no-internet.md)
+* [{#T}](kubernetes-terraform-provider.md)
 * [{#T}](running-pod-gpu.md)
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
-* [{#T}](terraform-modules.md)
 * [{#T}](kms-k8s.md)
+* [{#T}](k8s-cluster-api-provider-yandex.md)
+
+### Создание проекта с помощью {{ TF }} {#terraform}
+
+* [{#T}](kubernetes-terraform-provider.md)
+* [{#T}](terraform-modules.md)
 
 ## Настройка и тестирование масштабирования {#scaling}
 

@@ -19,7 +19,7 @@
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
 1. [Создайте кластер {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) любой подходящей конфигурации.
 1. [Создайте группу узлов](../node-group/node-group-create.md) любой подходящей конфигурации.
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](index.md#kubectl-connect). Учетные данные добавьте в конфигурационный файл `test.kubeconfig` с помощью флага `--kubeconfig=test.kubeconfig`.
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](index.md#kubectl-connect). Учетные данные добавьте в конфигурационный файл `test.kubeconfig` с помощью параметра `--kubeconfig=test.kubeconfig`.
 
 ## Получите уникальный идентификатор кластера {#k8s-id}
 

@@ -31,6 +31,7 @@ description: Различные сценарии использования си
 * [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](../infrastructure-management/packer-custom-image.md)
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
 * [Использование модулей {{ yandex-cloud }} в {{ TF }}](../infrastructure-management/terraform-modules.md)
+* [{#T}](../infrastructure-management/kubernetes-terraform-provider.md)
 * [{#T}](../infrastructure/coi-with-terraform.md)
 * [Запуск Docker-образа на виртуальной машине](../infrastructure-management/run-docker-on-vm/index.md)
 * [Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{ cloud-logging-full-name }}](../infrastructure-management/ua-http-logging.md)

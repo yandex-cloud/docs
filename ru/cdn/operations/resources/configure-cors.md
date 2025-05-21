@@ -89,7 +89,7 @@ description: Следуя данной инструкции, вы сможете
         status: READY
       ```
 
-  1. Чтобы включить добавление заголовка `Access-Control-Allow-Origin`, используйте флаг `--cors`:
+  1. Чтобы включить добавление заголовка `Access-Control-Allow-Origin`, используйте параметр `--cors`:
 
       ```bash
       yc cdn resource update <идентификатор_ресурса> --cors <значение_CORS>

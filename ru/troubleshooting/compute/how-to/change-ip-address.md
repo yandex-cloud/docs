@@ -15,11 +15,14 @@
 
     * [Установка и настройка CLI](../../../cli/quickstart.md);
     * [Команда](../../../cli/cli-ref/compute/cli-ref/instance/update-network-interface) `yc compute instance update-network-interface`.
+
     Пример команды:
+
     ```
     yc compute instance update-network-interface <ID ВМ> --network-interface-index=0 --ipv4-address=<новый IP из диапазона подсети>
     ```
-    Флаг `--network-interface-index` отвечает за номер обновляемого сетевого интерфейса, нумерация начинается с нуля.
+
+    Параметр `--network-interface-index` отвечает за номер обновляемого сетевого интерфейса, нумерация начинается с нуля.
 
 - {{ TF }}
 

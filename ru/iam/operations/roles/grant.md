@@ -488,7 +488,7 @@ description: Следуя данной инструкции, вы сможете
             --access-binding role=<роль>,subject=system:group:federation:<идентификатор_федерации>:users
          ```
 
-      Для каждой роли передайте отдельный флаг `--access-binding`. Пример:
+      Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
       ```bash
       yc <имя_сервиса> <ресурс> set-access-bindings \

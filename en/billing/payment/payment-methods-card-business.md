@@ -8,7 +8,8 @@ Businesses and individual entrepreneurs can top up their personal accounts and p
 
 ## Linking a bank card {#pin-card}
 
-When [creating](../quickstart/index.md) a billing account, you need to link a bank card.
+When [creating](../quickstart/index.md) a billing account, you need to link a bank card. Your payments for {{ yandex-cloud }} resources will be debited from this bank card.
+
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 

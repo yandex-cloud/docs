@@ -60,7 +60,7 @@ keywords:
 
 - CLI {#cli}
 
-  Чтобы создать новый образ по ссылке, воспользуйтесь флагом `--source-uri`. Для создания [оптимизированного образа](../../concepts/image.md#images-optimized-for-deployment) используйте флаг `--pooled`.
+  Чтобы создать новый образ по ссылке, воспользуйтесь параметром `--source-uri`. Для создания [оптимизированного образа](../../concepts/image.md#images-optimized-for-deployment) используйте флаг `--pooled`.
 
   ```bash
   yc compute image create --name <имя_образа> --source-uri <URL_образа> --pooled

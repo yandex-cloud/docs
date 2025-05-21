@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-Создайте [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) во флагах `--service-account-id` и `--node-service-account-id` и группы безопасности во флаге `--security-group-ids`.
+Создайте [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) в параметрах `--service-account-id` и `--node-service-account-id`, и группы безопасности в параметре `--security-group-ids`.
 
 {% list tabs group=programming_language %}
 
@@ -54,7 +54,7 @@
    1. Проверьте, что кластер {{ managed-k8s-name }} успешно создан:
       * В столбце **{{ ui-key.yacloud.k8s.cluster.overview.label_status }}** должно быть указано `Running`.
       * В столбце **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** должно быть указано `Healthy`.
-1. Создайте [группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) и укажите ранее созданные группы безопасности во флаге `--network-interface security-group-ids`:
+1. Создайте [группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) и укажите ранее созданные группы безопасности в параметре `--network-interface security-group-ids`:
 
    {% list tabs group=programming_language %}
 

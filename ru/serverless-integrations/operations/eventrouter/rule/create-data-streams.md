@@ -67,7 +67,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--yds-target` — флаг для настройки приемника с типом `{{ yds-full-name }}` и его параметры:
+      * `--yds-target` — параметр для настройки приемника с типом `{{ yds-full-name }}` и его свойства:
 
           * `database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) {{ ydb-name }}, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}, в который будут отправляться сообщения, соответствующие правилу.
           * `stream-name` — имя потока данных, в который будут отправляться сообщения, соответствующие правилу.

@@ -237,14 +237,14 @@
           1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
           1. **{{ ui-key.yacloud.common.name }}**: оставьте пустым.
           1. **{{ ui-key.yacloud.common.type }}**: оставьте значение `А`.
-          1. **TTL** (время кэширования записи): оставьте значение по умолчанию.
+          1. **TTL** (время кеширования записи): оставьте значение по умолчанию.
           1. **{{ ui-key.yacloud.dns.label_records }}**: введите публичный IP-адрес балансировщика `website-alb`.
           1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       1. Создайте CNAME-запись:
           1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
           1. **{{ ui-key.yacloud.common.name }}**: `www`.
           1. **{{ ui-key.yacloud.common.type }}**: выберите значение `CNAME`.
-          1. **TTL** (время кэширования записи): оставьте значение по умолчанию.
+          1. **TTL** (время кеширования записи): оставьте значение по умолчанию.
           1. **{{ ui-key.yacloud.dns.label_records }}**: введите `alb-example.com`.
           1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

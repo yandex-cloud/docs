@@ -33,3 +33,9 @@ description: Из статьи вы узнаете, как выгружать л
     Чтобы выгрузить логи, воспользуйтесь методом REST API [run](../api-ref/Export/run.md) для ресурса [Export](../api-ref/Export/index.md) или вызовом gRPC API [ExportService/Run](../api-ref/grpc/Export/run.md).
 
 {% endlist %}
+
+
+#### См. также {#see-also}
+
+* [{#T}](../tutorials/replicate-logs-to-storage.md)
+* [{#T}](../tutorials/replicate-logs-to-storage-via-data-streams.md)

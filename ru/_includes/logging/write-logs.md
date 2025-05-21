@@ -42,7 +42,7 @@
 
    {% note info %}
 
-   Флаги `--group-name`, `--message`, `--json-payload` можно опустить и указать только значения параметров, соблюдая порядок. Например: `default "My message" '{"request_id": "1234"}'`.
+   Параметры `--group-name`, `--message`, `--json-payload` можно опустить и указать только значения параметров, соблюдая порядок. Например: `default "My message" '{"request_id": "1234"}'`.
 
    {% endnote %}
 

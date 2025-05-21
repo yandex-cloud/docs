@@ -17,6 +17,8 @@ items:
         href: operations/update-kubernetes.md
       - name: Настройка автомасштабирования
         href: operations/autoscale.md
+      - name: Подключение {{ TF }}-провайдера {{ k8s }}
+        href: operations/apply-tf-provider.md
       - name: Подключение к кластеру
         items:
           - name: Обзор способов подключения
@@ -170,10 +172,18 @@ items:
         href: tutorials/time-slicing-gpu.md
       - name: Миграция ресурсов в другую зону доступности
         href: tutorials/migration-to-an-availability-zone.md
-      - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
-        href: tutorials/terraform-modules.md
+      - name: Создание проекта с помощью {{ TF }}
+        items:
+          - name: Управление ресурсами {{ k8s }} с помощью провайдера {{ TF }}
+            href: tutorials/kubernetes-terraform-provider.md
+          - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
+            href: tutorials/terraform-modules.md
       - name: Шифрование секретов в {{ managed-k8s-name }}
         href: tutorials/kms-k8s.md
+      - name: >-
+          Создание кластера {{ k8s }} с помощью провайдера {{ yandex-cloud }}
+          для {{ k8s }} Cluster API
+        href: tutorials/k8s-cluster-api-provider-yandex.md
       - name: Настройка и тестирование масштабирования
         items:
           - name: Горизонтальное масштабирование приложения в кластере

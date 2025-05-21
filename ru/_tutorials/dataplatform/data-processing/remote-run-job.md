@@ -40,7 +40,7 @@
         "cat /srv/dataproc.gpg" | sudo apt-key add -
         ```
 
-     1. Обновите кэш репозиториев:
+     1. Обновите кеш репозиториев:
 
         ```bash
         sudo apt update
@@ -106,7 +106,7 @@
         "cat /srv/dataproc.gpg" | sudo apt-key add -
         ```
 
-     1. Обновите кэш репозиториев:
+     1. Обновите кеш репозиториев:
 
         ```bash
         sudo apt update

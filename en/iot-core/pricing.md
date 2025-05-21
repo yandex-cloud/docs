@@ -20,7 +20,7 @@ In {{ iot-name }}, you are charged for the number of messages. The message count
 Message Count = Command Size / 1 KB
 ```
 
-For example:
+Here is an example:
 * If the command size is 800 B, it is a single message.
 * If the command size is 2,800 B (2.73 KB), it is three messages.
 

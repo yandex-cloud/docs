@@ -24,6 +24,7 @@ Aliases:
 	- [yc managed-clickhouse backup get](backup/get.md) — Get information about a ClickHouse backup.
 	- [yc managed-clickhouse backup list](backup/list.md) — List ClickHouse backups available in a folder.
 - [yc managed-clickhouse cluster](cluster/index.md) — Manage ClickHouse clusters.
+	- [yc managed-clickhouse cluster add-extension](cluster/add-extension.md) — Add an extension to a ClickHouse cluster.
 	- [yc managed-clickhouse cluster add-external-dictionary](cluster/add-external-dictionary.md) — Add an external dictionary to a ClickHouse cluster.
 	- [yc managed-clickhouse cluster add-graphite-rollup](cluster/add-graphite-rollup.md) — Apply graphite configuration to a ClickHouse cluster.
 	- [yc managed-clickhouse cluster add-labels](cluster/add-labels.md) — Assign labels to a ClickHouse cluster.
@@ -34,12 +35,15 @@ Aliases:
 	- [yc managed-clickhouse cluster create](cluster/create.md) — Create a ClickHouse cluster.
 	- [yc managed-clickhouse cluster delete](cluster/delete.md) — Delete a ClickHouse cluster.
 	- [yc managed-clickhouse cluster get](cluster/get.md) — Get information about a ClickHouse cluster.
+	- [yc managed-clickhouse cluster get-extension](cluster/get-extension.md) — Get information about a ClickHouse cluster extension.
 	- [yc managed-clickhouse cluster list](cluster/list.md) — List ClickHouse clusters in a folder.
 	- [yc managed-clickhouse cluster list-backups](cluster/list-backups.md) — List available backups for a ClickHouse cluster.
+	- [yc managed-clickhouse cluster list-extensions](cluster/list-extensions.md) — List extensions in a ClickHouse cluster.
 	- [yc managed-clickhouse cluster list-external-dictionaries](cluster/list-external-dictionaries.md) — Retrieve a list of external dictionaries that belong to ClickHouse cluster.
 	- [yc managed-clickhouse cluster list-logs](cluster/list-logs.md) — Retrieve logs for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster list-operations](cluster/list-operations.md) — List operations for a ClickHouse cluster.
 	- [yc managed-clickhouse cluster move](cluster/move.md) — Move the specified ClickHouse cluster into the folder
+	- [yc managed-clickhouse cluster remove-extension](cluster/remove-extension.md) — Remove an extension from a ClickHouse cluster.
 	- [yc managed-clickhouse cluster remove-external-dictionary](cluster/remove-external-dictionary.md) — Remove an external dictionary from a ClickHouse cluster.
 	- [yc managed-clickhouse cluster remove-graphite-rollup](cluster/remove-graphite-rollup.md) — Remove graphite rollup configuration from a ClickHouse cluster.
 	- [yc managed-clickhouse cluster remove-labels](cluster/remove-labels.md) — Remove labels from a ClickHouse cluster.
@@ -51,11 +55,15 @@ Aliases:
 	- [yc managed-clickhouse cluster stop](cluster/stop.md) — Stop the specified ClickHouse cluster
 	- [yc managed-clickhouse cluster update](cluster/update.md) — Modify configuration or attributes of a ClickHouse cluster.
 	- [yc managed-clickhouse cluster update-config](cluster/update-config.md) — Update the configuration of a ClickHouse cluster.
+	- [yc managed-clickhouse cluster update-extension](cluster/update-extension.md) — Modify configuration or attributes of a ClickHouse cluster extension.
 - [yc managed-clickhouse database](database/index.md) — Manage ClickHouse databases.
 	- [yc managed-clickhouse database create](database/create.md) — Create a database in a ClickHouse cluster.
 	- [yc managed-clickhouse database delete](database/delete.md) — Delete a ClickHouse database.
 	- [yc managed-clickhouse database get](database/get.md) — Get information about a ClickHouse database.
 	- [yc managed-clickhouse database list](database/list.md) — List databases for a ClickHouse cluster.
+- [yc managed-clickhouse extension](extension/index.md) — Manage available ClickHouse extensions.
+	- [yc managed-clickhouse extension get](extension/get.md) — Get information about a ClickHouse extension.
+	- [yc managed-clickhouse extension list](extension/list.md) — List available ClickHouse extensions.
 - [yc managed-clickhouse format-schema](format-schema/index.md) — Manage ClickHouse format schemas.
 	- [yc managed-clickhouse format-schema create](format-schema/create.md) — Create format schema in a ClickHouse cluster.
 	- [yc managed-clickhouse format-schema delete](format-schema/delete.md) — Delete ClickHouse format schema.

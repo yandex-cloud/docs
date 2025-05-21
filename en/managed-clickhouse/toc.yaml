@@ -244,6 +244,8 @@ items:
         items:
           - name: Overview
             href: cli-ref/cluster/index.md
+          - name: add-extension
+            href: cli-ref/cluster/add-extension.md
           - name: add-external-dictionary
             href: cli-ref/cluster/add-external-dictionary.md
           - name: add-graphite-rollup
@@ -264,10 +266,14 @@ items:
             href: cli-ref/cluster/delete.md
           - name: get
             href: cli-ref/cluster/get.md
+          - name: get-extension
+            href: cli-ref/cluster/get-extension.md
           - name: list
             href: cli-ref/cluster/list.md
           - name: list-backups
             href: cli-ref/cluster/list-backups.md
+          - name: list-extensions
+            href: cli-ref/cluster/list-extensions.md
           - name: list-external-dictionaries
             href: cli-ref/cluster/list-external-dictionaries.md
           - name: list-logs
@@ -276,6 +282,8 @@ items:
             href: cli-ref/cluster/list-operations.md
           - name: move
             href: cli-ref/cluster/move.md
+          - name: remove-extension
+            href: cli-ref/cluster/remove-extension.md
           - name: remove-external-dictionary
             href: cli-ref/cluster/remove-external-dictionary.md
           - name: remove-graphite-rollup
@@ -298,6 +306,8 @@ items:
             href: cli-ref/cluster/update.md
           - name: update-config
             href: cli-ref/cluster/update-config.md
+          - name: update-extension
+            href: cli-ref/cluster/update-extension.md
       - name: database
         items:
           - name: Overview
@@ -310,6 +320,14 @@ items:
             href: cli-ref/database/get.md
           - name: list
             href: cli-ref/database/list.md
+      - name: extension
+        items:
+          - name: Overview
+            href: cli-ref/extension/index.md
+          - name: get
+            href: cli-ref/extension/get.md
+          - name: list
+            href: cli-ref/extension/list.md
       - name: format-schema
         items:
           - name: Overview

@@ -132,6 +132,8 @@ items:
                 href: cli-ref/eventrouter/connector/create/data-stream.md
               - name: message-queue
                 href: cli-ref/eventrouter/connector/create/message-queue.md
+              - name: timer
+                href: cli-ref/eventrouter/connector/create/timer.md
           - name: delete
             href: cli-ref/eventrouter/connector/delete.md
           - name: get

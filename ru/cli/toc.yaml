@@ -2300,6 +2300,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/index.md
+              - name: add-extension
+                href: cli-ref/managed-clickhouse/cli-ref/cluster/add-extension.md
               - name: add-external-dictionary
                 href: >-
                   cli-ref/managed-clickhouse/cli-ref/cluster/add-external-dictionary.md
@@ -2324,10 +2326,14 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/delete.md
               - name: get
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/get.md
+              - name: get-extension
+                href: cli-ref/managed-clickhouse/cli-ref/cluster/get-extension.md
               - name: list
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list.md
               - name: list-backups
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list-backups.md
+              - name: list-extensions
+                href: cli-ref/managed-clickhouse/cli-ref/cluster/list-extensions.md
               - name: list-external-dictionaries
                 href: >-
                   cli-ref/managed-clickhouse/cli-ref/cluster/list-external-dictionaries.md
@@ -2337,6 +2343,8 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list-operations.md
               - name: move
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/move.md
+              - name: remove-extension
+                href: cli-ref/managed-clickhouse/cli-ref/cluster/remove-extension.md
               - name: remove-external-dictionary
                 href: >-
                   cli-ref/managed-clickhouse/cli-ref/cluster/remove-external-dictionary.md
@@ -2363,6 +2371,8 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/update.md
               - name: update-config
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/update-config.md
+              - name: update-extension
+                href: cli-ref/managed-clickhouse/cli-ref/cluster/update-extension.md
           - name: database
             items:
               - name: Overview
@@ -2375,6 +2385,14 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/database/get.md
               - name: list
                 href: cli-ref/managed-clickhouse/cli-ref/database/list.md
+          - name: extension
+            items:
+              - name: Overview
+                href: cli-ref/managed-clickhouse/cli-ref/extension/index.md
+              - name: get
+                href: cli-ref/managed-clickhouse/cli-ref/extension/get.md
+              - name: list
+                href: cli-ref/managed-clickhouse/cli-ref/extension/list.md
           - name: format-schema
             items:
               - name: Overview
@@ -3995,6 +4013,9 @@ items:
                       - name: message-queue
                         href: >-
                           cli-ref/serverless/cli-ref/eventrouter/connector/create/message-queue.md
+                      - name: timer
+                        href: >-
+                          cli-ref/serverless/cli-ref/eventrouter/connector/create/timer.md
                   - name: delete
                     href: cli-ref/serverless/cli-ref/eventrouter/connector/delete.md
                   - name: get
