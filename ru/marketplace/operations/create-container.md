@@ -396,7 +396,7 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          cilium_value: {}
+            cilium_value: {}
         ```
 
       * `ciliumvalue` — использование провайдера сетевых политик Cilium.
@@ -405,7 +405,7 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          cilium_value: {}
+            cilium_value: {}
         ```
 
       * `kubednsclusteripvaluedisabled` — IP-адрес кластера {{ k8s }}. Если параметр был передан, соответствующее поле продукта в консоли управления будет недоступно для редактирования и автоматически предзаполнится.
@@ -414,8 +414,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          kube_dns_cluster_ip_value:
-            required: true
+            kube_dns_cluster_ip_value:
+              required: true
         ```
 
       * `kubednsclusteripvalue` — IP-адрес кластера {{ k8s }}.
@@ -424,8 +424,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          kube_dns_cluster_ip_value:
-            required: true
+            kube_dns_cluster_ip_value:
+              required: true
         ```
 
       * `loggroupidvalue` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
@@ -434,8 +434,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          log_group_id_value:
-            required: true
+            log_group_id_value:
+              required: true
         ```
 
       * `kmskeyidvalue` — содержимое [ключа {{ kms-full-name }}](../../kms/concepts/key.md).
@@ -444,8 +444,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          kms_key_id_value:
-            required: true
+            kms_key_id_value:
+              required: true
         ```
 
       * `domainvalue` — домен, в котором будет расположен кластер {{ k8s }}.
@@ -454,8 +454,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          domain_value:
-            required: true
+            domain_value:
+              required: true
         ```
 
       * `iamapikeyvalue` — значение [API-ключа](../../iam/concepts/authorization/api-key.md) сервисного аккаунта. Передается в формате JSON.
@@ -464,8 +464,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          iam_api_key_value:
-            required: true
+            iam_api_key_value:
+              required: true
         ```
 
       * `storagebucketvalue` — [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
@@ -474,8 +474,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          storage_bucket_value:
-            required: true
+            storage_bucket_value:
+              required: true
         ```
 
       * `prometheusworkspaceidvalue` — название рабочего пространства {{ prometheus-name }}.
@@ -484,8 +484,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          prometheus_workspace_id_value:
-            required: false
+            prometheus_workspace_id_value:
+              required: false
         ```
 
       * `licenseidvalue` — идентификатор [подписки](license-manager-integration.md) из {{ license-manager }} API.
@@ -494,8 +494,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          license_id_value:
-            required: false
+            license_id_value:
+              required: false
         ```
 
 Значения переменных, указанные пользователем при установке продукта в кластер {{ k8s }}, будут переопределять значения из файла `values.yaml`.
