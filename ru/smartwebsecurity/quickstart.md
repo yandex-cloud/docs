@@ -1,25 +1,16 @@
 # Как начать работать с {{ sws-full-name }}
 
-{{ sws-name }} позволяет защитить вашу инфраструктуру от информационных угроз на прикладном уровне L7 модели OSI. Например, [DDoS-атак](../glossary/ddos.md), ботов, SQL-инъекций. Дополнительно вы можете подключить защиту от DDoS-атак на уровнях L3 и L4 с помощью [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md).
+{% include [about-sws](../_includes/smartwebsecurity/about-sws.md) %}
 
-{{ sws-name }} — это набор инструментов, которые можно использовать по отдельности или сочетать, чтобы настроить оптимальную защиту ваших ресурсов. Основной элемент в {{ sws-name }} — _профиль безопасности_, к нему можно подключить:
-
-* Базовые правила — для простой фильтрации трафика по некоторым условиям.
-* Правила Smart Protection — для анализа трафика с помощью алгоритмов машинного обучения и поведенческого анализа.
-* Правила из профиля WAF — позволяют использовать наборы правил от распространенных угроз безопасности, такие как OWASP Core Rule Set (CRS). Защищают веб-приложения от множества известных угроз, например, SQL-инъекций, командных инъекций, межсайтового скриптинга, несанкционированного доступа к серверным ресурсам и других.
-* CAPTCHA — после проверки правилами трафик можно дополнительно направить в [{{ captcha-full-name }}](../smartcaptcha) для защиты от ботов и спама.
-* Профиль ARL — для ограничения количества запросов к защищаемому ресурсу по различным условиям.
-
-Для защиты ресурсов профиль безопасности подключается к [виртуальному хосту](../application-load-balancer/concepts/http-router.md#virtual-host) или [Ingress-контроллеру](../application-load-balancer/tools/k8s-ingress-controller/index.md#smart-web-security) сервиса {{ alb-full-name }}. Также профиль безопасности может быть подключен к API-шлюзу [API Gateway](../api-gateway/concepts/index.md).
-
-Чтобы начать работу с сервисом:
+## Порядок настройки {#steps}
 
 * [Подготовьте облако к работе](#before-you-begin)
+* [Создайте и настройте защищаемый ресурс](#resource-create)
 * [Создайте и проверьте профиль безопасности](#security-profile)
-* [Подключите профиль безопасности к виртуальному хосту](#profile-connect)
+* [Подключите профиль безопасности к защищаемому ресурсу](#profile-connect)
+* [Посмотрите работу профиля безопасности](#monitoring)
 * (Опционально) [Создайте и подключите профиль WAF](#waf)
 * (Опционально) [Создайте и подключите профиль ARL](#arl)
-* [Настройте L7-балансировщик для дополнительной защиты](#configure-balancer)
 
 
 ## Подготовьте облако к работе {#before-you-begin}
@@ -27,11 +18,107 @@
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 
+## Создайте и настройте защищаемый ресурс {#resource-create}
+
+{% list tabs group=resources %}
+
+- L7-балансировщик {#balancer}
+
+  {{ alb-name }} равномерно распределяет входящий трафик между узлами, что позволяет избежать перегрузки и повысить отказоустойчивость. Если у вас еще не настроен L7-балансировщик, вы можете развернуть [тестовую инфраструктуру](tutorials/balancer-with-sws-profile/index.md).
+
+- API-шлюз {#api-gateway}
+
+  API-шлюз — единая точка входа для API различных сервисов, которая позволяет управлять запросами, маршрутизацией, аутентификацией и так далее. Если у вас еще не настроен API-шлюз, вы можете развернуть шлюз с [тестовой спецификацией](../api-gateway/tutorials/api-gw-sws-integration.md).
+
+- Домен {#domain}
+
+  Домен — сервер, сайт, приложение, которое обрабатывает внешние запросы по веб-адресу. Для защиты домена {{ sws-name }} предоставляет прокси-сервер с балансировкой нагрузки, анализом и маршрутизацией запросов. А также базовой [защитой от DDoS](../vpc/ddos-protection/).
+  
+  На прокси-сервере установлено ограничение MTU для всех пакетов — 1450 байт.
+
+  {% include [preview-domain](../_includes/smartwebsecurity/preview-domain.md)%}
+
+  ### Подготовьте данные о ресурсе {#domain-info}
+  
+    * Адрес домена, на котором работает веб-приложение. У вас должен быть доступ к кабинету управления доменом, чтобы изменить А-запись.
+    * IP-адрес сервера, порт и протокол, на котором работает веб-приложение.
+    * Действительный приватный ключ и TLS-сертификат для этого домена в [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded формате. Поддерживаются сертификаты с ключами RSA-2048 и RSA-4096.
+
+  ### Создайте прокси-сервер {#create-proxy}
+
+  {% list tabs group=instructions %}
+
+  - Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+    1. На панели слева выберите раздел **Защита доменов**.
+    1. Нажмите кнопку **Создать прокси-сервер**.
+    1. Введите произвольное имя для прокси-сервера, например, `test-proxy`.
+    1. Нажмите кнопку **Создать**.
+    
+        {% include [after-proxy-create](../_includes/smartwebsecurity/after-proxy-create.md) %}
+
+  {% endlist %}
+
+  ### Добавьте домен {#add-domain}
+
+  {% list tabs group=instructions %}
+
+  - Консоль управления {#console}
+
+    1. В разделе **Домены** нажмите кнопку **Добавить домен**.
+    1. Введите адрес домена, на котором находится ваше веб-приложение, например, `example.com`.
+    1. Нажмите **Продолжить**.
+    1. Выберите тип соединения, которое используется в вашем приложении. Рекомендуем выбрать защищенный протокол **HTTPS**.
+    1. Если вы используете сервис [{{ certificate-manager-name }}](../../certificate-manager/) и добавляли в него сертификат вашего домена, выберите его из списка. 
+    1. Если вы не используете {{ certificate-manager-name }}, нажмите кнопку **Создать** → **Пользовательский сертификат**.
+       1. Введите произвольное имя сертификата.
+       1. Скопируйте или загрузите файлом приватный ключ, сертификат и цепочку промежуточных сертификатов в формате PEM.
+       1. Нажмите кнопку **Создать сертификат**.
+    1. Нажмите **Продолжить**.
+
+    1. Укажите настройки **Целевых ресурсов**:
+       1. IP-адрес и порт, на котором работает ваше веб-приложение.
+       1. Протокол, на котором работает ваше веб-приложение.
+    1. Нажмите кнопку **Сохранить**.
+
+    После создания домена откроется страница обзора параметров домена. В разделе **Как активировать защиту** скопируйте IP-адрес прокси-сервера и доверенные адреса {{ yandex-cloud }}. Эти данные потребуются на следующем шаге.
+  
+  {% endlist %}
+
+  ### Настройте вашу инфраструктуру {#infrastructure-settings}
+  
+  * Зайдите в панель управления DNS на сайте вашего хостинг-провайдера или регистратора доменов.
+  * Добавьте А-запись с параметрами:
+     * `Имя хоста` — `адрес вашего домена (example.com)`, 
+     * `Значение` — `IP-адрес прокси-сервера`.
+  
+     Эта запись перенаправляет запросы, которые приходят на ваш домен, на IP-адрес прокси-сервера.
+
+  * В настройках вашего сервера запретите все соединения и разрешите только соединения для IP-адресов {{ yandex-cloud }}.
+  
+  ### Проверьте статус вашего ресурса {#check-status}
+
+  {% list tabs group=instructions %}
+
+  - Консоль управления {#console}
+
+    1. В разделе **Прокси-сервер** выберите созданный прокси-сервер.
+    1. Перейдите в раздел **Домены** и выберите созданный домен.
+    1. В разделе **Целевые ресурсы** проверьте, что ваш ресурс находится в статусе **Healthy**.
+  
+       Если это не так, прокси-сервер не может соединиться с вашим ресурсом. Проверьте адрес вашего веб-сервера и настройки сети. Убедитесь, что к веб-серверу разрешен доступ с IP-адресов {{ yandex-cloud }}.
+    
+    1. На панели слева проверьте, что ваш домен находится в статусе **Healthy**. 
+       
+       Если это не так, проверьте адрес домена и А-запись, а также валидность сертификата.
+
+  {% endlist %}
+
+{% endlist %}
+
 ## Создайте и проверьте профиль безопасности {#security-profile}
-
-Создайте первый [профиль безопасности](concepts/profiles.md) и подключите его к имеющемуся [виртуальному хосту](../application-load-balancer/concepts/http-router.md#virtual-host) L7-балансировщика {{ alb-full-name }}.
-
-Если у вас еще не настроен L7-балансировщик, вы можете развернуть [тестовую инфраструктуру](tutorials/balancer-with-sws-profile/index.md).
 
 ### Создайте профиль безопасности {#profile-create}
 
@@ -41,7 +128,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся защищаемые ресурсы.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
@@ -82,27 +169,54 @@
 {% endlist %}
 
 
-## Подключите профиль безопасности к виртуальному хосту {#profile-connect}
+## Подключите профиль безопасности к ресурсу {#profile-connect}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Справа сверху нажмите ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-  1. В открывшемся окне выберите:
+  Способ подключения зависит от типа ресурса.
 
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../application-load-balancer/concepts/application-load-balancer.md).
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../application-load-balancer/concepts/http-router.md).
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
+  * Чтобы подключить домен: 
+    1. В разделе **Защита доменов** → **Домены** выберите нужный домен. 
+    1. Нажмите **Подключить профиль безопасности** и выберите профиль.
+  
+  * Чтобы подключить виртуальный хост в сервисе {{ alb-name }}:
+
+    1. Если балансировщик управляется [Ingress-контроллером](../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, используйте [аннотацию ресурса Ingress](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+    1. Если балансировщик управляется вами, в разделе **Профили безопасности** выберите созданный профиль.
+    1. Справа сверху нажмите ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+    1. В открывшемся окне выберите:
+
+       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../application-load-balancer/concepts/application-load-balancer.md).
+       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../application-load-balancer/concepts/http-router.md).
+       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
 
         Чтобы подключить профиль к еще одному L7-балансировщику, нажмите **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
 
-  1. Нажмите **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
+    1. Нажмите **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
       На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** появится подключенный виртуальный хост.
 
+  * Чтобы подключить API-шлюз:
+    1. В разделе **Профили безопасности** скопируйте идентификатор нужного профиля.
+    1. При создании API-шлюза или в спецификации уже созданного API-шлюза задайте расширение [x-yc-apigateway:smartWebSecurity](../api-gateway/concepts/extensions/sws.md).
+    1. Укажите в расширении скопированный идентификатор.
+
+
 {% endlist %}
 
+
+## Посмотрите работу профиля безопасности {#monitoring}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. На странице сервиса **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}** на панели слева выберите раздел **Мониторинг**.
+  1. Посмотрите [графики](operations/monitoring.md) разрешенных и заблокированных запросов.
+
+{% endlist %}
 
 ## Создайте и подключите профиль WAF {#waf}
 
@@ -261,11 +375,6 @@ ARL позволяет устанавливать лимиты на количе
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
-
-
-## Настройте L7-балансировщик для дополнительной защиты {#configure-balancer}
-
-{% include [alb-settings-recommendation](../_includes/smartwebsecurity/alb-settings-recommendation.md) %}
 
 
 #### См. также {#see-also}

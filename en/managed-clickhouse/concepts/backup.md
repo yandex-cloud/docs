@@ -4,7 +4,7 @@ description: '{{ mch-short-name }} supports automatic and manual database backup
 keywords:
   - back up
   - backup
-  - backups
+  - backing up
   - '{{ CH }} backups'
   - backup {{ CH }}
   - '{{ CH }}'
@@ -18,17 +18,25 @@ A backup is automatically created every day. You cannot disable automatic backup
 
 To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
 
-## Creating backups {#size}
+## Creating a backup {#size}
 
-You can create both automatic and manual backups. In both cases, the incremental method is used:
+You can create backups either automatically or manually. In both cases, the incremental method is used:
 
-* When creating a new backup, [data chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) are checked for uniqueness.
+* When you create a new backup, [data chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) are checked for uniqueness.
 * If identical [data chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) are already present in one of the existing backups and they are not older than {{ mch-dedup-retention }} days, they are not duplicated. For cold data in [hybrid storage](storage.md#hybrid-storage-features), this period is {{ mch-backup-retention }} days.
 
-Backups are created separately for each individual cluster [shard](./sharding.md). They are also restored by individual shard. You can restore:
+A backup covers the whole cluster and contains all its [shards](./sharding.md). You can recover either individual shards or the whole cluster from a backup.
 
-* One or more shard backups in an individual cluster.
-* The entire cluster by specifying backups of all cluster shards.
+{% note info %}
+
+Prior to April 1, 2025, separate backups were created for each cluster shard. For such backups, you can recover the following:
+
+* One or more shard backups into an individual cluster.
+* The whole cluster by specifying the backups of all the cluster shards.
+
+You can recover several shards into one cluster if their backups had been created for the same cluster.
+
+{% endnote %}
 
 Backup data is only stored for the `MergeTree` engine family. For other engines, backups only store table schemas. Learn more about engines in the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/).
 

@@ -5,7 +5,7 @@ description: '{{ GP }} offers two types of table data storage: heap storage and 
 
 # Types of data storage in {{ GP }}
 
-{{ GP }} offers two [types of table data storage]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-ddl-ddl-storage.html):
+{{ GP }} offers two [types of table data storage]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-ddl-ddl-storage.html):
 
 * _Heap storage_.
 

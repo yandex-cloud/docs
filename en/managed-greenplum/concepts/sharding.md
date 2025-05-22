@@ -9,7 +9,7 @@ _Sharding_ is a horizontal {{ GP }} cluster scaling strategy where parts of each
 
 ## Distribution key {#distribution-key}
 
-To optimize `JOIN` operations on large tables, you can specify a [distribution key]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) explicitly. In this case, when joining tables by the fields specified in the key, a join operation will be performed locally at the segment level, and the query processing will be faster.
+To optimize `JOIN` operations on large tables, you can specify a [distribution key]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) explicitly. In this case, when joining tables by the fields specified in the key, a join operation will be performed locally at the segment level, and the query processing will be faster.
 
 To create a table with a distribution key, provide one or more required fields in the `DISTRIBUTED BY` clause:
 

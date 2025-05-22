@@ -37,9 +37,6 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
-  - title: Prompting guide
-    description: How to get best from our models
-    href: gpt-prompting-guide/about
   - title: API references
     description: Learn about authorization when working with API
     href: api-ref/authentication

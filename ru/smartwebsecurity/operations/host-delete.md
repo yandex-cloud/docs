@@ -1,9 +1,11 @@
 ---
-title: Как отключить профиль безопасности {{ sws-full-name }} от виртуального хоста
-description: Следуя данной инструкции, вы сможете отключить профиль безопасности {{ sws-full-name }} от виртуального хоста.
+title: Как отключить профиль безопасности {{ sws-full-name }} от виртуального хоста, домена, API-шлюза
+description: Следуя данной инструкции, вы сможете отключить профиль безопасности {{ sws-full-name }} от защищаемого ресурса.
 ---
 
-# Отключить профиль безопасности от виртуального хоста
+# Отключить профиль безопасности от ресурса
+
+## Отключить от виртуального хоста {#virtual-host}
 
 {% list tabs group=instructions %}
 
@@ -137,5 +139,35 @@ description: Следуя данной инструкции, вы сможете
 - API {#api}
 
   {% include [api-host](../../_includes/smartwebsecurity/api-host.md) %}
+
+{% endlist %}
+
+## Отключить от домена {#domain}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится профиль безопасности.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Выберите раздел **Защита доменов** → **Домены**.
+  1. Выберите домен. 
+  1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Удалите подключенный профиль безопасности.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
+## Отключить от API-шлюза {#gateway}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный API-шлюз.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Выберите API-шлюз.
+  1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В спецификации API-шлюза удалите расширение [x-yc-apigateway:smartWebSecurity](../../api-gateway/concepts/extensions/sws.md).
 
 {% endlist %}

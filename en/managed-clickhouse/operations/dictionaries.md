@@ -379,6 +379,13 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dictionary you want to delete and select **{{ ui-key.yacloud.common.edit }}**.
+    1. Change the [dictionary settings](#settings).
+
 - REST API {#api}
 
     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
@@ -667,17 +674,17 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 - Management console {#console}
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}**: Name of the new dictionary.
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}**: Name of the new dictionary. Once a dictionary is created, you cannot change its name.
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_source }}**: Dictionary source settings. Select one of the listed sources and specify its settings:
 
     {% cut "{{ CH }}" %}
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: {{ CH }} host name. This is an optional parameter.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: {{ CH }} host name. This is an optional setting.
 
         The host must be in the same network as the {{ CH }} cluster.
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source. This is an optional parameter.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source. This is an optional setting.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}**: Name of source database user.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
@@ -734,10 +741,28 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     For more information about dictionary sources and their connection parameters, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-source/) documentation.
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Memory layout type for the dictionary. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Memory layout type for the dictionary. Supported methods: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. For more information about how to store dictionaries in memory, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}**: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}**: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `complex_key_hashed` and `complex_key_cache` methods:
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_allow-read-expired-keys }}**: Decides whether or not to allow reading expired keys. Used for the `cache` and `complex_key_cache` methods. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
+  * Update queue settings where cache refresh issues are created if keys are not found in the dictionary. The settings are used for the `cache` and `complex_key_cache` methods.
+
+    * * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-update-queue-size }}**: Maximum number of update issues per queue. The default value is `100000`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-queue-push-timeout-milliseconds }}**: Maximum timeout (in milliseconds) before an update issue is sent to the queue. The default value is `10`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-queue-push-timeout-milliseconds }}**: Maximum timeout (in milliseconds) before completing an updated issue. The default value is `60000` (one minute).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-threads-for-updates }}**: Maximum number of threads for cache dictionary update. The default value is `4`.
+
+    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
+
+  * Flat array size settings. The settings are used for the `flat` method.
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_initial-array-size }}**: Initial dictionary key size. The default value is `1024`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-array-size }}**: Maximum dictionary key size. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. The default value is `500000`.
+
+    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#flat).
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_access-to-key-from-attributes }}**: Gets the name of the composite key using the `dictGetString` function. The setting is used for the `ip_trie` method. With this setting on, you get higher load on RAM.
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Dictionary key column name. The key column must be UInt64 data type. The setting is used for the `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, and `direct` methods: For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}**: Description of the dictionary's composite key. The composite key may consist of one or more elements. The setting is used for the `complex_key_*` and `ip_trie` methods.
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}**: Column name.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-type }}**: Column data type.
@@ -768,11 +793,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% cut "`--clickhouse-source`: {{ CH }} source" %}
 
-    * `host`: Source host name. This is an optional parameter.
+    * `host`: Source host name. This is an optional setting.
 
         The host must be in the same network as the {{ CH }} cluster.
 
-    * `port`: Port for connecting to the source. This is an optional parameter.
+    * `port`: Port for connecting to the source. This is an optional setting.
     * `db`: Source database name.
     * `user`: Name of source database user.
     * `password`: Password to access the source database.
@@ -838,11 +863,28 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
   * `--postgresql-invalidate-query`: Query for checking changes in a {{ PG }} dictionary. {{ CH }} updates the dictionary only if the results of this query change.
 
-  * `--layout-type`: Memory layout type for the dictionary. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
+  * `--layout-type`: Memory layout type for the dictionary. Supported methods: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. For more information about how to store dictionaries in memory, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
   * `--layout-size-in-cells`: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-  * `--layout-max-array-size`: Maximum key value for the `flat` method. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
-  * `--structure-id`: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
-  * `--structure-key`: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `complex_key_hashed` and `complex_key_cache` methods:
+  * `--layout-allow-read-expired-keys`: Decides whether to allow reading expired keys. Used for the `cache` and `complex_key_cache` methods. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
+  * Update queue settings where cache refresh issues are created if keys are not found in the dictionary. The settings are used for the `cache` and `complex_key_cache` methods.
+
+    * `--layout-max-update-queue-size`: Maximum number of update issues per queue. The default value is `100000`.
+    * `--layout-update-queue-push-timeout-milliseconds`: Maximum timeout (in milliseconds) before an update issue is sent to the queue. The default value is `10`.
+    * `--layout-query-wait-timeout-milliseconds`: Maximum timeout (in milliseconds) before completing an updated issue. The default value is `60000` (one minute).
+    * `--layout-max-threads-for-updates`: Maximum number of threads for cache dictionary update. The default value is `4`.
+
+    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
+
+  * Flat array size settings. The settings are used for the `flat` method.
+
+    * `--layout-initial-array-size`: Initial dictionary key size. The default value is `1024`.
+    * `--layout-max-array-size`: Maximum dictionary key size. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. The default value is `500000`.
+
+    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#flat).
+
+  * `--layout-access-to-key-from-attributes`: Gets the name of the composite key using the `dictGetString` function. The setting is used for the `ip_trie` method. With this setting on, you get higher load on RAM.
+  * `--structure-id`: Dictionary key column name. The key column must be UInt64 data type. The setting is used for the `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, and `direct` methods. For more information about keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+  * `--structure-key`: Description of the dictionary's composite key. The composite key may consist of one or more elements. The setting is used for the `complex_key_*` and `ip_trie` methods:
 
     * `name`: Column name.
     * `type`: Column data type.
@@ -892,11 +934,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `db`: Source database name.
       * `table`: Source table name.
       * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
-      * `host`: Source host name. This is an optional parameter.
+      * `host`: Source host name. This is an optional setting.
 
           The host must be in the same network as the {{ CH }} cluster.
 
-      * `port`: Port for connecting to the source. This is an optional parameter.
+      * `port`: Port for connecting to the source. This is an optional setting.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
       * `secure`: Whether to use SSL to establish the connection.
@@ -956,11 +998,28 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       {% endcut %}
 
-    * `layout.type`: Memory layout type for the dictionary. Supported methods: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, and `COMPLEX_KEY_CACHE`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
+    * `layout.type`: Memory layout type for the dictionary. Supported methods: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. For more information about how to store dictionaries in memory, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
     * `layout.sizeInCells`: Number of cache cells for the `CACHE` and `COMPLEX_KEY_CACHE` methods. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-    * `layout.maxArraySize`: Maximum key value for the `FLAT` method. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
-    * `structure.id.name`: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `FLAT`, `HASHED`, `CACHE`, and `RANGE_HASHED` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
-    * `structure.key.attributes`: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `COMPLEX_KEY_HASHED` and `COMPLEX_KEY_CACHE` methods:
+    * `layout.allowReadExpiredKeys`: Decides whether to allow reading expired keys. The setting is used for the `CACHE` and `COMPLEX_KEY_CACHE` methods. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
+    * Update queue settings where cache refresh issues are created if keys are not found in the dictionary. The settings are used for the `CACHE` and `COMPLEX_KEY_CACHE` methods.
+
+      * `layout.maxUpdateQueueSize`: Maximum number of update issues per queue. The default value is `100000`.
+      * `layout.updateQueuePushTimeoutMilliseconds`: Maximum timeout (in milliseconds) before an update issue is sent to the queue. The default value is `10`.
+      * `layout.queryWaitTimeoutMilliseconds`: Maximum timeout (in milliseconds) before completing an updated issue. The default value is `60000` (one minute).
+      * `layout.maxThreadsForUpdates`: Maximum number of threads for cache dictionary update. The default value is `4`.
+
+      For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
+
+    * Flat array size settings. The settings are used for the `FLAT` method.
+
+      * `layout.initialArraySize`: Initial dictionary key size. The default value is `1024`.
+      * `layout.maxArraySize`: Maximum dictionary key size. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. The default value is `500000`.
+
+      For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#flat).
+
+    * `layout.accessToKeyFromAttributes`: Gets the name of the composite key using the `dictGetString` function. The setting is used for the `IP_TRIE` method. With this setting on, you get higher load on RAM.
+    * `structure.id.name`: Dictionary key column name. The key column must be UInt64 data type. The setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, and `DIRECT` methods. For more information about keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.key.attributes`: Description of the dictionary's composite key. The composite key may consist of one or more elements. The setting is used for the `COMPLEX_KEY_*` and `IP_TRIE` methods:
 
       * `name`: Column name.
       * `type`: Column data type.
@@ -1002,11 +1061,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `db`: Source database name.
       * `table`: Source table name.
       * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
-      * `host`: Source host name. This is an optional parameter.
+      * `host`: Source host name. This is an optional setting.
 
           The host must be in the same network as the {{ CH }} cluster.
 
-      * `port`: Port for connecting to the source. This is an optional parameter.
+      * `port`: Port for connecting to the source. This is an optional setting.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
       * `secure`: Whether to use SSL to establish the connection.
@@ -1066,11 +1125,28 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       {% endcut %}
 
-    * `layout.type`: Memory layout type for the dictionary. Supported methods: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, and `COMPLEX_KEY_CACHE`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
-    * `layout.size_in_cells`: Number of cache cells for the `CACHE` and `COMPLEX_KEY_CACHE` methods. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-    * `layout.max_array_size`: Maximum key value for the `FLAT` method. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
-    * `structure.id.name`: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `FLAT`, `HASHED`, `CACHE`, and `RANGE_HASHED` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
-    * `structure.key.attributes`: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `COMPLEX_KEY_HASHED` and `COMPLEX_KEY_CACHE` methods:
+    * `layout.type`: Memory layout type for the dictionary. Supported methods: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. For more information about how to store dictionaries in memory, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+    * `layout.size_in_cells`: Number of cache cells for the `CACHE` and `COMPLEX_KEY_CACHE` methods. For more information about the cache, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+    * `layout.allow_read_expired_keys`: Decides whether to allow reading expired keys. The setting is used for the `CACHE` and `COMPLEX_KEY_CACHE` methods. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
+    * Update queue settings where cache refresh issues are created if keys are not found in the dictionary. The settings are used for the `CACHE` and `COMPLEX_KEY_CACHE` methods.
+
+      * `layout.max_update_queue_size`: Maximum number of update issues per queue. The default value is `100000`.
+      * `layout.update_queue_push_timeout_milliseconds`: Maximum timeout (in milliseconds) before an update issue is sent to the queue. The default value is `10`.
+      * `layout.query_wait_timeout_milliseconds`: Maximum timeout (in milliseconds) before completing an updated issue. The default value is `60000` (one minute).
+      * `layout.max_threads_for_updates`: Maximum number of threads for cache dictionary update. The default value is `4`.
+
+      For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
+
+    * Flat array size settings. The settings are used for the `FLAT` method.
+
+      * `layout.initial_array_size`: Initial dictionary key size. The default value is `1024`.
+      * `layout.max_array_size`: Maximum dictionary key size. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. The default value is `500000`.
+
+      For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#flat).
+
+    * `layout.access_to_key_from_attributes`: Gets the name of the composite key using the `dictGetString` function. The setting is used for the `IP_TRIE` method. With this setting on, you get higher load on RAM.
+    * `structure.id.name`: Dictionary key column name. The key column must be UInt64 data type. The setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, and `DIRECT` methods: For more information about keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.key.attributes`: Description of the dictionary's composite key. The composite key may consist of one or more elements. The setting is used for the `COMPLEX_KEY_*` and `IP_TRIE` methods:
 
       * `name`: Column name.
       * `type`: Column data type.

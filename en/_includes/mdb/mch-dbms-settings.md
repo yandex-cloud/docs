@@ -1,3 +1,13 @@
+* **Access control improvements**{#setting-access-control-improvements} {{ tag-con }}
+
+    Access control system settings:
+
+    * **Select from information schema requires grant**{#setting-select-from-information-schema-requires-grant}: Decides whether the `SELECT * FROM information_schema.<table>` query requires any permissions and whether the query can be executed by any user. The default value is `false`. When set to `true`, executing the query requires the `GRANT SELECT ON information_schema.<table>` permission, same as for ordinary tables.
+
+    * **Select from system db requires grant**{#setting-select-from-system-db-requires-grant}: Decides whether the `SELECT * FROM system.<table>` query requires any permissions and whether the query can be executed by any user. The default value is `false`. When set to `true`, executing the query requires the `GRANT SELECT ON system.<table>` permission, same as for ordinary tables.
+
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings#access_control_improvements).
+
 * **Asynchronous insert log enabled**{#setting-asynchronous-insert-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Determines whether information about asynchronous inserts will be logged. These logs are saved to the `system.asynchronous_insert_log` table.
@@ -64,9 +74,9 @@
 
 * **Background fetches pool size**{#setting-background-fetches-pool-size} {{ tag-con }} {{ tag-api }}
 
-    Number of threads for background jobs of copying data from a replica in [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) tables.
+    Number of threads for background data copying from a replica in [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) tables.
 
-    The minimum value is `1`; the default value is `8`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+    The minimum value is `1`; for {{ CH }} 24.12 or lower the default value is `16`; for 25.1 or higher, `32`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
     For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
 
@@ -135,7 +145,7 @@
 
     If the setting is disabled, the dictionaries are loaded when the server starts. The server waits for all the dictionaries to be loaded before it starts processing connections.
 
-    This setting is on by default.
+    By default, the setting is disabled for {{ CH }} 24.12 or lower and enabled for 25.1 or higher.
 
     For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-dictionaries_lazy_load).
 
@@ -173,13 +183,21 @@
 
     To learn more about Graphite support, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/).
 
+* **Jdbc bridge**{#setting-jdbc-bridge} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
+
+    JDBC bridge for queries to external databases. Specify the host and, optionally, port for access to the data source.
+
+    Changing these settings will restart {{ CH }} servers on the cluster hosts.
+
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/integrations/jdbc/jdbc-with-clickhouse).
+
 * **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Global authentication settings for [integration with {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
 
     * **Auto offset reset**: Initial position from which the [consumer](../../managed-kafka/concepts/producers-consumers.md) starts reading messages. Starting from there, the consumer adds shifts for new messages as it moves forward reading the incoming messages. By default, the value is not set (equivalent to `latest`). For more information, see the [Confluent documentation](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management).
     * **Debug**: Context for debugging purposes. By default, the value is not set. You can only specify one value in the setting. For the list of possible values, see the `librdkafka` library documentation on [GitHub](https://github.com/confluentinc/librdkafka/blob/master/CONFIGURATION.md).
-    * **Enable ssl certificate verification**: Determines whether to perform SSL certificate verification. The default value is `false`.
+    * **Enable ssl certificate verification**: Decides whether or not to perform SSL certificate verification. The default value is `false`.
     * **Max poll interval ms**: Maximum interval (in milliseconds) between polls to get messages for high-level consumers. If exceeded, the user is removed from the group and rebalancing starts. No value is set by default (equivalent to `300000`, 5 minutes).
     * **Sasl mechanism**: SASL authentication mechanism:
       * `GSSAPI` (default): Authentication [using Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
@@ -198,7 +216,7 @@
 
         By default, the value is not set (equivalent to `PLAINTEXT`).
 
-    * **Session timeout ms**: Timeout (in milliseconds) for a periodic signal from a user to maintain a client group session. If exceeded, the broker removes the user from the group and runs rebalancing. By default, the value is not set (equivalent to `45000`, 45 seconds).
+    * **Session timeout ms**: Timeout (in milliseconds) for a periodic signal from a user to maintain a client group session. If exceeded, the broker removes the user from the group and runs rebalancing. For {{ CH }} 25.1 or lower, the default value is `45000` (45 s); for 25.2 or higher, `30000` (30 s).
 
     Changing these settings will restart {{ CH }} servers on the cluster hosts.
 
@@ -268,11 +286,11 @@
 
     MergeTree engine configuration:
 
-    * **Allow remote fs zero copy replication**: Determines whether to allow remote zero copy replication for S3 and HDFS disks.
+    * **Allow remote fs zero copy replication**: Decides whether or not to allow remote zero copy replication for S3 and HDFS disks.
 
-        The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        The default value is `true`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/integrations/s3#disable-zero-copy-replication).
+        For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/integrations/s3#disable-zero-copy-replication).
 
     * **Check sample column is correct**: When creating a table, checks that column data type is correct for sampling or sampling expressions.
 
@@ -282,21 +300,53 @@
 
     * **Cleanup delay period**: Interval (in seconds) between running [distributed DDL queries]({{ ch.docs }}/sql-reference/distributed-ddl) to clean up outdated data.
 
-        The default value is `60` (one minute). Changing this setting will restart {{ CH }} servers on cluster hosts.
+        The default value is `30`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#server-settings-distributed_ddl).
+        For more information, see the relevant [{{ CH }} documentation.]({{ ch.docs }}/operations/server-configuration-parameters/settings/#server-settings-distributed_ddl)
+
+    * **Deduplicate merge projection mode** {{ tag-con }} {{ tag-cli }}: Sets the background merge behavior in tables with projections:
+
+        * `ignore`: Ignore the parameter. Use this value only to ensure compatibility.
+        * `throw`: Generate an exception to prevent the projection parts from getting desynchronized.
+        * `drop`: Delete the affected part of the projection table.
+        * `rebuild`: Rebuild the affected part of the projection table.
+
+        By default, the value is not set (equivalent to `throw`). Changing this setting will restart {{ CH }} servers on cluster hosts.
+
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode).
 
     * **Inactive parts to delay insert**: Number of inactive table data parts which, when exceeded, will cause {{ CH }} to throttle the speed of table data inserts.
 
         This setting is disabled by default (`0`). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#inactive-parts-to-delay-insert).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#inactive-parts-to-delay-insert).
 
     * **Inactive parts to throw insert**: Number of inactive table data parts which, when exceeded, will cause {{ CH }} to throw the `Too many inactive parts ...` exception.
 
         This setting is disabled by default (`0`). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#inactive-parts-to-throw-insert).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#inactive-parts-to-throw-insert).
+
+    * **Lightweight mutation projection mode** {{ tag-con }} {{ tag-cli }}: Sets the simplified deletion behavior in tables with projections:
+
+        * `throw`: Generate an exception to prevent the projection parts from getting desynchronized.
+        * `drop`: Delete the affected part of the projection table.
+        * `rebuild`: Rebuild the affected part of the projection table.
+
+        By default, the value is not set (equivalent to `throw`). Changing this setting will restart {{ CH }} servers on cluster hosts.
+
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings#lightweight_mutation_projection_mode).
+
+    * **Materialize ttl recalculate only** {{ tag-con }} {{ tag-cli }}: Enables applying modified TTL rules for tables or rows only when the query directly specifies `MATERIALIZE TTL`.
+
+        Default:
+
+        * For {{ CH }} versions 25.2 or higher: `true`. Recalculates only the TTL info, which simplifies TTL materialization.
+        * For {{ CH }} versions 25.1 or lower: `false`. Complete TTL materialization is performed.
+
+        Changing this setting will restart {{ CH }} servers on cluster hosts.
+
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings#materialize_ttl_recalculate_only).
 
     * **Max avg part size for too many parts**: Maximum average size of active data parts in a table (in bytes) that triggers **Parts to delay insert** and **Parts to throw insert** checks. If exceeded, data inserts into the table will neither slow down nor get rejected.
 
@@ -306,13 +356,13 @@
 
         Default value is `161061273600` (150 GB). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-max-space-in-pool).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-max-space-in-pool).
 
     * **Max bytes to merge at min space in pool**: Maximum total data chunk size to merge with the background pool at minimum available resources.
 
         Default value is `1048576` (1 MB). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool).
 
     * **Max cleanup delay period**: Maximum period (in seconds) to clean up outdated data, such as query logs, data block and data part hashes.
 
@@ -332,9 +382,9 @@
 
     * **Max parts in total**: Number of active data parts in all table partitions which, when exceeded, will cause {{ CH }} to throw the `Too many parts ...` exception.
 
-        Default value is `100000`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        For {{ CH }} 25.1 or lower, the default value is `100000`; for 25.2 or higher, `20000`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-parts-in-total).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-parts-in-total).
 
     * **Max replicated merges in queue**: Maximum number of merge tasks that can be in a `ReplicatedMergeTree` queue at the same time.
 
@@ -346,37 +396,37 @@
 
         The default value is `8192`.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings#merge-max-block-size).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings#merge-max-block-size).
 
     * **Merge selecting sleep ms**: Timeout (in milliseconds) before merging a selection if no data part is selected.
 
         Default value is `5000` (five seconds). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#merge_selecting_sleep_ms).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#merge_selecting_sleep_ms).
 
     * **Merge with recompression TTL timeout**: Minimum timeout (in seconds) before merges with recompression of data with expired TTL.
 
         Default value is `14400` (four hours). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/ttl/#triggering-ttl-events).
+        For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/ttl/#triggering-ttl-events).
 
     * **Merge with TTL timeout**: Minimum timeout (in seconds) before merges to delete data with expired TTL.
 
         Default value is `14400` (four hours). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/ttl/#triggering-ttl-events).
+        For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/ttl/#triggering-ttl-events).
 
     * **Min age to force merge on partition only**: Whether to apply the merge from the **Min age to force merge seconds** setting only to [partitions]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key).
 
         Forcing merges on partitions only is disabled by default. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_on_partition_only).
+        For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_on_partition_only).
 
     * **Min age to force merge seconds**: Minimum age (in seconds) for a data part to be merged.
 
         Default value is `0` (merge disabled). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds).
+        For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds).
 
     * **Min bytes for wide part**: Minimum number of bytes a data part must have to be stored in `Wide` format. You can set it together with the **Min rows for wide part** parameter.
 
@@ -384,7 +434,7 @@
 
         Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
     * **Min rows for wide part**: Minimum number of rows a data part must have to be stored in `Wide` format. You can set it together with the **Min bytes for wide part** parameter.
 
@@ -392,13 +442,13 @@
 
         Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
     * **Number of free entries in pool to execute mutation**: Threshold value of free entries in the pool. If the number of entries in the pool falls below this value, {{ CH }} stops executing [mutation]({{ ch.docs }}/sql-reference/statements/alter/#mutations) operations. This allows to leave free threads for merges and to avoid the `Too many parts ...` exception.
 
         Default value is `20`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings/#number-of-free-entries-in-pool-to-execute-mutation).
+        For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings/#number-of-free-entries-in-pool-to-execute-mutation).
 
     * **Number of free entries in pool to lower max size of merge**: Threshold value of free entries in the pool. If the number of entries in the pool falls below this value, {{ CH }} reduces the maximum size of a data part to merge. This helps handle small merges faster.
 
@@ -406,13 +456,13 @@
 
     * **Parts to delay insert**: Number of active table data parts which, when exceeded, will cause {{ CH }} to throttle the speed of table data inserts. An active chunk is a new chunk of data resulting from a merge.
 
-        Default value is `150`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        For {{ CH }} 24.12 or lower, the default value is `150`; for 25.1 or higher, `1000`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#parts-to-delay-insert) documentation.
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#parts-to-delay-insert).
 
     * **Parts to throw insert**: Threshold value of active table data parts which, when exceeded, will cause {{ CH }} to throw the `Too many parts ...` exception.
 
-        Default value is `300`. Changing this setting will restart {{ CH }} servers on cluster hosts.
+        For {{ CH }} 24.12 or lower, the default value is `300`; for 25.1 or higher, `3000`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
         For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#parts-to-throw-insert).
 
@@ -420,13 +470,13 @@
 
         Default value is `100`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window).
 
     * **Replicated deduplication window seconds**: Time interval during which {{ ZK }} stores blocks of recent hash inserts. Deduplication only works for the most recently inserted data. Old blocks will be deleted.
 
         Default value is `604800`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds).
 
     * **TTL only drop parts**: Sets data drop mode based on TTL:
 
@@ -435,7 +485,7 @@
 
         The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-        For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#ttl_only_drop_parts).
+        For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#ttl_only_drop_parts).
 
 * **Metric log enabled**{#setting-metric-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -461,7 +511,7 @@
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/opentelemetry).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/opentelemetry).
 
 * **Opentelemetry span log retention size**{#setting-opentelemetry-span-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -487,16 +537,39 @@
 
     Default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
 
+* **Processors profile log enabled**{#setting-processors-profile-log-enabled} {{ tag-con }} {{ tag-cli }}
+
+    Decides whether or not to log information about profiling on processors level. The logs will be saved to the `system.processors_profile_log` table.
+
+    Default:
+
+    * For {{ CH }} versions 25.2 or higher: `true`.
+    * For {{ CH }} versions 25.1 or lower: `false`.
+
+    Changing this setting will restart {{ CH }} servers on cluster hosts.
+
+* **Processors profile log retention size**{#setting-processors-profile-log-retention-size} {{ tag-con }} {{ tag-cli }}
+
+    Maximum size of the `system.processors_profile_log` table (in bytes) which, when exceeded, will cause old records to be automatically deleted from the table.
+
+    The default value is `0`, i.e., old records will not be deleted as the table grows in size.
+
+* **Processors profile log retention time**{#setting-processors-profile-log-retention-time} {{ tag-con }} {{ tag-cli }}
+
+    Time (in milliseconds) between adding an entry to the `system.processors_profile_log` table and deleting the entry. The value must be a multiple of 1,000.
+
+    The default value is `2592000000` (30 days). If `0`, the records will be stored indefinitely.
+
 * **Query cache**{#setting-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
-    [Query cache](https://clickhouse.com/docs/en/operations/query-cache) settings. The cache allows you to execute `SELECT` queries only once and use the saved results in subsequent operations. This reduces latency and cluster resource consumption when processing queries.
+    [Query cache]({{ ch.docs }}/operations/query-cache) settings. The cache allows you to execute `SELECT` queries only once and use the saved results in subsequent operations. This reduces latency and cluster resource consumption when processing queries.
 
     Available query cache settings:
 
     * **Max entries**: Maximum number of `SELECT` query results that can be cached. The default value is `1024`.
     * **Max entry size in bytes**: Maximum number of bytes that can be allocated in the cache for each `SELECT` query result. The default value is `1048576` (1 MB).
     * **Max entry size in rows**: Maximum number of rows that can be allocated in the cache for each `SELECT` query result. The default value is `30000000`.
-    * **Max size in bytes**: Maximum cache size in bytes. If set to `0`, the query cache will be disabled. The default value is `1048576` (1 GB).
+    * **Max size in bytes**: Maximum cache size in bytes. If set to `0`, the query cache will be disabled. The default value is `1073741824` (1 GB).
 
     For more information about the settings, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#server_configuration_parameters_query-cache).
 
@@ -518,7 +591,7 @@
 
     Available settings for the query masking rules:
 
-    * **Name**: Rule name. This is an optional parameter.
+    * **Name**: Rule name. This is an optional setting.
     * **Regexp**: RE2 regular expression.
     * **Replace**: Expression to replace the sensitive data. Six asterisks are used by default.
 
@@ -528,7 +601,7 @@
 
     The default value is `true`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/query_thread_log).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/query_thread_log).
 
 * **Query thread log retention size**{#setting-query-thread-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -548,7 +621,7 @@
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/query_views_log).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/query_views_log).
 
 * **Query views log retention size**{#setting-query-views-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -578,7 +651,7 @@
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/session_log).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/session_log).
 
 * **Session log retention size**{#setting-session-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -628,7 +701,7 @@
 
     Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone).
 
 * **Total memory profiler step**{#setting-total-memory-profiler-step} {{ tag-con }} {{ tag-api }}
 
@@ -636,7 +709,7 @@
 
     Default value is `4194304` (4 MB). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
 
 * **Total memory tracker sample probability**{#setting-total-memory-tracker-sample-probability} {{ tag-con }}
 
@@ -644,7 +717,7 @@
 
     By default, accidental memory allocations and releases are not logged (`0`). Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#total-memory-tracker-sample-probability).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#total-memory-tracker-sample-probability).
 
 * **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -676,7 +749,7 @@
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on cluster hosts.
 
-    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/zookeeper_log).
+    For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/zookeeper_log).
 
 * **Zookeeper log retention size**{#setting-zookeeper-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 

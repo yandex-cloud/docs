@@ -7,7 +7,7 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Управление профилями безопасности
+      - name: Профили безопасности
         items:
           - name: Создать профиль
             href: operations/profile-create.md
@@ -23,11 +23,11 @@ items:
             href: operations/rule-update.md
           - name: Удалить правило
             href: operations/rule-delete.md
-          - name: Подключить профиль к хосту
+          - name: Подключить профиль к ресурсу
             href: operations/host-connect.md
-          - name: Отключить профиль от хоста
+          - name: Отключить профиль от ресурса
             href: operations/host-delete.md
-      - name: Управление профилями WAF
+      - name: Профили WAF
         items:
           - name: Создать профиль
             href: operations/waf-profile-create.md
@@ -45,7 +45,7 @@ items:
             href: operations/exclusion-rule-update.md
           - name: Удалить правило-исключение
             href: operations/exclusion-rule-delete.md
-      - name: Управление профилями ARL
+      - name: Профили ARL
         items:
           - name: Создать профиль
             href: operations/arl-profile-create.md
@@ -61,9 +61,15 @@ items:
             href: operations/arl-rule-update.md
           - name: Удалить правило
             href: operations/arl-rule-delete.md
-      - name: Управление списками адресов
+      - name: Домены
+        items:
+          - name: Создать прокси-сервер
+            href: operations/proxy-create.md
+          - name: Создать домен
+            href: operations/domain-create.md
+      - name: Списки адресов
         href: operations/list-create.md
-      - name: Посмотреть операции с профилями
+      - name: Посмотреть операции
         href: operations/operation-logs.md
       - name: Настроить мониторинг
         href: operations/monitoring.md
@@ -171,6 +177,8 @@ items:
         href: concepts/conditions.md
       - name: Списки
         href: concepts/lists.md
+      - name: Защита доменов
+        href: concepts/domain-protect.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

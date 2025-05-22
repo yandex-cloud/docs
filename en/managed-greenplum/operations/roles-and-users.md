@@ -1,18 +1,18 @@
 ---
-title: Managing roles and users in a {{ GP }} cluster in {{ mgp-full-name }}
+title: Managing roles and {{ GP }} cluster users in {{ mgp-full-name }}
 description: In this tutorial, you will learn how to manage database access rights, as well as view, create, set up, and delete roles.
 ---
 
-# Managing roles and users
+# Role and user management
 
 {{ GP }} manages database access rights using two types of roles:
 
 * User: Role that can log in to the database.
 * Group: Role that includes other roles.
+​
+​For more information, see [Users and roles](../concepts/cluster-users.md).
 
-For more information, see [Users and roles](../concepts/cluster-users.md).
-
-The admin user is created with the {{ mgp-name }} cluster and is automatically given the `mdb_admin` admin role. [Connect to the database](connect.md) on its behalf to:
+The admin user is created together with the {{ mgp-name }} cluster and automatically gets the `mdb_admin` role. [Connect to the database](connect.md) on its behalf to:
 
 * [View a list of roles](#list).
 * [Create a role](#create).
@@ -21,7 +21,7 @@ The admin user is created with the {{ mgp-name }} cluster and is automatically g
 * [Configure role privileges](#privileges).
 * [Delete a role](#remove).
 
-For more information about role interaction commands, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-sql_ref.html).
+For more information about role interaction commands, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-sql_ref.html).
 
 ## View a list of roles {#list}
 
@@ -29,42 +29,42 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-   Run this command:
+    Run this command:
 
-   ```sql
-   SELECT rolname FROM pg_roles;
-   ```
+    ```sql
+    SELECT rolname FROM pg_roles;
+    ```
 
-   To see a list of roles with their privileges, run the command:
+    To see a list of roles with their privileges, run the command:
 
-   ```sql
-   SELECT
-       rolname,
-       rolsuper,
-       rolcreatedb,
-       rolcreaterole,
-       rolinherit,
-       rolcanlogin,
-       rolconnlimit,
-       rolcreaterextgpfd
-   FROM pg_roles;
-   ```
+    ```sql
+    SELECT
+        rolname,
+        rolsuper,
+        rolcreatedb,
+        rolcreaterole,
+        rolinherit,
+        rolcanlogin,
+        rolconnlimit,
+        rolcreaterextgpfd
+    FROM pg_roles;
+    ```
 
-   Result:
+    Result:
 
-   ```text
-       rolname     | rolsuper | rolcreatedb | rolcreaterole | rolinherit | rolcanlogin | rolconnlimit | rolcreaterextgpfd
-   ----------------+----------+-------------+---------------+------------+-------------+--------------+-------------------
-    mdb_admin      | f        | f           | f             | t          | f           |           -1 | f
-    gpadmin        | t        | t           | t             | t          | t           |           -1 | t
-    monitor        | t        | f           | f             | t          | t           |           -1 | f
-    user1          | f        | t           | t             | t          | t           |           -1 | t
-   ```
+    ```text
+        rolname     | rolsuper | rolcreatedb | rolcreaterole | rolinherit | rolcanlogin | rolconnlimit | rolcreaterextgpfd
+    ----------------+----------+-------------+---------------+------------+-------------+--------------+-------------------
+     mdb_admin      | f        | f           | f             | t          | f           |           -1 | f
+     gpadmin        | t        | t           | t             | t          | t           |           -1 | t
+     monitor        | t        | f           | f             | t          | t           |           -1 | f
+     user1          | f        | t           | t             | t          | t           |           -1 | t
+    ```
 
-   Where:
+    Where:
 
-   * **t**: Privilege is available.
-   * **f**: No privilege.
+    * **t**: Privilege is available.
+    * **f**: No privilege.
 
 {% endlist %}
 
@@ -74,13 +74,13 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-   Run this command:
+    Run this command:
 
-   ```sql
-   CREATE ROLE <role_name> <list_of_attributes>;
-   ```
+    ```sql
+    CREATE ROLE <role_name> <attribute_list>;
+    ```
 
-   For a list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
+    For a list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
 
 {% endlist %}
 
@@ -90,25 +90,25 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-   To add a role to a group role, run the command:
+    To add a role to a group role, run the command:
 
-   ```sql
-   GRANT <group_role_name> TO <comma-separated_list_of_roles>;
-   ```
+    ```sql
+    GRANT <group_role_name> TO <list_of_roles_separated_by_commas>;
+    ```
 
-   You can obtain role names with a [list of roles in the cluster](#list).
+    You can obtain role names with a [list of roles in the cluster](#list).
 
-   The `LOGIN`, `SUPERUSER`, `CREATEDB`, `CREATEROLE`, `CREATEEXTTABLE`, and `RESOURCE QUEUE` attributes are not inherited. To use all attributes of the group role, run the following command on behalf of the role:
+    The `LOGIN`, `SUPERUSER`, `CREATEDB`, `CREATEROLE`, `CREATEEXTTABLE`, and `RESOURCE QUEUE` attributes are not inherited. To use all attributes of the group role, run the following command on behalf of the role:
 
-   ```sql
-   SET ROLE <group_role_name>;
-   ```
+    ```sql
+    SET ROLE <group_role_name>;
+    ```
 
-   To remove a role from a group role, run the command:
+    To remove a role from a group role, run the command:
 
-   ```sql
-   REVOKE <group_role_name> FROM <comma-separated_list_of_roles>;
-   ```
+    ```sql
+    REVOKE <group_role_name> FROM <list_of_roles_separated_by_commas>;
+    ```
 
 {% endlist %}
 
@@ -118,13 +118,13 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-   Run this command:
+    Run this command:
 
-   ```sql
-   ALTER ROLE <role_name> <list_of_attributes>;
-   ```
+    ```sql
+    ALTER ROLE <role_name> <attribute_list>;
+    ```
 
-   For a list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
+    For a list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
 
 {% endlist %}
 
@@ -134,27 +134,27 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-   To grant privileges to a role, run the command:
+    To grant privileges to a role, run the command:
 
-   ```sql
-   GRANT <comma-separated_list_of_privileges> ON <object_name> TO <role_name>;
-   ```
+    ```sql
+    GRANT <list_of_privileges_separated_by_commas> ON <object_name> TO <role_name>;
+    ```
 
-   For a list of available privileges, see [{#T}](../concepts/cluster-users.md#privileges).
+    For a list of available privileges, see [{#T}](../concepts/cluster-users.md#privileges).
 
-   To revoke privileges from a role, run the command:
+    To revoke privileges from a role, run the command:
 
-   ```sql
-   REVOKE <comma-separated_list_of_privileges> ON <object_name> FROM <role_name>;
-   ```
+    ```sql
+    REVOKE <list_of_privileges_separated_by_commas> ON <object_name> FROM <role_name>;
+    ```
 
-   Instead of listing all object privileges, use `ALL PRIVILEGES`.
+    Instead of listing all the object's privileges, use `ALL PRIVILEGES`.
 
-   To revoke all privileges of all role objects, run the command:
+    To revoke all privileges of all the role's objects, run the command:
 
-   ```sql
-   DROP OWNED BY <role_name>;
-   ```
+    ```sql
+    DROP OWNED BY <role_name>;
+    ```
 
 {% endlist %}
 
@@ -166,11 +166,11 @@ Before deleting a role, delete all objects it owns or reassign their ownership r
 
 * SQL
 
-   Run this command:
+    Run this command:
 
-   ```sql
-   DROP ROLE <role_name>;
-   ```
+    ```sql
+    DROP ROLE <role_name>;
+    ```
 
 {% endlist %}
 
@@ -182,7 +182,7 @@ Create a role with these test characteristics:
 
 * Name: `greenplum_user`.
 * Attributes: `CREATEDB` and `CREATEROLE`.
-* Option of logging in to the system using a secure password: `password123`.
+* Capable of logging in to the system using a secure password: `password123`.
 
 Run this command:
 

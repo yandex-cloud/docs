@@ -306,4 +306,14 @@ resource yandex_vpc_security_group vm_group_sg {
 
 [Примеры работы с группами безопасности](../../vpc/operations/index.md#security-groups) в {{ yandex-cloud }}.
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/openvpn.md)
+* [{#T}](../tutorials/usergate-proxy.md)
+* [{#T}](../tutorials/bastion.md)
+* [{#T}](../tutorials/data-processing-nat-instance.md)
+* [{#T}](../tutorials/high-accessible-dmz.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

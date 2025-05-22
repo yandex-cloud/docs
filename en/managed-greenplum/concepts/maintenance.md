@@ -1,6 +1,6 @@
 ---
 title: Maintenance in {{ mgp-full-name }}
-description: Maintenance in {{ mgp-name }} means automatic installation of DBMS updates and fixes for hosts (including disabled clusters), changing host class and storage size, and other maintenance activities.
+description: In {{ mgp-name }}, maintenance means automatic installation of DBMS updates and fixes for hosts (including disabled clusters), changing host class and storage size, and other maintenance activities.
 ---
 
 # Maintenance in {{ mgp-name }}
@@ -24,7 +24,7 @@ Non-routine maintenance operations related to updates are performed in a [specif
 Non-routine maintenance operations related to cluster recovery can be performed at any time as needed. These operations include:
 
 * Recovering data after a physical host or non-replicated disk fails in the cloud infrastructure.
-* [Segment rebalancing](https://docs.vmware.com/en/VMware-Greenplum/5/greenplum-database/utility_guide-admin_utilities-gprecoverseg.html): Resetting preferred segment roles after a host or its segments are restored.
+* [Segment rebalancing]({{ gp.docs.broadcom }}/5/greenplum-database/utility_guide-admin_utilities-gprecoverseg.html): Resetting preferred segment roles after a host or its segments are restored.
 
 ### Maintenance window {#maintenance-window}
 
@@ -68,7 +68,7 @@ The start time and timeout of the `VACUUM` operation are set up when [creating](
 
 Statistics collection (the `ANALYZE` operation) is performed after the vacuuming of tables (if [background data redistribution](../concepts/expand.md#setting-delay-redistribution) is not in progress). Databases are handled concurrently in two threads. In addition, two threads are run to collect table statistics in each database. As a result, statistics can be collected in four threads.
 
-The [analyzedb](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/utility_guide-ref-analyzedb.html) utility is used to collect statistics. It runs the `ANALYZE` command for all [append-optimized (AO) tables](./tables.md) modified since the last time the utility collected the statistics, as well as for all heap tables without exception.
+The [analyzedb]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-analyzedb.html) utility is used to collect statistics. It runs the `ANALYZE` command for all [append-optimized (AO) tables](./tables.md) modified since the last time the utility collected the statistics, as well as for all heap tables without exception.
 
 Statistics collection from each database is limited with a timeout which is specified in the settings when [creating](../operations/cluster-create.md) or [updating](../operations/update.md) a cluster. The total statistics collection time is not limited.
 

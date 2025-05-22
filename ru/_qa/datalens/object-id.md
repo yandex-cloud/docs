@@ -1,3 +1,5 @@
 ### Как найти id объекта (подключения, датасета, чарта, дашборда)? {#how-to-find-object-id}
 
-Id указан в URL-адресе объекта. Например, `{{ link-datalens-main }}/datasets/scuxhh1jrrlql-new-dataset`, где `scuxhh1jrrlql` — это id.
+Идентификатор (id) объекта указан в URL-адресе объекта. Например, `{{ link-datalens-main }}/datasets/scuxhh1jrrlql-new-dataset`, где `scuxhh1jrrlql` — это id.
+
+Идентификаторы объектов можно скопировать из меню соответствующего объекта, в навигации или в окне **Связанные объекты**, нажав ![](../../_assets/console-icons/ellipsis.svg) → **Копировать ID**. Идентификатор будет сохранен в буфере обмена.

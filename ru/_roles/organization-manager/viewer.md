@@ -5,7 +5,7 @@
 * просматривать информацию об [организации](../../organization/concepts/organization.md) Cloud Organization и ее настройках;
 * просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к организации;
 * просматривать информацию о [федерациях удостоверений](../../organization/concepts/add-federation.md) в организации;
-* просматривать список [пользователей](../../overview/roles-and-resources.md#users) организации;
+* просматривать список [пользователей](../../overview/roles-and-resources.md#users) организации и информацию о них;
 * просматривать список пользователей организации, [подписанных](../../organization/operations/subscribe-user-for-notifications.md) на получение технических уведомлений о событиях в организации;
 * просматривать информацию о [сертификатах](../../organization/concepts/add-federation.md#build-trust);
 * просматривать списки [сопоставлений](../../organization/concepts/add-federation.md#group-mapping) групп [федеративных пользователей](../../iam/concepts/users/accounts.md#saml-federation) и информацию о таких сопоставлениях;
@@ -22,4 +22,4 @@
 
 {% endcut %}
 
-Включает разрешения, предоставляемые ролями `organization-manager.auditor` и `organization-manager.users.viewer`.
+Включает разрешения, предоставляемые ролями `organization-manager.auditor`, `organization-manager.federations.viewer` и `organization-manager.users.viewer`.

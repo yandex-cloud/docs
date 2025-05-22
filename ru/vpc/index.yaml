@@ -6,7 +6,7 @@ description:
     позволяет создавать <a href="/docs/vpc/concepts/network#network">сети</a>,
     <a href="/docs/vpc/concepts/network#subnet">подсети</a> в зонах доступности
     Yandex Cloud, назначать облачным ресурсам внутренние и публичные <a
-    href="/docs/vpc/concepts/address">IP-адреса</a>, а также предоставляет
+    href="/docs/vpc/concepts/address">IP-адреса</a>,  а также предоставляет
     возможность защиты от DDoS-атак с помощью компонента <a
     href="/docs/vpc/ddos-protection/">DDoS-Protection.</a>
   - >-
@@ -24,6 +24,32 @@ meta:
   description: >-
     Yandex Virtual Private Cloud служит для управления облачными сетями и связи
     облачных ресурсов между собой и с интернетом.
+  keywords:
+    - keyword: сервис {{ vpc-name }}
+    - keyword: сеть {{ vpc-name }}
+    - keyword: подсеть {{ vpc-name }}
+    - keyword: сеть {{ yandex-cloud }}
+    - keyword: облачная сеть
+    - keyword: связь облачных ресурсов
+    - keyword: ресурсы {{ vpc-full-name }}
+    - keyword: '{{ vpc-name }} в {{ yandex-cloud }}'
+    - keyword: шлюз {{ vpc-name }}
+    - keyword: NAT-шлюз {{ vpc-name }}
+    - keyword: '{{ vpc-full-name }} в {{ yandex-cloud }}'
+    - keyword: '{{ vpc-full-name }}'
+    - keyword: маршрутизация {{ vpc-name }}
+    - keyword: security group {{ vpc-name }}
+    - keyword: виртуальная сеть
+    - keyword: сервис {{ vpc-name }}
+    - keyword: физическая сеть {{ vpc-name }}
+    - keyword: '{{ vpc-name }}'
+    - keyword: публичный IP-адрес
+    - keyword: внутренний IP-адрес
+    - keyword: маршрутизация в {{ vpc-name }}
+    - keyword: группа безопасности
+    - keyword: security group
+    - keyword: сервисное подкючение
+    - keyword: Private Endpoint
 links:
   - title: Начало работы
     description: Создайте первую облачную сеть

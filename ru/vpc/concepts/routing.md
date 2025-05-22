@@ -98,11 +98,11 @@ default via 192.168.10.1 dev eth0 proto dhcp src 192.168.10.5 metric 100
 1. Не допускается использование в качестве `next hop` IP-адреса [обработчика трафика](../../application-load-balancer/concepts/application-load-balancer.md#listener) балансировщика нагрузки уровня приложений.
 1. Количественные ограничения по использованию таблиц маршрутизации и статических маршрутов описаны в разделе [Квоты и лимиты](./limits.md#vpc-quotas) документации сервиса {{ vpc-name }}.
 
-## Примеры использования статических маршрутов {#refs}
 
-1. [Создать и настроить NAT-шлюз](../operations/create-nat-gateway.md).
-1. [Маршрутизация с помощью NAT-инстанса](../../tutorials/routing/nat-instance/index.md).
-1. [Создание туннеля IPSec VPN](../../tutorials/routing/ipsec/index.md).
-1. [Создание и настройка шлюза UserGate в режиме межсетевого экрана](../../tutorials/routing/usergate-firewall.md).
-1. [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Next-Generation Firewall](../../tutorials/routing/high-accessible-dmz.md).
-1. [Организация доступа через {{ interconnect-name }} к облачным сетям, размещенным за NGFW](../../tutorials/routing/cic-with-ngfw.md).
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/nat-instance/index.md)
+* [{#T}](../tutorials/ipsec/index.md)
+* [{#T}](../tutorials/usergate-firewall.md)
+* [{#T}](../tutorials/high-accessible-dmz.md)
+* [{#T}](../tutorials/cic-with-ngfw.md)

@@ -129,8 +129,8 @@ WAF могут быть аппаратными, программными и об
 1. [WAF в {{ sws-full-name }}](/services/smartwebsecurity/) — межсетевой экран, предоставляющий набор базовых правил [OWASP Core Rule Set](https://coreruleset.org/) для защиты веб-приложений. Подробнее см. в [документации](../smartwebsecurity/concepts/waf.md).
 1. [Вебмониторэкс API Security](/marketplace/products/webmonitorx/node) — решение для защиты веб‑приложений и API от хакерских атак и автоматического поиска уязвимостей.
 1. [SolidWall WAF](/marketplace/products/solidsoft/solidwall-waf) — самый мощный файрвол от {{ yandex-cloud }}, который контролирует процесс работы приложений и выявляет уязвимости бизнес-логики.
-1. [Nemesida AI MLC](/marketplace/products/pentestit/nwaf-mlc) — ВМ для построения поведенческих моделей и выявления прочих аномалий.
-1. [Nemesida WAF WEB](/marketplace/products/pentestit/nwaf-api-lk-st) — ВМ для настройки взаимодействия компонентов между собой, визуализации информации об атаках и управления обучением модуля Nemesida AI.
+1. [Nemesida AI MLC](../smartwebsecurity/concepts/index.md) — ВМ для построения поведенческих моделей и выявления прочих аномалий.
+1. [Nemesida WAF WEB](../smartwebsecurity/concepts/waf.md) — ВМ для настройки взаимодействия компонентов между собой, визуализации информации об атаках и управления обучением модуля Nemesida AI.
 
 Образы виртуальных машин можно использовать самостоятельно либо воспользоваться услугой [Managed WAF](../security/standard/app-security.md#use-waf) от {{ yandex-cloud }}.
 

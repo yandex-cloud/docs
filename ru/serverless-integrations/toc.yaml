@@ -614,5 +614,7 @@ items:
                 href: eventrouter/api-ref/Rule/updateAccessBindings.md
               - name: ListOperations
                 href: eventrouter/api-ref/Rule/listOperations.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: История изменений
     href: release-notes.md

@@ -98,6 +98,6 @@ DDoS-атаки — одна из главных угроз для интерн�
 
 * Файрволы веб-приложений:
 
-   * [SolidWall WAF](/marketplace/products/solidsoft/solidwall-waf);
-   * [Nemesida AI MLC](/marketplace/products/pentestit/nwaf-mlc);
-   * [Nemesida WAF WEB](/marketplace/products/pentestit/nwaf-api-lk-st);
+   * [SolidWall WAF](/marketplace/products/solidsoft/solidwall-waf)
+   * [Nemesida AI MLC](../smartwebsecurity/concepts/index.md)
+   * [Nemesida WAF WEB](../smartwebsecurity/concepts/waf.md)

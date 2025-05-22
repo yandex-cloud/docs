@@ -3,6 +3,18 @@ description:
   - Yandex BareMetal позволяет полностью арендовать физический сервер.
 meta:
   title: Yandex BareMetal
+  keywords:
+    - keyword: выделенный сервер
+    - keyword: выделенный сервер {{ baremetal-name }}
+    - keyword: аренда сервера
+    - keyword: сервис {{ baremetal-name }}
+    - keyword: аренда {{ baremetal-name }}
+    - keyword: KVM-консоль {{ yandex-cloud }}
+    - keyword: baremetal
+    - keyword: сервер {{ baremetal-name }}
+    - keyword: '{{ baremetal-name }}'
+    - keyword: сервер в {{ yandex-cloud }}
+    - keyword: '{{ baremetal-name }} в {{ yandex-cloud }}'
 links:
   - title: Начало работы
     description: Арендуйте свой первый сервер

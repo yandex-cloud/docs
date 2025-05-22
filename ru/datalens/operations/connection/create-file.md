@@ -52,3 +52,11 @@ description: Следуя данной инструкции, вы сможете
 1. Укажите название подключения и нажмите кнопку **Создать**.
 
 В созданное подключение вы можете добавить новые файлы, а также переименовать или удалить уже добавленные.
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/data-from-csv-visualization.md)
+* [{#T}](../../tutorials/data-from-csv-to-public-visualization.md)
+* [{#T}](../../tutorials/data-from-ch-visualization.md)
+

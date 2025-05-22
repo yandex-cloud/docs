@@ -5,99 +5,99 @@ description: This guide describes how to use auxiliary utilities.
 
 # Auxiliary utilities
 
-Greenplum Database 6 features [a number of useful utilities]({{ gp.docs.vmware }}/6/greenplum-database/client_tool_guides-tools-ref.html) for working with {{ GP }} databases. In particular:
+Greenplum Database 6 features [some useful utilities]({{ gp.docs.broadcom }}/6/greenplum-database/client_tool_guides-tools-ref.html) for working with {{ GP }} databases. In particular:
 
-* [gpfdist]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpfdist.html): Reads/writes data from/to files located on remote servers. For more information, see [{#T}](gpfdist/connect.md).
-* [gpload]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpload.html): Runs jobs described in a YAML control file.
-* [psql]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-psql.html): Command line interface for working with {{ GP }}.
+* [gpfdist]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html): Utility to read data from and write data to files located on remote servers. For more information, see [{#T}](gpfdist/connect.md).
+* [gpload]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpload.html): Utility to run jobs described in a YAML control file.
+* [psql]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-psql.html): Command line interface for working with {{ GP }}.
 
 To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04 or Ubuntu 20.04:
 
 1. Download deb packages required to install Greenplum Database 6 from a {{ objstorage-full-name }} bucket using the script below:
 
-   {% list tabs group=operating_system %}
+    {% list tabs group=operating_system %}
 
-   - Ubuntu 22.04 {#ubuntu2204}
+    - Ubuntu 22.04 {#ubuntu2204}
 
-      ```bash
-      curl {{ s3-storage-host }}/greenplum-jammy-packages/install.sh | sudo bash
-      ```
+        ```bash
+        curl {{ s3-storage-host }}/greenplum-jammy-packages/install.sh | sudo bash
+        ```
 
-      To view the list of downloadable deb packages, download the [script file](http://{{ s3-storage-host }}/greenplum-jammy-packages/install.sh).
+        To view the list of downloadable deb packages, download the [script file](http://{{ s3-storage-host }}/greenplum-jammy-packages/install.sh).
 
-   - Ubuntu 20.04 {#ubuntu2004}
+    - Ubuntu 20.04 {#ubuntu2004}
 
-      ```bash
-      curl {{ s3-storage-host }}/greenplum-focal-packages/install.sh | sudo bash
-      ```
+        ```bash
+        curl {{ s3-storage-host }}/greenplum-focal-packages/install.sh | sudo bash
+        ```
 
-      To view the list of downloadable deb packages, download the [script file](http://{{ s3-storage-host }}/greenplum-focal-packages/install.sh).
+        To view the list of downloadable deb packages, download the [script file](http://{{ s3-storage-host }}/greenplum-focal-packages/install.sh).
 
-   {% endlist %}
+    {% endlist %}
 
 1. Install the packages you downloaded:
 
-   ```bash
-   sudo apt update && \
-   sudo apt install /tmp/gp-packages/*.deb
-   ```
+    ```bash
+    sudo apt update && \
+    sudo apt install /tmp/gp-packages/*.deb
+    ```
 
 1. Delete the temporary files:
 
-   ```bash
-   sudo rm -rf /tmp/gp-packages
-   ```
+    ```bash
+    sudo rm -rf /tmp/gp-packages
+    ```
 
-1. Add the following environment variables to `~/.bashrc`:
+1. Add these environment variables to `~/.bashrc`:
 
-   ```bash
-   echo "export GPHOME=/opt/greenplum-db-6" >> ~/.bashrc && \
-   echo "source \$GPHOME/greenplum_path.sh" >> ~/.bashrc && \
-   echo "export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu\${LD_LIBRARY_PATH:+:\$LD_LIBRARY_PATH}" >> ~/.bashrc && \
-   source ~/.bashrc && \
-   echo $GPHOME
-   ```
+    ```bash
+    echo "export GPHOME=/opt/greenplum-db-6" >> ~/.bashrc && \
+    echo "source \$GPHOME/greenplum_path.sh" >> ~/.bashrc && \
+    echo "export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu\${LD_LIBRARY_PATH:+:\$LD_LIBRARY_PATH}" >> ~/.bashrc && \
+    source ~/.bashrc && \
+    echo $GPHOME
+    ```
 
-   The list of packages in the `install.sh` file includes dependencies for the Python 2 interpreter required to work with Greenplum Database 6. Since Ubuntu 20.04 or higher uses Python 3 by default, set up switching between Python versions in the system.
+    The list of packages in the `install.sh` file includes dependencies for the Python 2 interpreter required to work with Greenplum Database 6. Since Ubuntu 20.04 or higher uses Python 3 by default, set up switching between Python versions in the system.
 
 1. Add `python2` and `python3` to the list of Python alternatives:
 
-   ```bash
-   sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1 && \
-   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 2
-   ```
+    ```bash
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1 && \
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 2
+    ```
 
 1. Switch the active interpreter version:
 
-   {% note warning %}
+    {% note warning %}
 
-   This may impact running other software using Python 3 in the system.
+    This may impact running other software using Python 3 in the system.
 
-   {% endnote %}
+    {% endnote %}
 
-   ```bash
-   sudo update-alternatives --config python
-   ```
+    ```bash
+    sudo update-alternatives --config python
+    ```
 
-   Enter the number of the line corresponding to `python2` and press **Enter**.
+    Enter the number of the line corresponding to `python2` and press **Enter**.
 
-   Make sure Python 2 is the active version now:
+    Make sure Python 2 is the active version now:
 
-   ```bash
-   python --version
-   ```
+    ```bash
+    python --version
+    ```
 
-   To return to using the Python 3 interpreter later, rerun the `sudo update-alternatives --config python` command and select `python3`.
+    To return to the Python 3 interpreter at a later time, rerun the `sudo update-alternatives --config python` command and select `python3`.
 
 1. Test the utilities:
 
-   ```bash
-   gpload --version && \
-   gpfdist --version && \
-   psql --version
-   ```
+    ```bash
+    gpload --version && \
+    gpfdist --version && \
+    psql --version
+    ```
 
-For guides on how to install the utilities on other operating systems visit the [VMware website]({{ gp.docs.vmware }}/6/greenplum-database/utility_guide-ref-gpfdist.html).
+You can find installation guides for other utilities on the [VMware website]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html).
 
 
 {% note info %}

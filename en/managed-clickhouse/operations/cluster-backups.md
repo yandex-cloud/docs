@@ -106,7 +106,7 @@ Backups are created based on a random replica host. If there is no cluster host 
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore your data from a backup. The average backup recovery speed is 10 MBps per database core.
 
-You can restore an individual [shard](../concepts/sharding.md) or the whole cluster. You can restore the whole cluster only by using the CLI or API.
+You can recover either a single [shard](../concepts/sharding.md) or the whole cluster. Recovering a single shard from a multi-shard backup can only be done from the console.
 
 
 Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
@@ -123,6 +123,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+
+      To restore a single shard, only that particular shard should be left checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**. Uncheck the rest of the shards.
+
+      To restore the whole cluster, leave all shards checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
+
+      You can set up a configuration of its own for each shard you restore.
+
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
@@ -130,6 +137,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+
+      To restore a single shard, only that particular shard should be left checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**. Uncheck the rest of the shards.
+
+      To restore the whole cluster, leave all shards checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
+
+      You can set up a configuration of its own for each shard you restore.
+
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   {{ mch-name }} will launch the operation to create a cluster from the backup.
@@ -165,7 +179,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
 
   1. To restore a cluster, run a command according to the backup type:
 
-      * If the backup was created for all cluster shards at once (backup option currently used), provide a single backup ID in the command:
+      * If the backup was originally made for all the cluster shards at once ([backup option currently used](../concepts/backup.md#size)), provide this backup's ID in the command:
 
           
           ```bash
@@ -210,7 +224,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
               * `network-ssd-nonreplicated`              * `network-ssd-io-m3`
 
 
-      * If backups were created separately for each cluster shard (legacy backup option), to restore the entire cluster, provide the backup IDs of all cluster shards:
+      * If separate backups were created for each cluster shard ([legacy backup option](../concepts/backup.md#size)), provide the backup IDs of all the cluster shards to restore the whole cluster:
 
           ```bash
           {{ yc-mdb-ch }} cluster restore \
@@ -420,8 +434,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
 
   These lists contain the following information:
 
-  * ID of the backup.
-  * Source shard.
+  * Backup ID.
+  * Source shard names.
   * Backup size.
   * Backup type: Automatic (`Automated`) or manual (`Manual`).
   * Start time of backup creation in UTC (Coordinated Universal Time).
@@ -450,11 +464,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
 
   The resulting table contains the following information:
 
-  * ID of the backup.
+  * Backup ID.
   * End time of backup creation in UTC (Coordinated Universal Time).
   * ID of the cluster that the backup was created for.
   * Start time of backup creation in UTC.
-  * Source shard name.
+  * Source shard names.
   * Backup size.
   * Backup type: Automatic (`AUTOMATED`) or manual (`MANUAL`).
 

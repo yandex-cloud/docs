@@ -57,3 +57,9 @@ keywords:
 Чтобы разрешить доступ к {{ objstorage-short-name }} только из {{ vpc-short-name }} через служебное подключение, необходимо применить следующую политику доступа для бакета:
 
 {% include [policy-scheme-json](../../_includes/vpc/policy-scheme-json.md) %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/storage-vpc-access.md)
+* [{#T}](../tutorials/vpc-cr-access.md)

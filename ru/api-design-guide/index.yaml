@@ -13,9 +13,18 @@ meta:
     Cloud.
   keywords:
     - keyword: идеология API
+    - keyword: идеология API {{ yandex-cloud }}
     - keyword: концепции API
     - keyword: REST API
     - keyword: gRPC API
+    - keyword: концепции API {{ yandex-cloud }}
+    - keyword: API {{ yandex-cloud }}
+    - keyword: методы REST API {{ yandex-cloud }}
+    - keyword: endpoint
+    - keyword: '{{ yandex-cloud }} endpoints'
+    - keyword: API endpoints {{ yandex-cloud }}
+    - keyword: HTTP методы в {{ yandex-cloud }}
+    - keyword: архитектура API {{ yandex-cloud }}
 links:
   - title: Основные принципы
     description: Как устроены API и в чем заключается ресурсо-ориентированный подход
