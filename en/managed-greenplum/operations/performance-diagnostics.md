@@ -40,6 +40,6 @@ To view the table, [connect to the `gpperfmon` database](../operations/connect.m
 SELECT * FROM <table_name>;
 ```
 
-To learn more about information tables of the `gpperfmon` database, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gpperfmon-dbref.html).
+To learn more about information tables of the `gpperfmon` database, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-gpperfmon-dbref.html).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

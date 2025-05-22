@@ -465,7 +465,7 @@ Tooltips allow you to display term definitions when clicking a term. Definitions
 
 will be displayed as:
 
-[Term](*term_key) used in the text.
+`[Term](*term_key)` used in the text.
 
 {% note info %}
 

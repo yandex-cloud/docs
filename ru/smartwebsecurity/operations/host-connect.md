@@ -1,9 +1,11 @@
 ---
-title: Как подключить профиль безопасности {{ sws-full-name }} к виртуальному хосту
-description: Следуя данной инструкции, вы сможете подключить профиль безопасности {{ sws-full-name }} к виртуальному хосту.
+title: Как подключить профиль безопасности {{ sws-full-name }} к виртуальному хосту, домену или API-шлюзу
+description: Следуя данной инструкции, вы сможете подключить профиль безопасности {{ sws-full-name }} к защищаемому ресурсу.
 ---
 
-# Подключить профиль безопасности к виртуальному хосту
+# Подключить профиль безопасности к ресурсу
+
+## Подключить к виртуальному хосту {#host}
 
 Способ подключения профиля безопасности зависит от того, кто управляет балансировщиком [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md):
 
@@ -173,6 +175,35 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 {% include [auto-scaling-tip](../../_includes/smartwebsecurity/auto-scaling-tip.md) %}
+
+## Подключить к домену {#domain}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Выберите раздел **Защита доменов** → **Домены**.
+  1. Выберите домен. 
+  1. Нажмите **Подключить профиль безопасности** и выберите профиль.
+
+{% endlist %}
+
+## Подключить к API-шлюзу {#gateway}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Скопируйте идентификатор нужного профиля.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. При создании API-шлюза или в спецификации уже созданного API-шлюза задайте расширение [x-yc-apigateway:smartWebSecurity](../../api-gateway/concepts/extensions/sws.md).
+  1. Укажите в расширении скопированный идентификатор.
+
+{% endlist %}
 
 ## См. также {#see-also}
 

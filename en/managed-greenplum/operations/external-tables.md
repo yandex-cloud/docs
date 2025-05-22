@@ -1,6 +1,6 @@
 # Working with PXF
 
-The [{{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/intro_pxf.html) (PXF) protocol is used to access data in external databases.
+The [{{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/intro_pxf.html) (PXF) protocol is used to access data in external databases.
 
 Let's say there is a table with sales data over several years. It contains three data types:
 

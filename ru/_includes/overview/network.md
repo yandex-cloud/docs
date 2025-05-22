@@ -141,3 +141,11 @@ CloudGate — группы сервисных ВМ в каждой [зоне д�
 * [Как устроена сетевая инфраструктура в Yandex Cloud (2019)](https://habr.com/ru/companies/yandex/articles/437816/).
 * [Как устроен сервис Virtual Private Cloud в Yandex Cloud (2020)](https://habr.com/ru/companies/yandex/articles/487694/).
 
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../../vpc/tutorials/web-service.md)
+* [{#T}](../../vpc/tutorials/nat-instance/index.md)
+* [{#T}](../../vpc/tutorials/dhcp-options.md)
+* [{#T}](../../vpc/tutorials/cic-with-ngfw.md)

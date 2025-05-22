@@ -78,6 +78,39 @@
 
       Подробнее о команде `yc compute instance move` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. [Настройте](../../../resource-manager/operations/folder/set-access-bindings.md) права доступа к целевому каталогу. У аккаунта из исходного каталога, от имени которого вы будете выполнять операцию, должна быть минимальная [роль](../../../compute/security/index.md#compute-editor) `compute.editor` на целевой каталог.
+
+  1. [Получите идентификатор целевого каталога](../../../resource-manager/operations/folder/get-id.md).
+  1. В конфигурационном файле в ресурсе `yandex_compute_instance` добавьте параметры:
+
+      ```bash
+      resource "yandex_compute_instance" "vm-1" {
+          ...
+          allow_stopping_for_update = true
+          folder_id = <идентификатор_целевого_каталога>
+          ...
+      }
+      ```
+
+      Где:
+
+      * `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
+      * `folder_id` — идентификатор каталога, в котором должна размещаться ВМ (по умолчанию указывается из [переменной окружения](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)).
+
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Примените новую конфигурацию:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+
 - API {#api}
 
   Воспользуйтесь методом REST API [move](../../api-ref/Instance/move.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Move](../../api-ref/grpc/Instance/move.md).
@@ -295,6 +328,42 @@
       ```bash
       yc compute instance start fhm0b28lgfp4********
       ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. [Настройте](../../../resource-manager/operations/folder/set-access-bindings.md) права доступа к каталогу, в котором вы изменяете подсеть ВМ. У аккаунта, от имени которого вы будете выполнять операцию, должна быть минимальная [роль](../../../vpc/security/index.md#vpc-admin) `vpc.admin` на этот каталог.
+
+  1. Если дополнительная подсеть уже создана, [получите](../../../vpc/operations/subnet-get-info.md) ее идентификатор.
+  1. В конфигурационном файле измените ресурс `yandex_compute_instance`:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        network_interface {
+          subnet_id = "<идентификатор_подсети>"
+        }
+
+        allow_stopping_for_update = true
+        ...
+      }
+      ```
+
+      Где:
+
+      * `subnet_id` — идентификатор [подсети](../../../vpc/concepts/network.md#subnet).
+      * `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
+
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Примените новую конфигурацию:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

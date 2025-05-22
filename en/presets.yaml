@@ -212,7 +212,6 @@ default:
     docs:
       broadcom: >-
         https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum
-      vmware: https://docs.vmware.com/en/VMware-Greenplum
   gpt-freetier: 10
   gpt-lite: YandexGPT Lite
   gpt-pro: YandexGPT Pro
@@ -6661,6 +6660,7 @@ default:
         button_add-discard-rule: Add discard rule
         button_add-healthcheck: Add health check
         button_add-listener: Add listener
+        button_add-modification: Change header
         button_add-route: Add route
         button_add-sni-match: Add SNI match
         button_add-target: Add target resource
@@ -6705,6 +6705,8 @@ default:
         label_hc-type-grpc: gRPC
         label_hc-type-http: HTTP
         label_hc-type-stream: Stream
+        label_header-request: Request
+        label_header-response: Response
         label_healthchecks: Health checks
         label_healthy: Healthy threshold
         label_host-rewrite: Host header rewrite
@@ -6728,6 +6730,10 @@ default:
         label_match-exact: Matches
         label_match-prefix: Starts with
         label_match-regex: Regular expression
+        label_modification-header: Header name
+        label_modification-operation: Operation
+        label_modification-type: Type
+        label_modifications: Manage headers
         label_panic-threshold: Panic mode threshold
         label_path: Path
         label_port: Port

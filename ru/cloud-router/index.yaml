@@ -6,7 +6,7 @@ description:
     Preview</a></em>.
   - >-
     {{ cr-full-name }} — сервис для управления сетевыми топологиями гибридного
-    облака в {{ yandex-cloud }}.  
+    облака в {{ yandex-cloud }}. 
   - >-
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
@@ -16,6 +16,17 @@ meta:
   description: >-
     {{ cr-full-name }} это сервис для управления сетевыми топологиями гибридного
     облака в {{ yandex-cloud }}.
+  keywords:
+    - keyword: облачный роутер
+    - keyword: роутер в {{ yandex-cloud }}
+    - keyword: '{{ cr-name }}'
+    - keyword: '{{ cr-full-name }}'
+    - keyword: '{{ cr-name }} в {{ yandex-cloud }}'
+    - keyword: сервис {{ cr-name }}
+    - keyword: Routing Instance
+    - keyword: роутер {{ cr-full-name }}
+    - keyword: Гибридное облако {{ cr-full-name }}
+    - keyword: Гибридное облако {{ yandex-cloud }}
 links:
   - title: Концепции
     description: Узнайте про возможности сервиса

@@ -35,13 +35,13 @@ The following settings are available:
 
     S3 storage public access key.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 * **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage secret access key.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 * **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -49,13 +49,13 @@ The following settings are available:
 
     Fast upload is enabled by default.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 * **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     S3 storage address. {{ objstorage-full-name }} is set to `{{ s3-storage-host }}`. This is a default value.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio-server-configuration-1).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 ## External JDBC data source settings {#jdbc-settings}
 
@@ -67,7 +67,7 @@ The following settings are available:
 
     {% include [JBDC driver](../../_includes/mdb/mgp/jdbc-driver.md) %}
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **Url**{#setting-url} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -75,19 +75,19 @@ The following settings are available:
 
     {% include [URL examples](../../_includes/mdb/mgp/url-examples.md) %}
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **User**{#setting-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     DB owner username.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **Password**{#setting-password} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     DB user password.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbc-server-configuration-2).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -95,7 +95,7 @@ The following settings are available:
 
     The default value is `100`.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#statementlevel-properties-5).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
 
 * **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -103,7 +103,7 @@ The following settings are available:
 
     The default value is `1000`.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#statementlevel-properties-5).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
 
 * **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -111,13 +111,13 @@ The following settings are available:
 
     The default value is `60`.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#statementlevel-properties-5).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
 
 * **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     This setting determines whether the JDBC connection pool is used. It is enabled by default.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -125,7 +125,7 @@ The following settings are available:
 
     The default value is `5`.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -133,7 +133,7 @@ The following settings are available:
 
     The default value is `30000`.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -141,7 +141,7 @@ The following settings are available:
 
     The default value is `30000`.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -149,7 +149,7 @@ The following settings are available:
 
     The default value is `0`.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#about-jdbc-connection-pooling-9).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 ## External HDFS data source settings {#hdfs-settings}
 
@@ -213,7 +213,7 @@ The following settings are available:
 
     This setting determines whether predicate pushdown is enabled for external table queries. Enabled by default.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.10/greenplum-platform-extension-framework/cfg_server.html#about-the-pxfsitexml-configuration-file-3).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **Metastore Uris**{#setting-metastore-uris} {{ tag-con }} {{ tag-api }}
 

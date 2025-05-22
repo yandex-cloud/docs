@@ -36,3 +36,13 @@ description: Из статьи вы узнаете, что такое обраб
 {% endnote %}
 
 Для более гранулярной обработки трафика рекомендуется создавать отдельный сетевой балансировщик для каждого сервиса вместо создания нескольких обработчиков трафика на одном балансировщике.
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/updating-under-load.md)
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/exchange.md)
+* [{#T}](../tutorials/mssql-alwayson-lb.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)

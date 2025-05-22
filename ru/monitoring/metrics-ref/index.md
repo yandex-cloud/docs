@@ -41,6 +41,7 @@ description: На странице приведен список справоч�
 * [{{ monitoring-full-name }}](monitoring-ref.md)
 * [{{ network-load-balancer-full-name }}](network-load-balancer-ref.md)
 * [{{ objstorage-full-name }}](storage-ref.md)
+* [{{ si-full-name }}](serverless-integrations-ref.md)
 * [{{ captcha-full-name }}](captcha-ref.md)
 * [{{ sws-full-name }}](smartwebsecurity-ref.md)
 * [{{ unified-agent-full-name }}](unifiedagent-ref.md)

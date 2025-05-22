@@ -31,6 +31,12 @@ description: Следуя данной инструкции, вы сможете
 * Вверху чарта нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Дублировать**. В открывшемся окне введите название нового чарта и нажмите **Применить**.
 * Перейдите на страницу воркбука, в котором расположен чарт. В строке с нужным чартом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Дублировать**. В открывшемся окне введите название нового чарта и нажмите **Применить**.
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
+
+
 #### См. также {#see-also}
 
 * [{#T}](../../concepts/chart/index.md)

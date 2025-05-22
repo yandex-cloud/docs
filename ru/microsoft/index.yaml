@@ -7,6 +7,13 @@ meta:
   description: >-
     Перенесите свои привычные инструменты Microsoft в облако и используйте
     готовую масштабируемую инфраструктуру Yandex Cloud для решения своих задач.
+  keywords:
+    - keyword: microsoft в {{ yandex-cloud }}
+    - keyword: инструменты microsoft в {{ yandex-cloud }}
+    - keyword: продукты microsoft в {{ yandex-cloud }}
+    - keyword: офис microsoft в {{ yandex-cloud }}
+    - keyword: Windows в {{ yandex-cloud }}
+    - keyword: инструменты microsoft в облаке
 links:
   - title: Практические руководства
     description: >-

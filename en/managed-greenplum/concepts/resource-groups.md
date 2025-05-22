@@ -55,7 +55,7 @@ Default values of the resource group parameters:
 
 You cannot change the values of the `admin_group` resource group.
 
-For more information about managing roles, see [Users and roles](./cluster-users.md) and the [{{ GP }} documentation]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-roles_privs.html).
+For more information about managing roles, see [Users and roles](./cluster-users.md) and the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-roles_privs.html).
 
 ## Memory allocation {#ram}
 
@@ -90,6 +90,6 @@ There are two ways to allocate CPU resources for a resource group:
 
 You can use these two methods at the same time, for different resource groups, or switch them over as you run your cluster.
 
-To learn more about resource groups, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-workload_mgmt_resgroups.html).
+To learn more about resource groups, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-workload_mgmt_resgroups.html).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

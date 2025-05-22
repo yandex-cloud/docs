@@ -32,3 +32,8 @@ sudo netplan apply
 ```bash
 sudo netplan ip leases eth0 | grep -i dns
 ```
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/dhcp-options.md)

@@ -1,6 +1,6 @@
 # Creating an external table from a {{ objstorage-full-name }} bucket table using a configuration file
 
-To [create an external table](../../../managed-greenplum/operations/pxf/create-table.md) from a table in a {{ objstorage-full-name }} bucket, you need to provide a [static access key](../../../iam/concepts/authorization/access-key.md) for the service account in the query. You can do this using the [S3 protocol]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) and a configuration file stored on the HTTP server.
+To [create an external table](../../../managed-greenplum/operations/pxf/create-table.md) from a table in a {{ objstorage-full-name }} bucket, you need to provide a [static access key](../../../iam/concepts/authorization/access-key.md) for the service account in the query. You can do this using the [S3 protocol]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) and a configuration file stored on the HTTP server.
 
 To create an external table using a configuration file:
 
@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * {{ mgp-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
-* NAT gateway fee (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)). 
-* VM fee: Using computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: Data storage and operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)). 
+* VM fee: Using its computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
