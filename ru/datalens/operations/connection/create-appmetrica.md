@@ -51,3 +51,9 @@ description: Следуя данной инструкции, вы сможете
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
 
 
+
+
+## Примеры использования {#examples}
+* [{#T}](../../tutorials/data-from-appmetrica-visualization.md)
+* [{#T}](../../tutorials/data-from-appmetrica-yc-visualization.md)
+

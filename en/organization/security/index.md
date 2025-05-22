@@ -40,9 +40,17 @@ You can assign a role for individual resources within the service using the [{{ 
 
 {% include [organizationmanager-organizations-owner](../../_roles/organization-manager/organizations/owner.md) %}
 
+#### organization-manager.federations.auditor {#organization-manager-federations-auditor}
+
+{% include [organization-manager.federations.auditor](../../_roles/organization-manager/federations/auditor.md) %}
+
 #### organization-manager.federations.viewer {#organization-manager-federations-viewer}
 
 {% include [organization-manager.federations.viewer](../../_roles/organization-manager/federations/viewer.md) %}
+
+#### organization-manager.federations.editor {#organization-manager-federations-editor}
+
+{% include [organization-manager.federations.editor](../../_roles/organization-manager/federations/editor.md) %}
 
 #### organization-manager.federations.userAdmin {#organization-manager-federations-userAdmin}
 

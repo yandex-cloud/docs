@@ -9,8 +9,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Включить перенос трафика {#start}
 
-Перед включением [разрешите](allow-and-deny-shift.md#allow) перенос трафика между зонами доступности.
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}

@@ -46,3 +46,10 @@ _Имя хоста_ можно использовать для доступа с
 Имя хоста задается либо вручную, либо формируется автоматически с помощью идентификатора виртуальной машины.
 
 Подробнее о принципах формирования FQDN читайте в разделе [Имя хоста и FQDN](../../compute/concepts/network.md#hostname) документации {{ compute-name }}.
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/dhcp-options.md)
+* [{#T}](../tutorials/clickhouse-dns-peering.md)

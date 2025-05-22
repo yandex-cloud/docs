@@ -53,3 +53,12 @@ description: Из статьи вы узнаете для чего нужна п
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
 
 При выполнении HTTP-проверки, ресурс получает статус `HEALTHY` только при ответе с кодом `200`.
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/updating-under-load.md)
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/exchange.md)
+* [{#T}](../tutorials/route-switcher.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)

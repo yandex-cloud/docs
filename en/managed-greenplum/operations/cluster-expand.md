@@ -252,7 +252,7 @@ There are several ways to monitor the [data redistribution process](../concepts/
 
         {% include [sql-redistribution-status](../../_includes/mdb/mgp/expand/sql-redistribution-status.md) %}
 
-    The query result will contain [various information]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) about the progress of the data redistribution process. The `status` column will indicate the current processing status of specific tables:
+    The query result will contain [various information]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) about the progress of the data redistribution process. The `status` column will indicate the current processing status of specific tables:
 
     * `NOT STARTED`: Table data redistribution is scheduled, the table is in the redistribution queue.
 
@@ -290,7 +290,7 @@ To change the rank of redistributed tables:
     WHERE fq_name IN (<list_of_full_table_names>);
     ```
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
 
 ### Running data redistribution manually {#start-redistribute}
 
@@ -322,7 +322,7 @@ This will leave some of the data distributed unevenly. As a result, the `Unknown
     * `relname`: Table name.
     * `numsegment`: Number of segments storing the data.
 
-    For more information, see the {{ GP }} documentation on the [gp_distribution_policy]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html) table.
+    For more information, see the {{ GP }} documentation on the [gp_distribution_policy]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html) table.
 
 1. Run data redistribution using the information you got earlier.
 

@@ -35,6 +35,8 @@ description: На странице представлены вопросы и о
 
 {% include [object-id](../../_qa/datalens/object-id.md) %}
 
+{% include [related-objects](../../_qa/datalens/related-objects.md) %}
+
 {% include [network-error](../../_qa/datalens/network-error.md) %}
 
 

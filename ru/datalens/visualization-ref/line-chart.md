@@ -168,6 +168,12 @@ Y2 | Показатель. Позволяет добавить вторую ос
   {% endcut %}
 
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/datalens.md)
+
+
 #### См. также {#see-also}
 
 * [{#T}](../operations/dashboard/create.md)

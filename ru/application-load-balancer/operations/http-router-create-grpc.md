@@ -11,7 +11,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создаваться HTTP-роутер.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Введите имя HTTP-роутера.
   1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
@@ -20,6 +22,17 @@ description: Следуя данной инструкции, вы сможете
   1. (Опционально) В поле **{{ ui-key.yacloud.alb.label_security-profile-id }}** выберите [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
+  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.label_modifications }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-modification }}** и настройте [HTTP-заголовок](https://ru.wikipedia.org/wiki/Список_заголовков_HTTP):
+     * В поле **{{ ui-key.yacloud.alb.label_modification-type }}** выберите:
+       * `{{ ui-key.yacloud.alb.label_header-request }}` — модифицировать заголовок входящего запроса — от клиента к балансировщику.
+       * `{{ ui-key.yacloud.alb.label_header-response }}` — модифицировать заголовок исходящего ответа — от бэкенда к внешнему клиенту.
+     * В поле **{{ ui-key.yacloud.alb.label_modification-header }}** укажите имя заголовка.  Например, `Host`, `User-Agent`, `X-Forwarded-For`, `Strict-Transport-Security`.
+     * В поле **{{ ui-key.yacloud.alb.label_modification-operation }}** выберите:
+       * `append` — для добавления указанной строки к значению заголовка.
+       * `replace` — для замены значения заголовка указанной строкой.
+       * `remove` — для удаления заголовка. Будет удалено не только значение заголовка, но и сам заголовок.
+       * `rename` — для изменения имени заголовка. При этом значение заголовка не изменяется.
+     * Введите строку для изменения значения заголовка или новое имя заголовка.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}** и выберите **{{ ui-key.yacloud.alb.label_route-type }}**: `{{ ui-key.yacloud.alb.label_proto-grpc }}`.
      1. Введите **{{ ui-key.yacloud.common.name }}**.
      1. В поле **{{ ui-key.yacloud.alb.label_fqmn }}** выберите одну из опций:

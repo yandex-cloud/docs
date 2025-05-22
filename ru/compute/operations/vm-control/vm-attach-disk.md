@@ -88,39 +88,19 @@
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Если дополнительный диск уже создан, [получите](../disk-control/get-info.md) его идентификатор.
-  1. Откройте конфигурационный файл {{ TF }}, в котором описана ВМ, к которой вы хотите подключить дополнительный диск. См. [пример конфигурационного файла ВМ](../vm-create/create-linux-vm.md#tf_1).
-  1. В зависимости от того, создан ли уже дополнительный диск, выполните следующее:
-      * Диск создан — в блок с описанием ресурса `yandex_compute_instance` добавьте параметр `secondary_disk` и укажите идентификатор дополнительного диска в значении `disk_id`:
+  1. В конфигурационном файле в описании ресурса `yandex_compute_instance` добавьте новый блок `secondary_disk`:
 
-        ```hcl
-        resource "yandex_compute_instance" "vm-1" {
-           ...
-           secondary_disk {
-              disk_id = "<идентификатор_диска>"
-           }
-           ...
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        secondary_disk {
+            disk_id = "<идентификатор_диска>"
         }
-        ```
+        ...
+      }
+      ```
 
-      * Диск нужно создать — добавьте в конфигурационный файл новый блок с описанием ресурса `yandex_compute_disk`, в блок с описанием ресурса `yandex_compute_instance` добавьте параметр `secondary_disk` и укажите в значении `disk_id` ссылку на идентификатор создаваемого дополнительного диска:
-
-        ```hcl
-        resource "yandex_compute_disk" "secondary-disk-1" {
-            name     = "secondary-disk-1"
-            type     = "network-hdd"
-            zone     = "<зона_доступности>"
-            size     = "<размер_диска>"
-        }
-
-        resource "yandex_compute_instance" "vm-1" {
-           ...
-           secondary_disk {
-              disk_id = yandex_compute_disk.secondary-disk-1.id
-           }
-           ...
-        }
-        ```
+      Где `disk_id` — идентификатор дополнительного диска.
 
       {% note info %}
 
@@ -130,11 +110,11 @@
 
       Более подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_disk).
 
-  1. Создайте ресурсы:
+  1. Примените новую конфигурацию:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
+      {{ TF }} обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 
 - API {#api}

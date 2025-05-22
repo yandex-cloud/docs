@@ -12,7 +12,7 @@ The role has attributes that define which jobs it can run in the database.
 
 | Attributes                                | Description                                                                                                                                                                                                                                                                                                                    |
 | :-------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `SUPERUSER` or `NOSUPERUSER`           | Defines whether the role is a superuser. In {{ mgp-name }}, the `SUPERUSER` attribute is assigned to the `gpadmin` and `monitor` service roles and is not available to service users.                                                                                                                                                                |
+| `SUPERUSER` or `NOSUPERUSER`           | Decides whether the role is a superuser. In {{ mgp-name }}, the `SUPERUSER` attribute is assigned to the `gpadmin` and `monitor` service roles and is not available to service users.                                                                                                                                                                |
 | `CREATEDB` or `NOCREATEDB`             | Determines whether a database may be created. The default value is `NOCREATEDB`.                                                                                                                                                                                                                                                 |
 | `CREATEROLE` or `NOCREATEROLE`         | Determines whether other roles may be created and managed. The default value is `NOCREATEROLE`.                                                                                                                                                                                                                             |
 | `INHERIT` or `NOINHERIT`               | Determines whether the role inherits the privileges of the roles it is a [part of](#group-roles). The default value is `INHERIT`.                                                                                                                                                                                                              |
@@ -20,11 +20,11 @@ The role has attributes that define which jobs it can run in the database.
 | `CONNECTION LIMIT <value>`           | Number of concurrent connections for the role with the `LOGIN` attribute. The default value is `-1` (unlimited).                                                                                                                                                                                                 |
 | `CREATEEXTTABLE` or `NOCREATEEXTTABLE` | Determines whether external tables may be created. The default value is `NOCREATEEXTTABLE`.                                                                                                                                                                                                                                        |
 | `PASSWORD '<password>'`                   | Setting a password for the role. If no authentication is required for the role, you can skip this attribute.                                                                                                                                                                                                                        |
-| `ENCRYPTED` or `UNENCRYPTED`           | Save the password as a hash string or plain text. The default value is `ENCRYPTED`. For more information about protecting authorization passwords, see the [{{ GP }}]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-roles_privs.html#protecting-passwords-in-greenplum-database) documentation.                                       |
+| `ENCRYPTED` or `UNENCRYPTED`           | Save the password as a hash string or plain text. The default value is `ENCRYPTED`. For more information about protecting authorization passwords, see the [{{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-roles_privs.html#protecting-passwords-in-greenplum-database) documentation.                                       |
 
 ## Group roles {#group-roles}
 
-Some roles can become a part of other roles and inherit their privileges. When privileges of the parent role are changed, privileges of all roles within it are changed as well. For more information about group roles, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-roles_privs.html#role-membership).
+Some roles can become a part of other roles and inherit their privileges. When privileges of the parent role are changed, privileges of all roles within it are changed as well. For more information about group roles, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-roles_privs.html#role-membership).
 
 ## Privileges {#privileges}
 
@@ -93,7 +93,7 @@ Do not use the `mdb_admin` role for routine tasks because an incorrect command s
 `ALL`||
 |#
 
-For more information about privileges and their management, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-roles_privs.html#managing-object-privileges).
+For more information about privileges and their management, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-roles_privs.html#managing-object-privileges).
 
 ## The mdb_admin role instead of a superuser {#mdb_admin}
 

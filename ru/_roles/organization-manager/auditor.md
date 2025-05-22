@@ -22,4 +22,4 @@
 
 {% endcut %}
 
-Включает разрешения, предоставляемые ролями `iam.userAccounts.refreshTokenViewer` и `organization-manager.osLogins.viewer`.
+Включает разрешения, предоставляемые ролями `iam.userAccounts.refreshTokenViewer`, `organization-manager.federations.auditor` и `organization-manager.osLogins.viewer`.

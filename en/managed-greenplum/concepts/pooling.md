@@ -24,8 +24,8 @@ Odyssey supports two modes of connection management:
 
     The transaction mode provides high performance and allows you to load the DBMS as efficiently as possible. However, this mode is not supported by certain {{ GP }} clients and does not allow using:
 
-    * [Temporary tables]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-DECLARE.html), and [advisory locks]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
-    * [Prepared statements]({{ gp.docs.vmware }}/7/greenplum-database/ref_guide-sql_commands-PREPARE.html).
+    * [Temporary tables]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-DECLARE.html), and [advisory locks]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
+    * [Prepared statements]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-PREPARE.html).
 
     {% note info %}
 
@@ -37,7 +37,7 @@ You can [change](../operations/update.md#change-additional-settings) the connect
 
 ## Odyssey features {#features}
 
-Integrating {{ mgp-name }} with the Odyssey connection pooler has several advantages, e.g., compared to the [PgBouncer]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-access_db-topics-pgbouncer.html) connection pooler:
+Integrating {{ mgp-name }} with the Odyssey connection pooler has several advantages, e.g., compared to the [PgBouncer]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-access_db-topics-pgbouncer.html) connection pooler:
 
 | Comparison criterion | Odyssey | PgBouncer |
 |------------------------|---------|-----------|

@@ -37,13 +37,13 @@ Where:
 * `<data_path_or_table_name>`: External object name, see [examples of external tables](#pxf-examples).
 * `PROFILE`: Standard interface to an external DBMS (profile), e.g., `JDBC`. The list of possible values depends on the connection type:
 
-    * [S3]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/access_objstore.html#connectors-data-formats-and-profiles-1)
-    * [JDBC]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/jdbc_pxf.html#accessing-an-external-sql-database-3)
-    * [HDFS and Hive]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/access_hdfs.html#connectors-data-formats-and-profiles-3)
+    * [S3]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/access_objstore.html#objstore_connectors)
+    * [JDBC]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/jdbc_pxf.html#queryextdata)
+    * [HDFS and Hive]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/access_hdfs.html#hadoop_connectors)
 
 * `SERVER`: Name of the external PXF data source.
 
-    Instead of `SERVER`, you can provide the parameters defining the external data source configuration. These depend on the source connection type. For more information, see the [{{ GP }} PFX documentation]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/intro_pxf.html#creating-an-external-table-6) and examples of creating external tables.
+    Instead of `SERVER`, you can provide the parameters defining the external data source configuration. These depend on the source connection type. For more information, see the [{{ GP }} PFX documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/intro_pxf.html#create_external_table) and examples of creating external tables.
 
 The `WRITABLE` option allows writing data to an external object. To read data from an external object, create an external table with the `READABLE` option.
 

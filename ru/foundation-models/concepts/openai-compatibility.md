@@ -17,7 +17,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
   client = openai.OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="{{ api-host-llm }}/v1"
+      base_url="https://{{ api-host-llm }}/v1"
   )
   ```
 
@@ -28,7 +28,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
   const openai = new OpenAI({
     apiKey:"<значение_API-ключа>",
-    baseURL:"{{ api-host-llm }}/v1"});
+    baseURL:"https://{{ api-host-llm }}/v1"});
   ```
 
 {% endlist %}
@@ -50,17 +50,17 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
   client = openai.OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="{{ api-host-llm }}/v1"
+      base_url="https://{{ api-host-llm }}/v1"
   )
 
   response = client.chat.completions.create(
       model="gpt://<идентификатор_каталога>/yandexgpt/latest",
       messages=[
-          {"role": "assistant", "content": "Ты очень умный ассистент."},
-          {"role": "user", "content": "Сколько стоит запрос к {{ gpt-pro }}?"}
+          {"role": "system", "content": "Ты очень умный ассистент."},
+          {"role": "user", "content": "Что умеют большие языковые модели?"}
       ],
-      max_tokens=10000,
-      temperature=0.7,
+      max_tokens=2000,
+      temperature=0.3,
       stream=True
   )
 
@@ -76,12 +76,12 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
   const openai = new OpenAI({
     apiKey:"<значение_API-ключа>",
-    baseURL:"{{ api-host-llm }}/v1"});
+    baseURL:"https://{{ api-host-llm }}/v1"});
 
   async function main() {
     const completion = await openai.chat.completions.create({
-      messages: [{"role": "assistant", "content": "Ты очень умный ассистент."},
-        {"role": "user", "content": "Сколько стоит запрос к {{ gpt-pro }}?"}],
+      messages: [{"role": "system", "content": "Ты очень умный ассистент."},
+        {"role": "user", "content": "Что умеют большие языковые модели?"}],
       model: "gpt://<идентификатор_каталога>/yandexgpt/latest",
     });
 
@@ -93,7 +93,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 - cURL {#curl}
 
   ```bash
-  curl {{ api-host-llm }}/v1/chat/completions \
+  curl https://{{ api-host-llm }}/v1/chat/completions \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer <API-ключ>" \
     -d '{
@@ -105,7 +105,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
         },
         {
           "role": "user",
-          "content": "Сколько стоит запрос к {{ gpt-pro }}?"
+          "content": "Что умеют большие языковые модели?"
         }
       ]
     }'

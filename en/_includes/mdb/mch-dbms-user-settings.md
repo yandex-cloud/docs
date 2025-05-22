@@ -6,7 +6,7 @@
 
 * **Allow DDL**{#setting-allow-ddl} {{ tag-all }}
 
-  Defines whether DDL queries will be executed (`CREATE`, `ALTER`, `RENAME`, and others).
+  Decides whether or not to execute DDL queries (`CREATE`, `ALTER`, `RENAME`, and others).
 
   By default, DDL queries are allowed.
 
@@ -42,7 +42,7 @@
 
 * **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} {{ tag-con }} {{ tag-sql }}
 
-  Enables the deprecated behavior of the {{ CH }} server for `ANY INNER|LEFT JOIN` operations.
+  Enables the deprecated behavior of the {{ CH }} server for `ANY INNER|LEFT JOIN`.
 
   By default, the deprecated `JOIN` behavior is disabled.
 
@@ -93,19 +93,27 @@
 
   The default value is `16`. If `0`, asynchronous inserts are disabled.
 
-  For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#async-insert-threads).
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#async-insert-threads).
+
+* **Async insert use adaptive busy timeout**{#setting-async-insert-use-adaptive-busy-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not to use an adaptive asynchronous insert, where {{ CH }} limits the number of inserts depending on the server load.
+
+  This setting is on by default.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#async_insert_use_adaptive_busy_timeout).
 
 * **Cancel HTTP readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
   If enabled, the service cancels HTTP readonly queries (like a SELECT) when the client aborts a connection before a response is returned.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
 
 * **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Defines whether to compile expressions when running queries. With compilation enabled, queries that use identical expressions may run faster by using compiled expressions.
+  Decides whether or not to compile expressions when running queries. With compilation enabled, queries that use identical expressions may run faster by using compiled expressions.
 
   Use this setting in combination with [Min count to compile expression](#setting-min-count-to-compile-expression).
 
@@ -138,7 +146,15 @@
 
   By default, the `uniqExact` function is used.
 
-  For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#count_distinct_implementation).
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#count_distinct_implementation).
+
+* **Data type default nullable**{#setting-data-type-default-nullable} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not to use the `Nullable` data type by default in column definition without explicit `NULL` or `NOT NULL` modifiers.
+
+  The setting is disabled by default.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#data_type_default_nullable).
 
 * **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-sql }}
 
@@ -179,7 +195,7 @@
 
 * **Distributed aggregation memory efficient**{#setting-distributed-aggregation-memory-efficient} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Defines whether to enable memory saving mode for distributed aggregation.
+  Decides whether or not to enable memory saving mode for distributed aggregation.
 
   Under distributed query processing, remote servers perform [external aggregation](#setting-max-bytes-before-external-group-by). Enable this setting to reduce the memory footprint on the server initiating the query.
 
@@ -206,7 +222,15 @@
 
   By default, no value is set (equivalent to `deny`).
 
-  For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#distributed-product-mode).
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#distributed-product-mode).
+
+* **Do not merge across partitions select final** {#setting-do-not-merge-across-partitions-select-final} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not to process table sections independently for `SELECT` queries with the `FINAL` operator.
+
+  The setting is disabled by default.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree).
 
 * **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -216,7 +240,7 @@
 
 * **Enable HTTP compression**{#setting-enable-http-compression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Defines whether the data in a response to an HTTP request will be compressed.
+  Decides whether or not to compress data in a response to an HTTP request.
 
   By default, {{ CH }} stores data in a compressed format. The request output is uncompressed. For {{ CH }} to compress a request output when sending it over HTTP, enable this option and include the selected compression method in the `Accept-Encoding` request header.
   * `gzip`
@@ -225,7 +249,27 @@
 
   By default, data compression in HTTP responses is disabled.
 
-  For more information, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/http/).
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/interfaces/http/).
+
+* **Enable reads from query cache**{#setting-enable-reads-from-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not to extract the results of the `SELECT` queries from the query cache.
+
+  This setting is on by default.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#enable_reads_from_query_cache).
+
+  See also [Use query cache](#setting-use-query-cache).
+
+* **Enable writes to query cache**{#setting-enable-writes-to-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not to save the results of the `SELECT` queries to the query cache.
+
+  This setting is on by default.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#enable_writes_to_query_cache).
+
+  See also [Use query cache](#setting-use-query-cache).
 
 * **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -266,7 +310,13 @@
 
   By default, this setting is disabled, which means query execution is enabled.
 
-  For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-force_primary_key).
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-force_primary_key).
+
+* **Format avro schema registry url**{#setting-format-avro-schema-registry-url} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  URL of the Confluent schema registry for AvroConfluent format.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/formats#format_avro_schema_registry_url).
 
 * **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-sql }}
 
@@ -317,9 +367,9 @@
 
   Timeout (ms) for connecting to the replica to work with hedged requests. Use this setting in combination with [Use hedged requests](#setting-use-hedged-requests).
 
-  The default value is 50 milliseconds.
+  The default value is `50`.
 
-  For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#hedged_connection_timeout_ms).
+  For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#hedged_connection_timeout_ms).
 
 * **HTTP connection timeout**{#setting-http-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -327,11 +377,27 @@
 
   The minimum value is `1`. The default value is `1000` (one second).
 
-* **HTTP headers progress interval**{#setting-http-headers progress interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **HTTP headers progress interval**{#setting-http-headers-progress-interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Sets the minimum interval between progress notifications with the `X-ClickHouse-Progress` HTTP header, in milliseconds.
 
-  Minimum value: `1`; default value: `100`.
+  The minimum value is `1`; the default value is `100`.
+
+* **HTTP max field name size**{#setting-http-max-field-name-size} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Maximum field name length in an HTTP header.
+
+  The default value is `131072`.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#http_max_field_name_size).
+
+* **HTTP max field value size**{#setting-http-max-field-value-size} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Maximum field value length in an HTTP header.
+
+  The default value is `131072`.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#http_max_field_value_size).
 
 * **HTTP receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -353,7 +419,15 @@
 
   The default value is `360000` (six minutes).
 
-  For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout).
+  For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout).
+
+* **Ignore materialized views with dropped target table**{#setting-ignore-materialized-views-with-dropped-target-table} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not to ignore materialized views with a deleted target table when switching to views.
+
+  The setting is disabled by default.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#ignore_materialized_views_with_dropped_target_table).
 
 * **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -393,7 +467,7 @@
 
   For instance, the stream parser does not recognize a value containing `now()` while the SQL parser, if enabled, will parse the value correctly insert the output of the `now()` SQL function (current date and time).
 
-  This setting is only used for the [Values]({{ ch.docs }}/interfaces/formats/#data-format-values) format when inserting data.
+  This setting is only used for [Values]({{ ch.docs }}/interfaces/formats/#data-format-values) format when inserting data.
 
   By default, the SQL parser is enabled.
 
@@ -438,13 +512,15 @@
 
   You can use the [Select sequential consistency](#setting-select-sequential-consistency) setting to read data written with Insert quorum.
 
-  For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-insert_quorum).
+  By default, quorum write is disabled (`0`).
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-insert_quorum).
 
 * **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-sql }}
 
-  If this setting is enabled, you can run multiple `INSERT` queries with a write quorum at once. If disabled, a single `INSERT` query with a write quorum is made to the same table.
+  If this setting is enabled, you can run multiple `INSERT` queries with quorum writes at the same time. If disabled, a single `INSERT` query with a quorum write will be made to the same table.
 
-  This setting is enabled by default.
+  This setting is on by default.
 
 * **Insert quorum timeout**{#setting-insert-quorum-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -465,9 +541,9 @@
   * `prefer_partial_merge`: `partial_merge` algorithm. It is used whenever possible; otherwise, the `hash` algorithm is used.
   * `sorting_merge`: Sort-merge join.
 
-  The default algorithm is `hash`.
+  For {{ CH }} 24.11 or lower, the default value is `direct,auto`; for 24.12 or higher, `direct,parallel_hash,hash`. An available algorithm will be selected for the particular query depending on table type and engine.
 
-  For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-join_algorithm).
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-join_algorithm).
 
 * **Join overflow mode**{#setting-join-overflow-mode} {{ tag-all }}
 
@@ -485,7 +561,7 @@
 
   Controls the behavior of `JOIN` queries. If the setting is enabled, empty cells resulting from a join will get `NULL` values. Otherwise, the cells will get the default values based on the specific field type.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#join_use_nulls).
 
@@ -505,7 +581,7 @@
   SELECT col1, col2 FROM table1 JOIN (SELECT col3 FROM table2) AS MyQuery
   ```
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
 * **Load balancing**{#setting-load-balancing} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
@@ -519,11 +595,11 @@
 
   * `nearest_hostname`: Sends the query to the replica whose host name is the closest possible match to the server host name in the {{ CH }} configuration file. Let's assume you have a server named `example-05-05-5` and two replicas, `example-05-05-7` and `example-05-06-7`. The `example-05-05-7` replica will be selected, as its name is only one character different from the server name.
 
-     With this approach, distributed queries will be more likely sent to the same replicas located in proximity to each other. This is an advantage over the `random` algorithm.
+     With this approach, distributed queries will be more likely sent to the same replicas located in proximity to each other. It eliminates the `random` value's drawback.
 
-  * `hostname_levenshtein_distance`: Applies the same replica selection principle as `nearest_hostname`. However, the appropriate replica host name is determined by the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance).
+  * `hostname_levenshtein_distance`: To select a replica, the same principle applies as for `nearest_hostname`. However, the appropriate replica host name is determined by the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance).
 
-  * `in_order`: Quieries are sent to replicas in the order specified in the {{ CH }} configuration file. In a {{ mch-name }} cluster, replicas are ranged so that the replica located in the same availability zone as the initiator host of distributed subqueries is the first one.
+  * `in_order`: Sends the query to the replica in the order as per the {{ CH }} configuration file. In a {{ mch-name }} cluster, replicas are ranged so that the replica located in the same availability zone as the initiator host of distributed subqueries is the first one.
 
      Disadvantage: if the first replica fails, its workload will be moved to the next replica, which will double its workload.
 
@@ -546,15 +622,39 @@
 
   The default value is `pread`.
 
+* **Log processors profiles**{#setting-log-processors-profiles} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not to log information about profiling on processors level. The logs will be recorded to the `system.processors_profile_log` table.
+
+  The setting is disabled by default. Changing this setting will restart {{ CH }} servers on cluster hosts.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#log_processors_profiles).
+
+* **Log queries probability**{#setting-log-queries-probability} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not only randomly selected queries with a specified probability must be written to the `system.query_log`, `system.query_thread_log`, and `system.query_views_log` system tables. Random selection reduces the load in case of large number of requests per second.
+
+  This setting is a positive floating-point number within the [0..1] range. For example, if set to `0,5`, approximately half of the queries will be registered in the system tables. If set to `0`, no queries will be registered in the system tables. If set to `1` (default), all queries will be registered in the system tables.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#log_queries_probability).
+
 * **Log query threads**{#setting-log-query-threads} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 
   Enables logging of threads which run queries. The logs will be saved to the[system.query_thread_log]({{ ch.docs }}/operations/system-tables/query_thread_log) table.
 
-  If this setting is enabled, you also need to enable [Query thread log enabled](../../managed-clickhouse/concepts/settings-list.md#setting-query-thread-log-enabled). Both settings are enabled by default.
+  This setting works only when the [Query thread log enabled](../../managed-clickhouse/concepts/settings-list.md#setting-query-thread-log-enabled) settings is on. The setting is disabled by default.
 
   It is only suitable for some users or queries.
 
-  For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#settings-log-query-threads).
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#settings-log-query-threads).
+
+* **Log query views**{#setting-log-query-views} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not to log information about dependent views in queries. The logs will be saved to the `system.query_views_log` table.
+
+  This setting is on by default.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#log_query_views).
 
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -570,7 +670,7 @@
 
   The official {{ CH }} client supports working with LowCardinality columns.
 
-  This setting is enabled by default.
+  This setting is on by default.
 
 * **Max ast depth**{#setting-max-ast-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -722,7 +822,7 @@
 
   The maximum amount of RAM (in bytes) to execute a query on a single server. This setting does not account for the amount of free memory or the total amount of a machine's memory. It applies to a single query on a single server.
 
-  The minimum and default value is `0` (no limit). The maximum value is limited to the `Max server memory usage` setting value, which cannot be changed directly. For more information, see [{#T}](../../managed-clickhouse/concepts/memory-management.md). If the set value is greater than the **Max server memory usage** value, the latter is used.
+  The minimum and default value is `0` (no limit). The maximum value is limited to the `Max server memory usage` setting value, which cannot be changed directly. To learn more, see [{#T}](../../managed-clickhouse/concepts/memory-management.md). If the set value is greater than the **Max server memory usage** value, the latter is used.
 
   If you are using [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) or [Max bytes before external sort](#setting-max-bytes-before-external-sort), we recommend setting their values to half of **Max memory usage**.
 
@@ -896,7 +996,7 @@
 
   The system will log information about specific memory allocation and deallocation to the `system.trace_log` file of the `MemorySample` tracing type with the specified probability. The logging probability does not depend on the size of the allocated or released memory.
 
-  The values range from `0` to `1`. The default value is `0`.
+  You can specify values between `0` and `1`. The default value is `0`.
 
 * **Memory profiler step**{#setting-memory-profiler-step} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -970,7 +1070,7 @@
 
   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it is available, including by currently running queries.
 
-  Minimum value: `0`; default value: `3`.
+  The minimum value is `0`; the default value is `3`.
 
 * **Min execution speed**{#setting-min-execution-speed} {{ tag-all }}
 
@@ -1022,7 +1122,7 @@
 
   If the setting is enabled, {{ mch-name }} distributes queries based on the [Load balancing](#setting-load-balancing) value.
 
-  This setting is enabled by default.
+  This setting is on by default.
 
   {% note warning %}
 
@@ -1044,6 +1144,90 @@
   If {{ CH }} receives a query with a higher priority, execution of lower-priority queries is suspended until this incoming query is completed.
 
   The minimum and default value is `0`.
+
+* **Query cache max entries**{#setting-query-cache-max-entries} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Maximum number of query results the current user can save in the query cache.
+
+  The minimum and default value is `0` (no limit).
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#query_cache_max_entries).
+
+  See also [Use query cache](#setting-use-query-cache).
+
+* **Query cache max size in bytes**{#setting-query-cache-max-size-in-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Maximum cache size (in bytes) for the user.
+
+  The minimum and default value is `0` (no limit).
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#query_cache_max_size_in_bytes).
+
+  See also [Use query cache](#setting-use-query-cache).
+
+* **Query cache min query duration**{#setting-query-cache-min-query-duration} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Minimum `SELECT` query duration (in milliseconds) required for the results to be saved to the query cache.
+
+  The minimum and default value is `0` (no limit).
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#query_cache_min_query_duration).
+
+  See also [Use query cache](#setting-use-query-cache).
+
+* **Query cache min query runs**{#setting-query-cache-min-query-runs} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Minimum number of completed `SELECT` queries required for the results to be saved to the query cache.
+
+  The minimum and default value is `0` (no limit).
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#query_cache_min_query_runs).
+
+  See also [Use query cache](#setting-use-query-cache).
+
+* **Query cache nondeterministic function handling**{#setting-query-cache-nondeterministic-function-handling} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Determines how the query cache will process the `SELECT` queries with non-determined functions, such as `rand()` or `now()`.
+
+  The possible values are:
+
+  * `throw`: To generate an exception without caching the query result.
+  * `save`: To cache the query result.
+  * `ignore`: Not to generate an exception and not to cache the query result.
+
+  By default, the value is not set (equivalent to `throw`).
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#query_cache_nondeterministic_function_handling).
+
+  See also [Use query cache](#setting-use-query-cache).
+
+* **Query cache share between users**{#setting-query-cache-share-between-users} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not the results of the `SELECT` queries saved in the query cache can be read by other users. We do not recommend disabling this parameter for security reasons.
+
+  The setting is disabled by default.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#query_cache_share_between_users).
+
+  See also [Use query cache](#setting-use-query-cache).
+
+* **Query cache tag**{#setting-query-cache-tag} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  String that serves as a label for query cache records. This setting allows you to cache multiple results of the same query. Queries with different tags are considered to be different.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#query_cache_tag).
+
+  See also [Use query cache](#setting-use-query-cache).
+
+* **Query cache ttl**{#setting-query-cache-ttl} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Time (in seconds) after which records in the query cache become obsolete.
+
+  The default value is `60`.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#query_cache_ttl).
+
+  See also [Use query cache](#setting-use-query-cache).
 
 * **Quota mode**{#setting-quota-mode} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -1153,11 +1337,11 @@
 
 * **Timeout before checking execution speed**{#setting-timeout-before-checking-execution-speed} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-  Timeout (in seconds) before a query execution speed check. It is checked that the execution speed is not lower than that specified in the [**Min execution speed**](#setting-min-execution-speed) parameter.
+  Timeout (in milliseconds) before a query execution speed check. It is checked that the execution speed is not lower than that specified in the [**Min execution speed**](#setting-min-execution-speed) parameter.
 
-  The default value is `10`.
+  The default value is `60000` (one minute).
 
-  For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/query-complexity/#timeout-before-checking-execution-speed).
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/query-complexity/#timeout-before-checking-execution-speed).
 
 * **Timeout overflow mode**{#setting-timeout-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1179,7 +1363,7 @@
 
   When the compare option is enabled, `NULL = NULL` returns `true` in the `IN` operator.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#transform_null_in).
 
@@ -1191,9 +1375,19 @@
 
   The first connection that sent a non-empty query progress packet is used for this query. The other connections are canceled.
 
-  This setting is enabled by default.
+  This setting is on by default.
 
-  For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_hedged_requests).
+  For more information, see the relevant [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_hedged_requests).
+
+* **Use query cache**{#setting-use-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
+
+  Decides whether or not the `SELECT` queries can use the query cache.
+
+  The setting is disabled by default.
+
+  For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#use_query_cache).
+
+  See also the [Enable reads from query cache](#setting-enable-reads-from-query-cache) and [Enable writes to query cache](#setting-enable-writes-to-query-cache) settings.
 
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 

@@ -22,6 +22,22 @@ meta:
     Yandex Network Load Balancer — сервис, который помогает обеспечить
     отказоустойчивость приложений за счет равномерного распределения сетевой
     нагрузки по облачным ресурсам.
+  keywords:
+    - keyword: Network Balancer
+    - keyword: '{{ network-load-balancer-name }}'
+    - keyword: сервис Network Balancer
+    - keyword: '{{ network-load-balancer-full-name }}'
+    - keyword: load balancer
+    - keyword: network balancer {{ yandex-cloud }}
+    - keyword: '{{ network-load-balancer-name }} в {{ yandex-cloud }}'
+    - keyword: сетевой балансировщик
+    - keyword: балансировщик нагрузки
+    - keyword: балансировщик {{ network-load-balancer-name }}
+    - keyword: распределение трафика в {{ network-load-balancer-name }}
+    - keyword: внешний балансировщик
+    - keyword: внутренний балансировщик
+    - keyword: обработчик трафика
+    - keyword: трафик в {{ network-load-balancer-name }}
 links:
   - title: Начало работы
     description: Создайте и настройте первый сетевой балансировщик

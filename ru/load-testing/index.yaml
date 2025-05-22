@@ -5,8 +5,7 @@ description:
     анализировать производительность ваших сервисов и приложений.
   - |-
     С помощью сервиса вы можете: <ul>
-      <li>Создать в своем облаке заранее настроенный <a
-    href="/docs/load-testing/concepts/agent">генератор нагрузки</a>.
+      <li>Создать в своем облаке заранее настроенный <a href="/docs/load-testing/concepts/agent">генератор нагрузки</a>.
       <li>Сконфигурировать тест в интерфейсе и подать нагрузку с созданного генератора.</li>
       <li>Посмотреть отчет о проведенном тесте.</li>
       <li>Хранить ранее проведенные отчеты и управлять ими.</li>
@@ -16,6 +15,23 @@ meta:
   description: >-
     Yandex Load Testing позволяет проводить нагрузочное тестирование, чтобы
     анализировать производительность ваших сервисов и приложений.
+  keywords:
+    - keyword: '{{ load-testing-full-name }}'
+    - keyword: сервис Load Testing
+    - keyword: '{{ load-testing-name }}'
+    - keyword: '{{ load-testing-full-name }} в {{ yandex-cloud }}'
+    - keyword: анализ нагрузки
+    - keyword: нагрузка в {{ load-testing-full-name }}
+    - keyword: тест нагрузки
+    - keyword: тестирование в {{ load-testing-full-name }}
+    - keyword: генератор нагрузки
+    - keyword: нагрузочное тестирование в {{ load-testing-name }}
+    - keyword: генератор нагрузки {{ load-testing-full-name }}
+    - keyword: тестовые данные
+    - keyword: данные {{ load-testing-full-name }}
+    - keyword: loadtesting
+    - keyword: агент {{ load-testing-full-name }}
+    - keyword: testing {{ load-testing-full-name }}
 links:
   - title: Начало работы
     description: Как начать нагрузочное тестирование с Yandex Load Testing

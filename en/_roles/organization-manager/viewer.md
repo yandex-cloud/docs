@@ -5,7 +5,7 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 * View info on the [organization](../../organization/concepts/organization.md) under Cloud Organization and its settings.
 * View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for the organization.
 * View info on the organization’s [identity federations](../../organization/concepts/add-federation.md).
-* View the list of the organization [users](../../overview/roles-and-resources.md#users).
+* View the list of the organization [users](../../overview/roles-and-resources.md#users) and info on them.
 * View the list of the organization users that are [subscribed](../../organization/operations/subscribe-user-for-notifications.md) to technical notifications on organization events.
 * View info on [certificates](../../organization/concepts/add-federation.md#build-trust).
 * View the list of [federated user](../../iam/concepts/users/accounts.md#saml-federation) group [mappings](../../organization/concepts/add-federation.md#group-mapping) and info on them.
@@ -22,4 +22,4 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 
 {% endcut %}
 
-This role also includes the `organization-manager.auditor` and `organization-manager.users.viewer` permissions.
+This role also includes the `organization-manager.auditor`, `organization-manager.federations.viewer`, and `organization-manager.users.viewer` permissions.

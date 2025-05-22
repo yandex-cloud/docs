@@ -57,3 +57,10 @@ _Подсеть_ — это диапазон IP-адресов в облачно
 #### См. также {#see-also} 
 
 * [{#T}](software-accelerated-network.md)
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/nat-instance/index.md)
+* [{#T}](../tutorials/dhcp-options.md)
