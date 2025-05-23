@@ -6,6 +6,6 @@ Users with this role can:
 * Send requests to the Trino API.
 * View info on the quotas for Managed Service for Trino.
 
-This role also includes the `managed-trino.editor` permissions.
+This role includes the `managed-trino.editor` permissions.
 
 To create Trino clusters, you also need the `vpc.user` role.

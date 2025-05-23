@@ -5,4 +5,4 @@ Users with this role can:
 * Add, modify, update, and delete certificates.
 * View info on the Certificate Manager [quotas](../../certificate-manager/concepts/limits.md#certificate-manager-quotas).
 
-This role also includes the `certificate-manager.viewer` permissions.
+This role includes the `certificate-manager.viewer` permissions.

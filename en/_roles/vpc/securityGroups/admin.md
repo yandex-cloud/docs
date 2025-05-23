@@ -19,4 +19,4 @@ The `vpc.securityGroups.admin` role allows you to manage security groups and vie
 
 {% endcut %}
 
-This role also includes the `vpc.viewer` permissions.
+This role includes the `vpc.viewer` permissions.

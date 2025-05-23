@@ -32,6 +32,23 @@ Requests processed by ARL profile rules will not be counted towards consumption.
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+### Subscription billing {#subscription}
+
+#| || [**Request a subscription or trial**](https://yandex.cloud/en-ru/services/smartwebsecurity#contact-form) || |#
+
+You pay for packages of legitimate requests. Each package includes a certain number of requests. You can purchase the WAF package only together with the AntiDDoS package.
+
+Our subscription plans are priced per month.
+
+
+
+{% include [usd-subscription](../_pricing/smartwebsecurity/usd-subscription.md) %}
+
+
+The shown prices are for a yearly subscription; no monthly subscription is available.
+
+If the plan you select is not enough, you can move on to the next one with pro-rata recalculation of the resources consumed to date.
+
 
 ### Billing by request count {#requests}
 

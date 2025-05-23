@@ -14,4 +14,4 @@ Users with this role can:
 * View info on the relevant [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) and their settings.
 * Create, modify, delete, and setup folders.
 
-This role also includes the `iam.editor` and `iam.serviceAccounts.admin` permissions.
+This role includes the `iam.editor` and `iam.serviceAccounts.admin` permissions.

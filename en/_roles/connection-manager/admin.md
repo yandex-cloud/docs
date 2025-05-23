@@ -5,4 +5,4 @@ Users with this role can:
 * View connection details and info on connection [access permissions](../../iam/concepts/access-control/index.md).
 * View info on Connection Manager [quotas](../../metadata-hub/concepts/limits.md).
 
-This role also includes the `connection-manager.editor` permissions.
+This role includes the `connection-manager.editor` permissions.

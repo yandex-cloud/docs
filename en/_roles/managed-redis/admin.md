@@ -11,6 +11,6 @@ Users with this role can:
 * View information on [quotas](../../managed-redis/concepts/limits.md#mrd-quotas) of Yandex Managed Service for Valkey™.
 * View information on resource operations for Yandex Managed Service for Valkey™.
 
-This role also includes the `managed-redis.editor` permissions.
+This role includes the `managed-redis.editor` permissions.
 
 To create Valkey™ clusters, you also need the `vpc.user` role.

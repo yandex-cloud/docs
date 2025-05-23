@@ -7,4 +7,4 @@ Users with this role can:
 * Use the [request rate](../../api-gateway/concepts/extensions/rate-limit.md) limit.
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `api-gateway.editor` permissions.
+This role includes the `api-gateway.editor` permissions.

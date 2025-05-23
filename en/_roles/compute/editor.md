@@ -48,4 +48,4 @@ The `compute.editor` role allows you to manage instances, instance groups, disks
 
 {% endcut %}
 
-This role also includes the `compute.viewer`, `compute.osLogin`, and `vpc.user` permissions.
+This role includes the `compute.viewer`, `compute.osLogin`, and `vpc.user` permissions.

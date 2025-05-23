@@ -10,4 +10,4 @@ Users with this role can:
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 * View information on Translate, Vision, SpeechKit, and Foundation Models quotas.
 
-This role also includes the `ai.editor`, `ai.assistants.admin`, `ai.datasets.admin`, and `ai.models.admin` permissions.
+This role includes the `ai.editor`, `ai.assistants.admin`, `ai.datasets.admin`, and `ai.models.admin` permissions.

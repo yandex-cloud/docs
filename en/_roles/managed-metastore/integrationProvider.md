@@ -12,4 +12,4 @@ Users with this role can:
 * View details on [Monitoring](../../monitoring/concepts/limits.md#monitoring-quotas) quotas.
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `logging.writer` and `monitoring.editor` permissions.
+This role includes the `logging.writer` and `monitoring.editor` permissions.

@@ -5,6 +5,12 @@ description: Следуя этой инструкции, вы сможете п�
 
 # Получить информацию о партнерах {{ interconnect-name }}
 
+{% note info %}
+
+Для выполнения операции необходима роль [cic.viewer](../security/index.md#cic-viewer).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

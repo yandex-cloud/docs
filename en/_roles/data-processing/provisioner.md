@@ -59,4 +59,4 @@ The `dataproc.provisioner` role grants access to the API to create, update, and 
 
 {% endcut %}
 
-This role also includes the `iam.serviceAccounts.user`, `dns.editor`, `compute.editor`, `monitoring.viewer`, and `logging.viewer` permissions.
+This role includes the `iam.serviceAccounts.user`, `dns.editor`, `compute.editor`, `monitoring.viewer`, and `logging.viewer` permissions.

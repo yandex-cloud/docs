@@ -6,4 +6,4 @@ Users with this role can:
 * View info on Yandex Search API [quotas](../../search-api/concepts/limits.md#search-api-quotas).
 * View info on the relevant [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folders](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `search-api.editor` permissions.
+This role includes the `search-api.editor` permissions.

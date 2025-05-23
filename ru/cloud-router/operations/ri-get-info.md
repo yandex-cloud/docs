@@ -4,6 +4,12 @@ title: Как получить информацию о Routing Instance
 
 # Получить информацию о Routing Instance
 
+{% note info %}
+
+Для выполнения операции необходима роль [cloud-router.viewer](../security/index.md#cloudrouter-viewer).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

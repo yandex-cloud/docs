@@ -5,4 +5,4 @@ Users with this role can:
 * View info on [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), their settings, and the access permissions to such folders, as well as create, modify, and delete folders.
 * View info on the Resource Manager [quotas](../../resource-manager/concepts/limits.md#resmgr-quotas).
 
-This role also includes the `resource-manager.viewer` permissions.
+This role includes the `resource-manager.viewer` permissions.

@@ -22,4 +22,4 @@ The `organization-manager.auditor` role enables viewing info on the organization
 
 {% endcut %}
 
-This role also includes the `iam.userAccounts.refreshTokenViewer`, `organization-manager.federations.auditor`, and `organization-manager.osLogins.viewer` permissions.
+This role includes the `iam.userAccounts.refreshTokenViewer`, `organization-manager.federations.auditor`, and `organization-manager.osLogins.viewer` permissions.

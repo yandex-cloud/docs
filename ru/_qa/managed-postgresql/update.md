@@ -35,3 +35,10 @@ ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
 ```
 
 [Остановить](../../managed-postgresql/operations/cluster-stop.md#stop-cluster) кластер, у которого нет резервных копий, невозможно. Чтобы устранить ошибку и остановить кластер, [создайте резервную копию](../../managed-postgresql/operations/cluster-backups.md#create-backup).
+
+
+#### Почему при изменении кластера возникает ошибка `max_connections is less than sum of users connection limit`? {#max-connections-error}
+
+Эта ошибка может возникнуть при уменьшении класса хоста в кластере, если сумма лимитов подключений всех пользователей меньше общего лимита подключений на кластер ([Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections)).
+
+Решение: сначала уменьшите лимиты, установленные для пользователей, чтобы их сумма была меньше, чем `<значение_Max_connections> — 15`, а затем снижайте класс хоста.

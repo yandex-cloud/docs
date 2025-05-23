@@ -10,4 +10,4 @@ Users with this role can:
 * [Embed](../../../datalens/security/private-embedded-objects.md) the private objects nested into workbooks related to the relevant collection and its nested ones, to websites and apps.
 * [Publish](../../../datalens/concepts/datalens-public.md#how-to-publish) the objects nested into the workbooks related to the appropriate collection and its nested collections.
 
-This role also includes the `datalens.collections.editor` and `datalens.workbooks.admin` permissions.
+This role includes the `datalens.collections.editor` and `datalens.workbooks.admin` permissions.

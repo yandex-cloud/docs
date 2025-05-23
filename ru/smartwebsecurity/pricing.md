@@ -32,14 +32,14 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 ### Тарификация по подписке {#subscription}
 
 #| || [**Запросить подписку или тестирование**](https://yandex.cloud/ru/services/smartwebsecurity#contact-form) || |#
 
 Оплачиваются пакеты легитимных запросов. В каждый пакет включено определенное количество запросов. Пакет WAF можно приобрести только вместе с пакетом AntiDDoS.
 
-Цены на различные тарифы подписки приведены за 1 месяц, включая НДС. 
+Цены на различные тарифы подписки приведены за 1 месяц. 
+
 
 {% list tabs group=pricing %}
 
@@ -47,13 +47,17 @@ editable: false
 
   {% include [rub-subscription](../_pricing/smartwebsecurity/rub-subscription.md) %}
 
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-subscription](../_pricing/smartwebsecurity/kzt-subscription.md) %}
 
 {% endlist %}
+
+
 
 Тарифы указаны для годовой подписки, подписка на месяц не предусмотрена.
 
 Если выбранного тарифа окажется недостаточно, вы можете перейти на следующий с пропорциональным пересчетом уже потребленных ресурсов.
-
 
 ### Тарификация по запросам {#requests}
 

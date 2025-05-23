@@ -5,4 +5,4 @@ Users with this role can:
 * View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the appropriate collection, as well as for its nested collections and workbooks.
 * View all nested [objects](../../../datalens/concepts/index.md#component-interrelation) of the workbooks related to the appropriate collection and its nested collections.
 
-This role also includes the `datalens.collections.limitedViewer` and `datalens.workbooks.viewer` permissions.
+This role includes the `datalens.collections.limitedViewer` and `datalens.workbooks.viewer` permissions.

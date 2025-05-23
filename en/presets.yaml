@@ -2981,6 +2981,7 @@ default:
         1gbps:
           unmetered:
             monthly_usage:
+              v1|number: 44226
               v1|string: ₽44226.00
         200gbps:
           unmetered:
@@ -3039,6 +3040,7 @@ default:
             monthly_usage:
               v1|string: ₽170448.00
       hosted_connections:
+        v1|number: 120
         v1|string: ₽120.00
       physical_port:
         1000base_lx:
@@ -3055,6 +3057,7 @@ default:
             v1|string: ₽2513.00
         10gbase_lr:
           monthly_usage:
+            v1|number: 2325
             v1|string: ₽2325.00
   sku|RUB|kms:
     api:

@@ -21,8 +21,8 @@
         
         1. [Подключитесь к базе данных](../../../../managed-postgresql/operations/connect.md), которую нужно мигрировать, от имени владельца базы и [настройте привилегии](../../../../managed-postgresql/operations/grant.md#grant-privilege):
             
-            * `SELECT` над всеми таблицами базы данных, которые переносит трансфер;
-            * `SELECT` над всеми последовательностями базы данных, которые переносит трансфер;
+            * `SELECT` над всеми таблицами базы данных, которые переносит трансфер.
+            * `SELECT` над всеми последовательностями базы данных, которые переносит трансфер.
             * `USAGE` на схемы этих таблиц и последовательностей.
             * `ALL PRIVILEGES` (`CREATE` и `USAGE`) на задаваемую [параметром эндпоинта](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) схему служебных таблиц `__consumer_keeper` и `__data_transfer_mole_finder`, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_.
 
@@ -77,39 +77,60 @@
     
     1. {% include notitle [White IP list](../../configure-white-ip.md) %}
     
-    1. Создайте пользователя, от имени которого трансфер подключится к источнику:
-        
-        * Для типа трансфера _{{ dt-type-copy }}_ создайте пользователя командой:
-        
-            ```sql
-            CREATE ROLE <имя_пользователя> LOGIN ENCRYPTED PASSWORD '<пароль>';
-            ```
-        
-        * Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ создайте пользователя с привилегией `REPLICATION` командой:
-        
-            ```sql
-            CREATE ROLE <имя_пользователя> WITH REPLICATION LOGIN ENCRYPTED PASSWORD '<пароль>';
-            ```
-    
-    1. Выдайте созданному пользователю привилегию на выполнение операции `SELECT` над всеми таблицами базы данных, которые переносит трансфер, и привилегию `USAGE` на схемы этих таблиц:
-    
-        ```sql
-        GRANT SELECT ON ALL TABLES IN SCHEMA <название_схемы> TO <имя_пользователя>;
-        GRANT USAGE ON SCHEMA <название_схемы> TO <имя_пользователя>;
-        ```
-    
-    1. Выдайте созданному пользователю привилегии на задаваемую [параметром эндпоинта](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) схему служебных таблиц `__consumer_keeper` и `__data_transfer_mole_finder`, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_:
-    
-        ```sql
-        GRANT ALL PRIVILEGES ON SCHEMA <имя_схемы> TO <имя_пользователя>;
-        ```
+    1. Настройте пользователя, от имени которого трансфер подключится к источнику:
 
-    1. Настройте [количество подключений пользователя](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) к базе данных.
+        1. Создайте нового пользователя:
+            
+            * Для типа трансфера _{{ dt-type-copy }}_ создайте пользователя командой:
+            
+                ```sql
+                CREATE ROLE <имя_пользователя> LOGIN ENCRYPTED PASSWORD '<пароль>';
+                ```
+            
+            * Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ создайте пользователя с привилегией `REPLICATION` командой:
+            
+                ```sql
+                CREATE ROLE <имя_пользователя> WITH REPLICATION LOGIN ENCRYPTED PASSWORD '<пароль>';
+                ```
+        
+        1. Выдайте созданному пользователю привилегию на выполнение операции `SELECT` над всеми таблицами базы данных, которые переносит трансфер:
+        
+            ```sql
+            GRANT SELECT ON ALL TABLES IN SCHEMA <название_схемы> TO <имя_пользователя>;
+            ```
+        
+        1. Выдайте созданному пользователю привилегию на схемы переносимой базы данных:
+
+            * Для типа трансфера _{{ dt-type-copy }}_ выдайте привилегию `USAGE`:
+        
+                ```sql
+                GRANT USAGE ON SCHEMA <название_схемы> TO <имя_пользователя>;
+                ```
+
+            * Для типа трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ выдайте привилегии `CREATE` и `USAGE` (`ALL PRIVILEGES`), необходимые для создания [служебных таблиц](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings):
+
+                ```sql
+                GRANT ALL PRIVILEGES ON SCHEMA <название_схемы> TO <имя_пользователя>;
+                ```
+
+        1. Выдайте созданному пользователю привилегию `SELECT` на все последовательности базы данных, которые переносит трансфер:
+
+            ```sql
+            GRANT SELECT ON ALL SEQUENCES IN SCHEMA <название_схемы> TO <имя_пользователя>;
+            ```
+
+        1. Выдайте созданному пользователю привилегию `CONNECT`, если настройки кластера-источника по умолчанию не позволяют выполнять подключение для новых пользователей:
+
+            ```sql
+            GRANT CONNECT ON DATABASE <название_базы_данных> TO <имя_пользователя>;
+            ```
+
+    1. Настройте конфигурацию {{ PG }}:
+    
+        {% include [pg-on-premises-configure](../../../../_includes/data-transfer/endpoints/sources/pg-on-premises-configure.md) %}
 
     1. Установите и включите расширение [wal2json](https://github.com/eulerto/wal2json).
-    
-       **Установка**
-        
+
         * Linux
             
             1. Подключите [официальный репозиторий {{ PG }}](https://www.postgresql.org/download/) для вашего дистрибутива.
@@ -127,7 +148,7 @@
                 * самая свежая версия Windows SDK для используемой версии ОС,
                 * прочие зависимости, которые устанавливаются автоматически для выбранных компонентов.
 
-               Запомните номер устанавливаемой версии Windows SDK — он понадобится при указании параметров сборки wal2json.
+                Запомните номер устанавливаемой версии Windows SDK — он понадобится при указании параметров сборки wal2json.
             
             1. Загрузите исходный код wal2json со [страницы проекта](https://github.com/eulerto/wal2json/releases).
             1. Распакуйте архив с исходным кодом в каталог `C:\wal2json\`.
@@ -138,7 +159,7 @@
                 
                     ```powershell
                     (Get-Content .\wal2json.vcxproj).replace('C:\postgres\pg103', 'C:\PostgreSQL\14') | `
-                     Set-Content .\wal2json.vcxproj
+                        Set-Content .\wal2json.vcxproj
                     ```
                 
                 * замените параметр сборки `/MP` на `/MT`, например:
@@ -151,7 +172,7 @@
                 
                     ```powershell
                     (Get-Content .\wal2json.vcxproj).replace('<WindowsTargetPlatformVersion>8.1', '<WindowsTargetPlatformVersion><установленная_версия_Windows_SDK>') | `
-                     Set-Content .\wal2json.vcxproj
+                        Set-Content .\wal2json.vcxproj
                     ```
                 
                 1. Укажите значение переменной окружения, необходимой для сборки wal2json, например, для Visual Studio Community Edition 2022:
@@ -167,16 +188,6 @@
                     ```
                 
                 1. Скопируйте файл `wal2json.dll` из каталога `build/release` в каталог `lib` установленной версии {{ PG }}.
-
-       **Настройка**
-        
-        1. В файле `postgresql.conf` измените значение параметра `wal_level` на `logical`:
-        
-            ```conf
-            wal_level = logical
-            ```
-        
-        1. Перезапустите PostgreSQL.
     
     1. Если источник репликации — кластер, установите и включите на его хостах расширение [pg_tm_aux](https://github.com/x4m/pg_tm_aux). Это позволит продолжить репликацию в случае смены хоста-мастера. В некоторых случаях при смене мастера в кластере трансфер может завершиться ошибкой. Подробнее см. в разделе [Решение проблем](../../../../data-transfer/troubleshooting/index.md#master-change).
     

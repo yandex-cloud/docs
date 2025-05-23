@@ -88,7 +88,7 @@
 
     1. Укажите в файле `data-migration-pgsql-mpg.tf`:
 
-        * `source_db_name` — имя базы данных;
+        * `target_db_name` — имя базы данных;
         * `pg-extensions` – список [расширений {{ PG }}](../../managed-postgresql/operations/extensions/cluster-extensions.md) в кластере-источнике;
         * параметры кластера-приемника:
 
@@ -113,48 +113,67 @@
 
 ### Настройте кластер-источник {#source-setup}
 
-1. Укажите нужные настройки SSL и WAL в файле `postgresql.conf`. В ОС Debian и Ubuntu путь к этому файлу по умолчанию — `/etc/postgresql/<версия_{{ PG }}>/main/postgresql.conf`.
-   1. Для миграции данных рекомендуется использовать SSL: это поможет не только шифровать данные, но и сжимать их. Подробнее в разделах документации {{ PG }}, [SSL Support](https://www.postgresql.org/docs/current/libpq-ssl.html) и [Database Connection Control Functions](https://www.postgresql.org/docs/current/libpq-connect.html).
+1. Внесите изменения в конфигурацию и настройки аутентификации кластера-источника. Для этого отредактируйте файлы `postgresql.conf`  и `pg_hba.conf` (на дистрибутивах Debian и Ubuntu они по умолчанию расположены в каталоге `/etc/postgresql/<версия_{{ PG }}>/main/`):
 
-      Чтобы включить использование SSL, задайте нужное значение в конфигурации:
+    1. Задайте максимальное количество подключений пользователя. Для этого в файле `postgresql.conf` отредактируйте параметр `max_connections`:
 
-      ```ini
-      ssl = on                   # on, off
-      ```
+        ```ini
+        max_connections = <количество_подключений>
+        ```
+        
+        Где `<количество_подключений>` — максимальное число подключений. Значение этого параметра должно быть не меньше, чем `N + 1`, где `N` количество всех возможных подключений к вашей инсталляции {{ PG }}. 
 
-   1. Измените уровень логирования для [Write Ahead Log (WAL)](https://www.postgresql.org/docs/current/static/wal-intro.html), чтобы добавить в него информацию, необходимую для логической репликации. Для этого установите значение `logical` для настройки [wal_level](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS).
+        Единица в `N + 1` закладывает резерв для подписки с помощью которой далее будет выполняться логическая репликация. Если вы планируете использовать несколько подписок, то укажите соответствующее значение.
 
-      Настройку можно изменить в файле `postgresql.conf`. Найдите строку с настройкой `wal_level`, раскомментируйте ее при необходимости и установите значение `logical`:
+        Текущее количество подключений вы можете посмотреть в системной таблице `pg_stat_activity`:
 
-      ```ini
-      wal_level = logical                    # minimal, replica, or logical
-      ```
-
-1. Настройте аутентификацию хостов в кластере-источнике. Для этого нужно внести хосты кластера в {{ yandex-cloud }} в файл `pg_hba.conf` (на дистрибутивах Debian и Ubuntu по умолчанию расположен по пути `/etc/postgresql/<версия_{{ PG }}>/main/pg_hba.conf`).
-
-    Добавьте строки для разрешения подключения к базе данных с указанных хостов:
-
-    * Если вы используете SSL:
-
-        ```txt
-        hostssl         all            all             <адрес_хоста>      md5
-        hostssl         replication    all             <адрес_хоста>      md5
+        ```sql
+        SELECT count(*) FROM pg_stat_activity;
         ```
 
-    * Если вы не используете SSL:
+    1. Установите уровень логирования для [Write Ahead Log (WAL)](https://www.postgresql.org/docs/current/static/wal-intro.html). Для этого установите значение `logical` для настройки [wal_level](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS) в `postgresql.conf`:
 
-        ```txt
-        host         all            all             <адрес_хоста>      md5
-        host         replication    all             <адрес_хоста>      md5
+        ```ini
+        wal_level = logical
         ```
 
-1. Если в кластере-источнике работает файрвол, разрешите входящие соединения с хостов кластера {{ mpg-name }}. Например, для Ubuntu 18:
+    1. (Опционально) Настройте SSL: это поможет не только шифровать данные, но и сжимать их. Чтобы включить использование SSL, задайте нужное значение в файле `postgresql.conf`:
 
-   ```bash
-   sudo ufw allow from <адрес_хоста_кластера-приемника> to any port <порт>
-   ```
+        ```ini
+        ssl = on
+        ```
+    
+    1. Разрешите подключение к кластеру. Для этого отредактируйте [параметр](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-LISTEN-ADDRESSES) `listen_addresses` в файле `postgresql.conf`. Например, чтобы кластер-источник принимал запросы на подключение со всех IP-адресов:
 
-1. Перезапустите сервис {{ PG }}, чтобы применить все сделанные настройки:
+        ```ini
+        listen_addresses = '*'
+        ```
+
+    1. Настройте аутентификацию в файле `pg_hba.conf`:
+
+        {% list tabs %}
+
+        - SSL
+
+            ```txt
+            hostssl         all            all             <IP-адрес_подключения>      md5
+            hostssl         replication    all             <IP-адрес_подключения>      md5
+            ```
+
+        - Без SSL
+
+            ```txt
+            host         all            all             <IP-адрес_подключения>      md5
+            host         replication    all             <IP-адрес_подключения>      md5
+            ```
+
+        {% endlist %}
+
+        Где `<IP-адрес_подключения>` может быть как точным IP-адресом, так и диапазоном IP-адресов. Например, чтобы разрешить доступ из сети {{ yandex-cloud }}, вы можете указать [все публичные IP-адреса](../../overview/concepts/public-ips.md) {{ yandex-cloud }}.
+
+1. Если в кластере-источнике работает файрвол, разрешите входящие соединения с нужных адресов.
+
+1. Чтобы применить настройки, перезапустите сервис {{ PG }}:
 
    ```bash
    sudo systemctl restart postgresql

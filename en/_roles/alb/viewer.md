@@ -8,4 +8,4 @@ Users with this role can:
 * View the list of [target groups](../../application-load-balancer/concepts/target-group.md) and the info on them.
 * View info on the Application Load Balancer [quotas](../../application-load-balancer/concepts/limits.md#quotas).
 
-This role also includes the `alb.auditor` permissions.
+This role includes the `alb.auditor` permissions.

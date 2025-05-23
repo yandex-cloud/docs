@@ -1268,8 +1268,6 @@ items:
         href: routing/pub-add.md
       - name: Изменить емкость транкового подключения
         href: routing/trunk-capacity-change.md
-      - name: Изменить набор IP-префиксов в приватном соединении
-        href: routing/priv-prefixes-change.md
       - name: Удалить приватное соединение
         href: routing/priv-del.md
       - name: Удалить публичное соединение
@@ -1284,6 +1282,10 @@ items:
           Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
           vpc-name }}
         href: routing/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Организация сетевой связности между подсетями {{ baremetal-name }} и
+          On-Prem с помощью {{ interconnect-name }}
+        href: routing/bms-cic-onprem.md
       - name: >-
           Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную
           машину

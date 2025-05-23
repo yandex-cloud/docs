@@ -47,4 +47,4 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 
 {% endcut %}
 
-This role also includes the `billing.accounts.editor` and `billing.partners.editor` permissions.
+This role includes the `billing.accounts.editor` and `billing.partners.editor` permissions.
