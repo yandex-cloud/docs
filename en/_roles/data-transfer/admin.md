@@ -6,6 +6,6 @@ Users with this role can:
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 * View information on Data Transfer [quotas](../../data-transfer/concepts/limits.md#dataproc-quotas).
 
-This role also includes the `data-transfer.privateAdmin` permissions.
+This role includes the `data-transfer.privateAdmin` permissions.
 
 Currently, this role can only be assigned for working with a folder or a cloud.

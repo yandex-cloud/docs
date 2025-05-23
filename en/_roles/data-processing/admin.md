@@ -20,4 +20,4 @@ The `dataproc.admin` role allows you to manage Yandex Data Processing clusters, 
 
 {% endcut %}
 
-This role also includes the `dataproc.editor` permissions.
+This role includes the `dataproc.editor` permissions.

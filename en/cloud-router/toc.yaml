@@ -1,0 +1,145 @@
+title: Yandex Cloud Router
+stage: preview
+href: index.yaml
+noIndex: true
+items:
+  - name: Step-by-step guides
+    expanded: false
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Getting information about a routing instance
+        href: operations/ri-get-info.md
+      - name: Cloud Interconnect tutorials
+        href: ../interconnect/operations/index.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Terminology
+        href: concepts/terms.md
+      - name: Routing instance
+        href: concepts/routing-instance.md
+  - name: Tutorials
+    items:
+      - name: >-
+          Setting up network connectivity between a {{ baremetal-name }} private
+          subnet and a {{ vpc-name }} network
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
+  - name: CLI reference
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: routing-instance
+        items:
+          - name: Overview
+            href: cli-ref/routing-instance/index.md
+          - name: add-labels
+            href: cli-ref/routing-instance/add-labels.md
+          - name: add-private-connection
+            href: cli-ref/routing-instance/add-private-connection.md
+          - name: create
+            href: cli-ref/routing-instance/create.md
+          - name: delete
+            href: cli-ref/routing-instance/delete.md
+          - name: get
+            href: cli-ref/routing-instance/get.md
+          - name: list
+            href: cli-ref/routing-instance/list.md
+          - name: list-operations
+            href: cli-ref/routing-instance/list-operations.md
+          - name: move-prefix
+            href: cli-ref/routing-instance/move-prefix.md
+          - name: remove-labels
+            href: cli-ref/routing-instance/remove-labels.md
+          - name: remove-prefixes
+            href: cli-ref/routing-instance/remove-prefixes.md
+          - name: remove-private-connection
+            href: cli-ref/routing-instance/remove-private-connection.md
+          - name: update
+            href: cli-ref/routing-instance/update.md
+          - name: update-prefix-mask
+            href: cli-ref/routing-instance/update-prefix-mask.md
+          - name: upsert-prefixes
+            href: cli-ref/routing-instance/upsert-prefixes.md
+  - name: API reference
+    items:
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: RoutingInstance
+            items:
+              - name: Overview
+                href: api-ref/grpc/RoutingInstance/index.md
+              - name: Get
+                href: api-ref/grpc/RoutingInstance/get.md
+              - name: GetByVpcNetworkId
+                href: api-ref/grpc/RoutingInstance/getByVpcNetworkId.md
+              - name: GetByCicPrivateConnectionId
+                href: api-ref/grpc/RoutingInstance/getByCicPrivateConnectionId.md
+              - name: List
+                href: api-ref/grpc/RoutingInstance/list.md
+              - name: Create
+                href: api-ref/grpc/RoutingInstance/create.md
+              - name: Update
+                href: api-ref/grpc/RoutingInstance/update.md
+              - name: UpsertPrefixes
+                href: api-ref/grpc/RoutingInstance/upsertPrefixes.md
+              - name: RemovePrefixes
+                href: api-ref/grpc/RoutingInstance/removePrefixes.md
+              - name: AddPrivateConnection
+                href: api-ref/grpc/RoutingInstance/addPrivateConnection.md
+              - name: RemovePrivateConnection
+                href: api-ref/grpc/RoutingInstance/removePrivateConnection.md
+              - name: Delete
+                href: api-ref/grpc/RoutingInstance/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/RoutingInstance/listOperations.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: RoutingInstance
+            items:
+              - name: Overview
+                href: api-ref/RoutingInstance/index.md
+              - name: Get
+                href: api-ref/RoutingInstance/get.md
+              - name: List
+                href: api-ref/RoutingInstance/list.md
+              - name: Create
+                href: api-ref/RoutingInstance/create.md
+              - name: Update
+                href: api-ref/RoutingInstance/update.md
+              - name: UpsertPrefixes
+                href: api-ref/RoutingInstance/upsertPrefixes.md
+              - name: RemovePrefixes
+                href: api-ref/RoutingInstance/removePrefixes.md
+              - name: AddPrivateConnection
+                href: api-ref/RoutingInstance/addPrivateConnection.md
+              - name: RemovePrivateConnection
+                href: api-ref/RoutingInstance/removePrivateConnection.md
+              - name: Delete
+                href: api-ref/RoutingInstance/delete.md
+              - name: ListOperations
+                href: api-ref/RoutingInstance/listOperations.md
+  - name: Release notes
+    href: release-notes.md

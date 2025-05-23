@@ -7,4 +7,4 @@ Users with this role can:
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `serverless-containers.editor` permissions.
+This role includes the `serverless-containers.editor` permissions.

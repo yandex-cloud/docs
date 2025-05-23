@@ -6,4 +6,4 @@ Users with this role can:
 * View info on Trino clusters.
 * View info on the quotas for Managed Service for Trino.
 
-This role also includes the `managed-trino.viewer` permissions.
+This role includes the `managed-trino.viewer` permissions.

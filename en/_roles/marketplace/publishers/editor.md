@@ -12,4 +12,4 @@ Users with this role can:
 * View the list of product categories.
 * Create technical support [requests](../../../support/overview.md), as well as view, leave comments, and close them.
 
-This role also includes the `marketplace.publishers.viewer` and `marketplace.product.admin` permissions.
+This role includes the `marketplace.publishers.viewer` and `marketplace.product.admin` permissions.

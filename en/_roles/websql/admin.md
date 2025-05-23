@@ -8,4 +8,4 @@ Users with this role can:
 * View info on the published queries from the history and delete them.
 * Save the run queries to private history, as well publish private queries from the history and delete them.
 
-This role also includes the `websql.editor`, `websql.savedQueries.admin`, and `websql.executedQueries.admin` permissions.
+This role includes the `websql.editor`, `websql.savedQueries.admin`, and `websql.executedQueries.admin` permissions.

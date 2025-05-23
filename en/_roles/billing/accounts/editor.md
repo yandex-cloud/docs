@@ -44,4 +44,4 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 
 {% endcut %}
 
-This role also includes the `billing.accounts.viewer` permissions.
+This role includes the `billing.accounts.viewer` permissions.

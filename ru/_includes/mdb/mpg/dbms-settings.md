@@ -885,6 +885,8 @@
 
   По умолчанию установлено максимальное значение.
 
+  {% include [note-pg-user-connections.md](../../mdb/note-pg-user-connections.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
 
 - **Max locks per transaction**{#setting-max-locks-transaction} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}

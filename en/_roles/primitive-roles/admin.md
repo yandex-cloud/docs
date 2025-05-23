@@ -2,4 +2,4 @@ The `admin` role enables assigning any roles, except for `resource-manager.cloud
 
 Prior to assigning the `admin` role for an organization, [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [billing account](../../billing/concepts/billing-account.md), make sure to check out the information on protecting [privileged accounts](../../security/standard/all.md#privileged-users).
 
-This role also includes the `editor` permissions.
+This role includes the `editor` permissions.

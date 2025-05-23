@@ -5,4 +5,4 @@ Users with this role can:
 * View and edit all workbook's nested [objects](../../../datalens/concepts/index.md#component-interrelation).
 * View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the workbook.
 
-This role also includes the `datalens.workbooks.viewer` permissions.
+This role includes the `datalens.workbooks.viewer` permissions.

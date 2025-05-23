@@ -5,6 +5,6 @@ Users with this role can:
 * View info on community [projects](../../../datasphere/concepts/project.md), project settings, and project [resources](../../../datasphere/concepts/resources.md), as well as on granted access permissions for these projects.
 * View info on the relevant [organization](../../../organization/concepts/organization.md).
 
-This role also includes the `datasphere.community-projects.viewer` permissions.
+This role includes the `datasphere.community-projects.viewer` permissions.
 
 In the DataSphere interface, users with the `datasphere.communities.viewer` role have the `Viewer` role in the **Members** tab on the community page.

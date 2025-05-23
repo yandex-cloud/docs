@@ -12,4 +12,4 @@ Users with this role can:
 * View details on Yandex BareMetal [quotas](../../baremetal/concepts/limits.md#baremetal-quotas).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `baremetal.editor` permissions.
+This role includes the `baremetal.editor` permissions.

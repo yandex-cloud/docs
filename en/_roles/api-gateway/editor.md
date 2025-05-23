@@ -6,4 +6,4 @@ Users with this role can:
 * View info on [WebSocket](../../api-gateway/concepts/index.md#websocket) connections and close them, as well as send data through such connections.
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `api-gateway.websocketWriter` permissions.
+This role includes the `api-gateway.websocketWriter` permissions.

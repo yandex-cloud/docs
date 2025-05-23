@@ -6,4 +6,4 @@ Users with this role can:
 * View info on the Yandex Cloud managed DB service quotas.
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `managed-metastore.auditor` permissions.
+This role includes the `managed-metastore.auditor` permissions.

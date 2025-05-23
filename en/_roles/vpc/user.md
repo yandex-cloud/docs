@@ -17,4 +17,4 @@ The `vpc.user` role allows you to use cloud networks, subnets, route tables, gat
 
 {% endcut %}
 
-This role also includes the `vpc.viewer` permissions.
+This role includes the `vpc.viewer` permissions.

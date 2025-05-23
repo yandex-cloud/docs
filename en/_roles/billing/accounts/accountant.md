@@ -28,4 +28,4 @@ To use the `billing.accounts.accountant` role, you need to assign it for a billi
 
 {% endcut %}
 
-This role also includes the `billing.accounts.viewer` permissions.
+This role includes the `billing.accounts.viewer` permissions.

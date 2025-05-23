@@ -92,6 +92,7 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](eventrouter/connector/create-yds.md)
 * [{#T}](eventrouter/connector/create-message-queue.md)
+* [{#T}](eventrouter/connector/create-timer.md)
 * [{#T}](eventrouter/connector/update.md)
 * [Добавить метку](eventrouter/connector/label-add.md)
 * [Изменить метку](eventrouter/connector/label-update.md)

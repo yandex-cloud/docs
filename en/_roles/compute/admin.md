@@ -57,4 +57,4 @@ The `compute.admin` role allows you to manage instances, instance groups, disks,
 
 {% endcut %}
 
-This role also includes the `compute.editor` and `compute.osAdminLogin` permissions.
+This role includes the `compute.editor` and `compute.osAdminLogin` permissions.

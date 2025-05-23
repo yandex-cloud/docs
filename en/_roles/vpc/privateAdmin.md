@@ -19,4 +19,4 @@ The `vpc.privateAdmin` role allows you to manage cloud networks, subnets, and ro
 
 {% endcut %}
 
-This role also includes the `vpc.viewer` permissions.
+This role includes the `vpc.viewer` permissions.

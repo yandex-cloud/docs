@@ -2,4 +2,4 @@ The `editor` role provides permissions to manage any Yandex Cloud [resources](..
 
 For instance, users with this role can create, modify, and delete resources.
 
-This role also includes the `viewer` permissions.
+This role includes the `viewer` permissions.

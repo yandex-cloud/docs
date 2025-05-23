@@ -30,4 +30,4 @@ The `organization-manager.admin` role enables managing organization settings, id
 
 {% endcut %}
 
-This role also includes the `organization-manager.editor`, `organization-manager.federations.admin`, and `organization-manager.osLogins.admin` permissions.
+This role includes the `organization-manager.editor`, `organization-manager.federations.admin`, and `organization-manager.osLogins.admin` permissions.

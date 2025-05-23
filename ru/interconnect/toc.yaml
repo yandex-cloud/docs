@@ -12,11 +12,31 @@ items:
         href: operations/pop-get-info.md
       - name: Получить информацию о транковых подключениях
         href: operations/trunk-get-info.md
+      - name: Создать транковое подключение
+        href: operations/trunk-create.md
+      - name: Изменить параметры транкового подключения
+        href: operations/trunk-update.md
+      - name: Получить список операций транкового подключения
+        href: operations/trunk-operations.md
+      - name: Удалить транковое подключение
+        href: operations/trunk-delete.md
       - name: Получить информацию о приватных соединениях
         href: operations/priv-con-get-info.md
+      - name: Создать приватное соединение
+        href: operations/priv-con-create.md
+      - name: Изменить параметры приватного соединения
+        href: operations/priv-con-update.md
+      - name: Получить список операций приватного соединения
+        href: operations/priv-con-operations.md
+      - name: Изменить список статических маршрутов для приватного соединения
+        href: operations/priv-con-static-upsert.md
+      - name: Удалить статические маршруты для приватного соединения
+        href: operations/priv-con-static-remove.md
+      - name: Удалить приватное соединение
+        href: operations/priv-con-delete.md
       - name: Получить информацию о публичных соединениях
         href: operations/pub-con-get-info.md
-      - name: Получить ниформацию о Routing Instance
+      - name: Получить информацию о Routing Instance
         href: ../cloud-router/operations/ri-get-info.md
   - name: Практические руководства
     expanded: false
@@ -37,12 +57,12 @@ items:
         href: tutorials/partner-trunk-pub-add.md
       - name: Добавить приватное соединение в транковое подключение
         href: tutorials/priv-add.md
+      - name: Изменить IP-префиксы VPC в Routing Instance
+        href: tutorials/ri-prefixes-upsert.md
       - name: Добавить публичное соединение в транковое подключение
         href: tutorials/pub-add.md
       - name: Изменить емкость транкового подключения
         href: tutorials/trunk-capacity-change.md
-      - name: Изменить набор IP-префиксов в приватном соединении
-        href: tutorials/priv-prefixes-change.md
       - name: Удалить приватное соединение
         href: tutorials/priv-del.md
       - name: Удалить публичное соединение
@@ -62,14 +82,14 @@ items:
   - name: Концепции
     expanded: true
     items:
-      - name: Обзор
+      - name: Обзор сервиса
         href: concepts/index.md
+      - name: Обзор операций
+        href: operations/cic-cr-ops.md
       - name: Терминология
         href: concepts/terms.md
       - name: Точки присутствия
         href: concepts/pops.md
-      - name: Партнеры CIC
-        href: concepts/partners.md
       - name: Трансиверы
         href: concepts/transceivers.md
       - name: Транковое подключение
@@ -78,14 +98,18 @@ items:
         href: concepts/priv-con.md
       - name: Публичное соединение
         href: concepts/pub-con.md
-      - name: Маршрутизация
-        href: concepts/routing.md
+      - name: Партнеры CIC
+        href: concepts/partners.md
       - name: Мониторинг
         href: concepts/monitoring.md
       - name: Объемы данных и емкости подключений
         href: concepts/capacity.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Справочник CLI (англ.)
     items:
       - name: Overview
@@ -306,7 +330,5 @@ items:
                 href: api-ref/TrunkConnection/delete.md
               - name: ListOperations
                 href: api-ref/TrunkConnection/listOperations.md
-  - name: Правила тарификации
-    href: pricing.md
   - name: История изменений
     href: release-notes.md

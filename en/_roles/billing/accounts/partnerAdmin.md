@@ -12,4 +12,4 @@ On the Yandex Cloud partner portal, users with this role can:
 * View the list of [partner discounts](../../../partner/portal.md#premium).
 * View the [partner tools](../../../partner/program/var-tools.md) page.
 
-This role also includes the `billing.accounts.partnerEditor` and `billing.accounts.piiPartnerEditor` permissions.
+This role includes the `billing.accounts.partnerEditor` and `billing.accounts.piiPartnerEditor` permissions.

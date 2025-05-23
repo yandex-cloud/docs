@@ -10,4 +10,4 @@ Users with this role can:
 * View info on [regression dashboards](../../load-testing/concepts/load-test-regressions.md#dashbordy-regressij), as well as create, modify, and delete such dashboards.
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `loadtesting.editor` permissions.
+This role includes the `loadtesting.editor` permissions.

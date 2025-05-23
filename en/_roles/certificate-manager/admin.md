@@ -8,4 +8,4 @@ Users with this role can:
 * View info on the Certificate Manager [quotas](../../certificate-manager/concepts/limits.md#certificate-manager-quotas).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `certificate-manager.editor` permissions.
+This role includes the `certificate-manager.editor` permissions.

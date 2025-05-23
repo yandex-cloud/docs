@@ -5,4 +5,4 @@ Users with this role can:
 * View info on [access permissions](../../iam/concepts/access-control/index.md) assigned for CAPTCHAs and modify such permissions.
 * Get [CAPTCHA keys](../../smartcaptcha/concepts/keys.md).
 
-This role also includes the `smart-captcha.editor` permissions.
+This role includes the `smart-captcha.editor` permissions.

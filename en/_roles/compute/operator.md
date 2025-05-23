@@ -29,4 +29,4 @@ The `compute.operator` role allows you to start and stop instances and instance 
 
 {% endcut %}
 
-This role also includes the `compute.viewer` permissions.
+This role includes the `compute.viewer` permissions.

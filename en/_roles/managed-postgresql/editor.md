@@ -12,6 +12,6 @@ Users with this role can:
 * View information on [quotas](../../managed-postgresql/concepts/limits.md#mpg-quotas) of Managed Service for PostgreSQL.
 * View information on resource operations for Managed Service for PostgreSQL.
 
-This role also includes the `managed-postgresql.viewer` permissions.
+This role includes the `managed-postgresql.viewer` permissions.
 
 To create PostgreSQL clusters, you also need the `vpc.user` role.

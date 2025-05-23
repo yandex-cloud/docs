@@ -42,4 +42,4 @@ To use the `billing.accounts.varWithoutDiscounts` role, you need to assign it fo
 
 {% endcut %}
 
-This role also includes the `billing.partners.editor` permissions.
+This role includes the `billing.partners.editor` permissions.
