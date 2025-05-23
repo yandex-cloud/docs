@@ -7,4 +7,4 @@ Users with this role can:
 * [Link](../../marketplace/operations/users/lock-subscription.md) subscriptions to resources, apps, and services, as well as [unlink](../../marketplace/operations/users/unlock-subscription.md) them.
 * [Move](../../marketplace/operations/users/move-subscription.md) subscriptions from one folder to another.
 
-This role also includes the `license-manager.viewer` permissions.
+This role includes the `license-manager.viewer` permissions.

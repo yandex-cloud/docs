@@ -7,4 +7,4 @@ Users with this role can:
 * Create, update, start, restart, stop, and delete desktops.
 * View information on Cloud Desktop [quotas](../../cloud-desktop/concepts/limits.md#quotas).
 
-The role also includes the `vdi.viewer` permissions.
+This role includes the `vdi.viewer` permissions.

@@ -22,4 +22,4 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 
 {% endcut %}
 
-This role also includes the `organization-manager.auditor`, `organization-manager.federations.viewer`, and `organization-manager.users.viewer` permissions.
+This role includes the `organization-manager.auditor`, `organization-manager.federations.viewer`, and `organization-manager.users.viewer` permissions.

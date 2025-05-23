@@ -10,4 +10,4 @@ On the Yandex Cloud partner portal, users with this role can:
 * View the list of contacts and info on them, including personal data.
 * View the list of [partner deals](../../../partner/terms.md#deal-reg) and info on them, including personal data.
 
-This role also includes the `billing.accounts.partnerViewer` permissions.
+This role includes the `billing.accounts.partnerViewer` permissions.

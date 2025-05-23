@@ -11,4 +11,4 @@ Users with this role can:
 * View the list of the [groups](../../../organization/concepts/groups.md) the organization users are members of.
 * View the [attributes](../../../organization/operations/setup-federation.md#claims-mapping) of the federated users.
 
-This role also includes the `organization-manager.federations.editor` permissions.
+This role includes the `organization-manager.federations.editor` permissions.

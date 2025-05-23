@@ -5,4 +5,4 @@ Users with this role can:
 * View the list of [API gateways](../../api-gateway/concepts/index.md), info on them and on [access permissions](../../iam/concepts/access-control/index.md) assigned to them.
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `api-gateway.viewer` permissions.
+This role includes the `api-gateway.viewer` permissions.

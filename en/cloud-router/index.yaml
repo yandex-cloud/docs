@@ -1,0 +1,25 @@
+title: Yandex Cloud Router
+description:
+  - >-
+    <em>Yandex Cloud Router is at the <a
+    href="https://yandex.cloud/docs/overview/concepts/launch-stages">Preview
+    stage</a></em>.
+  - >-
+    {{ cr-full-name }} allows you to manage network topologies of a hybrid cloud
+    in {{ yandex-cloud }}.
+  - >-
+    The Yandex Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is
+    protected</a> in accordance with the Federal Law No. FZ-152.
+meta:
+  title: Yandex Cloud Router
+  description: >-
+    {{ cr-full-name }} is a service for managing network topologies of a hybrid
+    cloud in {{ yandex-cloud }}.
+links:
+  - title: Concepts
+    description: Learn about features of the service
+    href: concepts/
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/

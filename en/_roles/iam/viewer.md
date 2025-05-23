@@ -11,4 +11,4 @@ Users with this role can:
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and its settings.
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and its settings.
 
-This role also includes the `iam.auditor` permissions.
+This role includes the `iam.auditor` permissions.

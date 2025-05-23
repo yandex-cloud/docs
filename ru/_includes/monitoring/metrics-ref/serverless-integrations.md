@@ -26,12 +26,7 @@
 
 ## Метрики {{ er-full-name }} {#eventrouter}
 
-Все метрики {{ er-name }} имеют общие метки:
-
-Метка | Значение
---- | ---
-bus | Идентификатор [шины](../../../serverless-integrations/concepts/eventrouter/bus.md).
-host | Идентификатор источника.
+Все метрики {{ er-name }} имеют общую метку `bus` — идентификатор [шины](../../../serverless-integrations/concepts/eventrouter/bus.md).
 
 
 ### Метрики шин {#er-buses}

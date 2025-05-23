@@ -34,3 +34,6 @@ links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутиных операций
     href: operations/
+  - title: Сценарии использования
+    description: Описание сценариев использования
+    href: scenarios/

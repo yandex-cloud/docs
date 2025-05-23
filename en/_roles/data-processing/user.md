@@ -19,4 +19,4 @@ The `dataproc.user` role grants access to the Yandex Data Processing component w
 
 {% endcut %}
 
-This role also includes the `dataproc.viewer` and `mdb.viewer` permissions.
+This role includes the `dataproc.viewer` and `mdb.viewer` permissions.

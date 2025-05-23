@@ -9,4 +9,4 @@ Users with this role can:
 * View info on the [quotas](../../ydb/concepts/limits.md#ydb-quotas) for Managed Service for YDB.
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `ydb.viewer` permissions.
+This role includes the `ydb.viewer` permissions.

@@ -7,6 +7,6 @@ Users with this role can:
 * View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `smart-web-security.viewer` permissions.
+This role includes the `smart-web-security.viewer` permissions.
 
 To assign the `smart-web-security.user` role, you need either the `admin` role for the cloud or the `smart-web-security.admin` one for the folder.

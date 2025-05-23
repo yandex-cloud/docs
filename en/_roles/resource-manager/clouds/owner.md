@@ -6,4 +6,4 @@ By default, the users with this role get [notifications](../../../resource-manag
 
 You can only assign this role for a cloud. Any user creating a cloud automatically gets such a role for the cloud.
 
-This role also includes the `admin` and `resource-manager.clouds.member` permissions.
+This role includes the `admin` and `resource-manager.clouds.member` permissions.

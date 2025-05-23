@@ -158,6 +158,8 @@ items:
                     href: operations/eventrouter/connector/create-yds.md
                   - name: '{{ message-queue-name }}'
                     href: operations/eventrouter/connector/create-message-queue.md
+                  - name: Таймер
+                    href: operations/eventrouter/connector/create-timer.md
               - name: Изменить коннектор
                 href: operations/eventrouter/connector/update.md
               - name: Управлять метками

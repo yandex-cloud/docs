@@ -18,4 +18,4 @@ The `vpc.securityGroups.user` role allows you to assign security groups to netwo
 
 {% endcut %}
 
-This role also includes the `vpc.viewer` permissions.
+This role includes the `vpc.viewer` permissions.

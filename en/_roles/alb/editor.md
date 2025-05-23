@@ -22,6 +22,6 @@ The `alb.editor` role enables managing Application Load Balancer resources and i
 
 {% endcut %}
 
-This role also includes the `load-balancer.privateAdmin` and `vpc.user` permissions.
+This role includes the `load-balancer.privateAdmin` and `vpc.user` permissions.
 
 To connect a public IP address to a new or existing L7 balancer, you also need the [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) `role` assigned for the network where the balancer resides.

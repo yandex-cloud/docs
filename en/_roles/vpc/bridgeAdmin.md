@@ -18,4 +18,4 @@ The `vpc.bridgeAdmin` role allows you to use subnets and manage connectivity of 
 
 {% endcut %}
 
-This role also includes the `vpc.viewer` permissions.
+This role includes the `vpc.viewer` permissions.

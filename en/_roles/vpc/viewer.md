@@ -17,4 +17,4 @@ The `vpc.viewer` role allows you to view information on cloud networks, subnets,
 
 {% endcut %}
 
-This role also includes the `vpc.auditor` permissions.
+This role includes the `vpc.auditor` permissions.

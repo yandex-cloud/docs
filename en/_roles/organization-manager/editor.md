@@ -26,4 +26,4 @@ The `organization-manager.editor` role enables managing the organization setting
 
 {% endcut %}
 
-This role also includes the `organization-manager.viewer` and `organization-manager.federations.editor` permissions.
+This role includes the `organization-manager.viewer` and `organization-manager.federations.editor` permissions.

@@ -57,4 +57,4 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 
 {% endcut %}
 
-This role also includes the `billing.accounts.admin` permissions.
+This role includes the `billing.accounts.admin` permissions.

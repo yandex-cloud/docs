@@ -1,7 +1,7 @@
 Код | Наименование
  --- | ---
- **M9** |  ММТС-9
+ **M9** | ММТС-9
  **NORD** | Dataline NORD
- **OST** |  Dataline OST
+ **OST** | Dataline OST
  **TEHNO** | ТехноГород
  ~~STD~~ | ~~StoreData~~

@@ -11,6 +11,6 @@ Users with this role can:
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and its statistics.
 
-This role also includes the `backup.editor` permissions.
+This role includes the `backup.editor` permissions.
 
 To assign the `backup.admin` role, you need the `admin` role for the cloud.

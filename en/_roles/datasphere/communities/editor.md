@@ -9,6 +9,6 @@ Users with this role can:
 * Run IDEs and code cells in projects.
 * View info on the relevant [organization](../../../organization/concepts/organization.md).
 
-This role also includes the `datasphere.communities.developer` and `datasphere.community-projects.editor` permissions.
+This role includes the `datasphere.communities.developer` and `datasphere.community-projects.editor` permissions.
 
 In the DataSphere interface, users with the `datasphere.communities.editor` role have the `Editor` role in the **Members** tab on the community page.

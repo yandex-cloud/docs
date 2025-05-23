@@ -8,4 +8,4 @@ Users with this role can:
 * Use Yandex SpeechKit for speech [recognition](../../../speechkit/stt/index.md) and [synthesis](../../../speechkit/tts/index.md).
 * Use YandexGPT API [language models](../../../foundation-models/concepts/yandexgpt/index.md) for text generation, YandexART models for image generation, and [AI assistants](../../../foundation-models/concepts/assistant/index.md) within Yandex Foundation Models.
 
-This role also includes the `ai.models.editor` permissions.
+This role includes the `ai.models.editor` permissions.

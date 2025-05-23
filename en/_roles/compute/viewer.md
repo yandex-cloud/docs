@@ -27,4 +27,4 @@ The `compute.viewer` role allows you to view information on Compute Cloud resour
 
 {% endcut %}
 
-This role also includes the `compute.auditor` permissions.
+This role includes the `compute.auditor` permissions.

@@ -6,4 +6,4 @@ Users with this role can:
 * Get a list of addresses and their configurations.
 * Send emails.
 
-This role also includes the `postbox.editor` permissions.
+This role includes the `postbox.editor` permissions.

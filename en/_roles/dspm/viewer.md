@@ -6,4 +6,4 @@ Users with this role can:
 * View info on security [scan](../../security-deck/concepts/dspm.md#scanning) jobs.
 * View scan results and the info on the detected threats.
 
-This role also includes the `dspm.auditor` permissions.
+This role includes the `dspm.auditor` permissions.

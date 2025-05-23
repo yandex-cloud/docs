@@ -9,4 +9,4 @@ Users with this role can:
 * Run security scan jobs and view their results, as well as info on the detected threats.
 * View the [bucket](../../storage/concepts/bucket.md) metadata.
 
-This role also includes the `dspm.editor` and `dspm.inspector` permissions.
+This role includes the `dspm.editor` and `dspm.inspector` permissions.

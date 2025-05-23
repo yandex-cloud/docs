@@ -8,4 +8,4 @@ Users with this role can:
 * View information on Cloud Desktop [quotas](../../cloud-desktop/concepts/limits.md#quotas).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-The role also includes the `vdi.editor` permissions.
+This role includes the `vdi.editor` permissions.

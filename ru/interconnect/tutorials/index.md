@@ -17,7 +17,6 @@ description: Различные сценарии использования {{ i
 
 ## Изменение {#change}
 * [{#T}](trunk-capacity-change.md)
-* [{#T}](priv-prefixes-change.md)
 
 ## Удаление {#del}
 * [{#T}](priv-del.md)

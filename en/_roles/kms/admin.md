@@ -13,4 +13,4 @@ Users with this role can:
 * View details on Key Management Service [quotas](../../kms/concepts/limits.md#kms-quotas).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `kms.editor` permissions.
+This role includes the `kms.editor` permissions.

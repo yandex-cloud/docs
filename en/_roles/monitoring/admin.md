@@ -7,4 +7,4 @@ Users with this role can:
 * View details on [Monitoring](../../monitoring/concepts/limits.md#monitoring-quotas) quotas.
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `monitoring.editor` permissions.
+This role includes the `monitoring.editor` permissions.

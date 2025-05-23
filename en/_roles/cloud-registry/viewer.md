@@ -8,4 +8,4 @@ Users with this role can:
 * View info on the Cloud Registry quotas.
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `cloud-registry.auditor` permissions.
+This role includes the `cloud-registry.auditor` permissions.
