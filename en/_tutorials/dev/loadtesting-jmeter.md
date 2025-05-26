@@ -1,19 +1,19 @@
 # JMeter load testing
 
 
-{{ load-testing-name }} can be used for testing a fixed-load service over HTTPS using the [JMeter](../../load-testing/concepts/load-generator.md#jmeter) [load generator](../../load-testing/concepts/load-generator.md).
+You can use {{ load-testing-name }} to run fixed-load tests of a service over HTTPS using the [JMeter](../../load-testing/concepts/load-generator.md#jmeter) [load generator](../../load-testing/concepts/load-generator.md).
 
-To perform load testing:
-1. [Prepare your cloud](#before-begin).
+To run a load test:
+1. [Get your cloud ready](#before-begin).
 1. [Prepare a test target](#target-prepare).
-1. [Prepare your infrastructure](#infrastructure-prepare).
+1. [Set up your infrastructure](#infrastructure-prepare).
 1. [Create an agent](#create-agent).
 1. [Prepare a file with test data](#test-file).
-1. [Run a test](#run-test).
+1. [Run the test](#run-test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -25,33 +25,33 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 ## Prepare a test target {#target-prepare}
 
-In this example, we will test a service with the `172.17.0.10` [internal IP address](../../vpc/concepts/address.md#internal-addresses) in the same [subnet](../../vpc/concepts/network.md#subnet) as the agent.
+In this example, we will test a service with the `172.17.0.10` [internal IP address](../../vpc/concepts/address.md#internal-addresses) in the same [subnet](../../vpc/concepts/network.md#subnet) as where the agent will reside.
 
 Make sure the service is accessed over HTTPS using the default port: `443`.
 
-You can also use {{ load-testing-name }} for load testing of a service that is public or located in a subnet and [security group](../../vpc/concepts/security-groups.md) other than those of the agent.
+You can also use {{ load-testing-name }} for a service that is public or located in a subnet and [security group](../../vpc/concepts/security-groups.md) other than those of the agent.
 
 For a public service, allow incoming HTTPS traffic on port `443`.
 
-For a service whose subnet and security group differ from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `443` in the security group where the test target is located.
+For a service whose subnet and security group is different from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `443` in the security group where the test target is located.
 
-## Prepare the infrastructure {#infrastructure-prepare}
+## Set up your infrastructure {#infrastructure-prepare}
 
 ### Create a service account {#sa-create}
 
 {% include [sa-create](../../_includes/load-testing/sa-create.md) %}
 
-### Configure a network {#network-setup}
+### Configure your network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet hosting your test target and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
-1. Set up the test agent's security group:
+1. Configure the test agent security group:
 
    {% include [security-groups-agent](../../_includes/load-testing/security-groups-agent.md) %}
 
-1. Set up the test target's security group:
+1. Configure the test target security group:
 
    {% include [security-groups-target](../../_includes/load-testing/security-groups-target.md) %}
 
@@ -61,11 +61,11 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ## Prepare your load testing scenario {#test-scenario}
 
-Create a load testing scenario in the JMeter UI and save it to a `.JMX` file. You can learn more in the [JMeter documentation](https://jmeter.apache.org/usermanual/index.html).
+Create a load testing scenario in the JMeter UI and save it to a `.jmx` file. Learn more in the [JMeter documentation](https://jmeter.apache.org/usermanual/index.html).
 
 {% cut "JMeter scenario example" %}
 
-Create a file named `test.jmx` and insert the following code into it, specifying the actual IP address of your testing target in the `HTTPSampler.domain` field:
+Create a file named `test.jmx` and paste the following code into it, specifying the actual IP address of your test target in the `HTTPSampler.domain` field:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -130,11 +130,11 @@ Create a file named `test.jmx` and insert the following code into it, specifying
 </jmeterTestPlan>
 ```
 
-This example creates a single thread group with one HTTP request (a `sleep` request for 100 milliseconds) and sets the IP address of the tested resource. Requests are sent at a rate of 600 requests per minute, and the test duration is 600 requests.
+In this example, we are creating a single thread group with one HTTP request (a `sleep` request for 100 milliseconds) and setting the IP address of the resource to test. The request rate is 600 requests per minute, and the test duration is 600 requests.
 
 {% endcut %}
 
-## Run a test {#run-test}
+## Run the test {#run-test}
 
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
@@ -142,29 +142,29 @@ This example creates a single thread group with one HTTP request (a `sleep` requ
 1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and select the scenario file you created [earlier](#test-scenario).
 1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
 
-   1. In the **{{ ui-key.yacloud.load-testing.field_load-generator }}** field, select `JMETER`.
-   1. In the **jmx scenario** field, select `Attached file`.
+    1. In the **{{ ui-key.yacloud.load-testing.field_load-generator }}** field, select `JMETER`.
+    1. In the **jmx scenario** field, select `Attached file`.
 
-      If you have uploaded multiple files under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select `Specify file` and in the **Attached file name or download URL** field, enter the scenario file name. If your scenario is not locally available, specify its download URL here.
+        If you have uploaded multiple files under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select `Specify file` and in the **Attached file name or download URL** field, enter the scenario file name. If your scenario is not locally available, specify its download URL here.
 
-1. (Optional) In the **Override jmx scenario variables** menu, you can add variables in the `var=value` format. In this case, custom variables will be passed to the scenario. You can access them as `${var}`.
-1. (Optional) In the **JMeter launch parameters** menu:
+1. Optionally, in the **Override jmx scenario variables** menu, you can add variables in `var=value` format. In this case, custom variables will be provided to the scenario. You can access them as `${var}`.
+1. Optionally, in the **JMeter launch parameters** menu:
 
-   1. If you are using a custom JMeter version which you manually copied to the agent, specify the JMeter executable path in the **Path to jmeter executable file** field.
-   1. In the **Additional jmeter launch arguments** field, specify the additional arguments: they allow you to use Non-GUI mode launch commands. You can learn more in the [JMeter documentation](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
+    1. If you are using a custom JMeter version which you manually copied to the agent, specify the JMeter executable path in the **Path to jmeter executable file** field.
+    1. In the **Additional jmeter launch arguments** field, specify the additional arguments: they allow you to use Non-GUI mode launch commands. Learn more in the [JMeter documentation](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
 
 1. In the **Autostop** menu, click ![image](../../_assets/plus-sign.svg) **Autostop** and enter the following description:
-   * **Autostop type 1**: `QUANTILE`
-   * **Quantile**: `75`
-   * **Response time limit**: `100ms`
-   * **Window duration**: `10s`
+    * **Autostop type 1**: `QUANTILE`
+    * **Quantile**: `75`
+    * **Response time limit**: `100ms`
+    * **Window duration**: `10s`
 
-   This criterion stops the test if the 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the processing time of 25% of queries exceeds 100 milliseconds).
-1. Under **Forced test termination time**, specify the time to autostop the test unless it is stopped for other reasons. The parameter value should be slightly greater than the expected duration of the test.
+    This criterion stops the test if the 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the time to process 25% of requests exceeds 100 milliseconds).
+1. Under **Forced test termination time**, specify the time after which the test will autostop, unless it is stopped for other reasons. Set it to be slightly greater than the expected test duration.
 1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the name, description, and number of the test version. This will make the report easier to read.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-Once you do that, the configuration will pass checks, and the agent will start loading the service you are testing.
+Next, the configuration will be checked, and the agent will start loading the service.
 
 To see the testing progress, select the new test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 

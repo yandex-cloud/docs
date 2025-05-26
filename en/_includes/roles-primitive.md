@@ -16,4 +16,4 @@ Primitive roles allow users to perform actions in all {{ yandex-cloud }} [servic
 
 {% include [admin](../_roles/primitive-roles/admin.md) %}
 
-Instead of primitive roles, we recommend using service roles with more granular access control, allowing you to implement the [least privilege principle](../security/standard/all.md#min-privileges).
+Rather than primitive roles, we suggest using service roles with more granular access control, allowing you to implement the [least privilege principle](../security/standard/all.md#min-privileges).

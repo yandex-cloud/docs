@@ -9,7 +9,7 @@ _Подключение_ содержит информацию о парамет
 В {{ datalens-short-name }} доступны следующие типы подключений:
 
 
-* Базы данных:
+* Базы данных: {#db}
 
   * [{{ CH }}](../operations/connection/create-clickhouse.md)
   * [{{ PG }}](../operations/connection/create-postgresql.md)

@@ -1,0 +1,29 @@
+title: '{{ neurosupport-full-name }}'
+description:
+  - >-
+    {{ neurosupport-full-name }} leverages {{ yagpt-name }} to provide quick
+    intelligent suggestions to support agents. These suggestions help agents
+    give more accurate responses to user queries in shortest time, allowing for
+    more focus on complex and creative tasks. {{ neurosupport-full-name }} does
+    not replace but assists support teams in automating routine tasks and
+    improving customer service.
+  - >-
+    The service is at the <a
+    href="https://yandex.cloud/ru/docs/overview/concepts/launch-stages">Preview</a>
+    stage and provided upon <a
+    href="https://yandex.cloud/ru/services/neurosupport#contact-form">request</a>.
+meta:
+  title: '{{ neurosupport-full-name }}'
+  description: >-
+    {{ neurosupport-full-name }} provides support agents with response
+    suggestions from {{ yagpt-name }}.
+  keywords:
+    - keyword: '{{ neurosupport-name }}'
+    - keyword: '{{ neurosupport-full-name }}'
+    - keyword: '{{ neurosupport-name }}'
+    - keyword: support agent assistant
+    - keyword: '{{ yagpt-name }}-based assistant'
+links:
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

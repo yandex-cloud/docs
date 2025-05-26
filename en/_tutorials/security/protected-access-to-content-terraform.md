@@ -2,16 +2,16 @@
 
 To configure secure access to content in {{ cdn-name }}:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Delegate your domain to {{ dns-name }}](#delegate-domain).
-1. [Create an infrastructure](#deploy).
+1. [Create your infrastructure](#deploy).
 1. [Publish the webiste on the web server](#publish-website).
 1. [Test secure access to files](#check).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -32,8 +32,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To create an infrastructure using {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Prepare files with the infrastructure description:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. Prepare your infrastructure description files:
 
     {% list tabs group=infrastructure_description %}
 
@@ -45,7 +45,7 @@ To create an infrastructure using {{ TF }}:
           git clone https://github.com/yandex-cloud-examples/yc-cdn-protected-access
           ```
 
-      1. Go to the directory with the repository. Make sure it contains the following files:
+      1. Navigate to the repository directory. Make sure it contains the following files:
 
           * `yc-cdn-secure-token.tf`: New infrastructure configuration.
           * `yc-cdn-secure-token.auto.tfvars`: User data file.
@@ -59,7 +59,7 @@ To create an infrastructure using {{ TF }}:
       1. Create a folder for configuration files.
       1. In the folder, create:
 
-          1. `yc-cdn-secure-token.tf` configuration file
+          1. `yc-cdn-secure-token.tf` configuration file:
 
               {% cut "yc-cdn-secure-token.tf" %}
 
@@ -67,7 +67,7 @@ To create an infrastructure using {{ TF }}:
 
               {% endcut %}
 
-          1. The `yc-cdn-secure-token.auto.tfvars` user data file:
+          1. `yc-cdn-secure-token.auto.tfvars` user data file:
 
               {% cut "yc-cdn-secure-token.auto.tfvars" %}
 
@@ -87,7 +87,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+    Learn more about the properties of {{ TF }} resources in the provider documentation:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * Service account [role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
@@ -107,17 +107,17 @@ To create an infrastructure using {{ TF }}:
 
 1. In the `yc-cdn-secure-token.auto.tfvars` file, set the following user-defined properties:
 
-    * `folder_id`: [Folder](../../resource-manager/operations/folder/get-id.md) ID.
+    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
     * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `index_file_path`: Path to the website homepage file.
-    * `content_file_path`: Path to the file with content for upload to the bucket.
+    * `content_file_path`: Path to the file with content for uploading to the bucket.
     * `domain_name`: Your domain name, e.g., `example.com`.
     * `subdomain_name`: Prefix of subdomain for the CDN resource, e.g., `cdn`.
     * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
     * `cdn_cname`: [Domain name](../../cdn/operations/resources/get-resources-info.md#get-cname) of the {{ cdn-name }} provider for the folder's CDN resources.
-    * `secure_key`: Secret key that is a string of 6 to 32 characters. It is required to restrict access to a resource using [secure tokens](../../cdn/concepts/secure-tokens.md).
+    * `secure_key`: Secret key that is a string of 6 to 32 characters. It is required to restrict access to a resource using [secure tokens](../../cdn/concepts/secure-tokens.md).
 
-1. Create resources:
+1. Create the resources:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -140,7 +140,7 @@ To create an infrastructure using {{ TF }}:
 
 To stop paying for the resources you created:
 
-1. Open the `yc-cdn-secure-token.tf` configuration file and delete the description of the new infrastructure from it.
+1. Open the `yc-cdn-secure-token.tf` configuration file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

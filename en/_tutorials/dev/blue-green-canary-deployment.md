@@ -1,25 +1,25 @@
-# Enabling blue-green and canary deployment of web service versions
+# Enabling a blue-green and canary deployment of web service versions
 
 
-Configure your web service architecture to switch between versions using the commonly adopted deployment models: [blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) and [canary deployment](https://martinfowler.com/bliki/CanaryRelease.html). 
+Configure your web service architecture to switch between versions using the two common deployment models: a [blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) and a [canary deployment](https://martinfowler.com/bliki/CanaryRelease.html). 
 
 Both models use two backends: a blue and a green one. First, you deploy a stable version generally available to users on one backend, e.g., the blue one. Then you use the other backend, the green one, to test the next version. When the testing is complete, the backends will switch roles: 
 
-* With a blue-green deployment, all user traffic switches from one backend to the other right away.
-* In a canary deployment, the traffic switches gradually, starting with some of the users.
+* In a blue-green deployment, all user traffic switches from one backend to the other right away.
+* In a canary deployment, traffic switches gradually, starting with only some of the users.
 
-After that, the green backend becomes the primary one, and you can use the blue backend to test your next version. As long as your previous version runs on the blue backend, you can roll the service back to it by switching the backends back.
+After that, the green backend becomes the primary one, and you can use the blue backend to test your next version. As long as your previous version runs on the blue backend, you can roll the service back to it by switching back the roles.
 
-In this tutorial, we will use {{ objstorage-full-name }} buckets as backends with a {{ alb-full-name }}-enabled L7 load balancer switching traffic between them. User requests are transmitted to the load balancer via the {{ cdn-full-name }} content delivery network that reduces content delivery time.
+In this tutorial, we will use {{ objstorage-full-name }} buckets as backends with an L7 {{ alb-full-name }} switching traffic between them. To reduce content delivery time, the load balancer receives user requests via the {{ cdn-full-name }} content delivery network.
 
-As examples, we are going to use these domain names: `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example`.
+In our examples, we are going to use the `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names.
 
 You can use various [supported tools](#supported-tools) to perform these steps.
 
 To build an architecture for a blue-green and canary deployment:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate)
+1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create buckets in {{ objstorage-name }}](#create-buckets).
 1. [Upload the files of your service to the buckets](#upload-files).
@@ -34,30 +34,30 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-You can complete most of the steps in the tutorial using any standard tool, such as the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../../cli/) and [AWS](../../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }}](../../api-design-guide) API. Each step lists its respective supported tools.
+You can complete most of the steps in this tutorial using any standard tool, such as the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../../cli/) and [AWS](../../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }}](../../api-design-guide) API. Each step lists its respective supported tools.
 
 Some steps do not support certain tools:
 
 * Currently, you cannot use CLIs and {{ TF }} to:
   * [Create an {{ alb-name }} backend group with buckets as backends](#create-l7backend).
   * Get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
-  * Disable and enable caching of a CDN resource when [running a health check and testing version switching](#check).
+  * Disable and enable caching of a CDN when [running a health check and testing version switching](#check).
 * Currently, you cannot get the domain name of a CDN load balancer through the API when [configuring DNS for the service](#configure-dns).
 
 ## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-We will use a folder named `example-folder` as an example.
+In our example, we will use a folder named `example-folder`.
 
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 
-* Fee for data storage in {{ objstorage-name }}, data operations, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
+* Fee for data storage in {{ objstorage-name }}, data operations, and outbound traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for outbound traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
 * Fee for public DNS queries and DNS zones if using {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
@@ -69,7 +69,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
 ## Create a cloud network and subnets {#create-network}
 
-All resources belong to the same [cloud network](../../vpc/concepts/network.md).
+All resources you create will belong to the same [cloud network](../../vpc/concepts/network.md).
 
 {% list tabs group=instructions %}
 
@@ -180,7 +180,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the network parameters for `canary-network` and its `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` subnets:
+  1. In the configuration file, describe the settings for `canary-network` and its `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` subnets:
 
      ```hcl
      resource "yandex_vpc_network" "canary-network" {
@@ -209,7 +209,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
      }
      ```
 
-     For more information, see the descriptions of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} documentation.
+     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) descriptions in the {{ TF }} provider documentation.
 
   1. Make sure the configuration files are correct.
 
@@ -220,7 +220,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -235,7 +235,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 - API {#api}
 
   1. Create `canary-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
-  1. Create `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` in the three availability zones using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the REST API [create](../../vpc/api-ref/Subnet/create.md) method.
+  1. Create `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` in the three availability zones using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method.
 
 {% endlist %}
 
@@ -247,7 +247,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Create a blue bucket for the backend’s stable version:
+  1. Create a blue bucket for the backend stable version:
 
      1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
@@ -258,7 +258,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - AWS CLI {#cli}
 
-  1. Create a blue bucket for the backend’s stable version:
+  1. Create a blue bucket for the backend stable version:
 
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
@@ -271,7 +271,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
      make_bucket: s3://<blue_bucket_name>
      ```
 
-  1. Enable public access to reading objects and their list:
+  1. Enable public access to read objects and their list:
 
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
@@ -286,11 +286,11 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
   {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
 
-  1. Describe the parameters for creating a service account and access key in the configuration file:
+  1. Describe the properties for creating a service account and access key in the configuration file:
 
      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
-  1. Add the parameters of the blue (backend’s stable version) and green (backend’s test version) buckets to the configuration file:
+  1. Add the properties of the blue (backend stable version) and green (backend test version) buckets to the configuration file:
 
      ```hcl
      ...
@@ -310,7 +310,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
      }
      ```
 
-     For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about `yandex_storage_bucket`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Make sure the configuration files are correct.
 
@@ -321,7 +321,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -417,7 +417,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
    - {{ TF }} {#tf}
 
-     1. Add to the configuration file the parameters of the `v1/index.html` and `v2/index.html` files uploaded to the blue and green buckets, respectively:
+     1. Add to the configuration file the properties of the `v1/index.html` and `v2/index.html` files uploaded to the blue and green buckets, respectively:
 
         ```hcl
         ...
@@ -435,7 +435,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
         }
         ```
 
-        For more information about the `yandex_storage_object` resource, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/storage_object).
+        For more information about `yandex_storage_object`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_object).
 
      1. Make sure the configuration files are correct.
 
@@ -446,7 +446,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
            terraform plan
            ```
 
-        If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+        If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
      1. Deploy the cloud resources.
 
@@ -466,7 +466,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 ## Create a security group {#create-security-group}
 
-[Security groups](../../vpc/concepts/security-groups.md) contain rules that allow the L7 load balancer to receive ingoing traffic and send it to backend buckets.
+[Security groups](../../vpc/concepts/security-groups.md) contain rules that allow the L7 load balancer to receive inbound traffic and send it to backend buckets.
 
 To create security groups:
 
@@ -481,12 +481,12 @@ To create security groups:
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `canary-network`.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
-      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>target | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
+      | `Outbound` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Inbound` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Inbound` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Inbound` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
      1. Navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -494,7 +494,7 @@ To create security groups:
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the rule purpose:
 
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks the traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
 
      1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
@@ -565,7 +565,7 @@ To create security groups:
 
 - {{ TF }} {#tf}
 
-  1. Add the `canary-sg` security group parameters to the configuration file:
+  1. Add the `canary-sg` security group properties to the configuration file:
 
      ```hcl
      resource "yandex_vpc_security_group" "canary-sg" {
@@ -598,7 +598,7 @@ To create security groups:
      }
      ```
 
-     For more information about resource parameters in {{ TF }}, see the [appropriate documentation]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more information about resource properties in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
 
   1. Make sure the configuration files are correct.
 
@@ -609,7 +609,7 @@ To create security groups:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -653,7 +653,7 @@ To create security groups:
          1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-backend-green`.
          1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, specify `0`.
          1. In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.alb.label_bucket }}`.
-         1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select the green bucket .
+         1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select the green bucket.
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
   1. Similarly, create a backend group named `canary-bg-staging`. Set the `canary-backend-blue` weight to `0` and the `canary-backend-green` weight to `100`.
@@ -691,11 +691,11 @@ To create security groups:
 
   1. Create a virtual host named `canary-vh-staging`:
 
-     * **{{ ui-key.yacloud.common.name }}**: `canary-vh-production`
-     * **{{ ui-key.yacloud.alb.label_authority }}**: `cdn-staging.yandexcloud.example`
-     * Route **{{ ui-key.yacloud.common.name }}**: `canary-route-staging`
-     * **{{ ui-key.yacloud.alb.label_backend-group }}**: `canary-bg-staging`
-     * The other parameters are the same as for `canary-vh-production`
+     * **{{ ui-key.yacloud.common.name }}**: `canary-vh-production`.
+     * **{{ ui-key.yacloud.alb.label_authority }}**: `cdn-staging.yandexcloud.example`.
+     * Route **{{ ui-key.yacloud.common.name }}**: `canary-route-staging`.
+     * **{{ ui-key.yacloud.alb.label_backend-group }}**: `canary-bg-staging`.
+     * The other settings are identical to those for `canary-vh-production`.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -718,7 +718,7 @@ To create security groups:
 
      For more information about the `yc alb http-router create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
-  1. Create a `canary-vh-production` virtual host:
+  1. Create a virtual host named `canary-vh-production`:
 
      ```bash
      yc alb virtual-host create canary-vh-production \
@@ -737,7 +737,7 @@ To create security groups:
 
      For more information about the `yc alb virtual-host create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
-  1. Create a `canary-route-production` route in the `canary-vh-production` virtual host:
+  1. Create a route named `canary-route-production` in the `canary-vh-production` virtual host:
 
      ```bash
      yc alb virtual-host append-http-route canary-route-production \
@@ -766,7 +766,7 @@ To create security groups:
 
      For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
-  1. Create a `canary-vh-staging` virtual host:
+  1. Create a virtual host named `canary-vh-staging`:
 
      ```bash
      yc alb virtual-host create canary-vh-staging \
@@ -812,7 +812,7 @@ To create security groups:
 
 - {{ TF }} {#tf}
 
-  1. Add to the configuration file the parameters of the `canary-router` HTTP router, its virtual hosts, and routes:
+  1. Add the settings for the `canary-router` HTTP router, its virtual hosts, and routes to the configuration file :
 
      ```hcl
      ...
@@ -852,7 +852,7 @@ To create security groups:
      }
      ```
 
-     For more information, see the description of the [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resources in the {{ TF }} documentation.
+     For more information, see the description of the [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resources in the {{ TF }} provider documentation.
 
   1. Make sure the configuration files are correct.
 
@@ -863,7 +863,7 @@ To create security groups:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -878,7 +878,7 @@ To create security groups:
 - API {#api}
 
   1. Create an HTTP router named `canary-router` using the [HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/HttpRouter/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
-  1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts linked to the router and their routes using the [VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/VirtualHost/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
+  1. Create the `canary-vh-production` and `canary-vh-staging` virtual hosts bound to the router and their routes using the [VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/VirtualHost/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
 
 {% endlist %}
 
@@ -895,7 +895,7 @@ To create security groups:
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 
      1. In the **{{ ui-key.yacloud.mdb.forms.label_network }}** field, select `canary-network`.
-     1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `canary-sg`. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
+     1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `canary-sg`. Leaving this field blank will allow any inbound and outbound traffic for the load balancer.
 
   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the three subnets for the load balancer nodes (`canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d`) and enable traffic to these subnets.
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and set up the listener:
@@ -1030,7 +1030,7 @@ To create security groups:
 
 - {{ TF }} {#tf}
 
-  1. Add the parameters of the `canary-balancer` L7 load balancer to the configuration file:
+  1. Add the settings for `canary-balancer` to the configuration file:
 
      ```hcl
      ...
@@ -1075,7 +1075,7 @@ To create security groups:
      }
      ```
 
-     For more information about the `yandex_alb_load_balancer` resource, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about `yandex_alb_load_balancer`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Make sure the configuration files are correct.
 
@@ -1086,7 +1086,7 @@ To create security groups:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -1116,7 +1116,7 @@ To create security groups:
   1. Create a CDN resource:
 
      1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-     1. Configure the basic settings of the CDN resource:
+     1. Configure the basic CDN settings:
 
         * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
         * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
@@ -1142,10 +1142,10 @@ To create security groups:
 
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-  1. Enable a client redirect from HTTP to HTTPS:
+  1. Enable client redirects from HTTP to HTTPS:
 
      1. Select the resource you created earlier.
-     1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** switches to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
+     1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** has switched to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
      1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
      1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -1166,7 +1166,7 @@ To create security groups:
       yc cdn provider activate --folder-id <folder_ID> --type gcore
       ```
 
-  1. Create an origin group named `canary-origin-group` by indicating the IP address of the load balancer:
+  1. Create an origin group named `canary-origin-group` and indicate the load balancer IP address:
       
       ```bash
       yc cdn origin-group create --name "canary-origin-group" \
@@ -1219,7 +1219,7 @@ To create security groups:
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
-  1. Enable a client redirect for a resource:
+  1. Enable client redirects for the resource:
 
      ```bash
      yc cdn resource update <resource_ID> --redirect-http-to-https
@@ -1227,7 +1227,7 @@ To create security groups:
 
 - {{ TF }} {#tf}
 
-  1. Add the parameters of the CDN resources to the configuration file:
+  1. Add the CDN settings to the configuration file:
       
       ```hcl
       ...
@@ -1262,7 +1262,7 @@ To create security groups:
       }
       ```
 
-      For more information, see the description of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} documentation.
+      For more information, see the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) descriptions in the {{ TF }} provider documentation.
 
   1. Make sure the configuration files are correct.
 
@@ -1273,7 +1273,7 @@ To create security groups:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -1285,9 +1285,9 @@ To create security groups:
 
      1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
 
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
-  1. Enable a client redirect for a resource. In the CDN resource parameters, add this field at the top of the `options` section:
+  1. Enable client redirects for the resource. In the CDN resource settings, add this field at the top of the `options` section:
 
       ```hcl
       ...
@@ -1302,7 +1302,7 @@ To create security groups:
       terraform plan
       ```
 
-     If the configuration is described correctly, the terminal will display a list of updated resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of resources being updated and their properties. If the configuration contains any errors, {{ TF }} will point them out.
   
   1. If there are no errors, run this command:
 
@@ -1312,7 +1312,7 @@ To create security groups:
 
   1. Confirm the resource update by typing `yes` in the terminal and pressing **Enter**.
       
-  This enables a redirect for the resource.
+  This will enable redirects for the resource.
 
 - API {#api}
 
@@ -1322,7 +1322,7 @@ To create security groups:
 
 ## Configure DNS for the service {#configure-dns}
 
-The `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names must be linked to the CDN resource using DNS records.
+The `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names must be mapped to the CDN resource using DNS records.
 
 To configure DNS:
 
@@ -1334,13 +1334,13 @@ To configure DNS:
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-     1. From the list of CDN resources, select the resource with `cdn.yandexcloud.example` as its primary domain name.
+     1. From the list of CDN resources, select the one with `cdn.yandexcloud.example` as its primary domain name.
      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `cl-********.edgecdn.ru` format.
 
    {% endlist %}
 
 1. On your DNS hosting provider’s website, navigate to the DNS settings.
-1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` so they are pointing at the copied domain name:
+1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` so that they point to the domain name you copied:
 
    ```
    cdn CNAME cl-********.edgecdn.ru
@@ -1361,7 +1361,7 @@ To configure DNS:
      1. If you do not have a public DNS zone, create one:
 
         1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
-        1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the website's domain name with a trailing dot: `yandexcloud.example.`.
+        1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the website domain name with a trailing dot: `yandexcloud.example.`.
         1. In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.dns.label_public }}`.
         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-dns-zone`.
         1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -1372,7 +1372,7 @@ To configure DNS:
         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn`.
         1. In the **{{ ui-key.yacloud.common.type }}** field, specify `CNAME`.
-        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `cl-********.edgecdn.ru` format.
+        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the value you copied in `cl-********.edgecdn.ru` format.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
      1. Similarly, create a CNAME record for `cdn-staging.yandexcloud.example` in the same zone. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn-staging`.
@@ -1401,7 +1401,7 @@ To configure DNS:
 
         For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
-     1. In the zone, create a CNAME record for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` with the copied value in `cl-********.edgecdn.ru` format:
+     1. In the zone, create a CNAME record for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` with the value you copied in `cl-********.edgecdn.ru` format:
 
         ```bash
         yc dns zone add-records \
@@ -1414,7 +1414,7 @@ To configure DNS:
 
    - {{ TF }} {#tf}
 
-     1. Add the `canary-dns-zone` parameters and CNAME records to the configuration file:
+     1. Add the `canary-dns-zone` settings and the zone’s CNAME records to the configuration file:
 
         ```
         ...
@@ -1440,7 +1440,7 @@ To configure DNS:
         }
         ```
 
-        For more information, see the descriptions of the [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) resources in the {{ TF }} documentation.
+        For more information, see the [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) descriptions in the {{ TF }} provider documentation.
 
      1. Make sure the configuration files are correct.
 
@@ -1451,7 +1451,7 @@ To configure DNS:
            terraform plan
            ```
 
-        If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+        If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
      1. Deploy the cloud resources.
 
@@ -1466,7 +1466,7 @@ To configure DNS:
    - API {#api}
 
      1. Create a DNS zone named `canary-dns-zone` using the [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) gRPC API call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
-     1. Add the `cdn` and `cdn-staging` CNAME records to the zone with the copied value in `cl-********.edgecdn.ru` format using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+     1. Add the `cdn` and `cdn-staging` CNAME records to the zone with the value you copied in `cl-********.edgecdn.ru` format using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 
@@ -1489,11 +1489,11 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-     1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
+     1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
      1. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** field, select `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`.
-     1. Enter the path to the uploaded file: `/index.html`.
+     1. Enter the path to the file you uploaded: `/index.html`.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
    - {{ yandex-cloud }} CLI {#cli}
@@ -1559,7 +1559,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-     1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
+     1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
      1. Disable the **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** option.
@@ -1580,11 +1580,11 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-     1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
+     1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
      1. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** field, select `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`.
-     1. Enter the path to the uploaded file: `/index.html`.
+     1. Enter the path to the file you uploaded: `/index.html`.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
    - {{ yandex-cloud }} CLI {#cli}
@@ -1718,7 +1718,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
 
    1. In the `canary-bg-production` backend group: 50% of traffic to each of the two backends.
    1. In the `canary-bg-production` backend group: All traffic goes to `canary-backend-green`.
-   1. In the `canary-bg-staging` backend group (`cdn-staging.yandexcloud.example` domain name): All traffic goes to `canary-backend-blue`.
+   1. In the `canary-bg-staging` backend group (the `cdn-staging.yandexcloud.example` domain name): All traffic goes to `canary-backend-blue`.
 
 1. Re-enable caching:
 
@@ -1728,7 +1728,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-     1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
+     1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
@@ -1751,7 +1751,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-     1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
+     1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
      1. Disable the **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** option.
@@ -1772,11 +1772,11 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-     1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
+     1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
      1. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** field, select `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`.
-     1. Enter the path to the uploaded file: `/index.html`.
+     1. Enter the path to the file you uploaded: `/index.html`.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
    - {{ yandex-cloud }} CLI {#cli}
@@ -1913,7 +1913,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-     1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
+     1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
@@ -1930,9 +1930,9 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
 
 To shut down the infrastructure and stop paying for the resources you created:
 
-1. If you previously set up CNAME records in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) `canary-dns-zone`.
+1. If you set up CNAME records in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) `canary-dns-zone`.
 1. [Delete](../../cdn/operations/resources/delete-resource.md) the CDN resource with `cdn.yandexcloud.example` as the primary domain name.
-1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `canary-balancer` L7 load balancer.
+1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) `canary-balancer`.
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the blue and green buckets.
 1. [Delete](../../storage/operations/buckets/delete.md) the blue and green buckets.
 1. [Delete](../../vpc/operations/subnet-delete.md) `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d`.

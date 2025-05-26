@@ -17,7 +17,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
   1. At the top right, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
@@ -31,7 +31,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -84,7 +84,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
         status: READY
       ```
 
-  1. Enable file segmentation using the `--slice` flag with the `true` value:
+  1. Enable file segmentation using the `--slice` flag set to `true`:
 
       ```bash
       yc cdn resource update <resource_ID> --slice true
@@ -96,7 +96,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the CDN resource to create:
+  1. In the configuration file, describe the properties of the CDN resource to create:
 
       ```hcl
       terraform {
@@ -138,7 +138,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       * The `options` section contains additional parameters of CDN resources:
          * `slice`: Flag indicating whether segmentation will be used. This is an optional parameter. The default value is `false`.
 
-      For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -158,16 +158,16 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc cdn resource list

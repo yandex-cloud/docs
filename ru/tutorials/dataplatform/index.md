@@ -214,4 +214,8 @@ description: На странице представлен список прак�
 * [{#T}](managed-postgresql.md)
 * [{#T}](schema-registry-cdc-debezium-kafka.md)
 
+## {{ msp-full-name }} {#spark}
+
+* [{#T}](airflow-and-spark.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

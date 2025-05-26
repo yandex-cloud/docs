@@ -1175,6 +1175,8 @@ items:
           Создание реестра схем для поставки данных в формате Debezium CDC из {{
           KF }}
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
+      - name: Автоматизация работы с помощью {{ maf-full-name }}
+        href: dataplatform/airflow-and-spark.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
@@ -1453,6 +1455,10 @@ items:
             href: serverless/forms-and-datalens-integration/console.md
           - name: Terraform
             href: serverless/forms-and-datalens-integration/terraform.md
+      - name: >-
+          Создание адреса {{ postbox-full-name }} и проверка владения доменом с
+          помощью {{ TF }}
+        href: serverless/domain-identity-creating.md
   - name: Машинное обучение и искусственный интеллект
     items:
       - name: Все руководства

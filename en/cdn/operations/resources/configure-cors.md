@@ -3,7 +3,7 @@ title: How to configure CORS for responses to clients in {{ cdn-full-name }}
 description: Follow this guide to configure CORS when sending responses to clients.
 ---
 
-# Configuring CORS when responding to clients
+# Configuring CORS for responses to clients
 
 {% include [cors-note](../../../_includes/cdn/cors-note.md) %}
 
@@ -19,7 +19,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
 
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
@@ -36,7 +36,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -94,7 +94,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       ```bash
       yc cdn resource update <resource_ID> --cors <CORS_value>
       ```
-      The `*` and `"$http_origin"` values grant access to content with any `Origin` header value. To only grant access to specific origins, specify `"$http_origin"` and the origin domain names: `["domain.com", "second.dom.com"]`.
+      The `*` and `"$http_origin"` values allow access to content with any `Origin` header value. To allow access only to specific origins, specify `"$http_origin"` and the origin domain names: `["domain.com", "second.dom.com"]`.
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
@@ -102,7 +102,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the CDN resource to create:
+  1. In the configuration file, describe the properties of the CDN resource to create:
 
       ```hcl
       terraform {
@@ -146,7 +146,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
          * `cors`: Value the CDN will send in the `Access-Control-Allow-Origin` header in response to a [CORS request](../../concepts/cors.md).
          * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, they will get the `405` _Method Not Allowed_ response. For methods that are not supported, the user will get `501` (_Not Implemented_). This is an optional parameter. Its default values are `GET`, `HEAD`, `POST`, and `OPTIONS`.
 
-      For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -166,16 +166,16 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc cdn resource list

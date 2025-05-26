@@ -1,14 +1,14 @@
-# Checking regression metrics for exceeded thresholds using CLI
+# Checking regression metrics for exceeded thresholds using the CLI
 
-For each metric (line) on the [regression dashboard](./regressions.md) charts, you can add a threshold value the excess of which should be considered abnormal. In addition to graphical display of areas where thresholds are exceeded, you can get information about regressions using a [CLI command](../../cli/cli-ref/loadtesting/cli-ref/test/check-regression.md). 
+For each metric (line) on the [regression dashboard](./regressions.md) charts, you can add a threshold value to flag abnormality when exceeded. In addition to graphical display of areas with exceeded thresholds, you can get regression info using a [CLI command](../../cli/cli-ref/loadtesting/cli-ref/test/check-regression.md). 
 
 This page describes the main use cases for the `yc loadtesting test check-regression` command to check if thresholds are exceeded in regression charts.
 
-## Preparing test IDs {#get-test-ids}
+## Getting test IDs {#get-test-ids}
 
 Get a list of test IDs with the `yc loadtesting test list` command:
 
-Response example:
+Here is a response example:
 
 ```
 +----------------------+---------+--------+---------------------+----------+
@@ -22,7 +22,7 @@ Use the IDs you get to run the check command.
 
 ## Checking all charts of a selected test {#check-test}
 
-If you run the command without any additional parameters, it will check for regression on all the charts in your folder which contain the selected test.
+If you run the command without additional parameters, it will check for regressions on all the charts in your folder that include the specified test.
 
 Run this command:
 
@@ -30,7 +30,7 @@ Run this command:
 yc loadtesting test check-regression <test_ID>
 ```
 
-Example of running the command:
+Here is an example of running the command:
 
 ```
 yc loadtesting test check-regression ff6mmyz7s4t2m4******
@@ -57,7 +57,7 @@ yc loadtesting test check-regression ff6mmyz7s4t2m4******
 
 If you run the command with the `--dashboard-id` parameter, it will only check the charts from the dashboard you specify.
 
-You can get the dashboard ID on the page with the list of dashboards (the ID column is hidden by default), or take it from the dashboard page URL.
+You can find the dashboard ID on the page listing dashboards (the ID column is hidden by default) or in the dashboard page URL.
 
 Run this command:
 
@@ -65,7 +65,7 @@ Run this command:
 yc loadtesting test check-regression <test_ID> --dashboard-id <dashboard_ID>
 ```
 
-Example of running the command:
+Here is an example of running the command:
 
 ```
 yc loadtesting test check-regression ff6mmyz7s4t2m4****** --dashboard-id ff6jqg3mf5xhby******
@@ -84,19 +84,19 @@ yc loadtesting test check-regression ff6mmyz7s4t2m4****** --dashboard-id ff6jqg3
        OK     100   value >= 90   percent   Responses: protocol code (200)   overall   all tests: more than 90% 200 codes    test-dashboard
 ```
 
-## Checking an idividual chart {#check-graph}
+## Checking an individual chart {#check-graph}
 
-If you run the command with the `--dashboard-id` and `--chart-id` parameters, it will only check the thresholds on a specific chart.
+If you run the command with the `--dashboard-id` and `--chart-id` parameters, it will only check thresholds for the specified chart.
 
 ```
 yc loadtesting test check-regression <test_ID> --dashboard-id <dashboard_ID> --chart-id <chart_ID>
 ```
 
-You can get the dashboard ID on the page with the list of dashboards (the ID column is hidden by default), or take it from the dashboard page URL.
+You can find the dashboard ID on the page listing dashboards (the ID column is hidden by default) or in the dashboard page URL.
 
-To get the chart ID, click ![image](../../_assets/console-icons/chevrons-expand-up-right.svg) next to any of the charts on the dashboard. This will open a separate chart page. You can find the ID is at the top of the page and in its URL.
+To get the chart ID, click ![image](../../_assets/console-icons/chevrons-expand-up-right.svg) next to any of the charts on the dashboard. This will open a separate chart page. You can find the ID at the top of the page and in its URL.
 
-Example of running the command:
+Here is an example of running the command:
 
 ```
 yc loadtesting test check-regression ff6mmyz7s4t2m4****** --dashboard-id ff6jqg3mf5xhby****** --chart-id 57651054-35af-47ea-a5a8-6a1a8dbe4377

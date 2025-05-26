@@ -1,6 +1,6 @@
 # Configuring log export
 
-[Log export](../../concepts/logs.md) is a paid function. See [{#T}](../../pricing.md) for billing information.
+[Log export](../../concepts/logs.md) is a paid feature. See [{#T}](../../pricing.md) for billing information.
 
 ## Enabling export {#enabling}
 
@@ -16,13 +16,13 @@ To enable log export for a [resource](../../concepts/resource.md):
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
 
   1. In the top-right corner, click **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
 
   1. Select **{{ ui-key.yacloud.cdn.label_bucket }}**.
 
-  1. (Optional) Specify a **{{ ui-key.yacloud.cdn.label_bucket-key-prefix }}** for log file names.
+  1. Optionally, specify a **{{ ui-key.yacloud.cdn.label_bucket-key-prefix }}** for log file names.
 
   1. Click **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
 
@@ -34,7 +34,7 @@ To enable log export for a [resource](../../concepts/resource.md):
 
 Once enabled, the export status will change from `NOT_ACTIVATED` to `OK`.
 
-If the status is `FAIL`, the service does not export logs. Contact [support]({{ link-console-support }}).
+If the status is `FAIL`, the service is not exporting logs. Contact [support]({{ link-console-support }}).
 
 ## Editing export {#editing}
 
@@ -50,7 +50,7 @@ To edit export parameters:
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
 
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
@@ -62,7 +62,7 @@ To edit export parameters:
 
 {% endlist %}
 
-## Deactivating export {#disabling}
+## Disabling export {#disabling}
 
 To disable export:
 
@@ -76,7 +76,7 @@ To disable export:
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
 
   1. In the top-right corner, click **{{ ui-key.yacloud.cdn.button_resource-deactivate-raw-logs }}**.
 

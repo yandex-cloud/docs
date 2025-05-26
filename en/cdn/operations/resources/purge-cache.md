@@ -17,7 +17,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
   1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
@@ -34,7 +34,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -102,5 +102,5 @@ To [purge the cache](../../concepts/caching.md) of the resource:
   Use the [purge](../../api-ref/Cache/purge.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Purge](../../api-ref/grpc/Cache/purge.md) gRPC API call.
 
 {% endlist %}
-
+  
 It may take up to 15 minutes to purge the cache.

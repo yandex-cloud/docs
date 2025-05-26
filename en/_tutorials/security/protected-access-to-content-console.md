@@ -192,7 +192,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
 
   For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
-  Save the security group ID (`id`) as you will need it to create a VM.
+  Save the security group ID (`id`), as you will need it to create a VM.
 
 - API {#api}
 
@@ -219,7 +219,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `webserver-subnet-{{ region-id }}-b`, which you created earlier.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `webserver-sg` security group you created earlier.
 
@@ -245,8 +245,8 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
   ```
 
   Where:
-  * `<security_group_ID>`: Previously saved security group ID.
-  * `--ssh-key`: Path to the file with the public SSH key. Example: `~/.ssh/id_ed25519.pub`.
+  * `<security_group_ID>`: Security group ID you saved earlier.
+  * `--ssh-key`: Path to the file with the public SSH key, e.g., `~/.ssh/id_ed25519.pub`.
 
   Result:
 
@@ -316,7 +316,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
       1. Specify the zone settings consistent with your domain:
 
-         1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. Its name must end with a trailing dot, e.g., `example.com.` for the `example.com` domain. To create a domain name with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
+         1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. Its name must end with a trailing dot. For example, `example.com.` matches the `example.com` domain. To create a domain name with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
          1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
          1. **{{ ui-key.yacloud.common.name }}**: `my-domain-zone`.
 
@@ -333,7 +333,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
         --public-visibility
       ```
 
-      Where `--zone` is your domain name, e.g., `example.com.`. The `--zone` parameter value must end with a period, e.g., `example.com.` for the `example.com` domain.
+      Where `--zone` is your domain name, e.g., `example.com.`. The `--zone` parameter value must end with a trailing dot. For example, `example.com.` matches the `example.com` domain.
 
       Result:
 
@@ -356,7 +356,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
 1. {% include [delegate-domain](../_tutorials_includes/protected-access-to-content/delegate-domain.md) %}
 
-1. In your DNS zone, create an A resource record pointing to the public IP address of the previously created VM with a web server:
+1. In your DNS zone, create an `A` resource record pointing to the public IP address of the web server VM you created earlier:
 
     {% list tabs group=instructions %}
 
@@ -364,14 +364,14 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-      1. Select the previously created DNS zone.
+      1. Select the DNS zone you created earlier.
       1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
-      1. Specify the record parameters:
+      1. Specify the record settings:
          1. In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
          1. In the **{{ ui-key.yacloud.common.type }}** field, select the `A` [record type](../../dns/concepts/resource-record.md#rr-types).
-         1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of the previously created VM with a web server.
+         1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of the web server VM you created earlier.
 
-             You can find the IP address of your VM in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or using the `yc compute instance get mywebserver` CLI command.
+             You can find your VM’s IP address on the VM page in the [management console]({{ link-console-main }}), under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, or using the `yc compute instance get mywebserver` CLI command.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -385,9 +385,9 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
         --record "@ 600 A <VM_IP_address>"
       ```
 
-      Where `<VM_IP_address>` is the [public IP address](../../vpc/concepts/address.md#public-addresses) of the previously created VM with a web server.
+      Where `<VM_IP_address>` is the [public IP address](../../vpc/concepts/address.md#public-addresses) of the web server VM you created earlier.
 
-      You can find the IP address of your VM in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or using the `yc compute instance get mywebserver` CLI command.
+      You can find your VM’s IP address on the VM page in the [management console]({{ link-console-main }}), under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, or using the `yc compute instance get mywebserver` CLI command.
 
       Result:
 
@@ -417,12 +417,12 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, specify `mymanagedcert` in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `example.com`.
 
-          In the same field, in a new line, specify the name of the subdomain to be used for the CDN resource, e.g., `cdn.example.com`.
+          In a new line within the same field, specify the name of the subdomain to serve the CDN resource, e.g., `cdn.example.com`.
       1. Select the [domain rights check type](../../certificate-manager/concepts/challenges.md) for `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
       1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
@@ -457,7 +457,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       For more information about the `yc certificate-manager certificate request` command, see the [CLI reference](../../cli/cli-ref/certificate-manager/cli-ref/certificate/request.md).
 
-      Save the ID (`id`) of the created certificate as you will need it when creating a CDN resource.
+      Save the ID (`id`) of the certificate you created, as you will need it when creating a CDN resource.
 
     - API {#api}
 
@@ -475,16 +475,16 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
         1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
         1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-        1. In the list of certificates, select `mymanagedcert`.
+        1. From the list of certificates, select `mymanagedcert`.
         1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record`.
-        1. In the section of the first domain, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** and then click **{{ ui-key.yacloud.common.create }}** in the window that opens.
+        1. In the first domain section, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** and then **{{ ui-key.yacloud.common.create }}** in the window that opens.
         1. Repeat the above action for the second domain.
 
-        The domain rights check may take from a few minutes to a few days. Wait until it is complete. As the result, the certificate will be issued and get the `Issued` status.
+        The domain rights check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
 
     - {{ yandex-cloud }} CLI {#cli}
 
-        1. Get values of the resource records required for passing the check:
+        1. Get the values of the resource records required for passing the check:
 
             ```bash
             yc certificate-manager certificate get \
@@ -562,7 +562,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
             ```
 
             Where:
-            * `<dns_challenge_value>`: Value saved in the previous step that is required to check you rights to the relevant domain using a CNAME record.
+            * `<dns_challenge_value>`: Value saved in the previous step required to check you rights to the relevant domain using a CNAME record.
             * `<subdomain>`: Name you gave to the CDN resource subdomain, e.g., `cdn`. In this case, the record will look as follows: `_acme-challenge.cdn 600 CNAME fpq2gpi42teg********.cm.yandexcloud.net.`. 
 
             Result:
@@ -578,9 +578,9 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
             For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
-            The domain rights check may take from a few minutes to a few days. Wait until it is complete. As the result, the certificate will be issued and get the `Issued` status.
+            The domain rights check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
 
-        1. Make sure that the certificate status has changed to `Issued`:
+        1. Make sure that the certificate status has switched to `Issued`:
 
             ```bash
             yc certificate-manager certificate get \
@@ -625,7 +625,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
 ## Prepare a source bucket for the CDN resource {#setup-bucket-origin}.
 
-1. Create an {{ objstorage-name }} bucket to be used as a [source](../../cdn/concepts/origins.md) for the CDN resource. The [bucket name](../../storage/concepts/bucket.md#naming) must be unique.
+1. Create an {{ objstorage-name }} bucket to serve as a [source](../../cdn/concepts/origins.md) for the CDN resource. The [bucket name](../../storage/concepts/bucket.md#naming) must be unique.
 
     {% list tabs group=instructions %}
 
@@ -638,7 +638,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field, specify `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
-      1. On the page with the list of buckets, select the bucket you created.
+      1. On the page with the list of buckets, select the one you created.
       1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:
          * Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
@@ -658,7 +658,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
             --public-list
           ```
 
-          Where `--name` is the bucket name, unique throughout {{ objstorage-name }}, e.g., `cdn-source-bucket`.
+          Where `--name` is the bucket name unique throughout {{ objstorage-name }}, e.g., `cdn-source-bucket`.
 
           Result:
 
@@ -705,7 +705,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
 
-      [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../storage/security/index.md#storage-editor) to the service account used by the AWS CLI.
+      [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../storage/security/index.md#storage-editor) to the service account the AWS CLI uses.
 
       1. Create a bucket:
 
@@ -716,7 +716,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
             --acl public-read
           ```
 
-          Where `--bucket` is the bucket name, unique throughout {{ objstorage-name }}, e.g., `cdn-source-bucket`.
+          Where `--bucket` is the bucket name unique throughout {{ objstorage-name }}, e.g., `cdn-source-bucket`.
 
           Result:
 
@@ -734,7 +734,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
             --index-document index.html
           ```
 
-          Where `<bucket_name>` is the name of the previously created bucket, e.g., `cdn-source-bucket`.
+          Where `<bucket_name>` is the name of the bucket you created earlier. e.g., `cdn-source-bucket`.
 
     - API {#api}
 
@@ -754,7 +754,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you created ealier.
       1. In the top-right corner, click ![image](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the files you created: `index.html` and `content.jpg`.
-      1. In the window that opens, confirm the upload of the objects.
+      1. In the window that opens, confirm uploading the objects.
 
     - AWS CLI {#cli}
 
@@ -765,7 +765,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
             s3 cp ./index.html s3://<bucket_name>/index.html
           ```
 
-          Where `<bucket_name>` is the name of the previously created bucket, e.g., `cdn-source-bucket`.
+          Where `<bucket_name>` is the name of the bucket you created earlier, e.g., `cdn-source-bucket`.
 
           Result:
 
@@ -811,13 +811,13 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
       * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
-      * In the **{{ ui-key.yacloud.cdn.field_origin }}** field, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the previously created bucket used by the CDN resource as a source.
+      * In the **{{ ui-key.yacloud.cdn.field_origin }}** field, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the bucket you created earlier that the CDN resource uses as a source.
 
   1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, in the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify the domain name you intend to assign to your CDN resource, e.g., `cdn.example.com`.
 
       {% note info %}
 
-      You should see domain name of the {{ cdn-name }} provider at the bottom of **{{ ui-key.yacloud.cdn.label_section-domain }}**. Copy this value as you will need it when creating a CNAME record for the CDN resource.
+      You should see domain name of the {{ cdn-name }} provider at the bottom of **{{ ui-key.yacloud.cdn.label_section-domain }}**. Copy this value, as you will need it when creating a CNAME record for the CDN resource.
 
       {% endnote %}
 
@@ -825,10 +825,10 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       1. In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.cdn.value_protocol-match }}`.
       1. In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-      1. In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then select the previously created `mymanagedcert` certificate from the list that opens.
-      1. In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. Then, in the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field that opens, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the previously created bucket used by the CDN resource as a source.
+      1. In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then the `mymanagedcert` certificate you created earlier from the list that opens.
+      1. In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. Then, in the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field that opens, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the bucket you created earlier that the CDN resource uses as a source.
       1. Enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**.
-      1. In the **{{ ui-key.yacloud.cdn.field_secure-key }}** that appears, specify a secret key, a string of 6 to 32 characters. It will be transmitted to the CDN resource configuration and used to generate and check signed links.
+      1. In the **{{ ui-key.yacloud.cdn.field_secure-key }}** fieled that appears, specify a secret key, a string of 6 to 32 characters. It will be transmitted to the CDN resource configuration and used to generate and check signed links.
       1. In the **{{ ui-key.yacloud.cdn.field_secure-key-type }}** field, select `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}`.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -857,9 +857,9 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       ```
 
       Where:
-      * `<subdomain_name>`: Domain name for which the TLS certificate was created earlier and which will be used by the CDN resource, e.g., `cdn.example.com`.
-      * `<bucket_name>`: Name of the previously created {{ objstorage-name }} bucket, e.g., `cdn-source-bucket`.
-      * `--cert-manager-ssl-cert-id`: TLS certificate ID that was saved earlier when creating the certificate.
+      * `<subdomain_name>`: Domain name for which the TLS certificate was created earlier and which the CDN resource will use, e.g., `cdn.example.com`.
+      * `<bucket_name>`: Name of the {{ objstorage-name }} bucket you created earlier, e.g., `cdn-source-bucket`.
+      * `--cert-manager-ssl-cert-id`: TLS certificate ID that you saved earlier when creating the certificate.
       * `--secure-key`: Secret key, a string of 6 to 32 characters. The secret key will be transmitted to the CDN resource configuration and used to generate and check signed links.
 
       Result:
@@ -923,13 +923,13 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Select the previously created DNS zone.
+  1. Select the DNS zone you created earlier.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
-  1. Specify the record parameters:
+  1. Specify the record settings:
 
         * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_create-subdomain }}` and specify the name you gave to the CDN resource subdomain. For example, if the domain name of your CDN resource is `cdn.example.com`, put `cdn` only.
         * In the **{{ ui-key.yacloud.common.type }}** field, select the `CNAME` [record type](../../dns/concepts/resource-record.md#rr-types).
-        * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the {{ cdn-name }} provider [domain name](../../cdn/operations/resources/get-resources-info.md#get-cname) value you copied when creating the CDN resource.
+        * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the {{ cdn-name }} provider’s [domain name](../../cdn/operations/resources/get-resources-info.md#get-cname) value you copied when creating the CDN resource.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -950,7 +950,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       For more information about the `yc cdn resource get-provider-cname` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/get-provider-cname.md).
 
-      Save the obtained `cname` value: you will need it in the next step.
+      Save the `cname` value you got: you will need it in the next step.
 
   1. Create a CNAME resource record in {{ dns-name }}:
 
@@ -962,7 +962,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       Where:
       * `<subdomain>`: Subdomain created for the CDN resource. For example, for the `cdn.example.com` domain name, specify `cdn`.
-      * `<cname_value>`: `cname` value for the CDN resource you obtained in the previous step.
+      * `<cname_value>`: `cname` value for the CDN resource you got in the previous step.
 
       Result:
 

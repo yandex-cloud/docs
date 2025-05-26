@@ -22,16 +22,17 @@
 * [{{ data-transfer-full-name }}](../data-transfer/release-notes/index.md)
 * [{{ maf-full-name }}](../managed-airflow/release-notes.md)
 * [{{ mkf-full-name }}](../managed-kafka/release-notes.md)
+* [{{ msp-full-name }}](../managed-spark/release-notes.md)
 * [{{ mch-full-name }}](../managed-clickhouse/release-notes.md)
 * [{{ mgp-full-name }}](../managed-greenplum/release-notes.md)
 * [{{ mmg-full-name }}](../managed-mongodb/release-notes.md)
 * [{{ mmy-full-name }}](../managed-mysql/release-notes.md)
 * [{{ mos-full-name }}](../managed-opensearch/release-notes.md)
 * [{{ mpg-full-name }}](../managed-postgresql/release-notes.md)
+* [{{ mtr-full-name }}](../managed-trino/release-notes.md)
 * [{{ mrd-full-name }}](../managed-redis/release-notes.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/release-notes/index.md)
 * [{{ websql-full-name }}](../websql/release-notes/index.md)
-* [{{ mtr-full-name }}](../managed-trino/release-notes.md)
 
 ## Контейнеры {#containers}
 

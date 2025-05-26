@@ -40,6 +40,7 @@ default:
   api-host-operation: operation.api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
+  api-host-spark: spark.api.cloud.yandex.net
   api-host-trino: trino.api.cloud.yandex.net
   api-url-prefix: /docs
   art-freetier: 10
@@ -246,7 +247,7 @@ default:
   k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.29, 1.30, 1.31
+  k8s-versions-rapid: 1.29, 1.30, 1.31, 1.32
   k8s-versions-regular: 1.29, 1.30, 1.31
   k8s-versions-stable: 1.29, 1.30, 1.31
   k8s-vpa: Vertical Pod Autoscaler
@@ -446,6 +447,8 @@ default:
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/ru-ru
+  msp-full-name: Yandex Managed Service for Apache Spark™
+  msp-name: Managed Service for Apache Spark™
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -764,6 +767,7 @@ default:
   tf-provider-mos: https://terraform-provider.yandexcloud.net/resources/mdb_opensearch_cluster
   tf-provider-mpg: https://terraform-provider.yandexcloud.net/resources/mdb_postgresql_cluster
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/resources/mdb_redis_cluster
+  tf-provider-msp: https://terraform-provider.yandexcloud.net/resources/spark_cluster
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
   TF-version: '0.90'
   TR: Trino
@@ -7789,6 +7793,7 @@ default:
           field_query-file-uri: Файл с запросами
           field_script-variables: Переменные скрипта
           field_spark-job-type: Spark
+          label_job-logs: Логи выполнения задания
         switch_operations: Операции
       dataset:
         create: Создать датасет
@@ -8032,6 +8037,7 @@ default:
             label_managed-opensearch: Managed Service for&nbsp;OpenSearch
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
             label_managed-redis: Yandex Managed Service for&nbsp;Valkey™
+            label_managed-spark: Managed Service for Apache Spark
             label_managed-trino: Managed Service for&nbsp;Trino
             label_mdb: Managed Databases
             label_message-queue: Message Queue
@@ -9283,6 +9289,11 @@ default:
         value_config-standard: Стандартный
         value_pre-check-checkbox: Чекбокс
         value_pre-check-slider: Слайдер
+      spark:
+        jobs:
+          create_action: Создать задание
+          popup-action_label_cancel-msg: Отменить задание
+        label_history-server: History Server
       speechkit:
         help-speech-synthesis:
           context_pauses-title: Паузы
@@ -11034,11 +11045,13 @@ default:
       connections:
         add-key: Добавить ключ
         column:
+          description: Описание
           name: Название в системе
         connection: Подключение
         connection-name: Название подключения
         connections: Подключения
         create-connection-key-value: Создать подключение
+        edit-connection-key-value: Редактировать подключение
         fields:
           client: Клиент
           metadata: Общие метаданные

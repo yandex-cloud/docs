@@ -35,6 +35,7 @@ description: Страница содержит все инструкции дл�
 ## Подключения {#connection}
 
 * [{#T}](connection/create.md)
+* [{#T}](connection/edit.md)
 
 ## Проекты {#project}
 

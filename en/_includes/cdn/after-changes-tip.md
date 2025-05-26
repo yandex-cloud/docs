@@ -1,1 +1,1 @@
-It may take up to 15 minutes for the new settings of the existing resource to apply to CDN servers. After that, we recommend [purging the resource cache](../../cdn/operations/resources/purge-cache.md).
+It may take up to 15 minutes for the new settings of the existing resource to apply to the CDN servers. After that, we recommend [purging the resource cache](../../cdn/operations/resources/purge-cache.md).

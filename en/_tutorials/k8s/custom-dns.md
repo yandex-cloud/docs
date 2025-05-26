@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for each VM (cluster nodes, DNS server, VM for the {{ managed-k8s-name }} cluster management without public access): using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for VM public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
@@ -76,7 +76,7 @@ The support cost includes:
 
 ## Configure the DNS server {#setup-dns}
 
-When configuring, it is important to achieve IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers themselves can either reside in [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). In the example below, a DNS server with the `10.129.0.3` address and `ns.example.com` name serves the `example.com` zone.
+When configuring, it is crucial to ensure IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers themselves can either reside in [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). In the example below, a DNS server with the `10.129.0.3` address and `ns.example.com` name serves the `example.com` zone.
 
 ## Specify a corporate DNS zone {#setup-zone}
 
@@ -129,7 +129,7 @@ When configuring, it is important to achieve IP connectivity between the {{ mana
    pod/jessie-dnsutils created
    ```
 
-1. View details of the pod created:
+1. View details of the pod you created:
 
    ```bash
    kubectl describe pod jessie-dnsutils
@@ -162,7 +162,7 @@ Address:  10.129.0.3
 
 {% note info %}
 
-If the corporate DNS zone is unavailable, [make sure](../../managed-kubernetes/operations/connect/security-groups.md) that the security groups for the {{ managed-k8s-name }} cluster and its node groups are configured correctly. If a rule is missing, [add it](../../vpc/operations/security-group-add-rule.md). The rules must allow access to resources from the cluster.
+If the corporate DNS zone is unavailable, [make sure](../../managed-kubernetes/operations/connect/security-groups.md) the security groups for the {{ managed-k8s-name }} cluster and its node groups have correct configurations. If a rule is missing, [add it](../../vpc/operations/security-group-add-rule.md). The rules must allow access to resources from the cluster.
 
 {% endnote %}
 

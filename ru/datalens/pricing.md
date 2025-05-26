@@ -32,7 +32,8 @@ JavaScript-кастомизации в [Editor](./charts/editor/index.md) | ![im
 [Аналитические вычисления и SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Ролевая модель прав доступа](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Аутентификация](./security/add-new-user.md) | Яндекс ID, Яндекс 360 | Яндекс ID, Яндекс 360, корпоративные учетные записи / SSO
-[Отчеты для экспорта и презентаций](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
+[Отчеты для экспорта и презентаций](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
+[Возможность запретить экспорт воркбуков](./workbooks-collections/export-and-import.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
 [Стилизация интерфейса {{ datalens-name }}](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Безопасное встраивание чартов и дашбордов](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Контроль публикаций](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   

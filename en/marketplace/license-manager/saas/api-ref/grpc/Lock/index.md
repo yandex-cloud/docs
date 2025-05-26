@@ -13,4 +13,5 @@ A set of methods for managing subscription locks.
 ||Method | Description ||
 || [Ensure](ensure.md) | Checks if the she specified subscription is already locked to the specified resource. ||
 || [Get](get.md) | Returns the specified subscription lock. ||
+|| [GetByResourceID](getByResourceID.md) | Returns the subscription lock for given resource and subscription. ||
 |#

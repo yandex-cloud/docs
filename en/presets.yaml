@@ -40,6 +40,7 @@ default:
   api-host-operation: operation.api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
+  api-host-spark: spark.api.cloud.yandex.net
   api-host-trino: trino.api.cloud.yandex.net
   api-url-prefix: /docs
   art-freetier: 10
@@ -245,7 +246,7 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.29, 1.30, 1.31
+  k8s-versions-rapid: 1.29, 1.30, 1.31, 1.32
   k8s-versions-regular: 1.29, 1.30, 1.31
   k8s-versions-stable: 1.29, 1.30, 1.31
   k8s-vpa: Vertical Pod Autoscaler
@@ -445,6 +446,8 @@ default:
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/en-us
+  msp-full-name: Yandex Managed Service for Apache Spark™
+  msp-name: Managed Service for Apache Spark™
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -455,6 +458,8 @@ default:
   network-load-balancer-name: Network Load Balancer
   network-load-balancer-short-name: Network Load Balancer
   network-name: default
+  neurosupport-full-name: Yandex Neurosupport
+  neurosupport-name: Neurosuppor
   nodejs-cli-ver: nodejs18
   nodejs-full-ver: Node.js 18
   objstorage-full-name: Yandex Object Storage
@@ -7779,6 +7784,7 @@ default:
           field_query-file-uri: Query file uri
           field_script-variables: Script variables
           field_spark-job-type: Spark
+          label_job-logs: Output logs
         switch_operations: Operations
       dataset:
         create: Create dataset
@@ -8022,6 +8028,7 @@ default:
             label_managed-opensearch: Managed Service for&nbsp;OpenSearch
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
             label_managed-redis: Yandex Managed Service for&nbsp;Valkey™
+            label_managed-spark: Managed Service for Apache Spark™
             label_managed-trino: Managed Service for&nbsp;Trino
             label_mdb: Managed Databases
             label_message-queue: Message Queue
@@ -9273,6 +9280,11 @@ default:
         value_config-standard: Standard
         value_pre-check-checkbox: Checkbox
         value_pre-check-slider: Slider
+      spark:
+        jobs:
+          create_action: Create job
+          popup-action_label_cancel-msg: Cancel job
+        label_history-server: History Server
       speechkit:
         help-speech-synthesis:
           context_pauses-title: Pauses
@@ -11026,11 +11038,13 @@ default:
       connections:
         add-key: Add key
         column:
+          description: Description
           name: Name in the system
         connection: Connection
         connection-name: Connection name
         connections: Connections
         create-connection-key-value: Create connection
+        edit-connection-key-value: Edit connection
         fields:
           client: Client
           metadata: Shared metadata

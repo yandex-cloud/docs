@@ -4,7 +4,7 @@ To assign a domain name in {{ dns-name }} to a web server VM:
 1. [Create a web server VM](#create-web-server).
 1. [Create a public DNS zone](#configure-dns).
 1. [Delegate your domain to {{ dns-name }}](#delegate-domain).
-1. [Create a type A resource record](#create-record).
+1. [Create a type `A` resource record](#create-record).
 1. [Test the website](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `webserver-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
@@ -103,11 +103,11 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the security group name, e.g., `webserver-sg`.
-  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the `webserver-network` network you created earlier.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter this name: `webserver-sg`.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `webserver-network`, which you created earlier.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
@@ -199,14 +199,14 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
 
 ## Create a web server VM {#create-web-server}
 
-Before you start, prepare a [keypair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) (a public and a private key) to access your VM over SSH.
+Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) (a public and a private key) to access your VM over SSH.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
@@ -218,20 +218,20 @@ Before you start, prepare a [keypair](../../compute/operations/vm-connect/ssh.md
   1. In the window that opens, find and select [LAMP](/marketplace/products/yc/lamp).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `webserver-subnet-{{ region-id }}-b`, which you created earlier.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `webserver-sg` security group you created earlier.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
 
       * Specify the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field: `yc-user`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) created earlier.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) you created earlier.
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
 
-  Run the following command and specify the security group ID you saved earlier:
+  Run the command while specifying the security group ID you saved at the previous step:
 
   ```bash
   yc compute instance create \
@@ -366,12 +366,12 @@ In your DNS zone, create a [type `A` resource record](../../dns/concepts/resourc
 
   1. In the [management console]({{ link-console-main }}), select your folder.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Select the previously created DNS zone.
+  1. Select the DNS zone you created earlier.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
-  1. Specify the record parameters:
+  1. Specify the record settings:
       1. In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
       1. In the **{{ ui-key.yacloud.common.type }}** field, select the `A` [record type](../../dns/concepts/resource-record.md#rr-types).
-      1. Under **{{ ui-key.yacloud.dns.label_records }}**, specify your web server [public IP address](../../vpc/concepts/address.md#public-addresses).
+      1. Under **{{ ui-key.yacloud.dns.label_records }}**, specify your web server’s [public IP address](../../vpc/concepts/address.md#public-addresses).
 
           You can get your VM IP address either in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or with the `yc compute instance get <VM_name>` CLI command.
 
@@ -390,9 +390,9 @@ In your DNS zone, create a [type `A` resource record](../../dns/concepts/resourc
   Where:
 
   * `--name`: Name of the public DNS zone you created earler.
-  * `--record`: New resource record parameters:
+  * `--record`: Settings for the new resource record:
       * `<domain_name>`: Domain name that must end with a trailing dot, e.g., `example.com.` for the `example.com` domain.
-      * `<VM_IP_address>`: Web server [public IP address](../../vpc/concepts/address.md#public-addresses).
+      * `<VM_IP_address>`: Web server’s [public IP address](../../vpc/concepts/address.md#public-addresses).
 
           You can get your VM IP address either in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or with the `yc compute instance get <VM_name>` CLI command.
 

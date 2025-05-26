@@ -51,6 +51,8 @@ items:
         items:
           - name: Создать подключение
             href: operations/connection/create.md
+          - name: Изменить подключение
+            href: operations/connection/edit.md
       - name: Проекты
         items:
           - name: Создать проект

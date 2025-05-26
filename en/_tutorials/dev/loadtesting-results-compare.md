@@ -1,8 +1,8 @@
 # Comparing load test results
 
-In this use case, you will set up a load testing environment, run the tests, and compare the results of the load tests.
+In this tutorial, you will set up a load testing environment, run the tests, and compare their results.
 
-The use case uses the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md) and a simple web service as the test target.
+The tutorial uses the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md) and a simple web service as the test target.
 
 To perform load testing and compare test results:
 1. [Get your cloud ready](#before-begin).
@@ -10,7 +10,7 @@ To perform load testing and compare test results:
 1. [Prepare a test target](#target-prepare).
 1. [Create an agent](#create-agent).
 1. [Prepare a file with test data](#test-file).
-1. [Run a test](#run-test).
+1. [Run the test](#run-test).
 1. [Run the same test several times](#rerun-test).
 1. [Compare the results](#compare-results).
 
@@ -32,17 +32,17 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 {% include [sa-create](../../_includes/load-testing/sa-create.md) %}
 
-### Configure a network {#network-setup}
+### Configure your network {#network-setup}
 
 [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target and the agent will be placed. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
-1. Set up the test agent's security group:
+1. Configure the test agent security group:
 
    {% include [security-groups-agent](../../_includes/load-testing/security-groups-agent.md) %}
 
-1. Set up the test target's security group:
+1. Configure the test target security group:
 
    {% include [security-groups-target](../../_includes/load-testing/security-groups-target.md) %}
 
@@ -55,7 +55,7 @@ To prepare a test target:
 	1. Specify a username, e.g., `ycuser`.
    1. Specify the `load-target-sg` security group in the network settings.
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH by running:
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH by running this command:
 	```bash
 	ssh ycuser@<VM_public_IP_address>
 	```
@@ -67,7 +67,7 @@ To prepare a test target:
 	nano app.py
 	```
 
-1. Paste the following code into the web service file:
+1. Paste the following code to the web service file:
 	```bash
 	from flask import Flask, make_response
 	from flask_cors import CORS
@@ -100,7 +100,7 @@ To prepare a test target:
 	python3 app.py
 	```
 	
-	The service will expect requests on port 443. Make sure the port is open and configured for HTTPS requests.
+	The service will expect requests on port 443. Make sure the port is open and set up for HTTPS requests.
 
 ## Create a test agent {#create-agent}
 
@@ -108,7 +108,7 @@ To prepare a test target:
 
 ## Prepare a file with test data {#test-file}
 
-1. Generate payloads in [URI](../../load-testing/concepts/payloads/uri.md) format:
+1. Generate test data in [URI](../../load-testing/concepts/payloads/uri.md) format:
    ```text
    [Host: <internal_IP_address_of_test_target>]
    [Connection: Close]
@@ -118,16 +118,16 @@ To prepare a test target:
 
    Please note that the `Connection: Close` header means that each connection will be closed following the request. This mode is heavier on the application and load generator. If you do not want the connections closed, set `Keep-Alive`.
 
-   There are also two requests tagged `index` and `get_test`. The load generator will repeat them within a given [load profile](../../load-testing/concepts/load-profile.md).
+   There are also two requests tagged `index` and `get_test`. The load generator will repeat them alternately within a given [load profile](../../load-testing/concepts/load-profile.md).
 
-1. Save the payloads to a file named `data.uri`.
+1. Save the test data to a file named `data.uri`.
 
-## Run a test {#run-test}
+## Run the test {#run-test}
 
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** parameter, select `agent-008`.
-1. Under **Attached files**, click **Select files** and select the `data.uri` file you saved before.
+1. Under **Attached files**, click **Select files** and select the `data.uri` file you saved earlier.
 1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, select a configuration method: **{{ ui-key.yacloud.load-testing.label_settings-type-form }}** or **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
 1. Depending on the selected method, specify the test parameters:
 
@@ -146,7 +146,7 @@ To prepare a test target:
 
          For most tests, 1,000 to 10,000 [threads](../../load-testing/concepts/testing-stream.md) are enough.
 
-         Using more testing threads requires more resources on the part of the [VM](../../compute/concepts/vm.md) the agent is running on. {{ compute-name }} also has a limit of 50,000 of concurrent connections to a VM.
+         More testing threads require more resources of the [VM](../../compute/concepts/vm.md) the agent is running on. {{ compute-name }} also has a limit of 50,000 of concurrent connections to a VM.
 
          {% endnote %}
 
@@ -176,7 +176,7 @@ To prepare a test target:
          This criterion will stop the test if over 90% of the testing threads are busy for 60 seconds.
 
          As load increases, the system being tested will start to degrade at some point. Subsequent load increases will result in either an increased response time or an increased error rate. To avoid significantly increasing the test time, make sure to set **Autostop** as a termination criterion for these tests.
-      1. Under **Forced test termination time**, specify the time to autostop the test unless it is stopped for other reasons. This parameter value should be slightly greater than the expected test duration.
+      1. Under **Forced test termination time**, specify the time after which the test will autostop, unless it is stopped for other reasons. Set it to be slightly greater than the expected test duration.
       1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the name, description, and number of the test version. This will make the report easier to read.
 
    - {{ ui-key.yacloud.load-testing.label_settings-type-config }}
@@ -222,7 +222,7 @@ To prepare a test target:
             - limit (5m) # Make sure to specify the time limit for the test.
             - quantile(75,100ms,10s) # Stop the test if, within 10 seconds, the 75 percentile
                                        # exceeds 100 milliseconds (within 10 seconds, the time
-                                       #  to process 25% of requests exceeds 100 milliseconds).
+                                       # to process 25% of requests exceeds 100 milliseconds).
             - instances(90%,60s)  # Stop the test if more than 90% of testing threads
                                     # get busy within 60 seconds.
          core: {}
@@ -239,7 +239,7 @@ To prepare a test target:
 
          {% note tip %}
 
-         View a [sample configuration file](../../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
+         Check [this sample configuration file](../../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
 
          {% endnote %}
 

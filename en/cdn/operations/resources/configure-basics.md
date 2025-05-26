@@ -1,11 +1,11 @@
 ---
-title: How to edit the basic settings of a resource in {{ cdn-full-name }}
+title: How to update the basic settings of a resource in {{ cdn-full-name }}
 description: Follow this guide to update the basic resource settings.
 ---
 
-# Editing the basic settings of a resource
+# Updating the basic settings of a resource
 
-To edit the basic settings of a [resource](../../concepts/resource.md):
+To update the basic settings of a [resource](../../concepts/resource.md):
 
 {% list tabs group=instructions %}
 
@@ -46,7 +46,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
           To learn more, see [{#T}](../../concepts/clients-to-servers-tls.md).
 
-      * To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource:
+      * To enable [request redirects](../../concepts/http-rewrite.md) on a CDN resource:
 
           1. Enable **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
           1. In the **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** field, set a rule, e.g., `/(.*) /new-folder/$1`.
@@ -73,7 +73,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -135,7 +135,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
-      To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource, use these parameters:
+      To enable [request redirects](../../concepts/http-rewrite.md) on a CDN resource, use these parameters:
 
       * `--rewrite-body`: Rewrite rule, e.g., `--rewrite-body '/(.*) /new-folder/$1'`.
 
@@ -144,7 +144,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
           {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
 
-      To disable [request redirection](../../concepts/http-rewrite.md) on a CDN resource, use the `--clear-rewrite` parameter.
+      To disable [request redirects](../../concepts/http-rewrite.md) on a CDN resource, use the `--clear-rewrite` parameter.
 
       {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
@@ -182,16 +182,16 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc cdn resource list

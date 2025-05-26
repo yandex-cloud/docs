@@ -115,6 +115,9 @@ links:
   - title: Managed Service for Apache Kafka®
     description: Apache Kafka® cluster management
     href: managed-kafka/
+  - title: Managed Service for Apache Spark™
+    description: Apache Spark™ cluster management
+    href: managed-spark/
   - title: Managed Service for ClickHouse
     description: ClickHouse database management
     href: managed-clickhouse/
@@ -142,6 +145,9 @@ links:
   - title: Managed Service for PostgreSQL
     description: PostgreSQL database management
     href: managed-postgresql/
+  - title: Managed Service for Trino
+    description: Managing the Trino distributed analytical SQL engine
+    href: managed-trino/
   - title: Yandex Managed Service for Valkey™
     description: Valkey™ database management
     href: managed-redis/

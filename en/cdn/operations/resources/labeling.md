@@ -14,11 +14,11 @@ description: Follow this guide to manage CDN resource labels in {{ cdn-name }}.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}** from the list of services.
-  1. In the line with the CDN resource, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. In the CDN resource row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.cdn.label_section-content }}**, find the **{{ ui-key.yacloud_billing.component.label-set.label_labels }}** field.
   1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-  1. Enter a label in `key: value` format. To edit an existing label, enter its key and a new value.
-  1. Click **Enter**.
+  1. Enter a label in `key: value` format. To update an existing label, enter its key and a new value.
+  1. Press **Enter**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -147,7 +147,7 @@ description: Follow this guide to manage CDN resource labels in {{ cdn-name }}.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}** from the list of services.
-  1. In the line with the CDN resource, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. In the CDN resource row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.cdn.label_section-content }}**, find the **{{ ui-key.yacloud_billing.component.label-set.label_labels }}** field.
   1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the label.
   1. Click **{{ ui-key.yacloud.common.save }}**.

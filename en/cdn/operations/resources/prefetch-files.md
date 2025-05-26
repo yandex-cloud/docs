@@ -17,9 +17,9 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-  1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and choose **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
   1. Enter the file names in the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field.
 
@@ -31,7 +31,7 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -84,7 +84,7 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
         status: READY
       ```
 
-  1. Specify the paths to the files you would like to prefetch as a comma-separated list with no spaces:
+  1. Specify the paths to the files you want to prefetch as a comma-separated list with no spaces:
 
       ```bash
       yc cdn cache prefetch --resource-id <resource_ID> \

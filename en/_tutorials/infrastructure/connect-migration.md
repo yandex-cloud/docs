@@ -8,7 +8,7 @@ To migrate DNS zones from Yandex 360 to {{ dns-full-name }}:
 
 ## Delegate the domain name {#domain-delegate}
 
-Before transferring DNS zones to {{ dns-full-name }} control, you need to delegate your domain to {{ yandex-cloud }} servers. To do this, specify the addresses of {{ yandex-cloud }} name servers in the `NS` records of your registrar:
+Before transferring DNS zones to {{ dns-full-name }}, you need to delegate your domain to {{ yandex-cloud }} servers. To do this, specify the addresses of the {{ yandex-cloud }} name servers in the `NS` records of your registrar:
 
 * `ns1.{{ dns-ns-host-sld }}.`
 * `ns2.{{ dns-ns-host-sld }}.`
@@ -24,10 +24,10 @@ Before that, create a [public DNS zone](../../dns/operations/zone-create-public.
 - A, AAAA, CNAME, NS
 
   1. [Create a new record](../../dns/operations/resource-record-create.md) of the appropriate type.
-  1. In the **{{ ui-key.yacloud.dns.label_records }}** field, enter the value of the Yandex 360 record to be transferred in the original format.
+  1. In the **{{ ui-key.yacloud.dns.label_records }}** field, enter the value of the Yandex 360 record to transfer in the original format.
   1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, enter the value of the TTL parameter from Yandex 360.
 
-  Example:
+  For example:
 
   Yandex 360 | {{ dns-name }}
   --- | ---
@@ -36,10 +36,10 @@ Before that, create a [public DNS zone](../../dns/operations/zone-create-public.
 - MX
 
   1. [Create a new MX record](../../dns/operations/resource-record-create.md).
-  1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the parameters of the Yandex 360 MX record for transfer in `<priority> <record value>` format.
+  1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the propeties of the Yandex 360 MX record for transfer in this format: `<priority> <record value>`.
   1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, enter the value of the TTL parameter from Yandex 360.
 
-  Example:
+  For example:
   
   Yandex 360 | {{ dns-name }}
   --- | ---
@@ -48,7 +48,7 @@ Before that, create a [public DNS zone](../../dns/operations/zone-create-public.
 - TXT
   
   1. [Create a new TXT record](../../dns/operations/resource-record-create.md).
-  1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the parameters of the Yandex 360 TXT record for transfer in `"<record_value>"` format.
+  1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the properties of the Yandex 360 TXT record for transfer in this format: `"<record_value>"`.
 
       {% note warning %}
 
@@ -58,7 +58,7 @@ Before that, create a [public DNS zone](../../dns/operations/zone-create-public.
 
   1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, enter the value of the TTL parameter from Yandex 360.
 
-  Example:
+  For example:
 
   Yandex 360 | {{ dns-name }}
   --- | ---
@@ -71,7 +71,7 @@ Before that, create a [public DNS zone](../../dns/operations/zone-create-public.
   1. In the **{{ ui-key.yacloud.dns.label_records }}** field, enter the characters you copied.
   1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, enter the value of the TTL parameter from Yandex 360.
 
-  Example:
+  For example:
 
   Yandex 360 | {{ dns-name }}
   --- | ---
@@ -81,4 +81,4 @@ Before that, create a [public DNS zone](../../dns/operations/zone-create-public.
 
 Wait for the changes to take effect. It may take the DNS servers up to 72 hours to exchange data about new DNS records on the internet.
 
-For more information about the types of resource records supported by the service, see [{#T}](../../dns/concepts/resource-record.md).
+For more information about the types of resource records the service supports, see [this article](../../dns/concepts/resource-record.md).

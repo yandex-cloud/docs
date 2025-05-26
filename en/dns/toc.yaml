@@ -27,7 +27,7 @@ items:
             href: operations/zone-list.md
           - name: Getting information about a DNS zone
             href: operations/zone-get-info.md
-          - name: DNS zone monitoring
+          - name: Monitoring DNS zones
             href: operations/monitoring.md
       - name: Records
         items:
@@ -59,11 +59,11 @@ items:
         href: tutorials/connect-migration.md
       - name: Integrating with a corporate DNS service
         href: tutorials/dns-integration.md
-      - name: Integrating {{ managed-k8s-name }} into a corporate DNS zone
+      - name: Integrating {{ managed-k8s-name }} with a corporate DNS zone
         href: tutorials/custom-dns.md
       - name: >-
-          Configuring {{ dns-name }} for access to managed database clusters
-          from other cloud networks
+          Configuring {{ dns-name }} to access managed database clusters from
+          other cloud networks
         href: tutorials/mdb-dns-peering.md
       - name: Creating an ACME resolver webhook for responses to DNS01 checks
         href: tutorials/cert-manager-webhook.md
@@ -149,7 +149,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

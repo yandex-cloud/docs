@@ -63,6 +63,8 @@ items:
             href: tutorials/data-processing-automation.md
           - name: '{{ yq-full-name }}: автоматизация задач'
             href: tutorials/airflow-auto-tasks.md
+          - name: '{{ msp-name }}: автоматизация работы'
+            href: tutorials/spark-automation.md
       - name: Другие руководства
         items:
           - name: >-

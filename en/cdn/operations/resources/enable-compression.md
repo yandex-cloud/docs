@@ -9,7 +9,7 @@ To enable [compression](../../concepts/compression.md) of [resource](../../conce
 
 {% note info %}
 
-Before delivery, the content will be compressed by CDN servers using the GZIP compression algorithm. This format is also used to send content to clients in the case of the `Content-Encoding` HTTP header. Only uncompressed content is requested from origins.
+Before delivery, CDN servers will compress the content using the GZIP algorithm. Clients receive content in the same format with the `Content-Encoding` HTTP header. Only uncompressed content is requested from origins.
 
 {% endnote %}
 
@@ -23,7 +23,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
@@ -37,7 +37,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -102,7 +102,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the CDN resource to create:
+  1. In the configuration file, describe the properties of the CDN resource to create:
 
       ```hcl
       terraform {
@@ -143,7 +143,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
       * The `options` section contains additional parameters of CDN resources:
          * `gzip_on`: Flag indicating whether compression will be used.
 
-      For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -163,16 +163,16 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc cdn resource list
