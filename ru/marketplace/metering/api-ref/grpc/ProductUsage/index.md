@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/marketplace/metering/v1/metering/api-ref/grpc/Produ
 
 # Marketplace Metering API, gRPC: ProductUsageService
 
+A set of methods for managing product's usage with product instances.
+
 ## Methods
 
 #|

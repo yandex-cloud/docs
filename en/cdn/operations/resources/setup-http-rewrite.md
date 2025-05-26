@@ -5,7 +5,7 @@ description: Follow this guide to configure redirection of requests from a CDN r
 
 # Configuring request redirection
 
-With [request redirection](../../concepts/http-rewrite.md), you can reconfigure paths of requests to your content. This can be useful when restructuring files and folders on an [origin](../../concepts/origins.md). You can also use redirection if you want to keep search engine rankings of your content when moving your resource to a new address.
+With [request redirection](../../concepts/http-rewrite.md), you can reconfigure paths of requests to your content. This can be useful when rearranging files and folders on an [origin](../../concepts/origins.md). You can also use redirection if you want to keep search engine rankings of your content when moving your resource to a new address.
 
 To enable request redirection on a CDN resource:
 
@@ -39,7 +39,7 @@ To enable request redirection on a CDN resource:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help

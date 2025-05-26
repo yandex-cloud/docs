@@ -1,0 +1,90 @@
+title: '{{ msp-full-name }}'
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Кластеры
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Задания (jobs)
+        items:
+          - name: Задания Spark
+            href: operations/jobs-spark.md
+          - name: Задания PySpark
+            href: operations/jobs-pyspark.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Автоматизация работы с помощью {{ maf-full-name }}
+        href: tutorials/airflow-automation.md
+  - name: Квоты и лимиты
+    href: concepts/limits.md
+  - name: Управление доступом
+    href: security.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник Terraform
+    href: tf-ref.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+          - name: Job
+            items:
+              - name: Overview
+                href: api-ref/grpc/Job/index.md
+              - name: List
+                href: api-ref/grpc/Job/list.md
+              - name: Create
+                href: api-ref/grpc/Job/create.md
+              - name: Get
+                href: api-ref/grpc/Job/get.md
+              - name: ListLog
+                href: api-ref/grpc/Job/listLog.md
+              - name: Cancel
+                href: api-ref/grpc/Job/cancel.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+  - name: История изменений
+    href: release-notes.md

@@ -99,6 +99,8 @@ description: Вычисляемое поле — это дополнительн
 
   ![chart-calculated-field](../../../_assets/datalens/concepts/chart-calculated-field.png)
 
+  Также вы можете [продублировать](../../dataset/create-dataset.md#dublicate-fields) любое поле датасета, в том числе вычисляемое поле, которое вы создали ранее.
+
 {% endlist %}
 
 #### См. также {#see-also}

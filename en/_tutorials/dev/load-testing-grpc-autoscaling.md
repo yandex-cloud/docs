@@ -1,7 +1,7 @@
 # Deploying and load testing a gRPC service with scaling in {{ managed-k8s-full-name }}
 
 
-Use this tutorial to deploy an autoscalable [gRPC](https://grpc.io/docs/) service in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
+Follow this tutorial to deploy an autoscaling [gRPC](https://grpc.io/docs/) service in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
 
 To deploy the service and perform load testing:
 
@@ -45,7 +45,7 @@ The infrastructure support costs include:
 
 ## Prepare a test target {#prepare-target}
 
-This instruction will use a gRPC service as a test target.
+This tutorial will use a gRPC service as a test target.
 
 1. Save the following specification to create an application in the `grpc-server.yaml` file:
 
@@ -120,7 +120,7 @@ This instruction will use a gRPC service as a test target.
 
    {% note info %}
 
-   For the example.com domain, the zone must be named `example.com.` (with a dot at the end).
+   For the `example.com` domain, the zone must be named `example.com.` (with a trailing dot).
 
    {% endnote %}
 
@@ -170,13 +170,13 @@ This instruction will use a gRPC service as a test target.
    Where:
 
    * `ingress.alb.yc.io/subnets`: List of comma-separated [subnet](../../vpc/concepts/network.md#subnet) IDs.
-   * `ingress.alb.yc.io/external-ipv4-address`: Providing public online access to {{ alb-name }}.
+   * `ingress.alb.yc.io/external-ipv4-address`: Providing public access to {{ alb-name }} from the internet.
 
      If set to `auto`, the Ingress controller will get a [public IP address](../../vpc/concepts/address.md#public-addresses) automatically. Deleting the Ingress controller also deletes the IP address from the cloud.
 
-   * `ingress.alb.yc.io/security-groups`: ID of the security group you created when [preparing your cloud](#before-you-begin). If security groups are not enabled in your cloud, delete this annotation.
+   * `ingress.alb.yc.io/security-groups`: ID of the security group you created when [getting your cloud ready](#before-you-begin). If security groups are not enabled in your cloud, delete this annotation.
    * `secretName`: Reference to a [TLS certificate](../../certificate-manager/concepts/index.md) from [{{ certificate-manager-full-name }}](../../certificate-manager/) in `yc-certmgr-cert-id-<certificate_ID>` format.
-   * `hosts`, `host`: Domain name the TLS certificate corresponds to.
+   * `hosts`, `host`: Domain name mapping the TLS certificate.
 
    For more information, see [Ingress fields and annotations](../../managed-kubernetes/alb-ref/ingress.md).
 
@@ -186,7 +186,7 @@ This instruction will use a gRPC service as a test target.
    kubectl apply -f ingress.yaml
    ```
 
-1. Check that the resource was created and given a public IP address:
+1. Check that the resource was created and got a public IP address:
 
    ```bash
    kubectl get ingress grpc-demo
@@ -201,12 +201,12 @@ This instruction will use a gRPC service as a test target.
 
    Where:
 
-   * `<website_name>`: Domain name the TLS certificate corresponds to.
+   * `<website_name>`: Domain name mapping the TLS certificate.
    * `<IP_address>`: IP address of the website.
 
-   The IP address should appear in the `ADDRESS` column. If it did not, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod).
+   The IP address should appear in the `ADDRESS` column. Otherwise, the load balancer was not created or it was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod).
 
-1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a-a) in {{ dns-name }} stating the load balancer's public IP. If you are using ExternalDNS with a plugin for {{ dns-name }}, this record will be created automatically.
+1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a-a) in {{ dns-name }} pointing to the load balancer's public IP address. If you are using ExternalDNS with a plugin for {{ dns-name }}, this record will be created automatically.
 
 
 ## Configure horizontal pod autoscaling {#configure-autoscaling}
@@ -265,14 +265,14 @@ This instruction will use a gRPC service as a test target.
 
 1. Create a service account:
 
-   1. [Create](../../iam/operations/sa/create.md) a service account named `sa-loadtest` in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) that will host the [agent](../../load-testing/concepts/agent.md) to supply the [load](../../load-testing/concepts/index.md).
+   1. [Create](../../iam/operations/sa/create.md) a service account named `sa-loadtest` in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) that will host the [agent](../../load-testing/concepts/agent.md) to generate the [load](../../load-testing/concepts/index.md).
    1. [Assign](../../iam/operations/roles/grant.md) [roles](../../iam/concepts/access-control/roles.md) to the service account:
 
       * `loadtesting.generatorClient`: Enables you to run agents and tests on agents and upload test results to the storage.
       * `compute.admin`: Enables you to manage a [VM](../../compute/concepts/vm.md) in [{{ compute-full-name }}](../../compute/).
       * `vpc.user`: Enables you to connect to [{{ vpc-full-name }}](../../vpc/) network resources and use them.
 
-1. [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access [{{ load-testing-full-name }}](../../load-testing/).
+1. [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet hosting your test target and where the agent will reside. This will enable the agent to access [{{ load-testing-full-name }}](../../load-testing/).
 1. [Create](../../load-testing/tutorials/loadtesting-grpc.md#create-agent) a test agent.
 1. Prepare a file with [test data](../../load-testing/concepts/payload.md) named `ammo.json`:
 
@@ -330,10 +330,10 @@ This instruction will use a gRPC service as a test target.
      api_address: loadtesting.{{ api-host }}:443
    ```
 
-1. [Run a test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
+1. [Run the test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
    * Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and select the previously saved `ammo.json` file.
-   * Under **{{ ui-key.yacloud.load-testing.label_test-settings }}** settings:
+   * Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
 
      * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select `{{ ui-key.yacloud.load-testing.label_settings-type-config }}`.
      * In the **{{ ui-key.yacloud.load-testing.field_config-file }}** field, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and upload the `load.yaml` file you prepared.
@@ -343,11 +343,11 @@ This instruction will use a gRPC service as a test target.
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Select your {{ managed-k8s-name }} test cluster.
    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
-   1. Monitor the change in the number of application pods as the load increases and decreases.
+   1. Monitor the changes in the number of application pods as the load increases and decreases.
    1. After the test is complete, in the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Select the created L7 load balancer.
    1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
-   1. View the test load chart.
+   1. View the test load charts.
 
 ## How to delete the resources you created {#clear-out}
 

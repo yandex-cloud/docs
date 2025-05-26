@@ -1,19 +1,19 @@
 ---
 title: Setting up access via a secure token
-description: Follow this guide to set up access to a {{ cdn-name }} resource content based on time and IP address using a secure token.
+description: Follow this guide to set up access to {{ cdn-name }} resource content based on time and IP address using a secure token.
 ---
 
 # Setting up access via a secure token
 
-Using [secure tokens](../../concepts/secure-tokens.md), you can restrict access to [CDN resource](../../concepts/resource.md) files. Files will be accessed via [signed URLs](../../concepts/secure-tokens.md#protected-link) with the limited validity period.
+Using [secure tokens](../../concepts/secure-tokens.md), you can restrict access to [CDN resource](../../concepts/resource.md) files to only via [pre-signed URLs](../../concepts/secure-tokens.md#protected-link) with the limited validity period.
 
 You can also use secure tokens to specify a trusted [IP address](../../../vpc/concepts/address.md) to access a CDN resource from.
 
 ### Enabling access {#enable-secure-token}
 
 To enable access via a secure token:
-1. Come up with a secret key that is an arbitrary string of 6 to 32 characters. It will be saved in the CDN resource settings and used to generate signed URLs.
-1. On your website, set up [generation](../../concepts/secure-tokens.md#link-generation-code) of signed URLs with secure tokens.
+1. Come up with a secret key that is a string of 6 to 32 characters. It will be saved in the CDN resource settings for generating pre-signed URLs.
+1. On your website, set up [generation](../../concepts/secure-tokens.md#link-generation-code) of pre-signed URLs with secure tokens.
 1. Enable access to the CDN resource via a secure token:
 
    {% list tabs group=instructions %}
@@ -36,7 +36,7 @@ To enable access via a secure token:
 
      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-     1. View the description of the [CLI](../../../cli/) update resource command:
+     1. View the description of the [CLI](../../../cli/) command to update a resource:
 
         ```bash
         yc cdn resource update --help
@@ -101,8 +101,8 @@ To enable access via a secure token:
 
         Where:
         * `--id`: ID of the CDN resource you want to enable access for via a secure token.
-        * `--secure-key`: Previously created secret key.
-        * `--enable-ip-url-signing` (optional): Parameter that restricts access to the CDN resource by IP address. The trusted IP address itself is provided outside the CDN resource and specified as a parameter when generating an [MD5](https://{{ lang }}.wikipedia.org/wiki/MD5) hash for a signed URL. If the parameter is not set, file access will be allowed from any IP address.
+        * `--secure-key`: Secret key you created.
+        * `--enable-ip-url-signing`: Optional parameter that restricts access to the CDN resource by IP address. The trusted IP address itself is provided outside the CDN resource and specified as a parameter when generating an [MD5](https://{{ lang }}.wikipedia.org/wiki/MD5) hash for a pre-signed URL. If the parameter is not set, file access will be allowed from any IP address.
 
    - {{ TF }} {#tf}
 
@@ -122,10 +122,10 @@ To enable access via a secure token:
         ```
 
         Where:
-        * `secure_key`: Previously created secret key.
-        * `enable_ip_url_signing`: Optional parameter, `true` or `false`. It restricts access to the CDN resource by IP address. The trusted IP address itself is provided outside the CDN resource and specified as a parameter when generating an [MD5](https://{{ lang }}.wikipedia.org/wiki/MD5) hash for a signed URL. If the parameter is not set, file access will be allowed from any IP address.
+        * `secure_key`: Secret key you created.
+        * `enable_ip_url_signing`: Optional parameter, `true` or `false`. It restricts access to the CDN resource by IP address. The trusted IP address itself is provided outside the CDN resource and specified as a parameter when generating an [MD5](https://{{ lang }}.wikipedia.org/wiki/MD5) hash for a pre-signed URL. If the parameter is not set, file access will be allowed from any IP address.
 
-        For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+        For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
      1. Apply the changes:
 
         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -158,7 +158,7 @@ To disable access to a CDN resource via a secure token:
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click the resource name.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**.
+  1. Disable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -177,7 +177,7 @@ To disable access to a CDN resource via a secure token:
 
 - {{ TF }} {#tf}
 
-  1. Open the {{ TF }} configuration file and delete the `secure_key` and `enable_ip_url_signing` parameters from the section with the CDN resource description:
+  1. Open the {{ TF }} configuration file and delete the `secure_key` and `enable_ip_url_signing` properties from the section with the CDN resource description:
 
      ```hcl
      resource "yandex_cdn_resource" "my_resource" {
@@ -190,7 +190,7 @@ To disable access to a CDN resource via a secure token:
      }
      ```
 
-     For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+     For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

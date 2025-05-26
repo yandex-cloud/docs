@@ -16,10 +16,10 @@ To create a [resource](../../concepts/resource.md):
   1. {% include [activate-provider](../../../_includes/cdn/activate-provider.md) %}
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Under **{{ ui-key.yacloud.cdn.label_section-content }}**, select the **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` or `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`:
-     * When requesting content `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`, select an **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Specify an [origin](../../concepts/origins.md).
-     * When requesting content from an `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`, select an [origin group](../../concepts/origins.md#groups) or create a new one:
+     * When requesting content `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`, select the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Specify an [origin](../../concepts/origins.md).
+     * When requesting content `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`, select an [origin group](../../concepts/origins.md#groups) or create a new one:
         * Click **{{ ui-key.yacloud.common.create }}**.
-        * Enter **{{ ui-key.yacloud.cdn.field_group-name }}**.
+        * Specify **{{ ui-key.yacloud.cdn.field_group-name }}**.
         * Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
            * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
            * Specify an origin.
@@ -27,7 +27,7 @@ To create a [resource](../../concepts/resource.md):
         * Add other origins if needed.
         * Click **{{ ui-key.yacloud.common.create }}**. In the **{{ ui-key.yacloud.cdn.label_origins-group }}** field, you will see the name of the created origin group.
 
-     For more information, see [{#T}](../../concepts/origins.md).
+     To learn more, see [{#T}](../../concepts/origins.md).
 
   1. Add [labels](../../concepts/labels.md), if required:
 
@@ -43,7 +43,7 @@ To create a [resource](../../concepts/resource.md):
 
      {% endnote %}
 
-     In the settings of your DNS hosting, create [CNAME records](../../../dns/concepts/resource-record.md#cname) for the specified domain names using the value displayed at the bottom of the **{{ ui-key.yacloud.cdn.label_section-domain }}** section. For more information, see [{#T}](../../concepts/resource.md#hostnames).
+     In the settings of your DNS hosting, create [CNAME records](../../../dns/concepts/resource-record.md#cname) for the specified domain names using the value displayed at the bottom of the **{{ ui-key.yacloud.cdn.label_section-domain }}** section. To learn more, see [{#T}](../../concepts/resource.md#hostnames).
   1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
      1. Select **{{ ui-key.yacloud.cdn.label_protocol }}**.
      1. Select a client redirect method: `{{ ui-key.yacloud.cdn.value_do-not-use }}` or `{{ ui-key.yacloud.cdn.value_redirect-https-to-http }}`.
@@ -60,9 +60,9 @@ To create a [resource](../../concepts/resource.md):
 
            {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
-         For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
-     1. Select the **{{ ui-key.yacloud.cdn.label_host-header }}** value (`{{ ui-key.yacloud.cdn.value_host-header-default }}` or `{{ ui-key.yacloud.cdn.value_host-header-resend }}`) or choose `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and enter the **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. For more information, see [{#T}](../../concepts/servers-to-origins-host.md).
-     1. To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource:
+         To learn more, see [{#T}](../../concepts/clients-to-servers-tls.md).
+     1. Select the **{{ ui-key.yacloud.cdn.label_host-header }}** value (`{{ ui-key.yacloud.cdn.value_host-header-default }}` or `{{ ui-key.yacloud.cdn.value_host-header-resend }}`) or choose `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and enter the **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. To learn more, see [{#T}](../../concepts/servers-to-origins-host.md).
+     1. To enable [request redirects](../../concepts/http-rewrite.md) on a CDN resource:
 
          1. Enable **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
          1. In the **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** field, set a rule, e.g., `/(.*) /new-folder/$1`.
@@ -77,7 +77,7 @@ To create a [resource](../../concepts/resource.md):
 
           {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
 
-        For more information, see [{#T}](enable-secure-token.md).
+        To learn more, see [{#T}](enable-secure-token.md).
 
      1. {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
 
@@ -95,7 +95,7 @@ To create a [resource](../../concepts/resource.md):
      yc cdn provider activate --type gcore
      ```
 
-  1. View the description of the [CLI](../../../cli/) create resource command:
+  1. View the description of the [CLI](../../../cli/) command to create a resource:
 
      ```bash
      yc cdn resource create --help
@@ -149,11 +149,11 @@ To create a [resource](../../concepts/resource.md):
      ```
 
      * Instead of `--origin-group-id`, you can specify the [origin](../../concepts/origins.md) domain name using the `--origin-custom-source` flag.
-     * Possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
+     * The possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
 
      {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
-     To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource, use these parameters:
+     To enable [request redirects](../../concepts/http-rewrite.md) on a CDN resource, use these parameters:
 
      * `--rewrite-body`: Rewrite rule, e.g., `--rewrite-body '/(.*) /new-folder/$1'`.
 
@@ -201,7 +201,7 @@ To create a [resource](../../concepts/resource.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the CDN resource to create:
+  1. In the configuration file, describe the properties of the CDN resource to create:
 
      {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
 
@@ -209,7 +209,7 @@ To create a [resource](../../concepts/resource.md):
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this CLI command:
+     {{ TF }} will create all required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this CLI command:
 
      ```bash
      yc cdn resource list

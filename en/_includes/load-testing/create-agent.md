@@ -2,24 +2,24 @@
 
 
 1. If you do not have an SSH key pair yet, [create one](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-1. Create an agent.
+1. Create an agent:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create the [agent](../../load-testing/concepts/agent.md).
-     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
      1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
      1. Enter a name for the agent, e.g., `agent-008`.
-     1. Specify the same [availability zone](../../overview/concepts/geo-scope.md) where the test target is located.
+     1. Specify the same [availability zone](../../overview/concepts/geo-scope.md) as the one hosting your test target.
      1. Under **{{ ui-key.yacloud.load-testing.section_agent }}**:
         * Select the appropriate agent type. For more information, see [Agent performance](../../load-testing/concepts/agent.md#benchmark).
-        * Specify the [subnet](../../vpc/concepts/network.md#subnet) where the test target is located. Make sure you created and [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet.
-        * If [security groups](../../vpc/concepts/security-groups.md) are available to you, select a security group preset for the agent.
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the agent:
+        * Specify the [subnet](../../vpc/concepts/network.md#subnet) hosting your test target. Make sure you created and [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) in that subnet.
+        * If you have access to [security groups](../../vpc/concepts/security-groups.md), select a preset agent security group.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the agent access credentials:
         * Select the `sa-loadtest` [service account](../../iam/concepts/users/service-accounts.md).
-        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username.
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
 
           {% note alert %}
 
@@ -29,13 +29,13 @@
               
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
      1. Click **{{ ui-key.yacloud.common.create }}**.
-     1. Wait for the [VM](../../compute/concepts/vm.md) instance to create. Make sure the agent status has changed to `Ready for test`.
+     1. Wait for the [VM](../../compute/concepts/vm.md) to create. Make sure the agent status has changed to `Ready for test`.
 
         {% note info %}
 
         If the agent creation process has stopped at `Initializing connection`, make sure the following conditions are met:
         * The agent has a [public IP address](../../vpc/concepts/address.md#public-addresses) and [access](../../load-testing/operations/security-groups-agent.md) to `loadtesting.{{ api-host }}:443`.
-        * A NAT gateway is set up in the target subnet.
+        * The target subnet has a configured NAT gateway.
         * The service account assigned to the agent has the required [roles](../../load-testing/operations/create-agent.md#infrastructure-prepare).
 
         {% endnote %}
@@ -52,9 +52,9 @@
         yc loadtesting agent create --help
         ```
 
-     1. Select the same [availability zone](../../overview/concepts/geo-scope.md) where the test target is located.
+     1. Select the same [availability zone](../../overview/concepts/geo-scope.md) as the one hosting your test target.
 
-     1. Select the [subnet](../../vpc/concepts/network.md#subnet) where the test target is located. Make sure you [created and set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet.
+     1. Select the [subnet](../../vpc/concepts/network.md#subnet) hosting your test target. Make sure you [created and set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) in that subnet.
    
         To get a list of available subnets using the CLI, run this command:
       
@@ -95,7 +95,7 @@
         +----------------------+---------------------------------+--------------------------------+----------------------+
         ```
 
-     1. Find out the `sa-loadtest` [service account](../../iam/concepts/users/service-accounts.md) ID using its name:
+     1. Get the ID of `sa-loadtest` [service account](../../iam/concepts/users/service-accounts.md), specifying its name:
 
         ```bash
         yc iam service-account get sa-loadtest
@@ -137,22 +137,22 @@
         * `--service-account-id`: Service account ID.
         * `--metadata-from-file`: `<key>=<value>` pair with the name of the file containing the public SSH key path. For an example of the `metadata.yaml` configuration file, see [VM metadata](../../compute/concepts/vm-metadata.md#how-to-send-metadata).
 
-        For more information on how to create an agent with CLI, see the [Yandex Cloud Examples repository](https://github.com/yandex-cloud-examples/yc-load-testing-create-agent).
+        For more information on how to create an agent with the CLI, see the [Yandex Cloud Examples repository](https://github.com/yandex-cloud-examples/yc-load-testing-create-agent).
 
    {% endlist %}
 
-1. Assign a public IP to the agent to enable access over SSH:
+1. Assign a public IP address to your agent to enable access over SSH:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where the agent is located.
+     1. In the [management console]({{ link-console-main }}), select the folder with the agent.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. Select the VM named `agent-008`.
+     1. Select the `agent-008` VM.
      1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, in the top-right corner, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
      1. In the window that opens:
-        * In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select obtaining a **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}** address.
+        * In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}**.
         * Click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
    - CLI {#cli}
@@ -167,13 +167,13 @@
      ```
    
      Where:
-     * `--id`: VM ID. You can get a list of available VM IDs in a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) using the `yc compute instance list` [CLI command](../../cli/cli-ref/compute/cli-ref/instance/list.md).
-     * `--network-interface-index`: VM network interface number. The default value is `0`. To get a list of VM network interfaces and their numbers, run the following command: `yc compute instance get <VM_ID>`.
-     * `--nat-address`: Public IP address to assign to the VM. This is an optional parameter. If you omit it, a public IP address will be assigned to the VM automatically.
+     * `--id`: VM ID. You can get a list of available VM IDs in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) using the `yc compute instance list` [CLI command](../../cli/cli-ref/compute/cli-ref/instance/list.md).
+     * `--network-interface-index`: VM network interface number. The default value is `0`. To get a list of VM network interfaces and their numbers, run `yc compute instance get <VM_ID>`.
+     * `--nat-address`: Public IP address to assign to the VM. This is an optional setting. If you skip it, the VM will get a public IP address automatically.
    
-       You can get a list of reserved public IP addresses available in a folder using the `yc vpc address list` [CLI command](../../cli/cli-ref/vpc/cli-ref/address/list.md). The IP address and the VM must be in the same availability zone.
+       You can get a list of reserved public IP addresses available in the folder using the `yc vpc address list` [CLI command](../../cli/cli-ref/vpc/cli-ref/address/list.md). The IP address and the VM must be in the same availability zone.
    
-     Usage example:
+     Here is a possible use case:
    
      ```bash
      yc compute instance add-one-to-one-nat \

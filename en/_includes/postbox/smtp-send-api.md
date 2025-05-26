@@ -4,7 +4,7 @@
     || | **Email client supports STARTTLS** | **Email client supports SMTPS instead of STARTTLS** ||
     || **Server name** | `{{ postbox-host }}` {.cell-align-center} | > ||
     || **Port** | `587` | `465` ||
-    || **Username** | `API_KEY` {.cell-align-center} | > ||
+    || **Username** | ID of the created API key {.cell-align-center} | > ||
     || **Password** | Secret part of the created API key {.cell-align-center} | > ||
     |#
 

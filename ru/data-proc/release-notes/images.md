@@ -33,8 +33,8 @@
 ### 2.1.21 {#2-1-21}
 * Добавлена возможность устанавливать переменные окружения:
 
-    * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`
-    * `HADOOP_HEAPSIZE` для сервиса `hive`
+    * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`.
+    * `HADOOP_HEAPSIZE` для сервиса `hive`.
 
 ### 2.1.19 {#2-1-19}
 * Исправлена ошибка с тем, что свойство `dataproc:nodemanager_available_memory_ratio` не влияло на долю памяти, резервируемую для YARN NodeManager.
@@ -84,8 +84,8 @@
 ### 2.0.80 {#2-0-80}
 * Добавлена возможность устанавливать переменные окружения:
 
-    * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`
-    * `HADOOP_HEAPSIZE` для сервиса `hive`
+    * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`.
+    * `HADOOP_HEAPSIZE` для сервиса `hive`.
 
 ### 2.0.78 {#2-0-78}
 * Исправлена ошибка с тем, что свойство `dataproc:nodemanager_available_memory_ratio` не влияло на долю памяти, резервируемую для YARN NodeManager.

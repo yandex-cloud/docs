@@ -5,6 +5,8 @@ sourcePath: en/_api-ref/marketplace/metering/v1/metering/api-ref/ProductUsage/in
 
 # Marketplace Metering API, REST: ProductUsage
 
+A set of methods for managing product's usage with product instances.
+
 ## Methods
 
 #|

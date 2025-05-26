@@ -18,11 +18,11 @@ While deploying this {{ yandex-cloud }} infrastructure, you will create the foll
 | `nat-group` | Load balancer target group of NAT instances |
 | `s3-nlb` | {{ objstorage-name }} internal NLB accepting TCP traffic on port 443 and distributing it across its target group instances |
 | `nat-a1-vm`, `nat-b1-vm` | NAT instances residing in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones for routing traffic to and from {{ container-registry-name }} and {{ objstorage-name }} with translation of IP addresses of traffic sources and targets | 
-| `pub-ip-a1`, `pub-ip-b1` | VM public IP addresses mapped by the VPC cloud network from their internal IP addresses | 
+| `pub-ip-a1`, `pub-ip-b1` | VM public IP addresses mapped by the VPC network from their internal IP addresses | 
 | `DNS zones and A records` | `{{ s3-storage-host }}.` and `{{ registry }}.` internal DNS zones in the `cr-vpc` network with `A` resource records mapping domain names to IP addresses of internal network load balancers |
 | `test-registry` | Test registry in {{ container-registry-name }} |
 | `container-registry-<registry_ID>` | Name of the {{ objstorage-name }} bucket for storing Docker images, automatically created by {{ container-registry-name }} for `<registry_ID>` |
-| `cr-subnet-a`, `cr-subnet-b` | Cloud subnets to host the NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` zones |
+| `cr-subnet-a`, `cr-subnet-b` | Cloud subnets to host NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` zones |
 | `test-cr-vm` | VM used to test access to {{ container-registry-name }} |
 | `test-cr-subnet-a` | Cloud subnet to host the test VM |
 
@@ -32,20 +32,20 @@ We will use the following internal DNS zones created in [{{ dns-name }}](../../d
 * `{{ registry }}.` and an `A` resource record mapping the `{{ registry }}` domain name of {{ container-registry-name }} to the IP address of the `cr-nlb` [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md). 
 * `{{ s3-storage-host }}.` and an `A` resource record mapping the `{{ s3-storage-host }}` domain name of {{ objstorage-short-name }} to the IP address of the `s3-nlb` internal network load balancer. 
 
-These records will direct traffic coming from your cloud resources and aimed at {{ container-registry-short-name }} and {{ objstorage-short-name }} to internal load balancers that will in turn distribute it across NAT instances.
+These records will direct traffic coming from your cloud resources and aimed at {{ container-registry-short-name }} and {{ objstorage-short-name }} to internal load balancers that will, in turn, distribute it across NAT instances.
 
 To deploy a NAT instance, use [this image from Marketplace](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts). It translates the source and target IP addresses to ensure traffic routing to the {{ container-registry-short-name }} and {{ objstorage-short-name }} public IP addresses.
 
-By placing the NAT instances in multiple [availability zones](../../overview/concepts/geo-scope), you can ensure fault-tolerant access to {{ container-registry-short-name }}. You can scale the solution for higher workload by adding more NAT instances. Before doing that, consider the [internal NLB traffic processing locality](../../network-load-balancer/concepts/specifics.md#nlb-int-locality). 
+By placing the NAT instances in multiple [availability zones](../../overview/concepts/geo-scope), you can ensure fault-tolerant access to {{ container-registry-short-name }}. You can scale the solution for higher workloads by adding more NAT instances. Before doing that, factor in the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality). 
 
-Only the cloud resources that use this solution can access the registry. The [registry access policy](../../container-registry/operations/registry/registry-access.md) only allows access from NAT instance public IP addresses, so you will not be able to access it from any other IP address. If you need, you can remove this limitation in {{ TF }} settings.
+Only the cloud resources that use this solution can access the registry. The [registry access policy](../../container-registry/operations/registry/registry-access.md) only allows access from public IP addresses belonging to NAT instances, so you will not be able to access it from any other IP address. If you need, you can remove this limitation in {{ TF }} settings.
 
 For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-cr-private-endpoint). 
 
 To deploy a cloud infrastructure providing {{ container-registry-short-name }} access for {{ vpc-short-name }} cloud network resources:
 
 1. [Get your cloud ready](#prepare-cloud).
-1. [Configure your CLI profile](#setup-profile).
+1. [Configure the CLI profile](#setup-profile).
 1. [Set up your environment](#prepare-environment).
 1. [Deploy your resources](#create-resources).
 1. [Test the solution](#test-functionality).
@@ -68,7 +68,7 @@ The infrastructure support cost includes:
 
 ### Required quotas {#required-quotes}
 
-Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) that are not used by other projects.
+Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) not used by other projects.
 
 {% cut "Resources used in our tutorial" %}
 
@@ -90,13 +90,13 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 | Registry | 1 |
 | Service account | 1 |
 
-`*` *Unless you use the existing network, specifying its ID in `terraform.tfvars`.*
+`*` *Unless you use an existing network and specified its ID in `terraform.tfvars`.*
 
 {% endcut %}
 
-## Configure your CLI profile {#setup-profile}
+## Configure the CLI profile {#setup-profile}
 
-1. If you do not have the {{ yandex-cloud }} CLI yet, [install](../../cli/quickstart.md) it and sign in as a user.
+1. If you do not have the {{ yandex-cloud }} CLI yet, [install](../../cli/quickstart.md) it and sign in.
 1. Create a service account:
 
    {% list tabs group=instructions %}
@@ -104,7 +104,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -230,14 +230,14 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Deploy your resources {#create-resources}
 
-1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-cr-private-endpoint/) and navigate to the `yc-cr-private-endpoint` directory containing resources for our example:
+1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-cr-private-endpoint/) and navigate to the `yc-cr-private-endpoint` script directory:
    
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-cr-private-endpoint.git
    cd yc-cr-private-endpoint
    ```
 
-1. Open the `terraform.tfvars` file and edit the following:
+1. Open the `terraform.tfvars` file and edit it as follows:
 
    1. Folder ID line:
 
@@ -245,7 +245,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       folder_id = "<folder_ID>"
       ```
 
-   1. Line with a list of aggregated prefixes of cloud subnets allowed to access {{ container-registry-short-name }}:
+   1. Line with a list of the aggregated prefixes of cloud subnets allowed to access {{ container-registry-short-name }}:
 
       ```text
       trusted_cloud_nets = ["10.0.0.0/8", "192.168.0.0/16"]
@@ -258,10 +258,10 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | `folder_id` | Yes | Solution components folder ID | `string` | `b1gentmqf1ve9uc54nfh` |
    | `vpc_id` | - | ID of your cloud network to provide with {{ container-registry-short-name }} access. If left empty, the system will create a new network. | `string` | `enp48c1ndilt42veuw4x` |
    | `yc_availability_zones` | - | List of the [availability zones](../../overview/concepts/geo-scope.md) for deploying NAT instances  | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
-   | `subnet_prefix_list` | - | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list in the same order). | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
+   | `subnet_prefix_list` | - | List of cloud subnets prefixes to host the NAT instances (one subnet per each availability zone from the `yc_availability_zones` list in the same order). | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
    | `nat_instances_count` | - | Number of NAT instances to deploy. We recommend setting an even number to evenly distribute the instances across the availability zones. | `number` | `2` |
    | `registry_private_access` | - | This parameter limits access to the registry to the public IP addresses of NAT instances. You can set it to `true` to apply this limitation or `false`, to remove it. | `bool` | `true` |
-   | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets allowed to access {{ container-registry-short-name }}. It is used in the inbound traffic rule for NAT instance security groups.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
+   | `trusted_cloud_nets` | Yes | List of the aggregated prefixes of cloud subnets allowed to access {{ container-registry-short-name }}. It is used in the inbound traffic rule for NAT instance security groups.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
    | `vm_username` | - | NAT instance and test VM username | `string` | `admin` |
    | `cr_ip` | - | {{ container-registry-short-name }} public IP address | `string` | `84.201.171.239` |
    | `cr_fqdn` | - | {{ container-registry-short-name }} domain name | `string` | `{{registry}}` | 
@@ -270,7 +270,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% endcut %}
 
-1. Deploy your cloud resources with {{ TF }}:
+1. Deploy your cloud resources using {{ TF }}:
 
    1. Initialize {{ TF }}:
 
@@ -296,7 +296,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       terraform apply
       ```
 
-1. Once the `terraform apply` process is complete, the command line will show information you need to connect to the test VM and run {{ container-registry-short-name }} tests. Later on, you can view this info by running the `terraform output` command:
+1. Once the `terraform apply` process is complete, the command line will show the information you need to connect to the test VM and run {{ container-registry-short-name }} tests. Later on, you can view this info by running the `terraform output` command:
 
    {% cut "Expand to view the deployed resource details" %}
 
@@ -331,7 +331,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    dig {{registry}} {{ s3-storage-host }}
    ```
 
-1. Check the DNS server response and make sure {{ objstorage-name }} and {{ container-registry-name }} domain names resolve to the IP addresses of the relevant internal load balancers. The command output will show type `A` resource records as follows:
+1. Check the DNS server response and make sure the {{ objstorage-name }} and {{ container-registry-name }} domain names resolve to the IP addresses of the relevant internal load balancers. The command output will show `A`-type resource records as follows:
 
    ```text
    ;; ANSWER SECTION:
@@ -399,19 +399,19 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Tips for production deployment {#deployment-requirements}
 
-* When deploying your NAT instances in multiple availability zones, use an even number of VMs to evenly distribute them across the availability zones.
-* When selecting the number of NAT instances, consider the [internal NLB traffic processing locality](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
-* Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter only during a pre-scheduled time window. Applying changes may cause interruptions in traffic processing.
-* If, with increased {{ container-registry-name }} workload, a NAT instance demonstrates a high `CPU steal time` metric value, enable a [software-accelerated network](../../vpc/concepts/software-accelerated-network.md) for that NAT instance.
-* If you are using your own DNS server, create the following type `A` resource records in its settings:
+* When deploying NAT instances in two availability zones, use an even number of VMs to evenly distribute them between availability zones.
+* When selecting the number of NAT instances, factor in the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
+* Once the solution is deployed, use planned downtime windows for maintenance, e.g., removing NAT instances or changing the `yc_availability_zones` setting, during which the system will not process user requests.
+* If you see a high `CPU steal time` value as the {{ container-registry-name }} workload increases, enable a [software-accelerated network](../../vpc/concepts/software-accelerated-network.md) for this NAT instance.
+* If you are using your own DNS server, create the following type `A` resource records in its zone file:
 
    | Name | Type | Value |
    | ----------- | ----------- | ----------- |
    | `{{ registry }}.` | `A` | `<IP address of the {{ container-registry-name }} internal load balancer. To get it, run terraform output cr_nlb_ip_address>` |
    | `{{ s3-storage-host }}.` | `A` | `<IP address of the {{ objstorage-name }} internal load balancer. To get it, run terraform output s3_nlb_ip_address>` |
 
-* Save the `pt_key.pem` private SSH key for accessing NAT instances to a secure location or recreate it without using {{ TF }}.
-* Once the solution is deployed, SSH access to the NAT instances will be disabled. To enable it, add a rule for inbound SSH traffic (`TCP/22`) in the `cr-nat-sg` [security group](../../vpc/concepts/security-groups.md) to enable access only from trusted IP addresses of admin workstations.
+* Save the `pt_key.pem` private key for SSH access to NAT instances to a secure location or recreate it without using {{ TF }}.
+* In our test solution, SSH access to NAT instances is disabled. To enable it, in the `cr-nat-sg` [security group](../../vpc/concepts/security-groups.md), add an inbound traffic rule allowing access on port `TCP/22` from your trusted IP addresses.
 * Once you tested the solution, delete the test VM and its subnet.
 
 ## Delete the resources you created {#clear-out}

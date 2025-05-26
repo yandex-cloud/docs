@@ -2,18 +2,18 @@
 
 You can use {{ load-testing-name }} to run scripted load tests over HTTP with the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md).
 
-To perform load testing:
-1. [Prepare your cloud](#before-begin).
+To run a load test:
+1. [Get your cloud ready](#before-begin).
 1. [Prepare a test target](#target-prepare).
-1. [Prepare your infrastructure](#infrastructure-prepare).
+1. [Set up your infrastructure](#infrastructure-prepare).
 1. [Create an agent](#create-agent).
 1. [Prepare a file with test data](#test-file).
 1. [Prepare a script file](#test-scenario).
-1. [Run a test](#run-test).
+1. [Run the test](#run-test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -25,33 +25,33 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 ## Prepare a test target {#target-prepare}
 
-In this example, we will test a service with [internal IP address](../../vpc/concepts/address.md#internal-addresses) `172.17.0.10` in the same [subnet](../../vpc/concepts/network.md#subnet) as the agent.
+In this example, we will test a service with the `172.17.0.10` [internal IP address](../../vpc/concepts/address.md#internal-addresses) in the same [subnet](../../vpc/concepts/network.md#subnet) as where the agent will reside.
 
 Make sure the service is accessed over HTTPS using the default port: `443`.
 
-You can also use {{ load-testing-name }} for load testing of a service that is public or located in a subnet and [security group](../../vpc/concepts/security-groups.md) other than those of the agent.
+You can also use {{ load-testing-name }} for a service that is public or located in a subnet and [security group](../../vpc/concepts/security-groups.md) other than those of the agent.
 
 For a public service, allow incoming HTTPS traffic on port `443`.
 
 For a service whose subnet and security group is different from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `443` in the security group where the test target is located.
 
-## Prepare the infrastructure {#infrastructure-prepare}
+## Set up your infrastructure {#infrastructure-prepare}
 
 ### Create a service account {#sa-create}
 
 {% include [sa-create](../../_includes/load-testing/sa-create.md) %}
 
-### Configure a network {#network-setup}
+### Configure your network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet hosting your test target and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
-1. Set up the test agent's security group:
+1. Configure the test agent security group:
 
    {% include [security-groups-agent](../../_includes/load-testing/security-groups-agent.md) %}
 
-1. Set up the test target's security group:
+1. Configure the test target security group:
 
    {% include [security-groups-target](../../_includes/load-testing/security-groups-target.md) %}
 
@@ -143,18 +143,18 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
    }
    ```
 
-   This script named `test_scenario` describes the requests named `auth_req` and `order_req`: You can provide arguments to a request to set the number of its runs and the delay time between them. In this example, `order_req(3, 100)` means that `order_req` will run three times with an interval of 100 milliseconds.
+   This `test_scenario` script describes the `auth_req` and `order_req` requests: You can provide arguments to a request to set the number of its runs and the delay between them. In this example, `order_req(3, 100)` means that `order_req` will run three times with an interval of 100 milliseconds.
 
    The `min_waiting_time` parameter defines the minimum script execution time in milliseconds. If a script is completed faster, the remaining time will be appended to the script as a delay.
 
-   The script features a variable source called `variables` containing the `auth_path` and `order_path` variables. Their values are used to specify `uri` in requests.
+   The script features a variable source named `variables` containing the `auth_path` and `order_path` variables. Their values are used to specify `uri` in requests.
 
    Also, the script includes the `users` variable source which uses the data from the external `users.csv` file. To work with an array of users, the script employs a preprocessor with the following modifiers:
    * `next` to get the next array element.
    * `last` to get the last array element.
    * `rand` to get a random array element.
 
-## Run a test {#run-test}
+## Run the test {#run-test}
 
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
@@ -204,7 +204,7 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-Once you do that, the configuration will pass checks, and the agent will start loading the service you are testing.
+Next, the configuration will be checked, and the agent will start loading the service.
 
 To see the testing progress, select the new test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 

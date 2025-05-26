@@ -3,7 +3,7 @@
 
 [Thumbor](https://thumbor.readthedocs.io/en/latest/) is an [open-source](https://github.com/thumbor/thumbor) project for on-demand image processing. Thumbor provides basic settings for editing images. For example, you can use it to resize the original image, increase its contrast ratio, or remove the red-eye effect.
 
-Thumbor is a convenient tool you can use to prepare images for websites, e.g., to create thumbnails for video previews. Thumbor supports image caching. This allows you to reduce labor costs for your website support.
+Thumbor is a convenient tool you can use to make images for websites, e.g., to create thumbnails for video previews. Thumbor supports image caching. This allows you to reduce labor costs for your website support.
 
 In the example below, images are posted to a website and edited using Thumbor. The edit includes resizing and adding a watermark. To upload images faster, a CDN is configured for the website using [{{ cdn-full-name }}](../../cdn/concepts/index.md).
 
@@ -21,11 +21,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for {{ cdn-name }}: Outgoing traffic (see [{{ objstorage-name }} pricing](../../cdn/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: storing data and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for {{ cdn-name }}: Outbound traffic (see [{{ objstorage-name }} pricing](../../cdn/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -38,9 +38,9 @@ The support cost includes:
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
 
-      * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles for the folder](../../managed-kubernetes/security/index.md#yc-api) where the {{ managed-k8s-name }} cluster is being created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
+      * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is being created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
-      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry on behalf of this account.
+      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry under this account.
 
          You can use the same service account for both operations.
 
@@ -67,11 +67,11 @@ The support cost includes:
 
       * Network.
       * Subnet.
-      * Service accounts for different services:
+      * Service accounts for various services:
 
-         * For {{ managed-k8s-name }} cluster and node group.
+         * For the {{ managed-k8s-name }} cluster and node group.
          * For Thumbor.
-         * To create {{ objstorage-name }} buckets.
+         * For creating {{ objstorage-name }} buckets.
 
       * {{ managed-k8s-name }} cluster.
       * Node group.
@@ -129,7 +129,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
       --format json > sa-key.json
    ```
 
-1. [Install Thumbor](../../managed-kubernetes/operations/applications/thumbor.md) with the following parameters:
+1. [Install Thumbor](../../managed-kubernetes/operations/applications/thumbor.md) with the following settings:
 
    * **Namespace**: `thumbor`.
    * **Application name**: `thumbor`.
@@ -165,14 +165,14 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
       You can only upload objects to a bucket after you create it. Therefore, a separate configuration file is used for uploading images.
 
-      1. Download the [images-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/images-for-thumbor.tf) configuration file to the working directory containing the `k8s-for-thumbor.tf` file. This file describes {{ objstorage-name }} objects, i.e., downloaded images to be uploaded to the bucket.
+      1. Download the [images-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/images-for-thumbor.tf) configuration file to the working directory containing the `k8s-for-thumbor.tf` file. This file describes {{ objstorage-name }} objects, i.e., the images you downloaded to upload to the bucket.
       1. In the `images-for-thumbor.tf` file, specify relative or absolute paths to the images. For example, if your images are stored in the same directory as the configuration files, specify:
 
          * `poster_rodents_bunnysize.jpg`
          * `poster_bunny_bunnysize.jpg`
          * `cc.xlarge.png`
 
-      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
       1. Make sure the {{ TF }} configuration file is correct using this command:
 
          ```bash
@@ -214,8 +214,8 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
 1. Configure a CNAME record for your domain:
 
-   1. Go to your domain's DNS settings on the site of your DNS hosting provider.
-   1. Prepare a CNAME record so that it points to the previously copied address on the `.edgecdn.ru` domain. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
+   1. Navigate to your domain’s DNS settings on your DNS hosting provider’s website.
+   1. Prepare a CNAME record so that it points to the address on the `.edgecdn.ru` domain you copied earlier. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
 
       ```http
       cdn CNAME {{ cname-example }}.

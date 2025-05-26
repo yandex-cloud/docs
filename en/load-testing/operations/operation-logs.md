@@ -1,6 +1,6 @@
 # Viewing operations with {{ load-testing-name }} resources
 
-All actions with {{ load-testing-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ load-testing-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -16,11 +16,11 @@ All actions with {{ load-testing-name }} resources are logged as a list of opera
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get details of the operation:
 
     {% list tabs group=instructions %}
 

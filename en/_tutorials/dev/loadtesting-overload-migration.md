@@ -48,11 +48,11 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
   1. In the left-hand panel, go to the ![tests](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
   1. Click ![options](../../_assets/options.svg) at the top right and select **Import tests from OverLoad**.
   1. In the window that opens, specify the import parameters:
-      * **Token**: Yandex OverLoad API token you previously obtained.
+      * **Token**: Yandex OverLoad API token you got earlier.
       * **{{ ui-key.yacloud.load-testing.field_lunapark-test-id }}**: ID of the Yandex OverLoad test whose results you want to migrate. If there are multiple tests, click **{{ ui-key.yacloud.load-testing.button_add-lunapark-test-id }}** and enter the next ID. 
   1. Click **{{ ui-key.yacloud.common.import }}**.
 
-  It takes some time to transfer the load testing results. 
+  It takes some time to migrate the load testing results. 
 
 {% endlist %}
 

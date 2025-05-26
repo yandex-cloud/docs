@@ -1,8 +1,8 @@
-# Connecting an origin group to a resource
+# Adding an origin group to a resource
 
-To connect an [origin group](../../concepts/origins.md#groups) to a [resource](../../concepts/resource.md), under **{{ ui-key.yacloud.cdn.label_section-content }}**, select the appropriate **Origin group** when [creating](../resources/create-resource.md) or [updating resource settings](../resources/configure-basics.md).
+To add an [origin group](../../concepts/origins.md#groups) to a [resource](../../concepts/resource.md), under **{{ ui-key.yacloud.cdn.label_section-content }}**, select the appropriate **Origin group** when [creating](../resources/create-resource.md) or [updating the resource settings](../resources/configure-basics.md).
 
-## Connecting an origin group when creating a resource {#connect-while-creating}
+## Adding an origin group when creating a resource {#connect-while-creating}
 
 {% list tabs group=instructions %}
 
@@ -18,7 +18,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
   1. Select an origin group.
 
-  1. Specify the other resource settings. For more information, see [{#T}](../resources/create-resource.md).
+  1. Specify the other resource settings. To learn more, see [{#T}](../resources/create-resource.md).
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -28,7 +28,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI create resource command:
+  1. View the description of the CLI command to create a resource:
 
      ```
      yc cdn resource create --help
@@ -73,7 +73,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
          enabled: true
      ```
   
-  1. Create a resource with the connected origin group:
+  1. Create a resource with the origin group added to it:
 
      ```
      yc cdn resource create --cname <resource_domain_name> \
@@ -139,7 +139,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Describe the parameters of the `yandex_cdn_resource` resource in the configuration file:
+  1. Describe the `yandex_cdn_resource` properties in the configuration file:
 
      Here is an example of the configuration file structure:
 
@@ -175,7 +175,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
 {% endlist %}
 
-## Connecting an origin group when editing resource settings {#connect-while-changing}
+## Adding an origin group when editing the resource settings {#connect-while-changing}
 
 {% list tabs group=instructions %}
 
@@ -191,7 +191,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
   1. Select an origin group.
 
-  1. Enter the other resource settings if needed. For more information, see [{#T}](../resources/configure-basics.md). 
+  1. Enter the other resource settings if needed. To learn more, see [{#T}](../resources/configure-basics.md). 
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -201,7 +201,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI update resource command:
+  1. View the description of the CLI command for updating a resource:
 
      ```
      yc cdn resource update --help
@@ -299,7 +299,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
          enabled: true
      ```
 
-  1. Update resource settings by specifying the ID of the origin group:
+  1. Update the resource settings by specifying the ID of the origin group:
 
      ```
      yc cdn resource update \
@@ -358,7 +358,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
 - API {#api}
 
-  To add an origin group when editing resource settings, use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/Resource/update.md) gRPC API call.
+  To add an origin group when editing the resource settings, use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/Resource/update.md) gRPC API call.
 
 {% endlist %}
 

@@ -28,13 +28,13 @@ To migrate a CDN resource to {{ src-name }}:
 
 ### Access to DNS settings {#dns-access}
 
-Make sure you can access the DNS settings on the website of your DNS hosting provider. This is usually the company that registered your domain.
+Make sure you can access the DNS settings on your DNS hosting provider’s website. This is usually the company that registered your domain.
 
 Your DNS provider's dashboard should already include a public domain zone matching your domain name, e.g., `example.com.`. This zone should contain a [CNAME record](../../dns/concepts/resource-record.md#cname) for your current CDN subdomain, e.g., `cdn.example.com`, pointing to the third-party CDN provider.
 
 ### Required paid resources {#paid-resources}
 
-The cost of the CDN infrastructure support includes charges for outbound traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
+The cost of the CDN infrastructure support includes fees for outbound traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
 
 ## Connect to {{ cdn-name }} {#enable-provider}
 
@@ -48,10 +48,10 @@ To connect a folder to a CDN provider and get a `cname` value:
 
   1. In the [management console]({{ link-console-main }}), select the folder to connect to a CDN provider.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. If the CDN provider is not activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**. A connection will be established automatically.
+  1. If the CDN provider has not been activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**. This will automatically establish a connection.
 
-      If there is no **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}** button, and you can create resources and origin groups, it means that the provider is already activated.
-  1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}** and under **{{ ui-key.yacloud.cdn.label_section-domain }}**, copy the `cname` value required to create a [resource record](../../dns/concepts/resource-record.md#cname) for the new CDN subdomain.
+      If there is no **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}** button and you can create resources as well as origin groups, it means that the provider has already been activated.
+  1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}** and then, under **{{ ui-key.yacloud.cdn.label_section-domain }}**, copy the `cname` value required to create a [resource record](../../dns/concepts/resource-record.md#cname) for the new CDN subdomain.
   1. Click **{{ ui-key.yacloud.common.cancel }}**. You will create a CDN resource later.
 
 - CLI {#cli}
@@ -89,7 +89,7 @@ To seamlessly switch your website to the new CDN resource, you will need a new C
 
 * Record name: New CDN subdomain name, e.g., `cdn-new.example.com.`.
 * Record type: `CNAME`.
-* Record value: `cname` value you got [earlier](#enable-provider) for your folder.
+* Record value: The `cname` value you got [earlier](#enable-provider) for your folder.
 
 If you delegated your website domain to {{ dns-full-name }}, follow [this tutorial](../../dns/operations/resource-record-create.md) to create a CNAME record. Otherwise, use your DNS provider's guides or contact their support.
 
@@ -107,7 +107,7 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
       1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, e.g., `my-cdn-certificate`.
-      1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify the wildcard for your domain and its subdomains, e.g., `*.example.com`, where `example.com` is the domain name of your website.
+      1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify the wildcard for your domain and its subdomains, e.g., `*.example.com`, where `example.com` is your website’s domain name.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_challenge-type }}** field, select `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
       1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
@@ -123,7 +123,7 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
 
           Where:
           * `--name`: Certificate name, e.g., `my-cdn-certificate`.
-          * `--domains`: Wildcard for your domain and its subdomains, e.g., `*.example.com`, where `example.com` is the domain name of your website.
+          * `--domains`: Wildcard for your domain and its subdomains, e.g., `*.example.com`, where `example.com` is your website’s domain name.
 
           Result:
 
@@ -150,10 +150,10 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
+      1. In the [management console]({{ link-console-main }}), select the folder to which you added the certificate.
       1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. From the list of certificates, select the one you need verified.
-      1. In the window that opens, you will find the info you will need to pass the rights check under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**.
+      1. In the window that opens, you will find the info required for passing the rights check under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**.
 
           In the **CNAME record** tab, copy and save the values of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-name }}** and **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_value }}** fields. You will need these to create a CNAME record.
 
@@ -190,7 +190,7 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
     {% endlist %}
 1. Using the values from the previous step, create a CNAME record in your website's public DNS zone to verify your domain ownership:
 
-    If you delegated your website’s domain to {{ dns-full-name }}, follow [this tutorial](../../dns/operations/resource-record-create.md) to create a CNAME record. Otherwise, use your DNS provider's guides or contact their support.
+    If you delegated your website domain to {{ dns-full-name }}, follow [this tutorial](../../dns/operations/resource-record-create.md) to create a CNAME record. Otherwise, use your DNS provider's guides or contact their support.
 
     {% note info %}
 
@@ -204,7 +204,7 @@ You can check the certificate status on the certificate page in the [management 
 
 ## Create a CDN resource in {{ cdn-name }} {#setup-resource}
 
-This section explains how to create a CDN resource with the `{{ ui-key.yacloud.cdn.value_source-type-url }}` origin type. If your origin is a {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md) or a Yandex Application [Load Balancer](../../application-load-balancer/concepts/application-load-balancer.md) instance, use [this tutorial](../../cdn/operations/resources/create-resource.md) to create a CDN resource.
+This section explains how to create a CDN resource with the `{{ ui-key.yacloud.cdn.value_source-type-url }}` origin type. If your origin is a {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md) or a Yandex Application [Load Balancer](../../application-load-balancer/concepts/application-load-balancer.md), use [this tutorial](../../cdn/operations/resources/create-resource.md) to create a CDN resource.
 
 Create a CDN resource in {{ cdn-full-name }}:
 
@@ -217,8 +217,8 @@ Create a CDN resource in {{ cdn-full-name }}:
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Under **{{ ui-key.yacloud.cdn.label_section-content }}**, specify:
 
-      * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`
-      * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`
+      * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+      * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
       * In the **{{ ui-key.yacloud.cdn.field_origin }}** field, specify the domain name or public IP address of your static content origin.
   1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, in the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify the new domain name you assigned to your new CDN resource, e.g., `cdn-new.example.com`.
 
@@ -226,7 +226,7 @@ Create a CDN resource in {{ cdn-full-name }}:
 
       1. In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select the protocol the CDN resource will use to communicate with the origin. If you select `{{ ui-key.yacloud.common.label_https }}` or `{{ ui-key.yacloud.cdn.value_protocol-match }}`, make sure your origin supports HTTPS.
       1. In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-      1. In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then, from the list that opens, select the certificate you previously created, such as `my-cdn-certificate`.
+      1. In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then, from the list that opens, select the certificate you created earlier, such as `my-cdn-certificate`.
       1. In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-default }}`.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -243,16 +243,16 @@ Create a CDN resource in {{ cdn-full-name }}:
       ```
 
       Where:
-      * `<subdomain_name>`: Domain name for which you created  CNAME record earlier and that the new CDN resource will use, e.g., `cdn-new.example.com`.
+      * `<subdomain_name>`: Domain name for which you created a CNAME record earlier and that the new CDN resource will use, e.g., `cdn-new.example.com`.
       * `--origin-custom-source`: Domain name or public IP address of your static content origin.
-      * `--origin-protocol`: Protocol the CDN resource will use to communicate with the origin. The possible values are as follows:
+      * `--origin-protocol`: Protocol the CDN resource will use to communicate with the origin. The possible values are:
 
           * `http`: Use HTTP.
           * `https`: Use HTTPS.
           * `match`: Use the same value as that of the `Host` header in the client request to the CDN.
 
           If you select `https` or `match`, make sure your origin supports HTTPS.
-      * `--cert-manager-ssl-cert-id`: TLS certificate ID that was saved earlier when creating the certificate.
+      * `--cert-manager-ssl-cert-id`: TLS certificate ID saved earlier when creating the certificate.
 
       {% cut "Result" %}
 
@@ -289,7 +289,7 @@ Create a CDN resource in {{ cdn-full-name }}:
 
       {% endcut %}
 
-      Save the new dataset's ID (the `id` field value), as you will need it later.
+      Save the new CDN resource’s ID (the `id` field value), as you will need it later.
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
@@ -309,15 +309,15 @@ Once you have created a new CDN resource in {{ cdn-name }} and tested it, you ca
 
 ### Redirect links from the dynamic website {#redirect-links}
 
-Redirect the static content links generated by your dynamic website to the new CDN subdomain, e.g., by replacing `cdn.example.com` with `cdn-new.example.com`. It is your dynamic website's admin who must do this.
+Redirect the static content links your dynamic website generates to the new CDN subdomain, e.g., by replacing `cdn.example.com` with `cdn-new.example.com`. It is your dynamic website's admin who must do this.
 
-Once you have made all the required changes, make sure the static content links generated by your website are valid and the content is accessible. Also, make sure outgoing traffic has stopped on the old CDN resource by using the statistics and monitoring tools provided by your third-party CDN provider.
+Once you have made all required changes, make sure the static content links your website generates are valid and the content is accessible. Also, make sure outbound traffic has stopped on the old CDN resource by using the statistics and monitoring tools from your third-party CDN provider.
 
 Your dynamic website has now fully switched to {{ cdn-full-name }}.
 
 ### Update the CNAME record for the original CDN subdomain {#update-cname}
 
-To keep your website's original CDN subdomain working with the new {{ cdn-name }} resource, replace the resource CNAME record value of the original subdomain with the value you got earlier when connecting to {{ cdn-name }}:
+To keep your website's original CDN subdomain working with the new {{ cdn-name }} resource, replace the value of the resource CNAME record for the original subdomain with the one you got earlier when connecting to {{ cdn-name }}:
 
 * Record name: Original CDN subdomain name, e.g., `cdn.example.com.`.
 * Record type: `CNAME`.
@@ -327,7 +327,7 @@ If you delegated your website’s domain to {{ dns-full-name }}, follow [this tu
 
 ### Delete the third-party CDN {#delete-resource}
 
-Once you have confirmed the original CDN resource from your third-party CDN provider is no longer sending outgoing traffic, delete it. To do this, use the third-party DNS provider's guides or contact their support.
+Once you have confirmed the original CDN resource from your third-party CDN provider is no longer sending outbound traffic, delete it. To do this, use the third-party DNS provider's guides or contact their support.
 
 ## Add an additional domain to the CDN resource in {{ cdn-name }} {#add-secondary-domain}
 
@@ -340,7 +340,7 @@ Once you have deleted the third-party CDN resource that was using the original C
   1. In the [management console]({{ link-console-main }}), select the folder with your CDN resource.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the line with the CDN resource you created earlier, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cdn.button_add-domain }}** and in the field that appears, enter the domain name the old CDN resource used previously. e.g., `cdn.example.com`.
+  1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cdn.button_add-domain }}** and then, in the field that appears, enter the domain name the old CDN resource used, e.g., `cdn.example.com`.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -358,7 +358,7 @@ Once you have deleted the third-party CDN resource that was using the original C
 
       {% note warning %}
 
-      This command will delete all additional domains that were previously linked to the CDN resource.
+      This command will delete all additional domains previously linked to the CDN resource.
       
       To link an additional domain to a CDN resource that already has additional domains linked, list the domains in the `--secondary-hostnames` parameter while separating them with commas. 
 
@@ -404,7 +404,7 @@ Once you have deleted the third-party CDN resource that was using the original C
 
 {% endlist %}
 
-Updating the CDN resource settings may take up to 15 minutes. After that, your new CDN resource will be accessible via both domain names, i.e., `cdn-new.example.com` and `cdn.example.com`.
+Updating the CDN resource settings may take up to 15 minutes. After that, your new CDN resource will be accessible via both domain names, i.e., `cdn-new.example.com` and `cdn.example.com`.
 
 #### See also {#see-also}
 

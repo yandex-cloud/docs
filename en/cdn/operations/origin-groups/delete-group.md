@@ -25,7 +25,7 @@ To delete an [origin group](../../concepts/origins.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI origin group delete command below:
+  1. View the description of the CLI command to delete an origin group:
 
      ```bash
      yc cdn origin-group delete --help
@@ -49,7 +49,7 @@ To delete an [origin group](../../concepts/origins.md):
          enabled: true
      ```
 
-  1. Delete a group of origins in the default folder:
+  1. Delete an origin group in the default folder:
 
      ```bash
      yc cdn origin-group delete --id <origin_group_ID>
@@ -62,7 +62,7 @@ To delete an [origin group](../../concepts/origins.md):
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   If you created an origin group using {{ TF }}, you can delete it:
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
   1. Delete the group description from the configuration file.
   1. Make sure the settings are correct.
 
@@ -88,7 +88,7 @@ To delete multiple origin groups:
 
   1. In the [management console]({{ link-console-main }}), select the folder to delete multiple resource groups from.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. In the left-hand panel, navigate to ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }} and select the groups to delete.
+  1. In the left-hand panel, navigate to ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and select the groups to delete.
 
      To delete all the groups, select the relevant option in the table header next to the **{{ ui-key.yacloud.cdn.column_name }}** field.
   1. Click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
