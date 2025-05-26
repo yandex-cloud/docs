@@ -1,8 +1,8 @@
 ---
-title: Authentication in the {{ dns-full-name }} API
-description: To perform operations via the API in {{ dns-full-name }}, a DNS zone management service, get an IAM token for your account.
+title: '{{ dns-full-name }} API authentication'
+description: Before you can work with API in {{ dns-full-name }} (DNS zone management service), you need to get an IAM token for your account.
 ---
 
-# Authentication in the {{ dns-name }} API
+# {{ dns-name }} API authentication
 
 {% include notitle [auth](../../_includes/authentication.md) %}

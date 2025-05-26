@@ -41,6 +41,10 @@ items:
           Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
           анализ с помощью {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: >-
+          Создание адреса {{ postbox-full-name }} и проверка владения доменом с
+          помощью {{ TF }}
+        href: tutorials/domain-identity-creating.md
   - name: Инструменты
     items:
       - name: AWS CLI

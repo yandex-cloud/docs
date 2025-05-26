@@ -26,29 +26,29 @@ editable: false
 
 
 You will be billed for:
-* Authoritative queries: Any requests for DNS records in a user's [public zones](concepts/dns-zone.md#public-zones) from the internet or {{ yandex-cloud }}.
-* Recursive queries: Queries from a {{ yandex-cloud }} VM for external domain names on the internet.
+* Authoritative requests: Any DNS requests to user [public zones](concepts/dns-zone.md#public-zones) from the internet or {{ yandex-cloud }}.
+* Recursive requests: DNS requests for external domain names on the internet from {{ yandex-cloud }} VMs.
 
   {% note tip %}
 
-  We recommend using [caching resolvers](tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. They can help you reduce the number of queries for external domain names, reducing costs.
+  We recommend using [caching resolvers](tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. These reduce the number of external domain name requests, and thereby, your costs.
 
   {% endnote %}
 
 You do not pay for:
-* Queries to [private](concepts/dns-zone.md#private-zones) and [service](concepts/dns-zone.md#service-zones) zones.
+* Requests from VMs to [private](concepts/dns-zone.md#private-zones) and [service](concepts/dns-zone.md#service-zones) zones.
 
-**Starting December 6, 2021, the following is provided free of charge**:
-* The first one million (1,000,000) recursive queries from VMs each month.
+**Starting December 6, 2021, you get the following free of charge**:
+* The first million (1,000,000) recursive requests from VMs each month.
 
   Once you have used up this free amount, you will be charged according to your service plan.
 
-  The unused balance of free services is reset at the end of the month.
-* Queries for domain names of {{ yandex-cloud }} services (e.g., `{{ api-host }}`) and Yandex services (e.g., `mail.yandex.com`), both from VMs and the internet.
+  Any unused free service balance is reset at the end of each calendar month.
+* Requests for domain names of {{ yandex-cloud }} services (e.g., `{{ api-host }}`) and Yandex services (e.g., `mail.yandex.com`), both from VMs and the internet.
 
-The cost of public DNS queries is based on usage.
+The cost of public DNS requests is based on usage.
 
-For example, the cost of 50 thousand authoritative queries to your public DNS zone per month will be:
+For example, the cost of 50 thousand authoritative requests to your public DNS zone per month will be:
 
 
 
@@ -58,13 +58,13 @@ For example, the cost of 50 thousand authoritative queries to your public DNS zo
 
 ### DNS zones {#dns-zones}
 
-You are charged for user-created [public](concepts/dns-zone.md#public-zones) or [internal](concepts/dns-zone.md#private-zones) DNS zones.
+You are charged for [public](concepts/dns-zone.md#public-zones) or [private](concepts/dns-zone.md#private-zones) DNS zones you create.
 
 [Service zones](concepts/dns-zone.md#service-zones) are provided free of charge.
 
-You are charged per second of usage. The cost is calculated in proportion to usage.
+You are charged per second of usage, based on consumption.
 
-> For example, the cost of owning 2 DNS zones for 360 hours will be the same as the cost of owning 1 DNS zone for 720 hours.
+> For example, the cost of managing two DNS zones for 360 hours will be the same as the cost of managing one DNS zone for 720 hours.
 
 
 

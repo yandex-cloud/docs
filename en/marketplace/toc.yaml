@@ -184,6 +184,8 @@ items:
                     href: license-manager/saas/api-ref/grpc/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/grpc/Lock/get.md
+                  - name: GetByResourceID
+                    href: license-manager/saas/api-ref/grpc/Lock/getByResourceID.md
               - name: Operation
                 items:
                   - name: Overview
@@ -212,6 +214,8 @@ items:
                     href: license-manager/saas/api-ref/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/Lock/get.md
+                  - name: GetByResourceID
+                    href: license-manager/saas/api-ref/Lock/getByResourceID.md
               - name: Operation
                 items:
                   - name: Overview
@@ -252,6 +256,8 @@ items:
   - name: Users
     expanded: true
     items:
+      - name: Getting started
+        href: operations/users/quickstart.md
       - name: Step-by-step guides
         items:
           - name: Buying a subscription

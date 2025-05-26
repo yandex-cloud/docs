@@ -19,6 +19,10 @@ items:
         href: workbooks-collections/workbooks-collections-create.md
       - name: Миграция объектов в воркбуки
         href: workbooks-collections/migrations.md
+      - name: Экспорт и импорт воркбуков
+        href: workbooks-collections/export-and-import.md
+      - name: Ошибки и предупреждения при экспорте и импорте
+        href: workbooks-collections/export-import-notifications.md
       - name: Настройка доступа
         href: workbooks-collections/security.md
   - name: Практические руководства

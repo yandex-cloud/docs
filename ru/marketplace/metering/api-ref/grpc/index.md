@@ -16,5 +16,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 #|
 ||Service | Description ||
 || [ImageProductUsage](ImageProductUsage/index.md) | A set of methods for managing image product's usage. ||
-|| [ProductUsage](ProductUsage/index.md) |  ||
+|| [ProductUsage](ProductUsage/index.md) | A set of methods for managing product's usage with product instances. ||
 |#

@@ -1,13 +1,13 @@
 ---
-title: How to collect user requests for load testing using {{ load-testing-full-name }}
-description: Follow this guide to collect user requests and use this data for load testing.
+title: How to collect user requests for load testing with {{ load-testing-full-name }}
+description: Follow this guide to collect user requests and use this data as payload for load testing.
 ---
 
-# Preparing test data using the dispatcher tool
+# Getting payload ready with Dispatcher
 
-`dispatcher` is designed for collecting user requests and saving them to data files which are used for subsequent load testing.
+`Dispatcher` is designed for collecting user requests and saving them to payload files which are then used for load testing.
 
-This tool works as a proxy: it redirects HTTP requests to the target server and returns the server's responses back to the client. If a proxied request completes successfully with a 2xx HTTP status code, it is saved to [data](../concepts/payload.md) files which are then used for load testing. `dispatcher` allows configuring rules and amount of data to save using special flags.
+This tool works as a proxy, redirecting HTTP requests to the target server and returning the server's responses back to the client. If a proxied request completes successfully with a 2xx HTTP status code, it is written to [payload](../concepts/payload.md) files which are then used for load testing.`dispatcher` enables configuring rules and size of payload to save using special flags.
 
 ## Getting started {#before-you-begin}
 
@@ -27,7 +27,7 @@ This tool works as a proxy: it redirects HTTP requests to the target server and 
 
 ## Collecting requests {#collecting-payload}
 
-1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-load-testing-dispatcher) and go to the `yc-load-testing-dispatcher` folder:
+1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-load-testing-dispatcher) and go to the `yc-load-testing-dispatcher` directory:
 
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-load-testing-dispatcher.git
@@ -41,14 +41,14 @@ This tool works as a proxy: it redirects HTTP requests to the target server and 
    ```
 
    Where:
-   * `target`: Address of the service for which requests are proxied and saved.
-   * `port`: Port used to run the server. The default port is 8888.
+   * `target`: Address of the service targeted for request proxying and logging.
+   * `port`: Port used to run the server. The default port is `8888`.
    * `ssl`: Enables proxying requests via a secure HTTPS connection.
    * `noproxy`: Determines whether to save requests without proxying them.
-   * `saveall`: Allows saving all requests regardless of the HTTP status code of the response to the proxied request.
-   * `nostatic`: Allows disregarding saving requests for static content, such as CSS, JS, JPEG, JPG, PNG, GIF, ICO, SVG, WOFF, and WOFF2.
+   * `saveall`: Enables saving all requests regardless of the HTTP status code of the response to the proxied request.
+   * `nostatic`: Enables filtering out requests for static content, such as CSS, JS, JPEG, JPG, PNG, GIF, ICO, SVG, WOFF, and WOFF2, from being saved.
 
-   Example of running:
+   Example of running `dispatcher`:
 
    ```bash
    go run dispatcher.go -target 'yandex.ru' -port 8080 -nostatic
@@ -59,9 +59,9 @@ This tool works as a proxy: it redirects HTTP requests to the target server and 
    Dispatcher listens to your requests
    ```
 
-   After running, send all requests for load testing to `localhost:8080`. You can also open the `localhost:8080` page in your browser to load the website specified in the `target` flag.
+   After the tool starts, send all requests for load testing to `localhost:8080`. You can also open the `localhost:8080` page in your browser to load the website specified in the `target` flag.
 
-   All requests are written in series immediately after receiving the response. Therefore, the order of requests running in parallel may differ from the one in the final file.
+   The system writes all requests in series immediately after receiving the response. Therefore, the order of requests running in parallel may differ from the one in the final file.
 
    Result:
    ```text
@@ -73,13 +73,13 @@ This tool works as a proxy: it redirects HTTP requests to the target server and 
 
    After completing all the requests you need, press **Ctrl + C** to close `dispatcher`.
 
-   {% note warning %}
+      {% note warning %}
 
-   You should avoid closing it before you get all the responses, as the test data may not be written yet.
+      You should avoid closing it before you get all the responses, as the payload may not be written yet.
 
-   {% endnote %}
+      {% endnote %}
 
-   Requests are saved to the following files:
+   The system saves requests to the following files:
 
    * `uri.payload` for [URI](https://yandex.cloud/ru/docs/load-testing/concepts/payloads/uri) requests
    * `uripost.payload` for [URIPOST](https://yandex.cloud/ru/docs/load-testing/concepts/payloads/uripost) requests

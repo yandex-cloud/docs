@@ -1,16 +1,16 @@
 # Load testing a gRPC service
 
 
-You can use {{ load-testing-name }} for service load testing via [gRPC](https://grpc.io/docs/) with the [Pandora](../../load-testing/concepts/load-generator.md) [load generator](../../load-testing/concepts/load-generator.md#pandora).
+You can use {{ load-testing-name }} for service load testing via [gRPC](https://grpc.io/docs/) with the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md).
 
-To perform load testing:
+To run a load test:
 1. [Get your cloud ready](#before-begin).
 1. [Prepare a test target](#target-prepare).
 1. [Set up your infrastructure](#infrastructure-prepare).
 1. [Create an agent](#create-agent).
 1. [Test gRPC Server Reflection](#reflection-check).
 1. [Prepare a file with test data](#test-file).
-1. [Run a test](#run-test).
+1. [Run the test](#run-test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -28,13 +28,13 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 In this example, we will be using a gRPC service with the `172.17.0.10` [internal IP address](../../vpc/concepts/address.md#internal-addresses) in the same [subnet](../../vpc/concepts/network.md#subnet) as where the agent will reside.
 
-To learn how to integrate the gRPC framework for different programming languages, see the [documentation](https://grpc.io/docs/languages/).
-1. Configure support for gRPC Server Reflection. To learn how to configure gRPC Server Reflection for different programming languages, see the [documentation](https://grpc.github.io/grpc/core/md_doc_server-reflection.html).
+To learn how to integrate the gRPC framework for different programming languages, see [this documentation](https://grpc.io/docs/languages/).
+1. Configure support for gRPC Server Reflection. To learn how to configure gRPC Server Reflection for different programming languages, see [this documentation](https://grpc.github.io/grpc/core/md_doc_server-reflection.html).
 
    With gRPC Server Reflection, the load generator polls the server at the start of a test to collect information about services and their methods and uses this data to generate correct gRPC requests during the test.
-1. Install a port for access to the gRPC service: `8080`.
+1. Install a port to access the gRPC service: `8080`.
 
-You can also use {{ load-testing-name }} for load testing of a service that is public or located in a subnet and [security group](../../vpc/concepts/security-groups.md) other than those of the agent.
+You can also use {{ load-testing-name }} for a service that is public or located in a subnet and [security group](../../vpc/concepts/security-groups.md) other than those of the agent.
 
 For a public service, allow incoming HTTPS traffic on port `8080`.
 
@@ -46,17 +46,17 @@ For a service whose subnet and security group is different from the agent's ones
 
 {% include [sa-create](../../_includes/load-testing/sa-create.md) %}
 
-### Configure a network {#network-setup}
+### Configure your network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet hosting your test target and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
-1. Set up the test agent's security group:
+1. Configure the test agent security group:
 
    {% include [security-groups-agent](../../_includes/load-testing/security-groups-agent.md) %}
 
-1. Set up the test target's security group:
+1. Configure the test target security group:
 
    {% include [security-groups-target](../../_includes/load-testing/security-groups-target.md) %}
 
@@ -105,12 +105,12 @@ For a service whose subnet and security group is different from the agent's ones
    Where:
    * `tag`: Request tag to display in reports.
    * `call`: Method being called.
-   * `payload`: Dictionary with call parameters to provide to the test target.
+   * `payload`: Dictionary with the call parameters to provide to the test target.
 
    In our example, two thirds of requests will be tagged as `/Add` and one third, as `/Add2`.
-1. Save the payloads to a file named `data.json`.
+1. Save the test data to a file named `data.json`.
 
-## Run a test {#run-test}
+## Run the test {#run-test}
 
 {% list tabs group=instructions %}
 
@@ -121,7 +121,7 @@ For a service whose subnet and security group is different from the agent's ones
   1. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
   1. On the test creation page:
      1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select `agent-008` you [previously created](#create-agent).
-     1. Under **Attached files**, click **Select files** and select the `data.json` file you saved before.
+     1. Under **Attached files**, click **Select files** and select the `data.json` file you saved earlier.
      1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
         * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
         * In the configuration input field, specify the testing thread settings in `yaml` format:
@@ -140,7 +140,7 @@ For a service whose subnet and security group is different from the agent's ones
                     tls: false
                   ammo:
                     type: grpc/json
-                    file: data.json # The file name must be the same as the name of the attached file.
+                    file: data.json # The file name must match the name of the attached file.
                   result:
                     type: phout
                     destination: ./phout.log
@@ -175,7 +175,7 @@ For a service whose subnet and security group is different from the agent's ones
 
           {% note tip %}
 
-          View a [sample configuration file](../../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
+          Check [this sample configuration file](../../load-testing/concepts/testing-stream.md#config_example). You can also find sample configuration files in existing tests.
 
           {% endnote %}
 

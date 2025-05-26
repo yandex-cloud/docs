@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ dns-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ dns-name }}.
+description: This page provides information about {{ TF }} resources and data sources supported by {{ dns-name }}.
 ---
 
 # {{ TF }} reference for {{ dns-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ dns-name }}:
+{{ dns-name }} supports the following {{ TF }} resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -18,7 +18,7 @@ The following {{ TF }} provider resources are supported for {{ dns-name }}:
 
 ## Data sources {#data-sources}
 
-{{ dns-name }} supports the following {{ TF }} provider data sources:
+{{ dns-name }} supports the following {{ TF }} data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |

@@ -17,7 +17,7 @@ During the initial rendering of a dashboard, parameters of all charts remain sta
 
 {% endnote %}
 
-Running the [Controls](../tabs.md#controls) tab will export the data required for rendering chart controls. This tab is available only for the following visualizations: [Chart](./chart.md), [Advanced chart](advanced.md), [Table](./table.md), Selector.
+As a result of executing the [Controls](../tabs.md#controls) tab, the chart controls rendering data should be exported. This tab is available only for the following visualizations: [Chart](./chart.md), [Advanced chart](advanced.md), [Table](./table.md), Selector.
 
 The controls are mainly designed for updating the parameters and re-rendering the chart. See the [Params](../tabs.md#params) tab description for details on the chart parameters.
 
@@ -73,7 +73,7 @@ In addition to the common control fields, the following is available:
 
 ## Calendar (single date) {#calendar}
 
-Control with `type: "datepicker"`. The value of the linked parameter must be a string with ISO date or a [relative date](../tabs.md#relative-date).
+Control with `type: "datepicker"`. The value of the linked parameter must be a string with an ISO date or [relative date](../tabs.md#relative-date).
 
 In addition to the common control fields, the following is available:
 

@@ -1,7 +1,7 @@
 # Integrating an L7 load balancer with {{ cdn-short-name }} and {{ objstorage-short-name }}
 
 
-In this tutorial, we will use a {{ objstorage-full-name }} bucket as the L7 load balancer backend enabled by {{ alb-full-name }}. User requests are transmitted to the load balancer via the {{ cdn-full-name }} content delivery network that reduces content delivery time.
+In this tutorial, we will use a {{ objstorage-full-name }} bucket as an L7 {{ alb-full-name }}. To reduce content delivery time, the load balancer receives user requests via the {{ cdn-full-name }} content delivery network.
 
 We will use the `cdn.yandexcloud.example` domain name as an example.
 
@@ -10,7 +10,7 @@ You can use various [supported tools](#supported-tools) to perform these steps.
 To build an architecture for integrating an L7 load balancer with CDN and Object Storage:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate)
+1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a bucket in {{ objstorage-name }}](#create-buckets).
 1. [Upload the file of your service to the bucket](#upload-files).
@@ -31,7 +31,7 @@ You can complete most of the steps in this tutorial using any standard tool, suc
 Some steps do not support certain tools:
 
 * Currently, you cannot use CLIs and {{ TF }} to:
-  * [Create a {{ alb-name }} backend group with buckets as backends](#create-l7backend).
+  * [Create an {{ alb-name }} backend group with buckets as backends](#create-l7backend).
   * Get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
 * Currently, you cannot get the domain name of a CDN load balancer through the API when [configuring DNS for the service](#configure-dns).
 
@@ -39,16 +39,16 @@ Some steps do not support certain tools:
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-We will use a folder named `example-folder` as an example.
+We will use a folder named `example-folder` in our example.
 
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 
-* Fee for data storage in {{ objstorage-name }}, data operations, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for using the L7 load balancer’s computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
+* Fee for data storage in {{ objstorage-name }}, data operations, and outbound traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for outbound traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
 * Fee for public DNS queries and DNS zones if using {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
@@ -60,7 +60,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
 ## Create a cloud network and subnets {#create-network}
 
-All resources belong to the same [cloud network](../../vpc/concepts/network.md).
+All resources you create will belong to the same [cloud network](../../vpc/concepts/network.md).
 
 {% list tabs group=instructions %}
 
@@ -99,7 +99,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
      
   1. Create subnets in all availability zones:
   
-     * In `{{ region-id }}-a`:
+     * `{{ region-id }}-a`:
      
        ```bash
        yc vpc subnet create example-subnet-{{ region-id }}-a \
@@ -121,7 +121,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
        - 10.1.0.0/16
        ```
      
-     * In `{{ region-id }}-b`:
+     * `{{ region-id }}-b`:
      
        ```bash
        yc vpc subnet create example-subnet-{{ region-id }}-b \
@@ -143,7 +143,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
        - 10.2.0.0/16
        ```
      
-     * In `{{ region-id }}-d`:
+     * `{{ region-id }}-d`:
      
        ```bash
        yc vpc subnet create example-subnet-{{ region-id }}-d \
@@ -200,7 +200,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
      }
      ```
      
-     For more information, see the descriptions of [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) in the {{ TF }} documentation.
+     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) descriptions in the {{ TF }} provider documentation.
      
   1. Make sure the configuration files are correct.
 
@@ -225,7 +225,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - API {#api}
 
-  1. Create the `example-network` network using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the API [create](../../vpc/api-ref/Network/create.md) REST API method.
+  1. Create `example-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
   1. Create `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` in the three availability zones using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method.
 
 {% endlist %}
@@ -259,7 +259,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
      make_bucket: s3://<bucket_name>
      ```
      
-  1. Enable public access to reading objects and their list:
+  1. Enable public access to read objects and their list:
   
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
@@ -289,7 +289,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
      }
      ```
      
-     For more information about `yandex_storage_bucket`, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about `yandex_storage_bucket`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
      
   1. Make sure the configuration files are correct.
 
@@ -322,7 +322,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 1. Create a file named `index.html`.
 
-   {% cut "Sample `index.html` file" %}
+   {% cut "Example of the `index.html` file" %}
 
    ```html
    <!DOCTYPE html>
@@ -378,7 +378,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
         }
         ```
         
-        For more information about `yandex_storage_object`, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/storage_object).
+        For more information about `yandex_storage_object`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_object).
         
      1. Make sure the configuration files are correct.
 
@@ -409,7 +409,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 ## Create a security group {#create-security-group}
 
-[Security groups](../../vpc/concepts/security-groups.md) contain rules that allow the L7 load balancer to receive incoming traffic and send it to backend buckets.
+[Security groups](../../vpc/concepts/security-groups.md) contain rules that allow the L7 load balancer to receive inbound traffic and send it to backend buckets.
 
 To create security groups:
 
@@ -425,12 +425,12 @@ To create security groups:
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `example-network`.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
    
-      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>target | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
+      | `Outbound` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Inbound` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Inbound` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Inbound` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
       
      1. Navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -438,7 +438,7 @@ To create security groups:
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the rule purpose:
 
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks the traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
 
      1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
@@ -509,7 +509,7 @@ To create security groups:
 
 - {{ TF }} {#tf}
 
-  1. Add the `example-sg` security group parameters to the configuration file:
+  1. Add the `example-sg` security group properties to the configuration file:
   
      ```hcl
      resource "yandex_vpc_security_group" "example-sg" {
@@ -543,7 +543,7 @@ To create security groups:
      }
      ```
      
-     For more information about resource settings in {{ TF }}, see the [relevant {{ TF }} documentation]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more information about resource properties in {{ TF }}, see the [relevant {{ TF }} documentation]({{ tf-provider-resources-link }}/vpc_security_group).
      
   1. Make sure the configuration files are correct.
 
@@ -574,7 +574,7 @@ To create security groups:
 
 {% endlist %}
 
-## Create a {{ alb-name }} backend group {#create-l7backend}
+## Create an {{ alb-name }} backend group {#create-l7backend}
 
 {% list tabs group=instructions %}
    
@@ -590,7 +590,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-backend`.
       1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, specify `100`.
       1. In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.alb.label_bucket }}` as the [backend type](../../application-load-balancer/concepts/backend-group.md#types).
-      1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select the previously created bucket.
+      1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select the bucket you created earlier.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   If you are going to complete the next steps in {{ TF }}, copy the ID of the `example-bg` backend group from the ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
@@ -612,7 +612,7 @@ To create security groups:
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. At the top right, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-router`.
-  1. Create a virtual `example-vh` host:
+  1. Create a virtual host named `example-vh`:
   
      1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-vh`.
@@ -624,7 +624,7 @@ To create security groups:
      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, keep `{{ ui-key.yacloud.alb.label_route-action-route }}`.
      1. From the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `example-bg`.
 
-  1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
+  1. Do not change the other settings. Click **{{ ui-key.yacloud.common.create }}**.
   
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -645,7 +645,7 @@ To create security groups:
      
      For more information about the `yc alb http-router create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
-  1. Create a virtual `example-vh` host:
+  1. Create a virtual host named `example-vh`:
   
      ```bash
      yc alb virtual-host create example-vh \
@@ -695,7 +695,7 @@ To create security groups:
 
 - {{ TF }} {#tf}
 
-  1. Add to the configuration file the settings of the HTTP router named `example-router`, its virtual hosts, and routes:
+  1. Add the settings for the `example-router` HTTP router, its virtual hosts, and routes to the configuration file :
   
      ```hcl
      ...
@@ -720,7 +720,7 @@ To create security groups:
      }
      ```
      
-     For more information, see the description of [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)in the {{ TF }} documentation.
+     For more information, see the [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) descriptions in the {{ TF }} provider documentation.
      
   1. Make sure the configuration files are correct.
 
@@ -745,7 +745,7 @@ To create security groups:
 
 - API {#api}
 
-  1. Create the `example-router` HTTP router using the [HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/HttpRouter/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
+  1. Create an HTTP router named `example-router` using the [HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/HttpRouter/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/HttpRouter/create.md) REST API method.
   1. Create the `example-vh` virtual host linked to the router and its route using the [VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/VirtualHost/create.md) gRPC API call or the [create](../../application-load-balancer/api-ref/VirtualHost/create.md) REST API method.
 
 {% endlist %}
@@ -763,7 +763,7 @@ To create security groups:
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 
      1. In the **{{ ui-key.yacloud.mdb.forms.label_network }}** field, select `example-network`.
-     1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `example-sg`. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
+     1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `example-sg`. Leaving this field blank will allow any inbound and outbound traffic for the load balancer.
       
   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the three subnets for the load balancer nodes (`example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d`) and enable traffic to these subnets.
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and set up the listener:
@@ -898,7 +898,7 @@ To create security groups:
 
 - {{ TF }} {#tf}
 
-  1. Add the settings of the `example-balancer` L7 load balancer to the configuration file:
+  1. Add the settings for `example-balancer` to the configuration file:
   
      ```hcl
      ...
@@ -943,7 +943,7 @@ To create security groups:
      }
      ```
      
-     For more information about `yandex_alb_load_balancer`, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about `yandex_alb_load_balancer`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
      
   1. Make sure the configuration files are correct.
 
@@ -972,7 +972,7 @@ To create security groups:
           
 {% endlist %}
 
-## Create a CDN {#create-cdn-resource}
+## Create a CDN resource {#create-cdn-resource}
 
 {% list tabs group=instructions %}
 
@@ -982,20 +982,20 @@ To create security groups:
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
 
-  1. Create a CDN:
+  1. Create a CDN resource:
 
      1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
      1. Configure the basic CDN settings:
 
-        * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`
-        * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`
-        * **{{ ui-key.yacloud.cdn.label_balancer }}**: `example-balancer`
+        * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+        * **{{ ui-key.yacloud.cdn.label_balancer }}**: `example-balancer`.
         * **{{ ui-key.yacloud.cdn.label_ip-address }}**: IP address assigned to the load balancer (the only one in the list).
-        * **{{ ui-key.yacloud.cdn.label_personal-domain }}**: `cdn.yandexcloud.example`
+        * **{{ ui-key.yacloud.cdn.label_personal-domain }}**: `cdn.yandexcloud.example`.
 
           {% note alert %}
 
-          The `cdn.yandexcloud.example` domain name will become the primary one, and you will not be able to edit it after you create a CDN.
+          The `cdn.yandexcloud.example` domain name will become the primary one, and you will not be able to edit it after you create a CDN resource.
 
           {% endnote %}
 
@@ -1009,10 +1009,10 @@ To create security groups:
 
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-  1. Enable a client redirect from HTTP to HTTPS:
+  1. Enable client redirects from HTTP to HTTPS:
 
      1. Select the resource you created earlier.
-     1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** has changed to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
+     1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** has switched to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
      1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
      1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -1025,7 +1025,7 @@ To create security groups:
       yc cdn provider activate --folder-id <folder_ID> --type gcore
       ```
 
-  1. Create `example-origin-group` by indicating the load balancer’s IP address:
+  1. Create an origin group named `example-origin-group` and indicate the load balancer IP address:
 
       ```bash
       yc cdn origin-group create --name "example-origin-group" \
@@ -1049,7 +1049,7 @@ To create security groups:
       For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 
-  1. Copy `origin_group_id` from the previous step and create a CDN by running this command:
+  1. Copy `origin_group_id` from the previous step and create a CDN resource by running this command:
   
       ```bash
       yc cdn resource create \
@@ -1075,7 +1075,7 @@ To create security groups:
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
-  1. Enable a client redirect for the resource:
+  1. Enable client redirects for the resource:
 
      ```bash
      yc cdn resource update <resource_ID> --redirect-http-to-https
@@ -1116,7 +1116,7 @@ To create security groups:
       }
       ```
 
-      For more information, see the description of [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) in the {{ TF }} documentation.
+      For more information, see the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) descriptions in the {{ TF }} provider documentation.
 
   1. Make sure the configuration files are correct.
 
@@ -1141,7 +1141,7 @@ To create security groups:
 
      This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
-  1. Enable a client redirect for the resource. Add this field at the top of the `options` section for the CDN at hand:
+  1. Enable client redirects for the resource. In the CDN resource settings, add this field at the top of the `options` section:
 
       ```hcl
       ...
@@ -1156,7 +1156,7 @@ To create security groups:
       terraform plan
       ```
 
-     If you described the configuration correctly, the terminal will display a list of updated resources and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of updated resources and their properties. If the configuration contains any errors, {{ TF }} will point them out.
   
   1. If there are no errors, run this command:
 
@@ -1164,9 +1164,9 @@ To create security groups:
       terraform apply
       ```
 
-  1. Confirm updating the resource by typing `yes` in the terminal and pressing **Enter**.
+  1. Confirm the resource update by typing `yes` in the terminal and pressing **Enter**.
       
-  This enables a redirect for the resource.
+  This enables redirects for the resource.
 
 - API {#api}
 
@@ -1174,9 +1174,9 @@ To create security groups:
   
 {% endlist %}
 
-## Configure DNS for the service{#configure-dns}
+## Configure DNS for the service {#configure-dns}
 
-The `cdn.yandexcloud.example` domain name must be linked to the CDN using DNS records.
+The `cdn.yandexcloud.example` domain name must be mapped to the CDN using DNS records.
 
 To configure DNS:
 
@@ -1252,7 +1252,7 @@ To configure DNS:
         
         For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/create.md).
         
-     1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with the copied value in `cl-********.edgecdn.ru` format:
+     1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with the value you copied in `cl-********.edgecdn.ru` format:
      
         ```bash
         yc dns zone add-records \
@@ -1283,7 +1283,7 @@ To configure DNS:
         }
         ```
 
-        For more information, see the descriptions of [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) in the {{ TF }} documentation.
+        For more information, see the [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) descriptions in the {{ TF }} provider documentation.
         
      1. Make sure the configuration files are correct.
 
@@ -1308,8 +1308,8 @@ To configure DNS:
 
    - API {#api}
     
-     1. Create a DNS zone named `example-dns-zone` using the gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
-     1. Add the `cdn` CNAME record with the copied `cl-********.edgecdn.ru` value to the zone using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+     1. Create a DNS zone named `example-dns-zone` using the [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) gRPC API call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
+     1. Add the `cdn` CNAME record with the `cl-********.edgecdn.ru` value you copied to the zone using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
         
    {% endlist %}
    
@@ -1339,7 +1339,7 @@ To shut down the infrastructure and stop paying for the resources you created:
 
 1. If you set up CNAME records in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) the `example-dns-zone` DNS zone.
 1. [Delete](../../cdn/operations/resources/delete-resource.md) the CDN with `cdn.yandexcloud.example` as the primary domain name.
-1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `example-balancer` L7 load balancer.
+1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) `example-balancer`.
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../vpc/operations/subnet-delete.md) `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d`.

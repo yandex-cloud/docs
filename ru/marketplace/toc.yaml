@@ -184,6 +184,8 @@ items:
                     href: license-manager/saas/api-ref/grpc/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/grpc/Lock/get.md
+                  - name: GetByResourceID
+                    href: license-manager/saas/api-ref/grpc/Lock/getByResourceID.md
               - name: Operation
                 items:
                   - name: Overview
@@ -212,6 +214,8 @@ items:
                     href: license-manager/saas/api-ref/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/Lock/get.md
+                  - name: GetByResourceID
+                    href: license-manager/saas/api-ref/Lock/getByResourceID.md
               - name: Operation
                 items:
                   - name: Overview
@@ -249,6 +253,48 @@ items:
                     href: workload/api-ref/CloudApplication/get.md
                   - name: ResolveByWorkload
                     href: workload/api-ref/CloudApplication/resolveByWorkload.md
+      - name: Справочник Product Instance Management API
+        items:
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: pim/saas/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/Operation/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: pim/saas/api-ref/Operation/cancel.md
+              - name: ProductInstance
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/ProductInstance/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/ProductInstance/get.md
+                  - name: Claim
+                    href: pim/saas/api-ref/ProductInstance/claim.md
+          - name: gRPC (англ.)
+            items:
+              - name: Overview
+                href: pim/saas/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: pim/saas/api-ref/grpc/Operation/cancel.md
+              - name: ProductInstance
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/grpc/ProductInstance/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/grpc/ProductInstance/get.md
+                  - name: Claim
+                    href: pim/saas/api-ref/grpc/ProductInstance/claim.md
   - name: Пользователям
     expanded: true
     items:

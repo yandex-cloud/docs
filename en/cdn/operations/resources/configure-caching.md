@@ -17,7 +17,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
 
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
@@ -28,7 +28,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
           * Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
           * Select the setting type: `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-source-settings }}` or `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}`.
           * Select the cache lifetime from the list.
-          * (Optional) For the `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}` setting type, set the cache lifetime for the required HTTP response codes.
+          * Optionally, for the `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}` setting type, set the cache lifetime for the required HTTP response codes.
 
       * Under **{{ ui-key.yacloud.cdn.label_resource-cache-browser-cache }}**:
 
@@ -47,7 +47,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -123,7 +123,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the `yandex_cdn_resource` CDN resource you want to create:
+  1. In the configuration file, describe the properties of the `yandex_cdn_resource` CDN resource you want to create:
 
       ```hcl
       terraform {
@@ -171,7 +171,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
          * `ignore_query_params`: Ignore query parameters. This is an optional parameter. The default value is `false`.
          * `ignore_cookie`: Ignore cookies. This is an optional parameter. The default value is `false`.
 
-      For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -191,16 +191,16 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc cdn resource list

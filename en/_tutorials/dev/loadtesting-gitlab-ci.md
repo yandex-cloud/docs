@@ -2,7 +2,7 @@ To add the load testing invocation from {{ GL }} CI:
 1. [Get your cloud ready](#before-begin).
 1. [Set up your infrastructure](#infrastructure-prepare).
 1. [Prepare a file with test data](#test-file).
-1. [Create {{ GL }}](#add-variables) environment variables.
+1. [Create {{ GL }} environment variables](#add-variables).
 1. [Add the load testing stage to the CI scenario configuration file](#add-loadtesting-ci).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -21,34 +21,34 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Create a service account {#sa-create}
 
-1. [Create](../../iam/operations/sa/create.md) a service account named `sa-loadtest` in the folder that will host the agent to supply the load.
+1. [Create](../../iam/operations/sa/create.md) a service account named `sa-loadtest` in the folder that will host the agent to generate the load.
 1. [Assign](../../iam/operations/roles/grant.md) the following [roles](../../load-testing/security/#roles-list) to the service account:
    * `loadtesting.generatorClient`
    * `loadtesting.loadTester`
    * `iam.serviceAccounts.user`
    * `compute.editor`
    * `vpc.user`
-   * `vpc.publicAdmin` (optional, if deploying the agent in a public network)
+   * `vpc.publicAdmin` (optionally, if you are deploying the agent in a public network)
 
-1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) an authorized key for the service account and save it to the `key.json` file:
+1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) an authorized key for this service account and save it to the `key.json` file.
 
-### Configure a network {#network-setup}
+### Configure your network {#network-setup}
 
-[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
+[Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet hosting your test target and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
 ### Configure the security group {#security-group-setup}
 
-Set up the test agent's security group:
+Configure the test agent security group:
 
 {% include [security-groups-agent](../../_includes/load-testing/security-groups-agent.md) %}
 
 ### Prepare a CI/CD pipeline in {{ GL }} for deploying the test target {#prepare-gitlab-ci}
 
-In this scenario, we will use an application with the `51.250.103.44` [public IP address](../../vpc/concepts/address#public-addresses) to exemplify the test objective. For an example of building a CI/CD pipeline in {{ GL }}, see [this article](../../tutorials/serverless/ci-cd-serverless).
+In this tutorial, we will use an application with the `51.250.103.44` [public IP address](../../vpc/concepts/address#public-addresses) as the test target. For an example of building a CI/CD pipeline in {{ GL }}, see [this article](../../tutorials/serverless/ci-cd-serverless).
 
 ## Prepare a file with test data {#test-file}
 
-1. Generate payloads in [HTTP_JSON](../../load-testing/concepts/payloads/http-json.md) format:
+1. Generate test data in [HTTP_JSON](../../load-testing/concepts/payloads/http-json.md) format:
 
    ```JSON
    {"host": "51.250.103.44", "method": "GET", "uri": "/", "tag": "url1", "headers": {"User-agent": "Tank", "Connection": "Close"}}
@@ -61,18 +61,18 @@ In this scenario, we will use an application with the `51.250.103.44` [public IP
    * `tag`: Request tag for use in reports.
    * `headers`: Request headers.
 
-You can also use the [Dispatcher](../../load-testing/operations/payload-dispatcher) tool to prepare payloads.
+You can also use the [Dispatcher](../../load-testing/operations/payload-dispatcher) tool to prepare test data.
 
-1. Save the payloads to a file named `httpjson.payload`.
+1. Save the test data to a file named `httpjson.payload`.
 1. [Create](../../storage/operations/buckets/create.md) a bucket and [upload](../../storage/operations/objects/upload.md) the test data file into it.
-1. Grant read permissions for the bucket to the service account. To do this, edit the bucket's [ACL](../../storage/concepts/acl.md):
-   1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. Grant read permissions for the bucket to the service account. To do this, edit the bucket [ACL](../../storage/concepts/acl.md):
+   1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the bucket and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
-   1. In the window that opens, enter the service account name, select `READ` for bucket permissions, and click **{{ ui-key.yacloud.common.add }}**.
+   1. In the window that opens, enter the service account name, select `READ` for the bucket permissions, and click **{{ ui-key.yacloud.common.add }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   This grants the service account permission to read data from this bucket only.
+   The service account will get read permissions only for this bucket.
 
 ## Create {{ GL }} environment variables {#add-variables}
 
@@ -137,9 +137,9 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
    core: {}
    ```
 
-   In the `target` field, enter the address of your application. This testing configuration will generate a [linear load](../../load-testing/concepts/load-profile) from 0 to 500 requests per second for 60 seconds. The [autostop](../../load-testing/concepts/auto-stop) criterion is also configured. This criterion stops the test if the 50th percentile exceeds 100 milliseconds for 5 seconds.
+   In the `target` field, enter the address of your application. This testing configuration will generate a [linear load](../../load-testing/concepts/load-profile) from 0 to 500 requests per second for 60 seconds. The [autostop](../../load-testing/concepts/auto-stop) criterion is also configured. This criterion will stop the test if the 50th percentile exceeds 100 milliseconds for 5 seconds.
 
-1. Add a load testing stage to the `.gitlab-ci.yml` file after deploying the application:
+1. Add the load testing stage to the `.gitlab-ci.yml` file after deploying the application:
   
    ```yaml
    stages:
@@ -161,7 +161,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
          - curl --fail --silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
          - sudo bash install.sh -i /usr/local/yandex-cloud -n
          - sudo ln -f -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
-         # Authentication using a service account key
+         # Authenticating with the service account key
          - echo "$SA_AUTHORIZED_KEY" > key.json
          - yc config profile create sa-profile || echo "Profile already exists"
          - yc config set service-account-key key.json
@@ -197,13 +197,13 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
               exit 1
            fi
       after_script:
-         # Deleting a test agent
+         # Deleting the test agent
          - agent_id=$(cat agent_id.txt)
          - yc loadtesting agent delete $agent_id
          - rm agent_id.txt
    ```
 
-   During the stage described here, the script will create a test agent, run the test, and check the test result. The result evaluation is based on the 50th percentile. If it exceeds 100ms, the stage will terminate with an error.
+   During the stage described here, the script will create a test agent, run the test, and check the test result. The result evaluation is based on the 50th percentile. If it exceeds 100 ms, the stage will terminate with an error.
 
    After you save the `.gitlab-ci.yml` configuration file, the build scenario will start.
 

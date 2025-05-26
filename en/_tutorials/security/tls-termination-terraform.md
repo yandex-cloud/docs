@@ -1,12 +1,12 @@
-1. [Prepare your cloud](#before-begin).
-1. [Create an infrastructure](#deploy).
+1. [Get your cloud ready](#before-begin).
+1. [Create your infrastructure](#deploy).
 1. [Test the hosting](#test).
 
 We will use the `my-site.com` domain name as an example.
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -14,58 +14,58 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [tls-termination-paid-resources](../_tutorials_includes/tls-termination/paid-resources.md) %}
 
-## Create an infrastructure {#deploy}
+## Create your infrastructure {#deploy}
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Prepare files with the infrastructure description:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
    - Ready-made configuration {#ready}
 
-      1. Clone the repository with configuration files.
+     1. Clone the repository with configuration files.
 
-         ```bash
-         git clone https://github.com/yandex-cloud-examples/yc-alb-tls-termination.git
-         ```
+        ```bash
+        git clone https://github.com/yandex-cloud-examples/yc-alb-tls-termination.git
+        ```
 
-      1. Go to the directory with the repository. Make sure it contains the following files:
-         * `tls-termination-config.tf`: Configuration of the infrastructure you create.
-         * `tls-terminationg.auto.tfvars`: User data file.
+     1. Navigate to the repository directory. Make sure it contains the following files:
+        * `tls-termination-config.tf`: New infrastructure configuration.
+        * `tls-terminationg.auto.tfvars`: User data file.
 
    - Manually {#manual}
 
-      1. Create a directory for configuration files.
-      1. In the directory, create:
-         1. `tls-termination-config.tf` configuration file:
+     1. Create a folder for configuration files.
+     1. In the folder, create:
+        1. `tls-termination-config.tf` configuration file:
 
-            {% cut "tls-termination-config.tf" %}
+           {% cut "tls-termination-config.tf" %}
 
-            {% include [tls-termination-config](../../_includes/application-load-balancer/tls-termination-config.md) %}
+           {% include [tls-termination-config](../../_includes/application-load-balancer/tls-termination-config.md) %}
 
-            {% endcut %}
+           {% endcut %}
 
-         1. `tls-termination.auto.tfvars` user data file:
+        1. `tls-termination.auto.tfvars` user data file:
 
-            {% cut "tls-termination.auto.tfvars" %}
+           {% cut "tls-termination.auto.tfvars" %}
 
-            ```hcl
-            folder_id    = "<folder_ID>"
-            vm_user      = "<VM_user_name>"
-            ssh_key_path = "<path_to_public_SSH_key>"
-            domain       = "<domain>"
-            certificate  = "<path_to_certificate_file>"
-            private_key  = "<path_to_file_with_private_key"
-            ```
+           ```hcl
+           folder_id    = "<folder_ID>"
+           vm_user      = "<VM_user_name>"
+           ssh_key_path = "<public_SSH_key_path>"
+           domain       = "<domain>"
+           certificate  = "<certificate_file_path>"
+           private_key  = "<private_key_file_path>"
+           ```
 
-            {% endcut %}
+           {% endcut %}
 
    {% endlist %}
 
-   For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+   For more information about the properties of {{ TF }} resources, see the relevant {{ TF }} guides:
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
    * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
    * [Static public IP address](../../vpc/concepts/address.md#public-addresses): [yandex_vpc_address]({{ tf-provider-resources-link }}/vpc_address)
@@ -82,15 +82,15 @@ To create an infrastructure using {{ TF }}:
    * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
    * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
 
-1. In the `tls-termination.auto.tfvars` file, set the user-defined parameters:
+1. In the `tls-termination.auto.tfvars` file, set the following user-defined properties:
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-   * `vm_user`: VM username.
-   * `ssh_key_path`: Path to the file with the public SSH key. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   * `domain`: Domain to host the site.
-      To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your personal dashboard at your registrar.
-   * `certificate`: Path to the file with the [user certificate](../../certificate-manager/operations/import/cert-create.md#create-file).
+   * `vm_user`: VM user name.
+   * `ssh_key_path`: Path to the public SSH key file. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `domain`: Domain to host the website. 
+       To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your account on your registrar's website.
+   * `certificate`: Path to the [user certificate](../../certificate-manager/operations/import/cert-create.md#create-file) file.
    * `private_key`: Path to the file with the user certificate's private key.
-1. Create resources:
+1. Create the resources:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -106,8 +106,8 @@ After creating the infrastructure, [test the hosting](#test).
 
 To stop paying for the resources you created:
 
-1. Open the `tls-termination-config.tf` configuration file and delete from it the description of the infrastructure you created.
+1. Open the `tls-termination-config.tf` file and delete your infrastructure description from it.
 1. Apply the changes:
 
-   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 

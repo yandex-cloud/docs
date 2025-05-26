@@ -36,7 +36,7 @@ To create an [origin group](../../concepts/origins.md):
      yc cdn provider activate --type gcore
      ```
 
-  1. View a description of the [CLI](../../../cli/) command to create an origin group:
+  1. View the description of the [CLI](../../../cli/) command to create an origin group:
 
      ```bash
      yc cdn origin-group create --help
@@ -94,7 +94,7 @@ To create an [origin group](../../concepts/origins.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Describe the parameters of the `yandex_cdn_origin_group` resource in the configuration file.
+  1. Define the parameters of the `yandex_cdn_origin_group` resource in the configuration file.
 
      Here is an example of the configuration file structure:
 
@@ -123,12 +123,12 @@ To create an [origin group](../../concepts/origins.md):
        * `enabled`: Flag showing whether the origin is enabled.
        * `backup`: Flag showing whether the origin as a backup one. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_origin_group).
-  1. Create resources:
+     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/cdn_origin_group).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     {{ TF }} will create all required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc cdn origin-group list
