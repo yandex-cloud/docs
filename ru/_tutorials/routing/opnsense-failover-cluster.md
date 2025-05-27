@@ -86,7 +86,7 @@
 
   1. (Опционально) Добавьте описание образа.
   1. Вставьте ссылку на образ OPNsense, полученную в {{ objstorage-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-image }}**.
   1. Аналогичным образом создайте загрузочный образ ESXi.
 
 {% endlist %}

@@ -278,4 +278,5 @@ Once the model is fine-tuned, save its URI in `gpt://<base_model_URI>/<version>@
 
 * [{#T}](../../concepts/tuning/index.md)
 * [{#T}](./tune-classifiers.md)
+* [{#T}](../../tutorials/models-fine-tuning.md)
 * For more SDK examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).

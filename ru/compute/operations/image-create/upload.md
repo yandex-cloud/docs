@@ -56,7 +56,7 @@ keywords:
   1. Если требуется, добавьте произвольное описание образа.
   1. Вставьте ссылку на образ, полученную в {{ objstorage-name }}.
   1. Чтобы создать [оптимизированный образ](../../concepts/image.md#images-optimized-for-deployment), включите опцию **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.button_upload }}**.
 
 - CLI {#cli}
 

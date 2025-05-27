@@ -270,6 +270,12 @@ description: В данном разделе приведены описания 
 
 {% include [ydb-events](../../_includes/audit-trails/events/ydb-events.md) %}
 
+## {{ message-queue-full-name }} {#ymq}
+
+Имя сервиса — `ymq`.
+
+{% include [ymq-events](../../_includes/audit-trails/events/ymq-events.md) %}
+
 ## {{ metadata-hub-full-name }} {#metadata-hub}
 
 ### {{ metastore-full-name }} {#hive-metastore}

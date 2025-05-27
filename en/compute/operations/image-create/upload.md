@@ -56,7 +56,7 @@ Create a new image from the link you got in {{ objstorage-name }}:
   1. Add a description for the image, if required.
   1. Paste the link to the image you got in {{ objstorage-name }}.
   1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
-  1. Click **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
+  1. Click **{{ ui-key.yacloud.common.button_upload }}**.
 
 - CLI {#cli}
 

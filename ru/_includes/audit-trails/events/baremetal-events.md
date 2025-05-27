@@ -1,5 +1,6 @@
 Имя события | Описание
 --- | ---
+`ApplyUpdatePrivateCloudConnection` | Применение измений приватного соединения с подсетями в VPC или в on-prem инфраструктуре
 `BatchCreateServer` | Аренда одновременно нескольких [серверов](../../../baremetal/concepts/servers.md) {{ baremetal-name }}
 `CreateImage` | Создание загрузочного образа
 `CreatePrivateCloudConnection` | Создание [приватного соединения](../../../baremetal/concepts/network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре

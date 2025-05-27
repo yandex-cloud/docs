@@ -189,4 +189,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../../concepts/tuning/index.md)
 * [{#T}](./create.md)
 * [{#T}](./tune-classifiers.md)
+* [{#T}](../../tutorials/models-fine-tuning.md)
 * Больше примеров SDK доступно в [репозитории на GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).

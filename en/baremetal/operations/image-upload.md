@@ -33,7 +33,7 @@ Create a new image from the link you got in {{ objstorage-name }}:
 
   1. (Optional) Add a description for your image.
   1. Paste the link to the image you got in {{ objstorage-name }}.
-  1. Click **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-image }}**.
 
 {% endlist %}
 

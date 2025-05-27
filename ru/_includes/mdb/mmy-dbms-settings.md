@@ -610,6 +610,8 @@
 
   Минимальное значение — `0` (нет ограничений), максимальное значение — `1048576`. По умолчанию: `0`.
 
+  Функциональность поддерживается только в {{ MY }} версии 8.0.
+
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_regexp_time_limit).
 
 - **Replication optimize for static plugin config**{#setting-replication-optimize-for-static-plugin-config} {{ tag-con }} {{ tag-api }}

@@ -10,6 +10,7 @@
 `DeleteUser` | Удаление пользователя базы данных
 `GrantUserPermission` | Назначение прав пользователю базы данных
 `RevokeUserPermission` | Отзыв прав у пользователя базы данных
+`SetClusterExtensions` | Установка расширений для кластера
 `UpdateFormatSchema` | Изменение схемы формата данных
 `UpdateMlModel` | Изменение модели машинного обучения
 `UpdateUser` | Изменение пользователя базы данных

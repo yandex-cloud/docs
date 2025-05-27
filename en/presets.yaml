@@ -6913,6 +6913,7 @@ default:
         field_ssh-public-key: Public SSH key
         field_subnet-id: Private subnet
         field_subnetwork-name: Name
+        label_create-image: Upload
         label_create-network: Create VRF
         label_create-public-subnet: Order
         label_create-public-subnet-full: Order a public subnet
@@ -7196,6 +7197,7 @@ default:
         button_cron-1min: Every minute
         button_cron-day: Every day
         button_update: Update
+        button_upload: Upload
         cancel: Cancel
         clear: Clear
         clone: Clone
@@ -7524,7 +7526,6 @@ default:
           button_upload: Upload image
           label_title: Images
           popup-confirm_button_delete: Delete
-          popup-upload_button_upload: Upload
           popup-upload_field_pooled: Optimize for deployment
         instance:
           access-method:
@@ -7850,8 +7851,13 @@ default:
         field_admin-login: Login
         field_approval-rules: Approval rules
         field_approval-rules-token: Gitlab token
+        field_capacity-per-instance: Number of parallel tasks per worker
         field_delete-untagged: Delete untagged images during maintenance
         field_domain: Domain
+        field_idle-time-minutes: Maximum worker downtime, in minutes
+        field_max-use-count: Maximum number of jobs per worker
+        field_max-workers: Maximum workers
+        field_task-minInstances: Minimum workers
         label_additional-section: Advanced settings
         label_admin-section: Administrator data
         label_autoscale-section: Autoscale settings
@@ -8430,7 +8436,7 @@ default:
         value_instances-chart-type: 'Testing threads: quantity'
       lockbox:
         button_action-make-version-current: Set as current version
-        button_action-open-version-add-dialog: Create a new version from this one
+        button_action-open-version-add-dialog: Create a version from this one
         button_action-schedule-for-destruction: Schedule destruction
         button_activate-secret: Activate secret
         button_add-version: Add version

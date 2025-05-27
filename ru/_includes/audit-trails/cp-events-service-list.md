@@ -39,6 +39,7 @@
 * [{{ mpg-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-postgresql)
 * [{{ mrd-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-redis)
 * [{{ ydb-full-name }}](../../audit-trails/concepts/events.md#ydb)
+* [{{ message-queue-full-name }}](../../audit-trails/concepts/events.md#ymq)
 * [{{ network-load-balancer-full-name }}](../../audit-trails/concepts/events.md#network-load-balancer)
 * [{{ objstorage-full-name }}](../../audit-trails/concepts/events.md#objstorage)
 * [{{ yq-full-name }}](../../audit-trails/concepts/events.md#yq)

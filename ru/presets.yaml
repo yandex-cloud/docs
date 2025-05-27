@@ -6920,6 +6920,7 @@ default:
         field_ssh-public-key: Открытый SSH-ключ
         field_subnet-id: Приватная подсеть
         field_subnetwork-name: Имя
+        label_create-image: Загрузить
         label_create-network: Создать VRF
         label_create-public-subnet: Заказать
         label_create-public-subnet-full: Заказать публичную подсеть
@@ -7203,6 +7204,7 @@ default:
         button_cron-1min: Каждую минуту
         button_cron-day: Каждый день
         button_update: Обновить
+        button_upload: Загрузить
         cancel: Отменить
         clear: Очистить
         clone: Клонировать
@@ -7531,7 +7533,6 @@ default:
           button_upload: Загрузить образ
           label_title: Образы
           popup-confirm_button_delete: Удалить
-          popup-upload_button_upload: Загрузить
           popup-upload_field_pooled: Оптимизировать для развертывания
         instance:
           access-method:
@@ -7859,8 +7860,13 @@ default:
         field_admin-login: Логин
         field_approval-rules: Правила ревью кода
         field_approval-rules-token: Gitlab токен
+        field_capacity-per-instance: Количество параллельных задач на воркер
         field_delete-untagged: Удалять образы без тегов при обслуживании
         field_domain: Домен
+        field_idle-time-minutes: Лимит простоя воркера, в минутах
+        field_max-use-count: Максимум задач на воркер
+        field_max-workers: Максимум воркеров
+        field_task-minInstances: Минимум воркеров
         label_additional-section: Дополнительные настройки
         label_admin-section: Данные администратора
         label_autoscale-section: Настройки масштабирования
@@ -8439,7 +8445,7 @@ default:
         value_instances-chart-type: 'Тестирующие потоки: количество'
       lockbox:
         button_action-make-version-current: Сделать текущей версией
-        button_action-open-version-add-dialog: Создать новую версию на основе этой
+        button_action-open-version-add-dialog: Создать версию на основе этой
         button_action-schedule-for-destruction: Запланировать удаление
         button_activate-secret: Активировать секрет
         button_add-version: Добавить версию
