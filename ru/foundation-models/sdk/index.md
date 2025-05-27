@@ -115,6 +115,11 @@ print(f'{result.alternatives[0].text=}')
 print(f'{result.alternatives[0].status=}')
 ```
 
+Где:
+
+* `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создан [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
+* `auth` — ключ, токен или другие данные для [аутентификации](#authentication), позволяющие идентифицировать субъекта.
+
 Результат:
 
 1. Переменная `result` содержит массив альтернатив, содержащихся в ответах модели:

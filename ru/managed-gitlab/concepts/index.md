@@ -28,6 +28,30 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
 
 {% include [HTTPS info](../../_includes/managed-gitlab/note-https.md) %}
 
+## {{ GLR }} {#runners}
+
+[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвейерной обработки {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластеров {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и на [виртуальных машинах {{ compute-name }}](../../compute/concepts/vm.md).
+
+Начать работу с {{ GLR }} можно следующими способами:
+
+* [Установить {{ GLR }} в кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/applications/gitlab-runner.md).
+* Создать виртуальную машину {{ compute-name }} и [вручную установить на нее {{ GLR }}](../tutorials/install-gitlab-runner.md#install).
+* [Создать с помощью консоли управления раннер](../tutorials/install-gitlab-runner.md#create-runner), который автоматически развернет указанное число виртуальных машин {{ compute-name }}.
+
+    При создании раннера из консоли управления вы можете выбрать для хранилища ВМ следующие типы дисков объемом от 15 до 500 ГБ:
+
+    * HDD-диски.
+    * SSD-диски.
+
+    Доступны следующие конфигурации вычислительных ресурсов:
+
+    * 2 vCPU, 4 ГБ RAM.
+    * 2 vCPU, 8 ГБ RAM.
+    * 4 vCPU, 16 ГБ RAM.
+    * 8 vCPU, 64 ГБ RAM.
+    * 16 vCPU, 128 ГБ RAM.
+
+    {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}  
 
 ## Примеры использования {#examples}
 

@@ -8,6 +8,7 @@
 * [{{ alb-full-name }}](../application-load-balancer/release-notes.md)
 * [{{ backup-full-name }}](../backup/release-notes.md)
 * [{{ cdn-full-name }}](../cdn/release-notes.md)
+* [{{ cloud-desktop-full-name }}](../cloud-desktop/release-notes.md)
 * [{{ dns-full-name }}](../dns/release-notes.md)
 * [{{ interconnect-full-name }}](../interconnect/release-notes.md)
 * [{{ compute-full-name }}](../compute/release-notes.md)

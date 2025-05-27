@@ -42,5 +42,7 @@ _Дообучение моделей в {{ foundation-models-full-name }} нах
 
 * [{#T}](../../operations/tuning/create.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
+* [{#T}](../../tutorials/models-fine-tuning.md)
+
 
 ^1^ {{ meta-disclaimer }}

@@ -6,6 +6,22 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting).
 
+* **Gp enable global deadlock detector**{#setting-gp-enable-global-deadlock-detector} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+
+    Определяет, будет ли работать глобальный детектор взаимоблокировок. Он отслеживает наличие блокировок при параллельном выполнении операций `UPDATE` и `DELETE` с heap-таблицами.
+    
+    По умолчанию настройка выключена. В этом случае операции `UPDATE` и `DELETE` выполняются последовательно, а не параллельно.
+
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_enable_global_deadlock_detector).
+
+* **Gp global deadlock detector period**{#setting-gp-global-deadlock-detector-period} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+
+    Задает периодичность (в секундах), с которой срабатывает глобальный детектор взаимоблокировок.
+
+    Минимальное значение — `5`, по умолчанию — `120`.
+
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period).
+
 * **Gp workfile compression**{#setting-gp-workfile-compression} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Определяет, будут ли сжаты временные файлы, созданные на диске в процессе хеш-соединения или агрегации хеша.

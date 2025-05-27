@@ -163,6 +163,8 @@ items:
             href: api-ref/data-types/SendMessageBatchResultEntry.md
       - name: Стандартные ошибки
         href: api-ref/common-errors.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Публичные материалы
