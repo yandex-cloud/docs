@@ -142,6 +142,8 @@
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.2`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-SCALE-FACTOR).
 
 - **Autovacuum vacuum insert threshold**{#setting-autovacuum-vacuum-insert-threshold} {{ tag-all }}
@@ -149,6 +151,8 @@
   Задает количество строк, вставка которых в любую таблицу запустит [процесс автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
 
   Минимальное значение — `-1` (настройка не применяется), максимальное значение — `2147483647`, по умолчанию — `1000`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-THRESHOLD).
 
@@ -260,9 +264,11 @@
 
 - **Client connection check interval**{#setting-client-connection-check-interval} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Период времени между проверками клиентских соединений при выполнении запросов (в миллисекундах). Проверка опрашивает сокет сервера для подключения и прерывает длительные запросы, если обнаруживает, что соединение закрыто. Функциональность поддерживается {{ PG }} начиная с версии 14.
+  Период времени между проверками клиентских соединений при выполнении запросов (в миллисекундах). Проверка опрашивает сокет сервера для подключения и прерывает длительные запросы, если обнаруживает, что соединение закрыто.
 
   Минимальное значение — `0` (проверка не выполняется), максимальное значение — `2147483647`. По умолчанию установлено минимальное значение.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-CLIENT-CONNECTION-CHECK-INTERVAL).
 
@@ -346,9 +352,9 @@
   - либо без указания `WITH OIDS` и `WITHOUT OIDS`;
   - либо с помощью команды `SELECT INTO`.
 
-  Практика использования `OID` в пользовательских таблицах считается устаревшей, используйте настройку только для совместимости со старыми приложениями.
-
   По умолчанию настройка выключена (столбец `OID` не добавляется).
+
+  Функциональность не поддерживается в {{ PG }} начиная с версии 12. Используйте настройку только для совместимости со старыми приложениями.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-DEFAULT-WITH-OIDS).
 
@@ -370,9 +376,11 @@
 
 - **Enable async append**{#setting-enable-async-append} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Разрешает планировщику учитывать асинхронное выполнение плана запроса на разных хостах при добавлении данных из внешних источников. Функциональность поддерживается {{ PG }} начиная с версии 14.
+  Разрешает планировщику учитывать асинхронное выполнение плана запроса на разных хостах при добавлении данных из внешних источников.
 
   По умолчанию настройка включена.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-ASYNC-APPEND).
 
@@ -394,9 +402,11 @@
 
 - **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-  Разрешает планировщику использовать узел Gather Merge для слияния с сохранением порядка результатов выполнения запросов в параллельном плане запроса. Функциональность поддерживается {{ PG }} начиная с версии 14.
+  Разрешает планировщику использовать узел Gather Merge, чтобы выполнить слияние строк, полученных в результате работы параллельных процессов, и сохранить порядок, в котором эти строки были получены.
 
   По умолчанию настройка включена.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GATHERMERGE).
 
@@ -418,9 +428,11 @@
 
 - **Enable incremental sort**{#setting-enable-incremental-sort} {{ tag-all }}
 
-  Разрешает планировщику использование инкрементной сортировки. Такой способ сортировки позволяет уменьшить время выполнения запроса и объем требуемой оперативной памяти, если необходимо упорядочить строки по нескольким столбцам, и по одному или нескольким из них сортировка уже выполнена. Функциональность поддерживается {{ PG }} начиная с версии 13.
+  Разрешает планировщику использование инкрементной сортировки. Такой способ сортировки позволяет уменьшить время выполнения запроса и объем требуемой оперативной памяти, если необходимо упорядочить строки по нескольким столбцам, причем по одному или нескольким из них сортировка уже выполнена.
 
   По умолчанию настройка включена.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INCREMENTAL-SORT).
 
@@ -644,6 +656,8 @@
 
   Минимальное значение — `0.0`, максимальное значение — `1000.0`, по умолчанию — `1.0`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER).
 
 - **Idle in transaction session timeout**{#setting-idle-session-timeout} {{ tag-all }}
@@ -746,6 +760,8 @@
 
   Минимальное значение — `-1` (отключает логирование времени работы команд), максимальное значение — `2147483647`, по умолчанию — `-1`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE).
 
 - **Log min duration statement**{#setting-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
@@ -788,6 +804,8 @@
 
   Минимальное значение — `-1` (значения параметров логируются полностью), максимальное значение — `1073741823`. По умолчанию установлено минимальное значение.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH).
 
 - **Log parameter max length on error**{#setting-log-parameter-max-length} {{ tag-all }}
@@ -798,13 +816,17 @@
 
   Минимальное значение — `-1` (значения параметров логируются полностью), максимальное значение — `1073741823`. По умолчанию установлено минимальное значение.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH-ON-ERROR).
 
 - **Log recovery conflict waits**{#setting-log-recovery-conflict-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Управляет логированием длительных ожиданий конфликтов восстановления при чтении WAL для продолжения репликации. При включенной настройке в логе создается запись, когда в сессии {{ PG }} время ожидания разрешения конфликтов восстановления превышает значение настройки [Deadlock timeout](#setting-deadlock-timeout). Функциональность поддерживается {{ PG }} начиная с версии 14.
+  Разрешает фиксировать в логах задержки репликации, возникающие из-за конфликтов восстановления при чтении WAL. Записи в лог будут добавлены, если время ожидания разрешения конфликта превысит таймаут, заданный настройкой [Deadlock timeout](#setting-deadlock-timeout).
 
   По умолчанию настройка выключена.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
 
@@ -829,6 +851,8 @@
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.0`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT-SAMPLE-RATE).
 
 - **Log temp files**{#setting-log-temp-files} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
@@ -845,6 +869,8 @@
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.0`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-12.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE).
 
 - **Logical decoding work mem**{#setting-logical-decoding-work-mem} {{ tag-all }}
@@ -853,6 +879,8 @@
 
   Минимальное значение — `65536` (64 КБ), максимальное значение — `1099511627776` (1 ТБ), по умолчанию – `67108864` (64 МБ).
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM).
 
 - **Maintenance io concurrency**{#setting-maintenance-io-concurrency} {{ tag-all }}
@@ -860,6 +888,8 @@
   Максимальное число параллельных операций дискового ввода-вывода при обслуживании {{ PG }} командами `VACUUM`, `CREATE INDEX` и `ALTER TABLE ADD FOREIGN KEY`, в отдельной сессии работы с БД. Чем больше это число, тем больше команд обслуживания {{ PG }} будет пытаться выполнить параллельно в отдельной сессии.
 
   Минимальное значение — `0`, максимальное значение — `1000`, по умолчанию — `10`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-IO-CONCURRENCY).
 
@@ -959,6 +989,8 @@
 
   Минимальное значение — `67108864` (64 МБ). Максимальное значение — 50% от размера [хранилища](../../../managed-postgresql/concepts/storage.md). Значение по умолчанию — `-1` (не ограничен). Значение должно быть кратно 1024.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
 
 - **Max standby streaming delay**{#setting-max-standby-streaming-delay} {{ tag-all }}
@@ -1015,9 +1047,11 @@
 
 - **Operator precedence warning**{#setting-operator-precedence-warning} {{ tag-all }}
 
-  Разрешает анализатору запроса выдавать предупреждение для всех конструкций, которые поменяли поведение после версии 9.4 в результате изменения приоритетов команд. Функциональность не поддерживается {{ PG }} начиная с версии 14.
+  Разрешает анализатору запроса выдавать предупреждение для всех конструкций, которые поменяли поведение из-за изменения приоритетов команд в версии 9.5.
 
   По умолчанию настройка выключена.
+
+  Функциональность не поддерживается в {{ PG }} начиная с версии 14.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/13/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING).
 
@@ -1103,6 +1137,8 @@
   - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` для {{ TF }} и API) — принудительно использовать общие планы.
 
   Значение по умолчанию — `auto`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-12.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PLAN-CACHE_MODE).
 
@@ -1292,9 +1328,11 @@
 
 - **Vacuum cleanup index scale factor**{#setting-vacuum-index-scale-factor} {{ tag-all }}
 
-  Доля кортежей в индексе, попавших в предыдущий срез статистики. При выполнении операции `VACUUM` статистика индекса считается устаревшей, если отношение числа кортежей, добавляемых в индекс, к текущему числу кортежей в индексе превышает указанную долю. В этом случае будет выполнено новое сканирование индекса. Функциональность не поддерживается {{ PG }} начиная с версии 14.
+  Доля строк в индексе, попавших в предыдущий срез статистики. При выполнении операции `VACUUM` статистика индекса считается устаревшей, если отношение числа добавляемых в индекс строк к текущему числу строк в индексе превышает указанную долю. В этом случае будет выполнено новое сканирование индекса.
 
   Минимальное значение — `0.0`, максимальное значение — `10000000000.0`, по умолчанию — `0.1`.
+
+  Функциональность не поддерживается в {{ PG }} начиная с версии 14.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/12/runtime-config-client.html#GUC-VACUUM-CLEANUP-INDEX-SCALE-FACTOR).
 
@@ -1340,17 +1378,21 @@
 
 - **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-  Максимальный возраст <q>замороженной</q> (уже завершенной) транзакции, измеряемый в количестве транзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика транзакций. Функциональность поддерживается {{ PG }} начиная с версии 14.
+  Максимальный возраст <q>замороженной</q> (уже завершенной) транзакции, измеряемый в количестве транзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика транзакций.
 
   Минимальное значение — `0`, максимальное значение — `2100000000`, по умолчанию — `1600000000`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
 
 - **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-  Максимальный возраст замороженной (уже завершенной) [мультитранзакции](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND), измеряемый в количестве мультитранзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика мультитранзакций. Функциональность поддерживается {{ PG }} начиная с версии 14.
+  Максимальный возраст <q>замороженной</q> (уже завершенной) [мультитранзакции](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND), измеряемый в количестве мультитранзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика мультитранзакций.
 
   Минимальное значение — `0`, максимальное значение — `2100000000`, по умолчанию — `1600000000`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
 
@@ -1359,6 +1401,8 @@
   Минимальный размер устаревших сегментов лога (в байтах), сохраняемых в папке [WAL](https://www.postgresql.org/docs/current/wal-intro.html), чтобы при необходимости [реплики](../../../managed-postgresql/concepts/replication.md#replication) могли их загрузить.
 
   Минимальное значение — `0` (прошлые фрагменты не сохраняются для репликации), максимальное значение — `2251799812636672` (2 ТБ), по умолчанию — `0`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
 

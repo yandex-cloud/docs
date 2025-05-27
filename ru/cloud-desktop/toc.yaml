@@ -276,3 +276,5 @@ items:
                 href: api-ref/Operation/cancel.md
   - name: Аудитные логи {{ cloud-desktop-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md

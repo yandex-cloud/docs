@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. (Опционально) Добавьте описание образа.
   1. Вставьте ссылку на образ, полученную в {{ objstorage-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-image }}**.
 
 {% endlist %}
 

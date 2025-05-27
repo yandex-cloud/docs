@@ -12,3 +12,7 @@
   * [Saiga/Mistral](https://huggingface.co/IlyaGusev/saiga_mistral_7b_lora) — дообученная русскоязычная версия Mistral.
 
 Если вы хотите дообучить модель, воспользуйтесь [дообучением моделей](../../../foundation-models/concepts/tuning/index.md) в сервисе {{ foundation-models-full-name }}.
+
+## Примеры использования {#examples}
+
+[{#T}](../../../foundation-models/tutorials/models-fine-tuning.md)
