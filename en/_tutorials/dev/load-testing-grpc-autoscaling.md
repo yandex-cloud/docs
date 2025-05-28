@@ -89,7 +89,7 @@ This tutorial will use a gRPC service as a test target.
                limits:
                  memory: "500Mi"
                  cpu: "1"
-
+   ---
    ### Service.
    apiVersion: v1
    kind: Service

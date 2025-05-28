@@ -121,7 +121,7 @@ In this case, the user will be charged only for these 4 GB of legitimate traffic
 
 {{ adv-ddos-protection }} is activated upon request via the [form](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
-{% note warning "Important" %}
+{% note warning "Important note" %}
 
 Please note that the subscription fee for {{ adv-ddos-protection }} and Managed Web Application Firewall is charged for the whole month and is not calculated in proportion to the number of days. For example, if you activate or deactivate the services mid-month, you will still be charged the full subscription fee.
 

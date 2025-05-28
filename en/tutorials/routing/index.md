@@ -33,3 +33,4 @@ description: Various use cases for network infrastructure in {{ yandex-cloud }}.
 * [{#T}](./bms-simple-subnet.md)
 * [{#T}](./bm-vrf-and-vpc-interconnect.md)
 * [{#T}](./usb-over-ip.md)
+* [{#T}](./opnsense-failover-cluster.md)

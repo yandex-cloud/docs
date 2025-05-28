@@ -618,3 +618,8 @@ PXF помечает все метрики, которые он возвраща
 | `snmp6.udplite6outdatagrams`<br/>`DGAUGE`, штуки | Общее количество пакетов UDP-litev6, отправленных от этого объекта (в сетевом протоколе SNMP). |
 | `snmp6.udplite6rcvbuferrors`<br/>`DGAUGE`, штуки | Количество ошибок буфера приема UDP-Litev6 (в сетевом протоколе SNMP). |
 | `snmp6.udplite6sndbuferrors`<br/>`DGAUGE`, штуки | Количество ошибок буфера отправки UDP-Litev6 (в сетевом протоколе SNMP). |
+
+## Прочие метрики {#managed-greenplum-other-metrics}
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `core_dump.count`<br/>`DGAUGE`, штуки | Количество дампов ядра. |

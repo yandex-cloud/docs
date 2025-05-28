@@ -6,7 +6,7 @@ description: Follow this guide to create and set up a NAT gateway.
 # Setting up a NAT gateway
 
 
-`vpc.admin` and `vpc.gateways.user` are the minimum [roles](../security/#roles-list) required to create and configure a NAT gateway.
+`vpc.admin` and `vpc.gateways.user` are the minimum [roles](../security/#roles-list) required to create and configure a [NAT gateway](../concepts/gateways.md).
 
 To create and set up a NAT gateway:
 
@@ -33,7 +33,7 @@ To create and set up a NAT gateway:
   1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
   1. Click **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**. 
 
-  Next, associate the route table with a subnet to route traffic from it through the NAT gateway:
+  Next, associate the [route table](../concepts/routing.md) with a subnet to route traffic from it through the NAT gateway:
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).

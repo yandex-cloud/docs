@@ -1,0 +1,1 @@
+* `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`: Not to assign a public IP address.

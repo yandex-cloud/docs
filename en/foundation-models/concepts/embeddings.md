@@ -9,6 +9,8 @@ Computers process all information as numbers. To effectively process texts writt
 
 The process of converting text into such vectors is called _vectorization_, and the resulting vector is called an _embedding_. Embeddings store information about texts and allow using mathematical methods to process them. You can use embeddings to classify information, compare texts, or search through a knowledge base of your own.
 
+If the basic embedding model does not suit you, you can [fine-tune](./tuning/index.md) it.
+
 ## Models for text vectorization {#yandexgpt-embeddings}
 
 {{ foundation-models-full-name }} provides two text vectorization models.
@@ -17,6 +19,7 @@ The process of converting text into such vectors is called _vectorization_, and 
 |---|---|---|---|
 | Vectorization of large source texts, e.g., documentation articles | `emb://<folder_ID>/text-search-doc/latest` | {{ emb-vector }} | Synchronous |
 | Vectorization of short texts, such as search queries, requests, etc. | `emb://<folder_ID>/text-search-query/latest` | {{ emb-vector }} | Synchronous |
+| Fine-tuned embedding models | `gpt://<folder_ID>/text-embeddings/<version>@<tuning_suffix>` | Depends on fine-tuning parameters.</br> The default value is 256. | Synchronous |
 
 To use the {{ foundation-models-full-name }} text vectorization models, you need the `ai.languageModels.user` [role](../security/index.md#languageModels-user) or higher for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
@@ -115,7 +118,9 @@ This primitive example demonstrates how you can use embeddings to find the close
 ## Use cases {#examples}
 
 * [{#T}](../operations/embeddings/search.md)
+* [{#T}](../operations/tuning/create-embeddings.md)
 
 #### See also {#see-also}
 
 * Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)
+* [{#T}](./tuning/index.md)

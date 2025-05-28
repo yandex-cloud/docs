@@ -16,7 +16,7 @@ If your top priority is precise keyword matching, create a text or hybrid index.
 
 {% endnote %}
 
-When you create a search index, the uploaded files are split into chunks of text from a few lines to several paragraphs and text characters are converted into [tokens](../yandexgpt/tokens.md). When a user asks a question, the assistant searches for relevant information and adds the chunks it finds to the search query context. When creating information chunks, the semantic meaning is ignored, so the text may be split mid-sentence. In this case, the context will be incomplete. To minimize the loss of information due to broken context, _overlapping_ is used when splitting data into chunks. This way, part of information is retained in two adjacent chunks simultaneously. The larger the chunk size, the more context the model has for generating a response, but the slower and more expensive request processing is. 
+When you create a search index, the uploaded files are split into chunks of text from a few lines to several paragraphs and text characters are converted into [tokens](../yandexgpt/tokens.md). When a user asks a question, the assistant searches for relevant information and adds the chunks it finds to the search query context. When creating information chunks, the semantic meaning is ignored, so the text may be split mid-sentence. In this case, the context will be incomplete. To minimize the loss of information due to broken context, _overlapping_ is used when splitting data into chunks. This way, part of information is retained in two adjacent chunks simultaneously. The larger the chunk size, the more context the model has for generating a response, but the slower and more expensive request processing is. When creating a search index, you can use a [fine-tuned embedding model](../../operations/tuning/create-embeddings.md).
 
 Search quality depends on the chunk size, amount of overlap, tokenization policy, and other settings. There are no one-size-fits-all parameters that work equally well for all data types; you need to set the most optimal search parameters on a case-by-case basis. 
 
@@ -81,7 +81,7 @@ Here is an example of creating a text search index for a single file:
 
 When creating a vector index, the [embedding](../embeddings.md) model creates vectors from chunks to store the semantic meaning of the text fragment. Same as in text search, you can specify the chunk size and amount of overlap in tokens. Note that, in vector search, tokens typically contain more than one character.
 
-You can also override the embedding models for requests and responses. By default, the {{ foundation-models-name }} embedding models are used.
+You can also override the embedding models for requests and responses. By default, the {{ foundation-models-name }} embedding models are used. [Fine-tuned](../../operations/tuning/create-embeddings.md) embedding models can improve the quality of vector search in niche domains.
 
 Here is an example of creating a vector search for a single file:
 
@@ -220,7 +220,11 @@ Here is an example of creating a vector search for a single file:
 {% endlist %}
 
 
-#### Use cases {#eamples}
+## Use cases {#eamples}
 
 * [{#T}](../../operations/assistant/create-with-searchindex.md)
 * Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+
+#### See also {#see-also}
+
+[{#T}](../../operations/tuning/create-embeddings.md)

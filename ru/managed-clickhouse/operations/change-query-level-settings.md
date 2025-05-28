@@ -96,18 +96,13 @@ description: Следуя данной инструкции, вы сможете
    1. В описании пользователя кластера {{ mch-name }}, в блоке `settings`, измените значения параметров:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+      resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
         ...
-        user {
-          name = <имя_пользователя>
+        settings {
+          <имя_параметра_1> = <значение_1>
+          <имя_параметра_2> = <значение_2>
           ...
-          settings {
-            <имя_параметра1> = <значение1>
-            <имя_параметра2> = <значение2>
-            ...
-          }
         }
-        ...
       }
       ```
 
@@ -119,9 +114,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 

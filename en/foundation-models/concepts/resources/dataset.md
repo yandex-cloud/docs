@@ -98,6 +98,39 @@ Multi-label classification datasets should contain examples of texts and their c
 
 {% include [multiclass](../../../_includes/foundation-models/classifier/multilable-example.md) %}
 
+## Embedding datasets {#embeddings}
+
+Embedding tuning datasets may contain pairs of semantically related texts or triplets with text, semantically related text and unrelated text. Each line contains a separate example in JSON format:
+
+* Pair dataset structure: {#pairs}
+
+  ```json
+  {"anchor":"<main_text_1>","positive":"<related_text_1>"}
+  {"anchor":"<main_text_2>","positive":"<related_text_2>"}
+  ```
+
+* Triplet dataset structure: {#triplets}
+
+  ```json
+  {"anchor":"<main_text_1>","positive":"<related_text_1>","negative":"<negative_example_1>"}
+  {"anchor":"<main_text_2>","positive":"<related_text_2>","negative":"<negative_example_2>"}
+  ```
+
+  **Example of the contents of an embedding tuning triplet dataset**:
+
+  {% include [triplets](../../../_untranslatable/foundation-models/embedding-example.md) %}
+
+  Where:
+
+  * `anchor`: Main text.
+  * `positive`: Semantically related text.
+  * `negative`: Unrelated text.
+
+ When fine-tuning embedding models for search scenarios, we recommend explicitly specifying whether the text is document text or query text:
+
+  ```json
+  {"anchor": "[QUERY] city austin","positive": "[DOCUMENT] Austin is located in the central part of Texas, northeast of San Antonio. The city is traversed by one interstate highway, I-35. Austin ranges in elevation from 88 to 405 meters above sea level.","negative": "[DOCUMENT] Biographical information about Jane Austen's life is scant, with a few surviving letters and biographical notes written by her family members. During her lifetime, Austen may have written up to 3,000 letters, but only 161 remain. Many of these letters were addressed to her elder sister, Cassandra."}
+  ```
 
 ## Vision language datasets {#vlm-datasets}
 
@@ -108,7 +141,7 @@ You need vision language datasets when working with [multimodal models](../multi
 Request datasets for vision language models contain request texts and Base64-encoded images. Each line contains a separate example in JSON format.
 
 ```json
-{"request": [{"role": "user", "text": "<Question>"}, {"image": "<base64-encoded_image>"}]}
+{"request": [{"role": "user", "content": [{"type": "text", "text": "Question"}, { "type": "image", "image": "Base64 image code"}]}]}
 ```
 
 ### Response datasets {#vlm-response}
@@ -116,7 +149,7 @@ Request datasets for vision language models contain request texts and Base64-enc
 Response datasets for vision language models contain request texts, Base64-encoded images, and a generated response for each request. Each line contains a separate example in JSON format.
 
 ```json
-{"request": [{"role": "user", "text": "<Question>"}, {"image": "<base64-encoded_image>"}], "response": "Response"}
+{"request": [{"role": "user", "content": [{"type": "text", "text": "Question"}, { "type": "image", "image": "Base64 image code"}]}], "response": "this is a picture of a robot"}
 ```
 
 #### Use cases {#examples}

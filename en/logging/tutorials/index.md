@@ -18,3 +18,4 @@ description: Various {{ cloud-logging-full-name }} use cases in {{ yandex-cloud 
 * [{#T}](logging-functions.md)
 * [{#T}](search-events-logging.md)
 * [{#T}](search-events-audit-logs/index.md)
+* [Transferring {{ mgp-full-name }} cluster logs to {{ cloud-logging-name }}](mgp-to-cloud-logging.md)

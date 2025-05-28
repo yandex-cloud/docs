@@ -82,7 +82,7 @@ The cost for bucket support includes:
     --role storage.editor \
     --subject serviceAccount:<service_account_ID>
   ```
-  
+
   For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
@@ -90,7 +90,7 @@ The cost for bucket support includes:
   1. To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
   1. [Assign](../../organization/operations/add-role) the `storage.editor` role to the service account.
-  
+
 {% endlist %}
 
 
@@ -160,10 +160,10 @@ The cost for bucket support includes:
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
  
 - AWS CLI {#cli}
-  
+
   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
   1. Enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
-  
+
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://<bucket_name>
@@ -186,7 +186,7 @@ The cost for bucket support includes:
      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
   1. Add a section with bucket properties to the configuration file and enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
-  
+
      ```hcl
      resource "yandex_storage_bucket" "<bucket_name>" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -199,14 +199,14 @@ The cost for bucket support includes:
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the command line, navigate to the folder where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the new resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
   
@@ -276,7 +276,7 @@ You can perform advanced connection setup if required. To do this, type `y` at t
    
    You will see a new disk with the objects from the bucket in Windows Explorer.
 
-1. To mount the bucket, press **Ctrl** + **C**.
+1. To unmount the bucket, press **Ctrl** + **C**.
 
 ## Set up the mounting service {#mount-service}
 

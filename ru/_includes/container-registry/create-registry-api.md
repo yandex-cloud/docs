@@ -1,0 +1,1 @@
+Чтобы создать реестр, воспользуйтесь методом [create](../../container-registry/api-ref/Registry/create.md) для ресурса [Registry](../../container-registry/api-ref/Registry/).

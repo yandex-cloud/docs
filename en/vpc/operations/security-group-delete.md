@@ -11,7 +11,7 @@ You cannot delete a security group created by default in the network.
 
 {% endnote %}
 
-To delete a security group: 
+To delete a [security group](../concepts/security-groups.md): 
 
 {% list tabs group=instructions %}
 
@@ -97,7 +97,7 @@ To delete a security group:
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
 
@@ -116,16 +116,16 @@ To delete a security group:
      ```
      terraform plan
      ```
-  
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

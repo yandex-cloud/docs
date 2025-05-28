@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to delete a backup policy in {
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to delete a [backup policy](../../../backup/concepts/policy.md) from.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to delete and select **{{ ui-key.yacloud.common.delete }}**. 
   1. Confirm the backup policy deletion.
@@ -60,8 +60,6 @@ description: In this tutorial, you will learn how to delete a backup policy in {
          multi_volume_snapshotting_enabled = true
          name                              = "<backup_policy_name>"
          performance_window_enabled        = true
-         preserve_file_security_settings   = true
-         quiesce_snapshotting_enabled      = true
          silent_mode_enabled               = true
          splitting_bytes                   = "9223372036854775807"
          vss_provider                      = "NATIVE"
@@ -88,14 +86,16 @@ description: In this tutorial, you will learn how to delete a backup policy in {
              scheme               = "ALWAYS_INCREMENTAL"
              weekly_backup_day    = "MONDAY"
 
-             execute_by_time {
-                 include_last_day_of_month = true
-                 monthdays                 = []
-                 months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
-                 repeat_at                 = ["04:10"]
-                 repeat_every              = "30m"
-                 type                      = "MONTHLY"
-                 weekdays                  = []
+             backup_sets {
+                 execute_by_time {
+                     type                      = "MONTHLY"
+                     include_last_day_of_month = true
+                     monthdays                 = []
+                     months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
+                     repeat_at                 = ["04:10"]
+                     repeat_every              = "30m"
+                     weekdays                  = []
+                 }
              }
          }
 

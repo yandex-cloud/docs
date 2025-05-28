@@ -12,6 +12,8 @@ items:
         items:
           - name: Арендовать сервер
             href: operations/servers/server-lease.md
+          - name: Получить информацию о сервере
+            href: operations/servers/get-info.md
           - name: Изменить сервер
             href: operations/servers/server-update.md
           - name: Остановить и запустить сервер
@@ -48,7 +50,7 @@ items:
             href: operations/network-create.md
           - name: Создать приватную подсеть
             href: operations/subnet-create.md
-          - name: Заказать публичную подсеть
+          - name: Заказать выделенную публичную подсеть
             href: operations/reserve-public-subnet.md
           - name: Создать приватное соединение с облачными сетями
             href: operations/create-vpc-connection.md

@@ -1,6 +1,6 @@
 # Changing the name and description
 
-After creating a security group, you can change its name and description, and [add](security-group-add-rule.md) or [remove](security-group-delete-rule.md) rules.
+After creating a [security group](../concepts/security-groups.md), you can change its name and description, and [add](security-group-add-rule.md) or [remove](security-group-delete-rule.md) rules.
 
 {% list tabs group=instructions %}
 
@@ -67,14 +67,14 @@ After creating a security group, you can change its name and description, and [a
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
-     
+
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check the security group update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:

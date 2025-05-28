@@ -23,3 +23,8 @@ When assigning a role to `All users in organization X` via the [CLI](../../../cl
 `All users in federation N` includes all [identity federation](../../../organization/concepts/add-federation.md) `N` users.
 
 When assigning a role to `All users in federation N` via the [CLI](../../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-link }}), or [API](../../../api-design-guide/concepts/general.md), use `group:federation:<federation_ID>:users` as the [subject](./index.md#subject) ID, where `<federation_ID>` is the unique ID assigned to [identity federation](../../../organization/concepts/add-federation.md) `N`.
+
+## Use cases {#examples}
+
+* [{#T}](../../../tutorials/security/integration-adfs.md)
+* [{#T}](../../../tutorials/security/integration-azure.md)

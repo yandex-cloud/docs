@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте подключение](../connection/create.md#create-audio-connection) типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**.
+1. [Создайте подключение](../connection/create.md) типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** или **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** (без дополнительных настроек разбиения диалога).
 1. [Создайте проект](../project/create.md) с новым подключением.
 
    В созданные проект и подключение будут загружены аудиозаписи разговоров.
@@ -29,6 +29,8 @@ description: Следуя данной инструкции, вы сможете
     {% note info %}
 
     Через интерфейс можно загрузить только аудиофайлы [формата](../../concepts/formats.md) MP3. Чтобы загрузить аудиофайлы других поддерживаемых {{ speechsense-name }} форматов, используйте загрузку через API.
+
+    {% include notitle [max-duration](../../../_includes/speechsense/data/max-duration.md) %}
 
     {% endnote %}
 

@@ -15,13 +15,12 @@ All basic models are subject to the update rules described in [Model lifecycle](
 
 #|
 || **Model and URI** | **Generation** | **Context** | **[Operating modes](../index.md#working-mode)** ||
-|| **{{ gpt-lite }}** </br>`gpt://<folder_ID>/yandexgpt-lite`	| Deprecated 4</br>Latest 4</br>RC 5 | {{ yagpt-max-tokens }}</br>{{ yagpt-max-tokens }}</br>32 000 | Asynchronous, synchronous ||
-|| **{{ gpt-pro }}** </br>`gpt://<folder_ID>/yandexgpt` | Deprecated 4</br>Latest 4</br>RC 5 | {{ yagpt-max-tokens }}</br>32 000^1^</br>32 000 | Asynchronous, synchronous ||
-|| **{{ gpt-pro }} 32k**^2^ </br>`gpt://<folder_ID>/yandexgpt-32k`| Deprecated 4</br>Latest 4</br>RC 5 | 32 000 | Synchronous ||
+|| **{{ gpt-lite }}** </br>`gpt://<folder_ID>/yandexgpt-lite`	| Deprecated 4</br>Latest 5</br>RC 5 | {{ yagpt-max-tokens }}</br>{{ yagpt-max-tokens }}</br>32 000 | Asynchronous, synchronous ||
+|| **{{ gpt-pro }}** </br>`gpt://<folder_ID>/yandexgpt` | Deprecated 4</br>Latest 5</br>RC 5 | {{ yagpt-max-tokens }}</br>32 000^1^</br>32 000 | Asynchronous, synchronous ||
+|| **{{ gpt-pro }} 32k**^2^ </br>`gpt://<folder_ID>/yandexgpt-32k`| Deprecated 4 | 32 000 | Synchronous ||
 || **{{ llama }} 8B**^3^ </br>`gpt://<folder_ID>/llama-lite` | Deprecated 3.1</br>Latest 3.1</br>RC 3.1 | 8 192 | Asynchronous, synchronous ||
 || **{{ llama }} 70B**^3^ </br>`gpt://<folder_ID>/llama` | Deprecated 3.3</br>Latest 3.3</br>RC 3.3 | 8 192 | Asynchronous, synchronous ||
 || [**Fine-tuned models**](../tuning/index.md) </br>`gpt://<basic_model_URI>/<version>@<tuning_suffix>` | Depends on the basic model | Depends on the basic model | Asynchronous, synchronous ||
-|| **Model fine-tuned in {{ ml-platform-full-name }}** </br>`ds://<folder_ID>/<fine-tuning_ID>` | 3 | {{ yagpt-max-tokens }} | Asynchronous, synchronous ||
 |#
 
 ^1^ The context size depends on the mode. In synchronous mode, a 4th generation {{ gpt-pro }} model can process up to {{ yagpt-max-tokens }} tokens; in asynchronous, 32,000 tokens. 

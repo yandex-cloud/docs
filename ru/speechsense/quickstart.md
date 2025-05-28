@@ -32,7 +32,7 @@
 1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и создайте [подключение](concepts/resources-hierarchy.md#connection) на основе метаинформации ваших аудиозаписей или переписок из чатов:
 
    1. Введите **{{ ui-key.yc-ui-talkanalytics.connections.connection-name }}**.
-   1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** или **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
+   1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** или **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
    1. Задайте параметры подключения. Процесс подробно рассмотрен в разделе [Создать подключение](operations/connection/create.md).
    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 
@@ -66,8 +66,10 @@
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md).
 1. [Добавьте сервисный аккаунт в пространство](operations/space/add-user-to-space.md) с ролью `speech-sense.data.editor`. Подробнее о ролях, действующих в сервисе, см. раздел [{#T}](security/index.md).
 1. [Создайте API-ключ](../iam/operations/authentication/manage-api-keys.md#create-api-key) или [IAM-токен](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта, чтобы аутентифицироваться в API. [Подробнее об аутентификации в API {{ speechsense-name }}](api-ref/authentication.md).
-1. [Загрузите аудиоданные](operations/data/upload-data.md) или [переписку из чата](operations/data/upload-chat-text.md) с помощью Python-скрипта отправки данных.
+1. Загрузите аудиоданные ([без разбиения](operations/data/upload-data.md) или [с разбиением на отрезки](operations/data/upload-data-split.md)) или [переписку из чата](operations/data/upload-chat-text.md) с помощью Python-скрипта отправки данных.
 
     Аудио передается целиком в одном сообщении.
 
     {% include [supported-formats](../_includes/speechsense/formats.md) %}
+
+    {% include [max-duration](../_includes/speechsense/data/max-duration.md) %}

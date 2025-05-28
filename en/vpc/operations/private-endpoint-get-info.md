@@ -17,7 +17,7 @@ description: Follow this guide to get information about a service connection (pr
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. View the description of the CLI command for getting information about a service connection (private endpoint):
+  1. View the description of the CLI command to get information about a [service connection](../concepts/private-endpoint.md) (private endpoint):
 
       ```bash
       yc vpc private-endpoint get --help
@@ -54,7 +54,7 @@ description: Follow this guide to get information about a service connection (pr
 
   To get information about a [service connection](../concepts/private-endpoint.md) through {{ TF }}:
 
-  1. Add the `data` and `output` sections to the Terraform configuration file:
+  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_vpc_private_endpoint" "my-vpc-data" {
@@ -71,9 +71,9 @@ description: Follow this guide to get information about a service connection (pr
       * `data "yandex_vpc_private_endpoint"`: Description of the service connection as a data source:
          * `resource_id`: Service connection ID.
       * `output "ref_description"`: Output variable storing the service connection's network ID (`network_id`):
-         * `value`: Returned value.
+         * `value`: Return value.
 
-     You can replace `network_id` with another variable to get the information you need. For more information about the `yandex_vpc_private_endpoint` data source variables, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_private_endpoint).
+     You can replace `network_id` with any other parameter to get the information you need. For more information about the `yandex_vpc_private_endpoint` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_private_endpoint).
 
   1. Create the resources:
 

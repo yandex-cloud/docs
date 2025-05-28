@@ -11,6 +11,7 @@ description: Страница содержит все инструкции дл�
 
   * [{#T}](data/upload-audio-console.md)
   * [{#T}](data/upload-data.md)
+  * [{#T}](data/upload-data-split.md)
   * [{#T}](data/upload-chat-text.md)
 
 * Поиск данных:

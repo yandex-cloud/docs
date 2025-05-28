@@ -1,0 +1,1 @@
+In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the [pool](../../../baremetal/concepts/servers.md#server-pools) the server will be leased from.

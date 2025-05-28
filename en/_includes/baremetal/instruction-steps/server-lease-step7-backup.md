@@ -1,0 +1,1 @@
+Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` and an [OS supported in {{ backup-name }}](#os-support).

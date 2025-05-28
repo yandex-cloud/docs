@@ -1,6 +1,6 @@
 ---
 title: Transferring {{ managed-k8s-full-name }} cluster logs to {{ cloud-logging-name }}
-description: The Fluent Bit log processor allows you to transfer the {{ managed-k8s-name }} cluster logs to {{ cloud-logging-name }}. The Fluent Bit plugin for {{ cloud-logging-full-name }} module is used to transfer logs.
+description: The Fluent Bit log processor allows you to transfer the {{ managed-k8s-name }} cluster logs to {{ cloud-logging-name }}. To transfer logs, you will use the Fluent Bit plugin for {{ cloud-logging-full-name }} module.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-fluent-bit-logging'
 ---
 

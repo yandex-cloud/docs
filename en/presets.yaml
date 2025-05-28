@@ -68,6 +68,8 @@ default:
   brand-voice-core: Brand Voice Self Service
   brand-voice-core-name: SpeechKit Brand Voice Self Service
   brand-voice-full-name: Yandex SpeechKit Brand Voice
+  brand-voice-lite: Brand Voice Lite
+  brand-voice-lite-name: SpeechKit Brand Voice Lite
   brand-voice-name: SpeechKit Brand Voice
   brand-voice-premium: Brand Voice Premium
   brand-voice-premium-name: SpeechKit Brand Voice Premium
@@ -297,7 +299,7 @@ default:
   link-console-main: https://console.yandex.cloud
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
-  link-console-support: https://support.yandex.cloud
+  link-console-support: https://center.yandex.cloud/support
   link-datalens-main: https://datalens.yandex.cloud
   link-datalens-settings: https://datalens.yandex.cloud/settings
   link-datalens-wizard: https://datalens.yandex.cloud/wizard
@@ -454,12 +456,14 @@ default:
   my:
     docs: https://dev.mysql.com/doc
   MY: MySQL®
+  myt-full-name: Yandex Managed Service for YTsaurus
+  myt-name: Managed Service for YTsaurus
   network-load-balancer-full-name: Yandex Network Load Balancer
   network-load-balancer-name: Network Load Balancer
   network-load-balancer-short-name: Network Load Balancer
   network-name: default
   neurosupport-full-name: Yandex Neurosupport
-  neurosupport-name: Neurosuppor
+  neurosupport-name: Neurosupport
   nodejs-cli-ver: nodejs18
   nodejs-full-ver: Node.js 18
   objstorage-full-name: Yandex Object Storage
@@ -6887,6 +6891,7 @@ default:
         value_vm-recourses: Virtual machines
       baremetal:
         action_create-public-subnet-from-server: Order
+        action_dedicate-ephemeral-subnet: Make dedicated
         action_destroy-raid: Remove RAID
         action_disk-layout-settings: Configure disk layout
         action_reboot-server: Reboot
@@ -6937,14 +6942,19 @@ default:
         label_subnetworks: Private subnets
         title_common-info: General information
         title_routing-settings: IP addressing and routing
+        title_section-accesses: Accesses
         title_section-backup: Backup
         title_section-disk: Disk
         title_section-lease-conditions: Lease conditions
+        title_section-resources: Resources
         title_section-server-backups: Backup
         title_section-server-config: Configuration
         title_section-server-info: Server information
+        title_section-server-marketplace-app: Marketplace application
         title_section-server-network-settings: Network settings
+        title_section-server-private-network: Private network
         title_section-server-product: Image
+        title_section-server-public-network: Public network
         title_server-access: Access
       cdn:
         button_activate-shielding: Activate
@@ -8107,6 +8117,7 @@ default:
             column_name: Name
             column_roles: Roles in folder
             popup-confirm_button_delete: Delete
+          switch_dashboard: Folder dashboard
           switch_service-accounts: Service accounts
           switch_service-notifications: Service notifications
         label_create-wli-federation: Create federation
@@ -11057,6 +11068,7 @@ default:
           operator: Agent
         type:
           chat-key-value: Сhat
+          one-channel-key-value: Single-channel audio
           two-channel-key-value: Two-channel audio
       dialogs:
         all-participants: All participants

@@ -1,4 +1,5 @@
 1. [Подключитесь по SSH](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ.
+1. [Установите и настройте](../../../container-registry/operations/configure-docker.md) Docker на ВМ.
 1. Пройдите [аутентификацию](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) от имени сервисного аккаунта, привязанного к этой машине:
 
     ```bash
@@ -13,6 +14,12 @@
 
     ```text
     Login Succeeded
+    ```
+
+1. Для удобства выполнения команд добавьте идентификатор реестра, созданного ранее, в переменную `${REGISTRY_ID}`:
+
+    ```bash
+    export REGISTRY_ID=<идентификатор_реестра>
     ```
 
 1. Скачайте Docker-образ на ВМ:

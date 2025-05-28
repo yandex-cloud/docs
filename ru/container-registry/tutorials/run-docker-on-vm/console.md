@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm
 
 {% include [run-docker-on-vm-console](../../../_tutorials/infrastructure/run-docker-on-vm-console.md) %}
 
-## См. также {#see-also}
+#### См. также {#see-also}
 
 * [{#T}](terraform.md)

@@ -34,7 +34,7 @@ The {{ oslogin }} agent is integrated into [a number of Linux images]({{ link-cl
 _{{ oslogin }} profile_ defines the parameters to apply when creating a user account within a VM.
 
 [Enabling](../operations/os-login-access.md) {{ oslogin }} access for an organization automatically creates _default {{ oslogin }} profiles_ for all user and service accounts in that organization.
-  
+
 The username (login) an account gets in the {{ oslogin }} profile by default depends on the account type:
 * A user account's login is derived from the user's name in the organization. Any characters except Latin letters, numbers, hyphens, and underscores, as well as a hyphen prepending the name are ignored. Uppercase Latin letters are converted to lowercase.
 * For a service account, the login will be its name prefixed by `yc-sa-`, e.g., `yc-sa-my-robot` will be the default login for `my-robot`.
@@ -122,6 +122,11 @@ To learn more about connecting to VMs via {{ oslogin }}, see [{#T}](../../comput
 {% include [sudo-and-oslogin](../../_includes/compute/sudo-and-oslogin.md) %}
 
 {% endnote %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/sa-oslogin-ansible.md)
+* [{#T}](../../tutorials/security/user-group-access-control.md)
 
 #### See also {#see-also}
 

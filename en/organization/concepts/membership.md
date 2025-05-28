@@ -7,7 +7,7 @@ description: Organization members are users who belong to an organization and ca
 
 [Organization](organization.md) members are [users](../../overview/roles-and-resources.md#users) who belong to an organization and can access the services within it.
 
-Non-members of an organization cannot gain access to the resources within the organization. This does not apply to resources access to which is granted to the `All users` and `All authenticated users` [public groups](../../iam/concepts/access-control/public-group.md).
+Non-members of an organization cannot gain access to the resources within the organization. This does not apply to resources authorized to be accessed from the [public groups](../../iam/concepts/access-control/public-group.md) titled `All users` and `All authenticated users`.
 
 Organization membership may be held by:
 
@@ -22,3 +22,8 @@ A user can be an owner or member of multiple organizations at the same time. You
 By default, all {{ org-name }} users can view information about all the other users in the same organization. You can [restrict](../operations/hide-user-info.md) this feature by reserving it for specially authorized users only.
 
 {% endnote %}
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/security/user-group-access-control.md)
+* [{#T}](../../tutorials/security/integration-keycloak.md)

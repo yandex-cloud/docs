@@ -1,6 +1,6 @@
 # Deleting a route table
 
-If you no longer need the route table, you can [delete](#delete-route-table) it. Before deleting a table, [disassociate it](#unlink-route-table) from all subnets it is associated with.
+If you no longer need the [route table](../concepts/routing.md), you can [delete](#delete-route-table) it. Before deleting a table, [disassociate it](#unlink-route-table) from all subnets it is associated with.
 
 ## Disassociating a route table from a subnet {#unlink-route-table}
 
@@ -113,15 +113,15 @@ If you no longer need the route table, you can [delete](#delete-route-table) it.
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -220,7 +220,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
 
@@ -240,17 +240,17 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc vpc subnet list

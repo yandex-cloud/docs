@@ -252,7 +252,7 @@
 
 - {{ TF }} {#tf}
 
-  1. Добавьте в конфигурационный файл описание кластера и его хостов:
+  1. Добавьте в конфигурационный файл описание кластера, базы данных и пользователя:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
@@ -268,18 +268,6 @@
          }
        }
 
-       database {
-         name = "s3_data"
-       }
-
-       user {
-         name     = "user"
-         password = "<пароль>"
-         permission {
-           database_name = "s3_data"
-         }
-       }
-
        host {
          type      = "CLICKHOUSE"
          zone      = "<зона_доступности>"
@@ -289,6 +277,24 @@
        access {
          datalens  = true
          web_sql   = true
+       }
+
+       lifecycle {
+         ignore_changes = [database, user]
+       }
+     }
+
+     resource "yandex_mdb_clickhouse_database" "s3-data" {
+       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       name       = "s3_data"
+     }
+
+     resource "yandex_mdb_clickhouse_user" "user1" {
+       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       name       = "user"
+       password   = "<пароль>"
+       permission {
+         database_name = yandex_mdb_clickhouse_database.s3-data.name
        }
      }
      ```

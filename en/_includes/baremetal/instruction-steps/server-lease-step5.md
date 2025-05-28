@@ -1,0 +1,1 @@
+Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, select the appropriate [server configuration](../../../baremetal/concepts/server-configurations.md).

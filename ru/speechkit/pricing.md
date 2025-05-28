@@ -140,6 +140,12 @@ editable: false
 
 ### {{ brand-voice-name }} {#brand-voice}
 
+{% note info %}
+
+Цены на {{ brand-voice-lite-name }} начнут действовать с 5 июня 2025 года.
+
+{% endnote %}
+
 
 {% list tabs group=pricing %}
 

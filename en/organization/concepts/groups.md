@@ -15,6 +15,14 @@ Groups may only have a one-level structure. You cannot create nested groups. Mem
 
 If you use user groups in your identity provider (IdP) when working with [federations](add-federation.md), you can [map groups](add-federation.md#group-mapping) between the IdP and {{ org-name }}.
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/user-group-access-control.md)
+* [{#T}](../tutorials/federations/group-mapping/adfs.md)
+* [{#T}](../tutorials/federations/group-mapping/entra-id.md)
+* [{#T}](../tutorials/federations/group-mapping/keycloak.md)
+* [{#T}](../../tutorials/security/integration-azure.md)
+
 #### What's next {#what-is-next}
 
 * [Managing user groups](../operations/manage-groups.md)

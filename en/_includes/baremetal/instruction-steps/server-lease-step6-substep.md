@@ -1,0 +1,3 @@
+In the **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** field, select a lease period: `1 day`, `1 month`, `3 months`, `6 months`, or `1 year`.
+
+When this period expires, server lease will be automatically renewed for the same period. You cannot terminate the lease during the specified lease period, but you can [refuse](../../../baremetal/operations/servers/server-lease-cancel.md) to extend the server lease further.

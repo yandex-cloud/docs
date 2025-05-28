@@ -5,4 +5,4 @@ description: In this tutorial, you will learn how to create a {{ dataproc-name }
 
 # Configuring a network for {{ dataproc-full-name }}
 
-{% include notitle [Data Processing network with NAT gateway](../../_tutorials/routing/data-processing-nat-gateway.md) %}
+{% include notitle [Data Processing network with NAT instance](../../_tutorials/routing/data-processing-nat-instance.md) %}

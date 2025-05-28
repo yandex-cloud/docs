@@ -312,16 +312,18 @@ description: Следуя данной инструкции, вы сможете
        ```
 
 
-    1. Создайте конфигурационный файл с описанием кластера и его хостов.
+    1. Создайте конфигурационный файл с описанием ресурсов кластера, которые необходимо создать:
 
        * Кластер базы данных — описание кластера и его хостов. Здесь же при необходимости:
-          * Задайте [настройки СУБД](../concepts/settings-list.md). Их также можно указать позднее.
-
-             Через интерфейсы {{ yandex-cloud }} можно управлять ограниченным набором настроек. С помощью SQL-запросов можно [установить настройки {{ CH }} на уровне запроса](change-query-level-settings.md).
-
+          * Задайте [настройки СУБД на уровне сервера](../concepts/settings-list.md#server-level-settings). Их также можно указать позднее.
           * Включите защиту кластера от непреднамеренного удаления.
 
              {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+       * База данных — описание БД кластера.
+       * Пользователь — описание пользователя кластера. Здесь же при необходимости задайте [настройки СУБД на уровне пользователя](../concepts/settings-list.md#dbms-user-settings). Их также можно указать позднее.
+
+          Через интерфейсы {{ yandex-cloud }} можно управлять ограниченным набором настроек. С помощью SQL-запросов можно [установить настройки {{ CH }} на уровне запроса](change-query-level-settings.md).
 
        Пример структуры конфигурационного файла, в котором описывается кластер из одного хоста:
 
@@ -342,23 +344,34 @@ description: Следуя данной инструкции, вы сможете
            }
          }
 
-         database {
-           name = "<имя_базы_данных>"
-         }
-
-         user {
-           name     = "<имя_пользователя_БД>"
-           password = "<пароль>"
-           permission {
-             database_name = "<имя_БД_в_которой_создается_пользователь>"
-           }
-         }
-
          host {
            type             = "CLICKHOUSE"
            zone             = "<зона_доступности>"
            subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
            assign_public_ip = <публичный_доступ_к_хосту>
+         }
+
+         lifecycle {
+           ignore_changes = [database, user]
+         }
+       }
+
+       resource "yandex_mdb_clickhouse_database" "<имя_БД>" {
+         cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+         name       = "<имя_БД>"
+       }
+
+       resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
+         cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+         name       = "<имя_пользователя>"
+         password   = "<пароль_пользователя>"
+         permission {
+           database_name = yandex_mdb_clickhouse_database.<имя_БД>.name
+         }
+         settings {
+           <имя_параметра_1> = <значение_1>
+           <имя_параметра_2> = <значение_2>
+           ...
          }
        }
        ```
@@ -367,12 +380,16 @@ description: Следуя данной инструкции, вы сможете
        Где:
 
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+       * `lifecycle.ignore_changes` — устраняет конфликты ресурсов при операциях с пользователями и базами данных, созданными с помощью отдельных ресурсов.
 
-       * `user` — блок с данными о пользователе. Содержит имя (`name`) и пароль (`password`) пользователя {{ CH }}, а также список БД, к которым пользователь должен иметь доступ, в блоке `permission`.
+       Для пользователя указываются:
 
-         {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+       * `name`и `password`— имя и пароль пользователя {{ CH }}.
 
-       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.     
+          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+       * `permission` — список БД, к которым пользователь должен иметь доступ.
 
        1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
@@ -883,9 +900,11 @@ description: Следуя данной инструкции, вы сможете
         * Укажите новое имя кластера в строке `resource` и параметре `name`.
         * Удалите параметры `created_at`, `health`, `id` и `status`.
         * В блоках `host` удалите параметры `fqdn`.
-        * Если в блоке `clickhouse.config.merge_tree` указано значение параметра `max_parts_in_total = 0`, удалите этот параметр.
+        * Если в блоке `clickhouse.config.merge_tree` для параметров `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, `number_of_free_entries_in_pool_to_execute_mutation` указано значение `0`, удалите эти параметры.
+        * В блоке `clickhouse.config.kafka` задайте значение параметра `sasl_password` или удалите этот параметр.
+        * В блоке `clickhouse.config.rabbitmq` задайте значение параметра `password` или удалите этот параметр.
         * Если в блоке `maintenance_window` указано значение параметра `type = "ANYTIME"`, удалите параметр `hour`.
-        * Если есть блоки `user`, добавьте в них параметры `name` и `password`.
+        * Если есть блоки `user`, удалите их. Пользователи БД добавляются с помощью отдельного ресурса `yandex_mdb_clickhouse_user`.
         * (Опционально) Внесите дополнительные изменения, если вам нужна не идентичная, а кастомизированная копия.
 
     1. В директории `imported-cluster` [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).

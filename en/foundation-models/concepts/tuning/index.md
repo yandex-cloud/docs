@@ -5,7 +5,7 @@ description: With {{ foundation-models-full-name }}, you can tune {{ gpt-lite }}
 
 # Model tuning
 
-With {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} and {{ llama }} 8B^1^ text generation models and {{ gpt-lite }}-based [classifiers](../classifier/index.md) using the [{{ lora }}](https://arxiv.org/abs/2106.09685) (_Low-Rank Adaptation of Large Language Models_) method.
+With {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} and {{ llama }} 8B^1^ text generation models, {{ gpt-lite }}-based [classifiers](../classifier/index.md), and the [embedding](../embeddings.md) model using the [{{ lora }}](https://arxiv.org/abs/2106.09685) (_Low-Rank Adaptation of Large Language Models_) method.
 
 _Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage._
 
@@ -43,6 +43,5 @@ To send API requests in [{{ ml-platform-name }}]({{ link-datasphere-main }}) not
 * [{#T}](../../operations/tuning/create.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
 * [{#T}](../../tutorials/models-fine-tuning.md)
-
 
 ^1^ {{ meta-disclaimer }}

@@ -7,7 +7,7 @@ description: In response to any request, {{ foundation-models-name }} models ret
 
 In response to any request, {{ foundation-models-name }} models return a message containing a request processing code and status. If there is an error processing the request, the message will also include its possible cause.
 
-When analyzing the models' responses in your app, go by request code and status. Error messages contain useful information, but may change after model updates.
+When processing model responses in your app, refer to the request code and status. Error messages contain useful information, but may change after model updates.
 
 | gRPC | REST | Status | Reason | Solution |
 |---|---|---|---|---|
