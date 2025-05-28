@@ -66,6 +66,12 @@ Sample token:
 t1.7euelSbPyceKx87JqpuRl1qZiY-Ryi3rnpWaksrKaZqUppnLncmDnpeajZvl8_dZNAFl-e8ENXMH_t3z9xljfmT57wQ1cwf-.-LErty1vRh4S__VEp-aDnM5huB5MEfm_Iu1u2IzNgyrn0emiWDYA6rSQXDvzjE0O3HBbUlqoDeCmXYYInzZ6Cg
 ```
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/wlif-k8s-integration.md)
+* [{#T}](../../../tutorials/archive/copy-files-from-object-storage.md)
+* [{#T}](../../../tutorials/serverless/websocket-app.md)
+
 #### See also {#see-also}
 
 * [{#T}](../../operations/iam-token/create.md)

@@ -21,16 +21,22 @@ resource "yandex_mdb_clickhouse_cluster" "mych" {
     subnet_id = yandex_vpc_subnet.cluster-subnet-a.id
   }
 
-  database {
-    name = "db1"
+  lifecycle {
+    ignore_changes = [database, user]
   }
+}
 
-  user {
-    name     = "user1"
-    password = "user1user1"
-    permission {
-      database_name = "db1"
-    }
+resource "yandex_mdb_clickhouse_database" "db1" {
+  cluster_id = yandex_mdb_clickhouse_cluster.mych.id
+  name       = "db1"
+}
+
+resource "yandex_mdb_clickhouse_user" "user1" {
+  cluster_id = yandex_mdb_clickhouse_cluster.mych.id
+  name       = "user1"
+  password   = "user1user1"
+  permission {
+    database_name = yandex_mdb_clickhouse_database.db1.name
   }
 }
 ```

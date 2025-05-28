@@ -25,14 +25,17 @@ def main():
         auth="<API_key>",
     )
 
+    # Creating a query embedding
     query_model = sdk.models.text_embeddings("query")
     query_embedding = query_model.run(query_text)
 
+    # Creating a text embedding
     doc_model = sdk.models.text_embeddings("doc")
     doc_embeddings = [doc_model.run(text) for text in doc_texts]
 
     query_embedding = np.array(query_embedding)
 
+    # Calculating cosine distances and finding the nearest vectors
     dist = cdist([query_embedding], doc_embeddings, metric="cosine")
     sim = 1 - dist
     result = doc_texts[np.argmax(sim)]

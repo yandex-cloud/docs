@@ -68,6 +68,8 @@ default:
   brand-voice-core: Brand Voice Self Service
   brand-voice-core-name: SpeechKit Brand Voice Self Service
   brand-voice-full-name: Yandex SpeechKit Brand Voice
+  brand-voice-lite: Brand Voice Lite
+  brand-voice-lite-name: SpeechKit Brand Voice Lite
   brand-voice-name: SpeechKit Brand Voice
   brand-voice-premium: Brand Voice Premium
   brand-voice-premium-name: SpeechKit Brand Voice Premium
@@ -298,7 +300,7 @@ default:
   link-console-main: https://console.yandex.cloud
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
-  link-console-support: https://support.yandex.cloud
+  link-console-support: https://center.yandex.cloud/support
   link-datalens-main: https://datalens.yandex.cloud
   link-datalens-settings: https://datalens.yandex.cloud/settings
   link-datalens-wizard: https://datalens.yandex.cloud/wizard
@@ -455,6 +457,8 @@ default:
   my:
     docs: https://dev.mysql.com/doc
   MY: MySQL®
+  myt-full-name: Yandex Managed Service for YTsaurus
+  myt-name: Managed Service for YTsaurus
   network-load-balancer-full-name: Yandex Network Load Balancer
   network-load-balancer-name: Network Load Balancer
   network-load-balancer-short-name: Network Load Balancer
@@ -6894,6 +6898,7 @@ default:
         value_vm-recourses: Виртуальные машины
       baremetal:
         action_create-public-subnet-from-server: Заказать
+        action_dedicate-ephemeral-subnet: Сделать выделенной
         action_destroy-raid: Разобрать RAID
         action_disk-layout-settings: Настроить разделы диска
         action_reboot-server: Перезагрузить
@@ -6944,14 +6949,19 @@ default:
         label_subnetworks: Приватные подсети
         title_common-info: Общая информация
         title_routing-settings: IP-адресация и маршрутизация
+        title_section-accesses: Доступы
         title_section-backup: Резервное копирование
         title_section-disk: Диск
         title_section-lease-conditions: Условия аренды
+        title_section-resources: Ресурсы
         title_section-server-backups: Резервное копирование
         title_section-server-config: Конфигурация
         title_section-server-info: Информация о сервере
+        title_section-server-marketplace-app: Приложение Marketplace
         title_section-server-network-settings: Сетевые настройки
+        title_section-server-private-network: Приватная сеть
         title_section-server-product: Образ
+        title_section-server-public-network: Публичная сеть
         title_server-access: Доступ
       cdn:
         button_activate-shielding: Включить
@@ -8116,6 +8126,7 @@ default:
             column_name: Имя
             column_roles: Роли в каталоге
             popup-confirm_button_delete: Удалить
+          switch_dashboard: Дашборд каталога
           switch_service-accounts: Сервисные аккаунты
           switch_service-notifications: Уведомления сервисов
         label_create-wli-federation: Создать федерацию
@@ -11050,6 +11061,14 @@ default:
         'yes': Да
       connections:
         add-key: Добавить ключ
+        additional:
+          separators:
+            finish: Конец диалога
+            start: Начало диалога
+          slice-length: Длина отрезка
+          split:
+            title: Разбивать диалоги на отрезки
+          title: Дополнительно
         column:
           description: Описание
           name: Название в системе
@@ -11064,6 +11083,7 @@ default:
           operator: Оператор
         type:
           chat-key-value: Чат
+          one-channel-key-value: Одноканальное аудио
           two-channel-key-value: Двухканальное аудио
       dialogs:
         all-participants: Все участники

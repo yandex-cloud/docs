@@ -30,7 +30,7 @@ items:
             href: operations/servers/server-kvm.md
           - name: Replacing a disk in a RAID array
             href: operations/servers/switch-raid-member.md
-          - name: Using Rescue CD
+          - name: Using the Rescue CD
             href: operations/servers/rescue-boot.md
           - name: Adding a new user SSH key
             href: operations/servers/add-new-ssh-key.md
@@ -38,14 +38,18 @@ items:
             href: operations/servers/restore-grub.md
           - name: Upload image
             href: operations/image-upload.md
-          - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
+          - name: >-
+              Connecting an existing {{ baremetal-name }} server to {{
+              backup-name }}
             href: operations/backup-baremetal.md
       - name: Network
         items:
           - name: Creating a VRF segment
             href: operations/network-create.md
-          - name: Creating a subnet
+          - name: Creating a private subnet
             href: operations/subnet-create.md
+          - name: Ordering a public subnet
+            href: operations/reserve-public-subnet.md
           - name: Creating a private connection to cloud networks
             href: operations/create-vpc-connection.md
   - name: Concepts
@@ -79,7 +83,9 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
+      - name: >-
+          Connecting an existing {{ baremetal-name }} server to {{ backup-name
+          }}
         href: tutorials/backup-baremetal.md
       - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
         href: tutorials/bms-vrf-routing.md
@@ -93,6 +99,8 @@ items:
           Delivering USB devices to a {{ baremetal-name }} server or virtual
           machine
         href: tutorials/usb-over-ip.md
+      - name: Configuring an OPNsense firewall in high availability cluster mode
+        href: tutorials/opnsense-failover-cluster.md
   - name: API reference
     items:
       - name: API authentication

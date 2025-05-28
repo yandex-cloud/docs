@@ -25,7 +25,7 @@ The following DHCP options are transmitted on public and private networks:
 
 ## DHCP in public network {#dhcp-public}
 
-If you select `Automatically` in the **Public address** selector when ordering the server, its network interface connected to a public network will get an IPv4 address from the public range of internet networks. DHCP assigns IP addresses to servers on a public subnet with the `/31` prefix. You cannot disable DHCP.
+If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`, its network interface connected to a public network will get an IPv4 address from the public range of internet networks. In this case, DHCP assigns IP addresses to servers on a public subnet with the `/31` prefix. You cannot disable DHCP.
 
 If DHCP is disabled on a server, consider the following when configuring the network interface of a public network:
 
@@ -33,11 +33,19 @@ If DHCP is disabled on a server, consider the following when configuring the net
 * The host IP address is specified in the **Public IPv4 address** field on the page with server information.
 * The gateway IP address is less than the host IP address by one.
 
-For example:
+Here is an example:
 
 * Server public IPv4 address: `198.51.100.111`.
 * Subnet CIDR: `198.51.100.110/31`.
 * Gateway IP address: `198.51.100.110`.
+
+### DHCP in a public subnet {#dhcp-public-subnet}
+
+[Public subnets](./network.md#public-subnet) do not have a DHCP server. If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}`, on the network interface of a server connected to a public subnet, you need to manually set up a static IP address from the subnet’s range of public IP addresses and set the default gateway address. 
+
+{% include [public-subnet-address-info](../../_includes/baremetal/public-subnet-address-info.md) %}
+
+You cannot enable DHCP in a public subnet.
 
 ## DHCP in a private network {#dhcp-private}
 

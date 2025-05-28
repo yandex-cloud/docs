@@ -1,6 +1,6 @@
 # Converting a static public IP address to dynamic
 
-You can convert a static public IP address assigned to a cloud resource to dynamic. If a VM uses a dynamic IP address, it gets lost when the VM is stopped and changes when it is started again.
+You can convert a static [public IP address](../concepts/address.md#public-addresses) assigned to a cloud resource to dynamic. If a VM uses a dynamic IP address, it gets lost when the VM is stopped and changes when it is started again.
 
 {% list tabs group=instructions %}
 
@@ -18,7 +18,7 @@ You can convert a static public IP address assigned to a cloud resource to dynam
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI commands for updating the address attribute:
+   1. See the description of the CLI commands for updating the address attributes:
 
       ```bash
       yc vpc address update --help

@@ -89,7 +89,7 @@ items:
             href: operations/data/spark-connectors.md
           - name: Working with models
             href: operations/data/models.md
-          - name: Using file storages
+          - name: File storage operations
             href: operations/data/filestores.md
       - name: Connecting to data sources
         items:
@@ -293,7 +293,7 @@ items:
     items:
       - name: Overview
         href: api-ref/overview.md
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

@@ -5,7 +5,7 @@ description: You can add rules using the management console, CLI, and {{ vpc-nam
 
 # Adding a new rule to a security group
 
-You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources associated with a group at the same time.
+You do not need to restart a VM when adding or deleting [rules](../concepts/security-groups.md#security-groups-structure). The rules are applied to all the resources associated with a group at the same time.
 
 {% list tabs group=instructions %}
 
@@ -13,9 +13,9 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
   To add a rule:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
+  1. In the [management console]({{ link-console-main }}), go to the folder where you need to update the [security group](../concepts/security-groups.md).
 
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
 
@@ -29,11 +29,11 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a port range for traffic to come to or from.
 
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or keep `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
 
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks the traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
 
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`. Select one of the following:
 
@@ -48,7 +48,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
 - CLI {#cli}
 
-  To add a rule to an existing group:
+  To add a rule to an existing [group](../concepts/security-groups.md):
 
   1. Get the name or ID of the group to edit:
 
@@ -111,7 +111,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  1. Open the {{ TF }} configuration file and add the `ingress` or `egress` section to the security group description:
+  1. Open the {{ TF }} configuration file and add the `ingress` or `egress` section to the [security group](../concepts/security-groups.md) description:
 
      ```hcl
      ...
@@ -134,7 +134,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
          from_port      = 8090
          to_port        = 8099
        }
-	   
+
 	   egress {
          protocol       = "UDP"
          description    = "rule3 description"
@@ -146,16 +146,16 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
      ...
      ```
 
-     For more information about the `yandex_vpc_security_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more information about `yandex_vpc_security_group` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/vpc_security_group).
 
   1. Check the configuration using this command:
 
      ```
      terraform validate
      ```
-     
+
      If the configuration is correct, you will get this message:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -165,15 +165,15 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
      ```
      terraform plan
      ```
-  
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
-     
+
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check the security group update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
@@ -226,7 +226,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
      ...
      ```
 
-     For more information about the `yandex_vpc_security_group_rule` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resources/vpc_security_group_rule).
+     For more information about `yandex_vpc_security_group_rule` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/resources/vpc_security_group_rule).
 
   1. Check the configuration using this command:
 
@@ -245,15 +245,15 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
      ```
      terraform plan
      ```
-  
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
-     
+
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check the security group update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
@@ -266,7 +266,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
   To add a rule, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/SecurityGroup/updateRules.md) gRPC API call, and provide the following in the request:
 
-  * ID of the security group you want to add rules to, in the `securityGroupId` parameter.
+  * ID of the [security group](../concepts/security-groups.md) you want to add rules to, in the `securityGroupId` parameter.
 
     {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
 

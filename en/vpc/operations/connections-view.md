@@ -5,7 +5,7 @@ description: Follow this guide to view a chart of network connections.
 
 # Chart of network connections
 
-To view the chart of your VM or cluster network connections:
+To view the chart of your VM or cluster [network connections](../concepts/monitoring-connections.md):
 
 {% list tabs group=instructions %}
 

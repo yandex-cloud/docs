@@ -6,17 +6,26 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
 ## Подготовьте облако к работе {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
+
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 {% include [paid-resources](../_tutorials_includes/run-docker-on-vm/paid-resources.md) %}
 
-### Настройте окружение {#prepare}
 
-{% include [prepare](../_tutorials_includes/run-docker-on-vm/prepare.md) %}
+### Создайте пару ключей SSH {#create-ssh}
+
+{% include [create-ssh](../_tutorials_includes/run-docker-on-vm/create-ssh.md) %}
+
+
+### Установите и настройте Docker {#configure-docker}
+
+{% include [configure-docker](../../_includes/container-registry/configure-docker.md) %}
+
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -77,19 +86,25 @@
 
     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-После создания инфраструктуры, [соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image). 
+После создания инфраструктуры [соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image).
+
 
 ## Соберите и загрузите Docker-образ в {{ container-registry-name }} {#create-image}
 
+{% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
+
 {% include [create-image](../_tutorials_includes/run-docker-on-vm/create-image.md) %}
+
 
 ## Загрузите Docker-образ на ВМ {#run}
 
 {% include [run](../_tutorials_includes/run-docker-on-vm/run.md) %}
 
+
 ## Проверьте результат {#check-out}
 
 {% include [test](../_tutorials_includes/run-docker-on-vm/test.md) %}
+
 
 ## Как удалить созданные ресурсы {#clear-out}
 

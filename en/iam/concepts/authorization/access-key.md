@@ -63,6 +63,10 @@ The following services support authentication based on static access keys:
 * [{{ yds-full-name }}](../../../data-streams/index.yaml)
 * [{{ postbox-full-name }}](../../../postbox/aws-compatible-api/index.md)
 
+## Use cases {#examples}
+
+* [Using a {{ lockbox-full-name }} secret to store a static access key](../../tutorials/static-key-in-lockbox/index.md)
+
 #### See also {#see-also}
 
 * [{#T}](../../operations/authentication/manage-access-keys.md#create-access-key)

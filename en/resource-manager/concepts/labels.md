@@ -100,6 +100,10 @@ Some service resources do not support labels, and some interfaces may not displa
 * [{{ org-full-name }}](../../organization/index.yaml)
 * [{{ resmgr-full-name }}](../../resource-manager/index.yaml)
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/infrastructure-management/serverless-trigger-budget-vm.md)
+
 #### See also {#see-also}
 
 * [Managing labels](../operations/manage-labels.md)

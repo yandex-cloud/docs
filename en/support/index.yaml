@@ -5,8 +5,8 @@ description:
     href="https://yandex.ru/legal/cloud_technicalregulations">Maintenance
     Regulations</a> in Russian and English.
   - >-
-    <a href="https://support.yandex.cloud">Yandex Cloud Support Center</a> is
-    the main entry point for troubleshooting and answers to questions about YC
+    <a href="{{ link-console-support }}">Yandex Cloud Support Center</a> is the
+    main entry point for troubleshooting and answers to questions about YC
     services.
   - >-
     This document explains how to work with the Support Center, details the

@@ -73,6 +73,8 @@ items:
     stage: hidden
   - name: Managed Service for Apache Kafka®
     href: managed-kafka/index.yaml
+  - name: Managed Service for Apache Spark™
+    href: managed-spark/index.yaml
   - name: Managed Service for ClickHouse
     href: managed-clickhouse/index.yaml
   - name: Managed Service for Elasticsearch
@@ -93,7 +95,8 @@ items:
     href: managed-redis/index.yaml
   - name: Managed Service for Trino
     href: managed-trino/index.yaml
-    hidden: true
+  - name: Managed Service for YTsaurus
+    href: managed-ytsaurus/index.yaml
   - name: Marketplace partner interface
     href: marketplace/index.yaml
   - name: Message Queue

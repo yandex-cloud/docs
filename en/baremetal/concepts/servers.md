@@ -18,7 +18,7 @@ Pools are infrastructurally separate data center modules servers physically resi
 
 | Region        | Availability zone | Pools                               |
 |---------------|------------------|------------------------------------|
-| `{{ region-id }}` | `{{ region-id }}-m`  | `{{ region-id }}-m3`<br>`{{ region-id }}-m4` |
+| `{{ region-id }}` | `{{ region-id }}-m` | `{{ region-id }}-m3`<br>`{{ region-id }}-m4` |
 
 ## Server statuses {#server-status}
 
@@ -41,6 +41,14 @@ A server can have one of the following statuses:
 Quarantine: A transition state before server lease is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
 
 At any time during the quarantine period, you can restore the server for further use. To restore the server, contact [support]({{ link-console-support }}).
+
+{% note info %}
+
+A quarantined server does consume the server number [quota](./limits.md) but is [free of charge](../pricing.md).
+
+If a server is not restored for further use during the quarantine period, its quarantine time will be included into the paid lease term. 
+
+{% endnote %}
 
 #### See also {#see-also}
 

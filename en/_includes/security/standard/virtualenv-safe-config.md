@@ -252,7 +252,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. From the list of services, select **{{ objstorage-name }}**.
   1. Click the three dots next to each bucket and check its ACL for `allUsers` and `allAuthenticatedUsers`.
   1. Open the bucket and check the ACL of each of its objects for `allUsers` and `allAuthenticatedUsers`.
   1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to "Guides and solutions to use".
@@ -330,7 +330,7 @@ The storage period of critical data in a bucket is determined by the customer's 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. From the list of services, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
   1. Go to the **Versioning** tab and make sure it is enabled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -382,7 +382,7 @@ If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_r
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. From the list of services, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
   1. Go to the **CORS** tab and make sure that the configuration is set up. Otherwise, proceed to "Guides and solutions to use".
 
@@ -1126,7 +1126,7 @@ When working with {{ mgl-name }}, make sure you use built-in GitLab security mec
 
 ##### 3.33.2 Approval rules are configured {#setup-code-review}
 
-With [{{ mgl-full-name }}](../../../managed-gitlab/index.yaml), you can flexibly set up mandatory [approval rules](../../../managed-gitlab/concepts/approval-rules.md) for adding code to the target project branch. This feature is an alternative to the GitLab Enterprise Edition’s [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) tool and is available regardless of the GitLab [version](https://about.gitlab.com/pricing).
+With [{{ mgl-full-name }}](../../../managed-gitlab/index.yaml), you can flexibly set up required [approval rules](../../../managed-gitlab/concepts/approval-rules.md) before the code can be added to the target project branch. This feature is an alternative to the GitLab Enterprise Edition’s [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) tool and is available regardless of the GitLab [version](https://about.gitlab.com/pricing).
 
 If a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) has the approval rules enabled, {{ mgl-name }} analyzes approvals from reviewers for compliance with the specified rules. If there are not enough approvals, a thread is created in a merge request that blocks it from being merged to the target branch. Editing the merge request creates or updates a comment in the thread with its current compliance status. Once all the required approvals are obtained, the thread is closed.
 
@@ -1275,7 +1275,7 @@ If you specify a network in the API gateway settings, this will create an auxili
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. From the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure the cloud network is specified in the **Overview** section.
 
@@ -1321,7 +1321,7 @@ We recommend that you use the following when connecting to the API gateway via W
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. From the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Set up integrations in the OpenAPI specification using the following operations: `x-yc-apigateway-websocket-message`, `x-yc-apigateway-websocket-connect`, or `x-yc-apigateway-websocket-disconnect`.
 
@@ -1338,7 +1338,7 @@ Make sure that security enhancement extensions were added to the {{ api-gw-name 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. From the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. OpenAPI 3.0 is used in the **Specification** section.
 
@@ -1357,7 +1357,7 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. From the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure the **Specification** section uses the `x-yc-apigateway:smartWebSecurity` extension, which protects the API gateway as well as your application, function, or container from DDoS attacks based on the {{ sws-full-name }} profile rules.
 
@@ -1375,7 +1375,7 @@ We recommend using the OpenAPI 3.0 authentication and authorization mechanisms t
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. From the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure that the **Specification** section has the `x-yc-apigateway-authorizer:jwt` or `x-yc-apigateway-authorizer:function` extension configured.
 
@@ -1402,7 +1402,7 @@ We recommend to keep logging enabled when creating an API gateway. For more info
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. In the list of services, select **{{ api-gw-name }}**.
+  1. From the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure that the **Write logs** option is enabled in the **Logging** section and that the gateway logging level and destination are set up.
 

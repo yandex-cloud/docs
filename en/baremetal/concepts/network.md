@@ -13,6 +13,29 @@ A network with internet access, to which all servers are physically connected. O
 
 When working with a public network and internet access, make sure to comply with the [terms of use](https://yandex.ru/legal/cloud_termsofuse/).
 
+### Public subnet {#public-subnet}
+
+This subnet includes a range of IP addresses that will be available to your servers in the selected [pool](./servers.md#server-pools). The IP address range is assigned to the public subnet automatically.
+
+You can [order](../operations/reserve-public-subnet.md) a public subnet in the following sizes:
+
+| Subnet size | Total number of IP addresses | Available IP addresses |
+| --- | --- | --- |
+| `/29` | 8 | 6 |
+| `/28` | 16 | 14 |
+| `/27`^*^ | 32 | 30 |
+| `/26`^*^ | 64 | 62 |
+| `/25`^*^ | 128 | 126 |
+| `/24`^*^ | 256 | 254 |
+
+^*^ To order public subnets with sizes `/27`, `/26`, `/25`, and `/24`, [contact]({{ link-console-support }}/tickets/create) support.
+
+{% include [public-subnet-no-dhcp](../../_includes/baremetal/public-subnet-no-dhcp.md) %}
+
+{% include [public-subnet-address-info](../../_includes/baremetal/public-subnet-address-info.md) %}
+
+{{ baremetal-full-name }} public subnets are [billable](../pricing.md). The minimum lease term for a public subnet is one month from the order date, so a public subnet cannot be deleted during the first month after that date.
+
 ## Private network {#private-network}
 
 A local network to which all servers are connected. Logically joins servers into isolated user networks.

@@ -1,0 +1,4 @@
+```
+{"anchor": "Sigale is a commune.", "positive": "Sigale is a commune in the Alpes-Maritimes department in southeastern France.", "negative": "When it was properly done, as in Austen, Whately said, imaginative literature concerned itself with generalised human experience from which the reader could gain important insights into human nature; in other words, it was moral."}
+{"anchor": "Helena is the capital city of the U.S. state of Montana .", "positive": "Helena is the capital city of the U.S. state of Montana and the county seat of Lewis and Clark County.", "negative": "After reading Pride and Prejudice, playwright Richard Sheridan advised a friend to buy it immediately cause 'it was one of the cleverest things' he had ever read."}
+```

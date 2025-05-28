@@ -130,6 +130,12 @@ The cost of an empty request to any type of speech recognition is equal to that 
 
 ### {{ brand-voice-name }} {#brand-voice}
 
+{% note info %}
+
+The prices for {{ brand-voice-lite-name }} will be effective starting June 5, 2025.
+
+{% endnote %}
+
 
 
 {% include [usd.md](../_pricing/speechkit/usd-brand.md) %}

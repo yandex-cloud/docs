@@ -4,3 +4,4 @@ You cannot fine-tune a text generation model based on new data, e.g., the knowle
 * Provide responses in a particular format or style.
 * Classify texts, queries, and conversations.
 * Extract entities from texts.
+* Fine-tune classification and embedding models.

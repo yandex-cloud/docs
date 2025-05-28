@@ -25,8 +25,8 @@ Solution diagram:
 
 ![usb-over-ip](../../_assets/tutorials/usb-over-ip.svg)
 
-* Remote site **USB client** is a Windows or Linux-based virtual machine or physical server. In this tutorial, we are going to use as a client a physical server running Linux [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts) leased from {{ baremetal-full-name }}.
-* Remote site **USB server** is a Linux-based device with a connection to a local network and VPN access (if the USB device data is delivered via the internet). USB devices will be physically inserted into the USB ports of the USB server. For a server, you can use microcomputers, e.g., [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi). In this tutorial, we will use as a server a computer running Linux [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) with several USB ports.
+* Remote site **USB client** is a Windows or Linux-based virtual machine or physical server. In this tutorial, we are going to use as a client a physical server running Linux Ubuntu 24.04 LTS leased from {{ baremetal-full-name }}.
+* Remote site **USB server** is a Linux-based device with a connection to a local network and VPN access (if the USB device data is delivered via the internet). USB devices will be physically inserted into the USB ports of the USB server. For a server, you can use microcomputers, e.g., [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi). In this tutorial, we will use as a server a computer running Linux Ubuntu 22.04 LTS with several USB ports.
 * **Software**. In this tutorial, USB devices will be delivered to the client via `usbip` with the help of the standard set of system utilities and core modules from the `linux-tools` package.
 * **Connected USB equipment**:
     * USB data drive
@@ -72,7 +72,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM (VPN serv
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select the folder you are going to create your cloud infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Create a cloud network:
 
       1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -100,7 +100,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) named `vpn-sg` 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your cloud infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** and click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter `vpn-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `sample-network`, which you created earlier.
@@ -122,7 +122,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) named `vpn-sg` 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create the infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
@@ -156,7 +156,7 @@ To keep the VPN connection alive if you stop and restart your VPN server, [make]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your cloud infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `subnet-m3`.
@@ -172,26 +172,12 @@ To keep the VPN connection alive if you stop and restart your VPN server, [make]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your cloud infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** and click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, select the appropriate [server configuration](../../baremetal/concepts/server-configurations.md).
-  1. (Optionally) Under **{{ ui-key.yacloud.baremetal.title_section-disk }}**, configure disk partitioning:
-
-        1. Click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-        1. Specify the partitioning parameters. To create a new partition, click ![icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
-
-           {% note info %}
-
-           To build RAID arrays and configure disk partitions yourself, click **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
-
-           {% endnote %}
-
-        1. Click **{{ ui-key.yacloud.common.save }}**.
-
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts) image.  
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, select the desired server lease period.
-  
-      When this period expires, server lease will be automatically renewed for the same period. You cannot terminate the lease during the specified lease period, but you can refuse to extend the server lease further.
+  1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
+  1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 24.04` image.
+  1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
      1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
@@ -202,7 +188,7 @@ To keep the VPN connection alive if you stop and restart your VPN server, [make]
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}** in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the server: `my-usbip-client`.
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
 
 {% endlist %}
 

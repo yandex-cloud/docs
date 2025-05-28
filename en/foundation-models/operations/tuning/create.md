@@ -3,7 +3,7 @@ title: Creating a fine-tuned text generation model in {{ foundation-models-name 
 description: Follow this guide to create a dataset and fine-tune a text generation model in {{ foundation-models-name }} using {{ ai-playground }}, the API, and {{ ml-sdk-name }}.
 ---
 
-# Tuning a text generation model
+# Fine-tuning a text generation model
 
 {% include [lora-tuning-preview](../../../_includes/foundation-models/lora-tuning-preview.md) %}
 
@@ -29,12 +29,12 @@ Create a tuning dataset:
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.dataset.datasets }}**.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
-  1. Enter a name and descriptions for the dataset. Follow these naming requirements:
+  1. Enter a name and descriptions for the dataset. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.yagpt.foundation-models.playground.text-generation.title }}**.
-  1. Delete or add dataset [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Add or delete dataset [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
   1. Click **Select file** or drag the JSON file you created earlier to the loading area.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
 
@@ -125,12 +125,12 @@ Create a tuning dataset:
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.tuning.tunings }}**.
   1. Click **{{ ui-key.yacloud.tuning.train-model }}**.
-  1. Enter a name and descriptions for the dataset. Follow these naming requirements:
+  1. Enter a name and descriptions for the dataset. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. In the **{{ ui-key.yacloud.tuning.task }}** field, select **{{ ui-key.yacloud.tuning.generation }}**.
-  1. Optionally, add or delete the tuning [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Optionally, add or delete [labels](../../../resource-manager/concepts/labels.md) for tuning. You can use them to split or join resources into logical groups.
   1. In the **{{ ui-key.yacloud.yagpt.model }}** field, select the model you need.
   1. In the **{{ ui-key.yacloud.dataset.dataset }}** field, click **{{ ui-key.yacloud.common.add }}**.
   1. In the window that opens, go to the **{{ ui-key.yacloud.dataset.select-from-created }}** tab and select the dataset you created earlier.

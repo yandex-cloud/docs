@@ -7,6 +7,8 @@ description: Following this guide to learn how to use {{ foundation-models-full-
 
 [Embeddings](../../concepts/embeddings.md) make it possible to search a knowledge base for the most relevant answer to your question.
 
+If the basic embedding model does not suit you, you can [fine-tune](../tuning/create-embeddings.md) it.
+
 ## Getting started {#before-begin}
 
 To use the examples:
@@ -91,3 +93,4 @@ In the example, the `doc_texts` array contains the source data for vectorization
 
 * [{#T}](../../concepts/embeddings.md)
 * Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)
+* [{#T}](../tuning/create-embeddings.md)

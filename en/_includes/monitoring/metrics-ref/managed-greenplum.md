@@ -1,4 +1,4 @@
-The `name` label stores the metric name.
+The `name` label is for the metric name.
 
 Labels shared by all {{ mgp-name }} metrics:
 
@@ -324,7 +324,7 @@ Additional labels: `dev` for the disk ID in the system.
 | `nstat.tcpexttcptimewaitoverflow`<br/>`DGAUGE`, count | Number of TCP `TIME_WAIT` overflows  |
 | `nstat.tcpexttcptozerowindowadv`<br/>`DGAUGE`, count | Number of TCP zero window advertisements in segments  |
 | `nstat.tcpexttcptsreorder`<br/>`DGAUGE`, count | Number of reordered TCP packets in segments  |
-| `nstat.tcpexttcpwantzerowindowadv`<br/>`DGAUGE`, count | Number of TCP zero window advertisement requests  |
+| `nstat.tcpexttcpwantzerowindowadv`<br/>`DGAUGE`, count | Number of TCP zero window advertisements in segments  |
 | `nstat.tcpexttcpwinprobe`<br/>`DGAUGE`, count | Number of TCP window probe segments  |
 | `nstat.tcpexttcpwqueuetoobig`<br/>`DGAUGE`, count | Number of failures due to TCP outbound queue overflows  |
 | `nstat.tcpexttcpzerowindowdrop`<br/>`DGAUGE`, count | Number of TCP zero window segments dropped  |
@@ -354,7 +354,7 @@ Additional labels: `dev` for the disk ID in the system.
 | `gp.connect_percent`<br/>`DGAUGE`, % | Percentage of connections | 
 | `gp.has_alive`<br/>`DGAUGE` | Live segment indicator. It can be either `1` if all segments are healthy or `0` if there are no healthy segments.  |
 | `gp.has_dead`<br/>`DGAUGE` | Dead segment indicator. It can be either `1` if there are failed segments or `0` if there are none.  |
-| `gp.is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
+| `gp.is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if a DB host is alive or `0` if it is not. | 
 | `gp.is_alive_segment`<br/>`DGAUGE` | Segment host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
 | `gp.is_dead`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `0` if a DB host is alive or `1` if it is not. | 
 | `gp.is_master`<br/>`DGAUGE` | Host type indicator.<br/>It can be either `1` if it is a DB master host or `0` if it is not. | 
@@ -477,7 +477,7 @@ Additional labels:
 | `snmp.icmpouttimestamps`<br/>`DGAUGE`, count | Number of ICMP timestamp messages sent (SNMP) |
 | `snmp.ipdefaultttl`<br/>`DGAUGE`, count | Default TTL value inserted into the IP header for IP packets generated in this object when the transport layer protocol does not provide a TTL. |
 | `snmp.ipforwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled. |
-| `snmp.ipforwdatagrams`<br/>`DGAUGE`, count | Number of inbound packets not destined for this object, triggering an attempt to find a forwarding route to the final IP destination. For objects not acting as IP routers, this count includes only those packets that were source-routed through them and where the source route option was successfully processed (SNMP). |
+| `snmp.ipforwdatagrams`<br/>`DGAUGE`, count | Number of incoming packets not destined for the object in question, triggering an attempt to find a forwarding route to the final IP destination. For objects not acting as IP routers, this count includes only those packets that were source-routed through them and where the source route option was successfully processed (SNMP). |
 | `snmp.ipfragcreates`<br/>`DGAUGE`, count | Number of IP packet fragments generated due to fragmentation in the object in question (SNMP) |
 | `snmp.ipfragfails`<br/>`DGAUGE`, count | Number of IP packets dropped due to failed fragmentation which was required in this object, e.g., because of the `Do not fragment` flag being set (SNMP). |
 | `snmp.ipfragoks`<br/>`DGAUGE`, count | Number of successfully fragmented IP packets (SNMP) |

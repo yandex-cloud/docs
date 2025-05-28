@@ -593,7 +593,7 @@ items:
           GPU
         href: tutorials/vllm-gemma-gpu.md
       - name: >-
-          Delivering USB devices to a {{ baremetal-name }} virtual machine or
+          Delivering USB devices to a virtual machine or {{ baremetal-name }}
           server
         href: tutorials/usb-over-ip.md
   - name: Concepts

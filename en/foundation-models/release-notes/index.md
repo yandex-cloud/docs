@@ -5,6 +5,10 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 15/05/2025 {#150525}
+
+According to the lifecycle, updated the [text generation model](../concepts/yandexgpt/models.md#generation) versions available in synchronous and asynchronous mode. Discontinued support of {{ yagpt-name }} version 3 models and models fine-tuned in {{ ml-platform-full-name }}.
+
 ## Release as of 30/04/2025 {#290425}
 
 New text models of the Qwen3 family are now available in batch mode.

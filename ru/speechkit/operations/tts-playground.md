@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 1. Вставьте текст длиною до 5000 символов в центральную часть окна.
 1. В блоке настроек в левой части окна:
 
-   * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_pauses-title }}** — настройте фиксированные [паузы](../tts/markup/tts-markup.md#pause) между словами тегами `<[small]>`, `<[large]>` и другими. Чтобы задать паузу определенной длины, используйте тег `sil<[t]>`, где `t` — длительность паузы в миллисекундах.
+   * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_pauses-title }}** — настройте фиксированные [паузы](../tts/markup/tts-markup.md#pause) между словами тегами `<[small]>`, `<[large]>` и другими. Чтобы задать паузу определенной длины, используйте тег `sil<[t]>`, где `t` — длительность паузы в миллисекундах. Максимальное значение — 7 000.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_word-title }}** — поставьте [акцент](../tts/markup/tts-markup.md#accent) на слове с помощью тега `<[accented]>` или заключите слово в звездочки `** **`.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_word-stress-title }}** — обозначьте в омографах [ударную](../tts/markup/tts-markup.md#a) гласную, поставив перед ней символ `+`.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_phonemes-title }}** — выделяйте слова блоком `[[]]`, чтобы контролировать правильность произношения с помощью [фонем](../tts/markup/tts-supported-phonemes.md).

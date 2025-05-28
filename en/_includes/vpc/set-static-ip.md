@@ -1,4 +1,4 @@
-You can convert a dynamic public IP address to static. Static public IP addresses are reserved and remain attached to respective resources when VMs and network load balancers are stopped.
+You can convert a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) to static. Static public IP addresses are reserved and remain attached to respective resources when VMs and network load balancers are stopped.
 
 {% note info %}
 

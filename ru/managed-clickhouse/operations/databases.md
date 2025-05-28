@@ -145,18 +145,31 @@ description: Следуя данной инструкции, вы сможете
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте к описанию кластера {{ mch-name }} блок описания базы данных `database`:
+    1. Добавьте ресурс `yandex_mdb_clickhouse_database`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
-          ...
-          database {
-            name = "<имя_БД>"
-          }
+        resource "yandex_mdb_clickhouse_database" "<имя_БД>" {
+          cluster_id = "<идентификатор_кластера>"
+          name       = "<имя_БД>"
         }
         ```
 
         {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
+        Если кластер создается с помощью {{ TF }} одновременно с созданием БД, то в ресурсе `yandex_mdb_clickhouse_database` вместо идентификатора кластера укажите ссылку на имя создаваемого кластера:
+
+        ```hcl
+
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+          name = "<имя_кластера>"
+          ...
+        }
+
+        resource "yandex_mdb_clickhouse_database" "<имя_БД>" {
+          cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+          name       = "<имя_БД>"
+        }
+        ```
 
     1. Проверьте корректность настроек.
 
@@ -166,9 +179,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
 - REST API {#api}
 
@@ -275,7 +286,7 @@ description: Следуя данной инструкции, вы сможете
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Удалите из описания кластера {{ mch-name }} блок `database` с описанием базы данных.
+    1. Удалите ресурс `yandex_mdb_clickhouse_database` с именем удаляемой базы данных.
 
     1. Проверьте корректность настроек.
 
@@ -285,9 +296,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
 - REST API {#api}
 

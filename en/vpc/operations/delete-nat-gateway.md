@@ -1,6 +1,6 @@
 # Deleting a NAT gateway
 
-If you no longer need the NAT gateway, you can [delete it](#delete-nat-gateway). Before deleting your NAT gateway, [disassociate it](#unlink-nat-gateway) from all route tables that use it.
+If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delete it](#delete-nat-gateway). Before deleting your NAT gateway, [disassociate it](#unlink-nat-gateway) from all route tables that use it.
 
 ## Disassociating a NAT gateway from a route table {#unlink-nat-gateway}
 
@@ -100,15 +100,15 @@ If you no longer need the NAT gateway, you can [delete it](#delete-nat-gateway).
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -209,7 +209,7 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
 
@@ -229,17 +229,17 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc vpc gateway list

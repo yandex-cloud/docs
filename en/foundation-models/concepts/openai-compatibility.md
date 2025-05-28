@@ -12,24 +12,24 @@ To use the {{ foundation-models-name }} text generation models in {{ openai }} l
 
 - Python {#python}
 
-   ```python
-   import openai
+  ```python
+  import openai
 
-   client = openai.OpenAI(
+  client = openai.OpenAI(
       api_key="<API_key_value>",
-      base_url="https://llm.api.cloud.yandex.net/v1"
-   )
-   ```
+      base_url="https://{{ api-host-llm }}/v1"
+  )
+  ```
 
 - Node.js {#node}
 
-   ```node
-   import OpenAI from "openai";
+  ```js
+  import OpenAI from "openai";
 
-   const openai = new OpenAI(
-      api_key="<API_key_value>",
-      base_url="https://llm.api.cloud.yandex.net/v1");
-   ```
+  const openai = new OpenAI({
+    apiKey:"<API_key_value>",
+    baseURL:"https://{{ api-host-llm }}/v1"});
+  ```
 
 {% endlist %}
 
@@ -41,76 +41,75 @@ Before sending the query, in the model URI, specify the [ID of the folder](../..
 
 {% list tabs group=programming_language %}
 
-
 - Python {#python}
 
-   ```python
-   # Install OpenAI SDK using pip
-   # pip install openai 
-   import openai
+  ```python
+  # Install OpenAI SDK using pip
+  # pip install openai 
+  import openai
 
-   client = openai.OpenAI(
+  client = openai.OpenAI(
       api_key="<API_key_value>",
-      base_url="https://llm.api.cloud.yandex.net/v1"
-   )
+      base_url="https://{{ api-host-llm }}/v1"
+  )
 
-   response = client.chat.completions.create(
-       model="gpt://<folder_ID>/yandexgpt/latest",
-       messages=[
+  response = client.chat.completions.create(
+      model="gpt://<folder_ID>/yandexgpt/latest",
+      messages=[
           {"role": "assistant", "content": "You are a very smart assistant."},
           {"role": "user", "content": "How much does a query to {{ gpt-pro }} cost?"}
-       ],
-       max_tokens=10000,
-       temperature=0.7,
-       stream=True
-   )
+      ],
+      max_tokens=2000,
+      temperature=0.3,
+      stream=True
+  )
 
-   for chunk in response:
-       if chunk.choices[0].delta.content is not None:
-           print(chunk.choices[0].delta.content, end="")
-   ```
+  for chunk in response:
+      if chunk.choices[0].delta.content is not None:
+          print(chunk.choices[0].delta.content, end="")
+  ```
 
 - Node.js {#node}
 
-   ```node
-   import OpenAI from "openai";
+  ```js
+  import OpenAI from "openai";
 
-   const openai = new OpenAI(
-      api_key="<API_key_value>",
-      base_url="https://llm.api.cloud.yandex.net/v1");
+  const openai = new OpenAI({
+    apiKey:"<API_key_value>",
+    baseURL:"https://{{ api-host-llm }}/v1"});
 
-   async function main() {
-     const completion = await openai.chat.completions.create({
-       messages: [{"role": "assistant", "content": "You are a very smart assistant."},
-             {"role": "user", "content": "How much does a query to {{ gpt-pro }} cost?"}],
-       model: "gpt://<folder_ID>/yandexgpt/latest",
-     });
+  async function main() {
+    const completion = await openai.chat.completions.create({
+      messages: [{"role": "assistant", "content": "You are a very smart assistant."},
+        {"role": "user", "content": "How much does a query to {{ gpt-pro }} cost?"}],
+      model: "gpt://<folder_ID>/yandexgpt/latest",
+    });
 
-     console.log(completion.choices[0]);
-   }
-   main();
-   ```
+  console.log(completion.choices[0]);
+  }
+  main();
+  ```
 
 - cURL {#curl}
 
-   ```bash
-   curl https://llm.api.cloud.yandex.net/v1/chat/completions
-     -H "Content-Type: application/json"
-     -H "Authorization: Bearer <API_key>"
-     -d '{
-       "model": "gpt://<folder_ID>/yandexgpt/latest",
-       "messages": [
-         {
-           "role": "system",
-           "content": "You are a very smart assistant."
-         },
-         {
-           "role": "user",
-           "content": "How much does a query to {{ gpt-pro }} cost?"
-         }
-       ]
-     }'
-   ```
+  ```bash
+  curl https://{{ api-host-llm }}/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <API_key>" \
+    -d '{
+      "model": "gpt://<folder_ID>/yandexgpt/latest",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a very smart assistant."
+        },
+        {
+          "role": "user",
+          "content": "How much does a query to {{ gpt-pro }} cost?"
+        }
+      ]
+    }'
+  ```
 
 {% endlist %}
 
