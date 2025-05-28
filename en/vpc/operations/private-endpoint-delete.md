@@ -17,7 +17,7 @@ description: Follow this guide to delete a service connection (private endpoint)
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. View the description of the CLI command for deleting a service connection (private endpoint):
+  1. View the description of the CLI command for deleting a [service connection](../concepts/private-endpoint.md) (private endpoint):
 
       ```bash
       yc vpc private-endpoint delete --help
@@ -54,7 +54,7 @@ description: Follow this guide to delete a service connection (private endpoint)
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To delete a service connection created with {{ TF }}:
+  To delete a [service connection](../concepts/private-endpoint.md) created with {{ TF }}:
   1. Open the {{ TF }} configuration file and delete the fragment with the `yandex_vpc_private_endpoint` resource description:
 
      ```hcl

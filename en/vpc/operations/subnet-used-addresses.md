@@ -1,6 +1,6 @@
 # Viewing a list of addresses used in a subnet
 
-You can view internal IP addresses that are assigned to cloud resources in your folder.
+You can view [internal IP addresses](../concepts/address.md#internal-addresses) that are assigned to cloud resources in your folder.
 
 To view a list of internal addresses used in a subnet:
 

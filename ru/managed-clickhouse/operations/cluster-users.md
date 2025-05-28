@@ -193,20 +193,41 @@ description: Из статьи вы узнаете, как управлять п
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте к описанию кластера {{ mch-name }} блок `user`:
+    1. Добавьте ресурс `yandex_mdb_clickhouse_user`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
-          ...
-          user {
-            name     = "<имя_пользователя>"
-            password = "<пароль>"
+        resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
+          cluster_id = "<идентификатор_кластера>"
+          name       = "<имя_пользователя>"
+          password   = "<пароль>"
+          permission {
+            database_name = "<имя_БД>"
+          }
+          settings {
+            <имя_параметра_1> = <значение_1>
+            <имя_параметра_2> = <значение_2>
             ...
           }
         }
         ```
 
         {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+        Если кластер создается с помощью {{ TF }} одновременно с созданием пользователя, то в ресурсе `yandex_mdb_clickhouse_user` вместо идентификатора кластера укажите ссылку на имя создаваемого кластера:
+
+        ```hcl
+
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+          name = "<имя_кластера>"
+          ...
+        }
+
+        resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
+          cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+          name       = "<имя_пользователя>"
+          ...
+        }
+        ```
 
     1. Проверьте корректность настроек.
 
@@ -216,9 +237,7 @@ description: Из статьи вы узнаете, как управлять п
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 
@@ -417,18 +436,16 @@ description: Из статьи вы узнаете, как управлять п
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Найдите в описании кластера {{ mch-name }} блок `user` для нужного пользователя.
+    1. Найдите ресурс `yandex_mdb_clickhouse_user` нужного пользователя.
 
     1. Измените значение поля `password`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
           ...
-          user {
-            name     = "<имя_пользователя>"
-            password = "<новый_пароль>"
-            ...
-          }
+          name     = "<имя_пользователя>"
+          password = "<пароль>"
+          ...
         }
         ```
 
@@ -442,9 +459,7 @@ description: Из статьи вы узнаете, как управлять п
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 
@@ -588,8 +603,6 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -764,22 +777,23 @@ description: Из статьи вы узнаете, как управлять п
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Чтобы настроить права пользователя на доступ к определенным базам данных, добавьте необходимое количество блоков `permission` к описанию пользователя кластера — по одному на каждую базу:
+    1. Найдите ресурс `yandex_mdb_clickhouse_user` нужного пользователя.
+
+    1. Чтобы настроить права пользователя на доступ к определенным базам данных, добавьте необходимое количество блоков `permission` — по одному на каждую базу:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
           ...
-          user {
-            name     = "<имя_пользователя>"
-            password = "<пароль>"
-            permission {
-              database_name = "<база_данных_1>"
-            }
-            ...
-            permission {
-              database_name = "<база_данных_N>"
-            }
+          name       = "<имя_пользователя>"
+          password   = "<пароль>"
+          permission {
+            database_name = "<имя_БД_1>"
           }
+          ...
+          permission {
+            database_name = "<имя_БД_N>"
+          }
+          ...
         }
         ```
 
@@ -790,16 +804,14 @@ description: Из статьи вы узнаете, как управлять п
         При описании квот обязательным является только поле `interval_duration`.
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
           ...
-          user {
-            name     = "<имя_пользователя>"
-            password = "<пароль>"
+          name       = "<имя_пользователя>"
+          password   = "<пароль>"
+          ...
+          quota {
+            interval_duration = <длительность_интервала_в_миллисекундах>
             ...
-            quota {
-              interval_duration = <длительность_интервала_в_миллисекундах>
-              ...
-            }
           }
         }
         ```
@@ -807,15 +819,15 @@ description: Из статьи вы узнаете, как управлять п
     1. Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, добавьте блок `settings` к его описанию.
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
           ...
-          user {
-            name     = "<имя_пользователя>"
-            password = "<пароль>"
+          name       = "<имя_пользователя>"
+          password   = "<пароль>"
+          ...
+          settings {
+            <имя_параметра_1> = <значение_1>
+            <имя_параметра_2> = <значение_2>
             ...
-            settings {
-              <настройки_СУБД_для_отдельного_пользователя>
-            }
           }
         }
         ```
@@ -828,9 +840,7 @@ description: Из статьи вы узнаете, как управлять п
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 
@@ -1013,7 +1023,7 @@ description: Из статьи вы узнаете, как управлять п
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Удалите из описания кластера {{ mch-name }} блок `user` с описанием нужного пользователя.
+    1. Удалите ресурс `yandex_mdb_clickhouse_user` с описанием нужного пользователя.
 
     1. Проверьте корректность настроек.
 
@@ -1023,9 +1033,7 @@ description: Из статьи вы узнаете, как управлять п
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 
@@ -1141,27 +1149,19 @@ description: Из статьи вы узнаете, как управлять п
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте к описанию кластера блок `user`.
+    1. Добавьте ресурс `yandex_mdb_clickhouse_user`.
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "mych" {
-          name = "mych"
-
-          database {
-            name = "db1"
+        resource "yandex_mdb_clickhouse_user" "ro-user" {
+          cluster_id = "cat0adul1fj0********"
+          name = "ro-user"
+          password = "Passw0rd"
+          permission {
+            database_name = "db1"
           }
-
-          user {
-            name     = "ro-user"
-            password = "Passw0rd"
-            permission {
-              database_name = "db1"
-            }
-            settings {
-              readonly = 1
-            }
+          settings {
+            readonly = 1
           }
-          ...
         }
         ```
 

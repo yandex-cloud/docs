@@ -5,6 +5,12 @@ description: This section contains {{ compute-name }} release notes.
 
 # {{ compute-full-name }} release notes
 
+## Q1 2025 {#q1-2025}
+
+* The AMD Zen 3 [platform](./concepts/vm-platforms.md) (`amd-v1`) is launched at the [Preview stage](../overview/concepts/launch-stages.md). You can access it upon request.
+* Upgraded monitoring and logging (observability) tools and improved the reliability of the high-speed secure Infiniband network in [GPU clusters](./concepts/gpus.md#gpu-clusters).
+* Added [VM configuration](./concepts/gpus.md#config) with one GPU for the `gpu-standard-v3i` platform.
+
 ## Q4 2024 {#q4-2024}
 
 * Released the [disk encryption](./concepts/encryption.md) feature for [General Availability](../overview/concepts/launch-stages.md).

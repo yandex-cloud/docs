@@ -17,6 +17,10 @@ _Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) o
 
 {% include [yandex-account-2fa-warning.md](../../../_includes/iam/yandex-account-2fa-warning.md) %}
 
+### Use cases {#examples-passport}
+
+* [{#T}](../../../tutorials/serverless/websocket-app.md)
+
 ## Federated account {#saml-federation}
 
 A _federated account_ is a user account from an identity federation, e.g., Active Directory.
@@ -27,8 +31,16 @@ Use federated accounts if you need to grant {{ yandex-cloud }} access to a large
 
 For more information, see [{#T}](../../../organization/concepts/add-federation.md).
 
+### Use cases {#examples-saml-federation}
+
+* [{#T}](../../../tutorials/security/vault-secret.md)
+
 ## Service account {#sa}
 
 {% include [sa-def](../../_includes_service/sa-def.md) %}
 
 Service accounts allow you to set up flexible access to your resources and minimize risks associated with excessive permissions. Use this account type for your applications, CLI, {{ TF }}, and {{ yandex-cloud }} API. For more information, see [{#T}](service-accounts.md).
+
+### Use cases {#examples-sa}
+
+* [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md)

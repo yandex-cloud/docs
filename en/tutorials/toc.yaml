@@ -199,6 +199,10 @@ items:
       - name: Exporting audit logs to {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
+      - name: >-
+          Transferring {{ mgp-name }} cluster logs to {{ cloud-logging-full-name
+          }}
+        href: security/mgp-to-cloud-logging.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -295,7 +299,7 @@ items:
         href: testing/server-logs-yq.md
       - name: Getting the number of queries to {{ objstorage-name }} objects
         href: testing/server-logs.md
-      - name: Invoking load testing from {{ GL }} CI
+      - name: Invoking a load test from {{ GL }} CI
         href: testing/loadtesting-gitlab-ci.md
       - name: Deploying {{ GLR }} on a {{ compute-name }} virtual machine
         href: dev/install-gitlab-runner.md
@@ -335,7 +339,7 @@ items:
               Integrating an L7 load balancer with {{ cdn-name }} and {{
               objstorage-name }}
             href: web/cdn-storage-integration.md
-          - name: Running an instance group with autoscaling
+          - name: Working with autoscaling instance groups
             items:
               - name: Overview
                 href: infrastructure-management/vm-autoscale/index.md
@@ -581,7 +585,7 @@ items:
                 href: container-infrastructure/kyverno.md
               - name: Using {{ MP }} to stream metrics
                 href: container-infrastructure/metrics-provider.md
-              - name: Editing website images using Thumbor
+              - name: Editing website images with Thumbor
                 href: container-infrastructure/thumbor.md
               - name: Using Istio
                 href: container-infrastructure/istio.md
@@ -1246,6 +1250,10 @@ items:
           Delivering USB devices to a {{ baremetal-name }} server or virtual
           machine
         href: routing/usb-over-ip.md
+      - name: >-
+          Configuring an OPNsense firewall in high availability cluster mode on
+          {{ baremetal-name }} servers
+        href: routing/opnsense-failover-cluster.md
   - name: Data analysis and visualization
     items:
       - name: All tutorials

@@ -42,6 +42,15 @@ Generated keys belong to the service account and permissions to manage them are 
 
 {% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
 
+## Use cases {#examples}
+
+* [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+* [{#T}](../../../tutorials/analysis/search-events-query.md)
+* [{#T}](../../../tutorials/archive/kubernetes-backup.md)
+* [{#T}](../../tutorials/wlif-github-integration.md)
+* [{#T}](../../tutorials/wlif-gitlab-integration.md)
+* [{#T}](../../tutorials/wlif-k8s-integration.md)
+
 #### See also {#see-also}
 
 - [{#T}](../../quickstart-sa.md)

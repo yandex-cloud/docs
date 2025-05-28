@@ -10,7 +10,7 @@ After creating a cloud network, you can change its name, description, and labels
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for updating cloud network parameters:
+  1. See the description of the CLI command for updating [cloud network](../concepts/network.md) parameters:
 
       ```
       yc vpc network update --help
@@ -72,7 +72,7 @@ After creating a cloud network, you can change its name, description, and labels
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the fragment with the cloud network description:
+  1. Open the {{ TF }} configuration file and edit the fragment with the [cloud network](../concepts/network.md) description:
 
      ```hcl
      ...
@@ -87,7 +87,7 @@ After creating a cloud network, you can change its name, description, and labels
      ...
      ```
 
-     For more information about the `yandex_vpc_network` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_network).
+     For more information about `yandex_vpc_network` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/vpc_network).
 
   1. Check the configuration using this command:
 
@@ -107,9 +107,9 @@ After creating a cloud network, you can change its name, description, and labels
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply

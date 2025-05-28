@@ -9,9 +9,9 @@ items:
         href: quickstart.md
       - name: Getting started with the AWS CLI
         href: quickstart/quickstart-aws-cli.md
-  - name: Step-by-step tutorials
+  - name: Step-by-step guides
     items:
-      - name: All tutorials
+      - name: All guides
         href: operations/index.md
       - name: Buckets
         items:
@@ -107,9 +107,7 @@ items:
         href: tutorials/user-agent-statistics.md
       - name: Getting statistics on object queries using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
-      - name: >-
-          Generating a resource-by-resource cost breakdown report using S3
-          Select
+      - name: Cost analysis by resource
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md
@@ -137,7 +135,7 @@ items:
           Importing data from {{ objstorage-name }}, processing and exporting to
           {{ mch-name }}
         href: tutorials/s3-data-processing-ch.md
-      - name: Mounting a bucket as a disk in Windows
+      - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
       - name: >-
           Migrating data from {{ yds-full-name }} using {{
@@ -151,7 +149,7 @@ items:
         href: tutorials/opensearch-to-object-storage.md
       - name: Automatically copying objects from one bucket to another
         href: tutorials/bucket-to-bucket.md
-      - name: Recognizing audio files in a bucket on a regular basis
+      - name: Regular asynchronous recognition of audio files in a bucket
         href: tutorials/batch-recognition-stt.md
       - name: >-
           Training a model in {{ ml-platform-full-name }} on data from {{
@@ -506,7 +504,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST (Amazon S3-compatible)
         items:

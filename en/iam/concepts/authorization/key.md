@@ -22,6 +22,10 @@ You can get the public part of the key again using the [get](../../api-ref/Key/g
 
 The private part of an authorized {{ yandex-cloud }} key starts with `PLEASE DO NOT REMOVE THIS LINE! Yandex.Cloud SA Key ID…` according to the [RFC 7468](https://datatracker.ietf.org/doc/html/rfc7468#section-2) standard. This string makes it easy to [locate secrets](../../../security/operations/search-secrets.md) in case of a leak.
 
+## Use cases {#examples}
+
+* [{#T}](../../../tutorials/infrastructure-management/autoscale-monitoring.md)
+
 #### See also {#see-also}
 
 * [{#T}](../../operations/authentication/manage-authorized-keys.md#create-authorized-key)

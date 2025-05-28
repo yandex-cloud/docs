@@ -11,7 +11,7 @@ items:
         href: operations/write-logs.md
       - name: Reading records
         href: operations/read-logs.md
-      - name: Managing rights to access log groups
+      - name: Managing log group access permissions
         href: operations/access-rights.md
       - name: Getting information about a log group
         items:
@@ -39,9 +39,9 @@ items:
                 href: operations/export-logs.md
               - name: '{{ yds-name }}'
                 href: operations/export-logs-yds.md
-          - name: Getting a list of sinks
+          - name: Getting a list of log sinks
             href: operations/list-sink.md
-          - name: Getting information about a sink
+          - name: Getting information about a log sink
             href: operations/get-sink.md
   - name: Tutorials
     items:
@@ -69,7 +69,7 @@ items:
         href: tutorials/grafana-logs-plugin.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: tutorials/serverless-live-debug.md
-      - name: Writing load balancer logs to {{ PG }}
+      - name: Storing load balancer logs to {{ PG }}
         href: tutorials/logging.md
       - name: Logging settings for {{ alb-name }} Ingress controllers
         href: tutorials/alb-ingress-controller-log-options.md
@@ -81,7 +81,7 @@ items:
         href: tutorials/logging-functions.md
       - name: Searching for {{ yandex-cloud }} events in {{ cloud-logging-name }}
         href: tutorials/search-events-logging.md
-      - name: Event search in audit logs
+      - name: Searching for events in audit logs
         items:
           - name: Overview
             href: tutorials/search-events-audit-logs/index.md
@@ -91,6 +91,10 @@ items:
             href: tutorials/search-events-audit-logs/examples.md
           - name: Configuring {{ yq-full-name }}
             href: tutorials/search-events-audit-logs/query.md
+      - name: >-
+          Transferring {{ mgp-name }} cluster logs to {{ cloud-logging-full-name
+          }}
+        href: tutorials/mgp-to-cloud-logging.md
   - name: Concepts
     items:
       - name: Log group

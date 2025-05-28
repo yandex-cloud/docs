@@ -28,7 +28,7 @@ You cannot restore a network after it is deleted.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for deleting a cloud network:
+  1. View the description of the CLI command for deleting [cloud networks](../concepts/network.md#network):
 
       ```
       yc vpc network delete --help
@@ -63,7 +63,7 @@ You cannot restore a network after it is deleted.
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  To delete a cloud network created with {{ TF }}:
+  To delete a [cloud network](../concepts/network.md#network) created with {{ TF }}:
 
   1. Open the {{ TF }} configuration file and delete the fragment with the cloud network description.
 
@@ -84,7 +84,7 @@ You cannot restore a network after it is deleted.
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
 
@@ -104,15 +104,15 @@ You cannot restore a network after it is deleted.
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
      You can check the update using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 

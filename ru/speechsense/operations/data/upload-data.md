@@ -22,13 +22,13 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы подготовиться к загрузке аудиоданных:
 
-1. [Создайте подключение](../connection/create.md#create-audio-connection) типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**.
+1. [Создайте подключение](../connection/create.md) типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** или **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** (без дополнительных настроек разбиения диалога).
 
    Если вы хотите загрузить [связанные диалоги](../../concepts/dialogs.md#related-dialogs), добавьте в общие метаданные подключения строковый ключ `ticket_id`. По этому ключу диалоги будут связаны.
 
 1. [Создайте проект](../project/create.md) с новым подключением.
 
-   В созданные проект и подключение будут загружены аудиозаписи разговоров.
+   В созданный проект и подключение будут загружены аудиозаписи разговоров.
 
 1. {% include [create-sa](../../../_includes/speechsense/data/create-sa.md) %}
 1. {% include [role-sa](../../../_includes/speechsense/data/role-sa.md) %}
@@ -41,6 +41,8 @@ description: Следуя данной инструкции, вы сможете
 {% note info %}
 
 {% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
+
+{% include notitle [max-duration](../../../_includes/speechsense/data/max-duration.md) %}
 
 {% endnote %}
 
@@ -158,7 +160,7 @@ description: Следуя данной инструкции, вы сможете
 
    Где:
 
-   * `--audio-path` — путь к файлу с аудио диалога.
+   * `--audio-path` — путь к файлу с аудиозаписью диалога.
    * `--meta-path` — путь к файлу с метаданными диалога.
    * `--connection-id` — идентификатор подключения, в которое вы загружаете данные.
    * `--key` — API-ключ для аутентификации. Если вы используете IAM-токен, укажите переменную окружения `IAM_TOKEN` вместо `API_KEY`.

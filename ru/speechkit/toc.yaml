@@ -109,6 +109,8 @@ items:
             href: tts/brand-voice/bv-full-data-upload.md
           - name: Данные для {{ brand-voice-cc-name }}
             href: tts/templates.md
+          - name: Данные для {{ brand-voice-lite-name }}
+            href: tts/brand-voice/bv-lite.md
   - name: '{{ sk-hybrid-name }}'
     items:
       - name: О технологии

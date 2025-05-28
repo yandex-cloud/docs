@@ -1,16 +1,17 @@
 # Getting started with {{ org-name }}
 
-An _organization_ is the highest resource in the {{ yandex-cloud }} resource model hierarchy. Organizations store the resources of all other services. Also, organizations are used for managing users and their authentication and authorization settings.
+An _organization_ is the highest resource in the {{ yandex-cloud }} resource model hierarchy that consolidates the resources of all other services. Organizations are also used to manage users and their authentication and authorization settings.
 
-Each organization owns one or more [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud). A cloud contains [folders](../resource-manager/concepts/resources-hierarchy.md#folder). Folders host most {{ yandex-cloud }} resources, such as managed database clusters, virtual machines, disks, networks, and others. {{ yandex-cloud }} resource access rights are managed using roles.
+When working with {{ yandex-cloud }} services, you create resources, such as managed database clusters, virtual machines, disks, networks, etc. Most services store their resources in [folders](../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations. A cloud may only belong to one organization, but you can move clouds between organizations. [{{ resmgr-full-name }}](../resource-manager/concepts/resources-hierarchy.md) is a service that manages clouds and folders; {{ org-name }} manages organizations. Access to {{ yandex-cloud }} resources is managed via roles.
 
-The following diagram shows the relationships between {{ yandex-cloud }} organizations, folders, resources, and users:
+
+{{ yandex-cloud }} organization structure:
 
 ![users-and-resources](../_assets/overview/users-resources.svg "Users and resources hierarchy")
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or [sign up](../getting-started/) if not signed up yet.
 1. Accept the user agreement.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 
@@ -44,11 +45,11 @@ To connect employees with Yandex accounts:
 
 The user will be connected to the organization as soon as they accept the invitation via the emailed link and select the appropriate account to log in. After that, you will be able to [assign them the required roles](#add-role).
 
-For more information about users, see [Organization membership](../organization/concepts//membership.md).
+For more information about users, see [Organization membership](../organization/concepts/membership.md).
 
 ### Create a user group {#create-group}
 
-In organizations with a lot of users, you may need to grant the same access permissions for {{ yandex-cloud }} resources to multiple users at once. In which case it is easier to issue roles and permissions to groups rather than individual users. Group members can get access to {{ yandex-cloud }} organizations, clouds, folders, and service accounts.
+You can configure access for multiple users at once by adding them to a group and assigning a role to this group. You can grant access to any {{ yandex-cloud }} resources to the group.
 
 To create a user group:
 
@@ -81,13 +82,13 @@ To create a user group:
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
   1. In the left-hand panel, select ![groups](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../organization/concepts/groups.md) you need.
-  
+
   1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
-  
+
   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
-  
+
   1. In the window that opens, select the users or [service accounts](../iam/concepts/users/service-accounts.md). You may want to use the search feature.
-  
+
   1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
 {% endlist %}
@@ -96,7 +97,8 @@ To create a user group:
 
 ### Assign a role to a user {#add-role}
 
-To grant a user permission to access a resource, assign a role for the resource to that user. You can assign roles for a cloud, folder, and other resources from the list. If you need to grant access to a resource that is not on the list, assign the role for the parent resource it inherits permissions from. You can also assign roles to users to manage the organization.
+To grant access to a resource, assign a role for the resource to the user. You can assign roles for an [organization](concepts/organization), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../resource-manager/concepts/resources-hierarchy.md#folder). The roles assigned to organizations, clouds, and folders also apply to their nested resources.
+You can also assign roles to users to manage individual {{ yandex-cloud }} services using [{{ iam-full-name }}](../iam/concepts/index.md).
 
 To assign a role to a user:
 
@@ -162,7 +164,7 @@ To assign a role to a user:
 
 ### Create an identity federation {#create-federation}
 
-If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. In which case you do not need to create a new Yandex account for every employee. They can get access to {{ yandex-cloud }} services using their corporate accounts.
+If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. This way, employees will access {{ yandex-cloud }} services using their corporate accounts.
 
 To learn more, see [Identity federation](./concepts/add-federation.md).
 
@@ -175,7 +177,7 @@ With {{ oslogin }}, you can manage SSH access to VMs by relying solely on the [{
 * Instant update of user [access permissions](../iam/concepts/access-control/roles.md) within a VM when revoking or assigning roles. If you revoke the roles, the user will lose access to all VMs with {{ oslogin }} access enabled.
 * Multiple available options to access VMs: you can use both short-lived SSH certificates and SSH keys including those added to the organization user profile.
 
-To learn more, see {#T}.
+For more information, see [{{ oslogin }}](./concepts/os-login.md).
 
 ## What's next {#what-is-next}
 

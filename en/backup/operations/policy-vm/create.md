@@ -24,7 +24,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [backup policy](../../../backup/concepts/policy.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. On the backup policy creation page:
@@ -162,8 +162,6 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
          multi_volume_snapshotting_enabled = true
          name                              = "<backup_policy_name>"
          performance_window_enabled        = true
-         preserve_file_security_settings   = true
-         quiesce_snapshotting_enabled      = true
          silent_mode_enabled               = true
          splitting_bytes                   = "9223372036854775807"
          vss_provider                      = "NATIVE"
@@ -190,14 +188,16 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
              scheme               = "ALWAYS_INCREMENTAL"
              weekly_backup_day    = "MONDAY"
 
-             execute_by_time {
-                 include_last_day_of_month = true
-                 monthdays                 = []
-                 months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
-                 repeat_at                 = ["04:10"]
-                 repeat_every              = "30m"
-                 type                      = "MONTHLY"
-                 weekdays                  = []
+             backup_sets {
+                 execute_by_time {
+                     type                      = "MONTHLY"
+                     include_last_day_of_month = true
+                     monthdays                 = []
+                     months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
+                     repeat_at                 = ["04:10"]
+                     repeat_every              = "30m"
+                     weekdays                  = []
+                 }
              }
          }
 
@@ -211,20 +211,20 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
      Where:
 
-     * `archive_name`: Names of generated archives. This is an optional parameter. The parameter variables include:
+     * `archive_name`: Names of generated archives. This is an optional setting. The parameter variables include:
        * `Machine Name`: [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) name.
        * `Plan ID`: Plan ID.
        * `Unique ID`: Unique ID.
 
        Make sure the last character in the generated archive name is not a variable.
-     * `cbt`: Configuration for tracking [backup](../../concepts/backup.md) contents. This is an optional parameter. It can take either of these two values:
+     * `cbt`: Configuration for tracking [backup](../../concepts/backup.md) contents. This is an optional setting. It can take either of these two values:
        * `CHANGED_BLOCK_TRACKING_UNSPECIFIED`: Not specified.
        * `USE_IF_ENABLED`: Use if enabled.
        * `ENABLE_AND_USE`: Enable and use.
        * `DO_NOT_USE`: Do not use.
 
        The default value is `DO_NOT_USE`.
-     * `compression`: Backup compression ratio. This is an optional parameter. It can take either of these two values:
+     * `compression`: Backup compression ratio. This is an optional setting. It can take either of these two values:
        * `NORMAL`: Standard compression ratio.
        * `HIGH`: High compression ratio.
        * `MAX`: Maximum compression ratio.
@@ -232,22 +232,20 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
        The default value is `NORMAL`.
      * `fast_backup_enabled`: Fast backup for tracking changes to files. When enabled, file changes are detected by the file size and its timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. It can either be `true` or `false`.
-     * `format`: Backup format. This is an optional parameter. It can take either of these two values:
+     * `format`: Backup format. This is an optional setting. It can take either of these two values:
        * `VERSION_11`: Deprecated format, not recommended.
        * `VERSION_12`: Recommended format for high-speed backup and recovery.
        * `AUTO`: Automatic format selection. The default option is `VERSION_12`, unless you are creating [incremental](../../concepts/backup.md#types) backups for the images created in other versions.
-     * `multi_volume_snapshotting_enabled`: Creating backups for multiple volumes at the same time. This is an optional parameter. It can either be `true` or `false`.
+     * `multi_volume_snapshotting_enabled`: Creating backups for multiple volumes at the same time. This is an optional setting. It can either be `true` or `false`.
      * `name`: Name of the backup policy.
-     * `performance_window_enabled`: Time windows to limit backup performance. This is an optional parameter. It can either be `true` or `false`. The default value is `false`.
-     * `preserve_file_security_settings`: Retain security file settings. This is an optional parameter. It can either be `true` or `false`. The default value is `true`. We recommend using the `true` value.
-     * `quiesce_snapshotting_enabled`: Use `quiescing` mode when creating backups. This is an optional parameter. It can either be `true` or `false`. The default value is `false`.
-     * `silent_mode_enabled`: Silent mode that assumes minimum interaction with users. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
-     * `splitting_bytes`: Defines the size for splitting backups. This is an optional parameter. The default value is `9223372036854775807`.
-     * `vss_provider`: VSS settings. This is an optional parameter. It can either be `NATIVE` or `TARGET_SYSTEM_DEFINED`. The default value is `NATIVE`.
+     * `performance_window_enabled`: Time windows to limit backup performance. This is an optional setting. It can either be `true` or `false`. The default value is `false`.
+     * `silent_mode_enabled`: Silent mode that assumes minimum interaction with users. This is an optional setting. It can either be `true` or `false`. The default value is `true`.
+     * `splitting_bytes`: Defines the size for splitting backups. This is an optional setting. The default value is `9223372036854775807`.
+     * `vss_provider`: VSS settings. This is an optional setting. It can either be `NATIVE` or `TARGET_SYSTEM_DEFINED`. The default value is `NATIVE`.
      * `reattempts`: Defines repeat attempts in case the backup operation fails:
-       * `enabled`: Retry creating a backup if non-critical errors occur (e.g., when failing to connect to a target [disk](../../../compute/concepts/disk.md)). This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
-       * `interval`: Interval between retries. This is an optional parameter. The default value is `5m`.
-       * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
+       * `enabled`: Retry creating a backup if non-critical errors occur (e.g., when failing to connect to a target [disk](../../../compute/concepts/disk.md)). This is an optional setting. It can either be `true` or `false`. The default value is `true`.
+       * `interval`: Interval between retries. This is an optional setting. The default value is `5m`.
+       * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional setting. The default value is `5`.
      * `retention`: Backup retention options:
        * `after_backup`: Apply backup retention rules after the backup is completed. It can either be `true` or `false`.
        * `rules`: Backup retention rules:
@@ -257,29 +255,30 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
           The `max_age` and `max_count` attributes are mutually exclusive. i.e., the use of one makes it impossible to use the other.
      * `scheduling`: Backup scheduling options:
-       * `enabled`: Enable backup scheduling. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
-       * `max_parallel_backups`: Maximum number of concurrent backups. This is an optional parameter. The default value is `0` (unlimited).
-       * `random_max_delay`: Sets a random delay between concurrent jobs. This is an optional parameter. The default value is `30m`.
-       * `scheme`: Backup schedule scheme. This is an optional parameter. It can take either of these two values:
+       * `enabled`: Enable backup scheduling. This is an optional setting. It can either be `true` or `false`. The default value is `true`.
+       * `max_parallel_backups`: Maximum number of concurrent backups. This is an optional setting. The default value is `0` (unlimited).
+       * `random_max_delay`: Sets a random delay between concurrent jobs. This is an optional setting. The default value is `30m`.
+       * `scheme`: Backup schedule scheme. This is an optional setting. It can take either of these two values:
          * `ALWAYS_INCREMENTAL`: Always incremental.
          * `ALWAYS_FULL`: Always full.
          * `WEEKLY_FULL_DAILY_INCREMENTAL`: Create an incremental backup every day and a full one weekly.
          * `WEEKLY_INCREMENTAL`: Create an incremental backup every week.
 
          The default value is `ALWAYS_INCREMENTAL`.
-       * `weekly_backup_day`: Day of the week when the weekly backup is run. This is an optional parameter. The default value is `MONDAY`.
-       * `execute_by_time`: Settings for backups at a specific time:
-         * `include_last_day_of_month`: Running backups on the last day of each month. This is an optional parameter. It can either be `true` or `false`. The default value is `false`.
-         * `monthdays`: List of days to to which the schedule applies. This is an optional parameter. It can be used for the `MONTHLY` format.
-         * `months`: List of months to which the schedules applies. This is an optional parameter.
-         * `repeat_at`: List of time values in `HH:MM` (24-hour) format to which the schedule applies. This is an optional parameter.
-         * `repeat_every`: Frequency for repeat backups. This is an optional parameter.
-         * `type`: Schedule type. The possible values are `HOURLY`, `DAILY`, `WEEKLY`, and `MONTHLY`.
-         * `weekdays`: List of days of the week to which the schedule applies. It can be used for the `WEEKLY` format.
+       * `weekly_backup_day`: Day of the week when the weekly backup is run. This is an optional setting. The default value is `MONDAY`.
+       * `backup_sets`: List of schedules with backup sets:
+          * `execute_by_time`: Settings for backups at a specific time:
+            * `include_last_day_of_month`: Running backups on the last day of each month. This is an optional setting. It can either be `true` or `false`. The default value is `false`.
+            * `monthdays`: List of days to to which the schedule applies. This is an optional setting. It can be used for the `MONTHLY` format.
+            * `months`: List of months to which the schedules applies. This is an optional setting.
+            * `repeat_at`: List of time values in `HH:MM` (24-hour) format to which the schedule applies. This is an optional setting.
+            * `repeat_every`: Frequency for repeat backups. This is an optional setting.
+            * `type`: Schedule type. The possible values are `HOURLY`, `DAILY`, `WEEKLY`, and `MONTHLY`.
+            * `weekdays`: List of days of the week to which the schedule applies. It can be used for the `WEEKLY` format.
      * `vm_snapshot_reattempts`: Backup retries in case of failures:
-       * `enabled`: Retry a backup if any errors occur. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
-       * `interval`: Interval between retries. This is an optional parameter. The default value is `5m`.
-       * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
+       * `enabled`: Retry a backup if any errors occur. This is an optional setting. It can either be `true` or `false`. The default value is `true`.
+       * `interval`: Interval between retries. This is an optional setting. The default value is `5m`.
+       * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional setting. The default value is `5`.
 
      For more information about `yandex_backup_policy` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/backup_policy).
   1. Create the resources:

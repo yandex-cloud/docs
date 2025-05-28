@@ -60,7 +60,7 @@ Create a new VRF segment:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF segment: `vrrp-vrf`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -76,7 +76,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `subnet-m3`.
@@ -95,24 +95,12 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** and click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, select the appropriate [server configuration](../../baremetal/concepts/server-configurations.md).
-  1. (Optionally) Under **{{ ui-key.yacloud.baremetal.title_section-disk }}**, configure disk partitioning:
-
-        1. Click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-        1. Specify the partitioning parameters. To create a new partition, click ![icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
-
-           {% note info %}
-
-           To build RAID arrays and configure disk partitions yourself, click **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
-
-           {% endnote %}
-
-        1. Click **{{ ui-key.yacloud.common.save }}**.
-
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin) image.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, select the period you want to lease the server for. When this period expires, server lease will be automatically renewed for the same period.
+  1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
+  1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 24.04` image.
+  1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
      1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
@@ -123,7 +111,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}** in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the server: `master-server-m3`.
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
   1. Similarly, lease two more servers: one named `backup-server-m3` in the `{{ region-id }}-m3` server pool and another one named `client-server-m4` with the `subnet-m4` subnet in the `{{ region-id }}-m4` server pool.
 
 {% endlist %}
@@ -228,7 +216,7 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
     Where:
 
     * `vrrp_instance`: Virtual router name:
-    
+
         * `M3_1` for the server with the `MASTER` role.
         * `M3_2` for the server with the `BACKUP` role.
     * `state`: Server state, `MASTER` or `BACKUP`.
@@ -364,9 +352,9 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
         ```bash
         sudo systemctl stop keepalived
         ```
-        
+
         When it stops, observe the terminal window with the `client-server-m4` session. If the virtual IP address was shared successfully, ICMP requests should switch to the backup host almost seamlessly without interrupting the running `ping` command.
-        
+
         {% note info %}
 
         A minor loss of 1 to 3 packages is acceptable, which may happen when the timer for selecting a new group `MASTER` is triggered and the server is assigned the virtual IP address.

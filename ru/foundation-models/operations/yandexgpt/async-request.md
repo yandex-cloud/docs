@@ -65,7 +65,7 @@ description: Следуя данной инструкции, вы научите
       python3 generate-deferred.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Variant 1:

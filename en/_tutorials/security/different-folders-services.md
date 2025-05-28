@@ -5,7 +5,7 @@ This tutorial describes a use case involving multiple independent teams managing
 
 To implement this approach, you can use such {{ yandex-cloud }} services as [{{ alb-full-name }}](../../application-load-balancer/) (ALB) and [{{ sws-full-name }}](../../smartwebsecurity/concepts/) (SWS).
 
-{{ alb-name }} enables you to create [OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI) L7 load balancers to evenly distribute traffic across your services and applications and publish them online.
+{{ alb-name }} enables you to create [OSI](https://en.wikipedia.org/wiki/OSI_model) L7 load balancers to evenly distribute traffic across your services and applications and publish them online.
 
 {{ sws-name }} protects your resources against L7 DDoS attacks and bots. You can additionally connect a [WAF](../../smartwebsecurity/concepts/waf.md) and limit the load on your resource using the [Advanced Rate Limiter](../../smartwebsecurity/concepts/arl.md) (ARL) module. Configure parameters for protecting your resources in the {{ sws-name }} profile. Connect your security profile to the L7 load balancer.
 
@@ -28,7 +28,7 @@ The chart displays the following resources:
 * **VPC**: Cloud network hosting ALB and team subnets.
   * **alb-subnet-a**, **alb-subnet-b**, and **alb-subnet-d**: Subnets with ALB nodes.
   * **subnet-team-1** and **subnet-team-2**: Subnets with team resources.
-* **Team folders**: Folders containing team targets, e.g., virtual machines (VMs), databases, [NLB](../../network-load-balancer/) L3-L4 load balancers, and more.
+* **Team folders**: Folders containing team targets, e.g., virtual machines (VMs), databases, [{{ network-load-balancer-name }}](../../network-load-balancer/) (NLB) L3-L4 load balancers, and more.
 
 This guide assumes that you have already created targets for your services and placed them in different folders.
 Therefore, consider the following:
@@ -42,7 +42,7 @@ Therefore, consider the following:
 
 * For network connectivity between L7 load balancers and team targets, use Multi-folder VPC to extend the scope of your VPC network from a single to multiple folders.
 * Use [security groups](../../vpc/concepts/security-groups.md) to manage network access across resources of different teams:
-  
+
     * Target security groups should allow inbound traffic from L7 load balancer subnets.
     * L7 load balancer security groups should allow inbound traffic to target subnets.
 
@@ -118,7 +118,7 @@ The chart below shows the L7 load balancer resources you will create and configu
 
 {% endlist %}
 
-For other ways to create a security profile, see [{#T}](../../container-registry/operations/authentication.md).
+For other ways to create a security profile, see [{#T}](../../smartwebsecurity/operations/profile-create.md).
 
 ### Creating an L7 load balancer {#create-alb}
 
@@ -134,13 +134,13 @@ For other ways to create a security profile, see [{#T}](../../container-registry
 
 #### Configuring a target group {#settings-target-group}
 
-Your application backends will be deployed on the VM instance of the [target group](../../application-load-balancer/concepts/target-group.md). The target group will be connected to the load balancer so that requests might be sent to the backend endpoints of your application.
+The system will deploy your application backends on the [target group](../../application-load-balancer/concepts/target-group.md) VM. The load balancer will distribute requests to your application backend endpoints via the target group.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Enter `test-target-group` as the target group name.
+  1. Specify the target group name: `test-target-group`.
   1. Provide the internal IP address of your target, which is either your service's internal NLB listener address or the VM address.
   1. Select the subnet hosting your service resources.
 
@@ -153,39 +153,39 @@ Your application backends will be deployed on the VM instance of the [target gro
 
 #### Configuring a backend group {#settings-backend-group}
 
-[Backend groups](../../application-load-balancer/concepts/backend-group.md) contain settings for traffic balancing and target health check. The wizard automatically creates one backend and one health check group. It will also select the group you created at the previous step as target group.
+[Backend groups](../../application-load-balancer/concepts/backend-group.md) contain settings for traffic balancing and target health check. The wizard will automatically create one backend and one health check group. It will also use your previously created group as the target group.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Enable **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
-  1. Enter the backend group name: `test-backend-group`.
+  1. Specify the backend group name: `test-backend-group`.
   1. Leave `HTTP` as the group type.
   1. To ensure that requests from a single user session are handled by the same backend resource, enable **{{ ui-key.yacloud.alb.label_session-affinity }}**. If your target is an internal NLB, you do not have to enable session affinity.
-   
+
   1. Under **{{ ui-key.yacloud_billing.alb.label_backends }}**:
 
-     * Enter the backend name: `backend-1`.
+     * Specify the backend name: `backend-1`.
      * Leave `Target group` as the backend type.
      * Leave the previously created target group, `test-target-group`.
      * Specify the TCP port of your service. It is usually `80` for HTTP and `443` for HTTPS.
      * If your target is a VM, make sure to set up a [health check](../../application-load-balancer/concepts/best-practices.md).
      * If your target is an internal NLB, disable the health check.
-  
+
   1. Click **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
 {% endlist %}
 
 #### Configuring an HTTP router {#settings-http-router}
 
-[HTTP routers](../../application-load-balancer/concepts/http-router.md) define the rules for routing requests sent to backends and allow you to modify requests directly in the balancer. The wizard will automatically create a virtual host and routing rule. It will also select the group you created at the previous step as backend group.
+[HTTP routers](../../application-load-balancer/concepts/http-router.md) implement rules for client-to-backend traffic and allow you to modify requests at the load balancer layer. The wizard will automatically create a virtual host and a routing rule. It will also use your previously created group as the backend group.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Enter the router name: `test-http-router`.
+  1. Specify the router name: `test-http-router`.
   1. Enable **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, specify:
      * Host name: `test-virtual-host`.
@@ -205,19 +205,19 @@ Your application backends will be deployed on the VM instance of the [target gro
 
 #### Configuring an L7 load balancer {#create-load-balancer}
 
-A [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) receives requests and distributes them across target group VMs according to the rules set in the HTTP router. Load balancers use [listeners](../../application-load-balancer/concepts/application-load-balancer.md#listener) to receive traffic. The wizard will create a listener automatically. It will also select the router you created at the previous step as HTTP router.
+A [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) receives requests and distributes them across target group VMs according to the rules set in the HTTP router. Load balancers use [listeners](../../application-load-balancer/concepts/application-load-balancer.md#listener) to receive traffic. The wizard will create a listener automatically. It will also use your previously created router as the HTTP router in this configuration.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Enter the load balancer name: `test-load-balancer`.
+  1. Specify the load balancer name: `test-load-balancer`.
   1. Enable **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the VPC network you created earlier.
   1. For **{{ ui-key.yacloud.alb.label_security-groups }}**, select **{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}** and then the previously created security group.
   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select subnets in the [availability zones](../../overview/concepts/geo-scope.md) you need and enable inbound traffic in those subnets.
   1. Configure the listener:
-     * Enter the listener name: `test-listener`.
+     * Specify the listener name: `test-listener`.
      * Under**{{ ui-key.yacloud.alb.section_external-address-specs }}**, enable a public IP address and specify the following:
         * **Port**: TCP port of your service. It is usually `443` for HTTPS and `80` for HTTP.
         * **Type**: Set it to `List` and select the previously reserved IP address.
@@ -260,11 +260,11 @@ For other ways to create an L7 load balancer and more configuration options, see
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the created L7 load balancer.
   1. Select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. 
-   
+
      Make sure you get `HEALTHY` for all health checks of your backend group L7 load balancer.
 
   1. Select **{{ ui-key.yacloud.alb.label_map }}** on the left.
-   
+
      Check the configuration for each resourse in this order: **Listener** > **HTTP router** > **Backend group** > **Target group**.
 
 {% endlist %}

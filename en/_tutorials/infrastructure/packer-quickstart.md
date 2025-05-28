@@ -23,16 +23,17 @@ If you no longer need the image you created, [delete it](#clear-out).
 
 ### Configure the environment and infrastructure {#prepare-environment}
 
-1. Install the {{ yandex-cloud }} [command line interface](../../cli/quickstart.md#install) (CLI).
-
-    {% note tip %}
-
-    If you access the cloud with a [federated account](../../iam/concepts/users/accounts.md#saml-federation) and want to use the CLI from within your VM, [get authenticated in the CLI as a service account](../../cli/operations/authentication/service-account.md#vm-auth-as-sa).
-
-    {% endnote %}
-
 1. [Create](../../vpc/quickstart.md) a cloud network with a single subnet in your folder.
-1. Get an [OAuth token]({{ link-cloud-oauth }}) for a [Yandex account](../../iam/concepts/users/accounts.md#passport) or an [IAM token](../../iam/operations/iam-token/create-for-federation.md) for a [federated account](../../iam/concepts/users/accounts.md#saml-federation).
+1. Depending on the type of account you are working under, you will get:
+
+    * [OAuth token]({{ link-cloud-oauth }}) for a [Yandex account](../../iam/concepts/users/accounts.md#passport).
+    * [IAM token](../../iam/concepts/authorization/iam-token.md) for [federated](../../iam/concepts/users/accounts.md#saml-federation) or [service](../../iam/concepts/users/accounts.md#sa) accounts.
+
+1. Make sure your account has enough permissions to create resources in {{ compute-name }}. The minimum [role](../../compute/security/index.md#compute-editor) you need for the folder is `compute.editor`.
+
+    If working under a service account, [assign](../../iam/operations/roles/grant.md#cloud-or-folder) the `compute.editor` role for the folder to it.
+
+    If you want to create resources in other {{ yandex-cloud }} services, e.g., subnets in {{ vpc-short-name }}, assign the relevant [service roles](../../iam/roles-reference.md).
 
 
 ### Required paid resources {#paid-resources}
@@ -109,11 +110,7 @@ Install a Packer distribution kit for your platform from a [mirror](https://hash
   1. Download a Packer distribution kit from the [mirror](https://hashicorp-releases.yandexcloud.net/packer/) and extract it into the `packer` folder:
   1. Add `packer` to the `PATH` variable:
 
-      1. Click **Start** and type **Change system environment variables** in the Windows search bar.
-      1. Click **Environment Variables...** at the bottom right.
-      1. In the window that opens, find the `PATH` parameter and click **Edit**.
-      1. Add the `packer` folder path to the list.
-      1. Click **OK**.
+      {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
 
   1. Run a new command line session and make sure you installed Packer:
 
@@ -205,7 +202,6 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
 
 1. [Get](../../resource-manager/operations/folder/get-id.md) the folder ID.
 1. [Get](../../vpc/operations/subnet-get-info.md) the subnet ID and the [availability zone](../../overview/concepts/geo-scope.md) it resides in.
-1. Prepare the subnet ID by running the `yc vpc subnet list` command.
 1. Create a JSON file with any name, e.g., `image.json`. Add this configuration to it:
 
     
@@ -249,9 +245,10 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
 
 
     Where:
-    * `<availability_zone>`: [Availability zone](../../overview/concepts/geo-scope.md) where you are going to create the VM, e.g., `{{ region-id }}-d`.
-    * `token`: OAuth token for a Yandex account or an IAM token for a federated account.
+
+    * `token`: OAuth token for a Yandex account or an IAM token for a federated or service account.
     * `folder_id`: ID of the folder where you are going to create the VM and its image.
+    * `zone`: Availability zone the VM will be created in, e.g., `{{ region-id }}-d`.
     * `subnet_id`: ID of the subnet where you are going to create the VM and its image.
 
 {% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
@@ -316,6 +313,7 @@ Make sure you created the image:
 
 ### Delete the resources you created {#clear-out}
 
-If you no longer need the image you created, [delete it](../../compute/operations/image-control/delete.md).
+To stop paying for the resources you created:
 
-Delete the [subnet](../../vpc/operations/subnet-delete.md) and [cloud network](../../vpc/operations/network-delete.md) if you created them specifically to follow this tutorial.
+* [Delete](../../compute/operations/image-control/delete.md) the image you created.
+* Delete the [subnet](../../vpc/operations/subnet-delete.md) and [cloud network](../../vpc/operations/network-delete.md) if created specifically for the purpose of this tutorial.

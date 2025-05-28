@@ -1,4 +1,4 @@
-# Connecting a {{ baremetal-full-name }} server to {{ backup-full-name }}
+# Connecting an existing {{ baremetal-full-name }} server to {{ backup-full-name }}
 
 {% note info %}
 
@@ -6,15 +6,17 @@
 
 {% endnote %}
 
-In {{ backup-name }}, you can configure [{{ baremetal-name }} server](../../baremetal/concepts/servers.md) backup when [ordering](../../baremetal/operations/servers/server-lease.md) a server or connect an already leased {{ baremetal-name }} server to {{ backup-name }}.
+You can connect an existing [{{ baremetal-name }} server](../../baremetal/concepts/servers.md) to {{ backup-name }} and configure backups of its data.
 
-For more information on managing servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
+For more information about connecting a {{ baremetal-name }} server to {{ backup-name }} when ordering it, see [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md).
 
-The following server operating systems are supported: {#os-support}
+For more information on managing {{ baremetal-name }} servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
+
+Connecting to {{ backup-name }} is supported for servers running the following operating systems: {#os-support}
 
 {% include [baremetal-os-list](../../_includes/backup/baremetal-os-list.md) %}
 
-To connect a server to {{ backup-name }}:
+To connect an existing server to {{ backup-name }}:
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#prepare-service-account).
 1. [Activate {{ backup-name }}](#activate-provider).
@@ -44,7 +46,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to lease a {{ baremetal-name }} server in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md). The naming requirements are as follows:
 
@@ -73,7 +75,7 @@ To activate {{ backup-name }}, you need _at least_ the `backup.editor` [role](..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to lease a server and connect it to {{ backup-name }}.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. If you have not activated {{ backup-name }} yet, click **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
       If there is no **{{ ui-key.yacloud.backup.button_action-activate }}** button, {{ backup-name }} is already activated. Proceed to the next step.
@@ -97,56 +99,27 @@ If you are already leasing a server with an [appropriate OS](#os-support), go to
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to lease a server in.
-  1. In the list of services, select **{{ baremetal-name }}**.
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
-  1. Select the `{{ region-id }}-m` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Select the `{{ region-id }}-m3` pool.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
+  1. {% include [server-lease-step1](../../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
+  1. {% include [server-lease-step3](../../_includes/baremetal/instruction-steps/server-lease-step3.md) %}
+  1. {% include [server-lease-step4](../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
+  1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
+  1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
 
-      1. Select the server configuration, e.g., `BA-i203-S-10G`.
-      1. Configure disk partitioning:
+      {% include [server-lease-backup-partitioning-notice](../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
 
-          1. Click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-          1. Keep the default partitioning and click **{{ ui-key.yacloud.common.save }}**.
+  1. {% include [server-lease-step7-backup](../../_includes/baremetal/instruction-steps/server-lease-step7-backup.md) %}
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**:
 
-          {% note info %}
-
-          The disk partitioning parameters are vital to have your server restored from a backup later on. Learn more in [Restore your server from backup](#server-recovery).
-
-          {% endnote %}
-
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 22.04 LTS` image.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, specify:
-
-      1. **{{ ui-key.yacloud.baremetal.field_server-count }}**: `1`.
-      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}**: `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`.
-
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
-
-      1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, click **{{ ui-key.yacloud.common.create }}**.
-      1. Optionally, if you need to enable DHCP for automatic IP address assignment, do so in the **{{ ui-key.yacloud.baremetal.title_routing-settings }}** section.
-      1. Enter `bm-subnetwork` for the subnet name and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
-
-          For the [{{ backup-name }} agent](../../backup/concepts/agent.md) to exchange data with the [backup provider](../../backup/concepts/index.md#providers) servers, make sure the server has network access to the IP addresses of {{ backup-name }} resources based on the following table: {#ip-access}
-
-          {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %} 
-
+      1. In the **{{ ui-key.yacloud.baremetal.field_server-count }}** field, specify `1`.
+      1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
+  1. {% include [server-lease-step9-backup](../../_includes/baremetal/instruction-steps/server-lease-step9-backup.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
-      1. Generate a password for the root user. To do this, click **{{ ui-key.yacloud.baremetal.field_password }}** next to the **{{ ui-key.yacloud.component.password-input.label_button-generate }}** field.
+      {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
-      {% note warning %}
-
-      Once you have ordered your server, you will no longer be able to view the password. Save the password to a secure location right away.
-
-      {% endnote %}
-
-      1. In the **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** field, paste the contents of the public key file. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair on your own.
-
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, enter the server **{{ ui-key.yacloud.baremetal.field_name }}**: `bm-server`.
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+  1. {% include [server-lease-step11](../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
+  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
 
 {% endlist %}
 
@@ -227,11 +200,26 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
     curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
     ```
 
-1. Install the [jq](https://jqlang.github.io/jq/) utility:
+1. Install the required packages and utilities:
 
-    ```bash
-    apt update && apt install -y jq
-    ```
+    {% list tabs group=operating_system %}
+
+    - Debian/Ubuntu {#ubuntu}
+
+      ```bash
+      apt update && apt install -y jq
+      ```
+
+    - CentOS {#centos}
+
+      ```bash
+      yum install epel-release -y && \
+      yum update -y && \
+      yum install jq -y && \
+      yum install wget -y
+      ```
+
+    {% endlist %}
 
 1. Authenticate in the {{ yandex-cloud }} CLI as a service account:
 
@@ -250,7 +238,7 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
     ```bash
     wget https://{{ s3-storage-host }}/backup-distributions/agent_installer_bms.sh && \
     sudo bash ./agent_installer_bms.sh \
-      -t=<IAM_token>
+    -t=<IAM_token>
     ```
 
     Wait for the message informing you the {{ backup-name }} agent is registered:
@@ -271,7 +259,7 @@ To link a server to a backup policy:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder where you want to link a server to a backup policy.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Select the policy to link the server to.
   
@@ -318,7 +306,7 @@ To start creating a {{ baremetal-name }} server backup outside of the backup pol
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![bms](../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
   1. In the row with the server, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. In the window that opens, select the backup policy for creating the backup and click **{{ ui-key.yacloud.common.create }}**.
@@ -362,7 +350,7 @@ To restore your server from a backup:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** and open the **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. In the row with the backup to restore the {{ baremetal-name }} server from, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
   1. In the window that opens, select the server you created the selected backup from. This server will be marked in the list as `({{ ui-key.yacloud.backup.context_current-bms }})`.
@@ -403,3 +391,7 @@ To restore your server from a backup:
 
 1. [Cancel](../../baremetal/operations/servers/server-lease-cancel.md) a {{ baremetal-name }} server lease.
 1. [Delete](../../backup/operations/backup-vm/delete.md) the backup in {{ backup-name }} using the CLI.
+
+#### See also {#see-also}
+
+* [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md)

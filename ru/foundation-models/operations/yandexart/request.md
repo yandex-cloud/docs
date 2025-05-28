@@ -69,7 +69,7 @@
       python3 generate-image.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       ImageGenerationModelResult(model_version='', image_bytes=<889288 bytes>)

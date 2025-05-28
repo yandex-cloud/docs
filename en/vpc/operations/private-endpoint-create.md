@@ -10,7 +10,7 @@ description: Follow this guide to create a service connection (private endpoint)
 
 {% include [private-endpoint-create-roles](../../_includes/vpc/private-endpoint-create-roles.md) %}
 
-To create a service connection:
+To create a [service connection](../concepts/private-endpoint.md):
 
 {% list tabs group=instructions %}
 
@@ -47,17 +47,17 @@ To create a service connection:
      ```
 
      Where:
-     * `name`: Service connection name. This is an optional parameter.
-     * `description`: Service connection description. This is an optional parameter.
+     * `name`: Service connection name. This is an optional setting.
+     * `description`: Service connection description. This is an optional setting.
      * `network_id`: Name of the [cloud network](../../vpc/concepts/network.md#network) the service connection will be created in. This is a required setting.
      * `object_storage`: Service connection to {{ objstorage-short-name }}. Other service connection types are not available yet.
      * `dns_options`: Section with parameters for creating DNS records:
-         * `private_dns_records_enabled`: Parameter to create additional DNS resource records to override the public FQDN of the service to which the connection is created. This is an optional parameter.
+         * `private_dns_records_enabled`: Parameter to create additional DNS resource records to override the public FQDN of the service to which the connection is created. This is an optional setting.
 
              {% include [private-endpoint-create-dns](../../_includes/vpc/private-endpoint-create-dns.md) %}
 
-     * `endpoint_address`: Section with parameters of the service connection's internal IP address:
-         * `subnet_id`: ID of the subnet to provide an IP address for the service connection. If no subnet ID is provided, a random internal IP address will be assigned from the range of one of the subnets in the cloud network. This is an optional parameter.
+     * `endpoint_address`: Section with parameters of the service connection internal IP address:
+         * `subnet_id`: ID of the subnet to provide an IP address for the service connection. If no subnet ID is provided, a random internal IP address will be assigned from the range of one of the subnets in the cloud network. This is an optional setting.
 
         {% note info %}
 

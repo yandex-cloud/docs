@@ -96,17 +96,20 @@ description: Следуя данной инструкции, вы научите
            {
              "message": {
                "role": "assistant",
-               "text": "Быть или не быть - вот в чём вопрос."
+               "text": "Быть или не быть, вот в чём вопрос."
              },
              "status": "ALTERNATIVE_STATUS_FINAL"
            }
          ],
          "usage": {
-           "inputTextTokens": "28",
+           "inputTextTokens": "30",
            "completionTokens": "10",
-           "totalTokens": "38"
+           "totalTokens": "40",
+           "completionTokensDetails": {
+             "reasoningTokens": "0"
+           }
          },
-         "modelVersion": "06.12.2023"
+         "modelVersion": "09.02.2025"
        }
      }
      ```
@@ -123,7 +126,7 @@ description: Следуя данной инструкции, вы научите
      
      URL = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
      
-     def run(iam_token, folder_id, user_text):    
+     def run(iam_token, folder_id, user_text):
          # Собираем запрос
          data = {}
          # Указываем тип модели
@@ -167,13 +170,13 @@ description: Следуя данной инструкции, вы научите
      python test.py \
        --iam_token ${IAM_TOKEN} \
        --folder_id ${FOLDER_ID} \
-       --user_text ${TEXT}
+       --user_text "${TEXT}"
      ```
 
      {% cut "Результат:" %}
 
      ```text
-     {'result': {'alternatives': [{'message': {'role': 'assistant', 'text': 'Ошибки сами себя не исправят.'}, 'status': 'ALTERNATIVE_STATUS_FINAL'}], 'usage': {'inputTextTokens': '29', 'completionTokens': '9', 'totalTokens': '38'}, 'modelVersion': '07.03.2024'}}
+     {'result': {'alternatives': [{'message': {'role': 'assistant', 'text': 'Ошибки сами себя не исправят.'}, 'status': 'ALTERNATIVE_STATUS_FINAL'}], 'usage': {'inputTextTokens': '32', 'completionTokens': '8', 'totalTokens': '40', 'completionTokensDetails': {'reasoningTokens': '0'}}, 'modelVersion': '09.02.2025'}}
      ```
 
      {% endcut %}
@@ -192,7 +195,7 @@ description: Следуя данной инструкции, вы научите
 
   {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
-  1. Склонируйте репозиторий {{ yandex-cloud }} API, вставив код в ячейку ноутбука:
+  1. Склонируйте репозиторий {{ yandex-cloud }} API:
 
      ```bash
      git clone https://github.com/yandex-cloud/cloudapi
@@ -288,7 +291,7 @@ description: Следуя данной инструкции, вы научите
      python output/test.py \
        --iam_token ${IAM_TOKEN} \
        --folder_id ${FOLDER_ID} \
-       --user_text ${TEXT}
+       --user_text "${TEXT}"
      ```
 
      {% cut "Результат:" %}
@@ -329,7 +332,7 @@ description: Следуя данной инструкции, вы научите
       python3 generate-text.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Alternative(role='assistant', text='О', status=<AlternativeStatus.PARTIAL: 1>)
@@ -365,27 +368,27 @@ description: Следуя данной инструкции, вы научите
       stub = service_pb_grpc.TextGenerationServiceStub(channel)
 
       request = service_pb.CompletionRequest(
-              model_uri=f"gpt://{folder_id}/yandexgpt",
-              completion_options=pb.CompletionOptions(
-                  max_tokens={"value": 2000},
-                  temperature={"value": 0.5},
-                  stream=True
+          model_uri=f"gpt://{folder_id}/yandexgpt",
+          completion_options=pb.CompletionOptions(
+              max_tokens={"value": 2000},
+              temperature={"value": 0.5},
+              stream=True
               ),
-          )
-          message_system = request.messages.add()
-          message_system.role = "system"
-          message_system.text = "Исправь ошибки в тексте."
+      )
+      message_system = request.messages.add()
+      message_system.role = "system"
+      message_system.text = "Исправь ошибки в тексте."
       
-          message_user = request.messages.add()
-          message_user.role = "user"
-          message_user.text = user_text
+      message_user = request.messages.add()
+      message_user.role = "user"
+      message_user.text = user_text
       
-          it = stub.Completion(request, metadata=(
-              ('authorization', f'Bearer {iam_token}'),
-          ))             
+      it = stub.Completion(request, metadata=(
+          ('authorization', f'Bearer {iam_token}'),
+      ))
           
-          for response in it:
-              print(response)
+      for response in it:
+          print(response)
 
   if __name__ == '__main__':
       parser = argparse.ArgumentParser()
@@ -407,11 +410,11 @@ description: Следуя данной инструкции, вы научите
     status: ALTERNATIVE_STATUS_PARTIAL
   }
   usage {
-    input_text_tokens: 29
+    input_text_tokens: 32
     completion_tokens: 1
-    total_tokens: 30
+    total_tokens: 33
   }
-  model_version: "07.03.2024"
+  model_version: "09.02.2025"
 
   alternatives {
     message {
@@ -421,11 +424,11 @@ description: Следуя данной инструкции, вы научите
     status: ALTERNATIVE_STATUS_FINAL
   }
   usage {
-    input_text_tokens: 29
-    completion_tokens: 9
-    total_tokens: 38
+    input_text_tokens: 32
+    completion_tokens: 8
+    total_tokens: 40
   }
-  model_version: "07.03.2024"
+  model_version: "09.02.2025"
   ```
 
   {% endcut %}

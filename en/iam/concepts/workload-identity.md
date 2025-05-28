@@ -65,3 +65,8 @@ You can use the [CLI](../../cli/quickstart.md) to create federated credentials.
 To create federated credentials, the user needs the following:
 * The `iam.serviceAccounts.federatedCredentialEditor` [role](../security/index.md#iam-serviceAccounts-federatedCredentialEditor) or higher for the service account that will be used in the federated credentials.
 * The `iam.workloadIdentityFederations.user` [role](../security/index.md#iam-workloadIdentityFederations-user) or higher for the folder containing the relevant workload identity federation.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/wlif-github-integration.md)
+* [{#T}](../tutorials/wlif-k8s-integration.md)

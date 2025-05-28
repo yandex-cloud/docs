@@ -163,6 +163,8 @@ items:
                 href: api-ref/grpc/Talk/upload.md
               - name: UploadText
                 href: api-ref/grpc/Talk/uploadText.md
+              - name: UploadBadge
+                href: api-ref/grpc/Talk/uploadBadge.md
               - name: Search
                 href: api-ref/grpc/Talk/search.md
               - name: Get
