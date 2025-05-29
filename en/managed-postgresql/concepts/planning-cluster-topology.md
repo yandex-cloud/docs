@@ -41,6 +41,11 @@ Disadvantages:
 * A single-host cluster is not fault tolerant. If the master host VM fails, your cluster will be unavailable for reading and writing until the VM recovers completely.
 * In the event of a major incident on the master host, your data will be restored from [backups](backup.md). This means you may lose data written between the last backup and master host failure.
 
+#### Use cases {#examples-one-host-cluster}
+
+* [{#T}](../tutorials/data-recording.md)
+* [{#T}](../tutorials/datalens.md)
+
 ### Two-host cluster {#two-hosts-cluster}
 
 A two-host cluster meets the high availability criteria and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is sutable for medium-sized applications in a production environment.
@@ -49,6 +54,11 @@ Compared to a single-host cluster, a cluster with two hosts offers the following
 
 * Balancing load between two hosts when reading data for faster cluster performance.
 * Automatic master failover when the current master host is unavailable if the **Autofailover** option is enabled. Until the failover is complete, your cluster will be unavailable for writes for a short time but still readable.
+
+#### Use cases {#examples-two-hosts-cluster}
+
+* [{#T}](../tutorials/data-migration.md)
+* [{#T}](../tutorials/fault-tolerance.md)
 
 ### Cluster with three or more hosts {#three-or-more-hosts-cluster} 
 
@@ -62,6 +72,10 @@ Compared to two-host clusters, a cluster with three or more hosts offers the fol
 
 * You can load-balance read requests between the master and at least two replicas. In addition to speeding up the cluster, this allows your app to send data read requests to specific hosts in that cluster. This way, you can get data faster if your application resides in the same [availability zone](../../overview/concepts/geo-scope.md) as the cluster host.
 * Your cluster will be readable even during major {{ PG }} version upgrades.
+
+#### Use cases {#examples-three-or-more-hosts-cluster}
+
+* [{#T}](../tutorials/1c-postgresql.md)
 
 ### Cluster availability under different topologies {#cluster-availability}
 

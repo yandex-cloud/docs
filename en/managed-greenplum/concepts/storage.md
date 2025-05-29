@@ -35,7 +35,7 @@ In this mode, the `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
 
 To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-full-name }}:
 
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Select **{{ mgp-name }}**.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following properties:
@@ -47,7 +47,7 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
         * **{{ mgp-name }}** service
         * {{ mgp-name }} cluster ID
 
-            You can [get](../operations/cluster-list.md#list-clusters) the cluster ID with a list of clusters in the folder.
+            You can [get](../operations/cluster-list.md#list-clusters) the cluster ID with the list of clusters in the folder.
 
         * `disk.free_bytes` label
 
@@ -68,7 +68,7 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
 
 If the cluster switched to read-only mode:
 
-* [Increase the storage capacity](../operations/update.md#change-disk-size) so that it exceeds the threshold value. {{ yandex-cloud }} will then disable read-only mode automatically.
+* [Increase the storage capacity](../operations/update.md#change-disk-size) to exceed the threshold value. {{ yandex-cloud }} will then disable read-only mode automatically.
 
 * Disable read-only mode manually and free up storage space by deleting some data.
 
@@ -80,7 +80,7 @@ If the cluster switched to read-only mode:
 
 To disable read-only mode manually, contact [support]({{ link-console-support }}) or follow the steps below:
 
-1. [Connect to the database](../operations/connect.md) in any appropriate way.
+1. [Connect to the database](../operations/connect.md) using any method of your choice.
 
 1. Open a transaction and run the following command inside it:
 
@@ -100,5 +100,10 @@ To disable read-only mode manually, contact [support]({{ link-console-support }}
 > DROP TABLE ExcessDataTable1;
 > COMMIT;
 > ```
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/object-storage-to-greenplum.md)
+* [{#T}](../tutorials/yezzey.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

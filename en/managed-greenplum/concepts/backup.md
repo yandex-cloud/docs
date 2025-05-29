@@ -16,7 +16,7 @@ PITR mode is enabled by default. It supports automatic backups only.
 
 To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore). You can also restore your cluster to move its hosts to a different availability zone.
 
-## Creating backups {#size}
+## Creating a backup {#size}
 
 The first and every second automatic backup, as well as all manually created backups are full backups of all databases. Other backups are incremental and store only the data that has changed since the previous backup to save space.
 
@@ -45,5 +45,9 @@ Storing backups in {{ mgp-name }}:
 ## Checking backup recovery {#capabilities}
 
 To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md#restore) and check the integrity of your data.
+
+## Use cases {#examples}
+
+* [{#T}](../operations/cluster-backups.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

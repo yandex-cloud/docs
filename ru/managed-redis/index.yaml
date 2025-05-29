@@ -27,6 +27,22 @@ meta:
   description: >-
     Сервис Yandex Managed Service for Valkey™ помогает разворачивать и
     поддерживать кластеры серверов Valkey™ 7.2 в инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: '{{ mrd-name }}'
+    - keyword: '{{ mrd-full-name }}'
+    - keyword: Сервис {{ mrd-name }}
+    - keyword: '{{ RD }} в {{ yandex-cloud }}'
+    - keyword: Кластер {{ RD }}
+    - keyword: Кластеры серверов {{ RD }}
+    - keyword: '{{ RD }}'
+    - keyword: Редис СУБД
+    - keyword: '{{ RD }} в облаке'
+    - keyword: Нереляционная СУБД
+    - keyword: '{{ VLK }} в {{ yandex-cloud }}'
+    - keyword: Кластер {{ VLK }}
+    - keyword: Кластеры серверов {{ VLK }}
+    - keyword: '{{ VLK }}'
+    - keyword: '{{ VLK }} в облаке'
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

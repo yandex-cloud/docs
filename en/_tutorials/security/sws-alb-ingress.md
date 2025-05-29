@@ -1,8 +1,8 @@
-With [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), you can protect apps in a {{ managed-k8s-full-name }} cluster from DDoS attacks and bots. To do this, publish your apps through an Ingress resource that has an assigned [security profile](../../smartwebsecurity/concepts/profiles.md) in {{ sws-name }} and uses the {{ alb-name }} Ingress controller.
+With [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), you can protect apps in a {{ managed-k8s-full-name }} cluster against DDoS attacks and bots. To do this, publish your apps through an Ingress resource associated with a {{ sws-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) that uses the {{ alb-name }} Ingress controller.
 
-Based on the Ingress resource, an L7 load balancer will be deployed with a security profile connected to the load balancer virtual hosts. {{ sws-name }} will be protecting the application backends specified in the Ingress resource: all HTTP requests to the backends [will be processed](../../smartwebsecurity/concepts/rules.md#rule-action) according to the security profile rules.
+Based on the Ingress resource, an L7 load balancer will be deployed with a security profile associated with the load balancer virtual hosts. {{ sws-name }} will be protecting the application backends specified in the Ingress resource: all HTTP requests to the backends [will be processed](../../smartwebsecurity/concepts/rules.md#rule-action) according to the security profile rules.
 
-To create an L7 load balancer with a connected security profile using an Ingress:
+To create an L7 load balancer with an associated security profile using Ingress:
 
 1. [Install the {{ alb-name }} Ingress controller](#deploy-controller).
 1. [Create a test application](#deploy-app).
@@ -19,8 +19,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for the number of requests to {{ sws-name }} (see [{{ vpc-name }} pricing](../../smartwebsecurity/pricing.md)).
@@ -28,7 +28,7 @@ The support cost includes:
 
 ## Getting started {#before-you-begin}
 
-1. Prepare the required infrastructure:
+1. Set up the required infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -145,7 +145,7 @@ The support cost includes:
 
 1. [Install the {{ alb-name }} Ingress controller](../../application-load-balancer/operations/k8s-ingress-controller-install.md) to the `yc-alb` namespace.
 
-    When installing it, specify the service account [you created earlier for the controller](#before-you-begin).
+    Specify the service account [you created earlier for the controller](#before-you-begin).
 
     Using the separate `yc-alb` namespace, you isolate the controller resources from those of your [test application](#deploy-app) and [Ingress](#deploy-ingress).
 
@@ -157,7 +157,7 @@ The support cost includes:
 
     Logs should contain messages saying the Ingress controller successfully started.
 
-    {% cut "Example of partial command result" %}
+    {% cut "Example of a part of a command result" %}
 
     ```text
     ...    INFO    Starting EventSource    {"controller": "ingressgroup", ...}
@@ -180,7 +180,7 @@ The support cost includes:
 
 Create an application and an associated service for Ingress to expose:
 
-1. Create a `demo-app1.yaml` manifest for deploying your application:
+1. Create a manifest named `demo-app1.yaml` for deploying your application:
 
     {% cut "`demo-app1.yaml`" %}
 
@@ -301,7 +301,7 @@ Create an application and an associated service for Ingress to expose:
     kubectl get configmap,deployment,svc -l tutorial=sws
     ```
 
-    {% cut "Command result example" %}
+    {% cut "Example of a command result" %}
 
     ```text
     NAME                  DATA   AGE
@@ -426,7 +426,7 @@ To create an Ingress resource:
 
      {% endnote %}
 
-    To learn more about annotations, see [Ingress resource fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
+    Learn more about annotations in [Ingress resource fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
 
 1. Create an Ingress resource:
 
@@ -444,7 +444,7 @@ To create an Ingress resource:
 
     This means the load balancer has been successfully created and can accept traffic.
 
-    {% cut "Command result example" %}
+    {% cut "Example of a command result" %}
 
     ```bash
     NAME             CLASS    HOSTS              ADDRESS         PORTS   AGE
@@ -515,7 +515,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     This will delete the load balancer and the associated HTTP router.
 
-    The {{ sws-name }} security profile will be disconnected from the virtual hosts specified in the Ingress resource.
+    The {{ sws-name }} security profile will be disassociated from the virtual hosts specified in the Ingress resource.
 
 1. Delete the {{ managed-k8s-name }} cluster and its associated infrastructure:
 
@@ -523,9 +523,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     - Manually {#manual}
 
-        [Delete the {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) cluster.
+        [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
-        If you need to, delete the service account and security groups [created before you started](#before-you-begin).
+        If needed, delete the service account and security groups [created before you started](#before-you-begin).
 
     - {{ TF }} {#tf}
 

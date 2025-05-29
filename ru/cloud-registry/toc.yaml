@@ -42,6 +42,10 @@ items:
             items:
               - name: Настроить npm
                 href: operations/npm/installation.md
+          - name: NuGet-артефакт
+            items:
+              - name: Настроить NuGet
+                href: operations/nuget/installation.md
   - name: Концепции
     items:
       - name: Обзор
@@ -58,6 +62,8 @@ items:
             href: concepts/art-java.md
           - name: Node.js-артефакт
             href: concepts/art-nodejs.md
+          - name: NuGet-артефакт
+            href: concepts/art-nuget.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

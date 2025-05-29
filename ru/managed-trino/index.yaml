@@ -9,6 +9,17 @@ meta:
   description: >-
     Сервис {{ mtr-name }} помогает разворачивать и поддерживать кластеры
     серверов {{ TR }} в инфраструктуре {{ yandex-cloud }}.
+  keywords:
+    - keyword: '{{ mtr-name }}'
+    - keyword: '{{ mtr-full-name }}'
+    - keyword: Сервис {{ mtr-name }}
+    - keyword: '{{ TR }} в {{ yandex-cloud }}'
+    - keyword: Кластер {{ TR }}
+    - keyword: Кластеры серверов {{ TR }}
+    - keyword: '{{ TR }}'
+    - keyword: Трино движок
+    - keyword: SQL-движок
+    - keyword: '{{ TR }} в облаке'
 links:
   - title: Начало работы
     description: Создайте первый кластер {{ TR }}

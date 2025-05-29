@@ -13,6 +13,18 @@ meta:
   description: >-
     Сервис {{ msp-name }} помогает разворачивать и поддерживать кластеры {{ SPRK
     }} в инфраструктуре {{ yandex-cloud }}.
+  keywords:
+    - keyword: Apache Spark
+    - keyword: кластер spark
+    - keyword: кластеры {{ SPRK }}
+    - keyword: '{{ msp-name }}'
+    - keyword: Spark
+    - keyword: кластеры серверов Apache Spark
+    - keyword: кластеры серверов {{ msp-name }}
+    - keyword: spark в {{ yandex-cloud }}
+    - keyword: Apache Spark в {{ yandex-cloud }}
+    - keyword: '{{ msp-name }} в {{ yandex-cloud }}'
+    - keyword: сервис {{ msp-name }}
 links:
   - title: Начало работы
     description: Начните работать с {{ msp-full-name }}

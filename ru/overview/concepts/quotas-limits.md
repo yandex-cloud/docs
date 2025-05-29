@@ -28,6 +28,8 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 Квоты приведены со значениями по умолчанию, которые совпадают с квотами на время [пробного периода](../../getting-started/free-trial/concepts/quickstart.md).
 
+Для каждой квоты в таблице приведен идентификатор, который позволяет управлять квотами через {{ quota-manager-name }}.
+
 
 ### {{ api-gw-full-name }} {#api-gw}
 
@@ -299,6 +301,11 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 ### {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
+
+
+### {{ si-full-name }} {#serverless-integrations}
+
+{% include [serverless-integrations-limits](../../_includes/si-limits.md) %}
 
 
 ### {{ captcha-full-name }} {#captcha}

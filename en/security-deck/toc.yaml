@@ -36,7 +36,7 @@ items:
         href: concepts/limits.md
   - name: Access management
     items:
-      - name: Overview
+      - name: General {{ sd-name }} roles
         href: security/index.md
       - name: '{{ atr-name }} roles'
         href: security/access-transparency-roles.md

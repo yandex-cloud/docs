@@ -6,7 +6,7 @@ description:
     мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN,
     Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>,
     Zeppelin™).
-  - "Инфраструктура Yandex Cloud <a href=\"/docs/security/conform\"> защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
+  - "Инфраструктура Yandex Cloud <a href=\"/docs/security/conform\">защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
   - >-
     <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> и Apache Spark™ являются
     зарегистрированными товарными знаками или товарными знаками Apache Software
@@ -16,6 +16,18 @@ meta:
   description: >-
     Сервис помогает разворачивать кластеры Apache Hadoop® и Apache Spark™ в
     инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: Data Processing
+    - keyword: Apache Hadoop
+    - keyword: Apache Spark
+    - keyword: '{{ dataproc-name }}'
+    - keyword: кластер Apache Hadoop
+    - keyword: кластер Apache Spark
+    - keyword: кластеры {{ dataproc-name }}
+    - keyword: Hadoop и Spark в {{ yandex-cloud }}
+    - keyword: Apache в {{ yandex-cloud }}
+    - keyword: '{{ dataproc-name }} в {{ yandex-cloud }}'
+    - keyword: сервис {{ dataproc-name }}
 links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций

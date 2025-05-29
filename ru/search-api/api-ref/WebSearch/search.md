@@ -96,7 +96,8 @@ Required field. Search type that determines the domain name that will be used fo
 - `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
 - `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
 - `SEARCH_TYPE_KK`: Kazakh search type, yandex.kz search domain name will be used.
-- `SEARCH_TYPE_BE`: Belarusian search type, yandex.by search domain name will be used. ||
+- `SEARCH_TYPE_BE`: Belarusian search type, yandex.by search domain name will be used.
+- `SEARCH_TYPE_UZ`: Uzbek search type, yandex.uz search domain name will be used. ||
 || queryText | **string**
 
 Required field. Search query text ||

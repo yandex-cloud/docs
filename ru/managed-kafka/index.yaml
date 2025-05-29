@@ -20,6 +20,18 @@ meta:
     Сервис Managed Service for Apache Kafka® помогает разворачивать и
     поддерживать кластеры серверов Apache Kafka® версий 3.5 и 3.6 в
     инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: Apache Kafka
+    - keyword: Kafka
+    - keyword: кластер {{ mkf-name }}
+    - keyword: '{{ mkf-name }}'
+    - keyword: хост-брокер
+    - keyword: KRaft
+    - keyword: кластеры серверов {{ mkf-name }}
+    - keyword: Kafka в {{ yandex-cloud }}
+    - keyword: Apache Kafka в {{ yandex-cloud }}
+    - keyword: '{{ mkf-name }} в {{ yandex-cloud }}'
+    - keyword: сервис {{ mkf-name }}
 links:
   - title: Начало работы
     description: Создайте первый кластер

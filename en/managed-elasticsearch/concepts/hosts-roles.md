@@ -1,6 +1,6 @@
 ---
-title: Host roles in {{ ES }}
-description: 'Each cluster in {{ ES }} consists of one or more {{ ES }} hosts with different roles: Data node or Master node.'
+title: '{{ ES }} host roles'
+description: 'Each {{ ES }} cluster consists of one or more {{ ES }} hosts with different roles: Data node or Master node.'
 keywords:
   - Elasticsearch host roles
   - Elasticsearch

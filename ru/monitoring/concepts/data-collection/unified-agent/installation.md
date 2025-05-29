@@ -5,6 +5,10 @@ description: Из статьи вы узнаете, как установить 
 
 # Установка и обновление {{ unified-agent-full-name }}
 
+{% include [agent-version](../../../../_includes/monitoring/agent-version.md) %}
+
+Подробнее см. раздел [{#T}](../../../operations/prometheus/ingestion/prometheus-agent.md).
+
 ## Список поддерживаемых операционных систем {#supported-os}
 
 Работа {{ unified-agent-short-name }} поддерживается на следующих операционных системах:

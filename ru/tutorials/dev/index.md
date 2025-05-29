@@ -17,7 +17,6 @@ description: Различные сценарии использования по
 * [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](../testing/loadtesting-https-pandora.md)
 * [HTTP-тест с нагрузкой по сценарию с помощью Pandora](../testing/loadtesting-http-scenario-pandora.md)
 * [Нагрузочное тестирование с нескольких агентов](../testing/loadtesting-multiply.md)
-* [Миграция результатов нагрузочного тестирования из OverLoad](../testing/loadtesting-overload-migration.md)
 * [Запуск внешних агентов для нагрузочного тестирования](../testing/loadtesting-external-agent.md)
 * [Нагрузочный тест с помощью JMeter](../testing/loadtesting-jmeter.md)
 * [Получение статистики запросов к объектам {{ objstorage-full-name }} с использованием {{ yq-full-name }}](../testing/server-logs-yq.md)

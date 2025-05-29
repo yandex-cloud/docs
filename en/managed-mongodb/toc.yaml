@@ -45,7 +45,7 @@ items:
         items:
           - name: Managing databases
             href: operations/databases.md
-          - name: Managing database users
+          - name: DB user management
             href: operations/cluster-users.md
       - name: Sharding and replication
         items:
@@ -247,7 +247,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

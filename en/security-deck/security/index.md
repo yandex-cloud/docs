@@ -1,9 +1,9 @@
 ---
-title: Access management in {{ sd-full-name }}
+title: General {{ sd-full-name }} roles
 description: Managing access permissions in {{ sd-full-name }} information security management service. For access to {{ sd-name }} resources, assign to the user the required roles from the list below.
 ---
 
-# Access management in {{ sd-full-name }}
+# General {{ sd-full-name }} roles
 
 {{ yandex-cloud }} users can only perform the operations on resources that are allowed by the roles assigned to them. If a user has no roles yet, they cannot perform any operations.
 
@@ -21,7 +21,23 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 ### Service roles {#service-roles}
 
-{{ yandex-cloud }} supports a separate list of roles for each {{ sd-name }} module. For more information, see:
+#### security-deck.auditor {#security-deck-auditor}
+
+{% include [security-deck.auditor](../../_roles/security-deck/auditor.md) %}
+
+#### security-deck.viewer {#security-deck-viewer}
+
+{% include [security-deck.viewer](../../_roles/security-deck/viewer.md) %}
+
+#### security-deck.editor {#security-deck-editor}
+
+{% include [security-deck.editor](../../_roles/security-deck/editor.md) %}
+
+#### security-deck.admin {#security-deck-admin}
+
+{% include [security-deck.admin](../../_roles/security-deck/admin.md) %}
+
+In addition to that, {{ yandex-cloud }} supports a separate list of roles for each {{ sd-name }} module. For more information, see:
 
 * [Roles for {{ atr-name }} data analysis](./access-transparency-roles.md).
 * [Roles for Data Security Posture Management](./dspm-roles.md).

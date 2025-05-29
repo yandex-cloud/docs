@@ -24,6 +24,8 @@ items:
     items:
       - name: Resource relationships
         href: concepts/index.md
+      - name: Impersonation
+        href: concepts/impersonation.md
   - name: API reference
     items:
       - name: API authentication

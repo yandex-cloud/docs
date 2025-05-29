@@ -26,6 +26,12 @@ meta:
     Yandex Cloud — это набор связанных сервисов, которые помогут вам быстро и
     безопасно взять в аренду вычислительные мощности в тех объемах, в которых
     это необходимо.
+  keywords:
+    - keyword: '{{ yandex-cloud }}'
+    - keyword: обзор {{ yandex-cloud }}
+    - keyword: список сервисов {{ yandex-cloud }}
+    - keyword: как взять в аренду вычислительные мощности
+    - keyword: облачные вычисления
 links:
   - title: Сервисы Yandex Cloud
     description: ''

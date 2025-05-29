@@ -45,8 +45,6 @@ items:
         href: tutorials/loadtesting-jmeter.md
       - name: Load testing using multiple agents
         href: tutorials/loadtesting-multiply.md
-      - name: Migrating load testing results from OverLoad
-        href: tutorials/loadtesting-overload-migration.md
       - name: Running external agents for load testing
         href: tutorials/loadtesting-external-agent.md
       - name: Invoking load testing from {{ GL }} CI

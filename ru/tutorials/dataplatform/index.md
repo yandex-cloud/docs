@@ -60,6 +60,8 @@ description: На странице представлен список прак�
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](bigquery-to-clickhouse.md)
+* [{#T}](jdbc-ch-to-sql-server-integration.md)
+* [{#T}](jdbc-ch-to-oracle-integration.md)
 
 ## {{ GP }} {#greenplum}
 

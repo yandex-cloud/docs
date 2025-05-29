@@ -4,7 +4,7 @@ description: '{{ mrd-short-name }} supports automatic and manual {{ VLK }} datab
 keywords:
   - back up
   - backup
-  - backups
+  - backing up
   - Valkey backups
   - backup Valkey
   - Valkey
@@ -20,7 +20,7 @@ A backup of all cluster data (an RDB snapshot) is automatically created every da
 
 To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md).
 
-## Creating backups {#size}
+## Creating a backup {#size}
 
 You can create both automatic and manual backups. In both cases, the following method is used:
 

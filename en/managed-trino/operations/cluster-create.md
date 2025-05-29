@@ -21,7 +21,7 @@ To create a {{ mtr-name }} cluster, your {{ yandex-cloud }} account needs the fo
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
 
-Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the cluster service account. The cluster will thus get the permissions it needs to work with user resources.
+Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the cluster service account. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
 For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
@@ -59,7 +59,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             * For Hive, Iceberg, and Delta Lake [connectors](../concepts/index.md#connector):
 
                 * **URI** to connect to the Metastore cluster in this format: `thrift://<IP_address>:<port>`.
-                * **File storage**: Select the file storage type: **Yandex Object Storage** or **External storage**. For external storage, specify the following settings:
+                * **File storage**: Select the file storage type): **Yandex Object Storage** or **External storage**. For external storage, specify the following settings:
                     * AWS-compatible static access key ID.
                     * AWS-compatible static access key secret key.
                     * File storage endpoint, such as `{{ s3-storage-host }}`.

@@ -10,5 +10,7 @@
 
 * [{#T}](./servers.md)
 * [{#T}](./server-configurations.md)
+* [{#T}](./smart-disk-analysis.md)
 * [{#T}](./network.md)
+* [{#T}](./dhcp.md)
 * [{#T}](./network-restrictions.md)

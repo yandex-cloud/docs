@@ -3,3 +3,4 @@
 * Helm-чарты
 * [Java-артефакты](../../cloud-registry/concepts/art-java.md)
 * [Node.js-артефакты](../../cloud-registry/concepts/art-nodejs.md)
+* [NuGet-артефакты](../../cloud-registry/concepts/art-nuget.md)

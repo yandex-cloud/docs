@@ -309,6 +309,7 @@ description: Следуя данной инструкции, вы сможете
 
 #### См. также {#see-also}
 
+* [{#T}](./use-hwatcher.md)
 * [{#T}](./rescue-boot.md)
 * [{#T}](./reset-password.md)
 * [{#T}](./restore-grub.md)

@@ -9,17 +9,17 @@ The infrastructure elements reside in two [availability zones](../../overview/co
 
 We will use the following folders:
 
-* The **public** folder contains [{{ alb-name }}](../../application-load-balancer/) enabling public access to DMZ applications.
-* The **mgmt** folder contains NGFW firewalls and other resources, including `FW-A` and `FW-B` firewall VMs, `mgmt-server`, which is a firewall management server VM, and `jump-vm`, a VM for accessing the VPN protected segment.
-* The **dmz** folder contains publicly accessible applications.
-* The **app** and **database** folders contain application business logic; we will not use them in this tutorial.
+* **public** that contains [{{ alb-name }}](../../application-load-balancer/) enabling public access to DMZ applications from the internet.
+* **mgmt** that contains NGFWs and cloud infrastructure management resources, including `fw-a` and `fw-b` firewall VMs, `mgmt-server`, which is a firewall management server VM, and `jump-vm`, a VM for accessing the VPN protected segment.
+* **dmz** that enables you to publish open-access applications.
+* **app** and **database** folders that contain application business logic; we will not use them in this tutorial.
 
-For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw/blob/main/README.md).
+For more information, see [this project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw/blob/main/README.md).
 
 To deploy a secure high-availability network infrastructure with a dedicated DMZ based on the Check Point next-generation firewall:
 
 1. [Get your cloud ready](#prepare-cloud).
-1. [Prepare the environment](#prepare-environment).
+1. [Set up your environment](#prepare-environment).
 1. [Deploy your resources](#create-resources).
 1. [Set up firewall gateways](#configure-gateways).
 1. [Enable the route-switcher module](#enable-route-switcher).
@@ -29,16 +29,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Next-Generation Firewall {#ngfw}
 
-We will use a next generation firewall for cloud network protection and segmentation, creating a dedicated DMZ for publicly accessible applications. [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions.
+We will use a next-generation firewall for cloud network protection and segmentation, creating a dedicated DMZ for publicly accessible applications. [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions.
 
-In this scenario, we use the [Check Point CloudGuard IaaS]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m) solution offering the following features:
+In this tutorial, we will use the [Check Point CloudGuard IaaS]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m) solution. Its features include:
 
 * Firewalling
 * NAT
 * Intrusion prevention
 * Antivirus
 * Bot protection
-* Application layer granular traffic control
+* Application-layer granular traffic control
 * Session logging
 * Centralized management with Check Point Security Management
 
@@ -55,19 +55,19 @@ The infrastructure support cost includes:
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using {{ alb-name }} (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for using {{ network-load-balancer-name }} (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
-* Fee for IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for using [CheckPoint NGFW](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
+* Fee for using the [CheckPoint NGFW](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
 
 ### Required quotas {#required-quotes}
 
 {% note warning %}
 
-In this tutorial, you will have to deploy a resource-intensive infrastructure.
+In this tutorial, you will deploy a resource-intensive infrastructure.
 
 {% endnote %}
 
-Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) that are not used by other projects.
+Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limits.md) not used by other projects.
 
 {% cut "Resources used by this tutorial" %}
 
@@ -92,28 +92,28 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | Cloud functions | 1 |
    | Cloud function triggers | 1 |
    | Total RAM for all running functions | 128 MB |
-   | Network load balancers (NLBs) | 2 |
+   | Network load balancers (NLB) | 2 |
    | NLB target groups | 2 |
-   | Application load balancers (ALBs) | 1 |
+   | Application load balancers (ALB) | 1 |
    | ALB backend groups | 1 |
    | ALB target groups | 1 |
 
 {% endcut %}
 
-## Prepare the environment {#prepare-environment}
+## Set up your environment {#prepare-environment}
 
 In this tutorial, we will use Windows software and [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
 To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/).
 
 ### Configure WSL {#setup-wsl}
 
-1. Check whether WSL is installed on your PC. To do this, run this command in the CLI terminal:
+1. Check whether WSL is installed on your PC. To do this, run the following command in the CLI:
 
    ```bash
    wsl -l
    ```
 
-   If WSL is installed, the terminal will display a list of available distributions, for example:
+   If WSL is installed, the terminal will return a list of available distributions, such as the following:
 
    ```bash
    Windows Subsystem for Linux Distributions:
@@ -130,7 +130,7 @@ To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/).
    wsl --setdefault ubuntu
    ```
 
-1. To switch the terminal to Linux, run:
+1. To switch your terminal to Linux, run this command:
 
    ```bash
    wsl ~
@@ -138,7 +138,7 @@ To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/).
 
 {% note info %}
 
-Perform all steps below in the Linux terminal.
+We use the Linux terminal to perform the following steps.
 
 {% endnote %}
 
@@ -153,7 +153,7 @@ Perform all steps below in the Linux terminal.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Specify the service account name, e.g., `sa-terraform`.
 
-       The name should match the following format:
+       The naming requirements are as follows:
 
        {% include [name-format](../../_includes/name-format.md) %}
 
@@ -161,7 +161,7 @@ Perform all steps below in the Linux terminal.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the service account.
+   1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the service account:
 
        1. On the management console [home page]({{ link-console-main }}), select your cloud.
        1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -182,7 +182,7 @@ Perform all steps below in the Linux terminal.
          yc iam service-account create --name sa-terraform
          ```
 
-         Where `name` is the service account name. The name should meet the following requirements:
+         Where `name` is the service account name. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -256,7 +256,7 @@ Perform all steps below in the Linux terminal.
       unzip terraform_1.3.9_linux_amd64.zip
       ```
 
-   1. Add the executable directory to your `PATH`:
+   1. Add the path to the directory with the executable to the `PATH` variable:
 
       ```bash
       export PATH=$PATH:~/terraform
@@ -291,7 +291,7 @@ Perform all steps below in the Linux terminal.
       }
       ```
 
-      For more information about mirror settings, see the relevant [{{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration) guides.
+      For more information about mirror settings, see the relevant [{{ TF }} guides](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Deploy your resources {#create-resources}
 
@@ -324,7 +324,7 @@ Perform all steps below in the Linux terminal.
          Where:
 
          * `service-account-id`: Service account ID.
-         * `folder-id`: ID of the service account folder.
+         * `folder-id`: Service account folder ID.
          * `output`: Authorized key file name.
 
          Result:
@@ -398,7 +398,7 @@ Perform all steps below in the Linux terminal.
       trusted_ip_for_access_jump-vm = ["<PC_external_IP_address>/32"]
       ```
 
-1. Deploy the resources in the cloud with {{ TF }}:
+1. Deploy your cloud resources using {{ TF }}:
 
    1. Initialize {{ TF }}:
 
@@ -412,13 +412,13 @@ Perform all steps below in the Linux terminal.
        terraform validate
        ```
 
-   1. Check the list of cloud resources you want to create:
+   1. Check the list of new cloud resources:
 
        ```bash
        terraform plan
        ```
 
-   1. Create resources:
+   1. Create the resources:
 
        ```bash
        terraform apply
@@ -426,11 +426,11 @@ Perform all steps below in the Linux terminal.
 
 ## Set up firewall gateways {#configure-gateways}
 
-In this tutorial, we will configure `FW-A` and `FW-B` firewalls with basic access management and NAT policies required to test performance and fault tolerance, but insufficient for the production environment.
+In this tutorial, we will configure the `FW-A` and `FW-B` firewalls with basic access control and NAT policies required to test performance and fault tolerance, but insufficient for the production environment.
 
-### Connect to the control segment via a VPN {#connect-via-vpn}
+### Connect to the management segment via a VPN {#connect-via-vpn}
 
-After deploying the infrastructure, the `mgmt` folder will contain an Ubuntu `jump-vm` instance with a configured [WireGuard VPN](https://www.wireguard.com/) allowing secure connections. Set up a VPN tunnel between your PC and `mgmt`, `dmz`, `app`, and `database` segment subnets through `jump-vm`.
+After deploying the infrastructure, the `mgmt` folder will contain the `jump-vm` Ubuntu instance with the configured [WireGuard VPN](https://www.wireguard.com/) allowing secure connections. Set up a VPN tunnel between your PC and the `mgmt`, `dmz`, `app`, and `database` segment subnets through `jump-vm`.
 
 To set up the VPN tunnel:
 
@@ -453,7 +453,7 @@ To set up the VPN tunnel:
    Where `<Ubuntu_user_name>` is your Linux username you got in the previous step.
 
 1. Click **Activate** to activate the tunnel.
-1. Check whether you can connect to the management server via WireGuard VPN by running this command in the terminal:
+1. Check whether you can connect to the management server through the WireGuard VPN tunnel by running this command in the terminal:
 
    ```bash
    ping 192.168.1.100
@@ -471,7 +471,7 @@ To set up the VPN tunnel:
 To set up and manage [Check Point](https://en.wikipedia.org/wiki/Check_Point), install and run the SmartConsole GUI client: 
 
 1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser.
-1. Sign in using `admin` as both username and password.
+1. Sign in using `admin` as both the username and the password.
 1. You will enter Gaia Portal where you can download the SmartConsole GUI client by clicking **Manage Software Blades using SmartConsole. Download Now!**.
 1. Install SmartConsole on your PC.
 1. Get a password to access SmartConsole by running this command in the terminal:
@@ -501,7 +501,7 @@ Use the wizard to add the `FW-A` firewall gateway to the management server:
     terraform output fw_sic-password
     ```
 
-1. Enter the received password in the **One-time password** field.
+1. Enter this password in the **One-time password** field.
 1. Click **Next**, and then **Finish**.
 
 Similarly, add the `FW-B` firewall gateway with the values below:
@@ -545,14 +545,14 @@ To select an already specified interface name:
 
 {% note warning %}
 
-Renaming the interfaces the second time will cause the network object name replication error when setting security policies.
+Renaming the interfaces again will cause the network object name replication error when setting security policies.
 
 {% endnote %}
 
 
 ### Create network objects {#create-network-objects}
 
-1. In the **Objects** drop-down list at the top left, select **New Network...** and create `public - a` and `public - b` networks with the following parameters:
+1. In the **Objects** drop-down list at the top left, select **New Network...** and create the `public - a` and `public - b` networks with the following parameters:
 
     | Name | Network address | Net mask |
     | ----------- | ----------- | ----------- |
@@ -570,7 +570,7 @@ Renaming the interfaces the second time will cause the network object name repli
     | FW-b-dmz-IP | 10.160.2.10 |
     | FW-b-public-IP | 172.16.2.10 |
 
-1. Select **More object types → Network Object → Service → New TCP...** and create a TCP service for the DMZ application, specifying its name: `TCP_8080`  and port: `8080`.
+1. Select **More object types → Network Object → Service → New TCP...** and create a TCP service for the DMZ application, specifying `TCP_8080` as its name and `8080` as the port.
 
 ### Set security policy rules {#define-policies}
 
@@ -604,9 +604,9 @@ In the same way, add other rules from the table below; these rules will allow yo
 
 ### Set up a static NAT table {#setup-static-nat}
 
-`Source NAT` ensures that the return traffic of the user’s connection returns to the firewall. `Destination NAT` routes user requests to the network load balancer upstream of the group of application web servers.
+`Source NAT` ensures that the return traffic of the user’s connection goes back through the same firewall as the user’s request. `Destination NAT` routes user requests to the network load balancer upstream of the group of application web servers.
 
-`Source IP` and `Destination IP` headers of packets coming from {{ alb-name }} to the DMZ application will be translated to the firewall IP and load balancer IP, respectively.
+Headers of packets received from {{ alb-name }} with user requests to the DMZ application will be translated to `Source IP` of the firewall DMZ interface and `Destination IP` of the web server traffic load balancer.
 
 To set up the `FW-A` gateway NAT table:
 
@@ -619,7 +619,7 @@ To set up the `FW-A` gateway NAT table:
    * In the **Translated Source** column, select `FW-a-dmz-IP`.
    * In the **Translated Destination** column, select `dmz-web-server`.
    * In the **Install On** column, select `FW-a`.
-1. Change the NAT method for `FW-a-dmz-IP` by right-clicking `FW-a-dmz-IP` in the table and selecting **NAT Method > Hide** from the context menu.
+1. Make sure to change the NAT method for `FW-a-dmz-IP` by right-clicking `FW-a-dmz-IP` in the table and selecting **NAT Method > Hide** in the context menu.
 
 In the same way, set up the `FW-B` gateway static NAT table based on the table below:
 
@@ -636,7 +636,7 @@ In the same way, set up the `FW-B` gateway static NAT table based on the table b
 
 ## Enable the route-switcher module {#enable-route-switcher}
 
-After completing the NGFW setup, make sure `FW-A` and `FW-B` health checks return `Healthy`. To do this, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder of the {{ yandex-cloud }} [management console]({{ link-console-main }}) and navigate to the `route-switcher-lb-...` network load balancer page. Expand the target group and check whether its resources are `Healthy`. If they are `Unhealthy`, make sure `FW-A` and `FW-B` are [configured](#configure-gateways) correctly and running. 
+After completing the NGFW setup, make sure `FW-A` and `FW-B` health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder, and go to the `route-switcher-lb-...` network load balancer page. Expand the target group and check whether its resources are `Healthy`. If they are `Unhealthy`, make sure `FW-A` and `FW-B` are [configured](#configure-gateways) correctly and running.
 
 Once the `FW-A` and `FW-B` status changes to `Healthy`, open the `route-switcher.tf` file and change the `route-switcher` `start_module` value to `true`. To enable the module, run these commands:
 
@@ -645,7 +645,7 @@ terraform plan
 terraform apply
 ```
 
-Within five minutes, the `route-switcher` module will start working, providing outbound traffic fault tolerance.
+Within five minutes, the `route-switcher` module will start providing outbound traffic fault tolerance.
 
 ## Test the solution for performance and fault tolerance {#test-accessibility}
 
@@ -687,7 +687,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
    ping 192.168.1.101
    ```
 
-   The `Cleanup rule` should block the command.
+   The command should terminate with an error according to the `Cleanup rule` blocking rule.
 
 ### Testing fault tolerance {#fault-tolerance-check}
 
@@ -703,7 +703,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
     terraform output fw-alb_public_ip_address
     ```
 
-1. Emulate the DMZ application inbound traffic by making a request to the ALB public IP address:
+1. Enable the DMZ application inbound traffic by making a request to the ALB public IP address:
 
     ```bash
     httping http://<ALB_load_balancer_public_IP_address>
@@ -715,7 +715,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
     ssh -i pt_key.pem admin@<VM_internal_IP_address_in_DMZ_segment>
     ```
 
-1. Set `admin` password:
+1. Set a password for the `admin` user:
 
     ```bash
     sudo passwd admin
@@ -731,7 +731,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 
 1. Connect to the VM serial console, enter the `admin` username and password you set earlier.
 
-1. Emulate the DMZ to internet outbound traffic by running `ping` on the DMZ VM:
+1. Enable outgoing traffic from the DMZ VM to a resource on the internet by running `ping`:
 
     ```bash
     ping ya.ru
@@ -741,7 +741,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 1. Monitor the loss of `httping` and `ping` packets. After `FW-A` fails, you may see a traffic loss for about one minute with the subsequent traffic recovery.
 1. Make sure the `dmz-rt` route table in the `dmz` folder uses the `FW-B` address as `next hop`.
 1. Emulate the main firewall recovery by [running](../../compute/operations/vm-control/vm-stop-and-start.md#start) the `FW-A` VM in the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-1. Monitor the loss of `httping` and `ping` packets. After `FW-A` is restored, you may see a traffic loss for about one minute with the subsequent traffic recovery.
+1. Monitor the loss of `httping` and `ping` packets. After `FW-A` recovers, you may see a traffic loss for about one minute with the subsequent traffic recovery.
 1. Make sure the `dmz-rt` route table in the `dmz` folder uses the `FW-A` address as `next hop`.
 
 ## How to delete the resources you created {#clear-out}
@@ -751,6 +751,6 @@ To stop paying for the resources you created, run this command:
   ```bash
   terraform destroy
   ```
-  {{ TF }} will **permanently** delete all resources, such as networks, subnets, VMs, load balancers, folders, etc.
+  {{ TF }} will **permanently** delete all the resources, such as networks, subnets, VMs, load balancers, folders, etc.
 
 You can delete the resources faster by deleting all folders in the {{ yandex-cloud }} console and then deleting the `terraform.tfstate` file from the `yc-dmz-with-high-available-ngfw` folder on your PC.

@@ -25,7 +25,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * Edit the cluster name and description.
         * Delete or add new [labels](../../resource-manager/concepts/labels.md).
-        * Select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles. The cluster will thus get the permissions it needs to work with user resources.
+        * Select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
             To change your service account in a {{ mtr-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 

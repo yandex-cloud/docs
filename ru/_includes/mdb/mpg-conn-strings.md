@@ -57,7 +57,6 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 {% endlist %}
 
-
 ### C++ (фреймворк userver) {#cpp-userver}
 
 Асинхронный фреймворк [userver](https://userver.tech/) предоставляет богатый набор абстракций для создания утилит, сервисов и микросервисов на языке C++. В том числе фреймворк предоставляет возможности для взаимодействия с {{ PG }}.

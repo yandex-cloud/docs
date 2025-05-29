@@ -26,6 +26,16 @@ meta:
     позволяет использовать все преимущества облачных технологий, сочетая в себе
     простой и понятный веб-интерфейс, привычные IDE и возможность бесшовного
     использования разных конфигураций вычислительных ресурсов Yandex Cloud.
+  keywords:
+    - keyword: '{{ ml-platform-full-name }}'
+    - keyword: '{{ ml-platform-short-name }}'
+    - keyword: сервис {{ ml-platform-short-name }}
+    - keyword: сервис для ML
+    - keyword: сервис для ML в {{ yandex-cloud }}
+    - keyword: как настроить конфигурации вычислительных ресурсов
+    - keyword: конфигурации вычислительных ресурсов в {{ yandex-cloud }}
+    - keyword: бесшовные конфигурации ресурсов
+    - keyword: машинное обучение в {{ yandex-cloud }}
 links:
   - title: Концепции
     description: Узнайте про концепции и возможности сервиса

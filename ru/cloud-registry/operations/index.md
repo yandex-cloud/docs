@@ -32,3 +32,6 @@ description: В этом разделе собраны пошаговые инс
 
 * [Настроить npm](npm/installation.md)
 
+### NuGet {#nuget}
+
+* [Настроить NuGet](nuget/installation.md)

@@ -86,6 +86,7 @@ items:
           Организация сетевой связности между приватной подсетью {{
           baremetal-name }} и On-Prem с помощью {{ interconnect-name }}
         href: tutorials/bms-cic-onprem.md
+        hidden: true
       - name: Изменение набора IP-префиксов VPC в Routing Instance
         href: tutorials/ri-prefixes-upsert.md
   - name: Управление доступом
