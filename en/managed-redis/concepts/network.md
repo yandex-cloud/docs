@@ -73,3 +73,8 @@ When connecting to a cluster from the same cloud network, configure security gro
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/redis-as-php-sessions-storage.md)
+* [{#T}](../tutorials/data-migration.md)

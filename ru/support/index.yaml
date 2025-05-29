@@ -5,12 +5,13 @@ description:
     href="https://yandex.ru/legal/cloud_technicalregulations">Регламентом
     технического обслуживания</a> на русском и английском языках.
   - >-
-    <a href="{{ link-console-support }}">Yandex Cloud Support Center </a>
-    является главной точкой входа для решения проблем и ответов на вопросы о
+    <a href="{{ link-console-support }}">Yandex Cloud Center </a> является
+    главной точкой входа для решения проблем и ответов на вопросы о
     функционировании сервисов. 
   - >-
-    Этот документ рассказывает о работе с Support Center, описывает уровни
-    технической поддержки и  действующие тарифные планы.
+    Этот документ рассказывает о работе с Cloud Center для получения технической
+    поддержки, описывает уровни технической поддержки и  действующие тарифные
+    планы.
 meta:
   title: Техническая поддержка Yandex Cloud
   description: >-
@@ -21,7 +22,7 @@ meta:
     - keyword: Как работает техподдержка {{ yandex-cloud }}
     - keyword: Как работает центр поддержки {{ yandex-cloud }}
     - keyword: Правила {{ yandex-cloud }} Support
-    - keyword: Как работать в {{ yandex-cloud }} Support Center
+    - keyword: Как работать в {{ yandex-cloud }} Center
     - keyword: Как получить помощь в {{ yandex-cloud }}
     - keyword: Решение проблем {{ yandex-cloud }}
     - keyword: Проблема в {{ yandex-cloud }}
@@ -29,7 +30,7 @@ links:
   - title: Порядок оказания технической поддержки
     description: Как обратиться в службу технической поддержки
     href: overview
-  - title: Support Center
+  - title: Поддержка в {{ support-center-name }}
     description: Решение проблем в {{ support-center-name }}
     href: support-center
   - title: Оповещения от поддержки Yandex Cloud

@@ -175,7 +175,7 @@ items:
           Importing data from {{ objstorage-name }}, processing and exporting to
           {{ mch-name }}
         href: tutorials/s3-data-processing-ch.md
-      - name: Working with data using {{ yq-name }}
+      - name: Operations with data using {{ yq-name }}
         href: tutorials/yq-clickhouse.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md
@@ -442,7 +442,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

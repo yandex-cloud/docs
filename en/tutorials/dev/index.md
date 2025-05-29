@@ -17,7 +17,6 @@ description: Various use cases for development and testing in {{ yandex-cloud }}
 * [Step-load HTTPS testing with Pandora](../testing/loadtesting-https-pandora.md)
 * [Scripted HTTP load testing with Pandora](../testing/loadtesting-http-scenario-pandora.md)
 * [Load testing using multiple agents](../testing/loadtesting-multiply.md)
-* [Migrating load testing results from OverLoad](../testing/loadtesting-overload-migration.md)
 * [Running external agents for load testing](../testing/loadtesting-external-agent.md)
 * [JMeter load testing](../testing/loadtesting-jmeter.md)
 * [Getting statistics of queries to {{ objstorage-full-name }} objects using {{ yq-full-name }}](../testing/server-logs-yq.md)

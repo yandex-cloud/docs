@@ -39,6 +39,19 @@
 
   {% include [suspended](../_includes/billing-suspended.md) %}
 
+## Посмотреть статус платежного аккаунта {#watch-account-status}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+  1. Статус платежного аккаунта отображается в блоке **{{ ui-key.yacloud_billing.billing.title_accounts }}** в столбце **{{ ui-key.yacloud_billing.billing.accounts.column_status }}**.
+  
+  ![billing-account-statuses](../../_assets/billing/concepts/billing-account-statuses/billing-account-statuses.png)
+
+{% endlist %}
+
 Дополнительную информацию см. в следующих разделах:
 - [Цикл оплаты для физических лиц](../payment/billing-cycle-individual.md)
 - [Цикл оплаты для организаций и ИП](../payment/billing-cycle-business.md)

@@ -10,7 +10,7 @@ description: In this article, you will learn what storage is in {{ mmg-name }}, 
 
 {% include [storage-type](../../_includes/mdb/mmg/storage-type.md) %}
 
-## Selecting the disk type during cluster creation {#storage-type-selection}
+## Selecting disk type when creating a cluster {#storage-type-selection}
 
 The number of hosts you can create together with a {{ MG }} cluster depends on the selected disk type:
 
@@ -56,3 +56,10 @@ To keep your cluster up and running as the host is switching over to read-only:
    {% endnote %}
 
 * [Force data synchronization](../operations/hosts.md#resetup) between hosts. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-migration.md)
+* [{#T}](../tutorials/mongodb-migration-with-data-transfer.md)
+* [{#T}](../tutorials/mongodb-versions.md)
+* [{#T}](../tutorials/profiling.md)

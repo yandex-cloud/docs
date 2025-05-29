@@ -21,6 +21,18 @@ meta:
   description: >-
     Сервис для интеграции алгоритмов Яндекс&#160;Переводчика в приложения или
     веб-проекты для конечных пользователей.
+  keywords:
+    - keyword: '{{ translate-full-name }}'
+    - keyword: сервис {{ translate-short-name }}
+    - keyword: интеграции алгоритмов в {{ yandex-cloud }}
+    - keyword: интеграции алгоритмов
+    - keyword: интеграции алгоритмов переводчика
+    - keyword: переводы в {{ yandex-cloud }}
+    - keyword: интеграции алгоритмов в приложении {{ yandex-cloud }}
+    - keyword: интеграции алгоритмов в приложении
+    - keyword: интеграции алгоритмов в веб-проектах {{ yandex-cloud }}
+    - keyword: интеграции алгоритмов в веб-проектах
+    - keyword: API переводчика
 links:
   - title: Начало работы
     description: Переведите ваш текст

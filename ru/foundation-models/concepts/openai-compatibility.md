@@ -81,7 +81,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
   * Структурированный ответ:
     
     ```python
-    from openai import OpenAI
+    import openai
 
     YANDEX_CLOUD_FOLDER = "<идентификатор_каталога>"
     YANDEX_CLOUD_API_KEY = "<значение_API-ключа>"
@@ -166,7 +166,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
 - Python {#python}
 
   ```python
-  from openai import OpenAI
+  import openai
   import json
 
   YANDEX_CLOUD_FOLDER = "<идентификатор_каталога>"
@@ -303,7 +303,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
 - Python {#python}
 
   ```python
-  from openai import OpenAI
+  import openai
   import numpy as np
   from scipy.spatial.distance import cdist
 
@@ -395,14 +395,14 @@ API сервиса {{ foundation-models-name }} частично совмест�
 - Python {#python}
 
   ```python
-  from openai import OpenAI
+  import openai
 
   YANDEX_CLOUD_API_KEY = "<значение_API-ключа>"
 
-    client = openai.OpenAI(
-        api_key=YANDEX_CLOUD_API_KEY,
-        base_url="https://{{ api-host-llm }}/v1"
-    )
+  client = openai.OpenAI(
+      api_key=YANDEX_CLOUD_API_KEY,
+      base_url="https://{{ api-host-llm }}/v1"
+  )
   models = client.models.list()
   print(models.data)
   ```

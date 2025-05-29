@@ -2,67 +2,67 @@ title: '{{ search-api-full-name }}'
 href: index.yaml
 items:
   - name: Начало работы
-    items:
-      - name: Обзор
-        href: quickstart/index.md
-      - name: Начало работы с API v1
-        href: quickstart.md
-      - name: Начало работы с API v2
-        href: quickstart/v2.md
+    href: quickstart/index.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Поиск в синхронном режиме
+        href: operations/web-search-sync.md
+      - name: Поиск в отложенном режиме
+        href: operations/web-search.md
+      - name: Мобильная выдача
+        href: operations/v2-mobile.md
       - name: API v1
         items:
           - name: Общий порядок подключения
             href: operations/workaround.md
+            hidden: true
           - name: Тестирование запросов
             href: operations/test-request.md
+            hidden: true
           - name: Аутентификация в API
             href: operations/auth.md
+            hidden: true
           - name: Запрос лимитов
             href: operations/request-limits.md
+            hidden: true
           - name: Выполнение поисковых запросов
             href: operations/searching.md
+            hidden: true
           - name: Мобильная выдача
             href: operations/mobile.md
-      - name: API v2
-        items:
-          - name: Выполнение поисковых запросов в синхронном режиме
-            href: operations/web-search-sync.md
-          - name: Выполнение поисковых запросов в отложенном режиме
-            href: operations/web-search.md
-          - name: Мобильная выдача
-            href: operations/v2-mobile.md
+            hidden: true
   - name: Концепции
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: API v1
-        items:
-          - name: Текстовый поиск
-            items:
-              - name: GET-запросы
-                href: concepts/get-request.md
-              - name: POST-запросы
-                href: concepts/post-request.md
-          - name: Поиск по картинкам
-            items:
-              - name: GET-запросы
-                href: concepts/pic-search.md
-              - name: Формат ответа
-                href: concepts/pic-response.md
-      - name: API v2
-        items:
-          - name: Текстовый поиск
-            href: concepts/web-search.md
+      - name: Текстовый поиск
+        href: concepts/web-search.md
       - name: XML-ответ
         href: concepts/response.md
       - name: HTML-ответ
         href: concepts/html-response.md
       - name: Генеративный ответ
         href: concepts/generative-response.md
+      - name: API v1
+        items:
+          - name: Текстовый поиск
+            items:
+              - name: GET-запросы
+                href: concepts/get-request.md
+                hidden: true
+              - name: POST-запросы
+                href: concepts/post-request.md
+                hidden: true
+          - name: Поиск по картинкам
+            items:
+              - name: GET-запросы
+                href: concepts/pic-search.md
+                hidden: true
+              - name: Формат ответа
+                href: concepts/pic-response.md
+                hidden: true
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -85,6 +85,12 @@ items:
                     href: api-ref/grpc/GenSearch/index.md
                   - name: Search
                     href: api-ref/grpc/GenSearch/search.md
+              - name: ImageSearch
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/ImageSearch/index.md
+                  - name: Search
+                    href: api-ref/grpc/ImageSearch/search.md
               - name: Operation
                 items:
                   - name: Overview

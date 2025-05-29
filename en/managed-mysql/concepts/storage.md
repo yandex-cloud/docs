@@ -32,3 +32,10 @@ The number of hosts you can create together with a {{ MY }} cluster depends on t
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/sync-mysql.md)
+* [{#T}](../tutorials/bitrix-shop/index.md)
+* [{#T}](../tutorials/bitrix-website/index.md)
+* [{#T}](../tutorials/opencart/index.md)

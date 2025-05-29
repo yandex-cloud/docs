@@ -7,6 +7,8 @@ editable: false
 # Квоты и лимиты в {{ compute-name }}
 
 
+{% include [reserved-pools-preview-notice](../../_includes/compute/reserved-pools-preview-notice.md) %}
+
 В сервисе {{ compute-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

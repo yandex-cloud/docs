@@ -1,9 +1,13 @@
 #### Квоты {#container-registry-quotas}
 
-Вид ограничения | Значение
---- | ---
-Максимальное количество [реестров](../container-registry/concepts/registry.md) в одном [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) | 10
-Количество одновременных запусков [сканирования](../container-registry/concepts/vulnerability-scanner.md) [Docker-образа](../container-registry/concepts/docker-image.md) в одном облаке | 10
+#|
+|| Вид ограничения | Значение ||
+|| Максимальное количество [реестров](../container-registry/concepts/registry.md) в одном [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) 
+`container-registry.registries.count` | 10 ||
+|| Количество одновременных запусков [сканирования](../container-registry/concepts/vulnerability-scanner.md) [Docker-образа](../container-registry/concepts/docker-image.md) в одном облаке 
+`container-registry.parallelScans.count` | 10 ||
+|#
+
 
 #### Лимиты {#container-registry-limits}
 

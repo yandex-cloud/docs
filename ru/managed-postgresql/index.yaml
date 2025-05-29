@@ -16,6 +16,17 @@ meta:
   description: >-
     Managed Service for PostgreSQL помогает разворачивать и поддерживать
     кластеры серверов PostgreSQL в инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: '{{ mpg-name }}'
+    - keyword: '{{ mpg-full-name }}'
+    - keyword: Сервис {{ mpg-name }}
+    - keyword: '{{ PG }} в {{ yandex-cloud }}'
+    - keyword: Кластер {{ PG }}
+    - keyword: Кластеры серверов {{ PG }}
+    - keyword: '{{ PG }}'
+    - keyword: Постгрес
+    - keyword: '{{ PG }} в облаке'
+    - keyword: Объектно-реляционная СУБД
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

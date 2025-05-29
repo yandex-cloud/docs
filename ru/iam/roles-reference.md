@@ -1819,6 +1819,26 @@ description: В статье приведен полный справочник 
 
 ## {{ sd-full-name }} {#security-deck-roles}
 
+### Общие роли {{ sd-name }} {#general-sd-roles}
+
+#### security-deck.auditor {#security-deck-auditor}
+
+{% include [security-deck.auditor](../_roles/security-deck/auditor.md) %}
+
+#### security-deck.viewer {#security-deck-viewer}
+
+{% include [security-deck.viewer](../_roles/security-deck/viewer.md) %}
+
+#### security-deck.editor {#security-deck-editor}
+
+{% include [security-deck.editor](../_roles/security-deck/editor.md) %}
+
+#### security-deck.admin {#security-deck-admin}
+
+{% include [security-deck.admin](../_roles/security-deck/admin.md) %}
+
+Подробнее см. [Общие роли {{ sd-full-name }}](../security-deck/security/index.md).
+
 ### Сервисные роли для анализа данных {{ atr-name }} {#access-transparency-roles}
 
 #### access-transparency.viewer {#access-transparency-viewer}

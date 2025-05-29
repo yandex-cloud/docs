@@ -731,7 +731,7 @@ default:
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
   subnet-id: b0rcctk2rvtr********
   subnet-name: default-ru-central1-d
-  support-center-name: Support Center
+  support-center-name: Cloud Center
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
   sw-full-name: Yandex Workflows
   sw-name: Workflows
@@ -6053,6 +6053,7 @@ default:
         accounts:
           button_bind: Привязать
           column_cloud: Облака
+          column_status: Статус
           main-banner_button_create: Создать платёжный аккаунт
         cud:
           purchase:
@@ -7231,7 +7232,6 @@ default:
         field_ddos-protection-provider: Защита от DDoS-атак
         folder: Каталог
         id: Идентификатор
-        import: Импортировать
         label_auto: Автоматически
         label_filters: Фильтры
         label_http: HTTP
@@ -8398,7 +8398,6 @@ default:
           label_list: Целевые группы
           label_targets-section-title: Целевые ресурсы
       load-testing:
-        button_add-lunapark-test-id: Добавить ID
         button_add-tag: Добавить метку
         button_comparison-test-add: Добавить к сравнению
         button_create-agent: Создать агент
@@ -8407,6 +8406,7 @@ default:
         button_create-test: Создать тест
         button_duplicate-configuration: Дублировать конфигурацию
         button_export-report: Экспортировать
+        button_tags-link: Добавить метки
         field_chart-name: Название графика
         field_config-file: Файл конфигурации
         field_export-bucket: Имя бакета
@@ -8415,7 +8415,6 @@ default:
         field_export-filter-include: Сохранять файлы
         field_export-is-archive: Архивировать в zip
         field_load-generator: Генератор нагрузки
-        field_lunapark-test-id: ID теста
         field_name-filter: Фильтр по имени
         field_report-export-bucket: Экспортировать в бакет
         field_report-export-folder: Папка в бакете
@@ -8444,7 +8443,9 @@ default:
         label_test-rules-section: Правила добавления тестов
         label_test-settings: Настройки теста
         label_test-tags: Метки теста
+        label_test-text: Имя теста
         label_tests-comparison-section-title: Сравнение
+        label_tests-example-section: Тесты, попадающие в регрессию
         label_tests-list: Тесты
         meta-section: Информация о тесте
         restart: Перезапустить
@@ -11194,6 +11195,7 @@ default:
         tags: Теги
         tags-type:
           dictionary-key-value: Словарный
+          neuro-key-value: Смысловой
         words-between-key-value: Дистанция между словами
       team:
         add-from-organization-key-value: Добавить из организации

@@ -38,7 +38,7 @@ items:
         href: concepts/limits.md
   - name: Управление доступом
     items:
-      - name: Обзор
+      - name: Общие роли {{ sd-name }}
         href: security/index.md
       - name: Роли {{ atr-name }}
         href: security/access-transparency-roles.md

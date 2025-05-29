@@ -48,3 +48,7 @@ When connecting to a cluster from the same cloud network, configure security gro
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/migration-from-kafka.md)

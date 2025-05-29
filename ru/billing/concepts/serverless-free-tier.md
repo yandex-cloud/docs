@@ -43,7 +43,6 @@ Free tier распространяется на сервисы:
 * [{{ monitoring-full-name }}](#monitoring)
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ yq-full-name }}](#yq)
-* [{{ search-api-full-name }}](#search-api)
 * [{{ serverless-containers-full-name }}](#serverless-containers)
 * [{{ captcha-full-name }}](#smartcaptcha)
 * [{{ sws-full-name }}](#smartwebsecurity)
@@ -224,15 +223,6 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
-## {{ search-api-full-name }} {#search-api}
-
-[{{ search-api-full-name }}](../../search-api/quickstart.md) — сервис, позволяющий отправлять запросы к поисковой базе Яндекса и получать ответы в формате XML. Сервис предназначен для разработчиков и вебмастеров и помогает организовать поиск по сайту, группе сайтов или интернету, а также дает возможность отслеживать позиции сайтов по поисковым запросам в поисковой выдаче Яндекса.
-
-{% include [not-charged-search-api.md](../../_includes/pricing/price-formula/not-charged-search-api.md) %}
-
-После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../search-api/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 

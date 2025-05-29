@@ -48,9 +48,7 @@
     
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ PG }}](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings).
     
-    1. Для параллельного чтения из таблицы установите ее первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
-    
-       После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](../../../../data-transfer/operations/transfer.md#create).
+    1. Для параллельного чтения из таблицы по диапазонам убедитесь, что указан первичный ключ. После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](../../../../data-transfer/operations/transfer.md#create).
     
     1. Настройте мониторинг WAL-лога. {#wal-setup-recommendation}
 
@@ -209,9 +207,7 @@
     
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ PG }}](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings).
     
-    1. Для параллельного чтения из таблицы установите ее первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
-    
-       После этого укажите количество [воркеров](../../../../data-transfer/concepts/index.md#worker) и потоков в блоке **Среда выполнения** в [параметрах трансфера](../../../../data-transfer/operations/transfer.md#create).
+    1. Для параллельного чтения из таблицы по диапазонам убедитесь, что указан первичный ключ. После этого укажите количество [воркеров](../../../../data-transfer/concepts/index.md#worker) и потоков в блоке **Среда выполнения** в [параметрах трансфера](../../../../data-transfer/operations/transfer.md#create).
     
     1. Если на источнике настроена репликация через [Patroni](https://github.com/zalando/patroni), добавьте в его конфигурацию [блок ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings):
     

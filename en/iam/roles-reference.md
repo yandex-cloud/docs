@@ -1695,6 +1695,26 @@ For more information, see [{#T}](../search-api/security/index.md).
 
 ## {{ sd-full-name }} {#security-deck-roles}
 
+### General {{ sd-full-name }} roles {#general-sd-roles}
+
+#### security-deck.auditor {#security-deck-auditor}
+
+{% include [security-deck.auditor](../_roles/security-deck/auditor.md) %}
+
+#### security-deck.viewer {#security-deck-viewer}
+
+{% include [security-deck.viewer](../_roles/security-deck/viewer.md) %}
+
+#### security-deck.editor {#security-deck-editor}
+
+{% include [security-deck.editor](../_roles/security-deck/editor.md) %}
+
+#### security-deck.admin {#security-deck-admin}
+
+{% include [security-deck.admin](../_roles/security-deck/admin.md) %}
+
+For more information, see [General {{ sd-full-name }} roles](../security-deck/security/index.md).
+
 ### Access Transparency roles {#access-transparency-roles}
 
 #### access-transparency.viewer {#access-transparency-viewer}

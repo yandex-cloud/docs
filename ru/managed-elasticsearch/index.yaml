@@ -15,6 +15,17 @@ meta:
   description: >-
     Сервис Managed Service for Elasticsearch помогает разворачивать и
     поддерживать кластеры серверов Elasticsearch в инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: '{{ mes-name }}'
+    - keyword: '{{ mes-full-name }}'
+    - keyword: Сервис {{ mes-name }}
+    - keyword: '{{ ES }} в {{ yandex-cloud }}'
+    - keyword: Кластер {{ ES }}
+    - keyword: Кластеры серверов {{ ES }}
+    - keyword: '{{ ES }}'
+    - keyword: Elasticsearch
+    - keyword: '{{ ES }} в облаке'
+    - keyword: Elasticsearch в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

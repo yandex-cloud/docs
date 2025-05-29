@@ -19,5 +19,6 @@ _Java-артефакт_ — это файл скомпилированного �
 
 #### См. также {#see-also}
 
-* [Docker-образ](docker-image.md)
-* [Node.js-артефакт](art-nodejs.md)
+* [Docker-образ](./docker-image.md)
+* [{#T}](./art-nodejs.md)
+* [{#T}](./art-nuget.md)

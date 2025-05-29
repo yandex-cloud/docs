@@ -33,5 +33,6 @@ Docker-образ и все его версии хранятся в реестр
 
 #### См. также {#see-also}
 
-* [Java-артефакт](art-java.md)
-* [Node.js-артефакт](art-nodejs.md)
+* [{#T}](./art-java.md)
+* [Node.js-артефакт](./art-nodejs.md)
+* [{#T}](./art-nuget.md)

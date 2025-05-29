@@ -41,6 +41,7 @@ description: This page provides a list of tutorials for building a data platform
 ## {{ CH }} {#clickhouse}
 
 * [{#T}](insert-data-ch.md)
+* [{#T}](clickhouse-migration.md)
 * [{#T}](ch-to-mch-migration.md)
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)

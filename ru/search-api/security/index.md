@@ -19,13 +19,13 @@ description: Управление доступом в сервисе для по
 
 ### Сервисные роли {#service-roles}
 
-#### search-api.executor {#search-api-executor}
-
-{% include [searchapi-executor](../../_roles/search-api/executor.md) %}
-
 #### search-api.webSearch.user {#search-api-webSearch-user}
 
 {% include [search-api-webSearch-user](../../_roles/search-api/webSearch/user.md) %}
+
+#### search-api.executor {#search-api-executor}
+
+{% include [searchapi-executor](../../_roles/search-api/executor.md) %}
 
 #### search-api.auditor {#search-api-auditor}
 

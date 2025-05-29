@@ -15,6 +15,14 @@ items:
         href: operations/security-groups-target.md
       - name: Создать тест с данными из бакета
         href: operations/create-test-bucket.md
+      - name: Управление дашбордом регрессий
+        items:
+          - name: Создать и настроить дашборд
+            href: operations/regressions/create.md
+          - name: Редактировать данные на дашборде
+            href: operations/regressions/update.md
+          - name: Удалить дашборд
+            href: operations/regressions/delete.md
       - name: Экспорт отчётов с результатами тестирования
         href: operations/export-test-reports.md
       - name: Собрать пользовательские запросы с помощью Dispatcher
@@ -47,8 +55,6 @@ items:
         href: tutorials/loadtesting-jmeter.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: tutorials/loadtesting-multiply.md
-      - name: Миграция результатов нагрузочного тестирования из OverLoad
-        href: tutorials/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
         href: tutorials/loadtesting-external-agent.md
       - name: Вызов нагрузочного тестирования из {{ GL }} CI
@@ -93,12 +99,12 @@ items:
         href: concepts/monitoring.md
       - name: Отчеты
         href: concepts/reports.md
-      - name: Регрессии нагрузочных тестов
-        href: concepts/load-test-regressions.md
       - name: Результаты нагрузочного теста
         href: concepts/load-test-results.md
       - name: Сравнение результатов нагрузочных тестов
         href: concepts/load-tests-compare.md
+      - name: Регрессии нагрузочных тестов
+        href: concepts/load-test-regressions.md
       - name: Артефакты тестирования
         href: concepts/artifacts.md
       - name: Квоты и лимиты

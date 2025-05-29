@@ -81,4 +81,8 @@ To test how backup works, [restore a cluster from a backup](../operations/cluste
 
 You can delete only manual backups. To delete such a backup, [follow this guide](../operations/cluster-backups.md#delete-backup).
 
+## Use cases {#examples}
+
+* [{#T}](../operations/cluster-backups.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

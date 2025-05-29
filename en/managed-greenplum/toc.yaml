@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step tutorials
+  - name: Step-by-step guides
     items:
-      - name: All tutorials
+      - name: All guides
         href: operations/index.md
       - name: Clusters
         items:
@@ -87,6 +87,8 @@ items:
             href: operations/performance-diagnostics.md
           - name: Monitoring the state of clusters and hosts
             href: operations/monitoring.md
+          - name: Transferring cluster logs to {{ cloud-logging-full-name }}
+            href: operations/mgp-to-cloud-logging.md
       - name: Auxiliary utilities
         href: operations/greenplum-db.md
   - name: Tutorials

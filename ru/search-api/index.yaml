@@ -31,6 +31,16 @@ meta:
   description: >-
     {{ search-api-full-name }} — сервис, позволяющий отправлять запросы к
     поисковой базе Яндекса и получать ответы в формате XML и HTML.
+  keywords:
+    - keyword: '{{ search-api-full-name }}'
+    - keyword: сервис {{ search-api-name }}
+    - keyword: как отправлять запросы к поисковой базе Яндекса
+    - keyword: как получать ответы в формате XML или HTML
+    - keyword: сервис по разработке поиска по сайту
+    - keyword: сервис по разработке поиска по группе сайтов
+    - keyword: сервис по разработке поиска по интернету
+    - keyword: интерфейс API v2
+    - keyword: генеративный ответ
 links:
   - title: Начало работы
     description: Узнайте, как начать работать с сервисом
@@ -38,9 +48,6 @@ links:
   - title: Ограничения и требования
     description: Ограничения и требования
     href: concepts/limits
-  - title: Выполнение запросов через API v1
-    description: Выполнение поисковых запросов с помощью API v1
-    href: operations/searching
   - title: Выполнение запросов через API v2
     description: Выполнение поисковых запросов с помощью API v2
     href: operations/web-search

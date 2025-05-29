@@ -6050,6 +6050,7 @@ default:
         accounts:
           button_bind: Bind
           column_cloud: Clouds
+          column_status: Status
           main-banner_button_create: Create a billing account
         cud:
           purchase:
@@ -7224,7 +7225,6 @@ default:
         field_ddos-protection-provider: DDoS protection
         folder: Folder
         id: ID
-        import: Import
         label_auto: Auto
         label_filters: Filters
         label_http: HTTP
@@ -8389,7 +8389,6 @@ default:
           label_list: Target groups
           label_targets-section-title: Targets
       load-testing:
-        button_add-lunapark-test-id: Add ID
         button_add-tag: Add label
         button_comparison-test-add: Add to the comparison
         button_create-agent: Create agent
@@ -8398,6 +8397,7 @@ default:
         button_create-test: Create test
         button_duplicate-configuration: Duplicate configuration
         button_export-report: Export
+        button_tags-link: Add labels
         field_chart-name: Chart name
         field_config-file: Configuration file
         field_export-bucket: Bucket name
@@ -8406,7 +8406,6 @@ default:
         field_export-filter-include: Save files
         field_export-is-archive: Archive in zip
         field_load-generator: Load generator
-        field_lunapark-test-id: Test ID
         field_name-filter: Filter by name
         field_report-export-bucket: Export to bucket
         field_report-export-folder: Bucket folder
@@ -8435,7 +8434,9 @@ default:
         label_test-rules-section: Rules for tests
         label_test-settings: Test settings
         label_test-tags: Test tags
+        label_test-text: Test name
         label_tests-comparison-section-title: Comparison
+        label_tests-example-section: Tests included in the regression
         label_tests-list: Tests
         meta-section: Test information
         restart: Restart
@@ -11179,6 +11180,7 @@ default:
         tags: Tags
         tags-type:
           dictionary-key-value: Dictionary
+          neuro-key-value: Semantic tag
         words-between-key-value: Distance between words
       team:
         add-from-organization-key-value: Add from organization

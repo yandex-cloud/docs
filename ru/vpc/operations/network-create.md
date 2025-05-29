@@ -13,7 +13,7 @@
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
-	  
+  
   1. (Опционально) В поле **{{ ui-key.yacloud.vpc.networks.create.field_description }}** добавьте описание сети.
   1. По умолчанию выбрана опция **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Если вы хотите [создать](subnet-create.md) подсети позднее, выключите опцию.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.

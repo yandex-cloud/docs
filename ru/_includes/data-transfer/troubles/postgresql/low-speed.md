@@ -12,6 +12,6 @@
 
 * Параллельность чтения таблиц.
 
-    Параллельность доступна только для таблиц, которые содержат первичный ключ в [режиме serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+    Параллельность доступна только для таблиц, которые содержат первичный ключ. При использовании ключа [типа `serial`](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL) части таблиц читаются по диапазонам. Другие типы ключей позволяют равномерно распределять таблицы в соответствии со специальным алгоритмом.
 
     **Решение:** настройте [параллельное копирование](../../../../data-transfer/concepts/sharded.md) и [активируйте трансфер](../../../../data-transfer/operations/transfer.md#activate) повторно.

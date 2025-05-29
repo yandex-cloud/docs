@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step tutorials
+  - name: Step-by-step guides
     items:
-      - name: All tutorials
+      - name: All guides
         href: operations/index.md
       - name: Clusters
         items:
@@ -129,7 +129,7 @@ items:
             href: tutorials/joomla-postgresql/terraform.md
       - name: Status monitoring of geographically distributed devices
         href: tutorials/datalens.md
-      - name: Writing load balancer logs to {{ PG }}
+      - name: Storing load balancer logs to {{ PG }}
         href: tutorials/logging.md
       - name: Creating an MLFlow server for logging experiments and artifacts
         href: tutorials/mlflow-datasphere.md
@@ -345,7 +345,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
