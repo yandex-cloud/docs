@@ -46,7 +46,7 @@ URL запроса к сервису {{ search-api-name }} и список по�
 
 {% include [name-and-key](../../_includes/search-api/key.md) %}
 
-Значение API-ключа [передавайте](../operations/auth.md) в заголовке `Authorization` в формате:
+Значение API-ключа передавайте в заголовке `Authorization` в формате:
 
 ```yaml
 Authorization: Api-Key <API-ключ>
@@ -152,4 +152,3 @@ URL запроса к сервису {{ search-api-name }} и список по�
 
 * [{#T}](./response.md)
 * [{#T}](./html-response.md)
-* [{#T}](../operations/searching.md)

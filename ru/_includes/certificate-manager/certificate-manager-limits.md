@@ -1,9 +1,12 @@
 #### Квоты {#certificate-manager-quotas}
 
-Вид ограничения | Значение
------ | -----
-Количество сертификатов в облаке | 20
-Количество доменов в облаке | 10
+#|
+|| Вид ограничения | Значение ||
+|| Количество сертификатов в облаке
+`certificate-manager.certificates.count` | 20 ||
+|| Количество доменов в облаке
+`certificate-manager.domains.count` | 10 ||
+|#
 
 #### Лимиты для сертификатов от Let's Encrypt® {#certificate-manager-limits}
 

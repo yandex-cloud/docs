@@ -1,8 +1,12 @@
 #### Квоты {#api-gw-quotas}
 
-Вид ограничения | Значение
------ | -----
-Количество [триггеров](../../serverless-containers/concepts/trigger/index.md) в одном облаке | 100
+#|
+|| Вид ограничения | Значение ||
+|| Количество [триггеров](../../serverless-containers/concepts/trigger/index.md) в одном облаке^1^ 
+`serverless.triggers.count` | 100 ||
+|#
+
+{% include [quota-trigger-count](../quota-trigger-count.md) %}
 
 #### Лимиты {#api-gw-limits}
 

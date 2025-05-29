@@ -180,6 +180,12 @@ items:
         href: tutorials/yq-clickhouse.md
       - name: Федеративные запросы к данным с помощью {{ yq-name }}
         href: tutorials/yq-federative-queries.md
+      - name: >-
+          Интеграция с внешней базой данных Microsoft SQL Server через {{ CH }}
+          JDBC Bridge
+        href: tutorials/jdbc-ch-to-sql-server-integration.md
+      - name: Интеграция с внешней базой данных Oracle через {{ CH }} JDBC Bridge
+        href: tutorials/jdbc-ch-to-oracle-integration.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

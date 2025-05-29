@@ -102,4 +102,9 @@ To learn more about operating distributed tables, see the [{{ CH }} documentatio
     └────────────┴──────────────┘
     ```
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/sharding.md)
+* [{#T}](../tutorials/mch-mch-resharding.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -8,7 +8,7 @@ This article explains how to create three L7 balancers with different logging se
 * Save logs to a custom group.
 * No logging.
 
-To configure L7 balancers:
+To configure L7 load balancers:
 
 1. [Create a test application](#install-app).
 1. [Create Ingress resources](#create-ingress).
@@ -23,11 +23,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using the computing resources of each L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for {{ cloud-logging-name }}: Writing and storing data (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* Fee for public IP addresses for cluster nodes and L7 load balancers (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for writing and storing data in {{ cloud-logging-name }} (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Getting started {#before-begin}
@@ -44,14 +44,14 @@ The support cost includes:
 
     1. Create the following [service accounts](../../iam/operations/sa/create.md) for the {{ managed-k8s-name }} cluster:
 
-        * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is created.
+        * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created.
         * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
         * Service account for the operation of the {{ alb-name }} Ingress controller with the following roles:
 
             * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor): To create the required resources.
             * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin): To manage [external connectivity](../../vpc/security/index.md#roles-list).
             * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
-            * [compute.viewer](../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
+            * [compute.viewer](../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the load balancer’s [target groups](../../application-load-balancer/concepts/target-group.md).
 
         You can use the same service account for all operations.
 
@@ -79,7 +79,7 @@ The support cost includes:
     1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
 
         * Specify the previously created service account for nodes as well as security groups.
-        * Allocate it a public IP address to grant internet access to the node group and allow pulling Docker images and components.
+        * Allocate a public IP address to grant internet access to the node group and enable pulling Docker images and components.
 
     1. [Create a custom {{ cloud-logging-name }} log group](../../logging/operations/create-group.md).
 
@@ -107,7 +107,7 @@ The support cost includes:
         * Service account for the operation of the {{ alb-name }} Ingress controller.
         * [Custom {{ cloud-logging-name }} log group](../../logging/concepts/log-group.md).
         * [Authorized key](../../iam/concepts/authorization/key.md) for the service account of the Ingress controller.
-        * Creating a local `key.json` file with authorized key data. The key data is required for the [installation](#install-alb-ingress-controller) of the ALB Ingress Controller application.
+        * Creating a local `key.json` file with the authorized key data. The key data is required for the [installation](#install-alb-ingress-controller) of the ALB Ingress Controller application.
 
     1. Specify the following in the `k8s-and-registry-for-alb.tf` file:
 
@@ -147,13 +147,13 @@ The support cost includes:
 
 ### Install the {{ alb-name }} Ingress controller {#install-alb-ingress-controller}
 
-Install the [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) application by following [this guide](../../managed-kubernetes/operations/applications/alb-ingress-controller.md). During the installation, use the `key.json` key data from [Prepare the infrastructure](#deploy-infrastructure).
+Install the [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) application by following [this guide](../../managed-kubernetes/operations/applications/alb-ingress-controller.md). During the installation, use the `key.json` key data you created when [setting up your infrastructure](#deploy-infrastructure).
 
 ## Create a test application {#install-app}
 
-Create [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/), [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) with NGINX, and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) objects for the application.
+Create the [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/), [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) with NGINX, and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) objects for the application.
 
-1. Create the `app.yaml` app file:
+1. Create the `app.yaml` file:
 
     {% cut "app.yaml" %}
 
@@ -272,7 +272,7 @@ Create [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/)
 
 ## Create Ingress resources {#create-ingress}
 
-Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resources from which the {{ alb-name }} Ingress controller will create three balancers with the required listeners and HTTP routers.
+Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resources from which the {{ alb-name }} Ingress controller will create three load balancers with the required listeners and HTTP routers.
 
 1. Create a file named `ingress.yaml` with the load balancer settings and domain name:
 
@@ -348,20 +348,20 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
 
     Where:
 
-    * `ingress.alb.yc.io/group-name`: Group name. Ingress resources are grouped together, each group served by a separate {{ alb-name }} L7 load balancer.
+    * `ingress.alb.yc.io/group-name`: Group name. Ingress resources are grouped so that a separate {{ alb-name }} load balancer serves each group.
     * `ingress.alb.yc.io/subnets`: One or more [subnets](../../vpc/concepts/network.md#subnet) to host the load balancer.
     * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used.
     * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [IP address you got earlier](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
 
-       If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will also delete the [IP address](../../vpc/concepts/address.md). To avoid this, use an existing reserved IP address.
+       If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will also delete its [IP address](../../vpc/concepts/address.md). To avoid this, use a reserved IP address.
 
-    * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress resource group settings to be described in the optional `IngressGroupSettings` resource.
+    * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress resource group settings to describe in the `IngressGroupSettings` optional resource.
 
     Optionally, enter advanced controller settings.
 
     {% include [alb-ingress-balancer-additional-settings](../_tutorials_includes/alb-ingress-balancer-additional-settings.md) %}
 
-    * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to the load balancer. Enter the internal IP address or use `auto` to obtain the IP address automatically.
+    * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to the load balancer. Enter the internal IP address or use `auto` to get the IP address automatically.
 
         {% note info %}
 
@@ -372,36 +372,36 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
     * `ingress.alb.yc.io/internal-alb-subnet`: Subnet to host the load balancer. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
     * `ingress.alb.yc.io/protocol`: Connection protocol used between the load balancer and backends:
 
-        * `http`: HTTP/1.1, default
-        * `http2`: HTTP/2
-        * `grpc`: gRPC
+        * `http`: HTTP/1.1. Default value.
+        * `http2`: HTTP/2.
+        * `grpc`: gRPC.
 
     * `ingress.alb.yc.io/transport-security`: Encryption protocol for connections between the load balancer and backends.
 
         {% note warning %}
 
-        In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use an annotation in the [Service](../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata) object.
+        For [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use this annotation in the [Service](../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata) object.
 
-        If you annotate `Ingress` resources that use a single service with the same settings for backend groups, such annotation will apply correctly. However, this mechanism is obsolete and will not be supported going forward.
+        Annotations applied to `Ingress` resources sharing the same service and backend group settings will be processed correctly. However, this mechanism is obsolete and will not be supported going forward.
 
         {% endnote %}
 
-        The valid value is `tls`: TLS with no certificate challenge.
+        The acceptable value is `tls`: TLS without certificate validation.
 
-        If no annotation is specified, the load balancer connects to the backends with no encryption.
+        If this annotation is not specified, the load balancer will connect to the backends without encryption.
 
     * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
     * `ingress.alb.yc.io/upgrade-types`: Valid values of the `Upgrade` HTTP header, e.g., `websocket`.
-    * `ingress.alb.yc.io/request-timeout`: Maximum period for which a connection can be established.
-    * `ingress.alb.yc.io/idle-timeout`: Maximum connection keep-alive time without data transmission.
+    * `ingress.alb.yc.io/request-timeout`: Maximum connection request timeout.
+    * `ingress.alb.yc.io/idle-timeout`: Maximum connection idle timeout.
 
-        The `request-timeout` and `idle-timeout` values must be specified with units of measurement, e.g., `300ms` or `1.5h`. Valid units of measurement:
-        * `ns`: Nanoseconds
-        * `us`: Microseconds
-        * `ms`: Milliseconds
-        * `s`: Seconds
-        * `m`: Minutes
-        * `h`: Hours
+        The `request-timeout` and `idle-timeout` values must be specified with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
+        * `ns`, nanoseconds
+        * `us`, microseconds
+        * `ms`, milliseconds
+        * `s`, seconds
+        * `m`, minutes
+        * `h`, hours
 
     For more information about the Ingress resource settings, see [{#T}](../../managed-kubernetes/alb-ref/ingress.md).
 
@@ -423,7 +423,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
 
 ## Specify the settings for the Ingress resource groups {#configure-group}
 
-Create a resource named `IngressGroupSettings` with logging settings for the Ingress resource groups:
+Create a resource named `IngressGroupSettings` with these logging settings for the Ingress resource groups:
 
 * `non-default-settings`: Logging to the [previously](#deploy-infrastructure) created custom log group with defined rules.
 * `logs-disabled-settings`: No logging.
@@ -438,7 +438,7 @@ No settings need to be specified to save logs to the default log group.
     metadata:
       name: non-default-settings
     logOptions:
-      logGroupID: <user_log_group_ID>
+      logGroupID: <custom_log_group_ID>
       discardRules:
         - discardPercent: 50
           grpcCodes:
@@ -480,9 +480,9 @@ The settings from those resources will apply to the Ingress resource groups in l
 
 [Get log group IDs](../../application-load-balancer/operations/application-load-balancer-get-log-group-id.md) for the new L7 load balancers and make sure they match the settings in the `settings.yaml` file:
 
-* One of the balancers should use your custom log group with defined rules.
+* One of the load balancers should use your custom log group with defined rules.
 * Another should use the default log group.
-* For the third balancer, logging should be disabled.
+* For the third load balancer, logging should be disabled.
 
 ## Delete the resources you created {#clear-out}
 

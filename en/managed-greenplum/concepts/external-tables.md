@@ -1,6 +1,6 @@
 # External tables
 
-{{ GP }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. Access to data in external DBMS's uses the [{{ GP }} Platform Extension Framework](../operations/external-tables.md) (PXF) protocol, whereas access to files on external file servers uses the [{{ GP }} Parallel File Server](../operations/gpfdist/connect.md) (`gpfdist`) utility.
+{{ GP }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. External DBMS data is accessed via the [{{ GP }} Platform Extension Framework](../operations/external-tables.md) (PXF) protocol; files on external file servers are accessed via the [{{ GP }} Parallel File Server](../operations/gpfdist/connect.md) (`gpfdist`) utility.
 
 With external tables, you can:
 
@@ -25,5 +25,10 @@ Sources enable you to do the following:
 * Avoid explicitly specifying the user password in an SQL query for creating an external table.
 * Simplify your SQL query for creating a table: with a dedicated source properly configured, there is no need to list configuration parameters in your query.
 * Simplify your configuration update: it is enough to redefine the parameters at the source only once without changing them for each table separately.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/config-server-for-s3.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

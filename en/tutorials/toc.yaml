@@ -287,8 +287,6 @@ items:
         href: testing/loadtesting-http-scenario-pandora.md
       - name: Load testing using multiple agents
         href: testing/loadtesting-multiply.md
-      - name: Migrating load testing results from OverLoad
-        href: testing/loadtesting-overload-migration.md
       - name: Running external agents for load testing
         href: testing/loadtesting-external-agent.md
       - name: JMeter load testing
@@ -825,6 +823,8 @@ items:
         href: dataplatform/airflow-test-smtp-notification.md
       - name: Adding data to a {{ CH }} DB
         href: dataplatform/insert-data-ch.md
+      - name: Migrating data to {{ mch-name }} using {{ CH }}
+        href: dataplatform/clickhouse-migration.md
       - name: Migrating data to {{ mch-name }} using {{ data-transfer-name }}
         href: dataplatform/ch-to-mch-migration.md
       - name: >-

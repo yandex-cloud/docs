@@ -107,4 +107,11 @@ The `'{cluster}'` argument will be automatically resolved to the {{ CH }} cluste
 
 To learn how to manage the interaction between replicated and distributed tables in a {{ CH }} cluster, see [Sharding](sharding.md).
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/rdbms-to-clickhouse.md)
+* [{#T}](../tutorials/ydb-to-clickhouse.md)
+* [{#T}](../tutorials/object-storage-to-clickhouse.md)
+* [{#T}](../tutorials/mysql-to-clickhouse.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -11,11 +11,18 @@ description: '{{ OS }} is a tool for searching and analyzing data using structur
 * Full-text queries: to find a certain string in the documents and sort the results by relevance. These queries also allow you to use additional search functions, including autocomplete and search for phrases and similar strings. To learn more about full-text search, see the [{{ OS }} documentation]({{ os.docs }}/search-plugins/sql/full-text/).
 * Complex queries that combine the above types of queries.
 
-In {{ mos-name }}, you can run queries of all these types using pre-installed search plugins, such as [Querqy]({{ os.docs }}/search-plugins/querqy/index/), [SQL and PPL]({{ os.docs }}/search-plugins/sql/index/), and more.
+In {{ mos-name }}, you can perform all these types of queries using the preinstalled search plugins: [Querqy]({{ os.docs }}/search-plugins/querqy/index/), [SQL and PPL]({{ os.docs }}/search-plugins/sql/index/), etc.
 
 Search features in {{ OS }} include the following:
 
 * You can run search within a specific [index](indexing.md) in a cluster or across multiple indexes.
-* [Asynchronous search]({{ os.docs }}/search-plugins/async/index/) is supported for large queries that may take a long time to run.
+* [Asynchronous search]({{ os.docs }}/search-plugins/async/index/) is supported for large queries that can be performed over a long period of time.
 
 To learn more about search options, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/search/index/).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/migration-from-mkf.md)
+* [{#T}](../tutorials/migration-from-standalone.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)
+* [{#T}](../tutorials/opensearch-yandex-lemmer.md)

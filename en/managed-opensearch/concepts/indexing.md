@@ -8,4 +8,13 @@ Unlike a traditional DBMS, to save the document in the index, {{ OS }} does not 
 
 To learn more about how indexes work, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/index-data/).
 
-In multihost clusters, index [sharding and replication](scalability-and-resilience.md) are supported. This makes it easier to scale the cluster and improves fault tolerance.
+In multihost clusters, index [sharding and replication](scalability-and-resilience.md) are supported. This makes it easier to scale a cluster and improves its fault tolerance.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/migration-from-mkf.md)
+* [{#T}](../tutorials/migration-from-standalone.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)
+* [{#T}](../tutorials/opensearch-index-policy.md)
+* [{#T}](../tutorials/opensearch-to-clickhouse.md)
+* [{#T}](../tutorials/opensearch-yandex-lemmer.md)

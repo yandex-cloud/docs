@@ -24,7 +24,7 @@ By default, master hosts are available for connection from the VMs located in th
 
 When you create a cluster, {{ mgp-short-name }} automatically assigns its hosts both short and full (FQDN) names. These cannot be changed.
 
-To learn how to get a host FQDN, see [this guide](../operations/connect.md#fqdn).
+To learn how to get host FQDN, see [this guide](../operations/connect.md#fqdn).
 
 
 You can use FQDNs to access master hosts from both inside and outside {{ yandex-cloud }}.
@@ -49,7 +49,11 @@ Specifics of working with security groups:
 
 * Security group settings affect the ability to connect to the cluster, its performance, and the network connectivity between its hosts.
 
-For more information, see the [{{ vpc-name }} documentation](../../vpc/concepts/security-groups.md).
+For more information, see the relevant [{{ vpc-name }} documentation](../../vpc/concepts/security-groups.md).
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/config-server-for-s3.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

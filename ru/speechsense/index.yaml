@@ -18,6 +18,26 @@ description:
     сервиса {{ speechsense-full-name }}</a>.
 meta:
   title: Yandex SpeechSense
+  description: >-
+    Сервис {{ speechsense-name }} помогает анализировать каналы коммуникации
+    вашего бизнеса на основе записей разговоров или текстовых сообщений из чатов
+    и интегрируется с вашими АТС и CRM-системами.
+  keywords:
+    - keyword: SpeechSense
+    - keyword: теги {{ speechsense-name }}
+    - keyword: '{{ speechsense-name }}'
+    - keyword: теги в диалогах
+    - keyword: анализ аудиозаписей
+    - keyword: распознование речи в Яндекс
+    - keyword: анализ диалогов в {{ yandex-cloud }}
+    - keyword: SpeechSense в {{ yandex-cloud }}
+    - keyword: '{{ speechsense-name }} в {{ yandex-cloud }}'
+    - keyword: сервис {{ speechsense-name }}
+    - keyword: как собрать статистику диалога и определить ключевые слова
+    - keyword: как анализировать каналы коммуникации для бизнеса в Яндексе
+    - keyword: речевая аналитика для бизнеса
+    - keyword: анализ разговоров и сообщений для бизнеса
+    - keyword: анализ разговоров и сообщений из чатов
 links:
   - title: Начало работы
     description: Загрузите в сервис первую запись диалога оператора с клиентом

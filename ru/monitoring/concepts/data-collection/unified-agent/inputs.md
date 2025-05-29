@@ -76,6 +76,24 @@
         # HTTP-метод, который нужно использовать в запросе.
         # Возможные значения: GET, POST.
         http_method: GET  # необязательный, по умолчанию GET
+
+        # Секция для настройки меток {{ prometheus-name }}
+        prometheus_config:  # необязательный, по умолчанию не задан
+          # Задает значение метки job для собираемых метрик.
+          job_name: my_job  # необязательный, по умолчанию не задан
+          # Метка instance формируется автоматически на основе адреса (url).
+
+    # Описание выходного канала для передачи метрик в {{ monitoring-name }}.
+    # Используется вместе с prometheus_config.
+    channel:
+      output:
+        plugin: metrics
+        config:  # URL, на который будут отправляться метрики.
+          url: https://{{ api-host-monitoring-1 }}/prometheus/workspaces/workspace_id/api/v1/write
+          # Параметры авторизации запроса.
+          oauth:
+            secret:
+              file: file_token
 ```
 
 ## Вход linux_metrics {#linux_metrics_input}
@@ -133,6 +151,24 @@
         io: advanced  # необязательный, по умолчанию — basic
 
         kernel: advanced  # необязательный, по умолчанию — basic
+
+        # Секция для настройки меток {{ prometheus-name }}
+        prometheus_config:  # необязательный, по умолчанию не задан
+          # Задает значение метки job для собираемых метрик.
+          job_name: my_job  # необязательный, по умолчанию не задан
+          # Метка instance формируется автоматически на основе адреса (url).
+
+    # Описание выходного канала для передачи метрик в {{ monitoring-name }}.
+    # Используется вместе с prometheus_config.
+    channel:
+      output:
+        plugin: metrics
+        config:  # URL, на который будут отправляться метрики.
+          url: https://{{ api-host-monitoring-1 }}/prometheus/workspaces/workspace_id/api/v1/write
+          # Параметры авторизации запроса.
+          oauth:
+            secret:
+              file: file_token
 ```
 
 ## Вход file_input {#file_input}

@@ -21,7 +21,7 @@ You can create a cluster without specifying any subnets for the hosts if the ava
 
 {{ mch-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
 
-To learn how to get a host FQDN, see [this guide](../operations/connect/fqdn.md).
+To learn how to get host FQDN, see [this guide](../operations/connect/fqdn.md).
 
 
 To access a host within a single cloud network, use its FQDN. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/).
@@ -48,5 +48,9 @@ When connecting to a cluster from the same cloud network, configure security gro
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/dns-peering.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

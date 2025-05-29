@@ -15,6 +15,20 @@ meta:
   description: >-
     Managed Service for MySQL® помогает разворачивать и поддерживать кластеры
     серверов MySQL в инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: '{{ mmy-name }}'
+    - keyword: '{{ mmy-full-name }}'
+    - keyword: Сервис {{ mmy-name }}
+    - keyword: '{{ MY }} в {{ yandex-cloud }}'
+    - keyword: Кластер {{ MY }}
+    - keyword: Кластеры серверов {{ MY }}
+    - keyword: '{{ MY }}'
+    - keyword: Май эскуэль
+    - keyword: '{{ MY }} в облаке'
+    - keyword: Реляционная СУБД
+    - keyword: MySQL
+    - keyword: кластеры серверов MySQL
+    - keyword: Кластер MySQL
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

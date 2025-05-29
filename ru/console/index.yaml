@@ -10,6 +10,17 @@ meta:
     Сервис Yandex Cloud Console (консоль управления) предоставляет интерфейс для
     работы в Yandex Cloud, с помощью которого вы можете управлять облачными
     ресурсами, настраивать оповещения и обращаться в службу поддержки.
+  keywords:
+    - keyword: '{{ console-full-name }}'
+    - keyword: Сервис {{ console-name }}
+    - keyword: Yandex Console
+    - keyword: Консоль управления Яндекс Облако
+    - keyword: '{{ yandex-cloud }} в браузере'
+    - keyword: Яндекс Облако в браузере
+    - keyword: Как управлять Облаком
+    - keyword: Управление облаком
+    - keyword: Облачная консоль
+    - keyword: Как настроить оповещения в облаке
 links:
   - title: Начало работы
     description: Войдите в консоль управления

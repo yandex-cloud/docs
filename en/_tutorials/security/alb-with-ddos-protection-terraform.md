@@ -4,7 +4,7 @@
 To create an L7 load balancer with DDoS protection using {{ TF }}:
 
 1. [Get your cloud ready](#before-begin).
-1. [Create an infrastructure](#deploy).
+1. [Create your infrastructure](#deploy).
 1. [Test the load balancer](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -20,14 +20,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [paid-resources](../_tutorials_includes/alb-with-ddos-protection/paid-resources.md) %}
 
 
-## Create an infrastructure {#deploy}
+## Create your infrastructure {#deploy}
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure with {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see the [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) section, Step 1).
-1. Prepare a file with the infrastructure description:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+1. Prepare the infrastructure description file:
 
    {% list tabs group=infrastructure_description %}
 
@@ -64,7 +64,7 @@ To create an infrastructure with {{ TF }}:
 
    {% endlist %}
 
-   For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+   Learn more about the properties of {{ TF }} resources in the relevant Terraform guides:
 
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
@@ -82,8 +82,8 @@ To create an infrastructure with {{ TF }}:
 1. In the `alb-with-ddos-protection.auto.tfvars` file, set the following user-defined properties:
 
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-    * `vm_user`: VM username.
-    * `ssh_key_path`: Path to the public SSH key that is required to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `vm_user`: VM user name.
+    * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Create the resources:
 
@@ -100,7 +100,7 @@ After creating the infrastructure, [test](#test) it.
 
 To stop paying for the resources you created:
 
-1. Open the `alb-with-ddos-protection.tf` configuration file and delete the new infrastructure description from it.
+1. Open the `alb-with-ddos-protection.tf` configuration file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

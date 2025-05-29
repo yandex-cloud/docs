@@ -1,11 +1,12 @@
 ---
 title: Как аутентифицироваться в API v1 сервиса {{ search-api-full-name }}
 description: В данном разделе приведены способы аутентификации в API v1 сервиса {{ search-api-name }}.
+noIndex: true
 ---
 
 # Аутентификация в API v1
 
-Для работы с {{ search-api-name }} при помощи [API v1](../concepts/index.md#api-v1) необходимо отправлять запросы к API от имени сервисного аккаунта. API v1 поддерживает только аутентификацию с помощью [API-ключей](../../iam/concepts/authorization/api-key.md).
+Для работы с {{ search-api-name }} при помощи API v1 необходимо отправлять запросы к API от имени сервисного аккаунта. API v1 поддерживает только аутентификацию с помощью [API-ключей](../../iam/concepts/authorization/api-key.md).
 
 {% note warning %}
 

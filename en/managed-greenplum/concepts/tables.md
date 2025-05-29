@@ -37,4 +37,8 @@ WITH (
 );
 ```
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/mmy-to-mgp.md)
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

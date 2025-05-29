@@ -11,7 +11,7 @@ description: In this article, you will learn about disk types in {{ mrd-name }} 
 
 {% include [storage-type](../../_includes/mdb/mrd/storage-type.md) %}
 
-## Selecting the disk type during cluster creation {#storage-type-selection}
+## Selecting disk type when creating a cluster {#storage-type-selection}
 
 The number of hosts you can create together with a {{ VLK }} cluster depends on the disk type you select and whether you enabled [sharding](./sharding.md):
 
@@ -25,3 +25,8 @@ Sharded clusters with the **local-ssd** disk type and only one host per shard ar
 
 For more information about limits on the number of hosts per cluster or shard, see [Quotas and limits](./limits.md).
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/redis-as-php-sessions-storage.md)
+* [{#T}](../tutorials/data-migration.md)

@@ -26,7 +26,7 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 {% cut "On the Yandex Cloud partner portal, users with this role can:" %}
 
 * [Create](../../../partner/program/var-pin-client.md#client-entry) customer records ([subaccounts](../../../partner/terms.md#sub-account)).
-* View the list of subaccounts and info on them.
+* View the list of subaccounts and info on them, including personal data.
 * Activate subaccounts.
 * Suspend subaccounts.
 * Re-activate subaccounts.
@@ -47,4 +47,4 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 
 {% endcut %}
 
-This role includes the `billing.accounts.editor` and `billing.partners.editor` permissions.
+This role includes the `billing.accounts.editor`, `billing.accounts.partnerAdmin`, and `billing.partners.editor` permissions.

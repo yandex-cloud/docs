@@ -1,7 +1,7 @@
 1. [Get your cloud ready](#before-begin).
-1. [Create an infrastructure](#deploy).
+1. [Create your infrastructure](#deploy).
 1. [Upload the website files](#upload-files).
-1. [Run a fault tolerance test](#test-ha).
+1. [Test the fault tolerance](#test-ha).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-To host a fault-tolerant website in a VM group with load balancing with {{ alb-name }} using {{ TF }}:
+To host a fault-tolerant website in an instance group with load balancing via {{ alb-name }} using {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare your infrastructure description files:
 
@@ -37,9 +37,9 @@ To host a fault-tolerant website in a VM group with load balancing with {{ alb-n
 
    - Manually {#manual}
 
-     1. Create a folder for configuration files.
-     1. In the folder, create:
-        1. `application-load-balancer-website.tf`: New infrastructure configuration file:
+     1. Create a configuration file folder.
+     1. In this folder, create:
+        1. `application-load-balancer-website.tf` configuration file:
 
            {% cut "application-load-balancer-website.tf" %}
 
@@ -47,13 +47,13 @@ To host a fault-tolerant website in a VM group with load balancing with {{ alb-n
 
            {% endcut %}
 
-        1. `application-load-balancer-website.auto.tfvars`: User data file:
+        1. `application-load-balancer-website.auto.tfvars` user data file:
 
            {% cut "application-load-balancer-website.auto.tfvars" %}
 
            ```hcl
            folder_id    = "<folder_ID>"
-           vm_user      = "<instance_username>"
+           vm_user      = "<VM_user_name>"
            ssh_key_path = "<path_to_public_SSH_key>"
            domain       = "<domain>"
            ```
@@ -62,7 +62,7 @@ To host a fault-tolerant website in a VM group with load balancing with {{ alb-n
 
    {% endlist %}
 
-   For more information about the properties of {{ TF }} resources, see these {{ TF }} guides:
+   For more information about the properties of {{ TF }} resources, see the relevant {{ TF }} guides:
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
@@ -79,8 +79,8 @@ To host a fault-tolerant website in a VM group with load balancing with {{ alb-n
 
 1. In the `application-load-balancer-website.auto.tfvars` file, set the following user-defined properties:
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-    * `vm_user`: VM username.
-    * `ssh_key_path`: Path to the public SSH key that is required to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `vm_user`: VM user name.
+    * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `domain`: Domain name, e.g., `alb-example.com`.
 
 1. Create the resources:
@@ -93,7 +93,7 @@ After creating the infrastructure, [upload the website files](#upload-files).
 
 {% include [upload-files](../../_tutorials/_tutorials_includes/alb-website/upload-files.md) %}
 
-## Run a fault tolerance test {#test-ha}
+## Test the fault tolerance {#test-ha}
 
 {% include [test-ha](../../_tutorials/_tutorials_includes/alb-website/test-ha.md) %}
 
@@ -101,7 +101,7 @@ After creating the infrastructure, [upload the website files](#upload-files).
 
 To stop paying for the resources you created:
 
-1. Open the `application-load-balancer-website.tf` configuration file and delete the new infrastructure description from it.
+1. Open the `application-load-balancer-website.tf` configuration file and delete the description of the new infrastructure from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

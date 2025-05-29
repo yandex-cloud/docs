@@ -56,3 +56,12 @@ When connecting to a cluster from the same cloud network, configure security gro
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-migration.md)
+* [{#T}](../tutorials/sqoop.md)
+* [{#T}](../tutorials/sync-mysql.md)
+* [{#T}](../tutorials/bitrix-shop/index.md)
+* [{#T}](../tutorials/bitrix-website/index.md)
+* [{#T}](../tutorials/opencart/index.md)

@@ -45,3 +45,8 @@ You do not need to stop the cluster to move slots between shards. If the client 
 You can [create a cluster](../operations/cluster-create.md) with either a single shard or three or more shards. You cannot create a cluster with two shards, but you can [change the number of shards](../operations/shards.md) in an existing cluster.
 
 For more information about limits on the number of hosts per shard, see [Quotas and limits](./limits.md).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/redis-as-php-sessions-storage.md)
+* [{#T}](../tutorials/data-migration.md)

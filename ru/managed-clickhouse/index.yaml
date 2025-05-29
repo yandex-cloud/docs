@@ -36,6 +36,21 @@ meta:
   description: >-
     Сервис Managed Service for ClickHouse® помогает разворачивать и поддерживать
     кластеры серверов ClickHouse® в инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: '{{ mch-name }}'
+    - keyword: '{{ mch-full-name }}'
+    - keyword: Сервис {{ mch-name }}
+    - keyword: '{{ CH }} в {{ yandex-cloud }}'
+    - keyword: Кластер {{ CH }}
+    - keyword: Кластер ClickHouse
+    - keyword: кластеры серверов ClickHouse
+    - keyword: кластеры серверов {{ CH }}
+    - keyword: '{{ CH }}'
+    - keyword: Кликхаус
+    - keyword: '{{ CH }} в облаке'
+    - keyword: СУБД с открытым кодом
+    - keyword: Аналитическая СУБД
+    - keyword: Колоночная СУБД
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

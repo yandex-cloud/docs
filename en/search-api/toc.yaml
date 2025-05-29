@@ -85,6 +85,12 @@ items:
                     href: api-ref/grpc/GenSearch/index.md
                   - name: Search
                     href: api-ref/grpc/GenSearch/search.md
+              - name: ImageSearch
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/ImageSearch/index.md
+                  - name: Search
+                    href: api-ref/grpc/ImageSearch/search.md
               - name: Operation
                 items:
                   - name: Overview

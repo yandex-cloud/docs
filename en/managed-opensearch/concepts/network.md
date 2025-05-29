@@ -46,3 +46,9 @@ If you connect to a cluster from within its cloud network, [configure](../operat
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/migration-from-mkf.md)
+* [{#T}](../tutorials/migration-from-standalone.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)

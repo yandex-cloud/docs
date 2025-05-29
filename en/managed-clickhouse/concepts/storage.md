@@ -131,3 +131,8 @@ The number of hosts you can create together with a {{ CH }} cluster depends on t
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/hybrid-storage.md)
+* [{#T}](../tutorials/sharding.md)

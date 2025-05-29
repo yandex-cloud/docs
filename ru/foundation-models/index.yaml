@@ -24,6 +24,23 @@ meta:
     вам использовать возможности генеративных моделей в ваших бизнес-приложениях
     и веб-сервисах. Сервис будет полезен всем, кто ищет способы ускорить
     развитие бизнеса с технологиями машинного обучения.
+  keywords:
+    - keyword: '{{ foundation-models-full-name }}'
+    - keyword: '{{ foundation-models-name }}'
+    - keyword: сервис {{ foundation-models-name }}
+    - keyword: генеративные модели для бизнеса
+    - keyword: нейросети в {{ yandex-cloud }}
+    - keyword: учебник промтинга
+    - keyword: YandexGPT Lite
+    - keyword: YandexGPT Pro
+    - keyword: YandexART
+    - keyword: AI-ассистент
+    - keyword: AI-агент
+    - keyword: технологии машинного обучения
+    - keyword: генеративные модели в {{ yandex-cloud }}
+    - keyword: нейросети в бизнес-приложениях
+    - keyword: нейросети в веб-сервисах
+    - keyword: нейросети в бизнесе
 links:
   - title: Начало работы с {{ yagpt-name }}
     description: Отправьте свой первый запрос в {{ yagpt-name }}

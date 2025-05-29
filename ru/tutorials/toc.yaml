@@ -305,8 +305,6 @@ items:
         href: testing/loadtesting-http-scenario-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: testing/loadtesting-multiply.md
-      - name: Миграция результатов нагрузочного тестирования из OverLoad
-        href: testing/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
         href: testing/loadtesting-external-agent.md
       - name: Нагрузочный тест с помощью JMeter
@@ -908,8 +906,14 @@ items:
           Загрузка данных из {{ ydb-name }} в {{ mch-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/ydb-to-clickhouse.md
+      - name: >-
+          Интеграция {{ mch-full-name }} с Microsoft SQL Server через {{ CH }}
+          JDBC Bridge
+        href: dataplatform/jdbc-ch-to-sql-server-integration.md
       - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
         href: dataplatform/bigquery-to-clickhouse.md
+      - name: Интеграция {{ mch-full-name }} с Oracle через {{ CH }} JDBC Bridge
+        href: dataplatform/jdbc-ch-to-oracle-integration.md
       - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
@@ -1288,6 +1292,7 @@ items:
           Организация сетевой связности между подсетями {{ baremetal-name }} и
           On-Prem с помощью {{ interconnect-name }}
         href: routing/bms-cic-onprem.md
+        hidden: true
       - name: >-
           Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную
           машину

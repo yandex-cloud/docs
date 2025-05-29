@@ -9,6 +9,8 @@ description: Из статьи вы узнаете, как установить 
 
 В этом разделе описана установка агента при создании виртуальной машины. Другие способы установки см. в разделе [{#T}](../../../concepts/data-collection/unified-agent/installation.md).
 
+{% include [agent-version](../../../../_includes/monitoring/agent-version.md) %}
+
 ## Список поддерживаемых операционных систем {#supported-os}
 
 - Ubuntu 14.04 или выше.
@@ -113,12 +115,70 @@ description: Из статьи вы узнаете, как установить 
 
 Для установки агента и отправки метрик у виртуальной машины должен быть доступ в интернет.
 
-Агент устанавливается с файлом конфигурации по умолчанию, который находится по пути `/etc/yc/unified_agent/config.yml`.
+## Конфигурирование {#configuration}
 
-В файле конфигурации настроена отправка системных метрик Linux и метрик здоровья агента. Отправка метрик [тарифицируется](../../../pricing.md). Дополнительно можно настроить поставку метрик из ваших приложений в формате {{ prometheus-name }}.
+У агента есть два файла конфигурации: `config.yml` и `prometheus.yml`.
+
+Файл `config.yml` находится по пути `/etc/yc/unified_agent/config.yml`. Когда агент устанавливается в режиме сбора метрик {{ prometheus-name }}, файл не содержит параметров сбора метрик.
+
+{% cut "Пример файла config.yml" %}
+
+```yaml
+status:
+  port: "16241"
+
+import:
+  - /etc/yc/unified_agent/conf.d/*.yml
+  - /etc/yc/unified_agent/generated_conf.d/*.yml
+```
+
+{% endcut %}
+
+Файл `prometheus.yml` находится по пути `/etc/yc/unified_agent/generated_conf.d/prometheus.yml`. В нем настроен сбор метрик в формате {{ prometheus-name }} по умолчанию. Если при установке агента вы указали свои параметры сбора метрик, они будут добавлены в этот файл.
+
+{% cut "Пример файла prometheus.yml" %}
+
+```yaml
+storages:
+  - name: __prometheus_metrics_storage
+    plugin: fs
+    config:
+      directory: /var/lib/yc/unified_agent/__prometheus_metrics_storage
+      max_partition_size: 100mb
+      max_segment_size: 10mb
+channels:
+  - name: __remote_write
+    channel:
+      pipe:
+        - storage_ref:
+            name: __prometheus_metrics_storage
+      output:
+        plugin: metrics
+        config:
+          url: "https://{{ api-host-monitoring-1 }}/prometheus/workspaces/workspace_id/api/v1/write"
+          set_host_label: null
+          iam:
+            cloud_meta: { }
+routes:
+  - input:
+      id: linux_metrics_input
+      plugin: linux_metrics
+      config:
+        poll_period: 60s
+        namespace: sys
+        prometheus_config:
+          job_name: linux_metrics
+    channel:
+      channel_ref:
+        name: __remote_write
+```
+
+{% endcut %}
 
 
 После разворачивания ВМ агент запустится автоматически и начнет отправлять метрики в {{ managed-prometheus-name }}.
+
+Отправка метрик [тарифицируется](../../../pricing.md).
 
 
 ## Обзор метрик виртуальной машины {#view-metrics}

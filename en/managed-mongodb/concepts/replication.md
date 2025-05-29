@@ -24,3 +24,7 @@ You can set the host priority using the YC CLI, API, or {{ TF }}:
 * When [changing the host settings](../operations/hosts.md#update).
 
 Minimum value (lowest priority): `0`. A host with such priority value can become a master only if there are no other hosts suitable for the role. Default priority value: `1`. You can specify a value higher than `100`.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/mongodb-versions.md)

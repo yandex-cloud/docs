@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
 1. На вкладке **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** нажмите кнопку ![icon](../../../../_assets/console-icons/tag.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
-1. Выберите тип тега **Смысловой**.
+1. Выберите тип тега **{{ ui-key.yc-ui-talkanalytics.tags.tags-type.neuro-key-value }}**.
 1. Задайте параметры тега:
 
     * Введите название тега.
@@ -37,4 +37,4 @@ description: Следуя данной инструкции, вы сможете
 
 1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
 
-После создания тег активируется автоматически.
+После создания теги применяются сразу ко всем новым диалогам. Разметка ранее созданных диалогов запускается в 21:00 по московскому времени.

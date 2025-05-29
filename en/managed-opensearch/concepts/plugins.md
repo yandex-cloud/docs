@@ -137,4 +137,7 @@ How search with `yandex-lemmer` works:
 
     Each output token is assigned a rank indicating the word’s position in the search phrase. If an input token has multiple associated tokens in the output, all of them will have the same rank. This helps to determine the distance between the words in a search query, e.g., if enclosed in quotes. Thus, a search for `"идут дожди"` (`it’s been raining`) will retrieve a document with `идет дождь` (`it’s raining`), but not the one with `идет сильный дождь` (`it’s raining hard`).
 
-See also [{#T}](../tutorials/opensearch-yandex-lemmer.md).
+## Use cases {#examples}
+
+* [{#T}](../tutorials/opensearch-yandex-lemmer.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)

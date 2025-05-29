@@ -9,6 +9,16 @@ meta:
   description: >-
     Сервис {{ mos-name }} помогает разворачивать и поддерживать кластеры
     серверов {{ OS }} в инфраструктуре {{ yandex-cloud }}.
+  keywords:
+    - keyword: '{{ mos-name }}'
+    - keyword: '{{ mos-full-name }}'
+    - keyword: Сервис {{ mos-name }}
+    - keyword: '{{ OS }} в {{ yandex-cloud }}'
+    - keyword: Кластер {{ OS }}
+    - keyword: Кластеры серверов {{ OS }}
+    - keyword: '{{ OS }}'
+    - keyword: Опенсерч
+    - keyword: '{{ OS }} в облаке'
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

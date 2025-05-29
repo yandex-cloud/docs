@@ -54,6 +54,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 * [Viewing cluster operations](cluster-operations.md)
 * [{#T}](performance-diagnostics.md)
 * [Monitoring the state of clusters and hosts](monitoring.md)
+* [Transferring cluster logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md)
 
 ## Auxiliary utilities {#tools}
 

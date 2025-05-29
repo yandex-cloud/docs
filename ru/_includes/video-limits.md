@@ -1,8 +1,10 @@
 #### Квоты {#quotas}
 
-**Вид ограничения** | **Значение**
------ | -----
-Максимальное количество одновременных [трансляций](../video/concepts/streams.md) в одной [организации](../organization/quickstart.md) | 3
+#|
+|| Вид ограничения | Значение ||
+|| Максимальное количество одновременных [трансляций](../video/concepts/streams.md) в одной [организации](../organization/quickstart.md)
+`video.parallelStreams.count` | 3 ||
+|#
 
 #### Лимиты {#limits}
 

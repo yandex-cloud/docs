@@ -20,7 +20,7 @@ For more information about how replication works in {{ PG }}, read the [relevant
 
 ## Managing replication {#replication}
 
-To ensure data safety in a cluster, {{ mpg-full-name }} uses streaming replication. Each replica host receives a replication stream from another host (usually, the master host). {{ mpg-name }} manages replication streams in a cluster automatically, but you can [manage them manually](../operations/hosts.md#update), if required.
+To ensure data safety in a cluster, {{ mpg-full-name }} uses streaming replication. Each replica host receives a replication thread from another host (usually the master host). {{ mpg-name }} manages replication threads in the cluster automatically, but you can [manage them manually](../operations/hosts.md#update) if you need to.
 
 In a cluster, you can combine automatic and manual management of replication streams.
 
@@ -55,11 +55,11 @@ Replicas, for which the replication source is specified manually, cannot:
 
 ## Write sync and read consistency {#write-sync-and-read-consistency}
 
-Synchronization of data writes in {{ PG }} is ensured by syncing the [write-ahead log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) (the `synchronous_commit` [parameter](settings-list.md#setting-synchronous-commit)). The default parameter value is `on`. This means a transaction is committed only if the WAL is written to both the master disk and quorum replica disk.
+Synchronization of data writes in {{ PG }} is ensured by syncing the [write-ahead log](https://www.postgresql.org/docs/current/wal-intro.html) (WAL) (the `synchronous_commit` [parameter](settings-list.md#setting-synchronous-commit)). The default parameter value is `synchronous_commit = on`. This means a transaction is committed only if the WAL is written to both the master disk and quorum replica disk.
 
-If you want to ensure the ongoing consistency of data reads between the master and quorum replica, set `synchronous_commit` to `remote_apply` [in the cluster settings](../operations/update.md#change-postgresql-config). With this parameter value, a data write is not considered successful until the quorum replica applies the changes from the WAL. In this case, the read operation performed on the master and the synchronous quorum returns the same result.
+To ensure ongoing consistency of data reads between the master and quorum replica, set `synchronous_commit = remote_apply` [in the cluster settings](../operations/update.md#change-postgresql-config). With this parameter value, a data write is not considered successful until the quorum replica applies the changes from the WAL. In this case, the read operation performed on the master and the synchronous quorum returns the same result.
 
-The downside is that the write operations to the cluster will take longer. If the master and the quorum replica are located in different [availability zones](../../overview/concepts/geo-scope.md), the transaction confirmation latency cannot be less than the round-trip time (RTT) between data centers. As a result, when writing data to a single thread with the `AUTOCOMMIT` mode enabled, cluster performance will degrade.
+The downside is that the write operations to the cluster will take longer. If the master and the quorum replica are located in different [availability zones](../../overview/concepts/geo-scope.md), the transaction confirmation latency cannot be less than the round-trip time (RTT) between data centers. This will degrade cluster performance if writing data to a single thread with the `AUTOCOMMIT` mode on.
 
 To enhance performance, write data to multiple threads whenever possible, [disable `AUTOCOMMIT`](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html), and group queries within a transaction.
 
@@ -75,4 +75,12 @@ Information about DB changes is sent to a [replication slot](https://www.postgre
 * [wal2json](https://github.com/eulerto/wal2json): Converts WAL data into JSON format.
 * [pgoutput](https://www.npgsql.org/doc/replication.html#logical-streaming-replication-protocol-pgoutput-plugin): Transforms data read from WAL to the [logical replication protocol](https://www.postgresql.org/docs/current/protocol-logicalrep-message-formats.html).
 
-To [create](../operations/replication-slots.md#create) a replication slot, a user must have the [`mdb_replication` role](./roles.md#mdb-replication).
+Replication slots can be [created](../operations/replication-slots.md#create) by users with the [`mdb_replication` role](./roles.md#mdb-replication).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-migration.md)
+* [{#T}](../tutorials/mmy-to-mpg.md)
+* [{#T}](../tutorials/mpg-to-mmy.md)
+* [{#T}](../tutorials/outbound-replication.md)
+* [{#T}](../tutorials/rdbms-to-clickhouse.md)

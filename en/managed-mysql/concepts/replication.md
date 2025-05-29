@@ -59,3 +59,11 @@ You can set host priority:
 * When [changing the host settings](../operations/hosts.md#update).
 
 The lowest priority is `0` (default), while the highest one is `100`.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/cdc-data-transfer.md)
+* [{#T}](../tutorials/mmy-to-mgp.md)
+* [{#T}](../tutorials/mmy-to-mysql-migration.md)
+* [{#T}](../tutorials/mpg-to-mmy.md)
+* [{#T}](../tutorials/mysql-to-clickhouse.md)

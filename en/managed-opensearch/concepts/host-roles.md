@@ -23,6 +23,13 @@ There should be at least one host with the `DATA` role in the cluster. A single-
 
 For fault tolerance reasons, you cannot create a cluster that only has two hosts with the `DATA` role. To make your cluster fault-tolerant, add a host group with the `MANAGER` role.
 
+### Use cases {#examples-data}
+
+* [{#T}](../tutorials/migration-to-opensearch.md)
+* [{#T}](../tutorials/opensearch-index-policy.md)
+* [{#T}](../tutorials/opensearch-to-object-storage.md)
+* [{#T}](../tutorials/opensearch-yandex-lemmer.md)
+
 ## Hosts with the MANAGER role {#manager}
 
 Hosts with this role monitor the state of the cluster and manage its configuration, ensuring the performance of all {{ OS }} components.
@@ -34,3 +41,9 @@ If no hosts with the `MANAGER` role are used, this role will be supported by hos
 ## Hosts with the DASHBOARDS role {#dashboards}
 
 Hosts with this role run {{ OS }} Dashboards, a data visualization tool to use in such scenarios as real-time application monitoring, threat detection, incident management, or personalized search.
+
+### Use cases {#examples-dashboards}
+
+* [{#T}](../tutorials/saml-keycloak.md)
+* [{#T}](../tutorials/trails-to-opensearch.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)

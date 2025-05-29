@@ -134,3 +134,8 @@ This operation requires a table lock, which may be impossible under high loads.
 ### pg_repack extension {#pg-repack}
 
 The [pg_repack](https://github.com/reorg/pg_repack) extension reorganizes tables and indexes without long-term locks. To learn how to update and run `pg_repack` in a {{ mpg-name }} cluster, see [Using pg_repack](../operations/extensions/pg_repack.md).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/postgresql-to-opensearch.md)
+* [{#T}](../tutorials/glibc-collation-issues.md)

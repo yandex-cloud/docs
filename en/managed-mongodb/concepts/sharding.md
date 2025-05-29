@@ -1,6 +1,6 @@
 ---
 title: Sharding in MongoDB
-description: 'MongoDB supports sharding to handle large data and increase the DBMS throughput. Sharding can be of particular use when vertical scaling (server capacity upgrade) is either uneconomical or impossible. {{ mmg-name }} supports the main data sharding strategies: hashed sharding (with a hash-based shard key) and ranged sharding (based on a value range).'
+description: 'MongoDB supports sharding to handle large volumes of data and increase DBMS throughput. Sharding can be of particular use when vertical scaling (server capacity upgrade) is either uneconomical or impossible. {{ mmg-name }} supports the main data sharding strategies: hashed sharding (with a hash-based shard key) and ranged sharding (based on a value range).'
 ---
 
 # Sharding in {{ mmg-name }}
@@ -8,7 +8,7 @@ description: 'MongoDB supports sharding to handle large data and increase the DB
 _Sharding_ is a horizontal data scaling strategy that puts parts of {{ MG }} collections on different cluster hosts. A shard (set of hosts) is linked to a dataset with a _shard key_. {{ MG }} supports sharding to handle large volumes of data and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is either not cost-efficient or impossible.
 
 {{ mmg-name }} supports core data sharding strategies:
-
+ 
  * [Hashed sharding](https://docs.mongodb.com/manual/core/hashed-sharding/) (with a hash-based sharding key)
  * [Ranged sharding](https://docs.mongodb.com/manual/core/ranged-sharding/) (by a shard key value range)
 
@@ -36,11 +36,11 @@ With sharding, you can:
   - Comply with the local laws, for example, by storing your data in a particular country or region.
 
 - Improve fault tolerance. {#high-availability}
-
+  
   Sharding allows you to isolate individual host or replica failures. If you do not use sharding, then, when one host fails, you lose access to the entire dataset it contains. Conversely, if one shard out of five fails, 80% of the collection data will still be available.
 
   To reduce the risk of an entire shard going down, we recommend configuring shards as a group of three replicas. Furthermore, by distributing shard hosts across different {{ yandex-cloud }} availability zones, you can increase data availability.
-
+  
 - Improve query performance. {#processing-speed} 
 
   Query performance can degrade due to resource contention. This usually happens as the number of read operations or CPU time per query increases.
@@ -80,3 +80,9 @@ See also [Example of sharding](../tutorials/sharding.md#example).
 - In a sharded cluster:
   - All queries to {{ mmg-name }} must be redirected to `MONGOS` or `MONGOINFRA` hosts instead of `MONGOD`.
   - You cannot disable sharding or completely remove the hosts that support sharding: the cluster will always support a minimum number of `MONGOS` and `MONGOCFG` or `MONGOINFRA` hosts.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/mongodb-migration-with-data-transfer.md)
+* [{#T}](../tutorials/mongodb-versions.md)
+* [{#T}](../tutorials/sharding.md)

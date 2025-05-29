@@ -16,34 +16,36 @@ items:
             href: operations/servers/get-info.md
           - name: Изменить сервер
             href: operations/servers/server-update.md
-          - name: Остановить и запустить сервер
-            href: operations/servers/server-stop-and-start.md
-          - name: Сбросить пароль на сервере
-            href: operations/servers/reset-password.md
-          - name: Отказаться от аренды серверы
-            href: operations/servers/server-lease-cancel.md
-          - name: Переустановить ОС сервера
-            items:
-              - name: Переустановить ОС из образа Marketplace
-                href: operations/servers/reinstall-os-from-marketplace.md
-              - name: Переустановить ОС из своего ISO-образа
-                href: operations/servers/reinstall-os-from-own-image.md
           - name: Подключиться к KVM-консоли
             href: operations/servers/server-kvm.md
-          - name: Заменить диск в RAID-массиве
-            href: operations/servers/switch-raid-member.md
-          - name: Воспользоваться Rescue-CD
-            href: operations/servers/rescue-boot.md
-          - name: Добавить новый SSH-ключ пользователя
-            href: operations/servers/add-new-ssh-key.md
-          - name: Восстановить загрузчик ОС
-            href: operations/servers/restore-grub.md
+          - name: Остановить и запустить сервер
+            href: operations/servers/server-stop-and-start.md
+          - name: Отказаться от аренды серверы
+            href: operations/servers/server-lease-cancel.md
           - name: Загрузить образ
             href: operations/image-upload.md
           - name: >-
               Подключить существующий сервер {{ baremetal-name }} к {{
               backup-name }}
             href: operations/backup-baremetal.md
+          - name: Воспользоваться Rescue-CD
+            href: operations/servers/rescue-boot.md
+          - name: Переустановить ОС сервера
+            items:
+              - name: Переустановить ОС из образа Marketplace
+                href: operations/servers/reinstall-os-from-marketplace.md
+              - name: Переустановить ОС из своего ISO-образа
+                href: operations/servers/reinstall-os-from-own-image.md
+          - name: Сбросить пароль на сервере
+            href: operations/servers/reset-password.md
+          - name: Заменить диск в RAID-массиве
+            href: operations/servers/switch-raid-member.md
+          - name: Добавить новый SSH-ключ пользователя
+            href: operations/servers/add-new-ssh-key.md
+          - name: Восстановить загрузчик ОС
+            href: operations/servers/restore-grub.md
+          - name: Проанализировать состояние дисков с помощью HW Watcher
+            href: operations/servers/use-hwatcher.md
       - name: Сеть
         items:
           - name: Создать VRF
@@ -66,6 +68,8 @@ items:
             href: concepts/servers.md
           - name: Конфигурации серверов
             href: concepts/server-configurations.md
+          - name: Анализ состояния дисков
+            href: concepts/smart-disk-analysis.md
       - name: Сеть
         expanded: true
         items:

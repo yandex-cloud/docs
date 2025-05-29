@@ -1,15 +1,26 @@
 #### Квоты {#serverless-containers-quotas}
 
-Вид ограничения | Значение
------ | -----
-Количество контейнеров в облаке | 10
-Количество [триггеров](../../serverless-containers/concepts/trigger/) в облаке | 100
-Суммарный объем Docker-образов, которые используются в активных ревизиях контейнеров | 20 ГБ
-Количество экземпляров контейнеров в каждой зоне доступности | 10
-Количество одновременных запросов к контейнерам в каждой зоне доступности | 10
-Суммарный объем RAM для всех запущенных экземпляров контейнеров в каждой зоне доступности | 20 ГБ
-Суммарное количество CPU всех запущенных экземпляров контейнеров в каждой зоне доступности | 10
-Количество [подготовленных экземпляров](../../serverless-containers/concepts/container.md#provisioned-instances) контейнеров в одном облаке | 2
+#|
+|| Вид ограничения | Значение ||
+|| Количество контейнеров в облаке 
+`serverless.containers.count` | 10 ||
+|| Количество [триггеров](../../serverless-containers/concepts/trigger/) в одном облаке^1^ 
+`serverless.triggers.count` | 100 ||
+|| Суммарный объем Docker-образов, которые используются в активных ревизиях контейнеров 
+`serverless.containers.size` | 20 ГБ ||
+|| Количество экземпляров контейнеров в каждой зоне доступности 
+`serverless.containersInstances.count` | 10 ||
+|| Количество одновременных запросов к контейнерам в каждой зоне доступности 
+`serverless.containersRequest.count` | 10 ||
+|| Суммарный объем RAM для всех запущенных экземпляров контейнеров в каждой зоне доступности 
+`serverless.containersMemory.size` | 20 ГБ ||
+|| Суммарное количество CPU всех запущенных экземпляров контейнеров в каждой зоне доступности 
+`serverless.containersCpu.count` | 10 ||
+|| Количество [подготовленных экземпляров](../../serverless-containers/concepts/container.md#provisioned-instances) контейнеров в одном облаке 
+`serverless.containersWorkersProvisioned.count` | 2 ||
+|#
+
+{% include [quota-trigger-count](../quota-trigger-count.md) %}
 
 #### Лимиты {#serverless-containers-limits}
 

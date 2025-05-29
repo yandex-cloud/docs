@@ -1,17 +1,21 @@
 # Index policies
 
-A _policy_ is a set of rules that describes how to manage an index. To work with polocies, you can use the [{{ OS }} Index State Management (ISM)]({{ os.docs }}/im-plugin/ism/index/) plugin.
+A _policy_ is a set of rules that describes how to manage an index. You can work with policies using the [{{ OS }} Index State Management (ISM)]({{ os.docs }}/im-plugin/ism/index/) plugin.
 
 In a policy, you define:
 
-* _States_ an index can be in. You can specify any names for states. Every policy must have at least one state.
-* _Actions_ to perform when an index gets into a certain state. Actions are performed in their given order.
-* Conditions to move an index to a different state (_transitions_). Transitions are checked in their given order.
+* _States_ the index can be in. You can name states according to your preference. Each policy must have at least one state.
+* _Actions_ to perform when the index enters a particular state. Actions are performed in the order they are listed.
+* Conditions for the index to switch to a different state (_transitions_). Transitions are checked in the order they are listed.
 
-For example, you can define a policy that changes your index state to `read_only` after 30 days and deletes it after 90 days. You can also configure a policy that sends notifications when an index is deleted.
+For example, you can set up a policy that will make the index `read_only` in 30 days and delete it in 90 days. You can also configure a policy that notifies you when the index is deleted.
 
-Every policy must have at least one state. Actions and transitions are optional. If you do not specify conditions for a transition, an index is moved to another state by default at the time of verification.
+Each policy must have at least one state. Actions and transitions are optional. If no transition conditions are specified, the index will switch states unconditionally the moment the check takes place.
 
-Once a [policy is created and attached to an index](../tutorials/opensearch-index-policy.md), the ISM plugin creates a job that checks the conditions for index transitions and performs the policy actions. By default, a job runs every 5 minutes.
+Once a [policy is created and linked to the index](../tutorials/opensearch-index-policy.md), the ISM plugin creates a job that checks the index transition conditions and performs the policy actions. By default, the job is performed every 5 minutes.
 
 For more information about policies, see the [{{ OS }} documentation]({{ os.docs }}/im-plugin/ism/policies/).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/opensearch-index-policy.md)

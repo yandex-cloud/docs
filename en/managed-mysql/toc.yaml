@@ -85,7 +85,7 @@ items:
         href: concepts/settings-list.md
       - name: SQL command limits
         href: concepts/sql-limits.md
-      - name: Comparing {{ MY }} 5.7 and 8.0
+      - name: Comparing {{ MY }} versions 5.7 and 8.0
         href: concepts/mysql-57-80-comparison.md
   - name: Tutorials
     items:
@@ -275,7 +275,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
