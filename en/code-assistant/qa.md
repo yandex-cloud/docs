@@ -19,7 +19,7 @@ To learn more about limitations, see [{#T}](./concepts/limits.md).
 
 {% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}
 
-### Do I need a billing account to work with {{ ca-name }}? {#billing-account}
+### Do I need a {{ yandex-cloud }} billing account to work with {{ ca-name }}? {#billing-account}
 
 You **do not need** a [billing account](../billing/concepts/billing-account.md).
 
@@ -29,7 +29,7 @@ No. To work with {{ ca-name }}, you will need continuous internet access.
 
 ### How to change the user authenticated in the {{ ca-name }} plugin {#change-user}
 
-To authenticate in the {{ ca-name }} plugin as another {{ yandex-cloud }} user, [log out](./quickstart.md#logout) of your current account and re-authenticate as described in step 3 of [{#T}](./quickstart.md#install-plugin).
+To authenticate in the {{ ca-name }} plugin as another {{ yandex-cloud }} user, [log out](./index.md#logout) of your current account and re-authenticate as described in step 3 of [{#T}](./index.md#install-plugin).
 
 ### Error getting a refresh token {#refresh-token}
 
@@ -39,7 +39,11 @@ Error message:
 Error refreshing token: no refresh token found
 ```
 
+
+
+
 Your [organization](../overview/roles-and-resources.md) does not allow issuing [refresh tokens](../iam/api-ref/RefreshToken/) used by {{ ca-name }} for authentication. To work with {{ ca-name }}, [register](../getting-started/) in {{ yandex-cloud }} using your personal [Yandex account](../iam/concepts/users/accounts.md#passport) and [create](../organization/operations/enable-org.md) a new organization.
+
 
 ## Working in Visual Studio Code {#vs-code-ide}
 
