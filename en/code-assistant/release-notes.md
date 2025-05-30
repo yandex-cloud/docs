@@ -8,7 +8,7 @@ description: This section contains {{ ca-name }} release notes.
 ## February 2025 {#feb-2025}
 
 * {% include [rebranding](../_includes/code-assistant/rebranding.md) %}
-* The service is publicly available at the [Preview](../overview/concepts/launch-stages.md) stage; you no longer need to request access. For more information, see [{#T}](quickstart.md).
+* The service is publicly available at the [Preview](../overview/concepts/launch-stages.md) stage; you no longer need to request access. For more information, see [{#T}](index.md).
 * Introduced a [system of quotas](concepts/limits.md).
 * Added plugin support to the [VSCodium](https://vscodium.com/) IDE, a specialized build of Visual Studio Code that features only open-source components.
 
@@ -19,7 +19,7 @@ Added the _personal memory_ feature. When generating suggestions, the model now 
 ## December 2024 {#dec-2024}
 
 * Added support for automatic plugin updates for [JetBrains IDE](https://www.jetbrains.com/ides/) and [Visual Studio Code](https://code.visualstudio.com/).
-* Changed the installation method for the JetBrains IDE plugin. The plugin installed using the new method will be updated automatically. For more information, see [Installing and configuring a plugin](./quickstart.md#install-plugin).
+* Changed the installation method for the JetBrains IDE plugin. The plugin installed using the new method will be updated automatically. For more information, see [Installing and configuring a plugin](./index.md#install-plugin).
 * Added a tooltip generation indicator in the JetBrains IDE.
 
 ## November 2024 {#nov-2024}
@@ -30,7 +30,7 @@ Added the _personal memory_ feature. When generating suggestions, the model now 
 ## October 2024 {#oct-2024}
 
 * Added a plugin operation indicator in the JetBrains IDE.
-* Added [plugin management](quickstart.md#manage-plugin) commands.
+* Added [plugin management](index.md#manage-plugin) commands.
 
 ## September 2024 {#sep-2024}
 

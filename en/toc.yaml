@@ -31,7 +31,7 @@ items:
   - name: Cloud Video
     href: video/index.yaml
   - name: '{{ ca-name }}'
-    href: code-assistant/index.yaml
+    href: code-assistant/index.md
   - name: Compute Cloud
     href: compute/index.yaml
   - name: Container Registry

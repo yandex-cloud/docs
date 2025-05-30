@@ -1,9 +1,8 @@
 title: '{{ ca-full-name }}'
-href: index.yaml
 stage: preview
 items:
   - name: Getting started
-    href: quickstart.md
+    href: index.md
   - name: Concepts
     href: concepts/index.md
   - name: Quotas

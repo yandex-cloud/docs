@@ -1,9 +1,19 @@
 title: '{{ ca-full-name }}'
-href: index.yaml
 stage: preview
 items:
   - name: Начало работы
-    href: quickstart.md
+    href: index.md
+  - name: Пошаговые инструкции
+    expanded: true
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Автодополнение кода
+        href: operations/autocompletion.md
+      - name: Чат
+        href: operations/chat.md
+      - name: Быстрые действия
+        href: operations/quick-actions.md
   - name: Концепции
     href: concepts/index.md
   - name: Квоты
