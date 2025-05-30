@@ -5,9 +5,15 @@ description: Install the {{ ca-name }} plugin for Visual Studio Code, VSCodium, 
 
 # Getting started with {{ ca-full-name }}
 
-{% include [preview-stage](../_includes/code-assistant/preview-stage.md) %}
+{% include [preview-stage](../_includes/sourcecraft/preview-stage.md) %}
 
 {% include [about-service](../_includes/code-assistant/about-service.md) %}
+
+{% note warning %}
+
+{% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}
+
+{% endnote %}
 
 To get started:
 1. [Get your cloud ready](#before-you-begin).
@@ -22,12 +28,6 @@ To get started:
 
 
 ## Install and configure the plugin{#install-plugin}
-
-{% note warning %}
-
-{% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}
-
-{% endnote %}
 
 {% list tabs group=ide %}
 

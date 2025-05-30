@@ -82,7 +82,7 @@ keywords:
 
             1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
             1. Выберите место записи логов:
-                * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
+                * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка. Логи будут записываться в лог-группу по умолчанию выбранного каталога.
                 * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
             1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 

@@ -19,7 +19,7 @@ description: На странице представлены вопросы и о
 
 {% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}
 
-### Нужен ли для работы с {{ ca-name }} платежный аккаунт? {#billing-account}
+### Нужен ли для работы с {{ ca-name }} платежный аккаунт в {{ yandex-cloud }}? {#billing-account}
 
 [Платежный аккаунт](../billing/concepts/billing-account.md) **не нужен**.
 
@@ -29,7 +29,7 @@ description: На странице представлены вопросы и о
 
 ### Как изменить пользователя, аутентифицированного в плагине {{ ca-name }} {#change-user}
 
-Чтобы аутентифицироваться в плагине {{ ca-name }} как другой пользователь {{ yandex-cloud }}, [выйдите](./quickstart.md#logout) из профиля и затем повторно аутентифицируйтесь, как это описано в п. 3 раздела [{#T}](./quickstart.md#install-plugin).
+Чтобы аутентифицироваться в плагине {{ ca-name }} как другой пользователь {{ yandex-cloud }}, [выйдите](./index.md#logout) из профиля и затем повторно аутентифицируйтесь, как это описано в п. 3 раздела [{#T}](./index.md#install-plugin).
 
 ### Ошибка получения refresh-токена {#refresh-token}
 
@@ -39,7 +39,10 @@ description: На странице представлены вопросы и о
 Error refreshing token: no refresh token found
 ```
 
+
+
 В вашей [организации](../overview/roles-and-resources.md) запрещен выпуск [refresh-токенов](../iam/api-ref/RefreshToken/), которые используются {{ ca-name }} для аутентификации. Чтобы работать с {{ ca-name }}, [зарегистрируйтесь](../getting-started/) в {{ yandex-cloud }} с помощью личного [аккаунта на Яндексе](../iam/concepts/users/accounts.md#passport) и [создайте](../organization/operations/enable-org.md) новую организацию.
+
 
 ## Работа в Visual Studio Code {#vs-code-ide}
 
@@ -70,6 +73,10 @@ OS: Windows_NT x64 10.0.19045
 {% endcut %}
 
 См. также [Как узнать версию IDE](https://code.visualstudio.com/docs/setup/setup-overview#_how-do-i-know-which-version-im-running).
+
+### Как изменить язык интерфейса плагина {#plugin-language}
+
+Язык интерфейса плагина зависит от установленного языка интерфейса IDE.
 
 ## Работа в IDE от JetBrains {#jetbrains-ide}
 

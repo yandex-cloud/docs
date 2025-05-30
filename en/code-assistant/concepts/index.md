@@ -1,6 +1,6 @@
 # {{ ca-full-name }} overview
 
-{% include [preview-stage](../../_includes/code-assistant/preview-stage.md) %}
+{% include [preview-stage](../../_includes/sourcecraft/preview-stage.md) %}
 
 {% include [about-service](../../_includes/code-assistant/about-service.md) %}
 
@@ -28,10 +28,10 @@ LLMs that are used in {{ ca-name }} have been fine-tuned based on the open-sourc
 
 The suggestion indicator is enabled by default.
 
-For more information on managing the suggestion indicator, see [{#T}](../quickstart.md#help-indicator).
+For more information on managing the suggestion indicator, see [{#T}](../index.md#help-indicator).
 
 
 #### See also {#see-also}
 
-* [{#T}](../quickstart.md)
+* [{#T}](../index.md)
 * [{{ ca-name }} terms of use](https://yandex.com/legal/cloud_terms_code_assistant/)

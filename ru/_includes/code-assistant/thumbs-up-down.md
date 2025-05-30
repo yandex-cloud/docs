@@ -1,0 +1,1 @@
+В правом нижнем углу ответа AI-помощника нажмите ![image](../../_assets/console-icons/thumbs-up.svg) или ![image](../../_assets/console-icons/thumbs-down.svg).

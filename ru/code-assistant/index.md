@@ -5,9 +5,15 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 # Как начать работать с {{ ca-full-name }}
 
-{% include [preview-stage](../_includes/code-assistant/preview-stage.md) %}
+{% include [preview-stage](../_includes/sourcecraft/preview-stage.md) %}
 
 {% include [about-service](../_includes/code-assistant/about-service.md) %}
+
+{% note warning %}
+
+{% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}
+
+{% endnote %}
 
 Чтобы начать работу с сервисом:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -22,12 +28,6 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 
 ## Установите и настройте плагин {#install-plugin}
-
-{% note warning %}
-
-{% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}
-
-{% endnote %}
 
 {% list tabs group=ide %}
 
@@ -113,85 +113,13 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 {% endnote %}
 
-{% include [syntax-support](../_includes/code-assistant/syntax-support.md) %}
+{% include [instruction-autocompletion](../_includes/code-assistant/instruction-autocompletion.md) %}
 
-{% include [auto-manual-modes](../_includes/code-assistant/auto-manual-modes.md) %}
-
-Пример работы с плагином:
-
-1. Откройте IDE и создайте тестовый файл `server.cpp` со следующим содержимым:
-
-    ```cpp
-    // simple web-server to work with sockets
-
-    #include <iostream>
-    #include <string>
-    #include <sys/socket.h>
-    #include <netinet/in.h>
-    #include <unistd.h>
-
-    using namespace std;
-
-    int main() {
-
-    }
-    ```
-
-1. В блоке `int main()` начните вводить текст, например комментарий `//create socket`. Посмотрите предложение от {{ ca-name }}:
-
-    ```cpp
-    ...
-    int main() {
-
-    //create socket
-    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
-
-    }
-    ```
-
-1. Выберите, что делать с предложением:
-
-    {% list tabs group=ide %}
-
-    - Visual Studio Code {#vscode}
-
-      {% include [actions-with-suggestions](../_includes/code-assistant/actions-with-suggestions.md) %}
-
-      * Если предложений несколько, вы можете переключаться между ними с помощью сочетаний клавиш **Alt** + **[** и **Alt** + **]** в Windows/Linux или **Option** + **[** и **Option** + **]** в macOS.
-
-    - IDE от JetBrains {#jb}
-
-      * Чтобы принять предложение, нажмите клавишу **Tab**.
-      * Чтобы отменить предложение, нажмите клавишу **Esc**. 
-
-    {% endlist %}
-
-Видео с демонстрацией работы плагина см. на [странице {{ ca-name }}](https://cloud.yandex.ru/services/code-assistant).
+Протестируйте также [быстрые действия](./operations/quick-actions.md) и работу плагина в [режиме чата](./operations/chat.md).
 
 ### Индикатор генерации или отсутствия подсказки {#help-indicator}
 
-{% include [help-indicator-load](../_includes/code-assistant/help-indicator-load.md) %}
-
-По умолчанию индикатор подсказки включен.
-
-Чтобы выключить или включить индикатор:
-
-{% list tabs group=ide %}
-
-  - Visual Studio Code {#vscode}
-
-    1. На панели снизу справа нажмите на значок плагина ![image](../_assets/code-assistant/vsc-icon-small.svg).
-    1. В открывшемся меню выберите **Settings**.
-    1. В открывшихся настройках выключите или включите опции **Enable Empty Indicator** и **Enable Loading Indicator**.
-
-  - IDE от JetBrains {#jb}
-
-    1. В правом верхнем углу нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Settings...**.
-    1. В колонке слева выберите **{{ ca-full-name }}**.
-    1. Включите или выключите опцию **Disable suggest indicator**.
-    1. Нажмите кнопку **Save** чтобы сохранить настройки.
-
-{% endlist %}
+{% include [instruction-help-indicator](../_includes/code-assistant/help-indicator.md) %}
 
 
 ## Управляйте плагином {#manage-plugin}
@@ -278,3 +206,5 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 #### См. также {#see-also}
 
 * [Обзор {{ ca-name }}](./concepts/index.md)
+* [{#T}](./operations/chat.md)
+* [{#T}](./operations/quick-actions.md)
