@@ -1,6 +1,6 @@
 ---
-title: '{{ yandex-cloud }} {{ support-center-name }}'
-description: 'This guide will help you get started with the {{ yandex-cloud }} {{ support-center-name }}: find troubleshooting recommendations, create or view support tickets, or change your service plan.'
+title: '{{ support-center-name }}'
+description: 'This guide will help you get started with the {{ support-center-name }}: find troubleshooting recommendations, create or view support tickets, or change your service plan.'
 ---
 
 # Working with {{ support-center-name }}

@@ -37,6 +37,14 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
 
 The monthly prices are based on 720 hours per month.
 
+{% note warning %}
+
+{% include [base-zonal-pricing](../_includes/managed-kubernetes/base-zonal-pricing.md) %}
+
+{% include [ha-regional-pricing](../_includes/managed-kubernetes/ha-regional-pricing.md) %}
+
+{% endnote %}
+
 
 
 

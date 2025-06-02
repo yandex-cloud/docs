@@ -11,3 +11,5 @@
 * [Почему перенос данных через создание и восстановление логического дампа завершается ошибкой?](#backup-error)
 
 * [Что делать, если при выполнении логической репликации возникает ошибка `replication slot already exists`?](#repl-slot-exists)
+
+* [Почему при миграции БД в {{ mpg-short-name }} возникает ошибка `extension... is not available`?](#extension-is-not-available)

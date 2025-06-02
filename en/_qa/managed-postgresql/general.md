@@ -60,7 +60,8 @@ The minimum number of hosts depends on the selected type of [storage](../../mana
 * A minimum of one host for these disks:
 
    * Network HDDs (`network-hdd`)
-   * Network SSDs (`network-ssd`)   * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
+   * Network SSDs (`network-ssd`)
+   * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 
 The maximum number of hosts per cluster is subject to the limits in place.

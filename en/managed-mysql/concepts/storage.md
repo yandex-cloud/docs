@@ -28,7 +28,8 @@ The number of hosts you can create together with a {{ MY }} cluster depends on t
 * You can add any number of hosts within the [current quota](./limits.md) when using the following disk types:
 
     * Network HDDs (`network-hdd`)
-    * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
+    * Network SSDs (`network-ssd`)
+    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 

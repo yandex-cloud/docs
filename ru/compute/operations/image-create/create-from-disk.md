@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Посмотрите описание команды CLI для создания образа:
   
-      ```
+      ```bash
       yc compute image create --help
       ```
   
@@ -48,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного диска.
   1. Создайте образ в каталоге по умолчанию:
   
-      ```
+      ```bash
       yc compute image create \
         --name first-image \
         --source-disk-name first-disk \
@@ -59,7 +59,7 @@ description: Следуя данной инструкции, вы сможете
 
       Чтобы создать [оптимизированный образ](../../concepts/image.md#images-optimized-for-deployment), используйте флаг `--pooled`:
 
-      ```
+      ```bash
       yc compute image create \
         --name first-image \
         --source-disk-name first-disk \
@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
 
      Пример структуры конфигурационного файла:
 
-     ```
+     ```hcl
      resource "yandex_compute_image" "image-1" {
        name        = "<имя_образа>"
        source_disk = "<идентификатор_диска>"

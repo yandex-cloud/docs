@@ -1,11 +1,11 @@
 ---
 title: '{{ brand-voice-full-name }}'
-description: 'Из статьи вы узнаете про технологию {{ brand-voice-name }} и три ее направления: {{ brand-voice-premium }}, {{ brand-voice-core }} и {{ brand-voice-cc }}.'
+description: 'Из статьи вы узнаете про технологию {{ brand-voice-name }} и четыре ее направления: {{ brand-voice-premium }}, {{ brand-voice-lite-name }}, {{ brand-voice-core }} и {{ brand-voice-cc }}.'
 ---
 
 # {{ brand-voice-full-name }}
 
-Технология {{ brand-voice-name }} позволяет создавать уникальные голоса для модели синтеза речи. Технология синтезирует как простой текст, так и [текст по шаблонам](../templates.md). Они содержат фразы с _переменными_, которые заменяются на заготовленный текст. В зависимости от целей использования обученной модели {{ yandex-cloud }} предлагает три направления {{ brand-voice-name }}.
+Технология {{ brand-voice-name }} позволяет создавать уникальные голоса для модели синтеза речи. Технология синтезирует как простой текст, так и [текст по шаблонам](../templates.md). Они содержат фразы с _переменными_, которые заменяются на заготовленный текст. В зависимости от целей использования обученной модели {{ yandex-cloud }} предлагает четыре направления {{ brand-voice-name }}.
 
 | | [{{ brand-voice-premium }}](#premium) | [{{ brand-voice-lite-name }}](#lite) | [{{ brand-voice-core }}](#ss) | [{{ brand-voice-cc }}](#cc) |
 |---|---|---|---|---|

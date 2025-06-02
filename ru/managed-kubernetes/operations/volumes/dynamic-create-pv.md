@@ -159,3 +159,10 @@ kubectl delete pvc <идентификатор_объекта_PersistentVolumeCl
 ```
 
 Диск в [{{ compute-full-name }}](../../../compute/) удалится автоматически.
+
+### См. также {#see-also}
+
+* [{#T}](../../concepts/volume.md)
+* [{#T}](./encrypted-disks.md)
+* [{#T}](./static-create-pv.md)
+* [{#T}](./manage-storage-class.md)

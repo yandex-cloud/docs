@@ -262,3 +262,10 @@ description: Следуя данной инструкции, вы сможете
    ```
 
 1. [Удалите диск](../../../compute/operations/disk-control/delete.md) в {{ compute-name }}, связанный с объектом `PersistentVolume`.
+
+### См. также {#see-also}
+
+* [{#T}](../../concepts/volume.md)
+* [{#T}](./encrypted-disks.md)
+* [{#T}](./dynamic-create-pv.md)
+* [{#T}](./manage-storage-class.md)

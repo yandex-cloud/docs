@@ -11,6 +11,8 @@ description: Из статьи вы узнаете, что такое тригг
 
 О том, как создать триггер для {{ yds-name }}, читайте в инструкции [{#T}](../../operations/data-streams-trigger-create.md).
 
+{% include [batching-messages](../../../_includes/serverless-containers/batching-messages.md) %}
+
 ## Роли, необходимые для корректной работы триггера для {{ yds-name }} {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [editor](../../../iam/concepts/access-control/roles#editor) и выше.

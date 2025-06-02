@@ -111,6 +111,8 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Управление классами хранилищ
             href: operations/volumes/manage-storage-class.md
+          - name: Зашифрованные диски для постоянных томов
+            href: operations/volumes/encrypted-disks.md
           - name: Увеличение размера тома для подов
             href: operations/volumes/volume-expansion.md
           - name: Увеличение размера тома для контроллера StatefulSet
