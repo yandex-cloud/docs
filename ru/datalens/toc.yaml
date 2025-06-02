@@ -832,6 +832,8 @@ items:
         href: reports/index.md
       - name: Работа с отчетами
         href: reports/report-operations.md
+      - name: Селекторы в отчетах
+        href: reports/add-selector.md
       - name: Версионирование
         href: reports/versioning.md
   - name: Управление доступом

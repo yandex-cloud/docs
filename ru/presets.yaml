@@ -495,10 +495,10 @@ default:
       pro: https://postgrespro.ru/docs
     versions:
       console:
-        str-1c: 13-1c, 14-1c, 15-1c и 16-1c
+        str-1c: 13-1c, 14-1c, 15-1c, 16-1c и 17-1c
       tf:
         latest: '17'
-        str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c и 17
+        str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, 17 и 17-1c
   pgadmin: "pgAdmin\_4"
   php-cli-ver: php82
   php-full-ver: PHP 8.2
@@ -580,6 +580,7 @@ default:
   roles-lockbox-editor: lockbox.editor
   roles-lockbox-payloadviewer: lockbox.payloadViewer
   roles-lockbox-viewer: lockbox.viewer
+  roles-logging-reader: logging.reader
   roles-logging-writer: logging.writer
   roles-mdb-admin: mdb.admin
   roles-monitoring-editor: monitoring.editor
@@ -588,6 +589,7 @@ default:
   roles-organization-owner: organization-manager.organizations.owner
   roles-resource-manager-editor: resource-manager.editor
   roles-search-api-executor: search-api.executor
+  roles-serverless-containers-invoker: serverless-containers.containerInvoker
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-speechsense-admin: Admin
@@ -5317,6 +5319,8 @@ default:
         v1|int|string: Не тарифицируется
         v1|pricingRate:
           1|string: "2,999999\_$"
+      sync:
+        v3|string: "3,999998\_$"
   sku|USD|security_deck:
     access_transparency:
       subscription:
@@ -11064,8 +11068,14 @@ default:
         add-key: Добавить ключ
         additional:
           separators:
-            finish: Конец диалога
-            start: Начало диалога
+            finish:
+              help: >-
+                Если в диалоге обнаружена ключевая фраза, это будет считаться
+                окончанием диалога.
+            start:
+              help: >-
+                Если в диалоге обнаружена ключевая фраза, это будет считаться
+                началом диалога.
           slice-length: Длина отрезка
           split:
             title: Разбивать диалоги на отрезки

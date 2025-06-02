@@ -122,13 +122,11 @@ All prices below do not include VAT.
 
 ### Storage and backups {#prices-storage}
 
-
 {% note info %}
 
 Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
-
 
 
 

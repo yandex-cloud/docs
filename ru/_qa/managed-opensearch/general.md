@@ -75,3 +75,14 @@ The revocation function was unable to check revocation for the certificate
 
 {% include notitle [attach-sa](../../_qa/attach-sa.md) %}
 
+#### Почему при активации трансфера возникает ошибка `Unable to confirm permission`? {#data-transfer-error}
+
+Полный текст ошибки:
+
+```text
+Unable to confirm permission 'data-transfer.transfers.createExternal'
+```
+
+Эта ошибка возникает, если трансфер выполняется в БД пользовательской инсталляции {{ OS }} или из нее, но в настройках эндпоинта {{ OS }} не указан идентификатор подсети.
+
+Чтобы исправить ошибку, укажите в настройках эндпоинта {{ OS }} идентификатор подсети, даже если источник и приемник доступны друг для друга без интернета.

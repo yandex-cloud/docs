@@ -42,3 +42,18 @@
 
 1. Привяжите подписку к существующему слоту репликации. Для этого добавьте в запрос для создания подписки параметр `create_slot = false`.
 1. [Удалите существующий слот репликации](../../managed-postgresql/operations/replication-slots.md#delete) и попробуйте создать подписку еще раз.
+
+#### Почему при миграции БД в {{ mpg-short-name }} возникает ошибка `extension... is not available`? {#extension-is-not-available}
+
+Текст ошибки:
+
+```text
+extension "<название_расширения>" is not available
+```
+
+Ошибка может возникнуть при миграции БД в {{ mpg-short-name }} с помощью скрипта, который пытается установить и использовать [расширение {{ PG }}](../../managed-postgresql/operations/extensions/cluster-extensions.md). Причина ошибки в том, что в кластерах {{ mpg-short-name }} нельзя управлять расширениями {{ PG }} с помощью команд SQL.
+
+Чтобы избежать ошибки:
+
+1. Если скрипт или логический дамп имеют текстовый формат, удалите из них операторы для создания расширений {{ PG }}.
+1. [Установите](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) все необходимые расширения в базе-приемнике с помощью интерфейсов {{ yandex-cloud }}.

@@ -5314,6 +5314,8 @@ default:
         v1|int|string: Free
         v1|pricingRate:
           1|string: $2.999999
+      sync:
+        v3|string: $3.999998
   sku|USD|security_deck:
     access_transparency:
       subscription:
@@ -11055,6 +11057,20 @@ default:
         'yes': 'Yes'
       connections:
         add-key: Add key
+        additional:
+          separators:
+            finish:
+              help: >-
+                If a key phrase is detected in the dialog, it will be considered
+                the end of the dialog.
+            start:
+              help: >-
+                If a key phrase is found in the dialog, it will be considered
+                the start of the dialog.
+          slice-length: Slice length
+          split:
+            title: Split dialogs by slices
+          title: Additional
         column:
           description: Description
           name: Name in the system

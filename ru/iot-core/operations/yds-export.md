@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Экспорт сообщений в {{ yds-name }}
 
+{% note info %}
+
+{% include [yds-export-topics](../../_includes/iot-core/yds-export-topics.md) %}
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

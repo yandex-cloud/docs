@@ -78,6 +78,7 @@
         
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
+        * {% include [WebSQL access](../../_includes/mdb/console/websql-access.md) %}
 
 
 
@@ -248,13 +249,15 @@
         {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
            --datalens-access=<доступ_из_{{ datalens-name }}> \
-           --yandexquery-access=<доступ_из_Yandex_Query>
+           --yandexquery-access=<доступ_из_Yandex_Query> \
+           --websql-access=<true_или_false>
         ```
 
         Доступные сервисы:
 
         * `--datalens-access` — [{{ datalens-full-name }}](../../datalens/concepts/index.md);
-        * `--yandexquery-access` — [{{ yq-full-name }}](../../query/concepts/index.md).
+        * `--yandexquery-access` — [{{ yq-full-name }}](../../query/concepts/index.md);
+        * `--websql-access` — [{{ websql-full-name }}](../../websql/concepts/index.md).
 
 
 

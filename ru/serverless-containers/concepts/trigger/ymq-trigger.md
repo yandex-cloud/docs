@@ -10,6 +10,8 @@
 
 О том, как создать триггер для {{ message-queue-short-name }}, читайте в инструкции [{#T}](../../operations/ymq-trigger-create.md).
 
+{% include [batching-messages](../../../_includes/serverless-containers/batching-messages.md) %}
+
 ## Роли, необходимые для корректной работы триггера для {{ message-queue-short-name }} {#roles}
 
 * Для создания триггера вам необходимы: 
