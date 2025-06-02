@@ -18,9 +18,13 @@ description: Из статьи вы узнаете, что такое шифро
 
 Управление этими ключами обеспечивает {{ yandex-cloud }}.
 
-Также доступно [шифрование секретов {{ k8s }}](#k8s-secrets-encryption) с помощью [симметричного ключа шифрования](../../kms/concepts/key.md), который хранится в сервисе [{{ kms-full-name }}](../../kms/concepts/index.md).
+## Шифрование с помощью пользовательских симметричных ключей {#kms-keys-encryption}
 
-Управление таким ключом происходит на стороне пользователя, что дает дополнительные возможности:
+В {{ managed-k8s-name }} поддерживается шифрование с помощью [пользовательских симметричных ключей](../../kms/concepts/key.md) {{ kms-full-name }} для следующих ресурсов:
+* [Секреты {{ k8s }}](#k8s-secrets-encryption)
+* [Диски для постоянных томов](./volume.md#encrypted-disks)
+
+Управление такими ключами происходит на стороне пользователя, что дает дополнительные возможности:
 
 * Аудит [событий](../../kms/at-ref.md), связанных с использованием ключа, с помощью сервиса [{{ at-full-name }}](../../audit-trails/).
 * Отслеживание работы с ключами с помощью сервиса [{{ monitoring-full-name }}](../../monitoring/).
@@ -34,7 +38,7 @@ description: Из статьи вы узнаете, что такое шифро
 
     {% endnote %}
 
-## Шифрование секретов {{ k8s }} {#k8s-secrets-encryption}
+### Шифрование секретов {{ k8s }} {#k8s-secrets-encryption}
 
 [_Секрет {{ k8s }}_](https://kubernetes.io/docs/concepts/configuration/secret/) — конфиденциальная информация, используемая кластером {{ k8s }} при управлении подами, например, OAuth-ключи, пароли, [SSH-ключи](../../glossary/ssh-keygen.md) и т. д.
 
@@ -68,6 +72,7 @@ description: Из статьи вы узнаете, что такое шифро
 
 * [{#T}](../tutorials/kms-k8s.md)
 * [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+* [{#T}](../operations/volumes/encrypted-disks.md)
 
 
 * [{#T}](../tutorials/kubernetes-lockbox-secrets.md)

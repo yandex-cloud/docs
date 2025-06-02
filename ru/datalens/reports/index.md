@@ -31,6 +31,7 @@ _Отчет_ — это многостраничный документ зада
    * ![icon](../../_assets/console-icons/magnifier-plus.svg) — увеличивает масштаб отображения отчета.
    * ![icon](../../_assets/console-icons/square-dashed.svg) — сбрасывает масштаб отображения отчета и располагает его в центре экрана.
    * ![icon](../../_assets/console-icons/gear.svg) — открывает окно [настроек текущей страницы](./report-operations.md#page-settings).
+   * ![icon](../../_assets/console-icons/funnel.svg) — открывает окно [настройки селекторов](./report-operations.md#add-selector) отчета.
 
 1. Область для работы с содержимым текущей страницы отчета.
 

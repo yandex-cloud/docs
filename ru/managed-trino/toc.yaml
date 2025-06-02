@@ -8,20 +8,26 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Изменение кластера
-        href: operations/cluster-update.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
-      - name: Подключение к кластеру
-        href: operations/connect.md
-      - name: Просмотр логов кластера
-        href: operations/cluster-logs.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
+      - name: Кластеры
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Изменение кластера
+            href: operations/cluster-update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Подключение к кластеру
+            href: operations/connect.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Логи и мониторинг
+        items:
+          - name: Мониторинг состояния кластера
+            href: operations/monitoring.md
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

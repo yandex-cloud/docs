@@ -25,7 +25,8 @@ The number of broker hosts you can create together with an {{ KF }} cluster depe
 * You can add any number of broker hosts within the current quota when using the following disk types:
 
     * Network HDDs (`network-hdd`)
-    * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
+    * Network SSDs (`network-ssd`)
+    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of broker hosts per cluster, see [Quotas and limits](./limits.md).
 

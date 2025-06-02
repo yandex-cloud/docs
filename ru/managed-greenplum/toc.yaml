@@ -27,6 +27,8 @@ items:
             href: operations/cluster-delete.md
       - name: Подключение к базе данных
         href: operations/connect.md
+      - name: Запросы в {{ websql-full-name }}
+        href: operations/web-sql-query.md
       - name: Пользователи и сессии
         items:
           - name: Управление ролями и пользователями

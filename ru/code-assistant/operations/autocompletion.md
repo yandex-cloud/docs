@@ -3,7 +3,7 @@ title: Работа с {{ ca-full-name }} в режиме автодополне
 description: Как использовать {{ ca-name }} в режиме автодополнения кода.
 ---
 
-# Автодополнением кода в {{ ca-full-name }}
+# Автодополнение кода в {{ ca-full-name }}
 
 {% include [vscode-ui-language](../../_includes/code-assistant/vscode-ui-language.md) %}
 

@@ -302,6 +302,7 @@ description: Следуя данной инструкции, вы сможете
         
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
+        * {% include [WebSQL access](../../_includes/mdb/console/websql-access.md) %}
 
 
 
@@ -350,6 +351,7 @@ description: Следуя данной инструкции, вы сможете
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
+            --websql-access=<true_или_false> \
             --deletion-protection
         ```
 
@@ -364,6 +366,8 @@ description: Следуя данной инструкции, вы сможете
     * `--datalens-access` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
 
     * `--yandexquery-access` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+
+    * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
 
 
