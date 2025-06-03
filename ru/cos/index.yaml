@@ -6,23 +6,6 @@ description:
     Docker-контейнеров. Образ Container Optimized Image также доступен в <a
     href="/marketplace/products/yc/container-optimized-image">Cloud
     Marketplace</a>.
-meta:
-  title: Yandex Container Solution
-  description: >-
-    Yandex Container Solution — это сценарии использования на базе виртуальных
-    машин с образом Container Optimized Image, оптимизированных для запуска
-    Docker-контейнеров.
-  keywords:
-    - keyword: '{{ cos-short-name }}'
-    - keyword: '{{ cos-name }}'
-    - keyword: '{{ cos-full-name }}'
-    - keyword: сервис {{ cos-name }}
-    - keyword: '{{ coi }} в {{ yandex-cloud }}'
-    - keyword: '{{ cos-short-name }} в {{ yandex-cloud }}'
-    - keyword: '{{ coi }}'
-    - keyword: coi
-    - keyword: оптимизация запуска docker-контейнеров
-    - keyword: Docker-контейнеры в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первую ВМ на основе образа Container Optimized Image
@@ -45,3 +28,20 @@ links:
   - title: Решение проблем
     description: Часто возникающие ошибки и способы их решения
     href: error/
+meta:
+  title: Yandex Container Solution
+  description: >-
+    Yandex Container Solution — это сценарии использования на базе виртуальных
+    машин с образом Container Optimized Image, оптимизированных для запуска
+    Docker-контейнеров.
+  keywords:
+    - '{{ cos-short-name }}'
+    - '{{ cos-name }}'
+    - '{{ cos-full-name }}'
+    - сервис {{ cos-name }}
+    - '{{ coi }} в {{ yandex-cloud }}'
+    - '{{ cos-short-name }} в {{ yandex-cloud }}'
+    - '{{ coi }}'
+    - coi
+    - оптимизация запуска docker-контейнеров
+    - Docker-контейнеры в {{ yandex-cloud }}

@@ -7,11 +7,6 @@ description:
   - >-
     SpeechKit Hybrid is based on the same speech synthesis and recognition
     models as SpeechKit.
-meta:
-  title: Yandex SpeechKit Hybrid
-  description: >-
-    SpeechKit Hybrid is the Yandex SpeechKit technology running inside your
-    infrastructure.
 links:
   - title: Getting started
     description: Learn how to deploy the service on your hardware
@@ -31,3 +26,8 @@ links:
   - title: Using the API
     description: Learn about API authentication and review the API references
     href: auth
+meta:
+  title: Yandex SpeechKit Hybrid
+  description: >-
+    SpeechKit Hybrid is the Yandex SpeechKit technology running inside your
+    infrastructure.

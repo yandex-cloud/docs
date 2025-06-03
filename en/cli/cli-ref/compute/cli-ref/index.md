@@ -203,6 +203,7 @@ Syntax:
 	- [yc compute snapshot-schedule add-access-binding](snapshot-schedule/add-access-binding.md) — Add access binding for the specified snapshot schedule
 	- [yc compute snapshot-schedule add-disks](snapshot-schedule/add-disks.md) — Add disks to the specified snapshot schedule
 	- [yc compute snapshot-schedule add-labels](snapshot-schedule/add-labels.md) — Add labels to specified snapshot schedule
+	- [yc compute snapshot-schedule add-snapshot-labels](snapshot-schedule/add-snapshot-labels.md) — Add labels to specified snapshot specification of snapshot schedule
 	- [yc compute snapshot-schedule create](snapshot-schedule/create.md) — Create a snapshot schedule
 	- [yc compute snapshot-schedule delete](snapshot-schedule/delete.md) — Delete the specified snapshot schedule
 	- [yc compute snapshot-schedule disable](snapshot-schedule/disable.md) — Disable the specified snapshot schedule
@@ -216,6 +217,7 @@ Syntax:
 	- [yc compute snapshot-schedule remove-access-binding](snapshot-schedule/remove-access-binding.md) — Remove access binding for the specified snapshot schedule
 	- [yc compute snapshot-schedule remove-disks](snapshot-schedule/remove-disks.md) — Remove disks from the specified snapshot schedule
 	- [yc compute snapshot-schedule remove-labels](snapshot-schedule/remove-labels.md) — Remove labels from specified snapshot schedule
+	- [yc compute snapshot-schedule remove-snapshot-labels](snapshot-schedule/remove-snapshot-labels.md) — Remove labels from specified snapshot specification of snapshot schedule
 	- [yc compute snapshot-schedule set-access-bindings](snapshot-schedule/set-access-bindings.md) — Set access bindings for the specified snapshot schedule and delete all existing access bindings if there were any
 	- [yc compute snapshot-schedule update](snapshot-schedule/update.md) — Update the specified snapshot schedule
 - [yc compute ssh](ssh/index.md) — Connect to instance. By default uses any available ip address

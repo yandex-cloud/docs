@@ -3,25 +3,6 @@ description:
   - >-
     Yandex SmartCaptcha lets you determine who the system user is: an individual
     or a computer.
-meta:
-  title: Yandex SmartCaptcha
-  description: >-
-    Yandex SmartCaptcha lets you determine who the system user is: an individual
-    or a computer.
-  keywords:
-    - keyword: captcha
-    - keyword: captcha {{ captcha-name }}
-    - keyword: captcha
-    - keyword: captcha in {{ captcha-name }}
-    - keyword: smartcaptcha
-    - keyword: captcha widget
-    - keyword: '{{ captcha-name }}'
-    - keyword: '{{ captcha-name }} widget'
-    - keyword: user validation
-    - keyword: '{{ captcha-name }} validation'
-    - keyword: captcha in {{ yandex-cloud }}
-    - keyword: '{{ captcha-name }} in {{ yandex-cloud }}'
-    - keyword: human verification {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Set up the first widget and check the user
@@ -50,3 +31,22 @@ links:
   - title: Demo page
     description: See how SmartCaptcha works
     href: https://smartcaptcha.yandexcloud.net/demo
+meta:
+  title: Yandex SmartCaptcha
+  description: >-
+    Yandex SmartCaptcha lets you determine who the system user is: an individual
+    or a computer.
+  keywords:
+    - captcha
+    - captcha {{ captcha-name }}
+    - captcha
+    - captcha in {{ captcha-name }}
+    - smartcaptcha
+    - captcha widget
+    - '{{ captcha-name }}'
+    - '{{ captcha-name }} widget'
+    - user validation
+    - '{{ captcha-name }} validation'
+    - captcha in {{ yandex-cloud }}
+    - '{{ captcha-name }} in {{ yandex-cloud }}'
+    - human verification {{ yandex-cloud }}

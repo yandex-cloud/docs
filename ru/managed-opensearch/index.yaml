@@ -4,21 +4,6 @@ description:
     Сервис {{ mos-name }} помогает разворачивать и поддерживать кластеры
     серверов {{ OS }} в инфраструктуре {{ yandex-cloud }}.
   - "Инфраструктура {{ yandex-cloud }} <a href=\"/docs/security/conform\">защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
-meta:
-  title: '{{ mos-full-name }}'
-  description: >-
-    Сервис {{ mos-name }} помогает разворачивать и поддерживать кластеры
-    серверов {{ OS }} в инфраструктуре {{ yandex-cloud }}.
-  keywords:
-    - keyword: '{{ mos-name }}'
-    - keyword: '{{ mos-full-name }}'
-    - keyword: Сервис {{ mos-name }}
-    - keyword: '{{ OS }} в {{ yandex-cloud }}'
-    - keyword: Кластер {{ OS }}
-    - keyword: Кластеры серверов {{ OS }}
-    - keyword: '{{ OS }}'
-    - keyword: Опенсерч
-    - keyword: '{{ OS }} в облаке'
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
@@ -41,3 +26,18 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: '{{ mos-full-name }}'
+  description: >-
+    Сервис {{ mos-name }} помогает разворачивать и поддерживать кластеры
+    серверов {{ OS }} в инфраструктуре {{ yandex-cloud }}.
+  keywords:
+    - '{{ mos-name }}'
+    - '{{ mos-full-name }}'
+    - Сервис {{ mos-name }}
+    - '{{ OS }} в {{ yandex-cloud }}'
+    - Кластер {{ OS }}
+    - Кластеры серверов {{ OS }}
+    - '{{ OS }}'
+    - Опенсерч
+    - '{{ OS }} в облаке'

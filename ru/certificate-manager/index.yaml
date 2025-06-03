@@ -6,30 +6,6 @@ description:
     сертификатов, которые можно использовать для доступа к сайтам, шлюзам API
     Gateway и ресурсам Cloud CDN по протоколу HTTPS, а также для обработки
     TLS-трафика в Application Load Balancer.
-meta:
-  title: Yandex Certificate Manager
-  description: >-
-    Yandex Certificate Manager — сервис для получения и обновления
-    TLS-сертификатов от Let's Encrypt, а также для загрузки собственных
-    сертификатов, которые можно использовать для доступа к сайтам, шлюзам API
-    Gateway и ресурсам Cloud CDN по протоколу HTTPS, а также для обработки
-    TLS-трафика в Application Load Balancer.
-  keywords:
-    - keyword: сертификаты в {{ yandex-cloud }}
-    - keyword: TLS сертификат
-    - keyword: SSL сертификат
-    - keyword: TLS сертификат в {{ certificate-manager-name }}
-    - keyword: сертификат в {{ certificate-manager-name }}
-    - keyword: '{{ certificate-manager-name }} в {{ yandex-cloud }}'
-    - keyword: Encrypt в {{ yandex-cloud }}
-    - keyword: Let's Encrypt в {{ certificate-manager-name }}
-    - keyword: Let's Encrypt certificate
-    - keyword: '{{ certificate-manager-full-name }}'
-    - keyword: '{{ certificate-manager-name }}'
-    - keyword: сервис {{ certificate-manager-name }}
-    - keyword: сертификат безопасности в {{ yandex-cloud }}
-    - keyword: валидация в {{ certificate-manager-name }}
-    - keyword: терминирование в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый сертификат
@@ -52,3 +28,27 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Certificate Manager
+  description: >-
+    Yandex Certificate Manager — сервис для получения и обновления
+    TLS-сертификатов от Let's Encrypt, а также для загрузки собственных
+    сертификатов, которые можно использовать для доступа к сайтам, шлюзам API
+    Gateway и ресурсам Cloud CDN по протоколу HTTPS, а также для обработки
+    TLS-трафика в Application Load Balancer.
+  keywords:
+    - сертификаты в {{ yandex-cloud }}
+    - TLS сертификат
+    - SSL сертификат
+    - TLS сертификат в {{ certificate-manager-name }}
+    - сертификат в {{ certificate-manager-name }}
+    - '{{ certificate-manager-name }} в {{ yandex-cloud }}'
+    - Encrypt в {{ yandex-cloud }}
+    - Let's Encrypt в {{ certificate-manager-name }}
+    - Let's Encrypt certificate
+    - '{{ certificate-manager-full-name }}'
+    - '{{ certificate-manager-name }}'
+    - сервис {{ certificate-manager-name }}
+    - сертификат безопасности в {{ yandex-cloud }}
+    - валидация в {{ certificate-manager-name }}
+    - терминирование в {{ yandex-cloud }}

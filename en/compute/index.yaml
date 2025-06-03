@@ -22,22 +22,6 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.ru/legal/cloud_sla_compute">Yandex Compute Cloud
     Service Level</a>.
-meta:
-  title: Yandex Compute Cloud
-  description: >-
-    Yandex Compute Cloud provides scalable computing capacity to create and
-    manage virtual machines.
-  keywords:
-    - keyword: compute
-    - keyword: yandex compute
-    - keyword: '{{ compute-name }}'
-    - keyword: '{{ compute-full-name }}'
-    - keyword: '{{ compute-name }}'
-    - keyword: VMs in {{ yandex-cloud }}
-    - keyword: '{{ yandex-cloud }} VM'
-    - keyword: '{{ yandex-cloud }} virtual resources'
-    - keyword: virtual machines
-    - keyword: cloud resources
 links:
   - title: Getting started
     description: Create your first VM instance or instance group
@@ -66,3 +50,19 @@ links:
   - title: FAQ
     description: Answers to frequently asked questions
     href: qa/all
+meta:
+  title: Yandex Compute Cloud
+  description: >-
+    Yandex Compute Cloud provides scalable computing capacity to create and
+    manage virtual machines.
+  keywords:
+    - compute
+    - yandex compute
+    - '{{ compute-name }}'
+    - '{{ compute-full-name }}'
+    - '{{ compute-name }}'
+    - VMs in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} VM'
+    - '{{ yandex-cloud }} virtual resources'
+    - virtual machines
+    - cloud resources

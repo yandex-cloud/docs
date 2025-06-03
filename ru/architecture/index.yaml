@@ -3,17 +3,17 @@ description:
   - >-
     Архитектурные решения и рекомендации для реализации пользовательских
     сценариев в Yandex Cloud.
+links:
+  - title: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
+    href: fault-tolerance
 meta:
   title: Архитектурные решения
   description: >-
     Архитектурные решения и рекомендации для реализации пользовательских
     сценариев в Yandex Cloud.
   keywords:
-    - keyword: Архитектурные решения в {{ yandex-cloud }}
-    - keyword: Пользовательские сценарии в {{ yandex-cloud }}
-    - keyword: Рекомендации {{ yandex-cloud }}
-    - keyword: Архитектурные решения
-    - keyword: Пользовательские сценарии
-links:
-  - title: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
-    href: fault-tolerance
+    - Архитектурные решения в {{ yandex-cloud }}
+    - Пользовательские сценарии в {{ yandex-cloud }}
+    - Рекомендации {{ yandex-cloud }}
+    - Архитектурные решения
+    - Пользовательские сценарии

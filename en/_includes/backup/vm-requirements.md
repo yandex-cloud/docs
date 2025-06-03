@@ -1,4 +1,4 @@
-Minimum VM and {{ baremetal-name }} server specification to install and correctly run the {{ backup-name }} agent:
+The minimum VM and {{ baremetal-name }} server specification to install and correctly run the {{ backup-name }} agent is as follows:
 
 * Free disk space:
 

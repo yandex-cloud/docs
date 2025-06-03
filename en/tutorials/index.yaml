@@ -3,11 +3,6 @@ description:
   - >-
     These tutorials will help you meet various challenges with {{ yandex-cloud
     }} services.
-meta:
-  title: Tutorials
-  description: >-
-    These tutorials will help you meet various challenges with {{ yandex-cloud
-    }} services.
 links:
   - title: Security
     description: Set up infrastructure security using {{ yandex-cloud }}
@@ -49,3 +44,8 @@ links:
       Use the capabilities offered by {{ yandex-cloud }} to create machine
       learning and artificial intelligence solutions
     href: ml-ai/
+meta:
+  title: Tutorials
+  description: >-
+    These tutorials will help you meet various challenges with {{ yandex-cloud
+    }} services.

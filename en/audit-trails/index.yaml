@@ -10,25 +10,6 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_audittrails/">Yandex Audit Trails
     Service Level</a>.
-meta:
-  title: Yandex Audit Trails
-  description: >-
-    Yandex Audit Trails is a service for collecting and exporting audit logs of
-    Yandex Cloud resources.
-  keywords:
-    - keyword: audit trails
-    - keyword: audit logs
-    - keyword: '{{ at-name }} logs'
-    - keyword: events in {{ at-name }}
-    - keyword: events in {{ at-name }}
-    - keyword: '{{ at-name }} in {{ yandex-cloud }}'
-    - keyword: '{{ at-name }}'
-    - keyword: '{{ at-full-name }}'
-    - keyword: '{{ at-name }}'
-    - keyword: '{{ yandex-cloud }} logs'
-    - keyword: '{{ at-name }} trails'
-    - keyword: trails in {{ yandex-cloud }}
-    - keyword: security events
 links:
   - title: Getting started
     description: Connect the service
@@ -51,3 +32,22 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Audit Trails
+  description: >-
+    Yandex Audit Trails is a service for collecting and exporting audit logs of
+    Yandex Cloud resources.
+  keywords:
+    - audit trails
+    - audit logs
+    - '{{ at-name }} logs'
+    - events in {{ at-name }}
+    - events in {{ at-name }}
+    - '{{ at-name }} in {{ yandex-cloud }}'
+    - '{{ at-name }}'
+    - '{{ at-full-name }}'
+    - '{{ at-name }}'
+    - '{{ yandex-cloud }} logs'
+    - '{{ at-name }} trails'
+    - trails in {{ yandex-cloud }}
+    - security events

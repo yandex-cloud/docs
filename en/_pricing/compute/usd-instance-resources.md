@@ -37,5 +37,10 @@
 | 100% vCPU | {{ sku|USD|compute_gpu.vm.cpu.c100.gpu-standard.v3i|string }} | {{ sku|USD|compute_gpu.vm.cpu.c100.gpu-standard.preemptible.v3i|string }} | - | - |
 | 1 GPU | {{ sku|USD|compute_gpu.vm.gpu.gpu-standard.v3i|string }} | {{ sku|USD|compute_gpu.vm.gpu.gpu-standard.preemptible.v3i|string }} | - | - |
 | RAM (for 1 GB) | {{ sku|USD|compute_gpu.vm.ram.gpu-standard.v3i|string }} | {{ sku|USD|compute_gpu.vm.ram.gpu-standard.preemptible.v3i|string }} | - | - |
+| **AMD Zen 3**^*^ | Regular VM | Preemptible&nbsp;VM | | |
+| 20% vCPU | $0.003960 | $0.001260 | − | − |
+| 50% vCPU | $0.005760 | $0.001800 | − | − |
+| 100% vCPU | $0.009450 | $0.002610 | − | − |
+| RAM (за 1 ГБ) | $0.002520 | $0.000630 | − | − |
 
 ^*^ Feature is available on request, subject to technical availability.

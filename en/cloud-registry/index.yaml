@@ -28,20 +28,6 @@ description:
     pursuant to the Russian Federal Law 152-FZ on Personal Data and complies
     with international (ISO, GDPR, PCI DSS) and Russian (GOST R 57580) national
     standards.
-meta:
-  title: Yandex Cloud Registry
-  description: >-
-    Yandex Cloud Registry is a service to store and manage your development
-    artifacts.
-  keywords:
-    - keyword: '{{ cloud-registry-name }}'
-    - keyword: '{{ cloud-registry-full-name }}'
-    - keyword: '{{ cloud-registry-name }}'
-    - keyword: registries in {{ yandex-cloud }}
-    - keyword: artifacts in {{ yandex-cloud }}
-    - keyword: application registry
-    - keyword: cloud registry
-    - keyword: development artifacts
 links:
   - title: Getting started
     description: Create your first artifact registry
@@ -58,3 +44,17 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Cloud Registry
+  description: >-
+    Yandex Cloud Registry is a service to store and manage your development
+    artifacts.
+  keywords:
+    - '{{ cloud-registry-name }}'
+    - '{{ cloud-registry-full-name }}'
+    - '{{ cloud-registry-name }}'
+    - registries in {{ yandex-cloud }}
+    - artifacts in {{ yandex-cloud }}
+    - application registry
+    - cloud registry
+    - development artifacts

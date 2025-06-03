@@ -51,12 +51,12 @@
       * `network-id`: ID of the [network](../../../vpc/concepts/network.md) the VM resides in.
       * `rule`: Rule description:
 
-          * `direction`: Traffic direction. `egress` for outgoing.
+          * `direction`: Traffic direction, where `egress` stands for outgoing traffic.
           * `port`: Port for receiving traffic.
           * `from-port`: First port in the traffic port range.
           * `to-port`: Last port in the traffic port range.
           * `protocol`: Data transfer protocol.
-          * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets the traffic will be coming to.
+          * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets the traffic will come to.
 
       Result:
 
@@ -174,7 +174,7 @@
       * `egress`: Description of the outgoing traffic [rule](../../../vpc/concepts/network.md#security-groups-rules):
 
           * `protocol`: Data transfer protocol.
-          * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets the traffic will be coming to.
+          * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets the traffic will come to.
           * `port`: Port for receiving traffic.
           * `from_port`: First port in the traffic port range.
           * `to_port`: Last port in the traffic port range.
@@ -183,7 +183,7 @@
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+      {{ TF }} will create all required resources. You can check the new resources using the [management console]({{ link-console-main }}).
 
     For more information about `yandex_vpc_security_group` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/vpc_security_group).
 

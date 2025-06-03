@@ -77,7 +77,7 @@
 
   {% include [terraform-install](../../terraform-install.md) %}
 
-  1. Describe the resource parameters in the configuration file:
+  1. Describe the resource properties in the configuration file:
 
       ```hcl
       resource "yandex_iam_service_account" "backup-sa" {
@@ -97,14 +97,14 @@
       * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description.
       * `yandex_resourcemanager_folder_iam_member`: Service account access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
 
-          * `role`: [Role](../../../backup/security/index.md#backup-editor).
+          * `role`: [Role](../../../backup/security/index.md#backup-editor) being assigned.
           * `member`: Subject the role is assigned to.
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+      {{ TF }} will create all required resources. You can check the new resources using the [management console]({{ link-console-main }}).
 
   For more information about resource parameters, see the relevant provider documentation:
 

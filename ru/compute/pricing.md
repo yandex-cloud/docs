@@ -7,6 +7,14 @@ editable: false
 
 # Правила тарификации для {{ compute-name }}
 
+
+{% note warning %}
+
+Цены на платформу AMD Zen 3 начнут действовать с 13 июня 2025 года.
+
+{% endnote %}
+
+
 {% note tip %}
 
 

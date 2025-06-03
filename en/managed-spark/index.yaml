@@ -14,11 +14,6 @@ description:
     trademarks or trademarks of Apache Software Foundation in the United States
     and/or other countries.</em>
 noIndex: true
-meta:
-  title: '{{ msp-full-name }}'
-  description: >-
-    {{ msp-name }} helps you deploy and maintain {{ SPRK }} clusters in the {{
-    yandex-cloud }} infrastructure.
 links:
   - title: Getting started
     description: Get started with {{ msp-full-name }}
@@ -38,3 +33,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: '{{ msp-full-name }}'
+  description: >-
+    {{ msp-name }} helps you deploy and maintain {{ SPRK }} clusters in the {{
+    yandex-cloud }} infrastructure.

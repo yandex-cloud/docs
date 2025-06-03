@@ -1,9 +1,6 @@
 title: Ready-made solutions for known use cases
 description:
   - "Known solutions and tips for\_optimal consumption Yandex Cloud services."
-meta:
-  title: Troubleshooting
-  description: Known solutions and tips for optimal consumption Yandex Cloud services.
 links:
   - title: Billing
     description: Solutions for Cloud Billing
@@ -53,3 +50,6 @@ links:
   - title: VPC
     description: Solutions for Virtual Private Cloud
     href: vpc/
+meta:
+  title: Troubleshooting
+  description: Known solutions and tips for optimal consumption Yandex Cloud services.

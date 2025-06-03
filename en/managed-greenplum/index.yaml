@@ -13,11 +13,6 @@ description:
     <em>Greenplum<sup>®</sup> and Greenplum Database<sup>®</sup> are registered
     trademarks or trademarks of VMware, Inc. in the United States and/or other
     countries.</em>
-meta:
-  title: Yandex Managed Service for Greenplum®
-  description: >-
-    Yandex Managed Service for Greenplum® enables you to deploy and maintain
-    Greenplum clusters® in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create your first cluster
@@ -40,3 +35,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing/
+meta:
+  title: Yandex Managed Service for Greenplum®
+  description: >-
+    Yandex Managed Service for Greenplum® enables you to deploy and maintain
+    Greenplum clusters® in the Yandex Cloud infrastructure.

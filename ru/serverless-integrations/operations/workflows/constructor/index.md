@@ -30,6 +30,7 @@ description: Из статьи вы узнаете, как работать с �
 
 * [Switch](./switch.md)
 * [Foreach](./foreach.md)
+* [While](./while.md)
 * [Parallel](./parallel.md)
 * [No op](./noop.md)
 * [Fail](./fail.md)

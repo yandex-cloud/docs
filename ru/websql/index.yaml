@@ -15,8 +15,6 @@ description:
     23 и выше.</li> <li>Redis/Valkey™ (только нешардированные кластеры): 6 и
     выше.</li> <li>MongoDB: 6 и выше.</li> <li>Yandex Managed Service for Trino:
     454 и выше.</li> <li>Greenplum®: 6 и выше.</li>     </ul>
-meta:
-  title: Yandex WebSQL
 links:
   - title: Начало работы
     description: Подключитесь к базе данных
@@ -36,3 +34,5 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex WebSQL

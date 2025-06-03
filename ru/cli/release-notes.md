@@ -7,6 +7,64 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.150.0 (02.06.25) {#version0.150.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ baremetal-name }}
+* Добавлены группы команд для работы с сервисом {{ baremetal-name }}:
+  * `yc baremetal boot-image`
+  * `yc baremetal configuration`
+  * `yc baremetal private-subnet`
+  * `yc baremetal public-subnet`
+  * `yc baremetal hardware-pool`
+  * `yc baremetal server`
+  * `yc baremetal vrf`
+  * `yc baremetal zone`
+
+##### {{ compute-name }}
+* В команду `yc compute snapshot-schedule update` добавлены параметры `--snapshot-description` и `--snapshot-labels`, с помощью которых можно задать описание и метки снимкам дисков, создаваемым по расписанию.
+* Добавлены команды для редактирования меток снимков дисков, создаваемых по расписанию:
+  * `yc compute snapshot-schedule add-snapshot-labels`
+  * `yc compute snapshot-schedule remove-snapshot-labels`
+
+##### {{ dataproc-name }}
+* В команду `yc dataproc cluster create` добавлен параметр `--oslogin` для включения доступа по OS Login на кластере.
+
+##### {{ mgl-name }}
+* Добавлены команды для управления инстансами {{ mgl-name }}:
+  * `yc managed-gitlab instance get`
+  * `yc managed-gitlab instance list`
+  * `yc managed-gitlab instance create`
+  * `yc managed-gitlab instance stop`
+  * `yc managed-gitlab instance start`
+  * `yc managed-gitlab instance delete`
+
+##### {{ objstorage-name }}
+* Добавлены команды для работы с ACL бакетов и объектов:
+  * `yc storage s3api get-bucket-acl`
+  * `yc storage s3api put-bucket-acl`
+  * `yc storage s3api get-object-acl`
+  * `yc storage s3api put-object-acl`
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmy-name }}**
+* В командах `yc mysql users create` и `yc mysql users update` обновлено поведение параметра `--permissions`.
+
+**{{ mtr-name }}**
+* Добавлены команды для управления кластерами {{ mtr-name }}:
+  * `yc managed-trino cluster get`
+  * `yc managed-trino cluster list`
+  * `yc managed-trino cluster create`
+  * `yc managed-trino cluster update`
+  * `yc managed-trino cluster delete`
+  * `yc managed-trino cluster start`
+  * `yc managed-trino cluster stop`
+  * `yc managed-trino cluster list-operations`
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.149.0 (20.05.25) {#version0.149.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#version0.149.0-services}
@@ -26,8 +84,6 @@ description: На странице представлены релизы CLI, а
 * `yc clickhouse cluster get-extension`
 * `yc clickhouse cluster list-extensions`
 * `yc clickhouse cluster remove-extension`
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.148.0 (30.04.25) {#version0.148.0}
 

@@ -11,20 +11,6 @@ description:
   - >-
     This document explains how to work with the Support Center, details the
     technical support levels and current service plans.
-meta:
-  title: Yandex Cloud technical support
-  description: >-
-    Yandex Cloud provides technical support in accordance with the Maintenance
-    Regulations in Russian and English.
-  keywords:
-    - keyword: Contacting {{ yandex-cloud }} support
-    - keyword: How {{ yandex-cloud }} support works
-    - keyword: How the {{ yandex-cloud }} Support Center works
-    - keyword: '{{ yandex-cloud }} support rules'
-    - keyword: How to work in the {{ yandex-cloud }} Support Center
-    - keyword: How to get help from {{ yandex-cloud }}
-    - keyword: Troubleshooting in {{ yandex-cloud }}
-    - keyword: Issue with {{ yandex-cloud }}
 links:
   - title: Technical support procedure
     description: How to contact technical support
@@ -44,3 +30,17 @@ links:
   - title: FAQ
     description: Frequently asked questions about technical support
     href: qa
+meta:
+  title: Yandex Cloud technical support
+  description: >-
+    Yandex Cloud provides technical support in accordance with the Maintenance
+    Regulations in Russian and English.
+  keywords:
+    - Contacting {{ yandex-cloud }} support
+    - How {{ yandex-cloud }} support works
+    - How the {{ yandex-cloud }} Support Center works
+    - '{{ yandex-cloud }} support rules'
+    - How to work in the {{ yandex-cloud }} Support Center
+    - How to get help from {{ yandex-cloud }}
+    - Troubleshooting in {{ yandex-cloud }}
+    - Issue with {{ yandex-cloud }}

@@ -25,23 +25,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень
     обслуживания Yandex Managed Databases</a>.
-meta:
-  title: Yandex Managed Service for MongoDB
-  description: >-
-    Сервис Managed Service for MongoDB помогает разворачивать и поддерживать
-    кластеры серверов MongoDB 6.0 и 7.0 в инфраструктуре Yandex Cloud.
-  keywords:
-    - keyword: '{{ mmg-name }}'
-    - keyword: '{{ mmg-full-name }}'
-    - keyword: Сервис {{ mmg-name }}
-    - keyword: '{{ MG }} в {{ yandex-cloud }}'
-    - keyword: Кластер {{ MG }}
-    - keyword: Кластеры серверов {{ MG }}
-    - keyword: '{{ MG }}'
-    - keyword: Монгодб
-    - keyword: '{{ MG }} в облаке'
-    - keyword: NoSQL СУБД
-    - keyword: СУБД с открытым исходным кодом
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
@@ -67,3 +50,20 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Managed Service for MongoDB
+  description: >-
+    Сервис Managed Service for MongoDB помогает разворачивать и поддерживать
+    кластеры серверов MongoDB 6.0 и 7.0 в инфраструктуре Yandex Cloud.
+  keywords:
+    - '{{ mmg-name }}'
+    - '{{ mmg-full-name }}'
+    - Сервис {{ mmg-name }}
+    - '{{ MG }} в {{ yandex-cloud }}'
+    - Кластер {{ MG }}
+    - Кластеры серверов {{ MG }}
+    - '{{ MG }}'
+    - Монгодб
+    - '{{ MG }} в облаке'
+    - NoSQL СУБД
+    - СУБД с открытым исходным кодом

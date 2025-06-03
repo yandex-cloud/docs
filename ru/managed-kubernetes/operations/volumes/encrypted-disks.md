@@ -52,8 +52,8 @@ description: Следуя данной инструкции, вы сможете
     ```
 
     Где:
-    * `metadata:name:` — произвольное название для объекта `PersistentVolumeClaim`.
-    * `spec:storageClassName:` — название класса хранилища, созданного ранее.
+    * `metadata:name` — произвольное название для объекта `PersistentVolumeClaim`.
+    * `spec:storageClassName` — название класса хранилища, созданного ранее.
 
 1. Создайте объект `PersistentVolumeClaim`:
 

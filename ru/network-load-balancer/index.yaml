@@ -16,28 +16,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_loadbalancer">Уровень
     обслуживания Yandex Network Load Balancer</a>.
-meta:
-  title: Yandex Network Load Balancer
-  description: >-
-    Yandex Network Load Balancer — сервис, который помогает обеспечить
-    отказоустойчивость приложений за счет равномерного распределения сетевой
-    нагрузки по облачным ресурсам.
-  keywords:
-    - keyword: Network Balancer
-    - keyword: '{{ network-load-balancer-name }}'
-    - keyword: сервис Network Balancer
-    - keyword: '{{ network-load-balancer-full-name }}'
-    - keyword: load balancer
-    - keyword: network balancer {{ yandex-cloud }}
-    - keyword: '{{ network-load-balancer-name }} в {{ yandex-cloud }}'
-    - keyword: сетевой балансировщик
-    - keyword: балансировщик нагрузки
-    - keyword: балансировщик {{ network-load-balancer-name }}
-    - keyword: распределение трафика в {{ network-load-balancer-name }}
-    - keyword: внешний балансировщик
-    - keyword: внутренний балансировщик
-    - keyword: обработчик трафика
-    - keyword: трафик в {{ network-load-balancer-name }}
 links:
   - title: Начало работы
     description: Создайте и настройте первый сетевой балансировщик
@@ -66,3 +44,25 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Network Load Balancer
+  description: >-
+    Yandex Network Load Balancer — сервис, который помогает обеспечить
+    отказоустойчивость приложений за счет равномерного распределения сетевой
+    нагрузки по облачным ресурсам.
+  keywords:
+    - Network Balancer
+    - '{{ network-load-balancer-name }}'
+    - сервис Network Balancer
+    - '{{ network-load-balancer-full-name }}'
+    - load balancer
+    - network balancer {{ yandex-cloud }}
+    - '{{ network-load-balancer-name }} в {{ yandex-cloud }}'
+    - сетевой балансировщик
+    - балансировщик нагрузки
+    - балансировщик {{ network-load-balancer-name }}
+    - распределение трафика в {{ network-load-balancer-name }}
+    - внешний балансировщик
+    - внутренний балансировщик
+    - обработчик трафика
+    - трафик в {{ network-load-balancer-name }}

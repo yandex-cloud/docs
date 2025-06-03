@@ -15,23 +15,6 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_cdn">Yandex Cloud CDN Service
     Level</a>.
-meta:
-  title: Yandex Cloud CDN
-  description: >-
-    Yandex Cloud CDN enables you to set up content delivery to your end users
-    over a content delivery network (CDN).
-  keywords:
-    - keyword: cdn
-    - keyword: yandex cdn
-    - keyword: '{{ cdn-name }}'
-    - keyword: '{{ cdn-full-name }}'
-    - keyword: '{{ cdn-name }}'
-    - keyword: content delivery network in {{ yandex-cloud }}
-    - keyword: content delivery network in {{ yandex-cloud }}
-    - keyword: delivering content to {{ yandex-cloud }}
-    - keyword: content delivery network
-    - keyword: content delivery detwork
-    - keyword: content delivery
 links:
   - title: Getting started
     description: How to get started with content delivery over a CDN
@@ -54,3 +37,20 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Cloud CDN
+  description: >-
+    Yandex Cloud CDN enables you to set up content delivery to your end users
+    over a content delivery network (CDN).
+  keywords:
+    - cdn
+    - yandex cdn
+    - '{{ cdn-name }}'
+    - '{{ cdn-full-name }}'
+    - '{{ cdn-name }}'
+    - content delivery network in {{ yandex-cloud }}
+    - content delivery network in {{ yandex-cloud }}
+    - delivering content to {{ yandex-cloud }}
+    - content delivery network
+    - content delivery detwork
+    - content delivery

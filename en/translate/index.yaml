@@ -19,11 +19,6 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.ru/legal/cloud_sla_translate">Yandex Translate Service
     Level</a>.
-meta:
-  title: Yandex Translate
-  description: >-
-    Use this service to integrate Yandex Translate algorithms into end-user
-    applications or web projects.
 links:
   - title: Getting started
     description: Translate your text
@@ -46,3 +41,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Translate
+  description: >-
+    Use this service to integrate Yandex Translate algorithms into end-user
+    applications or web projects.

@@ -20,11 +20,6 @@ description:
     more information, see the <a
     href="https://yandex.com/legal/cloud_sla_yvpc">Yandex Virtual Private Cloud
     Service Level Agreement</a>.
-meta:
-  title: Yandex Virtual Private Cloud
-  description: >-
-    Yandex Virtual Private Cloud allows you to manage cloud networks and enable
-    cloud resources to connect to the internet and each other.
 links:
   - title: Getting started
     description: Create your first cloud network
@@ -47,3 +42,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Virtual Private Cloud
+  description: >-
+    Yandex Virtual Private Cloud allows you to manage cloud networks and enable
+    cloud resources to connect to the internet and each other.

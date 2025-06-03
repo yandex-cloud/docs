@@ -15,16 +15,6 @@ description:
     Федерального закона «Об информации, информационных технологиях и о защите
     информации», по основному классу 07.04 «Средства распознавания и синтеза
     речи».
-meta:
-  title: Yandex SpeechKit Hybrid
-  description: >-
-    SpeechKit Hybrid — это технологии Yandex SpeechKit, работающие внутри вашей
-    инфраструктуры.
-  keywords:
-    - keyword: '{{ sk-hybrid-full-name }}'
-    - keyword: сервис {{ sk-hybrid-name }}
-    - keyword: технологии {{ speechkit-name }}
-    - keyword: технология {{ sk-hybrid-name }}
 links:
   - title: Начало работы
     description: Узнайте как развернуть сервис на своем оборудовании
@@ -44,3 +34,13 @@ links:
   - title: Использование API
     description: Узнайте об аутентификации в API и ознакомьтесь со справочниками API
     href: auth
+meta:
+  title: Yandex SpeechKit Hybrid
+  description: >-
+    SpeechKit Hybrid — это технологии Yandex SpeechKit, работающие внутри вашей
+    инфраструктуры.
+  keywords:
+    - '{{ sk-hybrid-full-name }}'
+    - сервис {{ sk-hybrid-name }}
+    - технологии {{ speechkit-name }}
+    - технология {{ sk-hybrid-name }}

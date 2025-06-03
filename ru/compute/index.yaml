@@ -23,22 +23,6 @@ description:
     об уровне обслуживания</a>.  Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_compute">Уровень
     обслуживания Yandex Compute Cloud</a>.
-meta:
-  title: Yandex Compute Cloud
-  description: >-
-    Сервис Yandex Compute Cloud предоставляет масштабируемые вычислительные
-    мощности для создания виртуальных машин и управления ими.
-  keywords:
-    - keyword: compute
-    - keyword: yandex compute
-    - keyword: '{{ compute-name }}'
-    - keyword: '{{ compute-full-name }}'
-    - keyword: сервис {{ compute-name }}
-    - keyword: виртуальные машины в {{ yandex-cloud }}
-    - keyword: вм {{ yandex-cloud }}
-    - keyword: виртуальные ресурсы {{ yandex-cloud }}
-    - keyword: виртуальные машины
-    - keyword: облачные ресурсы
 links:
   - title: Начало работы
     description: Создайте первую виртуальную машину или группу ВМ
@@ -70,3 +54,19 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Compute Cloud
+  description: >-
+    Сервис Yandex Compute Cloud предоставляет масштабируемые вычислительные
+    мощности для создания виртуальных машин и управления ими.
+  keywords:
+    - compute
+    - yandex compute
+    - '{{ compute-name }}'
+    - '{{ compute-full-name }}'
+    - сервис {{ compute-name }}
+    - виртуальные машины в {{ yandex-cloud }}
+    - вм {{ yandex-cloud }}
+    - виртуальные ресурсы {{ yandex-cloud }}
+    - виртуальные машины
+    - облачные ресурсы

@@ -8,23 +8,6 @@ description:
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
-meta:
-  title: Yandex Resource Manager
-  description: >-
-    Сервис Yandex Resource Manager определяет ресурсную модель Yandex Cloud и
-    позволяет структурировать ресурсы с помощью каталогов.
-  keywords:
-    - keyword: '{{ resmgr-name }}'
-    - keyword: '{{ resmgr-full-name }}'
-    - keyword: сервис {{ resmgr-name }}
-    - keyword: ресурсы в {{ yandex-cloud }}
-    - keyword: ресурсная модель {{ yandex-cloud }}
-    - keyword: менеджер ресурсов {{ yandex-cloud }}
-    - keyword: управление {{ yandex-cloud }}
-    - keyword: менеджер облачных ресурсов
-    - keyword: управление облачными ресурсами
-    - keyword: управление облаком
-    - keyword: ресурсная модель облака
 links:
   - title: Начало работы
     description: Создайте первый каталог
@@ -47,3 +30,20 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Resource Manager
+  description: >-
+    Сервис Yandex Resource Manager определяет ресурсную модель Yandex Cloud и
+    позволяет структурировать ресурсы с помощью каталогов.
+  keywords:
+    - '{{ resmgr-name }}'
+    - '{{ resmgr-full-name }}'
+    - сервис {{ resmgr-name }}
+    - ресурсы в {{ yandex-cloud }}
+    - ресурсная модель {{ yandex-cloud }}
+    - менеджер ресурсов {{ yandex-cloud }}
+    - управление {{ yandex-cloud }}
+    - менеджер облачных ресурсов
+    - управление облачными ресурсами
+    - управление облаком
+    - ресурсная модель облака

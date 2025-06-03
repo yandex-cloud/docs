@@ -4,22 +4,6 @@ description:
     {{ sf-name }} allows you to run your applications in a secure,
     fault-tolerant, and scalable environment without creating or maintaining
     VMs.
-meta:
-  title: '{{ sf-full-name }}'
-  description: >-
-    Yandex Cloud Functions allows you to run your applications in a secure,
-    fault-tolerant, and scalable environment without creating or maintaining
-    VMs.
-  keywords:
-    - keyword: '{{ sf-short-name }}'
-    - keyword: '{{ sf-name }}'
-    - keyword: '{{ sf-full-name }}'
-    - keyword: '{{ sf-name }}'
-    - keyword: functions in {{ yandex-cloud }}
-    - keyword: '{{ yandex-cloud }} functions'
-    - keyword: serverless functions
-    - keyword: serverless computing
-    - keyword: cloud functions
 links:
   - title: Getting started
     description: Create your first function
@@ -81,3 +65,19 @@ links:
   - title: FAQ
     description: Answers to frequently asked questions
     href: qa/
+meta:
+  title: '{{ sf-full-name }}'
+  description: >-
+    Yandex Cloud Functions allows you to run your applications in a secure,
+    fault-tolerant, and scalable environment without creating or maintaining
+    VMs.
+  keywords:
+    - '{{ sf-short-name }}'
+    - '{{ sf-name }}'
+    - '{{ sf-full-name }}'
+    - '{{ sf-name }}'
+    - functions in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} functions'
+    - serverless functions
+    - serverless computing
+    - cloud functions

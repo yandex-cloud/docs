@@ -92,6 +92,8 @@ items:
                     href: operations/workflows/constructor/switch.md
                   - name: Foreach
                     href: operations/workflows/constructor/foreach.md
+                  - name: While
+                    href: operations/workflows/constructor/while.md
                   - name: Parallel
                     href: operations/workflows/constructor/parallel.md
                   - name: No op

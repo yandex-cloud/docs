@@ -11,23 +11,6 @@ description:
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
-meta:
-  title: Yandex Identity and Access Management
-  description: >-
-    Сервис Yandex Identity and Access Management (IAM) — это сервис
-    идентификации и контроля доступа, который помогает централизованно управлять
-    правами доступа пользователей к вашим ресурсам Yandex Cloud.
-  keywords:
-    - keyword: '{{ iam-short-name }}'
-    - keyword: '{{ iam-name }}'
-    - keyword: '{{ iam-full-name }}'
-    - keyword: сервис {{ iam-name }}
-    - keyword: идентификация в {{ yandex-cloud }}
-    - keyword: контроль доступа в {{ yandex-cloud }}
-    - keyword: управление доступом в {{ yandex-cloud }}
-    - keyword: идентификация и контроль доступа
-    - keyword: управление правами пользователей
-    - keyword: управление доступами
 links:
   - title: Начало работы
     description: Добавьте пользователя и назначьте ему роль
@@ -53,3 +36,20 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Identity and Access Management
+  description: >-
+    Сервис Yandex Identity and Access Management (IAM) — это сервис
+    идентификации и контроля доступа, который помогает централизованно управлять
+    правами доступа пользователей к вашим ресурсам Yandex Cloud.
+  keywords:
+    - '{{ iam-short-name }}'
+    - '{{ iam-name }}'
+    - '{{ iam-full-name }}'
+    - сервис {{ iam-name }}
+    - идентификация в {{ yandex-cloud }}
+    - контроль доступа в {{ yandex-cloud }}
+    - управление доступом в {{ yandex-cloud }}
+    - идентификация и контроль доступа
+    - управление правами пользователей
+    - управление доступами

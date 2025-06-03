@@ -16,6 +16,7 @@ Syntax:
 #### Command Tree
 
 - [yc serverless eventrouter connector create data-stream](data-stream.md) — Create a data stream connector
+- [yc serverless eventrouter connector create event-service](event-service.md) — Create a event service connector
 - [yc serverless eventrouter connector create message-queue](message-queue.md) — Create a message queue connector
 - [yc serverless eventrouter connector create timer](timer.md) — Create a timer connector
 

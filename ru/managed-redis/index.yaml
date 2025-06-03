@@ -22,27 +22,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень
     обслуживания Yandex Managed Databases</a>.
-meta:
-  title: Yandex Managed Service for Valkey™
-  description: >-
-    Сервис Yandex Managed Service for Valkey™ помогает разворачивать и
-    поддерживать кластеры серверов Valkey™ 7.2 в инфраструктуре Yandex Cloud.
-  keywords:
-    - keyword: '{{ mrd-name }}'
-    - keyword: '{{ mrd-full-name }}'
-    - keyword: Сервис {{ mrd-name }}
-    - keyword: '{{ RD }} в {{ yandex-cloud }}'
-    - keyword: Кластер {{ RD }}
-    - keyword: Кластеры серверов {{ RD }}
-    - keyword: '{{ RD }}'
-    - keyword: Редис СУБД
-    - keyword: '{{ RD }} в облаке'
-    - keyword: Нереляционная СУБД
-    - keyword: '{{ VLK }} в {{ yandex-cloud }}'
-    - keyword: Кластер {{ VLK }}
-    - keyword: Кластеры серверов {{ VLK }}
-    - keyword: '{{ VLK }}'
-    - keyword: '{{ VLK }} в облаке'
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
@@ -65,3 +44,24 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Managed Service for Valkey™
+  description: >-
+    Сервис Yandex Managed Service for Valkey™ помогает разворачивать и
+    поддерживать кластеры серверов Valkey™ 7.2 в инфраструктуре Yandex Cloud.
+  keywords:
+    - '{{ mrd-name }}'
+    - '{{ mrd-full-name }}'
+    - Сервис {{ mrd-name }}
+    - '{{ RD }} в {{ yandex-cloud }}'
+    - Кластер {{ RD }}
+    - Кластеры серверов {{ RD }}
+    - '{{ RD }}'
+    - Редис СУБД
+    - '{{ RD }} в облаке'
+    - Нереляционная СУБД
+    - '{{ VLK }} в {{ yandex-cloud }}'
+    - Кластер {{ VLK }}
+    - Кластеры серверов {{ VLK }}
+    - '{{ VLK }}'
+    - '{{ VLK }} в облаке'

@@ -20,24 +20,6 @@ description:
     various extensions for compatibility with other {{ yandex-cloud }}
     services,  see the <a href="https://yandex.cloud/ru/docs/api-gateway/">{{
     api-gw-full-name }} documentation</a>.
-meta:
-  title: '{{ si-full-name }}'
-  description: '{{ si-full-name }} enables integrating multiple {{ yandex-cloud }} services.'
-  keywords:
-    - keyword: cloud serverless integrations
-    - keyword: '{{ si-name }}'
-    - keyword: '{{ si-full-name }}'
-    - keyword: '{{ sw-full-name }}'
-    - keyword: '{{ er-full-name }}'
-    - keyword: '{{ si-name }}'
-    - keyword: '{{ sw-name }}'
-    - keyword: '{{ er-name }}'
-    - keyword: integration in {{ yandex-cloud }}
-    - keyword: '{{ yandex-cloud }} workflows'
-    - keyword: '{{ yandex-cloud }} event router'
-    - keyword: serverless integration
-    - keyword: cloud integration
-    - keyword: integration in cloud
 links:
   - title: Getting started with {{ sw-name }}
     description: Create a workflow and run it.
@@ -60,3 +42,21 @@ links:
   - title: '{{ er-name }} API reference'
     description: '{{ er-name }} HTTP API method descriptions'
     href: eventrouter/api-ref/
+meta:
+  title: '{{ si-full-name }}'
+  description: '{{ si-full-name }} enables integrating multiple {{ yandex-cloud }} services.'
+  keywords:
+    - cloud serverless integrations
+    - '{{ si-name }}'
+    - '{{ si-full-name }}'
+    - '{{ sw-full-name }}'
+    - '{{ er-full-name }}'
+    - '{{ si-name }}'
+    - '{{ sw-name }}'
+    - '{{ er-name }}'
+    - integration in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} workflows'
+    - '{{ yandex-cloud }} event router'
+    - serverless integration
+    - cloud integration
+    - integration in cloud

@@ -15,11 +15,6 @@ description:
     Marketplace. For more information, see <a
     href="/docs/marketplace/operations/create-new-version#cloud-apps">Creating a
     new product version</a>.
-meta:
-  title: Cloud Apps
-  description: >-
-    Yandex Cloud Apps is a service that enables deploying a Yandex Cloud based
-    app with a single click.
 links:
   - title: Demo Telegram Bot
     description: Demo Telegram bot based on serverless stack
@@ -42,3 +37,8 @@ links:
   - title: Instance Group Scheduled Scaler
     description: Modifies the size of an instance group on a schedule
     href: yc-ig-scheduled-scale
+meta:
+  title: Cloud Apps
+  description: >-
+    Yandex Cloud Apps is a service that enables deploying a Yandex Cloud based
+    app with a single click.

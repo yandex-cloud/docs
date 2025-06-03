@@ -50,7 +50,7 @@
 
   {% include [terraform-install](../../terraform-install.md) %}
 
-  1. In {{ TF }} configuration file, in the section with the description of the `yandex_compute_instance` resource, add the `service_account_id` parameter and give the ID of a service account with the `backup.editor` role:
+  1. In the {{ TF }} configuration file, in the section with the description of the `yandex_compute_instance` resource, add the `service_account_id` property and specify the ID of the service account with the `backup.editor` role:
 
       ```hcl
       resource "yandex_compute_instance" "vm-1" {
@@ -64,7 +64,7 @@
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will change all required resources. You can check the resources updates in the [management console]({{ link-console-main }}).
+      {{ TF }} will change all required resources. You can check the resources’ update in the [management console]({{ link-console-main }}).
 
   For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/compute_instance).
 

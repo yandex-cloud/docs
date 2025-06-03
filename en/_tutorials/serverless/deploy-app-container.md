@@ -1,26 +1,26 @@
 # Running a containerized app in {{ serverless-containers-full-name }}
 
 
-Follow this guide to deploy a containerized app in [{{ serverless-containers-name }}](../../serverless-containers/) to administer a {{ MG }} DBMS.
+Follow this guide to deploy a containerized app in [{{ serverless-containers-name }}](../../serverless-containers/) to administer {{ MG }}.
 
-The DBMS is deployed on a [{{ compute-full-name }}](../../compute/) VM. A [{{ container-registry-full-name }}](../../container-registry/) registry is used to host the container with the app. [{{ lockbox-full-name }}](../../lockbox/) is used to encrypt sensitive data. Secure access to the application is enabled over the [{{ api-gw-full-name }}](../../api-gateway/) API gateway. The entire infrastructure of the containerized app resides in a single folder.
+{{ MG }} is deployed on a [{{ compute-full-name }}](../../compute/) VM. A [{{ container-registry-full-name }}](../../container-registry/) is used to host the container with the app. [{{ lockbox-full-name }}](../../lockbox/) is used to encrypt sensitive data. Secure access to the application is enabled over a [{{ api-gw-full-name }}](../../api-gateway/). The entire infrastructure of the containerized app resides in a single folder.
 
 To deploy your containerized app:
 
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#sa-create).
-1. [Create a network and configure the security group](#create-network).
+1. [Create a network and configure its security group](#create-network).
 1. [Create a {{ compute-name }} VM with {{ MG }}](#create-vm).
 1. [Create a {{ lockbox-name }} secret and version](#secret-create).
 1. [Create a registry in {{ container-registry-name }}](#create-registry).
 1. [Push the Docker image to {{ container-registry-name }}](#push-image).
-1. [Create a {{ serverless-containers-name }} container](#create-container).
-1. [Create an {{ api-gw-name }} API gateway](#create-api-gw).
+1. [Create a container in {{ serverless-containers-name }}](#create-container).
+1. [Create an {{ api-gw-name }}](#create-api-gw).
 1. [Test the application](#check-app).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud environment {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -29,23 +29,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The application support cost includes:
 
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Secret storage fees (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* Fee for storing secrets (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for storing a Docker image (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
-* Fee for the number of container calls, computing resources allocated to execute the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for container invocation count, computing resources allocated to run the application, and outbound traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
 * Fee for requests to the API gateway (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Create a service account {#sa-create}
 
-Create a [service account](../../iam/concepts/users/service-accounts.md) and assign it the [roles](../../iam/concepts/access-control/roles.md) for the folder to host the containerized app infrastructure.
+Create a [service account](../../iam/concepts/users/service-accounts.md) and assign it the required [roles](../../iam/concepts/access-control/roles.md) for the folder that will host the containerized app infrastructure.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{link-console-main}}), go to the folder that will host the containerized app infrastructure.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `mongo-express`.
+  1. Enter `mongo-express` as the service account name.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}`, and `serverless-containers.containerInvoker` [roles](../../load-testing/security/index.md#roles-list).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -78,40 +78,40 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
 
   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the service account a role for the folder, use the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call.
+  To assign the service account roles for a folder, use the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) gRPC API call.
 
 
 {% endlist %}
 
-## Create a network and configure the security group {#create-network}
+## Create a network and configure its security group {#create-network}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to host the network.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `mongo-express-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Click the ![image](../../_assets/options.svg) icon next to the default security group created for `mongo-express-network`.
+  1. Click ![image](../../_assets/options.svg) next to the default security group created for `mongo-express-network`.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
   1. Configure the security group:
 
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, add a rule using the instructions below the table:
+     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, add a rule by following the steps below the table:
 
         | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
         | --- | --- | --- | --- | --- | --- |
-        | `Incoming` | `any` | `27017` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+        | `Ingress` | `any` | `27017` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       
-        1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab for an outbound rule or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab for an inbound rule.
+        1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that will be open for inbound or outbound traffic. To open all ports, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}**.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or specify **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic  over any protocol.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** / **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`. This way, the rule will apply to a range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify `0.0.0.0/0`.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a port or range of ports open for inbound or outbound traffic. To open all ports, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}**.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic over any protocol.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` for the rule to apply to a range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify `0.0.0.0/0`.
         1. Click **{{ ui-key.yacloud.common.save }}**.
    
      1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -149,16 +149,16 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
        --add-rule "direction=ingress,port=27017,protocol=any,v4-cidrs=[0.0.0.0/0,0.0.0.0/0]"
      ```
 
-     Where `<group_name_or_ID>` is the value obtained at the previous step.
+     Where `<group_name_or_ID>` is the value obtained in the previous step.
 
 - API {#api}
 
-  1. To create a [cloud network](../../vpc/concepts/network.md), use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call, and provide the following in the request:
+  1. To create a [cloud network](../../vpc/concepts/network.md), use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call, providing the following in your request:
 
       * ID of the folder to host the network.
       * Name of the new network,`mongo-express-network`, in the `name` parameter.
 
-  1. To add a rule to a security group, use the [updateRules](../../vpc/api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../../vpc/api-ref/grpc/SecurityGroup/updateRules.md) gRPC API call, and provide the following in your request:
+  1. To add a rule to a security group, use the [updateRules](../../vpc/api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../../vpc/api-ref/grpc/SecurityGroup/updateRules.md) gRPC API call, providing the following in your request:
 
       * ID of the security group you want to add rules to, in the `securityGroupId` parameter.
 
@@ -170,7 +170,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
         * Name of the traffic transmission protocol, in the `additionRuleSpecs[].protocolName` parameter: `any`.
         * List of CIDRs and subnet masks, in the `additionRuleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter: `[0.0.0.0/0,0.0.0.0/0]`.
         * First port in the traffic ports range, in the `additionRuleSpecs[].ports.fromPort` parameter: `0`.
-        * Last port in the traffic ports range, in the `additionRuleSpecs[].ports.toPort` parameter: `65535`.
+        * Last port in the traffic port range, in the `additionRuleSpecs[].ports.toPort` parameter: `65535`.
 
 {% endlist %}
 
@@ -182,11 +182,11 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
 - Management console {#console}
 
-  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      1. Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
-      1. In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** tab and enter the VM specification:
+      1. Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
+      1. In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** tab and specify the VM as follows:
 
           ```yaml
           version: '3.1'
@@ -202,19 +202,19 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
                 - 27017:27017
           ```
 
-         In the `MONGO_INITDB_ROOT_PASSWORD` parameter, specify the password to use for accessing the database. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Save the password as you will need it in the next steps.
+         In the `MONGO_INITDB_ROOT_PASSWORD` parameter, specify the password to use for accessing the database. To create a password, you can use [this password generator](https://passwordsgenerator.net/). Save the password, as you will need it in the next steps.
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for your VM. If you are not sure which one to choose, leave the default.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a subnet in the `mongo-express-network` network you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a subnet in `mongo-express-network`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the data for access to the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mongo-vm`.
@@ -224,7 +224,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
 - CLI {#cli}
 
-  1. [Prepare](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
+  1. [Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
 
   1. Create `docker-spec.yaml`, a Docker container specification file:
 
@@ -242,11 +242,11 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
               - 27017:27017
         ```
 
-     In the `MONGO_INITDB_ROOT_PASSWORD` parameter, specify the password to use for accessing the database. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Save the password as you will need it in the next steps.
+     In the `MONGO_INITDB_ROOT_PASSWORD` parameter, specify the password to use for accessing the database. To create a password, you can use [this password generator](https://passwordsgenerator.net/). Save the password, as you will need it in the next steps.
 
 
 
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      yc compute instance create-with-container \
@@ -261,8 +261,8 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
      * `--coi-spec-file`: Path to the Docker container [specification file](../../cos/concepts/coi-specifications.md#coi-spec).
      * `--name`: VM name.
      * `--zone`: Availability zone.
-     * `--ssh-key`: Contents of the [public key](../../compute/quickstart/quick-create-linux.md#create-ssh) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
-      * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
+     * `--ssh-key`: Contents of the [public key](../../compute/quickstart/quick-create-linux.md#create-ssh) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection on your own.
+     * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
 
      Result:
 
@@ -279,14 +279,14 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
 ## Create a {{ lockbox-name}} secret {#secret-create}
 
-A [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store the encrypted authentication credentials.
+The [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store encrypted authentication credentials.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [secret](../../lockbox/concepts/secret.md).
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `mongodb-creds`.
   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
@@ -310,7 +310,7 @@ A [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store the e
      Where:
 
      * `--name`: Secret name.
-     * `--payload`: Contents of the secret as a YAML or JSON array.
+     * `--payload`: Contents of the secret provided as a YAML or JSON array.
      * `<password>`: `MONGO_INITDB_ROOT_PASSWORD` value from the [VM specification](#create-vm).
 
      Result:
@@ -345,15 +345,15 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
-  1. Specify a name for the registry: `app-registry`.
+  1. Specify `app-registry` as the registry name.
   1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
 - CLI {#cli}
 
-  Create the `app-registry` registry:
+  Create a registry named `app-registry`:
 
   ```bash
   yc container registry create --name app-registry
@@ -381,9 +381,9 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
 1. Create a [Docker Hub](https://hub.docker.com/) account.
 1. Install Docker:
 
-   * For a Windows workstation, install [this version](https://docs.docker.com/desktop/install/windows-install/).
-   * [Install on Linux](https://docs.docker.com/desktop/install/linux-install/).
-   * [Install on Mac OS](https://docs.docker.com/desktop/install/mac-install/).
+   * For a Windows workstation, use [this version](https://docs.docker.com/desktop/install/windows-install/).
+   * For a Linux workstation, use [this version](https://docs.docker.com/desktop/install/linux-install/).
+   * For a Mac OS workstation, use [this version](https://docs.docker.com/desktop/install/mac-install/).
 
 1. [Download](https://hub.docker.com/_/mongo-express) the `mongo-express` image:
 
@@ -391,7 +391,7 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
    docker pull mongo-express
    ```
 
-   The result will be as follows:
+   Result:
 
    ```
    Using default tag: latest
@@ -427,9 +427,9 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
          Credential helper is configured in '/home/<user>/.docker/config.json'
          ```
 
-         Settings are saved in the current user's profile.
+         The current user's profile holds the saved settings.
 
-      1. Check that the `${HOME}/.docker/config.json` configuration file includes the following line:
+      1. Check that the `${HOME}/.docker/config.json` file includes the following line:
 
          ```json
          "{{ registry }}": "yc"
@@ -460,7 +460,7 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
 
     {% endlist %}
 
-## Create a {{ serverless-containers-name }} container {#create-container}
+## Create a container in {{ serverless-containers-name }} {#create-container}
 
 To run your application in {{ yandex-cloud }}, create a [container](../../serverless-containers/concepts/container.md) and its [revision](../../serverless-containers/concepts/container.md#revision):
 
@@ -473,15 +473,15 @@ To run your application in {{ yandex-cloud }}, create a [container](../../server
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. Enter the container name: `mongo-express-container`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
      1. Under **{{ ui-key.yacloud.serverless-containers.section_resources }}**, enter the amount of RAM: `1024 {{ ui-key.yacloud.common.units.label_megabyte }}`.
      1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**:
-        1. In the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field, specify the Docker image you pushed [previously](#push-image).
+        1. In the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field, specify the Docker image you pushed [earlier](#push-image).
         1. In the **{{ ui-key.yacloud.serverless-containers.label_environment }}** field, add the following variables:
            * `ME_CONFIG_BASICAUTH_USERNAME`: Leave empty.
            * `ME_CONFIG_BASICAUTH_PASSWORD`: Leave empty.
-           * `VCAP_APP_PORT`: Set the port to `8080`.
-           * `ME_CONFIG_MONGODB_SERVER`: Specify the VM public IP address obtained [previously](#create-vm).
+           * `VCAP_APP_PORT`: Set it to `8080`.
+           * `ME_CONFIG_MONGODB_SERVER`: Specify the VM public IP address obtained [earlier](#create-vm).
         1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify these secrets:
            * `ME_CONFIG_MONGODB_AUTH_USERNAME`: Secret with the `login` key.
            * `ME_CONFIG_MONGODB_AUTH_PASSWORD`: Secret with the `password` key.
@@ -533,8 +533,8 @@ To run your application in {{ yandex-cloud }}, create a [container](../../server
 
         * `ME_CONFIG_BASICAUTH_USERNAME`: Leave empty.
         * `ME_CONFIG_BASICAUTH_PASSWORD`: Leave empty.
-        * `VCAP_APP_PORT`: Set the port to `8080`.
-        * `ME_CONFIG_MONGODB_SERVER`: Specify the VM public IP address obtained [previously](#create-vm).
+        * `VCAP_APP_PORT`: Set it to `8080`.
+        * `ME_CONFIG_MONGODB_SERVER`: Specify the VM public IP address obtained [earlier](#create-vm).
 
       * `--secret environment-variable`: `ME_CONFIG_MONGODB_AUTH_USERNAME` and `ME_CONFIG_MONGODB_AUTH_PASSWORD` secrets you created [earlier](#secret-create).
 
@@ -572,10 +572,10 @@ Create an [API gateway](../../api-gateway/concepts/index.md) with the `x-yc-apig
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the API gateway: `mongo-express-gw`.
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter the API gateway name: `mongo-express-gw`.
+  1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
 
       ```yaml
       openapi: 3.0.0
@@ -604,14 +604,14 @@ Create an [API gateway](../../api-gateway/concepts/index.md) with the `x-yc-apig
 
       Where:
 
-      * `container_id`: Container ID for `mongo-express-container`.
+      * `container_id`: `mongo-express-container` ID.
       * `service_account_id`: `mongo-express` service account ID.
 
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI {#cli}
 
-  1. Prepare an [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) API specification file.
+  1. Create an [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) specification file to describe your API.
 
       {% cut "Specification" %}
 
@@ -642,12 +642,12 @@ Create an [API gateway](../../api-gateway/concepts/index.md) with the `x-yc-apig
 
       Where:
 
-      * `container_id`: Container ID for `mongo-express-container`.
+      * `container_id`: `mongo-express-container` ID.
       * `service_account_id`: `mongo-express` service account ID.
 
       {% endcut %}
 
-  1. Specify the parameters and create an API gateway using this command:
+  1. Specify the properties and use the following command to create your API gateway:
 
       ```bash
       {{ yc-serverless }} api-gateway create \
@@ -663,16 +663,16 @@ Create an [API gateway](../../api-gateway/concepts/index.md) with the `x-yc-apig
 
 ## Test the application {#check-app}
 
-Click `https://mongo-express-container.apigw.yandexcloud.net`. The MongoDB admin panel will open.
+Go to `https://mongo-express-container.apigw.yandexcloud.net` to open the MongoDB admin panel.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the created resources:
+To stop paying for the resources you created:
 
-1. [Delete](../../api-gateway/operations/api-gw-delete.md) the `mongo-express-gw` API gateway.
-1. [Delete](../../serverless-containers/operations/delete.md) the `mongo-express-container` container.
+1. [Delete](../../api-gateway/operations/api-gw-delete.md) `mongo-express-gw`.
+1. [Delete](../../serverless-containers/operations/delete.md) `mongo-express-container`.
 1. [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the image from `app-registry`.
-1. [Delete](../../container-registry/operations/registry/registry-delete.md) the `app-registry` registry.
-1. [Delete `mongodb-creds`](../../lockbox/operations/secret-delete.md).
+1. [Delete](../../container-registry/operations/registry/registry-delete.md) `app-registry`.
+1. [Delete](../../lockbox/operations/secret-delete.md) the `mongodb-creds` secret.
 1. [Delete](../../managed-mongodb/operations/cluster-delete.md) `mongo-vm`.
 1. [Delete](../../iam/operations/sa/delete.md) the `mongo-express` service account.

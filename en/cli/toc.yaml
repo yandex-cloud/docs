@@ -369,6 +369,140 @@ items:
                 href: cli-ref/backup/cli-ref/vm/list-policies.md
               - name: list-tasks
                 href: cli-ref/backup/cli-ref/vm/list-tasks.md
+      - name: baremetal
+        items:
+          - name: Overview
+            href: cli-ref/baremetal/cli-ref/index.md
+          - name: boot-image
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/boot-image/index.md
+              - name: add-labels
+                href: cli-ref/baremetal/cli-ref/boot-image/add-labels.md
+              - name: create
+                href: cli-ref/baremetal/cli-ref/boot-image/create.md
+              - name: delete
+                href: cli-ref/baremetal/cli-ref/boot-image/delete.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/boot-image/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/boot-image/list.md
+              - name: list-operations
+                href: cli-ref/baremetal/cli-ref/boot-image/list-operations.md
+              - name: remove-labels
+                href: cli-ref/baremetal/cli-ref/boot-image/remove-labels.md
+              - name: update
+                href: cli-ref/baremetal/cli-ref/boot-image/update.md
+          - name: configuration
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/configuration/index.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/configuration/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/configuration/list.md
+          - name: hardware-pool
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/hardware-pool/index.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/hardware-pool/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/hardware-pool/list.md
+          - name: private-subnet
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/private-subnet/index.md
+              - name: add-labels
+                href: cli-ref/baremetal/cli-ref/private-subnet/add-labels.md
+              - name: create
+                href: cli-ref/baremetal/cli-ref/private-subnet/create.md
+              - name: delete
+                href: cli-ref/baremetal/cli-ref/private-subnet/delete.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/private-subnet/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/private-subnet/list.md
+              - name: list-operations
+                href: cli-ref/baremetal/cli-ref/private-subnet/list-operations.md
+              - name: remove-labels
+                href: cli-ref/baremetal/cli-ref/private-subnet/remove-labels.md
+              - name: update
+                href: cli-ref/baremetal/cli-ref/private-subnet/update.md
+          - name: public-subnet
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/public-subnet/index.md
+              - name: add-labels
+                href: cli-ref/baremetal/cli-ref/public-subnet/add-labels.md
+              - name: create
+                href: cli-ref/baremetal/cli-ref/public-subnet/create.md
+              - name: delete
+                href: cli-ref/baremetal/cli-ref/public-subnet/delete.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/public-subnet/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/public-subnet/list.md
+              - name: list-operations
+                href: cli-ref/baremetal/cli-ref/public-subnet/list-operations.md
+              - name: remove-labels
+                href: cli-ref/baremetal/cli-ref/public-subnet/remove-labels.md
+              - name: update
+                href: cli-ref/baremetal/cli-ref/public-subnet/update.md
+          - name: server
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/server/index.md
+              - name: add-labels
+                href: cli-ref/baremetal/cli-ref/server/add-labels.md
+              - name: create
+                href: cli-ref/baremetal/cli-ref/server/create.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/server/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/server/list.md
+              - name: list-operations
+                href: cli-ref/baremetal/cli-ref/server/list-operations.md
+              - name: power-off
+                href: cli-ref/baremetal/cli-ref/server/power-off.md
+              - name: power-on
+                href: cli-ref/baremetal/cli-ref/server/power-on.md
+              - name: reboot
+                href: cli-ref/baremetal/cli-ref/server/reboot.md
+              - name: reinstall
+                href: cli-ref/baremetal/cli-ref/server/reinstall.md
+              - name: remove-labels
+                href: cli-ref/baremetal/cli-ref/server/remove-labels.md
+              - name: update
+                href: cli-ref/baremetal/cli-ref/server/update.md
+          - name: vrf
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/vrf/index.md
+              - name: add-labels
+                href: cli-ref/baremetal/cli-ref/vrf/add-labels.md
+              - name: create
+                href: cli-ref/baremetal/cli-ref/vrf/create.md
+              - name: delete
+                href: cli-ref/baremetal/cli-ref/vrf/delete.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/vrf/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/vrf/list.md
+              - name: list-operations
+                href: cli-ref/baremetal/cli-ref/vrf/list-operations.md
+              - name: remove-labels
+                href: cli-ref/baremetal/cli-ref/vrf/remove-labels.md
+              - name: update
+                href: cli-ref/baremetal/cli-ref/vrf/update.md
+          - name: zone
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/zone/index.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/zone/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/zone/list.md
       - name: cdn
         items:
           - name: Overview
@@ -1056,6 +1190,9 @@ items:
                 href: cli-ref/compute/cli-ref/snapshot-schedule/add-disks.md
               - name: add-labels
                 href: cli-ref/compute/cli-ref/snapshot-schedule/add-labels.md
+              - name: add-snapshot-labels
+                href: >-
+                  cli-ref/compute/cli-ref/snapshot-schedule/add-snapshot-labels.md
               - name: create
                 href: cli-ref/compute/cli-ref/snapshot-schedule/create.md
               - name: delete
@@ -1084,6 +1221,9 @@ items:
                 href: cli-ref/compute/cli-ref/snapshot-schedule/remove-disks.md
               - name: remove-labels
                 href: cli-ref/compute/cli-ref/snapshot-schedule/remove-labels.md
+              - name: remove-snapshot-labels
+                href: >-
+                  cli-ref/compute/cli-ref/snapshot-schedule/remove-snapshot-labels.md
               - name: set-access-bindings
                 href: >-
                   cli-ref/compute/cli-ref/snapshot-schedule/set-access-bindings.md
@@ -2585,6 +2725,26 @@ items:
                 href: cli-ref/managed-elasticsearch/cli-ref/resource-preset/get.md
               - name: list
                 href: cli-ref/managed-elasticsearch/cli-ref/resource-preset/list.md
+      - name: managed-gitlab
+        items:
+          - name: Overview
+            href: cli-ref/managed-gitlab/cli-ref/index.md
+          - name: instance
+            items:
+              - name: Overview
+                href: cli-ref/managed-gitlab/cli-ref/instance/index.md
+              - name: create
+                href: cli-ref/managed-gitlab/cli-ref/instance/create.md
+              - name: delete
+                href: cli-ref/managed-gitlab/cli-ref/instance/delete.md
+              - name: get
+                href: cli-ref/managed-gitlab/cli-ref/instance/get.md
+              - name: list
+                href: cli-ref/managed-gitlab/cli-ref/instance/list.md
+              - name: start
+                href: cli-ref/managed-gitlab/cli-ref/instance/start.md
+              - name: stop
+                href: cli-ref/managed-gitlab/cli-ref/instance/stop.md
       - name: managed-greenplum
         items:
           - name: Overview
@@ -3553,6 +3713,30 @@ items:
                 href: cli-ref/managed-sqlserver/cli-ref/user/revoke-permission.md
               - name: update
                 href: cli-ref/managed-sqlserver/cli-ref/user/update.md
+      - name: managed-trino
+        items:
+          - name: Overview
+            href: cli-ref/managed-trino/cli-ref/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/managed-trino/cli-ref/cluster/index.md
+              - name: create
+                href: cli-ref/managed-trino/cli-ref/cluster/create.md
+              - name: delete
+                href: cli-ref/managed-trino/cli-ref/cluster/delete.md
+              - name: get
+                href: cli-ref/managed-trino/cli-ref/cluster/get.md
+              - name: list
+                href: cli-ref/managed-trino/cli-ref/cluster/list.md
+              - name: list-operations
+                href: cli-ref/managed-trino/cli-ref/cluster/list-operations.md
+              - name: start
+                href: cli-ref/managed-trino/cli-ref/cluster/start.md
+              - name: stop
+                href: cli-ref/managed-trino/cli-ref/cluster/stop.md
+              - name: update
+                href: cli-ref/managed-trino/cli-ref/cluster/update.md
       - name: marketplace
         items:
           - name: Overview
@@ -4010,6 +4194,9 @@ items:
                       - name: data-stream
                         href: >-
                           cli-ref/serverless/cli-ref/eventrouter/connector/create/data-stream.md
+                      - name: event-service
+                        href: >-
+                          cli-ref/serverless/cli-ref/eventrouter/connector/create/event-service.md
                       - name: message-queue
                         href: >-
                           cli-ref/serverless/cli-ref/eventrouter/connector/create/message-queue.md
@@ -4075,6 +4262,8 @@ items:
                       cli-ref/serverless/cli-ref/eventrouter/rule/set-access-bindings.md
                   - name: update
                     href: cli-ref/serverless/cli-ref/eventrouter/rule/update.md
+              - name: send-event
+                href: cli-ref/serverless/cli-ref/eventrouter/send-event.md
           - name: function
             items:
               - name: Overview
@@ -4390,8 +4579,12 @@ items:
                 href: cli-ref/storage/cli-ref/s3api/delete-object-tagging.md
               - name: delete-objects
                 href: cli-ref/storage/cli-ref/s3api/delete-objects.md
+              - name: get-bucket-acl
+                href: cli-ref/storage/cli-ref/s3api/get-bucket-acl.md
               - name: get-object
                 href: cli-ref/storage/cli-ref/s3api/get-object.md
+              - name: get-object-acl
+                href: cli-ref/storage/cli-ref/s3api/get-object-acl.md
               - name: get-object-legal-hold
                 href: cli-ref/storage/cli-ref/s3api/get-object-legal-hold.md
               - name: get-object-retention
@@ -4406,8 +4599,12 @@ items:
                 href: cli-ref/storage/cli-ref/s3api/list-objects.md
               - name: list-parts
                 href: cli-ref/storage/cli-ref/s3api/list-parts.md
+              - name: put-bucket-acl
+                href: cli-ref/storage/cli-ref/s3api/put-bucket-acl.md
               - name: put-object
                 href: cli-ref/storage/cli-ref/s3api/put-object.md
+              - name: put-object-acl
+                href: cli-ref/storage/cli-ref/s3api/put-object-acl.md
               - name: put-object-legal-hold
                 href: cli-ref/storage/cli-ref/s3api/put-object-legal-hold.md
               - name: put-object-retention

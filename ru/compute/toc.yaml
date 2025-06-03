@@ -1142,6 +1142,8 @@ items:
             href: cli-ref/snapshot-schedule/add-disks.md
           - name: add-labels
             href: cli-ref/snapshot-schedule/add-labels.md
+          - name: add-snapshot-labels
+            href: cli-ref/snapshot-schedule/add-snapshot-labels.md
           - name: create
             href: cli-ref/snapshot-schedule/create.md
           - name: delete
@@ -1168,6 +1170,8 @@ items:
             href: cli-ref/snapshot-schedule/remove-disks.md
           - name: remove-labels
             href: cli-ref/snapshot-schedule/remove-labels.md
+          - name: remove-snapshot-labels
+            href: cli-ref/snapshot-schedule/remove-snapshot-labels.md
           - name: set-access-bindings
             href: cli-ref/snapshot-schedule/set-access-bindings.md
           - name: update

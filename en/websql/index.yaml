@@ -15,8 +15,6 @@ description:
     higher</li> <li>Redis/Valkey™ (non-sharded clusters only): 6 and higher</li>
     <li>MongoDB: 6 and higher</li> <li>Yandex Managed Service for Trino: 454 and
     higher</li> </ul>
-meta:
-  title: Yandex WebSQL
 links:
   - title: Getting started
     description: Connect to a database
@@ -36,3 +34,5 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex WebSQL

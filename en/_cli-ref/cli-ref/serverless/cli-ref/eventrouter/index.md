@@ -19,6 +19,7 @@ Aliases:
 #### Command Tree
 
 - [yc serverless eventrouter put-event](put-event.md) — Send event
+- [yc serverless eventrouter send-event](send-event.md) — Send event
 - [yc serverless eventrouter bus](bus/index.md) — Manage buses
 	- [yc serverless eventrouter bus add-access-binding](bus/add-access-binding.md) — Add access binding for the specified bus
 	- [yc serverless eventrouter bus create](bus/create.md) — Create a bus

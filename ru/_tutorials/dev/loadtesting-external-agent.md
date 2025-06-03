@@ -116,7 +116,7 @@ _Внешний агент_ — физический или виртуальны
     tankapi_port: 8083
     load_testing_host: 'loadtesting.{{ api-host }}'
     load_testing_port: '443'
-    logging_host: 'ingester.logging.yandexcloud.net'
+    logging_host: '{{ logging-endpoint-ingester }}'
     logging_port: '443'
     object_storage_url: 'https://{{ s3-storage-host }}'
     storage_file: '/tmp/yandex-tank/storage.data'

@@ -4,11 +4,6 @@ description:
   - >-
     The service is not subject to a <a href="/docs/overview/sla">service level
     agreement</a> (SLA).
-meta:
-  title: Yandex Cloud Console
-  description: >-
-    Yandex Cloud Console (management console) is a Yandex Cloud UI you can use
-    to manage cloud resources, set up notifications, and contact support.
 links:
   - title: Getting started
     description: Log in to the management console
@@ -16,3 +11,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Cloud Console
+  description: >-
+    Yandex Cloud Console (management console) is a Yandex Cloud UI you can use
+    to manage cloud resources, set up notifications, and contact support.

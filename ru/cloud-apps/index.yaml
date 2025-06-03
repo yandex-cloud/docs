@@ -15,11 +15,6 @@ description:
     Marketplace. Подробнее см. инструкцию <a
     href="/docs/marketplace/operations/create-new-version#cloud-apps">Создание
     новой версии продукта</a>.
-meta:
-  title: Cloud Apps
-  description: >-
-    Yandex Cloud Apps — сервис, который позволяет в один клик развернуть
-    приложение на базе Yandex Cloud.
 links:
   - title: Demo Telegram Bot
     description: Демонстрационный Telegram-бот на serverless-стеке
@@ -42,3 +37,8 @@ links:
   - title: Instance Group Scheduled Scaler
     description: Изменяет размер группы ВМ по расписанию
     href: yc-ig-scheduled-scale
+meta:
+  title: Cloud Apps
+  description: >-
+    Yandex Cloud Apps — сервис, который позволяет в один клик развернуть
+    приложение на базе Yandex Cloud.

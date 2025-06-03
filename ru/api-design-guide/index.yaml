@@ -6,25 +6,6 @@ description:
 
     Документ будет полезен разработчикам, которые хотят создавать на базе API
     Yandex Cloud системы автоматизации, плагины и другие приложения.
-meta:
-  title: Концепции API Yandex Cloud
-  description: >-
-    Документ описывает концепции, которые легли в основу архитектуры API Yandex
-    Cloud.
-  keywords:
-    - keyword: идеология API
-    - keyword: идеология API {{ yandex-cloud }}
-    - keyword: концепции API
-    - keyword: REST API
-    - keyword: gRPC API
-    - keyword: концепции API {{ yandex-cloud }}
-    - keyword: API {{ yandex-cloud }}
-    - keyword: методы REST API {{ yandex-cloud }}
-    - keyword: endpoint
-    - keyword: '{{ yandex-cloud }} endpoints'
-    - keyword: API endpoints {{ yandex-cloud }}
-    - keyword: HTTP методы в {{ yandex-cloud }}
-    - keyword: архитектура API {{ yandex-cloud }}
 links:
   - title: Основные принципы
     description: Как устроены API и в чем заключается ресурсо-ориентированный подход
@@ -40,3 +21,22 @@ links:
       Как реализована асинхронность в API и как использовать механизм
       идемпотентности
     href: concepts/about-async
+meta:
+  title: Концепции API Yandex Cloud
+  description: >-
+    Документ описывает концепции, которые легли в основу архитектуры API Yandex
+    Cloud.
+  keywords:
+    - идеология API
+    - идеология API {{ yandex-cloud }}
+    - концепции API
+    - REST API
+    - gRPC API
+    - концепции API {{ yandex-cloud }}
+    - API {{ yandex-cloud }}
+    - методы REST API {{ yandex-cloud }}
+    - endpoint
+    - '{{ yandex-cloud }} endpoints'
+    - API endpoints {{ yandex-cloud }}
+    - HTTP методы в {{ yandex-cloud }}
+    - архитектура API {{ yandex-cloud }}

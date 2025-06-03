@@ -1,6 +1,8 @@
 # Расширение x-yc-apigateway:smartWebSecurity
 
-Расширение `x-yc-apigateway:smartWebSecurity` защищает [API-шлюз](../../concepts/index.md) на основе правил, заданных в [профиле безопасности {{ sws-full-name }}](../../../smartwebsecurity/concepts/profiles.md). Например, с помощью [базовых правил](../../../smartwebsecurity/concepts/rules.md#base-rules) можно блокировать нежелательный трафик, а используя [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) — устанавливать ограничения на количество запросов. Заблокированные запросы к API-шлюзу не тарифицируются. 
+Расширение `x-yc-apigateway:smartWebSecurity` защищает [API-шлюз](../../concepts/index.md) на основе правил, заданных в [профиле безопасности {{ sws-full-name }}](../../../smartwebsecurity/concepts/profiles.md). Например, с помощью [базовых правил](../../../smartwebsecurity/concepts/rules.md#base-rules) можно блокировать нежелательный трафик, а используя [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) — устанавливать ограничения на количество запросов.
+
+Тарифицируются только те запросы к API-шлюзу, которые не были заблокированы в результате проверки. За работу профиля безопасности плата взимается отдельно согласно [правилам тарификации {{ sws-full-name }}](../../../smartwebsecurity/pricing.md).
 
 ## Поддерживаемые параметры {#parameters}
 
