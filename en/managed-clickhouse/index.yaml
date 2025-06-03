@@ -37,11 +37,6 @@ description:
   - >-
     <em>ClickHouse<sup>®</sup> is a registered trademark of <a
     href="https://clickhouse.com" target="_blank">ClickHouse, Inc.</a></em>
-meta:
-  title: Yandex Managed Service for ClickHouse®
-  description: >-
-    With Managed Service for ClickHouse®, you can deploy and maintain
-    ClickHouse® server clusters in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create your first database cluster
@@ -64,3 +59,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Managed Service for ClickHouse®
+  description: >-
+    With Managed Service for ClickHouse®, you can deploy and maintain
+    ClickHouse® server clusters in the Yandex Cloud infrastructure.

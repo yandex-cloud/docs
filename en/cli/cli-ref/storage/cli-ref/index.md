@@ -37,7 +37,9 @@ Syntax:
 	- [yc storage s3api delete-object](s3api/delete-object.md) — Deletes an object from Object Storage
 	- [yc storage s3api delete-object-tagging](s3api/delete-object-tagging.md) — Deletes all objects labels from a bucket
 	- [yc storage s3api delete-objects](s3api/delete-objects.md) — Deletes objects based on a list of keys passed in a request
+	- [yc storage s3api get-bucket-acl](s3api/get-bucket-acl.md) — Returns bucket access control list
 	- [yc storage s3api get-object](s3api/get-object.md) — Returns an object from Object Storage
+	- [yc storage s3api get-object-acl](s3api/get-object-acl.md) — Returns bucket object access control list
 	- [yc storage s3api get-object-legal-hold](s3api/get-object-legal-hold.md) — Returns the settings of the legal hold placed on the object version
 	- [yc storage s3api get-object-retention](s3api/get-object-retention.md) — Returns settings of the retention put on an object version
 	- [yc storage s3api get-object-tagging](s3api/get-object-tagging.md) — Returns bucket object labels
@@ -45,7 +47,9 @@ Syntax:
 	- [yc storage s3api list-multipart-uploads](s3api/list-multipart-uploads.md) — Lists in-progress multipart uploads
 	- [yc storage s3api list-objects](s3api/list-objects.md) — Lists objects in a bucket using listObjectsV2 http method
 	- [yc storage s3api list-parts](s3api/list-parts.md) — Lists parts of a multipart upload
+	- [yc storage s3api put-bucket-acl](s3api/put-bucket-acl.md) — Sets bucket access control list
 	- [yc storage s3api put-object](s3api/put-object.md) — Puts an object and its metadata to Object Storage
+	- [yc storage s3api put-object-acl](s3api/put-object-acl.md) — Sets bucket object access control list
 	- [yc storage s3api put-object-legal-hold](s3api/put-object-legal-hold.md) — Puts or removes legal hold for an object version
 	- [yc storage s3api put-object-retention](s3api/put-object-retention.md) — Puts retention on the object version or enables/disables a previously set lock
 	- [yc storage s3api put-object-tagging](s3api/put-object-tagging.md) — Adds labels to a bucket object. This overwrites any existing object labels

@@ -30,20 +30,6 @@ description:
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ и отвечает требованиям международных и национальных
     стандартов ISO, GDPR, PCI DSS и ГОСТ Р 57580.
-meta:
-  title: Yandex Cloud Registry
-  description: >-
-    Yandex Cloud Registry — сервис для хранения и управления артефактами
-    разработки.
-  keywords:
-    - keyword: '{{ cloud-registry-name }}'
-    - keyword: '{{ cloud-registry-full-name }}'
-    - keyword: сервис {{ cloud-registry-name }}
-    - keyword: реестры в {{ yandex-cloud }}
-    - keyword: артефакты в {{ yandex-cloud }}
-    - keyword: реестр приложений
-    - keyword: облачный реестр
-    - keyword: артефакты разработки
 links:
   - title: Начало работы
     description: Создайте первый реестр артефактов
@@ -60,3 +46,17 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Cloud Registry
+  description: >-
+    Yandex Cloud Registry — сервис для хранения и управления артефактами
+    разработки.
+  keywords:
+    - '{{ cloud-registry-name }}'
+    - '{{ cloud-registry-full-name }}'
+    - сервис {{ cloud-registry-name }}
+    - реестры в {{ yandex-cloud }}
+    - артефакты в {{ yandex-cloud }}
+    - реестр приложений
+    - облачный реестр
+    - артефакты разработки

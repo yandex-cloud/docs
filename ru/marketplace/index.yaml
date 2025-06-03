@@ -8,22 +8,6 @@ description:
   - >-
     Партнеры могут размещать свои продукты в Yandex Cloud Marketplace и
     зарабатывать на них.
-meta:
-  title: '{{ marketplace-full-name }}'
-  description: >-
-    Cloud Marketplace — магазин готовых инструментов для разработки, анализа
-    данных, обеспечения безопасности, создания бизнес‑приложений и других задач.
-  keywords:
-    - keyword: '{{ marketplace-short-name }}'
-    - keyword: '{{ marketplace-name }}'
-    - keyword: '{{ marketplace-full-name }}'
-    - keyword: сервис {{ marketplace-name }}
-    - keyword: marketplace в {{ yandex-cloud }}
-    - keyword: маркетплейс в {{ yandex-cloud }}
-    - keyword: продукты в {{ yandex-cloud }}
-    - keyword: приложения в {{ yandex-cloud }}
-    - keyword: облачный магазин яндекс
-    - keyword: магазин облачных приложений
 links:
   - title: Партнерам
     description: Разместите свой продукт в Cloud Marketplace
@@ -31,3 +15,19 @@ links:
   - title: Пользователям
     description: Используйте готовые решения Yandex Cloud и партнеров
     href: operations/users/quickstart
+meta:
+  title: '{{ marketplace-full-name }}'
+  description: >-
+    Cloud Marketplace — магазин готовых инструментов для разработки, анализа
+    данных, обеспечения безопасности, создания бизнес‑приложений и других задач.
+  keywords:
+    - '{{ marketplace-short-name }}'
+    - '{{ marketplace-name }}'
+    - '{{ marketplace-full-name }}'
+    - сервис {{ marketplace-name }}
+    - marketplace в {{ yandex-cloud }}
+    - маркетплейс в {{ yandex-cloud }}
+    - продукты в {{ yandex-cloud }}
+    - приложения в {{ yandex-cloud }}
+    - облачный магазин яндекс
+    - магазин облачных приложений

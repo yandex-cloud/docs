@@ -3,21 +3,6 @@ description: >-
   Yandex Cloud Organization — это решение для корпоративных клиентов, с помощью
   которого можно подключить к вашей организации сервисы Yandex Cloud и управлять
   доступом сотрудников к этим сервисам.
-meta:
-  title: Yandex Cloud Organization
-  description: >-
-    Yandex Cloud Organization — это решение для корпоративных клиентов, с
-    помощью которого можно подключить к вашей организации сервисы Yandex Cloud и
-    управлять доступом сотрудников к этим сервисам.
-  keywords:
-    - keyword: '{{ org-name }}'
-    - keyword: '{{ org-full-name }}'
-    - keyword: сервис {{ org-name }}
-    - keyword: '{{ yandex-cloud }} для организаций'
-    - keyword: корпоративный доступ в {{ yandex-cloud }}
-    - keyword: корпоративное облако
-    - keyword: облако для корпоративных клиентов
-    - keyword: как управлять доступом сотрудников
 links:
   - title: Зарегистрируйте организацию
     description: Чтобы начать работу, зарегистрируйте организацию
@@ -41,3 +26,18 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Cloud Organization
+  description: >-
+    Yandex Cloud Organization — это решение для корпоративных клиентов, с
+    помощью которого можно подключить к вашей организации сервисы Yandex Cloud и
+    управлять доступом сотрудников к этим сервисам.
+  keywords:
+    - '{{ org-name }}'
+    - '{{ org-full-name }}'
+    - сервис {{ org-name }}
+    - '{{ yandex-cloud }} для организаций'
+    - корпоративный доступ в {{ yandex-cloud }}
+    - корпоративное облако
+    - облако для корпоративных клиентов
+    - как управлять доступом сотрудников

@@ -53,6 +53,7 @@ Aliases:
 	- [yc serverless container update](container/update.md) — Update the specified container
 - [yc serverless eventrouter](eventrouter/index.md) — Manage eventrouters
 	- [yc serverless eventrouter put-event](eventrouter/put-event.md) — Send event
+	- [yc serverless eventrouter send-event](eventrouter/send-event.md) — Send event
 - [yc serverless function](function/index.md) — Manage functions
 	- [yc serverless function add-access-binding](function/add-access-binding.md) — Add access binding for the specified function
 	- [yc serverless function add-labels](function/add-labels.md) — Add labels to specified function

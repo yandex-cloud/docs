@@ -11,11 +11,6 @@ description:
     The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is
     protected</a> in accordance with the Federal Law No. FZ-152.
-meta:
-  title: Yandex Cloud Router
-  description: >-
-    {{ cr-full-name }} is a service for managing network topologies of a hybrid
-    cloud in {{ yandex-cloud }}.
 links:
   - title: Concepts
     description: Learn about features of the service
@@ -23,3 +18,8 @@ links:
   - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
+meta:
+  title: Yandex Cloud Router
+  description: >-
+    {{ cr-full-name }} is a service for managing network topologies of a hybrid
+    cloud in {{ yandex-cloud }}.

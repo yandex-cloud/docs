@@ -9,26 +9,6 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.ru/legal/cloud_sla_ym">Yandex Monitoring Service
     Level</a>.
-meta:
-  title: Yandex Monitoring
-  description: >-
-    Yandex Monitoring allows you to collect metrics, store them, and display
-    them in dashboard charts.
-  keywords:
-    - keyword: monitoring
-    - keyword: Monitoring
-    - keyword: '{{ monitoring-name }} metric'
-    - keyword: '{{ monitoring-name }}'
-    - keyword: '{{ monitoring-name }}'
-    - keyword: alerting
-    - keyword: time series in {{ monitoring-name }}
-    - keyword: dashboard in {{ monitoring-name }}
-    - keyword: '{{ monitoring-name }} in {{ yandex-cloud }}'
-    - keyword: metric collection agent
-    - keyword: '{{ unified-agent-short-name }}'
-    - keyword: '{{ unified-agent-full-name }}'
-    - keyword: '{{ prometheus-name }}'
-    - keyword: notification channel in {{ monitoring-name }}
 links:
   - title: Getting started
     description: Start monitoring your metrics
@@ -69,3 +49,23 @@ links:
   - title: FAQ
     description: Answers to frequently asked questions
     href: qa/all
+meta:
+  title: Yandex Monitoring
+  description: >-
+    Yandex Monitoring allows you to collect metrics, store them, and display
+    them in dashboard charts.
+  keywords:
+    - monitoring
+    - Monitoring
+    - '{{ monitoring-name }} metric'
+    - '{{ monitoring-name }}'
+    - '{{ monitoring-name }}'
+    - alerting
+    - time series in {{ monitoring-name }}
+    - dashboard in {{ monitoring-name }}
+    - '{{ monitoring-name }} in {{ yandex-cloud }}'
+    - metric collection agent
+    - '{{ unified-agent-short-name }}'
+    - '{{ unified-agent-full-name }}'
+    - '{{ prometheus-name }}'
+    - notification channel in {{ monitoring-name }}

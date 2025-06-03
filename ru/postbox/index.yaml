@@ -13,25 +13,6 @@ description:
     приложениями.</li></ul>
 nav:
   title: Yandex Cloud Postbox
-meta:
-  title: Yandex Cloud Postbox
-  description: >-
-    Yandex Cloud Postbox позволяет отправлять транзакционные сообщения, например
-    о восстановлении пароля или создании заказа.
-  keywords:
-    - keyword: postbox
-    - keyword: yandex postbox
-    - keyword: cloud postbox
-    - keyword: '{{ postbox-full-name }}'
-    - keyword: сервис {{ postbox-name }}
-    - keyword: почта в {{ yandex-cloud }}
-    - keyword: email в {{ yandex-cloud }}
-    - keyword: имейл в {{ yandex-cloud }}
-    - keyword: рассылка в {{ yandex-cloud }}
-    - keyword: рассылка писем
-    - keyword: рассылка электронных писем
-    - keyword: рассылка имейлов
-    - keyword: рассылка email
 links:
   - title: Начало работы
     description: Узнайте, как начать работать с Yandex Cloud Postbox
@@ -45,3 +26,22 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Cloud Postbox
+  description: >-
+    Yandex Cloud Postbox позволяет отправлять транзакционные сообщения, например
+    о восстановлении пароля или создании заказа.
+  keywords:
+    - postbox
+    - yandex postbox
+    - cloud postbox
+    - '{{ postbox-full-name }}'
+    - сервис {{ postbox-name }}
+    - почта в {{ yandex-cloud }}
+    - email в {{ yandex-cloud }}
+    - имейл в {{ yandex-cloud }}
+    - рассылка в {{ yandex-cloud }}
+    - рассылка писем
+    - рассылка электронных писем
+    - рассылка имейлов
+    - рассылка email

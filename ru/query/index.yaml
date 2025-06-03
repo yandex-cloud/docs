@@ -7,26 +7,6 @@ description:
     данным с помощью единого диалекта SQL.
 nav:
   title: Yandex Query
-meta:
-  title: Yandex Query
-  description: >-
-    Сервис Yandex Query позволяет выполнять аналитические и потоковые запросы
-    реального времени к структурированным или частично структурированным данным
-    с помощью единого диалекта SQL.
-  keywords:
-    - keyword: '{{ yq-name }}'
-    - keyword: '{{ yq-full-name }}'
-    - keyword: сервис {{ yq-name }}
-    - keyword: обработка данных в {{ yandex-cloud }}
-    - keyword: схемы данных в {{ yandex-cloud }}
-    - keyword: анализ данных в {{ yandex-cloud }}
-    - keyword: аналитические запросы в {{ yandex-cloud }}
-    - keyword: потоковые запросы в {{ yandex-cloud }}
-    - keyword: обработка данных
-    - keyword: схемы данных
-    - keyword: анализ данных
-    - keyword: аналитические запросы
-    - keyword: потоковые запросы
 links:
   - title: Начало работы
     description: Узнайте, как начать работать с Yandex Query
@@ -46,3 +26,23 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Query
+  description: >-
+    Сервис Yandex Query позволяет выполнять аналитические и потоковые запросы
+    реального времени к структурированным или частично структурированным данным
+    с помощью единого диалекта SQL.
+  keywords:
+    - '{{ yq-name }}'
+    - '{{ yq-full-name }}'
+    - сервис {{ yq-name }}
+    - обработка данных в {{ yandex-cloud }}
+    - схемы данных в {{ yandex-cloud }}
+    - анализ данных в {{ yandex-cloud }}
+    - аналитические запросы в {{ yandex-cloud }}
+    - потоковые запросы в {{ yandex-cloud }}
+    - обработка данных
+    - схемы данных
+    - анализ данных
+    - аналитические запросы
+    - потоковые запросы

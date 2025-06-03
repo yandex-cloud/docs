@@ -12,25 +12,6 @@ description:
     На стадии Preview доступна отправка push-уведомлений на устройства с iOS и
     Android, в браузеры и SMS.
   - Позднее будет реализована отправка уведомлений в мессенджеры.
-meta:
-  title: Yandex Cloud Notification Service
-  keywords:
-    - keyword: notification
-    - keyword: notification service
-    - keyword: push-уведомлений
-    - keyword: '{{ cns-name }}'
-    - keyword: сервис {{ cns-name }}
-    - keyword: push {{ cns-name }}
-    - keyword: пуши {{ cns-name }}
-    - keyword: уведомления
-    - keyword: SMS {{ cns-name }}
-    - keyword: SMS-уведомление в {{ yandex-cloud }}
-    - keyword: CNS в {{ yandex-cloud }}
-    - keyword: всплывающие сообщения
-    - keyword: push в {{ yandex-cloud }}
-    - keyword: SMS в {{ yandex-cloud }}
-    - keyword: '{{ cns-name }} в {{ yandex-cloud }}'
-    - keyword: уведомления в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый канал уведомлений
@@ -50,3 +31,22 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Cloud Notification Service
+  keywords:
+    - notification
+    - notification service
+    - push-уведомлений
+    - '{{ cns-name }}'
+    - сервис {{ cns-name }}
+    - push {{ cns-name }}
+    - пуши {{ cns-name }}
+    - уведомления
+    - SMS {{ cns-name }}
+    - SMS-уведомление в {{ yandex-cloud }}
+    - CNS в {{ yandex-cloud }}
+    - всплывающие сообщения
+    - push в {{ yandex-cloud }}
+    - SMS в {{ yandex-cloud }}
+    - '{{ cns-name }} в {{ yandex-cloud }}'
+    - уведомления в {{ yandex-cloud }}

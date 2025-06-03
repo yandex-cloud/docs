@@ -38,6 +38,7 @@ default:
   api-host-mdb-operation: operation.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
   api-host-operation: operation.api.cloud.yandex.net
+  api-host-sk: api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-host-spark: spark.api.cloud.yandex.net
@@ -348,6 +349,8 @@ default:
   lockbox-full-name: Yandex Lockbox
   lockbox-name: Yandex Lockbox
   lockbox-short-name: Lockbox
+  logging-endpoint-ingester: ingester.logging.yandexcloud.net
+  logging-endpoint-reader: reader.logging.yandexcloud.net
   login-example: login@yandex.ru
   lora: LoRA
   maf-full-name: Yandex Managed Service for Apache Airflow™
@@ -783,6 +786,7 @@ default:
   translate-full-name: Yandex Translate
   translate-name: Translate
   translate-short-name: Translate
+  trino-service-address: 10.248.0.0/13
   tts-cc-quality: 8 кГц
   tts-v3-count: 250 символов
   tts-v3-time: 24 секунды
@@ -6159,6 +6163,7 @@ default:
           create: Создать
           deactivate: Деактивировать
           delete: Удалить
+          duplicate: Дублировать
           edit: Редактировать
           save: Сохранить
       alert-template:
@@ -6256,16 +6261,27 @@ default:
         dash:
           create-alert: Создать алерт
           open-in-monitoring: Открыть в Мониторинге
+          setup: Настроить виджет
         settings:
           dashboard-settings: Настройки дашборда
         tab:
           service-dashboards: Сервисные дашборды
         widget-placeholder:
           add-graph: График
+          add-group: Секция
           add-text: Текст
           add-title: Заголовок
+        widget-settings:
+          addToSelection: Добавить в выборку
+          display-legend: Показать легенду
+          fix-time: Зафиксировать временной диапазон
         widget-type:
           graph: График
+        widget:
+          copy: Копировать на другой дашборд
+          delete-key-value: Удалить
+          share: Поделиться
+          share-screenshot-key-value: Поделиться скриншотом
       dialog:
         confirm:
           button_continue: Продолжить
@@ -6540,6 +6556,7 @@ default:
           title: Настройки безопасности
         users: Пользователи
       user:
+        title_groups: Группы
         title_oslogin-profiles: Профили OS Login
         title_ssh-keys: SSH-ключи
       users:
@@ -9214,6 +9231,8 @@ default:
         workflow-editor_push-next-block-placeholder-label: Добавить шаг
         workflow-editor_retry-count-field: Количество повторных попыток
         workflow-editor_step-name-label: Имя шага
+        workflow-editor_while-step-condition-field: Шаблон условия выполнения
+        workflow-editor_while-step-max-iterations-field: Максимальное количество итераций
         workflow-viewer_node-input-label: Вход
         workflow-viewer_node-output-label: Выход
         workflow-viewer_node-settings-label: Настройки

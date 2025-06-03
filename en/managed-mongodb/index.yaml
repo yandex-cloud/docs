@@ -29,11 +29,6 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_mdb">Yandex Managed Databases
     Service Level</a>.
-meta:
-  title: Yandex Managed Service for MongoDB
-  description: >-
-    With Yandex Managed Service for MongoDB, you can deploy and maintain MongoDB
-    6.0 and 7.0 server clusters in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create your first database cluster
@@ -56,3 +51,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Managed Service for MongoDB
+  description: >-
+    With Yandex Managed Service for MongoDB, you can deploy and maintain MongoDB
+    6.0 and 7.0 server clusters in the Yandex Cloud infrastructure.

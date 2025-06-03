@@ -19,25 +19,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_speechkit">Уровень
     обслуживания {{ speechkit-full-name }}</a>.
-meta:
-  title: '{{ speechkit-full-name }}'
-  description: >-
-    Сервис Yandex SpeechKit позволяет разработчикам приложений использовать
-    речевые технологии Яндекса: распознавание речи (Speech-to-Text) и синтез
-    речи (Text-to-Speech).
-  keywords:
-    - keyword: '{{ speechkit-full-name }}'
-    - keyword: сервис {{ speechkit-name }}
-    - keyword: речевые технологии Яндекса
-    - keyword: Speech-to-Text
-    - keyword: ASR
-    - keyword: распознавание речи
-    - keyword: распознавание речи в {{ yandex-cloud }}
-    - keyword: Text-to-Speech
-    - keyword: синтез речи в {{ yandex-cloud }}
-    - keyword: синтез речи
-    - keyword: API распознавания {{ yandex-cloud }}
-    - keyword: API синтеза {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Преобразуйте текст в речь и речь в текст
@@ -75,3 +56,22 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: '{{ speechkit-full-name }}'
+  description: >-
+    Сервис Yandex SpeechKit позволяет разработчикам приложений использовать
+    речевые технологии Яндекса: распознавание речи (Speech-to-Text) и синтез
+    речи (Text-to-Speech).
+  keywords:
+    - '{{ speechkit-full-name }}'
+    - сервис {{ speechkit-name }}
+    - речевые технологии Яндекса
+    - Speech-to-Text
+    - ASR
+    - распознавание речи
+    - распознавание речи в {{ yandex-cloud }}
+    - Text-to-Speech
+    - синтез речи в {{ yandex-cloud }}
+    - синтез речи
+    - API распознавания {{ yandex-cloud }}
+    - API синтеза {{ yandex-cloud }}

@@ -1,26 +1,26 @@
 # Developing a custom integration in {{ api-gw-name }}
 
 
-Using serverless technologies, you can create your own integration with {{ yandex-cloud }} services.
+With serverless technology, you can create your own integration with {{ yandex-cloud }} services.
 
-User integration is a {{ sf-full-name }}-enabled [function](../../functions/concepts/function.md) or {{ serverless-containers-full-name }}-enabled [container](../../serverless-containers/concepts/container.md) designed to perform common tasks.
+Custom integration is a [function](../../functions/concepts/function.md) in {{ sf-full-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-full-name }} designed for a specific use case.
 
-You can configure a function or container in the [{{ api-gw-name }}](../../api-gateway/concepts/) specification under [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) to execute specific HTTP requests.
+You can configure a function or container in the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification)-based [{{ api-gw-name }}](../../api-gateway/concepts/) specification to handle specific HTTP requests.
 
-Develop an integration function with {{ ydb-full-name }} for [{{ ydb-short-name }}](../../ydb/concepts/#ydb). The function will interact with {{ ydb-name }} and processes external HTTP requests over the API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The function source code language is TypeScript; the runtime environment is Node.js 16.
+Develop a {{ ydb-full-name }} integration function for [{{ ydb-short-name }}](../../ydb/concepts/#ydb) operations. The function will communicate with {{ ydb-name }} and handle external HTTP requests via an API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The function is written in TypeScript and runs on Node.js 16.
 
-The integration will be applied to implement the [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) API for a movie database deployed in {{ ydb-name }}.
+We will use this integration to implement a [CRUD API](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) for accessing the movie database deployed in {{ ydb-name }}.
 
 To deploy a project:
 1. [Set up your environment](#setup-environment).
-1. [Download a project with integration](#download-project).
+1. [Download the integration project](#download-project).
 1. [Compile a function](#compile-function).
 1. [Upload the function file to the bucket](#upload-to-bucket).
-1. [Prepare a resource configuration for the integration](#prepare-configuration).
+1. [Set up a resource configuration for the integration](#prepare-configuration).
 1. [Deploy resources for the integration](#deploy-resources).
 1. [Test the new CRUD API](#test-api).
 
-If you no longer need the resources you created, [delete them](#clear-out).
+If you no longer need the resources you created, [delete](#clear-out) them.
 
 ## Getting started {#before-you-begin}
 
@@ -29,9 +29,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of integration resources includes:
-* Fee for the occupied data storage volume, number of data operations, and outbound traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for the amount of stored data, number of data operations, and outbound traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
-* Fee for the number of function calls, computing resources allocated to a function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Set up your environment {#setup-environment}
@@ -40,26 +40,26 @@ The cost of integration resources includes:
 
 - Windows {#windows}
 
-  1. [Install the WSL utility](https://docs.microsoft.com/en-us/windows/wsl/install) to run a Linux environment.
-  1. Run the subsystem (by default, Ubuntu).
-  1. Configure the environment as described in the Linux manual.
+  1. [Install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) to run a Linux environment.
+  1. Run the Linux subsystem (by default, Ubuntu).
+  1. Configure the environment as described in this tutorial for Linux.
 
 - Linux {#linux}
 
   {% note info %}
 
-  If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
+  If you are using a distribution other than Ubuntu, install the specified tools using your package manager.
 
   {% endnote %}
 
-  1. Install these utilities in the specified order using commands in the terminal:
+  1. Install the following tools in the specified order by running the relevant commands in your terminal:
      * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
 
        ```bash
        sudo apt-get install curl git -y
        ```
 
-     * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
+     * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [TypeScript-enabled IDE](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
 
        ```bash
        sudo snap install webstorm --classic
@@ -114,7 +114,7 @@ The cost of integration resources includes:
 
 - macOS {#macos}
 
-  1. Install these utilities in the specified order using commands in the terminal:
+  1. Install the following tools in the specified order by running the relevant commands in your terminal:
      * [Homebrew](https://brew.sh):
 
        ```bash
@@ -127,7 +127,7 @@ The cost of integration resources includes:
        brew install curl git
        ```
 
-     * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
+     * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [TypeScript-enabled IDE](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
 
        ```bash
        brew install --cask webstorm
@@ -178,7 +178,7 @@ The cost of integration resources includes:
 
 {% endlist %}
 
-## Download a project with integration {#download-project}
+## Download the integration project {#download-project}
 
 Clone the integration project repository:
 
@@ -186,32 +186,32 @@ Clone the integration project repository:
 git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector.git
 ```
 
-The `src` folder contains source files for creating the function:
+The `src` directory contains these source files for creating a function:
 * [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts): `Event` code describing the [request structure](../../api-gateway/concepts/extensions/cloud-functions.md#request_v1) and `RequestContext` code.
-* [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts): Code to process function calls and basic commands.
-* [iam.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/iam.ts): Code to retrieve [IAM tokens](../../iam/concepts/authorization/iam-token.md) for authorization when executing requests to {{ ydb-short-name }}.
+* [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts): Code to process function invocation and basic commands.
+* [iam.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/iam.ts): Code to retrieve [IAM tokens](../../iam/concepts/authorization/iam-token.md) for {{ ydb-short-name }} request authorization.
 
-When a function is called, the operation context is provided in the [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts) file in the `requestContext.apiGateway.operationContext` field of the `event` object.
+When invoking a function defined in [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts), provide the operation context in the `requestContext.apiGateway.operationContext` field of the `event` object.
 
-The operation context is defined in the [`context`](../../api-gateway/concepts/extensions/cloud-functions.md#parameters) parameter in the specification of the [API gateway](../../api-gateway/concepts/) invoking the integration function.
+The [`context`](../../api-gateway/concepts/extensions/cloud-functions.md#parameters) parameter in the [API gateway](../../api-gateway/concepts/) specification sets the operation context for the integration function.
 
 {% note info %}
 
-In case of [container](../../serverless-containers/concepts/container.md)-based integration, the operation context is provided in a special header: [`X-Yc-ApiGateway-Operation-Context`](../../api-gateway/concepts/extensions/containers.md#parameters).
+In case of [container](../../serverless-containers/concepts/container.md)-based integration, use the [`X-Yc-ApiGateway-Operation-Context`](../../api-gateway/concepts/extensions/containers.md#parameters) header to provide the context.
 
 {% endnote %}
 
-The [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts) file defines interfaces for basic Amazon DynamoDB commands and command parameters to implement in this integration. This is required for specifying the operation context format and working with the format within a function.
+[event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts) defines interfaces for basic Amazon DynamoDB commands and command parameters to implement in this integration. This helps specify the format of the operation context and how the function handles it.
 
 ## Compile a function {#compile-function}
 
-1. Open the terminal and navigate to the project root folder:
+1. Open the terminal and navigate to the project root directory:
 
    ```bash
    cd <path_to_project_root_directory>
    ```
 
-1. Set the dependencies required for the project:
+1. Install the project dependencies:
 
    ```bash
    npm ci
@@ -223,7 +223,7 @@ The [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dyna
    npm run build
    ```
 
-1. Add the function code you built to a ZIP archive:
+1. Package it into a ZIP archive:
   
    ```bash
    npm run package
@@ -231,21 +231,21 @@ The [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dyna
 
 ## Upload the function file to the bucket {#upload-to-bucket}
 
-1. [Create a bucket](../../storage/operations/buckets/create.md) with public access. Save the bucket name. You will need it later.
+1. [Create](../../storage/operations/buckets/create.md) a publicly accessible bucket. Save the bucket name, as you will need it later.
 1. [Upload](../../storage/operations/objects/upload.md) the `apigw-dynamodb-connector-0.0.1.zip` archive with the function code from the `build` directory to the bucket.
 
 ## Set up a resource configuration for the integration {#prepare-configuration}
 
-To deploy the CRUD API using the integration function, you will need [{{ TF }}](https://www.terraform.io).
+To deploy the CRUD API via the integration function, use [{{ TF }}](https://www.terraform.io).
 
-A special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api) developed for this integration tutorial simplifies configuring {{ yandex-cloud }} resources. {{ TF }} resources being created:
-* Serverless {{ ydb-short-name }} database.
+With a special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api) developed for this integration scenario, you will easily configure your {{ yandex-cloud }} resources. You will use {{ TF }} to create the following resources:
+* Serverless {{ ydb-short-name }}-enabled database.
 * Integration function.
-* Service account for the function to access the database.
+* Service account the function will use to access the database.
 * API gateway.
 
-To get configuration files for {{ TF }} ready:
-1. Find out the name of the `ACTIVE` profile of the {{ yandex-cloud }} CLI command line interface. In the terminal, run this command:
+To set up configuration files for {{ TF }}:
+1. Find out the name of the `ACTIVE` profile of the {{ yandex-cloud }} CLI. In the terminal, run this command:
 
    ```bash
    yc config profile list
@@ -257,19 +257,19 @@ To get configuration files for {{ TF }} ready:
    yc config profile get <profile_name>
    ```
 
-   Save the properties:
-   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md)
-   * `cloud-id`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID
-   * `folder-id`: [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) ID
-1. Create a `crud-api` directory and navigate to it:
+   Save these properties:
+   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md).
+   * `cloud-id`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID.
+   * `folder-id`: [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
+1. Create a directory named `crud-api` and open it:
 
    ```bash
    mkdir crud-api
    cd crud-api
    ```
 
-   Run all subsequent {{ TF }} commands in the `crud-api` folder.
-1. Create a file named `main.tf` and copy into it the {{ TF }} module configuration. Configure the resources being created:
+   Run all subsequent {{ TF }} commands in the `crud-api` directory.
+1. Create a file named `main.tf` and paste the {{ TF }} module configuration into it. Set the following properties for the new resources:
    * `cloud_id`: Cloud ID.
    * `folder_id`: Folder ID.
    * `oauth_token`: OAuth token.
@@ -321,7 +321,7 @@ To get configuration files for {{ TF }} ready:
    }
    ```
 
-1. Create a file named `table.json` and copy into it the specification of the table schema created by {{ ydb-short-name }}:
+1. Create a file named `table.json` and paste into it the schema specification for the table to create in {{ ydb-short-name }}:
 
    ```json
    {
@@ -349,7 +349,7 @@ To get configuration files for {{ TF }} ready:
    }
    ```
 
-1. Create a file named `api.yaml` and copy into it the OpenAPI specification of the new API gateway:
+1. Create a file named `api.yaml` and paste into it the OpenAPI specification for the new API gateway:
 
    ```yaml
    openapi: "3.0.0"
@@ -546,21 +546,21 @@ To get configuration files for {{ TF }} ready:
 
 ## Deploy resources for the integration {#deploy-resources}
 
-1. Initiate {{ TF }}. In the terminal, run this command:
+1. Initialize {{ TF }}. In the terminal, run this command:
 
    ```bash
    terraform init
    ```
 
-1. Deploy cloud resources:
+1. Deploy the cloud resources:
 
    ```bash
    terraform apply
    ```
 
-1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
 
-   In the command output, the `crud_api_domain` variable will show the domain address of the new CRUD API. Save the address. You will need it later.
+   In the command output, the `crud_api_domain` variable will show the domain address of the new CRUD API. Save the address, as you will need it later.
 
    You can use the [management console]({{ link-console-main }}) to check the created resources.
 
@@ -641,5 +641,5 @@ To stop paying for the resources you created:
   terraform destroy
   ```
 
-  Confirm the resource deletion: type `yes` in the terminal and press **Enter**.
+  Confirm the resource deletion by typing `yes` in the terminal and pressing **Enter**.
 * [Delete](../../storage/operations/buckets/delete.md) the bucket with the function file.

@@ -7,11 +7,6 @@ description:
     Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
     pursuant to Russian Federal Law 152-FZ.
-meta:
-  title: Yandex Cloud Interconnect
-  description: >-
-    Yandex Cloud Interconnect enables setting up a dedicated physical connection
-    between a customer on-premise infrastructure and Yandex Cloud resources.
 links:
   - title: Concepts
     description: Learn about features of the service
@@ -25,3 +20,8 @@ links:
   - title: Tutorials
     description: How to use {{ interconnect-name }}
     href: tutorials/
+meta:
+  title: Yandex Cloud Interconnect
+  description: >-
+    Yandex Cloud Interconnect enables setting up a dedicated physical connection
+    between a customer on-premise infrastructure and Yandex Cloud resources.

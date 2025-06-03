@@ -19,20 +19,6 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_ymq">Yandex Message Queue Service
     Level</a>.
-meta:
-  title: Yandex Message Queue
-  description: >-
-    Yandex Message Queue is a universal, scalable solution to enable messaging
-    between applications.
-  keywords:
-    - keyword: '{{ message-queue-name }}'
-    - keyword: '{{ message-queue-full-name }}'
-    - keyword: '{{ message-queue-name }}'
-    - keyword: queues in {{ yandex-cloud }}
-    - keyword: message queues in {{ yandex-cloud }}
-    - keyword: message exchange between applications in {{ yandex-cloud }}
-    - keyword: message queues
-    - keyword: message exchange between applications
 links:
   - title: Getting started
     description: Create and configure your first message queue
@@ -52,3 +38,17 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Message Queue
+  description: >-
+    Yandex Message Queue is a universal, scalable solution to enable messaging
+    between applications.
+  keywords:
+    - '{{ message-queue-name }}'
+    - '{{ message-queue-full-name }}'
+    - '{{ message-queue-name }}'
+    - queues in {{ yandex-cloud }}
+    - message queues in {{ yandex-cloud }}
+    - message exchange between applications in {{ yandex-cloud }}
+    - message queues
+    - message exchange between applications

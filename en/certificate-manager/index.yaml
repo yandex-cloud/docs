@@ -5,29 +5,6 @@ description:
     certificates from Let's Encrypt and upload your own certificates to access
     websites, API Gateway instances, or Cloud CDN resources over HTTPS, as well
     as handle TLS traffic in Application Load Balancer.
-meta:
-  title: Yandex Certificate Manager
-  description: >-
-    Yandex Certificate Manager is a service you can use to obtain and update TLS
-    certificates from Let's Encrypt and upload your own certificates to access
-    websites, API Gateway instances, or Cloud CDN resources over HTTPS, as well
-    as handle TLS traffic in Application Load Balancer.
-  keywords:
-    - keyword: certificates in {{ yandex-cloud }}
-    - keyword: TLS certificate
-    - keyword: SSL certificate
-    - keyword: TLS certificate in {{ certificate-manager-name }}
-    - keyword: certificate in {{ certificate-manager-name }}
-    - keyword: '{{ certificate-manager-name }} in {{ yandex-cloud }}'
-    - keyword: Encrypt in {{ yandex-cloud }}
-    - keyword: Let's Encrypt in {{ certificate-manager-name }}
-    - keyword: Let's Encrypt certificate
-    - keyword: '{{ certificate-manager-full-name }}'
-    - keyword: '{{ certificate-manager-name }}'
-    - keyword: '{{ certificate-manager-name }}'
-    - keyword: security certificate in {{ yandex-cloud }}
-    - keyword: validation in {{ certificate-manager-name }}
-    - keyword: termination in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Create your first certificate
@@ -47,3 +24,26 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Certificate Manager
+  description: >-
+    Yandex Certificate Manager is a service you can use to obtain and update TLS
+    certificates from Let's Encrypt and upload your own certificates to access
+    websites, API Gateway instances, or Cloud CDN resources over HTTPS, as well
+    as handle TLS traffic in Application Load Balancer.
+  keywords:
+    - certificates in {{ yandex-cloud }}
+    - TLS certificate
+    - SSL certificate
+    - TLS certificate in {{ certificate-manager-name }}
+    - certificate in {{ certificate-manager-name }}
+    - '{{ certificate-manager-name }} in {{ yandex-cloud }}'
+    - Encrypt in {{ yandex-cloud }}
+    - Let's Encrypt in {{ certificate-manager-name }}
+    - Let's Encrypt certificate
+    - '{{ certificate-manager-full-name }}'
+    - '{{ certificate-manager-name }}'
+    - '{{ certificate-manager-name }}'
+    - security certificate in {{ yandex-cloud }}
+    - validation in {{ certificate-manager-name }}
+    - termination in {{ yandex-cloud }}

@@ -10,22 +10,6 @@ description:
     Сервис Managed Service for Elasticsearch помогает разворачивать и
     поддерживать кластеры серверов Elasticsearch в инфраструктуре Yandex Cloud.
   - "Инфраструктура Yandex Cloud <a href=\"/docs/security/conform\">защищена</a> в соответствии со следующими стандартами: <ul><li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li></ul>"
-meta:
-  title: Yandex Managed Service for Elasticsearch
-  description: >-
-    Сервис Managed Service for Elasticsearch помогает разворачивать и
-    поддерживать кластеры серверов Elasticsearch в инфраструктуре Yandex Cloud.
-  keywords:
-    - keyword: '{{ mes-name }}'
-    - keyword: '{{ mes-full-name }}'
-    - keyword: Сервис {{ mes-name }}
-    - keyword: '{{ ES }} в {{ yandex-cloud }}'
-    - keyword: Кластер {{ ES }}
-    - keyword: Кластеры серверов {{ ES }}
-    - keyword: '{{ ES }}'
-    - keyword: Elasticsearch
-    - keyword: '{{ ES }} в облаке'
-    - keyword: Elasticsearch в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
@@ -51,3 +35,19 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Managed Service for Elasticsearch
+  description: >-
+    Сервис Managed Service for Elasticsearch помогает разворачивать и
+    поддерживать кластеры серверов Elasticsearch в инфраструктуре Yandex Cloud.
+  keywords:
+    - '{{ mes-name }}'
+    - '{{ mes-full-name }}'
+    - Сервис {{ mes-name }}
+    - '{{ ES }} в {{ yandex-cloud }}'
+    - Кластер {{ ES }}
+    - Кластеры серверов {{ ES }}
+    - '{{ ES }}'
+    - Elasticsearch
+    - '{{ ES }} в облаке'
+    - Elasticsearch в {{ yandex-cloud }}

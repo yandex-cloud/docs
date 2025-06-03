@@ -12,25 +12,6 @@ description:
     other {{ yandex-cloud }} services and your applications.</li></ul>
 nav:
   title: Yandex Cloud Postbox
-meta:
-  title: Yandex Cloud Postbox
-  description: >-
-    Yandex Cloud Postbox enables sending transactional messages, such as those
-    about password recovery or order placement.
-  keywords:
-    - keyword: postbox
-    - keyword: yandex postbox
-    - keyword: cloud postbox
-    - keyword: '{{ postbox-full-name }}'
-    - keyword: '{{ postbox-name }}'
-    - keyword: mailing in {{ yandex-cloud }}
-    - keyword: email in {{ yandex-cloud }}
-    - keyword: emails in {{ yandex-cloud }}
-    - keyword: mailing lists in {{ yandex-cloud }}
-    - keyword: mailing lists
-    - keyword: sending emails
-    - keyword: emailing lists
-    - keyword: email sending
 links:
   - title: Getting started
     description: Learn how to get started with Yandex Cloud Postbox
@@ -44,3 +25,22 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Cloud Postbox
+  description: >-
+    Yandex Cloud Postbox enables sending transactional messages, such as those
+    about password recovery or order placement.
+  keywords:
+    - postbox
+    - yandex postbox
+    - cloud postbox
+    - '{{ postbox-full-name }}'
+    - '{{ postbox-name }}'
+    - mailing in {{ yandex-cloud }}
+    - email in {{ yandex-cloud }}
+    - emails in {{ yandex-cloud }}
+    - mailing lists in {{ yandex-cloud }}
+    - mailing lists
+    - sending emails
+    - emailing lists
+    - email sending

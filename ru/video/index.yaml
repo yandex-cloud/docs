@@ -8,26 +8,6 @@ description:
     Воспользуйтесь полным набором инструментов для хранения, обработки и
     хостинга видео, а также запуска онлайн-трансляций. Трансляции и видео
     воспроизводятся в интегрированном видеоплеере.
-meta:
-  title: Yandex Cloud Video
-  keywords:
-    - keyword: сервис {{ video-name }}
-    - keyword: видео в {{ video-name }}
-    - keyword: '{{ video-name }} в {{ yandex-cloud }}'
-    - keyword: видеоконтент в {{ yandex-cloud }}
-    - keyword: стрим в {{ video-name }}
-    - keyword: канал в {{ video-name }}
-    - keyword: трансляция в {{ video-name }}
-    - keyword: плейлист в {{ video-name }}
-    - keyword: видеохостинг в {{ yandex-cloud }}
-    - keyword: потоковая трансляция в {{ yandex-cloud }}"
-    - keyword: эфир {{ video-name }}
-    - keyword: потоковое видео в {{ yandex-cloud }}"
-    - keyword: линия {{ video-name }}
-    - keyword: эпизод в {{ video-name }}
-    - keyword: видеоплеер {{ video-name }}
-    - keyword: '{{ video-name }} контент'
-    - keyword: размещение в {{ video-name }}
 links:
   - title: Начало работы
     description: Загрузите первое видео или создайте первую трансляцию
@@ -50,3 +30,23 @@ links:
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/
+meta:
+  title: Yandex Cloud Video
+  keywords:
+    - сервис {{ video-name }}
+    - видео в {{ video-name }}
+    - '{{ video-name }} в {{ yandex-cloud }}'
+    - видеоконтент в {{ yandex-cloud }}
+    - стрим в {{ video-name }}
+    - канал в {{ video-name }}
+    - трансляция в {{ video-name }}
+    - плейлист в {{ video-name }}
+    - видеохостинг в {{ yandex-cloud }}
+    - потоковая трансляция в {{ yandex-cloud }}"
+    - эфир {{ video-name }}
+    - потоковое видео в {{ yandex-cloud }}"
+    - линия {{ video-name }}
+    - эпизод в {{ video-name }}
+    - видеоплеер {{ video-name }}
+    - '{{ video-name }} контент'
+    - размещение в {{ video-name }}

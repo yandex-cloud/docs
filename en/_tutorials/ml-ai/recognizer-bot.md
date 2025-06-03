@@ -1,18 +1,18 @@
 # Developing a Telegram bot for text recognition in images, audio synthesis and recognition
 
 
-In this tutorial, you will create a bot for Telegram that can:
+In this tutorial, you will create a Telegram bot that can:
 
 * [Synthesize speech](../../speechkit/tts/index.md) from a message text using the {{ speechkit-full-name }} [API v1](../../speechkit/tts/request.md).
 * [Recognize speech](../../speechkit/stt/index.md) in voice messages and convert it into text using the {{ speechkit-full-name }} [synchronous recognition API](../../speechkit/stt/api/request-api.md).
 * [Recognize text](../../vision/concepts/ocr/index.md) in images using {{ vision-full-name }}.
 
-The {{ api-gw-full-name }} API gateway will receive requests from the bot and forward them to the {{ sf-full-name }} function for processing.
+The {{ api-gw-full-name }} will receive requests from your bot and forward them to {{ sf-full-name }} for processing.
 
 To create a bot:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Prepare the resources](#prepare).
+1. [Create resources](#prepare).
 1. [Register your Telegram bot](#bot-register).
 1. [Create a function](#create-function).
 1. [Create an API gateway](#create-api-gateway).
@@ -31,13 +31,13 @@ The cost of Telegram bot support includes:
 
 * Fee for using {{ speechkit-name }} (see [{{ speechkit-name }} pricing](../../speechkit/pricing.md)).
 * Fee for using {{ vision-name }} (see [{{ vision-name }} pricing](../../vision/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
-## Prepare the resources {#prepare}
+## Create resources {#prepare}
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `recognizer-bot-sa` and assign it the `ai.editor` and `{{ roles-functions-editor }}` [roles](../../iam/operations/sa/assign-role-for-sa.md) for your folder.
-1. Prepare a ZIP archive with the function code:
+1. Create a ZIP archive with the function code:
 
    1. Create a file named `index.py` and paste the code below to it.
 
@@ -51,7 +51,7 @@ The cost of Telegram bot support includes:
       import os
       import base64
       
-      # Service endpoints and authentication data
+      # Service endpoints and authentication credentials
 
       API_TOKEN = os.environ['TELEGRAM_TOKEN']
       vision_url = 'https://ocr.{{ api-host }}/ocr/v1/recognizeText'
@@ -96,7 +96,7 @@ The cost of Telegram bot support includes:
               'statusCode': 200
           }
 
-      # Command and message listeners
+      # Command and message handlers
 
       @bot.message_handler(commands=['help', 'start'])
       def send_welcome(message):
@@ -187,7 +187,7 @@ The cost of Telegram bot support includes:
 
       {% endcut %}
 
-   1. Create a file named `requirements.txt` and specify in it the library to work with the bot.
+   1. Create a file named `requirements.txt`. In this file, specify a library to use for the bot.
 
       ```text
       telebot
@@ -199,16 +199,16 @@ The cost of Telegram bot support includes:
 
 Register your bot in Telegram and get a token.
 
-1. Run [BotFather](https://t.me/BotFather) and send to it the following command:
+1. Start [BotFather](https://t.me/BotFather) and send it the following command:
 
    ```text
    /newbot
    ```
 
-1. In the `name` field, enter a name for the new bot. This is the name the bot users will see.
-1. In the `username` field, enter a username for the new bot. You can use it to locate the bot in Telegram. The username must end with `...Bot` or `..._bot`.
+1. In the `name` field, enter a name for the new bot. This is the name users will see when chatting with the bot.
+1. In the `username` field, enter a username for the new bot. This will allow users to find your bot on Telegram. The username must end with `...Bot` or `..._bot`.
 
-   As a result, you will get a token. Save it. You will need it later.
+   Once done, you will get a token. Save it, as you will need it later.
 
 ## Create a function {#create-function}
 
@@ -228,14 +228,14 @@ Create a function to process user actions in the chat.
 
   1. Create a function version:
 
-     1. Select the `Python` runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. Specify the `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` upload method and select the `index.zip` archive [prepared](#prepare) earlier.
+     1. Select `Python` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Specify `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` as the upload method and select the `index.zip` archive [created](#prepare) earlier.
      1. Specify the entry point: `index.handler`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `30`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `recognizer-bot-sa`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `30`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `recognizer-bot-sa`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
           * `TELEGRAM_TOKEN`: Your Telegram bot token.
@@ -280,7 +280,7 @@ Create a function to process user actions in the chat.
 
      * `--function-name`: Name of the function whose version you are creating.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum running time of the function until timeout.
+     * `--execution-timeout`: Maximum function running time before timeout.
      * `--runtime`: Runtime environment.
      * `--entrypoint`: Entry point.
      * `--service-account-id`: `recognizer-bot-sa` service account ID.
@@ -313,7 +313,7 @@ Create a function to process user actions in the chat.
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the function parameters:
+  1. In the configuration file, define the function properties:
 
      ```hcl
      resource "yandex_function" "for-recognizer-bot-function" {
@@ -336,7 +336,7 @@ Create a function to process user actions in the chat.
      Where:
 
      * `name`: Function name.
-     * `user_hash`: Random string to identify the function version.
+     * `user_hash`: Custom string to define the function version.
      * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
      * `entrypoint`: Entry point.
      * `memory`: Amount of memory allocated for the function, in MB.
@@ -345,18 +345,18 @@ Create a function to process user actions in the chat.
      * `environment`: Environment variables.
      * `content`: Path to the `index.zip` archive with the function source code.
 
-     For more information about the `yandex_function` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the new resources and their properties. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Deploy the cloud resources.
 
@@ -366,7 +366,7 @@ Create a function to process user actions in the chat.
         terraform apply
         ```
 
-     1. Confirm creating the function: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the function by typing `yes` in the terminal and pressing **Enter**.
 
 - API {#api}
 
@@ -378,7 +378,7 @@ Create a function to process user actions in the chat.
 
 ## Create an API gateway {#create-api-gateway}
 
-The Telegram server will notify your bot of new messages using a [webhook](https://core.telegram.org/bots/api#setwebhook). The API gateway will accept requests on the bot side and redirect them to the `for-recognizer-bot` function for processing.
+The Telegram server will notify your bot of new messages using a [webhook](https://core.telegram.org/bots/api#setwebhook). The API gateway will receive requests on the bot side and forward them to the `for-recognizer-bot` function for processing.
 
 {% list tabs group=instructions %}
 
@@ -388,7 +388,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `recognizer-bot-api-gw`.
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
+  1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
 
      ```yaml
      openapi: 3.0.0
@@ -415,7 +415,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
 
 - CLI {#cli}
 
-  1. Save the following specification to the `spec.yaml` file:
+  1. Save the following specification to `spec.yaml`:
 
      ```yaml
      openapi: 3.0.0
@@ -468,7 +468,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
 
   To create an API gateway:
 
-  1. Describe the parameters of the `yandex_api_gateway` resource in the configuration file:
+  1. Describe the `yandex_api_gateway` properties in the configuration file:
 
      ```hcl
      resource "yandex_api_gateway" "recognizer-bot-api-gw" {
@@ -496,18 +496,18 @@ The Telegram server will notify your bot of new messages using a [webhook](https
      * `name`: API gateway name.
      * `spec`: API gateway specification.
 
-     For more information about the resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about `yandex_api_gateway` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the new resources and their properties. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Deploy the cloud resources.
 
@@ -517,7 +517,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
         terraform apply
         ```
 
-     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
 
 - API {#api}
 
@@ -549,12 +549,12 @@ Result:
 
 ## Test the bot {#test}
 
-Talk to the bot:
+Chat with the bot:
 
 1. Open Telegram and search for the bot by the [specified](#bot-register) `username`.
-1. Send the `/start` message to the chat.
+1. Send `/start` to the chat.
 
-   The bot must respond with:
+   The bot should respond with:
 
    ```text
    The bot can do the following:
@@ -570,7 +570,7 @@ Talk to the bot:
 
    {% note info %}
 
-   The image must meet the [requirements](../../vision/concepts/ocr/index.md#image-requirements).
+   The image must meet [these requirements](../../vision/concepts/ocr/index.md#image-requirements).
 
    {% endnote %}
 
@@ -578,5 +578,5 @@ Talk to the bot:
 
 To stop paying for the resources you created:
 
-* [Delete](../../api-gateway/operations/api-gw-delete.md) the {{ api-gw-name }} API gateway.
-* [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }} function.
+* [Delete](../../api-gateway/operations/api-gw-delete.md) the {{ api-gw-name }}.
+* [Delete](../../functions/operations/function/function-delete.md) the function in {{ sf-name }}.

@@ -32,6 +32,8 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Сеть в {{ mtr-name }}
+        href: concepts/network.md
       - name: Имперсонация
         href: concepts/impersonation.md
   - name: Справочник API

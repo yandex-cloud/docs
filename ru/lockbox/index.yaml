@@ -6,24 +6,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_lockbox">Уровень
     обслуживания Yandex Lockbox</a>.
-meta:
-  title: Yandex Lockbox
-  description: Yandex Lockbox — сервис для хранения секретов.
-  keywords:
-    - keyword: lockbox
-    - keyword: секрет
-    - keyword: секрет {{ yandex-cloud }}
-    - keyword: '{{ lockbox-name }}'
-    - keyword: сервис {{ lockbox-name }}
-    - keyword: '{{ lockbox-name }} в {{ yandex-cloud }}'
-    - keyword: секрет {{ lockbox-name }}
-    - keyword: генерируемый секрет
-    - keyword: генерируемый секрет {{ lockbox-name }}
-    - keyword: пользовательский секрет
-    - keyword: пользовательский секрет {{ lockbox-name }}
-    - keyword: secret
-    - keyword: yandex secret
-    - keyword: '{{ lockbox-name }} secret'
 links:
   - title: Начало работы
     description: Создайте свой первый секрет
@@ -46,3 +28,21 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Lockbox
+  description: Yandex Lockbox — сервис для хранения секретов.
+  keywords:
+    - lockbox
+    - секрет
+    - секрет {{ yandex-cloud }}
+    - '{{ lockbox-name }}'
+    - сервис {{ lockbox-name }}
+    - '{{ lockbox-name }} в {{ yandex-cloud }}'
+    - секрет {{ lockbox-name }}
+    - генерируемый секрет
+    - генерируемый секрет {{ lockbox-name }}
+    - пользовательский секрет
+    - пользовательский секрет {{ lockbox-name }}
+    - secret
+    - yandex secret
+    - '{{ lockbox-name }} secret'

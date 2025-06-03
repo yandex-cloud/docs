@@ -1,0 +1,20 @@
+name: managed-gitlab
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: instance
+    items:
+      - name: Overview
+        href: cli-ref/instance/index.md
+      - name: create
+        href: cli-ref/instance/create.md
+      - name: delete
+        href: cli-ref/instance/delete.md
+      - name: get
+        href: cli-ref/instance/get.md
+      - name: list
+        href: cli-ref/instance/list.md
+      - name: start
+        href: cli-ref/instance/start.md
+      - name: stop
+        href: cli-ref/instance/stop.md

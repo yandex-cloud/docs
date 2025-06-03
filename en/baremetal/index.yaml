@@ -1,8 +1,6 @@
 title: Yandex BareMetal
 description:
   - With Yandex BareMetal, you can lease a complete physical server.
-meta:
-  title: Yandex BareMetal
 links:
   - title: Getting started
     description: Lease your first server
@@ -25,3 +23,5 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex BareMetal

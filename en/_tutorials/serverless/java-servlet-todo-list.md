@@ -1,14 +1,14 @@
 
 
-Learn how to use serverless technologies and the Java Servlet API to create a simple web application for managing a task list.
+Learn how to use serverless technology and Java Servlet API to create a simple web application for managing a task list.
 
-To create a web application:
+To create a web app:
 
 1. [Get your cloud ready](#before-begin).
 1. [Set up your environment](#prepare).
-1. [Create an {{ objstorage-full-name }} bucket](#create-bucket).
-1. [Create a {{ ydb-short-name }} database](#create-db).
-1. [Create {{ sf-full-name }} functions](#create-functions).
+1. [Create a {{ objstorage-full-name }} bucket](#create-bucket).
+1. [Create a {{ ydb-short-name }}](#create-db).
+1. [Create {{ sf-full-name }}](#create-functions).
 1. [Create an API gateway](#create-api-gw).
 1. [Test your application](#test).
 
@@ -24,22 +24,22 @@ The cost of resources to support a web application includes:
 
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
-* Fee for the number of function calls, computing resources allocated to a function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 ## Set up your environment {#prepare}
 
 1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#cloud-or-folder) it the `{{ roles-editor }}` role for your folder.
-1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-serverless-servlet) containing the project:
+1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-serverless-servlet) with the project:
 
     ```bash
     git clone https://github.com/yandex-cloud-examples/yc-serverless-servlet
     ```
-1. Add the contents of the `yc-serverless-servlet` local repository you cloned to the `servlet.zip` archive. You will need this archive later to create {{ sf-full-name }} functions.
+1. Add the contents of the `yc-serverless-servlet` local repository you cloned to the `servlet.zip` archive. You will need this archive later to create {{ sf-full-name }}.
 
 
 ## Create an {{ objstorage-name }} bucket {#create-bucket}
 
-Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` there:
+Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` into it:
 
 {% list tabs group=instructions %}
 
@@ -55,12 +55,12 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
      1. Select the default [storage class](../../storage/concepts/storage-class.md).
      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
   1. Select the bucket you created.
-  1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `src/main/resources/index.html` file in the project folder.
+  1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select `src/main/resources/index.html` in the project directory.
   1. Select the [storage class](../../storage/concepts/storage-class.md) for the file and click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
 
 {% endlist %}
 
-## Create a {{ ydb-name }} database {#create-db}
+## Create a database in {{ ydb-name }} {#create-db}
 
 1. Create a database in [serverless mode](../../ydb/concepts/serverless-and-dedicated.md#serverless):
 
@@ -71,14 +71,14 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
      1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-     1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The naming requirements are as follows:
+     1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. Follow these naming requirements:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
      1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
      1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
-     1. Wait until the database starts. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
-     1. Select the database created.
+     1. Wait until the database is up and running. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+     1. Select the created database.
      1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it when creating functions.
 
    {% endlist %}
@@ -91,9 +91,9 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the database.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-     1. Select a database on the **{{ ui-key.yacloud.ydb.databases.label_title }}** page.
+     1. Select the database on the **{{ ui-key.yacloud.ydb.databases.label_title }}** page.
      1. To open the DB root directory, navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-     1. To make a query to the database, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner. The **{{ ui-key.yacloud.ydb.sql.label_query }}** page will open.
+     1. To make a database query, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner. The **{{ ui-key.yacloud.ydb.sql.label_query }}** page will open.
      1. In the **{{ ui-key.yacloud.ydb.sql.label_query }}** field, enter:
 
         ```sql
@@ -127,7 +127,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
    {% endlist %}
 
-## Create {{ sf-name }} functions {#create-functions}
+## Create {{ sf-name }} {#create-functions}
 
 Create a [function](../../functions/concepts/function.md) for each servlet:
 
@@ -135,24 +135,24 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you created the bucket and database.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where you created the bucket and the database.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter a name, e.g., `add-task`, and description for the function.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `java21` runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-  1. Prepare the function code. To do this, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field.
-  1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `servlet.zip` archive you created earlier.
+  1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select `java21` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+  1. Set up the function code. To do this, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field.
+  1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select `servlet.zip` you created earlier.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
   1. Set **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** to `10`.
-  1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, enter the account you created when [setting up your environment](#prepare).
+  1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, specify the account you created when [setting up your environment](#prepare).
   1. Add these environment variables:
-     * `ENDPOINT`: Enter the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one between `grpcs://` and `/?database=`), e.g., `ydb.serverless.yandexcloud.net:2135`.
-     * `DATABASE`: Enter the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
+     * `ENDPOINT`: Enter the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value you saved when [creating your {{ ydb-short-name }}](#create-db) (the one between `grpcs://` and `/?database=`), e.g., `ydb.serverless.yandexcloud.net:2135`.
+     * `DATABASE`: Enter the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value you saved when [creating your {{ ydb-short-name }}](#create-db) (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
   1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
-  1. Repeat steps 3-14 and create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
-  1. Repeat steps 3-14 and create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
+  1. Repeat steps 3 through 14 to create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
+  1. Repeat steps 3 through 14 to create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
 
 - CLI {#cli}
 
@@ -193,7 +193,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
      * `--runtime`: Runtime environment.
      * `entrypoint`: Entry point in `<function_file_name>`.`<handler_name>` format.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum running time of the function until timeout.
+     * `--execution-timeout`: Maximum function running time before timeout.
      * `--source-path`: Path to the previously created `servlet.zip` archive with the function code and required dependencies.
      * `--environment`: Environment variables in `key=value` format.
 
@@ -221,8 +221,8 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
      done (1s)
      ```
 
-  1. Repeat steps 1-3 and create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
-  1. Repeat steps 1-3 and create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
+  1. Repeat steps 1 through 3 to create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
+  1. Repeat steps 1 through 3 to create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
 
 - API {#api}
 
@@ -230,13 +230,13 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-  You can create a function and its version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+  You can create a function and its version using [{{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the [JetBrains](https://www.jetbrains.com/) [IntelliJ](https://www.jetbrains.com/opensource/idea/) IDE family.
 
 {% endlist %}
 
 ## Create an API gateway {#create-api-gw}
 
-To ensure interaction between the services, create an API gateway:
+To enable communication between the services, create an API gateway:
 
 {% list tabs group=instructions %}
 
@@ -295,7 +295,7 @@ To ensure interaction between the services, create an API gateway:
 
 - CLI {#cli}
 
-  1. Save the following specification to the `todo.yaml` file:
+  1. Save the following specification to `todo.yaml`:
 
      ```yaml
      openapi: 3.0.0
@@ -365,7 +365,7 @@ To ensure interaction between the services, create an API gateway:
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-  You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+  You can create an API gateway using [{{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the [JetBrains](https://www.jetbrains.com/) [IntelliJ](https://www.jetbrains.com/opensource/idea/) IDE family.
 
 {% endlist %}
 

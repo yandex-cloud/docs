@@ -7,6 +7,14 @@ editable: false
 
 # {{ compute-name }} pricing policy
 
+
+{% note warning %}
+
+The prices for the AMD Zen 3 platform will be effective starting June 13, 2025.
+
+{% endnote %}
+
+
 {% note tip %}
 
 

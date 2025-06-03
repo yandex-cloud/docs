@@ -6,25 +6,6 @@ description:
     structured and partially structured data using a common SQL dialect.
 nav:
   title: Yandex Query
-meta:
-  title: Yandex Query
-  description: >-
-    Yandex Query enables real-time analytical and streaming queries to
-    structured and partially structured data using a common SQL dialect.
-  keywords:
-    - keyword: '{{ yq-name }}'
-    - keyword: '{{ yq-full-name }}'
-    - keyword: '{{ yq-name }}'
-    - keyword: data processing in {{ yandex-cloud }}
-    - keyword: data schemas in {{ yandex-cloud }}
-    - keyword: data analysis in {{ yandex-cloud }}
-    - keyword: analytical queries in {{ yandex-cloud }}
-    - keyword: streaming queries in {{ yandex-cloud }}
-    - keyword: data processing
-    - keyword: data schemas
-    - keyword: data analysis
-    - keyword: analytical queries
-    - keyword: streaming queries
 links:
   - title: Getting started
     description: Learn how to get started with Yandex Query
@@ -41,3 +22,22 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Query
+  description: >-
+    Yandex Query enables real-time analytical and streaming queries to
+    structured and partially structured data using a common SQL dialect.
+  keywords:
+    - '{{ yq-name }}'
+    - '{{ yq-full-name }}'
+    - '{{ yq-name }}'
+    - data processing in {{ yandex-cloud }}
+    - data schemas in {{ yandex-cloud }}
+    - data analysis in {{ yandex-cloud }}
+    - analytical queries in {{ yandex-cloud }}
+    - streaming queries in {{ yandex-cloud }}
+    - data processing
+    - data schemas
+    - data analysis
+    - analytical queries
+    - streaming queries

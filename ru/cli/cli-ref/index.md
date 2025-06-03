@@ -16,6 +16,7 @@ Syntax:
 - [yc application-load-balancer](application-load-balancer/cli-ref/index.md) — Manage Yandex Application Load Balancer resources
 - [yc audit-trails](audit-trails/cli-ref/index.md) — Manage Audit Trails resources
 - [yc backup](backup/cli-ref/index.md) — Manage Yandex Cloud Backup resources
+- [yc baremetal](baremetal/cli-ref/index.md) — Manage  Baremetal resources
 - [yc cdn](cdn/cli-ref/index.md) — Manage CDN resources
 - [yc certificate-manager](certificate-manager/cli-ref/index.md) — Manage Certificate Manager resources
 - [yc cic](cic/cli-ref/index.md) — [PREVIEW] Manage Yandex Cloud Interconnect resources
@@ -41,6 +42,7 @@ Syntax:
 - [yc managed-airflow](managed-airflow/cli-ref/index.md) — Manage Airflow clusters.
 - [yc managed-clickhouse](managed-clickhouse/cli-ref/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.
 - [yc managed-elasticsearch](managed-elasticsearch/cli-ref/index.md) — Manage ElasticSearch clusters, hosts, indexes and backups.
+- [yc managed-gitlab](managed-gitlab/cli-ref/index.md) — Manage Gitlab resources.
 - [yc managed-greenplum](managed-greenplum/cli-ref/index.md) — Manage Greenplum clusters and hosts.
 - [yc managed-kafka](managed-kafka/cli-ref/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
 - [yc managed-kubernetes](managed-kubernetes/cli-ref/index.md) — Manage Kubernetes clusters.
@@ -50,6 +52,7 @@ Syntax:
 - [yc managed-postgresql](managed-postgresql/cli-ref/index.md) — Manage PostgreSQL clusters, hosts, databases, backups and users.
 - [yc managed-redis](managed-redis/cli-ref/index.md) — Manage Redis clusters, hosts, databases, backups and users.
 - [yc managed-sqlserver](managed-sqlserver/cli-ref/index.md) — Manage SQLServer clusters, databases, backups and users.
+- [yc managed-trino](managed-trino/cli-ref/index.md) — Manage Trino clusters.
 - [yc marketplace](marketplace/cli-ref/index.md) — Manage Yandex Marketplace resources
 - [yc operation](operation/cli-ref/index.md) — Manage operations
 - [yc organization-manager](organization-manager/cli-ref/index.md) — Manage Yandex Organization Manager resources

@@ -1,5 +1,5 @@
 ```hcl
-# Configuring a provider 
+# Configuring the provider
 
 terraform {
   required_providers {
@@ -124,7 +124,7 @@ resource "yandex_compute_instance" "my_backup_compute" {
   }
 }
 
-# Creating backup policies
+# Creating a backup policy
 
 resource "yandex_backup_policy" "my_policy" {
   name                = "weekly-backup"
@@ -155,7 +155,7 @@ resource "yandex_backup_policy" "my_policy" {
   }
 }
 
-# Linking a backup policy to a VM
+# Associating a backup policy with a VM
 
 resource "yandex_backup_policy_bindings" "my_backup_binding" {
   instance_id = yandex_compute_instance.my_backup_compute.id

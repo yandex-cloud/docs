@@ -10,11 +10,6 @@ description:
       <li>View test reports.</li>
       <li>Store and manage data on earlier tests.</li>
     </ul> You can manage the service using the management console.
-meta:
-  title: Yandex Load Testing
-  description: >-
-    This service allows you to run load testing and analyze the performance of
-    your services and applications.
 links:
   - title: Getting started
     description: How to use Yandex Load Testing
@@ -34,3 +29,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Load Testing
+  description: >-
+    This service allows you to run load testing and analyze the performance of
+    your services and applications.

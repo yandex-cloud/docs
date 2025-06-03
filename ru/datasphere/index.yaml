@@ -19,23 +19,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_yds">Уровень
     обслуживания Yandex DataSphere</a>.
-meta:
-  title: Yandex DataSphere
-  description: >-
-    Yandex DataSphere — это сервис для ML-разработки полного цикла, который
-    позволяет использовать все преимущества облачных технологий, сочетая в себе
-    простой и понятный веб-интерфейс, привычные IDE и возможность бесшовного
-    использования разных конфигураций вычислительных ресурсов Yandex Cloud.
-  keywords:
-    - keyword: '{{ ml-platform-full-name }}'
-    - keyword: '{{ ml-platform-short-name }}'
-    - keyword: сервис {{ ml-platform-short-name }}
-    - keyword: сервис для ML
-    - keyword: сервис для ML в {{ yandex-cloud }}
-    - keyword: как настроить конфигурации вычислительных ресурсов
-    - keyword: конфигурации вычислительных ресурсов в {{ yandex-cloud }}
-    - keyword: бесшовные конфигурации ресурсов
-    - keyword: машинное обучение в {{ yandex-cloud }}
 links:
   - title: Концепции
     description: Узнайте про концепции и возможности сервиса
@@ -55,3 +38,20 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex DataSphere
+  description: >-
+    Yandex DataSphere — это сервис для ML-разработки полного цикла, который
+    позволяет использовать все преимущества облачных технологий, сочетая в себе
+    простой и понятный веб-интерфейс, привычные IDE и возможность бесшовного
+    использования разных конфигураций вычислительных ресурсов Yandex Cloud.
+  keywords:
+    - '{{ ml-platform-full-name }}'
+    - '{{ ml-platform-short-name }}'
+    - сервис {{ ml-platform-short-name }}
+    - сервис для ML
+    - сервис для ML в {{ yandex-cloud }}
+    - как настроить конфигурации вычислительных ресурсов
+    - конфигурации вычислительных ресурсов в {{ yandex-cloud }}
+    - бесшовные конфигурации ресурсов
+    - машинное обучение в {{ yandex-cloud }}

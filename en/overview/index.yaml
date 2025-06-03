@@ -18,11 +18,6 @@ description:
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is
     protected</a> pursuant to the Russian Federal Law No. 152-FZ on Personal
     Data.
-meta:
-  title: Yandex Cloud overview
-  description: >-
-    Yandex Cloud is a suite of connected services allowing you to quickly and
-    securely get as much computing power as you need on a pay-as-you-go basis.
 links:
   - title: Yandex Cloud services
     description: ''
@@ -57,3 +52,8 @@ links:
   - title: Troubleshooting
     description: ''
     href: qa
+meta:
+  title: Yandex Cloud overview
+  description: >-
+    Yandex Cloud is a suite of connected services allowing you to quickly and
+    securely get as much computing power as you need on a pay-as-you-go basis.

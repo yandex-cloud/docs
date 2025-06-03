@@ -1,12 +1,12 @@
 # Working with an API gateway via WebSocket
 
-To connect to an API gateway via the WebSocket protocol:
+To establish a WebSocket connection to an API gateway:
 
 1. [Create an API gateway](#create).
 1. [Establish a connection](#connect).
 1. [Test the connection](#check).
 
-If you no longer need the resources you created, [delete them](#clear-out).
+If you no longer need the resources you created, [delete](#clear-out) them.
 
 ## Getting started {#before-you-begin}
 
@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of the resources includes charges for the number of API gateway requests and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+The cost of the resources includes the fee for the number of API gateway requests and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Create an API gateway {#create}
 
@@ -26,8 +26,8 @@ The cost of the resources includes charges for the number of API gateway request
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `websocket`.
-    1. (Optional) In the **{{ ui-key.yacloud.common.description }}** field, enter a description.
-    1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
+    1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, provide a description.
+    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
 
         ```yaml
         openapi: 3.0.0
@@ -68,13 +68,13 @@ The cost of the resources includes charges for the number of API gateway request
 
 ## Establish a connection {#connect}
 
-1. Open the terminal and install the [wscat](https://www.npmjs.com/package/wscat) utility:
+1. Open the terminal and install [wscat](https://www.npmjs.com/package/wscat):
 
     ```bash
     npm install -g wscat
     ```
 
-1. Connect to the API gateway. Instead of `<API_gateway_domain>`, specify the API gateway domain formatted as `{{ api-host-apigw }}`:
+1. Connect to the API gateway. Replace `<API_gateway_domain>`, with the API gateway domain formatted as `{{ api-host-apigw }}`:
 
     ```bash
     wscat -c wss://<API_gateway_domain>/connections
@@ -83,7 +83,7 @@ The cost of the resources includes charges for the number of API gateway request
 
 1. Type a message and press `Enter`.
 
-The message will be sent to the API gateway via the existing connection. The API gateway will call integration and send a response that you will see on your screen. The response will contain the connection ID:
+The message will go to the API gateway over the established connection. The API gateway will call integration and return a response that you will see on your screen. The response will contain the established connection ID:
 
 ```bash
 > Hello!
@@ -92,7 +92,7 @@ The message will be sent to the API gateway via the existing connection. The API
 
 ## Test the connection {#check}
 
-Open a new terminal window and test the connection using the returned connection ID.
+Open a new terminal window and test the connection using the connection ID you got.
 
 {% list tabs group=instructions %}
 
@@ -102,7 +102,7 @@ Open a new terminal window and test the connection using the returned connection
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. Retrieve information on the existing connection:
+    1. Retrieve information on the established connection:
 
         ```bash
         yc serverless api-gateway websocket get <connection_ID>
@@ -131,7 +131,7 @@ Open a new terminal window and test the connection using the returned connection
         Disconnected (code: 1000, reason: "")
         ```
 
-        Where `API_gateway_domain` is a string, formatted as `{{ api-host-apigw }}`.
+        Where `API_gateway_domain` is a string formatted as `{{ api-host-apigw }}`.
 
 {% endlist %}
 

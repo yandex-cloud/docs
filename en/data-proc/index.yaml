@@ -16,11 +16,6 @@ description:
     <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> and Apache Spark™ are
     registered trademarks or trademarks of Apache Software Foundation in the
     United States and/or other countries.</em>
-meta:
-  title: Yandex Data Processing
-  description: >-
-    The service assists in deploying Apache Hadoop® and Apache Spark™ clusters
-    in the Yandex Cloud infrastructure.
 links:
   - title: Step-by-step guides
     description: How to perform routine operations
@@ -40,3 +35,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Data Processing
+  description: >-
+    The service assists in deploying Apache Hadoop® and Apache Spark™ clusters
+    in the Yandex Cloud infrastructure.

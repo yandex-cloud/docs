@@ -6,22 +6,6 @@ description:
     is also available on <a
     href="/marketplace/products/yc/container-optimized-image">Cloud
     Marketplace</a>.
-meta:
-  title: Yandex Container Solution
-  description: >-
-    Yandex Container Solution provides use cases based on Container Optimized
-    Image VMs optimized for running Docker containers.
-  keywords:
-    - keyword: '{{ cos-short-name }}'
-    - keyword: '{{ cos-name }}'
-    - keyword: '{{ cos-full-name }}'
-    - keyword: '{{ cos-name }}'
-    - keyword: '{{ coi }} in {{ yandex-cloud }}'
-    - keyword: '{{ cos-short-name }} in {{ yandex-cloud }}'
-    - keyword: '{{ coi }}'
-    - keyword: coi
-    - keyword: docker container run optimization
-    - keyword: Docker containers in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Create your first Container Optimized Image VM
@@ -44,3 +28,19 @@ links:
   - title: Troubleshooting
     description: Common issues and how to fix them
     href: error/
+meta:
+  title: Yandex Container Solution
+  description: >-
+    Yandex Container Solution provides use cases based on Container Optimized
+    Image VMs optimized for running Docker containers.
+  keywords:
+    - '{{ cos-short-name }}'
+    - '{{ cos-name }}'
+    - '{{ cos-full-name }}'
+    - '{{ cos-name }}'
+    - '{{ coi }} in {{ yandex-cloud }}'
+    - '{{ cos-short-name }} in {{ yandex-cloud }}'
+    - '{{ coi }}'
+    - coi
+    - docker container run optimization
+    - Docker containers in {{ yandex-cloud }}

@@ -10,28 +10,6 @@ description:
       <li>Посмотреть отчет о проведенном тесте.</li>
       <li>Хранить ранее проведенные отчеты и управлять ими.</li>
     </ul> Управлять сервисом можно с помощью консоли управления.
-meta:
-  title: Yandex Load Testing
-  description: >-
-    Yandex Load Testing позволяет проводить нагрузочное тестирование, чтобы
-    анализировать производительность ваших сервисов и приложений.
-  keywords:
-    - keyword: '{{ load-testing-full-name }}'
-    - keyword: сервис Load Testing
-    - keyword: '{{ load-testing-name }}'
-    - keyword: '{{ load-testing-full-name }} в {{ yandex-cloud }}'
-    - keyword: анализ нагрузки
-    - keyword: нагрузка в {{ load-testing-full-name }}
-    - keyword: тест нагрузки
-    - keyword: тестирование в {{ load-testing-full-name }}
-    - keyword: генератор нагрузки
-    - keyword: нагрузочное тестирование в {{ load-testing-name }}
-    - keyword: генератор нагрузки {{ load-testing-full-name }}
-    - keyword: тестовые данные
-    - keyword: данные {{ load-testing-full-name }}
-    - keyword: loadtesting
-    - keyword: агент {{ load-testing-full-name }}
-    - keyword: testing {{ load-testing-full-name }}
 links:
   - title: Начало работы
     description: Как начать нагрузочное тестирование с Yandex Load Testing
@@ -54,3 +32,25 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Load Testing
+  description: >-
+    Yandex Load Testing позволяет проводить нагрузочное тестирование, чтобы
+    анализировать производительность ваших сервисов и приложений.
+  keywords:
+    - '{{ load-testing-full-name }}'
+    - сервис Load Testing
+    - '{{ load-testing-name }}'
+    - '{{ load-testing-full-name }} в {{ yandex-cloud }}'
+    - анализ нагрузки
+    - нагрузка в {{ load-testing-full-name }}
+    - тест нагрузки
+    - тестирование в {{ load-testing-full-name }}
+    - генератор нагрузки
+    - нагрузочное тестирование в {{ load-testing-name }}
+    - генератор нагрузки {{ load-testing-full-name }}
+    - тестовые данные
+    - данные {{ load-testing-full-name }}
+    - loadtesting
+    - агент {{ load-testing-full-name }}
+    - testing {{ load-testing-full-name }}

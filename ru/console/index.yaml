@@ -4,23 +4,6 @@ description:
   - >-
     Для сервиса не действует <a href="/docs/overview/sla">соглашение об уровне
     обслуживания</a> (SLA).
-meta:
-  title: Yandex Cloud Console
-  description: >-
-    Сервис Yandex Cloud Console (консоль управления) предоставляет интерфейс для
-    работы в Yandex Cloud, с помощью которого вы можете управлять облачными
-    ресурсами, настраивать оповещения и обращаться в службу поддержки.
-  keywords:
-    - keyword: '{{ console-full-name }}'
-    - keyword: Сервис {{ console-name }}
-    - keyword: Yandex Console
-    - keyword: Консоль управления Яндекс Облако
-    - keyword: '{{ yandex-cloud }} в браузере'
-    - keyword: Яндекс Облако в браузере
-    - keyword: Как управлять Облаком
-    - keyword: Управление облаком
-    - keyword: Облачная консоль
-    - keyword: Как настроить оповещения в облаке
 links:
   - title: Начало работы
     description: Войдите в консоль управления
@@ -28,3 +11,20 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Cloud Console
+  description: >-
+    Сервис Yandex Cloud Console (консоль управления) предоставляет интерфейс для
+    работы в Yandex Cloud, с помощью которого вы можете управлять облачными
+    ресурсами, настраивать оповещения и обращаться в службу поддержки.
+  keywords:
+    - '{{ console-full-name }}'
+    - Сервис {{ console-name }}
+    - Yandex Console
+    - Консоль управления Яндекс Облако
+    - '{{ yandex-cloud }} в браузере'
+    - Яндекс Облако в браузере
+    - Как управлять Облаком
+    - Управление облаком
+    - Облачная консоль
+    - Как настроить оповещения в облаке

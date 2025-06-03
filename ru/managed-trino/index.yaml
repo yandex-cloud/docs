@@ -4,22 +4,6 @@ description:
     Сервис {{ mtr-name }} позволяет управлять распределенным аналитическим
     SQL-движком {{ TR }} в инфраструктуре {{ yandex-cloud }}.
   - "Инфраструктура {{ yandex-cloud }} <a href=\"/docs/security/conform\">защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
-meta:
-  title: '{{ mtr-full-name }}'
-  description: >-
-    Сервис {{ mtr-name }} помогает разворачивать и поддерживать кластеры
-    серверов {{ TR }} в инфраструктуре {{ yandex-cloud }}.
-  keywords:
-    - keyword: '{{ mtr-name }}'
-    - keyword: '{{ mtr-full-name }}'
-    - keyword: Сервис {{ mtr-name }}
-    - keyword: '{{ TR }} в {{ yandex-cloud }}'
-    - keyword: Кластер {{ TR }}
-    - keyword: Кластеры серверов {{ TR }}
-    - keyword: '{{ TR }}'
-    - keyword: Трино движок
-    - keyword: SQL-движок
-    - keyword: '{{ TR }} в облаке'
 links:
   - title: Начало работы
     description: Создайте первый кластер {{ TR }}
@@ -39,3 +23,19 @@ links:
   - title: История изменений
     description: Перечень обновлений сервиса
     href: release-notes
+meta:
+  title: '{{ mtr-full-name }}'
+  description: >-
+    Сервис {{ mtr-name }} помогает разворачивать и поддерживать кластеры
+    серверов {{ TR }} в инфраструктуре {{ yandex-cloud }}.
+  keywords:
+    - '{{ mtr-name }}'
+    - '{{ mtr-full-name }}'
+    - Сервис {{ mtr-name }}
+    - '{{ TR }} в {{ yandex-cloud }}'
+    - Кластер {{ TR }}
+    - Кластеры серверов {{ TR }}
+    - '{{ TR }}'
+    - Трино движок
+    - SQL-движок
+    - '{{ TR }} в облаке'

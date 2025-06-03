@@ -20,18 +20,6 @@ description:
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
-meta:
-  title: Обзор платформы Yandex Cloud
-  description: >-
-    Yandex Cloud — это набор связанных сервисов, которые помогут вам быстро и
-    безопасно взять в аренду вычислительные мощности в тех объемах, в которых
-    это необходимо.
-  keywords:
-    - keyword: '{{ yandex-cloud }}'
-    - keyword: обзор {{ yandex-cloud }}
-    - keyword: список сервисов {{ yandex-cloud }}
-    - keyword: как взять в аренду вычислительные мощности
-    - keyword: облачные вычисления
 links:
   - title: Сервисы Yandex Cloud
     description: ''
@@ -72,3 +60,15 @@ links:
   - title: Обучающие курсы
     description: ''
     href: training
+meta:
+  title: Обзор платформы Yandex Cloud
+  description: >-
+    Yandex Cloud — это набор связанных сервисов, которые помогут вам быстро и
+    безопасно взять в аренду вычислительные мощности в тех объемах, в которых
+    это необходимо.
+  keywords:
+    - '{{ yandex-cloud }}'
+    - обзор {{ yandex-cloud }}
+    - список сервисов {{ yandex-cloud }}
+    - как взять в аренду вычислительные мощности
+    - облачные вычисления

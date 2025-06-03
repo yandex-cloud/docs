@@ -14,11 +14,6 @@ description:
   - >-
     Both residents and non-residents of Russia can sign up with Yandex Cloud.
     Non-residents of Russia and Kazakhstan can only register business accounts.
-meta:
-  title: Getting started
-  description: >-
-    See our step-by-step guides to get started with ease and discover Yandex
-    Cloud features.
 links:
   - title: Getting started for individuals
     description: >-
@@ -28,3 +23,8 @@ links:
   - title: Getting started for businesses and individual entrepreneurs
     description: Staged deployment of an organization in {{ yandex-cloud }}
     href: legal-entity/registration
+meta:
+  title: Getting started
+  description: >-
+    See our step-by-step guides to get started with ease and discover Yandex
+    Cloud features.

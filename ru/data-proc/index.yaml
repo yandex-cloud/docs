@@ -11,23 +11,6 @@ description:
     <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> и Apache Spark™ являются
     зарегистрированными товарными знаками или товарными знаками Apache Software
     Foundation в США и/или других странах.</em>
-meta:
-  title: Yandex Data Processing
-  description: >-
-    Сервис помогает разворачивать кластеры Apache Hadoop® и Apache Spark™ в
-    инфраструктуре Yandex Cloud.
-  keywords:
-    - keyword: Data Processing
-    - keyword: Apache Hadoop
-    - keyword: Apache Spark
-    - keyword: '{{ dataproc-name }}'
-    - keyword: кластер Apache Hadoop
-    - keyword: кластер Apache Spark
-    - keyword: кластеры {{ dataproc-name }}
-    - keyword: Hadoop и Spark в {{ yandex-cloud }}
-    - keyword: Apache в {{ yandex-cloud }}
-    - keyword: '{{ dataproc-name }} в {{ yandex-cloud }}'
-    - keyword: сервис {{ dataproc-name }}
 links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
@@ -50,3 +33,20 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Data Processing
+  description: >-
+    Сервис помогает разворачивать кластеры Apache Hadoop® и Apache Spark™ в
+    инфраструктуре Yandex Cloud.
+  keywords:
+    - Data Processing
+    - Apache Hadoop
+    - Apache Spark
+    - '{{ dataproc-name }}'
+    - кластер Apache Hadoop
+    - кластер Apache Spark
+    - кластеры {{ dataproc-name }}
+    - Hadoop и Spark в {{ yandex-cloud }}
+    - Apache в {{ yandex-cloud }}
+    - '{{ dataproc-name }} в {{ yandex-cloud }}'
+    - сервис {{ dataproc-name }}

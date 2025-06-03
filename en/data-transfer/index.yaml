@@ -20,23 +20,6 @@ description:
     The service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_data_transfer/">Yandex Data
     Transfer Service Level</a>.
-meta:
-  title: Yandex Data Transfer
-  description: >-
-    Yandex Data Transfer is designed for logically transferring data between
-    sources and targets.
-  keywords:
-    - keyword: '{{ data-transfer-name }}'
-    - keyword: '{{ data-transfer-full-name }}'
-    - keyword: '{{ data-transfer-name }}'
-    - keyword: transferring data to {{ yandex-cloud }}
-    - keyword: transferring databases to {{ yandex-cloud }}
-    - keyword: migrating to {{ yandex-cloud }}
-    - keyword: transfer to {{ yandex-cloud }}
-    - keyword: data transfer
-    - keyword: transferring databases
-    - keyword: migrating databases
-    - keyword: data transfer
 links:
   - title: Available transfers
     description: List of supported transfer types
@@ -71,3 +54,20 @@ links:
   - title: Release notes
     description: Releases and updates
     href: release-notes/
+meta:
+  title: Yandex Data Transfer
+  description: >-
+    Yandex Data Transfer is designed for logically transferring data between
+    sources and targets.
+  keywords:
+    - '{{ data-transfer-name }}'
+    - '{{ data-transfer-full-name }}'
+    - '{{ data-transfer-name }}'
+    - transferring data to {{ yandex-cloud }}
+    - transferring databases to {{ yandex-cloud }}
+    - migrating to {{ yandex-cloud }}
+    - transfer to {{ yandex-cloud }}
+    - data transfer
+    - transferring databases
+    - migrating databases
+    - data transfer

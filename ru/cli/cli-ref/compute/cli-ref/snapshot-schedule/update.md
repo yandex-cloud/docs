@@ -23,6 +23,8 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/>A new name of the snapshot schedule.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the snapshot schedule.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
+|`--snapshot-description`|<b>`string`</b><br/>Specifies a textual description of the created snapshot.|
+|`--snapshot-labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--snapshot-labels foo=baz,bar=baz'.|
 |`--retention-period`|<b>`duration`</b><br/>Retention period.|
 |`--snapshot-count`|<b>`uint`</b><br/>Snapshot count.|
 |`--expression`|<b>`string`</b><br/>Cron expression for the snapshot schedule.|

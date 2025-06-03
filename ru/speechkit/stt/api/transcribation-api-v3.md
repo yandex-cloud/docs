@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 - cURL {#curl}
 
-  {% include [transcribation-before-you-begin](../../../_includes/speechkit/async-recognition-v3.md) %}
+  {% include [transcribation](../../../_includes/speechkit/async-recognition-v3.md) %}
 
 - Python 3 {#python}
 

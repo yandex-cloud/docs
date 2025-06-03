@@ -7,12 +7,6 @@ description:
   - >-
     With Yandex DataLens, you can track your product and business metrics
     directly from data sources to make data-driven decisions.
-meta:
-  title: Yandex DataLens
-  description: >-
-    Yandex DataLens is a business analytics service that allows you to connect
-    to various data sources, visualize data, create dashboards, and share your
-    results.
 links:
   - title: Getting started
     description: Getting started with DataLens
@@ -47,3 +41,9 @@ links:
   - title: Courses
     description: Available courses and training programs
     href: training
+meta:
+  title: Yandex DataLens
+  description: >-
+    Yandex DataLens is a business analytics service that allows you to connect
+    to various data sources, visualize data, create dashboards, and share your
+    results.

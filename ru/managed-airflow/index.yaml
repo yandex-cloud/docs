@@ -14,24 +14,6 @@ description:
     <em>Apache<sup>®</sup> и Apache Airflow<sup>™</sup> являются
     зарегистрированными товарными знаками или товарными знаками Apache Software
     Foundation в США и/или других странах.</em>
-meta:
-  title: Yandex Managed Service for Apache Airflow™
-  description: >-
-    Сервис Yandex Managed Service for Apache Airflow™ помогает разворачивать и
-    поддерживать кластеры серверов Apache Airflow™ в инфраструктуре Yandex
-    Cloud.
-  keywords:
-    - keyword: airflow
-    - keyword: кластер airflow
-    - keyword: кластер {{ AF }}
-    - keyword: '{{ AF }}'
-    - keyword: Apache Airflow
-    - keyword: кластеры серверов Apache Airflow
-    - keyword: кластеры серверов {{ AF }}
-    - keyword: airflow в {{ yandex-cloud }}
-    - keyword: Apache Airflow в {{ yandex-cloud }}
-    - keyword: '{{ AF }} в {{ yandex-cloud }}'
-    - keyword: сервис {{ maf-name }}
 links:
   - title: Начало работы
     description: Создайте первый кластер
@@ -54,3 +36,21 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Managed Service for Apache Airflow™
+  description: >-
+    Сервис Yandex Managed Service for Apache Airflow™ помогает разворачивать и
+    поддерживать кластеры серверов Apache Airflow™ в инфраструктуре Yandex
+    Cloud.
+  keywords:
+    - airflow
+    - кластер airflow
+    - кластер {{ AF }}
+    - '{{ AF }}'
+    - Apache Airflow
+    - кластеры серверов Apache Airflow
+    - кластеры серверов {{ AF }}
+    - airflow в {{ yandex-cloud }}
+    - Apache Airflow в {{ yandex-cloud }}
+    - '{{ AF }} в {{ yandex-cloud }}'
+    - сервис {{ maf-name }}

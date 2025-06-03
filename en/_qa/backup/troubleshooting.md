@@ -4,11 +4,11 @@ Make sure that:
 
 {% list tabs group=backup_resource_type %}
 
-- VM instance {#vm}
+- VM {#vm}
 
-  * The VM is created from a [supported image](../../backup/concepts/vm-connection.md#os) or (if the {{ backup-name }} agent is installed manually) [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#self-install) the VM's operating system.
-  * Service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
-  * [Security group](../../vpc/concepts/security-groups.md) is [correctly](../../backup/concepts/vm-connection.md#vm-network-access) configured for the VM.
+  * The VM is created from a [supported image](../../backup/concepts/vm-connection.md#os) or (if the {{ backup-name }} agent is installed manually) [{{ backup-name }}](../../backup/concepts/vm-connection.md#self-install) supports the VM's operating system.
+  * The service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
+  * The (../../vpc/concepts/security-groups.md) is [correctly](../../backup/concepts/vm-connection.md#vm-network-access) configured for the VM.
 
   For more information, see [Connecting Compute Cloud VM instances to {{ backup-name }}](../../backup/concepts/vm-connection.md).
 
@@ -25,11 +25,11 @@ Make sure that:
 
 #### How do I reconnect a VM or {{ baremetal-name }} server deleted from {{ backup-name }}? {#reconnect-deleted-vm}
 
-If you have [deleted a VM](../../backup/operations/delete-vm.md) or {{ baremetal-name }} server from {{ backup-name }} and want to reconnect it to the service, follow this guide:
+If you have [deleted a VM](../../backup/operations/delete-vm.md) or {{ baremetal-name }} server from {{ backup-name }} and want to reconnect it to the service, follow these guides:
 
 {% list tabs group=backup_resource_type %}
 
-- VM instance {#vm}
+- VM {#vm}
 
   * [Connecting a Linux VM](../../backup/operations/connect-vm-linux.md)
   * [Connecting a Windows VM](../../backup/operations/connect-vm-windows.md)
@@ -45,13 +45,13 @@ If you have [deleted a VM](../../backup/operations/delete-vm.md) or {{ baremetal
 
 {% list tabs group=backup_resource_type %}
 
-- VM instance {#vm}
+- VM {#vm}
 
   A virtual machine becomes outdated after [its backup is restored to another VM](../../backup/operations/backup-vm/non-native-recovery.md). To avoid conflicts between the source and target VMs when performing a backup, [refresh](../../backup/operations/refresh-connection.md) the outdated VM's connection to {{ backup-name }}.
 
 - {{ baremetal-name }} server {#baremetal-server}
 
-  A {{ baremetal-name }} server becomes outdated after its backup is restored to another server. To avoid conflicts between the original and target {{ baremetal-name }} servers when performing a backup, [refresh](../../backup/operations/backup-baremetal/refresh-connection.md) the outdated server's connection to {{ backup-name }}.
+  A {{ baremetal-name }} server becomes outdated after its backup is restored to another server. To avoid conflicts between the source and target {{ baremetal-name }} servers when performing a backup, [refresh](../../backup/operations/backup-baremetal/refresh-connection.md) the outdated server's connection to {{ backup-name }}.
 
 {% endlist %}
 
@@ -68,7 +68,7 @@ The error occurs because {{ backup-name }} cannot find a suitably sized disk on 
 
 The boot disk of the target VM or {{ baremetal-name }} server must be at least the size of that of the source VM.
 
-Check the target VM disks and [increase](../../compute/operations/disk-control/update.md#change-disk-size) their size as needed. You can also [use another VM](../../backup/operations/backup-vm/non-native-recovery.md) or {{ baremetal-name }} server with suitable parameters.
+Check the target VM disks and [increase](../../compute/operations/disk-control/update.md#change-disk-size) their size if needed. You can also [use another VM](../../backup/operations/backup-vm/non-native-recovery.md) or {{ baremetal-name }} server with suitable parameters.
 
 {% note info %}
 
@@ -89,16 +89,16 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 Make sure that:
 
 * [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#os) the VM operating system.
-* Service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
+* The service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
 * [Network access for your VM](../../backup/concepts/vm-connection.md#vm-network-access) is enabled.
-* The PowerShell execution policies allow scripts. If they do not, allow scripts and restart PowerShell. For more information, see the [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+* The PowerShell execution policies allow scripts. If not, allow scripts and restart PowerShell. For more information, see the [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
 
 #### How do I update the {{ backup-name }} agent on a VM? {#update-backup-agent}
 
-See this guide: [Updating the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md).
+Check [Updating the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md).
 
-#### Why are backups no longer created after the OS update? {#kernel-update-consequences}
+#### Why are backups disabled after the OS update? {#kernel-update-consequences}
 
 {% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
 
@@ -108,7 +108,7 @@ To update Linux kernel header versions, follow these tutorials: [Restoring the {
 
 Antivirus activity may affect the time required to create [incremental backups](../../backup/concepts/backup.md#types) under a policy with the fast backup [option](../../backup/concepts/policy.md#specification) enabled (`fastBackupEnabled`). For more information, see [{#T}](../../backup/concepts/av-interaction.md).
 
-#### In Linux, Out-Of-Memory Killer (OOM Killer) kills the {{ backup-name }} agent process {#oom-solution}
+#### Out-Of-Memory Killer (OOM Killer) kills the {{ backup-name }} agent process in Linux {#oom-solution}
 
 {% include [agent-ram-usage-paragraph](../../_includes/backup/operations/agent-ram-usage-paragraph.md) %}
 

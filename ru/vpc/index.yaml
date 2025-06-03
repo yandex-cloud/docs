@@ -19,37 +19,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_yvpc">Уровень
     обслуживания Yandex Virtual Private Cloud</a>.
-meta:
-  title: Yandex Virtual Private Cloud
-  description: >-
-    Yandex Virtual Private Cloud служит для управления облачными сетями и связи
-    облачных ресурсов между собой и с интернетом.
-  keywords:
-    - keyword: сервис {{ vpc-name }}
-    - keyword: сеть {{ vpc-name }}
-    - keyword: подсеть {{ vpc-name }}
-    - keyword: сеть {{ yandex-cloud }}
-    - keyword: облачная сеть
-    - keyword: связь облачных ресурсов
-    - keyword: ресурсы {{ vpc-full-name }}
-    - keyword: '{{ vpc-name }} в {{ yandex-cloud }}'
-    - keyword: шлюз {{ vpc-name }}
-    - keyword: NAT-шлюз {{ vpc-name }}
-    - keyword: '{{ vpc-full-name }} в {{ yandex-cloud }}'
-    - keyword: '{{ vpc-full-name }}'
-    - keyword: маршрутизация {{ vpc-name }}
-    - keyword: security group {{ vpc-name }}
-    - keyword: виртуальная сеть
-    - keyword: сервис {{ vpc-name }}
-    - keyword: физическая сеть {{ vpc-name }}
-    - keyword: '{{ vpc-name }}'
-    - keyword: публичный IP-адрес
-    - keyword: внутренний IP-адрес
-    - keyword: маршрутизация в {{ vpc-name }}
-    - keyword: группа безопасности
-    - keyword: security group
-    - keyword: сервисное подкючение
-    - keyword: Private Endpoint
 links:
   - title: Начало работы
     description: Создайте первую облачную сеть
@@ -75,3 +44,34 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Virtual Private Cloud
+  description: >-
+    Yandex Virtual Private Cloud служит для управления облачными сетями и связи
+    облачных ресурсов между собой и с интернетом.
+  keywords:
+    - сервис {{ vpc-name }}
+    - сеть {{ vpc-name }}
+    - подсеть {{ vpc-name }}
+    - сеть {{ yandex-cloud }}
+    - облачная сеть
+    - связь облачных ресурсов
+    - ресурсы {{ vpc-full-name }}
+    - '{{ vpc-name }} в {{ yandex-cloud }}'
+    - шлюз {{ vpc-name }}
+    - NAT-шлюз {{ vpc-name }}
+    - '{{ vpc-full-name }} в {{ yandex-cloud }}'
+    - '{{ vpc-full-name }}'
+    - маршрутизация {{ vpc-name }}
+    - security group {{ vpc-name }}
+    - виртуальная сеть
+    - сервис {{ vpc-name }}
+    - физическая сеть {{ vpc-name }}
+    - '{{ vpc-name }}'
+    - публичный IP-адрес
+    - внутренний IP-адрес
+    - маршрутизация в {{ vpc-name }}
+    - группа безопасности
+    - security group
+    - сервисное подкючение
+    - Private Endpoint

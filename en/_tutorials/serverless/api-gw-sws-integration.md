@@ -2,10 +2,10 @@
 
 {{ api-gw-full-name }} supports integration with [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). This allows you to set up DDoS and bot protection for an API gateway at [OSI](https://en.wikipedia.org/wiki/OSI_model) application level (L7).
 
-With {{ sws-name }} security profiles, you can configure protection using various conditions. For example, you can set a [request limit](../../smartwebsecurity/concepts/arl.md) with request grouping based on various parameters or block requests based on user IP address. To do this:
+With {{ sws-name }} profiles, you can configure protection using various conditions. For example, you can set a [request limit](../../smartwebsecurity/concepts/arl.md) with parameter-based request grouping or configure IP-based request blocking. To do this:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Create an ARL profile and {{ sws-name }} security profile](#create-arl-and-sws-profiles).
+1. [Create an ARL profile and {{ sws-name }} profile](#create-arl-and-sws-profiles).
 1. [Create an API gateway](#create-api-gateway).
 1. [Test the new resources](#check-rules).
 
@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-## Create an ARL profile and {{ sws-name }} security profile {#create-arl-and-sws-profiles}
+## Create an ARL profile and {{ sws-name }} profile {#create-arl-and-sws-profiles}
 
 {% list tabs group=instructions %}
 
@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. [Create an ARL profile](../../smartwebsecurity/operations/arl-profile-create.md) named `arl-profile`.
 
-  1. [Add to it a rule](../../smartwebsecurity/operations/arl-rule-add.md) with a request limit and request grouping based on the `token` parameter. Specify the following parameters:
+  1. [Add to it a rule](../../smartwebsecurity/operations/arl-rule-add.md) with a request limit and request grouping based on the `token` parameter. Specify the following settings:
 
       * **Name**: `query-limit-rule`
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999900`
@@ -34,12 +34,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. [Create a security profile](../../smartwebsecurity/operations/profile-create.md) named `sws-profile` using a preset template. When creating it, select the previously created `arl-profile` in the **{{ ui-key.yacloud.smart-web-security.arl.title_profile }}** field.
 
-  1. To set up blocking based on user IP address, [add a rule](../../smartwebsecurity/operations/rule-add.md) with the following parameters to the {{ sws-name }} security profile:
+  1. To set up IP-based blocking, [add a rule](../../smartwebsecurity/operations/rule-add.md) with the following settings to the {{ sws-name }} profile:
 
-      * **Name**: `ip-block-rule`
-      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999700`
-      * **Rule type**: **Basic**
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: **Allow**
+      * **Name**: `ip-block-rule`.
+      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999700`.
+      * **Rule type**: **Basic**.
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: **Allow**.
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}**:
 
           * **Traffic**: **On condition**.
@@ -59,24 +59,24 @@ If you no longer need the resources you created, [delete them](#clear-out).
       This file describes:
 
       * ARL profile that sets a request limit and request grouping by the `token` parameter.
-      * {{ sws-name }} security profile that uses the ARL profile and, in addition, sets blocking based on IP address.
-      * API gateway configured to work with the {{ sws-name }} security profile.
+      * {{ sws-name }} profile that uses the ARL profile and, in addition, enables IP-based blocking.
+      * API gateway configured to work with the {{ sws-name }} profile.
 
-  1. Specify the following parameters in the local variables section of the `api-gw-sws-integration.tf` file:
+  1. In the local variables section of the `api-gw-sws-integration.tf` file, specify the following:
 
       * `arl_name`: ARL profile name.
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) the ARL profile will be created in.
+      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host the new ARL profile.
       * `sws_name`: {{ sws-name }} profile name.
       * `allowed_ips`: List of IP addresses allowed to access the API gateway.
       * `api-gw-name`: API gateway name.
 
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
   1. Create the required infrastructure:
 
@@ -99,7 +99,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   x-yc-apigateway:
     smartWebSecurity:
-      securityProfileId: <SWS_security_profile_ID>
+      securityProfileId: <SWS_profile_ID>
 
   info:
     version: 1.0.0
@@ -122,17 +122,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. In the `api-gw-sws-integration.tf` file:
 
-      1. In the `securityProfileId` parameter of the API gateway specification, specify the ID of the {{ sws-name }} security profile you created earlier.
+      1. In the `securityProfileId` parameter of the API gateway specification, specify the ID of the {{ sws-name }} profile you created earlier.
 
-      1. In the local variable section, specify `create-api-gw = 1`.
+      1. In the local variables section, specify `create-api-gw = 1`.
 
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
   1. Create the required infrastructure:
 
@@ -148,9 +148,9 @@ Test the {{ sws-name }} settings:
 
 * [Request limit](#check-requests-limiter)
 * [Request grouping](#check-query-groupping)
-* [Request blocking by IP address](#check-ip-block)
+* [IP-based request blocking](#check-ip-block)
 
-### Testing the request limit {#check-requests-limiter}
+### Checking the request limit {#check-requests-limiter}
 
 1. Send a GET request to the API gateway:
 
@@ -158,7 +158,7 @@ Test the {{ sws-name }} settings:
     curl <API_gateway_service_domain>
     ```
 
-    The result will be as follows:
+    Result:
 
     ```bash
     This application is protected by SWS!
@@ -172,15 +172,15 @@ Test the {{ sws-name }} settings:
     This application is protected by SWS!
     ```
 
-### Testing the request grouping {#check-query-groupping}
+### Checking the request grouping {#check-query-groupping}
 
-1. Send a GET request to the API gateway with the `token=token` parameter:
+1. Send a GET request to the API gateway, specifying `token=token`:
 
     ```bash
     curl <API_gateway_service_domain>?token=token
     ```
 
-    The result will be as follows:
+    Result:
 
     ```bash
     This application is protected by SWS!
@@ -188,35 +188,35 @@ Test the {{ sws-name }} settings:
 
 1. Repeat the request straight away. In response, you will get a web page with error code 429. This means the request limit kicked in and blocked your request.
 
-1. Repeat the request within the same minute but change the `token` parameter value:
+1. Repeat the request within the same minute but change the `token` value:
 
     ```bash
     curl <API_gateway_service_domain>?token=token2
     ```
 
-    The result will be as follows:
+    Result:
 
     ```bash
     This application is protected by SWS!
     ```
 
-    This means your request got into a new group for which no request limit has been triggered yet. Which is why the request was successfully completed.
+    This means your request got into a new group that has not yet reached the request limit. That is why the request was successfully completed.
 
-### Testing the blocking by IP address {#check-ip-block}
+### Checking the IP-based blocking {#check-ip-block}
 
-1. Send a GET request to the API gateway from an IP address you specified in the {{ sws-name }} security profile:
+1. Send a GET request to the API gateway from an IP address you specified in the {{ sws-name }} profile:
 
     ```bash
     curl <API_gateway_service_domain>
     ```
 
-    The result will be as follows:
+    Result:
 
     ```bash
     This application is protected by SWS!
     ```
 
-1. Send a request from another IP address, e.g., from a cloud VM:
+1. Send a request from a different IP address, e.g., from a cloud VM:
 
     ```bash
     curl --verbose <API_gateway_service_domain>
@@ -233,7 +233,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 - Management console {#console}
 
   1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
-  1. [Delete the {{ sws-name }} security profile](../../smartwebsecurity/operations/profile-delete.md).
+  1. [Delete the {{ sws-name }} profile](../../smartwebsecurity/operations/profile-delete.md).
   1. [Delete the ARL profile](../../smartwebsecurity/operations/arl-profile-delete.md).
 
 - {{ TF }} {#tf}

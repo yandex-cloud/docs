@@ -22,26 +22,6 @@ description:
     }},  читайте в <a
     href="https://yandex.cloud/ru/docs/api-gateway/">документации {{
     api-gw-full-name }}</a>.
-meta:
-  title: '{{ si-full-name }}'
-  description: >-
-    Сервис {{ si-full-name }} позволяет интегрировать сервисы {{ yandex-cloud }}
-    друг с другом.
-  keywords:
-    - keyword: cloud serverless integrations
-    - keyword: '{{ si-name }}'
-    - keyword: '{{ si-full-name }}'
-    - keyword: '{{ sw-full-name }}'
-    - keyword: '{{ er-full-name }}'
-    - keyword: сервис {{ si-name }}
-    - keyword: сервис {{ sw-name }}
-    - keyword: сервис {{ er-name }}
-    - keyword: интеграция в {{ yandex-cloud }}
-    - keyword: рабочие процессы в {{ yandex-cloud }}
-    - keyword: роутер событий в {{ yandex-cloud }}
-    - keyword: бессерверная интеграция
-    - keyword: облачная интеграция
-    - keyword: интеграция в облаке
 links:
   - title: Начало работы c {{ sw-name }}
     description: Создайте рабочий процесс и запустите его
@@ -64,3 +44,23 @@ links:
   - title: Справочник API {{ er-name }} (англ.)
     description: Описание методов HTTP API {{ er-name }}
     href: eventrouter/api-ref/
+meta:
+  title: '{{ si-full-name }}'
+  description: >-
+    Сервис {{ si-full-name }} позволяет интегрировать сервисы {{ yandex-cloud }}
+    друг с другом.
+  keywords:
+    - cloud serverless integrations
+    - '{{ si-name }}'
+    - '{{ si-full-name }}'
+    - '{{ sw-full-name }}'
+    - '{{ er-full-name }}'
+    - сервис {{ si-name }}
+    - сервис {{ sw-name }}
+    - сервис {{ er-name }}
+    - интеграция в {{ yandex-cloud }}
+    - рабочие процессы в {{ yandex-cloud }}
+    - роутер событий в {{ yandex-cloud }}
+    - бессерверная интеграция
+    - облачная интеграция
+    - интеграция в облаке

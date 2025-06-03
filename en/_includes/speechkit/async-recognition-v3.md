@@ -75,7 +75,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
-          https://operation.{{ api-host-sk-stt }}/operations/<recognition_operation_ID>
+          https://operation.{{ api-host-sk }}/operations/<recognition_operation_ID>
         ```
 
     * Authentication with an API key:
@@ -85,7 +85,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Api-key ${API_KEY}" \
-          https://operation.{{ api-host-sk-stt }}/operations/<recognition_operation_ID>
+          https://operation.{{ api-host-sk }}/operations/<recognition_operation_ID>
         ```
 
     Result example:

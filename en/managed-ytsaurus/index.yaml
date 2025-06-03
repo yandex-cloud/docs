@@ -14,16 +14,16 @@ description:
     href="/docs/overview/concepts/launch-stages">Preview</a> stage and provided
     upon <a
     href="https://yandex.cloud/ru/services/managed-ytsaurus#preview-form">request</a>.
+links:
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing
 meta:
   title: '{{ myt-full-name }}'
   description: >-
     {{ myt-name }} helps you deploy and maintain {{ ytsaurus-name }} clusters in
     the {{ yandex-cloud }} infrastructure.
   keywords:
-    - keyword: '{{ myt-name }}'
-    - keyword: '{{ myt-full-name }}'
-    - keyword: сервис {{ myt-name }}
-links:
-  - title: Pricing policy
-    description: Service pricing and cost calculations
-    href: pricing
+    - '{{ myt-name }}'
+    - '{{ myt-full-name }}'
+    - сервис {{ myt-name }}

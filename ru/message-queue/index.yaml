@@ -18,20 +18,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_ymq">Уровень
     обслуживания Yandex Message Queue</a>.
-meta:
-  title: Yandex Message Queue
-  description: >-
-    Yandex Message Queue — универсальное масштабируемое решение для обмена
-    сообщениями между приложениями.
-  keywords:
-    - keyword: '{{ message-queue-name }}'
-    - keyword: '{{ message-queue-full-name }}'
-    - keyword: сервис {{ message-queue-name }}
-    - keyword: очереди в {{ yandex-cloud }}
-    - keyword: очереди сообщений в {{ yandex-cloud }}
-    - keyword: обмен сообщениями между приложениями в {{ yandex-cloud }}
-    - keyword: очереди сообщений
-    - keyword: обмен сообщениями между приложениями
 links:
   - title: Начало работы
     description: Создайте и настройте первую очередь сообщений
@@ -54,3 +40,17 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Message Queue
+  description: >-
+    Yandex Message Queue — универсальное масштабируемое решение для обмена
+    сообщениями между приложениями.
+  keywords:
+    - '{{ message-queue-name }}'
+    - '{{ message-queue-full-name }}'
+    - сервис {{ message-queue-name }}
+    - очереди в {{ yandex-cloud }}
+    - очереди сообщений в {{ yandex-cloud }}
+    - обмен сообщениями между приложениями в {{ yandex-cloud }}
+    - очереди сообщений
+    - обмен сообщениями между приложениями

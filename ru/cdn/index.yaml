@@ -15,24 +15,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_cdn">Уровень
     обслуживания Yandex Cloud CDN</a>.
-meta:
-  title: Yandex Cloud CDN
-  description: >-
-    Yandex Cloud CDN позволяет организовать доставку контента до конечных
-    потребителей с помощью сети распространения контента (Content Delivery
-    Network, CDN).
-  keywords:
-    - keyword: cdn
-    - keyword: yandex cdn
-    - keyword: '{{ cdn-name }}'
-    - keyword: '{{ cdn-full-name }}'
-    - keyword: сервис {{ cdn-name }}
-    - keyword: сеть распространения контента в {{ yandex-cloud }}
-    - keyword: content delivery detwork в {{ yandex-cloud }}
-    - keyword: доставка контента в {{ yandex-cloud }}
-    - keyword: сеть распространения контента
-    - keyword: content delivery detwork
-    - keyword: доставка контента
 links:
   - title: Начало работы
     description: Как начать доставлять контент с помощью CDN
@@ -55,3 +37,21 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Cloud CDN
+  description: >-
+    Yandex Cloud CDN позволяет организовать доставку контента до конечных
+    потребителей с помощью сети распространения контента (Content Delivery
+    Network, CDN).
+  keywords:
+    - cdn
+    - yandex cdn
+    - '{{ cdn-name }}'
+    - '{{ cdn-full-name }}'
+    - сервис {{ cdn-name }}
+    - сеть распространения контента в {{ yandex-cloud }}
+    - content delivery detwork в {{ yandex-cloud }}
+    - доставка контента в {{ yandex-cloud }}
+    - сеть распространения контента
+    - content delivery detwork
+    - доставка контента

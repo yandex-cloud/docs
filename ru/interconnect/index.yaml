@@ -8,29 +8,6 @@ description:
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с ФЗ-152.
-meta:
-  title: Yandex Cloud Interconnect
-  description: >-
-    Yandex Cloud Interconnect позволяет организовать выделенное физическое
-    соединение между инфраструктурой клиента и облачными ресурсами в Yandex
-    Cloud.
-  keywords:
-    - keyword: interconnect
-    - keyword: '{{ interconnect-full-name }}'
-    - keyword: транковое подключение
-    - keyword: '{{ interconnect-name }}'
-    - keyword: сервис {{ interconnect-name }}
-    - keyword: '{{ interconnect-name }} в {{ yandex-cloud }}'
-    - keyword: приватное подключение
-    - keyword: подключение в {{ interconnect-name }}
-    - keyword: BGP {{ yandex-cloud }}
-    - keyword: точка присутствия
-    - keyword: кроссировка в {{ interconnect-name }}
-    - keyword: кроссировка
-    - keyword: трансивер {{ interconnect-name }}
-    - keyword: маршрутизация {{ interconnect-name }}
-    - keyword: транк
-    - keyword: транк {{ interconnect-name }}
 links:
   - title: Концепции
     description: Узнайте про возможности сервиса
@@ -44,3 +21,26 @@ links:
   - title: Практические руководства
     description: Инструкции по применению {{ interconnect-name }}
     href: tutorials/
+meta:
+  title: Yandex Cloud Interconnect
+  description: >-
+    Yandex Cloud Interconnect позволяет организовать выделенное физическое
+    соединение между инфраструктурой клиента и облачными ресурсами в Yandex
+    Cloud.
+  keywords:
+    - interconnect
+    - '{{ interconnect-full-name }}'
+    - транковое подключение
+    - '{{ interconnect-name }}'
+    - сервис {{ interconnect-name }}
+    - '{{ interconnect-name }} в {{ yandex-cloud }}'
+    - приватное подключение
+    - подключение в {{ interconnect-name }}
+    - BGP {{ yandex-cloud }}
+    - точка присутствия
+    - кроссировка в {{ interconnect-name }}
+    - кроссировка
+    - трансивер {{ interconnect-name }}
+    - маршрутизация {{ interconnect-name }}
+    - транк
+    - транк {{ interconnect-name }}

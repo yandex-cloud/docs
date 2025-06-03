@@ -8,26 +8,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_ym">Уровень
     обслуживания Yandex Monitoring</a>.
-meta:
-  title: Yandex Monitoring
-  description: >-
-    Yandex Monitoring позволяет собирать и хранить метрики, а также отображать
-    их в виде графиков на дашбордах.
-  keywords:
-    - keyword: monitoring
-    - keyword: мониторинг
-    - keyword: метрика {{ monitoring-name }}
-    - keyword: сервис {{ monitoring-name }}
-    - keyword: '{{ monitoring-name }}'
-    - keyword: алертинг
-    - keyword: временной ряд в {{ monitoring-name }}
-    - keyword: дашборд в {{ monitoring-name }}
-    - keyword: '{{ monitoring-name }} в {{ yandex-cloud }}'
-    - keyword: агент сбора метрик
-    - keyword: '{{ unified-agent-short-name }}'
-    - keyword: '{{ unified-agent-full-name }}'
-    - keyword: '{{ prometheus-name }}'
-    - keyword: канал уведомлений в {{ monitoring-name }}
 links:
   - title: Начало работы
     description: Начните отслеживание ваших метрик
@@ -73,3 +53,23 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Monitoring
+  description: >-
+    Yandex Monitoring позволяет собирать и хранить метрики, а также отображать
+    их в виде графиков на дашбордах.
+  keywords:
+    - monitoring
+    - мониторинг
+    - метрика {{ monitoring-name }}
+    - сервис {{ monitoring-name }}
+    - '{{ monitoring-name }}'
+    - алертинг
+    - временной ряд в {{ monitoring-name }}
+    - дашборд в {{ monitoring-name }}
+    - '{{ monitoring-name }} в {{ yandex-cloud }}'
+    - агент сбора метрик
+    - '{{ unified-agent-short-name }}'
+    - '{{ unified-agent-full-name }}'
+    - '{{ prometheus-name }}'
+    - канал уведомлений в {{ monitoring-name }}
