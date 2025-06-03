@@ -14,11 +14,6 @@ description:
     To learn how to publish your products and sell them to Yandex Cloud
     customers, see the <a href="/docs/marketplace/quickstart">Yandex Cloud
     Marketplace</a>.
-meta:
-  title: Partner program
-  description: >-
-    The Yandex Cloud partner program empowers you to meet your customers’ needs
-    using technologies and services tested with Yandex workloads.
 links:
   - title: Direct partnership program
     description: Accept customer payments and manage document flow on your own.
@@ -29,3 +24,8 @@ links:
   - title: FAQ
     description: Answers to frequently asked questions
     href: qa/all
+meta:
+  title: Partner program
+  description: >-
+    The Yandex Cloud partner program empowers you to meet your customers’ needs
+    using technologies and services tested with Yandex workloads.

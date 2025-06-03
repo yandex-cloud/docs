@@ -1,7 +1,4 @@
 title: Yandex Cloud documentation
-meta:
-  title: Yandex Cloud
-  noIndex: true
 description: []
 links:
   - title: Yandex Cloud API
@@ -240,3 +237,6 @@ links:
   - title: Query
     description: Real-time analytical and streaming queries
     href: query/
+meta:
+  title: Yandex Cloud
+  noIndex: true

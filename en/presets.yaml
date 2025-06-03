@@ -38,6 +38,7 @@ default:
   api-host-mdb-operation: operation.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
   api-host-operation: operation.api.cloud.yandex.net
+  api-host-sk: api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-host-spark: spark.api.cloud.yandex.net
@@ -6154,6 +6155,7 @@ default:
           create: Create
           deactivate: Deactivate
           delete: Delete
+          duplicate: Duplicate
           edit: Edit
           save: Save
       alert-template:
@@ -6251,16 +6253,27 @@ default:
         dash:
           create-alert: Create alert
           open-in-monitoring: Open in Monitoring
+          setup: Setup widget
         settings:
           dashboard-settings: Dashboard settings
         tab:
           service-dashboards: Service dashboards
         widget-placeholder:
           add-graph: Graph
+          add-group: Section
           add-text: Text
           add-title: Heading
+        widget-settings:
+          addToSelection: Add to selection
+          display-legend: Show legend
+          fix-time: Fixed time range
         widget-type:
           graph: Chart
+        widget:
+          copy: Copy to another dashboard
+          delete-key-value: Delete
+          share: Share
+          share-screenshot-key-value: Share screenshot
       dialog:
         confirm:
           button_continue: Continue
@@ -6535,6 +6548,7 @@ default:
           title: Security settings
         users: Users
       user:
+        title_groups: Groups
         title_oslogin-profiles: OS Login Profiles
         title_ssh-keys: SSH keys
       users:
@@ -9203,6 +9217,8 @@ default:
         workflow-editor_push-next-block-placeholder-label: Add a step
         workflow-editor_retry-count-field: Maximum number of retries
         workflow-editor_step-name-label: Step name
+        workflow-editor_while-step-condition-field: Execution condition template
+        workflow-editor_while-step-max-iterations-field: Maximum number of iterations
         workflow-viewer_node-input-label: Input
         workflow-viewer_node-output-label: Output
         workflow-viewer_node-settings-label: Settings

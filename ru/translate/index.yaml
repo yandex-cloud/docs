@@ -16,23 +16,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_translate">Уровень
     обслуживания Yandex Translate</a>.
-meta:
-  title: Yandex Translate
-  description: >-
-    Сервис для интеграции алгоритмов Яндекс&#160;Переводчика в приложения или
-    веб-проекты для конечных пользователей.
-  keywords:
-    - keyword: '{{ translate-full-name }}'
-    - keyword: сервис {{ translate-short-name }}
-    - keyword: интеграции алгоритмов в {{ yandex-cloud }}
-    - keyword: интеграции алгоритмов
-    - keyword: интеграции алгоритмов переводчика
-    - keyword: переводы в {{ yandex-cloud }}
-    - keyword: интеграции алгоритмов в приложении {{ yandex-cloud }}
-    - keyword: интеграции алгоритмов в приложении
-    - keyword: интеграции алгоритмов в веб-проектах {{ yandex-cloud }}
-    - keyword: интеграции алгоритмов в веб-проектах
-    - keyword: API переводчика
 links:
   - title: Начало работы
     description: Переведите ваш текст
@@ -55,3 +38,20 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Translate
+  description: >-
+    Сервис для интеграции алгоритмов Яндекс&#160;Переводчика в приложения или
+    веб-проекты для конечных пользователей.
+  keywords:
+    - '{{ translate-full-name }}'
+    - сервис {{ translate-short-name }}
+    - интеграции алгоритмов в {{ yandex-cloud }}
+    - интеграции алгоритмов
+    - интеграции алгоритмов переводчика
+    - переводы в {{ yandex-cloud }}
+    - интеграции алгоритмов в приложении {{ yandex-cloud }}
+    - интеграции алгоритмов в приложении
+    - интеграции алгоритмов в веб-проектах {{ yandex-cloud }}
+    - интеграции алгоритмов в веб-проектах
+    - API переводчика

@@ -24,6 +24,9 @@ description: Из этой статьи вы узнаете про доступ�
 Intel Broadwell</br>(`standard-v1`) | Intel® Xeon® Processor E5-2660 v4 | 32 | 2.00
 Intel Cascade Lake</br>(`standard-v2`) | Intel® Xeon® Gold 6230 | 80 | 2.10
 Intel Ice Lake</br>(`standard-v3`) | Intel® Xeon® Gold 6338 | 96 | 2.00
+AMD Zen 3</br>(`amd-v1`)^1^ | AMD EPYC 7713 | 128 | 2.00
+
+{% include [amd-platform-preview](../../_includes/compute/amd-platform-preview.md) %}
 
 ## Высокопроизводительные платформы {#compute-optimized-platforms}
 

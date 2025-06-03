@@ -4,21 +4,6 @@ description:
     Yandex API Gateway — сервис для управления API-шлюзами, поддерживающий <a
     href="https://github.com/OAI/OpenAPI-Specification">спецификацию OpenAPI
     3.0</a> и набор расширений для взаимодействия с другими облачными сервисами.
-meta:
-  title: Yandex API Gateway
-  description: >-
-    Yandex API Gateway — сервис для управления API-шлюзами, поддерживающий
-    спецификацию OpenAPI 3.0 и набор расширений для взаимодействия с другими
-    облачными сервисами.
-  keywords:
-    - keyword: '{{ api-gw-name }}'
-    - keyword: '{{ api-gw-full-name }}'
-    - keyword: сервис {{ api-gw-name }}
-    - keyword: api-шлюзы в {{ yandex-cloud }}
-    - keyword: шлюзы в {{ yandex-cloud }}
-    - keyword: спецификация OpenAPI в {{ yandex-cloud }}
-    - keyword: api-шлюзы
-    - keyword: шлюзы
 links:
   - title: Начало работы
     description: Создайте первый API-шлюз
@@ -44,3 +29,18 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex API Gateway
+  description: >-
+    Yandex API Gateway — сервис для управления API-шлюзами, поддерживающий
+    спецификацию OpenAPI 3.0 и набор расширений для взаимодействия с другими
+    облачными сервисами.
+  keywords:
+    - '{{ api-gw-name }}'
+    - '{{ api-gw-full-name }}'
+    - сервис {{ api-gw-name }}
+    - api-шлюзы в {{ yandex-cloud }}
+    - шлюзы в {{ yandex-cloud }}
+    - спецификация OpenAPI в {{ yandex-cloud }}
+    - api-шлюзы
+    - шлюзы

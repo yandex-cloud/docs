@@ -7,21 +7,6 @@ description:
   - >-
     В Yandex Cloud вы платите только за потребленные ресурсы и время их
     фактического использования.
-meta:
-  title: Yandex Cloud Billing
-  description: >-
-    Yandex Cloud Billing позволяет получать информацию об объеме использованных
-    ресурсов, проверять расходы денежных средств и оплачивать потребление
-    ресурсов.
-  keywords:
-    - keyword: yandex billing
-    - keyword: cloud billing
-    - keyword: '{{ billing-name }}'
-    - keyword: сервис {{ billing-name }}
-    - keyword: биллинг {{ yandex-cloud }}
-    - keyword: оплата {{ yandex-cloud }}
-    - keyword: оплатить {{ yandex-cloud }}
-    - keyword: потребление ресурсов {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый платежный аккаунт
@@ -49,3 +34,18 @@ links:
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/
+meta:
+  title: Yandex Cloud Billing
+  description: >-
+    Yandex Cloud Billing позволяет получать информацию об объеме использованных
+    ресурсов, проверять расходы денежных средств и оплачивать потребление
+    ресурсов.
+  keywords:
+    - yandex billing
+    - cloud billing
+    - '{{ billing-name }}'
+    - сервис {{ billing-name }}
+    - биллинг {{ yandex-cloud }}
+    - оплата {{ yandex-cloud }}
+    - оплатить {{ yandex-cloud }}
+    - потребление ресурсов {{ yandex-cloud }}

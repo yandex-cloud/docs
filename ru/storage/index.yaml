@@ -32,26 +32,6 @@ description:
     обслуживания Yandex Object Storage</a>.
 nav:
   title: Yandex Object Storage
-meta:
-  title: Yandex Object Storage
-  description: >-
-    Сервис Yandex Object Storage — это универсальное масштабируемое решение для
-    хранения данных.
-  keywords:
-    - keyword: storage
-    - keyword: cloud storage
-    - keyword: yandex storage
-    - keyword: '{{ objstorage-name }}'
-    - keyword: '{{ yandex-cloud }} {{ objstorage-name }}'
-    - keyword: '{{ objstorage-full-name }}'
-    - keyword: сервис {{ objstorage-name }}
-    - keyword: бакет
-    - keyword: хранилище
-    - keyword: бакет {{ objstorage-name }}
-    - keyword: бакеты {{ objstorage-name }}
-    - keyword: бакет {{ yandex-cloud }}
-    - keyword: бакеты {{ yandex-cloud }}
-    - keyword: хранилище {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый бакет и загрузите данные
@@ -74,3 +54,23 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Object Storage
+  description: >-
+    Сервис Yandex Object Storage — это универсальное масштабируемое решение для
+    хранения данных.
+  keywords:
+    - storage
+    - cloud storage
+    - yandex storage
+    - '{{ objstorage-name }}'
+    - '{{ yandex-cloud }} {{ objstorage-name }}'
+    - '{{ objstorage-full-name }}'
+    - сервис {{ objstorage-name }}
+    - бакет
+    - хранилище
+    - бакет {{ objstorage-name }}
+    - бакеты {{ objstorage-name }}
+    - бакет {{ yandex-cloud }}
+    - бакеты {{ yandex-cloud }}
+    - хранилище {{ yandex-cloud }}

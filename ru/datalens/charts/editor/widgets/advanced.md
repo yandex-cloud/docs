@@ -145,6 +145,9 @@ Chart.getState()
 // При вызове метода будет выполнен метод render. Если нужно обновить состояние без перерисовки, нужно добавить вторым аргументом {silent: true}
 Chart.setState(state: object, options?: {silent: boolean})
 
+// Простановка параметров
+Editor.updateParams(params)
+
 // Простановка параметров кросс-фильтрации. Подробнее в разделе чарт-чарт фильтрация
 Editor.updateActionParams(params)
 ```

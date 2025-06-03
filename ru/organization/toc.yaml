@@ -38,6 +38,8 @@ items:
             href: operations/users-get.md
           - name: Удалить аккаунт пользователя
             href: operations/edit-account.md
+          - name: Посмотреть группы пользователя
+            href: operations/get-users-groups.md
           - name: Покинуть организацию
             href: operations/leave-organization.md
       - name: Управление группами пользователей
@@ -54,6 +56,8 @@ items:
             href: operations/access-manage-group.md
           - name: Назначить права доступа группе
             href: operations/access-group.md
+          - name: Посмотреть группы пользователя
+            href: operations/get-users-groups.md
           - name: Удалить участников
             href: operations/delete-member-group.md
           - name: Удалить группу

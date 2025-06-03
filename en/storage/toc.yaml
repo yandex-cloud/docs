@@ -472,8 +472,12 @@ items:
             href: cli-ref/s3api/delete-object-tagging.md
           - name: delete-objects
             href: cli-ref/s3api/delete-objects.md
+          - name: get-bucket-acl
+            href: cli-ref/s3api/get-bucket-acl.md
           - name: get-object
             href: cli-ref/s3api/get-object.md
+          - name: get-object-acl
+            href: cli-ref/s3api/get-object-acl.md
           - name: get-object-legal-hold
             href: cli-ref/s3api/get-object-legal-hold.md
           - name: get-object-retention
@@ -488,8 +492,12 @@ items:
             href: cli-ref/s3api/list-objects.md
           - name: list-parts
             href: cli-ref/s3api/list-parts.md
+          - name: put-bucket-acl
+            href: cli-ref/s3api/put-bucket-acl.md
           - name: put-object
             href: cli-ref/s3api/put-object.md
+          - name: put-object-acl
+            href: cli-ref/s3api/put-object-acl.md
           - name: put-object-legal-hold
             href: cli-ref/s3api/put-object-legal-hold.md
           - name: put-object-retention

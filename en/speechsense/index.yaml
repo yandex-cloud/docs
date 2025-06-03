@@ -18,8 +18,6 @@ description:
     For terms of use, see the <a
     href="https://yandex.com/legal/cloud_terms_speechsense">{{
     speechsense-full-name }} Terms of Use</a>.
-meta:
-  title: '{{ speechsense-full-name }}'
 links:
   - title: Getting started
     description: >-
@@ -41,3 +39,5 @@ links:
   - title: Release notes
     description: Releases and updates
     href: release-notes/
+meta:
+  title: '{{ speechsense-full-name }}'

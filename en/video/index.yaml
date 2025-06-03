@@ -7,26 +7,6 @@ description:
     Yandex Cloud Video is an end-to-end video content management platform. Use
     the complete set of tools for video storage, processing, hosting, and online
     streaming. Broadcasts and videos are played in an integrated video player.
-meta:
-  title: Yandex Cloud Video
-  keywords:
-    - keyword: '{{ video-name }}'
-    - keyword: videos in {{ video-name }}
-    - keyword: '{{ video-name }} in {{ yandex-cloud }}'
-    - keyword: video content in {{ yandex-cloud }}
-    - keyword: streams in {{ video-name }}
-    - keyword: channels in {{ video-name }}
-    - keyword: broadcasts in {{ video-name }}
-    - keyword: playlists in {{ video-name }}
-    - keyword: video hosting in {{ yandex-cloud }}
-    - keyword: streaming broadcasts in {{ yandex-cloud }}"
-    - keyword: '{{ video-name }} live stream'
-    - keyword: video feed in {{ yandex-cloud }}"
-    - keyword: '{{ video-name }} line'
-    - keyword: episode in {{ video-name }}
-    - keyword: '{{ video-name }} video player'
-    - keyword: '{{ video-name }} content'
-    - keyword: hosting in {{ video-name }}
 links:
   - title: Getting started
     description: Upload a video or create your first broadcast
@@ -49,3 +29,23 @@ links:
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
+meta:
+  title: Yandex Cloud Video
+  keywords:
+    - '{{ video-name }}'
+    - videos in {{ video-name }}
+    - '{{ video-name }} in {{ yandex-cloud }}'
+    - video content in {{ yandex-cloud }}
+    - streams in {{ video-name }}
+    - channels in {{ video-name }}
+    - broadcasts in {{ video-name }}
+    - playlists in {{ video-name }}
+    - video hosting in {{ yandex-cloud }}
+    - streaming broadcasts in {{ yandex-cloud }}"
+    - '{{ video-name }} live stream'
+    - video feed in {{ yandex-cloud }}"
+    - '{{ video-name }} line'
+    - episode in {{ video-name }}
+    - '{{ video-name }} video player'
+    - '{{ video-name }} content'
+    - hosting in {{ video-name }}

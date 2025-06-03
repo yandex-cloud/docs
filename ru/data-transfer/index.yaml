@@ -21,23 +21,6 @@ description:
     Уровень обслуживания сервиса определен в документе <a
     href="https://yandex.ru/legal/cloud_sla_data_transfer/">Уровень обслуживания
     Сервиса Транспортировки Данных / Yandex Data Transfer</a>.
-meta:
-  title: Yandex Data Transfer
-  description: >-
-    Сервис Yandex Data Transfer предназначен для логического переноса данных
-    между источниками и приемниками.
-  keywords:
-    - keyword: '{{ data-transfer-name }}'
-    - keyword: '{{ data-transfer-full-name }}'
-    - keyword: сервис {{ data-transfer-name }}
-    - keyword: перенос данных в {{ yandex-cloud }}
-    - keyword: перенос баз данных в {{ yandex-cloud }}
-    - keyword: миграция в {{ yandex-cloud }}
-    - keyword: трансфер в {{ yandex-cloud }}
-    - keyword: перенос данных
-    - keyword: перенос баз данных
-    - keyword: миграция баз данных
-    - keyword: трансфер данных
 links:
   - title: Доступные трансферы
     description: Список поддерживаемых типов трансферов
@@ -75,3 +58,20 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Data Transfer
+  description: >-
+    Сервис Yandex Data Transfer предназначен для логического переноса данных
+    между источниками и приемниками.
+  keywords:
+    - '{{ data-transfer-name }}'
+    - '{{ data-transfer-full-name }}'
+    - сервис {{ data-transfer-name }}
+    - перенос данных в {{ yandex-cloud }}
+    - перенос баз данных в {{ yandex-cloud }}
+    - миграция в {{ yandex-cloud }}
+    - трансфер в {{ yandex-cloud }}
+    - перенос данных
+    - перенос баз данных
+    - миграция баз данных
+    - трансфер данных

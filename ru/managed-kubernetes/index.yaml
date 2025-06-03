@@ -25,23 +25,6 @@ description:
     обслуживания</a>. Уровень обслуживания сервиса определен в документе <a
     href="https://yandex.ru/legal/cloud_sla_kb">Уровень обслуживания Yandex
     Managed Service for Kubernetes®</a>.
-meta:
-  title: Yandex Managed Service for Kubernetes
-  description: >-
-    Сервис Managed Service for Kubernetes предоставляет окружение для работы с
-    контейнеризованными приложениями в инфраструктуре Yandex Cloud.
-  keywords:
-    - keyword: k8s
-    - keyword: managed {{ k8s }}
-    - keyword: '{{ k8s }}'
-    - keyword: yandex {{ k8s }}
-    - keyword: '{{ managed-k8s-name }}'
-    - keyword: '{{ managed-k8s-full-name }}'
-    - keyword: сервис {{ managed-k8s-name }}
-    - keyword: кластер {{ k8s }}
-    - keyword: кластеры {{ k8s }}
-    - keyword: кластер {{ k8s }} в {{ yandex-cloud }}
-    - keyword: kubernetes в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый кластер Kubernetes
@@ -70,3 +53,20 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Managed Service for Kubernetes
+  description: >-
+    Сервис Managed Service for Kubernetes предоставляет окружение для работы с
+    контейнеризованными приложениями в инфраструктуре Yandex Cloud.
+  keywords:
+    - k8s
+    - managed {{ k8s }}
+    - '{{ k8s }}'
+    - yandex {{ k8s }}
+    - '{{ managed-k8s-name }}'
+    - '{{ managed-k8s-full-name }}'
+    - сервис {{ managed-k8s-name }}
+    - кластер {{ k8s }}
+    - кластеры {{ k8s }}
+    - кластер {{ k8s }} в {{ yandex-cloud }}
+    - kubernetes в {{ yandex-cloud }}

@@ -37,6 +37,11 @@
 | 100% vCPU | {{ sku|RUB|compute_gpu.vm.cpu.c100.gpu-standard.v3i|string }} | {{ sku|RUB|compute_gpu.vm.cpu.c100.gpu-standard.preemptible.v3i|string }} | - | - |
 | 1 GPU | {{ sku|RUB|compute_gpu.vm.gpu.gpu-standard.v3i|string }} | {{ sku|RUB|compute_gpu.vm.gpu.gpu-standard.preemptible.v3i|string }} | - | - |
 | RAM (за 1 ГБ) | {{ sku|RUB|compute_gpu.vm.ram.gpu-standard.v3i|string }} | {{ sku|RUB|compute_gpu.vm.ram.gpu-standard.preemptible.v3i|string }} | - | - |
+| **AMD Zen 3**^*^ | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
+| 20% vCPU | 0,4752 ₽ | 0,1512 ₽ | − | − |
+| 50% vCPU | 0,6912 ₽ | 0,2160 ₽ | − | − |
+| 100% vCPU | 1,1340 ₽ | 0,3132 ₽ | − | − |
+| RAM (за 1 ГБ) | 0,3024 ₽ | 0,0756 ₽ | − | − |
 
 ^*^ Доступ предоставляется по запросу, при наличии технической возможности.
 

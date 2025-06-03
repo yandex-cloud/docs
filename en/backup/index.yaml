@@ -4,21 +4,6 @@ description:
     With Yandex Cloud Backup, you can set up automatic backups for <a
     href="/docs/compute">Yandex Compute Cloud</a> VMs and <a
     href="/docs/baremetal">Yandex BareMetal</a> servers.
-meta:
-  title: Yandex Cloud Backup
-  description: >-
-    With Yandex Cloud Backup, you can set up automatic backups for Yandex
-    Compute Cloud VMs.
-  keywords:
-    - keyword: backup
-    - keyword: yandex backup
-    - keyword: '{{ backup-name }}'
-    - keyword: '{{ backup-full-name }}'
-    - keyword: '{{ backup-name }}'
-    - keyword: backups in {{ yandex-cloud }}
-    - keyword: backing up in {{ yandex-cloud }}
-    - keyword: backups
-    - keyword: backing up
 links:
   - title: Getting started
     description: Create a VM and attach it to a backup policy
@@ -43,3 +28,18 @@ links:
   - title: API reference
     description: HTTP API method descriptions
     href: backup/api-ref/
+meta:
+  title: Yandex Cloud Backup
+  description: >-
+    With Yandex Cloud Backup, you can set up automatic backups for Yandex
+    Compute Cloud VMs.
+  keywords:
+    - backup
+    - yandex backup
+    - '{{ backup-name }}'
+    - '{{ backup-full-name }}'
+    - '{{ backup-name }}'
+    - backups in {{ yandex-cloud }}
+    - backing up in {{ yandex-cloud }}
+    - backups
+    - backing up

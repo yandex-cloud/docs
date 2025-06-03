@@ -3,11 +3,6 @@ description:
   - >-
     "Известные решения и советы для оптимального использования сервисов {{
     yandex-cloud }}."
-meta:
-  title: Troubleshooting
-  description: >-
-    Известные решения и советы для оптимального использования сервисов {{
-    yandex-cloud }}.
 links:
   - title: '{{ alb-name }}'
     description: Решения для {{ alb-name }}
@@ -105,3 +100,8 @@ links:
   - title: '{{ vpc-name }}'
     description: Решения для {{ vpc-short-name}}
     href: vpc/
+meta:
+  title: Troubleshooting
+  description: >-
+    Известные решения и советы для оптимального использования сервисов {{
+    yandex-cloud }}.

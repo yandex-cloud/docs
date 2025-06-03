@@ -37,6 +37,8 @@ items:
             href: operations/dashboard/add-widget.md
           - name: Добавление параметра дашборда
             href: operations/dashboard/add-parameters.md
+          - name: Управление виджетами
+            href: operations/dashboard/widget-management.md
           - name: Удаление виджета с дашборда
             href: operations/dashboard/delete-widget.md
           - name: Удаление дашборда

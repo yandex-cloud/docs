@@ -1,30 +1,30 @@
 # Deploying a web app with JWT authorization in {{ api-gw-full-name }} and authentication in Firebase
 
-In this tutorial, you will learn how to implement authentication and authorization based on [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/) protocols in your web app. For authentication, we will use [Google OAuth](https://developers.google.com/identity/protocols/oauth2) and [Firebase](https://firebase.google.com/docs). Authorization will be performed on the [{{ api-gw-name }}](../../api-gateway/) side using a JWT authorizer. Your web app will consist of:
+In this tutorial, you will learn how to implement authentication and authorization with [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/) in your web app. For authentication, you will use [Google OAuth](https://developers.google.com/identity/protocols/oauth2) and [Firebase](https://firebase.google.com/docs). [{{ api-gw-name }}](../../api-gateway/) will manage authorization using a JWT authorizer. Your web app will consist of:
 * Firebase external authentication service.
-* Simple REST API deployed as {{ api-gw-name }}.
+* Simple REST API deployed as an {{ api-gw-name }}.
 * Static website deployed in a [{{ objstorage-full-name }}](../../storage/) [bucket](../../storage/concepts/bucket.md).
 
 To deploy your web app:
-1. [Prepare your cloud environment](#prepare-cloud).
+1. [Get your cloud ready](#prepare-cloud).
 1. [Create a project and set up Google OAuth in Google Cloud](#create-google-cloud-project).
 1. [Set up authentication in Firebase](#create-firebase-project).
-1. [Complete Google resource configuration](#google-oauth-setup).
+1. [Complete setting up your Google resources](#google-oauth-setup).
 1. [Create an API gateway](#create-gateway).
-1. [Create web app files](#project-prepare).
-1. [Deploy {{ yandex-cloud }} resources and upload the web app to a bucket](#deploy).
-1. [Test the created app](#test).
+1. [Get the web app files ready](#project-prepare).
+1. [Deploy {{ yandex-cloud }} resources and upload your web app to a bucket](#deploy).
+1. [Test the app](#test).
 
-If you no longer need the resources you created, [delete them](#clear-out).
+If you no longer need the resources you created, [delete](#clear-out) them.
 
-## Prepare your cloud {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost for running the web app includes:
-* Fee for data storage in a bucket and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+The infrastructure support cost for running a web app includes:
+* Fee for data storage in a bucket and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Create a project and set up Google OAuth in Google Cloud {#create-google-cloud-project}
@@ -32,29 +32,29 @@ The infrastructure support cost for running the web app includes:
 Set up Google OAuth:
 1. Log in to the [Google Cloud Console](https://console.cloud.google.com/) and create a new project.
 1. Go to **API & Services** → **OAuth consent screen**, select `External` as the app type, and click **Create**.
-1. Under **OAuth consent screen**, enter the app name and your email address in the **User support email** and **Developer contact information** fields. Click **Save and continue**.
+1. Under **OAuth consent screen**, enter a name for your app and your email address in the **User support email** and **Developer contact information** fields. Click **Save and continue**.
 1. Under **Scopes**, click **Add or Remove Scopes** and add the `openid`, `/auth/userinfo.email`, and `/auth/userinfo.profile` scopes. Click **Update** → **Save and continue**.
 1. Under **Test users**, specify your email address. Finish creating your app.
-1. In the **API & Services** → **Credentials** tab, click **Create credential** and select `OAuth client ID`. Specify `Web application` as the app type.
+1. Go to **API & Services** → **Credentials**, click **Create credential**, and select `OAuth client ID`. Specify `Web application` as the app type.
 1. Confirm the app creation and save the `Client ID` and `Client secret`.
 
 ## Set up authentication in Firebase {#create-firebase-project}
 
 1. Log in to the [Firebase Console](https://console.firebase.google.com) and create a new project.
 1. Go to **Authentication** → **Sign-in method** → **Custom providers** and select `OpenID Connect`.
-1. Confirm the selection of `OpenID Connect`.
+1. Confirm your selection.
 1. Enter the provider name as well as the `Client ID` and `Client secret` you obtained in the [previous step](#create-google-cloud-project). Fill in the **Issuer** field (for Google OAuth, specify `https://accounts.google.com`).
 1. Save the `Callback URL` and complete the OpenID setup.
 
-## Complete Google resource configuration {#google-oauth-setup}
+## Complete setting up your Google resources {#google-oauth-setup}
 
 Google Console:
-1. In the **API & Services** → **Credentials** tab, click the name of the created client.
-1. Add the Callback URL from Firebase you obtained in the [previous step](#create-firebase-project) to the **Authorized redirect URIs** list. Save your changes.
+1. Go to **API & Services** → **Credentials** and click the name of the created client.
+1. Add the Callback URL from Firebase you saved [earlier](#create-firebase-project) to the **Authorized redirect URIs** list. Save your changes.
 
 Firebase:
 1. Go to **Project Overview** → **Project settings**.
-1. Create a web app in the `General` tab. Specify the app name and click **Register App**.
+1. Create a web app in the `General` tab. Specify a name for your app and click **Register App**.
 1. Save the app configuration generated under `firebaseConfig`.
 
 ## Create an API gateway {#create-gateway}
@@ -64,10 +64,10 @@ Firebase:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an API gateway.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `jwt-api-gw`.
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
+  1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
 
      ```yaml
      openapi: 3.0.0
@@ -117,7 +117,7 @@ Firebase:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Save the following specification to the `jwt-auth.yaml` file:
+  1. Save the following specification to `jwt-auth.yaml`:
 
      ```yaml
      openapi: 3.0.0
@@ -188,7 +188,7 @@ Firebase:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the API gateway parameters:
+  1. In the configuration file, define the API gateway properties:
 
      ```hcl
      resource "yandex_api_gateway" "jwt-api-gateway" {
@@ -237,8 +237,8 @@ Firebase:
      * `name`: API gateway name.
      * `spec`: API gateway specification.
 
-     For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/api_gateway).
-  1. Create resources:
+     For more information about `yandex_api_gateway` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -250,7 +250,7 @@ Firebase:
 
 {% endlist %}
 
-## Create web app files {#project-prepare}
+## Get the web app files ready {#project-prepare}
 
 1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-serverless-apigw-jwt-authorizer-firebase) with the app source code:
 
@@ -258,13 +258,13 @@ Firebase:
    git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-jwt-authorizer-firebase.git
    ```
 
-1. Open the `src/App.js` file using a text editor and specify the following parameters:
-   * `firebaseConfig`: Firebase configuration for your app that you saved when [completing Google resource configuration](#google-oauth-setup).
+1. Open the `src/App.js` file using a text editor and specify the following properties:
+   * `firebaseConfig`: Firebase configuration you saved when [completing the Google resource setup](#google-oauth-setup).
    * `providerId`: ID of the OpenID Connect provider previously created in Firebase, in `oidc.<provider_name>` format.
    * `apiGwDomain`: Service domain of the API gateway you created earlier.
-1. [Install Node.js](https://nodejs.org/en/download) and the npm package manager: The package manager will be installed automatically during Node.js installation.
-1. In the folder with your app:
-   1. Install react-scripts in your project and add it to `devDependencies` in the `package.json` file:
+1. [Install Node.js](https://nodejs.org/en/download) and `npm`. `npm` comes bundled with Node.js.
+1. In your app folder:
+   1. Install `react-scripts` in your project and include it under `devDependencies` in `package.json`:
 
       ```bash
       npm install react-scripts --save-dev
@@ -290,7 +290,7 @@ Firebase:
       The build folder is ready to be deployed.
       ```
 
-## Deploy {{ yandex-cloud }} resources and upload the web app to an {{ objstorage-name }} bucket {#deploy}
+## Deploy {{ yandex-cloud }} resources and upload your web app to an {{ objstorage-name }} bucket {#deploy}
 
 Deploy a static website.
 1. Create an {{ objstorage-name }} bucket:
@@ -299,11 +299,11 @@ Deploy a static website.
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. On the bucket creation page:
-        1. Enter a name for the bucket: `bucket-for-tutorial`.
+        1. Enter the bucket name: `bucket-for-tutorial`.
         1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
         1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
@@ -323,7 +323,7 @@ Deploy a static website.
 
         Where:
         * `--name`: Bucket name.
-        * `--public-read`: Flag to enable public access to read bucket objects.
+        * `--public-read`: Flag to enable public read access to bucket objects.
 
         Result:
 
@@ -341,7 +341,7 @@ Deploy a static website.
 
      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-     1. In the configuration file, describe the resource parameters:
+     1. In the configuration file, define the resource properties:
 
         ```hcl
         ...
@@ -372,12 +372,12 @@ Deploy a static website.
         Where:
         * `yandex_iam_service_account`: Description of the [service account](../../iam/concepts/users/service-accounts.md) to create and use the bucket:
           * `name`: Service account name.
-        * `--description`: Bucket description:
+        * `yandex_storage_bucket`: Bucket description:
           * `bucket`: Bucket name.
           * `acl`: Bucket access settings.
 
-        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
-     1. Create resources:
+        For more information about `yandex_storage_bucket` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
+     1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -395,15 +395,15 @@ Deploy a static website.
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder to upload objects to.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to upload your objects.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click `bucket-for-tutorial`.
-     1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the [previously generated](#project-prepare) objects in the `build` folder.
-     1. The management console displays all the objects selected for uploading and prompts you to select a [storage class](../../storage/concepts/storage-class.md). The default storage class is defined in the [bucket settings](../../storage/concepts/bucket.md#bucket-settings).
+     1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the objects you [previously generated](#project-prepare) in the `build` folder.
+     1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../storage/concepts/storage-class.md). The [bucket configuration](../../storage/concepts/bucket.md#bucket-settings) determines the default storage class.
      1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
      1. Refresh the page.
 
-     In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
+     In the management console, the information about the number of objects and storage space used in the bucket is updated with a few minutes' delay.
 
    {% endlist %}
 
@@ -417,10 +417,10 @@ Deploy a static website.
      1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
      1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:
         * Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
-        * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website home page, `index.html`.
+        * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the website home page file, `index.html`.
         * In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display in case of 4xx errors, `error.html`.
      1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-     1. In the **{{ ui-key.yacloud.storage.bucket.website.field_link }}** field, copy your website's URL.
+     1. Copy your website's URL from the **{{ ui-key.yacloud.storage.bucket.website.field_link }}** field.
 
    - CLI {#cli}
 
@@ -428,7 +428,7 @@ Deploy a static website.
 
      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     1. Create the `setup.json` file with hosting settings in JSON format.
+     1. Create a file named `setup.json` with hosting settings:
 
         ```json
         {
@@ -438,7 +438,7 @@ Deploy a static website.
         ```
 
         Where:
-        * `index`: Absolute path to the file of the website home page.
+        * `index`: Absolute path to the website home page file.
         * `error`: Absolute path to the file the user will see in case of 4xx errors.
      1. Run this command:
 
@@ -468,7 +468,7 @@ Deploy a static website.
      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
      To set up a redirect for all requests:
-     1. Open the {{ TF }} configuration file and add the `redirect_all_requests_to` parameter to the `yandex_storage_bucket` resource description:
+     1. Open the {{ TF }} configuration file and add the `redirect_all_requests_to` property to the `yandex_storage_bucket` description:
 
         ```hcl
         ...
@@ -487,12 +487,12 @@ Deploy a static website.
         ```
 
         Where:
-        * `website`: Website parameters:
-          * `index_document`: Absolute path to the website home page file. This is a required parameter.
-          * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
+        * `website`: Website settings:
+          * `index_document`: Absolute path to the website home page file. This is a required setting.
+          * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional setting.
 
-        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
-     1. Create resources:
+        For more information about `yandex_storage_bucket` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -508,15 +508,15 @@ Deploy a static website.
    1. Go to **Authentication** → **Settings** → **Authorized domains**.
    1. Click **Add domain** and paste the copied URL.
 
-## Test the created app {#test}
+## Test the app {#test}
 
-1. Access the static website via the URL obtained when [setting up website hosting](#deploy) and click **Call {{ api-gw-short-name }}** without authorization. Make sure the response is `Got error: Request failed with status code 401`.
+1. Access the static website via the URL obtained when [setting up website hosting](#deploy) and click **Call {{ api-gw-short-name }}** without logging in. Make sure the response is `Got error: Request failed with status code 401`.
 1. To log in to the website, click **Log in**.
-1. Once authorized, click **Call {{ api-gw-short-name }}** again. Make sure your call is processed successfully and you get information about the authorized user.
+1. Once logged in, click **Call {{ api-gw-short-name }}** again. Make sure your call succeeds and the response contains authenticated user data.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the created resources:
+To stop paying for the resources you created:
 1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
 1. [Delete the project in Firebase](https://support.google.com/firebase/answer/9137886?hl=en).

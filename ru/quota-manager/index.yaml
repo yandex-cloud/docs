@@ -3,26 +3,6 @@ description:
   - >-
     Yandex Cloud Quota Manager позволяет управлять квотами ваших ресурсов в
     облаке.
-meta:
-  title: Yandex Cloud Quota Manager
-  description: >-
-    Yandex Cloud Quota Manager позволяет управлять квотами ваших ресурсов в
-    облаке.
-  keywords:
-    - keyword: квоты ресурсов
-    - keyword: квоты {{ yandex-cloud }}
-    - keyword: '{{ quota-manager-name }} в {{ yandex-cloud }}'
-    - keyword: quota manager
-    - keyword: лимиты в {{ quota-manager-name }}
-    - keyword: квоты в {{ quota-manager-name }}
-    - keyword: выделение квот в {{ yandex-cloud }}
-    - keyword: квоты и лимиты
-    - keyword: quota limit {{ quota-manager-name }}
-    - keyword: quota usage
-    - keyword: ограничения в {{ quota-manager-name }}
-    - keyword: quota {{ yandex-cloud }}
-    - keyword: limit {{ yandex-cloud }}
-    - keyword: usage {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Посмотрите квоты сервисов
@@ -42,3 +22,23 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Cloud Quota Manager
+  description: >-
+    Yandex Cloud Quota Manager позволяет управлять квотами ваших ресурсов в
+    облаке.
+  keywords:
+    - квоты ресурсов
+    - квоты {{ yandex-cloud }}
+    - '{{ quota-manager-name }} в {{ yandex-cloud }}'
+    - quota manager
+    - лимиты в {{ quota-manager-name }}
+    - квоты в {{ quota-manager-name }}
+    - выделение квот в {{ yandex-cloud }}
+    - квоты и лимиты
+    - quota limit {{ quota-manager-name }}
+    - quota usage
+    - ограничения в {{ quota-manager-name }}
+    - quota {{ yandex-cloud }}
+    - limit {{ yandex-cloud }}
+    - usage {{ yandex-cloud }}

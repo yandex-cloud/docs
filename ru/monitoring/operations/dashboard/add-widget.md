@@ -5,48 +5,86 @@ description: Из статьи вы узнаете, как добавить ви
 
 # Добавление виджета на дашборд
 
+Дашборды — это визуальные панели, которые позволяют быстро оценить состояние и производительность ваших облачных ресурсов. Вы можете воспользоваться готовыми дашбордами, которые предоставляют многие сервисы, или создать свой собственный.
+
+Дашборд состоит из виджетов, которые позволяют отображать информацию разного типа: [график](#graph), [алерт](#alert), [эскалация](#escalation). А также из виджетов, которые помогают структурировать информацию на дашборде: [заголовок](#heading), [текст](#text) и [секция](#group).
+
+Общий порядок добавления виджета на дашборд:
+
 1. Откройте или [создайте дашборд](create.md).
 1. Справа вверху нажмите ![image](../../../_assets/console-icons/plus.svg) и выберите виджет, который хотите добавить.
 1. Укажите настройки виджета.
 1. Справа вверху нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
-## График {#new}
+Вы можете перемещать виджеты на дашборде, а также изменять их размер.
 
-1. Нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
-1. Настройте график, указав запросы и отображение метрик.
+## График {#graph}
+
+График позволяет отобразить изменение метрик во времени в графическом виде. Графики на дашборд можно добавить из раздела [Метрики](../metric/metric-explorer.md#add-to-dashboard) или настроить на дашборде. Настройка графика на дашборде аналогична настройке графика в разделе [Метрики](../metric/metric-explorer.md#add-graph).
+
+1. Нажмите ![image](../../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
+1. Настройте график, указав [запросы](../../concepts/querying.md) и отображение метрик.
 1. (Опционально) Добавьте [параметры](add-parameters.md) и настройте [повторение графиков](add-parameters.md#repeated-graphs).
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
+1. Нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 ## Алерт {#alert}
 
-Для добавления алерта на дашборд сначала [создайте алерт](../alert/create-alert.md).
+Виджет алерта позволяет отображать на дашборде текущий статус алерта. Для добавления виджета на дашборд сначала [создайте алерт](../alert/create-alert.md).
 
-1. Нажмите **Алерт**.
+1. Нажмите ![image](../../../_assets/console-icons/megaphone.svg) **Алерт**.
 1. В списке выберите алерт и введите произвольный заголовок для него.
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
+1. Нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 ## Эскалация {#escalation}
 
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
 
-Для добавления эскалации на дашборд сначала [создайте](../alert/create-escalation.md) политику эскалаций.
+Виджет показывает на дашборде запущенные экземпляры эскалаций из одной политики эскалации. Для добавления виджета на дашборд сначала [создайте](../alert/create-escalation.md) политику эскалаций.
 
 1. Нажмите **Эскалация**.
 1. Введите произвольный заголовок для эскалации.
 1. В списке выберите политику эскалаций.
 1. (Опционально) Укажите, следует ли отображать на дашборде только запущенные эскалации или все эскалации.
 1. (Опционально) Введите максимальное количество эскалаций, которое можно отобразить на дашборде.
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
+1. Нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 ## Текст {#text}
 
-1. Нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-text }}**.
+Виджет позволяет добавить поясняющий текст на дашборд. В тексте можно использовать форматирование, списки, заголовки, каты, ссылки, блоки кода, изображения и другие элементы.
+
+1. Нажмите ![image](../../../_assets/console-icons/square-letter-t.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-text }}**.
 1. Введите текст в поле ввода. При необходимости примените к тексту форматирование.
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
+1. Чтобы добавить ссылку, изображение, блок кода или другой элемент, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите нужный пункт.
+1. Чтобы ввести текст в [формате Markdown](https://diplodoc.com/docs/ru/syntax/), нажмите ![image](../../../_assets/console-icons/gear.svg) и выберите **Разметка Markdown**.
+   Чтобы выйти из режима разметки, нажмите ![image](../../../_assets/console-icons/gear.svg) и выберите **Визуальный редактор**.
+1. Нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 ## Заголовок {#heading}
 
-1. Нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
+Заголовок позволяет визуально разделить виджеты на дашборде.
+
+1. Нажмите ![image](../../../_assets/console-icons/font.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
 1. Введите текст в поле ввода.
-1. Выберите размер заголовка.
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
+1. Выберите размер заголовка. Доступны четыре уровня заголовка.
+1. Нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+
+## Секция {#group}
+
+Секция позволяет группировать виджеты на дашборде и скрывать группы виджетов.
+
+1. Нажмите ![image](../../../_assets/console-icons/square-bars.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-group }}**.
+1. Перенесите виджеты в секцию.
+1. Рядом с именем секции нажмите ![image](../../../_assets/console-icons/gear.svg) и укажите:
+   1. **Имя секции** — введите произвольное имя.
+   1. **Состояние секции** — выберите, будет ли секция по умолчанию открыта или закрыта.
+   1. **Повторить по параметру** — выберите параметр, по которому будут добавлены секции с графиками для каждого из значений параметра.
+   1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+1. Нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+
+Чтобы поделиться секцией, рядом с именем секции нажмите ![image](../../../_assets/console-icons/link.svg). В буфер будет скопирована ссылка на секцию.
+
+#### См. также
+
+  * [Концепции виджетов](../../concepts/visualization/widget.md)
+  * [{#T}](widget-management.md)
+  * [Концепции дашбордов](../../concepts/visualization/dashboard.md)

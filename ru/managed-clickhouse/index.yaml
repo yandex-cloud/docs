@@ -31,26 +31,6 @@ description:
   - >-
     <em>ClickHouse<sup>®</sup> является зарегистрированным товарным знаком <a
     href = "https://clickhouse.com" target = "_blank">ClickHouse, Inc.</a></em>
-meta:
-  title: Yandex Managed Service for ClickHouse®
-  description: >-
-    Сервис Managed Service for ClickHouse® помогает разворачивать и поддерживать
-    кластеры серверов ClickHouse® в инфраструктуре Yandex Cloud.
-  keywords:
-    - keyword: '{{ mch-name }}'
-    - keyword: '{{ mch-full-name }}'
-    - keyword: Сервис {{ mch-name }}
-    - keyword: '{{ CH }} в {{ yandex-cloud }}'
-    - keyword: Кластер {{ CH }}
-    - keyword: Кластер ClickHouse
-    - keyword: кластеры серверов ClickHouse
-    - keyword: кластеры серверов {{ CH }}
-    - keyword: '{{ CH }}'
-    - keyword: Кликхаус
-    - keyword: '{{ CH }} в облаке'
-    - keyword: СУБД с открытым кодом
-    - keyword: Аналитическая СУБД
-    - keyword: Колоночная СУБД
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
@@ -76,3 +56,23 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Managed Service for ClickHouse®
+  description: >-
+    Сервис Managed Service for ClickHouse® помогает разворачивать и поддерживать
+    кластеры серверов ClickHouse® в инфраструктуре Yandex Cloud.
+  keywords:
+    - '{{ mch-name }}'
+    - '{{ mch-full-name }}'
+    - Сервис {{ mch-name }}
+    - '{{ CH }} в {{ yandex-cloud }}'
+    - Кластер {{ CH }}
+    - Кластер ClickHouse
+    - кластеры серверов ClickHouse
+    - кластеры серверов {{ CH }}
+    - '{{ CH }}'
+    - Кликхаус
+    - '{{ CH }} в облаке'
+    - СУБД с открытым кодом
+    - Аналитическая СУБД
+    - Колоночная СУБД

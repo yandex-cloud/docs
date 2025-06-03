@@ -24,6 +24,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./users-get.md).
 * [{#T}](./add-role.md).
 * [{#T}](./edit-account.md).
+* [{#T}](./get-users-groups.md)
 * [{#T}](./leave-organization.md).
 
 ## Управление группами пользователей {#manage-groups}
@@ -33,6 +34,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./edit-group.md).
 * [{#T}](./access-manage-group.md).
 * [{#T}](./access-group.md).
+* [{#T}](./get-users-groups.md)
 * [{#T}](./delete-member-group.md).
 * [{#T}](./delete-group.md).
 

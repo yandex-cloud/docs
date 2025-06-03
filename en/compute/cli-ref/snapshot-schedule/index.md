@@ -22,6 +22,7 @@ Aliases:
 - [yc compute snapshot-schedule add-access-binding](add-access-binding.md) — Add access binding for the specified snapshot schedule
 - [yc compute snapshot-schedule add-disks](add-disks.md) — Add disks to the specified snapshot schedule
 - [yc compute snapshot-schedule add-labels](add-labels.md) — Add labels to specified snapshot schedule
+- [yc compute snapshot-schedule add-snapshot-labels](add-snapshot-labels.md) — Add labels to specified snapshot specification of snapshot schedule
 - [yc compute snapshot-schedule create](create.md) — Create a snapshot schedule
 - [yc compute snapshot-schedule delete](delete.md) — Delete the specified snapshot schedule
 - [yc compute snapshot-schedule disable](disable.md) — Disable the specified snapshot schedule
@@ -35,6 +36,7 @@ Aliases:
 - [yc compute snapshot-schedule remove-access-binding](remove-access-binding.md) — Remove access binding for the specified snapshot schedule
 - [yc compute snapshot-schedule remove-disks](remove-disks.md) — Remove disks from the specified snapshot schedule
 - [yc compute snapshot-schedule remove-labels](remove-labels.md) — Remove labels from specified snapshot schedule
+- [yc compute snapshot-schedule remove-snapshot-labels](remove-snapshot-labels.md) — Remove labels from specified snapshot specification of snapshot schedule
 - [yc compute snapshot-schedule set-access-bindings](set-access-bindings.md) — Set access bindings for the specified snapshot schedule and delete all existing access bindings if there were any
 - [yc compute snapshot-schedule update](update.md) — Update the specified snapshot schedule
 

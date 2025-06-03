@@ -20,27 +20,6 @@ description:
     Desktop connections are established via the <a
     href="https://en.wikipedia.org/wiki/Remote_Desktop_Protocol">Remote Desktop
     Protocol</a> (RDP).
-meta:
-  title: Yandex Cloud Desktop
-  description: >-
-    Yandex Cloud Desktop is a service to manage virtual Linux-based desktop
-    infrastructure.
-  keywords:
-    - keyword: desktop
-    - keyword: '{{ cloud-desktop-name }} desktop'
-    - keyword: desktop in {{ yandex-cloud }}
-    - keyword: Desktop in {{ yandex-cloud }}
-    - keyword: desktop group
-    - keyword: '{{ cloud-desktop-name }}'
-    - keyword: '{{ cloud-desktop-name }} in {{ yandex-cloud }}'
-    - keyword: remote desktop in {{ yandex-cloud }}
-    - keyword: BYOD
-    - keyword: '{{ cloud-desktop-name }}'
-    - keyword: RDP in {{ cloud-desktop-name }}
-    - keyword: RDP in {{ yandex-cloud }}
-    - keyword: ACL {{ cloud-desktop-name }}
-    - keyword: ACL
-    - keyword: clouddesktop
 links:
   - title: Getting started
     description: Create a desktop and connect to it
@@ -60,3 +39,24 @@ links:
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
+meta:
+  title: Yandex Cloud Desktop
+  description: >-
+    Yandex Cloud Desktop is a service to manage virtual Linux-based desktop
+    infrastructure.
+  keywords:
+    - desktop
+    - '{{ cloud-desktop-name }} desktop'
+    - desktop in {{ yandex-cloud }}
+    - Desktop in {{ yandex-cloud }}
+    - desktop group
+    - '{{ cloud-desktop-name }}'
+    - '{{ cloud-desktop-name }} in {{ yandex-cloud }}'
+    - remote desktop in {{ yandex-cloud }}
+    - BYOD
+    - '{{ cloud-desktop-name }}'
+    - RDP in {{ cloud-desktop-name }}
+    - RDP in {{ yandex-cloud }}
+    - ACL {{ cloud-desktop-name }}
+    - ACL
+    - clouddesktop

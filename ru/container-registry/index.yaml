@@ -21,21 +21,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_ycr">Уровень
     обслуживания Yandex Container Registry</a>.
-meta:
-  title: Yandex Container Registry
-  description: >-
-    Yandex Container Registry — сервис для хранения и распространения
-    Docker-образов.
-  keywords:
-    - keyword: '{{ container-registry-name }}'
-    - keyword: '{{ container-registry-full-name }}'
-    - keyword: сервис {{ container-registry-name }}
-    - keyword: docker в {{ yandex-cloud }}
-    - keyword: helm в {{ yandex-cloud }}
-    - keyword: хранение docker-образов
-    - keyword: реестр docker-образов
-    - keyword: docker в облаке
-    - keyword: реестр контейнеров
 links:
   - title: Начало работы
     description: Создайте первый реестр
@@ -66,3 +51,18 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Container Registry
+  description: >-
+    Yandex Container Registry — сервис для хранения и распространения
+    Docker-образов.
+  keywords:
+    - '{{ container-registry-name }}'
+    - '{{ container-registry-full-name }}'
+    - сервис {{ container-registry-name }}
+    - docker в {{ yandex-cloud }}
+    - helm в {{ yandex-cloud }}
+    - хранение docker-образов
+    - реестр docker-образов
+    - docker в облаке
+    - реестр контейнеров

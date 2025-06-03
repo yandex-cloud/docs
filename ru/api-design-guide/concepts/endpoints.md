@@ -188,11 +188,11 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "log-ingestion",
-   "address": "ingester.logging.yandexcloud.net:443"
+   "address": "{{ logging-endpoint-ingester }}:443"
   },
   {
    "id": "log-reading",
-   "address": "reader.logging.yandexcloud.net:443"
+   "address": "{{ logging-endpoint-reader }}:443"
   },
   {
    "id": "logging",
@@ -239,6 +239,10 @@ curl https://{{ api-host }}/endpoints
    "address": "mdb.{{ api-host }}:443"
   },
   {
+   "id": "managed-sharded-postgresql",
+   "address": "mdb.{{ api-host }}:443"
+  },
+  {
    "id": "managed-redis",
    "address": "mdb.{{ api-host }}:443"
   },
@@ -268,6 +272,10 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "mdb-postgresql",
+   "address": "mdb.{{ api-host }}:443"
+  },
+  {
+   "id": "mdb-sharded-postgresql",
    "address": "mdb.{{ api-host }}:443"
   },
   {

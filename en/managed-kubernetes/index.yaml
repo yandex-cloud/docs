@@ -23,23 +23,6 @@ description:
     level agreement</a>. The service level is set out in the document titled <a
     href="https://yandex.ru/legal/cloud_sla_kb">Yandex Managed Service for
     Kubernetes® Service Level</a>.
-meta:
-  title: Yandex Managed Service for Kubernetes
-  description: >-
-    Managed Service for Kubernetes provides an environment for managing
-    containerized applications in the Yandex Cloud infrastructure.
-  keywords:
-    - keyword: k8s
-    - keyword: managed {{ k8s }}
-    - keyword: '{{ k8s }}'
-    - keyword: yandex {{ k8s }}
-    - keyword: '{{ managed-k8s-name }}'
-    - keyword: '{{ managed-k8s-full-name }}'
-    - keyword: '{{ managed-k8s-name }}'
-    - keyword: '{{ k8s }} cluster'
-    - keyword: '{{ k8s }} clusters'
-    - keyword: '{{ k8s }} cluster in {{ yandex-cloud }}'
-    - keyword: kubernetes in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Create your first Kubernetes cluster
@@ -65,3 +48,20 @@ links:
   - title: FAQ
     description: Answers to frequently asked questions
     href: qa/all
+meta:
+  title: Yandex Managed Service for Kubernetes
+  description: >-
+    Managed Service for Kubernetes provides an environment for managing
+    containerized applications in the Yandex Cloud infrastructure.
+  keywords:
+    - k8s
+    - managed {{ k8s }}
+    - '{{ k8s }}'
+    - yandex {{ k8s }}
+    - '{{ managed-k8s-name }}'
+    - '{{ managed-k8s-full-name }}'
+    - '{{ managed-k8s-name }}'
+    - '{{ k8s }} cluster'
+    - '{{ k8s }} clusters'
+    - '{{ k8s }} cluster in {{ yandex-cloud }}'
+    - kubernetes in {{ yandex-cloud }}

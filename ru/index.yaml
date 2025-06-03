@@ -1,7 +1,4 @@
 title: Документация Yandex Cloud
-meta:
-  title: Yandex Cloud
-  noIndex: true
 description: []
 links:
   - title: API Yandex Cloud
@@ -265,3 +262,6 @@ links:
       Известные решения и советы для оптимального использования сервисов Yandex
       Cloud
     href: troubleshooting/
+meta:
+  title: Yandex Cloud
+  noIndex: true

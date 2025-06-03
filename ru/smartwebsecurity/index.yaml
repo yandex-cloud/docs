@@ -6,27 +6,6 @@ description:
     дополнительную защиту: <a href="/docs/smartwebsecurity/concepts/waf">Web
     Application Firewall (WAF)</a> и ограничитель запросов <a
     href="/docs/smartwebsecurity/concepts/arl">Advanced Rate Limiter (ARL)</a>.
-meta:
-  title: Yandex Smart Web Security
-  keywords:
-    - keyword: SWS
-    - keyword: '{{ sws-name }}'
-    - keyword: защита от DDoS-атак
-    - keyword: '{{ sws-name }} в {{ yandex-cloud }}'
-    - keyword: защита от ботов
-    - keyword: профиль {{ sws-name }}
-    - keyword: WAF в {{ yandex-cloud }}"
-    - keyword: ARL
-    - keyword: Firewall в {{ yandex-cloud }}"
-    - keyword: профиль безопасности
-    - keyword: сервис {{ sws-name }}
-    - keyword: фильтрация трафика
-    - keyword: фильтрация в {{ sws-name }}
-    - keyword: Черный список IP-адресов {{ sws-name }}
-    - keyword: Белый список IP-адресов {{ sws-name }}
-    - keyword: анализ трафика
-    - keyword: трафик в {{ sws-name }}
-    - keyword: web security
 links:
   - title: Начало работы
     description: Создайте первый профиль безопасности и подключите его к L7-балансировщику
@@ -60,3 +39,24 @@ links:
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/
+meta:
+  title: Yandex Smart Web Security
+  keywords:
+    - SWS
+    - '{{ sws-name }}'
+    - защита от DDoS-атак
+    - '{{ sws-name }} в {{ yandex-cloud }}'
+    - защита от ботов
+    - профиль {{ sws-name }}
+    - WAF в {{ yandex-cloud }}"
+    - ARL
+    - Firewall в {{ yandex-cloud }}"
+    - профиль безопасности
+    - сервис {{ sws-name }}
+    - фильтрация трафика
+    - фильтрация в {{ sws-name }}
+    - Черный список IP-адресов {{ sws-name }}
+    - Белый список IP-адресов {{ sws-name }}
+    - анализ трафика
+    - трафик в {{ sws-name }}
+    - web security

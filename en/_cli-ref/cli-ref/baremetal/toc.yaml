@@ -1,0 +1,134 @@
+name: baremetal
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: boot-image
+    items:
+      - name: Overview
+        href: cli-ref/boot-image/index.md
+      - name: add-labels
+        href: cli-ref/boot-image/add-labels.md
+      - name: create
+        href: cli-ref/boot-image/create.md
+      - name: delete
+        href: cli-ref/boot-image/delete.md
+      - name: get
+        href: cli-ref/boot-image/get.md
+      - name: list
+        href: cli-ref/boot-image/list.md
+      - name: list-operations
+        href: cli-ref/boot-image/list-operations.md
+      - name: remove-labels
+        href: cli-ref/boot-image/remove-labels.md
+      - name: update
+        href: cli-ref/boot-image/update.md
+  - name: configuration
+    items:
+      - name: Overview
+        href: cli-ref/configuration/index.md
+      - name: get
+        href: cli-ref/configuration/get.md
+      - name: list
+        href: cli-ref/configuration/list.md
+  - name: hardware-pool
+    items:
+      - name: Overview
+        href: cli-ref/hardware-pool/index.md
+      - name: get
+        href: cli-ref/hardware-pool/get.md
+      - name: list
+        href: cli-ref/hardware-pool/list.md
+  - name: private-subnet
+    items:
+      - name: Overview
+        href: cli-ref/private-subnet/index.md
+      - name: add-labels
+        href: cli-ref/private-subnet/add-labels.md
+      - name: create
+        href: cli-ref/private-subnet/create.md
+      - name: delete
+        href: cli-ref/private-subnet/delete.md
+      - name: get
+        href: cli-ref/private-subnet/get.md
+      - name: list
+        href: cli-ref/private-subnet/list.md
+      - name: list-operations
+        href: cli-ref/private-subnet/list-operations.md
+      - name: remove-labels
+        href: cli-ref/private-subnet/remove-labels.md
+      - name: update
+        href: cli-ref/private-subnet/update.md
+  - name: public-subnet
+    items:
+      - name: Overview
+        href: cli-ref/public-subnet/index.md
+      - name: add-labels
+        href: cli-ref/public-subnet/add-labels.md
+      - name: create
+        href: cli-ref/public-subnet/create.md
+      - name: delete
+        href: cli-ref/public-subnet/delete.md
+      - name: get
+        href: cli-ref/public-subnet/get.md
+      - name: list
+        href: cli-ref/public-subnet/list.md
+      - name: list-operations
+        href: cli-ref/public-subnet/list-operations.md
+      - name: remove-labels
+        href: cli-ref/public-subnet/remove-labels.md
+      - name: update
+        href: cli-ref/public-subnet/update.md
+  - name: server
+    items:
+      - name: Overview
+        href: cli-ref/server/index.md
+      - name: add-labels
+        href: cli-ref/server/add-labels.md
+      - name: create
+        href: cli-ref/server/create.md
+      - name: get
+        href: cli-ref/server/get.md
+      - name: list
+        href: cli-ref/server/list.md
+      - name: list-operations
+        href: cli-ref/server/list-operations.md
+      - name: power-off
+        href: cli-ref/server/power-off.md
+      - name: power-on
+        href: cli-ref/server/power-on.md
+      - name: reboot
+        href: cli-ref/server/reboot.md
+      - name: reinstall
+        href: cli-ref/server/reinstall.md
+      - name: remove-labels
+        href: cli-ref/server/remove-labels.md
+      - name: update
+        href: cli-ref/server/update.md
+  - name: vrf
+    items:
+      - name: Overview
+        href: cli-ref/vrf/index.md
+      - name: add-labels
+        href: cli-ref/vrf/add-labels.md
+      - name: create
+        href: cli-ref/vrf/create.md
+      - name: delete
+        href: cli-ref/vrf/delete.md
+      - name: get
+        href: cli-ref/vrf/get.md
+      - name: list
+        href: cli-ref/vrf/list.md
+      - name: list-operations
+        href: cli-ref/vrf/list-operations.md
+      - name: remove-labels
+        href: cli-ref/vrf/remove-labels.md
+      - name: update
+        href: cli-ref/vrf/update.md
+  - name: zone
+    items:
+      - name: Overview
+        href: cli-ref/zone/index.md
+      - name: get
+        href: cli-ref/zone/get.md
+      - name: list
+        href: cli-ref/zone/list.md

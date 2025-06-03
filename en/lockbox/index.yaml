@@ -7,24 +7,6 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.ru/legal/cloud_sla_lockbox">Yandex Lockbox Service
     Level</a>.
-meta:
-  title: Yandex Lockbox
-  description: Yandex Lockbox is a service for storing secrets.
-  keywords:
-    - keyword: lockbox
-    - keyword: secret
-    - keyword: '{{ yandex-cloud }} secret'
-    - keyword: '{{ lockbox-name }}'
-    - keyword: '{{ lockbox-name }}'
-    - keyword: '{{ lockbox-name }} in {{ yandex-cloud }}'
-    - keyword: '{{ lockbox-name }} secret'
-    - keyword: generated secret
-    - keyword: generated {{ lockbox-name }} secret
-    - keyword: custom secret
-    - keyword: custom {{ lockbox-name }} secret
-    - keyword: secret
-    - keyword: yandex secret
-    - keyword: '{{ lockbox-name }} secret'
 links:
   - title: Getting started
     description: Create your first secret
@@ -47,3 +29,21 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Lockbox
+  description: Yandex Lockbox is a service for storing secrets.
+  keywords:
+    - lockbox
+    - secret
+    - '{{ yandex-cloud }} secret'
+    - '{{ lockbox-name }}'
+    - '{{ lockbox-name }}'
+    - '{{ lockbox-name }} in {{ yandex-cloud }}'
+    - '{{ lockbox-name }} secret'
+    - generated secret
+    - generated {{ lockbox-name }} secret
+    - custom secret
+    - custom {{ lockbox-name }} secret
+    - secret
+    - yandex secret
+    - '{{ lockbox-name }} secret'

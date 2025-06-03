@@ -1,12 +1,12 @@
-# Canary release of a {{ sf-name }} function
+# Canary release of {{ sf-name }}
 
 
-Create a canary release of a {{ sf-name }} function using {{ api-gw-short-name }}.
+Create a canary release of a function in {{ sf-name }} using {{ api-gw-short-name }}.
 
 To create a canary release:
 1. [Get your cloud ready](#before-begin).
 1. [Create a service account](#create-account).
-1. [Create a {{ sf-name }} function](#create-functions).
+1. [Create a function in {{ sf-name }}](#create-functions).
 1. [Add tags](#add-tag).
 1. [Create an API gateway](#create-api-gw).
 1. [Test your application](#test).
@@ -20,8 +20,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources to support a web application includes:
-* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to the function, and outbound traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Create a service account {#create-account}
 
@@ -30,10 +30,10 @@ The cost of resources to support a web application includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `canary-sa`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
+  1. Enter the service account name: `canary-sa`.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -42,7 +42,7 @@ The cost of resources to support a web application includes:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Create the `canary-sa` service account:
+  1. Create a service account named `canary-sa`:
 
       ```bash
       yc iam service-account create --name canary-sa
@@ -57,9 +57,9 @@ The cost of resources to support a web application includes:
       name: canary-sa
       ```
 
-      Save the `id` of the `canary-sa` service account and the folder where you created it (`folder_id`).
+      Save the ID of the `canary-sa` service account (`id`) and the ID of the folder where you created it (`folder_id`).
 
-  1. Assign the service account the `editor` role for the folder:
+  1. Assign the `editor` role for the folder to the service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -76,10 +76,10 @@ The cost of resources to support a web application includes:
 - {{ TF }} {#tf}
 
   
-  If you do not have {{ TF }} yet, [install it and configure {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
-  1. In the configuration file, describe the service account parameters:
+  1. In the configuration file, define the service account properties:
 
       ```hcl
       resource "yandex_iam_service_account" "canary-sa" {
@@ -96,22 +96,22 @@ The cost of resources to support a web application includes:
 
       Where:
 
-      * `name`: Service account name. This is a required parameter.
-      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
-      * `role`: Role to assign.
+      * `name`: Service account name. This is a required setting.
+      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value defined by the provider.
+      * `role`: Role being assigned.
 
-      For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
+      For more information about `yandex_iam_service_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
+      If you described the configuration correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Deploy the cloud resources.
 
@@ -121,9 +121,9 @@ The cost of resources to support a web application includes:
            terraform apply
            ```
 
-      1. Confirm creating the service account: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
 
-           The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+           This will create the service account. You can check it using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
            ```bash
            yc iam service-account list
@@ -137,23 +137,23 @@ The cost of resources to support a web application includes:
 
 {% endlist %}
 
-## Create a {{ sf-name }} function {#create-functions}
+## Create a function in {{ sf-name }} {#create-functions}
 
 [Create two function versions](../../functions/operations/index.md#create-function):
-* Version for the current release.
-* Version for the canary release to be tested on a certain percentage of requests.
+* Current release version.
+* Canary release version to test on a certain percentage of requests.
 
 You can use a custom function or create [any function from the list](../../functions/quickstart/create-function/index.md).
 
 ## Add tags {#add-tag}
 
-Add the `stable` tag to the first function version and the `canary` tag to the second one.
+Tag the first function version as `stable` and the second one as `canary`.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-    To add a version tag, run the command:
+    To tag a version, run this command:
 
     ```
     yc serverless function version set-tag --id <version_ID> --tag <tag>
@@ -181,9 +181,9 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
     To add a version tag:
 
-    1. In the configuration file, add the `tags` section for the `yandex_function` resource and specify the list of tags in `tags = ["<tag_name>"]` format.
+    1. In the configuration file, add the `tags` section for `yandex_function` and list the tags you want to add in the following format: `tags = ["<tag_name>"]`.
 
-       Example function description in the {{ TF }} configuration:
+       Example of a function description in the {{ TF }} configuration:
       
         ```
         resource "yandex_function" "test-function" {
@@ -201,7 +201,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
         }
         ``` 
 
-        For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -221,14 +221,14 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
        terraform plan
        ```
         
-       The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out. 
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
          
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
       
     You can check the new tags using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -252,7 +252,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `canary`.
-    1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
+    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
     
         ```yaml
         openapi: 3.0.0
@@ -277,14 +277,14 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
                 tag: "${var.function.tag}"
                 service_account_id: <service_account_ID>
         ```
-    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, switch the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-release }}** toggle to on.
+    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, enable **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-release }}**.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** field, specify `50`.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** field, specify `function.tag`=`canary`.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
     
 - CLI {#cli}
 
-    1. Save the following specification to the `spec.yaml` file:
+    1. Save the following specification to `spec.yaml`:
         
         ```yaml
         openapi: 3.0.0
@@ -347,7 +347,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
   To create an API gateway:
 
-  1. Describe the parameters of the `yandex_api_gateway` resource in the configuration file:
+  1. Describe the `yandex_api_gateway` properties in the configuration file:
 
      ```hcl
      resource "yandex_api_gateway" "canary-api-gateway" {
@@ -385,7 +385,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
      ```
 
      Where:
-     * `name`: API gateway name. The name should match the following format:
+     * `name`: API gateway name. Follow these naming requirements:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
@@ -393,18 +393,18 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
      * `canary.0.variables`: Variables for the canary release.
      * `spec`: API gateway specification.
 
-     For more information about the resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about `yandex_api_gateway` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the new resources and their properties. If the configuration contains any errors, {{ TF }} will show them. 
 
   1. Deploy the cloud resources.
 
@@ -414,7 +414,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
@@ -430,7 +430,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
 ## Test the application {#test}
 
-Make several requests to the created API gateway. About one half of requests should be handled by the function version tagged `canary`.
+Send several requests to the created API gateway. The function version tagged `canary` should handle about half of your requests.
 
 ## How to delete the resources you created {#clear-out}
 

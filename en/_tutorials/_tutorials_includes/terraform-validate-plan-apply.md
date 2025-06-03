@@ -1,4 +1,4 @@
-1. In the terminal, go to the folder where you edited the configuration file.
+1. In the terminal, go to the directory where you edited the configuration file.
 1. Make sure the configuration file is correct using this command:
 
    ```bash
@@ -17,7 +17,7 @@
    terraform plan
    ```
 
-   The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+   You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 1. Apply the changes:
 
    ```bash

@@ -8,23 +8,6 @@ description:
     <em>Apache<sup>®</sup> и Apache Spark<sup>™</sup> являются
     зарегистрированными товарными знаками или товарными знаками Apache Software
     Foundation в США и/или других странах.</em>
-meta:
-  title: '{{ msp-full-name }}'
-  description: >-
-    Сервис {{ msp-name }} помогает разворачивать и поддерживать кластеры {{ SPRK
-    }} в инфраструктуре {{ yandex-cloud }}.
-  keywords:
-    - keyword: Apache Spark
-    - keyword: кластер spark
-    - keyword: кластеры {{ SPRK }}
-    - keyword: '{{ msp-name }}'
-    - keyword: Spark
-    - keyword: кластеры серверов Apache Spark
-    - keyword: кластеры серверов {{ msp-name }}
-    - keyword: spark в {{ yandex-cloud }}
-    - keyword: Apache Spark в {{ yandex-cloud }}
-    - keyword: '{{ msp-name }} в {{ yandex-cloud }}'
-    - keyword: сервис {{ msp-name }}
 links:
   - title: Начало работы
     description: Начните работать с {{ msp-full-name }}
@@ -50,3 +33,20 @@ links:
   - title: История изменений
     description: Перечень обновлений сервиса
     href: release-notes
+meta:
+  title: '{{ msp-full-name }}'
+  description: >-
+    Сервис {{ msp-name }} помогает разворачивать и поддерживать кластеры {{ SPRK
+    }} в инфраструктуре {{ yandex-cloud }}.
+  keywords:
+    - Apache Spark
+    - кластер spark
+    - кластеры {{ SPRK }}
+    - '{{ msp-name }}'
+    - Spark
+    - кластеры серверов Apache Spark
+    - кластеры серверов {{ msp-name }}
+    - spark в {{ yandex-cloud }}
+    - Apache Spark в {{ yandex-cloud }}
+    - '{{ msp-name }} в {{ yandex-cloud }}'
+    - сервис {{ msp-name }}

@@ -10,25 +10,6 @@ description:
     об уровне обслуживания</a>.  Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень
     обслуживания Yandex Managed Databases</a>.
-meta:
-  title: Yandex Managed Service for MySQL®
-  description: >-
-    Managed Service for MySQL® помогает разворачивать и поддерживать кластеры
-    серверов MySQL в инфраструктуре Yandex Cloud.
-  keywords:
-    - keyword: '{{ mmy-name }}'
-    - keyword: '{{ mmy-full-name }}'
-    - keyword: Сервис {{ mmy-name }}
-    - keyword: '{{ MY }} в {{ yandex-cloud }}'
-    - keyword: Кластер {{ MY }}
-    - keyword: Кластеры серверов {{ MY }}
-    - keyword: '{{ MY }}'
-    - keyword: Май эскуэль
-    - keyword: '{{ MY }} в облаке'
-    - keyword: Реляционная СУБД
-    - keyword: MySQL
-    - keyword: кластеры серверов MySQL
-    - keyword: Кластер MySQL
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
@@ -54,3 +35,22 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Managed Service for MySQL®
+  description: >-
+    Managed Service for MySQL® помогает разворачивать и поддерживать кластеры
+    серверов MySQL в инфраструктуре Yandex Cloud.
+  keywords:
+    - '{{ mmy-name }}'
+    - '{{ mmy-full-name }}'
+    - Сервис {{ mmy-name }}
+    - '{{ MY }} в {{ yandex-cloud }}'
+    - Кластер {{ MY }}
+    - Кластеры серверов {{ MY }}
+    - '{{ MY }}'
+    - Май эскуэль
+    - '{{ MY }} в облаке'
+    - Реляционная СУБД
+    - MySQL
+    - кластеры серверов MySQL
+    - Кластер MySQL

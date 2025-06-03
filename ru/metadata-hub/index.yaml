@@ -7,21 +7,6 @@ description:
     Yandex MetaData Hub — сервис Yandex Cloud, предоставляющий клиентам
     возможности управления подключениями к базам данных, хранения схем обмена
     данными и описания наборов данных.
-meta:
-  title: Yandex MetaData Hub
-  description: >-
-    Yandex MetaData Hub — сервис Yandex Cloud, предоставляющий клиентам
-    возможности управления подключениями к базам данных, хранения схем обмена
-    данными и описания наборов данных.
-  keywords:
-    - keyword: '{{ metadata-hub-name-name }}'
-    - keyword: сервис {{ metadata-hub-name-name }}
-    - keyword: управление подключением к базе данных в {{ yandex-cloud }}
-    - keyword: схемы данных в {{ yandex-cloud }}
-    - keyword: кластер данных в {{ yandex-cloud }}
-    - keyword: управление данными в {{ yandex-cloud }}
-    - keyword: управление подключением к базе данных
-    - keyword: схемы обмена данных
 links:
   - title: Начало работы
     description: Создайте первое подключение или реестр схем данных
@@ -44,3 +29,18 @@ links:
   - title: История изменений
     description: Перечень обновлений сервиса
     href: release-notes/
+meta:
+  title: Yandex MetaData Hub
+  description: >-
+    Yandex MetaData Hub — сервис Yandex Cloud, предоставляющий клиентам
+    возможности управления подключениями к базам данных, хранения схем обмена
+    данными и описания наборов данных.
+  keywords:
+    - '{{ metadata-hub-name }}'
+    - сервис {{ metadata-hub-name }}
+    - управление подключением к базе данных в {{ yandex-cloud }}
+    - схемы данных в {{ yandex-cloud }}
+    - кластер данных в {{ yandex-cloud }}
+    - управление данными в {{ yandex-cloud }}
+    - управление подключением к базе данных
+    - схемы обмена данных

@@ -16,31 +16,6 @@ description:
     документе <a
     href="https://yandex.ru/legal/cloud_sla_yandex_foundation_models/">Уровень
     обслуживания Yandex Foundation Models</a>.
-meta:
-  title: Yandex Foundation Models
-  description: >-
-    Yandex Foundation Models — это сервис больших генеративных моделей для
-    бизнеса. Yandex Cloud предоставляет доступ к нейросетям, которые позволят
-    вам использовать возможности генеративных моделей в ваших бизнес-приложениях
-    и веб-сервисах. Сервис будет полезен всем, кто ищет способы ускорить
-    развитие бизнеса с технологиями машинного обучения.
-  keywords:
-    - keyword: '{{ foundation-models-full-name }}'
-    - keyword: '{{ foundation-models-name }}'
-    - keyword: сервис {{ foundation-models-name }}
-    - keyword: генеративные модели для бизнеса
-    - keyword: нейросети в {{ yandex-cloud }}
-    - keyword: учебник промтинга
-    - keyword: YandexGPT Lite
-    - keyword: YandexGPT Pro
-    - keyword: YandexART
-    - keyword: AI-ассистент
-    - keyword: AI-агент
-    - keyword: технологии машинного обучения
-    - keyword: генеративные модели в {{ yandex-cloud }}
-    - keyword: нейросети в бизнес-приложениях
-    - keyword: нейросети в веб-сервисах
-    - keyword: нейросети в бизнесе
 links:
   - title: Начало работы с {{ yagpt-name }}
     description: Отправьте свой первый запрос в {{ yagpt-name }}
@@ -66,3 +41,28 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Foundation Models
+  description: >-
+    Yandex Foundation Models — это сервис больших генеративных моделей для
+    бизнеса. Yandex Cloud предоставляет доступ к нейросетям, которые позволят
+    вам использовать возможности генеративных моделей в ваших бизнес-приложениях
+    и веб-сервисах. Сервис будет полезен всем, кто ищет способы ускорить
+    развитие бизнеса с технологиями машинного обучения.
+  keywords:
+    - '{{ foundation-models-full-name }}'
+    - '{{ foundation-models-name }}'
+    - сервис {{ foundation-models-name }}
+    - генеративные модели для бизнеса
+    - нейросети в {{ yandex-cloud }}
+    - учебник промтинга
+    - YandexGPT Lite
+    - YandexGPT Pro
+    - YandexART
+    - AI-ассистент
+    - AI-агент
+    - технологии машинного обучения
+    - генеративные модели в {{ yandex-cloud }}
+    - нейросети в бизнес-приложениях
+    - нейросети в веб-сервисах
+    - нейросети в бизнесе

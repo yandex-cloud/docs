@@ -130,6 +130,8 @@ items:
                 href: cli-ref/eventrouter/connector/create/index.md
               - name: data-stream
                 href: cli-ref/eventrouter/connector/create/data-stream.md
+              - name: event-service
+                href: cli-ref/eventrouter/connector/create/event-service.md
               - name: message-queue
                 href: cli-ref/eventrouter/connector/create/message-queue.md
               - name: timer
@@ -184,6 +186,8 @@ items:
             href: cli-ref/eventrouter/rule/set-access-bindings.md
           - name: update
             href: cli-ref/eventrouter/rule/update.md
+      - name: send-event
+        href: cli-ref/eventrouter/send-event.md
   - name: function
     items:
       - name: Overview

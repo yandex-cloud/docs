@@ -3,21 +3,21 @@
 
 In this tutorial, you will deploy an online game based on Node.js using WebSocket. 
 
-The game's static resources will be stored in a {{ objstorage-name }} bucket and its data, in {{ ydb-name }} databases. The game data will be transferred in {{ yds-name }} streams and handled by {{ sf-name }} functions. For messaging between the app components, we will use a {{ message-queue-name }}-enabled queue. Secrets are securely delivered to the app using {{ lockbox-name }}. An {{ api-gw-name }} will accept user requests and redirect them to {{ sf-name }}-enabled functions.
+Your game's static resources will be stored in an {{ objstorage-name }} bucket and its data, in {{ ydb-name }} databases. You will use {{ yds-name }} to transfer the game data and {{ sf-name }} to process it. {{ message-queue-name }} will handle communication between the application components. {{ lockbox-name }} will securely deliver secrets to your app. An {{ api-gw-name }} will accept user requests and redirect them to {{ sf-name }}.
 
-Game user authorization is based on integration with Telegram.
+The game uses Telegram integration to authorize users.
 
 To create an online game:
 
 1. [Set up your environment](#prepare).
 1. [Create {{ ydb-full-name }} databases](#create-ydb-database).
-1. [Create a {{ yds-full-name }}-enabled data stream](#yds-create).
+1. [Create a stream in {{ yds-full-name }}](#yds-create).
 1. [Create a {{ lockbox-full-name }} secret](#secrets-create).
-1. [Deploy the project](#app-deploy).
-1. [Create access keys for service accounts](#create-extra-sa-keys).
+1. [Deploy your project](#app-deploy).
+1. [Create access keys for the service accounts](#create-extra-sa-keys).
 1. [Create a new secret version and deploy your project again](#update-and-deploy).
-1. [Create an {{ api-gw-full-name }} API gateway](#apigw-create).
-1. [Connect a domain to a Telegram bot](#api-gw-connect).
+1. [Create a {{ api-gw-full-name }}](#apigw-create).
+1. [Add your domain to the Telegram bot](#api-gw-connect).
 1. [Test your application](#test-api).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -32,11 +32,11 @@ The infrastructure support cost for this tutorial includes:
 
 * Fee for data operations and the amount of stored data (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 * Fee for using a data stream (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fees for secret storage (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* Fee for secret storage (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for data storage and data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Fee for requests to created API gateways and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for requests to API gateways you create and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for queue requests and outbound traffic (see [{{ message-queue-full-name }} pricing](../../message-queue/pricing.md)).
-* Fee for function calls and computing resources allocated to execute the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for function invocations and computing resources allocated to run the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Set up your environment {#prepare}
 
@@ -44,7 +44,7 @@ The infrastructure support cost for this tutorial includes:
 
 - Windows {#windows}
 
-  1. [Install the WSL utility](https://docs.microsoft.com/en-us/windows/wsl/install) to run a Linux environment.
+  1. [Install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) to run a Linux environment.
   1. Run the Linux subsystem (by default, Ubuntu).
   1. Next, configure the environment as described in this tutorial for Linux.
 
@@ -52,11 +52,11 @@ The infrastructure support cost for this tutorial includes:
 
   {% note info %}
 
-  If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
+  If you are using a distribution other than Ubuntu, install the specified tools using your package manager.
 
   {% endnote %}
 
-  1. Install the following utilities in the specified order using commands in the terminal:
+  1. Install the following tools in the specified order by running the relevant commands in your terminal:
 
      * [WebStorm](https://www.jetbrains.com/webstorm/) or [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/):
        ```bash
@@ -116,7 +116,7 @@ The infrastructure support cost for this tutorial includes:
 
 - macOS {#macos}
 
-  1. Install the following utilities in the specified order using commands in the terminal:
+  1. Install the following tools in the specified order by running the relevant commands in your terminal:
      * [Homebrew](https://brew.sh):
 
        ```bash
@@ -169,7 +169,7 @@ The infrastructure support cost for this tutorial includes:
        npm -v
        ```
 
-       If you are using Zsh, run this command:
+       If you are using `zsh`, run this command:
        ```bash
        echo 'export NVM_DIR=~/.nvm' >> ~/.zshrc
        echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> ~/.zshrc
@@ -182,11 +182,11 @@ The infrastructure support cost for this tutorial includes:
        npm install -g typescript
        ```
 
-  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic parameters.
+  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic settings.
 
 {% endlist %}
 
-### Download a project {#download-project}
+### Download the project {#download-project}
 
 Clone the `yc-serverless-game` [repository](https://github.com/yandex-cloud-examples/yc-serverless-game):
 
@@ -194,19 +194,19 @@ Clone the `yc-serverless-game` [repository](https://github.com/yandex-cloud-exam
 git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 ```
 
-### Register your Telegram bot {#create-bot}
+### Create a Telegram bot {#create-bot}
 
-Register your bot in Telegram and get a token.
+Create a bot in Telegram and get a token.
 
-1. To register a new bot, launch the [BotFather](https://t.me/BotFather) bot and run this command:
+1. To create a new bot, start [BotFather](https://t.me/BotFather) and run this command:
 
     ```
     /newbot
     ```
 
-1. In the `name` field, enter a name for the new bot, e.g., `Serverless Game With WebSockets`. This is the name users chatting with the bot will see.
+1. In the `name` field, enter a name for the new bot, e.g., `Serverless Game With WebSockets`. This is the name users will see when chatting with the bot.
 
-1. In the `username` field, enter a username for the new bot, e.g., `ServerlessGameWithWebSocketsBot`. You can use it to locate the bot in Telegram. The username must end with `...Bot` or `..._bot`.
+1. In the `username` field, enter a username for the bot, e.g., `ServerlessGameWithWebSocketsBot`. This will allow users to find your bot on Telegram. The username must end with `...Bot` or `..._bot`.
 
 1. You will get the `t.me/ServerlessGameWithWebSocketsBot` address and token in response.
 
@@ -291,7 +291,7 @@ Register your bot in Telegram and get a token.
    echo $SA_KEY_FILE
    ```
 
-1. Create a static access key for your service account:
+1. Create a static access key for the service account:
 
     ```bash
     yc iam access-key create --service-account-id $SERVICE_ACCOUNT_GAME_ID
@@ -308,7 +308,7 @@ Register your bot in Telegram and get a token.
     secret: YCNhBcdvfDdssIuBa-FDl6zZz0MSky********
     ```
 
-1. Save the key ID (`key_id`) to the `AWS_ACCESS_KEY_ID` variable and the secret key (`secret`) to the `AWS_SECRET_ACCESS_KEY` variable:
+1. Save the `key_id` to the `AWS_ACCESS_KEY_ID` variable and the `secret` to the `AWS_SECRET_ACCESS_KEY` variable:
 
     ```bash
     echo "export AWS_ACCESS_KEY_ID=<key_ID>" >> ~/.bashrc && . ~/.bashrc
@@ -324,7 +324,7 @@ Register your bot in Telegram and get a token.
    aws configure
    ```
 
-   Enter the following:
+   Specify the following:
    
    * `AWS Access Key ID`: Service account’s access key ID (`key_id`) you got earlier.
    * `AWS Secret Access Key`: Service account secret key (`secret`) you got earlier.
@@ -341,7 +341,7 @@ Register your bot in Telegram and get a token.
 
 ## Create {{ ydb-name }} databases {#create-ydb-database}
 
-Create a database named `game-data` to store the game data and a database named `data-streams` for a {{ yds-name }} stream.
+Create a database named `game-data` to store the game data and a database named `data-streams` for a stream in {{ yds-name }}.
 
 1. Create a database named `game-data` in serverless mode:
    
@@ -365,14 +365,14 @@ Create a database named `game-data` to store the game data and a database named 
     ...
     ```
 
-1. Save the `endpoint` value from the previous command output to the `YDB_ENDPOINT` variable. In our example, it equals `grpcs://ydb.serverless.yandexcloud.net:2135`.
+1. Save the `endpoint` value from the previous command output to the `YDB_ENDPOINT` variable. In our example, it is `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
     ```bash
     echo "export YDB_ENDPOINT=<DB_Document_API_endpoint>" >> ~/.bashrc && . ~/.bashrc
     echo $YDB_ENDPOINT
     ```
 
-1. Save the `database` value from the previous command output to the `YDB_DATABASE` variable. In our example, it equals `/{{ region-id }}/b1gia87mbaom********/etn0ejcvmjm4********`.
+1. Save the `database` value from the previous command output to the `YDB_DATABASE` variable. In our example, it is `/{{ region-id }}/b1gia87mbaom********/etn0ejcvmjm4********`.
 
     ```bash
     echo "export YDB_DATABASE=<table_name>" >> ~/.bashrc && . ~/.bashrc
@@ -400,21 +400,21 @@ Create a database named `game-data` to store the game data and a database named 
     location_id: {{ region-id }}
     ```
 
-1. Save the `endpoint` value from the previous command output to the `YDB_DATA_STREAMS_ENDPOINT` variable. In our example, it equals `grpcs://ydb.serverless.yandexcloud.net:2135`.
+1. Save the `endpoint` value from the previous command output to the `YDB_DATA_STREAMS_ENDPOINT` variable. In our example, it is `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
     ```bash
     echo "export YDB_DATA_STREAMS_ENDPOINT=<DB_Document_API_endpoint>" >> ~/.bashrc && . ~/.bashrc
     echo $YDB_DATA_STREAMS_ENDPOINT
     ```
 
-1. Save the `database` value from the previous command output to the `YDB_DATA_STREAMS_DATABASE` variable. In our example, it equals `/{{ region-id }}/b1gia87mbaom********/etn16k0e1757********`.
+1. Save the `database` value from the previous command output to the `YDB_DATA_STREAMS_DATABASE` variable. In our example, it it `/{{ region-id }}/b1gia87mbaom********/etn16k0e1757********`.
 
     ```bash
     echo "export YDB_DATA_STREAMS_DATABASE=<table_name>" >> ~/.bashrc && . ~/.bashrc
     echo $YDB_DATA_STREAMS_DATABASE
     ```
 
-1. Make sure you did everything correctly:
+1. Make sure all configurations are correct:
 
    ```bash
    ydb \
@@ -502,7 +502,7 @@ Create a database named `game-data` to store the game data and a database named 
     Min partitions count: 1
     ```
 
-## Create a {{ yds-name }}-enabled data stream {#yds-create}
+## Create a stream in {{ yds-name }} {#yds-create}
 
 {% list tabs group=instructions %}
 
@@ -521,7 +521,7 @@ Create a database named `game-data` to store the game data and a database named 
 
 ## Create a {{ lockbox-name }} secret {#secrets-create}
 
-1. Create a secret named `game-secrets` and transfer the `YDB_ENDPOINT` and `YDB_DATABASE` variable values to it:
+1. Create a secret named `game-secrets` and inject the `YDB_ENDPOINT` and `YDB_DATABASE` values into it:
 
     ```bash
     yc lockbox secret create --name game-secrets \
@@ -539,14 +539,14 @@ Create a database named `game-data` to store the game data and a database named 
     echo $LOCKBOX_SECRET_ID
     ```
 
-1. Transfer the `TG_BOT_TOKEN` variable value to the secret:
+1. Inject the `TG_BOT_TOKEN` value into the secret:
 
     ```bash
     yc lockbox secret add-version --id $LOCKBOX_SECRET_ID \
     --payload "[{'key': 'tg_bot_token', 'text_value': '$TG_BOT_TOKEN'}]"
     ```
 
-1. Transfer the keys to the secret (we will get their values later). For now, set them to `null`.
+1. Inject the keys into the secret (we will get their values later). For now, set them to `null`.
 
     ```bash
     yc lockbox secret add-version --id $LOCKBOX_SECRET_ID \
@@ -559,11 +559,11 @@ Create a database named `game-data` to store the game data and a database named 
     {'key': 'yds_state_change_database', 'text_value': '$YDB_DATA_STREAMS_DATABASE'}]"
     ```
 
-## Deploy the project {#app-deploy}
+## Deploy your project {#app-deploy}
 
 1. Navigate to the `files` directory in the `yc-serverless-game` folder.
 
-1. Change the configuration for {{ objstorage-name }}. Since the bucket name must be unique, replace it with a custom bucket name in the following files:
+1. Change the configuration for {{ objstorage-name }}. Since the bucket name must be unique, change it to a custom bucket name in the following files:
 
     * `serverless.yaml`:
        
@@ -587,7 +587,7 @@ Create a database named `game-data` to store the game data and a database named 
     echo $APP_ENV
     ```
 
-1. Build and deploy the project. In the `yc-serverless-game` folder root, run the following commands one by one:
+1. Build and deploy the project. In the `yc-serverless-game` root folder, run the following commands one by one:
 
     ```bash
     nvm use
@@ -598,9 +598,9 @@ Create a database named `game-data` to store the game data and a database named 
     npm run deploy
     ```
 
-When you deploy the project, the following resources will be created in your working folder:
+Your working folder will contain the following resources once your project is deployed:
 
-* {{ sf-name }}-enabled functions:
+* {{ sf-name }}:
 
   * `get-state`
   * `get-config`
@@ -624,15 +624,15 @@ When you deploy the project, the following resources will be created in your wor
   * `apigw-s3-viewer` with the `storage.viewer` role
   * `apigw-fn-caller` with the `serverless.functions.invoker` role
 
-* {{ objstorage-name }} bucket with the name you specified in the `serverless.yaml` file
+* {{ objstorage-name }} bucket with the name you specified in `serverless.yaml`
 
 * {{ message-queue-name }} named `capturing-queue`
 
-## Create access keys for service accounts {#create-extra-sa-keys}
+## Create access keys for the service accounts {#create-extra-sa-keys}
 
-The following service accounts were created when deploying the project:
-* `yds-writer-sa` with the `yds.writer` role to write data to the {{ yds-name }}-enabled stream.
-* `ymq-writer-sa` with the `ymq.writer` role to write data to the {{ message-queue-name }}.
+During project deployment, the system created these service accounts:
+* `yds-writer-sa` with the `yds.writer` role to write data to {{ yds-name }}.
+* `ymq-writer-sa` with the `ymq.writer` role to write data to {{ message-queue-name }}.
 
 1. Create a static access key for the `yds-writer-sa` service account:
 
@@ -661,7 +661,7 @@ The following service accounts were created when deploying the project:
    echo "export YDS_WRITER_KEY_ID=<key_ID>" >> ~/.bashrc && . ~/.bashrc
    echo $YDS_WRITER_KEY_ID
    ```
-1. Copy the value of the secret named `secret` and save it to the `YDS_WRITER_KEY_SECRET` variable:
+1. Copy the `secret` value and save it to the `YDS_WRITER_KEY_SECRET` variable:
 
    ```bash
    echo "export YDS_WRITER_KEY_SECRET=<secret>" >> ~/.bashrc && . ~/.bashrc
@@ -686,7 +686,7 @@ The following service accounts were created when deploying the project:
    echo $YMQ_WRITER_KEY_ID
    ```
 
-1. Copy the value of the secret named `secret` and save it to the `YMQ_WRITER_KEY_SECRET` variable:
+1. Copy the `secret` value and save it to the `YMQ_WRITER_KEY_SECRET` variable:
 
    ```bash
    echo "export YMQ_WRITER_KEY_SECRET=<secret>" >> ~/.bashrc && . ~/.bashrc
@@ -695,7 +695,7 @@ The following service accounts were created when deploying the project:
 
 ## Create a new secret version and deploy your project again {#secrets-update}
 
-1. Provide new values to the `game-secrets` secret:
+1. Provide new values to the secret named `game-secrets`:
 
     1. In the [management console]({{ link-console-main }}), select your working folder.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
@@ -706,7 +706,7 @@ The following service accounts were created when deploying the project:
        echo "export YMQ_CAPTURE_QUEUE_URL=<URL>" >> ~/.bashrc && . ~/.bashrc
        ```
 
-    1. Check the variable values to transfer to the secret:
+    1. Check the variable values to inject into the secret:
        
        ```bash
        echo $LOCKBOX_SECRET_ID
@@ -717,7 +717,7 @@ The following service accounts were created when deploying the project:
        echo $YMQ_CAPTURE_QUEUE_URL
        ```
 
-    1. Transfer the values to the secret:
+    1. Inject the values into the secret:
 
        ```bash
        yc lockbox secret add-version --id $LOCKBOX_SECRET_ID \
@@ -728,17 +728,17 @@ The following service accounts were created when deploying the project:
        {'key': 'yds_writer_key_secret', 'text_value': '$YDS_WRITER_KEY_SECRET'}]"
        ```
 
-1. Navigate to the `yc-serverless-game` folder root and deploy the project again:
+1. Navigate to the `yc-serverless-game` root folder and deploy your project again:
 
     ```bash
     npm run deploy
     ```
 
-## Create an {{ api-gw-name }} API gateway {#apigw-create}
+## Create an {{ api-gw-name }} {#apigw-create}
 
-The following service accounts were created when deploying the project:
+During project deployment, the system created these service accounts:
 * `apigw-s3-viewer` with the `storage.viewer` role to read objects from the {{ objstorage-name }} bucket.
-* `apigw-fn-caller` with the `{{ roles-functions-invoker }}` role to invoke {{ sf-name }}-enabled functions.
+* `apigw-fn-caller` with the `{{ roles-functions-invoker }}` role to invoke {{ sf-name }}.
 
 1. Save the IDs of the `apigw-s3-viewer` and `apigw-fn-caller` service accounts to the `APIGW_S3_VIEWER_ID` and `APIGW_FN_CALLER_ID` variables:
 
@@ -752,7 +752,7 @@ The following service accounts were created when deploying the project:
     >> ~/.bashrc && . ~/.bashrc
     ```
 
-1. Modify the API gateway specification. Navigateto the `files` directory in the `yc-serverless-game` folder and run the following command:
+1. Modify the API gateway specification. Navigate to the `files` directory in the `yc-serverless-game` folder and run the following command:
 
     ```bash
     cp apigw-example.yml apigw.yml
@@ -768,11 +768,11 @@ The following service accounts were created when deploying the project:
     yc serverless function list
     ```
 
-1. Make the following changes to the `apigw.yml` file:
+1. Edit the `apigw.yml` file as follows:
 
-   1. In all `bucket: serverless-game-files` lines, replace the bucket name with your own one.
-   1. In all `service_account_id: <sa-id-for-object-storage>` lines, replace `<sa-id-for-object-storage>` with the `$APIGW_S3_VIEWER_ID` variable value.
-   1. In all `service_account_id: <sa-id-for-functions>` lines, replace `<sa-id-for-functions>` with the ` $APIGW_FN_CALLER_ID` variable value.
+   1. In all `bucket: serverless-game-files` lines, replace the bucket name with the custom one.
+   1. In all `service_account_id: <sa-id-for-object-storage>` lines, replace `<sa-id-for-object-storage>` with the `$APIGW_S3_VIEWER_ID` value.
+   1. In all `service_account_id: <sa-id-for-functions>` lines, replace `<sa-id-for-functions>` with the ` $APIGW_FN_CALLER_ID` value.
    1. In line `58`, replace `<yandex-cloud-nodejs-dev-get-state-function-id>` with the `yandex-cloud-nodejs-dev-get-state` function ID.
    1. In line `65`, replace `<yandex-cloud-nodejs-dev-get-config-function-id>` with the `yandex-cloud-nodejs-dev-get-config` function ID.
    1. In line `72`, replace `<yandex-cloud-nodejs-dev-move-function-id>` with the `yandex-cloud-nodejs-dev-move` function ID.
@@ -791,7 +791,7 @@ The following service accounts were created when deploying the project:
       --description "for serverless-game-api"
     ```
 
-    If you made an error in the API gateway specification, fix it and run this command:
+    In case of an error in the API gateway specification, fix it and run this command:
 
     ```bash
     yc serverless api-gateway update \
@@ -799,7 +799,7 @@ The following service accounts were created when deploying the project:
       --spec=apigw.yml 
     ```
 
-## Connect a domain to a Telegram bot {#api-gw-connect}
+## Add your domain to the Telegram bot {#api-gw-connect}
 
 1. Run this command: 
 
@@ -807,14 +807,14 @@ The following service accounts were created when deploying the project:
    yc serverless api-gateway get --name serverless-game-api
    ```
 
-1. Copy the API gateway's service domain. You can find it in the `domain` field of the previous command output.
+1. Copy your API gateway's service domain. You can find it in the `domain` field of the previous command output.
 
-1. Find a Telegram bot named [BotFather](https://t.me/BotFather) and type the `/setdomain` command.
-1. Select your bot from the list and send it the API gateway's service domain. Add `https://` before the domain name. For example, if the API gateway's service domain is `{{ api-host-apigw }}`, the URL will be `https://{{ api-host-apigw }}`.
+1. In Telegram, find [BotFather](https://t.me/BotFather) and type the `/setdomain` command.
+1. Select your bot from the list and send it your API gateway's service domain. Add `https://` before the domain name. For example, if your API gateway's service domain is `{{ api-host-apigw }}`, the URL will be `https://{{ api-host-apigw }}`.
 
-## Test the app {#test-app}
+## Test your application {#test-app}
 
-Follow the link you sent to the Telegram bot, sign in, and open a game.
+Follow the link you sent to the Telegram bot, sign in, and open the game.
 
 The game offers player statistics. If the API gateway's service domain is `{{ api-host-apigw }}`, the statistics for all players will be available at `https://{{ api-host-apigw }}/stats.html`.
 
@@ -822,9 +822,9 @@ The game offers player statistics. If the API gateway's service domain is `{{ ap
 
 To stop paying for the resources you created:
 * [Delete](../../ydb/operations/manage-databases.md#delete-db) the {{ ydb-name }} databases.
-* [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the {{ yds-name }}-enabled stream.
+* [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the stream in {{ yds-name }}.
 * [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.
 * [Delete all objects from the bucket](../../storage/operations/objects/delete.md) and then [delete the empty {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 * [Delete](../../api-gateway/operations/api-gw-delete.md) the {{ api-gw-name }}.
-* [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }}-enabled functions.
+* [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }}.
 * [Delete](../../message-queue/operations/message-queue-delete-queue.md) the {{ message-queue-name }}.

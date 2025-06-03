@@ -9,25 +9,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_audittrails/">Уровень
     обслуживания Yandex Audit Trails</a>.
-meta:
-  title: Yandex Audit Trails
-  description: >-
-    Yandex Audit Trails — сервис сбора и выгрузки аудитных логов ресурсов Yandex
-    Cloud.
-  keywords:
-    - keyword: audit trails
-    - keyword: аудитные логи
-    - keyword: логи {{ at-name }}
-    - keyword: события в {{ at-name }}
-    - keyword: events в {{ at-name }}
-    - keyword: '{{ at-name }} в {{ yandex-cloud }}'
-    - keyword: сервис {{ at-name }}
-    - keyword: '{{ at-full-name }}'
-    - keyword: '{{ at-name }}'
-    - keyword: логи {{ yandex-cloud }}
-    - keyword: трейлы {{ at-name }}
-    - keyword: трейлы в {{ yandex-cloud }}
-    - keyword: события безопасности
 links:
   - title: Начало работы
     description: Подключите сервис
@@ -53,3 +34,22 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Audit Trails
+  description: >-
+    Yandex Audit Trails — сервис сбора и выгрузки аудитных логов ресурсов Yandex
+    Cloud.
+  keywords:
+    - audit trails
+    - аудитные логи
+    - логи {{ at-name }}
+    - события в {{ at-name }}
+    - events в {{ at-name }}
+    - '{{ at-name }} в {{ yandex-cloud }}'
+    - сервис {{ at-name }}
+    - '{{ at-full-name }}'
+    - '{{ at-name }}'
+    - логи {{ yandex-cloud }}
+    - трейлы {{ at-name }}
+    - трейлы в {{ yandex-cloud }}
+    - события безопасности

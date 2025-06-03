@@ -7,11 +7,11 @@ As an example, we will use a [Django](https://www.djangoproject.com/) web app si
 
 The project uses two environments:
 * `prod`: Production environment available to users.
-* `testing`: Test environment for testing the app before the release.
+* `testing`: Test environment for testing the app before the `prod` release.
 
 For each environment, there is an individual {{ yandex-cloud }} [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and separate static resources, e.g., the DB and [service accounts](../../iam/concepts/users/service-accounts.md). This isolates the environments from each other at the [{{ iam-full-name }}](../../iam/) settings level.
 
-There is also a common `infra` folder with a in [{{ container-registry-full-name }}](../../container-registry/) [registry](../../container-registry/concepts/registry.md) containing all app’s [Docker images](../../container-registry/concepts/docker-image.md). The system publishes the images under the `builder` service account. The `prod` and `testing` environment service accounts have restricted permissions in the `infra` folder limited to [pulling Docker images](../../container-registry/operations/docker-image/docker-image-pull.md).
+There is also a common `infra` folder with a [registry](../../container-registry/concepts/registry.md) in [{{ container-registry-full-name }}](../../container-registry/) containing all app's [Docker images](../../container-registry/concepts/docker-image.md). The system publishes the images under the `builder` service account. The `prod` and `testing` environment service accounts have restricted permissions for the `infra` folder limited to [pulling Docker images](../../container-registry/operations/docker-image/docker-image-pull.md).
 
 To build a CI/CD pipeline with serverless products:
 1. [Create a {{ GL }} instance](#create-gitlab).
@@ -38,7 +38,7 @@ The infrastructure support cost includes:
 
 ## Getting started {#before-begin}
 
-### Download a project {#download-project}
+### Download the project {#download-project}
 
 Clone the [yc-serverless-gitlab-ci-cd repository](https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd) using Git:
 
@@ -49,9 +49,9 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 ### Install additional dependencies {#prepare}
 
 Install the following tools in the local environment:
-* [{{ yandex-cloud }} command line interface](../../cli/operations/install-cli.md).
-* [`jq` JSON stream processor](https://stedolan.github.io/jq/download/).
-* [`yq` YAML stream processor](https://github.com/mikefarah/yq#install).
+* [{{ yandex-cloud }}](../../cli/operations/install-cli.md) CLI.
+* [`jq`](https://stedolan.github.io/jq/download/), a JSON stream processor.
+* [`yq`](https://github.com/mikefarah/yq#install), a YAML stream processor.
 * [Python 3.8 or higher](https://www.python.org/downloads/).
 * Python libraries listed in the `application/requirements.txt` project file:
 
@@ -59,7 +59,7 @@ Install the following tools in the local environment:
   python -m pip install -r ./application/requirements.txt
   ```
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 1. Navigate to the project directory; run the `bootstrap.sh` script and specify your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID:
 
@@ -96,7 +96,7 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
 
 - VM with a {{ GL }} image {#gl-image-vm}
 
-  Launch {{ GL }} on a VM with a [public IP](../../vpc/concepts/address.md#public-addresses).
+  Launch {{ GL }} on a VM with a [public IP address](../../vpc/concepts/address.md#public-addresses).
 
   {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
 
@@ -109,7 +109,7 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
 ## Upload files to the {{ GL }} repository {#add-files}
 
 1. [Add an SSH key to securely access {{ GL }}](https://docs.gitlab.com/ee/user/ssh.html).
-1. [Clone the `gitlab-test` repository](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-with-ssh) over SSH.
+1. [Clone](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-with-ssh) the `gitlab-test` repository over SSH.
 1. Copy all files from the `yc-serverless-gitlab-ci-cd` repository to `gitlab-test`.
 1. Navigate to the `gitlab-test` directory.
 1. Index the new files:
@@ -136,8 +136,8 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
 1. Click **Expand** next to **Variables**.
 1. Add environment variables with the protection option disabled. The `bootstrap.sh` script will display all the required variables and their values:
    * `cloud_id`: Your cloud ID.
-   * `CI_REGISTRY`: {{ container-registry-name }}-based registry ID with the `{{ registry }}/` prefix in the `infra` folder.
-   * `CI_REGISTRY_KEY`: The `builder` service account [key](../../iam/concepts/users/service-accounts.md#sa-key).
+   * `CI_REGISTRY`: {{ container-registry-name }}-based registry ID in the `infra` folder, prefixed with `{{ registry }}/`.
+   * `CI_REGISTRY_KEY`: `builder` service account [key](../../iam/concepts/users/service-accounts.md#sa-key).
    * `cart_prod`: {{ yandex-cloud }} production folder name.
    * `DOCAPI_ENDPOINT_prod`: Document API endpoint of the [{{ ydb-full-name }}](../../ydb/) database in the `prod` folder.
    * `PROD_SA_ID`: `deployer` service account ID in the `prod` folder.
@@ -145,13 +145,13 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
    * `prod_container_id`: {{ serverless-containers-name }}-based container ID in the `prod` folder.
    * `cart_testing`: {{ yandex-cloud }} test folder name.
    * `DOCAPI_ENDPOINT_testing`: Document API endpoint of the {{ ydb-name }} database in the `testing` folder.
-   * `TESTING_SA_ID`: The `deployer` service account ID in the `testing` folder.
-   * `SA_TESTING_DEPLOYER_PRIVATE_KEY`: The `deployer` service account key in the `testing` folder.
+   * `TESTING_SA_ID`: `deployer` service account ID in the `testing` folder.
+   * `SA_TESTING_DEPLOYER_PRIVATE_KEY`: `deployer` service account key in the `testing` folder.
 
    To add a variable:
    1. Click **Add variable**.
    1. In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
-   1. Disable the **Protect variable** option.
+   1. Disable **Protect variable**.
    1. Click **Add variable**.
 
 ## Create the CI script configuration file {#add-ci}
@@ -291,7 +291,7 @@ You can access the app at the {{ api-gw-name }} service domain URL in the `prod`
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 1. [Delete](../../resource-manager/operations/folder/delete.md) the `prod`, `testing`, and `infra` folders with their content.
-1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [{{ GL }} image VM](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [{{ GL }} VM](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete](../../vpc/operations/address-delete.md) the cluster public static IP address if you reserved one.
 1. [Delete the service accounts](../../iam/operations/sa/delete.md).

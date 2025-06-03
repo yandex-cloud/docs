@@ -46,4 +46,4 @@ You can back up your {{ baremetal-name }} [servers](../../../baremetal/concepts/
 
 {% endlist %}
 
-For more information on leasing a server, see the [{{ baremetal-name }}](../../../baremetal/operations/servers/server-lease.md) documentation.
+For more information on leasing a server, see the [{{ baremetal-name }} documentation](../../../baremetal/operations/servers/server-lease.md).

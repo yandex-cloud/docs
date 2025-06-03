@@ -22,28 +22,6 @@ description:
     service level is defined in the <a
     href="https://yandex.com/legal/cloud_sla_apploadbalancer">Service level for
     Yandex Application Load Balancer</a> agreement.
-meta:
-  title: Yandex Application Load Balancer
-  description: >-
-    Yandex Application Load Balancer is a cloud service terminating TLS
-    connections and routing requests to backend applications.
-  keywords:
-    - keyword: alb
-    - keyword: application load balancer
-    - keyword: L7 load balancer
-    - keyword: '{{ alb-name }}'
-    - keyword: load balancer in {{ alb-name }}
-    - keyword: load balancer
-    - keyword: redistributing traffic in {{ alb-name }}
-    - keyword: '{{ alb-name }}'
-    - keyword: Application Balancer
-    - keyword: load balancing
-    - keyword: '{{ yandex-cloud }} alb'
-    - keyword: '{{ yandex-cloud }} balancer'
-    - keyword: balancer
-    - keyword: SSL termination in {{ yandex-cloud }}
-    - keyword: '{{ alb-name }} in {{ yandex-cloud }}'
-    - keyword: alb in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Create your first application load balancer
@@ -66,3 +44,25 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Application Load Balancer
+  description: >-
+    Yandex Application Load Balancer is a cloud service terminating TLS
+    connections and routing requests to backend applications.
+  keywords:
+    - alb
+    - application load balancer
+    - L7 load balancer
+    - '{{ alb-name }}'
+    - load balancer in {{ alb-name }}
+    - load balancer
+    - redistributing traffic in {{ alb-name }}
+    - '{{ alb-name }}'
+    - Application Balancer
+    - load balancing
+    - '{{ yandex-cloud }} alb'
+    - '{{ yandex-cloud }} balancer'
+    - balancer
+    - SSL termination in {{ yandex-cloud }}
+    - '{{ alb-name }} in {{ yandex-cloud }}'
+    - alb in {{ yandex-cloud }}

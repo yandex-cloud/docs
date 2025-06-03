@@ -22,27 +22,6 @@ description:
     Для подключения к рабочим столам используется <a
     href="https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol">Remote Desktop
     Protocol</a> (RDP).
-meta:
-  title: Yandex Cloud Desktop
-  description: >-
-    Yandex Cloud Desktop — сервис для управления виртуальной инфраструктурой
-    рабочих столов на базе Linux.
-  keywords:
-    - keyword: desktop
-    - keyword: рабочий стол {{ cloud-desktop-name }}
-    - keyword: рабочий стол в {{ yandex-cloud }}
-    - keyword: Desktop в {{ yandex-cloud }}
-    - keyword: desktop group
-    - keyword: '{{ cloud-desktop-name }}'
-    - keyword: '{{ cloud-desktop-name }} в {{ yandex-cloud }}'
-    - keyword: remote desktop в {{ yandex-cloud }}
-    - keyword: BYOD
-    - keyword: сервис {{ cloud-desktop-name }}
-    - keyword: RDP в {{ cloud-desktop-name }}
-    - keyword: RDP в {{ yandex-cloud }}
-    - keyword: ACL {{ cloud-desktop-name }}
-    - keyword: ACL
-    - keyword: clouddesktop
 links:
   - title: Начало работы
     description: Создайте рабочий стол и подключитесь к нему
@@ -62,3 +41,24 @@ links:
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/
+meta:
+  title: Yandex Cloud Desktop
+  description: >-
+    Yandex Cloud Desktop — сервис для управления виртуальной инфраструктурой
+    рабочих столов на базе Linux.
+  keywords:
+    - desktop
+    - рабочий стол {{ cloud-desktop-name }}
+    - рабочий стол в {{ yandex-cloud }}
+    - Desktop в {{ yandex-cloud }}
+    - desktop group
+    - '{{ cloud-desktop-name }}'
+    - '{{ cloud-desktop-name }} в {{ yandex-cloud }}'
+    - remote desktop в {{ yandex-cloud }}
+    - BYOD
+    - сервис {{ cloud-desktop-name }}
+    - RDP в {{ cloud-desktop-name }}
+    - RDP в {{ yandex-cloud }}
+    - ACL {{ cloud-desktop-name }}
+    - ACL
+    - clouddesktop

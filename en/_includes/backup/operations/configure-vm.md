@@ -13,7 +13,7 @@
 
   1. If the VM does not have a [public IP address](../../../vpc/concepts/address.md#public-addresses), then under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**. In the window that opens:
 
-      * In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` to get an IP address automatically assigned or `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` to choose a reserved address from the list.
+      * In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` to get an IP address automatically or `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` to choose a reserved address from the list.
       * Optionally, if you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, enable **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_ddos-protection-provider }}**. For more information, see [{#T}](../../../vpc/ddos-protection/index.md).
       * If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, choose the IP address you want to assign to your VM. The IP address and the VM must be in the same availability zone.
       * Click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
@@ -114,7 +114,7 @@
 
   {% include [terraform-install](../../terraform-install.md) %}
 
-  1. Open the configuration file and update the VM [network interface](../../../compute/concepts/network.md) parameters in the section with the description of the `yandex_compute_instance` resource.
+  1. Open the configuration file and change the VM [network interface](../../../compute/concepts/network.md) properties in the section with the description of the `yandex_compute_instance` resource.
 
       ```hcl
       resource "yandex_compute_instance" "my-vm" {
@@ -134,13 +134,13 @@
       * `yandex_compute_instance`: VM description.
       * `network_interface`: VM network interface settings.
       * `security_group_ids`: List of security group IDs.
-      * `nat`: Specifies if an instance will have an assigned public IP address.
+      * `nat`: Specifies if a VM will have an assigned public IP address.
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will change all required resources. You can check the resources’ updates in the [management console]({{ link-console-main }}).
+      {{ TF }} will change all required resources. You can check the resources’ update in the [management console]({{ link-console-main }}).
 
   For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/compute_instance).
 

@@ -11,22 +11,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень
     обслуживания Yandex Managed Databases</a>.
-meta:
-  title: Yandex Managed Service for PostgreSQL
-  description: >-
-    Managed Service for PostgreSQL помогает разворачивать и поддерживать
-    кластеры серверов PostgreSQL в инфраструктуре Yandex Cloud.
-  keywords:
-    - keyword: '{{ mpg-name }}'
-    - keyword: '{{ mpg-full-name }}'
-    - keyword: Сервис {{ mpg-name }}
-    - keyword: '{{ PG }} в {{ yandex-cloud }}'
-    - keyword: Кластер {{ PG }}
-    - keyword: Кластеры серверов {{ PG }}
-    - keyword: '{{ PG }}'
-    - keyword: Постгрес
-    - keyword: '{{ PG }} в облаке'
-    - keyword: Объектно-реляционная СУБД
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
@@ -52,3 +36,19 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Managed Service for PostgreSQL
+  description: >-
+    Managed Service for PostgreSQL помогает разворачивать и поддерживать
+    кластеры серверов PostgreSQL в инфраструктуре Yandex Cloud.
+  keywords:
+    - '{{ mpg-name }}'
+    - '{{ mpg-full-name }}'
+    - Сервис {{ mpg-name }}
+    - '{{ PG }} в {{ yandex-cloud }}'
+    - Кластер {{ PG }}
+    - Кластеры серверов {{ PG }}
+    - '{{ PG }}'
+    - Постгрес
+    - '{{ PG }} в облаке'
+    - Объектно-реляционная СУБД

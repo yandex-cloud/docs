@@ -3,24 +3,6 @@ description:
   - >-
     Сервис Yandex Cloud Logging позволяет читать и записывать  логи сервисов и
     пользовательских приложений, объединяя сообщения в лог-группы.
-meta:
-  title: Cloud Logging
-  description: >-
-    Сервис Yandex Cloud Logging позволяет читать и записывать логи сервисов и
-    пользовательских приложений, объединяя сообщения в лог-группы.
-  keywords:
-    - keyword: logging {{ yandex-cloud }}
-    - keyword: логи сервисов
-    - keyword: лог-группы
-    - keyword: '{{ cloud-logging-short-name }} в {{ yandex-cloud }}'
-    - keyword: сервис {{ cloud-logging-short-name }}
-    - keyword: логирование в {{ cloud-logging-short-name }}
-    - keyword: Log Group
-    - keyword: '{{ cloud-logging-short-name }}'
-    - keyword: логи {{ cloud-logging-short-name }}
-    - keyword: лог-группа {{ cloud-logging-short-name }}
-    - keyword: logging sink
-    - keyword: логирование {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Добавьте записи в лог-группу и прочитайте их
@@ -46,3 +28,21 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Cloud Logging
+  description: >-
+    Сервис Yandex Cloud Logging позволяет читать и записывать логи сервисов и
+    пользовательских приложений, объединяя сообщения в лог-группы.
+  keywords:
+    - logging {{ yandex-cloud }}
+    - логи сервисов
+    - лог-группы
+    - '{{ cloud-logging-short-name }} в {{ yandex-cloud }}'
+    - сервис {{ cloud-logging-short-name }}
+    - логирование в {{ cloud-logging-short-name }}
+    - Log Group
+    - '{{ cloud-logging-short-name }}'
+    - логи {{ cloud-logging-short-name }}
+    - лог-группа {{ cloud-logging-short-name }}
+    - logging sink
+    - логирование {{ yandex-cloud }}

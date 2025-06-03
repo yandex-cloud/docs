@@ -13,21 +13,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_dns">Уровень
     обслуживания Yandex Cloud DNS</a>.
-meta:
-  title: Yandex Cloud DNS
-  description: >-
-    Yandex Cloud DNS служит для управления зонами DNS и доменными именами ваших
-    ресурсов.
-  keywords:
-    - keyword: доменные зоны в {{ yandex-cloud }}
-    - keyword: '{{ dns-full-name }}'
-    - keyword: сервис {{ dns-name }}
-    - keyword: зоны {{ dns-name }}
-    - keyword: зоны DNS
-    - keyword: '{{ dns-name }} в {{ yandex-cloud }}'
-    - keyword: ресурсные записи
-    - keyword: ресурсные записи {{ dns-name }}
-    - keyword: резолвер {{ dns-name }}
 links:
   - title: Начало работы
     description: Создайте первую зону DNS
@@ -56,3 +41,18 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Cloud DNS
+  description: >-
+    Yandex Cloud DNS служит для управления зонами DNS и доменными именами ваших
+    ресурсов.
+  keywords:
+    - доменные зоны в {{ yandex-cloud }}
+    - '{{ dns-full-name }}'
+    - сервис {{ dns-name }}
+    - зоны {{ dns-name }}
+    - зоны DNS
+    - '{{ dns-name }} в {{ yandex-cloud }}'
+    - ресурсные записи
+    - ресурсные записи {{ dns-name }}
+    - резолвер {{ dns-name }}

@@ -3,21 +3,6 @@ description:
   - >-
     This section offers recommendations on how to build a secure Yandex Cloud
     infrastructure, practical guidelines, and security bulletins.
-meta:
-  title: Security in Yandex Cloud
-  description: >-
-    This section offers recommendations on how to build a secure Yandex Cloud
-    infrastructure, practical guidelines, and security bulletins.
-  keywords:
-    - keyword: security in {{ yandex-cloud }}
-    - keyword: '{{ yandex-cloud }} security bulletins'
-    - keyword: security bulletins
-    - keyword: how to build a secure infrastructure
-    - keyword: '{{ yandex-cloud }} protection'
-    - keyword: yandex cloud security
-    - keyword: '{{ yandex-cloud }} security'
-    - keyword: cloud security
-    - keyword: protected cloud
 links:
   - title: Division of responsibility for security
     description: ''
@@ -31,3 +16,18 @@ links:
   - title: Kubernetes security
     description: ''
     href: domains/kubernetes
+meta:
+  title: Security in Yandex Cloud
+  description: >-
+    This section offers recommendations on how to build a secure Yandex Cloud
+    infrastructure, practical guidelines, and security bulletins.
+  keywords:
+    - security in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} security bulletins'
+    - security bulletins
+    - how to build a secure infrastructure
+    - '{{ yandex-cloud }} protection'
+    - yandex cloud security
+    - '{{ yandex-cloud }} security'
+    - cloud security
+    - protected cloud

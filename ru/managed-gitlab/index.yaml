@@ -13,22 +13,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_glb/">Уровень
     обслуживания Yandex Managed Service for GitLab</a>.
-meta:
-  title: Yandex Managed Service for GitLab
-  description: >-
-    Сервис Managed Service for GitLab помогает разворачивать и поддерживать
-    инстансы GitLab в инфраструктуре Yandex Cloud.
-  keywords:
-    - keyword: git lab
-    - keyword: managed {{ GL }}
-    - keyword: '{{ GL }}'
-    - keyword: yandex {{ GL }}
-    - keyword: '{{ mgl-name }}'
-    - keyword: '{{ mgl-full-name }}'
-    - keyword: сервис {{ mgl-name }}
-    - keyword: инстанс {{ GL }}
-    - keyword: инстанс {{ mgl-name }}
-    - keyword: '{{ GL }} в {{ yandex-cloud }}'
 links:
   - title: Начало работы
     description: Создайте первый инстанс
@@ -54,3 +38,19 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Managed Service for GitLab
+  description: >-
+    Сервис Managed Service for GitLab помогает разворачивать и поддерживать
+    инстансы GitLab в инфраструктуре Yandex Cloud.
+  keywords:
+    - git lab
+    - managed {{ GL }}
+    - '{{ GL }}'
+    - yandex {{ GL }}
+    - '{{ mgl-name }}'
+    - '{{ mgl-full-name }}'
+    - сервис {{ mgl-name }}
+    - инстанс {{ GL }}
+    - инстанс {{ mgl-name }}
+    - '{{ GL }} в {{ yandex-cloud }}'

@@ -180,7 +180,7 @@
         -import-path ~/cloudapi/ \
         -import-path ~/cloudapi/third_party/googleapis/ \
         -proto ~/cloudapi/yandex/cloud/logging/v1/log_reading_service.proto \
-        reader.logging.yandexcloud.net:443 \
+        {{ logging-endpoint-reader }}:443 \
         yandex.cloud.logging.v1.LogReadingService/Read
       ```
 
