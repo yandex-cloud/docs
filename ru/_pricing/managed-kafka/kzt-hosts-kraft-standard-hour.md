@@ -1,13 +1,13 @@
 | Ресурс        | Цена за 1 час,<br>вкл. НДС         |
 |---------------|-----------------------------------:|
 | **Intel Cascade Lake**                             |
-| 50% vCPU      | {% calc [currency=KZT] 0,81*5 %}   | 
-| 100% vCPU     | {% calc [currency=KZT] 1,8144*5 %} | 
-| RAM (за 1 ГБ) | {% calc [currency=KZT] 0,4860*5 %} | 
-| **Intel Ice Lake**                                 |
-| 50% vCPU      | {% calc [currency=KZT] 0,7344*5 %} |
-| 100% vCPU     | {% calc [currency=KZT] 1,6308*5 %} |
-| RAM (за 1 ГБ) | {% calc [currency=KZT] 0,4320*5 %} |
-| **Intel Ice Lake (Compute Optimized)**             |
-| 100% vCPU | {% calc [currency=KZT] 2,6136*5 %}     |
-| RAM (за 1 ГБ) | {% calc [currency=KZT] 0,4968*5 %} |
+| 50% vCPU      | {{ sku|KZT|mdb.kafka.kraft.v2.cpu.c50|string }}    | 
+| 100% vCPU     | {{ sku|KZT|mdb.kafka.kraft.v2.cpu.c100|string }}   | 
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.kafka.kraft.v2.ram|string }} | 
+| **Intel Ice Lake**                                     |
+| 50% vCPU      | {{ sku|KZT|mdb.kafka.kraft.v3.cpu.c50|string }}  |
+| 100% vCPU     | {{ sku|KZT|mdb.kafka.kraft.v3.cpu.c100|string }}  |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.kafka.kraft.v3.ram|string }} |
+| **Intel Ice Lake (Compute Optimized)**                 |
+| 100% vCPU | {{ sku|KZT|mdb.kafka.kraft.highfreq-v3.cpu.c100|string }}     |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.kafka.kraft.highfreq-v3.ram|string }} |

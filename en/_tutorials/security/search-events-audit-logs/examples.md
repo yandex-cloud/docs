@@ -1,6 +1,6 @@
 # Examples of requests for searching events in audit logs
 
-This section contains the most common requests for searching events in audit logs for various {{ yandex-cloud }} resources. To get the events you need, run the request from the examples provided.
+This section contains the most common search requests for events in audit logs for various {{ yandex-cloud }} resources. To get the events you need, run one of the requests below.
 
 **Infrastructure and network**   
 * [{{ compute-full-name }}](#compute)
@@ -35,8 +35,8 @@ This section contains the most common requests for searching events in audit log
 
 **Data platform**
 * [{{ objstorage-full-name }}](#object-storage)
-    * [Updating bucket access policy](#update-bucket-policy)
-    * [Opening public access when creating or modifying a bucket](#public-access-bucket)
+    * [Updating a bucket access policy](#update-bucket-policy)
+    * [Opening public access when creating or updating a bucket](#public-access-bucket)
 * [Managed databases (MDB)](#mdb)
     * [Creating or changing a user for MDB](#create-user)
 
@@ -76,7 +76,7 @@ This section contains the most common requests for searching events in audit log
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.compute.RestartInstance')
     ```
 
-    You can request the ID with the list of VMs in the folder.
+    You can get the ID with the list of VMs in the folder.
 
 - {{ cloud-logging-full-name }}
 
@@ -92,7 +92,7 @@ This section contains the most common requests for searching events in audit log
     json_payload.event_type="yandex.cloud.audit.compute.RestartInstance")
     ```
 
-    You can request the ID with the list of VMs in the folder.
+    You can get the ID with the list of VMs in the folder.
 
 
 {% endlist %}
@@ -279,7 +279,7 @@ This section contains the most common requests for searching events in audit log
       JSON_VALUE(data,"$.details.folder_name") = '<folder_name>'
     ```
 
-    You can request the folder name with the list of folders in the cloud.
+    You can get the folder name with the list of folders in the cloud.
 
 - {{ cloud-logging-full-name }} {#cloud-logging}
 
@@ -289,7 +289,7 @@ This section contains the most common requests for searching events in audit log
     json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<folder_name>"
     ```
 
-    You can request the folder name with the list of folders in the cloud.
+    You can get the folder name with the list of folders in the cloud.
 
 
 {% endlist %}
@@ -628,7 +628,7 @@ This section contains the most common requests for searching events in audit log
 
 ### {{ objstorage-full-name }} {#object-storage}
 
-#### Updating bucket access policy {#update-bucket-policy}
+#### Updating a bucket access policy {#update-bucket-policy}
 
 {% list tabs group=tools %}
 
@@ -653,7 +653,7 @@ This section contains the most common requests for searching events in audit log
 
 {% endlist %}
 
-#### Opening public access when creating or modifying a bucket {#public-access-bucket}
+#### Opening public access when creating or updating a bucket {#public-access-bucket}
 
 {% list tabs group=tools %}
 

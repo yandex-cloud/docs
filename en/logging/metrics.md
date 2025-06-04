@@ -1,6 +1,6 @@
 ---
 title: Reference for {{ cloud-logging-full-name }} metrics in {{ monitoring-full-name }}
-description: This page is a reference for {{ cloud-logging-name }} metrics delivered to {{ monitoring-full-name }}.
+description: This page contains a reference for {{ cloud-logging-name }} metrics delivered to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference

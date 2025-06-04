@@ -21,29 +21,29 @@ To use {{ yq-full-name }}, set up a data binding based on the target object:
 
 * {{ objstorage-name }} bucket {#obj-storage}
 
-    1. Create a [service account](../../../iam/operations/sa/create.md) named `bucket-yq-sa`.
+    1. [Create a service account](../../../iam/operations/sa/create.md) named `bucket-yq-sa`.
     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `bucket-yq-sa` service account the `storage.viewer` role for the folder containing the bucket with logs.
     1. Create a connection.
 
-        1. In the [management console]({{ link-console-main }}), select the folder housing the trail that delivers logs to the bucket.
+        1. In the [management console]({{ link-console-main }}), select the folder containing the trail that delivers logs to the bucket.
         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
         1. Select the trail that delivers logs to the bucket.
         1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
-        1. Select **{{ ui-key.yacloud.common.resource-acl.label_service-account }}** `bucket-yq-sa`.
+        1. Select `bucket-yq-sa` **{{ ui-key.yacloud.common.resource-acl.label_service-account }}**.
         1. Leave other attributes as default.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
     1. In the window with data binding options, click **{{ ui-key.yacloud.common.create }}**.
 
-    1. Send the appropriate [query](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+    1. Run the appropriate [query](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
 * {{ yds-name }} data stream {#data-streams}
 
-    1. Create a [service account](../../../iam/operations/sa/create.md) named `bucket-yq-sa`.
+    1. [Create a service account](../../../iam/operations/sa/create.md) named `bucket-yq-sa`.
     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `yds.editor` role to the `bucket-yq-sa` service account.
-    1. [Create a connection](../../../query/operations/connection.md#create). When creating it, specify the settings for the **{{ yds-name }}** connection type.
-    1. [Create federated credentials](../../../query/operations/binding.md).
-    1. Send the appropriate [query](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+    1. [Create a connection](../../../query/operations/connection.md#create). Make sure to specify the settings for the **{{ yds-name }}** connection type.
+    1. [Create a binding](../../../query/operations/binding.md).
+    1. Run the appropriate [query](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
 {% endlist %}
 
@@ -51,7 +51,7 @@ To use {{ yq-full-name }}, set up a data binding based on the target object:
 
 Use [{{ cloud-logging-name }}](../../../logging/) to work with logs uploaded to a log group.
 
-You can filter records using the [filer expression language](../../../logging/concepts/filter.md) to analyze {{ yandex-cloud }} resource events.
+You can filter logs using the [filter expression language](../../../logging/concepts/filter.md) to analyze {{ yandex-cloud }} resource events.
 
 To use {{ cloud-logging-name }}:
 

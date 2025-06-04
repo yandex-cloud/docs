@@ -10,6 +10,8 @@ noIndex: true
 
 В настоящий момент поиск по картинкам доступен только для запросов, выполненных через интерфейс API v1.
 
+{% include [api-v1](../../_includes/search-api/api-v1.md) %}
+
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
 ## Формат запроса {#get-request-format}

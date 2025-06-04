@@ -2,17 +2,17 @@
 
 [{{ cloud-logging-full-name }}](../../logging/index.yaml) is a service for reading and writing logs of {{ yandex-cloud }} services and user applications.
 
-Logs can be sent to a [stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-full-name }} and then processed in real time using {{ yq-full-name }}. You can do the following with processed data:
+You can send logs to a {{ yds-full-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) to process in real time using {{ yq-full-name }}. You can do the following with processed data:
 
 * Send it to {{ monitoring-full-name }} to make charts and use it in alerting.
-* Write it to a stream in {{ yds-short-name }} and then send it to {{ sf-full-name }} for processing.
-* Write it to a stream in {{ yds-short-name }} and then transfer it to {{ data-transfer-full-name }} to be [sent to various storage systems](../../data-streams/tutorials/data-ingestion.md).
+* Write it to a stream in {{ yds-short-name }} and then send to {{ sf-full-name }} for processing.
+* Write it to a stream in {{ yds-short-name }} and then transfer to {{ data-transfer-full-name }} to [distribute to various storage systems](../../data-streams/tutorials/data-ingestion.md).
 
 ![cloud-logging-to-yq](../../_assets/query/cloud-logging.png)
 
-In this use case, you will send {{ cloud-logging-short-name }} logs to a stream in {{ yds-short-name }} and then run a query to them using {{ yq-name }}. The query will return the number of messages per host grouped by 10s interval.
+In this tutorial, you will send {{ cloud-logging-short-name }} logs to a {{ yds-short-name }} stream and then query them using {{ yq-name }}. The query will return the number of messages per host grouped by 10s interval.
 
-To implement this use case:
+For this tutorial:
 
 1. [Create a data stream in {{ yds-name }}](#create-yds-stream).
 1. [Create a {{ cloud-logging-name }} log group](#create-log-group).
@@ -24,13 +24,13 @@ To implement this use case:
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Install the {{ yandex-cloud }} [command line interface](../../cli/quickstart.md#install).
+Install the {{ yandex-cloud }} [command-line interface](../../cli/quickstart.md#install).
 
-## Create a stream in {{ yds-name }} {#create-yds-stream}
+## Create a data stream in {{ yds-name }} {#create-yds-stream}
 
 [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream) named `cloud-logging-stream`.
 
-## Create a log group named {{ cloud-logging-name }} {#create-log-group}
+## Create a log group in {{ cloud-logging-name }} {#create-log-group}
 
 [Create a log group](../../logging/operations/create-group.md) named `cloud-logging-group`. When setting the log group parameters, specify `cloud-logging-stream` created in the previous step.
 
@@ -73,7 +73,7 @@ done
 
 ## Query the data {#query}
 
-Open the query editor in the {{ yq-name }} interface and run the query:
+Open the query editor in the {{ yq-name }} interface and run this query:
 
 ```sql
 $cloud_logging_data = 

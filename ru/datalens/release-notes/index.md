@@ -1,110 +1,66 @@
 ---
-title: История изменений в {{ datalens-full-name }} в апреле 2025
-description: Ознакомьтесь с историей изменений в {{ datalens-full-name }} за апрель 2025.
+title: История изменений в {{ datalens-full-name }} в мае 2025
+description: Ознакомьтесь с историей изменений в {{ datalens-full-name }} за май 2025.
 ---
 
-# История изменений в {{ datalens-full-name }} в апреле 2025
+# История изменений в {{ datalens-full-name }} в мае 2025
 
 
 * [Изменения базовых возможностей](#base)
-* [Изменения в мобильной версии](#mobile-version-changes)
 * [Изменения, доступные в тарифном плане Business](#business)
 
 ## Изменения базовых возможностей {#base}
 
+### Экспорт и импорт воркбуков {#workbooks-export-import}
+
+Добавили в {{ datalens-short-name }} [экспорт и импорт воркбуков](../workbooks-collections/export-and-import.md). Теперь можно переносить [воркбуки](../workbooks-collections/index.md) между инсталляциями с помощью инструментов экспорта и импорта. Например, вы сможете экспортировать готовый воркбук, с его настройками и связями, из облачного {{ datalens-full-name }} в инсталляцию [open source](https://datalens.tech).
+
+### {{ datalens-short-name }} Gallery {#gallery}
+
+Добавили [раздел]({{ link-datalens-main }}/gallery) с готовыми дашбордами для вдохновения и решения бизнес-задач. Примеры понравившихся работ можно развернуть у себя — и не только в облаке, но и в любом окружении, даже внутри корпоративного контура.
 
 
-### Изменения интерфейса {#interface-changes}
-
-* Добавили возможность скопировать id для всех типов объектов одним из способов:
-  
-  * на странице навигации или в окне редактирования объекта нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **Копировать ID**;
-  * в окне **Связанные объекты** напротив объекта нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **Копировать ID**.
-  
-* Исправили проблему, при которой при нажатии на ![image](../../_assets/console-icons/bell.svg) **Уведомления** открывалась новая страница. Теперь открывается окно с сообщениями в {{ datalens-short-name }}.
-* Обновили дизайн пустого списка объектов, который открывается через панель навигации слева.
-
-  {% cut "Пустой список подключений" %}
-
-  ![image](../../_assets/datalens/release-notes/empty-list-connections.png)
-
-  {% endcut %}
 
 
-### Изменения в подключениях {#connection-changes}
+### Изменения в чартах {#charts-changes}
 
-Добавили [подключение к {{ speechsense-full-name }}](../operations/connection/create-speechsense.md).
+В [визарде](../concepts/chart/dataset-based-charts.md) и [QL-чартах](../concepts/chart/ql-charts.md) добавили [настройку](../concepts/chart/settings.md#common-settings) для [сохранения пробелов и переносов](../visualization-ref/table-chart.md#spaces-and-line-breaks) строк в таблице.
 
+### Изменения в интерфейсе {#interface-changes}
 
-### Исправления в датасетах {#dataset-changes}
+Обновили внешний вид страницы [выбора тарифного плана](../settings/service-plan.md#change-service-plan) с описанием возможностей.
 
-Теперь при [создании датасета](../dataset/create-dataset.md#create) открывается вкладка **Источники**, а при редактировании — вкладка **Поля**.
+### Старт в {{ datalens-short-name }} {#start-video}
+
+Устранили проблему просмотра ознакомительного видео, доступного при нажатии на панели слева ![image](../../_assets/console-icons/circle-question.svg) → **Старт в {{ datalens-short-name }}**.
+
 
 ### Исправления в чартах {#charts-fixes}
 
-* Добавили [настройки](../concepts/chart/settings.md#common-settings) **Центр** и **Масштаб**, позволяющие показать определенный участок [карты](../visualization-ref/map-chart.md).
-* Исправили проблему, при которой в [комбинированной диаграмме](../visualization-ref/combined-chart.md) не работала сортировка на слое с [линейной диаграммой](../visualization-ref/line-chart.md).
-* В [визарде](../concepts/chart/dataset-based-charts.md) исправили проблему, при которой после смены [настройки](../concepts/chart/settings.md#field-settings) типа поля с `Дата` на `Дата и время` или обратно сбрасывался формат даты.
-* В чартах с [иерархией](../operations/chart/add-hierarchy.md) исправили некорректную работу фильтрующего запроса по клику на значение с кавычками.
-* Исправили некорректное построение [полилинейной карты](../visualization-ref/polyline-map-chart.md) с пустыми (`null`) значениями.
-* Оптимизировали время отрисовки в [сводных таблицах](../visualization-ref/pivot-table-chart.md) при использовании [фильтрации чартов чартами](../dashboard/chart-chart-filtration.md).
-* Исправили неровное расположение текста в ячейках [таблицы](../visualization-ref/table-chart.md) в случае с [закрепленными столбцами](../visualization-ref/table-chart.md#column-fixation) и отсутствием пагинации.
-* Исправили некорректное отображение [таблицы](../visualization-ref/table-chart.md) с [закрепленными столбцами](../visualization-ref/table-chart.md#column-fixation) и скроллом.
-* Добавили кавычки для значений при экспорте чарта в формате CSV.
-
-### Изменения в версионировании {#versioning-changes}
-
-* Версионирование [чартов](../concepts/chart/versioning.md), [дашбордов](../dashboard/versioning.md) и отчетов доступно только пользователям с правами редактирования этих объектов. Сообщение о наличии черновика также доступно только для пользователей, имеющих право на редактирование объекта.
-* При наличии черновой версии чарта можно сразу открыть ее, если добавить в URL параметр `unreleased=1`.
-
-### Всплывающая подсказка в разметке {#tooltip-add}
-
-Поддержали возможность с помощью функции разметки [TOOLTIP](../function-ref/TOOLTIP.md) добавлять небольшую всплывающую подсказку к тексту или результату выполнения других [функций разметки](../function-ref/markup-functions.md).
-
-### Изменения в дашбордах {#dashboard-changes}
-
-* Исправили некорректную работу параметра `state` в URL для [публичных](../concepts/datalens-public.md) дашбордов.
-* Изменили внешний вид области [закрепления виджетов](../dashboard/settings.md#widget-fixation):
-  
-  * стали более заметными фон области закрепления и кнопка, позволяющая скрыть или показать нижнюю область;
-  * область закрепления не показывается, если в ней нет виджетов;
-  * верхняя область имеет ту же ширину, что и остальные;
-  * в верхней области можно закреплять виджеты любой высоты (раньше туда помещались только однострочные виджеты).
-
-* Исправили проблему, при которой нарушался порядок отображения [заголовков](../dashboard/widget.md#title) в оглавлении, если поместить заголовок в область закрепления виджетов.
 
 
-
-### Изменения в настройках сервиса {#settings-changes}
-
-Скрыли некоторые [настройки сервиса](../settings/ui-customization.md) для пользователей без [роли](../security/roles.md#datalens.admin) `datalens.admin`:
-
-* Изменение [тарифного плана](../settings/service-plan.md).
-* [Настройка стилизации](../settings/ui-customization.md).
-* Добавление и редактирование цветовых палитр.
-* [Отключение навигации по папкам](../settings/disable-folder-navigation.md).
-* [Включение воркбуков](../workbooks-collections/index.md#enable-workbooks).
-* [Управление возможностью](../concepts/datalens-public.md#publication-disable) настраивать публичный доступ.
-
-Тарифные планы и цветовые палитры может просмотреть без внесения изменений любой пользователь.
+Исправили переносы заголовков и значений в столбцах [таблицы](../visualization-ref/table-chart.md) для некоторых браузеров.
 
 
-## Изменения в мобильной версии {#mobile-version-changes}
+### Изменения в виджетах {#widget-changes}
 
-Исправили проблему, при которой не скроллится [легенда](../concepts/chart/settings.md#common-settings) чарта в мобильной версии.
+* Добавили автофокус на поле ввода текста для виджетов [Заголовок](../dashboard/widget.md#title) и [Текст](../dashboard/widget.md#text) при добавлении или редактировании виджетов на [дашборде](../concepts/dashboard.md).
+* В визуальном редакторе в текстовых виджетах дашборда и в чартах [Markdown](../charts/editor/widgets/markdown.md) в Editor добавили кнопку копирования в буфер обмена содержимого [блока кода](../dashboard/markdown.md#code).
+
+### Отмена и восстановление изменений в дашбордах {#undo-redo}
+
+При редактировании [дашборда](../concepts/dashboard.md) теперь можно отменить или повторно выполнить внесенные изменения в пределах текущей версии:
+
+* для отмены изменений нажмите значок ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) в верхней правой части экрана или сочетание клавиш **Ctrl** (**Cmd**) + **Z**;
+* для восстановления изменений нажмите значок ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) или сочетание клавиш **Ctrl** (**Cmd**) + **Shift** + **Z**.
 
 
 ## Изменения, доступные в тарифном плане Business {#business}
 
 ### Изменения в Editor {#editor-changes}
 
-* Исправили проблему, возникающую при открытии на редактирование чарта в [Editor](../charts/editor/index.md) c параметром `_embedded` в URL. Ранее, если в URL присутствовал параметр `_embedded=1`, в чарте не отображалось содержимое вкладок.
-* Перевели Editor в таймзону UTC. Это позволит пользователям получать предсказуемый результат, возвращаемый функцией `new Date()`.
-* В функции [Editor.wrapFn](../charts/editor/methods.md#wrap) убрали ограничение вложенности для пользовательских аргументов.
-* Исправили ошибку обработки нестроковых параметров в Editor.
-
-### Изменения в отчетах {#reports-changes}
-
-* В [отчетах](../reports/index.md) добавили автопрокрутку секции селекторов при добавлении виджета.
-* Для тарифа [Community](../settings/service-plan.md) в интерфейсе [воркбука](../workbooks-collections/index.md) на вкладке **Все объекты** исправили отображение кнопки **Создать отчёт**.
+* В [Advanced-чарт](../charts/editor/widgets/advanced.md) добавили метод [Editor.updateParams](../charts/editor/methods.md#update-params).
+* Добавили дополнительные атрибуты и теги для метода [Editor.generateHtml](../charts/editor/methods.md#gen-html).
+* В [Markdown](../charts/editor/widgets/markdown.md) чартах в Editor теперь доступны Controls.
+* Исправили диалог сравнения ревизий для чартов в Editor.
 

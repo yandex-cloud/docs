@@ -48,7 +48,7 @@ To create a network:
 
     1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-    1. Specify the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** of the network: `alb-logging-network`.
+    1. Specify the network **{{ ui-key.yacloud.vpc.networks.create.field_name }}**: `alb-logging-network`.
     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
     
@@ -72,7 +72,7 @@ To create a network:
 ## Create security groups {#create-security-groups}
 
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that: 
-* Allow the load balancer to receive incoming traffic and redirect it to the VMs so they can receive the traffic. 
+* Allow the load balancer to receive incoming traffic and forward it to the VMs so they can receive the traffic. 
 * Allow the load balancer to send logs to the log group and the {{ PG }} cluster, to receive the logs from it.
 
 You will create three security groups: one for the load balancer, another one for all VMs, and the third one for the cluster.
@@ -101,11 +101,11 @@ To create security groups:
       
         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a port range for traffic to come to or from.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports open for incoming or outgoing traffic.
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
       
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks the traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
 
@@ -196,7 +196,7 @@ Afterwards, the cluster settings can be [updated](../../managed-postgresql/opera
 
 In this example, we will save data from the following message fields, which are logged by the load balancer when it receives requests, to the {{ PG }} database:
 
-* `type`: Request protocol, HTTP or DNS.
+* `type`: Request protocol, HTTP or gRPC.
 * `time`: Date and time of the request.
 * `http_status`: HTTP code of the load balancer's response to the request.
 * `backend_ip`: IP address of the VM that processed the request.
@@ -285,7 +285,7 @@ It may take a few minutes to create an instance group. Wait until the group [sta
 
 ![ig-running](../../_assets/application-load-balancer/tutorials/virtual-hosting/ig-running.png)
 
-## Create a log group named {{ cloud-logging-full-name }} {#create-log-group}
+## Create a log group in {{ cloud-logging-full-name }} {#create-log-group}
 
 {% list tabs group=instructions %}
 
@@ -482,7 +482,7 @@ To create a function:
      To define the values of connection parameters:
   
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-     1. Select the `alb-logging-cluster` cluster.
+     1. Select `alb-logging-cluster`.
      1. In the line with the database you need, click ![image](../../_assets/console-icons/ellipsis.svg).
      1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
      1. On the **Shell** tab, find a sample connection string.
@@ -587,7 +587,7 @@ To create a trigger:
    - Management console {#console}
    
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-     1. Select the `alb-logging-cluster` cluster.
+     1. Select `alb-logging-cluster`.
      1. Navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
      1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.
      1. Select the database you created together with the cluster, and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.

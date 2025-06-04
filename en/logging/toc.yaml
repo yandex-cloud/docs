@@ -48,10 +48,10 @@ items:
       - name: All tutorials
         href: tutorials/index.md
       - name: >-
-          Transferring cluster logs of Yandex Managed Service for Kubernetes to
+          Transferring Yandex Managed Service for Kubernetes cluster logs to
           Cloud Logging
         href: tutorials/k8s-fluent-bit-logging.md
-      - name: Transferring logs from a VM instance to Cloud Logging
+      - name: Transferring logs from a VM to Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
       - name: Transferring logs from COI to Cloud Logging
         href: tutorials/coi-fluent-bit-logging.md
@@ -69,7 +69,7 @@ items:
         href: tutorials/grafana-logs-plugin.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: tutorials/serverless-live-debug.md
-      - name: Storing load balancer logs to {{ PG }}
+      - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
       - name: Logging settings for {{ alb-name }} Ingress controllers
         href: tutorials/alb-ingress-controller-log-options.md
@@ -85,7 +85,7 @@ items:
         items:
           - name: Overview
             href: tutorials/search-events-audit-logs/index.md
-          - name: Tools for working with audit logs
+          - name: Tools for operations with audit logs
             href: tutorials/search-events-audit-logs/tools.md
           - name: Sample requests for searching events
             href: tutorials/search-events-audit-logs/examples.md

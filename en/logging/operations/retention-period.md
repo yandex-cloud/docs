@@ -11,9 +11,9 @@ description: Follow this guide to update a log group.
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your [log group](../concepts/log-group.md).
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-    1. In the line with the log group, click ![image](../../_assets/console-icons/ellipsis.svg).
+    1. Next to the log group, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
-    1. Edit the log group parameters.
+    1. Update the log group settings.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -22,9 +22,9 @@ description: Follow this guide to update a log group.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To access a log group, use its name or unique ID. To find them, [get](./list.md) a list of log groups in the folder.
+    To access a log group, use its name or unique ID. To find them out, [get](./list.md) a list of log groups in the folder.
 
-    To edit [log group](../concepts/log-group.md) parameters, such as the record retention period, run this command:
+    To update [log group](../concepts/log-group.md) settings, such as the record retention period, run this command:
 
     ```
     yc logging group update --name=default --retention-period=24h
@@ -53,9 +53,9 @@ description: Follow this guide to update a log group.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To edit parameters of a [log group](../concepts/log-group.md) created with {{ TF }}:
+  To update the settings of a [log group](../concepts/log-group.md) created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the required parameter, such as the record retention period, in the log group description:
+  1. Open the {{ TF }} configuration file and edit the setting, such as the record retention period, in the log group description as needed:
 
      ```hcl
      ...
@@ -69,13 +69,13 @@ description: Follow this guide to update a log group.
 
      Where:
 
-     * `name`: Log group name. This is an optional parameter.
-     * `folder_id`: Folder ID. This is an optional parameter. By default, the value specified in the provider settings is used.
+     * `name`: Log group name. This is an optional setting.
+     * `folder_id`: Folder ID. This is an optional setting. It defaults to the value defined by the provider.
      * `retention_period`: New retention period for log group records.
 
         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-     For more information about the `yandex_logging_group` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/logging_group).
+     For more information about the `yandex_logging_group` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/logging_group).
 
   1. Check the configuration using this command:
 
@@ -95,15 +95,15 @@ description: Follow this guide to update a log group.
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors found in the configuration.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+     
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the log group update in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
@@ -119,8 +119,8 @@ description: Follow this guide to update a log group.
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
 
-  In the example, the record retention period is updated.
-
+  In our example, we are updating the record retention period.
+  
   Create a file named `payload.json`:
 
   ```json
@@ -133,7 +133,7 @@ description: Follow this guide to update a log group.
   }
   ```
 
-  Run this request:
+  Send this request:
 
   ```bash
   grpcurl -rpc-header "Authorization: Bearer $(yc iam create-token)" \

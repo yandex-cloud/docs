@@ -1,6 +1,6 @@
 ---
 title: How to read records
-description: This guide describes how you can read records.
+description: Follow this guide to read records.
 ---
 
 # Reading records

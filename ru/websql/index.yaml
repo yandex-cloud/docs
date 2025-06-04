@@ -36,3 +36,13 @@ links:
     href: pricing
 meta:
   title: Yandex WebSQL
+  keywords:
+    - '{{ websql-name }}'
+    - '{{ websql-full-name }}'
+    - Сервис {{ websql-name }}
+    - '{{ websql-name }} в {{ yandex-cloud }}'
+    - SQL в {{ yandex-cloud }}
+    - Как подключиться к базе данных {{ yandex-cloud }}
+    - Как подключиться к кластеру {{ yandex-cloud }}
+    - Как подключиться к публичной базе данных
+    - сервис для работы с SQL-командами

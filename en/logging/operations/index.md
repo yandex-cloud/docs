@@ -21,7 +21,7 @@ description: In this article, you will learn how to work with {{ cloud-logging-f
 * [Viewing monitoring charts](./monitoring.md)
 * [{#T}](./delete-group.md)
 
-### Exporting logs {#discharge-logs}
+### Log export {#discharge-logs}
 
 * [{#T}](./create-sink.md)
 * [{#T}](./export-logs.md)

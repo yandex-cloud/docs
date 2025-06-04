@@ -5,11 +5,10 @@ description: Следуя данной инструкции, вы сможете
 
 # Чтение и визуализация метрик в {{ monitoring-name }}
 
-{{ monitoring-full-name }} позволяет работать с данными, собранными {{ managed-prometheus-name }}. По метрикам {{ prometheus-name }} можно строить графики в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** и добавлять их в раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+На основе метрик {{ prometheus-name }} можно построить графики:
 
-Ранее графики по метрикам {{ prometheus-name }} находились в разделе **{{ prometheus-name }}** → <Воркспейс> → **Метрики**.
-
-Настройка алертов по метрикам {{ prometheus-name }} остается в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**. Подробнее см. [{#T}](../alerting-rules.md).
+* В разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** — для быстрого просмотра состояния ресурсов.
+* В разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** — для периодического мониторинга определенных показателей.
 
 
 ## Добавление графиков в {{ monitoring-name }} {#prometheus-metrics}

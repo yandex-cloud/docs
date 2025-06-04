@@ -57,7 +57,7 @@ items:
             href: operations/cluster-users.md
       - name: Хранение и обработка данных
         items:
-          - name: Подключение собственной геобазы
+          - name: Управление собственной геобазой
             href: operations/geobase.md
           - name: Подключение внешних словарей
             href: operations/dictionaries.md

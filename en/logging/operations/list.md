@@ -19,7 +19,7 @@ description: Follow this guide to get a list of log groups.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of log groups in the folder, run the command:
+    To get a list of log groups in the folder, run this command:
 
     ```bash
     yc logging group list
@@ -43,7 +43,7 @@ description: Follow this guide to get a list of log groups.
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
 
-  Run this request:
+  Send this request:
 
   ```bash
   grpcurl \
