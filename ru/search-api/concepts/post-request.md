@@ -7,6 +7,8 @@ description: В данной статье описаны особенности 
 
 Интерфейс API v1 сервиса {{ search-api-name }} позволяет выполнять запросы к поисковой базе Яндекса с заданным набором параметров. Параметры поиска можно передавать в сервис в виде HTTP-запроса методом POST. {{ search-api-name }} формирует ответ в виде документа в [формате XML](./response.md) или в [формате HTML](./html-response.md).
 
+{% include [api-v1](../../_includes/search-api/api-v1.md) %}
+
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
 ## Формат запроса {#post-request-format}

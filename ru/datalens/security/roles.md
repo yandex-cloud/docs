@@ -15,21 +15,21 @@ description: В разделе описано, какие роли необхо�
 
 Чтобы предоставить пользователю доступ к {{ datalens-short-name }}, [назначьте](../../organization/security/index.md#add-role) ему одну из ролей. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md).
 
-{% list tabs %}
+{% list tabs group=datalens_roles %}
 
-- До перехода на воркбуки и коллекции
-
-  {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
-
-  {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
-
-- После перехода на воркбуки и коллекции
+- После перехода на воркбуки и коллекции {#after-workbooks-collections}
 
   {% include [roles-datalens-visitor](../../_includes/roles-datalens-visitor.md) %}
 
   {% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
 
   {% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
+
+- До перехода на воркбуки и коллекции {#before-workbooks-collections}
+
+  {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
+
+  {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
 
 {% endlist %}
 

@@ -1,6 +1,5 @@
 title: Yandex Cloud Logging
 description:
-  - null
   - >-
     Yandex Cloud Logging allows you to read and write service and user
     application logs by grouping messages into log groups.
@@ -15,7 +14,7 @@ links:
     description: Learn more about Cloud Logging concepts
     href: concepts/log-group
   - title: Quotas and limits
-    description: Technical and organizational limitations
+    description: Technical and management-related limitations
     href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations
@@ -29,8 +28,8 @@ links:
 meta:
   title: Cloud Logging
   description: >-
-    This service allows you to read and write logs of services and user
-    applications by grouping messages into log groups.
+    Yandex Cloud Logging allows you to read and write service and user
+    application logs by grouping messages into log groups.
   keywords:
     - logging {{ yandex-cloud }}
     - service logs

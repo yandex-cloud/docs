@@ -1,12 +1,12 @@
-The log time is [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). You can filter records using the [filer expression language](../../logging/concepts/filter.md).
+All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). You can filter records using a [filter expression language](../../logging/concepts/filter.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
+    1. In the [management console]({{ link-console-main }}), select the folder with the log group.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-    1. Click the row with the log group you want to view.
+    1. Click the row with the log group whose records you want to view.
     1. The page that opens will show the log group records.
 
 - CLI {#cli}
@@ -15,25 +15,25 @@ The log time is [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    When viewing the log, you can set a specific interval using the `--since` and `--until` flags. If no time interval is specified, information for the previous hour is displayed.
+    When viewing the log, you can set a specific time interval using the `--since` and `--until` flags. If you do not specify a time interval, the log will show info for the last hour.
 
-    The following flags are used:
+    Below are the flags you can use:
 
     * `--since`: Time N and later (you can skip the `--since` flag and specify the time directly).
     * `--until`: Time N and earlier.
 
-    If you only specify one flag, information is displayed for the hour before or after Time X depending on the flag.
+    If you only specify a single flag, you will see info for one hour before or after time N, depending on the flag.
 
-    Allowed time formats:
+    You can use one of these time formats:
 
     * `HH:MM:SS`, e.g., `15:04:05`.
-    * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt). For example: `2006-01-02T15:04:05Z`, `2h`, `3h30m ago`.
+    * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), e.g., `2006-01-02T15:04:05Z`, `2h`, or `3h30m ago`.
 
-    To access a log group, use its name or unique ID. To find them, [get](../../logging/operations/list.md) a list of log groups in the folder. If you do not specify the name or ID, the output will contain records from the [default log group](../../logging/concepts/log-group.md) in the current folder. You can skip the `--group-name` and `--group-id` flags and specify the group name or ID directly.
+    To access a log group, use its name or unique ID. To find them out, [get](../../logging/operations/list.md) a list of log groups in the folder. If you do not specify the name or ID, the output will contain records from the [default log group](../../logging/concepts/log-group.md) in the current folder. You can skip the `--group-name` and `--group-id` flags and specify the group name or ID directly.
 
-    You can limit the number of output records using the `--limit` flag. Acceptable values are from 1 to 1000.
+    To limit the number of output records, use the `--limit` flag. The values may range from 1 to 1,000.
 
-    To view the records in JSON format, run the command:
+    To view the records in JSON format, run this command:
 
     ```bash
     yc logging read --group-name=default --format=json
@@ -64,7 +64,7 @@ The log time is [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
     yc logging read --group-name=default --follow
     ```
 
-    This command will display records from the most recent hour and will continue to return new records until you terminate it by pressing **Ctrl** + **C**. The `--follow` flag is incompatible with `--since` and `--until`.
+    This command will display records from the last hour and will continue streaming new ones until you stop it with **Ctrl** + **C**. The `--follow` flag cannot be used together with `--since` and `--until`.
 
 - API {#api}
 
@@ -72,7 +72,7 @@ The log time is [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 - SDK {#sdk}
 
-    You can read records in {{ cloud-logging-name }} using the {{ yandex-cloud }} SDK implemented for different languages. Below are examples of using the Python SDK.
+    You can read records in {{ cloud-logging-name }} using the {{ yandex-cloud }} SDK, which is available for various languages. Below are examples of using the Python SDK.
 
     **Locally**
 
@@ -119,9 +119,9 @@ The log time is [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
     {% include [parameters-description](parameters-description.md) %}
 
     Function parameters:
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python38`
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 MB`
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python38`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 MB`.
  
 {% endlist %}

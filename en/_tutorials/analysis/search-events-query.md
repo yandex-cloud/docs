@@ -1,17 +1,17 @@
 # Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
 
 
-{{ at-name }} support is integrated in [{{ yq-full-name }}](../../query/). You can analyze events of {{ yandex-cloud }} resources by executing [analytical](../../query/concepts/batch-processing.md) and [streaming](../../query/concepts/stream-processing.md) {{ yql-short-name }} queries.
+[{{ yq-full-name }}](../../query/) supports {{ at-name }}. You can analyze events of {{ yandex-cloud }} resources by running [analytical](../../query/concepts/batch-processing.md) and [streaming](../../query/concepts/stream-processing.md) {{ yql-short-name }} queries.
 
-You can execute analytical queries for logs stored in a bucket and streaming queries for logs stored in a {{ yds-full-name }} data stream.
+You can run analytical queries for logs stored in a bucket, and streaming queries for logs stored in a {{ yds-full-name }} data stream.
 
 ![](../../_assets/audit-trails/tutorials/audit-trails-query.png)
 
-To connect a bucket with [audit logs](../../audit-trails/concepts/events.md) to {{ yq-full-name }} and execute [{{ yql-short-name }}](../../query/yql-tutorials/index.md) queries:
+To connect a bucket with [audit logs](../../audit-trails/concepts/events.md) to {{ yq-full-name }} and run [{{ yql-short-name }}](../../query/yql-tutorials/index.md) queries:
 
 1. [Set up your environment](#prepare-environment).
 1. [Create a connection between a trail and {{ yq-short-name }}](#trail-yq).
-1. [Execute a query to logs in {{ objstorage-name }}](#perform-request).
+1. [Run a query to logs in {{ objstorage-name }}](#perform-request).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The cost of infrastructure support includes a fee for a bucket (see [Pricing for {{ objstorage-name }}](../../storage/pricing.md)).
+The cost of infrastructure support includes a fee for a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Set up your environment {#prepare-environment}
@@ -58,7 +58,7 @@ Create a service account named `trail-sa`:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `example-folder`.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Specify **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}**: `trail-sa`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -68,7 +68,7 @@ Create a service account named `trail-sa`:
 Similarly, create a service account named `bucket-yq-sa`.
 
 
-### Assign rights to service accounts {#grant-roles}
+### Assign permissions to service accounts {#grant-roles}
 
 Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` service account:
 
@@ -76,7 +76,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
 
 - CLI {#cli}
   
-    1. The `audit-trails.viewer` role for an organization:
+    1. The `audit-trails.viewer` role for your organization:
 
         ```bash
         yc organization-manager organization add-access-binding \
@@ -95,7 +95,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
 
         For more information about the `yc organization-manager organization add-access-binding` command, see the [CLI reference](../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
 
-    1. The `storage.uploader` role for a folder:
+    1. The `storage.uploader` role for the folder:
 
         ```bash
         yc resource-manager folder add-access-binding example-folder \
@@ -151,8 +151,8 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role for `example
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `logsyq`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket you [created](#create-backet) earlier.
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket you [created earlier](#create-backet).
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `trail-sa`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
 
@@ -167,9 +167,9 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role for `example
 {% endlist %}
 
 
-## Create a connection between a trail and {{ yq-short-name }} {#trail-yq}
+## Create a connection between the trail and {{ yq-short-name }} {#trail-yq}
 
-A connection must be created only the first time a trail is connected to {{ yq-short-name }}.
+You need to create a connection only when connecting the trail to {{ yq-short-name }} for the first time.
 
 {% list tabs group=instructions %}
 
@@ -179,8 +179,8 @@ A connection must be created only the first time a trail is connected to {{ yq-s
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Select the `logsyq` trail.
     1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
-    1. Create a connection.
-        * Select **{{ ui-key.yacloud.common.resource-acl.label_service-account }}** `bucket-yq-sa`.
+    1. Create a connection:
+        * Select the `bucket-yq-sa` **{{ ui-key.yacloud.common.resource-acl.label_service-account }}**.
         * Leave other parameters at their defaults.
     1. Click **{{ ui-key.yacloud.common.create }}**.
     1. In the window with data binding options, click **{{ ui-key.yacloud.common.create }}**.
@@ -190,7 +190,7 @@ A connection must be created only the first time a trail is connected to {{ yq-s
 {% endlist %}
 
 
-## Execute a query to logs in {{ objstorage-name }} {#perform-request}
+## Run a query to logs in {{ objstorage-name }} {#perform-request}
 
 Open the page to create an analytical query to {{ at-name }} logs:
 
@@ -198,10 +198,10 @@ Open the page to create an analytical query to {{ at-name }} logs:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder with a trail.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder with your trail.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Select the trail for which a [connection to {{ yq-short-name }}](#trail-yq) is configured.
-    1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}** to go to the analytical query execution page.
+    1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}** to go to the analytical query page.
 
 {% endlist %}
 

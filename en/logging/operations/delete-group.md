@@ -1,13 +1,13 @@
 ---
 title: How to delete a log group in {{ cloud-logging-name }}
-description: In this tutorial, you will learn how to delete a log group in {{ cloud-logging-name }}.
+description: In this guide, you will learn how to delete a log group in {{ cloud-logging-name }}.
 ---
 
 # Deleting a log group
 
 {% note info %}
 
-The name of the [default log group](../concepts/log-group.md) is `default`. The group can be deleted. However, if a service or application writes logs and the folder ID is indicated as the destination, it will be automatically recreated.
+The name of the [default log group](../concepts/log-group.md) is `default`. You can delete it. However, the system will automatically recreate it if a service or application writes logs targeting the folder ID.
 
 {% endnote %}
 
@@ -17,7 +17,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [log group](../concepts/log-group.md).
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-    1. In the line with the log group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+    1. Next to the log group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -26,9 +26,9 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To access a log group, use its name or unique ID. To find them, [get](./list.md) a list of log groups in the folder.
+    To access a log group, use its name or unique ID. To find them out, [get](./list.md) a list of log groups in the folder.
 
-    To delete a log group, run the command:
+    To delete a log group, run this command:
 
     ```
     yc logging group delete --name=group
@@ -53,9 +53,9 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
   To delete a log group created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the log group description fragment.
+  1. Open the {{ TF }} configuration file and delete the section describing the log group.
      
-     {% cut "Example log group description in {{ TF }} configuration" %}
+     {% cut "Example of a log group description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -68,7 +68,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
 
@@ -88,17 +88,17 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors found in the configuration.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```
      yc logging group list
@@ -112,7 +112,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
 
-  Run this request:
+  Send this request:
   
   ```bash
   grpcurl -rpc-header "Authorization: Bearer $(yc iam create-token)" \

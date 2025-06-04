@@ -1,13 +1,13 @@
 | Ресурс        | Цена за 1 месяц,<br>вкл. НДС         |
 |---------------|-------------------------------------:|
 | **Intel Cascade Lake**                               |
-| 50% vCPU      | {% calc [currency=RUB] 0,81*720 %}   | 
-| 100% vCPU     | {% calc [currency=RUB] 1,8144*720 %} | 
-| RAM (за 1 ГБ) | {% calc [currency=RUB] 0,4860*720 %} | 
+| 50% vCPU      | {{ sku|RUB|mdb.kafka.kraft.v2.cpu.c50|month|string }}    | 
+| 100% vCPU     | {{ sku|RUB|mdb.kafka.kraft.v2.cpu.c100|month|string }}   | 
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.kafka.kraft.v2.ram|month|string }} | 
 | **Intel Ice Lake**                                   |
-| 50% vCPU      | {% calc [currency=RUB] 0,7344*720 %} |
-| 100% vCPU     | {% calc [currency=RUB] 1,6308*720 %} |
-| RAM (за 1 ГБ) | {% calc [currency=RUB] 0,4320*720 %} |
+| 50% vCPU      | {{ sku|RUB|mdb.kafka.kraft.v3.cpu.c50|month|string }}  |
+| 100% vCPU     | {{ sku|RUB|mdb.kafka.kraft.v3.cpu.c100|month|string }}  |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.kafka.kraft.v3.ram|month|string }} |
 | **Intel Ice Lake (Compute Optimized)**               |
-| 100% vCPU | {% calc [currency=RUB] 2,6136*720 %}     |
-| RAM (за 1 ГБ) | {% calc [currency=RUB] 0,4968*720 %} |
+| 100% vCPU | {{ sku|RUB|mdb.kafka.kraft.highfreq-v3.cpu.c100|month|string }}      |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.kafka.kraft.highfreq-v3.ram|month|string }} |

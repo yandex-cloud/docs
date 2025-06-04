@@ -1,13 +1,13 @@
 | Resource      | Price for 1 hour,<br>without VAT           | 
 |---------------|-------------------------------------------:|
 | **Intel Cascade Lake**                                     |
-| 50% vCPU      | {% calc [currency=USD] 0,81*0,008333 %}    | 
-| 100% vCPU     | {% calc [currency=USD] 1,8144*0,008333 %}  | 
-| RAM (for 1 GB) | {% calc [currency=USD] 0,4860*0,008333 %} | 
-| **Intel Ice Lake**                                         |
-| 50% vCPU      | {% calc [currency=USD] 0,7344*0,008333 %}  |
-| 100% vCPU     | {% calc [currency=USD] 1,6308*0,008333 %}  |
-| RAM (for 1 GB) | {% calc [currency=USD] 0,4320*0,008333 %} |
-| **Intel Ice Lake (Compute Optimized)**                     |
-| 100% vCPU | {% calc [currency=USD] 2,6136*0,008333 %}      |
-| RAM (for 1 GB) | {% calc [currency=USD] 0,4968*0,008333 %} |
+| 50% vCPU      | {{ sku|USD|mdb.kafka.kraft.v2.cpu.c50|string }}     | 
+| 100% vCPU     | {{ sku|USD|mdb.kafka.kraft.v2.cpu.c100|string }}   | 
+| RAM (for 1 GB) | {{ sku|USD|mdb.kafka.kraft.v2.ram|string }}  | 
+| **Intel Ice Lake**                                  |
+| 50% vCPU      | {{ sku|USD|mdb.kafka.kraft.v3.cpu.c50|string }}  |
+| 100% vCPU     | {{ sku|USD|mdb.kafka.kraft.v3.cpu.c100|string }}  |
+| RAM (for 1 GB) | {{ sku|USD|mdb.kafka.kraft.v3.ram|string }} |
+| **Intel Ice Lake (Compute Optimized)**              |
+| 100% vCPU | {{ sku|USD|mdb.kafka.kraft.highfreq-v3.cpu.c100|string }}      |
+| RAM (for 1 GB) | {{ sku|USD|mdb.kafka.kraft.highfreq-v3.ram|string }} |

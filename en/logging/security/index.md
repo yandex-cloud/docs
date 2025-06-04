@@ -1,23 +1,23 @@
 # Access management in {{ cloud-logging-name }}
 
-{{ cloud-logging-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+{{ cloud-logging-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
 In this section, you will learn:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [What roles exist in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `logging.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `logging.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also assign roles for individual resources of the service:
+You can also assign roles for individual resources within the service:
 
 {% list tabs group=instructions %}
 
@@ -30,15 +30,15 @@ You can also assign roles for individual resources of the service:
 
 - API {#api}
 
-  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+  You can use the [{{ yandex-cloud }} API](../api-ref/authentication.md) to assign roles for the following resources:
 
   {% include notitle [logging-resources](../../_includes/iam/resources-with-access-control/logging.md) %}
 
 {% endlist %}
 
-## Which roles exist in the service {#roles-list}
+## What roles exist in this service {#roles-list}
 
-The list below shows all roles considered when verifying access permissions in {{ cloud-logging-name }}.
+The list below shows {{ cloud-logging-name }} roles.
 
 ### Service roles {#service-roles}
 

@@ -605,6 +605,8 @@ items:
         href: qa/configuration.md
       - name: Перемещение и восстановление кластера
         href: qa/backup.md
+      - name: Высокая доступность и балансировка
+        href: qa/ha.md
       - name: Мониторинг и логи
         href: qa/monitoring.md
       - name: Все вопросы на одной странице

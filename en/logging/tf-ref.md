@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ cloud-logging-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ cloud-logging-name }}.
+description: This page provides information about the {{ TF }} provider’s resources and data sources that {{ cloud-logging-name }} supports.
 ---
 
 # {{ TF }} reference for {{ cloud-logging-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ cloud-logging-name }}:
+{{ cloud-logging-name }} supports the {{ TF }} provider’s following resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -17,7 +17,7 @@ The following {{ TF }} provider resources are supported for {{ cloud-logging-nam
 
 ## Data sources {#data-sources}
 
-{{ cloud-logging-name }} supports the following {{ TF }} provider data sources:
+{{ cloud-logging-name }} supports the {{ TF }} provider’s following data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |

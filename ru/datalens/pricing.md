@@ -12,6 +12,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## Тарифные планы {{ datalens-name }} {#effective-rules}
 
 В сервисе {{ datalens-full-name }} действуют тарифные планы, которые различаются набором предоставляемых услуг:

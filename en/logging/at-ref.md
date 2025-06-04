@@ -7,7 +7,7 @@ description: This page gives a reference for {{ cloud-logging-name }} events tra
 
 {{ at-name }} supports tracking control plane events for {{ cloud-logging-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
 
-The general format of the `event_type` field value is as follows:
+The `event_type` value follows this general format:
 
 ```text
 {{ at-event-prefix }}.audit.logging.<event_name>

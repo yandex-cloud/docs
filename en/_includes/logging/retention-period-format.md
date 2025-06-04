@@ -1,1 +1,1 @@
-The record retention period can only be specified in hours, minutes, or seconds. For example, `1h` or `1440m`.
+You can only set the record retention period in hours, minutes, or seconds, e.g., `1h` or `1440m`.

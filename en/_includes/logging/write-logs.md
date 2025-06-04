@@ -35,19 +35,19 @@
         
     Where:
 
-    * `--group-name`: Name of the log group to add records to. If this parameter is not specified, records are added to the [default log group](../../logging/concepts/log-group.md) in the current folder. You can also specify `--group-id` instead of `--group-name`. 
+    * `--group-name`: Name of the log group where you want to add records. If you leave it unspecified, the system will add records to the [default log group](../../logging/concepts/log-group.md) in the current folder. You can specify `--group-id` instead of `--group-name`. 
     * `--message`: Message.
     * `--level`: Logging level.
     * `--json-payload`: Additional information in JSON format.
 
    {% note info %}
 
-   You can skip the `--group-name`, `--message`, and `--json-payload` flags and specify only the parameter values, keeping the order, e.g., `default "My message" '{"request_id": "1234"}'`.
+   You can skip the `--group-name`, `--message`, and `--json-payload` flags and provide the values, keeping the order, e.g., `default "My message" '{"request_id": "1234"}'`.
 
    {% endnote %}
 
 - API {#api}
 
-  To add records to the log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/LogIngestion/write.md) gRPC API call.
+  To add records to a log group, use the [LogIngestionService/Write](../../logging/api-ref/grpc/LogIngestion/write.md) gRPC API call.
 
 {% endlist %}

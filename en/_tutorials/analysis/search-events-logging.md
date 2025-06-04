@@ -14,13 +14,13 @@ json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolde
 
 ## Who created/stopped/restarted/deleted a VM instance
 
-Searching by VM instance ID:
+Searching by VM ID:
 
 ```json
 json_payload.details.instance_id="<VM_ID>" and (json_payload.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.UpdateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.DeleteInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StartInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StopInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.RestartInstance")
 ```
 
-## What actions did a specific user perform over a period of time
+## What actions a specific user performed over a period of time
 
 Searching by user ID:
 
@@ -50,6 +50,6 @@ json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" a
 
 ## What's next {#whats-next}
 
-Review event examples in the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).
+Check event examples in the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).
 
 {% include [Yc-security-solutions-library](../../_includes/security-solution-library.md) %}

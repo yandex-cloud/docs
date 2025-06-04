@@ -1,6 +1,6 @@
 # Transferring logs from a VM to {{ cloud-logging-full-name }}
 
-The [Fluent Bit](https://fluentbit.io/) log processor allows you to transfer logs from [VM instances](../../compute/concepts/vm.md) to [{{ cloud-logging-full-name }}](../../logging/). To transfer logs, you will use the [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module.
+The [Fluent Bit](https://fluentbit.io/) logging processor allows you to transfer logs from [VM instances](../../compute/concepts/vm.md) to [{{ cloud-logging-full-name }}](../../logging/). To transfer logs, you will use the [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 To set up log transfer:
 
@@ -137,7 +137,7 @@ To set up log transfer:
     sudo apt-get update
     ```
 
-1. Create a virtual environment and install the necessary dependencies:
+1. Create a virtual environment and install the required dependencies:
 
    ```bash
    sudo apt install python3-pip python3.8-venv
@@ -265,7 +265,7 @@ To set up log transfer:
     sudo systemctl start fluent-bit
     ```
 
-1. Check `fluent-bit` status; the service must be active:
+1. Make sure the `fluent-bit` status is active:
 
     ```bash
     systemctl status fluent-bit
@@ -307,7 +307,7 @@ To set up log transfer:
    * `fluent_bit_version`: To check the version, use the `/opt/fluent-bit/bin/fluent-bit --version` command.
    * `golang_version`: Go compiler version. To check the version, use the `go version` command.
 
-1. Exit the Python virtual environment and provide permissions for the plugin directory:
+1. Exit the Python virtual environment and grant permissions for the plugin directory:
 
    ```bash
     deactivate
@@ -361,7 +361,7 @@ To set up log transfer:
 
 
     Where:
-    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) whose [default log group](../../logging/concepts/log-group.md) will get the logs.
+    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) whose [default log group](../../logging/concepts/log-group.md) will receive the logs.
     * `authorization`: Authorization settings. Specify `instance-service-account` to log in as a service account you specified under **{{ ui-key.yacloud.compute.instances.create.section_access }}** when [creating the VM](#before-you-begin).
 
 1. Restart `fluent-bit`:

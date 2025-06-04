@@ -1,6 +1,6 @@
 ---
 title: How to create a log group in {{ cloud-logging-name }}
-description: In this tutorial, you will learn how to create a log group in {{ cloud-logging-name }}.
+description: In this guide, you will learn how to create a log group in {{ cloud-logging-name }}.
 ---
 
 # Creating a log group
@@ -9,16 +9,16 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../concepts/log-group.md).
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [log group](../concepts/log-group.md).
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
-    1. (Optional) Enter a name and description for the log group. Use the following name format:
+    1. Optionally, enter a name and description for the log group. Follow these naming requirements:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
     1. Set the log group record retention period.
 
-    1. (Optional) Select a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) or create a new one to redirect records added to the log group to.
+    1. Optionally, select a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) or create a new one to which the records added to your log group will be redirected.
 
 
     1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
@@ -40,11 +40,11 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
 
     Where:
     * `--name`: Log group name.
-    * `--retention-period`: Retention period for log group records. This is an optional parameter.
+    * `--retention-period`: Retention period for log group records. This is an optional setting.
 
         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-    * `--data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. This is an optional parameter. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
+    * `--data-stream`: [Data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID in {{ yds-full-name }}. This is an optional setting. The specified stream will automatically receive the records added to your log group. A stream ID comprises the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
         >For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
         >* `aws_stream`: Stream name.
@@ -73,19 +73,19 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
-     * `name`: [Log group](../concepts/log-group.md) name. This is an optional parameter. Use the following name format:
+     * `name`: [Log group](../concepts/log-group.md) name. This is an optional setting. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
+     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value defined by the provider.
 
-     * `retention_period`: Retention period for log group records. This is an optional parameter.
+     * `retention_period`: Retention period for log group records. This is an optional setting.
 
          {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      provider "yandex" {
@@ -102,30 +102,30 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
      }
      ```
 
-     For more information about the `yandex_logging_group` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/logging_group).
+     For more information about the `yandex_logging_group` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/logging_group).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors found in the configuration. 
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration has no errors, run this command:
 
         ```
         terraform apply
         ```
 
-     1. When asked to confirm the changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
 
-      {{ TF }} will create your resources in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
         ```
         yc logging group list
@@ -145,14 +145,14 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
   {
      "folder_id": "<folder_ID>",
      "name": "new-group",
-     "description": "Description of a log group created using grpcurl",
+     "description": "Description of a log group created with grpcurl",
      "labels": {
        "compute": "instance-logging"
      }
   }
   ```
 
-  Run this request:
+  Send this request:
 
   ```bash
   grpcurl -rpc-header "Authorization: Bearer $(yc iam create-token)" \
