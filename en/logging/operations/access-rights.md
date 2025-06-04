@@ -1,10 +1,10 @@
-# Managing rights to access log groups
+# Managing log group access permissions
 
-You can see what roles are [assigned](#list) for a log group, [revoke](#revoke) them, or [assign](#add-access) new roles.
+You can view the roles [assigned](#list) for a log group, [revoke](#revoke) them, or [assign](#add-access) new ones.
 
 {% note info %}
 
-The [default log group](../concepts/log-group.md) inherits the [roles assigned for the folder](../../iam/operations/roles/get-assigned-roles.md) that it is located in. To update its access rights, [assign](../../iam/operations/roles/grant.md) or [revoke](../../iam/operations/roles/revoke.md) folder roles.
+The [default log group](../concepts/log-group.md) inherits the [roles assigned for the folder](../../iam/operations/roles/get-assigned-roles.md) it resides in. To update the log group access permissions, [assign](../../iam/operations/roles/grant.md) or [revoke](../../iam/operations/roles/revoke.md) the roles for the folder.
 
 {% endnote %}
 
@@ -15,7 +15,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 - CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
-
+    
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     To view the [roles](../security/index.md) assigned for a [custom log group](../concepts/log-group.md), run this command:
@@ -46,9 +46,9 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - CLI {#cli}
 
-    To assign a [role](../security/index.md) to a custom log group, run this command:
+    Run the following command to assign a [role](../security/index.md) for a custom log group:
 
-    * User:
+    * To a user:
 
         ```
         yc logging group add-access-binding \
@@ -63,7 +63,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
         done (1s)
         ```
 
-    * [Service account](../../iam/concepts/users/service-accounts.md):
+    * To a [service account](../../iam/concepts/users/service-accounts.md):
 
         ```
         yc logging group add-access-binding \
@@ -78,7 +78,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
         done (1s)
         ```
 
-    * All authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
+    * To all authenticated users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
 
         ```
         yc logging group add-access-binding \
@@ -105,9 +105,9 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
 
 - CLI {#cli}
 
-    To revoke a [role](../security/index.md) assigned for a custom log group, run the command:
+    Run this command to revoke a [role](../security/index.md) assigned for a custom log group:
 
-    * User:
+    * From a user:
 
         ```
         yc logging group remove-access-binding \
@@ -115,14 +115,14 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
           --user-account-id <user_ID> \
           --role <role>
         ```
-
+    
         Result:
-
+    
         ```
         done (1s)
         ```
 
-    * [Service account](../../iam/concepts/users/service-accounts.md):
+    * From a [service account](../../iam/concepts/users/service-accounts.md):
 
         ```
         yc logging group remove-access-binding \
@@ -137,7 +137,7 @@ The [default log group](../concepts/log-group.md) inherits the [roles assigned f
         done (1s)
         ```
 
-    * All authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
+    * From all authenticated users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
 
         ```
         yc logging group remove-access-binding \

@@ -1,4 +1,4 @@
-# Interactive debugging of {{ sf-full-name }}
+# Interactive debugging of {{ sf-full-name }} functions
 
 
 In this tutorial, you will set up a system to interactively debug [functions](../../functions/concepts/function.md) in {{ sf-full-name }} by redirecting requests to a local server. For more information about this solution, see the [yc-serverless-live-debug](https://github.com/yandex-cloud/yc-serverless-live-debug) repository.
@@ -6,7 +6,7 @@ In this tutorial, you will set up a system to interactively debug [functions](..
 To set up the interactive function debugging system:
 
 1. [Get your cloud ready](#prepare-cloud).
-1. [Install the required tools](#install-utilities).
+1. [Install the required utilities](#install-utilities).
 1. [Create a cloud administrator service account](#create-account).
 1. [Deploy your resources](#create-resources).
 1. [Run the debugging service](#run-client).
@@ -24,12 +24,12 @@ The infrastructure support costs include:
 * Fee for function invocations and computing resources allocated to run the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of requests to the API gateway (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
-* Fee for log writing and storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
+* Fee for logging operations and log storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
 ## Install the required tools {#install-utilities}
 
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-1. Create a directory named `live-debug-test` and open it:
+1. Create a folder named `live-debug-test` and open it:
 
     ```
     mkdir live-debug-test
@@ -55,7 +55,7 @@ The infrastructure support costs include:
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-live-debug`.
 
-          Follow these naming requirements:
+          The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -102,9 +102,9 @@ The infrastructure support costs include:
 
           Where:
 
-          * `name`: Service account name. This is a required setting.
-          * `description`: Service account description. This is an optional setting.
-          * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value defined by the provider.
+          * `name`: Service account name. This is a required parameter.
+          * `description`: Service account description. This is an optional parameter.
+          * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. It defaults to the value specified in the provider settings.
 
           For more information about `yandex_iam_service_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account).
     
@@ -117,7 +117,7 @@ The infrastructure support costs include:
               terraform plan
               ```
 
-          If you described the configuration correctly, the terminal will display information about the service account. If the configuration contains any errors, Terraform will show them. 
+          If the configuration description is correct, the terminal will display information about the service account. If the configuration contains any errors, Terraform will point them out. 
 
       1. Deploy the cloud resources.
 
@@ -143,7 +143,7 @@ The infrastructure support costs include:
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-live-debug` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select `{{ roles-admin }}`.
+      1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select the `{{ roles-admin }}` role.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
     - CLI {#cli}
@@ -175,9 +175,9 @@ The infrastructure support costs include:
 
           Where:
 
-          * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required setting.
-          * `role`: Role being assigned. This is a required setting.
-          * `member`: User or service account getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+          * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required parameter.
+          * `role`: Role being assigned. This is a required parameter.
+          * `member`: User or service account getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
           For more information about `yandex_resourcemanager_folder_iam_member` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
@@ -190,7 +190,7 @@ The infrastructure support costs include:
                terraform plan
               ```
 
-              If you described the configuration correctly, the terminal will display a list of the new resources and their properties. If the configuration contains any errors, {{ TF }} will show them.
+              If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy the cloud resources.
 
@@ -279,13 +279,13 @@ The infrastructure support costs include:
 
 ## Run the debugging service {#run-client}
 
-1. In the `live-debug-test` directory, create a file named `live-debug.config.ts`:
+1. In the `live-debug-test` folder, create a file named `live-debug.config.ts`:
 
     ```
     nano live-debug.config.ts
     ```
 
-1. Copy the code with the following configuration to `live-debug.config.ts`:
+1. Copy the code with the following configuration to the `live-debug.config.ts` file:
 
     ```
     import { defineConfig } from '@yandex-cloud/serverless-live-debug';

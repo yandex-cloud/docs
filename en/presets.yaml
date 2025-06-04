@@ -1875,6 +1875,30 @@ default:
           c50|number: 0.324
         ram|month|number: 116.64
         ram|number: 0.162
+    kafka:
+      kraft:
+        highfreq-v3:
+          cpu:
+            c100|month|string: ₸9408.96
+            c100|string: ₸13.0680
+          ram|month|string: ₸1788.48
+          ram|string: ₸2.4840
+        v2:
+          cpu:
+            c100|month|string: ₸6531.84
+            c100|string: ₸9.0720
+            c50|month|string: ₸2916.00
+            c50|string: ₸4.05
+          ram|month|string: ₸1749.60
+          ram|string: ₸2.43
+        v3:
+          cpu:
+            c100|month|string: ₸5870.88
+            c100|string: ₸8.1540
+            c50|month|string: ₸2643.84
+            c50|string: ₸3.6720
+          ram|month|string: ₸1555.20
+          ram|string: ₸2.16
     zk:
       clickhouse:
         highfreq-v3:
@@ -3528,6 +3552,30 @@ default:
           c50|number: 0.0648
         ram|month|number: 23.328
         ram|number: 0.0324
+    kafka:
+      kraft:
+        highfreq-v3:
+          cpu:
+            c100|month|string: ₽1881.7920
+            c100|string: ₽2.6136
+          ram|month|string: ₽357.6960
+          ram|string: ₽0.4968
+        v2:
+          cpu:
+            c100|month|string: ₽1306.3680
+            c100|string: ₽1.8144
+            c50|month|string: ₽583.20
+            c50|string: ₽0.81
+          ram|month|string: ₽349.92
+          ram|string: ₽0.4860
+        v3:
+          cpu:
+            c100|month|string: ₽1174.1760
+            c100|string: ₽1.6308
+            c50|month|string: ₽528.7680
+            c50|string: ₽0.7344
+          ram|month|string: ₽311.04
+          ram|string: ₽0.4320
     zk:
       clickhouse:
         highfreq-v3:
@@ -5166,6 +5214,30 @@ default:
           c50|number: 0.00054
         ram|month|number: 0.1944
         ram|number: 0.00027
+    kafka:
+      kraft:
+        highfreq-v3:
+          cpu:
+            c100|month|string: $15.681594
+            c100|string: $0.021780
+          ram|month|string: $2.980799
+          ram|string: $0.004140
+        v2:
+          cpu:
+            c100|month|string: $10.886396
+            c100|string: $0.015120
+            c50|month|string: $4.859998
+            c50|string: $0.006750
+          ram|month|string: $2.915999
+          ram|string: $0.004050
+        v3:
+          cpu:
+            c100|month|string: $9.784796
+            c100|string: $0.013590
+            c50|month|string: $4.406399
+            c50|string: $0.006120
+          ram|month|string: $2.591999
+          ram|string: $0.003600
     zk:
       clickhouse:
         highfreq-v3:
@@ -10645,6 +10717,9 @@ default:
                         array_item_label: Path
                         title: Included paths list
                       title: Endpoint parameters
+                      YdbSourceAdvancedSettings:
+                        sharded_snapshot:
+                          title: Parallel copy settings
                     YdbTarget:
                       cleanup_policy:
                         title: Cleanup policy

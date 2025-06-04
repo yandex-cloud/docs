@@ -9,7 +9,7 @@
 
 1. To search through multiple files, use the `find` command. As a command-line argument, enter the path to the mount directory of the audit log bucket or to its subdirectory with logs for a certain month or day.
 
-    Example command to search events by type:
+    Example of a command to search events by type:
 
     ```bash
     find <folder_path> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ at-event-prefix }}.audit.iam.CreateServiceAccount")'
@@ -21,19 +21,19 @@
     find <folder_path> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<folder_ID>") | .authentication'
     ```
 
-1. To find out who created, stopped, restarted, or deleted a VM, search by the `eventType` field across all files for the period, filtered by VM instance ID:
+1. To find out who created, stopped, restarted, or deleted a VM, search by the `eventType` field across all files for the period, filtered by VM ID:
 
     ```bash
     find <folder_path> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<VM_ID>") | .authentication'
     ```
 
-1. To find out what actions a user performed over a period of time, search by the subject ID:
+1. To find out what actions a user performed over a period of time, search by the user ID:
 
     ```bash
     find <folder_path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_id == "<user_ID>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
     ```
 
-    You can also search by the subject name:
+    You can also search by the user name:
 
     ```bash
     find <folder_path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_name == "<username>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
@@ -54,6 +54,6 @@
 #### See also {#see-also}
 
 * [Audit log](../../audit-trails/concepts/format.md)
-* [Jq documentation](https://stedolan.github.io/jq/tutorial)
+* [jq documentation](https://stedolan.github.io/jq/tutorial)
 * [s3fs](../../storage/tools/s3fs.md)
 * [goofys](../../storage/tools/goofys.md)

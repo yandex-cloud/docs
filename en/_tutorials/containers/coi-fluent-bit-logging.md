@@ -1,12 +1,12 @@
 # Transferring logs from {{ coi }} to {{ cloud-logging-full-name }}
 
-The [Fluent Bit](https://fluentbit.io/) log processor allows you to transfer logs from [VM instances](../../compute/concepts/vm.md) created from {{ coi }} images to [{{ cloud-logging-full-name }}](../../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
+The [Fluent Bit](https://fluentbit.io/) logging processor allows you to transfer logs from [VM instances](../../compute/concepts/vm.md) created from a {{ coi }} to [{{ cloud-logging-full-name }}](../../logging/). To transfer logs, you will use the [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
-To configure log transfer from a VM instance created from the {{ coi }} image:
+To configure log transfer from a VM instance created from a {{ coi }}:
 1. [Create a log-generating application](#generate-logs).
 1. [Create a Docker image and push it to the registry](#create-docker).
 1. [Configure Fluent Bit](#fluent-bit).
-1. [Create a VM from the {{ coi }}](#create-vm).
+1. [Create a VM from a {{ coi }}](#create-vm).
 
 ## Getting started {#before-you-begin}
 
@@ -69,34 +69,34 @@ def fake_url():
 if __name__ == '__main__':
   while True:
     req_id = uuid.uuid4()
-    # Create a pair: code and URL value.
+    # Create a pair consisting of a code and a URL value.
     path, code = fake_url()
     extra = {"code": code, "req_id": req_id}
-    # If the code is 200, write to the log with the Info level.
+    # If the code is 200, write to the `Info` level log.
     if code == 200:
       logger.info(
         'Path: %s',
         path,
         extra=extra,
       )
-    # Otherwise, with the Error level.
+    # Otherwise, write to the `Error` level log.
     else:
       logger.error(
         'Error: %s',
         path,
         extra=extra,
       )
-    # To have multiple messages with the same request ID, in 30% of cases, write the second entry to the log with the Debug level.
+    # To have multiple messages with the same request ID, in 30% of cases, write the second entry to the `Debug` level log.
     if random.random() > 0.7:
       logger.debug("some additional debug log record %f", random.random(), extra=extra)
 
-    # Wait for 1 second to avoid log cluttering.
+    # To avoid log cluttering, wait for 1 second.
     time.sleep(1)
 ```
 
 ## Create a Docker image and push it to the registry {#create-docker}
 
-1. Create a file named Dockerfile and add the lines below:
+1. Create a Dockerfile and add the following lines to it:
 
     ```dockerfile
     FROM python:3.10
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     CMD [ "python", "./logs.py" ]
     ```
 
-    Dockerfile describes a [Docker image](../../container-registry/concepts/docker-image.md) that contains an application generating logs.
+    The Dockerfile describes a [Docker image](../../container-registry/concepts/docker-image.md) that contains an application generating logs.
 1. Build the Docker image:
 
     ```bash
@@ -116,7 +116,7 @@ if __name__ == '__main__':
       -t {{ registry }}/<registry_ID>/coi:logs
     ```
 
-1. [Log in](../../container-registry/operations/authentication.md) to the [registry](../../container-registry/concepts/registry.md) and upload a Docker image into it:
+1. [Log in](../../container-registry/operations/authentication.md) to the [registry](../../container-registry/concepts/registry.md) and upload the Docker image to it:
 
     ```bash
     docker push {{ registry }}/<registry_ID>/coi:logs
@@ -128,9 +128,9 @@ if __name__ == '__main__':
 
    Specify the following in the field:
    * `image`: Docker image URL. To find it out, in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.cr.image.section_overview }}** page and copy the value of the **{{ ui-key.yacloud.cr.image.label_tag }}** field.
-   * `YC_GROUP_ID`: ID of the [default log group](../../logging/concepts/log-group.md) `default`.
+   * `YC_GROUP_ID`: ID of the `default` [log group](../../logging/concepts/log-group.md).
 
-   In the `fluentbit` section, the `image` field shows the image of a container with the Fluent Bit agent, current at the time of this documentation. For a list of all available images, follow the [link](https://github.com/yandex-cloud/fluent-bit-plugin-yandex/releases).
+   In the `fluentbit` section, the `image` field shows the current image of a container with the Fluent Bit agent. For a list of all available images, follow [this link](https://github.com/yandex-cloud/fluent-bit-plugin-yandex/releases).
 
    ```yaml
    version: '3.7'
@@ -142,7 +142,7 @@ if __name__ == '__main__':
        depends_on:
          - fluentbit
        logging:
-         # Fluent Bit understands logs in this format.
+         # Fluent Bit parses logs in this format.
          driver: fluentd
          options:
            # Fluent Bit listens to logs on port 24224.
@@ -164,7 +164,7 @@ if __name__ == '__main__':
          - /etc/fluentbit/parsers.conf:/fluent-bit/etc/parsers.conf
    ```
 
-1. Create a file named `user-data.yaml`. It describes the container log reading rules. If required, change the username and SSH key in the `users` section. Learn more about how to generate SSH keys [here](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+1. Create a file named `user-data.yaml`. It describes the container log reading rules. If required, change the username and SSH key in the `users` section. [Learn more about generating SSH keys](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
    
    ```yaml
@@ -219,23 +219,23 @@ if __name__ == '__main__':
    ```
 
 
-   The `SERVICE` section displays Fluent Bit settings. [Learn more about the settings](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).
+   The `SERVICE` section displays the Fluent Bit settings. [Learn more about the settings](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).
 
    The `INPUT` section displays where and how to retrieve logs. To work with Fluentd and Fluent Bit logs, the `forward` protocol is used. Fluent Bit listens to logs on port 24224.
 
-   The `PARSER` section describes the `regex` parser. It sets a regular expression that processes entries:
+   The `PARSER` section describes the `regex` parser. It sets a regular expression that processes records:
    * `req_id`: Unique request ID
    * `severity`: Logging level
    * `code`: HTTP response code
    * `text`: All remaining text
 
-   The `FILTER` section shows that only entries tagged `app.logs` are searched for. The `log` field of each entry is processed by the `regex` parser, all other fields are saved in `Reserve_Data On`.
+   The `FILTER` section shows that only records tagged `app.logs` are searched for. The `log` field of each record is parsed by `regex`, all other fields are saved in `Reserve_Data On`.
 
-## Create a VM from the {{ coi }} {#create-vm}
+## Create a VM from a {{ coi }} {#create-vm}
 
 Specify the following in the field:
-* `--zone`: Select an [availability zone](../../overview/concepts/geo-scope.md), such as `{{ region-id }}-a`.
-* `--subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) in the indicated zone.
+* `--zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`.
+* `--subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) in this zone.
 * `--service-account-name`: [Service account](../../iam/concepts/users/service-accounts.md) name.
 
 ```bash

@@ -27,3 +27,15 @@ meta:
   description: >-
     Пошаговые инструкции для комфортного старта и исследования возможностей
     Yandex Cloud.
+  keywords:
+    - Начало работы в {{ yandex-cloud }}
+    - Как начать работать в {{ yandex-cloud }}
+    - Как зарегистрироваться в {{ yandex-cloud }}
+    - '{{ yandex-cloud }} для физических лиц'
+    - '{{ yandex-cloud }} для юридических лиц'
+    - Условия для получения гранта в {{ yandex-cloud }}
+    - Гранты в {{ yandex-cloud }}
+    - Пробный период в {{ yandex-cloud }}
+    - Попробовать {{ yandex-cloud }}
+    - Регистрация в {{ yandex-cloud }}
+    - Оплата в {{ yandex-cloud }}

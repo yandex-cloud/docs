@@ -9,13 +9,13 @@ To visualize logs:
 1. [Create a service account](#create-account).
 1. [Create an authorized key for the service account](#create-key).
 1. [Create a log group](#create-group).
-1. [Add records to a log group](#add-records).
+1. [Add records to the log group](#add-records).
 1. [Connect a data source in {{ grafana-name }}](#connect-plugin).
 1. [View the logs in {{ grafana-name }}](#see-logs).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -34,7 +34,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
    {% note info %}
 
-   If using macOS, after you unpack the plugin archive manually run the `/opt/homebrew/var/lib/grafana/plugins/yandexcloud-logging-datasource/yc-logs-plugin_darwin_arm64` file and [allow launching third party applications](https://support.apple.com/en-us/HT202491#openanyway) in the system settings.
+   In macOS, after you unpack the plugin archive manually run the `/opt/homebrew/var/lib/grafana/plugins/yandexcloud-logging-datasource/yc-logs-plugin_darwin_arm64` file and [allow launching third-party applications](https://support.apple.com/en-us/HT202491#openanyway) in the system settings.
 
    {% endnote %}
 
@@ -104,9 +104,9 @@ The cost of resources includes a fee for logging operations and log storage in a
      name: grafana-plugin
      ```
 
-     Save the ID of the `grafana-plugin` service account (`id`) and the ID of the folder where it was created (`folder_id`).
+     Save the ID of the `grafana-plugin` service account (`id`) and the ID of the folder where you created it (`folder_id`).
 
-  1. Assign the service account the `logging.reader` role for the folder:
+  1. Assign the `logging.reader` role for the folder to the service account:
 
      ```bash
      yc resource-manager folder add-access-binding <folder_ID> \
@@ -144,23 +144,23 @@ The cost of resources includes a fee for logging operations and log storage in a
      Where:
 
      * `name`: Service account name. This is a required parameter.
-     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
-     * `role`: Role you want to assign.
+     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. It defaults to the value specified in the provider settings.
+     * `role`: Role being assigned.
 
-     For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
+     For more information about `yandex_iam_service_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-     If the configuration is specified correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
   1. If the configuration does not contain any errors, run this command:
 
@@ -170,7 +170,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
   1. Confirm creating the service account: type `yes` in the terminal and press **Enter**.
 
-     The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     This will create the service account. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc iam service-account list
@@ -180,7 +180,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the `logging.reader` role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+  To assign the `logging.reader` role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -227,7 +227,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      * `service_account_id`: Service account [ID](../../iam/operations/sa/get-id.md). This is a required parameter.
      * `description`: Key description. This is an optional parameter.
@@ -243,20 +243,20 @@ The cost of resources includes a fee for logging operations and log storage in a
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -266,7 +266,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) and this CLI command:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) and this CLI command:
 
         ```bash
         yc iam key list --service-account-id <service_account_ID>
@@ -276,7 +276,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
   To create an access key, use the [create](../../iam/api-ref/Key/create.md) REST API method for the [Key](../../iam/api-ref/Key/index.md) resource or the [KeyService/Create](../../iam/api-ref/grpc/Key/create.md) gRPC API call.
 
-  Example of request using cURL for the `create` REST API method:
+  Example of a request using cURL for the `create` REST API method:
 
   ```bash
   curl --request POST \
@@ -289,11 +289,11 @@ The cost of resources includes a fee for logging operations and log storage in a
   Where:
 
   * `<IAM_token>`: IAM token of the user with permissions to create keys for the specified service account.
-  * `<service_account_id>`: ID of the service account for which the keys are created.
+  * `<service_account_id>`: ID of the service account for which the keys are being created.
 
-  If successful, the server response will contain the private key (`privateKey`) and public key ID (`id`). Save this data. You will not be able to get the key value again.
+  If successful, the server response will contain the private key (`privateKey`) and public key ID (`id`). Save this data. You will not be able to get the secret key again.
 
-  Sample server response:
+  Example of a server response:
 
   ```json
   {
@@ -317,7 +317,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you created the `grafana-plugin` service account.
+  1. In the [management console]({{ link-console-main }}), go to the folder where you created the `grafana-plugin` service account.
   1. Select **{{ cloud-logging-name }}**.
   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
   1. Enter `grafana-plugin` as the log group name.
@@ -337,7 +337,7 @@ The cost of resources includes a fee for logging operations and log storage in a
   Where:
 
   * `--name`: Log group name.
-  * `--retention-period`: Log group record retention period.
+  * `--retention-period`: Retention period for log group records.
 
   Result:
 
@@ -375,22 +375,22 @@ The cost of resources includes a fee for logging operations and log storage in a
 
      * `name`: Log group name.
      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-     * `retention_period`: Log group record retention period.
+     * `retention_period`: Retention period for log group records.
 
-     For more information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/logging_group).
+     For more information about `yandex_logging_group` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/logging_group).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
   1. If the configuration does not contain any errors, run this command:
 
@@ -400,7 +400,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
   1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc logging group list
@@ -478,7 +478,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 1. In the left-hand panel, select **Connections** → **Add new connection**.
 1. In the list of sources, select **{{ cloud-logging-full-name }}**.
 1. Click **Add new data source**.
-1. Under **Secret config**, in the **API Key** field, paste the contents of the [authorized_key.json](#create-key) file with the `authorized keys`.
+1. Under **Secret config**, in the **API Key** field, paste the contents of the `authorized_key.json` file with the [authorized keys](#create-key).
 1. Under **SDK config**, in the **Folder ID** field, specify the ID of the folder with the `grafana-plugin` log group.
 1. Click **Save & test**.
 

@@ -26,6 +26,10 @@ description: На странице представлены вопросы и о
 
 {% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/backup.md) %}
 
+### Высокая доступность и балансировка {#toc-ha}
+
+{% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/ha.md) %}
+
 ### Мониторинг и логи {#toc-monitoring}
 
 {% include [monitoring-minitoc](../../_qa/managed-postgresql/minitoc/monitoring.md) %}
@@ -49,6 +53,10 @@ description: На странице представлены вопросы и о
 ## Перемещение и восстановление кластера {#backup}
 
 {% include [backup](../../_qa/managed-postgresql/backup.md) %}
+
+## Высокая доступность и балансировка {#ha}
+
+{% include [backup](../../_qa/managed-postgresql/ha.md) %}
 
 ## Мониторинг и логи {#monitoring}
 

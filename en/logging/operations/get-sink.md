@@ -1,19 +1,19 @@
 ---
 title: Getting information about a {{ cloud-logging-full-name }} sink
-description: Follow this guide to get information about a sink.
+description: Follow this guide to get information about a log sink.
 ---
 
-# Getting information about a sink
+# Getting information about a log sink
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder the sink is in.
+  1. In the [management console]({{ link-console-main }}), go to the folder with the log sink.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-arrow-down.svg) **{{ ui-key.yacloud.logging.label_sinks }}**.
-  1. Select a sink.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will show the sink details.
+  1. Select the log sink.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the log sink details.
 
 - CLI {#cli}
 
@@ -23,7 +23,7 @@ description: Follow this guide to get information about a sink.
 
   To find out the ID or name of a log sink, [get](list-sink.md) a list of sinks in the folder.
 
-  To get information about a sink, run this command:
+  To get information about a log sink, run this command:
 
   ```bash
   yc logging sink get <sink_name>
@@ -44,6 +44,6 @@ description: Follow this guide to get information about a sink.
 
 - API {#api}
 
-  To get detailed information about a sink, use the [get](../api-ref/Sink/get.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/Get](../api-ref/grpc/Sink/get.md) gRPC API call.
+  To get log sink details, use the [get](../api-ref/Sink/get.md) REST API method for the [Sink](../api-ref/Sink/index.md) resource or the [SinkService/Get](../api-ref/grpc/Sink/get.md) gRPC API call.
 
 {% endlist %}

@@ -1,8 +1,8 @@
-# Configuring logging for an {{ alb-full-name }} L7 load balancer using an Ingress controller
+# Configuring an L7 {{ alb-full-name }} logging via an Ingress controller
 
-You can configure the logging settings for [L7 balancers](../../application-load-balancer/concepts/application-load-balancer.md) created with {{ alb-name }} [Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) within a {{ managed-k8s-name }} cluster.
+You can configure the logging settings for [L7 load balancers](../../application-load-balancer/concepts/application-load-balancer.md) created with {{ alb-name }} [Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) within a {{ managed-k8s-name }} cluster.
 
-This article explains how to create three L7 balancers with different logging settings:
+This article explains how to create three L7 load balancers with different logging settings:
 
 * Save logs to the [default group](../../logging/concepts/log-group.md).
 * Save logs to a custom group.
@@ -74,7 +74,7 @@ The support cost includes:
     1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Use these settings:
 
         * Specify the previously created service account for resources as well as security groups.
-        * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP address to the cluster.
+        * For {{ yandex-cloud }} internal network usage, your cluster does not need a public IP address. To allow connections from outside the network, assign a public IP address to the cluster.
 
     1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
 
@@ -348,7 +348,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
 
     Where:
 
-    * `ingress.alb.yc.io/group-name`: Group name. Ingress resources are grouped so that a separate {{ alb-name }} load balancer serves each group.
+    * `ingress.alb.yc.io/group-name`: Group name. Ingress resources are grouped so that a separate L7 {{ alb-name }} serves each group.
     * `ingress.alb.yc.io/subnets`: One or more [subnets](../../vpc/concepts/network.md#subnet) to host the load balancer.
     * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used.
     * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [IP address you got earlier](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
@@ -372,7 +372,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
     * `ingress.alb.yc.io/internal-alb-subnet`: Subnet to host the load balancer. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
     * `ingress.alb.yc.io/protocol`: Connection protocol used between the load balancer and backends:
 
-        * `http`: HTTP/1.1. Default value.
+        * `http`: HTTP/1.1. This is a default value.
         * `http2`: HTTP/2.
         * `grpc`: gRPC.
 

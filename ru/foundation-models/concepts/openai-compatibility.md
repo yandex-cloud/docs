@@ -63,7 +63,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
     )
 
     response = client.chat.completions.create(
-        model="gpt://{YANDEX_CLOUD_FOLDER}/yandexgpt/latest",
+        model=f"gpt://{YANDEX_CLOUD_FOLDER}/yandexgpt/latest",
         messages=[
             {"role": "system", "content": "Ты очень умный ассистент."},
             {"role": "user", "content": "Что умеют большие языковые модели?"}

@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Fee for logging operations and log storage in a log group (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
-## Prepare the infrastructure {#infrastructure-prepare}
+## Set up your infrastructure {#infrastructure-prepare}
 
 ### Create a service account {#sa-create}
 
@@ -34,7 +34,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a public [Ubuntu 24.04](/marketplace/products/yc/ubuntu-24-04-lts) image.
    
-   Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the `sa-logger` service account.
+   Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify `sa-logger`.
    
 1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
@@ -53,7 +53,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    sudo dpkg -i yandex-unified-agent_24.09.03_amd64.deb
    ```
    
-   Other installation methods are described in [{#T}](../../monitoring/concepts/data-collection/unified-agent/installation.md). 
+   You can find other installation methods in [{#T}](../../monitoring/concepts/data-collection/unified-agent/installation.md). 
 
 1. Check that {{ unified-agent-short-name }} is running:
 
@@ -67,7 +67,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    sudo nano /etc/yandex/unified_agent/config.yml
    ```
 
-1. Add configuration to the file to receive and send logs:
+1. Add the following configuration to the file to receive and send logs:
 
    ```yaml
    status:
@@ -92,7 +92,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Where `folder_id` is the ID of the folder you want to write logs to.
 
-1. Make sure the configuration file is correct (the command should output the contents of the file):
+1. Make sure the configuration file is correct. The command should output the contents of the file:
 
    ```bash
    unified_agent check-config -c /etc/yandex/unified_agent/config.yml
@@ -164,11 +164,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
       generate_and_send_logs()
    ```
 
-   Where `unified_agent_url` is the VM's public IP address with {{ unified-agent-short-name }}.
+   Where `unified_agent_url` is the public IP address of the VM with {{ unified-agent-short-name }}.
 
    By default, {{ unified-agent-short-name }} accepts data on all interfaces. Therefore, you can specify a public IP address even if the log source is on the same VM. If there is no public address, put `localhost`.
 
-1. Upgrade the versions of installed packages:
+1. Upgrade the versions of the installed packages:
 
     ```bash
     sudo apt-get update

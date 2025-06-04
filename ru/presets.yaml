@@ -1883,6 +1883,30 @@ default:
           c50|number: 0.324
         ram|month|number: 116.64
         ram|number: 0.162
+    kafka:
+      kraft:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "9\_408,96\_₸"
+            c100|string: "13,0680\_₸"
+          ram|month|string: "1\_788,48\_₸"
+          ram|string: "2,4840\_₸"
+        v2:
+          cpu:
+            c100|month|string: "6\_531,84\_₸"
+            c100|string: "9,0720\_₸"
+            c50|month|string: "2\_916,00\_₸"
+            c50|string: "4,05\_₸"
+          ram|month|string: "1\_749,60\_₸"
+          ram|string: "2,43\_₸"
+        v3:
+          cpu:
+            c100|month|string: "5\_870,88\_₸"
+            c100|string: "8,1540\_₸"
+            c50|month|string: "2\_643,84\_₸"
+            c50|string: "3,6720\_₸"
+          ram|month|string: "1\_555,20\_₸"
+          ram|string: "2,16\_₸"
     zk:
       clickhouse:
         highfreq-v3:
@@ -3536,6 +3560,30 @@ default:
           c50|number: 0.0648
         ram|month|number: 23.328
         ram|number: 0.0324
+    kafka:
+      kraft:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "1\_881,7920\_₽"
+            c100|string: "2,6136\_₽"
+          ram|month|string: "357,6960\_₽"
+          ram|string: "0,4968\_₽"
+        v2:
+          cpu:
+            c100|month|string: "1\_306,3680\_₽"
+            c100|string: "1,8144\_₽"
+            c50|month|string: "583,20\_₽"
+            c50|string: "0,81\_₽"
+          ram|month|string: "349,92\_₽"
+          ram|string: "0,4860\_₽"
+        v3:
+          cpu:
+            c100|month|string: "1\_174,1760\_₽"
+            c100|string: "1,6308\_₽"
+            c50|month|string: "528,7680\_₽"
+            c50|string: "0,7344\_₽"
+          ram|month|string: "311,04\_₽"
+          ram|string: "0,4320\_₽"
     zk:
       clickhouse:
         highfreq-v3:
@@ -5174,6 +5222,30 @@ default:
           c50|number: 0.00054
         ram|month|number: 0.1944
         ram|number: 0.00027
+    kafka:
+      kraft:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "15,681594\_$"
+            c100|string: "0,021780\_$"
+          ram|month|string: "2,980799\_$"
+          ram|string: "0,004140\_$"
+        v2:
+          cpu:
+            c100|month|string: "10,886396\_$"
+            c100|string: "0,015120\_$"
+            c50|month|string: "4,859998\_$"
+            c50|string: "0,006750\_$"
+          ram|month|string: "2,915999\_$"
+          ram|string: "0,004050\_$"
+        v3:
+          cpu:
+            c100|month|string: "9,784796\_$"
+            c100|string: "0,013590\_$"
+            c50|month|string: "4,406399\_$"
+            c50|string: "0,006120\_$"
+          ram|month|string: "2,591999\_$"
+          ram|string: "0,003600\_$"
     zk:
       clickhouse:
         highfreq-v3:
@@ -10659,6 +10731,9 @@ default:
                         array_item_label: Путь
                         title: Список включенных путей
                       title: Параметры эндпоинта
+                      YdbSourceAdvancedSettings:
+                        sharded_snapshot:
+                          title: Настройки параллельного копирования
                     YdbTarget:
                       cleanup_policy:
                         title: Политика очистки

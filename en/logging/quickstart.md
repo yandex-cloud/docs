@@ -1,6 +1,6 @@
 # Getting started with {{ cloud-logging-name }}
 
-In this tutorial, you'll add records to a [log group](./concepts/log-group.md) and then view them.
+In this guide, you will add records to a [log group](./concepts/log-group.md) and then view them.
 
 ## Getting started {#before-you-begin}
 
