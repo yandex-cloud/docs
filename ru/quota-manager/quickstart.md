@@ -184,7 +184,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `<resourceId>` — идентификатор ресурса: облака, организации или платежного аккаунта.
-      * `<resourceType>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+      * `<resourceType>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`.
       * `<serviceName>` — имя сервиса.
       * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
         
