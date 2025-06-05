@@ -22,6 +22,16 @@ items:
             href: operations/connect.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
+      - name: Каталоги
+        items:
+          - name: Получение списка каталогов в кластере
+            href: operations/catalog-list.md
+          - name: Создание каталога
+            href: operations/catalog-create.md
+          - name: Изменение каталога
+            href: operations/catalog-update.md
+          - name: Удаление каталога
+            href: operations/catalog-delete.md
       - name: Логи и мониторинг
         items:
           - name: Мониторинг состояния кластера

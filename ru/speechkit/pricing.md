@@ -142,7 +142,7 @@ editable: false
 
 {% note info %}
 
-Цены на {{ brand-voice-lite-name }} начнут действовать с 5 июня 2025 года.
+Цены на хостинг моделей {{ brand-voice-lite-name }} начнут действовать с 2 июля 2025 года.
 
 {% endnote %}
 

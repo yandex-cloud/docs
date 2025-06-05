@@ -196,7 +196,7 @@ For cost details, contact [technical support]({{ link-console-support }}).
 
 
 
-### Computing resources of {{ kraft-name }} {#prices-kraft}
+### Computing resources of {{ kraft-name }} hosts {#prices-kraft}
 
 #### Standard hosts {#prices-kraft-standard}
 

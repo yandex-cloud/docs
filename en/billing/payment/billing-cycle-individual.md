@@ -5,8 +5,6 @@ description: The article shows the cycle of debiting from the bank cards of indi
 
 # Billing cycle for individuals
 
-{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
-
 The diagram below presents the payment cycle for bank cards held by individuals and the cycle of suspending and blocking access to resources.
 
 ![image](../../_assets/billing/billing-cycle-individual.svg)

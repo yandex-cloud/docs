@@ -83,15 +83,9 @@ Dictionary tags are based on scanning dialogs for specified key phrases. You can
 To fine-tune key phrase detection:
 
 * Enable the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** setting. In this case, related phrases will not be considered in key phrase detection.
-* Set the distance between words. This setting determines the maximum allowable distance between words in a key phrase.
+* Set the distance between words. This setting determines the maximum allowable distance between words in a key phrase. Here is an example:
 
-  > For example, a tag is assigned the _poor service_ key phrase. The search for this phrase will be performed differently depending on the **{{ ui-key.yc-ui-talkanalytics.tags.words-between-key-value }}** field value:
-  >
-  > | Example in a dialog | Distance: `0` | Distance: `1` | Distance: `2` |
-  > | ----------- | ----------- | ----------- | ----------- |
-  > | _poor service_ | found | found | found |
-  > | _poor customer service_ | not found | found | found |
-  > | _poor and slow service_ | not found | not found | found |
+  > {% include [tag-distance-ex.md](../../_includes/speechsense/tag/tag-distance-ex.md) %}
 
 In the dialog text, you can see the list of tags assigned for the agent and customer [channels](#dictionary-tags-channel). If you click a tag, the words it refers to will be highlighted with the tag's color.
 

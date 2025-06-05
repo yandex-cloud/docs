@@ -4,7 +4,7 @@
 
         Along with the listed keywords, you can also specify [dictionaries](../../../speechsense/concepts/dictionaries.md). They contain a set of trigger phrases prepared in advance. If you specify multiple dictionaries, their contents will be added together as if by the "OR" logical operator. Tags will thus be assigned to dialogs containing phrases from the list in the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field and from the specified dictionaries. To use dictionaries, click ![icon](../../../_assets/console-icons/book-open.svg) **{{ ui-key.yc-ui-talkanalytics.dictionaries.add-dictionary }}** and select the dictionaries you need from the drop-down list.
 
-    * (Optional) Select the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** option.
+    * Optionally, select **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}**.
 
         When searching through a dialog, {{ speechsense-name }} finds both the key phrase and related words. For example, if you put _refuse_ in the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, {{ speechsense-name }} will also be looking for _refused_, _refuser_, etc. If you want to tag only records with exact matches, enable the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** option.
 
@@ -12,13 +12,7 @@
 
         {% cut "Example" %}
 
-        A tag is assigned the _poor service_ key phrase. The search for this phrase will be performed differently depending on the **{{ ui-key.yc-ui-talkanalytics.tags.words-between-key-value }}** field value:
-
-        | Example in a dialog | Distance: `0` | Distance: `1` | Distance: `2` |
-        | ----------- | ----------- | ----------- | ----------- |
-        | _poor service_ | found | found | found |
-        | _poor customer service_ | not found | found | found |
-        | _poor and slow service_ | not found | not found | found |
+        {% include [tag-distance-ex.md](tag-distance-ex.md) %}
 
         {% endcut %}
 
@@ -36,7 +30,7 @@
 
         Along with the listed phrases, you can also specify dictionaries. Tags will not be assigned to dialogs that contain phrases from the list and from the specified dictionaries. To use dictionaries, click ![icon](../../../_assets/console-icons/book-open.svg) **{{ ui-key.yc-ui-talkanalytics.dictionaries.add-dictionary }}** and select the dictionaries you need from the drop-down list.
 
-    * (Optional) Select the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** option.
+    * Optionally, select **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}**.
 
         When searching through a dialog, {{ speechsense-name }} finds both the key phrase and related words. For example, if you type _refuse_ in the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, {{ speechsense-name }} will not tag dialogs with the words _refused_, _refuser_, etc. If you want to ignore only specific phrases, enable the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** option.
 

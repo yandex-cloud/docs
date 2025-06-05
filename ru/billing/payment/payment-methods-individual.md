@@ -5,8 +5,6 @@ description: В этой статье вы узнаете, как физичес
 
 # Оплата банковской картой для физических лиц
 
-{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
-
 Физические лица могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью [банковской карты](#debit-card), привязанной к платежному аккаунту.
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
