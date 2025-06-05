@@ -68,10 +68,10 @@ VRouter also enables [security groups](../../vpc/concepts/security-groups.md) fo
 
 ### VRouter-agent {#vrouter-agent}
 
-The VRouter-agent is an auxiliary component used for traffic processing. It works together with VRouter and programs the network flows table on the server. This table defines traffic forwarding rules for a specific IP prefix. The VRouter agent enables the following protocols and functions on the server for VMs:
+The VRouter agent is an auxiliary component used for traffic processing. It works together with VRouter and programs the network flows table on the server. This table defines traffic forwarding rules for a specific IP prefix. The VRouter agent enables the following protocols and functions on the server for VMs:
 
 * [VM metadata service](../../compute/concepts/vm-metadata.md) accessible only inside a VM via the `169.254.169.254` IP address.
-* DNS service to processes DNS traffic on the cloud subnet's second IP address (`x.x.x.2`).
+* DNS service processes DNS traffic on the cloud subnet's second IP address (`x.x.x.2`).
 * ICMP.
 
 ### CloudGate {#cloudgate}
@@ -141,3 +141,11 @@ Traffic from `VM-A1` to the internet via the NAT gateway will be routed as follo
 * [Yandex Cloud network infrastructure overview (2019)](https://habr.com/ru/companies/yandex/articles/437816/)
 * [Yandex Cloud's Virtual Private Cloud overview (2020)](https://habr.com/ru/companies/yandex/articles/487694/)
 
+
+
+## Use cases {#examples}
+
+* [{#T}](../../vpc/tutorials/web-service.md)
+* [{#T}](../../vpc/tutorials/nat-instance/index.md)
+* [{#T}](../../vpc/tutorials/dhcp-options.md)
+* [{#T}](../../vpc/tutorials/cic-with-ngfw.md)

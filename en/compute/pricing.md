@@ -7,6 +7,20 @@ editable: false
 
 # {{ compute-name }} pricing policy
 
+{% note warning %}
+
+Starting June 13, 2025, new _reduced_ prices will apply to using GPUs and GPU clusters for **AMD EPYC™ 9474F with Gen2**. The new prices are as follows:
+
+
+
+* 1 GPU on a regular VM: $6.209835 per hour, without VAT.
+* 1 GPU on a preemptible VM: $6.209835 per hour, without VAT.
+* High-speed GPU cluster for regular VMs: $2.757973 per cluster VM, per hour, without VAT.
+* High-speed GPU cluster for preemptible VMs: $2.757973 per cluster VM, per hour, without VAT.
+
+
+{% endnote %}
+
 
 {% note warning %}
 

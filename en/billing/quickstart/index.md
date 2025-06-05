@@ -16,15 +16,13 @@ Within a single user account, all payers must contract with the same legal entit
 
 New customers who are legal entities are eligible for a trial period. The [trial period](../concepts/trial-period.md) allows you to discover the features of the cloud infrastructure for free with some limitations. To fully use the resources, you need to switch to the paid version after your trial period ends.
 
-{% include [individual-nonresident](../../_includes/billing/individual-nonresidents.md) %}
-
 {% list tabs group=customers %}
 
 - Individuals {#individuals}
 
    {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
-- Legal entities, individual entrepreneurs, or non-residents of Russia and Kazakhstan {#businesses-entrepreneurs}
+- Legal entities and individual entrepreneurs {#businesses-entrepreneurs}
 
    {% include [start-for-legal-entities](../../_includes/billing/billing-account-create-legal-entities.md) %}
 

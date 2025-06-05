@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать новый платежный аккаунт
 
-{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
-
 Участник любого облака может создать один или несколько [платежных аккаунтов](../concepts/billing-account.md).
 
 {% list tabs group=customers %}
@@ -15,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
-- Юридические лица, ИП или нерезидент Российской Федерации и Республики Казахстан {#businesses-entrepreneurs}
+- Юридические лица и ИП {#businesses-entrepreneurs}
 
    {% include [start-for-legal-entities](../../_includes/billing/billing-account-create-legal-entities.md) %}
 

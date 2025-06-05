@@ -33,7 +33,7 @@ Billing accounts are used to identify users paying for {{ yandex-cloud }} resour
 
 To activate a billing account, we ask you to link a bank card to make sure you are a human, not a robot. As soon as you link a card, a small amount will be debited from it and promptly returned. That is how we verify that your card is real. 
 
-Payment for {{ yandex-cloud }} services and resources can be debited from your bank card only after you explicitly allow us to do it, that is, after you switch to paid use.
+Payments for {{ yandex-cloud }} services and resources can be debited from your bank card only after you explicitly allow us to do it, that is, after you switch to paid use.
 
 #### What happens after the trial period ends? Will you start debiting money right away?
 
@@ -49,11 +49,7 @@ No, you cannot switch back to the trial version, but the grant will not be lost.
 
 #### I have not used up the initial grant, but my cloud is blocked. What should I do?
 
-The cloud may be blocked for a few reasons: 
-
-1. Make sure that a valid card is linked to your account. If you linked the card and then deleted it, your account may get blocked.
-
-1. The initial grant is provisionally divided into two parts that can be used at the same time. One part covers payments for Compute, and the other — the rest of the {{ yandex-cloud }} services. If either of the parts runs out, you can continue using the cloud by switching to paid use. The unspent part of the grant will be preserved. For more information about using the initial grant and switching to the paid period, see [{#T}](../getting-started/free-trial/concepts/upgrade-to-paid.md).
+Make sure that a valid card is linked to your account. If you link a card and then delete it, your account may get blocked.
 
 #### I was unable to use up the initial grant within 60 days. Can I still use {{ yandex-cloud }}? 
 
@@ -83,7 +79,7 @@ To get an invoice for a bank payment, follow the steps described in [{#T}](../bi
 
 {{ yandex-cloud }} does not provide paper payment documents.
 
-## Getting started with services {#what-is-next}
+## Getting started with {#what-is-next} services
 
 Start exploring {{ yandex-cloud }} services.
 

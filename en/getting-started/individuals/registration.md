@@ -5,8 +5,6 @@ description: In this tutorial, you will learn how to create a billing account fo
 
 # Getting started for individuals
 
-{% include [individual-nonresident](../../_includes/billing/individual-nonresidents.md) %}
-
 {% include notitle [start](../_includes/quickstart-start.md) %}
 
 ## Creating a billing account {#new-account}

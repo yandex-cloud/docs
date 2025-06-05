@@ -16,15 +16,13 @@ keywords:
 
 Для новых клиентов, являющихся юридическими лицами, доступен пробный период. [Пробный период](../concepts/trial-period.md) позволяет бесплатно исследовать возможности облачной инфраструктуры с некоторыми ограничениями. Чтобы продолжить пользоваться ресурсами в полном объеме, после завершения пробного периода необходимо перейти на платную версию.
 
-{% include [individual-nonresident](../../_includes/billing/individual-nonresidents.md) %}
-
 {% list tabs group=customers %}
 
 - Физические лица {#individuals}
 
    {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
-- Юридические лица, ИП или нерезидент Российской Федерации и Республики Казахстан {#businesses-entrepreneurs}
+- Юридические лица и ИП {#businesses-entrepreneurs}
 
    {% include [start-for-legal-entities](../../_includes/billing/billing-account-create-legal-entities.md) %}
 

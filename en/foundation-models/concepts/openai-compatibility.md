@@ -6,7 +6,7 @@ Use the [{{ ml-sdk-full-name }}](../sdk/index.md) API and library to access all 
 
 ## Configuring {{ openai }} to work with {{ foundation-models-name }} {#before-begin}
 
-To use the {{ foundation-models-name }} text generation models in {{ openai }} libraries, change the basic endpoint and specify the [API key](./yandexgpt/models.md):
+To use the {{ foundation-models-name }} [text generation models](./yandexgpt/models.md) in {{ openai }} libraries, change the basic endpoint and specify the [API key](../operations/get-api-key.md):
 
 {% list tabs group=programming_language %}
 
@@ -56,8 +56,8 @@ Before sending the query, in the model URI, specify the [ID of the folder](../..
   response = client.chat.completions.create(
       model="gpt://<folder_ID>/yandexgpt/latest",
       messages=[
-          {"role": "assistant", "content": "You are a very smart assistant."},
-          {"role": "user", "content": "How much does a query to {{ gpt-pro }} cost?"}
+          {"role": "system", "content": "You are a very smart assistant."},
+          {"role": "user", "content": "What can large language models do?"}
       ],
       max_tokens=2000,
       temperature=0.3,
@@ -80,8 +80,8 @@ Before sending the query, in the model URI, specify the [ID of the folder](../..
 
   async function main() {
     const completion = await openai.chat.completions.create({
-      messages: [{"role": "assistant", "content": "You are a very smart assistant."},
-        {"role": "user", "content": "How much does a query to {{ gpt-pro }} cost?"}],
+      messages: [{"role": "system", "content": "You are a very smart assistant."},
+        {"role": "user", "content": "What can large language models do?"}],
       model: "gpt://<folder_ID>/yandexgpt/latest",
     });
 
@@ -105,7 +105,7 @@ Before sending the query, in the model URI, specify the [ID of the folder](../..
         },
         {
           "role": "user",
-          "content": "How much does a query to {{ gpt-pro }} cost?"
+          "content": "What can large language models do?"
         }
       ]
     }'

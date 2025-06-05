@@ -132,7 +132,7 @@ The cost of an empty request to any type of speech recognition is equal to that 
 
 {% note info %}
 
-The prices for {{ brand-voice-lite-name }} will be effective starting June 5, 2025.
+The prices for hosting {{ brand-voice-lite-name }} models will be effective starting July 2, 2025.
 
 {% endnote %}
 
