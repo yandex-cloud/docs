@@ -22,8 +22,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Физическим лицам {#individuals}
 
-{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
-
 Чтобы пополнить лицевой счет:
 
 {% list tabs group=instructions %}

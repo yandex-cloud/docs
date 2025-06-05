@@ -9582,6 +9582,7 @@ default:
         title_object-lock: Блокировка версии объекта
       trino:
         catalogs:
+          create_action: Создать каталог
           field_catalog-name: Имя каталога
           field_catalog-type: Тип коннектора
         overview:

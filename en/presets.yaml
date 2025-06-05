@@ -9568,6 +9568,7 @@ default:
         title_object-lock: Object version lock
       trino:
         catalogs:
+          create_action: Create catalog
           field_catalog-name: Catalog name
           field_catalog-type: Connector type
         overview:

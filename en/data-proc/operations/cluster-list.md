@@ -8,7 +8,7 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
 - Management console {#console}
 
-    Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 
 - CLI {#cli}
 
@@ -34,7 +34,7 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the cluster name.
 
 - CLI {#cli}
@@ -49,19 +49,19 @@ You can get detailed information about each {{ dataproc-name }} cluster.
     {{ yc-dp }} cluster get <cluster_name_or_ID>
     ```
 
-    You can get the cluster ID and name with a [list of clusters in the folder](#list).
+    You can get the cluster ID and name with the [list of clusters in the folder](#list).
 
 - API {#api}
 
     Use the [get](../api-ref/Cluster/get.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
-    You can get the cluster ID with a [list of clusters in the folder](#list).
+    You can get the cluster ID with the [list of clusters in the folder](#list).
 
 {% endlist %}
 
 ## Viewing operations with clusters {#operations}
 
-All actions with {{ dataproc-name }} clusters are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ dataproc-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -75,7 +75,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
   1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** panel for the selected cluster.
 
      You will see a list of operations with the selected cluster.
@@ -102,9 +102,9 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
-  You can get the cluster ID and name with a [list of clusters in the folder](#list).
+  You can get the cluster ID and name with the [list of clusters in the folder](#list).
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc dataproc cluster list-operations epdplu8jn7sr******** --format yaml
@@ -131,15 +131,15 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
   Use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) gRPC API call and provide the cluster ID in the request.
 
-  You can get the cluster ID with a [list of clusters in the folder](#list).
+  You can get the cluster ID with the [list of clusters in the folder](#list).
 
 {% endlist %}
 
-### Getting detailed information about an operation {#get-operations-info}
+### Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for a cluster.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
    {% list tabs group=instructions %}
 

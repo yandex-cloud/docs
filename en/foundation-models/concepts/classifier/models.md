@@ -14,7 +14,6 @@ If an out-of-the-box model is not enough, you can [fine-tune](../../operations/t
 | Prompt-based classifier built on {{ gpt-lite }} | `cls://<folder_ID>/yandexgpt-lite/latest` | Synchronous |
 | Prompt-based classifier built on {{ gpt-pro }} | `cls://<folder_ID>/yandexgpt/latest` | Synchronous |
 | Fine-tuned classifier | `cls://<basic_model_URI>/<version>@<tuning_suffix>` | Synchronous |
-| Classifier model fine-tuned in {{ ml-platform-name }} | `cls://<folder_ID>/<fine-tuned_model_ID>` | Synchronous |
 
 ## Accessing models {#addressing-models}
 

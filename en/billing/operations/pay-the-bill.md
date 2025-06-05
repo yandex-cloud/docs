@@ -21,8 +21,6 @@ A billing cycle runs automatically for [individuals](../payment/billing-cycle-in
 
 ## Individuals {#individuals}
 
-{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
-
 To top up your personal account:
 
 {% list tabs group=instructions %}

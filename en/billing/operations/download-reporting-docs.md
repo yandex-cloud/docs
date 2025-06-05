@@ -104,7 +104,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    ## Viewing your expense history {#expense-history}
 
-   Individuals who are residents of Russia and Kazakhstan can view their spending history by month in {{ billing-name }}.
+   Individuals can view their spending history by month in {{ billing-name }}.
 
    To view your expense history:
 

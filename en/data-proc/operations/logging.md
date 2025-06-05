@@ -12,7 +12,7 @@ For more information, see [Logs](../concepts/logs.md).
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Click the cluster name.
     1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_configuration }}**, click the name of the cluster log group. The {{ cloud-logging-name }} page will open.
     1. Click the row of the log group. This will open the cluster logs.
@@ -27,7 +27,7 @@ For more information, see [Logs](../concepts/logs.md).
            * Getting the stdout output for all YARN application containers:
 
              ```ini
-             application_id="<YARN_application_ID>" AND yarn_log_type="stdout"
+             application_id="<YARN_app_ID>" AND yarn_log_type="stdout"
              ```
 
            * Getting YARN container's stderr output:
@@ -50,7 +50,7 @@ For more information, see [Logs](../concepts/logs.md).
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  View a description of the CLI command to get logs:
+  See the description of the CLI command to get logs:
 
     ```bash
     yc logging read --help
@@ -87,7 +87,7 @@ For more information, see [Logs](../concepts/logs.md).
          --until 'YYYY-MM-DDThh:mm:ssZ'
       ```
 
-      Set the logging period in the `--since` and `--until` parameters. Time format: `YYYY-MM-DDThh:mm:ssZ`. Example: `2020-08-10T12:00:00Z`. The time zone must be specified in UTC format.
+      Set the logging period in the `--since` and `--until` parameters. Time format: `YYYY-MM-DDThh:mm:ssZ`. Example: `2020-08-10T12:00:00Z`. Use the UTC time zone.
 
     * To get a log for metrics sent from a specific host to [{{ monitoring-full-name }}](../../monitoring/index.yaml), run this command:
 
@@ -102,15 +102,15 @@ For more information, see [Logs](../concepts/logs.md).
 
    {% note info %}
 
-   You can omit the `--group-id` flag and specify the log group ID directly.
+   You can omit the `--group-id` parameter and specify the log group ID directly.
 
    {% endnote %}
 
       To get the host FQDN:
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
       1. Click the cluster name.
-      1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Copy the host FQDN.
 
 {% endlist %}
@@ -122,7 +122,7 @@ For more information, see [Logs](../concepts/logs.md).
 - Management console {#console}
 
     When [creating](cluster-create.md) or [updating a cluster](cluster-update.md), add the `dataproc:disable_cloud_logging` property set to `true`.
-
+    
 - CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -130,7 +130,7 @@ For more information, see [Logs](../concepts/logs.md).
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     When [creating](cluster-create.md) or [updating](cluster-update.md) a cluster, specify `dataproc:disable_cloud_logging=true` in the `--property` parameter or provide an empty string (`""`) instead of the log group ID in the `--log-group-id` parameter:
-
+    
     ```bash
     {{ yc-dp }} cluster create <cluster_name> \
        ... \

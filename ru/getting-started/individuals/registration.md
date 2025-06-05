@@ -5,8 +5,6 @@ description: 'Из статьи вы узнаете, как создать пл�
 
 # Начало работы для физических лиц
 
-{% include [individual-nonresident](../../_includes/billing/individual-nonresidents.md) %}
-
 {% include notitle [start](../_includes/quickstart-start.md) %}
 
 ## Создание платежного аккаунта {#new-account}

@@ -3,7 +3,7 @@
 
 #### Can I become a {{ yandex-cloud }} customer if I am a non-resident of Russia and Kazakhstan? {#non-resident}
 
-Yes, but only if your legal status is a business.
+Yes, you can.
 
 #### Will you provide an agreement for the provision and payment of services? {#contract}
 
@@ -11,7 +11,7 @@ Yes, but only if your legal status is a business.
 
 #### What payment methods can I use? {#payment-types}
 
-Businesses that are non-residents of Russia and Kazakhstan can top up their accounts and pay for resources using a [wire transfer](../../billing/payment/payment-methods-business.md).
+Non-residents of Russia and Kazakhstan can top up their accounts and pay for resources using a [bank card](../../billing/payment/payment-methods-individual.md) or [wire transfer](../../billing/payment/payment-methods-business.md).
 
 #### In what currency can non-residents of Russia and Kazakhstan pay for {{ yandex-cloud }} services? {#currency}
 
