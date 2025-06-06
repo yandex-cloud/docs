@@ -11,7 +11,7 @@ editable: false
 The applicable {{ sd-name }} pricing depends on the module you are using:
 
 * [Cloud Infrastructure Entitlement Management ({{ ciem-name }}) module](concepts/ciem.md) is free of charge.
-* [Data Security Posture Management ({{ dspm-name }}) module](concepts/dspm.md) sends requests to files in {{ objstorage-full-name }} buckets when [scanning data](operations/dspm/create-scan.md). Such requests are charged as per the [{{ objstorage-name }} pricing policy](../storage/pricing.md). There is no additional charge for using this module.
+* For [Data Security Posture Management ({{ dspm-name }}) module](concepts/dspm.md), see [{{ dspm-name }}](#dspm-rules) below.
 * For [{{ atr-name }}](concepts/access-transparency.md), see [{{ atr-name }}](#atr-rules) below.
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
@@ -24,12 +24,26 @@ The price is calculated in the beginning of the calendar month and does not chan
 
 When {{ atr-name }} is used from the second day of the calendar month or later, only the remaining time until the end of the month is charged, on an hourly basis.
 
+If you cancel your {{ atr-name }} subscription in the [management console]({{ link-console-main }}), payment for it will stop being charged starting from the first day of the next calendar month.
+
+### Data Security Posture Management ({{ dspm-name }}) {#dspm-rules}
+
+When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sends requests to files in {{ objstorage-full-name }} buckets. Such requests are charged as per the [{{ objstorage-name }} pricing policy](../storage/pricing.md). Using {{ dspm-name }} is charged separately.
+
 ## Prices for the Russia region {#prices}
 
 ### {{ atr-name }} {#atr-pricing}
 
 
 
-
 {% include notitle [usd.md](../_pricing/security-deck/access-transparency/usd.md) %}
+
+
+### Data Security Posture Management ({{ dspm-name }}) {#dspm-pricing}
+
+#### Data scan (by size) {#scan-by-volume}
+
+
+
+{% include notitle [usd.md](../_pricing/security-deck/dspm/usd.md) %}
 

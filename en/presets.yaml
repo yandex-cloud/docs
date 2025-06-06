@@ -250,7 +250,7 @@ default:
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.29, 1.30, 1.31, 1.32
-  k8s-versions-regular: 1.29, 1.30, 1.31
+  k8s-versions-regular: 1.29, 1.30, 1.31, 1.32
   k8s-versions-stable: 1.29, 1.30, 1.31
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
@@ -6162,8 +6162,6 @@ default:
           service-accounts: Service accounts
           title: Configuring access bindings
           user-accounts: User accounts
-      cloud-center:
-        action_more: More
       cloud:
         button_delete: Delete
         button_save: Save
@@ -9273,6 +9271,8 @@ default:
         label_run-workflow: Execute
         label_service: Workflows
         label_service-account: Service account
+        label_stop-workflow: Stop
+        label_terminate-workflow: Terminate
         label_timeline: Timeline
         label_workflow-executions: Executions
         label_workflows: Workflows

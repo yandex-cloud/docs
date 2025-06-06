@@ -1,6 +1,6 @@
 ---
 title: Billing cycle for individuals
-description: The article shows the cycle of debiting from the bank cards of individuals, as well as suspending and blocking the use of resources.
+description: This article describes the payment cycle for bank cards held by individuals and the procedures of suspending and blocking access to resources.
 ---
 
 # Billing cycle for individuals
@@ -49,7 +49,7 @@ The diagram below presents the payment cycle for bank cards held by individuals 
 1. Payment of the entire outstanding amount is checked throughout the 60-day suspension period:
 
     11.1. If you pay off the amount due during this time, access to resources is restored within 24 hours. The billing account status will be changed to [ACTIVE](../concepts/billing-account-statuses.md). Go back to step 2.
-    <br/>11.2. Otherwise, access to {{ yandex-cloud }} services may be permanently blocked. All your data in the [billing account](../concepts/billing-account.md) will be permanently deleted.
+    <br/>11.2. Otherwise, access to {{ yandex-cloud }} services may be permanently blocked. All your data in the [billing account](../concepts/billing-account.md) may be permanently deleted.
 
    {% include [blocked-note](../_includes/blocked-note.md) %}
 

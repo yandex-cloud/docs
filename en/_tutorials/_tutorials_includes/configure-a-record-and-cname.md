@@ -10,7 +10,7 @@ The tutorial below describes configuring DNS for the `example.com` domain name.
    1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** section of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you need to create a [DNS zone](../../dns/concepts/dns-zone.md).
    1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
    1. Specify the DNS zone settings:
-      * **{{ ui-key.yacloud.dns.label_zone }}**: `example.com.`. You can provide you registered domain instead.
+      * **{{ ui-key.yacloud.dns.label_zone }}**: `example.com.`. Or specify your registered domain.
       * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
       * **{{ ui-key.yacloud.common.name }}**: `example-zone-1`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -30,18 +30,18 @@ Create DNS records in the public zone:
       * Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** section of the folder containing the `example.com` DNS zone.
       * Select the `example.com` DNS zone from the list.
       * Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
-      * Set the record parameters:
+      * Specify the record settings:
          * **{{ ui-key.yacloud.common.name }}**: Leave empty.
-         * **{{ ui-key.yacloud.common.type }}**: Keep `А` as the value.
+         * **{{ ui-key.yacloud.common.type }}**: Leave set to `A`.
          * **{{ ui-key.yacloud.dns.label_records }}**: Enter your VM's public address.
          * **{{ ui-key.yacloud.dns.label_form-ttl }}** (record time to live): Keep the default value.
       * Click **{{ ui-key.yacloud.common.create }}**.
    1. Create a [CNAME](../../dns/concepts/resource-record.md#cname) record:
       * Select the `example.com` DNS zone from the list.
       * Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
-      * Set the record parameters:
+      * Specify the record settings:
          * **{{ ui-key.yacloud.common.name }}**: `www`.
-         * **{{ ui-key.yacloud.common.type }}**: Keep `CNAME` as the value.
+         * **{{ ui-key.yacloud.common.type }}**: Select `CNAME`.
          * **{{ ui-key.yacloud.dns.label_records }}**: Enter `example.com`.
          * **{{ ui-key.yacloud.dns.label_form-ttl }}** (record time to live): Keep the default value.
       * Click **{{ ui-key.yacloud.common.create }}**.
@@ -50,11 +50,11 @@ Create DNS records in the public zone:
 
 ### Delegate the domain name {#delegate-domain}
 
-Delegation is the transfer of authority from the registrar's servers to yours. For a domain, [NS](../../dns/concepts/resource-record.md#ns) resource records are created (`ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`).
+Delegation is the transfer of authority from the registrar's servers to yours. For a domain, [NS](../../dns/concepts/resource-record.md#ns) resource records (`ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`) are created.
 
 To delegate a domain, specify its DNS servers in the registrar's account.
 
-Delegation does not take effect immediately. It usually takes up to 24 hours (86,400 seconds) for internet service providers to update records. This depends on the TTL value which specifies how long domain records are cached.
+Delegation does not take effect immediately. Internet provider servers normally update records within 24 hours (86,400 seconds). This depends on the TTL value which specifies how long domain records are cached.
 
 You can check domain delegation using [Whois](https://www.reg.com/whois/check_site) or the `dig` utility:
 

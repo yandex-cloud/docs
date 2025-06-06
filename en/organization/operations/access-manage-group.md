@@ -22,19 +22,19 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) as the organization administrator or owner.
 
-  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
+  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the line with the [group](../../organization/concepts/groups.md) name.
   
-  1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
 
   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-acl }}**.
   
   1. Select the user or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. You may want to use the search feature.
   
-  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles to assign to the group.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles that you need to assign to the group.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -48,7 +48,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
    To assign multiple roles for a user group:
 
-   1. Make sure the resource has no roles assigned that you would not want to lose:
+   1. Make sure the resource has no important roles assigned before proceeding:
 
       ```bash
       yc organization-manager group list-access-bindings \
@@ -102,14 +102,14 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
            --access-binding role=<role>,subject=group:<group_ID>
          ```
 
-      Provide a separate `--access-binding` flag for each role, e.g.:
+      Provide a separate `--access-binding` parameter for each role, e.g.:
 
       ```bash
       yc organization-manager group set-access-bindings \
         --id <group_ID> \
-        --access-binding role=<role_1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role_2>,service-account-id=<service_account_ID>
+        --access-binding role=<role1>,service-account-id=<service_account_ID> \
+        --access-binding role=<role2>,service-account-id=<service_account_ID> \
+        --access-binding role=<role3>,service-account-id=<service_account_ID>
       ```
 
 - API {#api}

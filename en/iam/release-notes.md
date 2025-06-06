@@ -9,6 +9,13 @@ description: This section contains {{ iam-name }} release notes.
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
 
+## Q1 2025 {#q1-2025}
+
+* [Added](./concepts/authorization/api-key.md#scoped-api-keys) new scopes for API keys and the ability to assign more than one scope per service. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+* [Workload identity federations](./concepts/workload-identity.md) are now [available](../overview/concepts/launch-stages.md) to all users. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+* [Added](../iam/concepts/authorization/id-token.md) creating an ID token for service account, a special short-lived token for authentication in third-party systems. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+
+
 ## Q4 2024 {#q4-2024}
 
 * [Added](../iam/at-ref.md#data-plane-events) sending the `CreateIamToken` data event when creating an IAM token.

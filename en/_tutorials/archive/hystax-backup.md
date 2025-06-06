@@ -93,7 +93,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
-      1. Enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket as per the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
@@ -121,7 +121,7 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -245,7 +245,7 @@ VMs get a public dynamic IP address when created. Since a VM with Hystax Acura B
       ```
 
       The `false` value of the `RESERVED` parameter means the IP address with the `e2l46k8conff********` `ID` is dynamic.
-  1. Convert this address to static by using the `--reserved=true` key and IP address `ID`:
+  1. Convert the address to static by using the `--reserved=true` parameter and the IP address `ID`:
 
       ```bash
       yc vpc address update --reserved=true <IP_address_ID>
@@ -335,7 +335,7 @@ To install an agent on the VMs you need to back up:
 
    - VMware {#vmware}
 
-     1. From the drop-down list, select an instance group to set up agents for, such as `Default`.
+     1. From the drop-down list, select an instance group to prepare agents for, e.g., `Default`.
      1. Select **New VMware vSphere** and fill out these fields:
         * **Platform Name**.
         * **Endpoint**: Public IP address of the ESXi host where the replication agent will be deployed.
@@ -349,14 +349,14 @@ To install an agent on the VMs you need to back up:
 
    - Windows {#windows}
 
-     1. From the drop-down list, select an instance group to set up agents for, such as `Default`.
+     1. From the drop-down list, select an instance group to prepare agents for, e.g., `Default`.
      1. Click **Next**.
      1. Click **Download Agent** and wait until the download is complete.
      1. Unpack the archive and install the agent from the `hwragent.msi` file on the VMs you need to back up.
 
    - Linux {#linux}
 
-     1. From the drop-down list, select an instance group to set up agents for, such as `Default`.
+     1. From the drop-down list, select an instance group to prepare agents for, e.g., `Default`.
      1. Select Linux distribution:
         * **CentOS/RHEL (.rpm package)**: CentOS or Red Hat-based.
         * **Debian/Ubuntu (.deb package)**.
@@ -376,7 +376,7 @@ After the agent is installed on the VMs under protection, they will appear in th
 
 To enable VM protection:
 1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
-1. Under **Machines Groups**, deploy an instance group, such as `Default`.
+1. Under **Machines Groups**, deploy an instance group, e.g., `Default`.
 1. In the VM list on the right, click ![image](../../_assets/console-icons/ellipsis.svg).
 1. In the** Edit replication settings** menu, set up a replication schedule for the instance group by hour, day, or week, or select continuous protection. Under **Volume type**, specify the drive type for VM recovery: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`. 
 1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax tutorials](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
@@ -437,7 +437,7 @@ Make sure you specified a valid IP address for each VM.
 
 ## Run recovery {#run-recover}
 
-To recover a VM from a backup, Hystax Acura Backup will create a new VM with a Hystax Acura Cloud Agent in your cloud. This VM will perform all operations in the cloud.
+To recover a VM from a backup, Hystax Acura Backup will create a new VM with Hystax Acura Cloud Agent in your cloud. This VM will perform all operations in the cloud.
 
 To recover a VM from a backup:
 1. Open the Hystax Acura Backup control panel. Click the Hystax logo.

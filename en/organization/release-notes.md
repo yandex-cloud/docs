@@ -9,9 +9,14 @@ description: This section contains {{ org-name }} release notes.
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
 
+## Q1 2025 {#q1-2025}
+
+* [Updated](../organization/operations/hide-user-info.md) user visibility management in [organizations](concepts/organization.md). {{ tag-con }}
+
+
 ## Q4 2024 {#q4-2024}
 
-* [Added](../organization/operations/hide-user-info.md) user visibility management in [organization](../billing/concepts/organization.md). {{ tag-con }}
+* [Added](../organization/operations/hide-user-info.md) user visibility management in [organization](concepts/organization.md). {{ tag-con }}
 * [{{ oslogin }}](../organization/concepts/os-login.md) package building script is now available on VMs running Ubuntu 24.04.
 * [Added](../iam/roles-reference.md#organization-manager-passportUserAdmin) the `organization-manager.passportUserAdmin` role to manage organization [users](../organization/concepts/membership.md) with [Yandex accounts](https://yandex.ru/id/about).
 * In [{{ at-full-name }}](../audit-trails/), [added](../audit-trails/concepts/events.md#organization) events for federated user group management: `CreateGroupMapping`, `DeleteGroupMapping`, and `UpdateGroupMapping`.

@@ -5,7 +5,7 @@
 || Количество бюджетов в одном [платежном аккаунте](../../billing/concepts/billing-account.md) 
 `billing.budgets.count` | 20 ||
 || Количество облаков, [привязанных к одному платежному аккаунту](../../billing/operations/pin-cloud.md) 
-`billing.cloudBindings.count`| 500 ||
+`billing.cloudBindings.count`| 5 ||
 || Количество [экземпляров {{ datalens-name }}](../../datalens/concepts/), привязанных к одному платежному аккаунту 
 `billing.datalensBindings.count` | 5 ||
 || Количество [сообществ {{ ml-platform-short-name }}](../../datasphere/concepts/community.md), привязанных к одному платежному аккаунту 

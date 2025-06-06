@@ -68,11 +68,11 @@ The connection list only shows those connections for which the user has access p
      * `Set access bindings`: Connection user roles assigned.
      * `Update access bindings`: Connection user roles updated.
 
-     You can also view technical operations:
+     You can also view the technical operations:
 
      * `Bump version`: Secret version for MDB connections updated.
      * `Update references`: Connection references updated.
-     * `Update version references`: Connection version references updated while creating or deleting an MDB cluster backup.
+     * `Update version references`: Updated the connection version references used when creating or deleting an MDB cluster backup.
      * `Delete version`: Connection version deleted after removing the most recent MDB cluster backup.
 
 {% endlist %}

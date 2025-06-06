@@ -10,6 +10,6 @@ editable: false
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+{% include [increase-quotas.md](../../_includes/increase-quotas-billing.md) %}
 
 {% include [data-processing-limits.md](../../_includes/billing/billing-limits.md) %}
