@@ -17,10 +17,10 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
     1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
-    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
     1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
-    1. Select a user from the list or search by user.
+    1. Select a user from the list or use the user search option.
     1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
     1. Choose the role.
     1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -122,16 +122,16 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     1. Make sure the configuration files are correct.
 
-       1. In the command line, go to the folder where you created the configuration file.
+       1. In the command line, navigate to the directory where you created the configuration file.
        1. Run a check using this command:
 
           ```
           terraform plan
           ```
 
-       If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
-    1. Deploy cloud resources.
+    1. Deploy the cloud resources.
 
        1. If the configuration does not contain any errors, run this command:
 
@@ -141,7 +141,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
        1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-       All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+       This will create all the resources you need in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
        ```
        yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
@@ -234,11 +234,11 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     {% note alert %}
 
-    The `set-access-binding` method completely rewrites access permissions for the resource! All current roles for the resource will be deleted.
+    The `set-access-binding` command completely rewrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
     {% endnote %}
 
-    1. Make sure the resource has no roles assigned that you would not want to lose:
+    1. Make sure the resource has no important roles assigned before proceeding:
     
         ```bash
         yc iam service-account list-access-bindings my-robot
@@ -312,9 +312,9 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
@@ -361,7 +361,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     {% note alert %}
 
-    The `setAccessBindings` method completely rewrites access permissions for the resource. All current roles for the resource will be deleted.
+    The `setAccessBindings` method completely rewrites access permissions for the resource. All roles previously assigned for this resource will be deleted.
 
     {% endnote %}
 
@@ -385,7 +385,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 ### Set up impersonation {#impersonation}
 
-[Impersonation](../../concepts/access-control/index.md#impersonation) enables a user perform actions under a service account using the `--impersonate-service-account-id` flag. To use impersonation, the service account needs the relevant permissions, and the user needs the `iam.serviceAccounts.tokenCreator` role.
+[Impersonation](../../concepts/access-control/index.md#impersonation) enables a user to perform actions under a service account using the `--impersonate-service-account-id` parameter. To use impersonation, the service account needs the relevant permissions, and the user needs the `iam.serviceAccounts.tokenCreator` role.
 
 {% list tabs group=instructions %}
 
@@ -426,7 +426,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
         --subject userAccount:gfei8n54hmfh********
       ```
 
-  1. The user can run the command as the `test-sa` service account using the `--impersonate-service-account-id` flag.
+  1. The user can run a command under the `test-sa` service account using the `--impersonate-service-account-id` parameter.
 
       For example, the user can get a list of VMs in `my-folder`:
 
@@ -541,9 +541,9 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```

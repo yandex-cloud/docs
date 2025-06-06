@@ -6,7 +6,7 @@
 
 Once the offer has been accepted, both parties start acting under the agreement in accordance with the Civil Code of the Russian Federation. The agreement stipulates that you must pay for the resources consumed at the end of the reporting period. For more information, see [How to pay for resources](../payment/index.md).
 
-You can learn more about the terms of the agreement in [Yandex Legal documents]({{ billing-oferta-url }}).
+You can learn more about the terms of the agreement in [Yandex Legal documents](https://yandex.ru/legal/cloud_oferta/ru/).
 
 {% note info %}
 

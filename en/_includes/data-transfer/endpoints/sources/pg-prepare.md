@@ -13,16 +13,16 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 - {{ mpg-name }}
 
     
-    1. Configure the user the transfer will use to connect to the source:
+    1. Configure the user account the transfer will use to connect to the source:
         
         1. [Create a user](../../../../managed-postgresql/operations/cluster-users.md#adduser).
         
-        1. For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the `mdb_replication` role](../../../../managed-postgresql/operations/grant.md#grant-role) to this user.
+        1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the `mdb_replication` role](../../../../managed-postgresql/operations/grant.md#grant-role) to this user.
         
         1. [Connect to the database](../../../../managed-postgresql/operations/connect.md) you want to migrate as the database owner and [configure privileges](../../../../managed-postgresql/operations/grant.md#grant-privilege):
             
-            * `SELECT` for all the database tables to transfer.
-            * `SELECT` for all the database sequences to transfer.
+            * `SELECT` for all the database tables within the transfer.
+            * `SELECT` for all the database sequences within the transfer.
             * `USAGE` for the schemas of those tables and sequences.
             * `ALL PRIVILEGES` (`CREATE` and `USAGE`) for the service table (`__consumer_keeper` and `__data_transfer_mole_finder`) schema defined by the [endpoint parameter](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
@@ -77,39 +77,60 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
     
     1. {% include notitle [White IP list](../../configure-white-ip.md) %}
     
-    1. Create a user account the transfer will use to connect to the source:
-        
-        * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
-        
-            ```sql
-            CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
-            ```
-        
-        * For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, create a user with the `REPLICATION` privilege by running this command:
-        
-            ```sql
-            CREATE ROLE <username> WITH REPLICATION LOGIN ENCRYPTED PASSWORD '<password>';
-            ```
-    
-    1. Grant the new user the `SELECT` privilege for all the database tables involved in the transfer and the `USAGE` privilege for these tables' schemas:
-    
-        ```sql
-        GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <username>;
-        GRANT USAGE ON SCHEMA <schema_name> TO <username>;
-        ```
-    
-    1. Grant the new user the privileges for the service table (`__consumer_keeper` and `__data_transfer_mole_finder`) schema defined by the [endpoint parameter](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfers:
-    
-        ```sql
-        GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
-        ```
+    1. Configure the user account the transfer will use to connect to the source:
 
-    1. Configure the [number of user connections](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) to the database.
+        1. Create a new user:
+            
+            * For the _{{ dt-type-copy }}_ transfer type, use this command to create a user:
+            
+                ```sql
+                CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
+                ```
+            
+            * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, create a user with the `REPLICATION` privilege by running this command:
+            
+                ```sql
+                CREATE ROLE <username> WITH REPLICATION LOGIN ENCRYPTED PASSWORD '<password>';
+                ```
+        
+        1. Grant the new user the `SELECT` privilege for all the database tables within the transfer:
+        
+            ```sql
+            GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <username>;
+            ```
+        
+        1. Grant the new user a privilege for the schemas of the transferred DB:
+
+            * Grant the `USAGE` privilege for the _{{ dt-type-copy }}_ transfer type:
+        
+                ```sql
+                GRANT USAGE ON SCHEMA <schema_name> TO <username>;
+                ```
+
+            * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, grant the `CREATE` and `USAGE` (`ALL PRIVILEGES`) privileges required to create [service tables](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings):
+
+                ```sql
+                GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
+                ```
+
+        1. Grant the new user the `SELECT` privilege for all the database sequences within the transfer:
+
+            ```sql
+            GRANT SELECT ON ALL SEQUENCES IN SCHEMA <schema_name> TO <username>;
+            ```
+
+        1. Grant the new user the `CONNECT` privilege if the source cluster's default settings do not allow connections for new users:
+
+            ```sql
+            GRANT CONNECT ON DATABASE <database_name> TO <username>;
+            ```
+
+    1. Configure {{ PG }}:
+    
+        {% include [pg-on-premises-configure](../../../../_includes/data-transfer/endpoints/sources/pg-on-premises-configure.md) %}
 
     1. Install and enable the [wal2json](https://github.com/eulerto/wal2json) extension.
-    
-       **Installation**
-        
+
         * Linux
             
             1. Add the [{{ PG }} official repository](https://www.postgresql.org/download/) for your distribution.
@@ -127,18 +148,18 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
                 * The latest version of the Windows SDK for the active OS version
                 * Other dependencies that are installed automatically for selected components
 
-               Take note of the version number of the installed Windows SDK. You will need it while setting the wal2json build parameters.
+                Take note of the version number of the installed Windows SDK. You will need it while setting the wal2json build parameters.
             
             1. Download the wal2json source code from the [project page](https://github.com/eulerto/wal2json/releases).
             1. Unpack the archive with the source code to the `C:\wal2json\` folder.
-            1. Go to `C:\wal2json`.
+            1. Navigate to `C:\wal2json`.
             1. Within one PowerShell session, make changes to the `wal2json.vcxproj` file as follows:
                 
                 * Replace the `C:\postgres\pg103` lines with the path to the folder housing your installed {{ PG }} version, for example:
                 
                     ```powershell
                     (Get-Content .\wal2json.vcxproj).replace('C:\postgres\pg103', 'C:\PostgreSQL\14') | `
-                     Set-Content .\wal2json.vcxproj
+                        Set-Content .\wal2json.vcxproj
                     ```
                 
                 * Replace the `/MP` build parameter with `/MT`, for example:
@@ -151,7 +172,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
                 
                     ```powershell
                     (Get-Content .\wal2json.vcxproj).replace('<WindowsTargetPlatformVersion>8.1', '<WindowsTargetPlatformVersion><installed_Windows_SDK_version>') | `
-                     Set-Content .\wal2json.vcxproj
+                        Set-Content .\wal2json.vcxproj
                     ```
                 
                 1. Enter the value of the extension variable required for building wal2json. For example, for Visual Studio Community Edition 2022:
@@ -167,16 +188,6 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
                     ```
                 
                 1. Copy the `wal2json.dll` file from the `build/release` folder to the `lib` folder of your {{ PG }} version.
-
-       **Configuration**
-        
-        1. In the `postgresql.conf` file, set the value of the `wal_level` parameter to `logical`:
-        
-            ```conf
-            wal_level = logical
-            ```
-        
-        1. Restart PostgreSQL.
     
     1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This will allow replication to continue even after changing the master host. In some cases, a transfer may end in an error after you replace a master in your cluster. For more information, see [Troubleshooting](../../../../data-transfer/troubleshooting/index.md#master-change).
     

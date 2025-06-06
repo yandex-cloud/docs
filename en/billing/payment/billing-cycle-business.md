@@ -38,25 +38,25 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
       * If the balance is negative, go to step 10.
 
 1. Your [personal account balance](../concepts/personal-account.md#balance) decreases as {{ yandex-cloud }} service resources are consumed.
-
+   
    1. Your personal account balance is checked throughout the reporting period.
 
       * If the balance is positive, go back to step 7.
       * If the balance is negative, go to step 8.
-
+  
 1. [Your billing threshold](../concepts/billing-threshold.md) is used. Your billing threshold is valid for a calendar month.
 
    1. The billing threshold amount and validity period are checked:
-
+      
       * If your billing threshold is used up or has expired, go to step 10.
       * Otherwise, go back to step 9.
 
 1. Verification is performed to check whether it is past the end of the reporting period:
-
+   
    * If the reporting period has not ended yet, go back to step 8.
    * If a reporting period has ended, a [report](../concepts/act.md) and an [invoice](../concepts/invoice.md) are generated. Copies of these documents will be sent to the email address of the billing account owner. Go to step 10.
 
-1. Payment is made for consumed {{ yandex-cloud }} resources:
+1. Payment for consumed {{ yandex-cloud }} resources:
 
      * [Top up](../operations/pay-the-bill.md) your personal account to a positive value within the deadline stipulated in the agreement.
      * If there is a bank card linked to your billing account, the system [calculates](payment-methods-card-business.md#payment-amount) the total amount due and debits it from that card.   
@@ -82,7 +82,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 
    1. If you pay off the amount due during this time, access to resources is restored within 24 hours. The billing account status will be changed to [ACTIVE](../concepts/billing-account-statuses.md). Go back to step 2.
 
-   1. Otherwise, access to {{ yandex-cloud }} services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), will be permanently deleted.
+   1. Otherwise, access to {{ yandex-cloud }} services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), may be permanently deleted.
 
 {% include [blocked-note](../_includes/blocked-note.md) %}
 

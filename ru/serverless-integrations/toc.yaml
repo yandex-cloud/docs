@@ -120,7 +120,7 @@ items:
                 href: operations/workflows/execution/start.md
               - name: Остановить запуск рабочего процесса
                 href: operations/workflows/execution/stop.md
-              - name: Принудительно остановить запуск рабочего процесса
+              - name: Прекратить запуск рабочего процесса
                 href: operations/workflows/execution/terminate.md
       - name: '{{ er-name }}'
         items:

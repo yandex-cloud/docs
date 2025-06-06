@@ -111,7 +111,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. [Get the user ID](../operations/users-get.md).
 
-  1. Assign the role using this command:
+  1. To assign the role, run the following command:
 
       ```bash
       yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
@@ -141,7 +141,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
      * `organization_id`: [Organization ID](../operations/organization-get-id.md).
      * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
-     * `members`: Array of the IDs of users to assign the role to: 
+     * `members`: Array of the IDs of users to assign the role to:
        * `userAccount:{user_id}`: User Yandex account ID.
        * `serviceAccount:{service_account_id}`: Service account ID.
        * `federatedUser:{federated_user_id}`: Federated user ID.
@@ -169,11 +169,11 @@ For information about roles available in {{ yandex-cloud }} and their associated
        terraform plan
        ```
 
-      If the configuration is described correctly, the terminal will display a list of the assigned roles. {{ TF }} will show any errors found in the configuration. 
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains errors, {{ TF }} will show them. 
  
   1. Assign roles.
   
-     If the configuration has no errors, run this command:
+     If the configuration does not contain any errors, run this command:
 
        ```
        terraform apply
@@ -231,7 +231,7 @@ In a similar way, you can [assign roles](../../iam/operations/sa/assign-role-for
 
 ### Revoking a user's role {#revoke}
 
-If you want to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access management in {{ yandex-cloud }}, see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
+If you want to deny a user access to a resource, revoke the relevant roles for this resource as well as for other resources access permissions can be inherited from. For more information on access management in {{ yandex-cloud }}, see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
 
 The role can be revoked by a user with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant a role to a user, see the [Roles](#admin) section.
 

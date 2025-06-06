@@ -47,16 +47,14 @@ description: В этой инструкции вы научитесь созда
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите созданный ранее сервисный аккаунт.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../vpc/operations/network-create.md), [подсеть](../vpc/operations/subnet-create.md) и [группу безопасности](../vpc/concepts/security-groups.md) для кластера.
     1. Задайте конфигурацию [координатора](concepts/index.md#coordinator) и [воркеров](concepts/index.md#workers).
-    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте по одному [каталогу](concepts/index.md#catalog):
+    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте по одному [каталогу Trino](operations/catalog-create.md):
 
         1. Для [созданного ранее](#before-you-begin) кластера {{ mpg-name }}:
 
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `test`.
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `PostgreSQL`.
-           * **URL** — `jdbc:postgresql://<FQDN_хоста_кластера_{{ PG }}>:6432/<имя_базы_данных>?ssl=true&sslmode=verify-full`.
-
-               Подробнее о получении FQDN хоста в кластере {{ mpg-name }} см. в [инструкции](../managed-postgresql/operations/connect.md#fqdn).
-
+           * **Тип подключения** — `On-premise`.
+           * **URL** — `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
            * **Имя пользователя** — имя пользователя в кластере {{ mpg-name }}.
            * **Пароль** — пароль пользователя.
 

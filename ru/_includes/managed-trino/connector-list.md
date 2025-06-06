@@ -2,7 +2,8 @@
 * Delta Lake
 * Hive
 * Iceberg
-* Oracle
+* Oracle {{ preview-stage }}
 * PostgreSQL
+* MS SQL Server {{ preview-stage }}
 * TPC-DS
 * TPC-H

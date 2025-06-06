@@ -30,6 +30,8 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat.md](../_includes/vat.md) %}
+
 The cost depends on the service plan selected. The plan you choose covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support of multiple organizations that may have different support service plans activated. For the services available under various plans, see [Requesting technical support](overview.md).
 
 
@@ -42,7 +44,7 @@ Service plan | Basic           | Business                       | Premium
 
 {% note info %}
 
-* All prices are shown without VAT. The cost of support is calculated based on the [cost of paid resources consumed](../billing/pricing.md). If a billing account is awarded a [grant](../billing/concepts/bonus-account.md), it will be counted towards payment for the support plan.
+The cost of support is calculated based on the [cost of paid resources consumed](../billing/pricing.md). If a billing account is awarded a [grant](../billing/concepts/bonus-account.md), it will be counted towards payment for the support plan.
 
 {% endnote %}
 

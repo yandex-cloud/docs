@@ -1,13 +1,21 @@
 ---
-title: Создание каталога
+title: Создание каталога Trino
 description: Следуя этой инструкции, вы создадите каталог в кластере {{ mtr-name }}.
 ---
 
-# Создание каталога
+# Создание каталога Trino
 
 {% include [preview](../../_includes/managed-trino/note-preview.md) %}
 
-## Создать каталог {#create-catalog}
+## Роли для создания каталога Trino {#roles}
+
+Для создания [каталога Trino](../concepts/index.md#catalog) с типом подключения [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) вашему аккаунту в {{ yandex-cloud }} нужна дополнительная роль [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user), чтобы использовать подключения из {{ connection-manager-name }}.
+
+[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user) и [{{ roles-lockbox-payloadviewer }}](../../lockbox/security/index.md#lockbox-payloadViewer). Это даст кластеру нужные права для работы с подключениями из {{ connection-manager-name }}. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+
+## Создать каталог Trino {#create-catalog}
 
 {% list tabs group=instructions %}
 
@@ -17,26 +25,32 @@ description: Следуя этой инструкции, вы создадите
   1. Нажмите на имя нужного кластера.
   1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
-  1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** задайте имя каталога.
+  1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** задайте имя каталога Trino.
   1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** выберите тип [коннектора](../../concepts/index.md/#connector).
-  1. Задайте [настройки каталога](#catalog-settings).
+  1. Задайте [настройки каталога Trino](#catalog-settings).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
-## Настройки каталога {#catalog-settings}
+## Настройки каталога Trino {#catalog-settings}
 
-Настройки каталога отличаются в зависимости от выбранного коннектора.
+Настройки каталога Trino отличаются в зависимости от выбранного коннектора.
+
+{% note info %}
+
+Коннекторы с пометкой {{ preview-stage }} находятся на стадии предварительного тестирования. Стабильность работы не гарантируется.
+
+{% endnote %}
 
 ### Коннектор {{ CH }} {#ch}
 
-Чтобы задать настройки, выберите тип подключения — [Connection Manager](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
+Чтобы задать настройки, выберите тип подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
 
 {% list tabs %}
 
 - Connection Manager
 
-  * **Идентификатор подключения** — идентификатор подключения в Connection Manager для подключения к кластеру {{ CH }}.
+  * **Идентификатор подключения** — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
     
     Чтобы узнать идентификатор подключения:
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
@@ -140,7 +154,7 @@ description: Следуя этой инструкции, вы создадите
 
   * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
-### Коннектор Oracle {#oracle}
+### Коннектор Oracle {{ preview-stage }} {#oracle}
 
   * **Тип подключения** — On-premise.
   * **URL** — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
@@ -150,13 +164,13 @@ description: Следуя этой инструкции, вы создадите
 
 ### Коннектор {{ PG }} {#pg}
 
-Чтобы задать настройки, выберите тип подключения — [Connection Manager](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
+Чтобы задать настройки, выберите тип подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
 
 {% list tabs %}
 
 - Connection Manager
 
-  * **Идентификатор подключения** — идентификатор подключения в Connection Manager для подключения к кластеру {{ PG }}.
+  * **Идентификатор подключения** — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
     
     Чтобы узнать идентификатор подключения:
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -174,7 +188,7 @@ description: Следуя этой инструкции, вы создадите
 
 {% endlist %}
 
-### Коннектор Microsoft SQL Server {#ms-sql}
+### Коннектор MS SQL Server {{ preview-stage }} {#ms-sql}
 
   * **Тип подключения** — On-premise.
   * **URL** — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
@@ -193,3 +207,5 @@ description: Следуя этой инструкции, вы создадите
 Коннектор TPC-H не требует обязательных настроек.
 
 Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/tpch.html).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

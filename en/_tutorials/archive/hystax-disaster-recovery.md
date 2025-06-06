@@ -94,7 +94,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery in {{ yand
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -223,7 +223,7 @@ VMs get a public dynamic IP address when created. Since a VM with Hystax Acura m
      ```
 
      The `false` value of the `RESERVED` parameter means the IP address with the `e2l46k8conff8n6ru1jl` `ID` is dynamic.
-  1. Convert this address to static by using the `--reserved=true` key and the IP address `ID`:
+  1. Convert the address to static by using the `--reserved=true` parameter and the address `ID`:
 
      ```bash
      yc vpc address update --reserved=true e2l46k8conff8n6ru1jl
@@ -291,9 +291,9 @@ The agents will install on the VMs that will be recovered in {{ yandex-cloud }}.
 1. Under **Machines Groups**, create a group of protected VMs, e.g, `Prod-Web`.
 1. Go to the **Download agent** tab.
 1. Select one out of three agent types depending on the OS:
-   * VMware
-   * Windows
-   * Linux
+   * VMware.
+   * Windows.
+   * Linux.
 
    Click **Next**.
 1. Download and install the agent on the VMs you would like to protect:
@@ -302,7 +302,7 @@ The agents will install on the VMs that will be recovered in {{ yandex-cloud }}.
 
    - VMware {#vmware}
 
-     1. From the drop-down list, select an instance group to set up agents for, e.g., `Prod-Web`.
+     1. From the drop-down list, select an instance group to prepare agents for, e.g., `Prod-Web`.
      1. Select **New VMware vSphere** and fill in these fields:
         * **Platform Name**.
         * **Endpoint**: Public IP address of the ESXi host.
@@ -316,14 +316,14 @@ The agents will install on the VMs that will be recovered in {{ yandex-cloud }}.
 
    - Windows {#windows}
 
-     1. From the drop-down list, select an instance group to set up agents for, e.g., `Prod-Web`.
+     1. From the drop-down list, select an instance group to prepare agents for, e.g., `Prod-Web`.
      1. Click **Next**.
      1. Click **Download agent** and wait for the download to complete.
      1. Unpack the archive and install the agent from `hwragent.msi` on the VMs you want to protect.
 
    - Linux {#linux}
 
-     1. From the drop-down list, select an instance group to set up agents for, e.g., `Prod-Web`.
+     1. From the drop-down list, select an instance group to prepare agents for, e.g., `Prod-Web`.
      1. Select the Linux distribution:
         * **CentOS/RHEL (.rpm package)**: CentOS or Red Hat-based.
         * **Debian/Ubuntu (.deb package)**.
