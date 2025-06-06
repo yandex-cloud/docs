@@ -9,6 +9,14 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором [запущен рабочий процесс](./start.md).
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}** и выберите рабочий процесс.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**.
+  1. В строке с нужным запуском нажмите ![image](../../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../../_assets/console-icons/circle-stop.svg) **{{ ui-key.yacloud.serverless-workflows.label_stop-workflow }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../../_includes/cli-install.md) %}

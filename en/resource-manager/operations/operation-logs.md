@@ -1,6 +1,6 @@
 # Viewing operations with {{ resmgr-name }} resources
 
-All actions with {{ resmgr-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ resmgr-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -11,7 +11,7 @@ All actions with {{ resmgr-name }} resources are logged as a list of operations.
   To view operations with a cloud or a folder:
   
   1. Go to the appropriate cloud or folder.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
+  1. At the top of the screen, navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI {#cli}
 
@@ -19,7 +19,7 @@ All actions with {{ resmgr-name }} resources are logged as a list of operations.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ resmgr-name }} resource, run this command:
+  To get the list of operations for the {{ resmgr-name }} resource, run this command:
 
   ```bash
   yc resource-manager <resource_type> list-operations <resource_name_or_ID>
@@ -45,7 +45,7 @@ All actions with {{ resmgr-name }} resources are logged as a list of operations.
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
-  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc resource-manager folder list-operations b1g681qpemb4******** --format yaml
@@ -88,11 +88,11 @@ All actions with {{ resmgr-name }} resources are logged as a list of operations.
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

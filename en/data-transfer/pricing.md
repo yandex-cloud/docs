@@ -39,6 +39,8 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 ## Prices for the Russia region {#prices}
 
+{% include [vat.md](../_includes/vat.md) %}
+
 ### Number of transferred rows {#data}
 
 

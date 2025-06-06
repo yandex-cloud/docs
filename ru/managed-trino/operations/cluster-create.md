@@ -21,7 +21,7 @@ keywords:
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
 
-Сервисному аккаунту кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
 
 О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
@@ -50,31 +50,7 @@ keywords:
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
     1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
-    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте необходимые [каталоги](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже.
-
-        1. Задайте имя каталога. Имя должно быть уникальным в рамках облака.
-        1. Выберите **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**.
-        1. В блоке **Настройки каталога** задайте параметры в зависимости от выбранного типа:
-
-            * Для [коннекторов](../concepts/index.md#connector) Hive, Iceberg и Delta Lake:
-
-                * **URI** для подключения к кластеру Metastore в формате `thrift://<IP-адрес>:<порт>`.
-                * **Файловое хранилище** — выберите тип файлового хранилища: **Yandex Object Storage** или **Внешнее хранилище**. Для внешнего хранилища задайте следующие настройки:
-                    * Идентификатор AWS-совместимого статического ключа доступа.
-                    * Секретный ключ AWS-совместимого статического ключа доступа.
-                    * Эндпоинт файлового хранилища, например `{{ s3-storage-host }}`.
-                    * Регион файлового хранилища, например `{{ region-id }}`.
-
-            * Для коннекторов {{ PG }} и {{ CH }}:
-
-                * **URL** для подключения к кластеру в формате `jdbc:<СУБД>://<адрес_хоста>:<порт>/<имя_базы_данных>`, где `СУБД` — `postgresql` или `clickhouse`.
-                * **Имя пользователя** для подключения к кластеру.
-                * **Пароль** пользователя.
-
-            * Коннекторы [TPC-H](https://trino.io/docs/current/connector/tpch.html) и [TPC-DS](https://trino.io/docs/current/connector/tpcds.html) предоставляют доступ к тестовым данным и не нуждаются в настройке.
-
-        1. (Опционально) Задайте дополнительные настройки каталога в формате `ключ:значение`.
-
+    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте необходимые [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога Trino](catalog-create.md).
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. (Опционально) Включите защиту от удаления кластера.

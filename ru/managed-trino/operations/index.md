@@ -16,12 +16,12 @@ description: Из статьи вы узнаете, как работать с {
 * [Подключение к кластеру](connect.md)
 * [Удаление кластера](cluster-delete.md)
 
-## Каталоги {#catalogs}
+## Каталоги Trino {#catalogs}
 
-* [Получение списка каталогов в кластере](catalog-list.md)
-* [Создание каталога](catalog-create.md)
-* [Изменение каталога](catalog-update.md)
-* [Удаление каталога](catalog-delete.md)
+* [Получение списка каталогов Trino в кластере](catalog-list.md)
+* [Создание каталога Trino](catalog-create.md)
+* [Изменение каталога Trino](catalog-update.md)
+* [Удаление каталога Trino](catalog-delete.md)
 
 ## Логи и мониторинг {#monitoring-and-logs}
 

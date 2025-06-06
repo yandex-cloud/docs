@@ -12,7 +12,7 @@ To grant access to a resource, assign a [role](../../concepts/access-control/rol
 * [Service accounts](../../concepts/users/service-accounts.md)
 * [User groups](../../../organization/concepts/groups.md)
 
-You can assign a role not only for the resource itself but also for its parent resource, as the former inherits access permissions from the latter. For example, if a service account gets a role for a cloud, it will also get permissions for all resources across the cloud's folders. To learn more, see [{#T}](../../concepts/access-control/index.md).
+You can assign a role not only for the resource itself but also for its parent resource, as the former inherits access permissions from the latter. For example, if a service account gets a role for a cloud, it will also get permissions for all resources across the cloud's folders. For more information, see [{#T}](../../concepts/access-control/index.md).
 
 [Learn](../../concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
 
@@ -133,7 +133,7 @@ To assign a role for an organization:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
@@ -227,7 +227,7 @@ To assign a role for an organization:
    1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), or user group you are assigning a role to.
    1. Describe the resource with the role for the organization in the configuration file.
 
-      Here is the configuration file example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_organization_iam_binding" "<resource_name>" {
@@ -240,7 +240,7 @@ To assign a role for an organization:
       Where:
 
       * `organization_id`: [Organization ID](../../../organization/operations/organization-get-id.md). This is a required parameter.
-      * `role`: Role to assign. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required parameter.
+      * `role`: Role being assigned. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required parameter.
       * `members`: Users getting the role. Specify the following:
 
          * `members = ["userAccount:<user_ID>"]`: For a user with a Yandex account.
@@ -411,7 +411,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    To assign multiple roles for a resource:
 
-   1. Make sure the resource has no roles assigned that you would not want to lose:
+   1. Make sure the resource has no important roles assigned before proceeding:
 
       ```bash
       yc <service_name> <resource> list-access-bindings \
@@ -488,14 +488,14 @@ You can assign a role not only for an organization, cloud, or folder but their c
             --access-binding role=<role>,subject=system:group:federation:<federation_ID>:users
          ```
 
-      Provide a separate `--access-binding` flag for each role. Example:
+      Provide a separate `--access-binding` parameter for each role. For example:
 
       ```bash
       yc <service_name> <resource> set-access-bindings \
          --id <resource_ID> \
-         --access-binding role=<Role_1>,service-account-id=<service_account_ID> \
-         --access-binding role=<Role_2>,service-account-id=<service_account_ID> \
-         --access-binding role=<Role_3>,service-account-id=<service_account_ID>
+         --access-binding role=<role1>,service-account-id=<service_account_ID> \
+         --access-binding role=<role2>,service-account-id=<service_account_ID> \
+         --access-binding role=<role3>,service-account-id=<service_account_ID>
       ```
 
 - API {#api}

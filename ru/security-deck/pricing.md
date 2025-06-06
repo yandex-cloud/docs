@@ -11,7 +11,7 @@ editable: false
 Правила тарификации {{ sd-name }} различаются для разных модулей:
 
 * [Модуль диагностики доступов ({{ ciem-name }})](concepts/ciem.md) — использование модуля не тарифицируется.
-* [Модуль контроля данных ({{ dspm-name }})](concepts/dspm.md) — при [сканировании данных](operations/dspm/create-scan.md) модуль выполняет запросы к файлам в бакетах {{ objstorage-full-name }}. Запросы тарифицируются по [правилам тарификации](../storage/pricing.md) {{ objstorage-name }}. Использование модуля дополнительно не тарифицируется.
+* [Модуль контроля данных ({{ dspm-name }})](concepts/dspm.md) — см. [Модуль контроля данных ({{ dspm-name }})](#dspm-rules) в разделе ниже.
 * [{{ atr-name }}](concepts/access-transparency.md) — см. [{{ atr-name }}](#atr-rules) в разделе ниже.
 
 ## Из чего складывается стоимость использования {{ sd-name }} {#rules}
@@ -26,10 +26,13 @@ editable: false
 
 Если вы отмените подписку {{ atr-name }} в [консоли управления]({{ link-console-main }}), оплата за нее перестанет начисляться с первого числа следующего календарного месяца.
 
+### Модуль контроля данных ({{ dspm-name }}) {#dspm-rules}
+
+При [сканировании данных](operations/dspm/create-scan.md) модуль контроля данных ({{ dspm-name }}) выполняет запросы к файлам в бакетах {{ objstorage-full-name }}. Запросы тарифицируются по [правилам тарификации](../storage/pricing.md) {{ objstorage-name }}. Использование модуля тарифицируется дополнительно.
+
 ## Цены для региона Россия {#prices}
 
 ### {{ atr-name }} {#atr-pricing}
-
 
 
 {% list tabs group=pricing %}
@@ -41,6 +44,25 @@ editable: false
 - Цены в тенге {#prices-kzt}
 
   {% include notitle [kzt.md](../_pricing/security-deck/access-transparency/kzt.md) %}
+
+{% endlist %}
+
+
+
+### Модуль контроля данных ({{ dspm-name }}) {#dspm-pricing}
+
+#### Сканирование по объему данных {#scan-by-volume}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/security-deck/dspm/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt.md](../_pricing/security-deck/dspm/kzt.md) %}
 
 {% endlist %}
 

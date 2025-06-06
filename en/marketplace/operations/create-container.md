@@ -588,6 +588,10 @@ user_values:
         - 1
         - 2
         - 3
+
+# Optional: if set to `true`, the Helm chart and Docker images will not be placed in a public repo.
+# This will make the product only installable via Marketplace (and not with `helm install ...`).
+private_artifacts: false
 ```
 
 ### values.yaml variable file {#values}
