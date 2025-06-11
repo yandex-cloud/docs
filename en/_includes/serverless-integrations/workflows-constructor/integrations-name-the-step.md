@@ -1,0 +1,1 @@
+In the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_step-name-label }}** field, enter a name for the workflow step.

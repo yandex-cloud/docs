@@ -3,7 +3,7 @@
 #|
 || Вид ограничения | Значение ||
 || Количество [серверов](../baremetal/concepts/servers.md)
-`baremetal.servers.count` | 2 ||
+`baremetal.servers.count` | 5 ||
 || Количество [VRF](../baremetal/concepts/network#vrf-segment)
 `baremetal.vrfs.count` | 20 ||
 || Количество подсетей

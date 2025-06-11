@@ -10,7 +10,7 @@
 
 {% include [vscode-extension-info](../../../_includes/datasphere/vscode-extension-info.md) %}
 
-Задания можно найти в проекте на вкладке **{{ ml-platform-name }} Jobs**. Прогресс выполнения и результаты будут доступны в разделе **История запусков**.
+Задания можно найти в проекте на вкладке **{{ ml-platform-name }} Jobs**. [Прогресс выполнения](../../operations/projects/work-with-jobs.md#progress) и результаты будут доступны в разделе **История запусков** и локально.
 
 {% note tip %}
 

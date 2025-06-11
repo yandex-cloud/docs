@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** и выберите диск.
+  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** и выберите диск.
   1. В блоке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
   1. Выберите расписание или создайте новое. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -155,7 +155,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** и выберите диск.
+  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** и выберите диск.
   1. В блоке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** в строке с расписанием нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
 
 - CLI {#cli}

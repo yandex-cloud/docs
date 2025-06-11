@@ -13,19 +13,21 @@ In this example, the customer has the following resources:
 
 The task is to ensure the IP network connectivity between the customer on-premise infrastructure resources and {{ yandex-cloud }} resources.
 
-Solving this task may require the following:
+Such a task will require:
 
-* Setting up a [trunk](./trunk.md).
-* Creating a [private connection](./priv-con.md) within this [trunk](./trunk.md).
-* Configuring a [point-to-point subnet](./priv-con.md#priv-address) and setting up [BGP peering](./priv-con.md#bgp-peering) for the [private connection](./priv-con.md). {{ interconnect-name }} will not work without BGP peering.
-* [Cloud subnet prefix announcements](./priv-con.md#prc-announce) from the {{ yandex-cloud }} virtual network over BGP.
-* Customer resource subnet prefix announcements from the customer infrastructure over BGP.
+* Establishing one, or better yet, two [trunks](./trunk.md) (for fault tolerance).
+* Establishing a [private connection](./priv-con.md) in each [trunk](./trunk.md).
+* Configuring a [point-to-point subnet](./priv-con.md#priv-address) and organizing [BGP connectivity](./priv-con.md#bgp-peering) in each [private connection](./priv-con.md). {{ interconnect-name }} will not work without BGP connectivity.
+* Creating a [Routing Instance](../../cloud-router/concepts/routing-instance.md) in the cloud folder.
+* Adding a `private connection` to `Routing Instance`.
+* On the {{ yandex-cloud }} virtual network side, [adding a set of subnet IP prefixes](../../cloud-router/tutorials/ri-prefixes-upsert.html) from a specific virtual network in `Routing Instance`, which will be announced towards the client equipment via BGP.
+* On the client infrastructure side, via BGP, a set of IP prefixes of subnets with client resources must be announced through the client side of the `private connection`.
 
-Once these steps are complete, your infrastructure resources and {{ yandex-cloud }} resources will feature the IP connectivity enabling them to exchange IP traffic between each other.
+Once these steps are complete, IP connectivity should be established between the client's infrastructure resources and cloud resources in {{ yandex-cloud }}, thus enabling IP traffic exchange between them.
 
 {% note warning "Tutorials" %}
 
-For tutorials on how to enable and manage {{ interconnect-name }}, follow [this link](../tutorials/).
+A general list of guides for actions in {{ cr-name }} and {{ interconnect-name }} is located in the [Operation overview](../operations/cic-cr-ops.md) section.
 
 {% endnote %}
 

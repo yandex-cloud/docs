@@ -150,7 +150,7 @@
 
 - Сервер {{ baremetal-name }} {#baremetal-server}
 
-  При [заказе сервера](../../baremetal/operations/servers/server-lease.md) в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}` или `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}`, чтобы назначить серверу публичный IP-адрес.
+  При [заказе сервера](../../baremetal/operations/servers/server-lease.md) в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` или `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}`, чтобы назначить серверу публичный IP-адрес.
 
   Убедитесь, что сетевые настройки сервера не блокируют исходящий трафик на указанные ресурсы.
 

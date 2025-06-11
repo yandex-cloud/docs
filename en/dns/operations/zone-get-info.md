@@ -1,5 +1,5 @@
 ---
-title: How to get information about a DNS zone in {{ dns-full-name }}
+title: How to get DNS zone information in {{ dns-full-name }}
 ---
 
 # Getting information about a DNS zone
@@ -12,8 +12,8 @@ title: How to get information about a DNS zone in {{ dns-full-name }}
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud.dns.label_zones-list }}**.
   1. Select the DNS zone you need.
-  1. Go to the **{{ ui-key.yacloud.common.overview }}** tab.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the DNS zone.
+  1. Navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
+  1. You will see DNS zone details on the **{{ ui-key.yacloud.common.overview }}** page.
 
 - CLI
 
@@ -21,15 +21,15 @@ title: How to get information about a DNS zone in {{ dns-full-name }}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To find out the name or unique ID of a [DNS zone](../concepts/dns-zone.md), [get](zone-list.md) a list of zones in the folder.
+  To get a [DNS zone](../concepts/dns-zone.md) ID or name, [retrieve](zone-list.md) a list of zones in the folder.
 
-  1. View the description of the CLI command to get information about a DNS zone:
+  1. See the description of the CLI command for getting DNS zone information:
 
       ```bash
       yc dns zone get --help
       ```
 
-  1. Get information about a DNS zone by specifying its name or ID:
+  1. To get DNS zone details, run the following command with its name or ID specified:
 
       ```bash
       yc dns zone get <DNS_zone_name>
@@ -52,7 +52,7 @@ title: How to get information about a DNS zone in {{ dns-full-name }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To get information about a [DNS zone](../concepts/dns-zone.md) using {{ TF }}:
+  To get [DNS zone](../concepts/dns-zone.md) information using {{ TF }}:
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
      ```hcl
@@ -68,15 +68,15 @@ title: How to get information about a DNS zone in {{ dns-full-name }}
      Where:
      * `data "yandex_dns_zone"`: Description of the DNS zone as a data source:
        * `dns_zone_id`: DNS zone ID.
-     * `output "zone"`: Output variable that contains information about the DNS zone type:
-       * `value`: Returned value.
+     * `output "zone"`: Output variable with the DNS zone type information:
+       * `value`: Return value.
 
-     You can replace `public` with any other parameter to get the information you need. For more information about the `yandex_dns_zone` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/dns_zone).
-  1. Create resources:
+     You can replace `public` with another variable to get the information you need. For more information about the `yandex_dns_zone` data source variables, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/dns_zone).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output
@@ -90,6 +90,6 @@ title: How to get information about a DNS zone in {{ dns-full-name }}
 
 - API {#api}
 
-  To get detailed information about a [DNS zone](../concepts/dns-zone.md), use the [get](../api-ref/DnsZone/get.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Get](../api-ref/grpc/DnsZone/get.md) gRPC API call.
+  To get [DNS zone](../concepts/dns-zone.md) details, use the [get](../api-ref/DnsZone/get.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Get](../api-ref/grpc/DnsZone/get.md) gRPC API call.
 
 {% endlist %}

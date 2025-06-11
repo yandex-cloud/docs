@@ -84,7 +84,7 @@ Swap настоятельно не рекомендуется использов
    * роль на каталог: `viewer` или `compute.images.user`.
 
    См. инструкцию [{#T}](../../iam/operations/roles/grant.md).
-1. Создайте образ из вашего снимка в разделе **{{ ui-key.yacloud.compute.switch_snapshots }}** или из самого диска в разделе **{{ ui-key.yacloud.compute.switch_disks }}**.
+1. Создайте образ из вашего снимка в разделе **{{ ui-key.yacloud.compute.snapshots_81jHX }}** или из самого диска в разделе **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
 
 Пользователю в другом облаке необходимо:
 1. В [CLI](../../cli/) выполнить команду:

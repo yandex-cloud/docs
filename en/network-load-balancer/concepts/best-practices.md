@@ -1,9 +1,9 @@
 ---
-title: Recommendations for using {{ network-load-balancer-full-name }}
-description: This page provides recommendations for using {{ network-load-balancer-name }}.
+title: Best practices for using {{ network-load-balancer-full-name }}
+description: This page describes best practices for using {{ network-load-balancer-name }}.
 ---
 
-# Recommendations for use
+# Best practices
 
 
 ### Use different availability zones {#place-resources-in-different-zones}
@@ -12,7 +12,7 @@ Create cloud resources in multiple availability zones. This way you can maintain
 
 ### Allocate resources across zones uniformly {#distribute-resources}
 
-The same amount of cloud resources should be hosted in each availability zone. If there are three VMs in the `{{ region-id }}-a` availability zone, then the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones should also host three VMs each.
+The same amount of cloud resources should be hosted in each availability zone. If there are three VMs in the `{{ region-id }}-a` availability zone, the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones should also host three VMs each.
 
 ### Create cloud resources with redundancy {#create-reserves}
 
@@ -25,3 +25,11 @@ When deploying multiple applications in {{ yandex-cloud }}, create an independe
 ### Set up a multi-layer infrastructure {#multi-level-infrastructure}
 
 To increase the reliability, set up a multi-layer architecture with L3 and L7 load balancing. The L3 load balancer will receive traffic and forward it to the target group of the L7 load balancers. They will distribute traffic across VMs with applications. You can use [{{ alb-name }}](../../application-load-balancer/) as L7 load balancers.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/route-switcher.md)
+* [{#T}](../tutorials/vm-autoscale/index.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)

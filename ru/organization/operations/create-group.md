@@ -4,5 +4,5 @@ description: Следуя данной инструкции, вы сможете
 ---
 
 ## Создать группу {#create-group}
- 
+
 {% include [create-group-org](../../_includes/organization/create-group-org.md) %}

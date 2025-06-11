@@ -24,7 +24,7 @@ Starting June 13, 2025, new _reduced_ prices will apply to using GPUs and GPU cl
 
 {% note warning %}
 
-The prices for the AMD Zen 3 platform will be effective starting June 13, 2025.
+The prices for the AMD Zen 3 platform will be effective starting June 24, 2025.
 
 {% endnote %}
 

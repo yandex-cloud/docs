@@ -150,7 +150,7 @@ To provide network access:
 
 - {{ baremetal-name }} server {#baremetal-server}
 
-  When [ordering a server](../../baremetal/operations/servers/server-lease.md), select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}` or `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field to assign a public IP address to the server.
+  When [ordering a server](../../baremetal/operations/servers/server-lease.md), select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` or `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field to assign a public IP address to the server.
 
   Make sure the sever network settings do not block outgoing traffic to the specified resources.
 

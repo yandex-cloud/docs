@@ -1,1 +1,1 @@
-The chart below shows service’s roles and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions under the chart.
+The chart below shows service’s roles and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the chart.

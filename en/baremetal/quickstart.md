@@ -40,7 +40,7 @@ Lease your first physical server and connect to it. All the leased server's reso
 
      1. In the **Private subnet** field, click **{{ ui-key.yacloud.common.create }}**.
      1. Enter `bm-subnetwork` for the subnet name and click **Create subnet**.
-     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
+     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 

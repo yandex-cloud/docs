@@ -1,3 +1,8 @@
+---
+title: Как создать партнерский коннектор в {{ datalens-short-name }} {{ marketplace-short-name }}
+description: Следуя данной инструкции, вы сможете создать свой коннектор (тип подключения) и добавить его в {{ datalens-short-name }} {{ marketplace-short-name }} или на страницу подключений.
+---
+
 # Создание партнерского коннектора
 
 Если вы партнер {{ datalens-short-name }}, вы можете создать свой коннектор (тип подключения) и добавить его в [{{ datalens-short-name }} {{ marketplace-short-name }}](../../concepts/marketplace.md) или на страницу [подключений]({{ link-datalens-main }}/connections/new). С помощью коннектора пользователи смогут создавать датасеты, чарты и дашборды на основе ваших данных.

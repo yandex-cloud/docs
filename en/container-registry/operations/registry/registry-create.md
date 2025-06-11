@@ -1,6 +1,6 @@
 # Creating a registry
 
-Any users and [service accounts](../../concepts/registry.md) with [folder](../../../iam/concepts/users/service-accounts.md) access rights can use the created [registry](../../../resource-manager/concepts/resources-hierarchy.md#folder). 
+The new [registry](../../concepts/registry.md) can be used by all users and [service accounts](../../../iam/concepts/users/service-accounts.md) with access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). 
 
 You can create a secure registry with autoscanning using a [vulnerability scanner](../../concepts/vulnerability-scanner.md).
 
@@ -14,7 +14,7 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. Specify a name for the registry. The naming requirements are as follows:
@@ -86,7 +86,7 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-     The `--name` flag is optional. You can create a registry without a name and use its ID to access it. The `name` field is user-defined. It is used when listing in the {{ yandex-cloud }} CLI and **not used** in the Docker CLI.
+     The `--name` parameter is optional. You can create a registry without a name and use its ID to access it. The `name` field is user-defined. It is used when listing in the {{ yandex-cloud }} CLI and **not used** in the Docker CLI.
   1. Make sure the registry was created:
 
      ```bash

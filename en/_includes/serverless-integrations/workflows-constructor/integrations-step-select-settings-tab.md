@@ -1,0 +1,1 @@
+At the right of the window, on the **{{ ui-key.yacloud.serverless-workflows.workflow-viewer_node-settings-label }}** tab.

@@ -54,6 +54,11 @@ If flag is set tenant informantion would be added to the response. ||
       "folder_id": "string",
       "personal_tenant_id": "string",
       "user_id": "string"
+    },
+    "agent_info": {
+      "current_version": "string",
+      "latest_version": "string",
+      "can_update": "bool"
     }
   }
 }
@@ -131,7 +136,10 @@ Type of resource. Could be compute VM or baremetal server.
 - `BMS`: Resource is baremetal server ||
 || tenant_info | **[TenantInfo](#yandex.cloud.backup.v1.TenantInfo)**
 
-Additional info abount tenant which resource belongs to ||
+Additional info about tenant which resource belongs to ||
+|| agent_info | **[AgentInfo](#yandex.cloud.backup.v1.AgentInfo)**
+
+Additional Info about agent version ||
 |#
 
 ## TenantInfo {#yandex.cloud.backup.v1.TenantInfo}
@@ -147,4 +155,13 @@ Personal tenant id from backup provider ||
 || user_id | **string**
 
 User id from provider ||
+|#
+
+## AgentInfo {#yandex.cloud.backup.v1.AgentInfo}
+
+#|
+||Field | Description ||
+|| current_version | **string** ||
+|| latest_version | **string** ||
+|| can_update | **bool** ||
 |#

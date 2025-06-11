@@ -45,7 +45,7 @@ service | This is a required field. ID of the service associated with the metric
  
 Field | Description
 --- | ---
-ts | **string** (date-time)<br><p>Timestamp common for all metrics in the <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format.</p> 
+ts | **string** (date-time)<br><p>Timestamp common for all metrics in the <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format.</p><p>e.g., `2025-05-15T15:30:00Z`.</p><p>Where:<br><ul><li>`2025-05-15`: Date (year, month, day).</li><li>`T`: Separator between date and time.</li><li>`15:30:00`: Time (hours, minutes, seconds).</li><li>`Z`: Time zone in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).</li></ul></p>
 labels | **object**<br><p>List of labels in <code>key:value</code> format, common for all metrics.</p> 
 metrics[] | **object**<br><p>List of metrics.</p> 
 metrics[].<br>name | **string**<br><p>This is a required field. Metric name.</p> 
@@ -54,7 +54,7 @@ metrics[].<br>type | **string**<br><p>Metric type. Default value: <code>DGAUGE</
 metrics[].<br>ts | **string** (date-time)<br><p>Timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format. If not specified, the current time will be used.</p> 
 metrics[].<br>value | **number** (double)<br><p>This is a required field. Metric value in the specified point.</p> 
 metrics[].<br>timeseries[] | **object**<br><p>Point list.</p> 
-metrics[].<br>timeseries[].<br>ts | **string** (date-time)<br><p>Timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format.</p> 
+metrics[].<br>timeseries[].<br>ts | **string** (date-time)<br><p>Timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format.</p><p>e.g., `2025-05-15T15:30:00Z`.</p><p>Where:<br><ul><li>`2025-05-15`: Date (year, month, day).</li><li>`T`: Separator between date and time.</li><li>`15:30:00`: Time (hours, minutes, seconds).</li><li>`Z`: Time zone in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).</li></ul></p>
 metrics[].<br>timeseries[].<br>value | **number** (double)<br><p>Metric value in the specified point.</p> 
 
 ## Response {#responses}

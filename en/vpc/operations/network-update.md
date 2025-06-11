@@ -50,7 +50,7 @@ After creating a cloud network, you can change its name, description, and labels
         new_label: test_label
       ```
      
-      You can provide the ID and name not only as positional arguments but also using the `--id` and `--name` flags:
+      You can provide the ID and name not only as positional arguments, but also using the `--id` and `--name` parameters:
 
       ```
       yc vpc network update \
@@ -107,7 +107,7 @@ After creating a cloud network, you can change its name, description, and labels
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
   1. Apply the changes:
 

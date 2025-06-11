@@ -116,7 +116,7 @@ To create a line chart:
 1. Drag a dimension to the **Color** section. The measure value is divided by color depending on the selected dimension.
 1. Drag a dimension or measure from the dataset to the **Filters** section. The field can be empty. In this case, no filters are applied.
 
-### Configuring display of null values {#null-settings}
+### Configuring display of `null` values {#null-settings}
 
 {% include [datalens-chart-null-settings](../../_includes/datalens/datalens-chart-null-settings.md) %}
 
@@ -166,6 +166,12 @@ To create a line chart:
   ![line-chart-measure-settings](../../_assets/datalens/visualization-ref/line-chart/line-chart-measure-settings.png)
 
   {% endcut %}
+
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/datalens.md)
 
 
 #### See also {#see-also}

@@ -1,9 +1,9 @@
 ---
-title: Traffic listener
+title: Listener
 description: In this tutorial, you will learn about the traffic listener.
 ---
 
-# Traffic listener
+# Listener
 
 
 *Traffic listener* is a component distributed across all [availability zones](../../overview/concepts/geo-scope.md). It accepts incoming traffic on the load balancer and distributes it to all operating resources in the target groups connected to the load balancer.
@@ -36,3 +36,13 @@ If you need to use multiple listeners per load balancer, remember that the ports
 {% endnote %}
 
 For more granular traffic listening, instead of creating multiple listeners per load balancer, we recommend creating a separate load balancer for each service.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/updating-under-load.md)
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/exchange.md)
+* [{#T}](../tutorials/mssql-alwayson-lb.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)

@@ -204,7 +204,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
   1. В списке сервисов выберите **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
   1. В строке с нужной ВМ нажмите значок ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
@@ -274,7 +274,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
   1. В списке сервисов выберите **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** снимите галочку с зоны доступности `{{ region-id }}-b`.
@@ -304,7 +304,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
   1. В списке сервисов выберите **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.

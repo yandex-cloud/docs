@@ -14,12 +14,14 @@ keywords:
 A _workflow_ is an event-driven application comprised of [integration](yawl/index.md#integration-steps) and [management](yawl/index.md#management-steps) _steps_ and transitions between them. Possible step attributes:
 
 * Name and description.
-* Filters for input and output data, i.e., jq expressions that filter the workflow state either provided to or resulting from the step.
+* Filters for input and output data, i.e., jq templates that filter the workflow state either provided to or resulting from the step.
 * Actions to perform within a step.
 * Execution timeout.
-* Retry policy applied if the step throws an error. If a step cannot be completed due to running out of quota or ends with an error, {{ sw-name }} will retry the step according to the retry policy. Eventually the step may succeed or end with an error if the last attempt fails. If the step ends with an error, the whole [run](execution.md) gets the `Failed` status and no further steps are executed.
+* Retry policy applied if the step throws an error. If a step cannot be completed due to running out of quota or ends with an error, {{ sw-name }} will retry the step according to the retry policy. Eventually the step may succeed or end with an error if the last execution attempt fails. If the step ends with an error, the whole [execution](execution.md) gets the `Failed` status and no further steps are performed.
 
-The steps are described in the [YaWL specification](yawl/index.md). The description of each step, except for the last one, must specify the next step.
+The steps are described:
+* In the [YaWL specification](yawl/index.md). The description of each step, except for the last one, must name the next step.
+* Using the [specification constructor](../../operations/workflows/constructor/index.md).
 
 In the workflow settings, you can specify the following:
 * User network to run the workflow in. The workflow will have access to resources in this network.
@@ -40,23 +42,23 @@ Payload | Workflow state
 
 {% endcut %}
 
-When executing a run:
+During the execution:
 * The workflow state is delivered to the step as input data (`input`).
 * Output data (`output`) of each step is added to the workflow state in the order of executing the steps.
 
-With jq expressions, you can filter:
-* The workflow state delivered to the next step as input data (`input`).
-* The output data (`output`) added to the workflow state.
+With jq templates, you can filter:
+* Workflow state delivered to the next step as input data (`input`).
+* Output data (`output`) added to the workflow state.
 
 {% note info %}
 
-A workflow state is a JSON object at any given time.
+A workflow state at any given time is a JSON object.
 
 {% endnote %}
 
-The output data of each step is added to the workflow state by merging it with the current state using top-level keys. Therefore, some of the state data can be overwritten. For example, if before running the step the state was a JSON object of the form `{“numbers“: [1,2,3,4], “strings”: [“a”, “b”, “c”]}`, and the step's output was `{“strings”: [“d”, “e”]}`, the new state will be a JSON object of the form `{“numbers“: [1,2,3,4], “strings”: [“d”, “e”]}`.
+The output data of each step is added to the workflow state by merging it with the current state using top-level keys. Therefore, some of the state data can be overwritten. For example, if before the step execution the state was a JSON object of the form `{“numbers“: [1,2,3,4], “strings”: [“a”, “b”, “c”]}`, and the step's output was `{“strings”: [“d”, “e”]}`, the new state will be a JSON object in `{“numbers“: [1,2,3,4], “strings”: [“d”, “e”]}` format.
 
-The workflow execution result is represented by output data of the last step you can set the `output` field value for. 
+The workflow result is represented by the output data of the last step for which the `output` field value can be set. 
 
 ### Workflow state during the Parallel step {#state-for-Parallel}
 

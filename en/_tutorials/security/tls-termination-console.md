@@ -131,7 +131,7 @@ To create an [instance group](../../compute/concepts/instance-groups/index.md) f
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Open the **{{ ui-key.yacloud.compute.switch_groups }}** tab. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. Open the **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** tab. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Enter the instance group name: `mysite-ig`.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure the fault tolerance of your hosting.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.

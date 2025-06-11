@@ -221,7 +221,7 @@ To avoid network connectivity issues when deploying and using {{ managed-k8s-nam
 
 #### Security groups and {{ alb-name }} tools for {{ managed-k8s-name }} {#security-groups-and-alb-for-k8s}
 
-For proper operation of the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) or [Gateway API](https://github.com/kubernetes-sigs/gateway-api), you need to configure security groups for the {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../managed-kubernetes/concepts/index.md#node-group), and for the {{ alb-name }} [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md). For more information, see [this guide](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+For your [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) or [Gateway API](https://github.com/kubernetes-sigs/gateway-api) to operate correctly, configure security groups for the {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../managed-kubernetes/concepts/index.md#node-group), and for the {{ alb-name }} [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md). For more information, see [this guide](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
 {% note alert %}
 
@@ -305,5 +305,15 @@ In {{ yandex-cloud }}, you can work with security groups using:
 ## Step-by-step guides for working with security groups {#security-group-howto}
 
 [Sample use cases for security groups](../../vpc/operations/index.md#security-groups) in {{ yandex-cloud }}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/openvpn.md)
+* [{#T}](../tutorials/usergate-proxy.md)
+* [{#T}](../tutorials/bastion.md)
+* [{#T}](../tutorials/data-processing-nat-instance.md)
+* [{#T}](../tutorials/high-accessible-dmz.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

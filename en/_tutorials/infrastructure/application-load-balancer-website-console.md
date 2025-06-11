@@ -92,7 +92,7 @@ To create an instance group with the minimum configuration:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Open the **{{ ui-key.yacloud.compute.switch_groups }}** tab and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. Open the **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** tab and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
      * Name the instance group, e.g., `website-vm-group`.
      * Select the [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete VMs in the group, assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account. By default, all operations with security groups are performed on behalf of the service account.

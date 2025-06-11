@@ -31,11 +31,11 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите тип загрузочного [диска](../../compute/concepts/disk.md) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите тип загрузочного [диска](../../compute/concepts/disk.md) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры для решения текущих вычислительных задач:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
@@ -105,9 +105,9 @@
 
 ### Создайте кластер {#create-cluster}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ui-key.yacloud.compute.switch_disks }}**.
-1. Справа от диска ВМ `master-node` нажмите ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Задайте имя `master-node-snapshot`. После того как снимок будет создан, он появится в разделе **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-1. Перейдите в раздел **{{ ui-key.yacloud.compute.switch_groups }}** и нажмите **{{ ui-key.yacloud.compute.groups.button_create }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+1. Справа от диска ВМ `master-node` нажмите ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Задайте имя `master-node-snapshot`. После того как снимок будет создан, он появится в разделе **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
+1. Перейдите в раздел **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Создайте [группу ВМ](../../compute/concepts/instance-groups/index.md):
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите имя будущей группы ВМ, например `compute-group`.
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** добавьте [сервисный аккаунт](../../compute/concepts/instance-groups/access.md) к данной группе ВМ. Если у вас нет сервисного аккаунта, нажмите **{{ ui-key.yacloud.common.create }}**, укажите его имя и нажмите на кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.

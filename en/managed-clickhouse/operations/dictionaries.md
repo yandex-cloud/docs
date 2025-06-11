@@ -5,10 +5,10 @@ You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) 
 {{ mch-name }} supports several types of dictionary sources:
 
 * {{ CH }}
-* HTTP(s);
+* HTTP(s)
 * {{ MG }}
 * {{ MY }}
-* {{ PG }}.
+* {{ PG }}
 
 You can manage dictionaries either via SQL (recommended) or via {{ yandex-cloud }} cloud interfaces.
 
@@ -364,12 +364,12 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
         * `SOURCE`: Source and its parameters.
         * `LIFETIME`: Dictionary update frequency.
         * `LAYOUT`: Memory layout type for the dictionary. Supported options:
-          * `flat`,
-          * `hashed`,
-          * `cache`,
-          * `range_hashed`,
-          * `complex_key_hashed`,
-          * `complex_key_cache`.
+          * `flat`
+          * `hashed`
+          * `cache`
+          * `range_hashed`
+          * `complex_key_hashed`
+          * `complex_key_cache`
 
     For more information about the settings, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict/) documentation.
 
@@ -680,11 +680,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% cut "{{ CH }}" %}
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: {{ CH }} host name. This is an optional setting.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: {{ CH }} host name. This is an optional parameter.
 
         The host must be in the same network as the {{ CH }} cluster.
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source. This is an optional setting.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source. This is an optional parameter.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}**: Name of source database user.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
@@ -746,9 +746,9 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_allow-read-expired-keys }}**: Decides whether or not to allow reading expired keys. Used for the `cache` and `complex_key_cache` methods. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
   * Update queue settings where cache refresh issues are created if keys are not found in the dictionary. The settings are used for the `cache` and `complex_key_cache` methods.
 
-    * * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-update-queue-size }}**: Maximum number of update issues per queue. The default value is `100000`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-update-queue-size }}**: Maximum number of update issues per queue. The default value is `100000`.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-queue-push-timeout-milliseconds }}**: Maximum timeout (in milliseconds) before an update issue is sent to the queue. The default value is `10`.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-queue-push-timeout-milliseconds }}**: Maximum timeout (in milliseconds) before completing an updated issue. The default value is `60000` (one minute).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_query-wait-timeout-milliseconds }}**: Maximum timeout (in milliseconds) before completing an updated issue. The default value is `60000` (one minute).
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-threads-for-updates }}**: Maximum number of threads for cache dictionary update. The default value is `4`.
 
     For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
@@ -793,11 +793,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% cut "`--clickhouse-source`: {{ CH }} source" %}
 
-    * `host`: Source host name. This is an optional setting.
+    * `host`: Source host name. This is an optional parameter.
 
         The host must be in the same network as the {{ CH }} cluster.
 
-    * `port`: Port for connecting to the source. This is an optional setting.
+    * `port`: Port for connecting to the source. This is an optional parameter.
     * `db`: Source database name.
     * `user`: Name of source database user.
     * `password`: Password to access the source database.
@@ -871,7 +871,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * `--layout-max-update-queue-size`: Maximum number of update issues per queue. The default value is `100000`.
     * `--layout-update-queue-push-timeout-milliseconds`: Maximum timeout (in milliseconds) before an update issue is sent to the queue. The default value is `10`.
     * `--layout-query-wait-timeout-milliseconds`: Maximum timeout (in milliseconds) before completing an updated issue. The default value is `60000` (one minute).
-    * `--layout-max-threads-for-updates`: Maximum number of threads for cache dictionary update. The default value is `4`.
+    * `--layout-max-threads-for-updates`: Maximum number of threads for a cache dictionary update. The default value is `4`.
 
     For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
 
@@ -934,11 +934,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `db`: Source database name.
       * `table`: Source table name.
       * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
-      * `host`: Source host name. This is an optional setting.
+      * `host`: Source host name. This is an optional parameter.
 
           The host must be in the same network as the {{ CH }} cluster.
 
-      * `port`: Port for connecting to the source. This is an optional setting.
+      * `port`: Port for connecting to the source. This is an optional parameter.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
       * `secure`: Whether to use SSL to establish the connection.
@@ -1006,7 +1006,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `layout.maxUpdateQueueSize`: Maximum number of update issues per queue. The default value is `100000`.
       * `layout.updateQueuePushTimeoutMilliseconds`: Maximum timeout (in milliseconds) before an update issue is sent to the queue. The default value is `10`.
       * `layout.queryWaitTimeoutMilliseconds`: Maximum timeout (in milliseconds) before completing an updated issue. The default value is `60000` (one minute).
-      * `layout.maxThreadsForUpdates`: Maximum number of threads for cache dictionary update. The default value is `4`.
+      * `layout.maxThreadsForUpdates`: Maximum number of threads for a cache dictionary update. The default value is `4`.
 
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
 
@@ -1061,11 +1061,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `db`: Source database name.
       * `table`: Source table name.
       * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
-      * `host`: Source host name. This is an optional setting.
+      * `host`: Source host name. This is an optional parameter.
 
           The host must be in the same network as the {{ CH }} cluster.
 
-      * `port`: Port for connecting to the source. This is an optional setting.
+      * `port`: Port for connecting to the source. This is an optional parameter.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
       * `secure`: Whether to use SSL to establish the connection.
@@ -1133,7 +1133,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `layout.max_update_queue_size`: Maximum number of update issues per queue. The default value is `100000`.
       * `layout.update_queue_push_timeout_milliseconds`: Maximum timeout (in milliseconds) before an update issue is sent to the queue. The default value is `10`.
       * `layout.query_wait_timeout_milliseconds`: Maximum timeout (in milliseconds) before completing an updated issue. The default value is `60000` (one minute).
-      * `layout.max_threads_for_updates`: Maximum number of threads for cache dictionary update. The default value is `4`.
+      * `layout.max_threads_for_updates`: Maximum number of threads for a cache dictionary update. The default value is `4`.
 
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries#cache).
 
@@ -1202,7 +1202,7 @@ Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}
 
 - CLI {#cli}
 
-    Run the following command:
+    Run this command:
 
     ```bash
     {{ yc-mdb-ch }} cluster add-external-dictionary \

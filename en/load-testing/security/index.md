@@ -1,21 +1,21 @@
 # Access management in {{ load-testing-name }}
 
-{{ load-testing-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+{{ load-testing-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
 In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#required-roles) for particular actions.
+* [What resources you can assign a role for](#resources).
+* [What roles this service has](#roles-list).
+* [What roles are required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## What roles exist in this service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -58,4 +58,4 @@ In this section, you will learn:
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

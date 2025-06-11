@@ -42,7 +42,7 @@
 
    {% note info %}
 
-   You can skip the `--group-name`, `--message`, and `--json-payload` flags and provide the values, keeping the order, e.g., `default "My message" '{"request_id": "1234"}'`.
+   You can skip the `--group-name`, `--message`, and `--json-payload` parameters and provide only the values in the right order, e.g., `default "My message" '{"request_id": "1234"}'`.
 
    {% endnote %}
 

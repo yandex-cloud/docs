@@ -15,7 +15,6 @@ description: Various {{ interconnect-name }} use cases in {{ yandex-cloud }}.
 
 ## Updating {#change}
 * [{#T}](trunk-capacity-change.md)
-* [{#T}](priv-prefixes-change.md)
 
 ## Deleting {#del}
 * [{#T}](priv-del.md)

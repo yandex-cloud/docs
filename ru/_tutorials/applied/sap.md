@@ -36,10 +36,10 @@
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md): `{{ region-id }}-d`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
-      * Выберите [тип](../../compute/concepts/disk.md#disks_types) загрузочного диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` и задайте размер `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * Выберите [тип](../../compute/concepts/disk.md#disks_types) загрузочного диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` и задайте размер `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       * Создайте дополнительный диск:
           * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-          * Выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
+          * Выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`.
           * Задайте размер `24 {{ ui-key.yacloud.common.units.label_gigabyte }}`. 
           * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 

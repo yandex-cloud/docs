@@ -34,7 +34,8 @@ Updates specified Workflow.
   },
   "network_id": "string",
   "service_account_id": "string",
-  "update_mask": "google.protobuf.FieldMask"
+  "update_mask": "google.protobuf.FieldMask",
+  "express": "bool"
 }
 ```
 
@@ -67,6 +68,9 @@ ID of the Service Account which will be used for resources access in Workflow ex
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Workflow should be updated. ||
+|| express | **bool**
+
+Express execution mode. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification}
@@ -163,7 +167,8 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
       "min_level": "Level"
     },
     "network_id": "string",
-    "service_account_id": "string"
+    "service_account_id": "string",
+    "express": "bool"
   }
   // end of the list of possible fields
 }
@@ -277,6 +282,9 @@ ID of the VPC network Workflow will be executed in, in order to access private r
 || service_account_id | **string**
 
 ID of the Service Account which will be used for resource access in Workflow execution. ||
+|| express | **bool**
+
+Express execution mode. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2}

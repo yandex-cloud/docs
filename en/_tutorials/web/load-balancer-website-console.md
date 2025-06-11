@@ -1,14 +1,14 @@
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create an instance group](#create-vms).
 1. [Upload the website files](#upload-files).
 1. [Create a network load balancer](#create-load-balancer).
-1. [Run a fault tolerance test](#test).
+1. [Test the fault tolerance](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 
-## Prepare your cloud environment {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [load-balancer-website-paid-resources](../_tutorials_includes/load-balancer-website/paid-resources.md) %}
 
 
-### Prepare the environment {#configure-env}
+### Set up your environment {#configure-env}
 
 * [Create](../../vpc/operations/network-create.md) a cloud network named `nlb-network` and [subnets](../../vpc/operations/subnet-create.md).
 * [Create](../../iam/operations/sa/create.md) a service account named `nlb-sa` and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-editor }}` role to it.
@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}** and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
       * Enter a name for the instance group, e.g., `nlb-vm-group`.
@@ -50,7 +50,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify:
 
-          * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`
+          * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`
           * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, open the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the following: 
@@ -65,10 +65,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
           * Select the `nlb-network` cloud network and its subnets.
           * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for accessing the instance:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
 
           * In the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field, select the service account to link to the VM.
-          * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+          * Specify the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
           * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
       1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
@@ -89,18 +89,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a network load balancer {#create-load-balancer}
 
-When creating a network load balancer, you need to add a [listener](../../network-load-balancer/concepts/listener.md) that the load balancer will use to receive traffic, attach the [target group](../../network-load-balancer/concepts/target-resources.md) created together with the instance group, and configure resource health checks in it.
+When creating a network load balancer, you need to add a [listener](../../network-load-balancer/concepts/listener.md) to handle incoming traffic, attach the [target group](../../network-load-balancer/concepts/target-resources.md) created along with the instance group, and configure health checks for its targets.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create a load balancer in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** and click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Enter a name for the load balancer, e.g., `nlb-1`.
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
   
-      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}** and specify the following parameters:
+      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}** and specify the following settings:
 
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**: `nlb-listener`
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `80`
@@ -110,12 +110,12 @@ When creating a network load balancer, you need to add a [listener](../../networ
 
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**:
 
-      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}** and select the `nlb-tg` target group [created earlier](#create-vms). If there is only one target group, it is selected automatically.
+      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}** and select the `nlb-tg` target group you [created earlier](#create-vms). If there is only one target group, it will be selected automatically.
       1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}** and specify the following:
 
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**: `health-check-1`
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks to consider the VM ready to receive traffic: `5`
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks to stop routing traffic to the VM: `5`
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**: `health-check-1`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: `5`. This stands for the number of successful checks required to consider the VM ready to receive traffic.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: `5`. This stands for the number of failed checks before traffic is no longer routed to the VM.
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
 
@@ -123,16 +123,16 @@ When creating a network load balancer, you need to add a [listener](../../networ
 
 {% endlist %}
 
-After you create a network load balancer, [run a fault tolerance test](#test).
+After you create a network load balancer, [test the fault tolerance](#test).
 
-## Run a fault tolerance test {#test}
+## Test the fault tolerance {#test}
 
 {% include [load-balancer-website-test](../_tutorials_includes/load-balancer-website/test.md) %}
 
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the hosting and stop paying for the created resources:
+To shut down the hosting and stop paying for the resources you created:
 1. [Delete](../../network-load-balancer/operations/load-balancer-delete.md) the network load balancer.
 1. [Delete](../../compute/operations/instance-groups/delete.md) the instance group.
-1. [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.
+1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one.

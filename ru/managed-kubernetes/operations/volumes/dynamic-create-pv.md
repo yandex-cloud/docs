@@ -131,7 +131,7 @@ description: Следуя данной инструкции, вы сможете
    ```
 
    После создания пода:
-   * В [консоли управления]({{ link-console-main }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.switch_disks }}** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
+   * В [консоли управления]({{ link-console-main }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.disks_ddfdb }}** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
    * В событиях объекта `PersistentVolumeClaim` появится информация о выделении диска:
 
      ```bash

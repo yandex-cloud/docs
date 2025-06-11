@@ -85,7 +85,7 @@ Snapshots are billable and count towards [quotas]({{ link-console-quotas }}) wit
 
 
    See the instructions [{#T}](../../iam/operations/roles/grant.md).
-1. Create an image from your snapshot under **{{ ui-key.yacloud.compute.switch_snapshots }}** or from the disk itself under **{{ ui-key.yacloud.compute.switch_disks }}**.
+1. Create an image from your snapshot under **{{ ui-key.yacloud.compute.snapshots_81jHX }}** or from the disk itself under **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
 
 A user in another cloud must:
 1. Run the [CLI](../../cli/) command below:

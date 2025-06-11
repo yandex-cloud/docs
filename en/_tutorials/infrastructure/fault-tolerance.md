@@ -1,7 +1,7 @@
 # Configuring a fault-tolerant architecture in {{ yandex-cloud }}
 
 
-In this tutorial, you will configure a [fault-tolerant architecture](../../architecture/fault-tolerance.md) in {{ yandex-cloud }} and test it in different scenarios.
+In this tutorial, you will configure a [fault-tolerant architecture](../../architecture/fault-tolerance.md) in {{ yandex-cloud }} and test it with different scenarios.
 
 By fault tolerance, we mean the ability of a system to operate despite failures in one or more of its components.
 
@@ -24,7 +24,6 @@ The cost of supporting a fault-tolerant {{ yandex-cloud }} architecture includes
 * Fee for [disks](../../compute/concepts/disk.md) and continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for a continuously running [{{ mpg-full-name }} cluster](../../managed-postgresql/concepts/index.md) (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Fee for a dynamic or static [public IP address](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
 
 ## Set up a test environment {#prepare}
 
@@ -205,7 +204,7 @@ To simulate this failure, delete one of the VM instances from the group:
 
   1. In the [management console]({{ link-console-main }}), select your instance group folder.
   1. In the list of services, select **{{ compute-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
   1. Next to the VM you want to delete, click ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
@@ -275,7 +274,7 @@ To move your resources to another data center:
 
   1. In the [management console]({{ link-console-main }}), select your instance group folder.
   1. In the list of services, select **{{ compute-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, uncheck the `{{ region-id }}-b` availability zone.
@@ -305,7 +304,7 @@ To update your application:
 
   1. In the [management console]({{ link-console-main }}), select your instance group folder.
   1. In the list of services, select **{{ compute-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.

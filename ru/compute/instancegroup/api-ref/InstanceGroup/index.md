@@ -23,6 +23,8 @@ A set of methods for managing InstanceGroup resources.
 || [Start](start.md) | Starts the specified instance group. ||
 || [Delete](delete.md) | Deletes the specified instance group. ||
 || [ListInstances](listInstances.md) | Lists instances for the specified instance group. ||
+|| [DeleteInstances](deleteInstances.md) | Delete instances from the instance group. ||
+|| [StopInstances](stopInstances.md) | Stop instances from the instance group. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified instance group. ||
 || [ListLogRecords](listLogRecords.md) | Lists logs for the specified instance group. ||
 || [ListAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified instance group. ||

@@ -18,9 +18,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. Follow these naming requirements:
+  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -106,7 +106,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
      * `enable_throttling_rcu_limit`: Enable throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional parameter. The default value is `0`.
      * `storage_size_limit`: Data size limit in bytes. This is an optional parameter. The default value is `50` GB.
-     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is `0`.
+     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is off. This is an optional parameter. The default value is `0`.
      
   1. Apply the changes:
   
@@ -154,7 +154,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update DB settings.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the DB and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Configure the DB settings:
       1. Change the DB name, if required.
@@ -219,7 +219,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
      * `enable_throttling_rcu_limit`: Enable throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional parameter. The default value is `0`.
      * `storage_size_limit`: Amount of data, GB. This is an optional parameter. The default value is `50`.
-     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is `0`.
+     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is off. This is an optional parameter. The default value is `0`.
 
   1. Apply the changes:
   
@@ -278,9 +278,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. Follow these naming requirements:
+  1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -302,7 +302,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       1. Select an existing network from the **{{ ui-key.yacloud.ydb.forms.field_network }}** list or create a new one:
           * Click **{{ ui-key.yacloud.common.create }}**.
           * In the window that opens, enter a **{{ ui-key.yacloud.vpc.networks.create.field_name }}** for the new network.
-          * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option. Subnets in each availability zone will be created automatically.
+          * Optionally, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Subnets in each availability zone will be created automatically.
           * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each availability zone:
           * Click **{{ ui-key.yacloud.common.create }}**.
@@ -472,7 +472,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update DB settings.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the DB and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Configure the DB settings:
       1. Change the DB name, if required.
@@ -559,7 +559,7 @@ To move a database to a different availability zone, follow [this guide](migrati
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to get a list of databases for.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -588,7 +588,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the DB resides in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
   1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. Select the group, user, or service account you want to grant access to the database.
@@ -672,7 +672,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the DB resides in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
   1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. Select the group, user, or service account you want to grant access to the database.
@@ -743,7 +743,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
            --access-binding role=<role>,subject=group:<group_ID>
         ```
 
-     Provide a separate `--access-binding` flag for each role. Example:
+     Provide a separate `--access-binding` parameter for each role. For example:
 
      ```bash
      yc ydb database set-access-bindings \
@@ -772,7 +772,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to delete the DB from.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the DB and select **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
   1. Confirm the deletion.
 

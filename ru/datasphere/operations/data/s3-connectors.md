@@ -79,7 +79,7 @@
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/bucket.svg)**{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
-1. В списке коннекторов S3 выберите тот, который хотите удалить. Нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. В строке с нужным хранилищем S3 нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 Отобразится сообщение о том, что секрет удален.

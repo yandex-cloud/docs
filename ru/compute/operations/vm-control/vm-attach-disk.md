@@ -20,14 +20,14 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Выберите неподключенный диск или [создайте](../disk-create/empty.md) новый.
   1. Напротив диска, который вы хотите подключить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-attach }}**.
   1. В открывшемся окне:
      * В поле **{{ ui-key.yacloud.compute.attach-disk.field_instance }}** выберите виртуальную машину, к которой нужно подключить диск.
      * Если в хотите подключить [зашифрованный](../../concepts/encryption.md) диск, выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) c [ролью](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../../../kms/concepts/key.md), которым зашифрован диск.
      * Укажите название устройства.
-     * При необходимости включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**.
+     * При необходимости включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.attach-disk.button_attach }}**.
 
 - CLI {#cli}

@@ -59,7 +59,7 @@ You can get a list of backups created for the past 14 days.
     +----------------------+---------------------+-------------------+---------------------+
     ```
 
-    If you want to limit the backup list displayed after running the command, include the `--limit <number_of_records>` flag in the command. For example, if the output of the `{{ yc-mdb-os }} backup list` command takes up several screens, run the `{{ yc-mdb-os }} backup list --limit 5` command. In this case, the output will contain the list of five most recent backups.
+    If you want to limit the backup list displayed after running the command, include the `--limit <number_of_records>` parameter in the command. For example, if the output of the `{{ yc-mdb-os }} backup list` command takes up several screens, run the `{{ yc-mdb-os }} backup list --limit 5` command. In this case, the output will contain the list of five most recent backups.
 
 - REST API {#api}
 
@@ -227,7 +227,7 @@ You can get a list of backups created for the past 14 days.
             --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/backups/<backup_ID>'
         ```
 
-        You can request  the backup ID together with the [list of backups](#list-backups).
+        You can request the backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup) to make sure the request was successful.
 
@@ -254,7 +254,7 @@ You can get a list of backups created for the past 14 days.
             yandex.cloud.mdb.opensearch.v1.BackupService.Get
         ```
 
-        You can request  the backup ID together with the [list of backups](#list-backups).
+        You can request the backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup) to make sure the request was successful.
 
@@ -344,7 +344,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
 When creating a new cluster, set all required parameters.
 
 
-Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
+Before you begin, [assign](../../iam/operations/roles/grant.md) your {{ yandex-cloud }} account the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
 
 
 {% list tabs group=instructions %}
@@ -676,7 +676,7 @@ When restoring a cluster from a snapshot, the {{ OS }} version in the cluster mu
 
 {% endnote %}
 
-1. [Create a new {{ OS }} cluster](cluster-create.md) in the required configuration, but do not populate it with data.
+1. [Create a new {{ OS }} cluster](cluster-create.md) in the required configuration but do not populate it with data.
 
     When creating a cluster, select:
 

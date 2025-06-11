@@ -223,6 +223,10 @@ items:
           Разработка функций в Functions Framework и их развертывание в {{
           serverless-containers-full-name }}
         href: tutorials/functions-framework-to-container.md
+      - name: >-
+          Регулярное распознавание изображений и PDF-документов из бакета {{
+          objstorage-short-name }}
+        href: tutorials/vision-ocrrecognizer-storage.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

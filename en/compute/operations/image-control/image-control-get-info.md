@@ -10,7 +10,7 @@ title: How to get information about a disk image in {{ compute-full-name }}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your disk [image](../../concepts/image.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Select the image.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the image details.
 

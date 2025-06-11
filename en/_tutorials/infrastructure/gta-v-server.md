@@ -65,11 +65,11 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+      1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}` [disk type](../../compute/concepts/disk.md#disks_types) and set the `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` size.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}` [disk type](../../compute/concepts/disk.md#disks_types) and set the `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` size.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
           * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`

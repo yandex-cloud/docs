@@ -15,7 +15,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
-  1. Select **{{ ui-key.yacloud.compute.label_service }}**.
+  1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -126,7 +126,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
-  1. Select **{{ ui-key.yacloud.compute.label_service }}**.
+  1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -244,7 +244,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the GPU cluster.
-  1. Select **{{ ui-key.yacloud.compute.label_service }}**.
+  1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.

@@ -59,7 +59,7 @@ There are two lock areas available, one below the other. Their purposes are diff
 
 You can manage pinned widgets in dashboard edit mode as follows:
 
-* To pin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin.svg) **Pin** or drag it to a lock area. By default, widgets are pinned to the top area. If a widget does not fit into the top area width and height wise, it gets pinned to the bottom area. Widgets are drag-and-droppable from one lock area to another.
+* To pin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin.svg) **Pin** or drag it to a lock area. By default, widgets are pinned to the top area. Widgets are drag-and-droppable from one lock area to another.
 * To unpin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin** or drag it out of the lock area.
 * To unpin all widgets, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin all** to the right of the lock area.
 * To customize the bottom lock area behavior as you open the dashboard, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/square.svg) **Hide by default** or ![image](../../_assets/console-icons/square-check.svg) **Hide by default** to the right of the lock area.

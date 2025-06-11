@@ -6,7 +6,7 @@ High-quality raw original video content (video file or broadcast) is not well su
 
 {{ video-name }} prepares video content for posting on the internet:
 * Transcodes the original video file or broadcast into multiple versions with different bitrates and resolutions. When viewing content on client devices, the [video player](player.md) selects the best version for smooth playback at a given internet connection speed.
-* Divides content into small parts for efficient delivery, caching, and smooth playback in the video players on user devices.
+* Splits content into smaller chunks for efficient delivery, caching, and smooth playback in video players on user devices.
 * Distributes content using the CDN technology.
 * Provides a fault-tolerant infrastructure for transcoding, storing, and broadcasting video content.
 

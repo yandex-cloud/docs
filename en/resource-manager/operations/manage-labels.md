@@ -14,7 +14,7 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
   1. In the [management console]({{ link-console-main }}), select the folder the VM is located in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM you need from the list.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -175,7 +175,7 @@ You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
 
   1. In the [management console]({{ link-console-main }}), select the folder the VM is located in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM you need from the list.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![cross](../../_assets/console-icons/xmark.svg) next to its name.

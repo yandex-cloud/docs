@@ -274,6 +274,9 @@ This method starts an operation that can be cancelled by another operation.
     },
     "max_opening_traffic_duration": "google.protobuf.Duration",
     "ignore_health_checks": "bool"
+  },
+  "auto_healing_policy": {
+    "auto_healing_action": "AutoHealingAction"
   }
 }
 ```
@@ -335,6 +338,9 @@ Settings for balancing load between instances via [Application Load Balancer](/d
 
 If specified, an Application Load Balancer target group containing all instances from the instance group will be created
 and attributed to the instance group. ||
+|| auto_healing_policy | **[AutoHealingPolicy](#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy)**
+
+AutoHealingPolicy policy of the instance group. ||
 |#
 
 ## InstanceTemplate {#yandex.cloud.compute.v1.instancegroup.InstanceTemplate}
@@ -1040,6 +1046,20 @@ Description of the target group. ||
 Resource labels as `key:value` pairs. ||
 |#
 
+## AutoHealingPolicy {#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy}
+
+#|
+||Field | Description ||
+|| auto_healing_action | enum **AutoHealingAction**
+
+Instance Groups performs `auto_healing_action` when instance becomes unhealthy.
+
+- `AUTO_HEALING_ACTION_UNSPECIFIED`
+- `RESTART`: Re-starting an instance with restart: stopping and then starting the instance.
+- `RECREATE`: Re-creating an instance: deleting an instance and creating a new one.
+- `NONE`: No action ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -1503,7 +1523,7 @@ Settings for balancing load between instances via [Application Load Balancer](/d
 Status of the Application Load Balancer target group attributed to the instance group.
 
 Returned if there is a working load balancer that the target group is connected to. ||
-|| auto_healing_policy | **[AutoHealingPolicy](#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy)**
+|| auto_healing_policy | **[AutoHealingPolicy](#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy2)**
 
 AutoHealingPolicy policy of the instance group. ||
 |#
@@ -2253,7 +2273,7 @@ ID of the Application Load Balancer target group attributed to the instance grou
 Status message of the target group. ||
 |#
 
-## AutoHealingPolicy {#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy}
+## AutoHealingPolicy {#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy2}
 
 #|
 ||Field | Description ||

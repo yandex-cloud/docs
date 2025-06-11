@@ -2,12 +2,13 @@
 title: '{{ VLK }} backups'
 description: '{{ mrd-short-name }} supports automatic and manual {{ VLK }} database backups. A backup of all cluster data (an RDB snapshot) is automatically created every day. You can set the backup start time when creating or updating a {{ VLK }} cluster.'
 keywords:
+  - backup
   - back up
   - backup
   - backing up
-  - Valkey backups
-  - backup Valkey
-  - Valkey
+  - '{{ VLK }} backups'
+  - backup {{ VLK }}
+  - '{{ VLK }}'
 ---
 
 # Backups in {{ mrd-name }}

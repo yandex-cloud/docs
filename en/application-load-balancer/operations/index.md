@@ -44,6 +44,11 @@ description: Step-by-step guides on using {{ alb-full-name }} in {{ yandex-cloud
 * [{#T}](application-load-balancer-relocate.md)
 * [{#T}](application-load-balancer-delete.md)
 
+### Availability zone management {#manage-zone}
+
+* [{#T}](manage-zone/allow-and-deny-shift.md)
+* [{#T}](manage-zone/start-and-cancel-shift.md)
+
 ## Tools for {{ managed-k8s-name }} {#k8s-ingress-controller}
 
 * [{#T}](k8s-ingress-controller-install.md)

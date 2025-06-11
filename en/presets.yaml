@@ -527,6 +527,7 @@ default:
   postbox-full-name: Yandex Cloud Postbox
   postbox-host: postbox.cloud.yandex.net
   postbox-name: Yandex Cloud Postbox
+  postbox-short-name: Yandex Cloud Postbox
   preview-stage: <code><b><small>Preview</small></b></code>
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   prometheus-name: Prometheus
@@ -6134,6 +6135,7 @@ default:
         title_accounts: Billing accounts
       common:
         button_cron-1min: Every minute
+        monitoring: Monitoring
         resource-acl:
           button_assign-binding: Edit roles
       component:
@@ -7021,7 +7023,6 @@ default:
         label_one-month-duration: 1 month
         label_password-lockbox: Lockbox secret
         label_password-plain: New password
-        label_public-ip-auto: Automatically
         label_public-ip-ephemeral: Automatic
         label_public-ip-from-dedicated-subnet: From a dedicated subnet
         label_public-ip-no: No address
@@ -7154,6 +7155,11 @@ default:
         action_import: User certificate
         action_request: Let's Encrypt certificate
         button_empty-action: Add certificate
+        CertificateField:
+          letsEncryptCertificate_5ack4: Let's Encrypt certificate
+          userCertificate_bChXn: Custom certificate
+        CertificateImportDialog:
+          createCertificate_x7Ww3: Create certificate
         import:
           button_add-certificate: Add certificate
           button_add-chain: Add chain
@@ -7167,6 +7173,7 @@ default:
         overview:
           action_edit-meta: Edit
           action_reimport: Renew certificate
+          button_validation_show-logs: Show logs
           certificate_content_download: Download certificate
           certificate_content_export: Export certificate
           certificate_content_select_full: End-entity certificate and chain
@@ -7185,6 +7192,8 @@ default:
           challenge-type_label_http: HTTP
           field_challenge-type: Check type
           field_domains: Domains
+        RequstCertificateDialog:
+          createCertificate_b5eZg: Create certificate
       clickhouse:
         button_create-cluster: Create ClickHouse cluster
         cluster:
@@ -7524,6 +7533,7 @@ default:
           overview:
             label_snapshot: Snapshot
             label_status: Status
+        disks_ddfdb: Disks
         disks:
           button_action-attach: Attach
           button_action-detach: Detach
@@ -7536,8 +7546,9 @@ default:
             button_update: Save changes
           label_disk-used: Active
           popup_detach-disk_button_detach: Detach
-        field_additional: Additional
-        field_disk-autodelete: Delete along with the virtual machine
+        field_additional_vt356: Additional
+        field_disk-autodelete_qZn4x: Delete along with the virtual machine
+        file-storages_pNPw1: File storages
         group:
           edit:
             label_title: Changing an instance group
@@ -7617,12 +7628,15 @@ default:
         host-group:
           hosts:
             label_title: List of hosts
+        host-groups_eKsBm: Dedicated host groups
+        images_e7RdQ: Images
         images:
           button_action-image: Create image
           button_upload: Upload image
           label_title: Images
           popup-confirm_button_delete: Delete
           popup-upload_field_pooled: Optimize for deployment
+        instance-groups_hx3kX: Instance groups
         instance:
           access-method:
             field_os-login-access-method: Access by OS Login
@@ -7659,6 +7673,7 @@ default:
           switch_disks: Disks
           switch_file-storages: File storages
           switch_service-console: Serial port
+        instances_jsoza: Virtual machines
         instances:
           button_action-restart: Restart
           button_create: Create virtual machine
@@ -7729,12 +7744,13 @@ default:
           popup-confirm_button_restart: Restart
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
-        label_service: Compute Cloud
+        label_service_5w4rd: Compute Cloud
         nfs:
           button_attach-instance-to-the-filesystem: Attach to VM
           button_create-filesystem: Create file storage
           button_detach-instance-from-the-filesystem: Detach file storage
           label_attached-instances: Virtual machines
+        operations_kRLeR: Operations
         placement-group:
           disks:
             button_add-disk: Add disk
@@ -7747,12 +7763,14 @@ default:
             label_title: Overview
           switch_disks: Disks
           switch_instances: Virtual machines
+        placement-groups_3CwzD: Placement groups
         placement-groups:
           button_create: Create
           button_menu-create-disk-placement-group: Non-replicated disk placement group
           button_menu-create-instance-placement-group: Virtual machine placement group
           label_tab-disks: Non-replicated disk placement groups
           label_tab-instances: Virtual machine placement groups
+        snapshots_81jHX: Snapshots
         snapshots-schedules:
           action_attach-disk: Add disk
           action_detach-disk: Delete from schedule
@@ -7771,19 +7789,10 @@ default:
         snapshots:
           list:
             button_action-image: Create image
-        switch_disks: Disks
-        switch_file-storages: File storages
-        switch_groups: Instance groups
-        switch_host-groups: Dedicated host groups
-        switch_images: Images
-        switch_instances: Virtual machines
-        switch_operations: Operations
-        switch_placement-groups: Placement groups
-        switch_snapshots: Snapshots
-        value_disk-type-network-hdd: HDD
-        value_disk-type-network-ssd: SSD
-        value_disk-type-network-ssd-io-m3: SSD IO
-        value_disk-type-network-ssd-nonreplicated: Non-replicated SSD
+        value_disk-type-network-hdd_cw9XD: HDD
+        value_disk-type-network-ssd_4Mmub: SSD
+        value_disk-type-network-ssd-io-m3_pPfnG: SSD IO
+        value_disk-type-network-ssd-nonreplicated_d7W56: Non-replicated SSD
       connection-manager:
         label_connection-type: Connection type
         label_connections: Connections
@@ -8223,7 +8232,7 @@ default:
         label_mqtt-topic-filter: MQTT topic filter
         label_passwords: Passwords
         label_registries: Registries
-        label_yds-exports: Export to Data Stream
+        label_yds-exports: Export to Data Streams
       k8s:
         access:
           label_title: Access management
@@ -8568,9 +8577,7 @@ default:
         button_create-group: Create group
         button_create-sink: Create sink
         button_execute: Run
-        column_header-level: Level
         column_header-message: Message
-        column_header-time: Time
         field_logging: Write logs
         label_destination: Destination
         label_export: Export logs
@@ -9312,6 +9319,29 @@ default:
           label_balancer: Load balancer
           label_http-router: HTTP router
           label_virtual-host: Virtual host
+        CreateDomain:
+          createDomain_b2Ykj: Add domain
+        Domain:
+          Overview:
+            howToActivateProtection_dK3yy: How do I activate protection?
+            targetResources_cNZPL: Target resources
+        DomainForm:
+          ConnectionSection:
+            connectionSettings_7Q85M: Connection settings
+            http_4Dbmc: HTTP
+            https_qWPJb: HTTPS
+            httpsAndHttp_bpVzd: HTTPS and HTTP
+            redirectHttpToHttps_kuxH2: Redirect HTTP to HTTPS
+          TargetResourcesSection:
+            addResource_qyJWd: Add resource
+            connectTargetResources_1mGNK: Connect target resources
+            protocol_q33c8: Protocol
+            sni_mHMUX: SNI
+            targetResources_hqBQm: Target resources
+        DomainsTable:
+          connectSecurityProfile_g5MA4: Connect security profile
+        DomainTargetStateStatus:
+          statusHealthy_5F2ks: Healthy
         form:
           button_add-rule: Add rule
           label_action-allow: Allow
@@ -9319,6 +9349,8 @@ default:
           label_arl-profile: ARL profile
           label_default-action: Action for the default base rule
           section_security-rules: Security rules
+        label_domain-protection: Domain security
+        label_domain-protection-domains: Domains
         label_search-rule-type: 'Rule type:'
         match-lists:
           label_match-lists: Lists
@@ -9340,6 +9372,18 @@ default:
           title_connected-to-the-hosts: Connected hosts
           title_security-rules: Security rules
           title_waf-profile: WAF profile
+        proxy-servers:
+          publicIpColumn_dPwQF: Public IP
+        ProxyServer:
+          Domains:
+            createDomain_49MGX: Add domain
+        ProxyServerForm:
+          add-rule_fnmLk: Add rule
+          swith-enable-logging_e42nT: Log requests
+        ProxyServerFormCreate:
+          createServer_sycVk: Create server
+        ProxyServers:
+          createProxyServer_jatYQ: Create proxy server
         title_default-template: From a preset template
         title_no-template: From scratch
         title_profiles: Security profiles
@@ -11069,10 +11113,12 @@ default:
           reset-jupyter-workspace:
             title: Reset JupyterLab workspace
         executions: Running executions
+        launch-history: Launch history
         project-card:
           create-resource: Create resource
           go-to-jupyter: Open project in JupyterLab
         project-disk: Project storage
+        project-jobs: DataSphere Jobs
         project-resources: Project resources
         settings:
           default-folder: Default folder

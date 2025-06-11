@@ -1,18 +1,18 @@
 title: Yandex Load Testing
 description:
   - >-
-    This service allows you to run load testing and analyze the performance of
-    your services and applications.
+    Yandex Load Testing helps analyze the performance of your services and
+    applications.
   - |-
     Use this service to: <ul>
-      <li>Create a pre-configured <a href="/docs/load-testing/concepts/agent">load generator in your cloud</a>.
+      <li>Create a pre-configured <a href="/docs/load-testing/concepts/agent">load generator</a> in your cloud.
       <li>Set up a test in the interface and generate the load from the new generator.</li>
       <li>View test reports.</li>
       <li>Store and manage data on earlier tests.</li>
-    </ul> You can manage the service using the management console.
+    </ul> You can manage this service using the management console.
 links:
   - title: Getting started
-    description: How to use Yandex Load Testing
+    description: Getting started with Yandex Load Testing
     href: quickstart
   - title: Step-by-step guides
     description: How to perform routine operations
@@ -24,7 +24,7 @@ links:
     description: Configure access permissions to use the service
     href: security/
   - title: Quotas and limits
-    description: Technical and organizational limitations
+    description: Technical and management-related limitations
     href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations
@@ -32,5 +32,22 @@ links:
 meta:
   title: Yandex Load Testing
   description: >-
-    This service allows you to run load testing and analyze the performance of
-    your services and applications.
+    Yandex Load Testing helps analyze the performance of your services and
+    applications.
+  keywords:
+    - '{{ load-testing-full-name }}'
+    - Load Testing
+    - '{{ load-testing-name }}'
+    - '{{ load-testing-full-name }} in {{ yandex-cloud }}'
+    - load analysis
+    - load in {{ load-testing-full-name }}
+    - load test
+    - testing in {{ load-testing-full-name }}
+    - load generator
+    - load testing in {{ load-testing-name }}
+    - '{{ load-testing-full-name }} load generator'
+    - test data
+    - '{{ load-testing-full-name }} data'
+    - loadtesting
+    - '{{ load-testing-full-name }} agent'
+    - testing {{ load-testing-full-name }}

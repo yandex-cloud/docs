@@ -28,8 +28,7 @@ POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses
     "logGroupId": "string",
     "folderId": "string",
     // end of the list of possible fields
-    "minLevel": "string",
-    "serviceAccountId": "string"
+    "minLevel": "string"
   }
 }
 ```
@@ -104,9 +103,6 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
-|| serviceAccountId | **string**
-
-Required field. Service account, which has permission to write to destination ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -149,8 +145,7 @@ Required field. Service account, which has permission to write to destination ||
       "logGroupId": "string",
       "folderId": "string",
       // end of the list of possible fields
-      "minLevel": "string",
-      "serviceAccountId": "string"
+      "minLevel": "string"
     }
   }
   // end of the list of possible fields
@@ -351,7 +346,4 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
-|| serviceAccountId | **string**
-
-Required field. Service account, which has permission to write to destination ||
 |#

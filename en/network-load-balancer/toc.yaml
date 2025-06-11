@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Network load balancers
         items:
-          - name: Information about existing network load balancers
+          - name: Information about current network load balancers
             href: operations/load-balancer-list.md
           - name: Creating a load balancer
             href: operations/load-balancer-create.md
@@ -31,7 +31,7 @@ items:
             href: operations/listener-remove.md
       - name: Target groups
         items:
-          - name: Information about existing target groups
+          - name: Information about current target groups
             href: operations/target-group-list.md
           - name: Creating a target group
             href: operations/target-group-create.md
@@ -41,7 +41,7 @@ items:
             href: operations/target-group-detach.md
           - name: Deleting a target group
             href: operations/target-group-delete.md
-      - name: Viewing operations with resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -54,7 +54,7 @@ items:
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: >-
-          Fault-tolerant website with load balancing via {{
+          Fault-tolerant website with load balancing via a {{
           network-load-balancer-name }}
         items:
           - name: Overview
@@ -63,7 +63,7 @@ items:
             href: tutorials/load-balancer-website/console.md
           - name: '{{ TF }}'
             href: tutorials/load-balancer-website/terraform.md
-      - name: Running instance groups with autoscaling
+      - name: Working with autoscaling instance groups
         items:
           - name: Overview
             href: tutorials/vm-autoscale/index.md
@@ -90,12 +90,12 @@ items:
           load balancer
         href: tutorials/mssql-alwayson-lb.md
       - name: >-
-          Migrating services from an NLB load balancer to an ALB L7 load
-          balancer for DDoS protection using {{ sws-name }}
+          Migrating services from an NLB to L7 ALB for DDoS protection using {{
+          sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md
-          - name: NLB with with VMs as targets
+          - name: NLB with VMs as targets
             items:
               - name: Overview
                 href: >-
@@ -106,7 +106,7 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
-          - name: NLB with a VM group as a target
+          - name: NLB with an instance group as a target
             items:
               - name: Overview
                 href: >-
@@ -128,7 +128,7 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
-          - name: NLB load balancer as a target for an ALB
+          - name: NLB as a target for ALB
             items:
               - name: Overview
                 href: >-
@@ -145,9 +145,9 @@ items:
         href: concepts/index.md
       - name: Network load balancer types
         href: concepts/nlb-types.md
-      - name: Traffic listener
+      - name: Listener
         href: concepts/listener.md
-      - name: Target groups and resources
+      - name: Targets and target groups
         href: concepts/target-resources.md
       - name: Health checks
         href: concepts/health-check.md
@@ -155,7 +155,7 @@ items:
         href: concepts/specifics.md
       - name: Use cases
         href: concepts/scenarios.md
-      - name: Recommendations for use
+      - name: Best practices
         href: concepts/best-practices.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -221,7 +221,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

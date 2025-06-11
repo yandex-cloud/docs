@@ -1,25 +1,25 @@
 
 
-If you have your own corporate networks connected to your [{{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) internal [networks](../../vpc/concepts/network.md#network) via [{{ interconnect-full-name }}](../../interconnect/index.yaml), you can integrate your corporate DNS with [{{ dns-name }}](../../dns). This will allow you to access resources and services by name in both corporate and cloud networks.
+If you have your own corporate networks connected to your [{{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) internal [networks](../../vpc/concepts/network.md#network) via [{{ interconnect-full-name }}](../../interconnect/index.yaml), you can integrate your corporate DNS with [{{ dns-name }}](../../dns). This will allow you to access resources and services by name both in corporate and cloud networks.
 
-You cannot delegate DNS record management in {{ yandex-cloud }} [private zones](../../dns/concepts/dns-zone.md#private-zones) to your corporate DNS servers, as private zone NS records are ignored. To ensure that domain names of private zone services and resources are recognized, configure separate DNS forwarders in your cloud subnets. A _DNS forwarder_ is a DNS server forwarding requests that cannot be resolved locally to an external DNS server. We recommend [CoreDNS](https://coredns.io/) or [Unbound](https://www.nlnetlabs.nl/projects/unbound/).
+You cannot delegate {{ yandex-cloud }} [private zone](../../dns/concepts/dns-zone.md#private-zones) DNS record management to your corporate DNS servers, because private zone NS records are ignored. To ensure that domain names of private zone services and resources are recognized, configure separate DNS forwarders in your cloud subnets. _DNS forwarder_ is a DNS server forwarding requests that cannot be resolved locally to an external DNS server. We recommend [CoreDNS](https://coredns.io/) or [Unbound](https://www.nlnetlabs.nl/projects/unbound/).
 
 {% note warning %}
 
-Some DNS forwarders use their own settings to determine which DNS requests to resolve. In this case, you should only specify existing {{ dns-name }} zones in their settings. For example, you need to configure redirects for records residing in a shared `.` zone.
+Some DNS forwarders check their configuration against {{ dns-name }} zones when validating responses. In this case, you should only specify existing {{ dns-name }} zones in their configuration. For example, you need to configure redirects for records residing in a shared `.` zone.
 
 {% endnote %}
 
 To set up DNS resolution for your corporate services and {{ yandex-cloud }} resources:
 
-1. [Read the description of an integration example](#network-desc).
+1. [Read the description of an integration solution example](#network-desc).
 1. [Set up cloud DNS](#setup-cloud-dns).
 1. [Set up your corporate DNS servers](#setup-on-prem-dns).
 1. [Test the service](#check-dns-service).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Sample integration solution {#network-desc}
+## Integration solution example {#network-desc}
 
 ![DNS integration example](../../_assets/dns/dns-integration.svg "DNS integration example")
 
@@ -43,7 +43,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. All corporate network subnets are accessible from the cloud network subnets, and vice versa.
 
-Next, you need to set up two DNS forwarders in your cloud network:
+Next, in your cloud network, you need to set up two DNS forwarders:
 
 * `172.16.3.5`: forwarder1.internal
 * `172.16.4.5`: forwarder2.internal
@@ -53,11 +53,11 @@ They will redirect DNS requests as follows:
 * `corp.example.net` zone requests will go to the `172.16.1.5` and `172.16.2.5` corporate DNS servers.
 * The rest, i.e., `.` zone requests, will go to the `172.16.3.2` and `172.16.4.2` {{ yandex-cloud }} internal DNS servers.
 
-To ensure fault tolerance, DNS forwarders will be placed behind an [internal {{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/nlb-types.md) routing DNS requests from both your cloud and corporate network.
+To ensure fault tolerance, DNS forwarders will be placed behind an [internal {{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/nlb-types.md) routing DNS requests from both your cloud and your corporate network.
 
 ## Getting started {#before-you-begin}
 
-1. To install DNS forwarders in `subnet3` and `subnet4`, [create](../../compute/operations/vm-create/create-linux-vm.md) a VM running an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) public image with the following settings:
+1. To install DNS forwarders in `subnet3` and `subnet4`, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) running an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) public image with the following settings:
 
     * **{{ ui-key.yacloud.common.name }}**:
         * `forwarder1`: For the VM in `subnet3`.
@@ -75,7 +75,7 @@ To ensure fault tolerance, DNS forwarders will be placed behind an [internal {{ 
       * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
       * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
   
-1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) to download software from the web in `subnet3` and `subnet4`.
+1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) providing internet access to `subnet3` and `subnet4`, so you can download required software on the VMs residing there.
 
 ### Required paid resources {#paid-resources}
 
@@ -159,7 +159,7 @@ The infrastructure support costs include:
       sudo systemctl enable --now coredns
       ```
 
-  1. Disable system DNS resolution to delegate it to the local DNS forwarder. To do this in Ubuntu 20.04, run these commands:
+  1. Disable system DNS resolution to delegate it to the local DNS forwarder by running the following commands:
 
       ```bash
       sudo systemctl disable --now systemd-resolved
@@ -228,7 +228,7 @@ The infrastructure support costs include:
       sudo systemctl restart unbound
       ```
 
-  1. Disable system DNS resolution to delegate it to the local DNS forwarder. To do this in Ubuntu 20.04, run these commands:
+  1. Disable system DNS resolution to delegate it to the local DNS forwarder by running the following commands:
 
       ```bash
       sudo systemctl disable --now systemd-resolved
@@ -238,7 +238,7 @@ The infrastructure support costs include:
 
 {% endlist %}
 
-### Set up {{ network-load-balancer-name }} {#setup-cloud-balancer}
+### Set up a {{ network-load-balancer-name }} {#setup-cloud-balancer}
 
 Create an [internal network load balancer](../../network-load-balancer/operations/internal-lb-create.md) with the following settings:
 
@@ -273,11 +273,11 @@ By default, the network load balancer does not process UDP traffic. To enable UD
 
     {% endlist %}
 
-Once you create a load balancer, it will automatically receive an IP address within the `subnet3` range.
+Once you create a load balancer, it will automatically get an IP address within the `subnet3` range.
 
 {% note info %}
 
-The internal network load balancer will not respond to DNS requests from forwarders that make up its target group, i.e., `forwarder1` and `forwarder2`. This is due to its specifications. For more information, see [{#T}](../../network-load-balancer/concepts/nlb-types.md).
+The internal network load balancer will not respond to DNS requests from forwarders included in its target group, i.e., `forwarder1` and `forwarder2`. This is due to its implementation. For more information, see [{#T}](../../network-load-balancer/concepts/nlb-types.md).
 
 {% endnote %}
 
@@ -298,25 +298,25 @@ Once the network settings are updated, the cloud network hosts will use the load
 
 ## Set up your corporate DNS servers {#setup-on-prem-dns}
 
-Configure your corporate DNS servers to forward DNS queries to [{{ yandex-cloud }} private zones](../../dns/concepts/dns-zone.md#private-zones) to the [load balancer](#setup-cloud-balancer) IP address.
+Configure your corporate DNS servers to forward [{{ yandex-cloud }} private zone](../../dns/concepts/dns-zone.md#private-zones) DNS requests to the [load balancer](#setup-cloud-balancer) IP address.
 
 ## Test the service {#check-dns-service}
 
-1. From the `forwarder1`, `forwarder2`, and `test1` cloud hosts, make sure names in the `corp.example.net` private zone are resolved:
+1. From `forwarder1`, `forwarder2`, and `test1` cloud hosts, check that `corp.example.net` private zone domain names are resolved:
 
     ```bash
     host ns1.corp.example.net
     ns1.corp.example.net has address 172.16.1.5
     ```
 
-1. From the `forwarder1`, `forwarder2`, and `test1` cloud hosts, make sure public domain names are resolved:
+1. From `forwarder1`, `forwarder2`, and `test1` cloud hosts, check that public domain names are resolved:
 
     ```bash
     host cisco.com
     cisco.com has address 72.163.4.185
     ...
     ```
-1. Make sure internal {{ yandex-cloud }} domain names are resolved on your corporate DNS servers, `ns1` and `ns2`, e.g.:
+1. Check that internal {{ yandex-cloud }} domain names are resolved on your corporate DNS servers, `ns1` and `ns2`:
 
     ```bash
     host ns.internal
@@ -330,7 +330,7 @@ Configure your corporate DNS servers to forward DNS queries to [{{ yandex-cloud 
 To stop paying for the resources:
 
 * [Delete the VM](../../compute/operations/vm-control/vm-delete).
-* If you reserved [static public IP addresses](../../vpc/operations/address-delete) for this tutorial, delete them.
+* If you reserved static public IP addresses for your VMs, [delete](../../vpc/operations/address-delete.md) them.
 * [Delete the target groups](../../network-load-balancer/operations/target-group-delete.md).
 * [Delete the listeners](../../network-load-balancer/operations/listener-remove.md).
 * [Delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md).

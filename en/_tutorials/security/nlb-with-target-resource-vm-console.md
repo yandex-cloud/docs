@@ -6,8 +6,8 @@ To migrate a service from a network load balancer to an L7 load balancer using t
 1. [See the recommendations for service migration](#recommendations).
 1. [Complete the prerequisite steps](#before-you-begin).
 1. [Create a {{ sws-name }} profile](#create-profile-sws).
-1. [Create an L7 load balancer](#create-alb). At this step, you will associate the {{ sws-name }} security profile with a virtual host of the L7 load balancer.
-1. [Migrate the user load from the network load balancer to the L7 load balancer](#migration-nlb-to-alb).
+1. [Create an L7 load balancer](#create-alb). At this step, you will associate your {{ sws-name }} profile with a virtual host of the L7 load balancer.
+1. [Migrate user traffic from the network load balancer to the L7 load balancer](#migration-nlb-to-alb).
 
 ## Service migration recommendations {#recommendations}
 
@@ -17,36 +17,36 @@ To migrate a service from a network load balancer to an L7 load balancer using t
 
 1. [Create subnets](../../vpc/operations/subnet-create.md) in three availability zones for the L7 load balancer.
 
-1. Create [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) that allow the L7 load balancer to receive incoming traffic and send it to the targets and allow the targets to receive incoming traffic from the load balancer.
+1. Create [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) that allow the L7 load balancer to receive incoming traffic and send it to the targets and allow the targets to receive inbound traffic from the load balancer.
 
-1. When using HTTPS, [add the TLS certificate of your service](../../certificate-manager/operations/import/cert-create.md#create-certificate) to [{{ certificate-manager-full-name }}](../../certificate-manager/).
+1. When using HTTPS, [add the TLS certificate](../../certificate-manager/operations/import/cert-create.md#create-certificate) of your service to [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
 1. [Reserve a static public IP address with DDoS protection](../../vpc/operations/get-static-ip.md) at Layer 3 – Layer 4 for the L7 load balancer. See the [service migration recommendations](#recommendations).
 
-## Create a {{ sws-name }} security profile {#create-profile-sws}
+## Create a {{ sws-name }} profile {#create-profile-sws}
 
-[Create](../../smartwebsecurity/operations/profile-create.md) a {{ sws-name }} security profile by selecting **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+[Create](../../smartwebsecurity/operations/profile-create.md) a {{ sws-name }} profile by selecting **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
 Use these settings when creating the profile:
 
 * In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
 * For the **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}** rule, enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**.
 
-These settings are limited to logging the info about the traffic without applying any actions to it. This will reduce the risk of disconnecting users due to profile configuration issues. As you move along, you will be able to disable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** and configure deny rules in the security profile.
+These settings are limited to logging the info about the traffic without applying any actions to it. This will reduce the risk of disconnecting users due to profile configuration issues. As you move along, you will have the option to disable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** and configure deny rules for your use case in the security profile.
 
 ## Create an L7 load balancer {#create-alb}
 
 1. [Create a target group](../../application-load-balancer/operations/target-group-create.md) for the L7 load balancer. Under **{{ ui-key.yacloud.alb.label_targets }}**, select the VMs in your network load balancer's target group.
 
-1. [Create a group of backends](../../application-load-balancer/operations/backend-group-create.md) with the following parameters:
+1. [Create a backend group](../../application-load-balancer/operations/backend-group-create.md) with the following settings:
 
     1. Select `{{ ui-key.yacloud.alb.label_proto-http }}` as the backend group type.
-    1. If your service requires requests to be processed within a single user session by the same backend resource, enable [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) for the backend group.
+    1. If your service needs one and the same backend resource processing requests within a single user session, enable [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) for the backend group.
     1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}** and set up the backend:
 
         * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_target-group }}`.
         * **{{ ui-key.yacloud.alb.label_target-groups }}**: Target group you created earlier.
-        * **{{ ui-key.yacloud.alb.label_port }}**: TCP port of your service the VMs accept incoming traffic on.
+        * **{{ ui-key.yacloud.alb.label_port }}**: TCP port on which your service's VMs accept inbound traffic.
         * Under **{{ ui-key.yacloud.alb.label_protocol-settings }}**, select a protocol, `{{ ui-key.yacloud.alb.label_proto-http-plain }}` or `{{ ui-key.yacloud.alb.label_proto-http-tls }}`, based on your service.
         * Under **HTTP health check**, configure the health check using [these recommendations](../../application-load-balancer/concepts/best-practices.md).
         * Optionally, configure other settings as per [this guide](../../application-load-balancer/operations/backend-group-create.md).
@@ -87,8 +87,8 @@ These settings are limited to logging the info about the traffic without applyin
 
         * Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, specify:
 
-            * **{{ ui-key.yacloud.alb.label_port }}**: TCP port of your service the VMs accept incoming traffic on.
-            * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_address-list }}`. Select from the list a public IP address with DDoS protection at L3-L4. For more information, see the [service migration recommendations](#recommendations).
+            * **{{ ui-key.yacloud.alb.label_port }}**: TCP port on which your service's VMs accept inbound traffic.
+            * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_address-list }}`. Select an L3–L4 DDoS-protected public IP address from the list. For more information, see the [service migration recommendations](#recommendations).
         * Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, specify:
 
             * **{{ ui-key.yacloud.alb.label_listener-type }}**: `{{ ui-key.yacloud.alb.label_listener-type-http }}`.
@@ -102,16 +102,16 @@ These settings are limited to logging the info about the traffic without applyin
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 
-## Migrate the user load from the network load balancer to the L7 load balancer {#migration-nlb-to-alb}
+## Migrate user traffic from the network load balancer to the L7 load balancer {#migration-nlb-to-alb}
 
-Select one of the migration options:
+Select one of these migration options:
 
 * [Keep the public IP address for your service](#save-public-ip).
 * [Do not keep the public IP address for your service](#not-save-public-ip).
 
 ### Keep the public IP address for your service {#save-public-ip}
 
-1. If your external network load balancer uses a dynamic public IP address, [convert it to a static one](../../vpc/operations/set-static-ip.md).
+1. If your external network load balancer is using a dynamic public IP address, [convert it to a static one](../../vpc/operations/set-static-ip.md).
 
 1. [Delete the listener](../../network-load-balancer/operations/listener-remove.md) in the network load balancer to release the static public IP address. This will make your service unavailable through the network load balancer.
 
@@ -137,11 +137,11 @@ Select one of the migration options:
 
     {% endlist %}
 
-1. After the IP addresses changes, your service will again be available through the L7 load balancer. Monitor the L7 load balancer's user load on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
+1. After the IP address changes, your service will again be available through the L7 load balancer. Monitor the L7 load balancer's user traffic on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
 
 1. Delete the now free static public IP address you selected when creating the L7 load balancer.
 
-1. Optionally, [delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md) after migrating the user load to the L7 load balancer.
+1. Optionally, once migration is complete, [delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md).
 
 ### Do not keep the public IP address for your service {#not-save-public-ip}
 

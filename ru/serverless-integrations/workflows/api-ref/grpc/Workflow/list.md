@@ -71,7 +71,8 @@ Example of a filter: `name=my-workflow`. ||
         "min_level": "Level"
       },
       "network_id": "string",
-      "service_account_id": "string"
+      "service_account_id": "string",
+      "express": "bool"
     }
   ],
   "next_page_token": "string"
@@ -133,6 +134,9 @@ ID of the VPC network Workflow will be executed in, in order to access private r
 || service_account_id | **string**
 
 ID of the Service Account which will be used for resources access in Workflow execution. ||
+|| express | **bool**
+
+Express execution mode. ||
 |#
 
 ## LogOptions {#yandex.cloud.serverless.workflows.v1.LogOptions}

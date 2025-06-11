@@ -1,5 +1,5 @@
 ---
-title: Getting started with {{ cloud-shell-full-name }}
+title: How to get started with {{ cloud-shell-full-name }}
 description: With {{ cloud-shell-name }}, you can use the {{ yandex-cloud }} CLI and other terminal tools directly in your browser, no prior setup required.
 ---
 
@@ -17,20 +17,22 @@ To get started with {{ cloud-shell-name }}:
 
     A terminal window will open: wait for the session to start and the development environment to be created.
 
-    {% note info %}
-
-    You can run up to four parallel sessions in the terminal. To run a new session, click ![plus-sign](../../_assets/console-icons/plus.svg). Once started, a session can remain active for up to 12 hours. Inactive sessions are automatically terminated after 30 minutes of inactivity. For more information about limitations in {{ cloud-shell-name }}, see [Limits](../concepts/cloud-shell/limits.md).
-
-    {% endnote %}
-
 1. Use {{ yandex-cloud }} CLI commands to manage cloud resources from the terminal. For example, to list all VMs in the cloud, run this command:
 
     ```bash
     yc compute instance list
     ```
 
+   ![screen01](../../_assets/console/cloud-shell-01.png)
+
     For more command examples, see [Getting started with the CLI](../../cli/quickstart.md#example). To view the full list of available commands, run the `yc --help` command or open the [CLI reference](../../cli/cli-ref/).
 
+    {% note info %}
+
+    You can run up to four parallel sessions in the terminal. To run a new session, click ![plus-sign](../../_assets/console-icons/plus.svg). Once started, a session can remain active for up to 12 hours. Inactive sessions are automatically terminated after 30 minutes of inactivity. For more information about limitations in {{ cloud-shell-name }}, see [Limits](../concepts/cloud-shell/limits.md).
+
+    {% endnote %}
+   
 1. Install the required applications using the `apt` tool. For example, to install `postgresql-client` for [connecting to a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/connect.md), run this command:
 
     ```bash

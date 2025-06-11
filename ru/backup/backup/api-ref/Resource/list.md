@@ -62,6 +62,11 @@ Type of resource. Could be compute VM or baremetal server.
         "folderId": "string",
         "personalTenantId": "string",
         "userId": "string"
+      },
+      "agentInfo": {
+        "currentVersion": "string",
+        "latestVersion": "string",
+        "canUpdate": "boolean"
       }
     }
   ],
@@ -172,7 +177,10 @@ Type of resource. Could be compute VM or baremetal server.
 - `BMS`: Resource is baremetal server ||
 || tenantInfo | **[TenantInfo](#yandex.cloud.backup.v1.TenantInfo)**
 
-Additional info abount tenant which resource belongs to ||
+Additional info about tenant which resource belongs to ||
+|| agentInfo | **[AgentInfo](#yandex.cloud.backup.v1.AgentInfo)**
+
+Additional Info about agent version ||
 |#
 
 ## TenantInfo {#yandex.cloud.backup.v1.TenantInfo}
@@ -188,4 +196,13 @@ Personal tenant id from backup provider ||
 || userId | **string**
 
 User id from provider ||
+|#
+
+## AgentInfo {#yandex.cloud.backup.v1.AgentInfo}
+
+#|
+||Field | Description ||
+|| currentVersion | **string** ||
+|| latestVersion | **string** ||
+|| canUpdate | **boolean** ||
 |#

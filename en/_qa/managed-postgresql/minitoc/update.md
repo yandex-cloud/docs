@@ -11,3 +11,5 @@
 * [Can I manage a cluster using SQL commands?](#sql-control)
 
 * [Why cannot I stop a cluster?](#stop-cluster)
+
+* [Why do I get the `max_connections is less than sum of users connection limit` error when changing a cluster?](#max-connections-error)

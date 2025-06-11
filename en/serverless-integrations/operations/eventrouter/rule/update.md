@@ -14,7 +14,7 @@ description: Follow this tutorial to update a rule.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}** tab.
-  1. In the rule row, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. In the row with the required rule, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the rule parameters.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -84,19 +84,19 @@ description: Follow this tutorial to update a rule.
           <key_n> = "<value_n>"
         }
 
-        jq_filter = "<jq_expression>"
+        jq_filter = "<jq_template>"
       
         ...
       }
       ```
 
-      For more information about the `yandex_serverless_eventrouter_rule` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
+      For more information about `yandex_serverless_eventrouter_rule` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
 
   1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter rule list

@@ -21,7 +21,7 @@ You can store application states on _secondary_ disks of the group instances if 
 * Do not decrease the instance disk size.
 * Use the `max_expansion` parameter (the maximum number of instances by which you can exceed the target size of the group) set to `0` in the [deployment policy](./policies/deploy-policy.md).
 * Do not delete VM instances via instance group interfaces:
-  * In the [management console]({{ link-console-main }}), on the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}** tab.
+  * In the [management console]({{ link-console-main }}), on the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** tab.
   * Using the CLI [{{ yc-compute-ig }} delete-instances](../../../cli/cli-ref/compute/cli-ref/instance-group/delete-instances.md) command.
   * Using the [InstanceGroupService/DeleteInstances](../../instancegroup/api-ref/grpc/InstanceGroup/deleteInstances.md) gRPC API call.
   

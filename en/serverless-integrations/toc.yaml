@@ -52,21 +52,73 @@ items:
                     href: operations/workflows/workflow/logs-write.md
               - name: Deleting a workflow
                 href: operations/workflows/workflow/delete.md
-          - name: Getting the workflow execution information
+          - name: Workflow step constructor
+            items:
+              - name: Overview
+                href: operations/workflows/constructor/index.md
+              - name: Integration steps
+                items:
+                  - name: '{{ sf-short-name }}'
+                    href: operations/workflows/constructor/functioncall.md
+                  - name: '{{ serverless-containers-name }}'
+                    href: operations/workflows/constructor/containercall.md
+                  - name: '{{ postbox-short-name }}'
+                    href: operations/workflows/constructor/postbox.md
+                  - name: '{{ tracker-name }}'
+                    href: operations/workflows/constructor/tracker.md
+                  - name: HTTP
+                    href: operations/workflows/constructor/httpcall.md
+                  - name: gRPC
+                    href: operations/workflows/constructor/grpccall.md
+                  - name: '{{ objstorage-name }}'
+                    href: operations/workflows/constructor/objectstorage.md
+                  - name: '{{ foundation-models-name }}'
+                    href: operations/workflows/constructor/foundationmodelscall.md
+                  - name: '{{ ydb-name }}'
+                    href: operations/workflows/constructor/ydbdocument.md
+                  - name: '{{ yds-name }}'
+                    href: operations/workflows/constructor/yds.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/workflows/constructor/ymq.md
+                  - name: Yandex Disk
+                    href: operations/workflows/constructor/yadisk.md
+                  - name: '{{ sw-name }}'
+                    href: operations/workflows/constructor/workflow.md
+                  - name: AI agent
+                    href: operations/workflows/constructor/aiagent.md
+              - name: Control steps
+                items:
+                  - name: Switch
+                    href: operations/workflows/constructor/switch.md
+                  - name: Foreach
+                    href: operations/workflows/constructor/foreach.md
+                  - name: Parallel
+                    href: operations/workflows/constructor/parallel.md
+                  - name: No op
+                    href: operations/workflows/constructor/noop.md
+                  - name: Fail
+                    href: operations/workflows/constructor/fail.md
+                  - name: Success
+                    href: operations/workflows/constructor/success.md
+                  - name: Wait
+                    href: operations/workflows/constructor/wait.md
+              - name: Configuring a retry policy for a workflow
+                href: operations/workflows/constructor/setup-restart-policy.md
+          - name: Getting workflow execution information
             items:
               - name: Getting a list of workflow executions
                 href: operations/workflows/execution/get-list.md
-              - name: Getting the workflow execution information
+              - name: Getting workflow execution information
                 href: operations/workflows/execution/get-info.md
               - name: Getting information on the progress of each step
                 href: operations/workflows/execution/get-history.md
-          - name: Managing a workflow run
+          - name: Managing a workflow execution
             items:
               - name: Starting a workflow
                 href: operations/workflows/execution/start.md
               - name: Stopping a workflow execution
                 href: operations/workflows/execution/stop.md
-              - name: Forcing a workflow to stop
+              - name: Force stopping a workflow execution
                 href: operations/workflows/execution/terminate.md
       - name: '{{ er-name }}'
         items:
@@ -106,6 +158,8 @@ items:
                     href: operations/eventrouter/connector/create-yds.md
                   - name: '{{ message-queue-name }}'
                     href: operations/eventrouter/connector/create-message-queue.md
+                  - name: Timer
+                    href: operations/eventrouter/connector/create-timer.md
               - name: Editing a connector
                 href: operations/eventrouter/connector/update.md
               - name: Managing labels
@@ -199,7 +253,7 @@ items:
         items:
           - name: Workflow
             href: concepts/workflows/workflow.md
-          - name: Starting workflow
+          - name: Starting a workflow execution
             href: concepts/workflows/execution.md
           - name: YaWL specification
             items:
@@ -520,14 +574,6 @@ items:
                 href: eventrouter/api-ref/Connector/updateAccessBindings.md
               - name: ListOperations
                 href: eventrouter/api-ref/Connector/listOperations.md
-          - name: Event
-            items:
-              - name: Overview
-                href: eventrouter/api-ref/Event/index.md
-              - name: Put
-                href: eventrouter/api-ref/Event/put.md
-              - name: Send
-                href: eventrouter/api-ref/Event/send.md
           - name: Operation
             items:
               - name: Overview
@@ -562,5 +608,7 @@ items:
                 href: eventrouter/api-ref/Rule/updateAccessBindings.md
               - name: ListOperations
                 href: eventrouter/api-ref/Rule/listOperations.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: Release notes
     href: release-notes.md

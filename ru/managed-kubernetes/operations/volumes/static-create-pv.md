@@ -244,7 +244,7 @@ description: Следуя данной инструкции, вы сможете
      Normal  SuccessfulAttachVolume  20m   attachdetach-controller  AttachVolume.Attach succeeded for volume "<имя_PersistentVolume>"
    ```
 
-После этого рядом с используемым диском в консоли управления в **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.switch_disks }}** появится надпись **{{ ui-key.yacloud.compute.disks.label_disk-used }}**.
+После этого рядом с используемым диском в консоли управления в **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.disks_ddfdb }}** появится надпись **{{ ui-key.yacloud.compute.disks.label_disk-used }}**.
 
 ## Как удалить том {#delete-volume}
 

@@ -1,0 +1,1 @@
+If there is maintenance or issues in one of the [availability zones](../../overview/concepts/geo-scope.md), {{ yandex-cloud }} technicians can redirect traffic to other zones. You can test this process, to see how traffic transfer works.

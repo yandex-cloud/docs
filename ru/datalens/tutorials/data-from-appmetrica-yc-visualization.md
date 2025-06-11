@@ -1,4 +1,6 @@
 ---
+title: 'AppMetrica: экспорт, постобработка и визуализация данных'
+description: В этом руководстве вы проведете анализ поведения пользователей в мобильном приложении на данных AppMetrica.
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-appmetrica-yc-visualization'
 ---
 

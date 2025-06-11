@@ -14,8 +14,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder hosting your placement group.
-  1. Select **{{ ui-key.yacloud.compute.label_service }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab, click the name of the group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -126,8 +126,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder hosting your placement group.
-  1. Select **{{ ui-key.yacloud.compute.label_service }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab, click the name of the group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -244,8 +244,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder hosting your placement group.
-  1. Select **{{ ui-key.yacloud.compute.label_service }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab, click the name of the group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.

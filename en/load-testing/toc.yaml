@@ -25,7 +25,7 @@ items:
         href: operations/check-regression.md
       - name: Saving test artifacts to {{ objstorage-name }}
         href: operations/save-artifacts.md
-      - name: Viewing operations with resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -47,13 +47,13 @@ items:
         href: tutorials/loadtesting-multiply.md
       - name: Running external agents for load testing
         href: tutorials/loadtesting-external-agent.md
-      - name: Invoking load testing from {{ GL }} CI
+      - name: Invoking a load test from {{ GL }} CI
         href: tutorials/loadtesting-gitlab-ci.md
       - name: Comparing load test results
         href: tutorials/loadtesting-results-compare.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
       - name: Agent
         href: concepts/agent.md
@@ -153,7 +153,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

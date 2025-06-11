@@ -40,9 +40,9 @@ You can convert a static [public IP address](../concepts/address.md#public-addre
       +----------------------+------+---------------+----------+------+
       ```
 
-      The `true` value of the `RESERVED` parameter for the IP address with the `e2l46k8conff********` ID shows that this address is static.
+      The `true` value of the `reserved` parameter for the IP address with the `e2l46k8conff********` ID shows that this address is static.
 
-   1. Convert it to dynamic by using the `--reserved=false` key and the address ID:
+   1. Convert it to dynamic by using the `--reserved=false` parameter and the address ID:
 
       ```bash
       yc vpc address update --reserved=false e2l46k8conff********

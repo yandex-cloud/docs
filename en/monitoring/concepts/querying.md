@@ -1,6 +1,6 @@
 ---
 title: Query language in {{ monitoring-full-name }}
-description: This section describes the query language used in {{ monitoring-full-name }}. It is used to convert metrics when you configure dashboards and alerts, as well as in the MetricsData.read API method.
+description: This section describes the {{ monitoring-full-name }} query language. It is used to convert metrics when you configure dashboards and alerts, as well as in the MetricsData.read API method.
 ---
 
 # Query language in {{ monitoring-name }}
@@ -9,17 +9,17 @@ This section describes the {{monitoring-full-name}} query language. It is used t
 
 ## Uploading metrics {#selectors}
 
-Select metrics using the metric name and _selectors_ that filter label values (for more information, see [{#T}](./data-model.md#label)). You can use the sets of metrics you created in alerts or transmit them to a function as an argument.
+Select a set of metrics using the metrics names and _selectors_ to filter label values (for more information, see [{#T}](./data-model.md#label)). You can use the sets of metrics you created in alerts or transmit them to a function as an argument.
 
-> Specify the name of a metric and required labels, `folderId` and `service`. So, the `cpu_usage{folderId="zoeu2rgjpqak********", service="compute"}` request will return the metrics named `cpu_usage` for all {{compute-full-name}} VMs in the folder with the `zoeu2rgjpqak********` ID.
+> Specify the metric name and the required labels, `folderId` and `service`. In which case the `cpu_usage{folderId="zoeu2rgjpqak********", service="compute"}` request will return metrics named `cpu_usage` for all {{compute-full-name}} VMs in the folder with the `zoeu2rgjpqak********` ID.
 
 {% note warning %}
 
-Consider the `folderId` label specifics:
+Consider the following for the `folderId` label:
 
 * The label value must always match the selected folder. You cannot query data from other folders. This applies to all query language use cases: when building charts in Metric Explorer or on dashboards, creating alerts, or calling API methods.
 
-* When calling API methods, do not include the label value in the request body (in the `query` field). You should provide `folderId` as a query parameter in the HTTP request.
+* When API methods are called, the label value is not added to the request body (the `query` field). `folderId` should be provided in the HTTP request as a query parameter.
 
 {% endnote %}
 
@@ -27,28 +27,28 @@ _Selector_ consists of a label name, a statement, and an expression that describ
 
 The {{monitoring-full-name}} query language supports the following expressions for filtering label values:
 
-- `label="*"`: Returns all metrics that have the specified label.
+- `label="*"`: Returns all metrics with the specified label.
 
-   > The `host="*"` selector returns all metrics that have the `host` label.
+  > The `host="*"` selector returns all metrics with the `host` label.
 
-- `label="<glob_expression>"`: Returns all the metrics with labels matching the [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)).
-   - `*`: Any number of characters (including none).
+- `label="<glob_expression>"`: Returns all metrics with labels satisfying the [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)).
+  - `*`: Any number of characters (including none).
 
-      > `name="folder*"` returns all metrics that have the `name` label whose value starts with the `folder` prefix.
+    > `name="folder*"` returns all metrics whose `name` label value begins with the `folder` prefix.
 
-   - `?`: One arbitrary character.
+  - `?`: Any single character.
 
-      > `name="metric?"` returns all labels in which the `name` label value contains one character the `metric`.
+    > `name="metric?"` returns all metrics whose `name` label value contains one character after `metric`.
 
-   - `|`: All specified options.
+  - `|`: All specified options.
 
-      > `name="metric1|metric2"` returns two metrics with the `name=metric1` and `name=metric2` label values.
+    > `name="metric1|metric2"` will return two metrics labeled `name=metric1` and `name=metric2`.
 
 ## Using query names as variables {#query-name-as-variable}
 
 The query language supports links to the results of executing other queries as to names of variables.
 
-For example:
+Here is an example:
 
 A: `"temperature"{folderId="my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor1" }`
 
@@ -62,12 +62,18 @@ These links can only refer by name in text mode, and only to higher-level querie
 
 The {{monitoring-full-name}} query language supports the following data types:
 
-* _timeseries_vector_: Set of timeseries (metrics).
+* _timeseries_vector_: A set of time series (metrics).
+
+    Example of a `timeseries_vector` type object. The following expression will return a metric vector with different values of the `host` label:
+
+    ```json
+    {service='compute', host='*', name='exceptionCount'}
+    ```
 * _number_: Real number.
 * _string_: String in single or double quotes.
-* _duration_: Time period in the format `15s, 10m, 3h, 7d, 2w`. (without quotation marks).
-* _bool_: Boolean type which is either `true` or `false`.
-* _scalar_: Real double-precision floating point number based on the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754-2008_revision), including the special `NaN` value.
+* _duration_: Time period in `15s, 10m, 3h, 7d, 2w` format (without quotation marks).
+* _bool_: Boolean type, either `true` or `false`.
+* _scalar_: Real double-precision floating point number based on the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754-2008_revision), including the special `NaN` value. Examples of `scalar` objects: `101`, `75.3`, `20G`, `1E-3`.
 
 {% note info %}
 
@@ -85,73 +91,73 @@ The real number type supports scientific notation with the fraction and power of
 ## Functions {#functions}
 
 - [Aggregation](#aggregation-functions)
-   - [avg](#avg)
-   - [count](#count)
-   - [integrate](#integrate)
-   - [iqr](#iqr)
-   - [last](#last)
-   - [max](#max)
-   - [median](#median)
-   - [min](#min)
-   - [percentile](#percentile)
-   - [random](#random)
-   - [std](#std)
-   - [sum](#sum)
-- [Combine](#combine-functions)
-   - [histogram_avg](#histogram_avg)
-   - [histogram_cdfp](#histogram_cdfp)
-   - [histogram_count](#histogram_count)
-   - [histogram_percentile](#histogram_percentile)
-   - [histogram_sum](#histogram_sum)
-   - [series_avg](#series_avg)
-   - [series_max](#series_max)
-   - [series_min](#series_min)
-   - [series_percentile](#series_percentile)
-   - [series_sum](#series_sum)
-- [Rank](#rank-functions)
-   - [bottom_avg](#bottom_avg)
-   - [bottom_count](#bottom_count)
-   - [bottom_last](#bottom_last)
-   - [bottom_max](#bottom_max)
-   - [bottom_min](#bottom_min)
-   - [bottom_sum](#bottom_sum)
-   - [top_avg](#top_avg)
-   - [top_count](#top_count)
-   - [top_last](#top_last)
-   - [top_max](#top_max)
-   - [top_min](#top_min)
-   - [top_sum](#top_sum)
-- [Transform](#transform-functions)
-   - [abs](#abs)
-   - [asap](#asap)
-   - [ceil](#ceil)
-   - [derivative](#derivative)
-   - [diff](#diff)
-   - [drop_above](#drop_above)
-   - [drop_below](#drop_below)
-   - [drop_nan](#drop_nan)
-   - [exp](#exp)
-   - [floor](#floor)
-   - [fract](#fract)
-   - [heaviside](#heaviside)
-   - [integral](#integral)
-   - [log](#log)
-   - [moving_avg](#moving_avg)
-   - [moving_percentile](#moving_percentile)
-   - [moving_sum](#moving_sum)
-   - [non_negative_derivative](#non_negative_derivative)
-   - [pow](#pow)
-   - [ramp](#ramp)
-   - [replace_nan](#replace_nan)
-   - [round](#round)
-   - [shift](#shift)
-   - [sign](#sign)
-   - [sqrt](#sqrt)
-   - [trunc](#trunc)
+  - [avg](#avg)
+  - [count](#count)
+  - [integrate](#integrate)
+  - [iqr](#iqr)
+  - [last](#last)
+  - [max](#max)
+  - [median](#median)
+  - [min](#min)
+  - [percentile](#percentile)
+  - [random](#random)
+  - [std](#std)
+  - [sum](#sum)
+- [Combining](#combine-functions)
+  - [histogram_avg](#histogram_avg)
+  - [histogram_cdfp](#histogram_cdfp)
+  - [histogram_count](#histogram_count)
+  - [histogram_percentile](#histogram_percentile)
+  - [histogram_sum](#histogram_sum)
+  - [series_avg](#series_avg)
+  - [series_max](#series_max)
+  - [series_min](#series_min)
+  - [series_percentile](#series_percentile)
+  - [series_sum](#series_sum)
+- [Ranking](#rank-functions)
+  - [bottom_avg](#bottom_avg)
+  - [bottom_count](#bottom_count)
+  - [bottom_last](#bottom_last)
+  - [bottom_max](#bottom_max)
+  - [bottom_min](#bottom_min)
+  - [bottom_sum](#bottom_sum)
+  - [top_avg](#top_avg)
+  - [top_count](#top_count)
+  - [top_last](#top_last)
+  - [top_max](#top_max)
+  - [top_min](#top_min)
+  - [top_sum](#top_sum)
+- [Transformation](#transform-functions)
+  - [abs](#abs)
+  - [asap](#asap)
+  - [ceil](#ceil)
+  - [derivative](#derivative)
+  - [diff](#diff)
+  - [drop_above](#drop_above)
+  - [drop_below](#drop_below)
+  - [drop_nan](#drop_nan)
+  - [exp](#exp)
+  - [floor](#floor)
+  - [fract](#fract)
+  - [heaviside](#heaviside)
+  - [integral](#integral)
+  - [log](#log)
+  - [moving_avg](#moving_avg)
+  - [moving_percentile](#moving_percentile)
+  - [moving_sum](#moving_sum)
+  - [non_negative_derivative](#non_negative_derivative)
+  - [pow](#pow)
+  - [ramp](#ramp)
+  - [replace_nan](#replace_nan)
+  - [round](#round)
+  - [shift](#shift)
+  - [sign](#sign)
+  - [sqrt](#sqrt)
+  - [trunc](#trunc)
 - [Other](#other-functions)
-   - [alias](#alias)
-   - [constant_line](#constant_line)
-   - [drop_empty_series](#drop_empty_series)
+  - [alias](#alias)
+  - [constant_line](#constant_line)
+  - [drop_empty_series](#drop_empty_series)
 
 ### Aggregation {#aggregation-functions}
 
@@ -159,7 +165,7 @@ Aggregation functions aggregate values of a timeseries in the current time rang
 
 {% note warning %}
 
-As an input argument, aggregation functions accept a vector of metrics (_timeseries_vector_). It must only include a single timeseries. Otherwise, the function returns a runtime error.
+As an input argument, aggregation functions accept a metric vector (_timeseries_vector_). It must only include a single timeseries. Otherwise, the function returns a runtime error.
 
 When using aggregation functions, make sure that the selector returns a single timeseries. Use [combining functions](#combine-functions) if needed.
 
@@ -167,7 +173,7 @@ When using aggregation functions, make sure that the selector returns a single 
 
 #### avg
 
-Returns an average value (for timeseries, a weighted average) or `NaN` for an empty timeseries.
+Returns an average value (for timeseries, a weighted average) for a set of elements or `NaN` for an empty timeseries.
 
 The **avg** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
 
@@ -212,7 +218,7 @@ The **last** function has the following function overloading options depending o
 
 #### max
 
-Returns the maximum value (or `NaN` for an empty timeseries).
+Returns the maximum value or `NaN` for an empty timeseries.
 
 The **max** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
 
@@ -221,7 +227,7 @@ The **max** function has the following function overloading options depending on
 
 #### median
 
-Returns the median of values (or `NaN` for an empty timeseries).
+Returns the median of values or `NaN` for an empty timeseries.
 
 The **median** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
 
@@ -230,7 +236,7 @@ The **median** function has the following function overloading options depending
 
 #### min
 
-Returns the minimum value (or `NaN` for an empty timeseries).
+Returns the minimum value or `NaN` for an empty timeseries.
 
 The **min** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
 
@@ -257,7 +263,7 @@ The **random** function has the following function overloading options depending
 
 #### std
 
-Returns an unbiased estimation of standard deviation for a set of values (or `NaN` for an empty timeseries). The calculation is made by the following formula:
+Returns an unbiased estimation of standard deviation for a set of values (or `NaN` for an empty timeseries) calculated using this formula:
 
 $$\begin{array}{c}
 s=\sqrt{\frac{1}{n-1}\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}
@@ -266,7 +272,7 @@ s=\sqrt{\frac{1}{n-1}\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}
 $$
 
 Where:
-* $x_i$: A value from the vector of values (or points in a timeseries).
+* $x_i$: Value from the vector of values (or points in a timeseries).
 * $\bar{x}$: Average value.
 * $n$: Number of values.
 
@@ -277,14 +283,14 @@ The **std** function has the following function overloading options depending on
 
 #### sum
 
-Returns a sum of all values of a set (or 0 for an empty timeseries).
+Returns a sum of all values of a set or 0 for an empty timeseries.
 
 The **sum** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
 
 * **sum**(_arg0_: _scalar[]_): _scalar_
 * **sum**(_arg0_: _timeseries_vector_): _scalar_
 
-### Combine {#combine-functions}
+### Combining {#combine-functions}
 
 The combine functions aggregate a metric vector into a single metric or a metric vector.
 
@@ -298,7 +304,7 @@ Calculates the average value of the distribution set by the histogram. The optio
 
 The **histogram_cdfp** function has the following use cases (function overloading) depending on the type of _from_ and _to_ input parameters (a number or an array of numbers):
 
-- **histogram_cdfp**(*from: number*, *to: number*, *bucketLabel: string***, source: timeseries_vector): timeseries_vector
+- **histogram_cdfp**(*[from: number*, *to: number*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **histogram_cdfp**(*[from: number*, *to: number[]*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **histogram_cdfp**(*[from: number[]*, *to: number*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
 - **histogram_cdfp**(*[from: number[]*, *to: number[]*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
@@ -340,11 +346,11 @@ The **series_avg** function has the following use cases (function overloading) d
 
 Aggregates timeseries into one (or multiple ones) by applying the avg (average) aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by.
 
-For example, the `series_avg({...})` query calculates the average value among all uploaded metrics at each point.
+For example, the `series_avg({...})` query will calculate the average value among all uploaded metrics at each point.
 
-The `series_avg("host", {...})` query calculates the average value among all uploaded metrics for each value of the `host` label.
+The `series_avg("host", {...})` query will calculate the average value among all uploaded metrics for each value of the `host` label.
 
-The `series_avg(["host", "disk"], {...})` query calculates the average value among all uploaded metrics for each combination of `host` and `disk` label values.
+The `series_avg(["host", "disk"], {...})` query will calculate the average value among all uploaded metrics for each combination of `host` and `disk` label values.
 
 
 #### series_max
@@ -384,9 +390,9 @@ The **series_sum** function has the following use cases (function overloading) d
 Aggregates timeseries into one (or multiple ones) by applying the sum aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
 
 
-### Rank {#rank-functions}
+### Ranking {#rank-functions}
 
-The rank functions order a metric vector by the aggregation function value in the current time window and return some of the first (upper) or last (lower) timeseries from it. The _limit_ parameter specifies how many metrics a function returns.
+The ranking functions order a metric vector based on the aggregation function value in the current time window and return some of the first (upper) or last (lower) timeseries from it. The _limit_ parameter specifies how many metrics a function returns.
 
 #### bottom_avg
 
@@ -461,7 +467,7 @@ Returns the _limit_ of metrics with the top minimum value.
 Returns the _limit_ of metrics with the top sum value.
 
 
-### Transform {#transform-functions}
+### Transformation {#transform-functions}
 
 The transform metric functions calculate a new value in each point for each timeseries from a set of metrics.
 
@@ -500,13 +506,13 @@ Calculates the difference between the values of each pair of neighboring points.
 
 **drop_above**(*source: timeseries_vector*, *threshold: number*): *timeseries_vector*
 
-Drops points with a value above the _threshold_ (not including the value itself). In dropped points, the metric value is equal to `NaN`.
+Drops points with a value above the _threshold_ (not including the value itself). In dropped points, the metric value will be equal to `NaN`.
 
 #### drop_below
 
 **drop_below**(*source: timeseries_vector*, *threshold: number*): *timeseries_vector*
 
-Drops points with a value above the _threshold_ (not including the value itself). In dropped points, the metric value is equal to `NaN`.
+Drops points with a value above the _threshold_ (not including the value itself). In dropped points, the metric value will be equal to `NaN`.
 
 #### drop_nan
 
@@ -534,7 +540,7 @@ Selects the real part of point values.
 
 **heaviside**(*source: timeseries_vector*): *timeseries_vector*
 
-Calculates the [Heaviside step function](https://en.wikipedia.org/wiki/Heaviside_step_function). The function is 1 if the point values are positive, and 0 if the point values are negative.
+Calculates the [Heaviside step function](https://en.wikipedia.org/wiki/Heaviside_step_function) value. The function is 1 if the point values are positive, and 0 if the point values are negative.
 
 #### integral
 
@@ -554,7 +560,7 @@ Calculates the natural logarithm.
 
 Calculates the moving average across a window _window_ width.
 
-For example, the `moving_avg({...}, 1d)` query returns the moving average with a window of 1 day.
+For example, the `moving_avg({...}, 1d)` query will return the moving average with a 1 day window.
 
 #### moving_percentile
 
@@ -562,7 +568,7 @@ For example, the `moving_avg({...}, 1d)` query returns the moving average with a
 
 Calculates the moving percentile: the percentile of the _rank_ level (from 0 to 100) among the points in a window with a _window_ width.
 
-For example, the `moving_percentile({...}, 1h, 99.9)` query returns the moving 99.9 percentile with a window of 1 hour.
+For example, the `moving_percentile({...}, 1h, 99.9)` query will return the moving 99.9 percentile with a 1 hour window.
 
 #### moving_sum
 
@@ -570,13 +576,13 @@ For example, the `moving_percentile({...}, 1h, 99.9)` query returns the moving 9
 
 Calculates the moving sum across a _window_ window width.
 
-For example, the `moving_sum({...}, 1d)` query will return a moving sum with a window of 1 day.
+For example, the `moving_sum({...}, 1d)` query will return a moving sum with a 1 day window.
 
 #### non_negative_derivative
 
 **non_negative_derivative**(*source: timeseries_vector*): *timeseries_vector*
 
-Calculates the derivative: the difference between the values of neighboring points divided by the interval between them. If the derivative value is negative, it's substituted with the `NaN` value.
+Calculates the derivative: the difference between the values of neighboring points divided by the interval between them. If the derivative value is negative, it is substituted with the `NaN` value.
 
 #### pow
 
@@ -608,7 +614,7 @@ Rounds values to the nearest integer.
 
 Adds the `window` value to point timestamps. This function lets you compare current metric values with the values for a different time interval.
 
-For example, `shift({...}, 1w)` returns metrics shifted a week ahead, meaning that the chosen time window will contain values that are week old.
+For example, `shift({...}, 1w)` will return metrics shifted a week ahead, i.e., the chosen time window will contain values that are week old.
 
 #### sign
 
@@ -635,7 +641,7 @@ Truncates the real part of point values.
 
 **alias**(*source: timeseries_vector*, *arg1: string*): *timeseries_vector*
 
-Renames metrics. As an argument, you can use [mustache templates](https://mustache.github.io/) in the `not_var{{label}}` format to substitute a label value in a new metric name.
+Renames metrics. As an argument, you can use [mustache templates](https://mustache.github.io/) in `not_var{{label}}` format to substitute a label value in the new metric name.
 
 #### constant_line
 
@@ -657,4 +663,4 @@ Use the **constant_line** function only to show lines on charts. The use of this
 
 **drop_empty_series**(*source: timeseries_vector*): *timeseries_vector*
 
-Drops time series where either there are no points in the specified time range or all points have the `NaN` value.
+Drops timeseries with no points in the specified time range or with the `NaN` value for all points.

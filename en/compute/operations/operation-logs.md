@@ -14,15 +14,15 @@ All actions with {{ compute-name }} resources are logged as a list of operations
 
 - Management console {#console}
 
-  To view all operations with {{ compute-name }} resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.switch_operations }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
+  To view all operations with {{ compute-name }} resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
   
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a VM. The same steps apply to other {{ compute-name }} resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder with the VM.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. In the left-hand panel, select ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM.
-  1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.switch_operations }}** panel for the selected VM.
+  1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.operations_kRLeR }}** panel for the selected VM.
 
      The list that opens shows operations with the selected VM and the resources connected to it.
 

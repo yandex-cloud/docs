@@ -9,7 +9,7 @@ description: In this article, you will learn about working with boot and seconda
 
 When [creating](../tutorials/vm-create.md) a {{ coi }} VM, keep in mind that:
 * You cannot create a boot disk from a [disk snapshot](../../compute/concepts/snapshot.md).
-* By default, you create a disk the same size as the image. Therefore, a {{ coi }} VM may not have enough free space to deploy a Docker container. To avoid this, specify the required boot disk size using this flag: `--create-boot-disk size=<disk_size_in_GB>`.
+* By default, you create a disk the same size as the image. Therefore, a {{ coi }} VM may not have enough free space to deploy a Docker container. To avoid this, specify the required boot disk size using this parameter: `--create-boot-disk size=<disk_size_in_GB>`.
 
    {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 

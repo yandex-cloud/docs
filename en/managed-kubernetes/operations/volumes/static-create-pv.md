@@ -244,7 +244,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
      Normal  SuccessfulAttachVolume  20m   attachdetach-controller  AttachVolume.Attach succeeded for volume "<PersistentVolume_name>"
    ```
 
-In the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** management console under **{{ ui-key.yacloud.compute.switch_disks }}**, the word **{{ ui-key.yacloud.compute.disks.label_disk-used }}** will appear next to your disk.
+In the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** management console under **{{ ui-key.yacloud.compute.disks_ddfdb }}**, the word **{{ ui-key.yacloud.compute.disks.label_disk-used }}** will appear next to your disk.
 
 ## How to delete a volume {#delete-volume}
 

@@ -10,5 +10,5 @@ Optionally, add a secondary [disk](../../../compute/concepts/disk.md):
     * Enter a name for the disk.
     * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
     * Specify the required disk and block size.
-    * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
+    * Optionally, enable **{{ ui-key.yacloud.compute.field_additional_vt356 }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}** field if you need this disk automatically deleted when deleting the VM.
     * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.

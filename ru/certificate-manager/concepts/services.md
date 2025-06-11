@@ -11,6 +11,7 @@ description: Из статьи вы узнаете, в каких сервиса
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 * [{{ cdn-full-name }}](#cdn).
+* [{{ sws-full-name }}](#sws).
 
 Также вы можете хранить приватный ключ пользовательского сертификата в виде секрета [{{ lockbox-full-name }}](#lockbox) с помощью {{ TF }}.
 
@@ -40,6 +41,12 @@ description: Из статьи вы узнаете, в каких сервиса
 {{ cdn-full-name }} позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN). 
 
 Для доступа к [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS можно [использовать](../../storage/operations/hosting/certificate.md#cert-manager) сертификат из {{ certificate-manager-name }}.
+
+## {{ sws-full-name }} {#sws}
+
+{{ sws-full-name }} позволяет защитить инфраструктуру от информационных угроз на прикладном уровне L7 модели [OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI). Например, [DDoS-атак](../../glossary/ddos.md), ботов, SQL-инъекций.
+
+Для подключения [домена](../../smartwebsecurity/concepts/domain-protect.md#domain) к [прокси-серверу](../../smartwebsecurity/concepts/domain-protect.md#proxy) по протоколу HTTPS можно использовать сертификат из {{ certificate-manager-name }}.
 
 ## {{ lockbox-full-name }} {#lockbox}
 

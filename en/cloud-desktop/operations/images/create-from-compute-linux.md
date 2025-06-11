@@ -94,9 +94,9 @@ To add a custom Linux image to {{ cloud-desktop-name }}:
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Next to your instance, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.stop }}**.
-      1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+      1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
       1. In the line with the instance boot disk, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
-      1. Enter the image name and give some description, if needed.
+      1. Enter a name for the image and provide some description, if needed.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
     {% endlist %}

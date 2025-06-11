@@ -33,6 +33,8 @@ See [below](#lcu-scaling-subnet-sizes) to learn what subnet sizes are recommende
 
 You can disable the load balancer in the selected availability zones. In this case, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer nodes in other availability zones will continue supplying traffic to backends in the availability zones the load balancer was disabled in, if allowed by the [locality-aware routing](backend-group.md#locality) settings.
 
+You can also [allow or disallow](../operations/manage-zone/allow-and-deny-shift.md) automatic traffic transfer from an availability zone. Such transfer is performed by {{ yandex-cloud }} technicians if one of the zones becomes unavailable. This keeps your services up and running. After the zone is recovered, traffic is routed back to the zones configured for the load balancer.
+
 ### Internal IP addresses {#internal-ips}
 
 The load balancer reserves internal IP addresses in the specified networks and assigns addresses to its nodes. These addresses are used for communication between the load balancer nodes and backends. Node IP addresses are shown in the list of internal IP addresses.
@@ -60,7 +62,7 @@ An internal group of VM instances called _resource units_ is created in each ava
 >
 > {% include [lcu-example](../../_includes/application-load-balancer/lcu-example.md) %}
 >
-> This is equal to **eight resource units**:
+> This workload requires **eight resource units** to process:
 >
 > {% include [lcu-example-amounts](../../_includes/application-load-balancer/lcu-example-amounts.md) %}
 
@@ -77,15 +79,15 @@ The minimum number of resource units per availability zone
 
 : If you expect higher loads on the load balancer, you can increase the minimum number of resource units per zone in advance to avoid waiting for it to increase following the load.
 
-  The default minimum is 2. You cannot set a minimum value below 2.
+  The default minimum is 2. You cannot set a limit lower than 2 resource units per zone.
 
 Maximum total number of resource units
 
-: The cost of using the load balancer depends on the number of its resource units (see the [relevant pricing policy](../pricing.md)). By default, this number is unlimited. You can set a limit to control your expenses.
+: The cost of using the load balancer depends on the number of its resource units (see the [relevant pricing policy](../pricing.md)). By default, it is unlimited. You can set a limit to control your expenses.
 
   If the specified minimum is too low for the actual load on the load balancer, it may run incorrectly.
 
-  Make sure the value is more or equal to the number of load balancer availability zones multiplied by the minimum number of resource units per zone.
+  Make sure this value is no less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone.
 
 You can set autoscaling for a group of resource units of your load balancer when [creating](../operations/application-load-balancer-create.md) or [updating](../operations/application-load-balancer-update.md) it.
 
@@ -154,13 +156,13 @@ You can [configure](../operations/application-load-balancer-manage-logs.md) the 
 
 For more information on how to view logs, see [{#T}](../operations/application-load-balancer-get-logs.md).
 
-A full list of logged parameters is provided in the [log reference](../logs-ref.md).
+You can find the full list of logged parameters in the [log reference](../logs-ref.md).
 
 You can also [send load balancer logs to a PostgreSQL DB](../tutorials/logging.md).
 
-### Rules for discarding logs {#discard-logs-rules}
+### Log discard rules {#discard-logs-rules}
 
-Writing and storing logs in {{ cloud-logging-name }} is charged based on the service [pricing rules](../../logging/pricing.md#prices). To log less data, add rules for discarding logs.
+Writing and storing logs in {{ cloud-logging-name }} is charged based on the service [pricing rules](../../logging/pricing.md#prices). To log less data, add log discard rules.
 
 Possible rules:
 

@@ -125,7 +125,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** и найдете в списке диск, который требуется зашифровать.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** и найдете в списке диск, который требуется зашифровать.
 
       Если диск присоединен к ВМ и ВМ включена, рекомендуется выключить ее.
   1. [Создайте](../../../compute/operations/disk-control/create-snapshot.md) снимок диска.

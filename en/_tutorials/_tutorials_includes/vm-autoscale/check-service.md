@@ -34,7 +34,7 @@
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Select `auto-group`.
      1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 

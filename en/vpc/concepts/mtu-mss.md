@@ -1,5 +1,5 @@
 ---
-description: MTU is the maximum size of a data packet, in bytes, that can be communicated over a network segment. Generally, MTU is 1500 bytes; however, MTUs may vary in different networks the packets are transmitted through.
+description: The maximum transmission unit (MTU) is the maximum size of a data packet, in bytes, that you can transmit over a network segment. Generally, the MTU is 1500 bytes; however, MTUs may vary in different networks the packets are transmitted through.
 keywords:
   - mtu
   - what is mtu
@@ -7,7 +7,7 @@ keywords:
 
 # MTU and TCP MSS
 
-The maximum transmission unit [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) is the maximum size of a data packet, in bytes, that you can transmit over a [network](network.md#network) segment.
+[Maximum Transmission Unit](https://en.wikipedia.org/wiki/Maximum_transmission_unit) (MTU) is the maximum data packet size, in bytes, transmittable over a [network](network.md#network) segment.
 
 Generally, the MTU is 1500 bytes; however, MTUs may vary in different networks the packets are transmitted through. For example, when using [{{ ddos-protection-full-name }}](../ddos-protection/index.md) or VPN tunnels, the MTU value should be lower to avoid losing packets. Packet loss due to MTU issues may look like an unresponsive TCP session, such as during a TLS handshake or SSH access.
 
@@ -25,3 +25,8 @@ You can learn how to configure the MTU for various platforms in {{ yandex-cloud 
 {% endnote %}
 
 If you use VPN tunnels, reduce the MTU and TCP MSS values to the size of the tunnel headers and TCP headers, respectively.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/remote-wireguard-vpn.md)

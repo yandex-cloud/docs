@@ -25,7 +25,6 @@ description: Various use cases for network infrastructure in {{ yandex-cloud }}.
 * [Adding a private connection to a direct or partner trunk](priv-add.md)
 * [Adding a public connection to a direct or partner trunk](pub-add.md)
 * [{#T}](trunk-capacity-change.md)
-* [{#T}](priv-prefixes-change.md)
 * [{#T}](priv-del.md)
 * [{#T}](pub-del.md)
 * [{#T}](trunk-del.md)

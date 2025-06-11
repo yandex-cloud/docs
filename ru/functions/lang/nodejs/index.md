@@ -15,7 +15,8 @@ description: С помощью сервиса {{ sf-name }} вы можете з
 | nodejs12 | 12.22.10 | 1.3.3 | Ubuntu 18.04 | Нет | Нет |
 | nodejs14 | 14.19.0 | 1.3.3 | Ubuntu 18.04 | Нет | Нет |
 | nodejs16 | 16.14.1 | отсутствует | Ubuntu 18.04 | Да | Нет |
-| nodejs18 | 18.16.1 | отсутствует | Ubuntu 22.04 LTS | Да | Да |
+| nodejs18 | 18.16.1 | отсутствует | Ubuntu 22.04 LTS | Да | Нет |
+| nodejs22 | 22.15.0 | отсутствует | Ubuntu 22.04 LTS | Да | Да  |
 
 {% include [note-preload-runtime](../../../_includes/functions/note-preload-runtime.md) %}
 

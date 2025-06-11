@@ -829,6 +829,8 @@ items:
         href: reports/index.md
       - name: Working with reports
         href: reports/report-operations.md
+      - name: Versioning
+        href: reports/versioning.md
   - name: Access management
     items:
       - name: Overview

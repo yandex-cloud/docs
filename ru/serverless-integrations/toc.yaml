@@ -576,14 +576,6 @@ items:
                 href: eventrouter/api-ref/Connector/updateAccessBindings.md
               - name: ListOperations
                 href: eventrouter/api-ref/Connector/listOperations.md
-          - name: Event
-            items:
-              - name: Overview
-                href: eventrouter/api-ref/Event/index.md
-              - name: Put
-                href: eventrouter/api-ref/Event/put.md
-              - name: Send
-                href: eventrouter/api-ref/Event/send.md
           - name: Operation
             items:
               - name: Overview

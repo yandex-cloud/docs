@@ -1,4 +1,4 @@
-The `name` label contains the metric name.
+The `name` label is for the metric name.
 
 Labels shared by all {{ cdn-name }} metrics:
 

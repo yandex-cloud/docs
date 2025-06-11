@@ -61,6 +61,12 @@ items:
             href: operations/application-load-balancer-stop-and-start.md
           - name: Moving a VM to a target group in a different availability zone
             href: operations/application-load-balancer-relocate.md
+          - name: Availability zone management
+            items:
+              - name: Allowing and denying traffic transfer
+                href: operations/manage-zone/allow-and-deny-shift.md
+              - name: Enabling and disabling traffic transfer
+                href: operations/manage-zone/start-and-cancel-shift.md
           - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
       - name: Viewing service resource operations
@@ -84,8 +90,8 @@ items:
           {{ alb-name }} ingress controller
         href: tutorials/alb-ingress-with-sws-profile.md
       - name: >-
-          Migrating services from NLB to ALB for DDoS protection using {{
-          sws-name }}
+          Migrating services from an NLB to an L7 ALB for DDoS protection using
+          {{ sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md
@@ -145,7 +151,7 @@ items:
             href: tutorials/tls-termination/console.md
           - name: '{{ TF }}'
             href: tutorials/tls-termination/terraform.md
-      - name: Storing load balancer logs to {{ PG }}
+      - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
       - name: >-
           Deploying and load testing a scalable gRPC service in {{
@@ -153,9 +159,13 @@ items:
         href: tutorials/load-testing-grpc-autoscaling.md
       - name: Setting up the Gateway API in {{ managed-k8s-full-name }}
         href: tutorials/gateway-api.md
-      - name: Configuring an L7 {{ alb-name }} via an ingress controller
+      - name: >-
+          Configuring an L7 {{ alb-name }} with the help of an ingress
+          controller
         href: tutorials/alb-ingress-controller.md
-      - name: Configuring an L7 {{ alb-name }} logging via an ingress controller
+      - name: >-
+          Configuring an L7 {{ alb-name }} logging with the help of an ingress
+          controller
         href: tutorials/alb-ingress-controller-log-options.md
       - name: Fault-tolerant website with load balancing via an {{ alb-name }}
         items:

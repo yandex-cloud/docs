@@ -1,24 +1,24 @@
 ---
 title: Access management in {{ network-load-balancer-full-name }}
-description: Access management in {{ network-load-balancer-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ network-load-balancer-full-name }}. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
 ---
 
 # Access management in {{ network-load-balancer-name }}
 
 In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#choosing-roles) for particular actions.
+* [What resources support role assignment](#resources).
+* [What roles this service has](#roles-list).
+* [What roles are required](#choosing-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -54,35 +54,35 @@ In this section, you will learn:
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
 
-Any operations with a network load balancer that has a public IP address require the `load-balancer.admin` role. In networks hosting target groups, you can use the `vpc.publicAdmin` role instead. Operations on the internal network load balancer require the `load-balancer.privateAdmin` role and operations on its target groups, the `load-balancer.privateAdmin` or `compute.admin` role.
+Any operations with a network load balancer that has a public IP address require the `load-balancer.admin` role. In networks hosting target groups, you may have the `vpc.publicAdmin` role instead. To manage the internal network load balancer, you need the `load-balancer.privateAdmin` role and to manage its target groups, the `load-balancer.privateAdmin` or `compute.admin` role.
 
-Operations on target groups located in subnets which do not have the specified administrative roles require the `vpc.user` role for those subnets.
+To manage target groups in subnets lacking the specified administrative roles, you need the `vpc.user` role for those subnets.
 
 Action | Methods | Required roles
 ----- | ----- | -----
 **Viewing data** | |
-Viewing information about any resource | `get`, `list`, `listOperations` | `viewer` for the resource
-**Manage network load balancers** | |
-[Create](../operations/load-balancer-create.md) and update load balancers in folders | `create` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the folder and networks hosting the target groups (if the load balancer is public)
-[Delete load balancers](../operations/load-balancer-delete.md) | `update`, `delete` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
-[Attach target groups](../operations/target-group-attach.md) | `attachTargetGroup`| `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the folder and networks hosting the target groups (if the load balancer is public)
-[Detach target groups](../operations/target-group-detach.md) | `detachTargetGroup` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
-[Get the status of target groups](../operations/check-resource-health.md) | `getTargetStates` | `load-balancer.viewer` or `viewer` for the load balancer and specified target groups
-[Add](../operations/listener-add.md) and [remove](../operations/listener-remove.md) listeners | `addListener`, `removeListener` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
-[Stop and start](../operations/load-balancer-start-and-stop.md) a load balancer | `stop`, `start` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
-**Manage target groups** | |
-[Create](../operations/target-group-create.md) and update target groups in folders | `create` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the folder and subnets where target groups are located
-[Delete target groups](../operations/target-group-delete.md) | `update`, `delete` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the target group and load balancer
-Add resources in a target group | `addTargets` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the target group, load balancer, and subnets where target groups are located
-Remove resources in a target group | `removeTargets` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the target group
+Viewing resource details | `get`, `list`, `listOperations` | `viewer` for the resource
+**Managing network load balancers** | |
+[Creating](../operations/load-balancer-create.md) and updating load balancers in a folder | `create` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the folder and, if the load balancer is public, networks hosting the target groups.
+[Deleting load balancers](../operations/load-balancer-delete.md) | `update`, `delete` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
+[Attaching target groups](../operations/target-group-attach.md) | `attachTargetGroup`| `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the folder and, if the load balancer is public, networks hosting the target groups.
+[Detaching target groups](../operations/target-group-detach.md) | `detachTargetGroup` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
+[Getting the target group status](../operations/check-resource-health.md) | `getTargetStates` | `load-balancer.viewer` or `viewer` for the load balancer and specified target groups
+[Adding](../operations/listener-add.md) and [removing](../operations/listener-remove.md) listeners | `addListener`, `removeListener` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
+[Stopping and starting](../operations/load-balancer-start-and-stop.md) a load balancer | `stop`, `start` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
+**Managing target groups** | |
+[Creating](../operations/target-group-create.md) and updating target groups in a folder | `create` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the folder and subnets hosting the target groups
+[Deleting target groups](../operations/target-group-delete.md) | `update`, `delete` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the target group and the load balancer
+Adding targets to a target group | `addTargets` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the target group, load balancer, and subnets hosting the target groups
+Removing targets from a target group | `removeTargets` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the target group
 **Resource access management** | |
-[Granting a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md), and viewing roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
+[Granting](../../iam/operations/roles/grant.md), [revoking](../../iam/operations/roles/revoke.md), and viewing roles for a resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
 
 #### What's next {what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

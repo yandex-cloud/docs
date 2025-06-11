@@ -276,6 +276,9 @@ POST https://compute.{{ api-host }}/compute/v1/instanceGroups
     },
     "maxOpeningTrafficDuration": "string",
     "ignoreHealthChecks": "boolean"
+  },
+  "autoHealingPolicy": {
+    "autoHealingAction": "string"
   }
 }
 ```
@@ -337,6 +340,9 @@ Settings for balancing load between instances via [Application Load Balancer](/d
 
 If specified, an Application Load Balancer target group containing all instances from the instance group will be created
 and attributed to the instance group. ||
+|| autoHealingPolicy | **[AutoHealingPolicy](#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy)**
+
+AutoHealingPolicy policy of the instance group. ||
 |#
 
 ## InstanceTemplate {#yandex.cloud.compute.v1.instancegroup.InstanceTemplate}
@@ -1042,6 +1048,20 @@ Description of the target group. ||
 Resource labels as `key:value` pairs. ||
 |#
 
+## AutoHealingPolicy {#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy}
+
+#|
+||Field | Description ||
+|| autoHealingAction | **enum** (AutoHealingAction)
+
+Instance Groups performs `autoHealingAction` when instance becomes unhealthy.
+
+- `AUTO_HEALING_ACTION_UNSPECIFIED`
+- `RESTART`: Re-starting an instance with restart: stopping and then starting the instance.
+- `RECREATE`: Re-creating an instance: deleting an instance and creating a new one.
+- `NONE`: No action ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -1551,7 +1571,7 @@ Settings for balancing load between instances via [Application Load Balancer](/d
 Status of the Application Load Balancer target group attributed to the instance group.
 
 Returned if there is a working load balancer that the target group is connected to. ||
-|| autoHealingPolicy | **[AutoHealingPolicy](#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy)**
+|| autoHealingPolicy | **[AutoHealingPolicy](#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy2)**
 
 AutoHealingPolicy policy of the instance group. ||
 |#
@@ -2301,7 +2321,7 @@ ID of the Application Load Balancer target group attributed to the instance grou
 Status message of the target group. ||
 |#
 
-## AutoHealingPolicy {#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy}
+## AutoHealingPolicy {#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy2}
 
 #|
 ||Field | Description ||

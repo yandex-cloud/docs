@@ -90,7 +90,7 @@
 
   Maximum number of [autovacuum processes](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) running in parallel. Autovacuuming runs at intervals for each DB, looks up the table records marked for deletion, and deletes them.
 
-  The minimum value is `1`; the maximum value is `32`. The default value [depends on the selected host class](#settings-instance-dependent) and is equal to the number of vCPUs on a single host, with a minimum of `3`.
+  It can range from `1` to `32`. The default value [depends on the selected host class](#settings-instance-dependent) and is equal to the number of vCPUs on a single host, with a minimum of `3`.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS).
 
@@ -127,7 +127,7 @@
   150 × <number_of_vCPUs_per_host> + 400
   ```
 
-  Here is an example:
+  For example:
 
   Host class | vCPU | Default value
   ---|----|-----
@@ -381,7 +381,7 @@
   Allows the query planner to use the bitmap-scan plan types, even if this is not specified in the query explicitly. This access method is similar to regular access by index, but occurs in two steps:
 
   1. The index is scanned (Bitmap Index Scan) and a bitmap is built where the rows to be read by the query are flagged.
-  1. The table is scanned (Bitmap Heap Scan). In which case:
+  1. The table is scanned (Bitmap Heap Scan). In this case, the following applies:
 
      - The pages are read sequentially (this increases the likelihood of using the OS cache).
      - Each page is viewed only once.
@@ -540,7 +540,7 @@
 
   Enables session interruption in case of any error in the query.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-error-handling.html).
 
@@ -658,7 +658,7 @@
 
   Enables [Just-in-Time (JIT) compilation](https://www.postgresql.org/docs/current/jit.html) of queries for {{ PG }}. If this setting is enabled, SQL queries are compiled into machine code directly at runtime. This will speed up execution of complex CPU-intensive queries.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JIT).
 
@@ -734,7 +734,7 @@
 
   Controls logging of long lock waits. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to get a lock.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS).
 
@@ -804,7 +804,7 @@
 
   Controls logging of long recovery conflict waits when reading WAL to continue replication. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to resolve a recovery conflict. {{ PG }} supports this feature starting from version 14.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
 
@@ -835,7 +835,7 @@
 
   Sets the minimum size of a temporary file to be logged in {{ PG }} when deleted.
 
-  The minimum value is `-1` (information about deleted files is not logged); the maximum value is `2147483647` (2 GB). If set to `0`, the sizes and names of all temporary files are logged. The default value is `-1`.
+  The minimum value is `-1` (information about deleted files is not logged); the maximum value is `2147483647` (2 GB). If set to `0`, the sizes and names of all temporary files are logged. Default: `-1`.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES).
 
@@ -885,6 +885,8 @@
 
   By default, the maximum value is used.
 
+  {% include [note-pg-user-connections.md](../../mdb/note-pg-user-connections.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
 
 - **Max locks per transaction**{#setting-max-locks-transaction} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
@@ -899,7 +901,7 @@
 
   Maximum number of {{ PG }} logical replication processes.
 
-  The minimum value is `4`; the maximum value is `100`. By default, the minimum value is used.
+  It can range from `4` to `100`. By default, the minimum value is used.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-LOGICAL-REPLICATION-WORKERS).
 
@@ -947,7 +949,7 @@
 
   Maximum number of [replication slots](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS). Replication slots automatically provide a mechanism for saving [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log) files until they are received by all replicas.
 
-  The minimum value is `20`; the maximum value is `100`. By default, the minimum value is used.
+  It can range from `20` to `100`. By default, the minimum value is used.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
 
@@ -971,7 +973,7 @@
 
   The maximum number of concurrent connections from streaming replication source hosts.
 
-  The minimum value is `20`; the maximum value is `100`. By default, the minimum value is used.
+  It can range from `20` to `100`. By default, the minimum value is used.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
 
@@ -1015,7 +1017,7 @@
 
   Allows the query parser to emit a warning for any constructs that changed their behavior since version 9.4 as a result of changes in operator precedence. This feature is not supported by {{ PG }} starting from version 14.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/13/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING).
 
@@ -1074,7 +1076,7 @@
 
   Enables table name recovery using `OID` when collecting query statistics for the `pg_qualstats` module. The setting makes it easier to analyze data, but requires more disk space for storing statistics. Only applies when the [Pg qualstats enabled](#setting-pg-qualstats-enabled) setting is on.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
 - **Pg qualstats sample rate**{#setting-pg-qualstats-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
@@ -1108,13 +1110,13 @@
 
   Allows the `plantuner` module to hide individual indexes from the planner to prevent their use in query plans.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
 - **Quote all identifiers**{#setting-quote-identifiers} {{ tag-all }}
 
   Forces enclosing all identifiers in quotation marks when generating SQL queries from a database, e.g., when running the `EXPLAIN` operation.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS).
 

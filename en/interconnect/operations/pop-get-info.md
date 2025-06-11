@@ -1,9 +1,15 @@
 ---
 title: How to get information about {{ interconnect-name }} points of presence
-description: Follow this guide to get information about {{ interconnect-name }} points of presence.
+description: In this tutorial, we will get information about {{ interconnect-name }} points of presence.
 ---
 
 # Getting information about points of presence
+
+{% note info %}
+
+You need the [cic.viewer](../security/index.md#cic-viewer) role to run this operation.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -31,7 +37,7 @@ description: Follow this guide to get information about {{ interconnect-name }} 
 
       Where:
       * `ID`: Point of presence ID.
-      * `REGION ID`: Cloud region the point of presence belongs to.
+      * `REGION ID`: Cloud region containing the point of presence.
 
 {% endlist %}
 

@@ -1,9 +1,9 @@
 # Migrating services from an NLB with VMs as targets to an L7 ALB
 
 
-In this use case, a [{{ network-load-balancer-full-name }}](../../network-load-balancer/) incoming traffic is distributed among VMs located in target groups downstream of the load balancer.
+In this scenario, a [{{ network-load-balancer-full-name }}](../../network-load-balancer/) will distribute inbound traffic across the VMs in its target groups.
 
-Operating diagram of a [{{ alb-full-name }}](../../application-load-balancer/) L7 load balancer with a [{{ sws-full-name }}](../../smartwebsecurity/) security profile:
+Here is how an L7 [{{ alb-full-name }}](../../application-load-balancer/) with a [{{ sws-full-name }}](../../smartwebsecurity/) profile works:
 
 ![image](../../_assets/tutorials/security/nlb-with-target-resource-vm.svg)
 

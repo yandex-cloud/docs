@@ -40,7 +40,7 @@ description: Следуя данной инструкции, вы сможете
 
      1. В поле **Приватная подсеть** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
      1. Введите имя подсети `bm-subnetwork` и нажмите кнопку **Создать подсеть**.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
+     1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
   1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 

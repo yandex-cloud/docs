@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ load-testing-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ load-testing-name }}.
+description: This page provides information about the {{ TF }} provider’s resources and data sources that {{ load-testing-name }} supports.
 ---
 
 # {{ TF }} reference for {{ load-testing-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ load-testing-name }}:
+{{ load-testing-name }} supports the {{ TF }} provider’s following resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -17,8 +17,8 @@ The following {{ TF }} provider resources are supported for {{ load-testing-name
 
 ## Data sources {#data-sources}
 
-{{ load-testing-name }} supports the following {{ TF }} provider data sources:
+{{ load-testing-name }} supports the {{ TF }} provider’s following data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_loadtesting_agent]({{ tf-provider-datasources-link }}/loadtesting_agent) | [Agent](./concepts/agent.md) information |
+| [yandex_loadtesting_agent]({{ tf-provider-datasources-link }}/loadtesting_agent) | [Agent](./concepts/agent.md) details |

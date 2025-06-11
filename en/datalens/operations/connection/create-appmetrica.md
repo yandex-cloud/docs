@@ -12,9 +12,9 @@ To create an AppMetrica connection:
 1. Under **Files and services**, select the **AppMetrica** connection.
 1. Specify the connection settings:
 
-   * **OAuth token**: Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the AppMetrica data.
-   * **App**: Specify one or more applications to connect to.
-   * **Accuracy**: Set the data accuracy (sampling rate). You can change the accuracy after you create the connection.
+   * **OAuth token**. Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the AppMetrica data.
+   * **App**. Specify one or more applications to connect to.
+   * **Accuracy**. Set the data accuracy (sampling rate). You can change the accuracy after you create the connection.
 
      {% include [datalens-get-token](../../../_includes/datalens/datalens-change-account-note.md) %}
 
@@ -50,4 +50,10 @@ Connections to AppMetrica do not support [public access](../../concepts/datalens
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
 
+
+
+
+## Use cases {#examples}
+* [{#T}](../../tutorials/data-from-appmetrica-visualization.md)
+* [{#T}](../../tutorials/data-from-appmetrica-yc-visualization.md)
 
