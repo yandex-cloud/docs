@@ -45,7 +45,7 @@ description: Follow this guide to delete a target.
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
         bus_id    = "<bus_ID>"
-        jq_filter = "<jq_expression>"
+        jq_filter = "<jq_template>"
 
         ymq {
           queue_arn            = "<queue_ARN>"
@@ -59,7 +59,7 @@ description: Follow this guide to delete a target.
 
         yds {
           database           = "<path_to_database>"
-          stream_name        = "<stream_name>"
+          stream_name        = "<data_stream_name>"
           service_account_id = "<service_account_ID>"
         }
 
@@ -75,13 +75,13 @@ description: Follow this guide to delete a target.
       }
       ```
 
-      For more information about the `yandex_serverless_eventrouter_rule` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
+      For more information about `yandex_serverless_eventrouter_rule` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
 
   1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter rule list

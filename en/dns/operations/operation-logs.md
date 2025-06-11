@@ -1,6 +1,6 @@
 # Viewing operations with zones
 
-All actions with {{ dns-name }} zones are logged as a list of operations. Each operation is assigned a unique ID.
+All {{ dns-name }} zone activities are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,12 +8,12 @@ All actions with {{ dns-name }} zones are logged as a list of operations. Each o
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder that houses the DNS zone.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone you need.
-  1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected zone.
+  1. Navigate to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected zone.
 
-      You will see a list of operations for the selected zone and the records made in it.
+      You will see a list of operations performed on the selected zone and its DNS records.
 
 - CLI {#cli}
 
@@ -21,13 +21,13 @@ All actions with {{ dns-name }} zones are logged as a list of operations. Each o
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a DNS zone, run this command:
+  To get a DNS zone operation list, run this command:
 
   ```bash
   yc dns zone list-operations <zone_name_or_ID>
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc dns zone list-operations dns3fh7phb04******** --format yaml
@@ -57,15 +57,15 @@ All actions with {{ dns-name }} zones are logged as a list of operations. Each o
 
 - API {#api}
 
-  To get a list of operations for a zone, use the [listOperations](../api-ref/DnsZone/listOperations.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md) gRPC API call.
+  To get a DNS zone operation list, use the [listOperations](../api-ref/DnsZone/listOperations.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md) gRPC API call.
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the zone.
-1. Copy the ID of the operation.
-1. Get detailed information about the operation:
+1. [Get a zone operation list](#get-operations).
+1. Copy the ID of the operation you need.
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

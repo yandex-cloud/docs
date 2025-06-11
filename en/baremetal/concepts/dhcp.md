@@ -25,7 +25,7 @@ The following DHCP options are transmitted on public and private networks:
 
 ## DHCP in public network {#dhcp-public}
 
-If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`, its network interface connected to a public network will get an IPv4 address from the public range of internet networks. In this case, DHCP assigns IP addresses to servers on a public subnet with the `/31` prefix. You cannot disable DHCP.
+If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, its network interface connected to a public network will get an IPv4 address from the public range of internet networks. In this case, DHCP assigns IP addresses to servers on a public subnet with the `/31` prefix. You cannot disable DHCP.
 
 If DHCP is disabled on a server, consider the following when configuring the network interface of a public network:
 

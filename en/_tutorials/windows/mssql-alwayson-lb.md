@@ -5,7 +5,7 @@
 
 
 
-This tutorial will tell you how to deploy an Always On availability group in {{ yandex-cloud }} and enable load balancing across the nodes using an internal network load balancer. You will set up network interfaces to combine multiple subnets into a single common subnet. Therefore, you do not need [Multisubnet Failover]({{ ms.docs }}/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). It is the replica to where you will be writing that will get the primary IP address. The same replica will have an open port, and the load balancer will route traffic to this port. Since the port specified for connecting to the load balancer becomes unavailable, you will use an additional non-standard port to receive traffic.
+This tutorial will tell you how to deploy an Always On availability group in {{ yandex-cloud }} and enable load balancing across the nodes using an internal network load balancer. You will set up network interfaces to combine multiple subnets into a single common subnet. Therefore, you do not need [Multisubnet Failover]({{ ms.docs }}/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). The writable replica will get the primary IP address. The same replica will expose a port for incoming traffic from the load balancer. Since the specified load balancer port becomes unavailable, incoming traffic will fall back to an additional non-standard port.
 
 To set up an Always On availability group with an internal network load balancer:
 
@@ -35,7 +35,7 @@ You can use [license mobility](../../compute/qa/licensing.md) and bring your own
 
 ## Create a network infrastructure {#prepare-network}
 
-Prepare the network infrastructure to host the availability group.
+Prepare a network infrastructure to host your availability group.
 
 1. Create a network named `ya-network`:
 
@@ -43,9 +43,9 @@ Prepare the network infrastructure to host the availability group.
 
     - Management console {#console}
 
-       1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
+       1. Open the **{{ vpc-name }}** section in the folder where you want to create a cloud network.
        1. Click **Create network**.
-       1. Enter the network name: `ya-network`.
+       1. Specify `ya-network` as the network name.
        1. Click **Create network**.
 
     - Bash {#bash}
@@ -68,30 +68,30 @@ Prepare the network infrastructure to host the availability group.
 
     {% endlist %}
 
-1. Create subnets that will host your VMs and network load balancer: 
+1. Create these subnets to host your VMs and network load balancer: 
 
    * Three subnets to host SQLServer VMs: `ya-sqlserver-rc1a`, `ya-sqlserver-rc1b`, and `ya-sqlserver-rc1d`. Each subnet will be linked to the `mssql` route table.
-   * `ya-ilb-rc1a` subnet for the network load balancer.
-   * `ya-ad-rc1a` subnet for Active Directory.
+   * The `ya-ilb-rc1a` subnet for the network load balancer.
+   * The `ya-ad-rc1a` subnet for Active Directory.
 
 
     {% list tabs group=programming_language %}
 
     - Management console {#console}
 
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
-      1. Select the `ya-network` network.
+      1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnets.
+      1. Select the network: `ya-network`.
       1. Click ![image](../../_assets/console-icons/plus.svg) **Add subnet**.
-      1. Fill out the form: enter `ya-sqlserver-rc1a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
-      1. Enter the subnet CIDR: IP address and subnet mask: `192.168.1.0/28`.
+      1. Specify `ya-sqlserver-rc1a` as the name and select the `{{ region-id }}-a` availability zone from the drop-down list.
+      1. Enter the subnet CIDR, including the IP address and subnet mask: `192.168.1.0/28`.
       1. Click **Create subnet**.
 
-      Repeat these steps for the subnets with the following names and CIDR:
+      Repeat the same steps for the subnets with the following names and CIDRs:
 
-      * `ya-sqlserver-rc1b` in the `{{ region-id }}-b` availability zone: `192.168.1.16/28`.
-      * `ya-sqlserver-rc1d` in the `{{ region-id }}-d` availability zone: `192.168.1.32/28`.
-      * `ya-ilb-rc1a` in the `{{ region-id }}-a` availability zone: `192.168.1.48/28`.
-      * `ya-ad-rc1a` in the `{{ region-id }}-a` availability zone: `10.0.0.0/28`.
+      * `ya-sqlserver-rc1b` in the `{{ region-id }}-b` availability zone, `192.168.1.16/28`.
+      * `ya-sqlserver-rc1d` in the `{{ region-id }}-d` availability zone, `192.168.1.32/28`.
+      * `ya-ilb-rc1a` in the `{{ region-id }}-a` availability zone, `192.168.1.48/28`.
+      * `ya-ad-rc1a` in the `{{ region-id }}-a` availability zone, `10.0.0.0/28`.
 
     - Bash {#bash}
 
@@ -213,7 +213,7 @@ Prepare the network infrastructure to host the availability group.
   yc vpc subnet get --name ya-ilb-rc1a
   ```
   
-  Create a listener and specify the subnet ID:
+  Create a listener, specifying the subnet ID:
 
   ```
   yc load-balancer network-load-balancer add-listener \
@@ -238,7 +238,7 @@ Prepare the network infrastructure to host the availability group.
 
 {% endlist %}
 
-### Create and connect the target group to the network load balancer {#create-target-group}
+### Create a target group and attach it to the network load balancer {#create-target-group}
 
 {% list tabs group=programming_language %}
 
@@ -294,7 +294,7 @@ Before creating VMs, prepare a Windows Server image to use in {{ yandex-cloud }}
 
 ### Create a file with administrator credentials {#prepare-admin-credentials}
 
-Create a file named `setpass` with a script to set the password for the local administrator account. This script will be executed when you create VMs via the CLI.
+Create a file named `setpass` with a script to set the local administrator password. This script will run when you create VMs via the CLI.
 
 {% note alert %}
 
@@ -341,13 +341,13 @@ The password provided above is for testing only. Use your own complex password w
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
 
-You can read more about the best practices for securing Active Directory on the [MS official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+To learn about the best practices for securing Active Directory, see [this MS article]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 {% endnote %}
 
 ### Create VMs {#create-group-vms}
 
-Make sure to create your VMs on [dedicated hosts](../../compute/concepts/dedicated-host.md). You can get the dedicated host ID in the {{ yandex-cloud }} CLI by running the `yc compute host-group list-hosts` command. To learn more about this command, see [this reference](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md).
+Make sure to create your VMs on [dedicated hosts](../../compute/concepts/dedicated-host.md). You can get the dedicated host ID via the {{ yandex-cloud }} CLI by running the `yc compute host-group list-hosts` command. To learn more about this command, see [this reference](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md).
 
 #### Create a VM for a bastion host {#create-jump-server}
 
@@ -391,7 +391,6 @@ Create a bastion host with Windows Server 2022 Datacenter and a public IP addres
        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
      --host-id <dedicated_host_ID> `
      --async
-
   ```
 
   {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
@@ -441,7 +440,7 @@ Create a bastion host with Windows Server 2022 Datacenter and a public IP addres
 
 {% endlist %}
 
-#### Create VM instances for SQL Server {#create-ad-server}
+#### Create VMs for SQL Server {#create-ad-server}
 
 Create three VMs with Windows Server 2022 Datacenter for SQL Server:
 
@@ -563,12 +562,12 @@ Create three VMs with Windows Server 2022 Datacenter for SQL Server:
 
 ### Bring your own Windows Server licenses {#byol}
 
-Connect to each VM you created and [activate your own Windows Server license on these VMs](../../microsoft/byol.md).
+Connect to each VM you created and [activate your own Windows Server license on it](../../microsoft/byol.md).
 
 
 ### Install and configure Active Directory {#install-ad}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as the username and your password. 
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password. 
 1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
 1. On `ya-ad`, run PowerShell and set the required server roles:
 
@@ -598,11 +597,11 @@ Connect to each VM you created and [activate your own Windows Server license on 
        
     {% endlist %}
 
-   After that, the VM will restart. 
+   Once done, the VM will restart. 
 
 1. Reconnect to `ya-ad`.
 
-1. Rename the website and add to it the subnets you created:
+1. Rename the site and include the subnets you created:
 
     {% list tabs group=programming_language %}
 
@@ -645,9 +644,9 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
 ### Create users and groups in Active Directory {#create-ad-users-groups}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as the username and your password.
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
 
-1. Connect to the `ya-ad` VM from `ya-jump1` under the same account using RDP.
+1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
 
 1. On `ya-ad`, run PowerShell and create the `mssql-svc` service account:
 
@@ -666,7 +665,7 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
     {% endlist %}
 
-1. Create groups to access backups and DB servers:
+1. Create groups to access DB backups and servers:
 
     {% list tabs group=programming_language %}
 
@@ -693,7 +692,7 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
     {% endlist %}
 
-1. Set the service account [SPN](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names):
+1. Set [SPNs](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names) for the service account:
 
     {% list tabs group=programming_language %}
 
@@ -738,7 +737,7 @@ Install SQL Server on your database servers:
 
     {% endlist %}
 
-1. Run RDP and connect to the `ya-mssql1` VM using the `Administrator` account and your password. To connect, use the public IP address of the VM.
+1. Run RDP and connect to the `ya-mssql1` VM using the `Administrator` account and your password. To connect, use the VM public IP address.
 
 1. Start PowerShell and set the role: 
 
@@ -779,7 +778,7 @@ Install SQL Server on your database servers:
 
     A message will appear asking you to confirm disk formatting. Click **Format disk**. Click **Start**. After formatting is complete, click **OK**. 
     
-1. Create folders for the distribution kit, backups and storage for databases, logs, and temporary files:
+1. Create folders for the distribution files, backups, databases, logs, and temporary files:
 
     {% list tabs group=programming_language %}
 
@@ -796,7 +795,7 @@ Install SQL Server on your database servers:
 
     {% endlist %}
 
-1. Download the SQL Server 2022 (English) image from the web and save it to `C:\dist`.
+1. Download the SQL Server 2022 (English) image from the web to `C:\dist`.
 
 1. Install the `SqlServer` module:
 
@@ -836,7 +835,7 @@ Install SQL Server on your database servers:
 
     {% endlist %}
 
-   Prepare the data for accessing the domain:
+   Set up the domain credentials:
 
     {% list tabs group=programming_language %}
 
@@ -980,9 +979,9 @@ Install SQL Server on your database servers:
 
    {% endlist %}
 
-1. Repeat steps 2-16 for the `ya-mssql2` and `ya-mssql3` VMs. 
+1. Repeat steps 2 through 16 for the `ya-mssql2` and `ya-mssql3` VMs. 
 
-1. Disable internet access for the VM:
+1. Disable internet access for the VMs:
 
     {% list tabs group=programming_language %}
 
@@ -1003,9 +1002,9 @@ Install SQL Server on your database servers:
 
     {% endlist %}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as the username and your password.
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
 
-1. Connect to the `ya-mssql1` VM from `ya-jump1` under the same account using RDP. Configure a static IP address with its own subnet mask:
+1. From `ya-jump1`, connect to the `ya-mssql1` VM under the same account using RDP. Configure a static IP address with its own subnet mask:
 
    ```
    $IPAddress = Get-NetAdapter | Get-NetIPAddress -AddressFamily IPv4 | Select-Object -ExpandProperty IPAddress
@@ -1015,7 +1014,7 @@ Install SQL Server on your database servers:
    netsh interface ip set address $InterfaceName static $IPAddress 255.255.255.192 $Gateway
    ```
 
-1. Repeat steps 19-20 for the `ya-mssql2` and `ya-mssql3` VMs.
+1. Repeat steps 19 and 20 for the `ya-mssql2` and `ya-mssql3` VMs.
 
 1. The Always On availability group requires a configured Windows Server failover cluster. To create one, you need to test the DB servers. On any of the cluster VMs, run:
 
@@ -1033,8 +1032,8 @@ Install SQL Server on your database servers:
 
 ### Create a Windows Server failover cluster {#configure-failover-cluster}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as the username and your password.
-1. Connect to the `ya-mssql1` VM from `ya-jump1` using RDP as `yantoso\Administrator`.
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
+1. From `ya-jump1`, connect to the `ya-mssql1` VM as `yantoso\Administrator` using RDP.
 1. Create a cluster of three DB servers:
 
     {% list tabs group=programming_language %}
@@ -1157,7 +1156,7 @@ Install SQL Server on your database servers:
 
    1. Connect to the Windows Server failover cluster (WSFC) node that hosts the SQL Server instance.
    1. Open the **Start** menu and select **All programs** → **Microsoft SQL Server** → **Configuration Tools** → **SQL Server Configuration Manager**.
-   1. In the SQL Server Configuration Manager, right-click the SQL Server instance for which you need to enable Always On Availability Groups, and select **Properties**.
+   1. In SQL Server Configuration Manager, right-click the SQL Server instance for which you need to enable Always On Availability Groups, and select **Properties**.
    1. Go to the **Always On High Availability** tab.
    1. Select **Enable Always On Availability Groups** and restart the SQL Server instance service.
 
@@ -1251,7 +1250,7 @@ Install SQL Server on your database servers:
 
     {% endlist %}
 
-1. Create a [listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description) with the `192.168.1.62` IP address, which belongs to the internal network load balancer:
+1. Create a [listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description) for the internal network load balancer, assigning it the `192.168.1.62` IP address:
 
     {% list tabs group=programming_language %}
 
@@ -1476,7 +1475,7 @@ Install SQL Server on your database servers:
 
 You can test DB performance on any domain VM. Log in as `yantoso\Administrator`.
 
-1. Create a table in the `MyDatabase` database under replication:
+1. Create a table in the replicated `MyDatabase` DB:
 
     {% list tabs group=programming_language %}
 
@@ -1562,7 +1561,7 @@ You can test DB performance on any domain VM. Log in as `yantoso\Administrator`.
 
     {% endlist %}
 
-1. Verify the name of the main replica again:
+1. Check the main replica name once again:
 
     {% list tabs group=programming_language %}
 

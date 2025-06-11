@@ -57,7 +57,7 @@ done
 
    {% note info %}
 
-   You can leave out the `--group-name`, `--message`, and `--json-payload` flags and specify only the parameter values, e.g., `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
+   You can leave out the `--group-name`, `--message`, and `--json-payload` parameters and provide only the values, e.g., `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
 
    {% endnote %}
 

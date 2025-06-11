@@ -44,7 +44,8 @@ Required field. ID of the Workflow. ||
   },
   "networkId": "string",
   "serviceAccountId": "string",
-  "updateMask": "string"
+  "updateMask": "string",
+  "express": "boolean"
 }
 ```
 
@@ -81,6 +82,9 @@ the field's value will be reset to the default. The default value for most field
 If `` updateMask `` is not sent in the request, all fields' values will be updated.
 Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
+|| express | **boolean**
+
+Express execution mode. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification}
@@ -185,7 +189,8 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
       "minLevel": "string"
     },
     "networkId": "string",
-    "serviceAccountId": "string"
+    "serviceAccountId": "string",
+    "express": "boolean"
   }
   // end of the list of possible fields
 }
@@ -337,6 +342,9 @@ ID of the VPC network Workflow will be executed in, in order to access private r
 || serviceAccountId | **string**
 
 ID of the Service Account which will be used for resource access in Workflow execution. ||
+|| express | **boolean**
+
+Express execution mode. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2}

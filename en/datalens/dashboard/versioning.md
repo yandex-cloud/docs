@@ -5,7 +5,7 @@ description: 'Dashboard versioning is the ability to store the history of dashbo
 
 # Versioning
 
-Dashboard versioning is the ability to store the history of dashboard configuration changes using versions. A list of versions is available to users with the lowest level of access to the dashboard: **View**.
+Dashboard versioning is the ability to store the history of dashboard configuration changes using versions. The list of versions is available to users with the lowest editing role for the dashboard.
 
 To go to the list of versions, click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the screen and select ![image](../../_assets/console-icons/clock.svg) **Change history**.
 

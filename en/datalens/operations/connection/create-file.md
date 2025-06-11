@@ -9,7 +9,7 @@ To create a connection to a file:
 
 1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Files and services**, select the **Files** connection.
-1. Click **Upload files** and select the file. The information about the added file and the uploaded data will be displayed in the central area of the screen.
+1. Click **Upload files** and select the file. The information about the added file and the uploaded data will be displayed in the center of the screen.
 
    {% note info %}
 
@@ -27,18 +27,18 @@ To create a connection to a file:
 
    - CSV or TXT
 
-      1. The information about the added file and the uploaded data will be displayed at the center of the screen. At the top of the screen, select:
+     1. The information about the added file and the uploaded data will be displayed at the center of the screen. At the top of the screen, select:
 
-         * **Encoding**: Specify the file data encoding. You can use `utf-8`, `utf-16`, `windows-1251`, and `utf-8-sig`.
-         * **Delimiter**: Specify the delimiter that is used in the file. The available values are `Comma`, `Semicolon`, and `Tabulation character`.
-         * **Column header**: Select the title option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as a heading.
+        * **Encoding**: Specify the file data encoding. The available values are `utf-8`, `utf-16`, `windows-1251`, and `utf-8-sig`.
+        * **Delimiter**: Specify the delimiter that is used in the file. The available values are `Comma`, `Semicolon`, and `Tabulation character`.
+        * **Column header**: Select the title option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as a heading.
 
-      1. (Optional) Select the type of data for each column. To do this, click the icon to the left of the column.
+     1. (Optional) Select the type of data for each column. To do this, click the icon to the left of the column.
 
    - Excel
 
-      1. If the file being uploaded contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table.
-      1. The information about the added file and the uploaded data will be displayed at the center of the screen. At the top of the screen, select the **Column header** option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as heading.
+     1. If the file contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table.
+     1. The information about the added file and the uploaded data will be displayed at the center of the screen. At the top of the screen, select the **Column header** option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as a heading.
 
    {% endlist %}
 
@@ -52,3 +52,11 @@ To create a connection to a file:
 1. Enter a name for the connection and click **Create**.
 
 You can add, rename, and delete files in the connection.
+
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/data-from-csv-visualization.md)
+* [{#T}](../../tutorials/data-from-csv-to-public-visualization.md)
+* [{#T}](../../tutorials/data-from-ch-visualization.md)
+

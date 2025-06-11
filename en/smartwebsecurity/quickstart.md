@@ -1,25 +1,16 @@
-# Getting started with {{ sws-full-name }}
+# How to get started with {{ sws-full-name }}
 
-{{ sws-name }} protects your infrastructure from cybersecurity threats at OSI application level (L7). These may include DDoS attacks, bots, and SQL injections. In addition, you can enable DDoS protection at levels L3 and L4 using [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md).
+{% include [about-sws](../_includes/smartwebsecurity/about-sws.md) %}
 
-{{ sws-name }} is an assortment of tools you can use either separately or in a combination for optimized protection for your resources. The main {{ sws-name }} component is a _security profile_ to which you can connect:
-
-* Basic rules. For simple traffic filtering based on certain conditions.
-* Smart Protection rules. To analyze traffic with machine learning and behavioral analysis algorithms.
-* WAF profile rules. Allow using rule sets to counter common security threats, such as OWASP Core Rule Set (CRS). Rule sets protect web apps from many known threats, e.g., SQL injections, command injections, cross-site scripting, unauthorized access to server resources, and more.
-* CAPTCHA. After you have checked traffic with rules, you can additionally route it to [{{ captcha-full-name }}](../smartcaptcha) for protection against bots and spam.
-* ARL profile. To limit the number of requests to the protected resource based on various conditions.
-
-To protect resources, you need to connect a security profile to a [virtual host](../application-load-balancer/concepts/http-router.md#virtual-host) or an [Ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md#smart-web-security) in {{ alb-full-name }}. You can also connect your security profile to an [API gateway](../api-gateway/concepts/index.md).
-
-To get started:
+## Setup {#steps}
 
 * [Get your cloud ready](#before-you-begin).
+* [Create and configure a protected resource](#resource-create).
 * [Create and check a security profile](#security-profile).
-* [Connect the security profile to a virtual host](#profile-connect).
+* [Connect a security profile to the protected resource](#profile-connect).
+* [Test the security profile](#monitoring).
 * (Optional) [Create and connect a WAF profile](#waf).
 * (Optional) [Create and connect an ARL profile](#arl).
-* [Configure the L7 network load balancer for additional protection](#configure-balancer).
 
 
 ## Get your cloud ready {#before-you-begin}
@@ -27,11 +18,107 @@ To get started:
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 
+## Create and configure a protected resource {#resource-create}
+
+{% list tabs group=resources %}
+
+- L7 load balancer {#balancer}
+
+  {{ alb-name }} evenly distributes incoming traffic between nodes, thus preventing overload and improving fault tolerance. If you have no L7 load balancer set up yet, you can deploy a [test infrastructure](tutorials/balancer-with-sws-profile/index.md).
+
+- API gateway {#api-gateway}
+
+  API gateway is the single entry point for APIs of various services, enabling requests management, routing, authentication, and so forth. If you have no API gateway configured, you can deploy one with a [test specification](../api-gateway/tutorials/api-gw-sws-integration.md).
+
+- Domain {#domain}
+
+  Domain is a server, website, or application that processes external requests to a web address. To protect a domain, {{ sws-name }} provides a proxy server with load balancing, request analysis and routing. And basic [DDoS protection](../vpc/ddos-protection/) as well.
+  
+  The proxy server has an MTU limit of 1,450 bytes for all packets.
+
+  {% include [preview-domain](../_includes/smartwebsecurity/preview-domain.md)%}
+
+  ### Prepare data about the resource {#domain-info}
+  
+    * Address of the domain the web application is running on. You need access to the domain management interface to update the A record.
+    * Server IP address, port and protocol used by the web application.
+    * Valid private key and TLS certificate for this domain in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded format. Certificates with RSA-2048 and RSA-4096 keys are supported.
+
+  ### Create a proxy server {#create-proxy}
+
+  {% list tabs group=instructions %}
+
+  - Management console {#console}
+
+    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+    1. In the left-hand panel, select **Domain protection**.
+    1. Click **Create proxy server**.
+    1. Enter a name for the proxy server, e.g., `test-proxy`.
+    1. Click **Create**.
+    
+        {% include [after-proxy-create](../_includes/smartwebsecurity/after-proxy-create.md) %}
+
+  {% endlist %}
+
+  ### Add a domain {#add-domain}
+
+  {% list tabs group=instructions %}
+
+  - Management console {#console}
+
+    1. Under **Domains**, click **Add domain**.
+    1. Enter the address of the domain your web application is in, e.g., `example.com`.
+    1. Click **Continue**.
+    1. Select the connection type used by your application. We recommend the secure **HTTPS** protocol.
+    1. If you use [{{ certificate-manager-name }}](../../certificate-manager/) and have added your domain certificate to it, select it from the list. 
+    1. If not using {{ certificate-manager-name }}, click **Create** → **Custom certificate**.
+       1. Enter a name for the certificate.
+       1. Copy or upload the private key, certificate, and intermediate certificate chain as a file in PEM format.
+       1. Click **Create certificate**.
+    1. Click **Continue**.
+
+    1. Specify the **Target resources** settings:
+       1. IP address and port your web application runs on.
+       1. Protocol your web application runs on.
+    1. Click **Save**.
+
+    After you create a domain, the domain parameters overview page will open. Under **Enable protection**, copy the proxy server IP address and {{ yandex-cloud }} trusted addresses. You will need this data at the next step.
+  
+  {% endlist %}
+
+  ### Set up your infrastructure {#infrastructure-settings}
+  
+  * Go to the DNS management panel on your hosting provider's or domain registrar's website.
+  * Add an A record with the following parameters:
+     * `Host name`: `Your domain address (example.com)`. 
+     * `Value`: `Proxy server IP address`.
+  
+     This record redirects requests coming to your domain to the proxy server IP address.
+
+  * In your server settings, block all connections except those for {{ yandex-cloud }} IP addresses.
+  
+  ### Check your resource status {#check-status}
+
+  {% list tabs group=instructions %}
+
+  - Management console {#console}
+
+    1. In the **Proxy server** section, select the new proxy server.
+    1. Go to the **Domains** section and select the domain you created.
+    1. In the **Target resources** section, check that your resource is in **Healthy** status.
+  
+       If it is not, the proxy server cannot connect to your resource. Check your web server address and network settings. Make sure access to the web server is allowed from {{ yandex-cloud }} IP addresses.
+    
+    1. In the left-hand panel, check that your domain is in **Healthy** status. 
+       
+       If it is not, verify the domain address and the A record, and check the certificate for validity.
+
+  {% endlist %}
+
+{% endlist %}
+
 ## Create and check a security profile {#security-profile}
-
-Create your first [security profile](concepts/profiles.md) and connect it to an existing [virtual host](../application-load-balancer/concepts/http-router.md#virtual-host) of an L7 load balancer in {{ alb-full-name }}.
-
-If you have no L7 load balancer configured, you can deploy a [test infrastructure](tutorials/balancer-with-sws-profile/index.md).
 
 ### Create a security profile {#profile-create}
 
@@ -41,8 +128,8 @@ If you have no L7 load balancer configured, you can deploy a [test infrastructur
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a profile in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the protected resources are in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       A preset profile includes:
@@ -82,27 +169,54 @@ If you have no L7 load balancer configured, you can deploy a [test infrastructur
 {% endlist %}
 
 
-## Connect the security profile to the virtual host {#profile-connect}
+## Connect a security profile to the resource {#profile-connect}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. At the top right, click ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-  1. In the window that opens, select:
+  The connection method depends on the resource type.
 
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../application-load-balancer/concepts/application-load-balancer.md).
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../application-load-balancer/concepts/http-router.md).
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). You can connect the security profile to multiple virtual hosts at once.
+  * To connect a domain: 
+    1. Under **Domain protection** → **Domains**, select the domain you need. 
+    1. Click **Connect a security profile** and select a profile.
+  
+  * To connect a virtual host in {{ alb-name }}:
+
+    1. If the load balancer is managed by an {{ alb-name }} [Ingress Controller](../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [Ingress resource annotation](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+    1. If the load balancer is managed by you, select the created profile under **Security profiles**.
+    1. At the top right, click ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+    1. In the window that opens, select:
+
+       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../application-load-balancer/concepts/application-load-balancer.md).
+       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../application-load-balancer/concepts/http-router.md).
+       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). You can connect the security profile to several virtual hosts at the same time.
 
         To connect the profile to another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
 
-  1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
+    1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      You will see the connected virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
+      You will see the associated virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
+
+  * To connect an API gateway:
+    1. In the **Security Profiles** section, copy the ID of the profile of your choice.
+    1. When creating an API gateway or in the existing API gateway specification, set this extension: [x-yc-apigateway:smartWebSecurity](../api-gateway/concepts/extensions/sws.md).
+    1. Specify the copied ID in the extension.
+
 
 {% endlist %}
 
+
+## Monitor the security profile operation {#monitoring}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}** service page, select the **Monitoring** section on the left-hand panel.
+  1. View the [charts](operations/monitoring.md) of allowed and blocked requests.
+
+{% endlist %}
 
 ## Create and connect a WAF profile {#waf}
 
@@ -115,7 +229,7 @@ WAF allows using rule sets to protect web applications from various information 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a WAF profile in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-waf-profile-1`.
   1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the line with its description.
@@ -196,7 +310,7 @@ ARL allows limiting the number of requests to the protected resource to avoid an
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create your ARL profile in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-arl-profile-1`.
   1. Add profile description and labels if needed.
@@ -261,11 +375,6 @@ ARL allows limiting the number of requests to the protected resource to avoid an
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
-
-
-## Configure the L7 load balancer for additional protection {#configure-balancer}
-
-{% include [alb-settings-recommendation](../_includes/smartwebsecurity/alb-settings-recommendation.md) %}
 
 
 #### See also {#see-also}

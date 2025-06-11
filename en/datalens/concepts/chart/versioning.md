@@ -5,7 +5,7 @@ description: Chart versioning means storing the history of chart configuration c
 
 # Versioning
 
-Chart versioning means storing the history of chart configuration changes through versions. A list of versions is available to users with the lowest level of **{{ permission-read }}** access to the chart.
+Chart versioning means storing the history of chart configuration changes through versions. A list of versions is available to users with the lowest edit permission for the chart.
 
 To go to the list of versions, click the ![image](../../../_assets/console-icons/ellipsis.svg) icon at the top of the screen and select **Change history**.
 
@@ -14,7 +14,9 @@ To go to the list of versions, click the ![image](../../../_assets/console-icons
 To select a version from the list, click it. The version number will be displayed in the `revId` parameter in the chart address string. Clicking a link with the version number in the `revId` parameter will open the relevant version of the chart.
 
 
-In [Editor](../../charts/editor/index.md), when you hover over the list of versions, you will see a button; clicking this button will open a dialog box with a list of changes for each tab.
+
+You can view [differences between versions](#version-differences) in [Editor](../../charts/editor/index.md).
+
 
 
 When editing within the current version, you can undo/redo any change you have made. To do this, click:
@@ -34,7 +36,7 @@ All versions fall into the following types:
 
 1. **Current**: This is the most recently saved version of a chart.
 
-   The current version is displayed:
+   The version is displayed:
    
    * To all users on dashboards.
    * When navigating to a chart.
@@ -65,6 +67,8 @@ All versions fall into the following types:
 
    To create a draft after editing a chart, click the down arrow in the top-right corner and select **Save as draft**.
 
+   If there is a draft version of the chart, you can open it right away if you add the `unreleased=1` parameter to the URL.
+
    You can display a draft version of your chart on the dashboard. To do this, [add](../../operations/chart/add-parameters.md) the `unreleased` parameter set to `1` to the widget parameters on the dashboard for this chart.
 
 1. **Outdated**: This is a version that is neither current nor a draft.  
@@ -86,6 +90,18 @@ All versions fall into the following types:
 You can share any chart version by adding the `revId` parameter to the chart link, e.g., `?revId=zac5m4edoaqqr`.
 
 {% endnote %}
+
+
+## Comparing versions in Editor {#version-differences}
+
+To view the differences between versions in Editor, in the list of versions, hover over the version you want to compare with the current one and click ![image](../../../_assets/datalens/file-plus-minus.svg).
+
+![image](../../../_assets/datalens/concepts/editor-version-differences-select.png)
+
+Differences will be highlighted with a color.
+
+![image](../../../_assets/datalens/concepts/editor-version-differences.png)
+
 
 ## Creating a new version {#version-create}
 

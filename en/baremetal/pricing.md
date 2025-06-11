@@ -18,7 +18,6 @@ The monthly prices are based on 720 hours per month.
 
 
 
-
 All prices are per month and do not include VAT.
 
 {% include [usd-servers.md](../_pricing/baremetal/usd-servers.md) %}
@@ -40,7 +39,7 @@ The prices for public subnets are effective from May 15, 2025.
 
 
 
-All prices do not include VAT.
+All prices below do not include VAT.
 
 {% include [usd-subnets](../_pricing/baremetal/usd-subnets.md) %}
 

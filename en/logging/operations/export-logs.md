@@ -33,3 +33,9 @@ To start log export, the user or service account must have the `logging.editor` 
     To export logs, use the [run](../api-ref/Export/run.md) REST API method for the [Export](../api-ref/Export/index.md) resource or the [ExportService/Run](../api-ref/grpc/Export/run.md) gRPC API call.
 
 {% endlist %}
+
+
+#### See also {#see-also}
+
+* [{#T}](../tutorials/replicate-logs-to-storage.md)
+* [{#T}](../tutorials/replicate-logs-to-storage-via-data-streams.md)

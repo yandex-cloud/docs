@@ -23,6 +23,8 @@ description: На странице представлены вопросы и о
 
 {% include [number-of-indicators-in-color-section](../../_qa/datalens/number-of-indicators-in-color-section.md) %}
 
+{% include [add-all-fields](../../_qa/datalens/add-all-fields.md) %}
+
 {% include [creating-line-chart-with-columns](../../_qa/datalens/creating-line-chart-with-columns.md) %}
 
 {% include [pie-chart-note](../../_qa/datalens/pie-chart-note.md) %}

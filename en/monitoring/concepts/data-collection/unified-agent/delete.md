@@ -115,7 +115,7 @@ The way you delete {{ unified-agent-short-name }} depends on the way it was inst
    
      1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
-     1. In the left-hand panel, select ![image](../../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+     1. In the left-hand panel, select ![image](../../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
    
      1. Select the VM and navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
   

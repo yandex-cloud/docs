@@ -1,2 +1,2 @@
-# Step-by-step guides {{ interconnect-name }}
+# Step-by-step guides for {{ interconnect-name }}
 

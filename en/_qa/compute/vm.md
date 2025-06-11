@@ -39,7 +39,7 @@ To update the parameters of your VM, follow these steps:
 1. Create a [snapshot](../../compute/concepts/snapshot.md) of the disk (see [{#T}](../../compute/operations/disk-control/create-snapshot.md) for details).
 1. Shut down the VM gracefully (see [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md) for details).
 1. Update the VM parameters (see [{#T}](../../compute/operations/vm-control/vm-update-resources.md) for details).
-1. Wait for the operation to complete (the **{{ ui-key.yacloud.compute.switch_operations }}** section in {{ compute-name }}).
+1. Wait for the operation to complete (the **{{ ui-key.yacloud.compute.operations_kRLeR }}** section in {{ compute-name }}).
 1. Start the VM.
 1. Make sure the new parameters are applied.
 

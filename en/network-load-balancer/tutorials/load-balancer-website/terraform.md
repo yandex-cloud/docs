@@ -7,7 +7,7 @@ canonical: '{{ link-docs }}/tutorials/web/load-balancer-website/terraform'
 # Fault-tolerant website with load balancing via {{ network-load-balancer-full-name }} using {{ TF }}
 
 
-To create a [fault-tolerant site with load balancing via {{ network-load-balancer-full-name }}](index.md) using {{ TF }}:
+To create a [fault-tolerant website with load balancing via {{ network-load-balancer-full-name }}](index.md) using {{ TF }}:
 
 {% include [load-balancer-website](../../../_tutorials/web/load-balancer-website-terraform.md) %}
 

@@ -17,7 +17,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+  In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 
 - CLI {#cli}
 
@@ -46,7 +46,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.list](../api-ref/Cluster/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.list](../api-ref/Cluster/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -69,7 +69,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.List](../api-ref/grpc/Cluster/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.List](../api-ref/grpc/Cluster/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -99,7 +99,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -122,7 +122,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -131,7 +131,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
           --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>'
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure the request was successful.
 
@@ -142,7 +142,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -158,7 +158,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
           yandex.cloud.mdb.opensearch.v1.ClusterService.Get
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure the request was successful.
 
@@ -166,7 +166,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mos-name }} clusters are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ mos-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -179,7 +179,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
   1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected cluster.
 
       You will see a list of operations with the selected cluster.
@@ -206,9 +206,9 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+--------+---------------------------+
   ```
 
-  You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+  You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc managed-opensearch cluster list-operations c9qk2926qqu9******** --format yaml
@@ -237,7 +237,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -246,7 +246,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
           --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>/operations'
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
@@ -257,7 +257,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -273,17 +273,17 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
           yandex.cloud.mdb.opensearch.v1.ClusterService.ListOperations
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
 {% endlist %}
 
-### Getting detailed information about an operation {#get-operations-info}
+### Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for a cluster.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 
@@ -322,7 +322,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Use the [Operation.Get](../api-ref/Operation/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+      1. Use the [Operation.Get](../api-ref/Operation/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
           ```bash
           curl \
@@ -340,7 +340,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-      1. Use the [OperationService.Get](../api-ref/grpc/Operation/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Use the [OperationService.Get](../api-ref/grpc/Operation/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
           ```bash
           grpcurl \

@@ -4,11 +4,11 @@ description:
     Yandex Network Load Balancer (NLB) is designed to build fault-tolerant and
     scalable applications and services in {{ yandex-cloud }}. Fault tolerance
     and scalability are achieved by distributing the traffic entering the load
-    balancer among the cloud resources behind it.
+    balancer across its backend cloud resources.
   - >-
     The Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law 152-FZ on personal data.
+    pursuant to the Russian Federal Law 152-FZ on Personal Data.
   - >-
     This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
@@ -20,7 +20,7 @@ links:
     description: Set up your first network load balancer
     href: quickstart
   - title: Step-by-step guides
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn more about the service's concepts and resources
@@ -31,11 +31,11 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
-  - title: Best practices for the service
+  - title: Best practices for this service
     description: Tips for setting up traffic load balancing
     href: concepts/best-practices
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
@@ -43,5 +43,21 @@ links:
 meta:
   title: Yandex Network Load Balancer
   description: >-
-    Yandex Network Load Balancer helps ensure applications' fault tolerance by
-    evenly distributing loads across cloud resources.
+    Yandex Network Load Balancer helps enhance application fault tolerance
+    through even distribution of traffic across cloud resources.
+  keywords:
+    - Network Balancer
+    - '{{ network-load-balancer-name }}'
+    - Network Balancer
+    - '{{ network-load-balancer-full-name }}'
+    - load balancer
+    - '{{ yandex-cloud }} network balancer'
+    - '{{ network-load-balancer-name }} in {{ yandex-cloud }}'
+    - network load balancer
+    - load balancer
+    - load balancer in {{ network-load-balancer-name }}
+    - distributing traffic in {{ network-load-balancer-name }}
+    - external load balancer
+    - internal load balancer
+    - listener
+    - traffic in {{ network-load-balancer-name }}

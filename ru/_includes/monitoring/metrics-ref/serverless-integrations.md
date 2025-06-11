@@ -33,9 +33,9 @@
 
 Имя метрики<br>Тип, единицы измерения | Описание<br>Метки
 --- | ---
-`serverless_eventrouter_bus_put_event_per_second`<br>`DGAUGE`, сообщения/с | Частота отправки сообщений с помощью метода REST API [put](../../../serverless-integrations/eventrouter/api-ref/Event/put.md) для ресурса [Event](../../../serverless-integrations/eventrouter/api-ref/Event/index.md) или вызова gRPC API [EventService/Put](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md).
+`serverless_eventrouter_bus_put_event_per_second`<br>`DGAUGE`, сообщения/с | Частота отправки сообщений с помощью вызова gRPC API [EventService/Put](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md).
 `serverless_eventrouter_bus_sent_error_per_second`<br>`DGAUGE`, ошибки/с | Частота возникновения ошибок в шине.<br>Метки:<ul><li>`code` — код ошибки. Возможные значения:<ul><li>`EVENTROUTER_BUS_SEND_ERROR`</li><li>`EVENTROUTER_EVENT_SIZE_EXCEEDED`</li></ul></li><li>`source` — источник.</li></ul>
-`serverless_eventrouter_put_event_latency_milliseconds`<br>`DGAUGE`, миллисекунды | Время от получения сообщения, отправленного с помощью метода REST API [put](../../../serverless-integrations/eventrouter/api-ref/Event/put.md) для ресурса [Event](../../../serverless-integrations/eventrouter/api-ref/Event/index.md) или вызова gRPC API [EventService/Put](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md), до записи в шину.
+`serverless_eventrouter_put_event_latency_milliseconds`<br>`DGAUGE`, миллисекунды | Время от получения сообщения, отправленного с помощью вызова gRPC API [EventService/Put](../../../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md), до записи в шину.
 
 
 ### Метрики коннекторов {#er-connectors}

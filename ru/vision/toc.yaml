@@ -42,6 +42,10 @@ items:
         href: tutorials/archive-from-vision-to-object-storage.md
       - name: Telegram-бот для распознавания текста на изображениях
         href: tutorials/recognizer-bot.md
+      - name: >-
+          Регулярное распознавание изображений и PDF-документов из бакета {{
+          objstorage-short-name }}
+        href: tutorials/vision-ocrrecognizer-storage.md
   - name: Концепции
     items:
       - name: Обзор

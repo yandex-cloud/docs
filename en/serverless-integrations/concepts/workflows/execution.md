@@ -8,7 +8,7 @@ keywords:
   - Workflow
 ---
 
-# Workflow execution 
+# Starting a workflow execution
 
 An execution contains all information about a particular workflow run. Possible execution statuses: `In queue`, `In progress`, `Paused`, `Canceled`, `Error`, and `Executed`. Learn more about [possible error codes](#errors).
 
@@ -27,7 +27,7 @@ Error | Description
 `STEP_TIMEOUT` | Step timeout exceeded. For more information, see [{#T}](../limits.md).
 `STEP_INVALID_OUTPUT` | Invalid output data.
 `STEP_INTERNAL` | Internal error. If a step terminates with this error, you cannot apply the retry policy, and the execution immediately gets the `Error` status.
-`STEP_INVALID_TEMPLATE_EXPRESSION` | Invalid jq expression in template.
+`STEP_INVALID_TEMPLATE_EXPRESSION` | Invalid jq template.
 `STEP_FAIL` | The execution ended with an error at the `Fail` step. For more information, see [{#T}](yawl/management/fail.md).
 `STEP_FAILED_PRECONDITION` | The resource state is invalid to complete the step, e.g., an email address is unverified or blocked.
 `STEP_INVALID_ARGUMENT` | Invalid step parameters.

@@ -1,3 +1,7 @@
+---
+description: Из статьи вы узнаете, как оптимизировать работу с подключением к {{ CH }} в {{ datalens-name }}.
+---
+
 
 # Рекомендации по созданию подключения к CHYT
 
@@ -51,3 +55,5 @@
 * [Производительность CHYT](https://ytsaurus.tech/docs/ru/user-guide/data-processing/chyt/reference/performance)
 * [Визуализация данных из CHYT](../../../tutorials/data-from-ch-over-yt.md)
 * [Управление доступом к {{ datalens-short-name }}](../../../security/index.md)
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

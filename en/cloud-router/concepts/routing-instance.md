@@ -1,12 +1,12 @@
-# Routing instance
+# Routing Instance
 
-The [routing instance](./terms.md) (RI) object is a core resource in the [{{ cr-name }}](./index.md) resource model. It is designed to create network topologies enabling network connectivity between cloud resources in different [networks](../../vpc/concepts/network.md).
+The `Routing Instance` (RI) object is a core resource in the [{{ cr-name }}](./index.md) resource model. It is designed to create network topologies enabling network connectivity between cloud resources in different [networks](../../vpc/concepts/network.md).
 
 ## General rules and recommendations {#cr-general}
 
-The following rules and recommendations apply to [{{ cr-name }}](./index.md) and [{{ interconnect-name }}](../../interconnect/concepts/index.md):  
+When using [{{ cr-name }}](./index.md) and [{{ interconnect-name }}](../../interconnect/concepts/index.md), we strongly recommend to follow these rules and guidelines:
 
-1. Consistent IP addressing. [Subnet](../../vpc/concepts/network.md#subnet) IP prefixes you add to an RI must be coordinated between themselves. You cannot add two identical IP prefixes to a single RI. IP addressing on `On-Prem` side must be coordinated with IP addressing in the virtual cloud networks. IP address overlapping will cause IP connectivity problems. Plan IP addressing carefully. 
+1. All network segments (both cloud and on-prem sides) connected via `Routing Instance (RI)` must use non-overlapping, coordinated IP addressing. [Subnet](../../vpc/concepts/network.md#subnet) IP prefixes you add to an RI must be coordinated between themselves. You cannot add two identical IP prefixes to a single RI. IP addressing on `On-Prem` side must be coordinated with IP addressing in the virtual cloud networks. IP address overlapping will cause IP connectivity problems. **Plan IP addressing carefully**.
 
 1. Network communication across [virtual networks](../../vpc/concepts/network.md) is strictly confined to a single cloud [organization](../../organization/concepts/organization.md). All {{ cr-name }} and {{ interconnect-name }} resources, as well as the virtual cloud networks that are going to be integrated into a network topology using an `RI`, must reside in [cloud folders](../../resource-manager/concepts/resources-hierarchy.md#folder) within the same cloud organization. For network connectivity between virtual cloud networks belonging to different cloud organizations, consider migrating clouds from several organizations into a single one.
 
@@ -14,107 +14,74 @@ The following rules and recommendations apply to [{{ cr-name }}](./index.md) and
 
 1. No direct exchange of routing info between any [private connections](../../interconnect/concepts/priv-con.md) (PRCs) within an `RI` is allowed.
 
-1. The IP prefixes announced by the client’s network hardware also get into the `RI` and from there to the virtual networks connected to that `RI`. Currently, you cannot view these IP prefixes at the `RI` level. We recommend getting this information from the client's network hardware. In some cases, if routing issues arise, you may contact [support]({{ link-console-support }}) for this information. 
+1. The IP prefixes announced by the customer’s network hardware also get into the `RI` and from there to the virtual networks connected to that `RI`. Currently, you cannot view these IP prefixes at the `RI` level. We recommend getting this information from the customer's network hardware. In some cases, if routing issues arise, you may want to contact [support]({{ link-console-support }}) for this information.
 
-1. You can communicate with an RI via the [CLI](../../cli/quickstart.md) and API calls. For a list of available operations, see [step-by-step guides](../operations/index.md).
+## Tips for configuring private connections {#prc} 
 
-## RI network topologies {#ri-topologies}
+1. Always set up two {{ interconnect-name }} communication circuits through two [points of presence](../../interconnect/concepts/pops.md). This will keep your services up and running if one of the circuits fails.
 
-Here is a list of network topologies you can create using an `RI`:
+1. To simplify the setup of fault-tolerant BGP routing, consider using the same [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) for multiple customer edge routers connecting to {{ interconnect-name }}. You can use different **BGP ASNs**, e.g., when setting up connections via telecom providers. Keep in mind that {{ yandex-cloud }} is not responsible for configuring the customer and telecom provider network hardware.
 
-No. | Topology type | Short description |
-:---: | --- | ---
-1 | [OnPrem-1xRI-1xVPC-1xPRC](#ri-topology-1) | Non-reserved on-prem connection (private {{ interconnect-name }} connection) to one RI with one cloud network. 
-2 | [OnPrem-1xRI-2xVPC-1xPRC](#ri-topology-2) | Non-reserved on-prem connection (private {{ interconnect-name }} connection) to one RI with two or more cloud networks without network connectivity to each other. 
-3 | [OnPrem-1xRI-1xVPC-2xPRC](#ri-topology-3) | Reserved on-prem connection (two private {{ interconnect-name }} connections) to one RI with one cloud network.
-4 | [On-Prem-1xRI-2xVPC-2xPRC](#ri-topology-4) | Reserved on-prem connection (two private {{ interconnect-name }} connections) to one RI with two or more cloud networks without network connectivity to each other.
-5 | [OnPrem-2x(1xRI-1xVPC-1xPRC)](#ri-topology-5) | Two separate non-reserved on-prem connections (each private {{ interconnect-name }} connection to a separate RI) without network connectivity between cloud networks.
- 
-### OnPrem-1xRI-1xVPC-1xPRC [1] {#ri-topology-1}
+1. If the customer's two {{ interconnect-name }} communication circuits connect to different routers, ensure **iBGP** connectivity is configured between these customer routers. Without such connectivity, if one of the communication circuits fails on one of the routers, the remaining one will learn nothing about the failure and the dead circuit's traffic will not be automatically rerouted to the live circuit over BGP.
 
-Non-reserved on-prem connection via a single {{ interconnect-name }} [private connection](../../interconnect/concepts/priv-con.md) to a single `RI` with a single [VPC cloud network](../../vpc/concepts/network.md).
+1. Use prefixes of different lengths for BGP announcements on customer edge routers if you need to distribute outgoing traffic from cloud networks across multiple {{ interconnect-name }} communication circuits:
+    * Short prefixes, such as `/8`, have the lowest route priority.
+    * Long prefixes, such as `/32`, have the highest route priority.
 
-* `On-Prem` client with two local subnets: `subnet-c1` and `subnet-c2`.
-* The `On-Prem` network hardware is connected to the {{ yandex-cloud }} network hardware via [{{ interconnect-name }}](../../interconnect/concepts/index.md).
-* The `prc-m9` [private connection](../../interconnect/concepts/priv-con.md) established via the `M9` [point of presence](../../interconnect/concepts/pops.md) connects to `RI` in {{ yandex-cloud }}.
-* The `Net-1` virtual network comprised of three subnets, `subnet-a1`, `subnet-b1`, and `subnet-d1`, connects to `RI` on the {{ yandex-cloud }} side.
+    For more information on traffic distribution between multiple communication circuits, see [use cases](../scenarios/index.md).
 
-This topology enables network connectivity between `On-Prem` subnets and `Net-1` VPC subnets.
+1. When selecting a communication circuit for outgoing traffic from the customer infrastructure to cloud networks, consider using the `Local Preference` BGP attribute on the customer edge router. For more information on traffic distribution between multiple communication circuits, see [use cases](../scenarios/index.md).
 
-### OnPrem-1xRI-2xVPC-1xPRC [2] {#ri-topology-2}
 
-Non-reserved on-prem connection via a single {{ interconnect-name }} [private connection](../../vpc/concepts/network.md) to a single `RI` with two or more [cloud networks](../../interconnect/concepts/priv-con.md) without network connectivity between them.
+## Networking limitations {#gaps}
 
-* `On-Prem` client with two local subnets: `subnet-c1` and `subnet-c2`.
-* The `On-Prem` network hardware is connected to the {{ yandex-cloud }} network hardware via [{{ interconnect-name }}](../../interconnect/concepts/index.md).
-* The `prc-m9` [private connection](../../interconnect/concepts/priv-con.md) established via the `M9` [point of presence](../../interconnect/concepts/pops.md) connects to `RI` in {{ yandex-cloud }}.
-* Two virtual networks connect to `RI` on the {{ yandex-cloud }} side:
-  * `Net-1` comprised of three subnets: `subnet-a1`, `subnet-b1`, and `subnet-d1`.
-  * `Net-2` comprised of three subnets: `subnet-a2`, `subnet-b2`, and `subnet-d2`.
+1. You can use {{ interconnect-name }} along with a [NAT gateway](../../vpc/operations/create-nat-gateway.md) if customer edge routers do not announce the `0.0.0.0/0` default route over BGP to {{ yandex-cloud }}. If customer edge routers do announce the `0.0.0.0/0` default route over BGP to {{ yandex-cloud }}, you cannot use a [NAT gateway](../../vpc/operations/create-nat-gateway.md).
 
-This topology enables network connectivity between:
+1. Currently, {{ yandex-cloud }} does not support routing of outgoing traffic from cloud subnets to the customer infrastructure using [BGP community](https://linkmeup.gitbook.io/sdsm/8.1.-ibgp/3.-atributy-bgp/4.-community/0.-teoriya) attributes.
 
-* `On-Prem` subnets and `Net-1` VPC subnets `subnet-a1`, `subnet-b1`, and `subnet-d1`.
-* `On-Prem` subnets and `Net-2` VPC subnets `subnet-a2`, `subnet-b2`, and `subnet-d2`.
+{% note alert %}
 
-This topology enables network connectivity between `Net-1` and `Net-2` virtual networks subnets.
-
-### OnPrem-1xRI-1xVPC-2xPRC [3] {#ri-topology-3}
-
-Reserved on-prem connection via two {{ interconnect-name }} [private connections](../../vpc/concepts/network.md) to a single `RI` with a single [cloud network](../../interconnect/concepts/priv-con.md).
-
-* `On-Prem` client with two local subnets: `subnet-c1` and `subnet-c2`.
-* The `On-Prem` network hardware connects to the {{ yandex-cloud }} network hardware via [Cloud Interconnect](../../interconnect/concepts/index.md).
-* Two private connections called `prc-m9` and `prc-nord` via the `M9` and `NORD` [points of presence](../../interconnect/concepts/pops.md) connect to `RI` in {{ yandex-cloud }}.
-* On the {{ yandex-cloud }} side, the `Net-1` virtual network comprised of three subnets, `subnet-a1`, `subnet-b1`, and `subnet-d1`, connects to `RI`.
-
-This topology enables network connectivity between `On-Prem` subnets and `Net-1` VPC subnets.
-
-Use appropriate {{ interconnect-name }} [routing tools](../../interconnect/concepts/routing.md#cic-routing-as) to prioritize traffic between [private connections](../../interconnect/concepts/priv-con.md).
-
-In case of failure of any of the private connections above, all network traffic will be automatically switched over to the remaining private connection.
-
-### On-Prem-1xRI-2xVPC-2xPRC [4] {#ri-topology-4}
-
-Reserved on-prem connection via two {{ interconnect-name }} [private connections](../../vpc/concepts/network.md) to a single `RI` with two *or more* [cloud networks](../../interconnect/concepts/priv-con.md) without network connectivity between them.
-
-* `On-Prem` client with two local subnets: `subnet-c1` and `subnet-c2`.
-* The `On-Prem` network hardware connects to the {{ yandex-cloud }} network hardware via [Cloud Interconnect](../../interconnect/concepts/index.md).
-* Two private connections, `prc-m9` and `prc-nord`, established via two [points of presence](../../interconnect/concepts/pops.md), `M9` and `NORD`, connect to `RI` in {{ yandex-cloud }}.
-* Two virtual networks connect to `RI` on the {{ yandex-cloud }} side:
-  * `Net-1` comprised of three subnets: `subnet-a1`, `subnet-b1`, and `subnet-d1`.
-  * `Net-2` comprised of three subnets: `subnet-a2`, `subnet-b2`, and `subnet-d2`.
-
-This topology enables network connectivity between:
-
-* `On-Prem` subnets and `Net-1` VPC subnets `subnet-a1`, `subnet-b1`, and `subnet-d1`.
-* `On-Prem` subnets and `Net-2` VPC subnets `subnet-a2`, `subnet-b2`, and `subnet-d2`.
-
-In case of failure of any of the private connections above, all network traffic will be automatically switched over to the remaining private connection.
-
-This topology enables network connectivity between `Net-1` and `Net-2` virtual networks subnets.
-
-### OnPrem-2x(1xRI-1xVPC-1xPRC) [5] {#ri-topology-5}
-
-Two separate independent network topologies. In each topology, there is a [private connection](../../interconnect/concepts/priv-con.md) connected to `RI` on one side and a [virtual cloud network](../../vpc/concepts/network.md) on the other.
-
-* `On-Prem` client with two local subnets: `subnet-c1` and `subnet-c2`.
-* The `On-Prem` network hardware connects to the {{ yandex-cloud }} network hardware via [Cloud Interconnect](../../interconnect/concepts/index.md).
-* The `prc-m9-1` [private connection](../../interconnect/concepts/priv-con.md) via the `M9` [point of presence](../../interconnect/concepts/pops.md) connects to `Routing Instance 1` in {{ yandex-cloud }}.
-* The `Net-1` virtual network comprised of three subnets, `subnet-a1`, `subnet-b1`, and `subnet-d1`, connects to `RI 1` on the {{ yandex-cloud }} side.
-* The `prc-m9-2` [private connection](../../interconnect/concepts/priv-con.md) via the `M9` [point of presence](../../interconnect/concepts/pops.md) connects to `Routing Instance 2` in {{ yandex-cloud }}.
-* The `Net-2` virtual network comprised of three subnets, `subnet-a2`, `subnet-b2`, and `subnet-d2`, connects to `RI 2` on the {{ yandex-cloud }} side.
-
-This creates two network topologies (based on the number of RIs used):
-
-* Topology 1 enables network connectivity between `On-Prem` subnets and `Net-1` VPC subnets via `RI 1`.
-* Topology 2 enables network connectivity between `On-Prem` subnets and `Net-2` VPC subnets via `RI 2`.
-
-These topologies do not enable network connectivity between `Net-1` and `Net-2` virtual networks subnets.
-
-{% note info %}
-
-If necessary, customers can enable network connectivity between `Net-1` and `Net-2` VPC subnets by setting up traffic routing between private connections on their network hardware.
+You cannot use matching prefixes in {{ vpc-short-name }} route tables and customer edge router announcements at the same time.
 
 {% endnote %}
+
+
+## Working with security groups {#cic-sg}
+
+[Security groups](../../vpc/concepts/security-groups.md) are used to protect {{ yandex-cloud }} resources and cannot be used for filtering traffic outside {{ yandex-cloud }}.
+
+Security group rules should be set up for the prefixes announced by customer edge routers to {{ yandex-cloud }}. For example, to allow access from the customer infrastructure to a web application (port 443) deployed in {{ yandex-cloud }}, set up a security group as follows:
+
+```json
+ingress {
+      protocol       = "TCP"
+      port           = 443
+      description    = "Allow ingress traffic from Interconnect to Web server"
+      v4_cidr_blocks = ["172.16.1.5/32"]
+    }
+egress {
+      protocol       = "ANY"
+      description    = "We allow any egress traffic"
+      v4_cidr_blocks = ["10.0.0.0/8"]
+    }
+```
+
+The `Egress` security group rule allows any cloud resources to access customer infrastructure resources on any port without any restriction.
+
+If required, you can use more granular rules to only allow access to specific IP addresses or subnets and ports:
+
+```json
+ingress {
+      protocol       = "TCP"
+      port           = 443
+      description    = "Allow ingress traffic from Interconnect to Web server"
+      v4_cidr_blocks = ["172.16.1.5/32"]
+    }
+egress {
+      protocol       = "TCP"
+      port           = 3389
+      description    = "Allow RDP traffic to server behind Interconnect"
+      v4_cidr_blocks = ["10.10.10.10/32"]
+    }
+```
 

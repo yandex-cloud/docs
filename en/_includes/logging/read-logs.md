@@ -15,23 +15,23 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    When viewing the log, you can set a specific time interval using the `--since` and `--until` flags. If you do not specify a time interval, the log will show info for the last hour.
+    When viewing the log, you can set a specific time interval using the `--since` and `--until` parameters. If you do not specify a time interval, the log will show info for the last hour.
 
-    Below are the flags you can use:
+    Using parameters:
 
-    * `--since`: Time N and later (you can skip the `--since` flag and specify the time directly).
+    * `--since`: Time N and later (you can skip the `--since` parameter and specify the time directly).
     * `--until`: Time N and earlier.
 
-    If you only specify a single flag, you will see info for one hour before or after time N, depending on the flag.
+    If you only specify a single parameter, you will see info for one hour before or after time N, depending on the parameter.
 
     You can use one of these time formats:
 
     * `HH:MM:SS`, e.g., `15:04:05`.
     * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), e.g., `2006-01-02T15:04:05Z`, `2h`, or `3h30m ago`.
 
-    To access a log group, use its name or unique ID. To find them out, [get](../../logging/operations/list.md) a list of log groups in the folder. If you do not specify the name or ID, the output will contain records from the [default log group](../../logging/concepts/log-group.md) in the current folder. You can skip the `--group-name` and `--group-id` flags and specify the group name or ID directly.
+    To access a log group, use its name or unique ID. To find them out, [get](../../logging/operations/list.md) a list of log groups in the folder. If you do not specify the name or ID, the output will contain records from the [default log group](../../logging/concepts/log-group.md) in the current folder. You can skip the `--group-name` and `--group-id` parameters and specify the group name or ID directly.
 
-    To limit the number of output records, use the `--limit` flag. The values may range from 1 to 1,000.
+    To limit the number of output records, use the `--limit` parameter. The values may range from 1 to 1,000.
 
     To view the records in JSON format, run this command:
 
@@ -64,7 +64,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
     yc logging read --group-name=default --follow
     ```
 
-    This command will display records from the last hour and will continue streaming new ones until you stop it with **Ctrl** + **C**. The `--follow` flag cannot be used together with `--since` and `--until`.
+    This command will display records from the last hour and will continue streaming new ones until you stop it with **Ctrl** + **C**. The `--follow` flag cannot be used together with the `--since` and `--until` parameters.
 
 - API {#api}
 
@@ -119,9 +119,9 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
     {% include [parameters-description](parameters-description.md) %}
 
     Function parameters:
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python38`.
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`.
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 MB`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python38`
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 MB`
  
 {% endlist %}

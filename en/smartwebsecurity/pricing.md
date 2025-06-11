@@ -49,7 +49,6 @@ The shown prices are for a yearly subscription; no monthly subscription is avail
 
 If the plan you select is not enough, you can move on to the next one with pro-rata recalculation of the resources consumed to date.
 
-
 ### Billing by request count {#requests}
 
 {% note tip %}

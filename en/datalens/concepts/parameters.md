@@ -82,7 +82,7 @@ Enable selecting a dimension with a selector to display it in your chart on a da
    * Select **Manual input**.
    * In the **Field or parameter name** field, specify `dimension_control`.
    * Leave a dash in the selection field of the **Operation** drop-down list.
-   * In the **Possible values** window, add: `by shop`, `by product category`, `by product subcategory`.
+   * In the **Possible values** window, add: `by shop`, `by product category`, and `by product subcategory`.
    * In the **Default value** field, specify `by shop` to display sales amounts by shop by default.
    * In the **Name** field, enter the selector name to display on the dashboard.
 
@@ -104,7 +104,7 @@ Use a selector to enable selecting a dimension to color in your chart:
    * Select **Manual input**.
    * In the **Field or parameter name** field, specify `colors`.
    * Leave a dash in the selection field of the **Operation** drop-down list.
-   * In the **Possible values** window, add: `categories` and `subcategories`.
+   * In the **Possible values** window, add `categories` and `subcategories`.
    * In the **Default value** field, specify `categories` to color sales amounts by product category by default.
    * In the **Name** field, enter the selector name to display on the dashboard.
 
@@ -123,3 +123,9 @@ When using parameters, keep in mind the following parameter naming restrictions:
 * Parameter names cannot be the same as dataset field names.
 * After adding a parameter to a dataset, make sure to save charts in the wizard again.
 * If a dataset and a chart have parameters with the same name, the parameter from the chart is ignored.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-from-ch-with-parameters.md)
+

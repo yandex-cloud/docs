@@ -13,7 +13,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
 - CLI {#cli}
 
@@ -94,7 +94,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -109,7 +109,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   {{ yc-mdb-ch }} cluster get <cluster_name_or_ID>
   ```
 
-  You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+  You can request the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
 - REST API {#api}
 
@@ -126,7 +126,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
           --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>'
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure the request was successful.
 
@@ -154,7 +154,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
           yandex.cloud.mdb.clickhouse.v1.ClusterService.Get
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure the request was successful.
 
@@ -162,7 +162,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mch-name }} clusters are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ mch-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -177,7 +177,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
   1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.clickhouse.switch_list }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}** panel for the selected cluster.
 
      You will see a list of operations with the selected cluster.
@@ -212,7 +212,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc managed-clickhouse cluster list-operations epdplu8jn7sr******** --format yaml
@@ -251,7 +251,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
           --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/operations'
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
@@ -279,17 +279,17 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
           yandex.cloud.mdb.clickhouse.v1.ClusterService.ListOperations
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
 {% endlist %}
 
-### Getting detailed information about an operation {#get-operations-info}
+### Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for a cluster.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

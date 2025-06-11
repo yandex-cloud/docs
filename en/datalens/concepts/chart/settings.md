@@ -56,6 +56,17 @@ For more information, see [this guide](../../operations/chart/config-chart-navig
 
 * **On**: Displays stacked data.
 * **Off**: Displays unstacked data. ||
+|| Center | Sets the default center coordinates in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
+
+* **Auto**: Set the coordinates automatically.
+* **Manually**: Set the coordinates manually, e.g., `54.630761, 39.736882`. You can use [Yandex Maps](https://yandex.ru/maps) to get the exact coordinates. ||
+|| Scale | Sets the default scale in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
+
+* **Auto**: Enables autoscaling.
+* **Manually**: Scale the map manually. The values match the scale in Yandex Maps:
+  
+  * `1`: Minimum scale.
+  * `21`: Maximum scale. ||
 |#
 
 ## Field settings {#field-settings}
@@ -255,7 +266,7 @@ Depending on the visualization type, different settings are available.
 || **Name** | **Description** ||
 || Size | Sets point size depending on the measure value. ||
 || Colors | These set a color for geopoints and geopolygons depending on the measure value. ||
-|| Tooltips | These create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. For `String` type fields, you can configure using basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**. ||
+|| Tooltips | These create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. For `String` type fields, you can configure using the basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**. ||
 || Layer filters | Create a selection by dimension or measure for the current layer. ||
 || General filters | Create a selection by dimension or measure for the whole chart. ||
 |#

@@ -294,6 +294,10 @@ items:
         href: tutorials/yq-federative-queries.md
       - name: Распознавание архива изображений в {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
+      - name: >-
+          Регулярное распознавание изображений и PDF-документов из бакета {{
+          objstorage-short-name }}
+        href: tutorials/vision-ocrrecognizer-storage.md
       - name: Конвертация видео в GIF на Python
         href: tutorials/video-converting-queue.md
       - name: Автоматизация задач с помощью {{ maf-short-name }}
@@ -730,6 +734,10 @@ items:
                     href: api-ref/grpc/Bucket/setHTTPSConfig.md
                   - name: DeleteHTTPSConfig
                     href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/grpc/Bucket/updateAccessBindings.md
+                  - name: ListAccessBindings
+                    href: api-ref/grpc/Bucket/listAccessBindings.md
               - name: Operation
                 items:
                   - name: Overview
@@ -764,6 +772,10 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: DeleteHTTPSConfig
                     href: api-ref/Bucket/deleteHTTPSConfig.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/Bucket/updateAccessBindings.md
+                  - name: ListAccessBindings
+                    href: api-ref/Bucket/listAccessBindings.md
               - name: Operation
                 items:
                   - name: Overview

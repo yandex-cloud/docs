@@ -12,7 +12,7 @@ title: Как получить информацию о файловом хран
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [файловое хранилище](../../concepts/filesystem.md).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Выберите нужное файловое хранилище.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о файловом хранилище.
 

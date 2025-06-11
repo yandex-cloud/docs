@@ -38,11 +38,20 @@ description: This page provides a list of step-by-step guides for {{ sws-name }}
 * [{#T}](arl-rule-update.md)
 * [{#T}](arl-rule-delete.md)
 
-## Service actions
+## Managing domains {#domains}
+
+* [{#T}](proxy-create.md)
+* [{#T}](domain-create.md)
+
+## Managing address lists {#ip-lists}
 
 * [{#T}](list-create.md)
+
+## Service actions
+
 * [{#T}](monitoring.md)
 * [{#T}](alerting.md)
+* [{#T}](configure-logging.md)
 
 ## Getting additional information {#get-additional-info}
 

@@ -1,7 +1,7 @@
 Code | Name
  --- | ---
- **M9** |  ММТС-9
+ **M9** | MMTC-9
  **NORD** | Dataline NORD
- **OST** |  Dataline OST
+ **OST** | Dataline OST
  **TEHNO** | TehnoGorod
  ~~STD~~ | ~~StoreData~~

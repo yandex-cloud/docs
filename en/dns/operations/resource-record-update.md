@@ -1,20 +1,20 @@
 ---
 title: How to update a resource record in {{ dns-full-name }}
-description: Follow this guide to update a resource record.
+description: In this tutorial, you will learn how to update a resource record.
 ---
 
 # Updating a resource record
 
-You can update the value of a [resource record](../concepts/resource-record.md). To update a record:
+To update a [resource record](../concepts/resource-record.md), do the following:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone from the list.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the record you need and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the resource record you want to update and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the record TTL or value.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -26,7 +26,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
   To update a DNS zone:
 
-  1. View a description of the CLI update record command:
+  1. See the description of the CLI command for updating a resource record:
 
      ```bash
      yc dns zone replace-records --help
@@ -43,11 +43,11 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To update a DNS record created using {{ TF }}:
+  To update a DNS record created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the fragment with the DNS record description.
+  1. Open the {{ TF }} configuration file and edit the fragment describing your DNS record.
 
-     {% cut "Example DNS record description in the {{ TF }} configuration" %}
+     {% cut "{{ TF }} DNS record description example" %}
 
      ```hcl
      ...
@@ -69,7 +69,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the DNS record update in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command below:
+     You can verify DNS record changes in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc dns zone list-records <zone_name>
@@ -77,14 +77,14 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
 - API {#api}
 
-  To update a resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
+  To update a DNS resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
 
 {% endlist %}
 
-The value of resource [TXT records](../concepts/resource-record.md#txt) cannot contain more than 255 characters per line and 1024 characters total. If the new value contains more characters, split it into multiple values.
+A [TXT record](../concepts/resource-record.md#txt) value must be split into 255-character segments (strings) and cannot exceed 1024 characters total.
 
 {% note info %}
 
-You cannot modify a [service resource record](../concepts/resource-record.md#service-records).
+You cannot modify [service resource records](../concepts/resource-record.md#service-records).
 
 {% endnote %}

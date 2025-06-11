@@ -87,12 +87,12 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
       This results in a new {{ VLK }} cluster with the following characteristics:
 
-      * Name: `mynewrd`
-      * Environment: `PRODUCTION`
-      * Network: `default`
+      * Name: `mynewrd`.
+      * Environment: `PRODUCTION`.
+      * Network: `default`.
       * Host class: `hm1.nano` (one host); subnet: `b0rcctk2rvtr********`; availability zone: `{{ region-id }}-a`; access: public; [replica priority](../concepts/replication.md#master-failover): `50`.
       * Password: `P@ssWord`.
-      * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+      * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
@@ -102,7 +102,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -145,7 +145,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
              * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
-            * `replicaPriority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `replicaPriority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if the `tlsEnabled` parameter is set to `true`.
 
         * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -168,7 +168,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [Cluster.Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [Cluster.Restore](../api-ref/grpc/Cluster/restore.md) call and send a request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -214,7 +214,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
              * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
-            * `replica_priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `replica_priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if the `tlsEnabled` parameter is set to `true`.
 
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -339,7 +339,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ VLK }} cluster backups available in the default folder, run the command:
+  To get a list of {{ VLK }} cluster backups available in the default folder, run this command:
 
   ```bash
   {{ yc-mdb-rd }} backup list
@@ -473,13 +473,13 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ VLK }} cluster backup, run the command:
+  To get information about a {{ VLK }} cluster backup, run this command:
 
   ```bash
   {{ yc-mdb-rd }} backup get <backup_ID>
   ```
 
-  You can retrieve the backup ID with the [list of backups](#list-backups).
+  You can get the backup ID together with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -496,7 +496,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/backups/<backup_ID>'
         ```
 
-        You can request  the backup ID together with the [list of backups](#list-backups).
+        You can request the backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.redis.v1.Backup) to make sure the request was successful.
 
@@ -524,7 +524,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
             yandex.cloud.mdb.redis.v1.BackupService.Get
         ```
 
-        You can request  the backup ID together with the [list of backups](#list-backups).
+        You can request the backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.redis.v1.Backup) to make sure the request was successful.
 
@@ -540,7 +540,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
 - CLI {#cli}
 
-  To set the backup start time, use the `--backup-window-start` flag. Time is given in `HH:MM:SS` format.
+  To set the backup start time, use the `--backup-window-start` parameter. Time is given in `HH:MM:SS` format.
 
   ```bash
   {{ yc-mdb-rd }} cluster create \

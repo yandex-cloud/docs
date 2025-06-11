@@ -1,13 +1,14 @@
 ---
 title: MySQL backups
-description: '{{ mmy-short-name }} provides automatic and manual MySQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created every day.'
+description: '{{ mmy-short-name }} performs automatic and manual MySQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created every day.'
 keywords:
   - backup
-  - database backup
-  - backups
-  - MySQL backups
-  - backup MySQL
-  - MySQL
+  - back up
+  - backup
+  - backing up
+  - '{{ MY }} backups'
+  - backup {{ MY }}
+  - '{{ MY }}'
 ---
 
 # Backups in {{ mmy-name }}
@@ -37,22 +38,22 @@ You can learn more about PITR in the [{{ MY }} documentation](https://dev.mysql.
 
 To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md).
 
-## Creating backups {#size}
+## Creating a backup {#size}
 
-You can create backups both automatically and manually; in both cases, you get a [full physical backup](https://dev.mysql.com/doc/refman/5.7/en/backup-types.html) of all databases.
+You can create backups automatically or manually; in either case, you get a [full physical backup](https://dev.mysql.com/doc/refman/5.7/en/backup-types.html) of all your databases.
 
-You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. The default time is `22:00 - 23:00` UTC (Coordinated Universal Time).
+You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. Default time: `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage.
 
-In single-host clusters, you create a backup by reading data from the master host, whereas in multi-host clusters — from one of the replicas, since it is a resource-heavy operation. It assumes that:
+In single-host clusters, you create a backup by reading data from the master host, whereas in multi-host clusters — from one of the replicas, since it is a resource-heavy operation. In this case, the following applies:
 
-* The replica with the highest backup priority is selected. You can set the priority when [creating](../operations/cluster-create.md) a cluster, [adding](../operations/hosts.md#add) new hosts, or [modifying the settings](../operations/hosts.md#update) of the existing ones. This defines which replica to use for backups. The minimum backup priority value is `0`, while the maximum one is `100` and the default one is `0`.
+* The replica with the highest backup priority is selected. You can set the priority when [creating](../operations/cluster-create.md) a cluster, [adding](../operations/hosts.md#add) new hosts, or [modifying the settings](../operations/hosts.md#update) of the existing ones. This defines which replica to use for backups. Minimum backup priority value: `0`; maximum value: `100`; default: `0`.
 * If there are multiple replicas with the highest priority, a backup source is selected randomly out of them.
 
 If the service is unable to create a backup using the selected replica, the backup operation will proceed with the master host.
 
-Backups are only created on running clusters. If you do not use a {{ mmy-short-name }} cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings).
+Backups are only created on running clusters. If you are not using your {{ mmy-short-name }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings).
 
 For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
 

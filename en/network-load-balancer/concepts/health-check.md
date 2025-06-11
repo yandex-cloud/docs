@@ -3,7 +3,7 @@ title: Resource availability check
 description: In this article, you will learn about the purpose of resource availability checks and the different states of the network load balancer and target group resources.
 ---
 
-# Resource availability check
+# Health checks
 
 
 The load balancer uses *resource availability checks* to get information about the state of resources in attached target groups. Components of the health check module are hosted in each availability zone. In response to a state request, resources report that they either are ready to receive traffic or have failed. If a resource does not respond to a state request within the specified time frame, it is also considered failed. Checks are performed via TCP or HTTP at the time frames (intervals) specified in the configuration.
@@ -31,7 +31,7 @@ A network load balancer you created can have one of the following statuses:
 * `STOPPING`: The load balancer is stopping.
 * `STOPPED`: The load balancer is stopped; no health checks or traffic routing.
 * `DELETING`: The load balancer is being deleted.
-* `INACTIVE`: The load balancer has no listeners, or the target groups attached to it contain no targets. The load balancer is not performing any checks or distributing any traffic.
+* `INACTIVE`: The load balancer has no listeners, or the target groups attached to it contain no targets. It does not perform health checks or route traffic.
 
 ## Resource statuses in target groups {#target-statuses}
 
@@ -53,3 +53,12 @@ To allow traffic from the status check module, you can bind to targets a [securi
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
 
 In an HTTP check, a resource gets the `HEALTHY` status only when responding with the `200` code.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/updating-under-load.md)
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/exchange.md)
+* [{#T}](../tutorials/route-switcher.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)

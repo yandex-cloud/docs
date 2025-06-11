@@ -39,7 +39,7 @@
 1. Создайте [снимок](../../compute/concepts/snapshot.md) диска: см. инструкцию [{#T}](../../compute/operations/disk-control/create-snapshot.md).
 1. Штатно выключите ВМ: см. [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md).
 1. Измените параметры ВМ: см. [{#T}](../../compute/operations/vm-control/vm-update-resources.md).
-1. Дождитесь завершения операции (раздел **{{ ui-key.yacloud.compute.switch_operations }}** в сервисе {{ compute-name }}).
+1. Дождитесь завершения операции (раздел **{{ ui-key.yacloud.compute.operations_kRLeR }}** в сервисе {{ compute-name }}).
 1. Включите ВМ.
 1. Убедитесь, что новые параметры применены.
 

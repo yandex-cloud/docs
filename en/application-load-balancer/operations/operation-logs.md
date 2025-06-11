@@ -51,7 +51,7 @@ The system logs all actions with {{ alb-name }} resources in an operation list. 
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc alb load-balancer list-operations ds7857cmjtuv******** --format yaml
@@ -110,7 +110,7 @@ The system logs all actions with {{ alb-name }} resources in an operation list. 
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
    {% list tabs group=instructions %}
 

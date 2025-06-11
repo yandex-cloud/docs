@@ -6,8 +6,7 @@ To add an Alice skill based on a [function](../../functions/concepts/function.md
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Prepare the skill code](#prepare-code).
-1. [Create a function](#create-function).
-1. [Create a function version](#create-version). 
+1. [Create a function and a function version](#create-function).
 1. [Add the function link to Alice's skill](#add-link).
 1. [Test the skill](#test).
 
@@ -37,71 +36,69 @@ To create a [version](../../functions/concepts/function.md#version) of a functio
 
 {% endlist %}
 
-## Create a function {#create-function}
+## Create a function and a function version {#create-function}
 
-Once created, the function will only contain information about itself, like its name, description, and unique ID. The skill's code will be added to the function when [creating a version](#create-version).
+Once created, the function will contain only information about itself: name, description, unique ID, etc. The actual skill code will be added to the function version.
 
-1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
-1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
+1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create the function in.
+1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![curly-brackets-function](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
 1. Enter a function name. The naming requirements are as follows:
 
     {% include [name-format](../../_includes/name-format.md) %}
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
+1. Create a [function version](../../functions/concepts/function.md#version):
 
-## Create a function version {#create-version}
+    {% list tabs group=programming_language %}
 
-Select the programming language and create a [version of the function](../../functions/concepts/function.md#version).
+    - Python {#python}
 
-{% list tabs group=programming_language %}
+      1. From the list of programming languages, select `{{ python-full-ver }}`.
+      1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+      1. Prepare the function code:
 
-- Python {#python}
+          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `parrot-py.zip` archive you created earlier.
+          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `parrot.handler`.
+      1. Set the version parameters:
 
-  1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** in the folder you want to create the function version in.
-  1. Select the function to create the version for.
-  1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-  1. Set the version parameters:
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
-  1. Prepare the function code:
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `parrot-py.zip`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `parrot.handler`.
-  1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
+          * Leave the rest of the parameters at their defaults.
+      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- Node.js {#node}
+    - Node.js {#node}
 
-  1. In the [management console]({{ link-console-main }}), open **{{ sf-name }}** in the folder you want to create the function version in.
-  1. Select the function to create the version for.
-  1. Under **Latest version**, click **Create in editor**.
-  1. Set the version parameters:
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs12`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
-  1. Prepare the function code:
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `parrot-js.zip`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
-  1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+      1. From the list of programming languages, select `{{ nodejs-full-ver }}`.
+      1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+      1. Prepare the function code:
 
-{% endlist %}
+          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `parrot-js.zip` archive you created earlier.
+          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `index.handler`.
+      1. Set the version parameters:
+
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
+          * Leave the rest of the parameters at their defaults.
+      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+
+    {% endlist %}
 
 ## Add the function link to Alice's skill {#add-link}
 
 1. Go to the Alice skill page in your [dashboard](https://dialogs.yandex.ru/developer/).
-1. Click **Create dialog**. In the window that opens, select **Alice skill**.
-1. On the **Settings** tab, in the **Backend** field, select **Function in {{ yandex-cloud }}**. Select the function you need from the dropdown list.
+1. Click **Create dialog**. In the window that opens, select **Skill**.
+1. On the **Settings** tab:
+
+    1. In the **Skill name** field, specify a unique name for the skill you are creating.
+    1. In the **Backend** field, select **Function in {{ yandex-cloud }}**. Select the function you created earlier from the drop-down list.
 
     {% note warning %}
     
     The list shows the functions that you are allowed to view. To attach a function to a skill, you need permission to launch the function. This permission is included in the [{{ roles-functions-invoker }}](../../functions/security/index.md#serverless-functions-invoker) and [{{ roles-editor }}](../../functions/security/index.md#functions-editor) roles or higher.
     
     {% endnote %}
-1. Click **Save** at the bottom of the page to save changes.
+
+    1. At the bottom of the page, click **Save**.
 
 ## Test the skill {#test}
 

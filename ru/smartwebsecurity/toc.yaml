@@ -67,6 +67,10 @@ items:
             href: operations/proxy-create.md
           - name: Создать домен
             href: operations/domain-create.md
+          - name: Настроить инфраструктуру
+            href: operations/setup-infrastructure.md
+          - name: Проверить доступность ресурсов
+            href: operations/validate-availability.md
       - name: Списки адресов
         href: operations/list-create.md
       - name: Посмотреть операции

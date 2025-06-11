@@ -10,6 +10,15 @@ description: 'This tutorial describes some aspects of implementing a network loa
 
 The IP address of the load balancer’s [traffic listener](listener.md) is externally announced as a `/32` prefix from all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). If one of the availability zones goes down, the network equipment redirects incoming traffic to the listener's IP address in the running availability zones.
 
+
+### Use cases {#examples-vip}
+
+* [{#T}](../tutorials/updating-under-load.md)
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/exchange.md)
+* [{#T}](../tutorials/mssql-alwayson-lb.md)
+
+
 ## Traffic flows {#nlb-flows}
 
 The workflow of the `EXTERNAL` load balancer is as follows:
@@ -46,13 +55,30 @@ The dashed line in the diagram above shows the backup path to the `vm-b1` VM, wh
 
 By default, UDP traffic processing is disabled for the network load balancer as it is impossible to ensure consistent distribution of UDP packets with the same `5-tuple` hash function to the same resource in the target group. However, the network load balancer can be used, for example, for processing DNS traffic that does not require maintaining the connection state.
 
-To enable UDP traffic processing on the network load balancer, contact [support](../../support/overview.md).
+To enable UDP traffic, contact our [support](../../support/overview.md).
+
+
+### Use cases {#examples-udp}
+
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/web-service.md)
+
 
 ## Ensuring locality in traffic processing by the internal load balancer {#nlb-int-locality}
 
 If a client located inside {{ vpc-short-name }} sends traffic to the internal network load balancer, the listener will distribute this traffic only to those resources in target groups that are in the same availability zone as the client. 
 
-If there are no target resources running in the availability zone where the client is located, traffic will be evenly distributed among target resources in other zones. 
+If there are no target resources running in the availability zone where the client is located, traffic will be evenly distributed among target resources in other zones.
+
+
+### Use cases {#examples-int-locality}
+
+* [{#T}](../tutorials/route-switcher.md)
+* [{#T}](../tutorials/storage-vpc-access.md)
+* [{#T}](../tutorials/vpc-cr-access.md)
+* [{#T}](../tutorials/route-switcher.md)
+* [{#T}](../tutorials/mssql-alwayson-lb.md)
+
 
 ## Achieving routing convergence in the availability zone {#nlb-zone-converge}
 
@@ -64,7 +90,13 @@ If the first target resource in the availability zone becomes available after a 
 
 The internal network load balancer enables interaction between the balancer's listener IP address and the on-premises resources.
 
-You cannot use On-Prem resources as part of load balancer groups because the network balancer and the resources in target groups behind it must be in the same network.
+You cannot use on-prem resources as part of load balancer groups because the network balancer and the resources in target groups behind it must be in the same network.
+
+
+### Use cases {#examples-cic}
+
+* [{#T}](../../vpc/tutorials/cic-with-ngfw.md)
+
 
 ## Routing traffic via the internal balancer {#nlb-int-routing}
 
@@ -79,11 +111,24 @@ If the traffic to the load balancer did not pass through a network VM, it may di
 
 The scenario where [routing tables have static routes with identical prefixes and different next hop addresses of network VMs](#divergent-next-hop) is not supported.
 
+
+### Use cases {#examples-int-routing}
+
+* [{#T}](../tutorials/mssql-alwayson-lb.md)
+
+
 #### Route tables contain static routes with identical prefixes {#same-prefixes}
 
 Routes must have the next hop IP of one of the network VMs. Network VMs run in `Active/Standby` mode. To ensure fault tolerance of outgoing traffic, set up traffic forwarding, e.g., using [route-switcher](https://github.com/yandex-cloud-examples/yc-route-switcher/tree/main).
 
 ![image](../../_assets/network-load-balancer/nlb-int-routing-1.svg)
+
+
+
+### Use cases {#examples-same-prefixes}
+
+* [{#T}](../tutorials/web-service.md)
+
 
 #### Source NAT configured on network VMs {#source-nat}
 

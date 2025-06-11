@@ -17,7 +17,7 @@ description: Из статьи вы узнаете про публичные и 
 
 _Эфемерная публичная подсеть_ — это публичная подсеть размера `/31`, которая назначается серверу {{ baremetal-name }} случайным образом из диапазона публичных IPv4-адресов сервиса {{ baremetal-full-name }}.
 
-Эфемерные публичные подсети назначаются тем серверам, в сетевых настройках которых в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выбрано значение `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
+Эфемерные публичные подсети назначаются тем серверам, в сетевых настройках которых в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выбрано значение `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
 В эфемерной публичной подсети [включен DHCP](./dhcp.md#dhcp-ephemeral-public-subnet).
 

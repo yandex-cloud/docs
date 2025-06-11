@@ -24,7 +24,7 @@ In text widgets, you can use the following elements:
 * [Emoji](#emoji)
 * [Mermaid diagrams](#mermaid)
 
-## Headers {#headings}
+## Headings {#headings}
 
 You can use four levels of headings in the widget.
 Use `#` to mark up headings.
@@ -172,15 +172,15 @@ To make an ordered list, use numbers with a `.` or `)`.
 For example, the following markup:
 
 ```markdown
-1. First item
-1. Second item
+1. Item 1
+1. Item 2
 1. Third item
 ```
 
 will be displayed as:
 
-1. First item
-1. Second item
+1. Item 1
+1. Item 2
 1. Third item
 
 ### Nested ordered list {#ordered-sublist}
@@ -190,19 +190,19 @@ To make a nested ordered list, add an indent for the lines with the nested list 
 For example, the following markup:
 
 ```markdown
-1. First item
+1. Item 1
    1. Nested item
    1. Nested item
-1. Second item
+1. Item 2
 ```
 
 will be displayed as:
 
-1. First item
+1. Item 1
 
    1.1. Nested item<br>
    1.2. Nested item
-1. Second item
+1. Item 2
 
 ## Tables {#tables}
 
@@ -232,7 +232,7 @@ To add a line break or a more complex element (such as a list or code block) to 
 
 ```
 #|
-|| **Header_1** | **Header_2** ||
+|| **Heading1** | **Heading2** ||
 || Text | Text ||
 |#
 ```

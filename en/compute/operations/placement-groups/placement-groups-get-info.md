@@ -10,7 +10,7 @@ title: How to get information about a placement group in {{ compute-full-name }}
 
   1. In the [management console]({{ link-console-main }}), go to the folder the [placement group](../../concepts/placement-groups.md) is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Select the group.
   1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** page will show the VM placement group details.
 

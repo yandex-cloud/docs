@@ -175,7 +175,7 @@ will be displayed as:
 2. Item 2
 3. Third item
 
-To make a list nested in another list, add an indent for child list items. For example:
+To make a list nested in another list, add an indent for child list items. Here is an example:
 
 ```
 1. Item 1

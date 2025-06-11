@@ -10,23 +10,86 @@ items:
         href: operations/index.md
       - name: Getting information about a routing instance
         href: operations/ri-get-info.md
+      - name: Getting a list of operations in a routing instance
+        href: operations/ri-operations.md
+      - name: Create a routing instance
+        href: operations/ri-create.md
+      - name: Editing routing instance parameters
+        href: operations/ri-update.md
+      - name: Updating the list of IP prefixes in a routing instance
+        href: operations/ri-prefixes-upsert.md
+      - name: Deleting IP prefixes from a routing instance
+        href: operations/ri-prefixes-remove.md
+      - name: Adding a private connection to a routing instance
+        href: operations/ri-priv-con-add.md
+      - name: Deleting a private connection from a routing instance
+        href: operations/ri-priv-con-del.md
+      - name: Deleting a routing instance
+        href: operations/ri-delete.md
       - name: Cloud Interconnect tutorials
         href: ../interconnect/operations/index.md
   - name: Concepts
-    expanded: true
+    expanded: false
     items:
       - name: Overview
         href: concepts/index.md
+      - name: Overview of operations
+        href: operations/cr-cic-ops.md
       - name: Terminology
         href: concepts/terms.md
-      - name: Routing instance
+      - name: Routing Instance
         href: concepts/routing-instance.md
+      - name: IP prefix announcements
+        href: concepts/announces.md
+      - name: Aggregated prefixes
+        href: concepts/aggregates.md
+      - name: VPC Stitching
+        href: concepts/vpc-stitching.md
+  - name: Use cases
+    expanded: true
+    items:
+      - name: All use cases
+        href: scenarios/index.md
+      - name: On-prem without redundancy and 1 VPC
+        href: scenarios/ri-1_prc-1noha_vpc-1.md
+      - name: On-prem without redundancy and multiple VPCs
+        href: scenarios/ri-1_prc-1noha_vpc-few.md
+      - name: On-prem with redundancy and 1 VPC
+        href: scenarios/ri-1_prc-2ha_vpc-1.md
+      - name: On-prem with redundancy and multiple VPCs
+        href: scenarios/ri-1_prc-2ha_vpc-few.md
+      - name: Two separate RIs without on-prem redundancy
+        href: scenarios/ri-2_prc-1noha_vpc-1.md
+      - name: Even redistribution of on-prem traffic (Active-Active)
+        href: scenarios/prc-ha-with-active-active.md
+      - name: Prioritizing on-prem traffic based on direction (Active-Standby)
+        href: scenarios/prc-ha-with-active-standby.md
+      - name: On-prem (PRC) connection redundancy via a VPN gateway
+        href: scenarios/prc-ha-via-vpn-gw.md
+      - name: Prioritizing a static VPC route over routes from PRC
+        href: scenarios/static-priority-via-vpn-gw.md
+      - name: Even traffic distribution for route 0.0.0.0/0
+        href: scenarios/prc-ha-with-default-active-active.md
+      - name: Prioritizing traffic by direction for route 0.0.0.0/0
+        href: scenarios/prc-ha-with-default-active-standby.md
+      - name: VPC Stithcing. Connectivity for two cloud networks
+        href: scenarios/vpc-st-with-two-vpc.md
+      - name: VPC Stitching. Connectivity for two cloud networks and on-prem
+        href: scenarios/vpc-st-with-two-vpc-and-onprem.md
   - name: Tutorials
     items:
       - name: >-
-          Setting up network connectivity between a {{ baremetal-name }} private
+          Organizing network connectivity between a {{ baremetal-name }} private
           subnet and a {{ vpc-name }} network
         href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Organizing network connectivity between a private {{ baremetal-name }}
+          subnet and on-prem using {{ interconnect-name }}
+        href: tutorials/bms-cic-onprem.md
+      - name: Changing a set of VPC IP prefixes in a routing instance
+        href: tutorials/ri-prefixes-upsert.md
+  - name: Access management
+    href: security/index.md
   - name: CLI reference
     items:
       - name: Overview

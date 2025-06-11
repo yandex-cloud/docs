@@ -1,6 +1,6 @@
-# Viewing operations with {{ at-full-name }} resources
+# Viewing {{ at-full-name }} resource operations
 
-All actions with {{ at-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ at-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -39,7 +39,7 @@ All actions with {{ at-name }} resources are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc audit-trails trail list-operations <trail_name_or_ID> --format yaml
@@ -74,11 +74,11 @@ All actions with {{ at-name }} resources are logged as a list of operations. Eac
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

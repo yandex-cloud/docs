@@ -13,7 +13,7 @@ You can create an empty disk of the specified size.
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
 
@@ -21,7 +21,7 @@ You can create an empty disk of the specified size.
 
   1. Add a description for the disk, if required.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-  1. Select the required disk type: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
+  1. Select the required disk type: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3_pPfnG }}`, or `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated_d7W56 }}`.
 
 
   1. Select the required block size (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB.

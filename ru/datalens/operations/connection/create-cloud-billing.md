@@ -1,3 +1,8 @@
+---
+title: Как создать подключение к {{ yandex-cloud }} Billing
+description: Следуя данной инструкции, вы сможете создать подключение к {{ yandex-cloud }} Billing.
+---
+
 # Создание подключения к {{ yandex-cloud }} Billing
 
 Доступ к статистике можно получить только в тех платежных аккаунтах, где у вас есть роль `{{ roles-viewer }}`, `{{ roles-editor }}` или `{{ roles-admin }}`. См. раздел [Управление доступом](../../../billing/security/index.md#primitive-roles).

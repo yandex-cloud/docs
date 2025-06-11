@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ network-load-balancer-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ network-load-balancer-name }}.
+description: This page provides information about {{ TF }} resources and data sources supported by {{ network-load-balancer-name }}.
 ---
 
 # {{ TF }} reference for {{ network-load-balancer-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ network-load-balancer-name }}:
+{{ network-load-balancer-name }} supports the following {{ TF }} resources :
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -18,9 +18,9 @@ The following {{ TF }} provider resources are supported for {{ network-load-bala
 
 ## Data sources {#data-sources}
 
-{{ network-load-balancer-name }} supports the following {{ TF }} provider data sources:
+{{ network-load-balancer-name }} supports the following {{ TF }} data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_lb_network_load_balancer]({{ tf-provider-datasources-link }}/lb_network_load_balancer) | Information about a [network load balancer](./concepts/index.md) |
-| [yandex_lb_target_group]({{ tf-provider-datasources-link }}/lb_target_group) | Information about a [target group](./concepts/target-resources.md) |
+| [yandex_lb_network_load_balancer]({{ tf-provider-datasources-link }}/lb_network_load_balancer) | [Network load balancer](./concepts/index.md) information |
+| [yandex_lb_target_group]({{ tf-provider-datasources-link }}/lb_target_group) | [Target group](./concepts/target-resources.md) information |

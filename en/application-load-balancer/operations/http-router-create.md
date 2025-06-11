@@ -22,6 +22,17 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
   1. Optionally, in the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
+  1. Optionally, under **{{ ui-key.yacloud.alb.label_modifications }}**, click **{{ ui-key.yacloud.alb.button_add-modification }}** and configure the [HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields).
+     * In the **{{ ui-key.yacloud.alb.label_modification-type }}** field, select:
+       * `{{ ui-key.yacloud.alb.label_header-request }}`: To modify the incoming request header, from client to load balancer.
+       * `{{ ui-key.yacloud.alb.label_header-response }}`: To modify outgoing response header, from backend to external client.
+     * In the **{{ ui-key.yacloud.alb.label_modification-header }}** field, give the header a name, e.g., `Host`, `User-Agent`, `X-Forwarded-For`, or `Strict-Transport-Security`.
+     * In the **{{ ui-key.yacloud.alb.label_modification-operation }}** field, select:
+       * `append`: To add a specified string to the header value.
+       * `replace`: To replace the header value with a specified string.
+       * `remove`: To remove the header. Both the header value and the header will be removed.
+       * `rename`: To rename the header. The header value will not change.
+     * Enter a string to modify the header value or a new header name.
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Specify the route **{{ ui-key.yacloud.common.name }}**.
   1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select one of the options:
@@ -38,7 +49,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
          * `rewrite`: Rewrite to the specified value.
          * `auto`: Rewrite to the target VM address.
        * Optionally, in the **{{ ui-key.yacloud.alb.label_timeout }}** field, specify the maximum connection time.
-       * Optionally, in the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the connection inactivity timeout.
+       * Optionally, in the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum keep-alive time during which the connection can remain idle without transmitting data.
        * Optionally, in the **{{ ui-key.yacloud.alb.label_upgrade-types }}** field, specify the protocols the backend group can use within a single TCP connection based on the client's request.
        * Optionally, select **{{ ui-key.yacloud.alb.label_web-socket }}** if you want to use the WebSocket protocol.
      * `{{ ui-key.yacloud.alb.label_route-action-redirect }}`:
@@ -95,6 +106,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        --http-router-name <HTTP_router_name> \
        --authority your-domain.foo.com \
        --modify-request-header name=Accept-Language,append=ru-RU \
+       --rate-limit rps=100,all-requests \
        --security-profile-id <security_profile_ID>
      ```
 
@@ -108,7 +120,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        * `rps` or `rpm`: Number of allowed incoming requests per second or per minute.
        * `all-requests`: Limits all incoming requests.
        * `requests-per-ip` Limits the total number of requests per IP address. That is, for each IP address, only the specified number of requests is allowed per unit of time.
-     * `--security-profile-id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. This is an optional argument. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+     * `--security-profile-id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. This is an optional setting. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Result:
@@ -157,8 +169,9 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
      * `--request-timeout`: Request timeout in seconds.
      * `--request-max-timeout`: Maximum request timeout in seconds.
+     * `--rate-limit`: Request rate limit.
 
-     For more information about the `yc alb virtual-host append-http-route` command options, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+     For more information about `yc alb virtual-host append-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
      Result:
 
@@ -224,7 +237,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-       * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). List the labels in key-value format.
+       * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
      * `yandex_alb_virtual_host`: Virtual host description:
        * `name`: Virtual host name. Follow these naming requirements:
 
@@ -236,8 +249,8 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
          * `http_route_action`: Action applied to HTTP traffic.
            * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
            * `timeout`: Maximum request timeout in seconds.
-       * `authority`: HTTP/1.1 `Host` (HTTP/2 `authority`) header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional argument.
-       * `route_options`: Optional virtual host settings:
+       * `authority`: HTTP/1.1 `Host` (HTTP/2 `authority`) header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional parameter.
+       * `route_options`: Additional virtual host parameters (optional):
            * `security_profile_id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
   
 

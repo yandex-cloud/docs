@@ -55,6 +55,12 @@ The following types of QL charts are supported:
 
 To create a QL chart, follow [this guide](../../operations/chart/create-sql-chart.md).
 
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
+
+
 #### See also {#see-also}
 
 * [{#T}](../../operations/chart/create-sql-chart.md)

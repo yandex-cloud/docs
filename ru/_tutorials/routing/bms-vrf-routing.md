@@ -104,7 +104,7 @@
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
      1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
+     1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
   1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
   

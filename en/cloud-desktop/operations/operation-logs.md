@@ -16,7 +16,7 @@ The system logs all actions with {{ cloud-desktop-name }} resources in an operat
   1. Select the desktop you need.
   1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected desktop.
 
-     You will see its list of operations.
+     You will see a list of operations with the selected desktop.
 
 - CLI {#cli}
 
@@ -24,7 +24,7 @@ The system logs all actions with {{ cloud-desktop-name }} resources in an operat
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for the {{ cloud-desktop-name }} resource, run this command:
+  To get the list of operations for the {{ cloud-desktop-name }} resource, run this command:
 
   ```bash
   yc desktops <resource_type> list-operations <resource_name_or_ID>
@@ -49,7 +49,7 @@ The system logs all actions with {{ cloud-desktop-name }} resources in an operat
   +----------------------+---------------------+----------------------+---------------------+---------+-----------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc desktops desktop list-operations e3v7nfkhn0q4******** --format yaml
@@ -87,7 +87,7 @@ The system logs all actions with {{ cloud-desktop-name }} resources in an operat
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

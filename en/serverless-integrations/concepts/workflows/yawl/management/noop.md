@@ -9,5 +9,5 @@ This step does nothing. You may need it, e.g., to successfully complete a pipeli
 
 Field name | Type | Required | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | ---
-`output` | `string` | No | Yes | A jq expression to filter the step's output data added into the [workflow state](../../workflow.md#state).
+`output` | `string` | No | Yes | A jq template to filter the step outputs added into the [workflow state](../../workflow.md#state).
 `next` | `string` | No | No | ID of the next step.

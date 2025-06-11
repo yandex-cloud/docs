@@ -104,7 +104,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
      1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
-     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
+     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
   

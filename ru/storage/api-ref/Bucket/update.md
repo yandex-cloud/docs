@@ -256,8 +256,8 @@ Configuration for object lock on the bucket.
 For details about the concept, see [documentation](/docs/storage/concepts/object-lock). ||
 || encryption | **[Encryption](#yandex.cloud.storage.v1.Encryption)**
 
-Configuration for bucket's encryption
-For detauls, see [documentation](/docs/storage/concepts/encryption) ||
+Configuration for bucket's encryption.
+For details, see [documentation](/docs/storage/concepts/encryption) ||
 || allowedPrivateEndpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
 
 requires permission s3:PutBucketAllowedPrivateEndpoints ||

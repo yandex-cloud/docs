@@ -1,13 +1,14 @@
 ---
 title: '{{ PG }} backups'
-description: '{{ mpg-short-name }} provides automatic and manual {{ PG }} database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created every day.'
+description: '{{ mpg-short-name }} supports automatic and manual {{ PG }} database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created every day.'
 keywords:
   - backup
-  - database backup
-  - backups
-  - PostgreSQL backups
-  - backup PostgreSQL
-  - PostgreSQL
+  - back up
+  - backup
+  - backing up
+  - '{{ PG }} backups'
+  - backup {{ PG }}
+  - '{{ PG }}'
 ---
 
 # Backups in {{ mpg-name }}
@@ -30,18 +31,18 @@ You can learn more about PITR in the [{{ PG }} documentation](https://www.postgr
 
 To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
 
-## Creating backups {#size}
+## Creating a backup {#size}
 
 The first and every seventh automatic backups as well as all manually created backups are full backups of all databases. Other backups are incremental and store only the data that has changed since the previous backup to save space.
 
-All cluster data is automatically backed up every day. You cannot disable such automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
+All cluster data is automatically backed up every day. You cannot disable automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
 
 * [Retention time](#storage).
-* Time interval during which the backup starts. The default time is `22:00 - 23:00` UTC (Coordinated Universal Time).
+* Time interval during which the backup starts. Default time: `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage. The exact backup size is not displayed.
 
-Backups are only created on running clusters. If you do not use a {{ mpg-short-name }} cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings). A cluster that has no backups cannot be [stopped](../operations/cluster-stop.md#stop-cluster).
+Backups are only created on running clusters. If you are not using your {{ mpg-short-name }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings). A cluster that has no backups cannot be [stopped](../operations/cluster-stop.md#stop-cluster).
 
 For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
 
@@ -49,9 +50,9 @@ For more information about creating a backup manually, see [Managing backups](..
 
 ## Storing backups {#storage}
 
-Specifics of storing backups in {{ mpg-name }}:
+Storing backups in {{ mpg-name }}:
 
-* Backups are stored in object storage as binary files and encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
+* Backups are stored in object storage as binary files and are encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 
 * {% include [backup-wal](../../_includes/mdb/mpg/backup-wal.md) %}
 

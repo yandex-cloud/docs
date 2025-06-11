@@ -31,11 +31,11 @@ To create a VM:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` as the boot [disk](../../compute/concepts/disk.md) type.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` as the boot [disk](../../compute/concepts/disk.md) type.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify parameters for your current computing tasks:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
@@ -105,9 +105,9 @@ To create a VM:
 
 ### Create a cluster {#create-cluster}
 
-1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.compute.switch_disks }}**.
-1. To the right of the `master-node` VM disk, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Enter the name: `master-node-snapshot`. After you create the snapshot, it will appear in the list under **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-1. Go to **{{ ui-key.yacloud.compute.switch_groups }}** and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+1. To the right of the `master-node` VM disk, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Enter the name: `master-node-snapshot`. After you create the snapshot, it will appear in the list under **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
+1. Go to **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Create an [instance group](../../compute/concepts/instance-groups/index.md):
    * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, enter a name for your instance group, e.g., `compute-group`.
    * In the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** field, add a [service account](../../compute/concepts/instance-groups/access.md) to the instance group. If you do not have a service account, click **{{ ui-key.yacloud.common.create }}**, enter a name, and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.

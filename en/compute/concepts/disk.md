@@ -98,7 +98,7 @@ A VM must have a boot disk attached. You can also attach extra disks to your VM.
 
     Auto-deletion of secondary disks is _disabled_ by default. 
     
-    To enable auto-deletion, when creating or updating a VM, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** in the **{{ ui-key.yacloud.compute.field_additional }}** field in the disk parameters.
+    To enable auto-deletion, when creating or updating a VM, enable **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}** in the **{{ ui-key.yacloud.compute.field_additional_vt356 }}** field in the disk parameters.
 
 - CLI {#cli}
 

@@ -2,8 +2,7 @@
 
 {{ cr-full-name }} is a service for managing network topologies of a hybrid cloud in {{ yandex-cloud }}.
 
-Network topologies are implemented using [routing instances](./routing-instance.md).
+Network topologies are implemented as [use cases](../scenarios/index.md) using the [routing instance](./routing-instance.md) resource.
 
-When building network topologies, {{ cr-name }} closely interacts with [{{ interconnect-name }}](../../interconnect/concepts/index.md) resources.
-
+When implementing use cases (network topologies), you can use [{{ interconnect-name }}](../../interconnect/concepts/index.md) resources.
 

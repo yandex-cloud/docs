@@ -47,3 +47,29 @@ meta:
   description: >-
     Yandex Virtual Private Cloud allows you to manage cloud networks and enable
     cloud resources to connect to the internet and each other.
+  keywords:
+    - '{{ vpc-name }}'
+    - '{{ vpc-name }} network'
+    - '{{ vpc-name }} subnet'
+    - '{{ yandex-cloud }} network'
+    - cloud network
+    - cloud resource connectivity
+    - '{{ vpc-full-name }} resources'
+    - '{{ vpc-name }} in {{ yandex-cloud }}'
+    - '{{ vpc-name }} gateway'
+    - '{{ vpc-name }} NAT gateway'
+    - '{{ vpc-full-name }} in {{ yandex-cloud }}'
+    - '{{ vpc-full-name }}'
+    - '{{ vpc-name }} routing'
+    - '{{ vpc-name }} security group'
+    - virtual network
+    - '{{ vpc-name }}'
+    - '{{ vpc-name }} physical network'
+    - '{{ vpc-name }}'
+    - public IP address
+    - internal IP address
+    - routing in {{ vpc-name }}
+    - security group
+    - security group
+    - service connection
+    - Private Endpoint

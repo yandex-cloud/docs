@@ -27,6 +27,7 @@ description: Следуя данной инструкции, вы сможете
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
    1. Создайте файл `test.py` и добавьте в него код:
 
+            
       ```python
       from argparse import ArgumentParser
       from speechkit import model_repository, configure_credentials, creds
@@ -65,6 +66,8 @@ description: Следуя данной инструкции, вы сможете
 
          recognize(args.audio)
       ```
+
+
 
       Где:
 

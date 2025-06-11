@@ -46,7 +46,7 @@ description: Follow this guide to create a rule with a {{ message-queue-full-nam
       ```bash
       yc serverless eventrouter rule create \
         --bus-id <bus_ID> \
-        --filter '<jq_expression>' \
+        --filter '<jq_template>' \
         --ymq-target \
       queue-arn=<queue_ARN>,\
       service-account-id=<queue_service_account_ID>,\
@@ -65,7 +65,7 @@ description: Follow this guide to create a rule with a {{ message-queue-full-nam
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--ymq-target`: Flag to configure the `{{ message-queue-full-name }}` target and its parameters:
+      * `--ymq-target`: Parameter for configuring the `{{ message-queue-full-name }}` target and its properties:
 
           * `queue-arn`: ARN of the [queue](../../../../message-queue/concepts/queue.md) to receive the messages matching the rule.
           * `service-account-id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) to which the `ymq.writer` [role](../../../../message-queue/security/index.md#ymq-writer) or higher is assigned for the selected queue.
@@ -120,12 +120,12 @@ description: Follow this guide to create a rule with a {{ message-queue-full-nam
 
   To create a [rule](../../../concepts/eventrouter/rule.md) with a {{ message-queue-full-name }} target:
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
         bus_id    = "<bus_ID>"
-        jq_filter = "<jq_expression>"
+        jq_filter = "<jq_template>"
 
         ymq {
           queue_arn            = "<queue_ARN>"
@@ -147,7 +147,7 @@ description: Follow this guide to create a rule with a {{ message-queue-full-nam
       Where:
 
       * `bus_id`: {{ er-name }} [bus](../../../concepts/eventrouter/bus.md) ID.
-      * `jq_filter`: [jq expression](https://jqlang.github.io/jq/manual/) for event [filtering](../../../concepts/eventrouter/rule.md#filter).
+      * `jq_filter`: [jq template](https://jqlang.github.io/jq/manual/) for event [filtering](../../../concepts/eventrouter/rule.md#filter).
       * `ymq`: Section to configure the `{{ message-queue-full-name }}` target and its parameters:
 
           * `queue_arn`: ARN of the [queue](../../../../message-queue/concepts/queue.md) to receive the messages matching the rule.
@@ -155,13 +155,13 @@ description: Follow this guide to create a rule with a {{ message-queue-full-nam
 
       {% include [target-additional-tf](../../../../_includes/serverless-integrations/target-additional-tf.md) %}
 
-      For more information about the `yandex_serverless_eventrouter_rule` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
+      For more information about `yandex_serverless_eventrouter_rule` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter rule list

@@ -16,7 +16,7 @@ The disk size must be a multiple of 93 GB.
   
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
   
@@ -24,7 +24,7 @@ The disk size must be a multiple of 93 GB.
   
   1. Add a description for the disk, if required.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-  1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}` as the disk type.
+  1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3_pPfnG }}` as the disk type.
   1. Select the required block size.
   1. Specify the required disk size.
 

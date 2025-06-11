@@ -85,7 +85,7 @@ You cannot restore a subnet after it is deleted.
 
      {% endcut %}
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
 
@@ -105,15 +105,15 @@ You cannot restore a subnet after it is deleted.
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
      You can check the update using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
@@ -153,7 +153,7 @@ You cannot restore a subnet after it is deleted.
 
   Where `--folder-name` is the folder name.
 
-  You can provide the ID and name not only as positional arguments, but also using the `--id` and `--name` flags:
+  You can provide the ID and name not only as positional arguments, but also using the `--id` and `--name` parameters:
 
   ```
   yc vpc subnet delete --id enpavfmgapum********

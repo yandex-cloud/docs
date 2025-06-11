@@ -1,6 +1,6 @@
 # Как начать работать с {{ vision-short-name }}
 
-Этот раздел описывает, как распознать текст на изображении или в файле с помощью {{ vision-short-name }} [OCR API](../vision/ocr/api-ref/index.md).
+Этот раздел описывает, как распознать текст на изображении или в файле с помощью {{ vision-short-name }} [API](../vision/ocr/api-ref/index.md).
 
 ## Перед началом работы {#before-you-begin}
 

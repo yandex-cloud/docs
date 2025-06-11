@@ -1,1 +1,1 @@
-* `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}` — чтобы назначить случайный IP-адрес.
+* `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` — чтобы назначить случайный IP-адрес.

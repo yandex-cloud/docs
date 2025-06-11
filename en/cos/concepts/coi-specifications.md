@@ -1,11 +1,11 @@
 ---
 title: Docker container specifications in {{ cos-full-name }}
-description: You can describe a Docker container's launch configuration using the COI or Docker Compose specification.
+description: You can describe a Docker container run configuration using the COI or Docker Compose specification.
 ---
 
 # Docker container specifications
 
-There are two ways to describe a Docker container's launch configuration:
+There are two ways to describe a Docker container run configuration:
 * [COI specification](#coi-spec), which you can use to run a single Docker container.
 * [Docker Compose specification](#compose-spec), which offers more flexibility. For example, you can run multiple Docker containers and services.
 
@@ -126,7 +126,7 @@ Where:
 * `restart`: Docker container restart policy.
 * `volumes`: Description of the volumes the Docker container uses.
 * `x-yc-disks`: Section describing the [disks](../../compute/concepts/disk.md) to connect. It is an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields) you use when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
-* `device_name`: Device name, different from the disk name. You use it on the VM to locate the disk in the `/dev/disk/by-id/virtio-<device_name>` tree. You can set the `device-name` parameter in CLI flags and commands for adding disks to a VM or in the management console when [connecting](../../compute/operations/vm-control/vm-attach-disk#attach) a disk to a VM.
+* `device_name`: Device name, different from the disk name. You use it on the VM to locate the disk in the `/dev/disk/by-id/virtio-<device_name>` tree. You can set the `device-name` parameter in parameters and CLI commands used to add disks to the VM or in the management console when [connecting](../../compute/operations/vm-control/vm-attach-disk#attach) the disk to the VM.
 * `fs_type`: File system type. The supported file systems are ext4 and xfs.
 * `host_path`: Directory to mount the disk to.
 * `partition`: Disk partition being used.

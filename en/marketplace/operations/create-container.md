@@ -396,7 +396,7 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          cilium_value: {}
+            cilium_value: {}
         ```
 
       * `ciliumvalue`: Use of the Cilium network policy provider.
@@ -405,7 +405,7 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          cilium_value: {}
+            cilium_value: {}
         ```
 
       * `kubednsclusteripvaluedisabled`: IP address of the {{ k8s }} cluster. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
@@ -414,8 +414,8 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          kube_dns_cluster_ip_value:
-            required: true
+            kube_dns_cluster_ip_value:
+              required: true
         ```
 
       * `kubednsclusteripvalue`: IP address of the {{ k8s }} cluster.
@@ -424,8 +424,8 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          kube_dns_cluster_ip_value:
-            required: true
+            kube_dns_cluster_ip_value:
+              required: true
         ```
 
       * `loggroupidvalue`: {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) ID.
@@ -434,8 +434,8 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          log_group_id_value:
-            required: true
+            log_group_id_value:
+              required: true
         ```
 
       * `kmskeyidvalue`: [{{ kms-full-name }} key](../../kms/concepts/key.md) content.
@@ -444,8 +444,8 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          kms_key_id_value:
-            required: true
+            kms_key_id_value:
+              required: true
         ```
 
       * `domainvalue`: Domain to host the {{ k8s }} cluster.
@@ -454,8 +454,8 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          domain_value:
-            required: true
+            domain_value:
+              required: true
         ```
 
       * `iamapikeyvalue`: Service account's [API key](../../iam/concepts/authorization/api-key.md) value. It is delivered in JSON format.
@@ -464,8 +464,8 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          iam_api_key_value:
-            required: true
+            iam_api_key_value:
+              required: true
         ```
 
       * `storagebucketvalue`: {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
@@ -474,8 +474,8 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          storage_bucket_value:
-            required: true
+            storage_bucket_value:
+              required: true
         ```
 
       * `prometheusworkspaceidvalue`: {{ prometheus-name }} workspace name.
@@ -484,8 +484,8 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          prometheus_workspace_id_value:
-            required: false
+            prometheus_workspace_id_value:
+              required: false
         ```
 
       * `licenseidvalue`: [Subscription](license-manager-integration.md) ID from the {{ license-manager }} API.
@@ -494,8 +494,8 @@ The manifest uses YAML format and contains the following data:
         user_values:
           - name: <name>
             title: <Title>
-          license_id_value:
-            required: false
+            license_id_value:
+              required: false
         ```
 
 The variable values specified by the user when installing the product in a {{ k8s }} cluster will override the values from the `values.yaml` file.

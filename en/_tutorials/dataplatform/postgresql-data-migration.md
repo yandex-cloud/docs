@@ -4,7 +4,7 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
 * [Transferring data using {{ data-transfer-full-name }}](#data-transfer).
 
-    This method allows you to:
+    This method enables you to:
 
     * Go without creating an intermediate VM or granting online access to your {{ mpg-name }} target cluster.
     * Migrate the database completely without interrupting user service.
@@ -12,7 +12,7 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
     To use this method, allow connecting to the source cluster from the internet.
 
-    To learn more, see [{#T}](../../data-transfer/concepts/use-cases.md).
+    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Migrating data using logical replication](#logical-replication).
 
@@ -88,7 +88,7 @@ Create the required resources:
 
     1. Specify the following in the `data-migration-pgsql-mpg.tf` file:
 
-        * `source_db_name`: Database name.
+        * `target_db_name`: Database name.
         * `pg-extensions`: List of [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) in the source cluster.
         * Target cluster parameters:
 
@@ -113,48 +113,67 @@ Create the required resources:
 
 ### Set up the source cluster {#source-setup}
 
-1. Specify the required SSL and WAL settings in the `postgresql.conf` file. In Debian and Ubuntu, the default path to this file is `/etc/postgresql/<{{ PG }}_version>/main/postgresql.conf`.
-   1. We recommend using SSL for migrating data: this will help not only encrypt data, but also compress it. For more information, see [SSL Support](https://www.postgresql.org/docs/current/libpq-ssl.html) and [Database Connection Control Functions](https://www.postgresql.org/docs/current/libpq-connect.html) in the {{ PG }} documentation.
+1. Make changes to the source cluster configuration and authentication settings. To do this, edit the `postgresql.conf` and `pg_hba.conf` files (on Debian and Ubuntu, they reside in the `/etc/postgresql/<{{ PG }}_version>/main/` directory by default):
 
-      To enable SSL, set the appropriate value in the configuration:
+    1. Set the maximum number of user connections. To do this, edit the `max_connections` parameter in `postgresql.conf`:
 
-      ```ini
-      ssl = on                   # on, off
-      ```
+        ```ini
+        max_connections = <number_of_connections>
+        ```
+        
+        Where `<number_of_connections>` is the maximum number of connections. The value of this parameter must be no less than `N + 1` where `N` is the number of all possible connections to your {{ PG }} installation. 
 
-   1. Change the logging level for [Write Ahead Log (WAL)](https://www.postgresql.org/docs/current/static/wal-intro.html) to add the information needed for logical replication. To do this, set the [wal_level](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS) value to `logical`.
+        The `1` in `N + 1` provides an extra connection for the subscription to use for logical replication. If you plan to use multiple subscriptions, specify the relevant value.
 
-      You can change this setting in `postgresql.conf`. Find the line with the `wal_level` setting, uncomment it as needed, and set it to `logical`:
+        In the `pg_stat_activity` system table, you can see the current number of connections:
 
-      ```ini
-      wal_level = logical                    # minimal, replica, or logical
-      ```
-
-1. Configure authentication of hosts in the source cluster. To do this, add the {{ yandex-cloud }} cluster hosts to the `pg_hba.conf` file (in Debian and Ubuntu distributions, its default path is `/etc/postgresql/<{{ PG }}_version>/main/pg_hba.conf`).
-
-    Add lines to allow connecting to the database from the specified hosts:
-
-    * If you use SSL:
-
-        ```txt
-        hostssl         all            all             <host_address>      md5
-        hostssl         replication    all             <host_address>      md5
+        ```sql
+        SELECT count(*) FROM pg_stat_activity;
         ```
 
-    * If you do not use SSL:
+    1. Set the logging level for the [Write Ahead Log (WAL)](https://www.postgresql.org/docs/current/static/wal-intro.html). To do this, set the [wal_level](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS) value to `logical` in `postgresql.conf`:
 
-        ```txt
-        host         all            all             <host_address>      md5
-        host         replication    all             <host_address>      md5
+        ```ini
+        wal_level = logical
         ```
 
-1. If a firewall is enabled in the source cluster, allow incoming connections from the {{ mpg-name }} cluster hosts. For example, for Ubuntu 18:
+    1. Optionally, configure SSL to not only encrypt data but also compress it. To enable SSL, set the appropriate value in `postgresql.conf`:
 
-   ```bash
-   sudo ufw allow from <target_cluster_host_address> to any port <port>
-   ```
+        ```ini
+        ssl = on
+        ```
+    
+    1. Enable connections to the cluster. To do this, edit the `listen_addresses` [parameter](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-LISTEN-ADDRESSES) in `postgresql.conf`. For example, you can enable the source cluster to accept connection requests from all IP addresses:
 
-1. Restart the {{ PG }} service to apply all your settings:
+        ```ini
+        listen_addresses = '*'
+        ```
+
+    1. Set up authentication in the `pg_hba.conf` file:
+
+        {% list tabs %}
+
+        - SSL
+
+            ```txt
+            hostssl         all            all             <connection_IP_address>      md5
+            hostssl         replication    all             <connection_IP_address>      md5
+            ```
+
+        - Without SSL
+
+            ```txt
+            host         all            all             <connection_IP_address>      md5
+            host         replication    all             <connection_IP_address>      md5
+            ```
+
+        {% endlist %}
+
+        Where `<connection_IP_address>` can be either an exact IP address or a range of IP addresses. For example, to allow access from the {{ yandex-cloud }} network, you can specify [all public IP addresses](../../overview/concepts/public-ips.md) in {{ yandex-cloud }}.
+
+1. If a firewall is enabled in the source cluster, allow incoming connections from the relevant addresses.
+
+1. To apply the settings, restart {{ PG }}:
 
    ```bash
    sudo systemctl restart postgresql

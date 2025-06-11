@@ -1,6 +1,6 @@
 ---
 title: How to create a public zone in {{ dns-full-name }}
-description: Follow this guide to create a public DNS zone.
+description: In this tutorial, you will learn how to create a public DNS zone.
 ---
 
 # Creating a public DNS zone
@@ -11,12 +11,12 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you need to create a DNS zone.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your DNS zone.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
-  1. Specify the zone settings:
-     1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. The zone name must end with a period. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
-     1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`
+  1. Specify zone settings:
+     1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone name. Note that it must end with a trailing dot. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
+     1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
      1. **{{ ui-key.yacloud.common.name }}** of the zone.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -28,7 +28,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
   To create a new DNS zone:
 
-  1. View a description of the CLI create zone command:
+  1. See the description of the CLI command for creating a DNS zone:
 
      ```bash
      yc dns zone create --help
@@ -43,9 +43,9 @@ To create a public [DNS zone](../concepts/dns-zone.md):
      ```
      Where:
 
-     * `--name`: Zone name. It must be unique within the folder. This is an optional parameter.
-     * `--zone`: Domain zone. The zone name must end with a period. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
-     * `--public-visibility`: Flag for creating a public zone.
+     * `--name`: Zone name. Note that the zone name must be unique within a folder. This is an optional parameter.
+     * `--zone`: Domain zone name. Note that it must end with a trailing dot. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required setting.
+     * `--public-visibility`: Enable this flag to create a public zone.
 
      Result:
 
@@ -64,7 +64,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_dns_zone" "zone1" {
@@ -82,19 +82,19 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
      Where:
 
-     * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
+     * `name`: Zone name. Note that the zone name must be unique within a folder. This is an optional parameter.
      * `description`: Zone description. This is an optional parameter.
      * `labels`: DNS zone labels. This is an optional parameter.
-     * `zone`: Domain zone. The zone name must end with a period. You cannot create public top-level domain (TLD) zones. To create a domain zone with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required parameter.
+     * `zone`: Domain zone name. Note that it must end with a trailing dot. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required setting.
      * `public`: Zone visibility, public or private. This is an optional parameter.
 
      For more information about the `yandex_dns_zone` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     {{ TF }} will create all required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc dns zone get <zone_name>
@@ -106,4 +106,4 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
 {% endlist %}
 
-To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your user area on your registrar's site.
+To use domain names in the public DNS zone, you need to delegate it to authoritative name servers. Specify `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` server addresses in your registrar's account settings.

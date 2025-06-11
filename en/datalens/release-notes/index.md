@@ -42,6 +42,7 @@ Now when you [create a dataset](../dataset/create-dataset.md#create), the **Sour
 
 ### Fixes in charts {#charts-fixes}
 
+* You can show a particular area on the [map](../visualization-ref/map-chart.md) using the **Center** and **Scale** [settings](../concepts/chart/settings.md#common-settings).
 * Fixed an issue where sorting on the layer with a [line chart](../visualization-ref/line-chart.md) was not working in a [combined chart](../visualization-ref/combined-chart.md).
 * In the [wizard](../concepts/chart/dataset-based-charts.md), fixed an issue where the date format was reset after changing the field type [setting](../concepts/chart/settings.md#field-settings) from `Date` to `Date and time` or back.
 * In charts with [hierarchy](../operations/chart/add-hierarchy.md), fixed incorrect operation of filter query on clicking a value with quotes.
@@ -95,7 +96,7 @@ Fixed an issue where the chart [legend](../concepts/chart/settings.md#common-set
 
 ## Changes available with the _Business_ service plan {#business}
 
-### Editor changes {#editor-changes}
+### Changes in Editor {#editor-changes}
 
 * Fixed an issue that occurred when opening a chart for editing in [Editor](../charts/editor/index.md) with the `_embedded` parameter in the URL. Previously, if the `_embedded=1` parameter was present in the URL, the chart would not display the contents of the tabs.
 * Switched Editor to UTC time zone. This will allow users to get a predictable result from the `new Date()` function.

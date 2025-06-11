@@ -32,3 +32,8 @@ Check the settings update. For example, to view the current list of DNS servers,
 ```bash
 sudo netplan ip leases eth0 | grep -i dns
 ```
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/dhcp-options.md)

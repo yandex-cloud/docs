@@ -8,10 +8,10 @@ description: In this tutorial, you will learn how to collect and deliver {{ ydb-
 {% include [trigger](../../_includes/data-streams/trigger.md) %}
 
 1. Download and install [Fluentd](https://www.fluentd.org/download).
-1. Install the Fluentd plugin to support the AWS Kinesis Data Streams protocol. This protocol will be used for streaming data.
+1. Install the Fluentd plugin to support the AWS Kinesis Data Streams protocol. This protocol will be responsible for streaming data.
 
    ```bash
-   sudo td-agent-gem install fluent-plugin-kinesis
+   sudo fluent-gem install fluent-plugin-kinesis
    ```
 
 1. In the [management console]({{ link-console-main }}), select the folder with the stream.

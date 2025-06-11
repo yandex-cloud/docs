@@ -12,8 +12,28 @@ items:
         href: operations/pop-get-info.md
       - name: Getting information about trunk links
         href: operations/trunk-get-info.md
+      - name: Creating a trunk
+        href: operations/trunk-create.md
+      - name: Updating trunk parameters
+        href: operations/trunk-update.md
+      - name: Getting a list of trunk operations
+        href: operations/trunk-operations.md
+      - name: Deleting a trunk
+        href: operations/trunk-delete.md
       - name: Getting information about private connections
         href: operations/priv-con-get-info.md
+      - name: Creating a private connection
+        href: operations/priv-con-create.md
+      - name: Updating private connection parameters
+        href: operations/priv-con-update.md
+      - name: Getting a list of operations for a private connection
+        href: operations/priv-con-operations.md
+      - name: Updating the list of static routes for a private connection
+        href: operations/priv-con-static-upsert.md
+      - name: Removing static routes for a private connection
+        href: operations/priv-con-static-remove.md
+      - name: Deleting a private connection
+        href: operations/priv-con-delete.md
       - name: Getting information about public connections
         href: operations/pub-con-get-info.md
       - name: Getting information about a routing instance
@@ -29,12 +49,12 @@ items:
         href: tutorials/trunk-pub-add.md
       - name: Adding a private connection to a trunk
         href: tutorials/priv-add.md
+      - name: Changing VPC IP prefixes in a routing instance
+        href: tutorials/ri-prefixes-upsert.md
       - name: Adding a public connection to a trunk
         href: tutorials/pub-add.md
-      - name: Changing the trunk capacity
+      - name: Updating trunk capacity
         href: tutorials/trunk-capacity-change.md
-      - name: Changing private connection IP prefixes
-        href: tutorials/priv-prefixes-change.md
       - name: Deleting a private connection
         href: tutorials/priv-del.md
       - name: Deleting a public connection
@@ -56,6 +76,8 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
+      - name: Overview of operations
+        href: operations/cic-cr-ops.md
       - name: Terminology
         href: concepts/terms.md
       - name: Points of presence
@@ -68,14 +90,18 @@ items:
         href: concepts/priv-con.md
       - name: Public connection
         href: concepts/pub-con.md
-      - name: Routing
-        href: concepts/routing.md
+      - name: CIC partners
+        href: concepts/partners.md
       - name: Monitoring
         href: concepts/monitoring.md
       - name: Data size and connection capacity
         href: concepts/capacity.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: Access management
+    href: security/index.md
   - name: CLI reference
     items:
       - name: Overview
@@ -150,7 +176,7 @@ items:
             href: cli-ref/trunk-connection/update.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -296,7 +322,5 @@ items:
                 href: api-ref/TrunkConnection/delete.md
               - name: ListOperations
                 href: api-ref/TrunkConnection/listOperations.md
-  - name: Pricing policy
-    href: pricing.md
   - name: Release notes
     href: release-notes.md

@@ -1,4 +1,4 @@
-The `name` label stores the metric name.
+The `name` label is for the metric name.
 
 ## Database metrics {#managed-ydb-db-metrics}
 Metric name<br>Type, units | Description<br>Labels
@@ -28,7 +28,7 @@ Metric name<br>Type, units | Description<br>Labels
 `api.grpc.request.inflight_bytes`<br>`IGAUGE`, bytes | Size of requests concurrently handled by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: gRPC API service method name, e.g., `ExecuteDataQuery`.</li></ul>
 `api.grpc.request.inflight_count`<br>`IGAUGE`, count | Number of requests concurrently handled by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: gRPC API service method name, e.g., `ExecuteDataQuery`.</li></ul>
 `api.grpc.response.bytes`<br>`RATE`, bytes | Size of responses sent by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: gRPC API service method name, e.g., `ExecuteDataQuery`.</li></ul>
-`api.grpc.response.count`<br>`RATE`, count | Number of responses sent by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: gRPC API service method name, e.g., `ExecuteDataQuery`.</li><li>`status`: Query execution status. For a detailed description of statuses, see [Error Handling]({{ ydb.docs }}/docs/reference/ydb-sdk/error_handling).</li></ul>
+`api.grpc.response.count`<br>`RATE`, count | Number of responses sent by the database over a certain period of time.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: gRPC API service method name, e.g., `ExecuteDataQuery`.</li><li>`status`: Query execution status. For a detailed description of statuses, see [Error handling]({{ ydb.docs }}/docs/reference/ydb-sdk/error_handling).</li></ul>
 `api.grpc.response.dropped_count`<br>`RATE`, count | Number of responses dropped at the transport (gRPC) layer due to an error.<br>Labels:<ul><li>`api_service`: gRPC API service name, e.g., `table`.</li><li>`method`: gRPC API service method name, e.g., `ExecuteDataQuery`.</li></ul>
 `api.grpc.response.issues`<br>`RATE`, count | Number of specific error types encountered in gRPC API responses over a specified period of time.<br>Labels:<ul><li>`issue_type`: Error type. The only value is `optimistic_locks_invalidation`. For more information about lock invalidation, see [{{ ydb-short-name }} transactions and queries]({{ ydb.docs }}/docs/concepts/secondary_indexes).</li></ul>
 `api.request.completed_per_second`<br>`DGAUGE`, requests per second | API request completion rate
@@ -62,15 +62,15 @@ Metric name<br>Type, units | Description<br>Labels
 Metric name<br>Type, units | Description<br>Labels
 --- | ---
 `table.query.compilation.latency_milliseconds`<br>`HIST_RATE`, count | Histogram counter. The intervals are set in milliseconds. It shows the number of successful table query compilations binned by latency ranges.
-`table.query.compilation.active_count`<br>`IGAUGE`, count | Number of active compilations
-`table.query.compilation.count`<br>`RATE`, count | Number of compilations completed successfully over a certain time period
-`table.query.compilation.error_count`<br>`RATE`, count | Number of compilations failed over a certain time period
-`table.query.compilation.cache_hits`<br>`RATE`, count | Number of queries over a certain period of time with no compilation needed due to a pre-existing plan in the prepared query cache
-`table.query.compilation.cache_misses`<br>`RATE`, count | Number of queries requiring compilation over a certain period of time
-`table.query.execution.latency_milliseconds`<br>`HIST_RATE`, count | Histogram counter. The intervals are set in milliseconds. It shows the number of queries binned by execution time ranges.
+`table.query.compilation.active_count`<br>`IGAUGE`, count | Number of active compilations.
+`table.query.compilation.count`<br>`RATE`, count | Number of compilations completed successfully over a certain time period.
+`table.query.compilation.error_count`<br>`RATE`, count | Number of compilations that failed over a certain time period.
+`table.query.compilation.cache_hits`<br>`RATE`, count | Number of queries over a certain time period that required no compilation due to a pre-existing plan in the compilation cache.
+`table.query.compilation.cache_misses`<br>`RATE`, count | Number of queries over a certain time period that required a compilation.
+`table.query.execution.latency_milliseconds`<br>`HIST_RATE`, count | Histogram counter. The intervals are set in milliseconds. Shows the number of queries binned by execution time ranges.
 `table.query.request.bytes`<br>`RATE`, bytes | Size of YQL query strings and parameter values for queries that entered the database over a certain period of time.
 `table.query.request.parameters_bytes`<br>`RATE`, bytes | Size of parameters for queries that entered the database database over a certain period of time.
-`table.query.response.bytes`<br>`RATE`, bytes | Size of responses sent by the database over a certain period of time
+`table.query.response.bytes`<br>`RATE`, bytes | Size of responses sent by the database over a certain period of time.
 
 ## Table partition metrics (DataShards) {#datashards}
 
@@ -101,7 +101,7 @@ Metric name<br/>Type, unit | Description<br>Labels
 
 ## Resource usage metrics (for Dedicated mode only) {#ydb_dedicated_resources}
 
-Metric name<br>Type<br>units | Description<br>Labels
+Metric name<br>Type<br>Units | Description<br>Labels
 --- | ---
 `resources.cpu.limit_core_percents`<br>`IGAUGE`, % | Percentage of CPU available to a database. For example, for a database that has three nodes with four cores in `pool=user` per node, the value of this metric will be `1200`.<br>Labels:<ul><li>`pool`: Computing pool. Possible values are `user`, `system`, `batch`, `io`, or `ic`.</li></ul>
 `resources.cpu.used_core_percents`<br>`RATE`, % | CPU usage. If the value is `100`, one of the cores is being 100% used. The value may be greater than `100` for multi-core configurations.<br>Labels:<ul><li>`pool`: Computing pool. Possible values are `user`, `system`, `batch`, `io`, or `ic`.</li></ul>
@@ -110,8 +110,8 @@ Metric name<br>Type<br>units | Description<br>Labels
 
 ## Query processing metrics (for Dedicated mode only) {#ydb_dedicated_queries}
 
-Metric name<br>Type<br>units | Description<br>Labels
+Metric name<br>Type<br>Units | Description<br>Labels
 --- | ---
-`table.query.compilation.cache_evictions`<br>`RATE`, count | Number of queries evicted from the [prepared query]({{ ydb.docs }}/docs/reference/ydb-sdk/example/#param-queries) cache over a certain period of time
-`table.query.compilation.cache_size_bytes`<br>`IGAUGE`, bytes | Prepared query cache size (memory used)
-`table.query.compilation.cached_query_count`<br>`IGAUGE`, count | Prepared query cache size (compiled query plans)
+`table.query.compilation.cache_evictions`<br>`RATE`, count | Number of queries evicted from the [compilation]({{ ydb.docs }}/docs/reference/ydb-sdk/example/#param-queries) cache over a certain period of time.
+`table.query.compilation.cache_size_bytes`<br>`IGAUGE`, bytes | Compilation cache size.
+`table.query.compilation.cached_query_count`<br>`IGAUGE`, count | Compilation cache size.
