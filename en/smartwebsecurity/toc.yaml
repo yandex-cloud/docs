@@ -7,7 +7,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Managing security profiles
+      - name: Security profiles
         items:
           - name: Creating a profile
             href: operations/profile-create.md
@@ -23,11 +23,11 @@ items:
             href: operations/rule-update.md
           - name: Deleting a rule
             href: operations/rule-delete.md
-          - name: Connecting a profile to a host
+          - name: Connecting a profile to a resource
             href: operations/host-connect.md
-          - name: Disconnecting a profile from a host
+          - name: Disconnecting a profile from a resource
             href: operations/host-delete.md
-      - name: Managing WAF profiles
+      - name: WAF profiles
         items:
           - name: Creating a profile
             href: operations/waf-profile-create.md
@@ -45,7 +45,7 @@ items:
             href: operations/exclusion-rule-update.md
           - name: Deleting an exclusion rule
             href: operations/exclusion-rule-delete.md
-      - name: Managing ARL profiles
+      - name: ARL profiles
         items:
           - name: Creating a profile
             href: operations/arl-profile-create.md
@@ -61,9 +61,15 @@ items:
             href: operations/arl-rule-update.md
           - name: Deleting a rule
             href: operations/arl-rule-delete.md
-      - name: Managing address lists
+      - name: Domains
+        items:
+          - name: Creating a proxy server
+            href: operations/proxy-create.md
+          - name: Creating a domain
+            href: operations/domain-create.md
+      - name: Address lists
         href: operations/list-create.md
-      - name: Viewing operations with profiles
+      - name: Viewing operations
         href: operations/operation-logs.md
       - name: Configuring monitoring
         href: operations/monitoring.md
@@ -101,8 +107,8 @@ items:
       - name: Centralized online publication and DDoS protection of applications
         href: tutorials/different-folders-services.md
       - name: >-
-          Migrating services from an NLB to L7 ALB for DDoS protection using {{
-          sws-name }}
+          Migrating services from an NLB to an L7 ALB for DDoS protection using
+          {{ sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md
@@ -167,6 +173,8 @@ items:
         href: concepts/conditions.md
       - name: Lists
         href: concepts/lists.md
+      - name: Protecting domains
+        href: concepts/domain-protect.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -195,7 +203,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

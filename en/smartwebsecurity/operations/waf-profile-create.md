@@ -13,8 +13,8 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter the profile name.
-  1. (Optional) Enter a description.
-  1. (Optional) Add [labels](../../resource-manager/concepts/labels.md) for your profile.
+  1. Optionally, enter a description.
+  1. Optionally, add [labels](../../resource-manager/concepts/labels.md) to your profile.
   1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). Click the row with the rule set to view the rules it includes.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -24,7 +24,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       # In the basic set, rules of this paranoia level and below will be active
@@ -67,13 +67,13 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
       ```
 
       Where:
-      * `waf_paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the higher the probability of WAF false positives.
+      * `waf_paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) which classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the higher the probability of WAF false positives.
       * `data "yandex_sws_waf_rule_set_descriptor"`: {{ TF }} data source for a basic rule set. From the data source, you can get a list of rules and their IDs.
       * `resource "yandex_sws_waf_profile"`: {{ TF }} resource to manage the WAF profile.
          * `name`: WAF profile name.
          * `core_rule_set`: Basic rule set:
             * `inbound_anomaly_score`: Anomaly threshold. This is the sum of [anomaly](../concepts/waf.md#anomaly) values of the triggered rules that will block the request. Possible values: from 2 to 10,000. The higher the value, the more likely it is that the request satisfying the rules is in fact an attack.
-            * `paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) classifies rules according to their aggression. The higher the paranoia level, the better the protection, but also the higher the probability of false positives. Possible values: from 1 to 4.
+            * `paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) which classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the higher the probability of false positives. Possible values: from 1 to 4.
 
               {% note info %}
 
@@ -88,9 +88,9 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
             * `is_enabled`: Flag to enable or disable a rule.
             * `is_blocking`: [Blocking](../concepts/waf.md#anomaly) rule flag.
 
-      For more information about the `yandex_sws_waf_profile` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about `yandex_sws_waf_profile` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/sws_waf_profile).
 
-  1. Create resources:
+  1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

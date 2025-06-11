@@ -30,11 +30,11 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 - Management console {#console}
 
   To get a list of cluster backups:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
   To get a list of all backups in a folder:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
 - CLI {#cli}
@@ -43,7 +43,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of {{ ES }} cluster backups available in the default folder, run the command:
+    To get a list of {{ ES }} cluster backups available in the default folder, run this command:
 
     ```bash
     {{ yc-mdb-es }} backup list
@@ -79,11 +79,11 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 - Management console {#console}
 
   To get information about the backup of an existing cluster:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
   To get information about the backup of a previously deleted cluster:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
 - CLI {#cli}
@@ -92,13 +92,13 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get information about a {{ ES }} cluster backup, run the command:
+    To get information about a {{ ES }} cluster backup, run this command:
 
     ```bash
     {{ yc-mdb-es }} backup get <backup_ID>
     ```
 
-    You can retrieve the backup ID with a [list of backups](#list-backups).
+    You can get the backup ID with the [list of backups](#list-backups).
 
 - API {#api}
 
@@ -116,7 +116,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -142,7 +142,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
         {{ yc-mdb-es }} cluster backup <cluster_name_or_ID>
         ```
 
-        You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
+        You can get the cluster ID and name with the [list of clusters](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -167,14 +167,14 @@ When creating a new cluster, set all required parameters.
 - Management console {#console}
 
   To restore an existing cluster from a backup:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.common.folder }}** list.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.name }}** column contains IDs formatted as `<cluster_ID>:<backup_ID>`.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
@@ -216,7 +216,7 @@ When creating a new cluster, set all required parameters.
 
         The backup completion time is shown in the `CREATED AT` column of the list of available backups, in `yyyy-mm-ddThh:mm:ssZ` format (`2020-08-10T12:00:00Z` in the example above).
 
-    1. Request the creation of a cluster from a backup:
+    1. Request creating a cluster from a backup:
 
         
         ```bash
@@ -255,7 +255,7 @@ When creating a new cluster, set all required parameters.
 
             
             * `subnet-name`: [Subnet](../../vpc/concepts/network.md#subnet) name. Specify if two or more subnets are created in the selected availability zone.
-            * `assign-public-ip`: Flag indicating that the host requires [public access](../concepts/network.md#public-access-to-a-host), `true` or `false`.
+            * `assign-public-ip`: Flag to set if [public access](../concepts/network.md#public-access-to-a-host) to the host is required. It can be either `true` or `false`.
 
 
             * `type`: [Host role](../concepts/hosts-roles.md): `datanode` or `masternode`.
@@ -345,7 +345,7 @@ When restoring from snapshots, the following restrictions apply:
 
 {% endnote %}
 
-1. [Create a new {{ ES }} cluster](./cluster-create.md) in the required configuration, but do not populate it with data.
+1. [Create a new {{ ES }} cluster](./cluster-create.md) in the required configuration but do not populate it with data.
 
     When creating a cluster, select:
 

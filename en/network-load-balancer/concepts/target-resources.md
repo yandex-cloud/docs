@@ -1,4 +1,4 @@
-# Target groups and resources
+# Targets and target groups
 
 *Target group* is a set of resources that receive traffic from a listener. Essentially, this is a list of IP addresses of [VM](../../compute/concepts/vm.md) network interfaces in {{ yandex-cloud }}.
 
@@ -37,5 +37,17 @@ You can implement the following use cases on a network load balancer:
 2. One listener and multiple target groups. You can add resources from different availability zones in different groups.
 3. Multiple listeners and one target group. Each listener accepts traffic on a dedicated port.
 4. Multiple listeners and multiple target groups:
-   * Each listener has its own target groups (one or more).
-   * Node groups (one or more) are shared across all listeners
+    * Each listener has its own target groups (one or more).
+    * Node groups (one or more) are shared across all listeners.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/updating-under-load.md)
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/exchange.md)
+* [{#T}](../tutorials/mssql-alwayson-lb.md)
+* [{#T}](../tutorials/storage-vpc-access.md)
+* [{#T}](../tutorials/vpc-cr-access.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)

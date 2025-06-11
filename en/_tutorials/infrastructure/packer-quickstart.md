@@ -284,7 +284,7 @@ Make sure you created the image:
 
   1. Navigate to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Open the ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}** section. Make sure the new disk image is there.
+  1. Open the ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}** section. Make sure the new disk image is there.
 
 - CLI {#cli}
 

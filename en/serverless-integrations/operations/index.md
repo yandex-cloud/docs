@@ -26,13 +26,38 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [{#T}](workflows/workflow/monitoring.md)
 * [{#T}](workflows/workflow/delete.md)
 
-### Getting the workflow execution information {#execution-get-info}
+### Workflow step constructor {#constructor}
+
+* [{{ sf-short-name }}](workflows/constructor/functioncall.md)
+* [{{ serverless-containers-name }}](workflows/constructor/containercall.md)
+* [{{ postbox-short-name }}](workflows/constructor/postbox.md)
+* [{{ tracker-name }}](workflows/constructor/tracker.md)
+* [HTTP](workflows/constructor/httpcall.md)
+* [gRPC](workflows/constructor/grpccall.md)
+* [{{ objstorage-name }}](workflows/constructor/objectstorage.md)
+* [{{ foundation-models-name }}](workflows/constructor/foundationmodelscall.md)
+* [{{ ydb-name }}](workflows/constructor/ydbdocument.md)
+* [{{ yds-name }}](workflows/constructor/yds.md)
+* [{{ message-queue-name }}](workflows/constructor/ymq.md)
+* [Yandex Disk](workflows/constructor/yadisk.md)
+* [{{ sw-name }}](workflows/constructor/workflow.md)
+* [AI agent](workflows/constructor/aiagent.md)
+* [Switch](workflows/constructor/switch.md)
+* [Foreach](workflows/constructor/foreach.md)
+* [Parallel](workflows/constructor/parallel.md)
+* [No op](workflows/constructor/noop.md)
+* [Fail](workflows/constructor/fail.md)
+* [Success](workflows/constructor/success.md)
+* [Wait](workflows/constructor/wait.md)
+* [{#T}](workflows/constructor/setup-restart-policy.md)
+
+### Getting workflow execution information {#execution-get-info}
 
 * [{#T}](workflows/execution/get-list.md)
 * [{#T}](workflows/execution/get-info.md)
 * [{#T}](workflows/execution/get-history.md)
 
-### Managing a workflow {#workflow-control}
+### Managing a workflow execution {#execution-control}
 
 * [{#T}](workflows/execution/start.md)
 * [{#T}](workflows/execution/stop.md)
@@ -67,6 +92,7 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 
 * [{#T}](eventrouter/connector/create-yds.md)
 * [{#T}](eventrouter/connector/create-message-queue.md)
+* [{#T}](eventrouter/connector/create-timer.md)
 * [{#T}](eventrouter/connector/update.md)
 * [Adding a label](eventrouter/connector/label-add.md)
 * [Updating a label](eventrouter/connector/label-update.md)
@@ -106,6 +132,6 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [{#T}](eventrouter/access-rights/role-add.md)
 * [{#T}](eventrouter/access-rights/role-revoke.md)
 
-## Getting additional information {#get-additional-info}
+### Getting additional information {#get-additional-info}
 
 * [Viewing operations with service resources](operation-logs.md)

@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
   1. Введите имя диска. Требования к имени:
 
@@ -26,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Если требуется, добавьте произвольное описание диска.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
-  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
+  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated_d7W56 }}`.
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
@@ -154,7 +154,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
   1. Введите имя диска. Требования к имени:
 
@@ -164,7 +164,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите зону доступности, в которой будет находиться диск.
 
      Зона доступности для диска должна соответствовать зоне группы размещения, в которой вы хотите создать диск.
-  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
+  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated_d7W56 }}`.
   1. Выберите группу размещения дисков.
 
       Если вы выбрали группу со стратегией [размещения разделами](../../concepts/disk-placement-group.md#partition) (partition), укажите номер раздела, в который вы хотите добавить диск.

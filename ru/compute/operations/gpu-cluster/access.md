@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы настрои
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен кластер GPU.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Выберите нужный кластер GPU.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -126,7 +126,7 @@ description: Следуя данной инструкции, вы настрои
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен кластер GPU.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Выберите нужный кластер GPU.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -244,7 +244,7 @@ description: Следуя данной инструкции, вы настрои
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен кластер GPU.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Выберите нужный кластер GPU.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.

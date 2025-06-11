@@ -42,6 +42,8 @@ description: На странице представлен список поша�
 
 * [{#T}](proxy-create.md)
 * [{#T}](domain-create.md)
+* [{#T}](setup-infrastructure.md)
+* [{#T}](validate-availability.md)
 
 ## Управление списками адресов {#ip-lists}
 

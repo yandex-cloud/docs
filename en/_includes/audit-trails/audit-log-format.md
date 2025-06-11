@@ -13,9 +13,9 @@ Below is the template for the full name of an audit log file in a bucket:
 ### Log group entry {#logging-group-name}
 
 Log group entries have the following values:
-* **{{ ui-key.yacloud.logging.column_header-time }}**: `Event_time` field value of the event.
+* **Time**: `Event_time` field value of the event.
 * **JSON**: JSON object of the event.
-* **{{ ui-key.yacloud.logging.column_header-level }}**: Calculated depending on the `event_status` value:
+* **Level**: Calculated depending on the `event_status` value:
    * `ERROR`: For the `ERROR` value
    * `WARN`: For the `CANCELLED` value
    * `INFO`: For all other cases

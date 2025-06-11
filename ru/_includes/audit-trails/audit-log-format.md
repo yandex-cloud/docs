@@ -13,9 +13,9 @@
 ### Запись в лог-группе {#logging-group-name}
 
 Значения записей в лог-группе:
-* **{{ ui-key.yacloud.logging.column_header-time }}** — значение поля `event_time` события.
+* **Время** — значение поля `event_time` события.
 * **JSON** — JSON-объект события.
-* **{{ ui-key.yacloud.logging.column_header-level }}** — вычисляется в зависимости от значения `event_status` события:
+* **Уровень** — вычисляется в зависимости от значения `event_status` события:
   * `ERROR` — для значения `ERROR`;
   * `WARN` — для значения `CANCELLED`;
   * `INFO` — в остальных случаях.

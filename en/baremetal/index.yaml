@@ -25,3 +25,15 @@ links:
     href: pricing
 meta:
   title: Yandex BareMetal
+  keywords:
+    - dedicated server
+    - dedicated {{ baremetal-name }} server
+    - server lease
+    - '{{ baremetal-name }}'
+    - '{{ baremetal-name }} lease'
+    - KVM console {{ yandex-cloud }}
+    - baremetal
+    - '{{ baremetal-name }} server'
+    - '{{ baremetal-name }}'
+    - server in {{ yandex-cloud }}
+    - '{{ baremetal-name }} in {{ yandex-cloud }}'

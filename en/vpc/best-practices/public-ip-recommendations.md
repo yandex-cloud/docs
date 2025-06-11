@@ -39,7 +39,7 @@ For more information, see the following:
 Connect your local network and cloud infrastructures using [{{ interconnect-name }}](../../interconnect/index.yaml). This allows you to avoid using public IP addresses both in your network and in {{ yandex-cloud }}. Instead, you can use [internal IP addresses](../concepts/address.md#internal-addresses) from a custom range of [subnets](../../vpc/concepts/network.md#subnet).
 
 For more information, see the following:
-* [Traffic routing with {{ interconnect-name }}](../../interconnect/concepts/routing.md).
+* [Traffic routing with {{ interconnect-name }}](../../cloud-router/concepts/routing-instance.md).
 
 
 #### Connect to VMs using the serial console {#serial-console}

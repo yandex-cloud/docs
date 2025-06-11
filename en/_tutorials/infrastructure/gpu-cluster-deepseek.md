@@ -58,11 +58,11 @@ The infrastructure support costs include:
    {% list tabs group=instructions %}
    - Management console {#console}
 
-      1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+      1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2) public image.
       1. In the **{{ ui-key.yacloud.compute.instance.overview.label_zone }}** field, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify its size: `800 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify its size: `800 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of GPUs, and cluster:
 
             * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `AMD Epyc 9474F with Gen2`.

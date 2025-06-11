@@ -11,7 +11,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
   To update a VM:
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click the name of the VM.
   1. Click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Change the VM parameters, e.g., rename the VM by editing the **{{ ui-key.yacloud.common.name }}** field.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.

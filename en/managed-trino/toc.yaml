@@ -18,6 +18,8 @@ items:
         href: operations/cluster-stop.md
       - name: Connecting to a cluster
         href: operations/connect.md
+      - name: Viewing cluster logs
+        href: operations/cluster-logs.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
   - name: Concepts

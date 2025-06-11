@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
   1. Введите имя диска. Требования к имени:
 
@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Если требуется, добавьте произвольное описание диска.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
-  1. Выберите нужный тип диска: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}` или `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
+  1. Выберите нужный тип диска: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3_pPfnG }}` или `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated_d7W56 }}`.
 
 
   1. Выберите нужный размер блока (минимальный объем хранения информации на диске). По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно.

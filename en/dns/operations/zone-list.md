@@ -8,9 +8,9 @@ title: How to get a list of DNS zones
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to view a list of [DNS zones](../concepts/dns-zone.md).
+  1. In the [management console]({{ link-console-main }}), select the folder contaning [DNS zones](../concepts/dns-zone.md) you want to view.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. The **{{ ui-key.yacloud.dns.label_zones-list }}** page will show the list of DNS zones.
+  1. You will see the list of DNS zones on the **{{ ui-key.yacloud.dns.label_zones-list }}** page.
 
 - CLI {#cli}
 
@@ -18,7 +18,7 @@ title: How to get a list of DNS zones
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to get a list of [DNS zones](../concepts/dns-zone.md):
+  1. See the description of the CLI command for getting a list of [DNS zones](../concepts/dns-zone.md):
 
      ```bash
       yc dns zone list --help

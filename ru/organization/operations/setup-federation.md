@@ -2,6 +2,8 @@
 
 Вы можете настроить аутентификацию пользователей в облаке через [федерацию удостоверений](../concepts/add-federation.md). Федерации удостоверений совместимы с любыми поставщиками удостоверений (IdP), которые поддерживают стандарт [SAML 2.0](https://wiki.oasis-open.org/security/FrontPage).
 
+Для настройки аутентификации через федерацию удостоверений, у вас должна быть _минимальная_ [роль](../../organization/security/index.md#organization-manager-federations-editor) `organization-manager.federations.editor` на [организацию](../../organization/concepts/organization.md).
+
 Чтобы настроить аутентификацию через федерацию удостоверений:
 
 1. [Создайте федерацию удостоверений](#create-federation).

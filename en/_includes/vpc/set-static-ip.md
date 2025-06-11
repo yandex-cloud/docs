@@ -44,9 +44,9 @@ Make sure to check out our [pricing policy](../../vpc/pricing.md#prices-public-i
       +----------------------+------+---------------+----------+------+
       ```
 
-      The `false` value of the RESERVED parameter for the IP address with the `e2l46k8conff********` ID shows that this address is dynamic.
+      The `false` value of the `reserved` parameter for the IP address with the `e2l46k8conff********` ID shows that this address is dynamic.
 
-   1. Convert the address to static by using the `--reserved=true` key and the address ID:
+   1. Convert it to static by using the `--reserved=true` parameter and the address ID:
 
       ```bash
       yc vpc address update --reserved=true e2l46k8conff********

@@ -360,7 +360,7 @@ To connect to a {{ managed-k8s-name }} cluster node, specify the [public IP addr
 - Management console {#console}
 
   1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section in the folder where you created your {{ managed-k8s-name }} cluster.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Click the instance group with the name that matches the {{ managed-k8s-name }} node group ID.
   1. In the window that opens, go to the **{{ ui-key.yacloud.compute.group.switch_instances }}** tab.
   1. Click the VM that you want to find the public address for.

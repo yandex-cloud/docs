@@ -93,7 +93,7 @@ New flag that disallow deletion of the connector. ||
     "description": "string",
     "labels": "object",
     "source": {
-      // Includes only one of the fields `dataStream`, `messageQueue`, `timer`
+      // Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`
       "dataStream": {
         "database": "string",
         "streamName": "string",
@@ -111,7 +111,8 @@ New flag that disallow deletion of the connector. ||
         "cronExpression": "string",
         "timeZone": "string",
         "payload": "string"
-      }
+      },
+      "eventServiceSource": "object"
       // end of the list of possible fields
     },
     "deletionProtection": "boolean",
@@ -277,13 +278,16 @@ Status of the connector.
 ||Field | Description ||
 || dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
 || messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
 || timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+|| eventServiceSource | **object**
+
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}

@@ -89,7 +89,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
   To assign a role for a symmetric encryption key using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_kms_symmetric_encryption_key_iam_member" "key-viewers" {
@@ -103,16 +103,16 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
       Where:
 
       * `symmetric_encryption_key_id`: ID of the symmetric encryption key.
-      * `role`: [Role](../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list) being assigned.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_kms_symmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
+      For more information about `yandex_kms_symmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all required resources. You can check the new resources using this [CLI](../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources using this [CLI](../../cli/) command:
 
       ```bash
       yc kms symmetric-key list-access-bindings <key_ID>
@@ -208,7 +208,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
           --access-binding role=<role>,subject=group:<group_ID>
         ```
 
-     Provide a separate `--access-binding` flag for each role. For example:
+     Provide a separate `--access-binding` parameter for each role. For example:
 
       ```bash
       yc kms symmetric-key set-access-bindings \
@@ -226,7 +226,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
   To assign multiple roles for a symmetric encryption key using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       # Role 1
@@ -249,16 +249,16 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
       Where:
 
       * `symmetric_encryption_key_id`: ID of the symmetric encryption key.
-      * `role`: [Role](../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list) being assigned.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_kms_symmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
+      For more information about `yandex_kms_symmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all required resources. You can check the new resources using this [CLI](../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources using this [CLI](../../cli/) command:
 
       ```bash
       yc kms symmetric-key list-access-bindings <key_ID>
@@ -268,7 +268,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-  Use the [setAccessBindings](../api-ref/SymmetricKey/setAccessBindings.md) method for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetAccessBindings](../api-ref/grpc/SymmetricKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+  Use the [SetAccessBindings](../api-ref/SymmetricKey/setAccessBindings.md) method for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetAccessBindings](../api-ref/grpc/SymmetricKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
 
   * Role in the `accessBindings[].roleId` parameter.
   * ID of the subject getting the roles in the `accessBindings[].subject.id` parameter.

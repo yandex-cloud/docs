@@ -11,3 +11,10 @@ meta:
   description: >-
     Move your familiar Microsoft tools to the cloud and use the ready-made
     scalable Yandex Cloud infrastructure to implement your projects.
+  keywords:
+    - microsoft in {{ yandex-cloud }}
+    - microsoft tools in {{ yandex-cloud }}
+    - microsoft products in {{ yandex-cloud }}
+    - microsoft office in {{ yandex-cloud }}
+    - Windows in {{ yandex-cloud }}
+    - microsoft tools in cloud

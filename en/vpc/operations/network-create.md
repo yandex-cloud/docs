@@ -13,7 +13,7 @@ In addition to the cloud network in the default folder, you can create cloud net
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
-
+	  
   1. (Optional) In the **{{ ui-key.yacloud.vpc.networks.create.field_description }}** field, add a network description.
   1. The default option is **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. If you want to [create](subnet-create.md) subnets later, disable this option.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -39,7 +39,7 @@ In addition to the cloud network in the default folder, you can create cloud net
         --description "My test network"
       ```
 
-      The `--name` and `--description` flags are optional: you can create a network without any name and description and access it by ID.
+      The `--name` and `--description` parameters are optional: you can create a network without any name and description and access it by ID.
 
       The network naming requirements are as follows:
 
@@ -113,14 +113,14 @@ In addition to the cloud network in the default folder, you can create cloud net
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the new resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -130,7 +130,7 @@ In addition to the cloud network in the default folder, you can create cloud net
         terraform apply
         ```
 
-     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
@@ -181,14 +181,14 @@ Create a cloud network with a name and description in the selected folder:
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the new resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -198,7 +198,7 @@ Create a cloud network with a name and description in the selected folder:
         terraform apply
         ```
 
-     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 

@@ -10,10 +10,10 @@ The cluster center only displays the number of points entering this cluster. You
 
 The behavior of points varies depending on the map scale:
 
-* When scaling down, points are clustered.
-* When scaling up, the distance between points increases and a cluster is automatically split into smaller clusters and/or individual points.
+* When scaling down, points merge into clusters.
+* When scaling up, the distance between points increases, and the cluster automatically splits into smaller clusters and/or individual points.
 
-If a map with the selected scale only contains a single point, it's not clustered. In this case, instead of a donut chart, you will see a point just like in a regular point map.
+If the map has only one point in the selected scale, this point is not going to be clustered. In this case, instead of a donut chart, you will see a point just like in a regular point map.
 
 Clustering on a map improves visualization when there is a large number of points. For example, if you want to show the location of all stores in a city on a map with clustering, points on the map will not overlap.
 
@@ -26,7 +26,7 @@ Limitations:
 * The **Point size**, **Tooltips**, and **Signatures** sections only apply to individual points.
 * You can only add a dimension to the **Color** section.
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 Points with clusters (Geopoints) | Measure of the [Geopoint](../dataset/data-types#geopoint) type
 Point size | Measure. Sets point size depending on the measure value.
@@ -52,6 +52,8 @@ Filters | Dimension or measure. Used as a filter for the entire chart.
 1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/console-icons/gear.svg) in the line with the section name.
 1. Color the points on the map. Drag a dimension to the **Color** section.
 1. Add tooltips to show the dimension and measure values when hovering over a point.
+
+{% include [datalens-map-scale-note](../../_includes/datalens/datalens-map-scale-note.md) %}
 
 You can also:
 

@@ -1,3 +1,5 @@
+Чтобы создать [группу](../../organization/concepts/groups.md), у вас должна быть _минимальная_ [роль](../../organization/security/index.md#organization-manager-editor) `organization-manager.editor` на [организацию](../../organization/concepts/organization.md).
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}

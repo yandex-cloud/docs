@@ -4,7 +4,7 @@
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the `vm-scale-scheduled-ig` group.
   1. Under **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}**, make sure the number of instances changes every two minutes: increases from 2 to 3, then decreases from 3 to 2, etc. You can also check if the instance group has been updated by opening the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 

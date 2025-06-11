@@ -8,7 +8,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a container. The same steps apply to other {{ serverless-containers-name }} resources.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for a container. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder with the container.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -24,7 +24,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ serverless-containers-name }} resource, run this command:
+  To get the list of operations for the {{ serverless-containers-name }} resource, run this command:
 
   ```bash
   yc serverless <resource_type> list-operations <resource_name_or_ID>
@@ -49,7 +49,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc serverless container list-operations <resource_name_or_ID> --format yaml
@@ -81,11 +81,11 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

@@ -1,3 +1,8 @@
+---
+title: Технические поля Measure Names и Measure Values
+description: Из статьи вы узнаете о полях Measure Names и Measure Values и научитесь использовать их в визарде.
+---
+
 # Measure Names и Measure Values
 
 После добавления показателя в одну из секций чарта в списке полей датасета появляется два технических поля — `Measure Names` и `Measure Values`. Они не входят в список исходных полей датасета — {{ datalens-short-name }} создает эти поля автоматически. Поля `Measure Names` и `Measure Values` применяются при создании чартов, в которых используется несколько показателей.

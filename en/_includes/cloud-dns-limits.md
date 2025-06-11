@@ -1,15 +1,15 @@
 #### Quotas {#cloud-dns-quotas}
 
-| Type of limit | Value |
+Limit type | Value
 ----- | -----
-| Number of zones per cloud | 100 |
-| Number of record sets per cloud | 1,000 |
-| Number of record sets per zone | 100 |
+Number of zones per cloud | 100
+Number of record sets per cloud | 1,000
+Number of record sets per zone | 100
 
 #### Limits {#cloud-dns-limits}
 
-| Type of limit | Value |
+Limit type | Value
 ----- | -----
-| Maximum number of records per record set | 100 |
-| Maximum number of simultaneously updated record sets | 1,000 |
-| Maximum number of networks per zone | 50 |
+Maximum number of records per record set | 100
+Maximum number of concurrent record set updates | 1,000
+Maximum number of networks per zone | 50

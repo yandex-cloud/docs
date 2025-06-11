@@ -1,9 +1,9 @@
 ---
-title: Users and access rights
-description: This page presents FAQ about users and access rights management.
+title: Users and permissions
+description: This page presents FAQ about users and access permissions management.
 ---
 
-# Users and access rights management
+# Users and access management
 
 
 ### Does {{ datalens-short-name }} support login via SSO? {#sso-in-datalens}

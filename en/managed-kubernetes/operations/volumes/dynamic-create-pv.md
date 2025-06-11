@@ -131,7 +131,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
    ```
 
    After creating a pod:
-   * In the [management console]({{ link-console-main }}) in **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the **{{ ui-key.yacloud.compute.switch_disks }}** section, a new [disk](../../../compute/concepts/disk.md) will appear with the `k8s-csi` prefix in the disk name.
+   * In the [management console]({{ link-console-main }}) in **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the **{{ ui-key.yacloud.compute.disks_ddfdb }}** section, a new [disk](../../../compute/concepts/disk.md) will appear with the `k8s-csi` prefix in the disk name.
    * You can find disk provisioning information in the `PersistentVolumeClaim` events:
 
      ```bash

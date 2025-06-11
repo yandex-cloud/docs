@@ -53,8 +53,8 @@ The fields described herein are available for all integration steps.
 
 Field name | Type | Required | Default value | Description
 --- | --- | --- | --- | ---
-`input` | `string` | No | [Overall state of the workflow](../workflow.md#state) | A jq expression to filter the workflow state fed into the step.
-`output` | `string` | No | Step outputs | A jq expression to filter the step outputs added into the workflow state.
+`input` | `string` | No | [Overall state of the workflow](../workflow.md#state) | A jq template to filter the workflow state fed into the step.
+`output` | `string` | No | Step output data | A jq template to filter the step outputs added into the workflow state.
 `next` | `string` | No | No | ID of the next step.
 `retryPolicy` | [RetryPolicy](#retrypolicy) | No | `defaultRetryPolicy`, if set on the [workflow](#workflow) level | Retry policy applied if a step throws an error during execution.
 `timeout` | `Duration` | No | 15 minutes | Maximum step execution time.
@@ -68,7 +68,7 @@ Field name | Type | Required | Default value | Threshold value | Description
 `errorListMode` | `INCLUDE/EXCLUDE` | No | `INCLUDE` | — | Error selection mode: `INCLUDE` to retry on errors listed in `error_list`; `EXCLUDE` to retry on any error other than those listed in `error_list`.
 `initialDelay` | `Duration` | No | `1s` | `1s` | Initial value for a delay between retries.
 `backoffRate` | `double` | No | `1.0` | `1.0` | Multiplier for time between each next retry.
-`retryCount` | `int` | No | `0` | `100` | Maximum number of retries.
+`retryCount` | `int` | No | `0` | `100` | Maximum number of reattempts.
 `maxDelay` | `Duration` | No | `1s` | `1h` | Maximum delay between retries.
 
 ### CatchRule object {#catchrule}
@@ -77,7 +77,7 @@ Field name | Type | Required | Default value | Threshold value | Description
 --- | --- | --- | --- |---| ---
 `errorList` | `WorkflowError[]` | Yes | `[]` | — | List of errors to apply the transition rule to. For more information, see [{#T}](../execution.md#errors).
 `errorListMode` | `INCLUDE/EXCLUDE` | No | `INCLUDE` | — | Error selection mode: `INCLUDE` to apply the transition rule to errors from `error_list`; `EXCLUDE`, to any error except those from `error_list`.
-`output` | `string` | Yes | No | — | A jq expression to filter the step outputs added into the workflow state. Input data for filtering: an [ErrorInfo](#errorinfo) object. If a step throws an error covered by a transition rule (`catch`), the _jq_ expression specified in the `output` field of the entire step is not applied.
+`output` | `string` | Yes | No | — | A jq template to filter the step outputs added into the workflow state. Input data for filtering: an [ErrorInfo](#errorinfo) object. If a step throws an error covered by a transition rule (`catch`), the jq template specified in the `output` field of the entire step is not applied.
 `next` | `string` | Yes | No | — | ID of the next step.
 
 ### ErrorInfo object {#errorinfo}

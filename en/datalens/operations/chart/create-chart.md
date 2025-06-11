@@ -31,6 +31,12 @@ To create a chart copy, use one of these methods:
 * At the top of the chart, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Duplicate**. In the window that opens, enter a name for the new chart and click **Apply**.
 * Go to the workbook page with the chart. In the row with the chart, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Duplicate**. In the window that opens, enter a name for the new chart and click **Apply**.
 
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
+
+
 #### See also {#see-also}
 
 * [{#T}](../../concepts/chart/index.md)

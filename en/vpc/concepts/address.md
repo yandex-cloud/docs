@@ -22,7 +22,7 @@ A virtual machine can access the internet and you can access the VM via a public
 
 ```bash
 ssh -J <NAT_instance_username>@<NAT_instance_public_IP_address> \
-  <VM_username>@<VM_internal_IP_address>
+  <VM_user_name>@<VM_internal_IP_address>
 ```
 
 {% endnote %}
@@ -46,3 +46,10 @@ You can use a _host name_ to access one cloud resource from another within the s
 The host name is either set manually or generated automatically using the VM ID.
 
 For more information about how FQDNs are generated, see the [Host name and internal FQDN](../../compute/concepts/network.md#hostname) section in the {{ compute-name }} documentation.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/dhcp-options.md)
+* [{#T}](../tutorials/clickhouse-dns-peering.md)

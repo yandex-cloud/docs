@@ -66,7 +66,7 @@ Jenkins будет получать изменения в конфигураци
 
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ [Jenkins](/marketplace/products/yc/jenkins).
 
@@ -277,7 +277,7 @@ Packer позволяет создавать образы дисков ВМ с �
 
 {% endnote %}
 
-После этого в разделе **{{ ui-key.yacloud.compute.switch_images }}** сервиса **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** появятся три новых образа:
+После этого в разделе **{{ ui-key.yacloud.compute.images_e7RdQ }}** сервиса **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** появятся три новых образа:
 * `Debian` — базовый образ с последними обновлениями.
 * `Nginx` — образ с веб-сервером nginx, базирующийся на образе `Debian`.
 * `Django` — образ с фреймворком Django, базирующийся на образе `Debian`.

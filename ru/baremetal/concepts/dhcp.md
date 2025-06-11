@@ -29,7 +29,7 @@ DHCP может быть использован только для назнач
 
 ### DHCP в эфемерной публичной подсети {#dhcp-ephemeral-public-subnet}
 
-Если в сетевых настройках сервера в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выбрано значение `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`, то публичная подсеть сервера является [эфемерной](./network.md#ephemeral-public-subnet), а сетевому интерфейсу сервера, подключенному к такой подсети, выдается IPv4-адрес из диапазона публичных IP-адресов сервиса {{ baremetal-full-name }}.
+Если в сетевых настройках сервера в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выбрано значение `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, то публичная подсеть сервера является [эфемерной](./network.md#ephemeral-public-subnet), а сетевому интерфейсу сервера, подключенному к такой подсети, выдается IPv4-адрес из диапазона публичных IP-адресов сервиса {{ baremetal-full-name }}.
 
 В эфемерной публичной подсети DHCP-сервер включен по умолчанию и выдает серверам {{ baremetal-name }} IPv4-адреса с префиксом `/31`. Отключить DHCP-сервер в эфемерной публичной подсети нельзя.
 

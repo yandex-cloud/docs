@@ -1,16 +1,15 @@
-When viewing the log, you can set a specific interval using the `--since` and `--until` flags. If no time interval is specified, information for the previous hour is displayed.
+When viewing the log, you can set a specific time interval using the `--since` and `--until` parameters. If you do not specify a time interval, the log will show info for the last hour.
 
-The following flags are used:
+Using parameters:
 
 - `--since`: Time N and later.
 
 - `--until`: Time N and earlier.
 
-If you only specify one flag, information is displayed for the hour before or after N depending on the flag.
+If you only specify a single parameter, you will see info for one hour before or after time N, depending on the parameter.
 
-Allowed time formats:
+You can use one of these time formats:
 
-- `HH:MM:SS`. Example: `15:04:05`.
+- `HH:MM:SS`, e.g., `15:04:05`.
 
-- [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt). Example: `2006-01-02T15:04:05Z`, `2h`, `3h30m ago`.
-
+- [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), e.g., `2006-01-02T15:04:05Z`, `2h`, or `3h30m ago`.

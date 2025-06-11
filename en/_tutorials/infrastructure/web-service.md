@@ -80,7 +80,7 @@ Create a VM you will use to test whether your web service is accessible from the
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin).
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
@@ -88,9 +88,9 @@ Create a VM you will use to test whether your web service is accessible from the
 
         * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-1`. 
         * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** to [connect](../../compute/operations/vm-connect/os-login.md) to your VM and manage its access using [{{ oslogin }}](../../organization/concepts/os-login.md) in {{ org-full-name }}.
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** to [connect](../../compute/operations/vm-connect/os-login.md) to your VM and manage its access using {{ org-full-name }} [{{ oslogin }}](../../organization/concepts/os-login.md).
 
-        With {{ oslogin }}, you can connect to VMs using SSH keys and SSH certificates via a standard SSH client or the [CLI](../../cli/quickstart.md). {{ oslogin }} enables rotating the SSH keys used to access VMs, providing the most [secure](../../security/domains/iaas-checklist.md#vm-security) access option.
+        With {{ oslogin }}, you can connect to VMs with SSH keys and certificates via a standard SSH client or [CLI](../../cli/quickstart.md). {{ oslogin }} also enables you to rotate these SSH keys ensuring better [security](../../security/domains/iaas-checklist.md#vm-security).
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vm-1`.
     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -233,7 +233,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your VMs.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select [Drupal 10](/marketplace/products/yc/drupal-8).
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
@@ -245,7 +245,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
         * Select the **SSH key** connection option.
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, set a user name.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, set a username.
 
             {% note alert %}
 
@@ -282,7 +282,7 @@ Create an IPSec gateway to provide secure access to your cloud resources.
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create your VM.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu).
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.

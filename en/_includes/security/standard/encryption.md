@@ -125,7 +125,7 @@ Check the list of returned encrypted disks. If the list matches your threat mode
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** and find the disk you want to encrypt in the list.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** and find the disk you want to encrypt in the list.
 
       If the disk is attached to a VM and the VM is on, it is recommended to turn it off.
   1. [Create](../../../compute/operations/disk-control/create-snapshot.md) a snapshot of the disk.

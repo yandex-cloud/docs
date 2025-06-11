@@ -58,7 +58,7 @@ A master host can be changed either automatically, as a result of a failure, or 
 
 {% note warning %}
 
-Disabling persistence is only fine in case data integrity is not important for your application, e.g., when using {{ mrd-name }} as cache. This is because, in this case, the most recent data captured in {{ VLK }} will only be stored in RAM and may be lost if a server crashes.
+Disable persistence only if data integrity is not critical for your application, e.g., when using {{ mrd-name }} as a cache. This is because, in this case, the most recent data captured in {{ VLK }} will only be stored in RAM and may be lost if a server crashes.
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 # Viewing operations with a certificate
 
-All actions with {{ certificate-manager-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+The system logs all actions with {{ certificate-manager-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -39,7 +39,7 @@ All actions with {{ certificate-manager-name }} resources are logged as a list o
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------+
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc certificate-manager certificates list-operations <certificate_name_or_ID> --format yaml
@@ -93,11 +93,11 @@ All actions with {{ certificate-manager-name }} resources are logged as a list o
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
-1. Get detailed information about the operation:
+1. Copy the operation ID.
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

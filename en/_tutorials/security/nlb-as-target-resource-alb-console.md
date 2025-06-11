@@ -7,8 +7,8 @@ To migrate a service from an external network load balancer to an L7 load balanc
 1. [Complete the prerequisite steps](#before-you-begin).
 1. [Create a {{ sws-name }} profile](#create-profile-sws).
 1. [Create an internal network load balancer for the NGINX Ingress controller](#create-internal-nlb).
-1. [Create an L7 load balancer](#create-alb). At this step, you will associate the {{ sws-name }} security profile with a virtual host of the L7 load balancer.
-1. [Migrate user load from the external network load balancer to the L7 load balancer](#migration-nlb-to-alb).
+1. [Create an L7 load balancer](#create-alb). At this step, you will associate the {{ sws-name }} profile with a virtual host of the L7 load balancer.
+1. [Migrate user traffic from the external network load balancer to the L7 load balancer](#migration-nlb-to-alb).
 
 ## Service migration recommendations {#recommendations}
 
@@ -18,22 +18,22 @@ To migrate a service from an external network load balancer to an L7 load balanc
 
 1. [Create subnets](../../vpc/operations/subnet-create.md) in three availability zones for the L7 load balancer.
 
-1. Create [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) that allow the L7 load balancer to receive incoming traffic and send it to the targets and allow the targets to receive incoming traffic from the load balancer.
+1. Create [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) that allow the L7 load balancer to receive incoming traffic and send it to the targets and allow the targets to receive inbound traffic from the load balancer.
 
-1. When using HTTPS, [add the TLS certificate of your service](../../certificate-manager/operations/import/cert-create.md#create-certificate) to [{{ certificate-manager-full-name }}](../../certificate-manager/).
+1. When using HTTPS, [add the TLS certificate](../../certificate-manager/operations/import/cert-create.md#create-certificate) of your service to [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
 1. [Reserve a static public IP address with DDoS protection](../../vpc/operations/get-static-ip.md) at Layer 3 – Layer 4 for the L7 load balancer. See the [service migration recommendations](#recommendations).
 
-## Create a {{ sws-name }} security profile {#create-profile-sws}
+## Create a {{ sws-name }} profile {#create-profile-sws}
 
-[Create](../../smartwebsecurity/operations/profile-create.md) a {{ sws-name }} security profile by selecting **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+[Create](../../smartwebsecurity/operations/profile-create.md) a {{ sws-name }} profile by selecting **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
 Use these settings when creating the profile:
 
 * In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
 * For the **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}** rule, enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**.
 
-These settings are limited to logging the info about the traffic without applying any actions to it. This will reduce the risk of disconnecting users due to profile configuration issues. As you move along, you will be able to disable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** and configure deny rules in the security profile.
+These settings are limited to logging the info about the traffic without applying any actions to it. This will reduce the risk of disconnecting users due to profile configuration issues. As you move along, you will have the option to disable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** and configure deny rules for your use case in the security profile.
 
 ## Create an internal network load balancer for the NGINX Ingress controller {#create-internal-nlb}
 
@@ -43,7 +43,7 @@ These settings are limited to logging the info about the traffic without applyin
 
 1. [Create a target group](../../application-load-balancer/operations/target-group-create.md) for the L7 load balancer. Under **{{ ui-key.yacloud.alb.label_targets }}**, select **{{ ui-key.yacloud.alb.label_target-private-ip }}** and specify an internal IP address for the internal network load balancer. Click **{{ ui-key.yacloud.alb.button_add-target }}** and then **{{ ui-key.yacloud.common.create }}**.
 
-1. [Create a group of backends](../../application-load-balancer/operations/backend-group-create.md) with the following parameters:
+1. [Create a backend group](../../application-load-balancer/operations/backend-group-create.md) with the following settings:
 
     1. Select `{{ ui-key.yacloud.alb.label_proto-http }}` as the backend group type.
     1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}** and set up the backend:
@@ -63,7 +63,7 @@ These settings are limited to logging the info about the traffic without applyin
 
         {% note warning %}
 
-        Linking your security profile to a virtual host of the L7 load balancer is the key step for enabling {{ sws-name }}.
+        Associating your security profile with a virtual host of the L7 load balancer is the key step for enabling {{ sws-name }}.
 
         {% endnote %}
 
@@ -81,7 +81,7 @@ These settings are limited to logging the info about the traffic without applyin
 
         {% note warning %}
 
-        The {{ managed-k8s-name }} cluster node groups must have security group rules that allow incoming connections from the L7 load balancer to a range of ports (30000-32767) from the subnets hosting the L7 load balancer or from its security group.
+        The {{ managed-k8s-name }} cluster node groups must have inbound security group rules allowing traffic from the L7 load balancer on ports 30000-32767, coming either from its subnets or its security group.
 
         {% endnote %}
 
@@ -100,7 +100,7 @@ These settings are limited to logging the info about the traffic without applyin
         * Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, specify:
 
             * **{{ ui-key.yacloud.alb.label_port }}**: TCP port configured for your internal network load balancer's listener. Usually, this is port `80` for HTTP and port `443` for HTTPS.
-            * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_address-list }}`. Select from the list a public IP address with DDoS protection at L3-L4. For more information, see the [service migration recommendations](#recommendations).
+            * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_address-list }}`. Select an L3–L4 DDoS-protected public IP address from the list. For more information, see the [service migration recommendations](#recommendations).
         * Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, specify:
 
             * **{{ ui-key.yacloud.alb.label_listener-type }}**: `{{ ui-key.yacloud.alb.label_listener-type-http }}`.
@@ -114,12 +114,12 @@ These settings are limited to logging the info about the traffic without applyin
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 
-## Migrate the user load from the external load balancer to the L7 load balancer {#migration-nlb-to-alb}
+## Migrate user traffic from the external network load balancer to the L7 load balancer {#migration-nlb-to-alb}
 
-Select one of the migration options:
+Select one of these migration options:
 
 * [Keep the public IP address for your service](#save-public-ip).
-* [Do not keep public IP address for your service](#not-save-public-ip).
+* [Do not keep the public IP address for your service.](#not-save-public-ip)
 
 ### Keep the public IP address for your service {#save-public-ip}
 
@@ -131,7 +131,7 @@ Select one of the migration options:
 
     * Using a Helm chart
 
-        1. In the `values.yaml` file you used to initially configure the NGINX Ingress controller, under `controller.service.external`, set `enabled: false`. Do not change the other parameters in the file.
+        1. In the `values.yaml` file you used to initially configure the NGINX Ingress controller, under `controller.service.external`, set `enabled: false`. Leave the other parameters in the file unchanged.
 
             ```bash
             controller:
@@ -187,13 +187,13 @@ Select one of the migration options:
 
     {% endlist %}
 
-1. After the IP address changes, your service will again be available through the L7 load balancer. Monitor the L7 load balancer's user load on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
+1. After the IP address changes, your service will again be available through the L7 load balancer. Monitor the L7 load balancer's user traffic on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
 
 1. Delete the now free static public IP address you selected when creating the L7 load balancer.
 
 ### Do not keep the public IP address for your service {#not-save-public-ip}
 
-1. To migrate the user load from an external network load balancer to an L7 load balancer, in the DNS service of your domain's public zone, change the A record value for the service domain name to the public IP address of the L7 load balancer. If the public domain zone was created in [{{ dns-full-name }}](../../dns/), change the record using [this guide](../../dns/operations/resource-record-update.md).
+1. To migrate user traffic from an external network load balancer to an L7 load balancer, in the DNS service of your domain's public zone, update the A record value for the service domain name to point to the public IP address of the L7 load balancer. If the public domain zone was created in [{{ dns-full-name }}](../../dns/), update the record using [this guide](../../dns/operations/resource-record-update.md).
 
     {% note info %}
 
@@ -201,17 +201,17 @@ Select one of the migration options:
 
     {% endnote %}
 
-1. As the DNS record updates propagate, follow the increase of requests to the L7 load balancer on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
+1. As the DNS record updates propagate, monitor the increase in requests to the L7 load balancer on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
 
-1. Follow the decrease of the external network load balancer load using the `processed_bytes` and `processed_packets` [load balancer metrics](../../monitoring/metrics-ref/network-load-balancer-ref.md). You can also [create a dashboard](../../monitoring/operations/dashboard/create.md) to visualize these metrics. The absence of load on the external network load balancer for a prolonged period of time indicates that the user load has been transferred to the L7 load balancer.
+1. Monitor the decrease in traffic on the external network load balancer using the `processed_bytes` and `processed_packets` [load balancer metrics](../../monitoring/metrics-ref/network-load-balancer-ref.md). You can [create a dashboard](../../monitoring/operations/dashboard/create.md) to visualize these metrics. No traffic on the external network load balancer over time indicates that the L7 load balancer is now handling all user traffic.
 
-1. Optionally, [delete the external network load balancer](../../network-load-balancer/operations/load-balancer-delete.md) after migrating the user load to the L7 load balancer. Select an option that agrees with the method you initially used to deploy your NGINX Ingress controller:
+1. Optionally, once migration is complete, [delete the external network load balancer](../../network-load-balancer/operations/load-balancer-delete.md). Select an option that agrees with the method you initially used to deploy your NGINX Ingress controller:
 
     {% list tabs %}
 
     * Using a Helm chart
 
-        1. In the `values.yaml` file you used to initially configure the NGINX Ingress controller, under `controller.service.external`, set `enabled: false`. Do not change the other parameters in the file.
+        1. In the `values.yaml` file you used to initially configure the NGINX Ingress controller, under `controller.service.external`, set `enabled: false`. Leave the other parameters in the file unchanged.
 
             ```bash
             controller:
@@ -229,7 +229,7 @@ Select one of the migration options:
 
         {% note warning %}
 
-        When you update to the NGINX Ingress controller configuration, your service will be temporarily unavailable.
+        When you update the NGINX Ingress controller configuration, your service will be temporarily unavailable.
 
         {% endnote %}
 

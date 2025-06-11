@@ -212,11 +212,8 @@
         "v=DKIM1;h=sha256;k=rsa;p=M1B...aCA8"
         ```
 
-    {% note info %}
+    {% include [create-record-instruction-notice](../../_includes/dns/create-record-instruction-notice.md) %}
 
-    Если ваш домен делегирован {{ dns-full-name }}, для создания ресурсной записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь личным кабинетом вашего регистратора доменных имен, при возникновении вопросов обратитесь к документации или в службу поддержки регистратора.
-
-    {% endnote %}
 1. Выполните проверку прав на домен.
 
     {% list tabs group=instructions %}

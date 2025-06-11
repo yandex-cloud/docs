@@ -5,9 +5,9 @@ You [can use](../../network-load-balancer/concepts/scenarios.md#nlb-mk8s) a [{{ 
 
 One of the options for a network load balancer in a {{ managed-k8s-name }} cluster is to use it as part of an [NGINX Ingress controller](../../managed-kubernetes/operations/applications/ingress-nginx.md).
 
-This tutorial covers the migration from a network load balancer to an L7 [{{ alb-full-name }}](../../application-load-balancer/) created by an [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), with a [{{ sws-full-name }}](../../smartwebsecurity/) security profile enabled.
+This tutorial covers the migration from a network load balancer to an L7 [{{ alb-full-name }}](../../application-load-balancer/) created by an [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), with a [{{ sws-full-name }}](../../smartwebsecurity/) profile enabled.
 
-Operating diagram of an L7 load balancer with the {{ sws-name }} security profile:
+Here is how an L7 load balancer with a {{ sws-name }} profile works:
 
 ![image](../../_assets/tutorials/security/nlb-with-target-resource-k8s.svg)
 

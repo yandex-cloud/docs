@@ -6142,6 +6142,7 @@ default:
         title_accounts: Платёжные аккаунты
       common:
         button_cron-1min: Каждую минуту
+        monitoring: Мониторинг
         resource-acl:
           button_assign-binding: Изменить роли
       component:
@@ -7033,7 +7034,6 @@ default:
         label_one-month-duration: 1 месяц
         label_password-lockbox: Секрет Lockbox
         label_password-plain: Новый пароль
-        label_public-ip-auto: Автоматически
         label_public-ip-ephemeral: Автоматически
         label_public-ip-from-dedicated-subnet: Из выделенной подсети
         label_public-ip-no: Без адреса
@@ -7166,6 +7166,11 @@ default:
         action_import: Пользовательский сертификат
         action_request: Сертификат от Let's Encrypt
         button_empty-action: Добавить сертификат
+        CertificateField:
+          letsEncryptCertificate_5ack4: Сертификат Let's Encrypt
+          userCertificate_bChXn: Пользовательский сертификат
+        CertificateImportDialog:
+          createCertificate_x7Ww3: Создать сертификат
         import:
           button_add-certificate: Добавить сертификат
           button_add-chain: Добавить цепочку
@@ -7179,6 +7184,7 @@ default:
         overview:
           action_edit-meta: Изменить
           action_reimport: Обновить сертификат
+          button_validation_show-logs: Показать логи
           certificate_content_download: Скачать сертификат
           certificate_content_export: Экспортировать сертификат
           certificate_content_select_full: Сертификат и цепочка сертификатов
@@ -7197,6 +7203,8 @@ default:
           challenge-type_label_http: HTTP
           field_challenge-type: Тип проверки
           field_domains: Домены
+        RequstCertificateDialog:
+          createCertificate_b5eZg: Создать сертификат
       clickhouse:
         button_create-cluster: Создать кластер ClickHouse
         cluster:
@@ -7536,6 +7544,7 @@ default:
           overview:
             label_snapshot: Снимок
             label_status: Статус
+        disks_ddfdb: Диски
         disks:
           button_action-attach: Присоединить
           button_action-detach: Отсоединить
@@ -7548,8 +7557,9 @@ default:
             button_update: Сохранить изменения
           label_disk-used: Подключен
           popup_detach-disk_button_detach: Отсоединить
-        field_additional: Дополнительно
-        field_disk-autodelete: Удалять вместе с виртуальной машиной
+        field_additional_vt356: Дополнительно
+        field_disk-autodelete_qZn4x: Удалять вместе с виртуальной машиной
+        file-storages_pNPw1: Файловые хранилища
         group:
           edit:
             label_title: Изменение группы виртуальных машин
@@ -7629,12 +7639,15 @@ default:
         host-group:
           hosts:
             label_title: Список хостов
+        host-groups_eKsBm: Группы выделенных хостов
+        images_e7RdQ: Образы
         images:
           button_action-image: Создать образ
           button_upload: Загрузить образ
           label_title: Образы
           popup-confirm_button_delete: Удалить
           popup-upload_field_pooled: Оптимизировать для развертывания
+        instance-groups_hx3kX: Группы виртуальных машин
         instance:
           access-method:
             field_os-login-access-method: Доступ по OS Login
@@ -7671,6 +7684,7 @@ default:
           switch_disks: Диски
           switch_file-storages: Файловые хранилища
           switch_service-console: Последовательный порт
+        instances_jsoza: Виртуальные машины
         instances:
           button_action-restart: Перезапустить
           button_create: Создать виртуальную машину
@@ -7743,12 +7757,13 @@ default:
           popup-confirm_button_restart: Перезапустить
           popup-confirm_button_start: Запустить
           popup-confirm_button_stop: Остановить
-        label_service: Compute Cloud
+        label_service_5w4rd: Compute Cloud
         nfs:
           button_attach-instance-to-the-filesystem: Подключить к ВМ
           button_create-filesystem: Создать файловое хранилище
           button_detach-instance-from-the-filesystem: Отключить файловое хранилище
           label_attached-instances: Виртуальные машины
+        operations_kRLeR: Операции
         placement-group:
           disks:
             button_add-disk: Добавить диск
@@ -7761,12 +7776,14 @@ default:
             label_title: Обзор
           switch_disks: Диски
           switch_instances: Виртуальные машины
+        placement-groups_3CwzD: Группы размещений
         placement-groups:
           button_create: Создать
           button_menu-create-disk-placement-group: Группу размещения нереплицируемых дисков
           button_menu-create-instance-placement-group: Группу размещения виртуальных машин
           label_tab-disks: Группы размещения нереплицируемых дисков
           label_tab-instances: Группы размещения виртуальных машин
+        snapshots_81jHX: Снимки дисков
         snapshots-schedules:
           action_attach-disk: Добавить диск
           action_detach-disk: Удалить из расписания
@@ -7785,19 +7802,10 @@ default:
         snapshots:
           list:
             button_action-image: Создать образ
-        switch_disks: Диски
-        switch_file-storages: Файловые хранилища
-        switch_groups: Группы виртуальных машин
-        switch_host-groups: Группы выделенных хостов
-        switch_images: Образы
-        switch_instances: Виртуальные машины
-        switch_operations: Операции
-        switch_placement-groups: Группы размещений
-        switch_snapshots: Снимки дисков
-        value_disk-type-network-hdd: HDD
-        value_disk-type-network-ssd: SSD
-        value_disk-type-network-ssd-io-m3: SSD IO
-        value_disk-type-network-ssd-nonreplicated: Нереплицируемый SSD
+        value_disk-type-network-hdd_cw9XD: HDD
+        value_disk-type-network-ssd_4Mmub: SSD
+        value_disk-type-network-ssd-io-m3_pPfnG: SSD IO
+        value_disk-type-network-ssd-nonreplicated_d7W56: Нереплицируемый SSD
       connection-manager:
         label_connection-type: Тип подключения
         label_connections: Подключения
@@ -8237,7 +8245,7 @@ default:
         label_mqtt-topic-filter: Фильтр MQTT-топиков
         label_passwords: Пароли
         label_registries: Реестры
-        label_yds-exports: Экспорт в Data Stream
+        label_yds-exports: Экспорт в Data Streams
       k8s:
         access:
           label_title: Управление доступом
@@ -8582,9 +8590,7 @@ default:
         button_create-group: Создать группу
         button_create-sink: Создать приёмник логов
         button_execute: Выполнить
-        column_header-level: Уровень
         column_header-message: Сообщение
-        column_header-time: Время
         field_logging: Запись логов
         label_destination: Назначение
         label_export: Выгрузить логи
@@ -9326,6 +9332,29 @@ default:
           label_balancer: Балансировщик
           label_http-router: HTTP-роутер
           label_virtual-host: Виртуальный хост
+        CreateDomain:
+          createDomain_b2Ykj: Добавить домен
+        Domain:
+          Overview:
+            howToActivateProtection_dK3yy: Как активировать защиту?
+            targetResources_cNZPL: Целевые ресурсы
+        DomainForm:
+          ConnectionSection:
+            connectionSettings_7Q85M: Настройки соединения
+            http_4Dbmc: HTTP
+            https_qWPJb: HTTPS
+            httpsAndHttp_bpVzd: HTTPS и HTTP
+            redirectHttpToHttps_kuxH2: Перенаправлять HTTP на HTTPS
+          TargetResourcesSection:
+            addResource_qyJWd: Добавить ресурс
+            connectTargetResources_1mGNK: Подключение к целевым ресурсам
+            protocol_q33c8: Протокол
+            sni_mHMUX: SNI
+            targetResources_hqBQm: Целевые ресурсы
+        DomainsTable:
+          connectSecurityProfile_g5MA4: Подключить профиль безопасности
+        DomainTargetStateStatus:
+          statusHealthy_5F2ks: Доступен
         form:
           button_add-rule: Добавить правило
           label_action-allow: Разрешить
@@ -9333,6 +9362,8 @@ default:
           label_arl-profile: Профиль ARL
           label_default-action: Действие для базового правила по умолчанию
           section_security-rules: Правила безопасности
+        label_domain-protection: Защита доменов
+        label_domain-protection-domains: Домены
         label_search-rule-type: 'Тип правила:'
         match-lists:
           label_match-lists: Списки
@@ -9354,6 +9385,18 @@ default:
           title_connected-to-the-hosts: Подключенные хосты
           title_security-rules: Правила безопасности
           title_waf-profile: Профиль WAF
+        proxy-servers:
+          publicIpColumn_dPwQF: Публичный IP
+        ProxyServer:
+          Domains:
+            createDomain_49MGX: Добавить домен
+        ProxyServerForm:
+          add-rule_fnmLk: Добавить правило
+          swith-enable-logging_e42nT: Логировать запросы
+        ProxyServerFormCreate:
+          createServer_sycVk: Создать сервер
+        ProxyServers:
+          createProxyServer_jatYQ: Создать прокси-сервер
         title_default-template: По преднастроенному шаблону
         title_no-template: С чистого листа
         title_profiles: Профили безопасности
@@ -10343,7 +10386,7 @@ default:
                         title: Пользовательская инсталляция
                     MysqlSource:
                       advanced_settings:
-                        title: Расширеннные настройки
+                        title: Расширенные настройки
                       connection:
                         title: Настройки подключения
                       object_transfer_settings:
@@ -11081,10 +11124,12 @@ default:
           reset-jupyter-workspace:
             title: Сбросить рабочее пространство JupyterLab
         executions: Запущенные операции
+        launch-history: История запусков
         project-card:
           create-resource: Создать ресурс
           go-to-jupyter: Открыть проект в JupyterLab
         project-disk: Хранилище проекта
+        project-jobs: DataSphere Jobs
         project-resources: Ресурсы проекта
         settings:
           default-folder: Каталог по умолчанию

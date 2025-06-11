@@ -21,7 +21,7 @@
 * Не уменьшайте размер дисков ВМ.
 * Используйте в [политике развертывания](./policies/deploy-policy.md) значение параметра `max_expansion` (максимальное количество ВМ, на которое можно превысить целевой размер группы) равное `0`.
 * Не удаляйте ВМ через интерфейсы групп ВМ:
-  * В [консоли управления]({{ link-console-main }}) на вкладке ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  * В [консоли управления]({{ link-console-main }}) на вкладке ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   * Командой [{{ yc-compute-ig }} delete-instances](../../../cli/cli-ref/compute/cli-ref/instance-group/delete-instances.md) CLI.
   * Вызовом gRPC API [InstanceGroupService/DeleteInstances](../../instancegroup/api-ref/grpc/InstanceGroup/deleteInstances.md).
   

@@ -40,7 +40,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about operations is displayed as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc managed-greenplum cluster list-operations c9qk2926qqu9******** --format yaml
@@ -112,11 +112,11 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for a cluster.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

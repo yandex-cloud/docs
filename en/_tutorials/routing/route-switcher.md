@@ -58,7 +58,7 @@ The infrastructure support cost includes:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using {{ network-load-balancer-name }} (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
-* Fee for IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Configure your CLI profile {#setup-profile}
@@ -433,13 +433,13 @@ The infrastructure support cost includes:
    {% endlist %}
 
 1. Monitor the `ping` output. As `NAT-A` recovers, you may not see any packet loss. 
-1. Make sure `test-vm` now uses the `nat-a` public IP address to access the internet by running this command in the serial console:
+1. Make sure `test-vm` now uses the `nat-a` public IP address to access the internet by stopping `ping` and running this command in the serial console:
 
    ```bash
    curl ifconfig.co
    ```
 
-   Compare the IP address with the `nat-a_public_ip_address` value from the [resulting output](#final-output).
+   Compare the IP address you get with `nat-a_public_ip_address` [you saved earlier](#final-output).
 1. Check the route table to make sure the route switcher changed the `Next hop` value for the `demo` network back to the `nat-a` internal IP address.
 
 ## How to delete the resources you created {#clear-out}

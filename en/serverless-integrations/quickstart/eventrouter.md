@@ -15,7 +15,7 @@ keywords:
 
 In this tutorial, you will use an {{ er-name }} [bus](../concepts/eventrouter/bus.md) to forward a message from a [{{ message-queue-name }}](../../message-queue/) to a [workflow](../concepts/workflows/workflow.md) in {{ sw-name }}.
 
-If it matches the filter defined in the rule inside the bus, a message entering the queue will be forwarded to the workflow. The workflow will start automatically. Before being forwarded, the message will be converted according to the template defined in the same rule as the filter.
+If it matches the filter defined in the rule inside the bus, a message entering the queue will be forwarded to the workflow. The workflow will be executed automatically. Before being forwarded, the message will be converted according to the template defined in the same rule as the filter.
 
 ## Getting started {#before-you-begin}
 
@@ -122,7 +122,7 @@ To get started in {{ yandex-cloud }}:
     1. Select the `sample-bus` bus.
     1. Navigate to the **{{ ui-key.yacloud.serverless-event-router.label_rules }}** tab.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-rule }}**.
-    1. Expand the **{{ ui-key.yacloud.serverless-event-router.label_filter }}** section and specify the following _jq_ expression to filter messages:
+    1. Expand the **{{ ui-key.yacloud.serverless-event-router.label_filter }}** section and specify the following jq template to filter messages:
         ```
         .httpMethod == "GET" and (.headers.Host | test("^d5dm"))
         ```
@@ -130,7 +130,7 @@ To get started in {{ yandex-cloud }}:
     1. In the **{{ ui-key.yacloud.serverless-event-router.label_target-type }}** field, select `{{ sw-full-name }}`.
     1. In the **Workflow** field, specify `sample-workflow`.
     1. In the **Service account** field, specify `sa-for-eventrouter`.
-    1. Expand the **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** section and specify the _jq_ expression to convert messages:
+    1. Expand the **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** section and specify the jq template to convert messages:
         ```
         {
            "message": "API gateway host is \(.headers.Host)."
@@ -176,7 +176,7 @@ Make sure the messages matching the created rule are converted and forwarded to 
 
         1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}** from the list of services.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-        1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab. You should not see any completed runs on the page.
+        1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab. You should not see any completed executions on the page.
 
     1. Send the second message to `sample-queue` using the previously saved queue URL:
 
@@ -200,8 +200,8 @@ Make sure the messages matching the created rule are converted and forwarded to 
 
         1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}** from the list of services.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-        1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab. You should now see a completed run on the page.
-        1. Select the completed run.
+        1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab. You should now see a completed execution on the page.
+        1. Select the completed execution.
         1. Make sure the **{{ ui-key.yacloud.serverless-workflows.label_input_data }}** section displays the converted message:
             ```
             {

@@ -13,7 +13,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
 - Management console {#console}
 
-  Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
 - CLI {#cli}
 
@@ -98,7 +98,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -210,7 +210,7 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc managed-mongodb cluster list-operations c9qk2926qqu9******** --format yaml
@@ -282,11 +282,11 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
 
 {% endlist %}
 
-### Getting detailed information about an operation {#get-operations-info}
+### Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for a cluster.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get operation details:
 
    {% list tabs group=instructions %}
 

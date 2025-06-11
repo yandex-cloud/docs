@@ -1,6 +1,6 @@
 # Работа с файловыми хранилищами
 
-[Файловое хранилище](../../concepts/filestores.md) позволяет хранить большие объемы информации и получать к ним доступ из ноутбуков.
+[Файловое хранилище](../../concepts/filestores.md) {{ ml-platform-name }} позволяет хранить большие объемы информации и получать к ним доступ из ноутбуков.
 
 ## Создать файловое хранилище {#create}
 
@@ -15,29 +15,27 @@
 1. В поле **Объём хранилища, ГБ** задайте нужный размер хранилища. Внизу окна будет отображаться итоговая стоимость хранилища в месяц.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**. Откроется страница с информацией о созданном файловом хранилище.
 
-## Изменить файловое хранилище {#change}
+## Подключить файловое хранилище к проекту {#mount}
 
-1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
-1. В списке файловых хранилищ выберите то, которое вы хотите изменить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.edit }}**.
-1. Измените файловое хранилище: отредактируйте имя и имя при подключении.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
+Перейдите на страницу файлового хранилища и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.activate }}**. После активации файловое хранилище будет доступно в интерфейсе {{ jlab }}Lab в файловом менеджере в папке `/filestore/`, и его можно будет просматривать как файловую систему.
 
-## Активировать файловое хранилище {#activate}
+## Использовать файловое хранилище в проекте {#usage}
 
-Файловое хранилище создается деактивированным. Чтобы активировать файловое хранилище:
+Вы можете обращаться к файлам хранилища из кода проекта. Нажмите правой кнопкой мыши на нужный файл и выберите **Copy path**. Путь к файлу будет скопирован в буфер обмена. Вставьте скопированный путь в нужное место проекта.
 
-1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
-1. В строке с нужным файловым хранилищем нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.activate }}**.
-
-Активированное файловое хранилище появится в корневой папке {{ ml-platform-name }} в интерфейсе {{ jlab }}Lab.
-
-## Деактивировать файловое хранилище {#deactivate}
+## Отключить файловое хранилище {#deactivate}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
 1. В строке с нужным файловым хранилищем нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.deactivate }}**.
+
+## Изменить файловое хранилище {#change}
+
+1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
+1. В строке с нужным файловым хранилищем нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Измените файловое хранилище: отредактируйте имя, имя при подключении и добавьте описание.
+1. Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 ## Поделиться файловым хранилищем {#share}
 
@@ -59,7 +57,7 @@
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
-1. В списке файловых хранилищ выберите то, которое хотите удалить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. В строке с нужным файловым хранилищем нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 Отобразится сообщение о том, что файловое хранилище удалено.

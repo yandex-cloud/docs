@@ -123,3 +123,11 @@ You should also enable this option for raw-sql subqueries that are used as a dat
 To avoid errors when using views with the JOIN section in {{ datalens-short-name }}, re-create all views and set `join_use_nulls = 1`. This fills in empty cells with `NULL` values and converts the type of the relevant fields to [Nullable]({{ ch.docs }}/sql-reference/data-types/nullable/#data_type-nullable).
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/bigquery-to-clickhouse.md)
+* [{#T}](../../tutorials/data-from-ch-visualization.md)
+* [{#T}](../../tutorials/data-from-ch-geocoder.md)
+* [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)

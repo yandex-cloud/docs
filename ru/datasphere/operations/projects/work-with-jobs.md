@@ -68,7 +68,27 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}
 
-Вы сможете отслеживать прогресс выполнения заданий на странице проекта в интерфейсе {{ ml-platform-name }}.
+## Отслеживать прогресс выполнения задания {#progress}
+
+{% list tabs %}
+
+- Интерфейс {{ ml-platform-full-name }}
+
+  1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
+  1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.project-jobs }}** ⟶ **{{ ui-key.yc-ui-datasphere.project-page.launch-history }}** и выберите нужное задание.
+  1. В верхней части страницы отобразится полоса прогресса.
+
+- Локально
+
+  Прогресс сохраняется в локальный файл `job_progress.jsonl`, который доступен в директории с [логами](../../concepts/jobs/cli.md#logs) заданий. В файл периодически добавляется строка с текущим прогрессом в формате JSON, например:
+
+  ```json
+  {"progress": 21, "message": "progress msg 21", "create_time": "2025-06-01T11:00:12+00:00"}
+  ```
+  
+  Путь к файлу можно получить из переменной окружения `JOB_PROGRESS_FILENAME`.
+
+{% endlist %}
 
 ## Пример {#example}
 
@@ -191,6 +211,8 @@ description: Следуя данной инструкции, вы сможете
     {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}
 
 Модель сохранится в архив `model.zip` в папке задания.
+
+
 
 #### См. также {#see-also}
 

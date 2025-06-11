@@ -89,7 +89,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
    To assign a role for an asymmetric encryption key pair through {{ TF }}:
 
-   1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
        ```hcl
        resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-viewers" {
@@ -102,16 +102,16 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
        Where:
 
        * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
-       * `role`: [Role](../security/index.md#roles-list).
-       * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `role`: [Role](../security/index.md#roles-list) being assigned.
+       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about the `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
+       For more information about `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 
    1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-       {{ TF }} will create all required resources. You can check the new resources using this [CLI](../../cli/) command:
+       {{ TF }} will create all the required resources. You can check the new resources using this [CLI](../../cli/) command:
 
        ```bash
        yc kms asymmetric-key list-access-bindings <key_ID>
@@ -207,7 +207,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
            --access-binding role=<role>,subject=group:<group_ID>
          ```
 
-      Provide a separate `--access-binding` flag for each role. For example:
+      Provide a separate `--access-binding` parameter for each role. For example:
 
       ```bash
       yc kms asymmetric-encryption-key set-access-bindings \
@@ -225,7 +225,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
    To assign multiple roles for an asymmetric encryption key pair through {{ TF }}:
 
-   1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
        ```hcl
        # Role 1
@@ -246,16 +246,16 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
        Where:
 
        * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
-       * `role`: [Role](../security/index.md#roles-list).
-       * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `role`: [Role](../security/index.md#roles-list) being assigned.
+       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about the `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
+       For more information about `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 
    1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-       {{ TF }} will create all required resources. You can check the new resources using this [CLI](../../cli/) command:
+       {{ TF }} will create all the required resources. You can check the new resources using this [CLI](../../cli/) command:
 
        ```bash
        yc kms asymmetric-key list-access-bindings <key_ID>

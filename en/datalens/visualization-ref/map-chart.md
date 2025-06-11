@@ -13,6 +13,8 @@ You can use a map to display layers of different types:
 
 To create maps, make sure the data source contains either [Geopoint](../dataset/data-types.md#geopoint) coordinates or [Geopolygon](../dataset/data-types.md#geopolygon) areas.
 
+You can show a particular area on the map using the **Center** and **Scale** [settings](../concepts/chart/settings.md#common-settings).
+
 One map can contain a maximum of 5 layers with any type of visualization. Layers in the **Map** chart are called geolayers.
 
 _Geolayers_ visualize indicators using points or polygons on the map.

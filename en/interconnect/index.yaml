@@ -25,3 +25,20 @@ meta:
   description: >-
     Yandex Cloud Interconnect enables setting up a dedicated physical connection
     between a customer on-premise infrastructure and Yandex Cloud resources.
+  keywords:
+    - interconnect
+    - '{{ interconnect-full-name }}'
+    - trunk
+    - '{{ interconnect-name }}'
+    - '{{ interconnect-name }}'
+    - '{{ interconnect-name }} in {{ yandex-cloud }}'
+    - private connection
+    - connection in {{ interconnect-name }}
+    - BGP {{ yandex-cloud }}
+    - point of presence
+    - cross connection in {{ interconnect-name }}
+    - cross connection
+    - '{{ interconnect-name }} transceiver'
+    - '{{ interconnect-name }} routing'
+    - trunk
+    - '{{ interconnect-name }} trunk'

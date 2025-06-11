@@ -2,11 +2,12 @@
 title: '{{ CH }} backups'
 description: '{{ mch-short-name }} supports automatic and manual database backups. Backups take up space in the storage allocated to the cluster. Backups are automatically created every day.'
 keywords:
+  - backup
   - back up
   - backup
   - backing up
   - '{{ CH }} backups'
-  - backup {{ CH }}
+  - '{{ CH }} backup'
   - '{{ CH }}'
 ---
 

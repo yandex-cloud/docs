@@ -16,7 +16,7 @@ description: Из статьи вы узнаете, как создать рас
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [диск](../../concepts/disk.md).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте параметры расписания снимков:
      * Введите имя расписания в формате:

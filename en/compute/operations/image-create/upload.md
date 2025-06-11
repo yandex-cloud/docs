@@ -47,7 +47,7 @@ Create a new image from the link you got in {{ objstorage-name }}:
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**.
   1. Name your image. The naming requirements are as follows:
 

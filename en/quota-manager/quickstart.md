@@ -1,9 +1,9 @@
 ---
-title: Getting started with {{ quota-manager-full-name }}
+title: How to get started with {{ quota-manager-full-name }}
 description: Follow this guide to view quotas for your services.
 ---
 
-# Getting started with {{ quota-manager-full-name }}
+# How to get started with {{ quota-manager-full-name }}
 
 {% include [preview-quota](../_includes/quota-manager/preview-quota.md) %}
 
@@ -69,7 +69,7 @@ Going forward, you will also be able to request quota updates via the CLI and AP
       * `organization-manager.organization`: Organization.
       * `billing.account`: Billing account.
 
-      Example:
+      For example:
 
       ```bash
       yc quota-manager quota-limit list-services --resource-type=resource-manager.cloud
@@ -91,7 +91,7 @@ Going forward, you will also be able to request quota updates via the CLI and AP
        * `--resource-id` is the [resource](../resource-manager/concepts/resources-hierarchy.md) ID: organization, cloud, folder, or billing account ID.
        * `--resource-type`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
 
-      Example:
+      For example:
 
       ```bash
       yc quota-manager quota-limit list --service=iam --resource-type=resource-manager.cloud --resource-id=b1gflhy********
@@ -113,7 +113,7 @@ Going forward, you will also be able to request quota updates via the CLI and AP
        * `--resource-id`: ID of the resource (organization, cloud, or billing account).
        * `--resource-type`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
 
-      Example:
+      For example:
 
       ```bash
       yc quota-manager quota-limit get --quota-id=iam.apiKeys.count --resource-id=b1gflhy********  --resource-type=resource-manager.cloud

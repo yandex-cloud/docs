@@ -88,7 +88,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
      ...
      ```
 
-     For more information about the `yandex_vpc_subnet` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
+     For more information about `yandex_vpc_subnet` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/vpc_subnet).
 
   1. Check the configuration using this command:
 
@@ -108,9 +108,9 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply
@@ -180,7 +180,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
   - 192.168.0.0/24
   ```
 
-  You can provide the subnet ID and name not only as positional arguments but also using the `--id` and `--name` flags:
+  You can provide the subnet ID and name not only as positional arguments, but also using the `--id` and `--name` parameters:
 
   ```
   yc vpc network update \

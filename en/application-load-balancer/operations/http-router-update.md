@@ -5,7 +5,7 @@ description: In this tutorial, you will learn how to update HTTP router settings
 
 # Updating HTTP router settings
 
-To update HTTP router settings:
+To update HTTP router parameters:
 
 {% list tabs group=instructions %}
 
@@ -16,7 +16,7 @@ To update HTTP router settings:
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click your router name.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit your router (virtual host, route) settings.
+  1. Edit your router, header, virtual host, or route settings.
   1. Click **{{ ui-key.yacloud.common.save }}** at the bottom of the page.
 
 - CLI {#cli}
@@ -25,7 +25,7 @@ To update HTTP router settings:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for updating an HTTP router:
+  1. View a description of the CLI command to update a load balancer:
 
      ```bash
      yc alb http-router update --help
@@ -109,7 +109,7 @@ To update HTTP router settings:
      terraform validate
      ```
      
-     If your configuration is correct, you will get this message:
+     If the configuration is correct, you will get this message:
      
      ```bash
      Success! The configuration is valid.
@@ -121,7 +121,7 @@ To update HTTP router settings:
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If your configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
   1. Apply the changes:
 
@@ -131,7 +131,7 @@ To update HTTP router settings:
      
   1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check your HTTP router updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+     You can check the HTTP router update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb http-router get <HTTP_router_ID>
@@ -195,7 +195,7 @@ To add a new route to your HTTP router's virtual host:
            --backend-group-name <backend_group_name> \
            --request-timeout <request_timeout>s \
            --request-idle-timeout <request_idle_timeout>s \
-           --rate-limit rps=<request_limit>,requests-per-ip
+           --rate-limit rps=<rate_limit>,requests-per-ip
          ```
 
          For more information about `yc alb virtual-host append-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
@@ -242,7 +242,7 @@ To add a new route to your HTTP router's virtual host:
            --rate-limit rps=<request_limit>,requests-per-ip
          ```
 
-         For more information about `yc alb virtual-host prepend-http-route` options, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
+         For more information about `yc alb virtual-host prepend-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
 
          Result:
 
@@ -589,7 +589,7 @@ To add a new route to your HTTP router's virtual host:
      terraform validate
      ```
      
-     If your configuration is correct, you will get this message:
+     If the configuration is correct, you will get this message:
      
      ```text
      Success! The configuration is valid.
@@ -601,7 +601,7 @@ To add a new route to your HTTP router's virtual host:
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If your configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
   1. Apply the changes:
 

@@ -40,7 +40,22 @@ POST https://storage.{{ api-host }}/storage/v1/buckets
       "key": "string",
       "value": "string"
     }
-  ]
+  ],
+  "encryption": {
+    "rules": [
+      {
+        "kmsMasterKeyId": "string",
+        "sseAlgorithm": "string"
+      }
+    ]
+  },
+  "versioning": "string",
+  "allowedPrivateEndpoints": {
+    "enabled": "boolean",
+    "privateEndpoints": [
+      "string"
+    ]
+  }
 }
 ```
 
@@ -78,6 +93,36 @@ For details, see [documentation](/docs/storage/concepts/acl). ||
 
 List of tags for the bucket.
 For details, see [documentation](/docs/resource-manager/concepts/labels). ||
+|| encryption | **[Encryption](#yandex.cloud.storage.v1.Encryption)**
+
+Configuration for bucket's encryption.
+For details, see [documentation](/docs/storage/concepts/encryption). ||
+|| versioning | **enum** (Versioning)
+
+Bucket versioning status.
+For details, see [documentation](/docs/storage/concepts/versioning).
+
+- `VERSIONING_UNSPECIFIED`
+- `VERSIONING_DISABLED`: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
+Objects that are stored in the bucket have a version ID of `null`.
+
+  To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](/docs/storage/api-ref/Bucket/update#Update) request. Note that this
+action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.
+- `VERSIONING_ENABLED`: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that
+already existed at the time versioning was enabled will be versioned and given a unique version ID when modified
+by future requests.
+
+  To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [BucketService.Update](/docs/storage/api-ref/Bucket/update#Update) request. You cannot
+disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep
+them.
+- `VERSIONING_SUSPENDED`: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time
+versioning was suspended are still versioned and keep their version IDs.
+
+  To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](/docs/storage/api-ref/Bucket/update#Update) request. ||
+|| allowedPrivateEndpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
+
+Configuration for bucket's allowed private endpoints.
+requires permission s3:PutBucketAllowedPrivateEndpoints ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -177,6 +222,34 @@ Key of the bucket tag. ||
 || value | **string**
 
 Value of the bucket tag. ||
+|#
+
+## Encryption {#yandex.cloud.storage.v1.Encryption}
+
+#|
+||Field | Description ||
+|| rules[] | **[EncryptionRule](#yandex.cloud.storage.v1.Encryption.EncryptionRule)** ||
+|#
+
+## EncryptionRule {#yandex.cloud.storage.v1.Encryption.EncryptionRule}
+
+#|
+||Field | Description ||
+|| kmsMasterKeyId | **string** ||
+|| sseAlgorithm | **string** ||
+|#
+
+## BucketAllowedPrivateEndpoints {#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+if true, private endpoints white list check is enabled
+even if private_endpoints list is empty ||
+|| privateEndpoints[] | **string**
+
+white list of private endpoints bucket accessible from ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -541,11 +614,11 @@ For details, see [documentation](/docs/resource-manager/concepts/labels). ||
 
 Configuration for object lock on the bucket.
 For details about the concept, see [documentation](/docs/storage/concepts/object-lock). ||
-|| encryption | **[Encryption](#yandex.cloud.storage.v1.Encryption)**
+|| encryption | **[Encryption](#yandex.cloud.storage.v1.Encryption2)**
 
 Configuration for bucket's encryption
 For details, see [documentation](/docs/storage/concepts/encryption) ||
-|| allowedPrivateEndpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
+|| allowedPrivateEndpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints2)**
 
 Bucket allowed private endpoints. ||
 |#
@@ -1064,14 +1137,14 @@ Number of years for locking
 Includes only one of the fields `days`, `years`. ||
 |#
 
-## Encryption {#yandex.cloud.storage.v1.Encryption}
+## Encryption {#yandex.cloud.storage.v1.Encryption2}
 
 #|
 ||Field | Description ||
-|| rules[] | **[EncryptionRule](#yandex.cloud.storage.v1.Encryption.EncryptionRule)** ||
+|| rules[] | **[EncryptionRule](#yandex.cloud.storage.v1.Encryption.EncryptionRule2)** ||
 |#
 
-## EncryptionRule {#yandex.cloud.storage.v1.Encryption.EncryptionRule}
+## EncryptionRule {#yandex.cloud.storage.v1.Encryption.EncryptionRule2}
 
 #|
 ||Field | Description ||
@@ -1079,7 +1152,7 @@ Includes only one of the fields `days`, `years`. ||
 || sseAlgorithm | **string** ||
 |#
 
-## BucketAllowedPrivateEndpoints {#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints}
+## BucketAllowedPrivateEndpoints {#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints2}
 
 #|
 ||Field | Description ||

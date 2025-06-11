@@ -27,8 +27,7 @@ Updates the specified bus.
     "log_group_id": "string",
     "folder_id": "string",
     // end of the list of possible fields
-    "min_level": "Level",
-    "service_account_id": "string"
+    "min_level": "Level"
   }
 }
 ```
@@ -106,9 +105,6 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
-|| service_account_id | **string**
-
-Required field. Service account, which has permission to write to destination ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -142,8 +138,7 @@ Required field. Service account, which has permission to write to destination ||
       "log_group_id": "string",
       "folder_id": "string",
       // end of the list of possible fields
-      "min_level": "Level",
-      "service_account_id": "string"
+      "min_level": "Level"
     }
   }
   // end of the list of possible fields
@@ -303,7 +298,4 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
-|| service_account_id | **string**
-
-Required field. Service account, which has permission to write to destination ||
 |#

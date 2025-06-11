@@ -68,6 +68,7 @@ description: На странице представлен список прак�
 * [{#T}](./yq-storage.md)
 * [{#T}](yq-federative-queries.md)
 * [Распознавание архива изображений в {{ vision-full-name }}](archive-from-vision-to-object-storage.md)
+* [{#T}](vision-ocrrecognizer-storage.md)
 * [{#T}](video-converting-queue.md)
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](billing.md)

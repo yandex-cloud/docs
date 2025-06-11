@@ -98,7 +98,7 @@ To enable serial console access when updating a VM, set the `serial-port-enable`
 
 ## Configuring a VM to enable serial port access {#configuration}
 
-To configure serial console access, a VM must have a [public IP address](../../../vpc/concepts/address.md#public-addresses). You can look up the address in the [management console]({{ link-console-main }}) in the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section, the **{{ ui-key.yacloud.compute.switch_instances }}** page. If you created a VM without a public IP address, you can [assign one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can unassign the address as you will not need it for connecting via the serial console.
+To configure serial console access, a VM must have a [public IP address](../../../vpc/concepts/address.md#public-addresses). You can look up the address in the [management console]({{ link-console-main }}) in the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section, the **{{ ui-key.yacloud.compute.instances_jsoza }}** page. If you created a VM without a public IP address, you can [assign one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can unassign the address as you will not need it for connecting via the serial console.
 
 For the serial console to be accessible from the OS side, configure the OS accordingly.
 

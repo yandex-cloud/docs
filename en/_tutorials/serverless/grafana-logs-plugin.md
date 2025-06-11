@@ -455,7 +455,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
    {% note info %}
 
-   You can skip the `--group-name` and `--message` flags and specify only the parameter values, e.g., `grafana-plugin "My message"`.
+   You can skip the `--group-name` and `--message` parameters and provide only the values, e.g., `grafana-plugin "My message"`.
 
    {% endnote %}
 

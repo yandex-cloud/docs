@@ -14,15 +14,15 @@ Metrics are identified using text [labels](#label).
 
 ### Query aggregation {#aggregation}
 
-Some metrics, e.g., `disk.write_latency` in {{ compute-full-name }}, track massive numbers of queries, at times reaching tens of thousands per second. In metrics like these, queries are initially aggregated into buckets depending on their values.
+Some metrics, e.g., `disk.write_latency` in {{ compute-full-name }}, track massive numbers of queries, at times reaching tens of thousands per second. Queries in such metrics are initially aggregated in buckets depending on their values.
 
 Such metrics have multiple buckets, e.g., `1`, `2`, `5`, `10`, etc. Thus, bucket `1` stores queries that took up to 1 ms to complete, bucket `2` up to 2 ms, bucket `5` up to 5 ms, etc.
 
-When executing a query, the service measures its completion time and decides which bucket to put it into. For example, a query completed in 7 ms will go into bucket `10`, same as all other queries that took from 5 to 10 ms to complete.
+When executing a query, the service measures its completion time and decides which bucket to put it into. For example, a query completed in 7 ms will go into bucket `10`, same as all other queries which took from 5 to 10 ms to complete.
 
-Such metrics have a fractional number for value: the average number of queries per a unit of time, e.g., 5 seconds.
+The value of such metrics is a floating-point number representing the average number of queries for an interval of time, e.g., 5 seconds.
 
-Metrics like that are usually analyzed using the `histogram_percentile` [filter](./querying.md#histogram_percentile), which takes for parameter the percentage share of queries for which to calculate the minimum time it takes to complete this share of queries.
+Usually, the `histogram_percentile` [filter](./querying.md#histogram_percentile) applies to such metrics, taking as the parameter the percentage of queries for which it is required to calculate the minimum time it takes to complete this percentage of queries.
 
 Here is an example:
 
@@ -31,7 +31,9 @@ Here is an example:
 > - 499 queries were completed in 1.5 ms.
 > - One query was completed in 1,000 ms.
 
-The arithmetic mean per query is around 2 ms. However, this value will be of little use due to the large peak value counted in. It would be much more useful to know that maximum query execution time was 1,000 ms, but 99% of queries were completed within 2 ms, i.e., the 99th percentile of the queries was 2 ms. You can get this percentile by providing `99` to the `histogram_percentile` filter.
+The arithmetic mean per query is around 2 ms. However, this value will be of little use due to the large peak value that is not inlcluded in the calculation. It would be much more useful to know that maximum query execution time was 1,000 ms, but 99% of queries were completed within 2 ms, i.e., the 99th percentile of the queries was 2 ms. You can get this percentile by providing `99` to the `histogram_percentile` filter.
+
+Metric values are also affected by the [data decimation policy](decimation.md).
 
 ### Labels {#label}
 A _label_ is a metric characteristic in `key: "value"` format. Each metric is identified by an unordered set of labels. Use a parameter that takes a limited set of values as a label. For example, the HTTP status code, the types of procedures being performed in a database, and so on.
@@ -80,4 +82,4 @@ The following templates are available in {{ monitoring-name }}:
 Syntax | Description
 ----- | -----
 `label="*"` | Outputs all metrics with the specified label. For example, the `host="*"` query will return all metrics with the `host` label.
-`label="glob"` | Returns all metrics whose label value complies with a [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)):<br/><br/>`*`: Any number of characters (including none). For example, `name="folder*"` will return all metrics whose `name` label value begins with the `folder` prefix.<br/><br/>`?`: Any single character. For example, `name="metric?"` will return all labels whose value contains one character after `metric`.<br/><br/>`\|`: All specified options. For example, `name="metric1\|metric2"` will return two metrics labeled `metric1` and `metric2`.
+`label="glob"` | Displays all metrics whose label value complies with a [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)):<br/><br/>`*`: Any number of characters (including none). For example, `name="folder*"` will return all metrics whose `name` label value begins with the `folder` prefix.<br/><br/>`?`: Any single character. For example, `name="metric?"` will return all labels whose value contains one character after `metric`<br/><br/>`\|`: All specified options. For example, `name="metric1\|metric2"` will return two metrics labeled `metric1` and `metric2`.

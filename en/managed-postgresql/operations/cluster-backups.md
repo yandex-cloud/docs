@@ -31,7 +31,7 @@ When restored to the current state, the new cluster will match the state of:
 
   **To restore an existing cluster from a backup**:
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
@@ -43,7 +43,7 @@ When restored to the current state, the new cluster will match the state of:
 
   **To restore a previously deleted cluster from a backup**:
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_IP>`.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
@@ -134,7 +134,7 @@ When restored to the current state, the new cluster will match the state of:
           * `network-hdd`
           * `network-ssd`
           * `local-ssd`
-          * `network-ssd-nonreplicated`          * `network-ssd-io-m3`.
+          * `network-ssd-nonreplicated`          * `network-ssd-io-m3`
 
 
 - {{ TF }} {#tf}
@@ -273,7 +273,7 @@ When restored to the current state, the new cluster will match the state of:
 
      * `backupId`: [Backup](../concepts/backup.md) ID. You can get it with a [list of backups](#list-backups).
      * `time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
-     * `folderId`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+     * `folderId`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Environment:
 
@@ -346,9 +346,9 @@ When restored to the current state, the new cluster will match the state of:
 
      Where:
 
-     * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
+     * `backup_id`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
      * `time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
-     * `folder_id`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+     * `folder_id`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Environment:
 
@@ -395,32 +395,32 @@ When restored to the current state, the new cluster will match the state of:
 {% list tabs group=instructions %}
 
 - Management console {#console}
-  
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To create a cluster backup:
-  
+
   1. View a description of the CLI create {{ PG }} backup command:
-  
+
       ```
       {{ yc-mdb-pg }} cluster backup --help
       ```
   1. Request the creation of a backup specifying the cluster name or ID:
-  
+
       ```
       {{ yc-mdb-pg }} cluster backup my-pg-cluster
       ```
-  
+
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
 
 - REST API {#api}
@@ -439,7 +439,7 @@ When restored to the current state, the new cluster will match the state of:
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>:backup'
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -466,7 +466,7 @@ When restored to the current state, the new cluster will match the state of:
        yandex.cloud.mdb.postgresql.v1.ClusterService.Backup
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -481,24 +481,24 @@ When restored to the current state, the new cluster will match the state of:
 - Management console {#console}
 
   To get a list of cluster backups:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
 
   To get a list of all backups in a folder:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
-  
+
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  To get a list of {{ PG }} cluster backups available in the default folder, run the command:
-  
+
+  To get a list of {{ PG }} cluster backups available in the default folder, run this command:
+
   ```
   {{ yc-mdb-pg }} backup list
-  
+
   +--------------------------+---------------------+----------------------+---------------------+
   |            ID            |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
   +--------------------------+---------------------+----------------------+---------------------+
@@ -524,7 +524,7 @@ When restored to the current state, the new cluster will match the state of:
            --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/backups'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
@@ -571,7 +571,7 @@ When restored to the current state, the new cluster will match the state of:
           yandex.cloud.mdb.postgresql.v1.ClusterService.ListBackups
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
@@ -608,26 +608,26 @@ When restored to the current state, the new cluster will match the state of:
 - Management console {#console}
 
   To get information about the backup of an existing cluster:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
 
   To get information about the backup of a previously deleted cluster:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
-  
+
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  To get information about a {{ PG }} cluster backup, run the command:
-  
+
+  To get information about a {{ PG }} cluster backup, run this command:
+
   ```
   {{ yc-mdb-pg }} backup get <backup_ID>
   ```
-  
-  You can retrieve the backup ID with a [list of backups](#list-backups).
+
+  You can get the backup ID together with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -644,7 +644,7 @@ When restored to the current state, the new cluster will match the state of:
         --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups/<backup_ID>'
      ```
 
-     You can get the backup ID together with a [list of backups](#list-backups).
+     You can request the backup ID together with the [list of backups](#list-backups).
 
   1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.postgresql.v1.Backup) to make sure the request was successful.
 
@@ -671,7 +671,7 @@ When restored to the current state, the new cluster will match the state of:
        yandex.cloud.mdb.postgresql.v1.BackupService.Get
      ```
 
-     You can get the backup ID together with a [list of backups](#list-backups).
+     You can request the backup ID together with the [list of backups](#list-backups).
 
   1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.postgresql.v1.Backup) to make sure the request was successful.
 
@@ -687,7 +687,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - CLI {#cli}
 
-  To set the backup start time, use the `--backup-window-start` flag. Time is given in `HH:MM:SS` format.
+  To set the backup start time, use the `--backup-window-start` parameter. Time is given in `HH:MM:SS` format.
 
   ```bash
   {{ yc-mdb-pg }} cluster create \
@@ -714,7 +714,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -795,7 +795,7 @@ When restored to the current state, the new cluster will match the state of:
        * `seconds`: Between `0` and `59` seconds.
        * `nanos`: Between `0` and `999999999` nanoseconds.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -852,7 +852,7 @@ When restored to the current state, the new cluster will match the state of:
        * `seconds`: Between `0` and `59` seconds.
        * `nanos`: Between `0` and `999999999` nanoseconds.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
@@ -881,11 +881,11 @@ When restored to the current state, the new cluster will match the state of:
 
   The possible values range from `7` to `60`. The default value is `7`.
 
-  You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -925,7 +925,7 @@ When restored to the current state, the new cluster will match the state of:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1.  Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -953,7 +953,7 @@ When restored to the current state, the new cluster will match the state of:
  
          The values range from `7` to `60`. The default value is `7`.
 
-       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1001,7 +1001,7 @@ When restored to the current state, the new cluster will match the state of:
 
        The values range from `7` to `60`. The default value is `7`.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
@@ -1015,7 +1015,7 @@ You can only delete backups that were created manually.
 
 - Management console {#console}
 
-    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Select the {{ mpg-name }} cluster whose backup you want to delete.
     1. In the left-hand panel, select **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the backup you want to delete.
@@ -1030,7 +1030,7 @@ You can only delete backups that were created manually.
 
     To delete a backup:
 
-    1. View a description of the CLI command to delete a {{ PG }} cluster backup:
+    1. View the description of the CLI command to delete a {{ PG }} cluster backup:
 
         ```bash
         {{ yc-mdb-pg }} backup delete --help
@@ -1042,7 +1042,7 @@ You can only delete backups that were created manually.
         {{ yc-mdb-pg }} backup delete <backup_ID>
         ```
 
-    You can retrieve the backup ID with a [list of backups](#list-backups).
+    You can get the backup ID together with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -1059,7 +1059,7 @@ You can only delete backups that were created manually.
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups/<backup_ID>'
      ```
 
-     You can get the backup ID together with a [list of backups](#list-backups).
+     You can request the backup ID with the [list of backups](#list-backups).
 
   1. View the [server response](../api-ref/Backup/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1086,7 +1086,7 @@ You can only delete backups that were created manually.
        yandex.cloud.mdb.postgresql.v1.BackupService.Delete
      ```
 
-     You can get the backup ID together with a [list of backups](#list-backups).
+     You can request the backup ID together with the [list of backups](#list-backups).
 
   1. View the [server response](../api-ref/grpc/Backup/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

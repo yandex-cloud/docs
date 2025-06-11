@@ -71,7 +71,7 @@ You cannot delete a rule if deletion protection is enabled. Before deleting the 
           <key_n> = "<value_n>"
         }
 
-        jq_filter = "<jq_expression>"
+        jq_filter = "<jq_template>"
       
         ...
       }
@@ -81,7 +81,7 @@ You cannot delete a rule if deletion protection is enabled. Before deleting the 
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter rule list

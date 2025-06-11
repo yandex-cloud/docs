@@ -52,10 +52,10 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-    1. На панели слева выберите раздел **Защита доменов**.
-    1. Нажмите кнопку **Создать прокси-сервер**.
+    1. На панели слева выберите ![domain-protection-icon](../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
     1. Введите произвольное имя для прокси-сервера, например, `test-proxy`.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
     
         {% include [after-proxy-create](../_includes/smartwebsecurity/after-proxy-create.md) %}
 
@@ -67,36 +67,30 @@
 
   - Консоль управления {#console}
 
-    1. В разделе **Домены** нажмите кнопку **Добавить домен**.
+    1. В меню слева перейдите на вкладку ![globe](../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection-domains }}** и нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServer.Domains.createDomain_49MGX }}**.
     1. Введите адрес домена, на котором находится ваше веб-приложение, например, `example.com`.
-    1. Нажмите **Продолжить**.
-    1. Выберите тип соединения, которое используется в вашем приложении. Рекомендуем выбрать защищенный протокол **HTTPS**.
+    1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+    1. Выберите тип соединения, которое используется в вашем приложении. Рекомендуем выбрать защищенный протокол **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.https_qWPJb }}**.
     1. Если вы используете сервис [{{ certificate-manager-name }}](../../certificate-manager/) и добавляли в него сертификат вашего домена, выберите его из списка. 
-    1. Если вы не используете {{ certificate-manager-name }}, нажмите кнопку **Создать** → **Пользовательский сертификат**.
+    1. Если вы не используете {{ certificate-manager-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}** → **{{ ui-key.yacloud.certificate-manager.CertificateField.userCertificate_bChXn }}**.
        1. Введите произвольное имя сертификата.
        1. Скопируйте или загрузите файлом приватный ключ, сертификат и цепочку промежуточных сертификатов в формате PEM.
-       1. Нажмите кнопку **Создать сертификат**.
-    1. Нажмите **Продолжить**.
+       1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.CertificateImportDialog.createCertificate_x7Ww3 }}**.
+    1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
 
-    1. Укажите настройки **Целевых ресурсов**:
+    1. В блоке **{{ ui-key.yacloud.smart-web-security.DomainForm.TargetResourcesSection.targetResources_hqBQm }}** задайте настройки целевых ресурсов:
        1. IP-адрес и порт, на котором работает ваше веб-приложение.
-       1. Протокол, на котором работает ваше веб-приложение.
-    1. Нажмите кнопку **Сохранить**.
+       1. (Опционально) Разверните блок **{{ ui-key.yacloud.smart-web-security.DomainForm.TargetResourcesSection.connectTargetResources_1mGNK }}**, чтобы выбрать протокол, на котором работает ваше веб-приложение.
+    1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.CreateDomain.createDomain_b2Ykj }}**.
 
-    После создания домена откроется страница обзора параметров домена. В разделе **Как активировать защиту** скопируйте IP-адрес прокси-сервера, он потребуется на следующем шаге.
+    После создания домена откроется страница обзора параметров домена. В разделе **{{ ui-key.yacloud.smart-web-security.Domain.Overview.howToActivateProtection_dK3yy }}** скопируйте IP-адрес прокси-сервера, он потребуется на следующем шаге.
   
   {% endlist %}
 
   ### Настройте вашу инфраструктуру {#infrastructure-settings}
   
-  * Зайдите в панель управления DNS на сайте вашего хостинг-провайдера или регистратора доменов.
-  * Добавьте А-запись с параметрами:
-     * `Имя хоста` — `адрес вашего домена (example.com)`, 
-     * `Значение` — `IP-адрес прокси-сервера`.
-  
-     Эта запись перенаправляет запросы, которые приходят на ваш домен, на IP-адрес прокси-сервера.
-
-  * В настройках вашего сервера запретите все соединения и разрешите только соединения для [IP-адресов {{ yandex-cloud }}](../overview/concepts/public-ips.md).
+  1. {% include [create-proxy-a-record](../_includes/smartwebsecurity/create-proxy-a-record.md) %}
+  1. {% include [limit-traffic-to-yc](../_includes/smartwebsecurity/limit-traffic-to-yc.md) %}
   
   ### Проверьте статус вашего ресурса {#check-status}
 
@@ -104,15 +98,7 @@
 
   - Консоль управления {#console}
 
-    1. В разделе **Прокси-сервер** выберите созданный прокси-сервер.
-    1. Перейдите в раздел **Домены** и выберите созданный домен.
-    1. В разделе **Целевые ресурсы** проверьте, что ваш ресурс находится в статусе **Healthy**.
-  
-       Если это не так, прокси-сервер не может соединиться с вашим ресурсом. Проверьте адрес вашего веб-сервера и настройки сети. Убедитесь, что к веб-серверу разрешен доступ с IP-адресов {{ yandex-cloud }}.
-    
-    1. На панели слева проверьте, что ваш домен находится в статусе **Healthy**. 
-       
-       Если это не так, проверьте адрес домена и А-запись, а также валидность сертификата.
+    {% include [validate-resource-stats](../_includes/smartwebsecurity/validate-resource-stats.md) %}
 
   {% endlist %}
 
@@ -178,13 +164,13 @@
   Способ подключения зависит от типа ресурса.
 
   * Чтобы подключить домен: 
-    1. В разделе **Защита доменов** → **Домены** выберите нужный домен. 
-    1. Нажмите **Подключить профиль безопасности** и выберите профиль.
+    1. В разделе ![domain-protection-icon](../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** → ![globe](../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection-domains }}** выберите нужный домен. 
+    1. В меню сверху нажмите ![plug-connection](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.DomainsTable.connectSecurityProfile_g5MA4 }}** и выберите существующий или создайте новый профиль безопасности.
   
   * Чтобы подключить виртуальный хост в сервисе {{ alb-name }}:
 
     1. Если балансировщик управляется [Ingress-контроллером](../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, используйте [аннотацию ресурса Ingress](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
-    1. Если балансировщик управляется вами, в разделе **Профили безопасности** выберите созданный профиль.
+    1. Если балансировщик управляется вами, в разделе ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** выберите созданный профиль.
     1. Справа сверху нажмите ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
     1. В открывшемся окне выберите:
 
@@ -199,7 +185,7 @@
       На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** появится подключенный виртуальный хост.
 
   * Чтобы подключить API-шлюз:
-    1. В разделе **Профили безопасности** скопируйте идентификатор нужного профиля.
+    1. В разделе ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** скопируйте идентификатор нужного профиля.
     1. При создании API-шлюза или в спецификации уже созданного API-шлюза задайте расширение [x-yc-apigateway:smartWebSecurity](../api-gateway/concepts/extensions/sws.md).
     1. Укажите в расширении скопированный идентификатор.
 
@@ -213,7 +199,7 @@
 
 - Консоль управления {#console}
 
-  1. На странице сервиса **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}** на панели слева выберите раздел **Мониторинг**.
+  1. На странице сервиса **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}** на панели слева выберите раздел ![display-pulse](../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud_billing.common.monitoring }}**.
   1. Посмотрите [графики](operations/monitoring.md) разрешенных и заблокированных запросов.
 
 {% endlist %}

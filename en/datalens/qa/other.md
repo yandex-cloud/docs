@@ -6,7 +6,7 @@ description: This page addresses FAQs about {{ datalens-name }}.
 # Other
 
 
-### How do I get the logs of my actions in the services? {#logs}
+### Can I get logs of my operations in {{ yandex-cloud }}? {#logs}
 
 You can get {{ yandex-cloud }} service logs on your own by connecting to [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md).
 
@@ -26,13 +26,15 @@ Your cloud may be blocked in the following cases:
 
 * Outstanding charges for {{ yandex-cloud }} paid services that are in the same cloud as {{ datalens-short-name }}.
 * Expiration of a trial period for {{ yandex-cloud }} paid services.
-* Violation of the {{ yandex-cloud }} [Terms of Use](https://yandex.ru/legal/cloud_termsofuse/?lang=en).
+* Violation of the {{ yandex-cloud }} [terms of use](https://yandex.ru/legal/cloud_termsofuse/?lang=en).
 
 When a cloud is suspended, your {{ datalens-short-name }} instance will be unavailable. You won't be able to use {{ datalens-short-name }} until access to the cloud is restored.
 
 Learn more in [Automatic cloud suspension](../../overview/concepts/data-deletion.md#block).
 
 {% include [object-id](../../_qa/datalens/object-id.md) %}
+
+{% include [related-objects](../../_qa/datalens/related-objects.md) %}
 
 {% include [network-error](../../_qa/datalens/network-error.md) %}
 

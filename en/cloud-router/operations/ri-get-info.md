@@ -4,6 +4,12 @@ title: How to get information about a routing instance
 
 # Getting information about a routing instance
 
+{% note info %}
+
+You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role for this operation.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -94,7 +100,7 @@ title: How to get information about a routing instance
       ```
 
       Where:
-      * `id`: ID of the routing instance.
+      * `id`: Routing instance ID.
       * `name`: RI name.
       * `description`: RI description.
       * `folder_id`: ID of the cloud folder the RI was created in.

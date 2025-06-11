@@ -46,7 +46,7 @@ description: Follow this guide to create a rule with a {{ cloud-logging-full-nam
       ```bash
       yc serverless eventrouter rule create \
         --bus-id <bus_ID> \
-        --filter '<jq_expression>' \
+        --filter '<jq_template>' \
         --logging-target \
       log-group-id=<log_group_ID>,\
       service-account-id=<queue_service_account>,\
@@ -65,7 +65,7 @@ description: Follow this guide to create a rule with a {{ cloud-logging-full-nam
 
       {% include [target-basics-cli](../../../../_includes/serverless-integrations/target-basics-cli.md) %}
 
-      * `--logging-target`: A flag to configure the `{{ cloud-logging-full-name }}` type target and its parameters:
+      * `--logging-target`: Parameter used to configure the `{{ cloud-logging-full-name }}` target and its properties:
 
           * `log-group-id`: ID of the [log group](../../../../logging/concepts/log-group.md) to receive the messages matching the rule.
 
@@ -123,12 +123,12 @@ description: Follow this guide to create a rule with a {{ cloud-logging-full-nam
 
   To create a [rule](../../../concepts/eventrouter/rule.md) with a {{ cloud-logging-full-name }} target:
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
         bus_id    = "<bus_ID>"
-        jq_filter = "<jq_expression>"
+        jq_filter = "<jq_template>"
 
         logging {
           log_group_id       = "<log_group_ID>"
@@ -150,8 +150,8 @@ description: Follow this guide to create a rule with a {{ cloud-logging-full-nam
       Where:
 
       * `bus_id`: {{ er-name }} [bus](../../../concepts/eventrouter/bus.md) ID.
-      * `jq_filter`: [jq expression](https://jqlang.github.io/jq/manual/) for event [filtering](../../../concepts/eventrouter/rule.md#filter).
-      * `logging`: A section to configure the `{{ cloud-logging-full-name }}` type target and its parameters:
+      * `jq_filter`: [jq template](https://jqlang.github.io/jq/manual/) for event [filtering](../../../concepts/eventrouter/rule.md#filter).
+      * `logging`: Section to configure the `{{ cloud-logging-full-name }}` target and its parameters:
 
           * `log_group_id`: ID of the [log group](../../../../logging/concepts/log-group.md) to receive the messages matching the rule.
 
@@ -161,13 +161,13 @@ description: Follow this guide to create a rule with a {{ cloud-logging-full-nam
 
       {% include [target-additional-tf](../../../../_includes/serverless-integrations/target-additional-tf.md) %}
 
-      For more information about the `yandex_serverless_eventrouter_rule` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
+      For more information about `yandex_serverless_eventrouter_rule` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter rule list

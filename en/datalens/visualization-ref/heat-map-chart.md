@@ -10,7 +10,7 @@ A heat map helps find dependencies that can be hidden due to overlapping map poi
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 Heat map (Geopoints) | Measure of the [Geopoint](../dataset/data-types#geopoint) type
 Colors  | Dimension or measure. Affects the intensity of point fill.
@@ -32,6 +32,8 @@ Filters | Dimension or measure. Used as a filter for the entire chart.
 1. Drag a dimension of the [Geopoint](../dataset/data-types.md#geopoint) type from the dataset to the layer type selection section.
 1. Change the weight of the points on the heat map. To do this, drag the measure to the **Colors** section.
 
+{% include [datalens-map-scale-note](../../_includes/datalens/datalens-map-scale-note.md) %}
+
 You can also:
 
 * Add, rename, and delete a layer.
@@ -41,6 +43,12 @@ You can also:
 
 * Use a heat map if there are a lot of points in your dataset. If there are few points, using this type of map may distort the detected dependencies.
 * The intensity of point and area fill on a heat map varies depending on the map's scale. Please keep this in mind.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-from-csv-geo-visualization.md)
+
 
 #### See also {#see-also}
 

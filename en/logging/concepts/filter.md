@@ -7,7 +7,7 @@ description: "You can filter log group records using the filter expression langu
 
 You can filter log group records using the filter expression language. With the filter expression language, you can:
 * Search for records by [one](#parameters) or [multiple](#multiple-values) parameter values.
-* Use the [comparison operators](#comparison-operations) and [logical operators](#multiple-conditions) in filters.
+* Use the [comparison operations](#comparison-operations) and [logical operators](#multiple-conditions) in filters.
 
 ## How to set a filter {#how-to}
 
@@ -15,11 +15,11 @@ You can filter log group records using the filter expression language. With the 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
+    1. In the [management console]({{ link-console-main }}), select the folder with the log group.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-    1. Go to the **{{ ui-key.yacloud.logging.label_groups }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.logging.label_groups }}** tab.
     1. Click the row with the log group you want to filter.
-    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
     1. Set a filter and press **Enter**.
 
 - CLI {#cli}
@@ -36,7 +36,7 @@ You can filter log group records using the filter expression language. With the 
 
     {% note info %}
 
-    You can filter records using the `--filter` flag and other `yc logging read` command flags at the same time. This combines the conditions with the `AND` operator. For example, you can set a filter using the `--resource-types` flag and the `level` parameter of the `--filter` flag:
+    You can filter records using the `--filter` parameter and other `yc logging read` command parameters at the same time. This combines the conditions with the `AND` operator. For example, you can set a filter using the `--resource-types` parameter and the `level` property of the `--filter` parameter:
 
     ```
     yc logging read --group-name=default --resource-types=serverless.function --filter="level=INFO"
@@ -96,7 +96,7 @@ Available value types for the `timestamp`, `ingested_at`, and `saved_at` paramet
 * A string in RFC3339 format:
     ```bash
     saved_at > "2023-05-28T15:20:31Z"
-    ```
+    ```    
 * Number of seconds after 00:00 1970-01-01:
     ```
     saved_at >= 1622198048
@@ -118,7 +118,7 @@ Searching for boolean values and floating-point and fixed-point numbers works as
 
 ## Comparison operations {#comparison-operations}
 
-Apart from checking for an exact match, the filter expression language supports the following comparison operators:
+Apart from checking for an exact match, the filter expression language supports the following comparison operations:
 
 * **Equal to**
 
@@ -149,7 +149,7 @@ You can combine multiple conditions in a single filter using logical operators:
 
 * `AND`: Logical operator **AND**. Conditions combined with this operator must all be met at the same time.
 
-    Example:
+    For example:
     ```
     parameter1: "value1" AND parameter2: "value2"
     ```
@@ -157,7 +157,7 @@ You can combine multiple conditions in a single filter using logical operators:
 
 * `OR`: Logical operator **OR**. At least one of the conditions must be fulfilled.
 
-    Example:
+    For example:
     ```
     parameter1: "value1" OR parameter2 > "value2"
     ```
@@ -165,7 +165,7 @@ You can combine multiple conditions in a single filter using logical operators:
 
 * `NOT`: Logical operator **NOT**, a condition that is inverse of the specified one must be fulfilled.
 
-    Example:
+    For example:
     ```
     NOT parameter1: "value1"
     ```

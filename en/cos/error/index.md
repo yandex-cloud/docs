@@ -93,7 +93,7 @@ Oct 23 19:43:36 instance-name yc-container-daemon[781]: {"level":"ERROR","ts":"2
 Sep 29 08:10:10 instance-name yc-container-daemon[743]: {"level":"ERROR","ts":"2024-09-29T08:10:10.133Z","caller":"mdtracking/checker.go:135","msg":"OnChange callback failed: device /dev/disk/by-id/virtio-coi-data access error: stat /dev/disk/by-id/virtio-coi-data: no such file or directory"}
 ```
 
-**How to fix it**: Set the `device-name` parameter identical to the `device_name` in the [Docker Compose spec](../concepts/coi-specifications.md#compose-spec-example). You can set the `device-name` parameter in CLI flags and commands for adding disks to the VM or in the management console when [connecting](../../compute/operations/vm-control/vm-attach-disk#attach) the disk to the VM. In the sample logs above, the `device-name` is `coi-data`.
+**How to fix it**: Set the `device-name` parameter identical to the `device_name` in the [Docker Compose spec](../concepts/coi-specifications.md#compose-spec-example). You can set the `device-name` parameter in parameters and CLI commands used to add disks to the VM or in the management console when [connecting](../../compute/operations/vm-control/vm-attach-disk#attach) the disk to the VM. In the sample logs above, the `device-name` is `coi-data`.
 
 ## The requested image platform does not match the host platform {#platforms-not-match}
 

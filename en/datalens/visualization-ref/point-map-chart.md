@@ -12,7 +12,7 @@ This map is used to monitor how points are distributed across the area. For exam
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 Points (Geopoints) | Measure of the [Geopoint](../dataset/data-types.md#geopoint) type
 Point size | Measure. Sets point size depending on the measure value.
@@ -39,6 +39,8 @@ Filters | Dimension or measure. Used as a filter for the entire chart.
 1. Color the points on the map. Move the measure or dimension to the **Colors** section.
 1. Add tooltips to show the dimension and measure values when hovering over a point.
 
+{% include [datalens-map-scale-note](../../_includes/datalens/datalens-map-scale-note.md) %}
+
 You can also:
 
 * Add, rename, and delete a layer.
@@ -49,6 +51,13 @@ You can also:
 
 * Use color palettes corresponding to the goals and objectives of visualization.
 * If the density of points on the map is high, make them less transparent. This will help you see where data intersects.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-from-ch-to-geolayers-visualization.md)
+* [{#T}](../tutorials/data-from-ch-geocoder.md)
+
 
 #### See also {#see-also}
 

@@ -1526,6 +1526,10 @@ items:
               Регулярное асинхронное распознавание аудиофайлов из {{
               objstorage-name }}
             href: ml-ai/batch-recognition-stt.md
+          - name: >-
+              Регулярное распознавание изображений и PDF-документов из бакета {{
+              objstorage-name }}
+            href: ml-ai/vision-ocrrecognizer-storage.md
       - name: >-
           Использование генеративных нейросетей {{ foundation-models-full-name
           }}

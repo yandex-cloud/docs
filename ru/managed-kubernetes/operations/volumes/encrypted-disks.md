@@ -93,7 +93,7 @@ description: Следуя данной инструкции, вы сможете
     kubectl apply -f pod-with-encrypted-pvc.yaml
     ```
 
-    После создания пода в [консоли управления]({{ link-console-main }}) в сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.switch_disks }}** появится новый зашифрованный диск с префиксом `k8s-csi` в имени.
+    После создания пода в [консоли управления]({{ link-console-main }}) в сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.disks_ddfdb }}** появится новый зашифрованный диск с префиксом `k8s-csi` в имени.
 
 ### См. также {#see-also}
 

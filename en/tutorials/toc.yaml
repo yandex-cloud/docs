@@ -16,14 +16,14 @@ items:
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
       - name: >-
-          Creating an L7 load balancer with a {{ sws-name }} security profile
-          through an {{ alb-name }} Ingress controller
+          Creating an L7 load balancer with a {{ sws-name }} profile through an
+          {{ alb-name }} Ingress controller
         href: security/alb-ingress-with-sws-profile.md
       - name: Centralized online publication and app protection against DDoS attacks
         href: security/different-folders-services.md
       - name: >-
-          Migrating services from an NLB to L7 ALB for DDoS protection using {{
-          sws-name }}
+          Migrating services from an NLB to an L7 ALB for DDoS protection using
+          {{ sws-name }}
         items:
           - name: Overview
             href: security/migration-from-nlb-to-alb/index.md
@@ -81,7 +81,7 @@ items:
             href: security/tls-termination/terraform.md
       - name: Delivering logs from a VM instance to {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
-      - name: Storing load balancer logs to {{ PG }}
+      - name: Writing load balancer logs to {{ PG }}
         href: security/logging.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: security/gitlab-lockbox-integration.md
@@ -231,7 +231,7 @@ items:
         href: archive/object-storage-duplicati.md
       - name: Backing up to {{ objstorage-name }} with Bacula
         href: archive/backup-with-bacula.md
-      - name: Backing up to {{ objstorage-full-name }} with Veeam Backup
+      - name: Backing up to {{ objstorage-name }} with Veeam Backup
         href: archive/backup-with-veeam.md
       - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
         href: archive/object-storage-veritas.md
@@ -569,13 +569,13 @@ items:
                 href: container-infrastructure/k8s-fluent-bit-logging.md
               - name: Setting up Gateway API
                 href: container-infrastructure/gateway-api.md
-              - name: Setting up the {{ alb-name }} Ingress controller
+              - name: Setting up an {{ alb-name }} Ingress controller
                 href: container-infrastructure/alb-ingress-controller.md
               - name: Logging settings for {{ alb-name }} Ingress controllers
                 href: container-infrastructure/alb-ingress-controller-log-options.md
               - name: >-
                   Health checking your applications in a {{ managed-k8s-name }}
-                  cluster with the {{ alb-name }} Ingress controller
+                  cluster with an {{ alb-name }} Ingress controllers
                 href: container-infrastructure/custom-health-checks.md
               - name: Using Jaeger to trace requests in {{ ydb-name }}
                 href: container-infrastructure/jaeger-over-ydb.md
@@ -715,7 +715,7 @@ items:
         items:
           - name: Creating a skill for Alice
             href: serverless/alice-skill.md
-          - name: Developing a skill for Alice and a website with authorization
+          - name: Creating a skill for Alice and a website with authorization
             href: serverless/alice-shareable-todolist.md
       - name: Other
         items:
@@ -1228,10 +1228,8 @@ items:
         href: routing/priv-add.md
       - name: Adding a public connection to a direct or partner trunk
         href: routing/pub-add.md
-      - name: Changing the trunk capacity
+      - name: Updating trunk capacity
         href: routing/trunk-capacity-change.md
-      - name: Changing private connection IP prefixes
-        href: routing/priv-prefixes-change.md
       - name: Deleting a private connection
         href: routing/priv-del.md
       - name: Deleting a public connection
@@ -1246,6 +1244,10 @@ items:
           Setting up network connectivity between {{ baremetal-name }} and {{
           vpc-name }} subnets
         href: routing/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Setting up network connectivity between {{ baremetal-name }} and
+          on-prem subnets using {{ interconnect-name }}
+        href: routing/bms-cic-onprem.md
       - name: >-
           Delivering USB devices to a {{ baremetal-name }} server or virtual
           machine

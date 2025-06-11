@@ -39,6 +39,7 @@ description: Различные сценарии использования ма
 * [{#T}](archive-from-vision-to-object-storage.md)
 * [{#T}](recognizer-bot.md)
 * [{#T}](batch-recognition-stt.md)
+* [{#T}](vision-ocrrecognizer-storage.md)
 
 ## Использование генеративных нейросетей {{ foundation-models-full-name }} {#generative-neuronets}
 

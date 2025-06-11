@@ -1,1 +1,1 @@
-Optionally, expand the **{{ ui-key.yacloud.serverless-event-router.label_filter }}** section and enter a [jq expression](https://jqlang.github.io/jq/manual/) to [filter](../../serverless-integrations/concepts/eventrouter/rule.md#filter) events.
+Optionally, expand the **{{ ui-key.yacloud.serverless-event-router.label_filter }}** section and enter a [jq template](https://jqlang.github.io/jq/manual/) to [filter](../../serverless-integrations/concepts/eventrouter/rule.md#filter) events.

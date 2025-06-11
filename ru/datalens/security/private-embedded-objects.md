@@ -1,3 +1,8 @@
+---
+title: Встраивание непубличных объектов
+description: Из статьи вы узнаете, как безопасно встроить непубличные чарты и дашборды на сайт или в приложение.
+---
+
 # Встраивание непубличных объектов
 
 {% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}

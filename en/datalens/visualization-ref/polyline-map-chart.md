@@ -51,6 +51,8 @@ To create a polyline map:
 1. Define the order for connecting points within the group. Move the measure to the **Order** section.
 1. Color the line on the map. Move the measure or dimension to the **Colors** section.
 
+{% include [datalens-map-scale-note](../../_includes/datalens/datalens-map-scale-note.md) %}
+
 You can also:
 
 * Add, rename, and delete a layer.

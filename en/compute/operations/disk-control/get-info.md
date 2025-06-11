@@ -11,7 +11,7 @@ description: Follow this guide to get information about a disk.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your [disk](../../concepts/disk.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Select the disk from the list.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the disk details.
 

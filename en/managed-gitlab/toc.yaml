@@ -85,6 +85,66 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: API authentication
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Instance
+            items:
+              - name: Overview
+                href: api-ref/grpc/Instance/index.md
+              - name: Get
+                href: api-ref/grpc/Instance/get.md
+              - name: List
+                href: api-ref/grpc/Instance/list.md
+              - name: Create
+                href: api-ref/grpc/Instance/create.md
+              - name: Delete
+                href: api-ref/grpc/Instance/delete.md
+              - name: Start
+                href: api-ref/grpc/Instance/start.md
+              - name: Stop
+                href: api-ref/grpc/Instance/stop.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Instance
+            items:
+              - name: Overview
+                href: api-ref/Instance/index.md
+              - name: Get
+                href: api-ref/Instance/get.md
+              - name: List
+                href: api-ref/Instance/list.md
+              - name: Create
+                href: api-ref/Instance/create.md
+              - name: Delete
+                href: api-ref/Instance/delete.md
+              - name: Start
+                href: api-ref/Instance/start.md
+              - name: Stop
+                href: api-ref/Instance/stop.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

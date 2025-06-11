@@ -1962,6 +1962,10 @@ items:
                     href: instancegroup/api-ref/InstanceGroup/delete.md
                   - name: ListInstances
                     href: instancegroup/api-ref/InstanceGroup/listInstances.md
+                  - name: DeleteInstances
+                    href: instancegroup/api-ref/InstanceGroup/deleteInstances.md
+                  - name: StopInstances
+                    href: instancegroup/api-ref/InstanceGroup/stopInstances.md
                   - name: ListOperations
                     href: instancegroup/api-ref/InstanceGroup/listOperations.md
                   - name: ListLogRecords

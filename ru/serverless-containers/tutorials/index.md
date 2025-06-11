@@ -11,3 +11,4 @@ description: На странице представлен список прак�
 * [{#T}](deploy-app-container.md)
 * [{#T}](api-gw-integration.md)
 * [{#T}](functions-framework-to-container.md)
+* [{#T}](vision-ocrrecognizer-storage.md)

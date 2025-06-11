@@ -1,3 +1,8 @@
+---
+title: Подключения
+description: На странице представлены вопросы и ответы про подключения.
+---
+
 # Подключения
 
 {% include [postgre-type.md](../../_qa/datalens/postgre-type.md) %}

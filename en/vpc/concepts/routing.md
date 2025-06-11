@@ -79,7 +79,7 @@ In complex routing scenarios with multiple default routes in the VPC network (su
 
 * Priority 3: If you set up the default static route of `0.0.0.0/0` through a [NAT gateway](./gateways.md#nat-gateway), it will have a lower priority than priorities 1 and 2.
 
-* Priority 4: If you announce a default route of `0.0.0.0/0` using [Cloud Interconnect](../../interconnect/concepts/routing.md#cic-routing-default-as), it will be treated as having a lower priority than routes with priorities 1, 2, and 3.
+* Priority 4: If you announce a default route of `0.0.0.0/0` using [Cloud Interconnect](../../cloud-router/scenarios/prc-ha-with-default-active-standby.md), it will be treated as having a lower priority than routes with priorities 1, 2, and 3.
 
 
 ## Limitations {#restrictions}
@@ -89,7 +89,7 @@ In complex routing scenarios with multiple default routes in the VPC network (su
 
    ```bash
    ssh -J <NAT_instance_username>@<NAT_instance_public_IP_address> \
-     <VM_username>@<VM_internal_IP_address>
+     <VM_user_name>@<VM_internal_IP_address>
    ```
 
 1. {{ vpc-short-name }} route tables cannot use link-local IP address prefixes, such as `169.254.0.0/16` and more specific ones, as they are reserved for {{ vpc-name }} internal use.
@@ -98,11 +98,11 @@ In complex routing scenarios with multiple default routes in the VPC network (su
 1. You cannot use IP addresses of an application-level load balancer's [traffic listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) as `next hop`.
 1. To learn more about the quota-related restrictions on the use of route tables and static routes, see [Quotas and limits](./limits.md#vpc-quotas) in the {{ vpc-name }} documentation.
 
-## Static route use cases {#refs}
 
-1. [Creating and setting up a NAT gateway](../operations/create-nat-gateway.md).
-1. [Routing through a NAT instance](../../tutorials/routing/nat-instance/index.md).
-1. [Creating an IPSec VPN tunnel](../../tutorials/routing/ipsec/index.md).
-1. [Creating and configuring a UserGate gateway in firewall mode](../../tutorials/routing/usergate-firewall.md).
-1. [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the next-generation firewall](../../tutorials/routing/high-accessible-dmz.md).
-1. [Configuring {{ interconnect-name }} access to cloud networks behind NGFWs](../../tutorials/routing/cic-with-ngfw.md).
+## Use cases {#examples}
+
+* [{#T}](../tutorials/nat-instance/index.md)
+* [{#T}](../tutorials/ipsec/index.md)
+* [{#T}](../tutorials/usergate-firewall.md)
+* [{#T}](../tutorials/high-accessible-dmz.md)
+* [{#T}](../tutorials/cic-with-ngfw.md)

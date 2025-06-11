@@ -1,11 +1,11 @@
 ---
-title: Configuring access permissions for a DNS zone in {{ dns-name }}
-description: Follow this guide to configure DNS zone access permissions.
+title: Configuring DNS zone access permissions in {{ dns-name }}
+description: In this tutorial, you will learn how to configure DNS zone access permissions.
 ---
 
 # Configuring DNS zone access permissions
 
-To grant a user, group, or [service account](../../iam/concepts/users/service-accounts.md) access to a [DNS zone](../concepts/dns-zone.md), assign a [role](../../iam/concepts/access-control/roles.md) for it.
+Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a user, group, or [service account](../../iam/concepts/users/service-accounts.md) to provide [DNS zone](../concepts/dns-zone.md) access.
 
 ## Assigning a role {#add-access}
 
@@ -17,27 +17,27 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the CLI command description for assigning a role for a DNS zone:
+  1. See the description of the CLI command for the DNS zone role assignment:
 
       ```bash
       yc dns zone add-access-binding --help
       ```
 
-  1. Get a list of DNS zones in the default [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Get a DNS zone list in the default [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc dns zone list
       ```
 
-  1. View a list of roles already assigned for the resource in question:
+  1. Check currently assigned roles for the DNS zone you want to update:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
       ```
 
-  1. Assign the role using this command:
+  1. To assign the role, run the following command:
 
-      * To a user:
+      * Assigning the role to a user:
 
         ```bash
         yc dns zone add-access-binding <zone_ID> \
@@ -47,10 +47,10 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
         Where:
 
-        * `--user-account-id`: [User ID](../../iam/operations/users/get.md). To assign a role to all authenticated users, use the `--all-authenticated-users` flag.
+        * `--user-account-id`: [User ID](../../iam/operations/users/get.md). To assign the role to all authenticated users, use the `--all-authenticated-users` flag.
         * `--role`: [Role](../security/index.md#roles-list) to assign.
 
-      * To a service account:
+      * Assigning the role to a service account:
 
         ```bash
         yc dns zone add-access-binding <zone_ID> \
@@ -61,7 +61,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
         Where:
 
         * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
-        * `--role`: [Role](../security/index.md#roles-list).
+        * `--role`: [Role](../security/index.md#roles-list) to assign.
 
 - {{ TF }} {#tf}
 
@@ -69,9 +69,9 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To assign a role for a DNS zone using {{ TF }}:
+  To assign a role for a DNS zone using {{ TF }}, do the following:
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_dns_zone_iam_binding" "zone-viewers" {
@@ -85,11 +85,11 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
       * `dns_zone_id`: DNS zone ID.
       * `role`: [Role](../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about the `yandex_dns_zone_iam_binding` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+       For more information about `yandex_dns_zone_iam_binding` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -119,17 +119,17 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% note alert %}
 
-  The `set-access-binding` method completely rewrites access permissions for the resource! All current roles for the resource will be deleted.
+  The `set-access-binding` command completely rewrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
-  1. Make sure the resource has no roles assigned that you would not want to lose:
+  1. Make sure the resource has no important roles assigned before proceeding:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
       ```
 
-  1. View the CLI command description for assigning roles for a DNS zone:
+  1. See the description of the CLI command for the DNS zone role assignment:
 
      ```bash
      yc dns zone set-access-bindings --help
@@ -145,12 +145,12 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
      Where:
 
-     * `--access-binding`: Parameters for setting access permissions:
+     * `--access-binding`: Access permission settings:
 
        * `role`: [Role](../security/index.md#roles-list).
        * `subject`: Type and ID of the [entity](../../iam/concepts/access-control/index.md#subject) assigned the role.
 
-     For example, assign the `dns.editor` roles to multiple users and a service account:
+     For example, you can assign the `dns.editor` role to multiple users and a service account:
 
      ```bash
      yc dns zone set-access-bindings my-disk-group \
@@ -166,7 +166,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   To assign multiple roles for a DNS zone using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_dns_zone_iam_binding" "role1" {
@@ -186,15 +186,15 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
       * `dns_zone_id`: DNS zone ID.
       * `role`: [Role](../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_dns_zone_iam_binding` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+      For more information about `yandex_dns_zone_iam_binding` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the changes using this [CLI](../../cli/) command:
+      You can verify the changes using this [CLI](../../cli/) command:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -206,7 +206,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `DnsZoneService/SetAccessBindings` call completely overwrite access permissions for the resource. All current roles for the resource will be deleted.
+  The `setAccessBindings` method and the `DnsZoneService/SetAccessBindings` call overwrite all existing access permissions for the resource. All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
@@ -222,13 +222,13 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the CLI command description for revoking a role for a DNS zone:
+  1. See the description of the CLI command for revoking DNS zone roles:
 
       ```bash
       yc dns zone add-access-binding --help
       ```
 
-  1. View a list of roles already assigned for the resource in question:
+  1. Check what roles are currently assigned for the DNS zone you want to update:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -244,10 +244,10 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
      Where:
 
-     * `--role`: ID of the role to revoke.
-     * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+     * `--role`: ID of the role you want to revoke.
+     * `--subject`: Type and ID of the target [entity](../../iam/concepts/access-control/index.md#subject) for role revocation.
 
-     For example, to revoke the `dns.editor` role for a DNS zone from a user with the `ajel6l0jcb9s********` ID:
+     For example, run the following command to revoke the `dns.editor` role from a user with the `ajel6l0jcb9s********` ID:
 
      ```bash
      yc dns zone remove-access-binding my-dns-zone \
@@ -263,7 +263,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   To revoke a role assigned for a DNS zone:
 
-  1. Open the {{ TF }} configuration file and delete the section specifying the role:
+  1. Open the {{ TF }} configuration file and delete the fragment describing the role:
 
       ```hcl
       ...
@@ -278,7 +278,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the changes using this [CLI](../../cli/quickstart.md) command:
+      You can verify the changes using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>

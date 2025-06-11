@@ -16,7 +16,7 @@ Follow the [link](https://storage.yandexcloud.net/doc-files/Regions.csv) to down
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 Polygons (Geopolygons) | Measure of the [Geopolygon](../dataset/data-types.md#geopolygon) type
 Colors | Dimension or measure. Affects the color and intensity of area fill.
@@ -39,6 +39,8 @@ Filters | Dimension or measure. Used as a filter for the entire chart.
 1. Drag a dimension of the [Geopolygon](../dataset/data-types.md#geopolygon) type from the dataset to the layer type selection section.
 1. Color the polygons on the map. Move the measure or dimension to the **Colors** section.
 1. Add tooltips to show the dimension and measure values when hovering over a polygon.
+
+{% include [datalens-map-scale-note](../../_includes/datalens/datalens-map-scale-note.md) %}
 
 You can also:
 

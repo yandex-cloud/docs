@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
      resource "yandex_vpc_private_endpoint" "my-vpc-endpoint" {
        name        = "<имя_сервисного_подключения>"
        description = "<описание_сервисного_подключения>"
-       network_id  = "<идентификатор_облачной_сети>
+       network_id  = "<идентификатор_облачной_сети>"
        
        # Сервисное подключение к Object Storage
        object_storage {}
@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
        }
 
        endpoint_address {
-         subnet_id = "<идентификатор_подсети>
+         subnet_id = "<идентификатор_подсети>"
        }
      }
      ```

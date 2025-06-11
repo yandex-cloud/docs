@@ -214,7 +214,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. Перейдите в раздел **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. Перейдите в раздел **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Нажмите на имя группы ВМ `group-coi-containers`.
 
    - CLI {#cli}

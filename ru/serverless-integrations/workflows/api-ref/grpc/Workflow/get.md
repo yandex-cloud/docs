@@ -52,7 +52,8 @@ Required field. ID of the Workflow. ||
       "min_level": "Level"
     },
     "network_id": "string",
-    "service_account_id": "string"
+    "service_account_id": "string",
+    "express": "bool"
   }
 }
 ```
@@ -108,6 +109,9 @@ ID of the VPC network Workflow will be executed in, in order to access private r
 || service_account_id | **string**
 
 ID of the Service Account which will be used for resource access in Workflow execution. ||
+|| express | **bool**
+
+Express execution mode. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification}

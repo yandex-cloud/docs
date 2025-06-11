@@ -40,7 +40,7 @@ Required field. ID of the connector to return. ||
   "description": "string",
   "labels": "map<string, string>",
   "source": {
-    // Includes only one of the fields `data_stream`, `message_queue`, `timer`
+    // Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`
     "data_stream": {
       "database": "string",
       "stream_name": "string",
@@ -58,7 +58,8 @@ Required field. ID of the connector to return. ||
       "cron_expression": "string",
       "time_zone": "string",
       "payload": "string"
-    }
+    },
+    "event_service_source": "EventServiceSource"
     // end of the list of possible fields
   },
   "deletion_protection": "bool",
@@ -118,13 +119,16 @@ Status of the connector.
 ||Field | Description ||
 || data_stream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
 || message_queue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
 || timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
+|| event_service_source | **[EventServiceSource](#yandex.cloud.serverless.eventrouter.v1.EventServiceSource)**
+
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}
@@ -181,4 +185,11 @@ time zone, e.g. Europe/Moscow ||
 || payload | **string**
 
 payload to send to target ||
+|#
+
+## EventServiceSource {#yandex.cloud.serverless.eventrouter.v1.EventServiceSource}
+
+#|
+||Field | Description ||
+|| Empty | > ||
 |#

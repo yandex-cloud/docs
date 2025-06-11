@@ -524,7 +524,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you created your preemptible VM.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM name and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
   1. Check the VM status in about one minute or later. The VM status should now be `Running`.
