@@ -7,7 +7,7 @@ description: In this tutorial, you will learn what a {{ compute-name }} instance
 
 When creating a group, you need to describe an _instance template_, which is the basic instance configuration used for deploying all instances in the group.
 
-Both the template and [policy](policies/index.md) description are provided to the CLI in a YAML file using the `--file` flag when creating or updating an instance group. This is a convenient method to provide values that consist of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
+In CLI, the template description is provided together with the [policy](policies/index.md) description as a YAML file when creating or updating an instance group with the help of the `--file` parameter. This is a convenient method to provide values that consist of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
 
 You can set variable values for the instance template. For more information, see [{#T}](variables-in-the-template.md).
 

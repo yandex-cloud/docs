@@ -137,11 +137,11 @@ Take note of these AWS CLI features when used with {{ objstorage-name }}:
 
 {% note info %}
 
-To enable debug output in the console, use the `--debug` key.
+To enable debug output in the console, use the `--debug` flag.
 
 {% endnote %}
 
-### Creating a bucket {#creating-bucket}
+### Create a bucket {#creating-bucket}
 
 ```bash
 aws s3 mb s3://bucket-name

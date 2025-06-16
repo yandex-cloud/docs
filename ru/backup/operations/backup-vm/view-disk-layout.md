@@ -2,8 +2,6 @@
 
 Чтобы избежать ошибок при восстановлении из резервной копии, перед восстановлением рекомендуется сопоставить параметры дисков и разделов резервной копии с параметрами дисков и разделов [ВМ](../../../compute/concepts/vm.md) или [сервера](../../../baremetal/concepts/servers.md) {{ baremetal-full-name }}.
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}

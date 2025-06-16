@@ -16,9 +16,6 @@ description: На этой странице приведен справочни�
 | [yandex_backup_policy]({{ tf-provider-resources-link }}/backup_policy) | [Политика резервного копирования](./concepts/policy.md) |
 | [yandex_backup_policy_bindings]({{ tf-provider-resources-link }}/backup_policy_bindings) | Привязка политики резервного копирования к [виртуальной машине](../compute/concepts/vm.md) или [серверу {{ baremetal-full-name }}](../baremetal/concepts/servers.md) |
 
-{% include [baremetal-note](../_includes/backup/baremetal-note.md) %}
-
-
 ## Источники данных {#data-sources}
 
 Для {{ billing-name }} поддерживаются следующие источники данных провайдера {{ TF }}:

@@ -55,7 +55,10 @@ def main():
 
     # Создадим ассистента для модели {{ gpt-pro }} Latest.
     # Он будет использовать инструмент поискового индекса.
-    assistant = sdk.assistants.create("yandexgpt", tools=[tool])
+    assistant = sdk.assistants.create(
+        "yandexgpt", 
+        instruction = "Ты — помощник по внутренней документации компании. Отвечай вежливо. Если информация не содержится в документах ниже, не придумывай ответ.", 
+        tools=[tool])
     thread = sdk.threads.create()
 
     input_text = input(

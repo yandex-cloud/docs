@@ -38,7 +38,7 @@ For a full list of metrics, see [this reference](../../metrics.md).
 
 {% endlist %}
 
-## Viewing detailed statistics in {{ monitoring-name }} {#monitoring}
+## View detailed statistics in {{ monitoring-name }} {#monitoring}
 
 {% list tabs group=instructions %}
 

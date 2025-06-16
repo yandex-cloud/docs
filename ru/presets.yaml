@@ -252,7 +252,7 @@ default:
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.29, 1.30, 1.31, 1.32
   k8s-versions-regular: 1.29, 1.30, 1.31, 1.32
-  k8s-versions-stable: 1.29, 1.30, 1.31
+  k8s-versions-stable: 1.29, 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -696,7 +696,7 @@ default:
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
   security-group: enp6saqnq4ie********
-  security-standard-current-version: 1.4.0
+  security-standard-current-version: 1.4.1
   serial-ssh-host: serialssh.cloud.yandex.net
   serverless-containers-full-name: Yandex Serverless Containers
   serverless-containers-host: containers.yandexcloud.net
@@ -1118,17 +1118,17 @@ default:
             t4i|string: "777,60\_₸"
             v2|string: "321,36\_₸"
             v3|string: "802,8720\_₸"
-            v3i|string: "8\_336,50\_₸"
+            v3i|string: "3\_726,05\_₸"
           preemptible|string: "321,36\_₸"
           t4i|string: "777,60\_₸"
           v2|string: "1\_285,0280\_₸"
           v3|string: "2\_007,18\_₸"
-          v3i|string: "8\_336,50\_₸"
+          v3i|string: "3\_726,05\_₸"
         gpu-standard|string: "1\_285,0280\_₸"
         infiniband:
           ic_v3i:
-            preemptible|string: "3\_702,00\_₸"
-          ic_v3i|string: "3\_702,00\_₸"
+            preemptible|string: "1\_654,85\_₸"
+          ic_v3i|string: "1\_654,85\_₸"
           ic:
             preemptible|string: "343,44\_₸"
           ic|string: "343,44\_₸"
@@ -2791,17 +2791,17 @@ default:
             t4i|string: "155,52\_₽"
             v2|string: "64,2720\_₽"
             v3|string: "160,5744\_₽"
-            v3i|string: "1\_667,30\_₽"
+            v3i|string: "745,21\_₽"
           preemptible|string: "64,2720\_₽"
           t4i|string: "155,52\_₽"
           v2|string: "257,0056\_₽"
           v3|string: "401,4360\_₽"
-          v3i|string: "1\_667,30\_₽"
+          v3i|string: "745,21\_₽"
         gpu-standard|string: "257,0056\_₽"
         infiniband:
           ic_v3i:
-            preemptible|string: "740,40\_₽"
-          ic_v3i|string: "740,40\_₽"
+            preemptible|string: "330,97\_₽"
+          ic_v3i|string: "330,97\_₽"
           ic:
             preemptible|string: "68,6880\_₽"
           ic|string: "68,6880\_₽"
@@ -4459,17 +4459,17 @@ default:
             t4i|string: "1,295999\_$"
             v2|string: "0,535600\_$"
             v3|string: "1,338119\_$"
-            v3i|string: "13,894161\_$"
+            v3i|string: "6,210081\_$"
           preemptible|string: "0,535600\_$"
           t4i|string: "1,295999\_$"
           v2|string: "2,141712\_$"
           v3|string: "3,345299\_$"
-          v3i|string: "13,894161\_$"
+          v3i|string: "6,210081\_$"
         gpu-standard|string: "2,141712\_$"
         infiniband:
           ic_v3i:
-            preemptible|string: "6,169998\_$"
-          ic_v3i|string: "6,169998\_$"
+            preemptible|string: "2,758082\_$"
+          ic_v3i|string: "2,758082\_$"
           ic:
             preemptible|string: "0,572400\_$"
           ic|string: "0,572400\_$"
@@ -7646,7 +7646,7 @@ default:
           button_upload: Загрузить образ
           label_title: Образы
           popup-confirm_button_delete: Удалить
-          popup-upload_field_pooled: Оптимизировать для развертывания
+          popup-upload_field_pooled: Оптимизация
         instance-groups_hx3kX: Группы виртуальных машин
         instance:
           access-method:
@@ -11208,14 +11208,8 @@ default:
         add-key: Добавить ключ
         additional:
           separators:
-            finish:
-              help: >-
-                Если в диалоге обнаружена ключевая фраза, это будет считаться
-                окончанием диалога.
-            start:
-              help: >-
-                Если в диалоге обнаружена ключевая фраза, это будет считаться
-                началом диалога.
+            finish-key-value: Конец диалога
+            start-key-value: Начало диалога
           slice-length: Длина отрезка
           split:
             title: Разбивать диалоги на отрезки

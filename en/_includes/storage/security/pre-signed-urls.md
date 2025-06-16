@@ -78,7 +78,7 @@ HTTP method to use to send the request: `GET`, `PUT`, `HEAD`, or `DELETE`.
 
 #### CanonicalURL {#canonical-url}
 
-URL-encoded object key. For example, `/folder/object.ext`.
+URL-encoded object key, e.g., `/folder/object.ext`.
 
 {% note info %}
 
@@ -121,7 +121,7 @@ x-amz-date:20190801T000000Z
 
 This is a list of lowercase request header names, sorted alphabetically and separated by semicolons.
 
-Example:
+For example:
 
 ```
 host;x-amz-date
@@ -339,15 +339,17 @@ To show the principle of generating and signing requests to {{ objstorage-name }
 
 ## Examples of getting a pre-signed link in the {{ objstorage-name }} tools {#example-for-getting-in-tools}
 
-This subsection provides examples of generating pre-signed URLs with the help of various [{{ objstorage-name }} tools](../../../storage/tools/index.md).
+This subsection provides examples of generating pre-signed URLs with the help of various [{{ objstorage-name }}](../../../storage/tools/index.md) tools.
+
+### Downloading objects {#downloading-examples}
 
 {% list tabs %}
 
-- Management console {#console}
+- Management console
   
   {% include [storage-get-link-for-download](../../../storage/_includes_service/storage-get-link-for-download.md) %}
 
-- AWS CLI {#cli}
+- AWS CLI
 
     You can use the AWS CLI to generate a link for downloading an object. To do this, run this command:
 
@@ -359,7 +361,7 @@ This subsection provides examples of generating pre-signed URLs with the help of
 
     To generate the link properly, make sure to provide the `--endpoint-url` parameter pointing to the {{ objstorage-name }} hostname. For detailed information, see [this section covering the AWS CLI specifics](../../../storage/tools/aws-cli.md#specifics).
 
-- Python (boto3) {#boto3}
+- SDK for Python (boto3)
     
     The example generates a pre-signed URL for downloading `object-for-share` from `bucket-with-objects`. The URL is valid for 100 seconds.
 
@@ -393,80 +395,290 @@ This subsection provides examples of generating pre-signed URLs with the help of
     print(presigned_url)
     ```
 
-- JavaScript {#javascript}
-    
-    The examples below use the [@aws-sdk/client-s3](https://www.npmjs.com/package/%40aws-sdk/client-s3) and [@aws-sdk/s3-request-presigner](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner) libraries.
+- SDK for JavaScript
 
-    * **Downloading an object**
+    The example generates a pre-signed URL for downloading `object-for-share` from `bucket-with-objects`. The URL is valid for 100 seconds.
 
-      The example generates a pre-signed URL for downloading `object-for-share` from `bucket-with-objects`. The URL is valid for 100 seconds.
+    This example uses the [@aws-sdk/client-s3](https://www.npmjs.com/package/@aws-sdk/client-s3) and [@aws-sdk/s3-request-presigner](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner) libraries.
 
-      ```js
-      import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
-      import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+    ```js
+    import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+    import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
-      const S3_ENDPOINT = "https://{{ s3-storage-host }}";
+    const S3_ENDPOINT = "https://{{ s3-storage-host }}";
 
-      const ACCESS_KEY_ID = "JK38EXAMP********";
-      const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
+    const ACCESS_KEY_ID = "JK38EXAMP********";
+    const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
 
-      const s3Client = new S3Client({
-        region: "{{ region-id }}",
-        endpoint: S3_ENDPOINT,
-        credentials: {
-          accessKeyId: ACCESS_KEY_ID,
-          secretAccessKey: SECRET_ACCESS_KEY,
-        },
-      });
+    const s3Client = new S3Client({
+      region: "{{ region-id }}",
+      endpoint: S3_ENDPOINT,
+      credentials: {
+        accessKeyId: ACCESS_KEY_ID,
+        secretAccessKey: SECRET_ACCESS_KEY,
+      },
+    });
 
-      const command = new GetObjectCommand({
-        Bucket: "bucket-with-objects",
-        Key: "object-for-share",
-      });
-      const objectPresignedUrl = await getSignedUrl(s3Client, command, {
-        expiresIn: 100,
-      });
+    const command = new GetObjectCommand({
+      Bucket: "bucket-with-objects",
+      Key: "object-for-share",
+    });
+    const objectPresignedUrl = await getSignedUrl(s3Client, command, {
+      expiresIn: 100,
+    });
 
-      console.log(objectPresignedUrl);
-      ```
-
-    * **Uploading an object**
-
-      This example generates a pre-signed URL for uploading `object-for-share` to `bucket-with-objects`. The URL is valid for 100 seconds.
-
-      ```js
-      import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-      import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-
-      const S3_ENDPOINT = "https://{{ s3-storage-host }}";
-
-      const ACCESS_KEY_ID = "JK38EXAMP********";
-      const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
-
-      const s3Client = new S3Client({
-        region: "{{ region-id }}",
-        endpoint: S3_ENDPOINT,
-        credentials: {
-          accessKeyId: ACCESS_KEY_ID,
-          secretAccessKey: SECRET_ACCESS_KEY,
-        },
-      });
-
-      const command = new PutObjectCommand({
-        Bucket: "bucket-with-objects",
-        Key: "object-for-share",
-      });
-      const objectPresignedUrl = await getSignedUrl(s3Client, command, {
-        expiresIn: 100,
-      });
-
-      console.log(objectPresignedUrl);
-      ```
+    console.log(objectPresignedUrl);
+    ```
 
 {% endlist %}
+
+### Uploading objects {#uploading-examples}
+
+Before using the examples, save the required authentication data to environment variables:
+
+```bash
+export AWS_ACCESS_KEY_ID="<static_key_ID>"
+export AWS_SECRET_ACCESS_KEY="<secret_key>"
+export AWS_DEFAULT_REGION="{{ region-id }}"
+export AWS_REGION="{{ region-id }}"
+export AWS_ENDPOINT_URL="https://{{ s3-storage-host }}"
+```
+
+Where:
+* `AWS_ACCESS_KEY_ID`: Static access key [ID](../../../iam/concepts/authorization/access-key.md#key-id).
+* `AWS_SECRET_ACCESS_KEY`: [Secret key](../../../iam/concepts/authorization/access-key.md#private-key).
+
+The code in the examples generates a signed URL to upload an object with a specified [key](../../../storage/concepts/object.md#key) into a specified bucket. The URL you get is valid for one hour.
+
+In this example, the size of the uploaded object is limited and cannot exceed the 5 MB value set in the code.
+
+{% list tabs group=programming_language %}
+
+- SDK for Python (boto3) {#python}
+
+  [Install](https://github.com/boto/boto3/blob/develop/README.rst#quick-start) boto3 and run this code:
+
+  ```python
+  import logging
+  import boto3
+  from botocore.exceptions import ClientError
+  import json
+
+
+  def create_presigned_post(bucket_name, object_name, max_size, expiration, fields=None):
+
+      conditions = [["content-length-range", 1, max_size]]
+
+      s3_client = boto3.client("s3")
+      try:
+          response = s3_client.generate_presigned_post(
+              bucket_name,
+              object_name,
+              Fields=fields,
+              Conditions=conditions,
+              ExpiresIn=expiration,
+          )
+      except ClientError as e:
+          logging.error(e)
+          return None
+
+      return response
+
+
+  def main():
+
+      bucket_name = "<bucket_name>"
+      object_name = "<uploaded_object_key>"
+      max_size = 5 * 1024 * 1024  # Maximum size of uploaded object in bytes
+      lifespan = 3600 # Link validity period in seconds
+
+      response = create_presigned_post(bucket_name, object_name, max_size, lifespan)
+
+      print("Signed link and data to upload created successfully:")
+      print(json.dumps(response, indent=4))
+
+
+  if __name__ == "__main__":
+      main()
+  ```
+
+  Where:
+  * `bucket_name`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to upload the file to.
+  * `object_name`: [Key](../../../storage/concepts/object.md#key) to assign to the object in the bucket. For example, `new-prefix/sample-object.txt`.
+  * `max_size`: Maximum allowed size of the uploaded file in bytes.
+
+  Result:
+
+  ```json
+  Signed link and data to upload created successfully:
+  {
+      "url": "https://{{ s3-storage-host }}/my-sample-bucket",
+      "fields": {
+          "key": "new-prefix/sample-object.txt",
+          "x-amz-algorithm": "AWS4-HMAC-SHA256",
+          "x-amz-credential": "YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request",
+          "x-amz-date": "20250516T145901Z",
+          "policy": "eyJleHBpcmF0aW9uIjogIjIwMjUtMDUtMTZUMTU6NTk6MDFaIiwgImNvbmRpdGlvbnMiOiBbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsIDEsIDUyNDI4ODBdLCB7ImJ1Y2tldCI6ICJhbHRhcmFza2luLXRlc3Rlci1idWNrZXQifSwgeyJrZXkiOiAiZmlsZS50eHQifSwgeyJ4LWFtei1hbGdvcml0aG0iOiAiQVdTNC1ITUFDLVNIQTI1NiJ9LCB7IngtYW16LWNyZWRlbnRpYWwiOiAiWUNBSkU5OHVUcktKd0F0cXdySEpYTmg1TC8yMDI1MDUxNi9ydS1jZW50cmFsMS9zMy9hd3M0X3JlcXVlc3QifSwgeyJ4LWFtei1kYXRlIjogIjIwMjUwNTE2VDE0NTkw********",
+          "x-amz-signature": "c2e1783095d20d89a7683fc582527740541de16156569d9950cfb1b7********"
+      }
+  }
+  ```
+
+- SDK for JavaScript {#node}
+
+  This example uses the [@aws-sdk/client-s3](https://www.npmjs.com/package/@aws-sdk/client-s3) and [@aws-sdk/@aws-sdk/s3-presigned-post](https://www.npmjs.com/package/@aws-sdk/s3-presigned-post) libraries.
+
+  Run the following code:
+
+  ```js
+  import { S3Client } from "@aws-sdk/client-s3";
+  import { createPresignedPost } from "@aws-sdk/s3-presigned-post";
+
+  const client = new S3Client();
+  const Bucket = "<bucket_name>";
+  const Key = "<uploaded_object_key>";
+  const max_size = 5 * 1,024 * 1,024;  // Maximum size of uploaded object in bytes
+
+  const Conditions = [["content-length-range", 1, max_size]];
+
+  const url = await createPresignedPost(client, {
+    Bucket,
+    Key,
+    Conditions,
+    Expires: 3600, // Link validity period in seconds
+  });
+
+  console.log(url)
+  ```
+
+  Where:
+  * `Bucket`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to upload the file to.
+  * `Key`: [Key](../../../storage/concepts/object.md#key) to assign to the object in the bucket. For example, `new-prefix/sample-object.txt`.
+  * `max_size`: Maximum allowed size of the uploaded file in bytes.
+
+  Result:
+
+  ```txt
+  {
+    url: 'https://my-sample-bucket.{{ s3-storage-host }}/',
+    fields: {
+      bucket: 'my-sample-bucket',
+      'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
+      'X-Amz-Credential': 'YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request',
+      'X-Amz-Date': '20250516T210215Z',
+      key: 'new-prefix/sample-object.txt',
+      Policy: 'eyJleHBpcmF0aW9uIjoiMjAyNS0wNS0xNlQyMjowMjoxNVoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMSw1MjQyODgwXSx7ImJ1Y2tldCI6ImFsdGFyYXNraW4tdGVzdGVyLWJ1Y2tldCJ9LHsiWC1BbXotQWxnb3JpdGhtIjoiQVdTNC1ITUFDLVNIQTI1NiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IllDQUpFOTh1VHJLSndBdHF3ckhKWE5oNUwvMjAyNTA1MTYvcnUtY2VudHJhbDEvczMvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1EYXRlIjoiMjAyNTA1MTZUMjEwMjE1WiJ9LHsia2V5IjoiZmlsZS50********',
+      'X-Amz-Signature': '2a8be28a4e2a72de98bd258a8362dd895dd0fdb1886a1764e7085282********'
+    }
+  }
+  ```
+
+- SDK for Go {#go}
+
+  [Install](https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/getting-started.html#install-the-aws-sdk-for-go-v2) AWS SDK for Go and run this code:
+
+  ```go
+  package main
+
+  import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+
+    "github.com/aws/aws-sdk-go-v2/config"
+    "github.com/aws/aws-sdk-go-v2/service/s3"
+  )
+
+  func main() {
+    cfg, err := config.LoadDefaultConfig(context.TODO())
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    client := s3.NewFromConfig(cfg)
+
+    psClient := s3.NewPresignClient(client)
+
+    bucket := "<bucket_name>"
+    key := "<uploaded_object_key>"
+    max_size = 5 * 1,024 * 1,024;  // Maximum size of uploaded object in bytes
+
+    req, err := psClient.PresignPostObject(
+      context.TODO(),
+      &s3.PutObjectInput{
+        Bucket: &bucket,
+        Key:    &key,
+      },
+      func(opts *s3.PresignPostOptions) {
+        opts.Expires = time.Hour // Link validity period
+        opts.Conditions = []interface{}{
+          []interface{}{"content-length-range", 1, max_size},
+        }
+      },
+    )
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    fmt.Printf("url: %v\n", req.URL)
+    fmt.Println("values:")
+    for k, v := range req.Values {
+      fmt.Printf("%v=%v\n", k, v)
+    }
+  }
+  ```
+
+  Where:
+  * `bucket`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to upload the file to.
+  * `key`: [Key](../../../storage/concepts/object.md#key) to assign to the object in the bucket. For example, `new-prefix/sample-object.txt`.
+  * `max_size`: Maximum allowed size of the uploaded file in bytes.
+
+  Result:
+
+  ```text
+  url: https://my-sample-bucket.{{ s3-storage-host }}
+  values:
+  X-Amz-Algorithm=AWS4-HMAC-SHA256
+  X-Amz-Date=20250516T152552Z
+  X-Amz-Credential=YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request
+  X-Amz-Signature=9371b1924dd468a9be6b57868565ad5f99cdc7edc3b56589bea3dbfa********
+  key=new-prefix/sample-object.txt
+  policy=eyJjb25kaXRpb25zIjpbeyJYLUFtei1BbGdvcml0aG0iOiJBV1M0LUhNQUMtU0hBMjU2In0seyJidWNrZXQiOiJhbHRhcmFza2luLXRlc3Rlci1idWNrZXQifSx7IlgtQW16LUNyZWRlbnRpYWwiOiJZQ0FKRTk4dVRyS0p3QXRxd3JISlhOaDVMLzIwMjUwNTE2L3J1LWNlbnRyYWwxL3MzL2F3czRfcmVxdWVzdCJ9LHsiWC1BbXotRGF0ZSI6IjIwMjUwNTE2VDE1MjU1MloifSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwxLDUyNDI4ODBdLHsia2V5IjoiZmlsZS50eHQifV0sImV4cGlyYXRpb24iOiIyMDI1LTA1LTE2VDE2OjI1********
+  ```
+
+{% endlist %}
+
+Use the signed link components you got to send an HTTP request to upload a file to the {{ objstorage-full-name }} bucket:
+
+```bash
+curl \
+  --request POST \
+  --form "X-Amz-Date=20250516T152552Z" \
+  --form "X-Amz-Credential=YCAJE98uTrKJwAtqw********/20250516/{{ region-id }}/s3/aws4_request" \
+  --form "X-Amz-Signature=9371b1924dd468a9be6b57868565ad5f99cdc7edc3b56589bea3dbfa********" \
+  --form "key=new-prefix/sample-object.txt" \
+  --form "policy=eyJjb25kaXRpb25zIjpbeyJYLUFtei1BbGdvcml0aG0iOiJBV1M0LUhNQUMtU0hBMjU2In0seyJidWNrZXQiOiJhbHRhcmFza2luLXRlc3Rlci1idWNrZXQifSx7IlgtQW16LUNyZWRlbnRpYWwiOiJZQ0FKRTk4dVRyS0p3QXRxd3JISlhOaDVMLzIwMjUwNTE2L3J1LWNlbnRyYWwxL3MzL2F3czRfcmVxdWVzdCJ9LHsiWC1BbXotRGF0ZSI6IjIwMjUwNTE2VDE1MjU1MloifSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwxLDUyNDI4ODBdLHsia2V5IjoiZmlsZS50eHQifV0sImV4cGlyYXRpb24iOiIyMDI1LTA1LTE2VDE2OjI1********" \
+  --form "X-Amz-Algorithm=AWS4-HMAC-SHA256" \
+  --form "file=./sample-object.txt" \
+  https://my-sample-bucket.{{ s3-storage-host }}
+```
+
+As a result, the file will be uploaded to the bucket if not exceeding in size the value specified in the code. If the file is larger than the set maximum, an error will be returned:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+    <Code>EntityTooLarge</Code>
+    <Message>Your proposed upload exceeds the maximum allowed object size.</Message>
+    <Resource>/</Resource>
+    <RequestId>5575e8faa94e02b2</RequestId>
+    <MaxSizeAllowed>5242880</MaxSizeAllowed>
+    <ProposedSize>15728640</ProposedSize>
+</Error>
+```
 
 
 ## Use cases {#examples}
 
 * [{#T}](../../../tutorials/security/protected-access-to-content/index.md)
-

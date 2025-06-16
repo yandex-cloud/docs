@@ -1,4 +1,4 @@
-# Installing the {{ alb-name }} Ingress Controller
+# Installing an {{ alb-name }} Ingress Controller
 
 To balance the load and distribute traffic between {{ k8s }} applications, you can use an [{{ alb-full-name }} Ingress Controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md). It will launch the L7 load balancer and its auxiliary resources when you create an `Ingress` resource in a {{ managed-k8s-name }} cluster.
 
@@ -14,7 +14,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
-1. Create an Ingress Controller [service account](../../iam/operations/sa/create.md) and [assign it the following roles for the folder](../../iam/operations/sa/assign-role-for-sa.md):
+1. Create an ingress controller [service account](../../iam/operations/sa/create.md) and [assign it the following roles for the folder](../../iam/operations/sa/assign-role-for-sa.md):
    * [alb.editor](../../application-load-balancer/security/index.md#alb-editor): To create the {{ alb-name }} resources.
    * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin): To manage external network connectivity.
    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
@@ -24,7 +24,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
    ```bash
    yc iam key create \
-     --service-account-name <name_of_service_account_for_Ingress_controller> \
+     --service-account-name <name_of_service_account_for_Ingress_Controller> \
      --output sa-key.json
    ```
 
@@ -35,7 +35,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 
-   * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `alb-ingress-controller-space`. If you leave the default namespace, ALB Ingress Controller may work incorrectly.
+   * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `alb-ingress-controller-space`. If you leave the default namespace, the ALB Ingress Controller may work incorrectly.
    * **Application name**: Specify the application name.
    * **Folder ID**: Specify the [folder ID](../../resource-manager/operations/folder/get-id.md).
    * **Cluster ID**: Specify the [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
@@ -61,7 +61,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
    sudo apt update && sudo apt install jq
    ```
 
-1. To install the [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress Controller, run this command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with an ingress controller, run this command:
 
    ```bash
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
@@ -80,9 +80,9 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   If you set `namespace` to the default namespace, ALB Ingress Controller may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `alb-ingress-controller-space`).
+   If you set `namespace` to the default namespace, the ALB Ingress Controller may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `alb-ingress-controller-space`).
 
-   The `enableDefaultHealthChecks` option enables application health checks in a cluster. With this option selected, ALB Ingress Controller installs [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) in the node group network.
+   The `enableDefaultHealthChecks` option enables application health checks in a cluster. With this option selected, the ALB Ingress Controller installs [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) in the node group network.
 
    DaemonSet adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring process, which means you get accurate traffic monitoring data. If the number of cluster nodes increases or decreases, DaemonSet adds or removes monitoring agents, respectively.
 
@@ -90,12 +90,12 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
 ## Use cases {#examples}
 
-* [{{ alb-name }} Ingress Controller configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
-* [{{ alb-name }} Ingress Controller logging configuration tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
+* [Setting up an {{ alb-name }} Ingress Controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+* [Logging settings for {{ alb-name }} Ingress Controllers](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
 ## See also {#see-also}
 
-* Ingress controller official documentation description.
-   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
-   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
-* [Restrictions when updating ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).
+* Ingress controllers described in documentation:
+   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
+   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md)
+* [Restrictions when upgrading the ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md)

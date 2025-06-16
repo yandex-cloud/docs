@@ -6,12 +6,18 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](k8s-cluster-with-no-internet.md)
+* [{#T}](kubernetes-terraform-provider.md)
 * [{#T}](running-pod-gpu.md)
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
-* [{#T}](terraform-modules.md)
 * [{#T}](kms-k8s.md)
+* [{#T}](k8s-cluster-api-provider-yandex.md)
+
+### Creating a project using {{ TF }} {#terraform}
+
+* [{#T}](kubernetes-terraform-provider.md)
+* [{#T}](terraform-modules.md)
 
 ## Setting up and testing scaling {#scaling}
 
@@ -26,7 +32,7 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](nginx-ingress-certificate-manager.md)
 
 
-To learn about installing the NGINX Ingress controller using {{ marketplace-full-name }}, see [this guide](../operations/applications/ingress-nginx.md).
+For how to install an NGINX Ingress Controller with the help of {{ marketplace-full-name }}, see [this guide](../operations/applications/ingress-nginx.md).
 
 
 ## {{ container-registry-full-name }} usage {#container-registry}

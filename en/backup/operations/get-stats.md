@@ -2,8 +2,6 @@
 
 {{ backup-name }} automatically supplies the metrics on the number of protected VMs and {{ baremetal-full-name }} servers, as well as storage space used by backups, to [{{ monitoring-full-name }}](../../monitoring/).
 
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
 To view the statistics:
 
 {% list tabs group=instructions %}

@@ -8,8 +8,10 @@ description: Управление доступом в сервисе предо�
 
 В этом разделе вы узнаете:
 
+* [об управлении доступом в {{ yandex-cloud }}](#about-access-control);
 * [на какие ресурсы можно назначить роль](#resources);
-* [какие роли действуют в сервисе](#roles-list).
+* [какие роли действуют в сервисе](#roles-list);
+* [какие роли нужны для выполнения определенных действий](#choosing-roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -122,6 +124,68 @@ description: Управление доступом в сервисе предо�
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
+
+## Какие роли мне необходимы {#choosing-roles}
+
+В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие права, чем указанная. Например, можно назначить `editor` вместо `compute.editor` или назначить роль `compute.viewer` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) вместо отдельной виртуальной машины или диска.
+
+Действие | Минимально необходимые роли
+----- | -----
+**Просмотр информации** |
+Просмотр информации о любом ресурсе и о [правах доступа](../../iam/concepts/access-control/index.md), назначенных к любому ресурсу | `compute.viewer` на этот ресурс
+Просмотр списка [виртуальных машин](../concepts/vm.md), входящих в [группу виртуальных машин](../concepts/instance-groups/index.md), просмотр журнала логов группы виртуальных машин | `compute.viewer` на группу ВМ
+Просмотр списка [дисков](../concepts/disk.md), входящих в [группу размещения дисков](../concepts/disk-placement-group.md) | `compute.viewer` на группу размещения дисков
+Просмотр списка виртуальных машин, входящих в [кластер GPU](../concepts/gpus.md#gpu-clusters) | `compute.viewer` на кластер GPU
+Просмотр списка виртуальных машин на [выделенном хосте](../concepts/dedicated-host.md), просмотр списка выделенных хостов в группе выделенных хостов | `compute.viewer` на группу выделенных хостов
+Просмотр списка виртуальных машин в [группе размещения](../concepts/placement-groups.md) | `compute.viewer` на группу размещения
+[Получение вывода последовательного порта](../operations/vm-info/get-serial-port-output.md) виртуальной машины | `compute.viewer` на ВМ
+Получение информации о наиболее актуальном [образе](../concepts/image.md) в [семействе образов](../concepts/image.md#family) | `compute.viewer` или `compute.images.user` на образ
+Просмотр информации о [расписаниях](../concepts/snapshot-schedule.md), по которым создаются [снимки](../concepts/snapshot.md) дисков, просмотр списка дисков, подключенных к определенному расписанию создания снимков дисков, и списка снимков дисков, созданных по этому расписанию | `compute.snapshotSchedules.viewer` или `compute.viewer` на расписание
+**Использование ресурсов** |
+Использование любого ресурса | `compute.editor` на этот ресурс
+Использование [дисков](../concepts/disk.md) | `compute.disks.user`, `compute.snapshotSchedules.editor` или `compute.editor` на диск
+Использование [образов](../concepts/image.md) | `compute.images.user` или `compute.editor` на образ
+**Управление ресурсами** |
+[Создание](../operations/vm-create/create-linux-vm.md) виртуальной машины | `compute.editor` на каталог
+[Запуск](../operations/vm-control/vm-stop-and-start.md#start), [остановка](../operations/vm-control/vm-stop-and-start.md#stop) и [перезапуск](../operations/vm-control/vm-stop-and-start.md#restart) виртуальных машин | `compute.operator` на ВМ
+[Изменение](../operations/vm-control/vm-update.md) и [удаление](../operations/vm-control/vm-delete.md) виртуальной машины | `compute.editor` на ВМ
+[Привязка](../operations/vm-control/vm-connect-sa.md) сервисного аккаунта к ВМ | `compute.editor` на ВМ
+[Изменение метаданных](../operations/vm-metadata/update-vm-metadata.md) виртуальной машины | `compute.editor` на ВМ
+[Подключение](../operations/vm-control/vm-attach-disk.md) к ВМ и [отключение](../operations/vm-control/vm-detach-disk.md) от ВМ диска | `compute.editor` на ВМ
+[Подключение](../operations/filesystem/attach-to-vm.md) к ВМ и [отключение](../operations/filesystem/detach-from-vm.md) от ВМ [файлового хранилища](../concepts/filesystem.md) | `compute.editor` на ВМ
+[Добавление](../operations/vm-control/attach-network-interface.md) на ВМ и [удаление](../operations/vm-control/detach-network-interface.md) из ВМ [сетевого интерфейса](../concepts/network.md), [изменение](../operations/vm-control/internal-ip-update.md) сетевого интерфейса ВМ | `compute.editor` на ВМ
+[Привязка](../operations/vm-control/vm-attach-public-ip.md) к ВМ и [отвязка](../operations/vm-control/vm-detach-public-ip.md) от ВМ [публичного IP-адреса](../../vpc/concepts/address#public-addresses.md) | `compute.editor` на ВМ
+[Назначение](../operations/vm-control/vm-change-security-groups-set.md) виртуальной машине [групп безопасности](../../vpc/concepts/security-groups.md) | `compute.editor` на ВМ
+Перенос виртуальной машины [в другой каталог](../operations/vm-control/vm-change-folder.md) облака | `compute.editor` на ВМ
+[Имитирование](../operations/vm-control/vm-update-policies.md#simulate) события обслуживания виртуальной машины | `compute.editor` на ВМ
+[Создание](../operations/instance-groups/create-fixed-group.md) группы виртуальных машин | `compute.editor` на каталог
+[Запуск](../operations/instance-groups/start.md) и [остановка](../operations/instance-groups/stop.md) групп виртуальных машин | `compute.operator` на группу ВМ
+[Изменение](../operations/instance-groups/update.md) и [удаление](../operations/instance-groups/delete.md) группы виртуальных машин | `compute.editor` на группу ВМ
+Поочередный [перезапуск](../operations/instance-groups/rolling-restart.md) и поочередное [пересоздание](../operations/instance-groups/rolling-recreate.md) ВМ в группе ВМ | `compute.operator` на группу ВМ
+[Приостановка](../operations/instance-groups/pause-processes.md) и [возобновление](../operations/instance-groups/resume-processes.md) процессов в группе виртуальных машин | `compute.editor` на группу ВМ
+[Создание](../operations/gpu-cluster/gpu-cluster-create.md) кластера GPU | `compute.editor` на каталог
+[Изменение](../operations/gpu-cluster/gpu-cluster-update.md) и [удаление](../operations/gpu-cluster/gpu-cluster-delete.md) кластера GPU | `compute.editor` на кластер GPU
+[Создание](../operations/dedicated-host/create-host-group.md) группы выделенных хостов | `compute.editor` на каталог
+Изменение и удаление группы выделенных хостов, изменение хоста в группе выделенных хостов | `compute.editor` на группу выделенных хостов
+[Создание](../operations/reserved-pools/create-reserved-pool.md) пула зарезервированных ВМ | `compute.editor` на каталог
+[Изменение](../operations/reserved-pools/update-reserved-pool.md) и [удаление](../operations/reserved-pools/delete-reserved-pool.md) пула зарезервированных ВМ | `compute.editor` на каталог
+[Создание](../operations/placement-groups/create.md) группы размещения | `compute.editor` на каталог
+Изменение и [удаление](../operations/placement-groups/delete.md) группы размещения | `compute.editor` на группу размещения
+[Создание](../operations/disk-placement-groups/create.md) группы размещения дисков | `compute.editor` на каталог
+Изменение и удаление группы размещения дисков | `compute.editor` на группу размещения дисков
+[Создание](../operations/disk-create/empty.md) диска | `compute.editor` на каталог
+[Изменение](../operations/disk-control/update.md) и [удаление](../operations/disk-control/delete.md) диска | `compute.editor` на диск
+Перенос диска [в другой каталог](../operations/disk-control/disk-change-folder.md) облака | `compute.editor` на диск
+[Создание](../operations/filesystem/create.md) файлового хранилища | `compute.editor` на каталог
+[Изменение](../operations/filesystem/update.md) и [удаление](../operations/filesystem/delete.md) файлового хранилища | `compute.editor` на файловое хранилище
+[Создание](../operations/image-create/create-from-disk.md) образа | `compute.editor` на каталог
+Изменение и [удаление](../operations/image-control/delete.md) образа | `compute.editor` на образ
+[Создание](../operations/disk-control/create-snapshot.md) снимка диска | `compute.snapshotSchedules.editor` или `compute.editor` на каталог
+[Удаление](../operations/snapshot-control/delete.md) снимка диска | `compute.snapshotSchedules.editor` или `compute.editor` на снимок диска
+[Создание](../operations/snapshot-control/create-schedule.md) расписания, по которому будут создаваться снимки дисков | `compute.snapshotSchedules.editor` или `compute.editor` на каталог
+[Запуск](../operations/snapshot-control/stop-and-start-schedule.md#start-schedule), [остановка](../operations/snapshot-control/stop-and-start-schedule.md#stop-schedule), [изменение](../operations/snapshot-control/update-schedule.md) и [удаление](../operations/snapshot-control/delete-schedule.md) расписания, по которому создаются снимки дисков | `compute.snapshotSchedules.editor` или `compute.editor` на расписание
+**Управление доступом к ресурсам** |
+[Назначение](../../iam/operations/roles/grant.md) и [отзыв](../../iam/operations/roles/revoke.md) прав доступа к любому ресурсу | `compute.admin` на этот ресурс
 
 #### Что дальше {#what-is-next}
 

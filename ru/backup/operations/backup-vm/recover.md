@@ -7,8 +7,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 {% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
 
 {% note tip %}

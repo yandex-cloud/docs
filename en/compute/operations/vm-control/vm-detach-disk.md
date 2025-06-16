@@ -67,9 +67,33 @@ To detach a disk from a VM:
       ```
       yc compute instance start first-instance
       ```
-  
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. In the configuration file, delete the `secondary_disk` section and add the `allow_stopping_for_update` parameter to the `yandex_compute_instance` resource description:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        allow_stopping_for_update = true
+        ...
+      }
+      ```
+
+      Where `allow_stopping_for_update` is the parameter to allow your VM to stop for updates.
+
+  1. Apply the new configuration:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will update all the required resources. You can check the update using the [management console]({{ link-console-main }}).
+
 - API {#api}
-  
+
   Use the [detachDisk](../../api-ref/Instance/detachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/DetachDisk](../../api-ref/grpc/Instance/detachDisk.md) gRPC API call.
   
 {% endlist %}

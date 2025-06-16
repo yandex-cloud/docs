@@ -6,8 +6,6 @@
 
 Подробности о минимальных характеристиках ВМ и поддерживаемых операционных системах см. в разделе [{#T}](./concepts/vm-connection.md).
 
-{% include [baremetal-note](../_includes/backup/baremetal-note.md) %}
-
 Чтобы начать работать с {{ backup-name }}:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy-infrastructure).

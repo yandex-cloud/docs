@@ -2,13 +2,13 @@ default:
   api: show
   versions:
     tf:
-      latest: '3.6'
-      str: 3.5 или 3.6
-      str-without-latest: '3.5'
+      latest: '3.9'
+      str: 3.5, 3.6, 3.7, 3.8 или 3.9
+      str-without-latest: 3.5, 3.6, 3.7 или 3.8
     cli:
-      latest: '3.6'
-      str: 3.5 или 3.6
-      str-without-latest: '3.5'
+      latest: '3.9'
+      str: 3.5, 3.6, 3.7, 3.8 или 3.9
+      str-without-latest: 3.5, 3.6, 3.7 или 3.8
     console:
-      latest: '3.6'
-      str: 3.5 или 3.6
+      latest: '3.9'
+      str: 3.5, 3.6, 3.7, 3.8 или 3.9

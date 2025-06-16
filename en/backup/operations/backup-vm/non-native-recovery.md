@@ -7,8 +7,6 @@ description: Use this guide to restore a VM or {{ baremetal-full-name }} server 
 
 {% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 If a folder contains multiple VMs or {{ baremetal-name }} servers connected to {{ backup-name }}, you can restore a VM or {{ baremetal-name }} server from a backup of another VM or {{ baremetal-name }} server, respectively. You may need this, for example, if the source VM or {{ baremetal-name }} server is down.
 
 {% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
@@ -26,7 +24,7 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. Depending on what resource you want to recover from the backup, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. In the line with the backup to restore the VM or {{ baremetal-name }} server from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}** or **{{ ui-key.yacloud.backup.action_bms-recovery }}**, respectively. In the window that opens:
@@ -104,6 +102,12 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
   Use the [startRecovery](../../backup/api-ref/Backup/startRecovery.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/StartRecovery](../../backup/api-ref/grpc/Backup/startRecovery.md) gRPC API call.
 
 {% endlist %}
+
+{% note info %}
+
+{% include [lvm-restoration-notice](../../../_includes/backup/lvm-restoration-notice.md) %}
+
+{% endnote %}
 
 Following recovery from a backup, the source VM (unless the **{{ ui-key.yacloud.backup.field_delete-old-vm }}** option was enabled in the management console during the backup) or {{ baremetal-name }} server the backup was created from will become obsolete. To be able to create new backups of the source VM or {{ baremetal-name }} server, refresh their connection to {{ backup-name }}. For more information, see [{#T}](../refresh-connection.md) and [{#T}](../backup-baremetal/refresh-connection.md).
 

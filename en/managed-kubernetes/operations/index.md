@@ -1,5 +1,5 @@
 ---
-title: Guides on using {{ managed-k8s-full-name }}
+title: How to work with {{ managed-k8s-full-name }}
 description: In this article, you will learn how to work with the managed service for {{ k8s }} in {{ yandex-cloud }}. Find out how to use persistent volumes and manage {{ k8s }} clusters and node groups.
 ---
 
@@ -9,6 +9,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](node-connect-oslogin.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
+* [{#T}](apply-tf-provider.md)
 
 ## Connecting to an cluster {#cluster-connect}
 

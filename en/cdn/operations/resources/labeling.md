@@ -60,7 +60,7 @@ description: Follow this guide to manage CDN resource labels in {{ cdn-name }}.
         --add-labels <label_1_key>=<label_1_value>,<label_2_key>=<label_2_value>,...,<label_n_key>=<label_n_value>
       ```
 
-      Where `--add-labels` is a flag to list the CDN resource labels in `key=value` format.
+      Where `--add-labels` is a parameter to list CDN resource labels in `key=value` format.
 
       Result:
 
@@ -191,7 +191,7 @@ description: Follow this guide to manage CDN resource labels in {{ cdn-name }}.
         --remove-labels <label_1_key>,<label_2_key>,...,<label_n_key>
       ```
 
-      Where `--remove-labels` is a flag to list the CDN resource label keys.
+      Where `--remove-labels` is a parameter to list the keys of the CDN resource labels.
 
       Result:
 

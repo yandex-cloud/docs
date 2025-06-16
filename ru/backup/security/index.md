@@ -28,8 +28,6 @@ description: Управление доступом в сервисе, предо
 
 {% include [backup.viewer](../../_roles/backup/viewer.md) %}
 
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
 #### backup.editor {#backup-editor}
 
 {% include [backup.editor](../../_roles/backup/editor.md) %}

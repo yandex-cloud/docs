@@ -7,9 +7,6 @@ description: Из статьи вы узнаете, как изменить по
 
 {% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
-
 ## Изменить основные параметры {#update-basic-parameters}
 
 {% list tabs group=instructions %}

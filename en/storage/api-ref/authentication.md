@@ -38,9 +38,9 @@ Make sure the service account you are using to make the request has the permissi
 
 Below are examples of requests for uploading an object to a bucket.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- curl 8.3.0 and higher
+- curl 8.3.0 or higher {#curl-830}
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"
@@ -85,7 +85,7 @@ Below are examples of requests for uploading an object to a bucket.
 
   Where `DIRECTORY_PATH` is the path to the directory you want to archive.
 
-- curl 8.2.1 and lower
+- curl 8.2.1 or lower {#curl-821}
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"
@@ -138,9 +138,9 @@ For the full list of {{ yandex-cloud }} API calls and methods, see the [gRPC API
 
 In this example, we will create a 50 GB bucket with a standard storage class.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- gRPC
+- gRPC API {#grpc-api}
 
   ```bash
   export IAM_TOKEN="<IAM_token>"
@@ -188,7 +188,7 @@ In this example, we will create a 50 GB bucket with a standard storage class.
   }
   ```
 
-- REST
+- REST API {#api}
 
   ```bash
   export IAM_TOKEN="<IAM_token>"
@@ -254,3 +254,7 @@ In this example, we will create a 50 GB bucket with a standard storage class.
   ```
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](../s3/s3-api-quickstart.md)

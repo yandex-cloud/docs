@@ -1,11 +1,5 @@
 # Connecting an existing {{ baremetal-full-name }} server to {{ backup-full-name }}
 
-{% note info %}
-
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
-{% endnote %}
-
 You can connect an existing [{{ baremetal-name }} server](../../baremetal/concepts/servers.md) to {{ backup-name }} and configure backups of its data.
 
 For more information about connecting a {{ baremetal-name }} server to {{ backup-name }} when ordering it, see [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md).
@@ -46,7 +40,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to lease a {{ baremetal-name }} server in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md). The naming requirements are as follows:
 
@@ -75,7 +69,7 @@ To activate {{ backup-name }}, you need _at least_ the `backup.editor` [role](..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to lease a server and connect it to {{ backup-name }}.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. If you have not activated {{ backup-name }} yet, click **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
       If there is no **{{ ui-key.yacloud.backup.button_action-activate }}** button, {{ backup-name }} is already activated. Proceed to the next step.
@@ -187,7 +181,7 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
 
 ## Install the {{ backup-name }} agent {#agent-install}
 
-1. Copy the file with the service account authorized key [you created earlier](#prepare-service-account) to the server. To do this, run this command _on the local machine_:
+1. Copy the file with the service account's authorized key [you created earlier](#prepare-service-account) to the server. To do this, run this command _on the local machine_:
 
     ```bash
     scp <path_to_authorized_key_file_on_local_machine> \
@@ -259,7 +253,7 @@ To link a server to a backup policy:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder where you want to link a server to a backup policy.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Select the policy to link the server to.
   
@@ -299,6 +293,12 @@ To link a server to a backup policy:
 
 ## Run the backup process {#execute-policy}
 
+{% note info %}
+
+{% include [lvm-restoration-notice](../../_includes/backup/lvm-restoration-notice.md) %}
+
+{% endnote %}
+
 To start creating a {{ baremetal-name }} server backup outside of the backup policy schedule:
 
 {% list tabs group=instructions %}
@@ -306,7 +306,7 @@ To start creating a {{ baremetal-name }} server backup outside of the backup pol
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![bms](../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
   1. In the row with the server, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. In the window that opens, select the backup policy for creating the backup and click **{{ ui-key.yacloud.common.create }}**.
@@ -350,7 +350,7 @@ To restore your server from a backup:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** and open the **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. In the row with the backup to restore the {{ baremetal-name }} server from, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
   1. In the window that opens, select the server you created the selected backup from. This server will be marked in the list as `({{ ui-key.yacloud.backup.context_current-bms }})`.

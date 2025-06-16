@@ -7,9 +7,6 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 {% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
-
 ## Updating basic settings {#update-basic-parameters}
 
 {% list tabs group=instructions %}

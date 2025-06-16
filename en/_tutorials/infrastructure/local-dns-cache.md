@@ -101,7 +101,7 @@ Configuration settings are provided for the sake of exemplification. To learn ho
       sudo apt-get install dnsmasq dnsutils -y
       ```
 
-   1. Edit the `/etc/dnsmasq.conf` configuration file by increasing the cache size to 1,000 and restricting to the local VM the addresses listened by the caching resolver.
+   1. Edit the `/etc/dnsmasq.conf` configuration file by increasing the cache size to 1,000 and setting the caching resolver to only listen to local VM addresses.
 
       1. Open the file:
 

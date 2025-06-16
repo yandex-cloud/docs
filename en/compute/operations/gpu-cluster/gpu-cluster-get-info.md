@@ -79,7 +79,7 @@ description: Follow this guide to get information about a GPU cluster.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output
