@@ -1,6 +1,6 @@
 # Viewing operations with a {{ managed-k8s-name }} cluster
 
-All actions with {{ managed-k8s-name }} resources are logged as a list of operations. Each operation gets its own unique [ID](../../../api-design-guide/concepts/about-async.md).
+The system logs all actions with {{ managed-k8s-name }} resources as a list of operations. Each operation gets its own unique [ID](../../../api-design-guide/concepts/about-async.md).
 
 Operations enable you to monitor actions with your cluster in real-time. This may be relevant in automating infrastructure creation, where the state of an operation determines the next steps. For example, before creating a node group, you need to track the status of the cluster creation operation.
 
@@ -46,7 +46,7 @@ Operations enable you to monitor actions with your cluster in real-time. This ma
   +----------------------+---------------------+----------------------+---------------------+--------+----------------+
   ```
 
-  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc managed-kubernetes cluster list-operations <cluster_name_or_ID> --format yaml
@@ -106,11 +106,11 @@ Operations enable you to monitor actions with your cluster in real-time. This ma
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the {{ managed-k8s-name }} cluster.
-1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Copy the ID of the operation you need.
+1. Get operation details:
 
    {% list tabs group=instructions %}
 

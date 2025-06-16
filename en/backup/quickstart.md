@@ -6,8 +6,6 @@ Create a {{ compute-full-name }} [VM](../compute/concepts/vm.md) with {{ backup-
 
 For more information on the minimum required VM characteristics and supported operating systems, see [{#T}](./concepts/vm-connection.md).
 
-{% include [baremetal-note](../_includes/backup/baremetal-note.md) %}
-
 To get started with {{ backup-name }}:
 1. [Get your cloud ready](#before-you-begin).
 1. [Create your infrastructure](#deploy-infrastructure).

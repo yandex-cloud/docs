@@ -16,8 +16,6 @@ The {{ yandex-cloud }} management console does not support some parameters from 
 
 By default, VMs and {{ baremetal-full-name }} servers in {{ backup-name }} are not linked to any backup policies. To start creating backups, link a [VM](../operations/policy-vm/attach-and-detach-vm.md) or [{{ baremetal-name }} server](../operations/backup-baremetal/backup-baremetal.md#agent-install) to one or more policies.
 
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
 The backup policy specifies:
 
 * Backup frequency: By hour, day, week, or month. All times are now [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).

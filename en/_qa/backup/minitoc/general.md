@@ -10,8 +10,10 @@
 
 * [How do I update the {{ backup-name }} agent on a VM?](#update-backup-agent)
 
-* [Why are backups disabled after the OS update?](#kernel-update-consequences)
+* [Why are backups no longer operational after the OS update?](#kernel-update-consequences)
 
 * [Creating incremental backups takes longer than usual](#av-interaction)
 
-* [Out-Of-Memory Killer (OOM Killer) kills the {{ backup-name }} agent process in Linux](#oom-solution)
+* [In Linux, Out-Of-Memory Killer (OOM Killer) kills the {{ backup-name }} agent process](#oom-solution)
+
+* [How do I restore a VM or {{ baremetal-name }} server with LVM from a backup?](#restore-lvm)

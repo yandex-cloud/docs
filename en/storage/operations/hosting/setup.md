@@ -113,7 +113,7 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -169,14 +169,14 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -270,7 +270,7 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 
   To set up a redirect for all requests:
 
-  1. Open the {{ TF }} configuration file and add the `redirect_all_requests_to` parameter to the `yandex_storage_bucket` resource description:
+  1. Open the {{ TF }} configuration file and add the `redirect_all_requests_to` property to the `yandex_storage_bucket` description:
 
      ```hcl
      ...
@@ -322,9 +322,9 @@ description: Follow this guide to set up static website hosting in {{ objstorage
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply
@@ -380,6 +380,8 @@ With routing rules, you can redirect requests based on the object name prefixes 
      
      ```json
      {
+       "index": "index.html",
+       "error": "error404.html",
        "routingRules": [
          {
            "condition": {
@@ -399,6 +401,15 @@ With routing rules, you can redirect requests based on the object name prefixes 
      ```
 
      Where:
+     * `index`: Absolute path to the website home page file. This is a required parameter.
+
+         {% note info %}
+
+         You need to provide the absolute path to the homepage file with conditional redirection settings, even if this parameter is already set for the bucket.
+
+         {% endnote %}
+
+     * `error`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
      * `condition`: Condition to trigger a redirect:
      
        * `httpErrorCodeReturnedEquals`: HTTP response code.
@@ -514,9 +525,9 @@ With routing rules, you can redirect requests based on the object name prefixes 
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply

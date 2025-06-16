@@ -2,8 +2,6 @@
 
 If you want to back up your [{{ compute-full-name }}](../../compute/) [instances](../../compute/concepts/vm.md) or [{{ baremetal-name }} servers](../../baremetal/concepts/servers.md) in {{ backup-name }}, you need them connected VM to the service and properly set up.
 
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
 You can connect the following to {{ backup-name }}:
 * VMs created from [supported {{ marketplace-full-name }} images](#os). The {{ backup-name }} agent is installed automatically on such VMs.
 * VMs created from other images, if those images are supported by the Cyberprotect backup [provider](./index.md#providers). You will need to [install the {{ backup-name }} agent on such VMs manually](#self-install).

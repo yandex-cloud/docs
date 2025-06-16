@@ -30,7 +30,7 @@ To access the {{ yandex-cloud }} CLI, get authenticated using one of the followi
 
 {% note info %}
 
-To enable debug output in the console, use the `--debug` key.
+To enable debug output in the console, use the `--debug` flag.
 
 {% endnote %}
 

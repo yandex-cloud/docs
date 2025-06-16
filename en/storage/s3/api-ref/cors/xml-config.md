@@ -22,14 +22,14 @@ A configuration may contain up to 100 rules.
 
 Element | Description
 ----- | -----
-`CORSConfiguration` | Root element of a CORS configuration. It cannot contain more than 100 `CORSRule` elements.<br/><br/>Path: `/CORSConfiguration`.
+`CORSConfiguration` | Root element of a CORS configuration. It may contain a maximum of 100 `CORSRule` elements.<br/><br/>Path: `/CORSConfiguration`.
 `CORSRule` | Rule for filtering incoming requests to the resource. Each rule must contain at least one `AllowedMethod` and `AllowedOrigin` element.<br/><br/>Path: `/CORSConfiguration/CORSRule`.
-`ID` | Unique rule ID (maximum 255 characters).<br/><br/>It is optional. You can use it to search for a rule in a file.<br/><br/>Path: `/CORSConfiguration/CORSRule/ID`.
+`ID` | Unique rule ID (up to 255 characters).<br/><br/>This is an optional parameter. It can be used to search for a rule in a file.<br/><br/>Path: `/CORSConfiguration/CORSRule/ID`.
 `AllowedMethod` | HTTP method (`PUT`, `GET`, `HEAD`, `POST`, or `DELETE`) that can be used in a cross-domain request. Each method should be specified in a separate element. Specify at least one method.<br/><br/>Path: `/CORSConfiguration/CORSRule/AllowedMethod`.
-`AllowedOrigin` | Website that allows sending CORS requests to the bucket. Specify at least one `AllowedOrigin` element.<br/><br/>It may contain only one `*` character. Examples: `http://*.example.com`, `*`.<br/><br/>Path: `/CORSConfiguration/CORSRule/AllowedOrigin`.
-`AllowedHeader` | Header allowed in a request to an object. If multiple headers are allowed, specify each one in a separate `AllowedHeader` element. You can use a single `*` character in the header name to define a template, e.g., `<AllowedHeader>*</AllowedHeader>` means that all headers are allowed.<br/><br/>The [options](../object/options.md) request contains the `Access-Control-Request-Headers` header. {{ objstorage-name }} maps the headers provided in `Access-Control-Request-Headers` with the `AllowedHeader` element value and responds to `options` with a list of allowed headers.<br/><br/>Path: `/CORSConfiguration/CORSRule/AllowedHeader`.
-`MaxAgeSeconds` | Time, in seconds, for the browser to cache the result of an object request using the [options](../object/options.md) method.<br/><br/>Path: `/CORSConfiguration/CORSRule/MaxAgeSeconds`.
-`ExposeHeader` | Header that can be exposed to browser JavaScript apps. If multiple headers are allowed, specify each of them in a separate element.<br/><br/>When sending a request to an object, the JavaScript client can only use the headers specified in the `ExposeHeader` elements.<br/><br/>Path: `/CORSConfiguration/CORSRule/ExposeHeader`.
+`AllowedOrigin` | Website that allows sending CORS requests to the bucket. Specify at least one `AllowedOrigin` element.<br/><br/>May not contain more than one `*` character. Examples: `http://*.example.com`, `*`.<br/><br/>Path: `/CORSConfiguration/CORSRule/AllowedOrigin`.
+`AllowedHeader` | Header allowed in a request to an object. If multiple headers are allowed, specify each one in a separate `AllowedHeader` element. You can use a single `*` character in the header name to define a template. For example, `<AllowedHeader>*</AllowedHeader>` means that all headers are allowed.<br/><br/>An [options](../object/options.md) request contains the `Access-Control-Request-Headers` header. {{ objstorage-name }} maps the headers provided to `Access-Control-Request-Headers` against the `AllowedHeader` set and returns a list of allowed headers in response to the `options` request.<br/><br/>Path: `/CORSConfiguration/CORSRule/AllowedHeader`.
+`MaxAgeSeconds` | Time in seconds during which the result of the [options](../object/options.md) request to the object remains cached in the browser.<br/><br/>Path: `/CORSConfiguration/CORSRule/MaxAgeSeconds`.
+`ExposeHeader` | Header that can be exposed to browser JavaScript apps. If multiple headers are allowed, specify each one in a separate element.<br/><br/>When requesting an object, the JavaScript client can only use the headers specified in `ExposeHeader` elements.<br/><br/>Path: `/CORSConfiguration/CORSRule/ExposeHeader`.
 
 
 ## Example {# example}

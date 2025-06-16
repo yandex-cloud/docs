@@ -9,8 +9,6 @@ resource_id | [VM](../../../compute/concepts/vm.md) ID in [{{ compute-name }}](.
 resource_name | VM or {{ baremetal-name }} server name.
 resource_type | Resource type, which can take either of these two values:<br/><ul><li>`vm`: {{ compute-name }} VM or {{ baremetal-name }} server.</li><li>`backup`: [Backup](../../../backup/concepts/backup.md).</li>
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 Service metrics:
 
 Metric name<br/>Type, unit | Description

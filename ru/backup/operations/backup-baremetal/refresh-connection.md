@@ -5,12 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Переподключить сервер {{ baremetal-full-name }} к {{ backup-name }}
 
-{% note info %}
-
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
-{% endnote %}
-
 Если вы развернули резервную копию одного сервера на другом, подключение исходного сервера к {{ backup-name }} становится неактуальным. Чтобы продолжить резервное копирование исходного сервера и избежать конфликтов с новым, обновите подключение исходного сервера к {{ backup-name }}:
 
 1. Для подключения сервера {{ baremetal-name }} к {{ backup-name }} нужен [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с минимальными [ролями](../../../iam/concepts/access-control/roles.md) `backup.editor` и `baremetal.editor`. [Создайте](backup-baremetal.md#prepare-service-account) его или назначьте необходимые роли имеющемуся сервисному аккаунту.

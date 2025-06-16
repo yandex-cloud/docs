@@ -33,6 +33,8 @@ items:
         href: chat-bot.md
       - name: Большая языковая модель
         href: llm.md
+      - name: MCP-сервер
+        href: mcp.md
   - name: Облачные вычисления и сервера
     items:
       - name: LAMP и LEMP

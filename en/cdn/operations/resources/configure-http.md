@@ -84,7 +84,7 @@ To configure the allowed HTTP client requests methods for a resource:
         status: READY
       ```
 
-  1. Specify the allowed HTTP methods for client requests using the `--allowed-http-methods` flag:
+  1. Specify the allowed HTTP methods for client requests using the `--allowed-http-methods` parameter:
 
       ```bash
       yc cdn resource update <resource_ID> \
@@ -159,7 +159,7 @@ To configure the allowed HTTP client requests methods for a resource:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
   1. Apply the changes:
      ```

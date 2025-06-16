@@ -17,6 +17,8 @@ items:
         href: operations/update-kubernetes.md
       - name: Configuring autoscaling
         href: operations/autoscale.md
+      - name: Activating the {{ k8s }} {{ TF }} provider
+        href: operations/apply-tf-provider.md
       - name: Connecting to a cluster
         items:
           - name: Connection method overview
@@ -63,9 +65,9 @@ items:
             href: operations/applications/hashicorp-vault.md
           - name: Installing Ingress NGINX
             href: operations/applications/ingress-nginx.md
-          - name: Installing the {{ alb-name }} Ingress controller
+          - name: Installing an {{ alb-name }} Ingress Controller
             href: operations/applications/alb-ingress-controller.md
-          - name: Upgrading the {{ alb-name }} Ingress controller
+          - name: Upgrading an {{ alb-name }} Ingress Controller
             href: operations/applications/upgrade-alb-ingress-controller.md
           - name: Installing Istio
             href: operations/applications/istio.md
@@ -99,7 +101,7 @@ items:
             href: operations/cilium.md
           - name: Configuring NodeLocal DNS for the Cilium network policy controller
             href: operations/cilium-node-local-dns.md
-          - name: Creating a network load balancer using an NGINX Ingress controller
+          - name: Creating a network load balancer using an NGINX Ingress Controller
             href: operations/create-load-balancer-with-ingress-nginx.md
       - name: Working with persistent volumes
         items:
@@ -170,10 +172,18 @@ items:
         href: tutorials/time-slicing-gpu.md
       - name: Migrating resources to a different availability zone
         href: tutorials/migration-to-an-availability-zone.md
-      - name: Using {{ yandex-cloud }} modules in {{ TF }}
-        href: tutorials/terraform-modules.md
+      - name: Creating a project using {{ TF }}
+        items:
+          - name: Managing {{ k8s }} resources via the {{ TF }} provider
+            href: tutorials/kubernetes-terraform-provider.md
+          - name: Using {{ yandex-cloud }} modules in {{ TF }}
+            href: tutorials/terraform-modules.md
       - name: Encrypting secrets in {{ managed-k8s-name }}
         href: tutorials/kms-k8s.md
+      - name: >-
+          Creating a {{ k8s }} cluster using the {{ yandex-cloud }} provider for
+          the {{ k8s }} Cluster API
+        href: tutorials/k8s-cluster-api-provider-yandex.md
       - name: Setting up and testing scaling
         items:
           - name: Horizontal application scaling in a cluster
@@ -186,10 +196,10 @@ items:
             href: tutorials/load-testing-grpc-autoscaling.md
       - name: Installing NGINX
         items:
-          - name: Installing an NGINX Ingress controller with Let's Encrypt®
+          - name: Installing an NGINX Ingress Controller with Let's Encrypt®
             href: tutorials/ingress-cert-manager.md
           - name: >-
-              Installing an NGINX Ingress controller with a {{
+              Installing an NGINX Ingress Controller with a {{
               certificate-manager-name }} certificate
             href: tutorials/nginx-ingress-certificate-manager.md
       - name: Using {{ container-registry-name }}
@@ -216,7 +226,7 @@ items:
             href: tutorials/ci-cd-serverless.md
       - name: Working with DNS
         items:
-          - name: Integrating into a corporate DNS zone
+          - name: Integrating with a corporate DNS zone
             href: tutorials/custom-dns.md
           - name: DNS autoscaling based on cluster size
             href: tutorials/dns-autoscaler.md
@@ -235,10 +245,10 @@ items:
       - name: Monitoring
         items:
           - name: >-
-              Monitoring a cluster using {{ prometheus-name }} and {{
-              grafana-name }}
+              Cluster monitoring with {{ prometheus-name }} and {{ grafana-name
+              }}
             href: tutorials/prometheus-grafana-monitoring.md
-          - name: Monitoring a {{ managed-k8s-name }} cluster using Filebeat OSS
+          - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
             href: tutorials/filebeat-oss-monitoring.md
           - name: >-
               Transferring {{ managed-k8s-name }} cluster logs to {{
@@ -257,28 +267,28 @@ items:
           - name: Setting up Gateway API
             href: tutorials/marketplace/gateway-api.md
           - name: >-
-              Configuring an {{ alb-name }} L7 load balancer using an Ingress
+              Configuring an L7 {{ alb-name }} with the help of an ingress
               controller
             href: tutorials/alb-ingress-controller.md
           - name: >-
-              Configuring logging for an {{ alb-name }} L7 load balancer using
-              an Ingress controller
+              Configuring an L7 {{ alb-name }} logging with the help of an
+              ingress controller
             href: tutorials/alb-ingress-controller-log-options.md
           - name: >-
-              Creating an L7 load balancer with a {{ sws-name }} security
-              profile through an {{ alb-name }} Ingress controller
+              Creating an L7 load balancer with a {{ sws-name }} profile through
+              an {{ alb-name }} Ingress Controller
             href: tutorials/alb-ingress-with-sws-profile.md
           - name: >-
-              Health checking your apps in a {{ managed-k8s-name }} cluster
-              using an {{ alb-name }} L7 load balancer
+              Performing health checks on {{ managed-k8s-name }} cluster
+              applications via an L7 {{ alb-name }}
             href: tutorials/custom-health-checks.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
-          - name: Setting up Kyverno & Kyverno Policies
+          - name: Setting up Kyverno &amp; Kyverno Policies
             href: tutorials/marketplace/kyverno.md
           - name: Using {{ MP }} to stream metrics
             href: tutorials/marketplace/metrics-provider.md
-          - name: Editing website images using Thumbor
+          - name: Editing website images with Thumbor
             href: tutorials/marketplace/thumbor.md
           - name: Using Istio
             href: tutorials/marketplace/istio.md
@@ -418,7 +428,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: Managed Service for Kubernetes gRPC
         items:
@@ -636,7 +646,7 @@ items:
             href: alb-ref/grpc-backend-group.md
           - name: IngressClass
             href: alb-ref/ingress-class.md
-          - name: Service for Ingress
+          - name: Ingress service
             href: alb-ref/service-for-ingress.md
       - name: Gateway API
         items:
@@ -646,7 +656,7 @@ items:
             href: alb-ref/http-route.md
           - name: TLSRoute
             href: alb-ref/tls-route.md
-          - name: Service for Gateway API
+          - name: Gateway API service
             href: alb-ref/service-for-gateway.md
   - name: '{{ network-load-balancer-name }} tools'
     items:

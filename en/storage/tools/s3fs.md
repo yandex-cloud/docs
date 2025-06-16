@@ -8,9 +8,9 @@ We recommend using s3fs version 1.84 or higher.
 
 {% endnote %}
 
-If you have any questions, see the [official documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki) of the project, in particular, the [FAQ](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ). There you can learn how to fix issues that occur when using s3fs.
+If you experience any issues with s3fs, check the [official documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki) of the project, in particular, the [FAQ](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ).
 
-S3fs performance depends on the speed of your local disk. Use high-speed disks, especially if you store a lot of small files, such as a few hundred kilobytes each or smaller. To increase s3fs performance, you can enable caching (`--use_cache <directory>` key). As the s3fs cache can increase in size without limits, make sure to clear it regularly. You can read more in the [s3fs documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon#details).
+s3fs performance depends on the speed of your local disk. Use high-speed disks, especially if you store a lot of small files a few hundred kilobytes in size or smaller. You can increase s3fs performance by enabling caching (`--use_cache <directory>` parameter). The s3fs cache grows indefinitely, so you need to clear it at regular intervals. You can read more in the [s3fs documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon#details).
 
 ## Getting started {#before-you-begin}
 
@@ -20,7 +20,7 @@ S3fs performance depends on the speed of your local disk. Use high-speed disks, 
 
 ## Installation {#installation}
 
-To install s3fs, follow the [guide](https://github.com/s3fs-fuse/s3fs-fuse#installation) in the project repository.
+To install s3fs, follow [this guide](https://github.com/s3fs-fuse/s3fs-fuse#installation) in the project repository.
 
 ## Setup {#setup}
 
@@ -33,7 +33,7 @@ chmod 600 ~/.passwd-s3fs
 
 ## Mounting a bucket {#mounting-bucket}
 
-1. Select the folder where you want to mount your bucket and make sure you have permissions to perform the mounting operation.
+1. Select the folder where you want to mount your bucket and make sure you have permissions for this operation.
 1. Run this command:
 
     ```bash

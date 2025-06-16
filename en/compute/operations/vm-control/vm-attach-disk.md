@@ -88,39 +88,19 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. If you have already created a secondary disk, [get](../disk-control/get-info.md) its ID.
-  1. Open the {{ TF }} configuration file with the description of the VM you want to attach the secondary disk to. See [an example of the VM configuration file](../vm-create/create-linux-vm.md#tf_1).
-  1. Depending on whether the secondary disk is already created, follow these steps:
-      * If the disk is already created, add the `secondary_disk` parameter to the `yandex_compute_instance` resource description section and specify the secondary disk ID in the `disk_id` value:
+  1. In the configuration file, add the new `secondary_disk` section to the `yandex_compute_instance` resource description:
 
-        ```hcl
-        resource "yandex_compute_instance" "vm-1" {
-           ...
-           secondary_disk {
-              disk_id = "<disk_ID>"
-           }
-           ...
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        secondary_disk {
+            disk_id = "<disk_ID>"
         }
-        ```
+        ...
+      }
+      ```
 
-      * If the disk is not created, add a new section with the `yandex_compute_disk` resource description to the configuration file, add the `secondary_disk` parameter to the `yandex_compute_instance` resource description section, and specify the link to the ID of the created secondary disk in the `disk_id` value:
-
-        ```hcl
-        resource "yandex_compute_disk" "secondary-disk-1" {
-            name     = "secondary-disk-1"
-            type     = "network-hdd"
-            zone     = "<availability_zone>"
-            size     = "<disk_size>"
-        }
-
-        resource "yandex_compute_instance" "vm-1" {
-           ...
-           secondary_disk {
-              disk_id = yandex_compute_disk.secondary-disk-1.id
-           }
-           ...
-        }
-        ```
+      Where `disk_id` is the secondary disk ID.
 
       {% note info %}
 
@@ -128,13 +108,13 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
 
       {% endnote %}
 
-      For more information about the `yandex_compute_disk` resource parameters, see [this Terraform article]({{ tf-provider-datasources-link }}/compute_disk).
+      For more information about `yandex_compute_disk` properties, see [this Terraform article]({{ tf-provider-datasources-link }}/compute_disk).
 
-  1. Create the resources:
+  1. Apply the new configuration:
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+      {{ TF }} will update all the required resources. You can check the update using the [management console]({{ link-console-main }}).
 
 
 - API {#api}
@@ -150,7 +130,7 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
 - Linux {#linux}
 
   1. [Attach](#attach) the disk to the VM.
-  1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
+  1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
   1. Run the `blkid` command and make sure there are no partitions with the same UUIDs:
 
      ```bash
@@ -225,7 +205,7 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
 - Linux {#linux}
 
   1. [Attach](#attach) an empty disk to the VM.
-  1. [Connect to the VM via SSH](../vm-connect/ssh.md).
+  1. [Connect to the VM over SSH](../vm-connect/ssh.md).
   1. Check whether the disk is attached as a device and get its path in the system:
 
      ```bash
@@ -249,7 +229,7 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
      * Network disks have links in `virtio-<disk_ID>` format. For example, `virtio-fhm1dn62tm5d******** -> ../../vdc` means that an unpartitioned disk with the `fhm1dn62tm5d********` ID is labeled `vdc`.
      * On [dedicated hosts](../../concepts/dedicated-host.md), local disks have links in `virtio-nvme-disk-<disk_number>` format (if you attached the disks to the VM when creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled `vda`.
 
-  1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) on the disk using the `cfdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), the `fdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or the `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
+  1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) on the disk using the `cfdisk`, `fdisk`, or `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
      Run commands as a superuser. To do this, use `sudo` in each command, or before you start, run the `sudo su -` command to switch your terminal to superuser mode. For example, let's create partitions using `fdisk`:
 

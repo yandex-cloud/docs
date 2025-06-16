@@ -10,7 +10,7 @@ To use the Cilium network policy controller in a cluster:
 
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -62,7 +62,7 @@ To use the Cilium network policy controller in a cluster:
 
         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
         * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the cluster and node groups.
-        * Name of the service account.
+        * Service account name.
 
     1. {% include [terraform-validate](../../_includes/managed-kubernetes/terraform-validate.md) %}
 
@@ -89,7 +89,7 @@ To use the Cilium network policy controller in a cluster:
 
     Cilium, Operator, and Hubble Relay should have the `OK` status.
 
-    {% cut "Command result example" %}
+    {% cut "Example of a command result" %}
 
     ```text
         /¯¯\
@@ -113,6 +113,12 @@ To use the Cilium network policy controller in a cluster:
     ```
 
     {% endcut %}
+
+1. Display a list of the cluster nodes running Cilium:
+
+    ```bash
+    kubectl get cn
+    ```
 
 1. Create a file named `hubble-ui.yaml` containing specifications for the resources required for Hubble UI:
 
@@ -339,13 +345,13 @@ To use the Cilium network policy controller in a cluster:
 
    {% endcut %}
 
-1. Create resources:
+1. Create the resources:
 
     ```bash
     kubectl apply -f hubble-ui.yaml
     ```
 
-    {% cut "Command result" %}
+    {% cut "Result" %}
 
     ```text
     serviceaccount/hubble-ui created
@@ -366,7 +372,7 @@ To use the Cilium network policy controller in a cluster:
 
     Cilium, Operator, and Hubble Relay should have the `OK` status. The `hubble-ui` container must be in the `Running: 1` state.
 
-    {% cut "Command result example" %}
+    {% cut "Example of a command result" %}
 
     ```text
         /¯¯\
@@ -391,6 +397,36 @@ To use the Cilium network policy controller in a cluster:
                            cilium-operator    {{ registry }}/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
                            hubble-ui          quay.io/cilium/hubble-ui-backend:v0.13.0@sha256:******: 1
                            hubble-ui          quay.io/cilium/hubble-ui:v0.13.0@sha256:******: 1
+    ```
+
+    {% endcut %}
+
+1. Check the states of Cilium system pods in your cluster:
+
+    ```bash
+    for p in $(kubectl get po -o name -n kube-system -l k8s-app=cilium)
+    do
+    echo "\n"$p
+    kubectl exec $p -n kube-system -c cilium-agent -- cilium status | tail -5
+    done
+    ```
+
+    {% cut "Example of a command result" %}
+
+    ```text
+    pod/cilium-fwpg6
+    Proxy Status:            OK, ip 172.16.0.1, 0 redirects active on ports 10000-20000
+    Global Identity Range:   min 256, max 65535
+    Hubble:                  Ok   Current/Max Flows: 4095/4095 (100.00%), Flows/s: 5.29       Metrics: Ok
+    Encryption:              Disabled
+    Cluster health:          3/3 reachable   (2025-05-14T09:50:51Z)
+
+    pod/cilium-ph5dx
+    Proxy Status:            OK, ip 172.16.0.37, 0 redirects active on ports 10000-20000
+    Global Identity Range:   min 256, max 65535
+    Hubble:                  Ok   Current/Max Flows: 4095/4095 (100.00%), Flows/s: 5.72   Metrics: Ok
+    Encryption:              Disabled
+    Cluster health:          3/3 reachable   (2025-05-14T09:50:06Z)
     ```
 
     {% endcut %}
@@ -482,7 +518,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl apply -f http-sw-app.yaml
    ```
 
-   {% cut "Command result" %}
+   {% cut "Result" %}
 
    ```text
    service/deathstar created
@@ -499,7 +535,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl get pods,svc
    ```
 
-   {% cut "Command result example" %}
+   {% cut "Example of a command result" %}
 
    ```text
    NAME                            READY   STATUS    RESTARTS   AGE
@@ -523,7 +559,7 @@ To use the Cilium network policy controller in a cluster:
 
     Make sure network policies are disabled for all endpoints: their status under `POLICY (ingress) ENFORCEMENT` and `POLICY (egress) ENFORCEMENT` should be set to `Disabled`.
 
-    {% cut "Example of partial command result" %}
+    {% cut "Example of a part of a command result" %}
 
     ```text
     Defaulted container "cilium-agent" out of: cilium-agent, clean-cilium-state (init), install-cni-binaries (init)
@@ -610,7 +646,7 @@ The L3/L4 network policy only allows the `org: empire` labeled pods to access `d
    kubectl apply -f sw_l3_l4_policy.yaml
    ```
 
-   Command result:
+   Result:
 
    ```text
    ciliumnetworkpolicy.cilium.io/rule1 created
@@ -624,7 +660,7 @@ The L3/L4 network policy only allows the `org: empire` labeled pods to access `d
 
     Make sure the inbound direction policy is enabled for the endpoint associated with the `k8s:class=deathstar` label: its status under `POLICY (ingress) ENFORCEMENT` should be `Enabled`.
 
-    {% cut "Example of partial command result" %}
+    {% cut "Example of a part of a command result" %}
 
     ```text
     Defaulted container "cilium-agent" out of: cilium-agent, clean-cilium-state (init), install-cni-binaries (init)
@@ -651,7 +687,7 @@ The L3/L4 network policy only allows the `org: empire` labeled pods to access `d
    kubectl exec tiefighter -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   The result will be as follows:
+   Result:
 
    ```text
    Ship landed
@@ -693,7 +729,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
    kubectl exec tiefighter -- curl --silent --request PUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   The result will be as follows:
+   Result:
 
    ```text
    Panic: deathstar exploded
@@ -745,7 +781,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
    kubectl apply -f sw_l3_l4_l7_policy.yaml
    ```
 
-   The result will be as follows:
+   Result:
 
    ```text
    ciliumnetworkpolicy.cilium.io/rule1 configured
@@ -757,7 +793,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
    kubectl exec tiefighter -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   The result will be as follows:
+   Result:
 
    ```text
    Ship landed
@@ -769,7 +805,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
    kubectl exec tiefighter -- curl --silent --request PUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   The result will be as follows:
+   Result:
 
    ```text
    Access denied

@@ -7,8 +7,6 @@ description: Follow this guide to create a VM or {{ baremetal-name }} server bac
 
 To create a backup of a VM or {{ baremetal-name }} server, [connect](../../concepts/vm-connection.md) it to {{ backup-name }} and [link](../policy-vm/attach-and-detach-vm.md#attach-vm) it to at least one [backup policy](../../concepts/policy.md). Any backup can only be created within policies.
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 {{ backup-name }} automatically creates backups based on the schedule detailed in the policy.
 
 To create an out-of-schedule backup:

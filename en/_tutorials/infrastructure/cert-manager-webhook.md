@@ -28,7 +28,7 @@ The certificate manager with the ACME webhook for {{ dns-full-name }} supports [
 
 The support cost includes:
 
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address for the cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
@@ -99,7 +99,7 @@ To add {{ managed-k8s-name }} cluster credentials to the `kubectl` configuration
      yc managed-kubernetes cluster get-credentials kubernetes-cluster-wh --external
      ```
 
-     By default, credentials are added to the `$HOME/.kube/config` directory. If you need to change the configuration location, use `--kubeconfig <file_path>`.
+     By default, credentials are added to the `$HOME/.kube/config` directory. If you need to change the configuration location, use the `--kubeconfig <file_path>` parameter.
 
   1. Check the `kubectl` configuration after adding the credentials:
 
@@ -129,7 +129,7 @@ To [create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operati
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the required {{ managed-k8s-name }} cluster.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Select the `kubernetes-cluster-wh` cluster.
+  1. Select `kubernetes-cluster-wh`.
   1. On the cluster page, navigate to the ![nodes-management.svg](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
   1. Enter a name and description for the {{ managed-k8s-name }} node group.

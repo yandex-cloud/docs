@@ -1,6 +1,6 @@
 # CLI configuration
 
-You can [set the parameters](../operations/profile/manage-properties.md) in the profile to quickly switch the command execution context. Use global flags for a single run of a command with a specific parameter value.
+You can [set the parameters](../operations/profile/manage-properties.md) in the profile to quickly switch the command execution context. Use global parameters to run the command once with a specific parameter value.
 
 {% note warning %}
 
@@ -8,7 +8,7 @@ Note that some parameters cannot be used simultaneously. The value of one of the
 
 {% endnote %}
 
-| Global flag | Profile parameter | Description |
+| Global parameter | Profile parameter | Description |
 |----|----|----|
 | `--debug` | — | Output the debug log when executing the command. |
 | `--debug-grpc` | — | Output the gRPC debug log when executing the command. This is a very detailed log that is useful for debugging connection issues. |

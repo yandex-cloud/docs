@@ -4,8 +4,6 @@
 
 {% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
 VM and {{ baremetal-name }} server backups are application-consistent: they save not only the data on disks but also the data already submitted but not yet fully written to the disk. This allows you to resume applications that were running at the time of the backup directly after recovering a VM or {{ baremetal-name }} server from the backup. This is important for VMs and servers forming a part of data storage systems, such as when a DBMS is running on the VM or {{ baremetal-name }} server.
 
 {{ backup-name }} can create [full and incremental backups](backup.md#types). A full backup stores the whole of the VM or {{ baremetal-name }} server data: the recovery is faster than from an incremental backup, yet such backups take up more storage space and take longer to be created. An incremental backup only stores data that is different from the previous backup. It is faster to create and takes up less space. However, recovery from an incremental backup takes longer than from a full one. If you know your VM or {{ baremetal-name }} server has changed a lot since the previous backup, it is better to make a full backup.

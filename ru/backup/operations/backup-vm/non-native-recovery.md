@@ -7,8 +7,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 Если в каталоге есть несколько виртуальных машин или серверов {{ baremetal-name }}, подключенных к {{ backup-name }}, можно восстановить ВМ или сервер {{ baremetal-name }} из резервной копии другой ВМ или сервера {{ baremetal-name }} соответственно. Это нужно, например, если исходные ВМ или сервер {{ baremetal-name }} неисправны.
 
 {% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}

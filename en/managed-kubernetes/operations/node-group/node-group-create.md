@@ -100,7 +100,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * `--container-runtime`: [containerd](https://containerd.io/) runtime environment.
      * `--preemptible`: Flag you set for [preemptible](../../../compute/concepts/preemptible-vm.md) VMs.
      * `--public-ip`: Flag you set if the {{ managed-k8s-name }} node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels`: [Node group cloud labels](../../concepts/index.md/#node-labels). You can specify multiple labels separated by commas.
+     * `--template-labels`: Node group [cloud labels](../../concepts/index.md/#node-labels). You can specify multiple labels separated by commas.
      * `--node-labels`: Node group [{{ k8s }} labels](../../concepts/index.md/#node-labels).
      * `--version`: {{ k8s }} version on the {{ managed-k8s-name }} group nodes.
      * `--node-name`: {{ managed-k8s-name }} node name template. The name is unique if the template contains at least one of the following variables:
@@ -146,7 +146,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
   1. To specify a [placement group](../../../compute/concepts/placement-groups.md) for {{ managed-k8s-name }} nodes:
      1. Get a list of placement groups using the `yc compute placement-group list` command.
-     1. Provide a placement group name or ID in the `--placement group` flag when creating a {{ managed-k8s-name }} node group:
+     1. Provide a placement group name or ID in the `--placement-group` parameter when creating a {{ managed-k8s-name }} node group:
 
         ```bash
         {{ yc-k8s }} node-group create \
@@ -211,8 +211,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
        * `container_runtime`, `type`: [containerd](https://containerd.io/) runtime environment.
-       * `labels`: [Node group cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
-       * `node_labels`: [Node group {{ k8s }} labels](../../concepts/index.md#node-labels).
+       * `labels`: Node group [cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
+       * `node_labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
        * `scale_policy`: Scaling settings. 
 
          You cannot change the scaling type after you create a node group.
@@ -397,7 +397,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 
 - CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   {{ yc-k8s }} node-group create \

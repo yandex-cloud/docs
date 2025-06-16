@@ -1,1 +1,0 @@
-_[{{ baremetal-name }}](../../baremetal/) is at the [Preview stage](../../overview/concepts/launch-stages.md)._

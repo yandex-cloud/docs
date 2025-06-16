@@ -1,0 +1,1 @@
+If you are using [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) to manage the disk space of the protected resource, learn [how to restore](../../backup/concepts/backup.md#lvm) resources with LVM in {{ backup-name }}.

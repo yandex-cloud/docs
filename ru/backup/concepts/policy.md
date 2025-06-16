@@ -16,8 +16,6 @@
 
 По умолчанию ВМ и серверы {{ baremetal-full-name }} в {{ backup-name }} не связаны ни с одной политикой резервного копирования. Чтобы начать создавать резервные копии, привяжите [виртуальную машину](../operations/policy-vm/attach-and-detach-vm.md) или [сервер {{ baremetal-name }}](../operations/backup-baremetal/backup-baremetal.md#agent-install) к одной или нескольким политикам.
 
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
 В политике вы указываете:
 
 * Периодичность создания копий: по часам, дням, неделям или месяцам. Время указывается в часовом поясе [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).

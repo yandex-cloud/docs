@@ -78,6 +78,39 @@ When moving a VM, keep in mind the following limitations:
 
       For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. [Configure](../../../resource-manager/operations/folder/set-access-bindings.md) access permissions for the target folder. The account from the source folder you are going to use to perform the operation must have at least the `compute.editor` [role](../../../compute/security/index.md#compute-editor) for the target folder.
+
+  1. [Get the target folder ID](../../../resource-manager/operations/folder/get-id.md).
+  1. In the configuration file, add the following parameters to the `yandex_compute_instance` resource:
+
+      ```bash
+      resource "yandex_compute_instance" "vm-1" {
+          ...
+          allow_stopping_for_update = true
+          folder_id = <target_folder_ID>
+          ...
+      }
+      ```
+
+      Where:
+
+      * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
+      * `folder_id`: ID of the folder to deploy the VM in (by default, specified from the [environment variable](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)).
+
+      For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Apply the new configuration:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will update all the required resources. You can check the update using the [management console]({{ link-console-main }}).
+
 - API {#api}
 
   Use the [move](../../api-ref/Instance/move.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Move](../../api-ref/grpc/Instance/move.md) gRPC API call.
@@ -234,8 +267,8 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
 
       * `--subnet-id`: Subnet in the destination folder.
       * `--ipv4-address`: Internal IP address of the VM network interface in the subnet in the destination folder. Set to `auto` to enable automatic internal address assignment.
-      * `--network-interface-index`: VM network interface number you saved earlier.
-      * `--security-group-id`: ID of the security group to assign to the VM network interface.
+      * `--network-interface-index`: VM's network interface number you previously saved.
+      * `--security-group-id`: Security group that will be assigned to the VM's network interface.
 
       Result:
 
@@ -295,6 +328,42 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
       ```bash
       yc compute instance start fhm0b28lgfp4********
       ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. [Configure](../../../resource-manager/operations/folder/set-access-bindings.md) access permissions for the folder you are updating the VM subnet in. The account used to perform the operation must have at least the `vpc.admin` [role](../../../vpc/security/index.md#vpc-admin) for the this folder.
+
+  1. If an additional subnet already exists, [obtain](../../../vpc/operations/subnet-get-info.md) its ID.
+  1. Edit the `yandex_compute_instance` resource in the configuration file:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        network_interface {
+          subnet_id = "<subnet_ID>"
+        }
+
+        allow_stopping_for_update = true
+        ...
+      }
+      ```
+
+      Where:
+
+      * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
+      * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
+
+      For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Apply the new configuration:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will update all the required resources. You can check the update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

@@ -7,6 +7,12 @@ description: В подключения {{ speechsense-name }} можно заг�
 
 В подключение {{ speechsense-name }} можно загружать [двухканальное аудио](#create-audio-connection), [одноканальное аудио](#create-one-channel-audio-connection) или [чат](#create-chat-connection) с текстовыми сообщениями. Для создания подключения нужна роль `{{ roles-speechsense-admin }}` или `{{ roles-speechsense-editor }}` в пространстве.
 
+{% note info %}
+
+Удалить подключение из проекта нельзя, но вы можете [удалить проект](../project/delete.md) или [удалить пространство](../space/delete.md).
+
+{% endnote %}
+
 ## Создать подключение для двухканального аудио {#create-audio-connection}
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
@@ -62,7 +68,7 @@ description: В подключения {{ speechsense-name }} можно заг�
 
       * **По фразам** — диалог разбивается на отрезки по ключевым фразам.
 
-         * **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.start }}**, **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.finish }}** — перечислите ключевые фразы, по которым будут определяться начало и конец диалога.
+         * **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.start-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.finish-key-value }}** — перечислите ключевые фразы, по которым будут определяться начало и конец диалога.
 
 1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 

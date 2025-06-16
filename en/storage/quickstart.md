@@ -70,4 +70,5 @@ To perform operations with buckets and objects, you can use [other tools](tools/
 
 ## See also {#see-also}
 
-* [{#T}](quickstart/quickstart-aws-cli.md).
+* [{#T}](quickstart/quickstart-aws-cli.md)
+* [Getting started with AWS S3 API in {{ objstorage-full-name }}](./s3/s3-api-quickstart.md)
