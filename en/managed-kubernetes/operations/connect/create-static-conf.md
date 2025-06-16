@@ -19,7 +19,7 @@ To run bash commands, you will need a JSON parser: [jq](https://stedolan.github.
 1. [Create a service account](../../../iam/operations/sa/create.md).
 1. [Create a {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) cluster with any suitable configuration.
 1. [Create a node group](../node-group/node-group-create.md) of any suitable configuration.
-1. [Install kubect]({{ k8s-docs }}/tasks/tools/install-kubectl) and [set it up to work with the created cluster](index.md#kubectl-connect). Add the credentials to the `test.kubeconfig` configuratioin file using the `--kubeconfig=test.kubeconfig` flag.
+1. [Install kubect]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the new cluster](index.md#kubectl-connect). Add the credentials to the `test.kubeconfig` configuration file using the `--kubeconfig=test.kubeconfig` parameter.
 
 ## Get a unique cluster ID {#k8s-id}
 

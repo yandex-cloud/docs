@@ -130,6 +130,8 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
 Чтобы получать точную хронологию событий уровня ОС и приложений, настройте синхронизацию часов по [инструкции](../../../compute/tutorials/ntp.md).
 
+Дополнительно рекомендуется повысить уровень логирования внутри виртуальных машин как минимум до [`VERBOSE`](https://en.wikipedia.org/wiki/Verbose_mode).
+
 {% list tabs group=instructions %}
 
 - Ручная проверка {#manual}
@@ -141,6 +143,14 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 #### 5.6 Выполняется сбор аудитных логов с уровня приложений {#app-level}
 
 Сбор событий уровня приложений, развернутых на ресурсах {{ compute-short-name }}, клиент может выполнять самостоятельно. Например, записывать логи приложения в файл и передавать их в SIEM-систему с помощью инструментов, перечисленных в подразделе выше.
+
+Включите сбор аудитных логов в используемых неуправляемых СУБД:
+
+* Включите протоколирование всех действий аутентификации (успешных и неудачных).
+* Активируйте логирование операций изменения данных (`INSERT`, `UPDATE`, `DELETE`).
+* Настройте регистрацию операций изменения схемы (`ALTER`, `CREATE`, `DROP`).
+* Фиксируйте изменения разрешений и привилегий.
+* Настройте события для отслеживания запросов.
 
 {% list tabs group=instructions %}
 
@@ -166,6 +176,24 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
 [Аудитный лог событий уровня сервисов](../../../audit-trails/concepts/format-data-plane.md) — это запись о событиях, которые произошли с ресурсами {{ yandex-cloud }}, в форме JSON-объекта. Благодаря отслеживанию событий уровня сервисов вам будет проще собирать дополнительные события с облачных сервисов, что позволит эффективнее реагировать на инциденты безопасности в облаках. Кроме того, отслеживание событий уровня сервисов поможет обеспечить соответствие вашей облачной инфраструктуры нормативным правовым актам и отраслевым стандартам. Например, вы можете отслеживать получение сотрудниками доступа к конфиденциальным данным, хранящимся в [бакетах](../../../storage/concepts/bucket.md).
 
+Включать сбор аудитных логов уровня сервисов нужно отдельно для каждого из [поддерживаемых сервисов](../../../audit-trails/concepts/control-plane-vs-data-plane.md#data-plane-events).
+
+Рекомендуется включать **все события** для сервисов [{{ iam-full-name }}](../../../audit-trails/concepts/events-data-plane.md#iam) и [{{ dns-full-name }}](../../../audit-trails/concepts/events-data-plane.md#dns), а также **все события** для следующих сервисов, если эти сервисы используются:
+
+* [{{ certificate-manager-full-name }}](../../../audit-trails/concepts/events-data-plane.md#certificate-manager)
+* [{{ compute-full-name }}](../../../audit-trails/concepts/events-data-plane.md#compute)
+* [{{ kms-full-name }}](../../../audit-trails/concepts/events-data-plane.md#kms)
+* [{{ lockbox-full-name }}](../../../audit-trails/concepts/events-data-plane.md#lockbox)
+* [{{ mch-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mch)
+* [{{ managed-k8s-full-name }}](../../../audit-trails/concepts/events-data-plane.md#managed-service-for-kubernetes)
+* [{{ mmg-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mmg)
+* [{{ mmy-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mmy)
+* [{{ mpg-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mpg)
+* [{{ mrd-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mrd)
+* [{{ objstorage-full-name }}](../../../audit-trails/concepts/events-data-plane.md#objstorage)
+* [{{ sws-full-name }}](../../../audit-trails/concepts/events-data-plane.md#sws)
+* [{{ websql-full-name }}](../../../audit-trails/concepts/events-data-plane.md#websql)
+
 {% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}
@@ -179,22 +207,22 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
 {% endlist %}
 
-#### 5.9 Включен модуль {{ sd-name }} Access Transparency для проверки действий, произведенных сотрудниками {{ yandex-cloud }} с инфраструктурой {#access-transparency-enabled}
+#### 5.9 Включен модуль {{ sd-name }} {{ atr-name }} для проверки действий, произведенных сотрудниками {{ yandex-cloud }} с инфраструктурой {#access-transparency-enabled}
 
 Все действия сотрудников {{ yandex-cloud }} фиксируются и контролируются с помощью [бастионных хостов](../../../tutorials/routing/bastion.md), на которых записываются операции с ресурсами, обрабатывающими пользовательские данные.
 
-Модуль [Access Transparency](../../../security-deck/concepts/access-transparency.md) позволяет проверить, для каких целей сотрудники провайдера получили доступ к инфраструктуре. Например, для выполнения дополнительной диагностики IT‑систем инженерами службы поддержки или обновления ПО. [ML‑модели](../../../glossary/ml-models.md) анализируют эти действия. {{ yagpt-name }}, встроенный в Access Transparency, создает сводки о событиях доступа для повышения прозрачности. Подозрительные сессии автоматически передаются на рассмотрение команде безопасности {{ yandex-cloud }}.
+Модуль [{{ atr-name }}](../../../security-deck/concepts/access-transparency.md) позволяет проверить, для каких целей сотрудники провайдера получили доступ к инфраструктуре. Например, для выполнения дополнительной диагностики IT‑систем инженерами службы поддержки или обновления ПО. [ML‑модели](../../../glossary/ml-models.md) анализируют эти действия. {{ yagpt-name }}, встроенный в {{ atr-name }}, создает сводки о событиях доступа для повышения прозрачности. Подозрительные сессии автоматически передаются на рассмотрение команде безопасности {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![CloudCheck](../../../_assets/console-icons/cloud-check.svg) **Access Transparency**.
-  1. Если вы видите предложение о подключении модуля Access Transparency, то этот модуль у вас еще не активирован: перейдите к п. <q>Инструкции и решения по выполнению</q>.
+  1. На панели слева выберите ![CloudCheck](../../../_assets/console-icons/cloud-check.svg) **{{ atr-name }}**.
+  1. Если вы видите предложение о подключении модуля {{ atr-name }}, то этот модуль у вас еще не активирован: перейдите к п. <q>Инструкции и решения по выполнению</q>.
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
 
-Нажмите кнопку **Подключить**, чтобы активировать модуль `Access Transparency`.
+Нажмите кнопку **Подключить**, чтобы активировать модуль `{{ atr-name }}`.

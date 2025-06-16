@@ -71,6 +71,8 @@ items:
             href: operations/assistant/create-with-labels.md
           - name: Получить промежуточные результаты генерации ответа
             href: operations/assistant/request-chunked-response.md
+          - name: Перефразировать запросы с помощью модели
+            href: operations/assistant/rephraser.md
   - name: Концепции
     items:
       - name: О сервисе {{ foundation-models-full-name }}
@@ -111,8 +113,12 @@ items:
         items:
           - name: Обзор
             href: concepts/assistant/index.md
+          - name: Файлы-источники
+            href: concepts/assistant/files.md
           - name: Поисковые индексы
             href: concepts/assistant/search-index.md
+          - name: Перефразирование запросов
+            href: concepts/assistant/rephraser.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Справочники API

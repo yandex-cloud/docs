@@ -81,7 +81,7 @@ Method | Description
 ----- | -----
 [startUpload](multipart/startupload.md) | Starts a multipart upload.
 [uploadPart](multipart/uploadpart.md) | Uploads a part of an object.
-[copyPart](multipart/copypart.md) | Copies a part of an object.
+[copyPart](multipart/copypart.md) | Copies part of an object.
 [listParts](multipart/listparts.md) | Returns a list of uploaded parts.
 [abortUpload](multipart/abortupload.md) | Aborts a multipart upload.
 [completeUpload](multipart/completeupload.md) | Completes a multipart upload.
@@ -129,6 +129,8 @@ Method | Description
 [DeleteBucketPolicy](policy/delete.md) | Removes the access policy from the specified bucket.
 
 ## See also {#see-also}
+
+* [{#T}](../../s3/s3-api-quickstart.md)
 * [{#T}](../../s3/index.md)
 * [{#T}](../../tools/index.md)
 * [Debugging requests using the AWS CLI](../signing-requests.md#debugging)

@@ -60,7 +60,7 @@ Create a new image from the link you got in {{ objstorage-name }}:
 
 - CLI {#cli}
 
-  To create a new image via the link, use the `--source-uri` flag. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), use the `--pooled` flag.
+  To create a new image via the link, use the `--source-uri` parameter. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), use the `--pooled` flag.
 
   ```bash
   yc compute image create --name <image_name> --source-uri <image_URL> --pooled
@@ -113,14 +113,14 @@ Create a new image from the link you got in {{ objstorage-name }}:
 
      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-       If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. Run this command:
 

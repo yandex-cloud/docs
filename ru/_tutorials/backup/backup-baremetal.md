@@ -1,11 +1,5 @@
 # Подключить существующий сервер {{ baremetal-full-name }} к {{ backup-full-name }}
 
-{% note info %}
-
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
-{% endnote %}
-
 Вы можете подключить существующий [сервер {{ baremetal-name }}](../../baremetal/concepts/servers.md) к {{ backup-name }} и настроить на нем резервное копирование данных.
 
 Информацию о том, как подключить сервер {{ baremetal-name }} к {{ backup-name }} при его заказе, см. в инструкции [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md).

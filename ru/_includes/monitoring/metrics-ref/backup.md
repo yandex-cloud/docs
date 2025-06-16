@@ -9,8 +9,6 @@ resource_id | Идентификатор [ВМ](../../../compute/concepts/vm.md)
 resource_name | Имя виртуальной машины или сервера {{ baremetal-name }}.
 resource_type | Тип ресурса. Возможные значения:<br/><ul><li>`vm` — виртуальная машина {{ compute-name }} или сервер {{ baremetal-name }}.</li><li>`backup` — [резервная копия](../../../backup/concepts/backup.md).</li>
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 Метрики сервиса:
 
 Имя метрики<br/>Тип, единицы измерения | Описание

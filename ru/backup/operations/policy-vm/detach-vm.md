@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как отвязать ви
 
 # Отвязать виртуальную машину или сервер {{ baremetal-full-name }} от политики резервного копирования
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 Чтобы отвязать виртуальную машину или сервер {{ baremetal-name }} от политики резервного копирования:
 
 {% list tabs group=instructions %}

@@ -117,7 +117,7 @@ items:
         href: tutorials/blue-green-canary-deployment.md
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
-      - name: Event search in audit logs
+      - name: Searching for events in audit logs
         items:
           - name: Overview
             href: tutorials/search-events-audit-logs/index.md
@@ -248,7 +248,7 @@ items:
         href: tutorials/object-storage-duplicati.md
       - name: Backing up to {{ objstorage-name }} with Bacula
         href: tutorials/backup-with-bacula.md
-      - name: Backing up to {{ objstorage-full-name }} with Veeam Backup
+      - name: Backing up to {{ objstorage-name }} with Veeam Backup
         href: tutorials/backup-with-veeam.md
       - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
         href: tutorials/object-storage-veritas.md
@@ -520,6 +520,8 @@ items:
             href: s3/index.md
           - name: Signing requests
             href: s3/signing-requests.md
+          - name: Getting started with the S3 API
+            href: s3/s3-api-quickstart.md
           - name: REST
             items:
               - name: All services and methods

@@ -5,8 +5,6 @@ description: In this article, you will learn how to unlink a {{ compute-name }} 
 
 # Unlinking a VM or {{ baremetal-full-name }} server from a backup policy
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 To unlink a VM or {{ baremetal-name }} server from a backup policy:
 
 {% list tabs group=instructions %}

@@ -1,5 +1,3 @@
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 The `name` label stores the metric name.
 
 Labels shared by {{ baremetal-name }} metrics:

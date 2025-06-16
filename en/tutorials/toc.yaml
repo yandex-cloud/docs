@@ -383,6 +383,8 @@ items:
             href: infrastructure-management/terraform-state-lock.md
           - name: Using {{ yandex-cloud }} modules in {{ TF }}
             href: infrastructure-management/terraform-modules.md
+          - name: Managing {{ k8s }} resources via the {{ TF }} provider
+            href: infrastructure-management/kubernetes-terraform-provider.md
           - name: >-
               Creating a VM and an instance group with a {{ coi }} using {{ TF
               }}
@@ -489,6 +491,10 @@ items:
             href: container-infrastructure/new-kubernetes-project.md
           - name: Creating a {{ k8s }} cluster with no internet access
             href: container-infrastructure/k8s-cluster-with-no-internet.md
+          - name: >-
+              Creating a {{ k8s }} cluster using the {{ yandex-cloud }} provider
+              for the {{ k8s }} Cluster API
+            href: container-infrastructure/k8s-cluster-api-provider-yandex.md
           - name: Running workloads with GPUs
             href: container-infrastructure/running-pod-gpu.md
           - name: Using node groups with GPUs and no pre-installed drivers
@@ -514,7 +520,7 @@ items:
               - name: Installing an NGINX Ingress controller with {{ lets-encrypt }}
                 href: container-infrastructure/ingress-cert-manager.md
               - name: >-
-                  Installing an NGINX Ingress controller with a {{
+                  Installing an NGINX Ingress Controller with a {{
                   certificate-manager-name }} certificate
                 href: container-infrastructure/nginx-ingress-certificate-manager.md
           - name: Usage {{ container-registry-name }}
@@ -571,7 +577,7 @@ items:
                 href: container-infrastructure/gateway-api.md
               - name: Setting up an {{ alb-name }} Ingress controller
                 href: container-infrastructure/alb-ingress-controller.md
-              - name: Logging settings for {{ alb-name }} Ingress controllers
+              - name: Logging settings for {{ alb-name }} Ingress Controllers
                 href: container-infrastructure/alb-ingress-controller-log-options.md
               - name: >-
                   Health checking your applications in a {{ managed-k8s-name }}

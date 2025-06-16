@@ -126,6 +126,41 @@ To add another network interface to your VM:
       yc compute instance start <VM_ID>
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. In the configuration file, add the new `network_interface` section and `allow_stopping_for_update` parameter in the `yandex_compute_instance` resource description:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        network_interface {
+          index     = <interface_number>
+          subnet_id = "<subnet_ID>"
+        }
+
+        allow_stopping_for_update = true
+        ...
+      }
+      ```
+
+      Where:
+
+      * `index`: Network interface number. Specify any number between `0` and `15` except the ones already used. By default, the first network interface gets `0`.
+      * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
+      * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
+
+      For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Create the resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create and update all the required resources. You can check the update using the [management console]({{ link-console-main }}).
+
 - API {#api}
 
   {% include [add-network-interface-api](../../../_includes/compute/add-network-interface-api.md) %}
@@ -261,7 +296,7 @@ Now your VM features a new network interface. The new interface is currently ina
 
 - Linux {#linux}
 
-  1. [Connect](../vm-connect/ssh.md#vm-connect) to the VM via SSH.
+  1. [Connect](../vm-connect/ssh.md#vm-connect) to the VM over SSH.
   1. Run this command to get information about the state of VM network interfaces:
 
       ```bash
@@ -311,7 +346,7 @@ If your VM is running Linux and you cannot restart it, you can activate the netw
 
       When creating a user for authenticating on the VM through the serial console, add this user to the `sudo` group using the `sudo usermod -a -G sudo <username>` command.
 
-  1. Connect to the VM serial console [using the CLI](../serial-console/connect-cli.md#connect-to-serial-console) or [via SSH](../serial-console/connect-ssh.md#connect-to-serial-console).
+  1. Connect to the VM serial console [using the CLI](../serial-console/connect-cli.md#connect-to-serial-console) or [over SSH](../serial-console/connect-ssh.md#connect-to-serial-console).
 
   1. Activate the network interface you added:
 
@@ -348,7 +383,7 @@ To test the new network interface:
 
 - Linux {#linux}
 
-  1. [Connect](../vm-connect/ssh.md#vm-connect) to the VM via SSH.
+  1. [Connect](../vm-connect/ssh.md#vm-connect) to the VM over SSH.
   1. Run this command to get information about the state of VM network interfaces:
 
       ```bash
@@ -426,7 +461,7 @@ To test the new network interface:
 
 - Windows {#windows}
 
-  1. [Connect](../vm-connect/rdp.md) to the VM via RDP.
+  1. [Connect](../vm-connect/rdp.md) to the VM over RDP.
   1. To get information about the state of the VM network interfaces, run this command in PowerShell:
 
       ```powershell

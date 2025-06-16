@@ -1,5 +1,3 @@
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 Имя метрики пишется в метку `name`.
 
 Общие метки для метрик сервиса {{ baremetal-name }}:

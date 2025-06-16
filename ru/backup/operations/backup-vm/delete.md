@@ -11,8 +11,6 @@ description: Из статьи вы узнаете, как удалить рез
 
 {% endnote %}
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 Чтобы удалить резервную копию:
 
 {% list tabs group=instructions %}

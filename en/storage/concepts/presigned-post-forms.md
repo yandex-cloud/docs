@@ -60,7 +60,7 @@ Generic layout of an HTML page with an upload form:
 </html>
 ```
 
-An HTML form is described in the `<form>` tag and consists of a declaration and some fields.
+The HTML form is described by the `<form>` tag and comprises a declaration and fields.
 
 The form's declaration contains the following attributes:
 
@@ -152,12 +152,12 @@ Field | Description | Required
 `Expires` | Response expiration date, which is compliant with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21). | No
 `key` | [Object key](object.md#key).<br/><br/>You can enter the whole key or a template in `prefix/${filename}` format, i.e., if you upload a file named `some_file.jpg`, the final object key will be `prefix/some_file.jpg`. | Yes
 `policy` | [Security policy](#policy) defining request permissions. Requests without a policy are treated as anonymous and are only processed for buckets with public write access. | Conditional
-`X-Amz-Signature` | Signature of the policy to generate using a secret key.<br/><br/>It is required if the form has a security policy. | Conditional
+`X-Amz-Signature` | Signature of the policy that has to be generated using the secret key.<br/><br/>It is required if the form has a security policy. | Conditional
 `success_action_redirect` | URL the user is redirected to when the file is successfully uploaded. If the value is not set, {{ objstorage-name }} returns the response specified in the `success_action_status` field. | No
-`success_action_status` | The response status after a successful upload.<br/><br/>If `success_action_redirect` is not specified, {{ objstorage-name }} returns `success_action_status`. The response body is empty.<br/><br/>Acceptable values include 200, 204 (default). | No
-`X-Amz-Algorithm` | Security policy signature algorithm that takes the `AWS4-HMAC-SHA256` value.<br/><br/>It is required if the form has a security policy. | Conditional
-`X-Amz-Credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request` format, where `<date>` must match the `X-Amz-Date` field value and the date used to sign the policy.<br/><br/>It is required if the form has a security policy. | Conditional
-`X-Amz-Date` | Date in ISO8601 format, e.g., `20180719T000000Z`. It must match the date in the `X-Amz-Credential` field (by value, not format) and the date used to sign the policy.<br/><br/>It is required if the form has a security policy. | Conditional
+`success_action_status` | Response status after a successful upload.<br/><br/>If `success_action_redirect` is not specified, {{ objstorage-name }} returns `success_action_status`. The response body is empty.<br/><br/>Acceptable values: 200, 204 (default). | No
+`X-Amz-Algorithm` | Security policy signature algorithm. The value is `AWS4-HMAC-SHA256`.<br/><br/>This field is required if the form has a security policy. | Conditional
+`X-Amz-Credential` | Signature ID.<br/><br/>This is a string in `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request` format, where `<date>` must match the `X-Amz-Date` field value and the date used to sign the policy.<br/><br/>This field is required if the form has a security policy. | Conditional
+`X-Amz-Date` | Date in ISO8601 format, e.g., `20180719T000000Z`. It must match the date in the `X-Amz-Credential` field (by value rather than by format) and the date used to sign the policy.<br/><br/>This field is required if the form has a security policy. | Conditional
 `X-Amz-Storage-Class` | [Storage class](storage-class.md) for the object. With an HTML form, you can only put an object in a standard storage. | No
 `X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `X-Amz-Meta-` as user-defined and does not process them. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The size includes header names and their values. | No
 `X-Amz-Website-` `redirect-location` | If the bucket is configured as a [website](hosting.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the web. The redirect is stored in the object metadata. | No
@@ -192,9 +192,9 @@ Security policy rules may be of the following types:
 
 Rule type | Description
 ------------|-----------
-Exact match | The form field value must be exactly the same as in the policy.<br/><br/>Example: `{"acl": "public-read"}`. You can also use the alternative format: `[ "eq", "$acl", "public-read" ]`.
-Partial match | The form field value must start with the string specified in the policy.<br/><br/>Example: `["starts-with", "$key", "key_prefix"]`. If an empty string is specified as a value, the field can take any value.<br/><br/>Example: `["starts-with", "$Content-Type", ""]`.
-`content-length-range` | Size limit for the object to upload.<br/><br/>Example: `["content-length-range", 0, 1048576]`.
+Exact match | The form field value must be exactly the same as in the policy.<br/><br/>For example, `{"acl": "public-read"}`. You can also use the alternative format: `[ "eq", "$acl", "public-read" ]`.
+Partial match | The form field value must start with the string specified in the policy.<br/><br/>Example: `["starts-with", "$key", "key_prefix"]]`. If an empty string is specified as a value, the field can take any value.<br/><br/>Example: `["starts-with", "$Content-Type", ""]`.
+`content-length-range` | Size limit of the object to upload.<br/><br/>Example: `["content-length-range", 0, 1048576]`.
 
 The possible restrictions include:
 

@@ -7,8 +7,6 @@ description: В этой статье приводятся решения для
 
 В этом разделе описаны типичные проблемы, которые могут возникать при работе {{ backup-name }}, и методы их решения.
 
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
 {% include [general-minitoc](../../_qa/backup/minitoc/general.md) %}
 
 {% include [troubleshooting](../../_qa/backup/troubleshooting.md) %}

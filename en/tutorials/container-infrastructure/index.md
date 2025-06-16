@@ -26,6 +26,7 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](kms-k8s.md)
+* [{#T}](k8s-cluster-api-provider-yandex.md)
 
 ### Setting up and testing scaling {#scaling}
 

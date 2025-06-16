@@ -5,12 +5,6 @@ description: Follow this guide to lease a {{ baremetal-name }} server with a con
 
 # Leasing a {{ baremetal-full-name }} server with a connection to {{ backup-name }}
 
-{% note info %}
-
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
-{% endnote %}
-
 You can back up your {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md) with supported Linux-based operating systems: {#os-support}
 
 {% include [baremetal-os-list](../../../_includes/backup/baremetal-os-list.md) %}
@@ -47,3 +41,9 @@ You can back up your {{ baremetal-name }} [servers](../../../baremetal/concepts/
 {% endlist %}
 
 For more information on leasing a server, see the [{{ baremetal-name }} documentation](../../../baremetal/operations/servers/server-lease.md).
+
+{% note info %}
+
+{% include [lvm-restoration-notice](../../../_includes/backup/lvm-restoration-notice.md) %}
+
+{% endnote %}

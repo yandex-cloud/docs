@@ -60,7 +60,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
         --tags <label_1_key>=<label_1_value>,<label_2_key>=<label_2_value>,...,<label_n_key>=<label_n_value>
       ```
 
-      Where `--tags` is a flag to list bucket labels in `key=value` format.
+      Where `--tags` is a parameter to list bucket labels in `key=value` format.
 
       Result:
 

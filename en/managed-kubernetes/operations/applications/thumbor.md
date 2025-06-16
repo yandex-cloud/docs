@@ -11,7 +11,7 @@ description: Follow this guide to install Thumbor.
 Thumbor features:
 * Support for all popular image formats.
 * Smart cropping and resizing.
-* Speeding up image processing by caching.
+* Accelerated image processing using caching.
 * Supporting various storage types (local disk, {{ objstorage-full-name }}, and others).
 * Face and object recognition (glasses, facial features) based on [computer vision technology](https://github.com/opencv/opencv).
 * Integration with various programming languages.
@@ -29,7 +29,7 @@ Thumbor features:
      --format json > sa-key.json
    ```
 
-1. [Set the bucket object read access rights](../../../storage/operations/objects/edit-acl.md) for the service account.
+1. [Set the bucket object read access permissions](../../../storage/operations/objects/edit-acl.md) for the service account.
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 

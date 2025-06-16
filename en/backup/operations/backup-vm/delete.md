@@ -11,8 +11,6 @@ To delete backups, make sure the folder contains at least one VM or {{ baremetal
 
 {% endnote %}
 
-{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
-
 To delete a backup:
 
 {% list tabs group=instructions %}

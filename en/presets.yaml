@@ -251,7 +251,7 @@ default:
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.29, 1.30, 1.31, 1.32
   k8s-versions-regular: 1.29, 1.30, 1.31, 1.32
-  k8s-versions-stable: 1.29, 1.30, 1.31
+  k8s-versions-stable: 1.29, 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -1111,17 +1111,17 @@ default:
             t4i|string: ₸777.60
             v2|string: ₸321.36
             v3|string: ₸802.8720
-            v3i|string: ₸8336.50
+            v3i|string: ₸3726.05
           preemptible|string: ₸321.36
           t4i|string: ₸777.60
           v2|string: ₸1285.0280
           v3|string: ₸2007.18
-          v3i|string: ₸8336.50
+          v3i|string: ₸3726.05
         gpu-standard|string: ₸1285.0280
         infiniband:
           ic_v3i:
-            preemptible|string: ₸3702.00
-          ic_v3i|string: ₸3702.00
+            preemptible|string: ₸1654.85
+          ic_v3i|string: ₸1654.85
           ic:
             preemptible|string: ₸343.44
           ic|string: ₸343.44
@@ -2784,17 +2784,17 @@ default:
             t4i|string: ₽155.52
             v2|string: ₽64.2720
             v3|string: ₽160.5744
-            v3i|string: ₽1667.30
+            v3i|string: ₽745.21
           preemptible|string: ₽64.2720
           t4i|string: ₽155.52
           v2|string: ₽257.0056
           v3|string: ₽401.4360
-          v3i|string: ₽1667.30
+          v3i|string: ₽745.21
         gpu-standard|string: ₽257.0056
         infiniband:
           ic_v3i:
-            preemptible|string: ₽740.40
-          ic_v3i|string: ₽740.40
+            preemptible|string: ₽330.97
+          ic_v3i|string: ₽330.97
           ic:
             preemptible|string: ₽68.6880
           ic|string: ₽68.6880
@@ -4452,17 +4452,17 @@ default:
             t4i|string: $1.295999
             v2|string: $0.535600
             v3|string: $1.338119
-            v3i|string: $13.894161
+            v3i|string: $6.210081
           preemptible|string: $0.535600
           t4i|string: $1.295999
           v2|string: $2.141712
           v3|string: $3.345299
-          v3i|string: $13.894161
+          v3i|string: $6.210081
         gpu-standard|string: $2.141712
         infiniband:
           ic_v3i:
-            preemptible|string: $6.169998
-          ic_v3i|string: $6.169998
+            preemptible|string: $2.758082
+          ic_v3i|string: $2.758082
           ic:
             preemptible|string: $0.572400
           ic|string: $0.572400
@@ -7635,7 +7635,7 @@ default:
           button_upload: Upload image
           label_title: Images
           popup-confirm_button_delete: Delete
-          popup-upload_field_pooled: Optimize for deployment
+          popup-upload_field_pooled: Optimization
         instance-groups_hx3kX: Instance groups
         instance:
           access-method:
@@ -11197,14 +11197,8 @@ default:
         add-key: Add key
         additional:
           separators:
-            finish:
-              help: >-
-                If a key phrase is detected in the dialog, it will be considered
-                the end of the dialog.
-            start:
-              help: >-
-                If a key phrase is found in the dialog, it will be considered
-                the start of the dialog.
+            finish-key-value: End of dialog
+            start-key-value: Start of dialog
           slice-length: Slice length
           split:
             title: Split dialogs by slices
