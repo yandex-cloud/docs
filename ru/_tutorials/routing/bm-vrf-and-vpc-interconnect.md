@@ -1,10 +1,10 @@
-# Настройка сетевой связности между подсетями {{ baremetal-full-name }} и {{ vpc-full-name }} с помощью {{ interconnect-full-name }}
+# Организация сетевой связности между подсетями {{ baremetal-full-name }} и {{ vpc-full-name }} с помощью {{ interconnect-full-name }}
 
 Сетевая связность с использованием [{{ interconnect-full-name }}](../../interconnect/index.yaml) в {{ baremetal-full-name }} позволяет организовать доступ к [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) приватных подсетей {{ vpc-name }} в облачной инфраструктуре и/или CIDR приватных подсетей в on-prem инфраструктуре.
 
-В этом руководстве вы установите сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/network.md#private-network) {{ baremetal-full-name }}, и [виртуальной машиной](../../compute/concepts/vm.md) {{ compute-full-name }}, расположенной в подсети [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+В этом руководстве вы организуете сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/network.md#private-network) {{ baremetal-full-name }}, и [виртуальной машиной](../../compute/concepts/vm.md) {{ compute-full-name }}, расположенной в подсети [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
 
-Аналогичным образом сетевую связность можно установить и с вашими on-prem ресурсами, расположенными в приватных подсетях в вашей собственной сетевой инфраструктуре.
+Аналогичным образом сетевую связность можно организовать и с вашими on-prem ресурсами, расположенными в приватных подсетях в вашей собственной сетевой инфраструктуре.
 
 Использование сервиса {{ interconnect-full-name }} в рамках интеграции с {{ baremetal-full-name }} не тарифицируется.
 
@@ -12,7 +12,7 @@
 
 ![bm-vrf-and-vpc-interconnect](../../_assets/tutorials/bm-vrf-and-vpc-interconnect.svg)
 
-Чтобы настроить сетевую связность между приватными подсетями {{ baremetal-name }} и {{ vpc-name }} с помощью {{ interconnect-name }}:
+Чтобы организовать сетевую связность между приватными подсетями {{ baremetal-name }} и {{ vpc-name }} с помощью {{ interconnect-name }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте облачную инфраструктуру](#setup-infrastructure).
@@ -35,10 +35,12 @@
 * плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за аренду сервера {{ baremetal-name }} (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md)).
 
+{% include [bms-vpc-private-over-cic-free-traffic](../../_includes/baremetal/bms-vpc-private-over-cic-free-traffic.md) %}
+
 
 ## Создайте облачную инфраструктуру {#setup-infrastructure}
 
-Создайте необходимую инфраструктуру {{ yandex-cloud }}, в которой вы будете настраивать сетевую связность.
+Создайте необходимую инфраструктуру {{ yandex-cloud }}, в которой вы будете организовывать сетевую связность.
 
 Для настройки {{ interconnect-name }} в сервисе {{ baremetal-name }} понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/network.md#private-subnet) и [VRF](../../baremetal/concepts/network.md#vrf-segment) в {{ baremetal-name }}, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-name }}, а также Routing Instance, в составе которого будут [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}.
 
@@ -167,11 +169,12 @@
 
 {% endlist %}
 
-## Закажите Routing Instance {#request-routing-instance}
 
-Для настройки сетевой связности между подсетями {{ baremetal-name }}, подсетями {{ vpc-name }} и/или подсетями on-prem необходим Routing Instance. Routing Instance можно создать через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
+## Создайте Routing Instance {#request-routing-instance}
 
-Если в вашем каталоге уже есть настроенная сетевая связность с использованием [{{ interconnect-name }}](../../interconnect/index.yaml) (VPC-to-On-Prem), то вы можете как использовать имеющийся Routing Instance, так и запросить создание нового, дополнительного Routing Instance для построения обособленной сетевой связности.
+Для организации сетевой связности между подсетями {{ baremetal-name }}, подсетями {{ vpc-name }} и/или подсетями on-prem необходимо создать ресурс `Routing Instance`. `Routing Instance` можно создать через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
+
+Если в вашем каталоге уже есть настроенная сетевая связность с использованием [{{ interconnect-name }}](../../interconnect/index.yaml) (VPC-to-On-Prem), то вы можете как использовать уже существующий `Routing Instance`, так и запросить создание нового, дополнительного `Routing Instance` для организации обособленной сетевой связности.
 
 ### Проверьте наличие Routing Instance в вашем каталоге {#check-for-ri}
 
@@ -214,14 +217,12 @@
 Оформите ваше обращение следующим образом:
 
 ```text
-Тема: [CIC для BareMetal] Добавить Routing Instance.
+Тема: [CIC для BareMetal] Создать Routing Instance.
 
 Текст обращения:
-Прошу добавить Routing Instance.
+Прошу Создать Routing Instance в указанном облачном каталоге со следующими параметрами:
 
-Параметры соединения:
 folder_id: <идентификатор_каталога>
-region_id: {{ region-id }}
 
 vpc:
   vpc_net_id: <идентификатор_сети>
@@ -233,7 +234,6 @@ vpc:
 
 Где:
 * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
-* `region_id` — идентификатор [региона](../../overview/concepts/region.md).
 * `vpc_net_id` — [идентификатор](../../vpc/operations/network-get-info.md) облачной сети.
 * `vpc_subnets` — список [анонсируемых](../../interconnect/concepts/priv-con.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети {{ vpc-short-name }} вы укажете `{{ region-id }}-b: [192.168.11.0/24]`.
 
@@ -261,7 +261,7 @@ vpc:
 * маршрутная таблица в операционной системе сервера {{ baremetal-name }} содержит маршрут до CIDR подсети с виртуальной машиной;
 * [группа безопасности](../../vpc/concepts/security-groups.md), которая назначена [сетевому интерфейсу](../../compute/concepts/network.md) виртуальной машины, разрешает прохождение ICMP-трафика.
 
-### Проверьте сетевую связность из приватной подсети {{ baremetal-name }} в приватную подсеть {{ vpc-short-name }} {#check-bms-to-vm}
+### Проверьте сетевую связность между приватной подсетью {{ baremetal-name }} и приватной подсетью {{ vpc-short-name }} {#check-bms-to-vm}
 
 {% list tabs group=instructions %}
 
@@ -320,7 +320,7 @@ vpc:
 
 {% endlist %}
 
-### Проверьте сетевую связность из приватной подсети {{ vpc-short-name }} в приватную подсеть {{ baremetal-name }} {#check-vm-to-bms}
+### Проверьте сетевую связность между приватной подсетью {{ vpc-short-name }} и приватной подсетью {{ baremetal-name }} {#check-vm-to-bms}
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
 1. В терминале выполните команду `ping`, чтобы убедиться в доступности сервера `server-m3` по его приватному IP-адресу:

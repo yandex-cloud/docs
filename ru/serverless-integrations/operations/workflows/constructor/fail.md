@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
 
-      1. В поле **Текст ошибки** задайте текст сообщения об ошибке, которым будет завершаться запуск рабочего процесса.
+      1. В поле **{{ ui-key.yacloud.serverless-workflows.workflow-viewer_error-message-label }}** задайте текст сообщения об ошибке, которым будет завершаться запуск рабочего процесса.
 
 {% endlist %}
 

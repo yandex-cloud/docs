@@ -17,11 +17,11 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * (Опционально) **Сервисный аккаунт** — сервисный аккаунт для авторизации при выполнении операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
-        * **Операция** — выполняемую операцию.
-        * **Имя потока {{ yds-name }}** — имя потока данных {{ yds-name }}.
-        * (Опционально) **Тип содержимого записи** — тип содержимого записи. Если значение — `body`, в поток записывается только тело запроса, если `request` — весь запрос в формате JSON. Значение по умолчанию — `body`.
-        * (Опционально) **Ключ сегмента** — [ключ сегмента](../../../data-streams/concepts/partition-keys.md). Если не указан, запись выполняется в случайный сегмент.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при выполнении операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datastreams_action_name }}** — выполняемую операцию.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datastreams_stream_name_name }}** — имя потока данных {{ yds-name }}.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datastreams_payload_format_type_name }}** — тип содержимого записи. Если значение — `body`, в поток записывается только тело запроса, если `request` — весь запрос в формате JSON. Значение по умолчанию — `body`.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datastreams_partition_key_name }}** — [ключ сегмента](../../../data-streams/concepts/partition-keys.md). Если не указан, запись выполняется в случайный сегмент.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

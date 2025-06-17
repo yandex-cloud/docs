@@ -100,6 +100,7 @@ description: Следуя данной инструкции, вы сможете
        block_size = <размер_блока>
        type       = "network-ssd-nonreplicated"
        zone       = "<зона_доступности>"
+       kms_key_id = "<идентификатор_KMS_ключа>"
      }
      ```
 
@@ -112,6 +113,13 @@ description: Следуя данной инструкции, вы сможете
      * `block_size` — размер блока в байтах (минимальный объем хранения информации на диске). Максимальный размер диска зависит от заданного размера блока. По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно. Подробнее см. в разделе [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
      * `type` — тип создаваемого диска. Укажите `network-ssd-nonreplicated` для создания нереплицируемого диска.
      * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
+     * `kms_key_id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания [зашифрованного](../../concepts/encryption.md) диска. Необязательный параметр.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      Более подробную информацию о параметрах ресурса `yandex_compute_disk` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Проверьте корректность конфигурационных файлов.

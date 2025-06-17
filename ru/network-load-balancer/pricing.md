@@ -10,7 +10,6 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 В рамках {{ network-load-balancer-full-name }} оплачиваются объем входящего и исходящего трафика, обработанного балансировщиком, и количество сетевых балансировщиков.
 

@@ -151,6 +151,7 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 * Values in the **Total** row are calculated only for measures. For dimensions, the row is empty.
 * If the **Pagination** option is selected, the **Total** row is placed on the last page.
 * If a table consists of a single entry, the **Total** row is not displayed.
+* The row with totals does not display results calculated using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md).
 
 {% endnote %}
 

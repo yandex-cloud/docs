@@ -21,7 +21,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
 
 ## Статус кластера {#running-stopped}
 
@@ -125,10 +126,6 @@ editable: false
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-Все цены указаны с включением НДС.
-
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 

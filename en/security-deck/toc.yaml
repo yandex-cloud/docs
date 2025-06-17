@@ -8,7 +8,7 @@ items:
         href: quickstart-overview.md
   - name: Step-by-step guides
     items:
-      - name: All tutorials
+      - name: All guides
         href: operations/index.md
       - name: Data Security Posture Management ({{ dspm-name }})
         items:
@@ -36,7 +36,7 @@ items:
         href: concepts/limits.md
   - name: Access management
     items:
-      - name: General {{ sd-name }} roles
+      - name: Common {{ sd-name }} roles
         href: security/index.md
       - name: '{{ atr-name }} roles'
         href: security/access-transparency-roles.md

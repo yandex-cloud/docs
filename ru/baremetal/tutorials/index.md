@@ -9,5 +9,6 @@ description: Различные сценарии использования {{ b
 * [{#T}](./bms-vrf-routing.md)
 * [{#T}](./bms-simple-subnet.md)
 * [{#T}](./bm-vrf-and-vpc-interconnect.md)
+* [{#T}](./bms-cic-onprem.md)
 * [{#T}](./usb-over-ip.md)
 * [{#T}](./opnsense-failover-cluster.md)

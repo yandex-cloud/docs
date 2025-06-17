@@ -2053,8 +2053,12 @@ default:
           50|string: "295,00\_₸"
         v1|string: Не тарифицируется
   sku|KZT|searchapi:
+    generative:
+      requests:
+        v3|number: 25
     requests:
       async:
+        v3|number: 125
         v3|string: "125,00\_₸"
       day:
         v1|string: "2\_400,00\_₸"
@@ -2063,6 +2067,7 @@ default:
           1|string: "1\_800,00\_₸"
         v1|string: Не тарифицируется
       sync:
+        v3|number: 2400
         v3|string: "2\_400,00\_₸"
   sku|KZT|security_deck:
     access_transparency:
@@ -3730,8 +3735,12 @@ default:
           50|string: "59,00\_₽"
         v1|string: Не тарифицируется
   sku|RUB|searchapi:
+    generative:
+      requests:
+        v3|number: 5
     requests:
       async:
+        v3|number: 25
         v3|string: "25,00\_₽"
       day:
         v1|string: "480,00\_₽"
@@ -3740,6 +3749,7 @@ default:
           1|string: "360,00\_₽"
         v1|string: Не тарифицируется
       sync:
+        v3|number: 480
         v3|string: "480,00\_₽"
   sku|RUB|security_deck:
     access_transparency:
@@ -5386,6 +5396,9 @@ default:
           50|string: "0,491666\_$"
         v1|string: Не тарифицируется
   sku|USD|searchapi:
+    generative:
+      requests:
+        v3|number: 0.041667
     requests:
       async:
         v3|string: "0,208333\_$"
@@ -7556,6 +7569,7 @@ default:
           edit:
             button_update: Сохранить изменения
           label_disk-used: Подключен
+          label_title: Диски
           popup_detach-disk_button_detach: Отсоединить
         field_additional_vt356: Дополнительно
         field_disk-autodelete_qZn4x: Удалять вместе с виртуальной машиной
@@ -9309,8 +9323,16 @@ default:
         workflow-editor_push-next-block-placeholder-label: Добавить шаг
         workflow-editor_retry-count-field: Количество повторных попыток
         workflow-editor_step-name-label: Имя шага
+        workflow-editor_wait-step-duration-field: Длительность ожидания, c
+        workflow-editor_wait-step-jq-expression-field: Шаблон
+        workflow-editor_wait-step-type-field: Ожидание
+        workflow-editor_wait-step-type-field-duration-label: Интервал времени
+        workflow-editor_wait-step-type-field-until-label: Временная метка
+        workflow-editor_wait-step-until-field: Временная метка
+        workflow-editor_wait-step-use-jq-expression-field: Использовать шаблонизацию
         workflow-editor_while-step-condition-field: Шаблон условия выполнения
         workflow-editor_while-step-max-iterations-field: Максимальное количество итераций
+        workflow-viewer_error-message-label: Текст ошибки
         workflow-viewer_node-input-label: Вход
         workflow-viewer_node-output-label: Выход
         workflow-viewer_node-settings-label: Настройки
@@ -10949,6 +10971,258 @@ default:
               table_splitter:
                 title: Трансформер разделения на подтаблицы
               title: Трансформер
+    yc-eventrouter:
+      dynamic-forms:
+        template_connector_batch_options_batch_size_title: Размер группы
+        template_connector_batch_options_polling_timeout_title: Таймаут опроса, мс
+        template_connector_batch_options_title: Настройки группирования сообщений
+        template_connector_batch_options_visibility_timeout_title: Таймаут видимости, ч
+        template_connector_timer_base_options_title: Настройки таймера
+        template_connector_timer_cron_expression_title: Cron-выражение
+        template_connector_timer_payload_title: Данные
+        template_connector_timer_timezone_title: Часовой пояс
+        template_connector_yds_base_options_title: Настройки Data Streams
+        template_connector_ymq_base_options_title: Настройки сообщений Message Queue
+        template_target_batch_cutoff: Время ожидания, с
+        template_target_batch_max_bytes: Количество байтов в группе
+        template_target_batch_max_count: Количество сообщений в группе
+        template_target_retry_max_age: Интервал, ч
+        template_target_retry_max_attempts: Количество попыток
+        template_target_retry_title: Настройки повторной отправки сообщений
+        timer_name: Таймер
+    yc-serverless-apigw:
+      dynamic-forms:
+        cloud_datasphere_folder_id_name: Каталог
+        cloud_datasphere_node_id_name: Идентификатор ноды
+        cloud_datastreams_action_name: Операция
+        cloud_datastreams_partition_key_name: Ключ сегмента
+        cloud_datastreams_payload_format_type_name: Тип содержимого записи
+        cloud_datastreams_stream_name_name: Имя потока Data Streams
+        cloud_functions_info: Функция
+        cloud_functions_payload_format_version_name: Версия формата запроса
+        cloud_ydb_action_title: Операция
+        cloud_ydb_database_name: База данных
+        cloud_ydb_exclusive_start_key_name: Первичный ключ элемента
+        cloud_ydb_expression_attribute_values_name: Алиас
+        cloud_ydb_key_name: Ключ
+        cloud_ydb_limit_name: Лимит
+        cloud_ydb_table_name_name: Таблица
+        cloud_ydb_update_expression_name: Выражение для обновления
+        cloud_ymq_delay_seconds_name: Задержка
+        cloud_ymq_info: Очередь
+        cloud_ymq_payload_format_type_name: Тип содержимого сообщения
+        dummy_content_name: Данные
+        dummy_headers_name: HTTP-заголовки
+        dummy_http_code_name: Код HTTP-ответа
+        foundation_models_api_service_text_classification_hint: Классификация текста
+        foundation_models_api_service_text_classification_labels_title: Классы
+        foundation_models_api_service_text_classification_samples_title: Примеры запросов
+        foundation_models_api_service_text_classification_task_desc_title: Описание задания
+        foundation_models_api_service_text_generation_hint: Генерация текста
+        foundation_models_api_service_text_generation_max_tokens_title: Количество токенов
+        foundation_models_api_service_text_generation_temp_title: Температура
+        foundation_models_api_service_title: Сценарий использования
+        foundation_models_model_uri_datasphere_label: DataSphere
+        foundation_models_model_uri_title: Используемая модель
+        foundation_models_model_uri_yagpt_label: YandexGPT
+        foundation_models_prompt_src_body_option: Тело запроса
+        foundation_models_prompt_src_query_option: Query-параметр
+        foundation_models_prompt_src_title: Способ передачи промта
+        http_connect_timeout_name: Таймаут соединения
+        http_headers_name: HTTP-заголовки
+        http_http_method_for_extension_name: Метод
+        http_method_name: HTTP-метод
+        http_omit_empty_headers_name: Не передавать пустые заголовки
+        http_omit_empty_query_parameters_name: Не передавать пустые query-параметры
+        http_query_name: Query-параметры
+        http_read_timeout_name: Таймаут чтения
+        http_send_original_headers_name: Передавать заголовки исходного запроса
+        http_send_original_query_params_name: Передавать query-параметры исходного запроса
+        http_url_name: URL
+        object_storage_bucket_name: Бакет
+        object_storage_error_object_filename_name: Объект ошибки
+        object_storage_filename_name: Имя объекта
+        path_name: Путь
+        serverless_containers_container_id_name: Идентификатор контейнера
+        service_account_id_name: Сервисный аккаунт
+    yc-serverless-workflows:
+      dynamic-forms:
+        common_retry_policy_view_spec_layout_title: Политика повторных попыток
+        common_timeout_view_spec_layout_title: Таймаут, мс
+        containers_integration_properties_body_view_spec_layout_title: Тело запроса
+        containers_integration_properties_headers_view_spec_item_label: Добавить заголовок
+        containers_integration_properties_headers_view_spec_layout_title: Заголовки запроса
+        containers_integration_properties_http_method_view_spec_layout_title: Метод запроса
+        containers_integration_properties_path_view_spec_layout_title: Путь запроса
+        containers_integration_properties_query_view_spec_item_label: Добавить параметр
+        containers_integration_properties_query_view_spec_layout_title: Query-параметры запроса
+        containers_integration_properties_serverless_container_view_spec_layout_title: Контейнер
+        disk_integration_title: Яндекс Диск
+        disk_properties_action_description_download: Загрузка с диска
+        disk_properties_action_description_upload: Загрузка на диск
+        disk_properties_action_properties_download_properties_view_spec_layout_title: Тип содержимого
+        disk_properties_action_properties_upload_properties_content_view_spec_layout_title: Содержимое файла
+        disk_properties_oauth_token_view_spec_layout_title: OAuth-токен
+        disk_properties_path_view_spec_layout_title: Путь
+        foundation_models_properties_action_properties_generate_properties_context_description_json: JSON-строка
+        foundation_models_properties_action_properties_generate_properties_context_description_messages: Сообщения
+        foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title: Контекст
+        foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title: Количество токенов
+        foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Температура
+        foundation_models_properties_model_description_custom: Дообученная модель
+        foundation_models_properties_model_description_yagpt_latest: YandexGPT
+        foundation_models_properties_model_properties_custom_view_spec_layout_title: Идентификатор модели
+        foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Идентификатор каталога
+        functions_integration_properties_serverless_function_view_spec_layout_title: Функция
+        grpc_integration_title: gRPC
+        grpc_properties_body_view_spec_layout_title: Тело запроса
+        grpc_properties_endpoint_view_spec_layout_title: Эндпоинт
+        grpc_properties_headers_view_spec_item_label: Добавить заголовок
+        grpc_properties_headers_view_spec_layout_title: Заголовки запроса
+        grpc_properties_method_view_spec_layout_title: Метод
+        grpc_properties_use_service_account_view_spec_layout_title: Использовать сервисный аккаунт
+        http_properties_body_view_spec_layout_title: Тело запроса
+        http_properties_headers_view_spec_item_label: Добавить заголовок
+        http_properties_headers_view_spec_layout_title: Заголовки запроса
+        http_properties_http_method_view_spec_layout_title: Метод
+        http_properties_query_view_spec_item_label: Добавить параметр
+        http_properties_query_view_spec_layout_title: Query-параметры запроса
+        http_properties_url_view_spec_layout_title: URL
+        http_properties_use_service_account_view_spec_layout_title: Использовать сервисный аккаунт
+        object_storage_properties_action_description_get: Получить объект
+        object_storage_properties_action_description_put: Добавить объект
+        object_storage_properties_action_properties_get_properties_content_type_view_spec_layout_title: Тип содержимого
+        object_storage_properties_action_properties_put_properties_content_view_spec_layout_title: Содержимое объекта
+        object_storage_properties_action_view_spec_layout_title: Действие
+        object_storage_properties_bucket_view_spec_layout_title: Бакет
+        object_storage_properties_object_view_spec_layout_title: Имя объекта
+        postbox_properties_cc_to_addresses_properties_address_array_view_spec_item_label: Добавить скрытую копию
+        postbox_properties_cc_to_addresses_properties_address_array_view_spec_layout_title: Массив адресов
+        postbox_properties_cc_to_addresses_properties_raw_string_view_spec_layout_title: Сырая строка
+        postbox_properties_cc_to_addresses_view_spec_layout_title: Адреса скрытых копий
+        postbox_properties_from_address_view_spec_layout_title: Адрес отправителя
+        postbox_properties_message_properties_raw_view_spec_layout_title: Шаблон
+        postbox_properties_message_properties_simple_properties_body_html_view_spec_layout_title: HTML-контент
+        postbox_properties_message_properties_simple_properties_body_text_view_spec_layout_title: Текст
+        postbox_properties_message_properties_simple_properties_charset_view_spec_layout_title: Кодировка
+        postbox_properties_message_properties_simple_properties_subject_view_spec_layout_title: Тема
+        postbox_properties_message_properties_simple_view_spec_layout_title: Текст
+        postbox_properties_message_view_spec_layout_title: Письмо
+        postbox_properties_to_addresses_properties_address_array_view_spec_item_label: Добавить получателя
+        postbox_properties_to_addresses_properties_address_array_view_spec_layout_title: Массив адресов
+        postbox_properties_to_addresses_properties_raw_string_view_spec_layout_title: Сырая строка
+        postbox_properties_to_addresses_view_spec_layout_title: Адреса получателей
+        shared_disk_properties_disk_type_description_private: Личный
+        shared_disk_properties_disk_type_description_shared: Общий
+        shared_disk_properties_disk_type_view_spec_layout_title: Тип диска
+        tracker_properties_action_description_create_comment: Добавить комментарий
+        tracker_properties_action_description_create_issue: Создать задачу
+        tracker_properties_action_description_get_issue: Получить задачу
+        tracker_properties_action_description_link_issues: Связать задачи
+        tracker_properties_action_description_list_comments: Получить комментарий
+        tracker_properties_action_description_list_issues: Найти задачу
+        tracker_properties_action_description_update_comment: Обновить комментарий
+        tracker_properties_action_description_update_issue: Обновить задачу
+        tracker_properties_action_description_update_issue_status: Обновить статус задачи
+        tracker_properties_action_properties_create_comment_properties_key_view_spec_layout_title: Ключ задачи
+        tracker_properties_action_properties_create_comment_properties_mentions_description_array: Список
+        tracker_properties_action_properties_create_comment_properties_mentions_description_none: Не призывать
+        tracker_properties_action_properties_create_comment_properties_mentions_description_simple: JSON
+        tracker_properties_action_properties_create_comment_properties_mentions_view_spec_layout_title: Призвать пользователей
+        tracker_properties_action_properties_create_comment_properties_text_view_spec_layout_title: Текст
+        tracker_properties_action_properties_create_issue_properties_additional_properties_view_spec_layout_title: Дополнительные поля
+        tracker_properties_action_properties_create_issue_properties_assignee_view_spec_layout_title: Исполнитель
+        tracker_properties_action_properties_create_issue_properties_author_view_spec_layout_title: Автор
+        tracker_properties_action_properties_create_issue_properties_description_view_spec_layout_title: Описание
+        tracker_properties_action_properties_create_issue_properties_followers_view_spec_layout_title: Добавить наблюдателей
+        tracker_properties_action_properties_create_issue_properties_parent_view_spec_layout_title: Родительская задача
+        tracker_properties_action_properties_create_issue_properties_priority_view_spec_layout_title: Приоритет
+        tracker_properties_action_properties_create_issue_properties_queue_view_spec_layout_title: Очередь
+        tracker_properties_action_properties_create_issue_properties_sprints_description_array: Список
+        tracker_properties_action_properties_create_issue_properties_sprints_description_none: Не добавлять
+        tracker_properties_action_properties_create_issue_properties_sprints_description_simple: JSON
+        tracker_properties_action_properties_create_issue_properties_sprints_view_spec_layout_title: Добавить в спринты
+        tracker_properties_action_properties_create_issue_properties_title_view_spec_layout_title: Название
+        tracker_properties_action_properties_create_issue_properties_type_view_spec_layout_title: Тип
+        tracker_properties_action_properties_get_issue_properties_key_view_spec_layout_title: Ключ задачи
+        tracker_properties_action_properties_link_issues_properties_key_view_spec_layout_title: Ключ первой задачи
+        tracker_properties_action_properties_link_issues_properties_link_key_view_spec_layout_title: Ключ второй задачи
+        tracker_properties_action_properties_link_issues_properties_relationship_view_spec_layout_title: Тип связи
+        tracker_properties_action_properties_list_comments_properties_page_size_view_spec_layout_title: Количество комментариев
+        tracker_properties_action_properties_list_issues_properties_page_number_view_spec_layout_title: Номер страницы
+        tracker_properties_action_properties_list_issues_properties_page_size_view_spec_layout_title: Размер страницы
+        tracker_properties_action_properties_list_issues_properties_search_options_description_filter: Параметры фильтрации задач
+        tracker_properties_action_properties_list_issues_properties_search_options_description_keys: Список ключей задач
+        tracker_properties_action_properties_list_issues_properties_search_options_description_query: Фильтр на языке запросов
+        tracker_properties_action_properties_list_issues_properties_search_options_description_queue: Очередь
+        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_issue_properties_view_spec_layout_title: Поля для фильтрации
+        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_sort_description_on: Включена
+        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_sort_properties_on_properties_order_view_spec_layout_title: Сортировка по убыванию
+        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_sort_view_spec_layout_title: Сортировка
+        tracker_properties_action_properties_list_issues_properties_search_options_properties_keys_view_spec_layout_title: Ключи задач
+        tracker_properties_action_properties_list_issues_properties_search_options_properties_queue_view_spec_layout_title: Название очереди
+        tracker_properties_action_properties_list_issues_properties_search_options_view_spec_layout_title: Параметры поиска
+        tracker_properties_action_properties_update_comment_properties_id_view_spec_layout_title: Идентификатор комментария
+        tracker_properties_action_properties_update_comment_properties_issue_key_view_spec_layout_title: Ключ задачи
+        tracker_properties_action_properties_update_comment_properties_text_view_spec_layout_title: Текст
+        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_add: Добавить значение
+        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_remove: Удалить значение
+        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_replace: Обновить значение
+        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_set: Заменить значение
+        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_properties_add_view_spec_layout_title: Значение
+        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_properties_replace_description_key_value: Словарь
+        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_view_spec_layout_title: Изменить поле
+        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_key_view_spec_placeholder: Название поля
+        tracker_properties_action_properties_update_issue_properties_followers_description_add: Добавить наблюдателя
+        tracker_properties_action_properties_update_issue_properties_followers_description_none: Не изменять
+        tracker_properties_action_properties_update_issue_properties_followers_description_remove: Удалить наблюдателя
+        tracker_properties_action_properties_update_issue_properties_followers_description_replace: Обновить наблюдателя
+        tracker_properties_action_properties_update_issue_properties_followers_description_set: Заменить наблюдателей
+        tracker_properties_action_properties_update_issue_properties_followers_properties_add_view_spec_layout_title: Наблюдатель
+        tracker_properties_action_properties_update_issue_properties_followers_properties_replace_description_key_value: Словарь
+        tracker_properties_action_properties_update_issue_properties_followers_view_spec_layout_title: Изменить наблюдателей
+        tracker_properties_action_properties_update_issue_properties_sprints_description_add: Добавить спринт
+        tracker_properties_action_properties_update_issue_properties_sprints_description_none: Не изменять
+        tracker_properties_action_properties_update_issue_properties_sprints_description_remove: Удалить спринт
+        tracker_properties_action_properties_update_issue_properties_sprints_description_replace: Обновить спринт
+        tracker_properties_action_properties_update_issue_properties_sprints_description_set: Заменить спринты
+        tracker_properties_action_properties_update_issue_properties_sprints_properties_add_description_array: Список
+        tracker_properties_action_properties_update_issue_properties_sprints_properties_add_description_simple: JSON
+        tracker_properties_action_properties_update_issue_properties_sprints_properties_add_view_spec_layout_title: Спринт
+        tracker_properties_action_properties_update_issue_properties_sprints_properties_replace_description_key_value: Словарь
+        tracker_properties_action_properties_update_issue_properties_sprints_properties_replace_description_plain: JSON
+        tracker_properties_action_properties_update_issue_properties_sprints_view_spec_layout_title: Изменить спринты
+        tracker_properties_action_properties_update_issue_status_properties_key_view_spec_layout_title: Ключ задачи
+        tracker_properties_action_properties_update_issue_status_properties_transition_view_spec_layout_title: Переход
+        tracker_properties_action_view_spec_layout_title: Действие
+        tracker_properties_endpoint_view_spec_layout_title: Эндпоинт
+        tracker_properties_oauth_token_description_lockbox: Lockbox
+        tracker_properties_oauth_token_description_plain: Текст
+        tracker_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Cекрет
+        tracker_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Значение
+        tracker_properties_oauth_token_view_spec_layout_title: OAuth-токен
+        tracker_properties_organization_description_cloud: Yandex Cloud Organization
+        tracker_properties_organization_description_none: Не указана
+        tracker_properties_organization_description_yandex: Яндекс 360
+        tracker_properties_organization_properties_cloud_view_spec_layout_title: Идентификатор организации
+        tracker_properties_organization_view_spec_layout_title: Организация
+        workflow_properties_serverless_workflow_view_spec_layout_title: Идентификатор рабочего процесса
+        workflow_properties_workflow_input_view_spec_layout_title: Входные данные
+        ydb_document_properties_action_properties_get_properties_key_view_spec_layout_title: Ключ
+        ydb_document_properties_action_properties_put_properties_item_view_spec_layout_title: Атрибуты
+        ydb_document_properties_action_properties_scan_properties_exclusive_start_key_view_spec_layout_title: Ключ
+        ydb_document_properties_action_properties_scan_properties_limit_view_spec_layout_title: Лимит
+        ydb_document_properties_action_properties_update_properties_expression_attribute_values_view_spec_layout_title: Значения атрибутов
+        ydb_document_properties_action_properties_update_properties_expression_view_spec_layout_title: Выражение для обновления
+        ydb_document_properties_action_properties_update_properties_key_view_spec_layout_title: Ключ
+        ydb_document_properties_action_view_spec_layout_title: Действие
+        ydb_document_properties_ydb_database_view_spec_layout_title: База данных
+        ydb_document_properties_ydb_table_view_spec_layout_title: Путь к таблице
+        yds_integration_title: Data Streams
+        yds_properties_database_view_spec_layout_title: База данных
+        yds_properties_topic_view_spec_layout_title: Топик
+        ymq_integration_title: Message Queue
+        ymq_properties_queue_arn_view_spec_layout_title: ARN очереди
     yc-ui-datasphere:
       alias:
         private: Приватный

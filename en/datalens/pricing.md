@@ -32,7 +32,8 @@ JavaScript customizations in [Editor](./charts/editor/index.md) | ![image](../_a
 [Analytic calculations and SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Role-based access management](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Authentication](./security/add-new-user.md) | Yandex ID, Yandex 360 | Yandex ID, Yandex 360, corporate accounts / SSO
-[Reports for export and presentations](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
+[Reports for export and presentations](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
+[Prohibiting export of workbooks](./workbooks-collections/export-and-import.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
 [{{ datalens-name }} UI customization](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Secure chart and dashboard embedding](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Published content management](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   

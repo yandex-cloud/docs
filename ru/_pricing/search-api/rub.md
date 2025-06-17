@@ -7,4 +7,4 @@
 | **Запросы через [API v2](../../search-api/concepts/index.md#api-v2)** | |
 | Синхронные запросы | {{ sku|RUB|searchapi.requests.sync.v3|string }} |
 | Отложенные запросы | {{ sku|RUB|searchapi.requests.async.v3|string }} | 
-| Синхронный запрос с [генеративным ответом](../../search-api/concepts/generative-response.md) | 5 000,00 ₽ | 
+| Синхронный запрос с [генеративным ответом](../../search-api/concepts/generative-response.md) | {% calc [currency=RUB] {{ sku|RUB|searchapi.generative.requests.v3|number }} × 1000 %} |

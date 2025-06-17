@@ -14,5 +14,6 @@ Event name | Description
 `UninstallHelmRelease` | Destroying a Helm version
 `UpdateCluster` | Updating a cluster
 `UpdateClusterAccessBindings` | Updating access permissions for a cluster
+`UpdateClusterCertificate` | Updating a [cluster certificate](../../../managed-kubernetes/concepts/release-channels-and-updates#certificates)
 `UpdateHelmRelease` | Updating a Helm version
 `UpdateNodeGroup` | Updating a node group

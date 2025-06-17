@@ -17,9 +17,9 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * **Код HTTP-ответа** — код HTTP-ответа.
-        * (Опционально) **HTTP-заголовки** — cписок заголовков, которые будут отправлены в ответ.
-        * **Данные** — данные, которые будут отправлены в ответ.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_http_code_name }}** — код HTTP-ответа.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_headers_name }}** — список заголовков, которые будут отправлены в ответ.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_content_name }}** — данные, которые будут отправлены в ответ.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

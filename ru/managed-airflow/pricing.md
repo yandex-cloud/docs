@@ -20,6 +20,9 @@ editable: false
 
 {% endnote %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ maf-name }} {#rules}
 
 При работе с {{ maf-name }} вы оплачиваете:
@@ -60,11 +63,6 @@ editable: false
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-
-Все цены указаны с включением НДС.
-
 
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}

@@ -1,6 +1,5 @@
 # Пошаговые инструкции {{ cr-name }}
 
-
 - [{#T}](ri-get-info.md)
 - [{#T}](ri-operations.md)
 - [{#T}](ri-create.md)

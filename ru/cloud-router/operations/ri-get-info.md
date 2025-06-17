@@ -46,29 +46,30 @@ title: Как получить информацию о Routing Instance
 
       Результат:
 
+      
       ```yml
       id: cf3jqdc4gjpxig******
       name: routing-instance
       description: '-'
       folder_id: b1gqf2hjizv2jw******
-      region_id: ru-central1
+      region_id: {{ region-id }}
       vpc_info:
         - vpc_network_id: enp0qpdijf4h2p******
           az_infos:
             - manual_info:
-                az_id: ru-central1-a
+                az_id: {{ region-id }}-a
                 prefixes:
                   - 10.128.11.0/24
                   - 10.128.12.0/24
                   - 10.128.13.0/24
             - manual_info:
-                az_id: ru-central1-b
+                az_id: {{ region-id }}-b
                 prefixes:
                   - 10.129.21.0/24
                   - 10.129.22.0/24
                   - 10.129.23.0/24
             - manual_info:
-                az_id: ru-central1-d
+                az_id: {{ region-id }}-d
                 prefixes:
                   - 10.130.31.0/24
                   - 10.130.32.0/24
@@ -76,19 +77,19 @@ title: Как получить информацию о Routing Instance
         - vpc_network_id: enp3vifnkc6l4******
           az_infos:
             - manual_info:
-                az_id: ru-central1-a
+                az_id: {{ region-id }}-a
                 prefixes:
                   - 172.16.1.0/24
                   - 172.16.2.0/24
                   - 172.16.3.0/24
             - manual_info:
-                az_id: ru-central1-b
+                az_id: {{ region-id }}-b
                 prefixes:
                   - 172.16.11.0/24
                   - 172.16.12.0/24
                   - 172.16.13.0/24
             - manual_info:
-                az_id: ru-central1-d
+                az_id: {{ region-id }}-d
                 prefixes:
                   - 172.16.21.0/24
                   - 172.16.22.0/24
@@ -98,6 +99,8 @@ title: Как получить информацию о Routing Instance
         - cic_private_connection_id: euucr7p47329kq******
       status: ACTIVE
       ```
+
+
 
       где,
       * `id` — идентификатор Routing Instance.

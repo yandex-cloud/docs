@@ -17,9 +17,9 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * (Опционально) **Сервисный аккаунт** — сервисный аккаунт для авторизации при вызове [ноды](../../../datasphere/concepts/deploy/index.md#node) {{ ml-platform-name }}. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
-        * **Каталог** — каталог, в котором создан [проект](../../../datasphere/concepts/project.md) {{ ml-platform-name }} и развернута нода.
-        * **Идентификатор ноды** — идентификатор ноды {{ ml-platform-name }}.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при вызове [ноды](../../../datasphere/concepts/deploy/index.md#node) {{ ml-platform-name }}. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datasphere_folder_id_name }}** — каталог, в котором создан [проект](../../../datasphere/concepts/project.md) {{ ml-platform-name }} и развернута нода.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_datasphere_node_id_name }}** — идентификатор ноды {{ ml-platform-name }}.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

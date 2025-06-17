@@ -1,13 +1,13 @@
 ---
-title: General {{ sd-full-name }} roles
-description: Managing access permissions in {{ sd-full-name }} information security management service. For access to {{ sd-name }} resources, assign to the user the required roles from the list below.
+title: Common {{ sd-full-name }} roles
+description: Managing access permissions in {{ sd-full-name }} information security management service. To allow a user access to {{ sd-name }} resources, assign them the roles from the list below.
 ---
 
-# General {{ sd-full-name }} roles
+# Common {{ sd-full-name }} roles
 
-{{ yandex-cloud }} users can only perform the operations on resources that are allowed by the roles assigned to them. If a user has no roles yet, they cannot perform any operations.
+{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user has no roles yet, they cannot perform any operations.
 
-To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md), access to {{ sd-name }} resources, assign them the roles from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
+To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md), access to {{ sd-name }} resources, assign them the roles from the list below. Currently, a role can only be assigned for a folder or cloud and it is inherited by nested resources.
 
 {% note info %}
 
@@ -15,7 +15,7 @@ For more information about role inheritance, see [Inheritance of access permissi
 
 {% endnote %}
 
-## Which roles exist in the service {#roles-list}
+## What roles exist in this service {#roles-list}
 
 In {{ sd-name }}, you can manage access using both service and primitive roles.
 
@@ -37,7 +37,7 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 {% include [security-deck.admin](../../_roles/security-deck/admin.md) %}
 
-In addition to that, {{ yandex-cloud }} supports a separate list of roles for each {{ sd-name }} module. For more information, see:
+{{ yandex-cloud }} also supports a separate list of roles for each {{ sd-name }} module. For more information, see:
 
 * [Roles for {{ atr-name }} data analysis](./access-transparency-roles.md).
 * [Roles for Data Security Posture Management](./dspm-roles.md).

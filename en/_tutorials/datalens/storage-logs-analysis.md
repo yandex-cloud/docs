@@ -68,7 +68,7 @@ The cost includes:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Describe the properties for creating a service account and access key in the configuration file:
+  1. Describe the settings for creating a service account and access key in the configuration file:
 
      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
@@ -252,7 +252,7 @@ To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 - {{ TF }} {#tf}
 
-  1. Add the cluster description and cluster hosts to the configuration file:
+  1. Add descriptions of your cluster, database, and user to the configuration file:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
@@ -268,18 +268,6 @@ To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../
          }
        }
 
-       database {
-         name = "s3_data"
-       }
-
-       user {
-         name     = "user"
-         password = "<password>"
-         permission {
-           database_name = "s3_data"
-         }
-       }
-
        host {
          type      = "CLICKHOUSE"
          zone      = "<availability_zone>"
@@ -290,10 +278,28 @@ To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../
          datalens  = true
          web_sql   = true
        }
+
+       lifecycle {
+         ignore_changes = [database, user]
+       }
+     }
+
+     resource "yandex_mdb_clickhouse_database" "s3-data" {
+       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       name       = "s3_data"
+     }
+
+     resource "yandex_mdb_clickhouse_user" "user1" {
+       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       name       = "user"
+       password   = "<password>"
+       permission {
+         database_name = yandex_mdb_clickhouse_database.s3-data.name
+       }
      }
      ```
 
-     To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-mch }}).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
 
   1. Make sure the settings are correct.
 
@@ -330,7 +336,7 @@ Wait until the cluster status switches to `Alive`.
 
 ### Create a static key {#create-static-key}
 
-To create a table with access to {{ objstorage-name }}, you will need a static key. [Create one](../../iam/operations/authentication/manage-access-keys.md#create-access-key) and save its ID and secret part.
+You need a static key to create a table with access to {{ objstorage-name }}. [Create one](../../iam/operations/authentication/manage-access-keys.md#create-access-key) and save its ID and secret part.
 
 ### Create a table in the database {#create-table}
 
@@ -370,7 +376,7 @@ To create a table with access to {{ objstorage-name }}, you will need a static k
         status Int64,               -- HTTP response code.
         storage_class String,       -- Object storage class.
         timestamp DateTime,         -- Date and time of the bucket operation in the YYYY-MM-DDTHH:MM:SSZ format.
-        user_agent String,          -- Client application (user agent) that executed the request.
+        user_agent String,          -- Client app (user agent) that runs the request.
         version_id String,          -- Object version.
         vhost String                -- Virtual host of the request.
                                     -- The possible values are as follows:
@@ -448,7 +454,7 @@ To visualize the number of requests ratio by object type, create a bar chart:
 
 1. Copy the chart from the previous step:
 
-   1. In the top-right corner, click the down arrow next to the **Save** button.
+   1. In the top-right corner, click the check mark next to the **Save** button.
    1. Click **Save as**.
    1. In the window that opens, enter the `S3 - Object type bars` name for the new chart and click **Save**.
 

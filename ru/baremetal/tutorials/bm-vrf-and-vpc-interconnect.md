@@ -4,6 +4,6 @@ description: Следуя данной инструкции, вы сможете
 canonical: '{{ link-docs }}/tutorials/routing/bm-vrf-and-vpc-interconnect'
 ---
 
-# Настройка сетевой связности между подсетями {{ baremetal-name }} и {{ vpc-full-name }} с помощью {{ interconnect-full-name }}
+# Организация сетевой связности между приватными подсетями {{ baremetal-name }} и {{ vpc-full-name }} с помощью {{ interconnect-full-name }}
 
 {% include notitle [bm-vrf-and-vpc-interconnect](../../_tutorials/routing/bm-vrf-and-vpc-interconnect.md) %}

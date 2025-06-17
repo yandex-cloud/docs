@@ -11,6 +11,7 @@
      zone       = "<зона_доступности>"
      size       = <размер_диска>
      block_size = <размер_блока>
+     kms_key_id = "<идентификатор_KMS_ключа>"
    }
    ```
 
@@ -23,6 +24,13 @@
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md). Зона доступности для диска должна соответствовать зоне группы размещения, в которой вы хотите создать диск. Рекомендуется создавать диски в зонах доступности `{{ region-id }}-a` или `{{ region-id }}-b`.
    * `size` — размер диска в ГБ. Максимальный размер диска зависит от заданного размера блока.
    * `block_size` — размер блока в байтах (минимальный объем хранения информации на диске). По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно. Подробнее см. в разделе [{#T}](../../compute/operations/disk-create/empty-disk-blocksize.md).
+   * `kms_key_id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../kms/concepts/key.md) для создания [зашифрованного](../../compute/concepts/encryption.md) диска. Необязательный параметр.
+
+        {% include [encryption-role](encryption-role.md) %}
+
+        {% include [encryption-disable-warning](encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](encryption-keys-note.md) %}
 
    Более подробную информацию о ресурсе `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk).
 

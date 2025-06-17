@@ -33,6 +33,8 @@
 * плата за аренду сервера (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
 * плата за подключенный к сервису {{ backup-name }} сервер {{ baremetal-name }} и объем резервных копий (см. [тарифы {{ backup-full-name }}](../../backup/pricing.md)).
 
+{% include [bms-backup-free-traffic](../../_includes/baremetal/bms-backup-free-traffic.md) %}
+
 ## Создайте сервисный аккаунт {#prepare-service-account}
 
 {% list tabs group=instructions %}

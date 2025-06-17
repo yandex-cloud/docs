@@ -261,7 +261,7 @@ grpcurl \
 
 {% endnote %}
 
-Воспользуйтесь вызовом [TalkService/Upload](../../api-ref/grpc/Talk/upload.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}.
+Для изменения метаданных аудио воспользуйтесь вызовом [TalkService/Upload](../../api-ref/grpc/Talk/upload.md). Для изменения метаданных чата используйте вызов [TalkService/UploadText](../../api-ref/grpc/Talk/uploadText.md). Выполните запрос, например, с помощью {{ api-examples.grpc.tool }}.
 
 В примере используются демонстрационные данные.
 

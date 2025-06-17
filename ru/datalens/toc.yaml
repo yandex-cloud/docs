@@ -1083,6 +1083,9 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+      - name: Подготовка данных еще не завершилась
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
       - name: Subquery exceeds data weight limit
         hidden: true
         href: >-
@@ -1091,7 +1094,7 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
-      - name: Table is not ready yet
+      - name: Нарушена конфигурация таблицы
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md

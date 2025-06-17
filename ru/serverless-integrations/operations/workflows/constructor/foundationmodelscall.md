@@ -19,15 +19,15 @@ description: Следуя данной инструкции, вы сможете
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
       1. Выберите:
 
-          * `{{ yagpt-name }}`, чтобы использовать модель `{{ gpt-pro }}`, и в поле **Идентификатор каталога** выберите [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет вызываться модель.
-          * `Дообученная модель`, чтобы использовать дообученную модель, и в поле **Идентификатор модели** укажите идентификатор ([URI](../../../../foundation-models/concepts/tuning/index.md#requests)) дообученной модели.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_description_yagpt_latest }}`, чтобы использовать модель `{{ gpt-pro }}`, и в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title }}** выберите [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет вызываться модель.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_description_custom }}`, чтобы использовать дообученную модель, и в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_custom_view_spec_layout_title }}** укажите идентификатор ([URI](../../../../foundation-models/concepts/tuning/index.md#requests)) дообученной модели.
 
-      1. В поле **Температура** задайте вариативность ответа модели: чем выше значение температуры, тем более непредсказуемым будет результат выполнения запроса. Диапазон возможных значений – от `0` до `1`.
-      1. В поле **Количество токенов** задайте ограничение на максимально допустимое количество [токенов](../../../../foundation-models/concepts/yandexgpt/tokens.md) в ответе модели.
-      1. В блоке **Контекст** выберите:
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title }}** задайте вариативность ответа модели: чем выше значение температуры, тем более непредсказуемым будет результат выполнения запроса. Диапазон возможных значений – от `0` до `1`.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title }}** задайте ограничение на максимально допустимое количество [токенов](../../../../foundation-models/concepts/yandexgpt/tokens.md) в ответе модели.
+      1. В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title }}** выберите:
 
-          * `JSON-строка`, чтобы задать [контекст](../../../../foundation-models/concepts/index.md#prompt) запроса к модели в формате [JSON](https://ru.wikipedia.org/wiki/JSON)-строки.
-          * `Сообщения`, чтобы задать контекст запроса к модели в виде последовательности отдельных сообщений в формате `<Идентификатор_отправителя_сообщения>`:`<Текст_сообщения>`, используя кнопку ![plus](../../../../_assets/console-icons/plus.svg).
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_context_description_json }}`, чтобы задать [контекст](../../../../foundation-models/concepts/index.md#prompt) запроса к модели в формате [JSON](https://ru.wikipedia.org/wiki/JSON)-строки.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_context_description_messages }}`, чтобы задать контекст запроса к модели в виде последовательности отдельных сообщений в формате `<Идентификатор_отправителя_сообщения>`:`<Текст_сообщения>`, используя кнопку ![plus](../../../../_assets/console-icons/plus.svg).
 
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
