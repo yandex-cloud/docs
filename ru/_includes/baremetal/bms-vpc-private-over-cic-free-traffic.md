@@ -1,0 +1,1 @@
+Трафик между приватными адресами {{ baremetal-full-name }} и {{ vpc-full-name }}, передаваемый в обоих направлениях через [{{ interconnect-full-name }}](../../interconnect/index.yaml), не тарифицируется.

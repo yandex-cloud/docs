@@ -36,12 +36,12 @@ description: Следуя этой инструкции, вы сможете и�
      name: ri1
      description: Routing instance 1
      folder_id: b1gqf**********jiz2w
-     region_id: ru-central1
+     region_id: {{ region-id }}
      vpc_info:
        - vpc_network_id: c64ck**********jtr7b
          az_infos:
            - manual_info:
-               az_id: ru-central1-a
+               az_id: {{ region-id }}-a
                prefixes:
                  - 10.128.0.0/24
      cic_private_connection_info:
@@ -52,12 +52,15 @@ description: Следуя этой инструкции, вы сможете и�
 
   1. Добавить в список IP-префиксов в Routing Instance нужные префиксы:
 
+     
      ```bash
      yc cloudrouter routing-instance upsert-prefixes c3l87**********1dpin \
-       --vpc-net id=c64ck**********jtr7b,zone=ru-central1-b,ipv4-prefixes=10.129.0.0/24 \
-       --vpc-net id=c64ck**********jtr7b,zone=ru-central1-d,ipv4-prefixes=172.16.1.0/24 \
+       --vpc-net id=c64ck**********jtr7b,zone={{ region-id }}-b,ipv4-prefixes=10.129.0.0/24 \
+       --vpc-net id=c64ck**********jtr7b,zone={{ region-id }}-d,ipv4-prefixes=172.16.1.0/24 \
        --async
      ```
+
+
 
      Ожидаемый результат:
 
@@ -87,25 +90,26 @@ description: Следуя этой инструкции, вы сможете и�
 
      Ожидаемый результат:
 
+     
      ```
      id: c3l87**********1dpin
      name: ri1
      description: Routing instance 1
      folder_id: b1gqf**********jiz2w
-     region_id: ru-central1
+     region_id: {{ region-id }}
      vpc_info:
        - vpc_network_id: c64ck**********jtr7b
          az_infos:
            - manual_info:
-               az_id: ru-central1-a
+               az_id: {{ region-id }}-a
                prefixes:
                  - 10.128.0.0/24
            - manual_info:
-               az_id: ru-central1-b
+               az_id: {{ region-id }}-b
                prefixes:
                  - 10.129.0.0/24
            - manual_info:
-               az_id: ru-central1-d
+               az_id: {{ region-id }}-d
                prefixes:
                  - 172.16.1.0/24
      cic_private_connection_info:
@@ -113,6 +117,8 @@ description: Следуя этой инструкции, вы сможете и�
      status: ACTIVE
      created_at: "2025-03-19T13:35:56Z"
      ```
+
+
 
      где,
       * `id` — идентификатор Routing Instance.

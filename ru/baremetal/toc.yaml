@@ -95,12 +95,16 @@ items:
         href: tutorials/backup-baremetal.md
       - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
         href: tutorials/bms-vrf-routing.md
-      - name: Настройка сетевой связности в подсети {{ baremetal-name }}
+      - name: Организация сетевой связности в приватной подсети {{ baremetal-name }}
         href: tutorials/bms-simple-subnet.md
       - name: >-
-          Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
-          vpc-name }}
+          Организация сетевой связности между приватными подсетями {{
+          baremetal-name }} и {{ vpc-name }}
         href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Организация сетевой связности между приватной подсетью {{
+          baremetal-name }} и On-Prem
+        href: tutorials/bms-cic-onprem.md
       - name: >-
           Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную
           машину

@@ -4,9 +4,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step tutorials
+  - name: Step-by-step guides
     items:
-      - name: All tutorials
+      - name: All guides
         href: operations/index.md
       - name: Desktop groups
         items:
@@ -126,7 +126,7 @@ items:
             href: cli-ref/image/list.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -276,3 +276,5 @@ items:
                 href: api-ref/Operation/cancel.md
   - name: '{{ cloud-desktop-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md

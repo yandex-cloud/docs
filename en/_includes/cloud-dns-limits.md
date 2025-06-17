@@ -1,14 +1,18 @@
 #### Quotas {#cloud-dns-quotas}
 
-Limit type | Value
------ | -----
-Number of zones per cloud | 100
-Number of record sets per cloud | 1,000
-Number of record sets per zone | 100
+#|
+|| Type of limitation | Value ||
+|| Number of zones per cloud 
+`dns.zones.count` | 100 ||
+|| Number of record sets per cloud
+`dns.recordSets.count` | 1,000 ||
+|| Number of record sets per zone
+`dns.recordSetsPerZone.count`| 100 ||
+|#
 
 #### Limits {#cloud-dns-limits}
 
-Limit type | Value
+Type of limitation | Value
 ----- | -----
 Maximum number of records per record set | 100
 Maximum number of concurrent record set updates | 1,000

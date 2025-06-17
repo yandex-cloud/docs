@@ -20,6 +20,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
 ## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
 
 При работе с {{ mgl-name }} вы оплачиваете:

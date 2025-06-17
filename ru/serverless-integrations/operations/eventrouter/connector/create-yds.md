@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите на вкладку ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
   1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ yds-full-name }}`.
-  1. В блоке **Настройки {{ yds-name }}**:
+  1. В блоке **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_yds_base_options_title }}**:
 
       * Выберите [поток данных](../../../../data-streams/concepts/glossary.md#stream-concepts) и [выделенного потребителя данных](../../../../data-streams/concepts/glossary.md#consumers).
       * Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из потока данных.

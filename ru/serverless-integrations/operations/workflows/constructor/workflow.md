@@ -17,8 +17,8 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. В поле **Идентификатор рабочего процесса** выберите другой рабочий процесс {{ sw-full-name }}, который вы хотите запускать синхронно с текущим.
-      1. В поле **Входные данные** укажите входные данные для запуска рабочего процесса.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.workflow_properties_serverless_workflow_view_spec_layout_title }}** выберите другой рабочий процесс {{ sw-full-name }}, который вы хотите запускать синхронно с текущим.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.workflow_properties_workflow_input_view_spec_layout_title }}** укажите входные данные для запуска рабочего процесса.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

@@ -1,6 +1,5 @@
 # Пошаговые инструкции {{ interconnect-name }}
 
-
 ## Транковое подключение
 - [{#T}](trunk-get-info.md)
 - [{#T}](trunk-operations.md)
@@ -17,10 +16,14 @@
 - [{#T}](priv-con-static-upsert.md)
 - [{#T}](priv-con-static-remove.md)
 
+
 ## Публичное соединение
 - [{#T}](pub-con-get-info.md)
 
+
 ## Прочие
-- [{#T}](partner-get-info.md)
 - [{#T}](pop-get-info.md)
+
+
+- [{#T}](partner-get-info.md)
 

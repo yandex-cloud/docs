@@ -1,8 +1,12 @@
 #### Quotas {#quotas}
 
-Limit type | Value
------ | -----
-Maximum number of secrets per cloud | 10,000
+#|
+|| Type of limitation | Value ||
+|| Maximum number of secrets per cloud
+`lockbox.secrets.count`| 10,000 ||
+|| Maximum number of versions per secret
+`lockbox.versions.count` | 1,000 ||
+|#
 
 #### Limits {#limits}
 

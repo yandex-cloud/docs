@@ -17,20 +17,20 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. В поле **Контейнер** выберите контейнер, который будет вызываться во время выполнения шага.
-      1. В поле **Метод запроса** выберите HTTP-метод запроса.
-      1. (Опционально) В поле **Путь запроса** укажите HTTP-путь запроса.
-      1. (Опционально) В поле **Query-параметры запроса** нажмите кнопку ![plus](../../../../_assets/console-icons/plus.svg) **Добавить параметр**, чтобы добавить к HTTP-запросу query-параметр в формате `<Имя_параметра>`:`<Значение_параметра>`.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_serverless_container_view_spec_layout_title }}** выберите контейнер, который будет вызываться во время выполнения шага.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_http_method_view_spec_layout_title }}** выберите HTTP-метод запроса.
+      1. (Опционально) В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_path_view_spec_layout_title }}** укажите HTTP-путь запроса.
+      1. (Опционально) В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_query_view_spec_layout_title }}** нажмите кнопку ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_query_view_spec_item_label }}**, чтобы добавить к HTTP-запросу query-параметр в формате `<Имя_параметра>`:`<Значение_параметра>`.
 
-          Чтобы добавить в запрос несколько query-параметров, нажмите ![plus](../../../../_assets/console-icons/plus.svg) **Добавить параметр** необходимое количество раз.
+          Чтобы добавить в запрос несколько query-параметров, нажмите ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_query_view_spec_item_label }}** необходимое количество раз.
 
           Чтобы удалить ненужный query-параметр, в строке с этим параметром нажмите значок ![trash-bin](../../../../_assets/console-icons/trash-bin.svg).
-      1. (Опционально) В поле **Заголовки запроса** нажмите кнопку ![plus](../../../../_assets/console-icons/plus.svg) **Добавить заголовок**, чтобы добавить к HTTP-запросу заголовок в формате `<Имя_заголовка>`:`<Значение_заголовка>`.
+      1. (Опционально) В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_headers_view_spec_layout_title }}** нажмите кнопку ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_headers_view_spec_item_label }}**, чтобы добавить к HTTP-запросу заголовок в формате `<Имя_заголовка>`:`<Значение_заголовка>`.
 
-          Чтобы добавить в запрос несколько заголовков, нажмите ![plus](../../../../_assets/console-icons/plus.svg) **Добавить заголовок** необходимое количество раз.
+          Чтобы добавить в запрос несколько заголовков, нажмите ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_headers_view_spec_item_label }}** необходимое количество раз.
 
           Чтобы удалить ненужный заголовок, в строке с этим заголовком нажмите значок ![trash-bin](../../../../_assets/console-icons/trash-bin.svg).
-      1.  (Опционально) В поле **Тело запроса** укажите тело HTTP-запроса.
+      1.  (Опционально) В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.containers_integration_properties_body_view_spec_layout_title }}** укажите тело HTTP-запроса.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

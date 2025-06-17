@@ -91,17 +91,17 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
        {% endnote %}
 
-     * (Optional) Specify an alternative text to display if the image fails to load.
-     * (Optional) Disable maintaining the aspect ratio when resizing the widget. This option is enabled by default.
-     * (Optional) Set a background.
+     * Optionally, specify an alternative text to display if the image fails to load.
+     * Optionally, disable maintaining the aspect ratio when resizing the widget. This option is enabled by default.
+     * Optionally, set a [background for your widget](#widget-background).
 
    - Chart {#chart}
 
      * **Name**: Widget name. If the **Show** option is enabled (default), the name is displayed at the top of the widget.
      * **Chart**: Select a chart from the list of items or provide a link to your chart.
      * (Optional) **Description**: Text displayed at the bottom of the widget.
-     * (Optional) Under **Parameters**, list [chart parameters](../dashboard/dashboard_parameters.md#params-chart) and set their default values. If no default values are set, the report will display an error.
-     * (Optional) Set a background.
+     * Optionally, under **Parameters**, list [chart parameters](../dashboard/dashboard_parameters.md#params-chart) and set their default values. If no default values are set, the report will display an error.
+     * Optionally, set a [background for your widget](#widget-background).
 
      To start editing the chart, click ![image](../../_assets/console-icons/ellipsis.svg) next to the widget and select ![icon](../../_assets/console-icons/pencil.svg) **Edit**.
 
@@ -117,13 +117,13 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
        {% endnote %}
 
-     * (Optional) Set a background.
+     * Optionally, set a [background for your widget](#widget-background).
 
    - Title {#header}
 
      * Enter title text.
-     * Select the size from the preset ones: `XS`, `S`, `M`, `L`, and `XL` or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify the text size in pixels.
-     * (Optional) Set a background.
+     * Select one of the size presets: `XS`, `S`, `M`, `L`, `XL`. Or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify font size in pixels.
+     * Optionally, set a [background for your widget](#widget-background).
 
    {% endlist %}
 
@@ -174,6 +174,45 @@ Widgets are arranged in layers overlapping each other. You can set the order of 
 
 When you select or move a widget around the page, it is automatically overlaid on top of other widgets. As soon as you stop interacting with the widget, it returns to its layer.
 
+### Configuring widget background {#widget-background}
+
+To configure widget background:
+
+1. Click the current background color button next to the setting.
+1. Set the background in one of the following ways:
+
+   * Select a color from among the color palette presets.
+
+     {% cut "Selecting a color from the color palette" %}
+
+     ![report-widget-background](../../_assets/datalens/report/report-widget-background.png)
+
+     {% endcut %}
+
+   * Click ![icon](../../_assets/console-icons/pencil-to-line.svg) and set the color in hex format. You can also specify background transparency as a percentage.
+
+     {% cut "Setting a color in hex format" %}
+
+     ![report-widget-background-16](../../_assets/datalens/report/report-widget-background-16.png)
+
+     {% endcut %}
+
+   * Click ![icon](../../_assets/console-icons/pencil-to-line.svg) and then click the color icon preceding its hex value. In the window that opens, select a color from the color palette or specify a color in RGB, HSL, or hex format. To switch between formats, click ![icon](../../_assets/console-icons/chevrons-expand-vertical.svg).
+
+     {% cut "Switching between color formats" %}
+
+     ![report-widget-background-rgb](../../_assets/datalens/report/report-widget-background-rgb.png)
+
+     {% endcut %}
+     
+     You can also use the eyedropper tool to select a color on the report page.
+
+     {% cut "Picking a color on the screen" %}
+
+     ![report-widget-background-eyedropper](../../_assets/datalens/report/report-widget-background-eyedropper.png)
+
+     {% endcut %}
+
 ## Configuring a report {#report-settings}
 
 Report settings are valid for all its pages:
@@ -183,10 +222,10 @@ Report settings are valid for all its pages:
 
    * **Theme**: Select a page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
-   * **Background color**: Specify a color in hexadecimal format or select one from the color palette.
+   * **Background color**: Specify a color in hex format or select one from the color palette.
    * **Format**: `A4` or `A3`.
    * **Orientation**: `Album` or `Portrait`.
-   * (Optional) Enable the **Display grid** option for easy alignment of widgets in your report.
+   * Optionally, enable the **Display grid** option for easy alignment of widgets in your report.
      
      {% cut "Report without grid display" %}
 
@@ -222,7 +261,7 @@ Page settings have a higher priority than the same report settings. If page sett
 
    * **Theme**: Page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
-   * **Background color**: Specify a color in hexadecimal format or select one from the color palette.
+   * **Background color**: Specify a color in hex format or select one from the color palette.
    * **Format**: `A4` or `A3`.
    * **Orientation**: `Album` or `Portrait`.
 
@@ -262,6 +301,6 @@ To enable full-screen report view mode, click ![icon](../../_assets/console-icon
 
 To exit the preview mode, click **Close** at the top of the screen or press **Esc** on the keyboard.
 
-## Exporting a report {#export-project}
+## Exporting a report {#report-export}
 
 To export a report, click **Export**. The report will be exported to a `.pdf` file.

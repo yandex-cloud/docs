@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. В поле **Функция** выберите функцию и [версию](../../../../functions/concepts/function.md#version) функции, которая будет вызываться во время выполнения шага.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.functions_integration_properties_serverless_function_view_spec_layout_title }}** выберите функцию и [версию](../../../../functions/concepts/function.md#version) функции, которая будет вызываться во время выполнения шага.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

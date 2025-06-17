@@ -1,5 +1,6 @@
 Event name | Description
 --- | ---
+`ApplyUpdatePrivateCloudConnection` | Applying updates to a private connection to subnets in a VPC or on-prem infrastructure
 `BatchCreateServer` | Leasing several {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md) at the same time
 `CreateImage` | Creating a boot image
 `CreatePrivateCloudConnection` | Creating a [private connection](../../../baremetal/concepts/network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure

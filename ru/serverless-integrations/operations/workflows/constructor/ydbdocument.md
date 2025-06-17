@@ -17,22 +17,22 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. В поле **База данных** выберите базу данных. Поддерживаются только базы данных, созданные в режиме [Serverless](../../../../ydb/concepts/serverless-and-dedicated.md#serverless).
-      1. В поле **Путь к таблице** укажите путь к таблице, с которой рабочий процесс будет взаимодействовать. Поддерживаются только [документные таблицы](../../../../ydb/concepts/dynamodb-tables.md).
-      1. В блоке **Действие** выберите:
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_ydb_database_view_spec_layout_title }}** выберите базу данных. Поддерживаются только базы данных, созданные в режиме [Serverless](../../../../ydb/concepts/serverless-and-dedicated.md#serverless).
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_ydb_table_view_spec_layout_title }}** укажите путь к таблице, с которой рабочий процесс будет взаимодействовать. Поддерживаются только [документные таблицы](../../../../ydb/concepts/dynamodb-tables.md).
+      1. В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_view_spec_layout_title }}** выберите:
 
-          * `Get`, чтобы получить содержимое элемента в базе данных, и в поле **Ключ** задайте значение первичного ключа БД, относящегося к нужному элементу.
-          * `Put`, чтобы записать данные в таблицу, и в поле **Атрибуты** задайте ассоциативный массив атрибутов в формате `ключ`/`значение`.
+          * `Get`, чтобы получить содержимое элемента в базе данных, и в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_get_properties_key_view_spec_layout_title }}** задайте значение первичного ключа БД, относящегося к нужному элементу.
+          * `Put`, чтобы записать данные в таблицу, и в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_put_properties_item_view_spec_layout_title }}** задайте ассоциативный массив атрибутов в формате `ключ`/`значение`.
           * `Update`, чтобы изменить данные в таблице, и настройте параметры обновления:
 
-              1. В поле **Ключ** задайте значение первичного ключа элемента в базе данных, который нужно обновить.
-              1. В поле **Выражение для обновления** задайте выражение, описывающее обновления атрибутов элемента в базе данных. Подробнее см. информацию о параметре `UpdateExpression` в [документации {{ ydb-full-name }}](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
-              1. В поле **Значения атрибутов** задайте значения атрибутов, используемых в выражении выше. Подробнее см. информацию о параметре `ExpressionAttributeValues` в [документации {{ ydb-full-name }}](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_key_view_spec_layout_title }}** задайте значение первичного ключа элемента в базе данных, который нужно обновить.
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_view_spec_layout_title }}** задайте выражение, описывающее обновления атрибутов элемента в базе данных. Подробнее см. информацию о параметре `UpdateExpression` в [документации {{ ydb-full-name }}](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_attribute_values_view_spec_layout_title }}** задайте значения атрибутов, используемых в выражении выше. Подробнее см. информацию о параметре `ExpressionAttributeValues` в [документации {{ ydb-full-name }}](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
 
           * `Scan`, чтобы выполнить поиск в базе данных, и настройте параметры поиска:
 
-              1. В поле **Ключ** задайте значение первичного ключа элемента в базе данных, с которого начнется поиск.
-              1. В поле **Лимит** задайте ограничение на максимальное количество элементов в списке с результатами.
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_scan_properties_exclusive_start_key_view_spec_layout_title }}** задайте значение первичного ключа элемента в базе данных, с которого начнется поиск.
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_scan_properties_limit_view_spec_layout_title }}** задайте ограничение на максимальное количество элементов в списке с результатами.
 
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}

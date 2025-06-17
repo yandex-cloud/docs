@@ -16,16 +16,16 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите на вкладку ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
   1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ message-queue-full-name }}`.
-  1. В блоке **Настройки сообщений {{ message-queue-name }}**:
+  1. В блоке **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_ymq_base_options_title }}**:
 
       * Выберите каталог и [очередь сообщений](../../../../message-queue/concepts/queue.md).
       * Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из очереди сообщений.
 
-  1. (Опционально) Нажмите кнопку ![image](../../../../_assets/console-icons/plus.svg) **Настройки группирования сообщений** и укажите:
+  1. (Опционально) Нажмите кнопку ![image](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_title }}** и укажите:
 
-      * **Таймаут видимости** — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) в часах, на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 12 часов, значение по умолчанию — 0.
-      * **Размер группы** — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 12, значение по умолчанию — 10.
-      * **Таймаут опроса** — максимальное время в миллисекундах, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_visibility_timeout_title }}** — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) в часах, на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 12 часов, значение по умолчанию — 0.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_batch_size_title }}** — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 12, значение по умолчанию — 10.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_polling_timeout_title }}** — максимальное время в миллисекундах, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 

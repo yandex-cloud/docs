@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. В поле **Адрес отправителя** укажите адрес {{ postbox-full-name }}, с которого будут отправляться письма.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_from_address_view_spec_layout_title }}** укажите адрес {{ postbox-full-name }}, с которого будут отправляться письма.
 
           {% note info %}
 
@@ -25,26 +25,26 @@ description: Следуя данной инструкции, вы сможете
  
           {% endnote %}
 
-      1. В блоке **Адреса получателей** выберите:
+      1. В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_to_addresses_view_spec_layout_title }}** выберите:
 
-          * `Массив адресов`, чтобы задать адреса получателей по одному при помощи кнопки ![plus](../../../../_assets/console-icons/plus.svg) **Добавить получателя**.
-          * `Сырая строка`, чтобы задать адреса получателей в виде списка через запятую.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_to_addresses_properties_address_array_view_spec_layout_title }}`, чтобы задать адреса получателей по одному при помощи кнопки ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_to_addresses_properties_address_array_view_spec_item_label }}**.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_to_addresses_properties_raw_string_view_spec_layout_title }}`, чтобы задать адреса получателей в виде списка через запятую.
 
-      1. (Опционально) В блоке **Адреса скрытых копий** выберите:
+      1. (Опционально) В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_cc_to_addresses_view_spec_layout_title }}** выберите:
 
-          * `Массив адресов`, чтобы задать адреса получателей скрытых копий по одному при помощи кнопки ![plus](../../../../_assets/console-icons/plus.svg) **Добавить скрытую копию**.
-          * `Сырая строка`, чтобы задать адреса получателей скрытых копий в виде списка через запятую.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_cc_to_addresses_properties_address_array_view_spec_layout_title }}`, чтобы задать адреса получателей скрытых копий по одному при помощи кнопки ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_cc_to_addresses_properties_address_array_view_spec_item_label }}**.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_cc_to_addresses_properties_raw_string_view_spec_layout_title }}`, чтобы задать адреса получателей скрытых копий в виде списка через запятую.
 
-      1. В блоке **Письмо** задайте содержимое отправляемого сообщения. Выберите:
+      1. В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_view_spec_layout_title }}** задайте содержимое отправляемого сообщения. Выберите:
 
-          * `Текст`, чтобы задать содержимое письма с помощью формы:
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_simple_properties_body_text_view_spec_layout_title }}`, чтобы задать содержимое письма с помощью формы:
 
-              1. В поле **Тема** укажите заголовок сообщения.
-              1. В поле **HTML-контент** укажите текст сообщения для отображения письма в почтовых клиентах, поддерживающих HTML.
-              1. В поле **Текст** укажите текст сообщения для отображения письма в почтовых клиентах, не поддерживающих HTML.
-              1. В поле **Кодировка** выберите кодировку отправляемого сообщения.
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_simple_properties_subject_view_spec_layout_title }}** укажите заголовок сообщения.
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_simple_properties_body_html_view_spec_layout_title }}** укажите текст сообщения для отображения письма в почтовых клиентах, поддерживающих HTML.
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_simple_view_spec_layout_title }}** укажите текст сообщения для отображения письма в почтовых клиентах, не поддерживающих HTML.
+              1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_simple_properties_charset_view_spec_layout_title }}** выберите кодировку отправляемого сообщения.
 
-          * `Шаблон`, чтобы задать содержимое письма в виде шаблона. Подробнее см. в [документации {{ postbox-name }}](../../../../postbox/aws-compatible-api/api-ref/send-email.md).
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_raw_view_spec_layout_title }}`, чтобы задать содержимое письма в виде шаблона. Подробнее см. в [документации {{ postbox-name }}](../../../../postbox/aws-compatible-api/api-ref/send-email.md).
 
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}

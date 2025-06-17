@@ -27,12 +27,12 @@ By using service accounts you can flexibly configure access rights to resources 
 * You can link your service account to [virtual machines](../../../compute/operations/vm-connect/auth-inside-vm.md) and [functions](../../../functions/operations/function-sa.md) that you run your program from.
 
     This makes it easier to scale applications running on {{ yandex-cloud }}:
-    * You do not need to edit the program code to make it run on a new VM or function. The IAM authentication token is already available from inside.
+    * You do not need to edit the program code to make it run on a new VM or function. The IAM token for authentication in the {{ yandex-cloud }} API is already available from inside the virtual machine.
     * To enable or disable operations in {{ yandex-cloud }} for all running program instances, you can assign or revoke roles for a single service account.
 
 ## Service account keys {#sa-key}
 
-The following keys are used for service account authentication in {{ yandex-cloud }}:
+The following keys are used for service account authentication in the {{ yandex-cloud }} API:
 
 * [Authorized keys](../authorization/key.md): Keys used to [get an IAM token](../../operations/iam-token/create-for-sa.md).
 * [API keys](../authorization/api-key.md): Keys used in some services for simplified authentication instead of IAM tokens.

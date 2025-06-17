@@ -31,6 +31,7 @@ description: На странице приведены коды ошибок и �
 [ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED](ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md) | Access to table was denied |
 [ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA](ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md) | YT table has no schema. Only schematized tables are supported |
 [ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST](ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md) | Requested database column does not exist |
+[ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED](ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md) | Подготовка данных еще не завершилась
 [ERR.DS_API.DB.DB_OPERATIONAL_ERROR](ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md) | Ошибка на стороне БД |
 [ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND](ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md) | ROUND with precision parameter is not supported for double precision data type in PostgreSQL
 [ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH](ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md) | Columns in JOIN have different types |
@@ -58,7 +59,7 @@ description: На странице приведены коды ошибок и �
 [ERR.DS_API.REQUEST_TIMEOUT](ERR-DS_API-REQUEST_TIMEOUT.md) | Backend app request timeout exceeded |
 [ERR.DS_API.ROW_COUNT_LIMIT](ERR-DS_API-ROW_COUNT_LIMIT.md) | Received too many result data rows |
 [ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN](ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md) | Invalid user token |
-[ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED](ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md) | Table is not ready yet |
+[ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED](ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md) | Нарушена конфигурация таблицы |
 [ERR.DS_API.SOURCE.FILE.NO_DATA](ERR-DS_API-SOURCE-FILE-NO_DATA.md) | Empty document |
 [ERR.DS_API.US.ACCESS_DENIED](ERR-DS_API-US-ACCESS_DENIED.md) | Access denied |
 [ERR.DS_API.TYPE_CAST.FAILED](ERR-DS_API-TYPE_CAST-FAILED.md) | Ошибка преобразования типа данных |

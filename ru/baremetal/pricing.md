@@ -8,6 +8,7 @@ editable: false
 
 
 
+
 В сервисе {{ baremetal-name }} оплачивается срок аренды сервера [определенной конфигурации](concepts/server-configurations.md). Арендованный сервер тарифицируется в течение всего периода аренды, независимо от того, включен он или выключен.
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
@@ -65,3 +66,18 @@ editable: false
 
 
 ^1^ Цена за месяц приводится только для справки. Из расчета 720 часов (30 дней) в месяце. Сервис {{ billing-name }} при расчетах использует цену за час.
+
+
+### Особенности тарификации сетевого трафика в {{ baremetal-full-name }} при взаимодействии с другими сервисами {{ yandex-cloud }} {#traffic-pricing-pecs}
+
+#### {{ vpc-full-name }} {#vpc-traffic}
+
+{% include [bms-vpc-traffic](../_includes/baremetal/bms-vpc-traffic.md) %}
+
+#### {{ objstorage-full-name }} {#storage-traffic}
+
+{% include [bms-s3-free-traffic](../_includes/baremetal/bms-s3-free-traffic.md) %}
+
+#### {{ backup-full-name }} {#backup-traffic}
+
+{% include [bms-backup-free-traffic](../_includes/baremetal/bms-backup-free-traffic.md) %}

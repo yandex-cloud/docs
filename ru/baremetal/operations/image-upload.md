@@ -9,6 +9,12 @@ description: Следуя данной инструкции, вы сможете
 
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 
+{% note alert %}
+
+Размер загружаемого в {{ objstorage-name }} файла образа не может превышать 50 ГБ.
+
+{% endnote %}
+
 Загрузите файл с образом в сервис {{ objstorage-name }} и получите ссылку на загруженный образ:
 
 1. Если у вас еще нет [бакета](../../storage/concepts/bucket.md) в {{ objstorage-name }}, [создайте](../../storage/operations/buckets/create.md) его с ограниченным доступом.

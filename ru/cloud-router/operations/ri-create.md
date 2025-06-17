@@ -52,14 +52,14 @@ description: Следуя этой инструкции, вы сможете с�
       ```
 
   1. Проверить результат создания Routing Instance:
-     
+
       ```text
       yc cloudrouter routing-instance get c3l87**********1dpin
       id: c3l87**********1dpin
       name: ri1
       description: Routing instance 1
       folder_id: b1gqf**********jiz2w
-      region_id: ru-central1
+      region_id: {{ region-id }}
       status: ACTIVE
       created_at: "2025-04-16T12:43:55Z"
       ```
