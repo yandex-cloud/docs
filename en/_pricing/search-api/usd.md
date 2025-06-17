@@ -7,4 +7,4 @@
 | **[API v2](../../search-api/concepts/index.md#api-v2) requests** | |
 | Synchronous requests | {{ sku|USD|searchapi.requests.sync.v3|string }} |
 | Deferred requests | {{ sku|USD|searchapi.requests.async.v3|string }}  |
-| Synchronous requests with [generative response](../../search-api/concepts/generative-response.md) | $41.666667 | 
+| Synchronous requests with [generative response](../../search-api/concepts/generative-response.md) | {% calc [currency=USD] {{ sku|USD|searchapi.generative.requests.v3|number }} × 1000 %} |

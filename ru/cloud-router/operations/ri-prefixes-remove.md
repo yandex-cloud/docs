@@ -31,12 +31,13 @@ description: Следуя этой инструкции, вы сможете у�
 
      Ожидаемый результат:
 
+     
      ```
      id: c3l87**********1dpin
      name: ri1
      description: Routing instance 1
      folder_id: b1gqf**********jiz2w
-     region_id: ru-central1
+     region_id: {{ region-id }}
      vpc_info:
        - vpc_network_id: c64ck**********jtr7b
          az_infos:
@@ -58,14 +59,21 @@ description: Следуя этой инструкции, вы сможете у�
      created_at: "2025-03-19T13:35:56Z"
      ```
 
+
+
+
   1. Удалить IP-префиксы из Routing Instance:
 
+     
      ```bash
      yc cloudrouter routing-instance remove-prefixes c3l87**********1dpin \
-       --vpc-net id=c64ck**********jtr7b,zone=ru-central1-b,ipv4-prefixes=10.128.0.0/24 \
-       --vpc-net id=c64ck**********jtr7b,zone=ru-central1-d,ipv4-prefixes=10.129.0.0/24 \
+       --vpc-net id=c64ck**********jtr7b,zone={{ region-id }}-b,ipv4-prefixes=10.128.0.0/24 \
+       --vpc-net id=c64ck**********jtr7b,zone={{ region-id }}-d,ipv4-prefixes=10.129.0.0/24 \
        --async
      ```
+
+
+
 
      Ожидаемый результат:
 
@@ -95,17 +103,18 @@ description: Следуя этой инструкции, вы сможете у�
 
      Ожидаемый результат:
 
+     
      ```
      id: c3l87**********1dpin
      name: ri1
      description: Routing instance 1
      folder_id: b1gqf**********jiz2w
-     region_id: ru-central1
+     region_id: {{ region-id }}
      vpc_info:
        - vpc_network_id: c64ck**********jtr7b
          az_infos:
            - manual_info:
-               az_id: ru-central1-d
+               az_id: {{ region-id }}-d
                prefixes:
                  - 172.16.1.0/24
      cic_private_connection_info:
@@ -113,6 +122,9 @@ description: Следуя этой инструкции, вы сможете у�
      status: ACTIVE
      created_at: "2025-03-19T13:35:56Z"
      ```
+
+
+
 
      где,
       * `id` — идентификатор Routing Instance.

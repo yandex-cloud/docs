@@ -20,6 +20,9 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ speechsense-name }} {#rules}
 
 При анализе аудиозаписей диалогов стоимость использования сервиса {{ speechsense-name }} зависит от длительности двухканальных аудиофайлов. Единица тарификации — 1 секунда двухканального аудио.

@@ -1,5 +1,5 @@
 ---
-title: Management event reference {{ at-full-name }}
+title: Control plane event reference {{ at-full-name }}
 description: This section provides descriptions of management events collected in {{ yandex-cloud }} services.
 ---
 
@@ -269,6 +269,12 @@ Service name: `mdb.redis`.
 Service name: `ydb`.
 
 {% include [ydb-events](../../_includes/audit-trails/events/ydb-events.md) %}
+
+## {{ message-queue-full-name }} {#ymq}
+
+Service name: `ymq`.
+
+{% include [ymq-events](../../_includes/audit-trails/events/ymq-events.md) %}
 
 ## {{ metadata-hub-full-name }} {#metadata-hub}
 

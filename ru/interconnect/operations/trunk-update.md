@@ -36,15 +36,16 @@ description: Следуя этой инструкции, вы сможете и�
 
       ```bash
       yc cic trunk-connection update cf3td**********nufvr \
-        --new-name my-new-m9-trunk \
+        --new-name my-new-trunk-name \
         --async
       ```
 
       Результат:
 
+      
       ```text
       id: cf3td**********nufvr
-      description: Trunk M9
+      description: Trunk via M9
       created_at: "2025-03-27T09:43:00.880696489Z"
       created_by: bfbud**********v7dfn
       modified_at: "2025-03-27T09:43:00.969837738Z"
@@ -55,10 +56,10 @@ description: Следуя этой инструкции, вы сможете и�
       response:
         '@type': type.googleapis.com/yandex.cloud.cic.v1.TrunkConnection
         id: cf3td**********nufvr
-        name: my-new-m9-trunk
-        description: Trunk M9
-        folder_id: yc.vpc.cic.api.internal-resources
-        region_id: ru-central1
+        name: my-new-trunk-name
+        description: Trunk via M9
+        folder_id: b1gqf**********jiz2w 
+        region_id: {{ region-id }}
         single_port_direct_joint:
           transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
           port_name: 25GE1/0/12
@@ -66,6 +67,8 @@ description: Следуя этой инструкции, вы сможете и�
         capacity: CAPACITY_10_GBPS
         status: ACTIVE
       ```
+
+
 
 {% endlist %}
 

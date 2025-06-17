@@ -12,6 +12,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
 ## Из чего складывается стоимость использования {{ api-gw-name }} {#rules}
 
 В рамках сервиса {{ api-gw-name }} тарифицируется количество запросов к созданным API-шлюзам и исходящий трафик. 

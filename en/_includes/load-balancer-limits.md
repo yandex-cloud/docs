@@ -1,8 +1,12 @@
 #### Quotas {#load-balancer-quotas}
-Type of limitation | Value
------ | -----
-Number of load balancers per cloud | 2
-Number of target groups per cloud | 100
+
+#|
+|| Type of limitation | Value ||
+|| Number of load balancers per cloud
+`ylb.networkLoadBalancers.count` | 2 ||
+|| Number of target groups per cloud
+`ylb.targetGroups.count` | 100 ||
+|#
 
 #### Limits {#load-balancer-limits}
 Type of limitation | Value

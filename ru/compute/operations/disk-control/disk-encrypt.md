@@ -17,23 +17,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Создайте](../image-create/create-from-disk.md) образ из диска, который вы хотите зашифровать.
   1. Создайте зашифрованный диск из образа:
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать зашифрованный диск.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
-      1. Введите имя диска.
-
-          {% include [name-format](../../../_includes/name-format.md) %}
-
-      1. Выберите ту же [зону доступности](../../../overview/concepts/geo-scope.md), в которой находился исходный диск.
-      1. Задайте параметры диска: [тип диска](../../concepts/disk.md#disks_types), а также [размер блока](../../concepts/disk.md#maximum-disk-size) и [размер диска](../../concepts/disk.md#maximum-disk-size).
-      1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже отметьте образ, который создали ранее. Для поиска образа воспользуйтесь фильтром.
-      1. В блоке **{{ ui-key.yacloud.compute.disk-form.section_encryption }}**:
-
-          * Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**.
-          * В поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** выберите [ключ](../../../kms/concepts/key.md), созданный ранее. Чтобы [создать](../../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
-
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+      {% include [encryption-disk-from-image-withoutnotes](../../../_includes/compute/encryption-disk-from-image-withoutnotes.md) %}
 
       {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
 
@@ -133,7 +117,7 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
-      * `----source-image-name` — имя образа для создания зашифрованного диска.
+      * `--source-image-name` — имя образа для создания зашифрованного диска.
       * `--kms-key-name` — имя ключа шифрования.
 
       Результат:
@@ -232,12 +216,12 @@ description: Следуя данной инструкции, вы сможете
       * `source_disk` — идентификатор незашифрованного диска.
       * `name` — имя создаваемого зашифрованного диска.
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-resources-link }}/yandex_compute_disk).
+     Более подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
+     {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
 
   1. [Удалите](../image-control/delete.md) образ.
   1. [Удалите](../disk-control/delete.md) незашифрованный диск.
@@ -262,7 +246,7 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 
-### См. также {#see-also}
+#### См. также {#see-also}
 
 * [{#T}](../../concepts/encryption.md)
 * [{#T}](../snapshot-control/snapshot-encrypt.md)

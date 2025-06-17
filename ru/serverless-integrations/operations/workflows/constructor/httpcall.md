@@ -17,12 +17,12 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. В поле **Метод** выберите HTTP-метод запроса: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE` или `TRACE`.
-      1. В поле **URL** укажите URL запроса.
-      1. (Опционально) В поле **Query-параметры запроса** при помощи кнопки ![plus](../../../../_assets/console-icons/plus.svg) **Добавить параметр** добавьте необходимые query-параметры в формате `<Имя>`:`<Значение>`.
-      1. (Опционально) В поле **Заголовки запроса** при помощи кнопки ![plus](../../../../_assets/console-icons/plus.svg) **Добавить заголовок** добавьте необходимые заголовки в формате `<Имя>`:`<Значение>`.
-      1. (Опционально) В поле **Тело запроса** задайте тело запроса.
-      1. (Опционально) Включите опцию **Использовать сервисный аккаунт**, чтобы в запрос автоматически добавлялся заголовок с [IAM-токеном](../../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, указанного в настройках рабочего процесса.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_http_method_view_spec_layout_title }}** выберите HTTP-метод запроса: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE` или `TRACE`.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_url_view_spec_layout_title }}** укажите URL запроса.
+      1. (Опционально) В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_query_view_spec_layout_title }}** при помощи кнопки ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_query_view_spec_item_label }}** добавьте необходимые query-параметры в формате `<Имя>`:`<Значение>`.
+      1. (Опционально) В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_headers_view_spec_layout_title }}** при помощи кнопки ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_headers_view_spec_item_label }}** добавьте необходимые заголовки в формате `<Имя>`:`<Значение>`.
+      1. (Опционально) В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_body_view_spec_layout_title }}** задайте тело запроса.
+      1. (Опционально) Включите опцию **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_use_service_account_view_spec_layout_title }}**, чтобы в запрос автоматически добавлялся заголовок с [IAM-токеном](../../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, указанного в настройках рабочего процесса.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

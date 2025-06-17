@@ -20,6 +20,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
 ## Из чего складывается стоимость использования {{ captcha-full-name }} {#rules}
 
 Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://smartcaptcha.yandexcloud.net/validate`. Тарифицируются только [корректные запросы](concepts/validation.md#service-response), на которые API вернул статус `ok`. Для этого запросы должны удовлетворять следующим условиям:

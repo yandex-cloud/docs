@@ -1,4 +1,4 @@
-# Настройка сетевой связности в подсети {{ baremetal-full-name }}
+# Организация сетевой связности в приватной подсети {{ baremetal-full-name }}
 
 Если для [приватной подсети](../../baremetal/concepts/network.md#private-subnet) настроена маршрутизация и назначен [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), то сетевым интерфейсам [серверов {{ baremetal-name }}](../../baremetal/concepts/servers.md), подключенным к этой подсети, с помощью [DHCP](https://ru.wikipedia.org/wiki/DHCP) выдаются IP-адреса из заданного в настройках CIDR этой подсети диапазона.
 

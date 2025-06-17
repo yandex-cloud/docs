@@ -17,10 +17,10 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * (Опционально) **Сервисный аккаунт** — сервисный аккаунт для авторизации при обращении к {{ objstorage-name }}.
-        * **Бакет** — имя [бакета](../../../storage/concepts/bucket.md).
-        * **Имя объекта** — имя [объекта](../../../storage/concepts/object.md).
-        * (Опционально) **Объект ошибки** — имя объекта, который будет возвращаться, если вместо указанного имени объекта получена ошибка с HTTP-кодом 4xx.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при обращении к {{ objstorage-name }}.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.object_storage_bucket_name }}** — имя [бакета](../../../storage/concepts/bucket.md).
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.object_storage_filename_name }}** — имя [объекта](../../../storage/concepts/object.md).
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.object_storage_error_object_filename_name }}** — имя объекта, который будет возвращаться, если вместо указанного имени объекта получена ошибка с HTTP-кодом 4xx.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

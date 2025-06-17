@@ -19,6 +19,10 @@ items:
         href: workbooks-collections/workbooks-collections-create.md
       - name: Migrating objects to workbooks
         href: workbooks-collections/migrations.md
+      - name: Exporting and importing workbooks
+        href: workbooks-collections/export-and-import.md
+      - name: Errors and warnings during export and import
+        href: workbooks-collections/export-import-notifications.md
       - name: Configuring access
         href: workbooks-collections/security.md
   - name: Tutorials

@@ -10,19 +10,19 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. Из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** в левой части экрана перетащите элемент ![yadisk-icon](../../../../_assets/yadisk-icon.svg) **Яндекс Диск** в нужное место рабочего процесса в окне конструктора.
+  1. Из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** в левой части экрана перетащите элемент ![yadisk-icon](../../../../_assets/yadisk-icon.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_integration_title }}** в нужное место рабочего процесса в окне конструктора.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
-  1. В окне со схемой рабочего процесса нажмите на добавленный блок **Яндекс Диск**, чтобы выбрать его.
+  1. В окне со схемой рабочего процесса нажмите на добавленный блок **{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_integration_title }}**, чтобы выбрать его.
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. В поле **Действие** выберите:
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_view_spec_layout_title }}** выберите:
 
-          * `Загрузка на диск`, чтобы записать файл на Яндекс Диск.
-          * `Загрузка с диска`, чтобы получить файл с Яндекс Диска.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_properties_action_description_upload }}`, чтобы записать файл на Яндекс Диск.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_properties_action_description_download }}`, чтобы получить файл с Яндекс Диска.
 
-      1. В поле **Тип содержимого** выберите тип содержимого файла:
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_properties_action_properties_download_properties_view_spec_layout_title }}** выберите тип содержимого файла:
 
           {% cut "Если загружаете файлы на диск" %}
 
@@ -42,16 +42,16 @@ description: Следуя данной инструкции, вы сможете
 
           {% endcut %}
 
-      1. Если вы загружаете файлы на диск, в поле **Содержимое файла** задайте содержимое, которое будет сохранено в файл.
-      1. В поле **Тип Диска** выберите тип Яндекс Диска:
+      1. Если вы загружаете файлы на диск, в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_properties_action_properties_upload_properties_content_view_spec_layout_title }}** задайте содержимое, которое будет сохранено в файл.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.shared_disk_properties_disk_type_view_spec_layout_title }}** выберите тип Яндекс Диска:
 
-          * `Личный` — диск принадлежит одному пользователю.
-          * `Общий` — диск принадлежит организации в {{ yandex-360 }}.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.shared_disk_properties_disk_type_description_private }}` — диск принадлежит одному пользователю.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.shared_disk_properties_disk_type_description_shared }}` — диск принадлежит организации в {{ yandex-360 }}.
 
           При использовании диска, принадлежащего организации, в поле **Идентификатор общего диска** укажите идентификатор диска. Идентификатор отображается в интерфейсе Яндекс Диска в адресной строке после `vd/`.
 
-      1. В поле **Путь** укажите путь к целевому файлу на Яндекс Диске.
-      1. В секции **OAuth-токен** укажите [OAuth-токен приложения]({{ link-yadisk-doc }}concepts/quickstart#oauth) или [секрет](../../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, в котором сохранен этот токен. Выберите:
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_properties_path_view_spec_layout_title }}** укажите путь к целевому файлу на Яндекс Диске.
+      1. В секции **{{ ui-key.yc-serverless-workflows.dynamic-forms.disk_properties_oauth_token_view_spec_layout_title }}** укажите [OAuth-токен приложения]({{ link-yadisk-doc }}concepts/quickstart#oauth) или [секрет](../../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, в котором сохранен этот токен. Выберите:
 
           {% include [oauth](../../../../_includes/serverless-integrations/workflows-constructor/oauth.md) %}
 

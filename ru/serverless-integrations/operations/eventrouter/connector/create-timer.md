@@ -15,12 +15,12 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите нужную [шину](../../../concepts/eventrouter/bus.md).
   1. Перейдите на вкладку ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите **Таймер**.
-  1. В блоке **Настройки таймера** укажите:
+  1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ ui-key.yc-eventrouter.dynamic-forms.timer_name }}`.
+  1. В блоке **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_base_options_title }}** укажите:
 
-      * в поле **Cron-выражение** — расписание генерации событий в формате [cron-выражения](../../../concepts/eventrouter/connector.md#cron-expression).
-      * (Опционально) в поле **Часовой пояс** — часовой пояс в формате [tz database](https://ru.wikipedia.org/wiki/Tz_database).
-      * (Опционально) в поле **Данные** — сообщение, которое будет передаваться в шину при срабатывании таймера в поле `payload`.
+      * в поле **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_cron_expression_title }}** — расписание генерации событий в формате [cron-выражения](../../../concepts/eventrouter/connector.md#cron-expression).
+      * (Опционально) в поле **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_timezone_title }}** — часовой пояс в формате [tz database](https://ru.wikipedia.org/wiki/Tz_database).
+      * (Опционально) в поле **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_payload_title }}** — сообщение, которое будет передаваться в шину при срабатывании таймера в поле `payload`.
 
   1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.

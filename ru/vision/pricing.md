@@ -12,6 +12,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
 ## Из чего складывается стоимость использования {{ vision-short-name }} {#rules}
 
 Сервис {{ vision-name }} позволяет распознавать текст на изображениях.

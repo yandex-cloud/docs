@@ -5,6 +5,10 @@ description: In this tutorial, you will learn how to install and update {{ unifi
 
 # Installing and updating {{ unified-agent-full-name }}
 
+{% include [agent-version](../../../../_includes/monitoring/agent-version.md) %}
+
+For more information, see [{#T}](../../../operations/prometheus/ingestion/prometheus-agent.md).
+
 ## List of supported operating systems {#supported-os}
 
 {{ unified-agent-short-name }} is supported by the following operating systems:

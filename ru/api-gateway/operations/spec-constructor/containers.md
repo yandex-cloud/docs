@@ -17,8 +17,8 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * (Опционально) **Сервисный аккаунт** — сервисный аккаунт для авторизации при обращении к контейнеру. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
-        * **Идентификатор контейнера** — идентификатор контейнера. Чтобы узнать его, [получите информацию о контейнере](../../../serverless-containers/operations/container-info.md).
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при обращении к контейнеру. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.serverless_containers_container_id_name }}** — идентификатор контейнера. Чтобы узнать его, [получите информацию о контейнере](../../../serverless-containers/operations/container-info.md).
     1. (Опционально) Вставьте или загрузите контекст операции — произвольный объект в формате YAML или JSON.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 

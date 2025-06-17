@@ -12,6 +12,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
 Плата за использование вычислительных ресурсов [агентов](concepts/agent.md) взимается по тарифам [{{ compute-full-name }}](../compute/pricing.md).
 
 Тарификация посекундная. Цены за месяц использования формируются из расчета 720 часов в месяц.

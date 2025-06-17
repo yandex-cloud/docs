@@ -10,6 +10,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
 Тарифицируются доставленные события [уровня сервисов](./concepts/events-data-plane.md).
 
 События [уровня конфигурации](./concepts/events.md) в настоящий момент не тарифицируются.

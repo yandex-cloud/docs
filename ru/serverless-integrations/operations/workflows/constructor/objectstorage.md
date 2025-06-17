@@ -17,14 +17,14 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. В поле **Бакет** выберите [бакет](../../../../storage/concepts/bucket.md), с объектами которого вы будете взаимодействовать из рабочего процесса.
-      1. В поле **Имя объекта** укажите имя [объекта](../../../../storage/concepts/object.md), с которым вы будете взаимодействовать.
-      1. В поле **Действие** выберите:
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_bucket_view_spec_layout_title }}** выберите [бакет](../../../../storage/concepts/bucket.md), с объектами которого вы будете взаимодействовать из рабочего процесса.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_object_view_spec_layout_title }}** укажите имя [объекта](../../../../storage/concepts/object.md), с которым вы будете взаимодействовать.
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_view_spec_layout_title }}** выберите:
 
-          * `Добавить объект`, чтобы добавить новый объект в бакет.
-          * `Получить объект`, чтобы получить содержимое объекта из бакета.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_description_put }}`, чтобы добавить новый объект в бакет.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_description_get }}`, чтобы получить содержимое объекта из бакета.
 
-      1. В поле **Тип содержимого** выберите тип содержимого целевого объекта:
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_properties_get_properties_content_type_view_spec_layout_title }}** выберите тип содержимого целевого объекта:
 
           {% cut "Если вы добавляете объект в бакет" %}
 
@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endcut %}
 
-      1. Если вы добавляете объект в бакет, в поле **Содержимое объекта** укажите содержимое создаваемого объекта.
+      1. Если вы добавляете объект в бакет, в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_properties_put_properties_content_view_spec_layout_title }}** укажите содержимое создаваемого объекта.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

@@ -10,6 +10,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
 Расчет стоимости использования {{ lockbox-name }} складывается из:
 
 * Количества версий секретов.

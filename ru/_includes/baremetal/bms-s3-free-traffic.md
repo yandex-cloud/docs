@@ -1,0 +1,1 @@
+Трафик, передаваемый между {{ baremetal-full-name }} и сервисом {{ objstorage-full-name }}, не тарифицируется независимо от направления, в соответствии с [правилами тарификации {{ objstorage-name }}](../../storage/pricing.md#prices-traffic).

@@ -23,8 +23,8 @@ The settings specified below may not be available for some chart types.
 * **Show**: Show header. You can enter the header text in the text field on the right. ||
 || Legend | Displays the legend below the chart. The legend contains chart colors with text descriptions referring to the field values in the **Colors** section.<br/><br/>Available values:
 
-* **Hide**: Hides the legend.
-* **Auto**: Displays the legend if the field is specified in the **Colors** section. ||
+* **On**: Displays the legend if the field is specified in the **Colors** [section](#color-settings).
+* **Off**: Hides the legend. ||
 || Tooltip | Displays tooltips when hovering over a chart item.<br/><br/>Available values:
 
 * **On**: Shows the tooltip.
@@ -56,14 +56,14 @@ For more information, see [this guide](../../operations/chart/config-chart-navig
 
 * **On**: Displays stacked data.
 * **Off**: Displays unstacked data. ||
-|| Center | Sets the default center coordinates in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
+|| Center | Sets the default coordinates of the center in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
 
 * **Auto**: Set the coordinates automatically.
 * **Manually**: Set the coordinates manually, e.g., `54.630761, 39.736882`. You can use [Yandex Maps](https://yandex.ru/maps) to get the exact coordinates. ||
 || Scale | Sets the default scale in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
 
 * **Auto**: Enables autoscaling.
-* **Manually**: Scale the map manually. The values match the scale in Yandex Maps:
+* **Manually**: Scale the map manually. The values correspond to the scale in Yandex Maps:
   
   * `1`: Minimum scale.
   * `21`: Maximum scale. ||
@@ -97,7 +97,21 @@ If you apply an aggregation to the dimension, it will become a measure and the r
 * **Continuous**: Displays all dates continuously.
 * **Discrete**: Displays dates that contain values. ||
 || Aggregation | Sets the aggregation type. Aggregation functions are available according to the [{#T}](../../dataset/data-model.md#aggregation) table. ||
-|| Markdown | The field value will be formatted according to [{#T}](../../dashboard/markdown.md). Only available for `String` type fields. ||
+|| Markup | The field value will be formatted according to the option you select:
+
+* `None`: No markup.
+* `HTML`: HTML markup. Available only for `String` type fields.
+* `Markdown`: [{#T}](../../dashboard/markdown.md) markup. Available only for `String` type fields in relevant sections, depending on visualization type.
+  
+  #|
+  || **Visualization types** | **Sections** ||
+  || [Scatter chart](../../visualization-ref/scatter-chart.md) | X, Y, Points, [Colors](#color-settings), Shapes ||
+  || [Tree chart](../../visualization-ref/tree-chart.md) | Dimensions ||
+  || [Maps](../../visualization-ref/map-chart.md) | [Tooltip](#map-settings) ||
+  || [Line](../../visualization-ref/line-chart.md), [Column](../../visualization-ref/column-chart.md), [Bar](../../visualization-ref/bar-chart.md), [Pie](../../visualization-ref/pie-chart.md), [Ring](../../visualization-ref/ring-chart.md), and [Area](../../visualization-ref/area-chart.md) chart | [Labels](#sign) ||
+  |#
+
+This setting is not available in the following visualizations: [Indicator](../../visualization-ref/indicator-chart.md), [Table](../../visualization-ref/table-chart.md) and [Pivot table](../../visualization-ref/pivot-table-chart.md). ||
 || Sub-totals | Shows columns and/or rows with subtotals. This setting is only available for [Pivot table](../../visualization-ref/pivot-table-chart.md) charts. ||
 |#
 
@@ -108,7 +122,6 @@ If you apply an aggregation to the dimension, it will become a measure and the r
 || Name | Sets the measure name. ||
 || Type | Sets the type of measure data. Not available for [QL charts](./ql-charts.md). ||
 || Aggregation | Sets the aggregation type. Aggregation functions are available according to the [{#T}](../../dataset/data-model.md#aggregation) table. Not available for [QL charts](./ql-charts.md). ||
-|| Markdown | The field value will be formatted according to [{#T}](../../dashboard/markdown.md). Only available for `String` type fields. ||
 || Format | Sets value display format. ||
 || Decimal places | Sets the number of decimal places. Not available for [QL charts](./ql-charts.md). ||
 || Display groups of thousands | Enables displaying groups of thousands for numeric values.<br/><br/>Available values:
@@ -200,7 +213,7 @@ Some of these settings may not be available for some axes.
 
 Generally, you can set a specific color for any graph value.
 
-The following settings are available for a tree diagram, a table (including a pivot table), and a map:
+For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualization-ref/table-chart.md) (including a [pivot table](../../visualization-ref/pivot-table-chart.md)), and [map](../../visualization-ref/map-chart.md), the following settings are available:
 
 #|
 || **Name** | **Description** ||
@@ -215,6 +228,45 @@ The following settings are available for a tree diagram, a table (including a pi
 * **Show**: Displays geopolygon borders.
 * **Hide**: Hides geopolygon borders. ||
 |#
+
+If the **Legend** option is enabled in [common settings](#common-settings), placing this field into the **Colors** section will make the legend visible below the chart. The legend contains chart colors with text descriptions corresponding to the field values in the **Colors** section.
+
+{% cut "Available color settings" %}
+
+To set up colors:
+
+1. In the top-right corner of the **Colors** section, click ![image](../../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
+1. Set the **Fill type**:
+
+   {% note info %}
+
+   You can use the **Palette** type for dimensions and the **Gradient** type for measures.
+
+   {% endnote %}
+
+   {% list tabs group=fill %}
+
+   - For a dimension {#measure}
+
+     1. Click the color scheme selection field and set a color for each dimension value.
+     1. Click **Apply**.
+
+   - For a measure {#indicator}
+
+     1. Click the gradient selection field and set the following properties:
+
+        * **Gradient type**: Select two or three colors.
+
+          * Gradient color: Select a color palette for the gradient from the list.
+          * Gradient direction: Change the gradient direction using the ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
+
+        * **Set threshold values**: Set numeric thresholds for each color.
+
+     1. Click **Apply**.
+
+   {% endlist %}
+
+{% endcut %}
 
 You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.
 
@@ -266,7 +318,7 @@ Depending on the visualization type, different settings are available.
 || **Name** | **Description** ||
 || Size | Sets point size depending on the measure value. ||
 || Colors | These set a color for geopoints and geopolygons depending on the measure value. ||
-|| Tooltips | These create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. For `String` type fields, you can configure using the basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**. ||
+|| Tooltips | These create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. For `String` type fields, you can configure using basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**. ||
 || Layer filters | Create a selection by dimension or measure for the current layer. ||
 || General filters | Create a selection by dimension or measure for the whole chart. ||
 |#

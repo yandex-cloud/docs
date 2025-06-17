@@ -9,7 +9,7 @@ You can create [_datasets_](../dataset/index.md) based on connections.
 The following connection types are available in {{ datalens-short-name }}:
 
 
-* Databases:
+* Databases: {#db}
 
   * [{{ CH }}](../operations/connection/create-clickhouse.md)
   * [{{ PG }}](../operations/connection/create-postgresql.md)

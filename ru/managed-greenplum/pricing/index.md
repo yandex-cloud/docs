@@ -23,7 +23,6 @@ editable: false
 
 {% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status](../../_includes/mdb/pricing-status.md) %}
 

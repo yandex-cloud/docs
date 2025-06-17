@@ -1,13 +1,15 @@
 ---
-title: How to install an agent for collecting {{ prometheus-name }} metrics
-description: In this guide, you will learn how to install an agent for collecting {{ prometheus-name }} metrics when creating a VM and how to view the collected metrics.
+title: How to install a {{ prometheus-name }} metric collection agent
+description: In this guide, you will learn how to install a {{ prometheus-name }} metric collection agent when creating a VM and how to view the collected metrics.
 ---
 
-# Agent for collecting {{ prometheus-name }} metrics
+# {{ prometheus-name }} metric collection agent
 
-To set up transferring metrics from a VM to {{ managed-prometheus-name }}, you first need to install a metrics collection agent. You can install any agent that supports metrics transfers, or you can use {{ unified-agent-short-name }} which supports transferring {{ prometheus-name }} metrics. 
+To transfer metrics from the VM to {{ managed-prometheus-name }}, you need a metric collection agent. You can install any agent supporting metrics transfer or use the {{ unified-agent-short-name }} which can transfer {{ prometheus-name }} metrics. 
 
 This section describes how to install an agent when creating a VM. For other installation options, see [{#T}](../../../concepts/data-collection/unified-agent/installation.md).
+
+{% include [agent-version](../../../../_includes/monitoring/agent-version.md) %}
 
 ## List of supported operating systems {#supported-os}
 
@@ -22,7 +24,7 @@ This section describes how to install an agent when creating a VM. For other ins
 
 ## Installation and setup {#setup}
 
-You can install an agent for collecting metrics when creating a VM using the management console, CLI, API, or {{ TF }}.
+You can install a metric collection agent when creating a VM with the help of the management console, CLI, API, or {{ TF }}.
 
 {% list tabs group=instructions %}
 
@@ -64,7 +66,7 @@ You can install an agent for collecting metrics when creating a VM using the man
       - `metrics_path`: Path to the service metrics location.
       - `targets`: Parameters of the host to collect metrics from:
         - `host`: Full domain name, such as `my.example.com`. This is an optional setting.
-        - `port`: Port for collecting metrics.
+        - `port`: Metric collection port.
 
 - CLI, API {#cli}
   
@@ -79,7 +81,7 @@ You can install an agent for collecting metrics when creating a VM using the man
 
 - {{ TF }} {#tf}
 
-  To install your agent:
+  To install the agent:
   
   1. Specify the following in the VM creation configuration:
 
@@ -113,12 +115,70 @@ You can install an agent for collecting metrics when creating a VM using the man
 
 To install the agent and send metrics, make sure the VM has access to the internet.
 
-The agent is installed with a default configuration file located at `/etc/yc/unified_agent/config.yml`.
+## Configuration {#configuration}
 
-The configuration file is set up to send Linux system metrics and agent health metrics. You will be [charged](../../../pricing.md) for metric delivery. Additionally, you can set up delivering metrics from your apps, in {{ prometheus-name }} format.
+The agent has two configuration files: `config.yml` and `prometheus.yml`.
+
+The `config.yml` file is located at `/etc/yc/unified_agent/config.yml`. When the agent is installed in {{ prometheus-name }} metric collection mode, the file does not contain the metric collection parameters.
+
+{% cut "Sample config.yml file" %}
+
+```yaml
+status:
+  port: "16241"
+
+import:
+  - /etc/yc/unified_agent/conf.d/*.yml
+  - /etc/yc/unified_agent/generated_conf.d/*.yml
+```
+
+{% endcut %}
+
+The `prometheus.yml` file is located at `/etc/yc/unified_agent/generated_conf.d/prometheus.yml`. By default, it is configured to collect metrics in {{ prometheus-name }} format. If you specified your own metric collection settings when installing the agent, they will be added to this file.
+
+{% cut "Sample prometheus.yml file" %}
+
+```yaml
+storages:
+  - name: __prometheus_metrics_storage
+    plugin: fs
+    config:
+      directory: /var/lib/yc/unified_agent/__prometheus_metrics_storage
+      max_partition_size: 100mb
+      max_segment_size: 10mb
+channels:
+  - name: __remote_write
+    channel:
+      pipe:
+        - storage_ref:
+            name: __prometheus_metrics_storage
+      output:
+        plugin: metrics
+        config:
+          url: "https://{{ api-host-monitoring-1 }}/prometheus/workspaces/workspace_id/api/v1/write"
+          set_host_label: null
+          iam:
+            cloud_meta: { }
+routes:
+  - input:
+      id: linux_metrics_input
+      plugin: linux_metrics
+      config:
+        poll_period: 60s
+        namespace: sys
+        prometheus_config:
+          job_name: linux_metrics
+    channel:
+      channel_ref:
+        name: __remote_write
+```
+
+{% endcut %}
 
 
 Once the VM is deployed, the agent will start automatically and will be sending metrics to {{ managed-prometheus-name }}.
+
+You will be [charged](../../../pricing.md) for metric delivery.
 
 
 ## Overview of VM metrics {#view-metrics}

@@ -1,16 +1,20 @@
 #### Quotas {#logging-quotas}
 
-Type of limitation | Status
------ | -----
-Number of custom log groups per cloud | 10
-Maximum write speed | 1,000 records per second
-Maximum record retention period | 31 days
+#|
+|| Type of limitation | Value ||
+|| Number of custom log groups per cloud
+`logging.groups.count` | 10 ||
+|| Maximum write speed
+`logging.write.rate` | 1,000 records per second ||
+|| Maximum record retention period
+`logging.retentionDays.count` | 31 days ||
+|#
 
 There is no guarantee that records will be deleted as soon as the specified retention period expires: deletion may occur later.
 
 #### Limits {#logging-limits}
 
-Type of limitation | Status
+Type of limitation | Value
 ----- | -----
 **Adding records** |
 Maximum number of records per request | 100

@@ -175,7 +175,7 @@
 * `102` — Processing
 * `200` — OK
 * `201` — Created
-* `202` — Accepted
+* `202` — Accepted
 * `203` — Non Authoritative Information
 * `204` — No Content
 * `205` — Reset Content
@@ -199,7 +199,7 @@
 * `407` — Proxy Authentication Required
 * `408` — Request Timeout
 * `409` — Conflict
-* `410` — Gone
+* `410` — Gone
 * `411` — Length Required
 * `412` — Precondition Failed
 * `413` — Request Entity Too Large
@@ -216,12 +216,12 @@
 * `428` — Precondition Required
 * `429` — Too Many Requests
 * `431` — Request Header Fields Too Large
-* `451` — Unavailable For Legal Reasons
-* `500` — Inernal Server Error
+* `451` — Unavailable For Legal Reasons
+* `500` — Internal Server Error
 * `501` — Not Implemented
 * `502` — Bad Gateway
 * `503` — Service Unavailable
-* `504` — Gateway Timeout
+* `504` — Gateway Timeout
 * `505` — HTTP Version Not Supported
 * `507` — Insufficient Storage
 * `511` — Network Authentication Required||

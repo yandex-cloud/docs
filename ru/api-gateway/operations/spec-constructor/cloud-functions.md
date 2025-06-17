@@ -17,9 +17,9 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * (Опционально) **Сервисный аккаунт** — сервисный аккаунт для авторизации при обращении к функции. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
-        * (Опционально) **Версия формата запроса** — версию формата запроса к функции. Возможные значения — 0.1 и 1.0. Версия по умолчанию — 0.1.
-        * **Функция** — имя [функции](../../../functions/concepts/function.md) и [тег версии](../../../functions/concepts/function.md#tag) функции.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при обращении к функции. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_functions_payload_format_version_name }}** — версию формата запроса к функции. Возможные значения — 0.1 и 1.0. Версия по умолчанию — 0.1.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_functions_info }}** — имя [функции](../../../functions/concepts/function.md) и [тег версии](../../../functions/concepts/function.md#tag) функции.
     1. (Опционально) Вставьте или загрузите контекст операции — произвольный объект в формате YAML или JSON.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 

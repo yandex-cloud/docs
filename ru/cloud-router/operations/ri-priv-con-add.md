@@ -62,7 +62,7 @@ description: Следуя этой инструкции, вы сможете д�
      name: ri1-preprod
      description: Routing instance 1
      folder_id: b1gqf**********jiz2w
-     region_id: ru-central1
+     region_id: {{ region-id }}
      cic_private_connection_info:
        - cic_private_connection_id: cf3td**********nufvr
      status: ACTIVE

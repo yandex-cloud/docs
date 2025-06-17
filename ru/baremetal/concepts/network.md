@@ -80,6 +80,20 @@ _Выделенная публичная подсеть_ — это публич
 
 MAC-адреса сетевых интерфейсов сервера {{ baremetal-name }} вы можете [посмотреть](../operations/servers/get-info.md) на странице с информацией о сервере в блоках **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** и **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**.
 
+## Особенности тарификации сетевого трафика в {{ baremetal-full-name }} при взаимодействии с другими сервисами {{ yandex-cloud }} {#traffic-pricing-pecs}
+
+### {{ vpc-full-name }} {#vpc-traffic}
+
+{% include [bms-vpc-traffic](../../_includes/baremetal/bms-vpc-traffic.md) %}
+
+### {{ objstorage-full-name }} {#storage-traffic}
+
+{% include [bms-s3-free-traffic](../../_includes/baremetal/bms-s3-free-traffic.md) %}
+
+### {{ backup-full-name }} {#backup-traffic}
+
+{% include [bms-backup-free-traffic](../../_includes/baremetal/bms-backup-free-traffic.md) %}
+
 #### См. также {#see-also}
 
 * [{#T}](./network-restrictions.md)

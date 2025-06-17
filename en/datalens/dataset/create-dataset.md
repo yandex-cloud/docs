@@ -12,6 +12,7 @@ In this section, you will learn how to work with a dataset:
 * [Configuring links](#links)
 * [Creating fields](#create-fields)
 * [Configuring fields](#setup-fields)
+* [Performing operations with fields](#field-operations)
 * [Adding parameters](#add-parameters)
 * [Adding filters](#add-filters)
 * [Configuring access](#access)
@@ -208,6 +209,13 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
    {% endlist %}
 
+### Duplicating fields {#duplicate-fields}
+
+You can duplicate any dataset field, including the calculated field you previously created. To do this:
+
+1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
+1. Optionally, rename the duplicated field, change its type or formula.
+
 ## Configuring fields {#setup-fields}
 
 You can perform the following operations on dataset fields:
@@ -259,6 +267,22 @@ To replace the field source in the dataset:
 
 1. Click **Save**.
 
+## Performing operations with fields {#field-operations}
+
+To perform operations with fields, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) on the right side of the field row and select:
+
+* **Duplicate**: Create a copy of the field with identical properties.
+* **Edit**: Change the field settings, its formula, or source.
+* **Access permissions**: Configure access to field values for different users or user groups.
+* **Copy ID**: Copy the field ID to use it for providing parameters for filtering by this field on the dashboard or in the chart URL.
+* **Delete**: Delete the field.
+
+### Performing bulk operations with fields {#bulk-changes}
+
+You can select multiple dataset fields at once to delete, hide, or display them, change their type or aggregation.
+
+![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes-2.png)
+
 ## Adding parameters {#add-parameters}
 
 You can use [parameters](../concepts/parameters.md) in calculated dataset fields.
@@ -301,7 +325,7 @@ Default filters are not applied to data in the dataset preview area.
 ## Configuring access {#access}
 
 
-The way you configure access to a dataset varies depending on whether it is located in a [workbook](../workbooks-collections/index.md) or a folder.
+The way you configure access to a dataset varies depending on whether it is located in a [workbook](../workbooks-collections/index.md) or a directory.
 
 Before assigning access permissions to a user, [add](../security/add-new-user.md) this user to {{ datalens-short-name }}.
 

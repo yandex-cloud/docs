@@ -618,3 +618,8 @@ Additional labels:
 | `snmp6.udplite6outdatagrams`<br/>`DGAUGE`, count | Total UDP-Litev6 packets sent from the object in question (SNMP) |
 | `snmp6.udplite6rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP-Litev6 receive buffer errors (SNMP) |
 | `snmp6.udplite6sndbuferrors`<br/>`DGAUGE`, count | Number of UDP-Litev6 send buffer errors (SNMP) |
+
+## Other metrics {#managed-greenplum-other-metrics}
+| Name<br/>Type, units | Description |
+| ----- | ----- |
+| `core_dump.count`<br/>`DGAUGE`, count | Number of core dumps |
