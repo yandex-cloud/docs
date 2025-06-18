@@ -345,5 +345,3 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 ### {{ websql-full-name }} {#websql}
 
 {% include [websql-limits](../../_includes/websql-limits.md) %}
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

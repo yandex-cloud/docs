@@ -1,21 +1,21 @@
 ---
-title: Создание каталога Trino
+title: Создание каталога {{ TR }}
 description: Следуя этой инструкции, вы создадите каталог в кластере {{ mtr-name }}.
 ---
 
-# Создание каталога Trino
+# Создание каталога {{ TR }}
 
 {% include [preview](../../_includes/managed-trino/note-preview.md) %}
 
-## Роли для создания каталога Trino {#roles}
+## Роли для создания каталога {{ TR }} {#roles}
 
-Для создания [каталога Trino](../concepts/index.md#catalog) с типом подключения [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) вашему аккаунту в {{ yandex-cloud }} нужна дополнительная роль [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user), чтобы использовать подключения из {{ connection-manager-name }}.
+Для создания [каталога {{ TR }}](../concepts/index.md#catalog) с типом подключения [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) вашему аккаунту в {{ yandex-cloud }} нужна дополнительная роль [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user), чтобы использовать подключения из {{ connection-manager-name }}.
 
 [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user) и [{{ roles-lockbox-payloadviewer }}](../../lockbox/security/index.md#lockbox-payloadViewer). Это даст кластеру нужные права для работы с подключениями из {{ connection-manager-name }}. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
 
 О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
-## Создать каталог Trino {#create-catalog}
+## Создать каталог {{ TR }} {#create-catalog}
 
 {% list tabs group=instructions %}
 
@@ -25,16 +25,16 @@ description: Следуя этой инструкции, вы создадите
   1. Нажмите на имя нужного кластера.
   1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
-  1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** задайте имя каталога Trino.
-  1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** выберите тип [коннектора](../../concepts/index.md/#connector).
-  1. Задайте [настройки каталога Trino](#catalog-settings).
+  1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** задайте имя каталога {{ TR }}.
+  1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** выберите тип [коннектора](../concepts/index.md/#connector).
+  1. Задайте [настройки каталога {{ TR }}](#catalog-settings).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
-## Настройки каталога Trino {#catalog-settings}
+## Настройки каталога {{ TR }} {#catalog-settings}
 
-Настройки каталога Trino отличаются в зависимости от выбранного коннектора.
+Настройки каталога {{ TR }} отличаются в зависимости от выбранного коннектора.
 
 {% note info %}
 

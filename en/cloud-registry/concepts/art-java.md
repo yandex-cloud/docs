@@ -19,5 +19,6 @@ For more information about Maven, see [this documentation](https://maven.apache.
 
 #### See also {#see-also}
 
-* [Docker image](docker-image.md)
-* [Node.js artifact](art-nodejs.md)
+* [Docker image](./docker-image.md)
+* [{#T}](./art-nodejs.md)
+* [{#T}](./art-nuget.md)

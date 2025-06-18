@@ -50,7 +50,7 @@ keywords:
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
     1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
-    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте необходимые [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога Trino](catalog-create.md).
+    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте необходимые [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога {{ TR }}](catalog-create.md).
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. (Опционально) Включите защиту от удаления кластера.

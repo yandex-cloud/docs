@@ -36,6 +36,8 @@ description: Следуя данной инструкции, вы сможете
 
   {% endnote %}
 
+{% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -96,11 +98,19 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      * Имя пользователя и пароль.
+      * Укажите имя пользователя.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+        {% include [user-name-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-      * Имя БД. Имя базы может содержать латинские буквы, цифры и подчеркивание. Максимальная длина имени 63 символа. Запрещено создание базы данных с именем `default`.
+      * Укажите пароль пользователя:
+
+        * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — выберите, чтобы ввести свой пароль. Длина пароля — от 8 до 128 символов.
+
+        * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — выберите, чтобы сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
+
+        Чтобы увидеть пароль, после создания кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+      * Укажите имя БД. Имя базы может содержать латинские буквы, цифры и подчеркивание. Максимальная длина имени 63 символа. Запрещено создание базы данных с именем `default`.
 
       * При необходимости включите для кластера [гибридное хранилище](../concepts/storage.md#hybrid-storage-features).
 
@@ -197,7 +207,21 @@ description: Следуя данной инструкции, вы сможете
 
       * `--user` — содержит имя (`name`) и пароль (`password`) пользователя {{ CH }}.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+        {% include [user-name-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+        Длина пароля — от 8 до 128 символов.
+
+        {% note info %}
+
+        Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого измените команду и задайте параметры пользователя таким образом:
+
+        ```bash
+          --user name=<имя_пользователя>,generate-password=true
+        ```
+
+        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+        {% endnote %}
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
@@ -387,7 +411,17 @@ description: Следуя данной инструкции, вы сможете
 
        * `name`и `password`— имя и пароль пользователя {{ CH }}.
 
-          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+          {% include [user-name](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+          Длина пароля — от 8 до 128 символов.
+
+          {% note info %}
+
+          Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль_пользователя>"` укажите `generate_password = true`.
+
+          Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+          {% endnote %}
 
        * `permission` — список БД, к которым пользователь должен иметь доступ.
 
@@ -1077,7 +1111,5 @@ description: Следуя данной инструкции, вы сможете
       {% include [terraform-mch-multiple-hosts-single-shard](../../_includes/mdb/mch/terraform/multiple-hosts-single-shard.md) %}
 
 {% endlist %}
-
-{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

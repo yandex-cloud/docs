@@ -1,4 +1,5 @@
 1. [Use SSH to connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM.
+1. On the VM, [install and configure](../../../container-registry/operations/configure-docker.md) Docker.
 1. [Authenticate](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) under the service account tied to the machine:
 
     ```bash
@@ -13,6 +14,12 @@
 
     ```text
     Login Succeeded
+    ```
+
+1. To make it easier to run commands, add the ID of the registry you created earlier to the `${REGISTRY_ID}` variable:
+
+    ```bash
+    export REGISTRY_ID=<registry_ID>
     ```
 
 1. Download the Docker image to the VM:

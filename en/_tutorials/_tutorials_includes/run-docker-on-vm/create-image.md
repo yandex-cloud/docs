@@ -1,4 +1,6 @@
+1. Open the terminal.
 1. To make command execution easier, add the following variables:
+
     * Username and your VM's public IP to the `${PUBLIC_IP}` variable:
 
         ```bash
@@ -67,7 +69,7 @@
           Credential helper is configured in '/home/<user>/.docker/config.json'
           ```
 
-          Settings are saved in the current user's profile.
+          The current user's profile holds the saved settings.
 
           {% note warning %}
 

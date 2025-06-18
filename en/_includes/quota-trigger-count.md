@@ -1,0 +1,1 @@
+^1^ {{ api-gw-name }}, {{ sf-name }}, and {{ serverless-containers-name }} share the same `Number of triggers per cloud` quota. The [management console]({{ link-console-quotas }}) shows it as part of the {{ sf-name }} quota list.

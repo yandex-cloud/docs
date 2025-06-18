@@ -189,6 +189,8 @@ items:
           Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{
           sws-name }}
         href: tutorials/balancer-with-sws-profile.md
+      - name: Интеграция {{ objstorage-full-name }} с Nextcloud
+        href: tutorials/integrate-nextcloud.md
   - name: Концепции
     items:
       - name: Обзор

@@ -5,17 +5,16 @@ description:
     href="https://yandex.ru/legal/cloud_technicalregulations">Maintenance
     Regulations</a> in Russian and English.
   - >-
-    <a href="{{ link-console-support }}">Yandex Cloud Support Center</a> is the
-    main entry point for troubleshooting and answers to questions about YC
-    services.
+    <a href="{{ link-console-support }}">Yandex Cloud Center</a> is the main
+    entry point for troubleshooting and answers to questions about YC services.
   - >-
-    This document explains how to work with the Support Center, details the
-    technical support levels and current service plans.
+    This document explains how to work with the Cloud Center to get support,
+    details technical support levels and current service plans.
 links:
   - title: Technical support procedure
     description: How to contact technical support
     href: overview
-  - title: Support Center
+  - title: Support in {{ support-center-name }}
     description: Troubleshooting in {{ support-center-name }}
     href: support-center
   - title: Notifications from Yandex Cloud support
@@ -40,7 +39,7 @@ meta:
     - How {{ yandex-cloud }} support works
     - How the {{ yandex-cloud }} Support Center works
     - '{{ yandex-cloud }} support rules'
-    - How to work in the {{ yandex-cloud }} Support Center
+    - Working with {{ yandex-cloud }} Center
     - How to get help from {{ yandex-cloud }}
     - Troubleshooting in {{ yandex-cloud }}
     - Issue with {{ yandex-cloud }}

@@ -1,6 +1,6 @@
-# Installing an NGINX Ingress controller with a {{ certificate-manager-full-name }} certificate
+# Installing the NGINX Ingress Controller with a {{ certificate-manager-full-name }} certificate
 
-Manage the [TLS certificate](../../certificate-manager/concepts/index.md) for the NGINX Ingress controller via [{{ certificate-manager-full-name }}](../../certificate-manager/).
+Manage the [TLS certificate](../../certificate-manager/concepts/index.md) for the NGINX Ingress Controller via [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
 The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) syncs the certificate with the [{{ k8s }} secret](../../managed-kubernetes/concepts/encryption.md). This allows you to manage the deployed application's certificate through {{ certificate-manager-name }} by adding a self-signed certificate and updating it on your own or by issuing an automatically renewable Let's Encrypt® certificate.
 
@@ -243,7 +243,7 @@ The infrastructure support cost includes:
    ...
    ```
 
-## Install the NGINX Ingress controller {#install-nginx-ingress}
+## Install the NGINX Ingress Controller {#install-nginx-ingress}
 
 {% list tabs group=instructions %}
 
@@ -252,7 +252,7 @@ The infrastructure support cost includes:
 
   Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
 
-  The SSL certificate will only be available in the `ns` namespace, where the secret with this certificate was created. To allow Ingress to use this certificate in any namespace, add the `--default-ssl-certificate` parameter to the controller configuration:
+  The SSL certificate will only be available in the `ns` namespace, where the secret with this certificate was created. To allow ingress to use this certificate in any namespace, add the `--default-ssl-certificate` parameter to the controller configuration:
 
   1. Run this command:
 
@@ -273,7 +273,7 @@ The infrastructure support cost includes:
              - --default-ssl-certificate=ns/k8s-secret
      ```
 
-  If you modify the `--default-ssl-certificate` parameter, restart the NGINX Ingress controller.
+  If you modify the `--default-ssl-certificate` parameter, restart the NGINX Ingress Controller.
 
 
 - Manually {#manual}
@@ -310,7 +310,7 @@ The infrastructure support cost includes:
      helm install ingress-nginx ingress-nginx/ingress-nginx
      ```
 
-     The SSL certificate will only be available in the `ns` namespace, where the secret with this certificate was created. To allow Ingress to use this certificate in any namespace, install the controller with the `default-ssl-certificate` parameter:
+     The SSL certificate will only be available in the `ns` namespace, where the secret with this certificate was created. To allow ingress to use this certificate in any namespace, install the controller with the `default-ssl-certificate` parameter:
 
      ```bash
      helm install ingress-nginx ingress-nginx/ingress-nginx \
@@ -333,13 +333,13 @@ The infrastructure support cost includes:
      ...
      ```
 
-     If you modify the `default-ssl-certificate` parameter, restart the NGINX Ingress controller.
+     If you modify the `default-ssl-certificate` parameter, restart the NGINX Ingress Controller.
 
   To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
 
 {% endlist %}
 
-For specific port forwarding at NGINX Ingress controller installation, follow [this guide](../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
+For configure specific port forwarding during NGINX Ingress Controller installation, follow [this guide](../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 
 ## Create a web resource in your {{ managed-k8s-name }} cluster {#create-web-app}
 
@@ -382,9 +382,9 @@ spec:
         - containerPort: 80'
 ```
 
-## Configure a DNS record for the Ingress controller {#configure-dns-record}
+## Configure a DNS record for the ingress controller {#configure-dns-record}
 
-1. Find out the IP address of the Ingress controller (the value in the `EXTERNAL-IP` column):
+1. Find out the IP address of the ingress controller (the value in the `EXTERNAL-IP` column):
 
    ```bash
    kubectl get svc
@@ -399,7 +399,7 @@ spec:
    ...
    ```
 
-1. Add an [A record](../../dns/concepts/resource-record.md#a-a) pointing to the Ingress controller's public IP to your DNS provider or to your own DNS server:
+1. Add an [A record](../../dns/concepts/resource-record.md#a-a) pointing to the ingress controller's public IP to your DNS provider or to your own DNS server:
 
    ```bash
    <domain_name> IN A 84.201.153.122

@@ -25,10 +25,6 @@ items:
         href: tutorials/index.md
       - name: Развертывание веб-приложения
         href: tutorials/java-servlet-todo-list.md
-      - name: Разработка Slack-бота
-        href: tutorials/slack-bot-serverless.md
-      - name: Разработка Telegram-бота
-        href: tutorials/telegram-bot-serverless.md
       - name: >-
           Подключение к {{ ydb-short-name }} из функции {{ sf-full-name }} на
           Python

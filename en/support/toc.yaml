@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Technical support procedure
     href: overview.md
-  - name: Support Center
+  - name: Support in Cloud Center
     href: support-center.md
   - name: Notifications from {{ yandex-cloud }}
     href: notify.md

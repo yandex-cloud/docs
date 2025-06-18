@@ -6,7 +6,7 @@ description: Follow this guide to install {{ GLR }}.
 # Installing {{ GLR }}
 
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that executes {{ GL }} CI/CD pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application which executes {{ GL }} CI/CD pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 
 ## Getting started {#before-you-begin}
 
@@ -50,7 +50,7 @@ description: Follow this guide to install {{ GLR }}.
     * (Optional) **List of comma-separated tags**: Provide a list of tags to distribute tasks between multiple {{ GLR }}s.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
-1. Go back to the Runners page of your {{ GL }} instance, reload the page, and make sure you see a new {{ GLR }}.
+1. Go back to the **Runners** page of your {{ GL }} instance, reload the page, and make sure you see a new {{ GLR }}.
 
 ## Installation using a Helm chart {#helm-install}
 

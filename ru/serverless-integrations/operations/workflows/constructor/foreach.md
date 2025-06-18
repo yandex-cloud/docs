@@ -19,6 +19,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
+      1. В поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_foreach-step-concurrency-field }}** задайте количество элементов входных данных, над которыми одновременно будет выполняться указанная последовательность шагов.
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. {% include [integrations-step-output-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-output-tab.md) %}
   1. Чтобы добавить новый шаг в последовательность, перетащите его в обозначенный пунктирной линией блок из секции **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** или **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}**.

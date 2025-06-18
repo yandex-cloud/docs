@@ -1,4 +1,5 @@
-
-Quota | Value
------ | -----
-Total number of connections per cloud | 1,000
+#|
+|| Quota | Value ||
+|| Total number of connections per cloud 
+`connection-manager.totalConnections.count` | 1,000 ||
+|#

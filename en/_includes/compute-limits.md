@@ -4,10 +4,14 @@
 
 #|
 || Type of limit | Value ||
-|| Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) | 12 ||
-|| Total virtual memory across all VMs per cloud | 128 GB ||
-|| Number of [instance groups](../compute/concepts/instance-groups/index.md) per cloud | 10 ||
-|| Maximum number of [VM placement groups](../compute/concepts/placement-groups.md) per cloud | 2 ||
+|| Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) 
+`compute.instances.count` | 12 ||
+|| Total virtual memory across all VMs and number of available slots in [reserved instance pools](../compute/concepts/reserved-pools.md) per cloud 
+`compute.instanceMemory.size` | 128 GB ||
+|| Number of [instance groups](../compute/concepts/instance-groups/index.md) per cloud 
+`compute.instanceGroups.count` | 10 ||
+|| Maximum number of [VM placement groups](../compute/concepts/placement-groups.md) per cloud 
+`compute.placementGroups.count` | 2 ||
 || Maximum number of VMs per partition in a VM placement group with the [partition placement](../compute/concepts/placement-groups.md#partition) strategy | 100 ||
 || Maximum number of [security groups](../vpc/concepts/security-groups.md) per [network interface](../compute/concepts/network.md)
 
@@ -20,48 +24,80 @@ You can increase this quota only upon agreement with your account manager.
 | 5 ||
 |#
 
+
 ### vCPU quotas {#vcpu-quotas}
 
-Type of limit | Value
---- | ---
-Total number of [vCPUs](../compute/concepts/performance-levels.md) across all VMs per cloud | 32
-Total number of {{ highfreq-ice-lake }} vCPUs across all VMs per cloud | 0
+#|
+|| Type of limit | Value ||
+|| Total number of [vCPUs](../compute/concepts/performance-levels.md) across all VMs and number of available slots in reserved instance pools per cloud 
+`compute.instanceCores.count` | 32 ||
+|| Total number of {{ highfreq-ice-lake }} vCPUs across all VMs and number of available slots in reserved instance pools per cloud 
+`compute.instanceHighFreqCores.count` | 0 ||
+|#
+
 
 ### GPU quotas {#gpu-quotas}
 
-Type of limit | Value
---- | ---
-Total number of NVIDIA® Tesla® V100 [GPUs](../compute/concepts/gpus.md) across all VMs per cloud | 0
-Total number of {{ a100-epyc }} GPUs across all VMs per cloud | 0
-Total number of {{ t4-ice-lake }} GPUs across all VMs per cloud | 0
-Total number of {{ t4i-ice-lake }} GPUs across all VMs per cloud | 0
+#|
+|| Type of limit | Value ||
+|| Total number of NVIDIA® Tesla® V100 [GPUs](../compute/concepts/gpus.md) across all VMs and number of available slots in reserved instance pools per cloud 
+`compute.instanceGpus.count` | 0 ||
+|| Total number of {{ a100-epyc }} GPUs across all VMs and number of available slots in reserved instance pools per cloud 
+`compute.instanceA100Gpus.count` | 0 ||
+|| Total number of GPUs for AMD EPYC™ 9474F with Gen2 across all VMs and number of available slots in reserved instance pools per cloud
+`compute.instanceV3IGpus.count` | 0 ||
+|| Total number of {{ t4-ice-lake }} GPUs across all VMs and number of available slots in reserved instance pools per cloud 
+`compute.instanceT4Gpus.count` | 0 ||
+|| Total number of {{ t4-ice-lake }} GPUs across all VMs and number of available slots in reserved instance pools per on cloud in the `{{ region-id }}-d` availability zone
+`compute.instanceT4Gpus.count.ru-central1-d` | 0 ||
+|| Total number of {{ t4i-ice-lake }} GPUs across all VMs and number of available slots in reserved instance pools per cloud 
+`compute.instanceT4IGpus.count` | 0 ||
+|#
+
 
 ### Disk quotas {#disk-quotas}
 
-Type of limit | Value
---- | ---
-Total number of [disks](../compute/concepts/disk.md) per cloud | 32
-Total [HDD storage](../compute/concepts/disk.md#disks-types) capacity per cloud | 500 GB
-Total SSD storage capacity per cloud | 200 GB
-Total non-replicated SSD storage capacity per cloud | 558 GB
-Total capacity of ultra high-speed network SSD storages with three replicas per cloud | 186 GB
-Number of [non-replicated disk placement groups](../compute/concepts/disk-placement-group.md) per cloud| 5
+#|
+|| Type of limit | Value ||
+|| Total number of [disks](../compute/concepts/disk.md) per cloud 
+`compute.disks.count` | 32 ||
+|| Total [HDD storage](../compute/concepts/disk.md#disks-types) capacity per cloud 
+`compute.hddDisks.size` | 500 GB ||
+|| Total SSD storage capacity per cloud 
+`compute.ssdDisks.size` | 200 GB ||
+|| Total non-replicated SSD storage capacity per cloud 
+`compute.ssdNonReplicatedDisks.size` | 558 GB ||
+|| Total capacity of ultra high-speed network SSD storages with three replicas per cloud 
+`compute.ssdIOM3Disks.size` | 186 GB ||
+|| Number of [non-replicated disk placement groups](../compute/concepts/disk-placement-group.md) per cloud 
+`compute.diskPlacementGroups.count` | 5 ||
+|#
+
 
 ### File storage quotas {#fs-quotas}
 
-Type of limit | Value
---- | ---
-Total number of [file storages](../compute/concepts/filesystem.md) per cloud^1^ | 100
-Total [HDD](../compute/concepts/filesystem.md#types) file storage size per cloud^1^ | 0 B
-Total SSD file storage size per cloud^1^ | 0 B
+#|
+|| Type of limit | Value ||
+|| Total number of [file storages](../compute/concepts/filesystem.md) per cloud^1^ 
+`compute.filesystems.count` | 100 ||
+|| Total [HDD](../compute/concepts/filesystem.md#types) file storage size per cloud^1^ 
+`compute.hddFilesystems.size` | 512 GB ||
+|| Total SSD file storage size per cloud^1^ 
+`compute.ssdFilesystems.size` | 512 GB ||
+|#
+
 
 ### Image quotas {#image-quotas}
 
-Type of limit | Value
---- | ---
-Number of [images](../compute/concepts/image.md) per cloud | 8
-Total volume of images per cloud | 1,024 GB
-Number of [images optimized for deployment](../compute/concepts/image.md#images-optimized-for-deployment) per cloud^1^ | 0
+#|
+|| Type of limit | Value ||
+|| Number of [images](../compute/concepts/image.md) per cloud 
+`compute.images.count` | 32 ||
+|| Total volume of images per cloud 
+`compute.images.size` | 1,024 GB ||
+|| Number of [images optimized for deployment](../compute/concepts/image.md#images-optimized-for-deployment) per cloud^1^ 
+`compute.diskPools.count` | 0 ||
+|#
 
 {% note info %}
 
@@ -69,28 +105,41 @@ When deploying optimized images, the quotas for the number of images per cloud a
 
 {% endnote %}
 
+
 ### Snapshot quotas {#snapshot-quotas}
 
-Type of limit | Value
---- | ---
-Total number of [disk snapshots](../compute/concepts/snapshot.md) per cloud | 32
-Total storage capacity of all disk snapshots per cloud | 400 GB
-Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud | 32
+#|
+|| Type of limit | Value ||
+|| Total number of [disk snapshots](../compute/concepts/snapshot.md) per cloud 
+`compute.snapshots.count` | 32 ||
+|| Total storage capacity of all disk snapshots per cloud 
+`compute.snapshots.size` | 400 GB ||
+|| Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud 
+`compute.snapshotSchedules.count` | 32 ||
+|#
+
 
 ### Dedicated host quotas {#dedicated-host-quotas}
 
-Type of limit | Value
---- | ---
-Number of [dedicated hosts](../compute/concepts/dedicated-host.md) per dedicated host group^1^ | 0
-Number of dedicated host groups per cloud | 6
+#|
+|| Type of limit | Value ||
+|| Number of [dedicated hosts](../compute/concepts/dedicated-host.md) per dedicated host group^1^ 
+`compute.dedicatedHosts.count` | 0 ||
+|| Number of dedicated host groups per cloud 
+`compute.hostGroups.count` | 6 ||
+|#
+
 
 ### Other quotas {#compute-other-quotas}
 
-Type of limit | Value
---- | ---
-Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15
+#|
+|| Type of limit | Value ||
+|| Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15 ||
+|| Number of [reserved instance pools](../compute/concepts/reserved-pools.md) per cloud^1^
+`compute.reservedInstancePools.count` | 0 ||
+|#
 
-^1^ To increase [quotas]({{ link-console-quotas }}) for file storages, deployment-optimized images, or dedicated hosts, contact [support]({{ link-console-support }}).
+^1^ To increase [quotas]({{ link-console-quotas }}) for file storages, deployment-optimized images, dedicated hosts, or reserved instance pools, contact [support]({{ link-console-support }}).
 
 ## Limits {#compute-limits}
 

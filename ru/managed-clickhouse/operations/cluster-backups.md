@@ -109,7 +109,10 @@ description: Вы можете создавать резервные копии 
 Из резервной копии вы можете восстановить как отдельный [шард](../concepts/sharding.md), так и весь кластер целиком. Восстановление отдельного шарда из резервной копии, которая содержит несколько шардов, доступно только в консоли.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+
+* [{{ roles.mch.editor }}](../../iam/roles-reference.md#managed-clickhouse-editor) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
 
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
