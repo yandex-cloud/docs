@@ -10,17 +10,23 @@ keywords:
   - вм
 ---
 
-# Создание виртуальной машины Linux
+# Продвинутое создание виртуальной машины Linux
 
 Создайте [ВМ](../concepts/vm.md) Linux с помощью сервиса {{ compute-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
 
-{% include [role-note](../../_includes/compute/role-note.md) %}
+{% note tip %}
+
+Для первого знакомства с сервисом воспользуйтесь инструкцией создания ВМ с помощью [простой формы](simple-form-vm.md).
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin-linux](../../_includes/compute/before-you-begin-linux.md) %}
 
 ## Создайте ВМ {#create-vm}
+
+{% include [role-note](../../_includes/compute/role-note.md) %}
 
 {% include [create-instance-via-console-linux](../_includes_service/create-instance-via-console-linux.md) %}
 

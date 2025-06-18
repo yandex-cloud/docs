@@ -162,6 +162,10 @@ keywords:
 
 Для нового кластера необходимо задать все параметры, обязательные при его создании.
 
+
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles.mes.editor }}](../../iam/roles-reference.md#managed-elasticsearch-editor) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

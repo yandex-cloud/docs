@@ -22,7 +22,7 @@ To work with Docker images, [install and configure](../configure-docker.md) Dock
 
      The described Docker image is based on Ubuntu and will execute one simple command.
 
-  1. Assemble the Docker image. For `<registry_ID>`, use the `ID` you got when [creating the registry](../registry/registry-create.md).
+  1. Build the Docker image. For `<registry_ID>`, use the `ID` you got when [creating the registry](../registry/registry-create.md).
 
      ```bash
      docker build . \
@@ -30,6 +30,8 @@ To work with Docker images, [install and configure](../configure-docker.md) Dock
      ```
 
      The `-t` flag assigns a URL to the Docker image in this format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`. You can build Docker images without any tag. In this case, the Docker CLI will provide the default label: `latest`.
+
+     The Docker image name and tag are part of the [repository](../../concepts/repository.md) name, which is a [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier), and must follow a specific format. For more information, see the [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#pull).
 
 {% endlist %}
 

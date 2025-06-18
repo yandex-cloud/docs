@@ -1423,6 +1423,10 @@ items:
             href: serverless/forms-and-datalens-integration/console.md
           - name: Terraform
             href: serverless/forms-and-datalens-integration/terraform.md
+      - name: >-
+          Creating a {{ postbox-full-name }} address and verifying domain
+          ownership with {{ TF }}
+        href: serverless/domain-identity-creating.md
   - name: Machine learning and artificial intelligence
     items:
       - name: All tutorials

@@ -1,9 +1,13 @@
 #### Quotas {#container-registry-quotas}
 
-Type of limit | Value
---- | ---
-Maximum number of [registries](../container-registry/concepts/registry.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) | 10
-Number of concurrent [Docker image](../container-registry/concepts/docker-image.md) [scans](../container-registry/concepts/vulnerability-scanner.md) running in a single cloud | 10
+#|
+|| Type of limit | Value ||
+|| Maximum number of [registries](../container-registry/concepts/registry.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) 
+`container-registry.registries.count` | 10 ||
+|| Number of concurrent [Docker image](../container-registry/concepts/docker-image.md) [scans](../container-registry/concepts/vulnerability-scanner.md) running in a single cloud 
+`container-registry.parallelScans.count` | 10 ||
+|#
+
 
 #### Limits {#container-registry-limits}
 

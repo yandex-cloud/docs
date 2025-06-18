@@ -1,9 +1,9 @@
 ---
-title: Удаление каталога Trino
+title: Удаление каталога {{ TR }}
 description: Следуя этой инструкции, вы удалите каталог из кластера {{ mtr-name }}.
 ---
 
-# Удаление каталога Trino
+# Удаление каталога {{ TR }}
 
 {% include [preview](../../_includes/managed-trino/note-preview.md) %}
 

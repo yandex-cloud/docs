@@ -6,8 +6,6 @@ description: Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}.
 # {{ ydb-name }} tutorials
 
 * [{#T}](java-servlet-todo-list.md)
-* [{#T}](slack-bot-serverless.md)
-* [{#T}](telegram-bot-serverless.md)
 * [{#T}](connect-from-cf.md)
 * [{#T}](connect-from-cf-nodejs.md)
 * [{#T}](video-converting-queue.md)

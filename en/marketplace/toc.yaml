@@ -253,6 +253,48 @@ items:
                     href: workload/api-ref/CloudApplication/get.md
                   - name: ResolveByWorkload
                     href: workload/api-ref/CloudApplication/resolveByWorkload.md
+      - name: Product Instance Management API reference
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: pim/saas/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/Operation/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: pim/saas/api-ref/Operation/cancel.md
+              - name: ProductInstance
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/ProductInstance/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/ProductInstance/get.md
+                  - name: Claim
+                    href: pim/saas/api-ref/ProductInstance/claim.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: pim/saas/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: pim/saas/api-ref/grpc/Operation/cancel.md
+              - name: ProductInstance
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/grpc/ProductInstance/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/grpc/ProductInstance/get.md
+                  - name: Claim
+                    href: pim/saas/api-ref/grpc/ProductInstance/claim.md
   - name: Users
     expanded: true
     items:
@@ -289,12 +331,12 @@ items:
               - name: Configuring an L7 {{ alb-name }} via an ingress controller
                 href: tutorials/alb-ingress-controller.md
               - name: >-
-                  Configuring an L7 {{ alb-name }} logging via an ingress
-                  controller
+                  Configuring an L7 {{ alb-name }} logging with the help of an
+                  ingress controller
                 href: tutorials/alb-ingress-controller-log-options.md
               - name: >-
                   Creating an L7 load balancer with a {{ sws-name }} security
-                  profile through an {{ alb-name }} Ingress controller
+                  profile through the {{ alb-name }} Ingress Controller
                 href: tutorials/alb-ingress-with-sws-profile.md
               - name: >-
                   Performing health checks on {{ managed-k8s-name }} cluster

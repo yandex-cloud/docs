@@ -64,6 +64,13 @@ The {{ compute-name }} usage cost includes:
 
 The monthly prices are based on 720 hours per month.
 
+### Using reserved instance pools {#pool}
+
+{% include [reserved-pools-preview-notice](../_includes/compute/reserved-pools-preview-notice.md) %}
+
+The cost of using [reserved instance pools](./concepts/reserved-pools.md) includes fees for the whole unused volume of reserved computing resources of [VMs](#prices-instance-resources), [GPU clusters](#prices-gpu-clusters), and [software accelerated networks](#software-accelerated-network).
+
+Pool charges apply to free slots, while occupied slots are [billed as regular VMs](#instance). That is, if you attach a VM to a pool, it is still billed separately while using some of the pool’s resources. As a result, your pool usage fee is reduced. When you remove a VM from the pool, the computing resources are released and the fee for using the pool increases.
 
 ### VM usage {#instance}
 

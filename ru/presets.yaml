@@ -823,6 +823,7 @@ default:
   yc-compute-instance: yc compute instance
   yc-dp: yc dataproc
   yc-dt: yc datatransfer
+  yc-gl: yc managed-gitlab
   yc-install-path: /yandexcloud-yc/install.sh
   yc-k8s: yc managed-kubernetes
   yc-mdb-af: yc managed-airflow
@@ -5970,7 +5971,6 @@ default:
         info:
           action_go: Перейти
           action_leave-request: Оставить заявку
-          title_tariffs: Тарифы
         tariff-card:
           title_business: Бизнес
           title_free: Базовый
@@ -6004,8 +6004,21 @@ default:
         field_person-id: Плательщик
     yacloud_billing:
       alb:
+        button_add-route: Добавить маршрут
+        button_backend-group-create: Создать группу бэкендов
+        label_backend-group: Группа бэкендов
         label_backends: Бэкенды
+        label_certificate: Сертификаты
+        label_http-router: HTTP-роутер
+        label_listeners: Обработчики
         label_max-timeout: Максимальный таймаут, с
+        label_new-backend: Новый бэкенд
+        label_new-virtual-host: Новый виртуальный хост
+        label_session-affinity: Привязка сессий
+        label_session-affinity-mode: Режим привязки
+        label_target-groups: Целевые группы
+        label_virtual-hosts: Виртуальные хосты
+        section_allocation-settings: Размещение
       backup:
         button_attach-instance-submit: Привязать
         label_instances: Виртуальные машины
@@ -6794,6 +6807,7 @@ default:
         button_target-group-create: Создать целевую группу
         button_virtual-host-add: Добавить виртуальный хост
         button_wizard-create-tg: Создать и продолжить
+        column_addresses: IP-адреса
         column_target: IP-адрес
         label_address-auto: Автоматически
         label_address-list: Список
@@ -6855,6 +6869,7 @@ default:
         label_modification-operation: Операция
         label_modification-type: Тип
         label_modifications: Изменение заголовков
+        label_new-route: Новый маршрут
         label_panic-threshold: Порог для режима паники
         label_path: Путь
         label_port: Порт
@@ -7420,9 +7435,11 @@ default:
             field_subnetwork: Подсеть
             section_additional: Дополнительно
             switch_auto: Автоматически
+            switch_dynamic: Динамический
             switch_list: Список
             switch_manual: Вручную
             switch_none: Без адреса
+            switch_static: Статический
           one-to-one-nat-form:
             button_submit: Добавить
             field_advanced: Дополнительно
@@ -7443,6 +7460,7 @@ default:
             label_tab-custom: Своя конфигурация
             label_tab-gpu: GPU
             label_tab-standard: Standard
+            option_resources-custom-config: Своя конфигурация
         condition-column:
           condition_and: и
           condition_full-trafic: Весь трафик
@@ -7734,6 +7752,7 @@ default:
             field_coi-tty: Выделить TTY для Docker-контейнера
             field_instance-group-address: Публичный адрес
             field_instance-group-network: Сеть
+            field_instance-name: Имя ВМ
             field_key: SSH-ключ
             field_security-groups: Группы безопасности
             field_serial-port-enable: Доступ к серийной консоли
@@ -7746,17 +7765,22 @@ default:
             image_value_marketplace: Marketplace
             label_add-network-interface: Добавить сетевой интерфейс
             label_title: Создание виртуальной машины
+            option_create-form-extended-title: Расширенная настройка
+            option_create-form-simple-title: Простая настройка
             placeholder_search_marketplace-product: Поиск продукта
             section_access: Доступ
             section_additional: Дополнительно
             section_backup: Cloud Backup
             section_base: Общая информация
             section_coi: Настройка Docker-контейнера
+            section_disks: Диски
             section_image: Образ загрузочного диска
             section_monitoring: Мониторинг
             section_network: Сетевые настройки
             section_placement: Размещение
             section_platform: Вычислительные ресурсы
+            section_predefined: Предустановленные параметры
+            section_simple-image: Операционные системы и продукты
             section_storages: Диски и файловые хранилища
             unified-agent: Агент сбора метрик
             value_address-auto: Автоматически
@@ -9315,11 +9339,13 @@ default:
         workflow-editor_backoff-rate-field: Скорость изменения задержки
         workflow-editor_error-list-field: Ошибки
         workflow-editor_error-list-mode-field: Режим выбора ошибок
+        workflow-editor_foreach-step-concurrency-field: Количество одновременно обрабатываемых элементов входных данных
         workflow-editor_initial-delay-field: Начальная задержка, мс
         workflow-editor_integration-group-label: Интеграционные шаги
         workflow-editor_main-settings-label: Общие настройки
         workflow-editor_management-group-label: Управляющие шаги
         workflow-editor_max-delay-field: Максимальная задержка, мс
+        workflow-editor_parallel-step-concurrency-field: Количество одновременно выполняющихся веток
         workflow-editor_push-next-block-placeholder-label: Добавить шаг
         workflow-editor_retry-count-field: Количество повторных попыток
         workflow-editor_step-name-label: Имя шага
@@ -9719,6 +9745,7 @@ default:
           overview:
             button_create_route-table: Создать таблицу маршрутизации
             button_create_subnetwork: Создать подсеть
+            column_subnetwork_route-table-id: Таблица маршрутизации
             section_subnetworks: Подсети
           security-groups:
             button_add-rule: Добавить правило

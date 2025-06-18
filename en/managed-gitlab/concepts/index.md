@@ -2,7 +2,7 @@
 
 [{{ GL }}](https://about.gitlab.com/) is an open-source web-based DevOps lifecycle tool. It is a code repository management system for [Git](https://git-scm.com/) with error tracking, [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline, dedicated Wiki, and other features.
 
-{{ mgl-name }} helps configure application deployment to [{{ compute-full-name }}](../../compute/) [virtual machines](../../compute/concepts/vm.md) and supports integration with [{{ container-registry-full-name }}](../../container-registry/) and [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
+{{ mgl-name }} helps configure application deployment on [VMs](../../compute/concepts/vm.md) in [{{ compute-full-name }}](../../compute/) and supports integration with [{{ container-registry-full-name }}](../../container-registry/) and [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 
 How {{ mgl-name }} works:
 
@@ -28,6 +28,30 @@ When creating an instance, you specify:
 
 {% include [HTTPS info](../../_includes/managed-gitlab/note-https.md) %}
 
+## {{ GLR }} {#runners}
+
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application which executes {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It allows running automated builds inside [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on [{{ compute-name }} VMs](../../compute/concepts/vm.md).
+
+You can get started with {{ GLR }} in the following ways:
+
+* [Install {{ GLR }} in a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/applications/gitlab-runner.md).
+* Create a {{ compute-name }} VM and [install {{ GLR }} on it manually](../tutorials/install-gitlab-runner.md#install).
+* [Use the management console to create a runner](../tutorials/install-gitlab-runner.md#create-runner) that will automatically deploy the specified number of {{ compute-name }} VMs.
+
+    When creating a runner from the management console, you can select the following 15 to 500 GB disk types for the VM storage:
+
+    * HDD
+    * SSD
+
+    The following computing resource configurations are available:
+
+    * 2 vCPUs, 4 GB RAM
+    * 2 vCPUs, 8 GB RAM
+    * 4 vCPUs, 16 GB RAM
+    * 8 vCPUs, 64 GB RAM
+    * 16 vCPUs, 128 GB RAM
+
+    {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
 
 ## Use cases {#examples}
 

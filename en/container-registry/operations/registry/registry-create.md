@@ -1,6 +1,6 @@
 # Creating a registry
 
-The new [registry](../../concepts/registry.md) can be used by all users and [service accounts](../../../iam/concepts/users/service-accounts.md) with access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). 
+Any users and [service accounts](../../../iam/concepts/users/service-accounts.md) with [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) access rights can use the created [registry](../../concepts/registry.md). 
 
 You can create a secure registry with autoscanning using a [vulnerability scanner](../../concepts/vulnerability-scanner.md).
 
@@ -14,94 +14,11 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
-  1. Specify a name for the registry. The naming requirements are as follows:
-
-     {% include [name-format](../../../_includes/name-format.md) %}
-
-  1. Optionally, under **{{ ui-key.yacloud.cr.overview.popup-create_field_auto_scan }}**:
-
-
-      * Disable **{{ ui-key.yacloud.cr.overview.popup-create_scan_push_text }}** to skip scanning of Docker images at their upload to the repository.
-      * Disable **{{ ui-key.yacloud.cr.overview.popup-create_scan_period_enabled }}** or set the scanning frequency.
-
-        {% include [safe-registry](../../../_includes/container-registry/safe-registry.md) %}
-
-  1. Optionally, add labels.
-  1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
+  {% include [create-registry-console](../../../_includes/container-registry/create-registry-console.md) %}
 
 - CLI {#cli}
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. Make sure that a registry has not been created in the folder yet:
-
-     ```bash
-     yc container registry list
-     ```
-
-     Result:
-
-     ```text
-     +----+------+-----------+
-     | ID | NAME | FOLDER ID |
-     +----+------+-----------+
-     +----+------+-----------+
-     ```
-
-     If the folder already contains a registry, see [{#T}](registry-update.md) for info on how you can update it.
-  1. Create a registry:
-
-      * With automated vulnerability scanning:
-
-
-         ```bash
-         yc container registry create --name my-reg --secure
-         ```
- 
-        {% include [safe-registry](../../../_includes/container-registry/safe-registry.md) %}
-
-      * Without automated vulnerability scanning:
-
-         ```bash
-         yc container registry create --name my-reg
-         ```
-
-     Result:
-
-     ```text
-     done
-     id: crpd50616s9a********
-     folder_id: b1g88tflru0e********
-     name: my-reg
-     status: ACTIVE
-     created_at: "2019-01-09T14:34:06.601Z"
-     ```
-
-     Follow these registry naming requirements:
-
-     {% include [name-format](../../../_includes/name-format.md) %}
-
-     The `--name` parameter is optional. You can create a registry without a name and use its ID to access it. The `name` field is user-defined. It is used when listing in the {{ yandex-cloud }} CLI and **not used** in the Docker CLI.
-  1. Make sure the registry was created:
-
-     ```bash
-     yc container registry list
-     ```
-
-     Result:
-
-     ```text
-     +----------------------+--------+----------------------+
-     |          ID          |  NAME  |      FOLDER ID       |
-     +----------------------+--------+----------------------+
-     | crpd50616s9a******** | my-reg | b1g88tflru0e******** |
-     +----------------------+--------+----------------------+
-     ```
+  {% include [create-registry-cli](../../../_includes/container-registry/create-registry-cli.md) %}
 
 - {{ TF }} {#tf}
 
@@ -189,6 +106,6 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
 
 - API {#api}
 
-  To create a registry, use the [create](../../api-ref/Registry/create.md) method for the [Registry](../../api-ref/Registry/) resource.
+  {% include [create-registry-api](../../../_includes/container-registry/create-registry-api.md) %}
 
 {% endlist %}

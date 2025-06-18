@@ -31,3 +31,7 @@ description: This section contains step-by-step guides for {{ cloud-registry-nam
 ### npm {#npm}
 
 * [Setting up npm](npm/installation.md)
+
+### NuGet {#nuget}
+
+* [Setting up NuGet](nuget/installation.md)

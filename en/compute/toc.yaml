@@ -379,6 +379,16 @@ items:
             href: operations/dedicated-host/running-host-vms.md
           - name: Configuring access permissions for a dedicated host group
             href: operations/dedicated-host/access.md
+      - name: Reserved instance pools
+        items:
+          - name: Creating a reserved instance pool
+            href: operations/reserved-pools/create-reserved-pool.md
+          - name: Updating a reserved instance pool
+            href: operations/reserved-pools/update-reserved-pool.md
+          - name: Deleting a reserved instance pool
+            href: operations/reserved-pools/delete-reserved-pool.md
+          - name: Managing instances in a pool
+            href: operations/reserved-pools/manage-pool-vms.md
       - name: GPU clusters
         items:
           - name: Creating a GPU cluster
@@ -710,6 +720,8 @@ items:
             href: concepts/instance-groups/statuses.md
       - name: Dedicated host
         href: concepts/dedicated-host.md
+      - name: Reserved instance pools
+        href: concepts/reserved-pools.md
       - name: Encryption
         href: concepts/encryption.md
       - name: Backups

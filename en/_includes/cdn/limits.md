@@ -1,12 +1,15 @@
 #### Quotas {#cdn-quotas}
 
-| Type of limitation                        | Value |
-|----------------------------------------|----------|
-| Number of [CDN resources](../../cdn/concepts/resource.md) per cloud | 20       |
+#|
+|| Type of limit | Value ||
+|| Number of [CDN resources](../../cdn/concepts/resource.md) per cloud 
+`cdn.resources.count` | 20 ||
+|#
+
 
 #### Limits {#cdn-limits}
 
-| Type of limitation | Value |
+| Type of limit | Value |
 | ----- | ----- |
 | Number of requests for [cache purging](../../cdn/concepts/caching.md#purge) per minute | 1 |
 | Number of file paths per cache purging request | 10 |

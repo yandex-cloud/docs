@@ -1003,6 +1003,26 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+### {{ connection-manager-name }} {#conn-man}
+
+Если в кластере не включена интеграция с сервисом {{ connection-manager-name }}, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. Она доступна только в [консоли управления]({{ link-console-main }}).
+
+Для каждого пользователя БД будут созданы:
+
+* [Подключение](../../metadata-hub/concepts/connection-manager.md) {{ connection-manager-name }} с информацией о соединении с БД.
+
+* [Секрет {{ lockbox-name }}](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя. Хранение паролей в сервисе {{ lockbox-name }} обеспечивает их безопасность.
+
+  Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+  Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md).
+
+  {% note info %}
+
+  Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
+
+  {% endnote %}
+
 ## Переместить кластер {#move-cluster}
 
 {% list tabs group=instructions %}

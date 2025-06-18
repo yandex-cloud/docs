@@ -1,6 +1,8 @@
 # Connecting to managed databases from functions
 
-Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluster hosts without configured public access from functions.
+To use a function to connect to managed databases and other {{ yandex-cloud }} resources with no public access, specify a [user network](../concepts/networking.md#user-network).
+
+If you cannot configure access to {{ mpg-full-name }} and {{ mch-full-name }} cluster hosts via a user network, create a connection as described below. To configure access to other managed databases and {{ yandex-cloud }} resources, a user network is the only option.
 
 ## Creating a connection {#create}
 

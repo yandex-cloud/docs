@@ -5,7 +5,9 @@ items:
     items:
       - name: Обзор
         href: quickstart/index.md
-      - name: Создание виртуальной машины Linux
+      - name: Упрощенное создание виртуальной машины Linux
+        href: quickstart/simple-form-vm.md
+      - name: Продвинутое создание виртуальной машины Linux
         href: quickstart/quick-create-linux.md
       - name: Создание группы виртуальных машин
         href: quickstart/ig.md
@@ -608,6 +610,8 @@ items:
           Доставка USB-устройств на виртуальную машину или сервер {{
           baremetal-name }}
         href: tutorials/usb-over-ip.md
+      - name: Интеграция {{ objstorage-full-name }} с Nextcloud
+        href: tutorials/integrate-nextcloud.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

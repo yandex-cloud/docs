@@ -30,6 +30,8 @@ You can move a VM to another folder within a single cloud.
 
 When creating a VM, you need to specify the amount of computing resources to allocate to it; this includes the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](performance-levels.md).
 
+To reserve computing resources for as many VMs as you need in a particular availability zone, you can create a [reserved instance pool](./reserved-pools.md).
+
 ## Disks {#disks}
 
 A VM must have at least one disk attached, which is a boot disk. Currently, you can only attach a boot disk when creating a VM.

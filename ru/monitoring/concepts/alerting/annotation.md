@@ -24,4 +24,4 @@ Used disk space is not_var{{pointValue}} Gbs, expected less than not_var{{alert.
 **toTime** | Конец временного интервала, в котором рассчитывается алерт. Строчка в формате ISO8601, например `2017-09-07T12:00:00Z`.
 **pointValue** | Значение метрики на момент вычисления алерта.
 **status.code** | Статус алерта: `OK`, `ALARM`, `WARN`, `NO_DATA` или `ERROR`.
-**isOk**</br>**isWarn**</br>**isAlarm**</br>**isNoData**</br>**isError** | Логические переменные, с помощью которых можно узнать статус алерта. Например:</br></br>`not_var{{#isAlarm}}Disk usage is too high!not_var{{/isAlarm}}`</br>`not_var{{^isAlarm}}Disk usage is ok.not_var{{/isAlarm}}`
+**isOk**</br>**isWarn**</br>**isAlarm**</br>**isNoData**</br>**isError** | Логические переменные, с помощью которых можно узнать статус алерта. Например:</br></br>`{{#isAlarm}}Disk usage is too high!{{/isAlarm}}`</br>`{{^isAlarm}}Disk usage is ok.{{/isAlarm}}`

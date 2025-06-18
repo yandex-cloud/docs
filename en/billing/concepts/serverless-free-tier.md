@@ -43,7 +43,6 @@ Free tier applies to the following services:
 * [{{ monitoring-full-name }}](#monitoring)
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ yq-full-name }}](#yq)
-* [{{ search-api-full-name }}](#search-api)
 * [{{ serverless-containers-full-name }}](#serverless-containers)
 * [{{ captcha-full-name }}](#smartcaptcha)
 * [{{ sws-full-name }}](#smartwebsecurity)
@@ -118,7 +117,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ dataproc-full-name }} {#dataproc}
 
-[{{ dataproc-full-name }}](../../data-proc/quickstart.md) assists in deploying Apache Hadoop® and Apache Spark™ clusters in a {{ yandex-cloud }} infrastructure. The cluster size, node capacity, and selection of Apache® services (Spark™, HDFS, YARN, Hive, HBase®, Oozie™, Sqoop™, Flume™, Tez®, Zeppelin™) are all up to you.
+[{{ dataproc-full-name }}](../../data-proc/quickstart.md) assists in deploying Apache Hadoop® and Apache Spark™ clusters in a {{ yandex-cloud }} infrastructure. The cluster size, node capacity, and the selection of Apache® services (Spark™, HDFS, YARN, Hive, HBase®, Oozie™, Sqoop™, Flume™, Tez®, Zeppelin™) are all up to you.
 
 {% include [not-charged-data-processing.md](../../_includes/pricing/price-formula/not-charged-data-processing.md) %}
 
@@ -224,15 +223,6 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
-## {{ search-api-full-name }} {#search-api}
-
-[{{ search-api-full-name }}](../../search-api/quickstart.md) is a service that allows you to query the Yandex search database and get responses in XML format. {{ search-api-full-name }} is tailored for developers and webmasters, helping them to implement the search feature on individual websites, groups of websites, or across the internet. Additionally, it offers features to monitor website ranking for specific queries in Yandex search results.
-
-{% include [not-charged-search-api.md](../../_includes/pricing/price-formula/not-charged-search-api.md) %}
-
-After you spend the free amount of services, you will be charged at the applicable [rate](../../search-api/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 

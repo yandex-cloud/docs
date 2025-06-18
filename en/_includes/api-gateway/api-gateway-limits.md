@@ -1,12 +1,16 @@
 #### Quotas {#api-gw-quotas}
 
-Limit type | Value
------ | -----
-Number of [triggers](../../serverless-containers/concepts/trigger/index.md) per cloud | 100
+#|
+|| Type of limit | Value ||
+|| Number of [triggers](../../serverless-containers/concepts/trigger/index.md) per cloud^1^ 
+`serverless.triggers.count` | 100 ||
+|#
+
+{% include [quota-trigger-count](../quota-trigger-count.md) %}
 
 #### Limits {#api-gw-limits}
 
-Limit type | Value
+Type of limit | Value
 ----- | -----
 Maximum size of a request to and a response from {{ api-gw-name }} | 2.5 MB
 Maximum specification size | 3.5 MB

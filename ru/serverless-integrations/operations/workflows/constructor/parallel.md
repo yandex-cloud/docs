@@ -19,6 +19,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
+      1. В поле **{{ ui-key.yacloud.serverless-workflows.workflow-editor_parallel-step-concurrency-field }}** задайте количество одновременно выполняющихся веток. Например, если задать значение `2`, а всего добавлено 5 веток, одновременно будут выполняться не больше 2 веток, выбранных случайным образом.
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. {% include [integrations-step-output-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-output-tab.md) %}
   1. Чтобы добавить новую ветку выполнения:
