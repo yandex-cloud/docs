@@ -1,15 +1,26 @@
 #### Quotas {#serverless-containers-quotas}
 
-Type of limit | Value
------ | -----
-Number of containers per cloud | 10
-Number of [triggers](../../serverless-containers/concepts/trigger/) per cloud | 100
-Total volume of Docker images used in active container revisions | 20 GB
-Number of container instances per availability zone | 10
-Number of concurrent requests to containers per availability zone | 10
-Total RAM for all running container instances per availability zone | 20 GB
-Total number of CPUs of all running container instances per availability zone | 10
-Number of [provisioned container instances](../../serverless-containers/concepts/container.md#provisioned-instances) per cloud | 2
+#|
+|| Type of limit | Value ||
+|| Number of containers per cloud 
+`serverless.containers.count` | 10 ||
+|| Number of [triggers](../../serverless-containers/concepts/trigger/) per cloud^1^ 
+`serverless.triggers.count` | 100 ||
+|| Total volume of Docker images used in active container revisions 
+`serverless.containers.size` | 20 GB ||
+|| Number of container instances per availability zone 
+`serverless.containersInstances.count` | 10 ||
+|| Number of concurrent requests to containers per availability zone 
+`serverless.containersRequest.count` | 10 ||
+|| Total RAM for all running container instances per availability zone 
+`serverless.containersMemory.size` | 20 GB ||
+|| Total number of CPUs of all running container instances per availability zone 
+`serverless.containersCpu.count` | 10 ||
+|| Number of [provisioned container instances](../../serverless-containers/concepts/container.md#provisioned-instances) per cloud 
+`serverless.containersWorkersProvisioned.count` | 2 ||
+|#
+
+{% include [quota-trigger-count](../quota-trigger-count.md) %}
 
 #### Limits {#serverless-containers-limits}
 

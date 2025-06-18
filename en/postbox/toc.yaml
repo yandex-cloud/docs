@@ -41,6 +41,10 @@ items:
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
           analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: >-
+          Creating a {{ postbox-full-name }} address and verifying domain
+          ownership with {{ TF }}
+        href: tutorials/domain-identity-creating.md
   - name: Tools
     items:
       - name: AWS CLI
@@ -51,7 +55,7 @@ items:
     href: pricing.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: How to use the API
         href: aws-compatible-api/index.md

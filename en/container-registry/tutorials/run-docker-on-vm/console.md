@@ -8,6 +8,6 @@ To run a [Docker image on a VM](index.md) using a [{{ container-registry-full-na
 
 {% include [run-docker-on-vm-console](../../../_tutorials/infrastructure/run-docker-on-vm-console.md) %}
 
-## See also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](terraform.md)

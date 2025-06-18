@@ -1,3 +1,4 @@
-Type of limit | Value
---- | ---
-Number of clusters per cloud | 5
+#|
+|| Type of limitation | Value ||
+|| Number of clusters per cloud | 5 ||
+|#

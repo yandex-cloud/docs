@@ -6,8 +6,6 @@ description: Различные сценарии использования {{ y
 # Практические руководства {{ ydb-name }}
 
 * [{#T}](java-servlet-todo-list.md)
-* [{#T}](slack-bot-serverless.md)
-* [{#T}](telegram-bot-serverless.md)
 * [{#T}](connect-from-cf.md)
 * [{#T}](connect-from-cf-nodejs.md)
 * [{#T}](video-converting-queue.md)

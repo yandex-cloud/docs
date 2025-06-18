@@ -291,4 +291,3 @@ Free tier распространяется на сервисы:
 ### Расчет стоимости использования {{ iot-full-name }} {#iot-example}
 
 {% include [prices-example](../../_includes/iot-core/prices-example.md) %}
-

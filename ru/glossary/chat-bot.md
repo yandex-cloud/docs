@@ -116,7 +116,7 @@ description: Чат-бот — это виртуальный помощник д
 
 Инструменты {{ yandex-cloud }}, которые помогут вам создать своего чат-бота, воспользоваться готовым или дообучить его:
 
-* [Создание чат-бота для Slack](../ydb/tutorials/slack-bot-serverless.md) с помощью [{{ ydb-full-name }}](/services/ydb/).
+* [Создание чат-бота для Slack](../functions/tutorials/slack-bot-serverless.md) с помощью serverless-технологий.
 * [Создание навыка Алисы](../functions/tutorials/alice-skill.md) на основе [{{ sf-full-name }}](/services/functions/).
 * [Создание Telegram-бота](../functions/tutorials/telegram-bot-serverless.md) с помощью serverless-технологий.
 * [Создание AI-ассистента](../foundation-models/concepts/assistant/index.md) для бизнеса в [{{ foundation-models-full-name }}](/services/foundation-models/).

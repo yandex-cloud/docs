@@ -5963,7 +5963,6 @@ default:
         info:
           action_go: Go
           action_leave-request: Send a request
-          title_tariffs: Service plans
         tariff-card:
           title_business: Business
           title_free: Basic
@@ -5997,8 +5996,21 @@ default:
         field_person-id: Payer
     yacloud_billing:
       alb:
+        button_add-route: Add route
+        button_backend-group-create: Create backend group
+        label_backend-group: Backend group
         label_backends: Backends
+        label_certificate: Certificates
+        label_http-router: HTTP router
+        label_listeners: Listeners
         label_max-timeout: Maximum timeout, sec.
+        label_new-backend: New backend
+        label_new-virtual-host: New virtual host
+        label_session-affinity: Session affinity
+        label_session-affinity-mode: Affinity mode
+        label_target-groups: Target groups
+        label_virtual-hosts: Virtual hosts
+        section_allocation-settings: Allocation
       backup:
         button_attach-instance-submit: Attach
         label_instances: Virtual machines
@@ -6787,6 +6799,7 @@ default:
         button_target-group-create: Create target group
         button_virtual-host-add: Add virtual host
         button_wizard-create-tg: Create and continue
+        column_addresses: IP addresses
         column_target: IP address
         label_address-auto: Automatically
         label_address-list: List
@@ -6848,6 +6861,7 @@ default:
         label_modification-operation: Operation
         label_modification-type: Type
         label_modifications: Manage headers
+        label_new-route: New route
         label_panic-threshold: Panic mode threshold
         label_path: Path
         label_port: Port
@@ -7409,9 +7423,11 @@ default:
             field_subnetwork: Subnet
             section_additional: Additional
             switch_auto: Auto
+            switch_dynamic: Dynamic
             switch_list: List
             switch_manual: Manual
             switch_none: No address
+            switch_static: Static
           one-to-one-nat-form:
             button_submit: Add
             field_advanced: Advanced
@@ -7432,6 +7448,7 @@ default:
             label_tab-custom: Custom
             label_tab-gpu: GPU
             label_tab-standard: Standard
+            option_resources-custom-config: Custom configuration
         condition-column:
           condition_and: and
           condition_full-trafic: All traffic
@@ -7721,6 +7738,7 @@ default:
             field_coi-tty: Attach a TTY to the Docker container
             field_instance-group-address: Public address
             field_instance-group-network: Network
+            field_instance-name: VM name
             field_key: SSH key
             field_security-groups: Security groups
             field_serial-port-enable: Access to serial console
@@ -7733,17 +7751,22 @@ default:
             image_value_marketplace: Marketplace
             label_add-network-interface: Add network interface
             label_title: Create a virtual machine
+            option_create-form-extended-title: Advanced setup
+            option_create-form-simple-title: Basic setup
             placeholder_search_marketplace-product: Product search
             section_access: Access
             section_additional: Additional
             section_backup: Cloud Backup
             section_base: General information
             section_coi: Docker container settings
+            section_disks: Disks
             section_image: Boot disk image
             section_monitoring: Monitoring
             section_network: Network settings
             section_placement: Placement
             section_platform: Computing resources
+            section_predefined: Preset parameters
+            section_simple-image: Operating systems and products
             section_storages: Disks and file storages
             unified-agent: Agent for delivering metrics
             value_address-auto: Auto
@@ -9302,11 +9325,13 @@ default:
         workflow-editor_backoff-rate-field: Backoff rate
         workflow-editor_error-list-field: Errors
         workflow-editor_error-list-mode-field: Error selection mode
+        workflow-editor_foreach-step-concurrency-field: Number of input data elements processed concurrently
         workflow-editor_initial-delay-field: Initial delay, ms
         workflow-editor_integration-group-label: Integration steps
         workflow-editor_main-settings-label: Main settings
         workflow-editor_management-group-label: Control steps
         workflow-editor_max-delay-field: Maximum delay, ms
+        workflow-editor_parallel-step-concurrency-field: Number of branches executing concurrently
         workflow-editor_push-next-block-placeholder-label: Add a step
         workflow-editor_retry-count-field: Maximum number of retries
         workflow-editor_step-name-label: Step name
@@ -9706,6 +9731,7 @@ default:
           overview:
             button_create_route-table: Create routing table
             button_create_subnetwork: Create subnet
+            column_subnetwork_route-table-id: Routing table
             section_subnetworks: Subnets
           security-groups:
             button_add-rule: Add

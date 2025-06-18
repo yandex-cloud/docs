@@ -17,7 +17,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
         
         1. [Create a user](../../../../managed-postgresql/operations/cluster-users.md#adduser).
         
-        1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the `mdb_replication` role](../../../../managed-postgresql/operations/grant.md#grant-role) to this user.
+        1. For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the `mdb_replication` role](../../../../managed-postgresql/operations/grant.md#grant-role) to this user.
         
         1. [Connect to the database](../../../../managed-postgresql/operations/connect.md) you want to migrate as the database owner and [configure privileges](../../../../managed-postgresql/operations/grant.md#grant-privilege):
             
@@ -48,9 +48,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
     
     1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings).
     
-    1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
-    
-       Then specify the number of workers and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
+    1. To enable parallel data reads from the table by ranges, make sure its primary key is specified. Then specify the number of workers and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
     
     1. Configure WAL monitoring. {#wal-setup-recommendation}
 
@@ -81,51 +79,51 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
         1. Create a new user:
             
-            * For the _{{ dt-type-copy }}_ transfer type, use this command to create a user:
+            * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
             
                 ```sql
                 CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
                 ```
             
-            * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, create a user with the `REPLICATION` privilege by running this command:
+            * For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, create a user with the `REPLICATION` privilege by running this command:
             
                 ```sql
                 CREATE ROLE <username> WITH REPLICATION LOGIN ENCRYPTED PASSWORD '<password>';
                 ```
         
-        1. Grant the new user the `SELECT` privilege for all the database tables within the transfer:
+        1. Grant the new user the `SELECT` privilege for all the database tables involved in the transfer:
         
             ```sql
             GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <username>;
             ```
         
-        1. Grant the new user a privilege for the schemas of the transferred DB:
+        1. Grant the created user a privilege on all the transferred DB schemas:
 
-            * Grant the `USAGE` privilege for the _{{ dt-type-copy }}_ transfer type:
+            * For the _{{ dt-type-copy }}_ transfer type grant the `USAGE` privilege:
         
                 ```sql
                 GRANT USAGE ON SCHEMA <schema_name> TO <username>;
                 ```
 
-            * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, grant the `CREATE` and `USAGE` (`ALL PRIVILEGES`) privileges required to create [service tables](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings):
+            * For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types grant the `CREATE` and `USAGE` (`ALL PRIVILEGES`) privileges required for creating [service tables](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings):
 
                 ```sql
                 GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
                 ```
 
-        1. Grant the new user the `SELECT` privilege for all the database sequences within the transfer:
+        1. Grant the new user the `SELECT` privilege for all the database table sequences involved in the transfer:
 
             ```sql
             GRANT SELECT ON ALL SEQUENCES IN SCHEMA <schema_name> TO <username>;
             ```
 
-        1. Grant the new user the `CONNECT` privilege if the source cluster's default settings do not allow connections for new users:
+        1. Grant the new user the `CONNECT` privilege if the source cluster default settings do not allow connections for new users:
 
             ```sql
             GRANT CONNECT ON DATABASE <database_name> TO <username>;
             ```
 
-    1. Configure {{ PG }}:
+    1. Set up {{ PG }} configuration:
     
         {% include [pg-on-premises-configure](../../../../_includes/data-transfer/endpoints/sources/pg-on-premises-configure.md) %}
 
@@ -209,9 +207,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
     
     1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings).
     
-    1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
-    
-       Then specify the number of [workers](../../../../data-transfer/concepts/index.md#worker) and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
+    1. To enable parallel data reads from the table by ranges, make sure its primary key is specified. Then specify the number of [workers](../../../../data-transfer/concepts/index.md#worker) and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
     
     1. If replication via [Patroni](https://github.com/zalando/patroni) is configured on the source, add an [ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings) section to the source configuration:
     

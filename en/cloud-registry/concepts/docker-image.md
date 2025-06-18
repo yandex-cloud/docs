@@ -21,9 +21,9 @@ A _tag_ is assigned by the user. A tag must be unique within one [registry](regi
 
 {% include [latest-info](../../_includes/container-registry/info-about-latest.md) %}
 
-A Docker image can have multiple tags. If you push a new version of the Docker image with an existing tag, it's reused: it gets deleted from the old Docker image version and written to the new one.
+A Docker image can have multiple tags. If you push a new version of the Docker image with an existing tag, it is going to be reused by being deleted from the old Docker image version and written to the new one.
 
-A _digest_ is generated automatically, is unique, and identifies the exact version of a Docker image.
+A _digest_ is generated automatically, is unique, and identifies the exact Docker image version.
 
 You can access a specific Docker image version in one of the following ways:
 * `<registry>/<image_name>:<tag>`
@@ -33,5 +33,6 @@ The Docker image and all its versions are stored in a registry.
 
 #### See also {#see-also}
 
-* [Java artifact](art-java.md)
-* [Node.js artifact](art-nodejs.md)
+* [{#T}](./art-java.md)
+* [Node.js artifact](./art-nodejs.md)
+* [{#T}](./art-nuget.md)

@@ -344,7 +344,10 @@ keywords:
 Для нового кластера необходимо задать все параметры, обязательные при его создании.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+
+* [{{ roles.mos.editor }}](../../iam/roles-reference.md#managed-opensearch-editor) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
 
 
 {% list tabs group=instructions %}

@@ -1,18 +1,32 @@
 #### Quotas {#functions-quotas}
 
-Type of limit | Value
---- | ---
-Number of [triggers](../functions/concepts/trigger/index.md) per cloud | 100
-Number of functions per cloud | 10
-Number of tags per function | 10
-Number of concurrent function calls (for all functions in each availability zone) | 10
-Number of function instances per availability zone | 10
-Total RAM for all running functions per availability zone | 20 GB
-Number of [provisioned function instances](../functions/concepts/function.md#provisioned-instances) per cloud | 2
-Number of concurrent operations on a single function and its versions | 10
-Number of concurrent operations on all functions and their versions per folder | 15
-Number of concurrent operations on all functions and their versions per cloud | 20
-Number of network packets per second per function instance | 10,000
+#|
+|| Type of limit | Value ||
+|| Number of [triggers](../functions/concepts/trigger/index.md) per cloud^1^ 
+`serverless.triggers.count` | 100 ||
+|| Number of functions per cloud 
+`serverless.functions.count` | 10 ||
+|| Number of tags per function 
+`serverless.functionTags.count` | 10 ||
+|| Number of concurrent function calls (for all functions in each availability zone) 
+`serverless.request.count` | 10 ||
+|| Number of function instances per availability zone 
+`serverless.workers.count` | 10 ||
+|| Total RAM for all running functions per availability zone 
+`serverless.memory.size` | 20 GB ||
+|| Number of [provisioned function instances](../functions/concepts/function.md#provisioned-instances) per cloud 
+`serverless.workersProvisioned.count` | 2 ||
+|| Number of concurrent operations on a single function and its versions 
+`serverless.concurrentFunctionOperations.count` | 10 ||
+|| Number of concurrent operations on all functions and their versions per folder 
+`serverless.concurrentFolderOperations.count` | 15 ||
+|| Number of concurrent operations on all functions and their versions per cloud 
+`serverless.concurrentCloudOperations.count` | 20 ||
+|| Number of network packets per second per function instance 
+`serverless.networkPackets.rate` | 10,000 ||
+|#
+
+{% include [quota-trigger-count](quota-trigger-count.md) %}
 
 For more information about relationships between quotas, see [{#T}](../functions/concepts/limits.md#related-quotas).
 
@@ -37,6 +51,7 @@ Number of [user networks](../functions/concepts/networking.md#user-network) per 
 ^1^ A timeout longer than ten minutes is only available for [long-lived functions](../functions/concepts/long-lived-functions.md).
 ^2^ {{ lockbox-short-name }} secrets are provided via environment variables and are also counted towards this limit.
 ^3^ The message may include service metadata, which will reduce the maximum message size.
+
 
 #### Other restrictions {#functions-other-restrictions}
 

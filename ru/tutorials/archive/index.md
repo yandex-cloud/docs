@@ -23,3 +23,4 @@ description: Различные сценарии хранения и восст�
 * [{#T}](replicate-logs-to-storage.md)
 * [{#T}](copy-files-from-object-storage.md)
 * [{#T}](backup-baremetal.md)
+* [{#T}](integrate-nextcloud.md)

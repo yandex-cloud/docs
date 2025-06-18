@@ -1,6 +1,6 @@
 ---
 title: How to use VMs. Step-by-step guides
-description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to use VMs, manage their resources, and connect to them via SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts.
+description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to use VMs, manage their resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts.
 ---
 
 # Step-by-step guides for {{ compute-name }}
@@ -218,6 +218,13 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
 * [{#T}](dedicated-host/access.md)
+
+## Reserved instance pool {#reserved-pools}
+
+* [{#T}](reserved-pools/create-reserved-pool.md)
+* [{#T}](reserved-pools/update-reserved-pool.md)
+* [{#T}](reserved-pools/delete-reserved-pool.md)
+* [{#T}](reserved-pools/manage-pool-vms.md)
 
 ## GPU clusters {#gpu-cluster}
 

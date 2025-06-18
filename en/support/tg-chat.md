@@ -36,4 +36,4 @@ To start a chat with our technical support in Telegram:
 
     {% endnote %}
 
-1. If support cannot answer your question quickly, you will get a link to a Support Center ticket in the chat. Follow the link to get assistance from our team.
+1. If support cannot answer your question quickly, you will get a link to the {{ support-center-name }} ticket in the chat. Follow the link to get assistance from our team.

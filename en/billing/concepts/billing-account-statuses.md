@@ -39,6 +39,19 @@ Status | Balance                                    | Description
 
   {% include [suspended](../_includes/billing-suspended.md) %}
 
+## Viewing billing account status {#watch-account-status}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+  1. Billing account status is displayed under **{{ ui-key.yacloud_billing.billing.title_accounts }}** in the **{{ ui-key.yacloud_billing.billing.accounts.column_status }}** column.
+  
+  ![billing-account-statuses](../../_assets/billing/concepts/billing-account-statuses/billing-account-statuses.png)
+
+{% endlist %}
+
 For more information, see the following sections:
 - [Billing cycle for individuals](../payment/billing-cycle-individual.md)
 - [Billing cycle for businesses and individual entrepreneurs](../payment/billing-cycle-business.md)
