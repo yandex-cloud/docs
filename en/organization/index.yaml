@@ -1,7 +1,7 @@
-title: Yandex Cloud Organization
+title: Yandex Identity Hub
 description: >-
-  Yandex Cloud Organization is an enterprise solution that allows you to connect
-  your organization to Yandex Cloud services and manage employee access to these
+  Yandex Identity Hub is an enterprise solution that allows you to connect your
+  organization to Yandex Cloud services and manage employee access to these
   services.
 links:
   - title: Getting started
@@ -22,11 +22,11 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
 meta:
-  title: Yandex Cloud Organization
+  title: Yandex Identity Hub
   description: >-
-    Yandex Cloud Organization is an enterprise solution that allows you to
-    connect your organization to Yandex Cloud services and manage employee
-    access to these services.
+    Yandex Identity Hub is an enterprise solution that allows you to connect
+    your organization to Yandex Cloud services and manage employee access to
+    these services.
   keywords:
     - '{{ org-name }}'
     - '{{ org-full-name }}'

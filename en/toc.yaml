@@ -109,7 +109,7 @@ items:
     href: monitoring/index.yaml
   - name: Network Load Balancer
     href: network-load-balancer/index.yaml
-  - name: Cloud Organization
+  - name: Identity Hub
     href: organization/index.yaml
   - name: '{{ yandex-cloud }} overview'
     href: overview/index.yaml

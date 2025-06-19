@@ -9,6 +9,7 @@ default:
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
+  alerts-name: Alerts
   all-mdb:
     max-databases: 1000
   api-examples:
@@ -476,8 +477,8 @@ default:
   openai: OpenAI
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
-  org-full-name: Yandex Cloud Organization
-  org-name: Cloud Organization
+  org-full-name: Yandex Identity Hub
+  org-name: Identity Hub
   OS: OpenSearch
   os:
     docs: https://opensearch.org/docs/latest
@@ -832,6 +833,8 @@ default:
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
   yc-ydb: yc ydb
+  ycdr-full-name: Yandex Cloud Detection and Response
+  ycdr-name: YCDR
   ydb-full-name: Yandex Managed Service for YDB
   ydb-name: Managed Service for YDB
   ydb-short-name: YDB
@@ -6511,6 +6514,7 @@ default:
       common:
         columns:
           column_id: Identifier
+        confirm: Confirm
         section-base: General information
       component:
         form-file-upload:
@@ -6603,6 +6607,12 @@ default:
           field_home-directory: Home directory
           field_shell: Default shell
           field_uid: ID (uid)
+        userpool:
+          caption:
+            domain: Default domain
+          create:
+            action:
+              create: Create userpool
       forms:
         action:
           create: Create
@@ -6623,6 +6633,20 @@ default:
             field_description: Description
       layout:
         organization: Organization
+      organization:
+        userpool:
+          action_delete-domain: Delete
+        userpools:
+          action_create-user: Add user
+          action_create-userpool: Create user pool
+          action_update-user: Change user attributes
+          action:
+            add_domain: Add domain
+          caption_domains: Domains
+          field_full-name: Full name
+          field_password: Password
+          title_personal-info: Personal information
+          title_userpool_members: Members
       page:
         acl-diagnostics:
           action_select-subject: Select subject
@@ -6643,6 +6667,7 @@ default:
         groups: Groups
         oslogin:
           title: Security settings
+        userpools: User pools
         users: Users
       user:
         title_groups: Groups

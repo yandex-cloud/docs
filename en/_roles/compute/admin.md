@@ -22,6 +22,7 @@ The `compute.admin` role allows you to manage instances, instance groups, disks,
 * Modify scheduled maintenance windows for hosts in dedicated host groups.
 * Use, create, modify, and delete [GPU clusters](../../compute/concepts/gpus.md#gpu-clusters), as well as manage access to them.
 * View information on GPU clusters and instances included in GPU clusters, as well as the on access permissions assigned to these clusters.
+* View information on [reserved instance pools](../../compute/concepts/reserved-pools.md), as well as create, use, modify, and delete them.
 * Use, create, modify, move, and delete [disks](../../compute/concepts/disk.md), as well as manage access to them.
 * Create [encrypted disks](../../compute/concepts/disk.md#encryption).
 * View a list of disks, information on disks and on access permissions assigned to them.

@@ -123,7 +123,7 @@ items:
     href: network-load-balancer/index.yaml
   - name: Neurosupport
     href: neurosupport/index.yaml
-  - name: Cloud Organization
+  - name: Identity Hub
     href: organization/index.yaml
   - name: Cloud Postbox
     href: postbox/index.yaml

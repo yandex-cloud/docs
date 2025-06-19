@@ -14,6 +14,7 @@ editable: false
 * [Модуль диагностики доступов ({{ ciem-name }})](concepts/ciem.md) — использование модуля не тарифицируется.
 * [Модуль контроля данных ({{ dspm-name }})](concepts/dspm.md) — см. [Модуль контроля данных ({{ dspm-name }})](#dspm-rules) в разделе ниже.
 * [{{ atr-name }}](concepts/access-transparency.md) — см. [{{ atr-name }}](#atr-rules) в разделе ниже.
+* [{{ ycdr-full-name }}](concepts/ycdr.md) — по согласованию с вашим аккаунт-менеджером, от 400 000 ₽.
 
 ## Из чего складывается стоимость использования {{ sd-name }} {#rules}
 

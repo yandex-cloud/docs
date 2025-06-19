@@ -2,7 +2,7 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 
 {% cut "Users with this role can:" %}
 
-* View info on the [organization](../../organization/concepts/organization.md) under Cloud Organization and its settings.
+* View info on the [organization](../../organization/concepts/organization.md) under Identity Hub and its settings.
 * View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for the organization.
 * View info on the organization’s [identity federations](../../organization/concepts/add-federation.md).
 * View the list of the organization [users](../../overview/roles-and-resources.md#users) and info on them.
@@ -16,7 +16,7 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 * View info on the [user groups](../../organization/concepts/groups.md) and access permissions granted for them.
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
 * View the info on the [refresh tokens](../../iam/concepts/authorization/refresh-token.md) of the organization’s federated users and on the refresh token settings.
-* View info on Cloud Organization quotas.
+* View info on Identity Hub quotas.
 * View the info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
 * View the list of technical support [requests](../../support/overview.md) and the info on them, as well as create and close such requests, leave comments, and attach files to them.
 

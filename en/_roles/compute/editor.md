@@ -19,6 +19,7 @@ The `compute.editor` role allows you to manage instances, instance groups, disks
 * Modify scheduled maintenance windows for hosts in dedicated host groups.
 * Use [GPU clusters](../../compute/concepts/gpus.md#gpu-clusters), as well as create, modify, and delete them.
 * View information on GPU clusters and instances included in GPU clusters, as well as the on access permissions assigned to these clusters.
+* View information on [reserved instance pools](../../compute/concepts/reserved-pools.md), as well as create, use, modify, and delete them.
 * View a list of [disks](../../compute/concepts/disk.md), information on disks and on access permissions assigned to them, as well as use, modify, move, and delete disks.
 * Create [encrypted disks](../../compute/concepts/disk.md#encryption).
 * View and update disk links.
@@ -48,4 +49,5 @@ The `compute.editor` role allows you to manage instances, instance groups, disks
 
 {% endcut %}
 
-This role includes the `compute.viewer`, `compute.osLogin`, and `vpc.user` permissions.
+This role includes the `compute.operator`, `compute.osLogin`, `compute.snapshotSchedules.editor`, `compute.disks.user`, and `vpc.user` permissions.
+
