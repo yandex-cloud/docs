@@ -32,6 +32,10 @@ items:
         href: concepts/dspm.md
       - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
         href: concepts/ciem.md
+      - name: '{{ alerts-name }} in {{ sd-name }}'
+        href: concepts/alerts.md
+      - name: '{{ ycdr-full-name }} ({{ ycdr-name }})'
+        href: concepts/ycdr.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

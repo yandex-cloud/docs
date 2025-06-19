@@ -1,4 +1,4 @@
-title: Yandex Cloud Organization
+title: Yandex Identity Hub
 href: index.yaml
 items:
   - name: Начало работы
@@ -72,6 +72,32 @@ items:
             href: operations/federation-group-mapping.md
           - name: Обновить SAML-сертификат {{ yandex-cloud }}
             href: operations/renew-yc-certificate.md
+      - name: Управление пулами пользователей
+        items:
+          - name: Создать пул пользователей
+            href: operations/user-pools/create-userpool.md
+          - name: Изменить пул пользователей
+            href: operations/user-pools/edit-userpool.md
+          - name: Удалить пул пользователей
+            href: operations/user-pools/delete-userpool.md
+          - name: Добавить пользователя
+            href: operations/user-pools/add-user.md
+          - name: Изменить данные пользователя
+            href: operations/user-pools/edit-user.md
+          - name: Активировать пользователя
+            href: operations/user-pools/activate-user.md
+          - name: Деактивировать пользователя
+            href: operations/user-pools/deactivate-user.md
+          - name: Сбросить пароль пользователя
+            href: operations/user-pools/reset-user-password.md
+          - name: Удалить пользователя
+            href: operations/user-pools/delete-user.md
+          - name: Добавить домен
+            href: operations/user-pools/add-domain.md
+          - name: Подтвердить домен
+            href: operations/user-pools/validate-domain.md
+          - name: Удалить домен
+            href: operations/user-pools/delete-domain.md
       - name: Аутентификация
         items:
           - name: Добавить SSH-ключ
@@ -140,8 +166,12 @@ items:
         href: concepts/membership.md
       - name: Группы пользователей
         href: concepts/groups.md
+      - name: Пулы пользователей
+        href: concepts/user-pools.md
       - name: Федерации удостоверений
         href: concepts/add-federation.md
+      - name: Домены
+        href: concepts/domains.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
       - name: Управляемые организации

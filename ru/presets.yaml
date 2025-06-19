@@ -9,6 +9,7 @@ default:
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
+  alerts-name: Алерты
   all-mdb:
     max-databases: 1000
   api-examples:
@@ -479,8 +480,8 @@ default:
   openai: OpenAI
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
-  org-full-name: Yandex Cloud Organization
-  org-name: Cloud Organization
+  org-full-name: Yandex Identity Hub
+  org-name: Identity Hub
   OS: OpenSearch
   os:
     docs: https://opensearch.org/docs/latest
@@ -840,6 +841,8 @@ default:
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
   yc-ydb: yc ydb
+  ycdr-full-name: Yandex Cloud Detection and Response
+  ycdr-name: YCDR
   ydb-full-name: Yandex Managed Service for YDB
   ydb-name: Managed Service for YDB
   ydb-short-name: YDB
@@ -6519,6 +6522,7 @@ default:
       common:
         columns:
           column_id: Идентификатор
+        confirm: Подтвердить
         section-base: Общая информация
       component:
         form-file-upload:
@@ -6611,6 +6615,12 @@ default:
           field_home-directory: Домашняя директория
           field_shell: Оболочка по умолчанию
           field_uid: Идентификатор (UID)
+        userpool:
+          caption:
+            domain: Домен по умолчанию
+          create:
+            action:
+              create: Создать пул пользователей
       forms:
         action:
           create: Создать
@@ -6631,6 +6641,20 @@ default:
             field_description: Описание
       layout:
         organization: Организация
+      organization:
+        userpool:
+          action_delete-domain: Удалить
+        userpools:
+          action_create-user: Добавить пользователя
+          action_create-userpool: Создать пул пользователей
+          action_update-user: Изменить атрибуты пользователя
+          action:
+            add_domain: Добавить домен
+          caption_domains: Домены
+          field_full-name: Полное имя
+          field_password: Пароль
+          title_personal-info: Персональная информация
+          title_userpool_members: Участники
       page:
         acl-diagnostics:
           action_select-subject: Выбрать субъект
@@ -6651,6 +6675,7 @@ default:
         groups: Группы
         oslogin:
           title: Настройки безопасности
+        userpools: Пулы пользователей
         users: Пользователи
       user:
         title_groups: Группы

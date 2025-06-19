@@ -169,7 +169,7 @@ links:
   - title: Network Load Balancer
     description: Network load balancers
     href: network-load-balancer/
-  - title: Cloud Organization
+  - title: Identity Hub
     description: Cloud services for corporate clients
     href: organization/
   - title: Cloud Postbox

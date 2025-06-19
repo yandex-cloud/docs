@@ -177,7 +177,7 @@ links:
   - title: Network Load Balancer
     description: Сетевые балансировщики нагрузки
     href: network-load-balancer/
-  - title: Cloud Organization
+  - title: Identity Hub
     description: Облачные сервисы для корпоративных клиентов
     href: organization/
   - title: Cloud Postbox

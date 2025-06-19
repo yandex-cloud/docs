@@ -2,8 +2,8 @@ The `organization-manager.admin` role enables managing organization settings, id
 
 {% cut "Users with this role can:" %}
 
-* Link a [billing account](../../billing/concepts/billing-account.md) to an [organization under Cloud Organization](../../organization/concepts/organization.md).
-* View and edit info on the relevant organization under Cloud Organization.
+* Link a [billing account](../../billing/concepts/billing-account.md) to an [organization under Identity Hub](../../organization/concepts/organization.md).
+* View and edit info on the relevant organization under Identity Hub.
 * View and edit organization settings.
 * View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for the relevant organization and modify such permissions.
 * View info on the [identity federations](../../organization/concepts/add-federation.md) in an organization and create, modify, and delete such federations.
@@ -24,7 +24,7 @@ The `organization-manager.admin` role enables managing organization settings, id
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
 * View and edit the [refresh token](../../iam/concepts/authorization/refresh-token.md) settings in an organization.
 * View the info on the refresh tokens of the organization’s federated users, as well as revoke such tokens.
-* View info on Cloud Organization quotas.
+* View info on Identity Hub quotas.
 * View the info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
 * View the list of technical support [requests](../../support/overview.md) and the info on them, as well as create and close such requests, leave comments, and attach files to them.
 

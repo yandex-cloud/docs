@@ -7,7 +7,6 @@ The `vpc.publicAdmin` role allows you to manage NAT gateways, public IP addresse
 * Manage multi-interface instances that provide connectivity between multiple networks.
 * View the list of [subnets](../../vpc/concepts/network.md#subnet) and info on them, as well as modify them.
 * View information on [NAT gateways](../../vpc/concepts/gateways.md), as well as create, modify, and delete them.
-* Connect NAT gateways to route tables.
 * View the list of [cloud resource addresses](../../vpc/concepts/address.md) and info on them, as well as create, update, and delete public IP addresses.
 * View the list of [route tables](../../vpc/concepts/routing.md#rt-vpc) and info on them, as well as link them to subnets.
 * View the list of [security groups](../../vpc/concepts/security-groups.md) and the info on them.

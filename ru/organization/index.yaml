@@ -1,6 +1,6 @@
-title: Yandex Cloud Organization
+title: Yandex Identity Hub
 description: >-
-  Yandex Cloud Organization — это решение для корпоративных клиентов, с помощью
+  Yandex Identity Hub — это решение для корпоративных клиентов, с помощью
   которого можно подключить к вашей организации сервисы Yandex Cloud и управлять
   доступом сотрудников к этим сервисам.
 links:
@@ -27,10 +27,10 @@ links:
     description: Информация о доступных программах обучения
     href: training
 meta:
-  title: Yandex Cloud Organization
+  title: Yandex Identity Hub
   description: >-
-    Yandex Cloud Organization — это решение для корпоративных клиентов, с
-    помощью которого можно подключить к вашей организации сервисы Yandex Cloud и
+    Yandex Identity Hub — это решение для корпоративных клиентов, с помощью
+    которого можно подключить к вашей организации сервисы Yandex Cloud и
     управлять доступом сотрудников к этим сервисам.
   keywords:
     - '{{ org-name }}'

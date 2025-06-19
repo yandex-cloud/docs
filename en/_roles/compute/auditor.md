@@ -13,6 +13,7 @@ The `compute.auditor` role allows you to view information on Compute Cloud resou
 * View a list of [file storages](../../compute/concepts/filesystem.md) and information on them.
 * View a list of [non-replicated disk placement groups](../../compute/concepts/disk-placement-group.md) and information on them.
 * View lists of disks in placement groups.
+* View information on [reserved instance pools](../../compute/concepts/reserved-pools.md).
 * View a list of [images](../../compute/concepts/image.md) and information on them.
 * View information on [image families](../../compute/concepts/image.md#family), on images within families, on the latest family image, as well as on [access permissions](../../iam/concepts/access-control/index.md) assigned to image families.
 * View a list of [disk snapshots](../../compute/concepts/snapshot.md) and information on them.

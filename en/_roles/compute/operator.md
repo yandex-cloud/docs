@@ -17,6 +17,7 @@ The `compute.operator` role allows you to start and stop instances and instance 
 * View a list of [file storages](../../compute/concepts/filesystem.md), information on file storages and on access permissions assigned to them.
 * View a list of [non-replicated disk placement groups](../../compute/concepts/disk-placement-group.md), information on non-replicated disk placement groups and on access permissions assigned to them.
 * View lists of disks in placement groups.
+* View information on [reserved instance pools](../../compute/concepts/reserved-pools.md).
 * View a list of [images](../../compute/concepts/image.md), information on images and on access permissions assigned to them.
 * View information on [image families](../../compute/concepts/image.md#family), on images within families, on the latest family image, as well as on access permissions assigned to image families.
 * View a list of [disk snapshots](../../compute/concepts/snapshot.md), information on disk snapshots and on access permissions assigned to them.
