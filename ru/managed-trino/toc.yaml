@@ -46,6 +46,8 @@ items:
         href: concepts/network.md
       - name: Имперсонация
         href: concepts/impersonation.md
+      - name: Отказоустойчивое выполнение запросов
+        href: concepts/retry-policy.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

@@ -4,13 +4,15 @@ description: In {{ baremetal-full-name }}, there are certain limits and quotas f
 editable: false
 ---
 
-# {{ baremetal-full-name }} quotas and limits
+# Quotas and limits in {{ baremetal-full-name }}
 
 {{ baremetal-full-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
+{% include [baremetal-limits.md](../../_includes/baremetal-limits.md) %}
 
 #### See also {#see-also}
 

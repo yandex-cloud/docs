@@ -29,11 +29,11 @@ All prices are per month and do not include VAT.
 
 {% endnote %}
 
-### Public subnets {#public-subnets}
+### Dedicated public subnets {#public-subnets}
 
 {% note info %}
 
-The prices for public subnets are effective from May 15, 2025.
+The prices for dedicated public subnets are effective starting May 15, 2025.
 
 {% endnote %}
 

@@ -12,50 +12,54 @@ items:
         items:
           - name: Leasing a server
             href: operations/servers/server-lease.md
+          - name: Getting information about a server
+            href: operations/servers/get-info.md
           - name: Updating a server
             href: operations/servers/server-update.md
-          - name: Stopping and starting a server
-            href: operations/servers/server-stop-and-start.md
-          - name: Resetting a password on the server
-            href: operations/servers/reset-password.md
-          - name: Cancel a server lease
-            href: operations/servers/server-lease-cancel.md
-          - name: Reinstalling the server OS
-            items:
-              - name: Reinstalling OS from a Marketplace image
-                href: operations/servers/reinstall-os-from-marketplace.md
-              - name: Reinstalling OS from your ISO image
-                href: operations/servers/reinstall-os-from-own-image.md
           - name: Connecting to the KVM console
             href: operations/servers/server-kvm.md
-          - name: Replacing a disk in a RAID array
-            href: operations/servers/switch-raid-member.md
-          - name: Using the Rescue CD
-            href: operations/servers/rescue-boot.md
-          - name: Adding a new user SSH key
-            href: operations/servers/add-new-ssh-key.md
-          - name: Restoring the OS bootloader
-            href: operations/servers/restore-grub.md
+          - name: Stopping and starting a server
+            href: operations/servers/server-stop-and-start.md
+          - name: Cancel a server lease
+            href: operations/servers/server-lease-cancel.md
           - name: Upload image
             href: operations/image-upload.md
           - name: >-
               Connecting an existing {{ baremetal-name }} server to {{
               backup-name }}
             href: operations/backup-baremetal.md
+          - name: Using the Rescue CD
+            href: operations/servers/rescue-boot.md
+          - name: Reinstalling the server OS
+            items:
+              - name: Reinstalling OS from a Marketplace image
+                href: operations/servers/reinstall-os-from-marketplace.md
+              - name: Reinstalling OS from your ISO image
+                href: operations/servers/reinstall-os-from-own-image.md
+          - name: Resetting a password on the server
+            href: operations/servers/reset-password.md
+          - name: Replacing a disk in a RAID array
+            href: operations/servers/switch-raid-member.md
+          - name: Adding a new user SSH key
+            href: operations/servers/add-new-ssh-key.md
+          - name: Restoring the OS bootloader
+            href: operations/servers/restore-grub.md
+          - name: Disk status analysis with HW Watcher
+            href: operations/servers/use-hwatcher.md
       - name: Network
         items:
           - name: Creating a VRF segment
             href: operations/network-create.md
           - name: Creating a private subnet
             href: operations/subnet-create.md
-          - name: Ordering a public subnet
+          - name: Ordering a dedicated public subnet
             href: operations/reserve-public-subnet.md
           - name: Creating a private connection to cloud networks
             href: operations/create-vpc-connection.md
   - name: Concepts
     expanded: true
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
       - name: Servers
         expanded: true
@@ -64,6 +68,8 @@ items:
             href: concepts/servers.md
           - name: Server configurations
             href: concepts/server-configurations.md
+          - name: Disk status analysis
+            href: concepts/smart-disk-analysis.md
       - name: Network
         expanded: true
         items:

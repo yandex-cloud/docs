@@ -15,6 +15,14 @@ items:
         href: operations/security-groups-target.md
       - name: Creating a test with data from a bucket
         href: operations/create-test-bucket.md
+      - name: Managing a regression dashboard
+        items:
+          - name: Creating and configuring a dashboard
+            href: operations/regressions/create.md
+          - name: Editing dashboard data
+            href: operations/regressions/update.md
+          - name: Deleting a dashboard
+            href: operations/regressions/delete.md
       - name: Exporting test reports
         href: operations/export-test-reports.md
       - name: Collecting user requests using Dispatcher
@@ -89,12 +97,12 @@ items:
         href: concepts/monitoring.md
       - name: Reports
         href: concepts/reports.md
-      - name: Load test regressions
-        href: concepts/load-test-regressions.md
       - name: Load test results
         href: concepts/load-test-results.md
       - name: Comparing load test results
         href: concepts/load-tests-compare.md
+      - name: Load test regressions
+        href: concepts/load-test-regressions.md
       - name: Test artifacts
         href: concepts/artifacts.md
       - name: Quotas and limits

@@ -13,7 +13,7 @@ In addition to the cloud network in the default folder, you can create cloud net
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
-	  
+  
   1. (Optional) In the **{{ ui-key.yacloud.vpc.networks.create.field_description }}** field, add a network description.
   1. The default option is **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. If you want to [create](subnet-create.md) subnets later, disable this option.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -89,7 +89,7 @@ In addition to the cloud network in the default folder, you can create cloud net
 
   1. In the configuration file, describe the parameters of your [cloud network](../concepts/network.md):
 
-     * `name`: Name of the cloud network. The naming requirements are as follows:
+     * `name`: Name of the cloud network. Follow these naming requirements:
 
         {% include [name-format](../../_includes/name-format.md) %}
 

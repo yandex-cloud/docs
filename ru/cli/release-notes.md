@@ -7,6 +7,51 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.151.0 (19.06.25) {#version0.151.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ alb-name }}
+
+* Добавлено поле `regex_rewrite`, которое позволяет модифицировать параметры HTTP-запросов с помощью регулярных выражений на виртуальных хостах. Поддержка поля добавлена в следующие команды:
+  * `yc application-load-balancer virtual-host append-http-route`
+  * `yc application-load-balancer virtual-host prepend-http-route`
+  * `yc application-load-balancer virtual-host insert-http-route`
+  * `yc application-load-balancer virtual-host update-http-route`
+
+##### {{ cloud-desktop-name }}
+
+* Добавлена команда `yc desktops image update` для обновления информации об образе.
+* Добавлена команда `yc desktops desktop update-properties` для обновления информации о рабочем столе.
+* Добавлена команда `yc desktops desktop start` для запуска рабочего стола.
+* Добавлена команда `yc desktops desktop stop` для остановки рабочего стола.
+* Добавлена команда `yc desktops desktop update` для синхронизации рабочего стола с конфигурацией группы.
+
+##### {{ managed-k8s-name }}
+
+* Добавлены команды для управления правами доступа к кластерам {{ managed-k8s-name }}:
+  * `yc managed-kubernetes cluster list-access-bindings`
+  * `yc managed-kubernetes cluster set-access-bindings`
+  * `yc managed-kubernetes cluster add-access-binding`
+  * `yc managed-kubernetes cluster remove-access-binding`
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Добавлена команда `yc clickhouse extension list` для изменения формата вывода списка доступных к установке расширений.
+* Добавлена команда `yc clickhouse cluster update-external-dictionary`, позволяющая редактировать созданные в кластере словари.
+
+**{{ mkf-name }}**
+
+* В параметре `--permission` у ключа `role` появились новые возможные значения: `topic_producer`, `topic_consumer`, `schema_reader`, `schema_writer`. Применимо к следующим командам:
+  * `yc managed-kafka user create`
+  * `yc managed-kafka user update`
+  * `yc managed-kafka user grant-permission`
+  * `yc managed-kafka user revoke-permission`
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.150.0 (02.06.25) {#version0.150.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -62,8 +107,6 @@ description: На странице представлены релизы CLI, а
   * `yc managed-trino cluster start`
   * `yc managed-trino cluster stop`
   * `yc managed-trino cluster list-operations`
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.149.0 (20.05.25) {#version0.149.0}
 
