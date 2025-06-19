@@ -1,5 +1,5 @@
 default:
-  service-name: Yandex Cloud Organization
+  service-name: Yandex Identity Hub
   link-org-users: https://org.yandex.cloud/users
   link-org-settings: https://org.yandex.cloud/settings
   link-org-federations: https://org.yandex.cloud/federations

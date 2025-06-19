@@ -55,3 +55,5 @@ meta:
     - диагностика доступа в {{ yandex-cloud }}
     - уязвимости {{ yandex-cloud }}
     - защита данных в {{ yandex-cloud }}
+    - '{{ ycdr-name }}'
+    - '{{ ycdr-full-name }}'

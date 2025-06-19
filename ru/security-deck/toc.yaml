@@ -32,6 +32,10 @@ items:
         href: concepts/dspm.md
       - name: Диагностика доступов ({{ ciem-name }})
         href: concepts/ciem.md
+      - name: '{{ alerts-name }} в {{ sd-name }}'
+        href: concepts/alerts.md
+      - name: '{{ ycdr-full-name }} ({{ ycdr-name }})'
+        href: concepts/ycdr.md
       - name: Портал соответствия требованиям
         href: concepts/compliance.md
       - name: Квоты и лимиты
@@ -46,5 +50,7 @@ items:
         href: security/dspm-roles.md
       - name: Роли {{ ciem-name }}
         href: security/ciem-roles.md
+      - name: Роли {{ ycdr-name }}
+        href: security/ycdr-roles.md
   - name: Правила тарификации
     href: pricing.md

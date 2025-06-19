@@ -2,7 +2,7 @@ The `organization-manager.editor` role enables managing the organization setting
 
 {% cut "Users with this role can:" %}
 
-* View and edit info on the relevant [organization](../../organization/concepts/organization.md) under Cloud Organization.
+* View and edit info on the relevant [organization](../../organization/concepts/organization.md) under Identity Hub.
 * View and edit organization settings.
 * View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for the organization.
 * View info on the [identity federations](../../organization/concepts/add-federation.md) in an organization and create, modify, and delete such federations.
@@ -20,7 +20,7 @@ The `organization-manager.editor` role enables managing the organization setting
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
 * View and edit the [refresh token](../../iam/concepts/authorization/refresh-token.md) settings in an organization.
 * View the info on the refresh tokens of the organization’s federated users, as well as revoke such tokens.
-* View info on Cloud Organization quotas.
+* View info on Identity Hub quotas.
 * View the info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
 * View the list of technical support [requests](../../support/overview.md) and the info on them, as well as create and close such requests, leave comments, and attach files to them.
 
