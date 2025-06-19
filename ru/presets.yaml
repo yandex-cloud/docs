@@ -153,6 +153,7 @@ default:
   data-transfer-name: Data Transfer
   data-transfer-short-name: Data Transfer
   datalens-full-name: Yandex DataLens
+  datalens-gallery: DataLens Gallery
   datalens-name: DataLens
   datalens-short-name: DataLens
   dataproc-full-name: Yandex Data Processing
@@ -10061,6 +10062,12 @@ default:
                         title: Переименование таблиц
                       flush_interval:
                         title: Интервал записи
+                      is_schema_migration_disabled:
+                        title: Не применять изменения схемы
+                      retry_failed_toasts_in_batch_as_sequential_upserts:
+                        title: >-
+                          Интерпретировать неудачные обновления как
+                          последовательность апсёртов
             common:
               console:
                 form:

@@ -32,6 +32,10 @@ keywords:
             {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группу безопасности для кластера.
+    1. В блоке **Политика перезапросов** измените параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
+        * Измените **Тип объекта для перезапроса**.
+        * Добавьте или удалите в поле **Параметры перезапросов** дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        * Добавьте или удалите в поле **Параметры хранилища** дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
     1. Измените конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
         * Установите или снимите защиту от удаления кластера.
@@ -81,6 +85,16 @@ keywords:
               }
             }
           },
+          "retryPolicy": {
+            "policy": "<тип_объекта_для_перезапроса>",
+            "exchangeManager": {
+              "storage": {
+                "serviceS3": {}
+              },
+              "additionalProperties": {<дополнительные_параметры_хранилища>}
+            },
+            "additionalProperties": {<дополнительные_параметры_перезапросов>}
+          },
           "networkSpec": {
             "securityGroupIds": [ <список_идентификаторов_групп_безопасности> ]
           },
@@ -115,14 +129,14 @@ keywords:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-              
+
             * `workerConfig` — конфигурация воркера.
 
                * `resources.resourcePresetId` — идентификатор вычислительных ресурсов воркера. Возможные значения:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-              
+
                * `scalePolicy` — политика масштабирования воркеров:
 
                     * `fixedScale` — фиксированная политика масштабирования.
@@ -135,6 +149,17 @@ keywords:
                        * `maxCount` — максимальное количество воркеров.
 
                     Укажите один из двух параметров: `fixedScale` либо `autoScale`. 
+
+            * `retryPolicy` — параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md).
+
+               * `policy` – способ повторного выполнения запросов. Возможные значения:
+
+                  * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
+                  * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+
+               * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
+               * `additionalProperties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
         * `networkSpec` — сетевые настройки:
 
@@ -209,6 +234,16 @@ keywords:
                   "max_count": "<максимальное_количество_экземпляров>"
                 }
               }
+            },
+            "retry_policy": {
+              "policy": "<тип_объекта_для_перезапроса>",
+              "exchange_manager": {
+                "storage": {
+                  "service_s3": ""
+                },
+                "additional_properties": {<дополнительные_параметры_хранилища>}
+              },
+              "additional_properties": {<дополнительные_параметры_перезапросов>}
             }
           },
           "network_spec": {
@@ -261,14 +296,14 @@ keywords:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-              
+
             * `worker_config` — конфигурация воркера.
 
                * `resources.resource_preset_id` — идентификатор вычислительных ресурсов воркера. Возможные значения:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-              
+
                * `scale_policy` — политика масштабирования воркеров:
 
                     * `fixed_scale` — фиксированная политика масштабирования.
@@ -281,6 +316,17 @@ keywords:
                        * `max_count` — максимальное количество воркеров.
 
                     Укажите один из двух параметров: `fixed_scale` либо `auto_scale`. 
+
+            * `retry_policy` – параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md).
+
+               * `policy` – способ повторного выполнения запросов. Возможные значения:
+
+                  * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
+                  * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+
+               * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
+               * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
         * `network_spec` — сетевые настройки:
 

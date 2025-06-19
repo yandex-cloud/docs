@@ -1,1 +1,1 @@
-The information about the range of IP addresses available in a public subnet and default gateway is provided in the **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** section on the server information page and on the public subnet information page.
+The information about the range of IP addresses available in a public subnet and default gateway is provided in the **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** section on the server information page and on the public subnet information page.

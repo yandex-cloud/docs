@@ -13,28 +13,44 @@ A network with internet access, to which all servers are physically connected. O
 
 When working with a public network and internet access, make sure to comply with the [terms of use](https://yandex.ru/legal/cloud_termsofuse/).
 
-### Public subnet {#public-subnet}
+### Ephemeral public subnet {#ephemeral-public-subnet}
 
-This subnet includes a range of IP addresses that will be available to your servers in the selected [pool](./servers.md#server-pools). The IP address range is assigned to the public subnet automatically.
+An _ephemeral public subnet_ is a public subnet of the `/31` size that is randomly assigned to a {{ baremetal-name }} server from the range of public IPv4 addresses reserved for {{ baremetal-full-name }}.
 
-You can [order](../operations/reserve-public-subnet.md) a public subnet in the following sizes:
+Ephemeral public subnets are assigned to servers with **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in their network parameters.
+
+[DHCP is enabled](./dhcp.md#dhcp-ephemeral-public-subnet) in an ephemeral public subnet.
+
+The lifecycle of an ephemeral public subnet depends on the lifecycle of the server this subnet is assigned to. When a server lease is cancelled, the ephemeral public subnet assigned to it will be automatically deleted and the server’s public IPv4 address will be released back to the {{ baremetal-name }} address pool.
+
+You can [convert](../operations/reserve-public-subnet.md#transform-ephemeral-to-dedicated) an ephemeral public subnet to a [dedicated public subnet](#public-subnet) of size `/31`.
+
+### Dedicated public subnet {#public-subnets}
+
+A _dedicated public subnet_ is a public subnet made up of an IP address range that will be available to your servers in the selected [pools](./servers.md#server-pools). The IP address range is assigned to the dedicated public subnet automatically.
+
+You can [order](../operations/reserve-public-subnet.md) a dedicated public subnet in the following sizes:
 
 | Subnet size | Total number of IP addresses | Available IP addresses |
 | --- | --- | --- |
+| `/31`^1^ | 2 | 1 |
 | `/29` | 8 | 6 |
 | `/28` | 16 | 14 |
-| `/27`^*^ | 32 | 30 |
-| `/26`^*^ | 64 | 62 |
-| `/25`^*^ | 128 | 126 |
-| `/24`^*^ | 256 | 254 |
+| `/27`^2^ | 32 | 30 |
+| `/26`^2^ | 64 | 62 |
+| `/25`^2^ | 128 | 126 |
+| `/24`^2^ | 256 | 254 |
 
-^*^ To order public subnets with sizes `/27`, `/26`, `/25`, and `/24`, [contact]({{ link-console-support }}/tickets/create) support.
+^1^ You can order a public subnet of size `/31` only by [converting](../operations/reserve-public-subnet.md#transform-ephemeral-to-dedicated) an [ephemeral public subnet](#ephemeral-public-subnet).
+^2^ To order public subnets with sizes `/27`, `/26`, `/25`, and `/24`, [contact]({{ link-console-support }}/tickets/create) support.
 
 {% include [public-subnet-no-dhcp](../../_includes/baremetal/public-subnet-no-dhcp.md) %}
 
 {% include [public-subnet-address-info](../../_includes/baremetal/public-subnet-address-info.md) %}
 
-{{ baremetal-full-name }} public subnets are [billable](../pricing.md). The minimum lease term for a public subnet is one month from the order date, so a public subnet cannot be deleted during the first month after that date.
+When you cancel the lease of a server which has a dedicated public subnet assigned to it, its public IPv4 address is released back to the dedicated public subnet’s address pool so you can later use it for another server.
+
+In {{ baremetal-full-name }}, dedicated public subnets are [billable](../pricing.md). The minimum lease period for a dedicated public subnet is one month, so you cannot delete such a subnet during the first month after the order date.
 
 ## Private network {#private-network}
 
@@ -59,6 +75,10 @@ Servers from the same or different pools connected to different private subnets 
 ### Private connection to cloud networks {#private-connection-to-vpc}
 
 To set up network connectivity between {{ baremetal-name }} [servers](./servers.md), {{ vpc-full-name }} private [subnets](../../vpc/concepts/network.md#subnet), and private subnets in the on-premise infrastructure, use [{{ interconnect-full-name }}](../../interconnect/concepts/priv-con.md).
+
+## MAC addresses of network interfaces {#mac-addresses}
+
+You can [look up](../operations/servers/get-info.md) the MAC addresses of the {{ baremetal-name }} server network interfaces on the server information page under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** and **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**.
 
 #### See also {#see-also}
 

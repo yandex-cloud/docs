@@ -77,10 +77,10 @@ Upload the OPNsense and ESXi distribution images to your [{{ objstorage-name }}]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are going to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
   1. Click **{{ ui-key.yacloud.baremetal.label_load-image }}**.
-  1. Enter a name for your OPNsense image. The naming requirements are as follows:
+  1. Enter a name for your OPNsense image. Follow these naming requirements:
 
        {% include [name-format](../../_includes/name-format.md) %}
 
@@ -98,7 +98,7 @@ Upload the OPNsense and ESXi distribution images to your [{{ objstorage-name }}]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m4` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `opnsense-private-subnet-m4`.
@@ -205,7 +205,7 @@ Before proceeding to configure the OPNsense cluster, pre-configure the network i
 
     {% include [kvm-console-actions-notice](../_tutorials_includes/opnsense-failover-cluster/kvm-console-actions-notice.md) %}
 
-1. Authenticate as the `root` user with the password you set when installing the server. If you had not set a password for the `root` user, the default one is `opnsense`.
+1. Authenticate as the `root` user with the password you set when installing the server. If you have not set any custom password for the `root` user, the default one is `opnsense`.
 
     If authenticated successfully, you will see a text menu of basic server settings with a list of possible actions.
 1. Make sure that network interfaces are set up in the system:
@@ -417,8 +417,17 @@ To make the configuration process easier for you, in this guide, the role of thi
 1. To start the SystemRescue GUI, run the `startx` command in the SystemRescue OS terminal.
 1. As the `opnsense-private-subnet-m4` private subnet has no DHCP server yet, configure the network interface manually:
 
+    1. Look up the MAC address of the `jump-server` network interface connected to the private subnet.
+
+        You can [look up](../../baremetal/operations/servers/get-info.md) the MAC address of the {{ baremetal-name }} server network interface of your choice on the `jump-server` information page under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**.
+
+        Save the MAC address until the next step.
+    1. Learn the name of the `jump-server` network interface connected to the private subnet in the SystemRescue graphical shell:
+
+        1. In the bottom-right corner of the SystemRescue GUI, right-click the network icon and select `Connection Information`.
+        1. On the tabs with the **Wired connection 1** and **Wired connection 2** Ethernet interface names, look at the **Hardware Address** field value. The interface of interest will have a value identical to the MAC address saved in the previous step.
     1. In the bottom-right corner of the SystemRescue GUI, right-click the network icon and select `Edit Connections...`.
-    1. In the window that opens, under **Ethernet**, select `Wired connection 1` and click the gear icon.
+    1. In the window that opens, under **Ethernet**, select the name of the network interface connected to the private subnet you just learned and click the gear icon.
     1. In the settings window that opens, go to the **IPv4 Settings** tab and select `Manual` in the **Method** field.
     1. Under **Addresses**, click **Add**. In the **Address** field, enter `192.168.1.20`; in the **Netmask** field, `24`.
     1. Click **Save**.
@@ -442,12 +451,6 @@ To make the configuration process easier for you, in this guide, the role of thi
     ```
 
     Network connectivity with the OPNsense server has now been established.
-
-    {% note tip %}
-
-    If the `ping` command does not return packets from the server, try disabling the `Wired connection 1` network interface and configuring the `Wired connection 2` interface instead. 
-
-    {% endnote %}
 
 1. In the bottom-right corner, click the **Firefox** icon to open the web browser.
 1. Configure both your OPNsense servers in the browser window:
@@ -642,7 +645,7 @@ Further configuration may involve creating firewall rules. However, for the purp
 
 To create and configure VMs, you need an installation server (_jump server_) with a graphical user interface and access to the private subnet with a hypervisor connected. 
 
-To make the configuration process easier for you, in this guide, the role of this installation server will be played by a `jump-server` server leased earlier and booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
+To make the configuration process easier for you, in this guide, the role of this installation server will be played by a `jump-server` server leased earlier and booted into recovery and diagnostics mode from a [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
 
 {% include [kvm-console-actions-notice](../_tutorials_includes/opnsense-failover-cluster/kvm-console-actions-notice.md) %}
 
@@ -693,7 +696,7 @@ To make the configuration process easier for you, in this guide, the role of thi
     1. In the left-hand main menu, select **Virtual Machines**. Select the `opnsense-tester-vm` VM.
     1. In the window that opens, click ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) **Power on** or the ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) icon in the VM preview window.
     1. Click the VM preview window and expand it to full screen.
-    1. Follow through the OS installation procedure after selecting the preferred language, keyboard layout, installation type, etc. You can leave all settings at their defaults: this will be enough to test the proposed solution within the scope of this guide.
+    1. Go through the operating system installation procedure by selecting the preferred language, keyboard layout, installation type, etc. You can leave all settings at their defaults: this will be enough to test the solution within the scope of this guide.
 
         On the network settings screen, make sure that the VM was assigned a private IP address on the `opnsense-private-subnet-m4` subnet from the range specified in the OPNsense DHCP server settings.
         

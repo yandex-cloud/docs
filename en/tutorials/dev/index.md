@@ -21,6 +21,6 @@ description: Various use cases for development and testing in {{ yandex-cloud }}
 * [JMeter load testing](../testing/loadtesting-jmeter.md)
 * [Getting statistics of queries to {{ objstorage-full-name }} objects using {{ yq-full-name }}](../testing/server-logs-yq.md)
 * [Getting the number of {{ objstorage-full-name }} object queries](../testing/server-logs.md)
-* [Invoking load testing from {{ GL }} CI](../testing/loadtesting-gitlab-ci.md)
+* [Invoking a load test from {{ GL }} CI](../testing/loadtesting-gitlab-ci.md)
 * [{#T}](install-gitlab-runner.md)
 * [{#T}](../testing/loadtesting-results-compare.md)

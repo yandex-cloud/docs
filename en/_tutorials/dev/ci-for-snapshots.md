@@ -10,7 +10,7 @@ To configure continuous integration (CI) for VM [disk snapshots](../../compute/c
 1. [Create a VM disk snapshot](#create-snapshot): Create a disk snapshot that CI will use to create new VMs.
 1. [Create a VM with {{ GL }}](#create-gitlab-vm): Create a [{{ GL }}](https://about.gitlab.com/) VM with a repository to store CI settings and a test script.
 1. [Configure {{ GL }}](#configure-gitlab): Create a file repository and get configuration parameters.
-1. [Configure Runner](#configure-runner): Tool for performing tasks.
+1. [Configure Runner](#configure-runner): Set up a tool for performing tasks.
 1. [Configure CI](#configure-ci): Specify the required command and testing parameters.
 1. [Make sure the application runs on the CI VM](#test-new-vm): Check whether the system created CI snapshot VMs and they run your test application.
 
@@ -349,11 +349,12 @@ To set {{ GL }} up and configure the CI process, create a new project and enter 
    * As the value of the variable, specify the OAuth token you received previously.
    * Click **Save variables**.
 1. Under **Runners**, click **Expand**.
-1. Under **Set up a specific Runner automatically**, you will see the {{ GL }} **server address** and the Runner **token**. You will need them when registering your runner.
+1. Under **Set up a specific Runner automatically**, you will see the {{ GL }} **server address** and the Runner **token**. You will need them to register your runner.
 
-## Configure your runner {#configure-runner}
+## Configure Runner {#configure-runner}
 
-Runner is a tool for running user tasks. You need to create a runner on your VM and register it in {{ GL }}. To make your runner work, install the {{ yandex-cloud }} CLI and create a test to check the new VM.
+Runner is a tool which runs user tasks. You need to install Runner on your VM and register your runner instance in {{ GL }}. To make your runner work, install the {{ yandex-cloud }} CLI and create a test to check the new VM.
+
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the {{ GL }} VM over SSH:
 
    ```bash
@@ -366,7 +367,7 @@ Runner is a tool for running user tasks. You need to create a runner on your VM 
    curl --location https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
    ```
 
-1. Install GitLab Runner to run your CI scripts:
+1. Install a runner to run your CI scripts:
 
    ```bash
    sudo apt-get -y install gitlab-runner
@@ -374,7 +375,7 @@ Runner is a tool for running user tasks. You need to create a runner on your VM 
 
 1. Register your runner:
    * In response to `Please enter the gitlab-ci coordinator URL`, specify your {{ GL }} IP address.
-   * In response to `Please enter the gitlab-ci token for this runner`, speciffy your GitLab Runner token.
+   * In response to `Please enter the gitlab-ci token for this runner`, specify your runner token.
    * In response to `Please enter the gitlab-ci description for this runner`, specify the `gitlab test runner` description.
    * In response to `Please enter the gitlab-ci tags for this runner`, press **Enter**.
    * In response to `Please enter the executor`, specify `shell`.
@@ -387,7 +388,7 @@ Runner is a tool for running user tasks. You need to create a runner on your VM 
    Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
    http://<{{ GL }}>_CI_IP_address/
    Please enter the gitlab-ci token for this runner:
-   <Runner_token>
+   <runner_token>
    Please enter the gitlab-ci description for this runner:
    [ci-tutorial-gitlab]: gitlab test runner
    Please enter the gitlab-ci tags for this runner (comma separated):

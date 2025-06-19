@@ -4,6 +4,14 @@ After creating a cloud network, you can change its name, description, and labels
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), go to the folder where you need to update a [cloud network](../concepts/network.md).
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Edit as appropriate.
+  1. Click **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
+
 - CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
@@ -12,18 +20,18 @@ After creating a cloud network, you can change its name, description, and labels
 
   1. See the description of the CLI command for updating [cloud network](../concepts/network.md) parameters:
 
-      ```
+      ```bash
       yc vpc network update --help
       ```
 
   1. Get a list of all networks in the default folder:
 
-      ```
+      ```bash
       yc vpc network list
       ```
 
       Result:
-      ```
+      ```text
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
@@ -35,12 +43,12 @@ After creating a cloud network, you can change its name, description, and labels
   1. Select the `ID` or `NAME` of the network you need.
   1. Change the parameters of the cloud network by specifying its name:
 
-      ```
+      ```bash
       yc vpc network update enpavfmgapum******** --new-name test-network-renamed
       ```
 
       Result:
-      ```
+      ```text
       id: enpavfmgapum********
       folder_id: b1g6ci08ma55********
       created_at: "2018-10-23T14:05:32Z"
@@ -52,14 +60,14 @@ After creating a cloud network, you can change its name, description, and labels
      
       You can provide the ID and name not only as positional arguments, but also using the `--id` and `--name` parameters:
 
-      ```
+      ```bash
       yc vpc network update \
         --id enpavfmgapum******** \
         --new-name test-network-renamed \
         --labels new_label=test_label
       ```
 
-      ```
+      ```bash
       yc vpc network update \
         --name test-network-1 \
         --new-name test-network-renamed \
@@ -75,51 +83,26 @@ After creating a cloud network, you can change its name, description, and labels
   1. Open the {{ TF }} configuration file and edit the fragment with the [cloud network](../concepts/network.md) description:
 
      ```hcl
-     ...
+     # Example of a cloud network description
      resource "yandex_vpc_network" "default" {
        name        = "network-1"
-	   description = "My first network"
+       description = "My first network"
        labels = {
          tf-label    = "tf-label-value"
          empty-label = ""
        }
      }
-     ...
      ```
 
      For more information about `yandex_vpc_network` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/vpc_network).
 
-  1. Check the configuration using this command:
-
-     ```
-     terraform validate
-     ```
-     
-     If the configuration is correct, you will get this message:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```
-     terraform plan
-     ```
-  
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
-
   1. Apply the changes:
 
-     ```
-     terraform apply
-     ```
-     
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can check the cloud network update using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
-     ```
+     ```bash
      yc vpc network get <network_name>
      ```
 
@@ -155,14 +138,14 @@ You can update a cloud network using its name instead of its ID:
 
 - CLI {#cli}
 
-  ```
+  ```bash
   yc vpc network update test-network-1 \
     --new-name test-network-renamed \
     --labels new_label=test_label
   ```
 
   Result:
-  ```
+  ```text
   id: enpavfmgapum********
   folder_id: b1g6ci08ma55********
   created_at: "2018-10-23T14:05:32Z"

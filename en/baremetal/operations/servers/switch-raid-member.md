@@ -309,6 +309,7 @@ Once the physical drive is replaced on the server, you must partition the drive 
 
 #### See also {#see-also}
 
+* [{#T}](./use-hwatcher.md)
 * [{#T}](./rescue-boot.md)
 * [{#T}](./reset-password.md)
 * [{#T}](./restore-grub.md)
