@@ -10047,6 +10047,10 @@ default:
                         title: Rename tables
                       flush_interval:
                         title: Flush interval
+                      is_schema_migration_disabled:
+                        title: Disable schema migration
+                      retry_failed_toasts_in_batch_as_sequential_upserts:
+                        title: Interpret failed updates as series of upserts
             common:
               console:
                 form:

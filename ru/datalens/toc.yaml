@@ -956,6 +956,10 @@ items:
             href: qa/dashboards.md
           - name: Воркбуки и коллекции
             href: qa/workbooks-collections.md
+          - name: Отчеты
+            href: qa/reports.md
+          - name: Непубличное встраивание
+            href: qa/embedded.md
           - name: Другое
             href: qa/other.md
       - name: Access denied

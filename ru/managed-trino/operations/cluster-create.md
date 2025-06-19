@@ -11,7 +11,7 @@ keywords:
 
 {% include [preview](../../_includes/managed-trino/note-preview.md) %}
 
-Каждый [кластер](../../glossary/cluster.md) {{ mtr-name }} состоит из набора компонентов {{ TR }}: координатора и воркеров, которые могут быть представлены в нескольких экземплярах.
+Каждый [кластер](../../glossary/cluster.md) {{ mtr-name }} состоит из набора компонентов {{ TR }}: [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers), которые могут быть представлены в нескольких экземплярах.
 
 ## Роли для создания кластера {#roles}
 
@@ -49,6 +49,13 @@ keywords:
             Сервисному аккаунту должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`.
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
+    1. В блоке **Политика перезапросов** задайте параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
+        1. Выберите **Тип объекта для перезапроса**:
+           * **Задача** — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
+           * **Запрос** — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+        1. (Опционально) В поле **Параметры перезапросов** задайте дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        1. (Опционально) В поле **Параметры хранилища** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
     1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
     1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте необходимые [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога {{ TR }}](catalog-create.md).
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
@@ -102,6 +109,16 @@ keywords:
               }
             }
           },
+          "retryPolicy": {
+            "policy": "<тип_объекта_для_перезапроса>",
+            "exchangeManager": {
+              "storage": {
+                "serviceS3": {}
+              },
+              "additionalProperties": {<дополнительные_параметры_хранилища>}
+            },
+            "additionalProperties": {<дополнительные_параметры_перезапросов>}
+          },
           "network": {
             "subnetIds": [ <список_идентификаторов_подсетей> ],
             "securityGroupIds": [ <список_идентификаторов_групп_безопасности> ]
@@ -130,14 +147,14 @@ keywords:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-              
+
             * `workerConfig` — конфигурация воркера.
 
                * `resources.resourcePresetId` — идентификатор вычислительных ресурсов воркера. Возможные значения:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-              
+
                * `scalePolicy` — политика масштабирования воркеров:
 
                   * `fixedScale` — фиксированная политика масштабирования.
@@ -150,6 +167,17 @@ keywords:
                       * `maxCount` — максимальное количество воркеров.
 
                   Укажите один из двух параметров: `fixedScale` либо `autoScale`. 
+
+            * `retryPolicy` — параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md).
+
+               * `policy` – способ повторного выполнения запросов. Возможные значения:
+
+                  * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
+                  * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+
+               * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
+               * `additionalProperties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
         * `network` — сетевые настройки:
 
@@ -220,6 +248,16 @@ keywords:
                   "max_count": "<максимальное_количество_экземпляров>"
                 }
               }
+            },
+            "retry_policy": {
+              "policy": "<тип_объекта_для_перезапроса>",
+              "exchange_manager": {
+                "storage": {
+                  "service_s3": ""
+                },
+                "additional_properties": {<дополнительные_параметры_хранилища>}
+              },
+              "additional_properties": {<дополнительные_параметры_перезапросов>}
             }
           },
           "network": {
@@ -250,14 +288,14 @@ keywords:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-              
+
             * `worker_config` — конфигурация воркера.
 
                * `resources.resource_preset_id` — идентификатор вычислительных ресурсов воркера. Возможные значения:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-              
+
                * `scale_policy` — политика масштабирования воркеров:
 
                     * `fixed_scale` — фиксированная политика масштабирования.
@@ -269,7 +307,18 @@ keywords:
                        * `min_count` — минимальное количество воркеров.
                        * `max_count` — максимальное количество воркеров.
 
-                    Укажите один из двух параметров: `fixed_scale` либо `auto_scale`. 
+                    Укажите один из двух параметров: `fixed_scale` либо `auto_scale`.
+
+            * `retry_policy` — параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md).
+
+               * `policy` – способ повторного выполнения запросов. Возможные значения:
+
+                  * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
+                  * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+
+               * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
+               * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
         * `network` — сетевые настройки:
 

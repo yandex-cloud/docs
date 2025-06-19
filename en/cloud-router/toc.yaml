@@ -12,11 +12,11 @@ items:
         href: operations/ri-get-info.md
       - name: Getting a list of operations in a routing instance
         href: operations/ri-operations.md
-      - name: Create a routing instance
+      - name: Creating a routing instance
         href: operations/ri-create.md
-      - name: Editing routing instance parameters
+      - name: Updating parameters of a routing instance
         href: operations/ri-update.md
-      - name: Updating the list of IP prefixes in a routing instance
+      - name: Updating a list of IP prefixes in a routing instance
         href: operations/ri-prefixes-upsert.md
       - name: Deleting IP prefixes from a routing instance
         href: operations/ri-prefixes-remove.md
@@ -33,13 +33,13 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Overview of operations
+      - name: Operation overview
         href: operations/cr-cic-ops.md
       - name: Terminology
         href: concepts/terms.md
       - name: Routing Instance
         href: concepts/routing-instance.md
-      - name: IP prefix announcements
+      - name: IP prefix announces
         href: concepts/announces.md
       - name: Aggregated prefixes
         href: concepts/aggregates.md
@@ -86,6 +86,7 @@ items:
           Organizing network connectivity between a private {{ baremetal-name }}
           subnet and on-prem using {{ interconnect-name }}
         href: tutorials/bms-cic-onprem.md
+        hidden: true
       - name: Changing a set of VPC IP prefixes in a routing instance
         href: tutorials/ri-prefixes-upsert.md
   - name: Access management

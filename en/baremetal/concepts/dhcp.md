@@ -1,6 +1,6 @@
 # DHCP in a {{ baremetal-full-name }} network
 
-In public and private subnets, you can use [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) to automatically configure IP addressing parameters on server interfaces. If the server OS is installed from {{ marketplace-short-name }} images, getting IP addresses via DHCP is enabled by default on all physical interfaces of the server.
+In public ([ephemeral](./network.md#ephemeral-public-subnet)) and [private](./network.md#private-subnet) subnets, you can use [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) to automatically configure IP addressing parameters on server interfaces. If the server OS is installed from {{ marketplace-short-name }} images, getting IP addresses via DHCP is enabled by default on all physical interfaces of the server.
 
 {% note warning %}
 
@@ -8,7 +8,7 @@ DHCP can only be used to assign an IP address directly to the physical interface
 
 {% endnote %}
 
-To assign multiple IP addresses to a single physical interface, e.g., in case of virtualization, you will need to use your own DHCP server. Changing the DHCP service settings on a subnet can globally affect network connectivity on the private network for servers that use DHCP.
+To assign multiple IP addresses to a single physical interface, e.g., for virtualization, you will need a DHCP server of your own. Changing the DHCP service settings on a subnet can globally affect network connectivity on the private network for servers that use DHCP.
 
 ## DHCP options {#dhcp-options}
 
@@ -23,29 +23,37 @@ The following DHCP options are transmitted on public and private networks:
 * `59`: Rebinding Time. The time after which the server will send a broadcast request to update the address is 7 minutes.
 * `121`: Classless Static Route: Static routes in the network. For private subnets, these are `10.0.0.0/8`, `192.168.0.0/16`, and `172.16.0.0/12` through the subnet gateway. Used to access other subnets within VRF.
 
-## DHCP in public network {#dhcp-public}
+## DHCP in a public network {#dhcp-public}
 
-If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, its network interface connected to a public network will get an IPv4 address from the public range of internet networks. In this case, DHCP assigns IP addresses to servers on a public subnet with the `/31` prefix. You cannot disable DHCP.
+Depending on the {{ baremetal-name }} server's network settings, the public network may reserve an [ephemeral](#dhcp-ephemeral-public-subnet) or [dedicated](#dhcp-public-subnet) public subnet for it.
 
-If DHCP is disabled on a server, consider the following when configuring the network interface of a public network:
+### DHCP in an ephemeral public subnet {#dhcp-ephemeral-public-subnet}
 
-* The subnet which the server's public IP address belongs to has a CIDR with a `/31` prefix and consists of two addresses: the gateway IP address and the host IP address.
-* The host IP address is specified in the **Public IPv4 address** field on the page with server information.
-* The gateway IP address is less than the host IP address by one.
+If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, its public subnet is [ephemeral](./network.md#ephemeral-public-subnet), and its network interface connected to that subnet will get an IPv4 address from the range of {{ baremetal-full-name }} public IP addresses.
+
+In an ephemeral public subnet, a DHCP server is enabled by default and provides {{ baremetal-name }} servers with IPv4 addresses prefixed with `/31`. You cannot disable the DHCP server in an ephemeral public subnet.
+
+If DHCP is disabled on the {{ baremetal-name }} server's network interface connected to an ephemeral public subnet, consider the following when configuring that interface:
+
+* The subnet the server's public IP address is in has a subnet prefix length of `31` bits and consists of these two addresses: the default gateway IP address and the host IP address.
+* The host IP address is specified in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field on the server information page.
+* The gateway IP address, which is one less than the host IP address, is specified in the **{{ ui-key.yacloud.baremetal.field_gateway }}** field on the server information page.
 
 Here is an example:
 
-* Server public IPv4 address: `198.51.100.111`.
+* Server public IP address: `198.51.100.111`.
 * Subnet CIDR: `198.51.100.110/31`.
-* Gateway IP address: `198.51.100.110`.
+* Default gateway IP address: `198.51.100.110`.
 
-### DHCP in a public subnet {#dhcp-public-subnet}
+### DHCP in a dedicated public subnet {#dhcp-public-subnet}
 
-[Public subnets](./network.md#public-subnet) do not have a DHCP server. If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}`, on the network interface of a server connected to a public subnet, you need to manually set up a static IP address from the subnet’s range of public IP addresses and set the default gateway address. 
+If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}`, its public subnet is [dedicated](./network.md#public-subnet), and its network interface connected to that subnet can get an IPv4 address from the range of addresses of the selected dedicated subnet.
+
+Dedicated public subnets do not have a DHCP server. Therefore, on the network interface of a server connected to such a subnet, you should manually configure a static IP address from the subnet’s range of public IP addresses and set the default gateway address. 
 
 {% include [public-subnet-address-info](../../_includes/baremetal/public-subnet-address-info.md) %}
 
-You cannot enable DHCP in a public subnet.
+You cannot enable a DHCP server on a dedicated public subnet.
 
 ## DHCP in a private network {#dhcp-private}
 

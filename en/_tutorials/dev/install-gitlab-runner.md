@@ -1,17 +1,18 @@
 # Deploying {{ GLR }} on a {{ compute-full-name }} virtual machine
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that executes {{ GL }} CI/CD pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} either in a [{{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) cluster or a {{ compute-name }} virtual machine, which is an easier and cheaper option.
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application which executes {{ GL }} CI/CD pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} not only in a [{{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) cluster but also on a {{ compute-name }} virtual machine, which is an easier and cheaper option.
 
-{{ compute-name }} offers two ways to work with {{ GLR }}: You can:
+For a custom (self-managed) {{ GL }} installation, you can manually install {{ GLR }} on a {{ compute-name }} [VM](../../compute/concepts/vm.md).
 
-* Create a [VM](../../compute/concepts/vm.md) and install {{ GLR }} on it manually.
-* Using the [management console]({{ link-console-main }}), create a runner that will automatically deploy the specified number of VMs ready to run jobs.
+For {{ mgl-full-name }}, you can also manually install {{ GLR }} or automatically deploy a [runner](../../managed-gitlab/concepts/index.md#runners) in the [management console]({{ link-console-main }}) that will ensure the correct number of workers run in {{ compute-name }}.
+
+{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
 
 To get started with {{ GLR }} using {{ compute-name }}:
 
 1. [Set up your infrastructure](#infra).
 1. [Get a {{ GLR }} token](#gitlab-token).
-1. [Install the {{ GLR }} agent on the {{ compute-full-name }}](#install) VM or [create a runner using the management console](#create-runner).
+1. [Deploy {{ GLR }}](#deploy-glr).
 1. [Create a test scenario](#example).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -30,7 +31,7 @@ The infrastructure support cost includes:
 
 ## Get a {{ GLR }} token {#gitlab-token}
 
-* To configure {{ GLR }} throughout the [{{ GL }}](../../managed-gitlab/concepts/index.md#instance) instance ({{ GL }} administrator access required):
+To configure {{ GLR }} for the whole [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance), proceed as follows ({{ GL }} administrator access required):
 
   1. Open {{ GL }}.
   1. In the bottom-left corner, click **Admin**. 
@@ -38,7 +39,7 @@ The infrastructure support cost includes:
   1. Click **New instance runner** and create a new {{ GLR }}.
   1. Save the value of the `Runner authentication token` parameter.
 
-* To configure {{ GLR }} project settings:
+To set up {{ GLR }} for a project, proceed as follows :
 
   1. Open {{ GL }}.
   1. Select a project.
@@ -47,7 +48,11 @@ The infrastructure support cost includes:
   1. Click **New project runner** and create a new {{ GLR }}.
   1. Save the value of the `Runner authentication token` parameter.
 
-## Install {{ GLR }} on a {{ compute-full-name }} VM {#install}
+## Deploy {{ GLR }} {#deploy-glr}
+
+You can [install {{ GLR }} manually](#install) or [deploy a runner in the management console automatically](#create-runner).
+
+### Install {{ GLR }} on a VM manually {#install}
 
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a public Ubuntu 22.04 LTS image.
 
@@ -97,7 +102,11 @@ The infrastructure support cost includes:
    Configuration (with the authentication token) was saved in "/etc/gitlab-runner/config.toml"
    ```
 
-## Create a runner using the management console {#create-runner}
+### Create a runner using the management console {#create-runner}
+
+{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
+
+The feature of creating runners from the management console is only available for {{ mgl-name }} instances.
 
 1. Select the {{ mgl-name }} instance [created earlier](#infra).
 
@@ -108,7 +117,7 @@ The infrastructure support cost includes:
 1. Enter a name for the runner:
 
     * The name must be 2 to 63 characters long.
-    * It may contain lowercase Latin letters, numbers, and hyphens.
+    * It can only contain lowercase Latin letters, numbers, and hyphens.
     * It must start with a letter and cannot end with a hyphen.
 
 1. Enter the [previously obtained](#gitlab-token) {{ GLR }} token.
@@ -119,20 +128,26 @@ The infrastructure support cost includes:
 
 1. Under **{{ ui-key.yacloud.gitlab.label_autoscale-section }}**, specify:
 
-    * Maximum number of workers
-    * Minimum number of workers
-    * Worker downtime limit in minutes
-    * Maximum number of jobs per worker
-    * Maximum number of parallel jobs per worker
+    * **{{ ui-key.yacloud.gitlab.field_task-minInstances }}**: Number of workers that are always running and ready to execute jobs. Default value: `1`; minimum: `0`; maximum: `10`.
+    * **{{ ui-key.yacloud.gitlab.field_max-workers }}**: Maximum number of workers that can be created to execute jobs. Default value: `3`; minimum: `1`; maximum: `30`. The maximum number of workers cannot be less than the minimum number.
+    * **{{ ui-key.yacloud.gitlab.field_idle-time-minutes }}**: Maximum idle time after which the additionally created worker will be deleted. Default value: `10`; minimum: `0`.
+    * **{{ ui-key.yacloud.gitlab.field_max-use-count }}**: Maximum number of jobs after which the worker will be deleted. Default value: `100`; minimum: `0`.
+    * **{{ ui-key.yacloud.gitlab.field_capacity-per-instance }}**: Number of parallel jobs per worker. Default value: `1`; minimum: `0`.
+
+    {% note info %}
+
+    Workers are {{ compute-name }} VMs. You pay for them according to the [{{ compute-name }} pricing policy](../../compute/pricing.md).
+
+    {% endnote %}
 
 1. Optionally, add labels for the worker.
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select one of the preset configurations.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select a computing resource configuration.
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot [disk](../../compute/concepts/disk.md):
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot disk:
 
     * Select the [disk type](../../compute/concepts/disk.md#disks_types).
-    * Specify the required disk size.
+    * Specify the disk size.
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 

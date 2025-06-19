@@ -131,6 +131,8 @@ items:
         href: concepts/available-apis.md
       - name: Классы хостов
         href: concepts/instance-types.md
+      - name: Высокая доступность кластера
+        href: concepts/ha-cluster.md
       - name: Сеть в {{ mkf-name }}
         href: concepts/network.md
       - name: Квоты и лимиты

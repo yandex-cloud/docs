@@ -12,7 +12,7 @@ To create and test a project in the {{ GL }} environment:
 1. [Set privacy settings](#disable-signup).
 1. [Create a project](#create-project).
 1. [Set up and run testing for the project](#ci-cd).
-1. [Configure and register a Runner](#configure-runner).
+1. [Configure and register a runner](#configure-runner).
 1. [Create a test scenario](#create-test-case).
 1. [Create an error in the project](#create).
 1. [How to delete the resources you created](#clear-out).
@@ -25,15 +25,15 @@ To create and test a project in the {{ GL }} environment:
 
 The cost for maintaining a {{ GL }} server includes:
 * Fee for a [disk](../../compute/concepts/disk.md) and a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-## Create a {{ GL }} VM {#create-vm}
+## Create a VM with {{ GL }} {#create-vm}
 
-1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Gitlab` and select a public [{{ GL }}](/marketplace/products/yc/gitlab) image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you are not sure which one to choose, leave the default.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` [disk type](../../compute/concepts/disk.md#disks_types) and set the `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` size.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
@@ -42,12 +42,12 @@ The cost for maintaining a {{ GL }} server includes:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-    * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not there, [create it](../../vpc/operations/subnet-create.md).
+    * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random external IP address to your VM from the {{ yandex-cloud }} pool. Alternatively, select a static address from the list if you reserved one.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
+    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
     * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `gitlab`.
@@ -126,9 +126,9 @@ To create a project:
 
 ## Set up and run testing for the project {#ci-cd}
 
-A Runner is a program that tests and builds projects in the {{ GL }} environment by following provided instructions.
+A runner is a program that tests and builds projects in the {{ GL }} environment by following provided instructions.
 
-### Configure and register a Runner {#configure-runner}
+### Configure and register a runner {#configure-runner}
 
 1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM and switch to administrator mode in the console:
 
@@ -136,32 +136,32 @@ A Runner is a program that tests and builds projects in the {{ GL }} environment
    sudo -i
    ```
 
-1. Download the Runner:
+1. Download a runner:
 
    ```bash
    curl --location --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
    ```
 
-1. Make the Runner executable:
+1. Make the runner executable:
 
    ```bash
    chmod +x /usr/local/bin/gitlab-runner
    ```
 
-1. Create a separate user to start the Runner:
+1. Create a separate user to start the runner:
 
    ```bash
    useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
    ```
 
-1. Install and start the Runner:
+1. Install and start the runner:
 
    ```bash
    gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
    gitlab-runner start
    ```
 
-1. Register the Runner in {{ GL }}:
+1. Register your runner in {{ GL }}:
    1. Launch interactive registration with the `gitlab-runner register` command.
    1. Enter your {{ GL }} server address. When you see the prompt:
 
@@ -170,7 +170,7 @@ A Runner is a program that tests and builds projects in the {{ GL }} environment
       ```
 
       enter `http://<public_IP_address_of_your_VM>`.
-   1. Enter the registration token for the Runner. To retrieve it, go to the project page in {{ GL }}, select **Settings** on the left-hand panel, and click the **CI/CD** tab. Then click **Expand** under **Runners**. Under **Set up a specific Runner manually**, copy the token from step 3 and enter it in the request response:
+   1. Enter the registration token for the runner. To retrieve it, go to the project page in {{ GL }}, select **Settings** on the left-hand panel, and click the **CI/CD** tab. Then click **Expand** under **Runners**. Under **Set up a specific Runner manually**, copy the token from step 3 and enter it in the request response:
 
       ```text
       Please enter the gitlab-ci token for this runner
@@ -185,8 +185,8 @@ A Runner is a program that tests and builds projects in the {{ GL }} environment
       Please enter the gitlab-ci description for this runner
       ```
 
-      Enter a description for the Runner: `My runner`.
-   1. Do not specify anything in the tag field, just press **Enter**. Otherwise, by default, the Runner will not run without specifying the appropriate tags for the project.
+      Enter a description for the runner: `My runner`.
+   1. Do not specify anything in the tag field, just press **Enter**. Otherwise, by default, the runner will not work unless you specify the appropriate tags for the project.
    1. Specify the runtime environment. In our case, when prompted:
 
       ```text
@@ -195,15 +195,15 @@ A Runner is a program that tests and builds projects in the {{ GL }} environment
 
       Enter: `shell`.
 
-Runner installation and setup is complete. If everything is done correctly, the **Runners activated for this project** section with the registered Runner should appear on the page where you copied the registration token.
+Now, the runner installation and setup are complete. If everything is correct, you should see the **Runners activated for this project** section with the registered runner on the page where you copied the registration token.
 
 ![Successful setup](../../_assets/tutorials/gitlab/gitlab5.png)
 
 ### Create a test scenario {#create-test-case}
 
-Create a test scenario to execute the Runner. The scenario is described in a special file named `.gitlab-ci.yml`, which should be stored in the project's root directory. According to the scenario, the Runner will compile the project source file, convert it to an executable file, and then run it.
+Create a test scenario for the runner to complete. The scenario is described in a special file named `.gitlab-ci.yml`, which should reside in the project's root directory. According to the scenario, the runner will compile the project source file, convert it to an executable file, and then run it.
 
-As testing will take place on the VM operating system, you need to install the apps required for testing: `git` to clone the project from the repository and `g++` to compile the project.
+As testing will take place in the VM operating system, you need to install the apps required for testing: `git` to clone the project from the repository and `g++` to compile the project.
 
 To create a test scenario:
 1. Connect to the VM via SSH and install the required apps:
@@ -260,7 +260,7 @@ After committing, the system will automatically start testing the last commit. T
 
 ### Create an error in the project {#create}
 
-Now, make the project run with an error that the Runner should help you find during testing. To do this:
+Now, make the project run with an error that the runner should help you find during testing. To do this:
 1. Go to the project repository and open the `test.cpp` file.
 1. Click **Edit**.
 1. In the check, assert that the product of multiplying 2 x 2 should be 5. In this case, an error occurs when the program is run and it fails.

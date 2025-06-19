@@ -137,6 +137,8 @@ description: Из статьи вы узнаете, как задать наст
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}** — выберите эту опцию, чтобы создавать колоночные таблицы (OLAP). По умолчанию используются строковые таблицы (OLTP). 
 
+    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
+
 - {{ TF }} {#tf}
 
     * `path` — поддиректория для размещения таблиц.
@@ -144,6 +146,8 @@ description: Из статьи вы узнаете, как задать наст
     * `default_compression` — сжатие для группы колонок по умолчанию.
 
     * `is_table_column_oriented` — укажите значение `true` чтобы создавать колоночные таблицы (OLAP). По умолчанию используются строковые таблицы (OLTP).
+
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 {% endlist %}
 
