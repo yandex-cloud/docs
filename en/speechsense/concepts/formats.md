@@ -10,7 +10,13 @@ description: 'In this article, you will learn about the supported audio formats:
 * [LPCM](#lpcm)
 * [WAV](#WAV)
 * [MP3](#MP3); preferred format
-* [OggOpus](#OggOpus)
+* [OggOpus](#OggOpus).
+
+{% note info %}
+
+{% include notitle [max-duration](../../_includes/speechsense/data/max-duration.md) %}
+
+{% endnote %}
 
 ## LPCM {#lpcm}
 

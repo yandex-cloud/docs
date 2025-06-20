@@ -13,8 +13,10 @@ items:
             items:
               - name: Uploading audio data via the management console
                 href: operations/data/upload-audio-console.md
-              - name: Uploading audio data via gRPC API
+              - name: Uploading audio data via the gRPC API
                 href: operations/data/upload-data.md
+              - name: Uploading audio data with splitting via the gRPC API
+                href: operations/data/upload-data-split.md
               - name: Uploading chat conversations
                 href: operations/data/upload-chat-text.md
           - name: Searching data
@@ -51,6 +53,8 @@ items:
         items:
           - name: Creating a connection
             href: operations/connection/create.md
+          - name: Editing a connection
+            href: operations/connection/edit.md
       - name: Projects
         items:
           - name: Creating a project
@@ -127,7 +131,7 @@ items:
         href: concepts/limits.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

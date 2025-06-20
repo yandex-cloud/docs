@@ -315,6 +315,8 @@ items:
             href: cli-ref/cluster/update-config.md
           - name: update-extension
             href: cli-ref/cluster/update-extension.md
+          - name: update-external-dictionary
+            href: cli-ref/cluster/update-external-dictionary.md
       - name: database
         items:
           - name: Overview

@@ -117,4 +117,6 @@
 
 - **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-con }}
 
-  Time, in milliseconds, after which inactive replication connections are terminated. Available for {{ mpg-name }} clusters starting with version 12.
+  Time, in milliseconds, after which inactive replication connections are terminated.
+
+  {% include [settings-version](../../_includes/mdb/mpg/mpg-settings-v-12.md) %}

@@ -40,3 +40,14 @@ meta:
   description: >-
     Yandex Managed Service for Greenplum® enables you to deploy and maintain
     Greenplum clusters® in the Yandex Cloud infrastructure.
+  keywords:
+    - '{{ mgp-name }}'
+    - '{{ mgp-full-name }}'
+    - Service {{ mgp-name }}
+    - '{{ GP }} in {{ yandex-cloud }}'
+    - '{{ GP }} cluster'
+    - '{{ GP }}'
+    - Greenplum
+    - '{{ GP }} in cloud'
+    - greenplum
+    - Greenplum in {{ yandex-cloud }}

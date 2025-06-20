@@ -1,12 +1,17 @@
 
 #### Quotas {#mch-quotas}
 
-| Type of limitation                                                                | Value |
-|:-------------------------------------------------------------------------------|:---------|
-| Number of clusters per cloud                                            | 16       |
-| Total number of processor cores for all database hosts per cloud | 96       |
-| Total virtual memory for all database hosts per cloud   | 640 GB   |
-| Total storage capacity for all clusters per cloud                     | 4,096 GB  |
+#|
+|| Type of limit | Value ||
+|| Number of clusters per cloud 
+`mdb.clusters.count` | 16 ||
+|| Total number of processor cores for all database hosts per cloud 
+`mdb.cpu.count` | 64 ||
+|| Total virtual memory for all database hosts per cloud 
+`mdb.memory.size` | 512 GB ||
+|| Total storage capacity for all clusters per cloud 
+`mdb.ssd.size` | 4,096 GB ||
+|#
 
 #### Limits {#mch-limits}
 
@@ -50,4 +55,3 @@ The limits on the maximum number of objects in a cluster have two threshold valu
 | Number of external dictionaries | 500        | 1000       |
 
 All limits are implemented based on [{{ CH }} server settings](https://clickhouse.com/docs/operations/server-configuration-parameters/settings). You cannot change them.
-

@@ -20,7 +20,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
-|`--service-type`|<b>`string`</b><br/>Type of the service to request logs from. Values: 'clickhouse'|
+|`--service-type`|<b>`string`</b><br/>Type of the service to request logs from. Values: 'clickhouse', 'clickhouse-keeper'|
 |`--columns`|<b>`value[,value]`</b><br/>Columns from the logs table to request.|
 |`--filter`|<b>`string`</b><br/>Filter expression that filters resources listed in the response. Entire filter must be surrounded with quotes.<br/>Examples: "message.hostname='node1.db.cloud.yandex.net'", "message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'"|
 |`--since`|<b>`timestamp`</b><br/>Start timestamp for the logs request. Format: RFC-3339, HH:MM:SS, or a moment  of time relative to the current time.<br/>Examples: '2006-01-02T15:04:05Z', '15:04:05', '2h' or '3h30m ago'.|

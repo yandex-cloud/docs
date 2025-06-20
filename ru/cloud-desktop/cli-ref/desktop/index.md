@@ -15,7 +15,7 @@ Syntax:
 
 #### Command Tree
 
-- [yc desktops desktop create](create.md) — Create an desktop
+- [yc desktops desktop create](create.md) — Create a desktop
 - [yc desktops desktop delete](delete.md) — Delete the specified desktop
 - [yc desktops desktop get](get.md) — Get information about a desktop
 - [yc desktops desktop get-rdp-file](get-rdp-file.md) — Download desktop RDP file
@@ -23,6 +23,10 @@ Syntax:
 - [yc desktops desktop list-operations](list-operations.md) — List operations for the specified desktop
 - [yc desktops desktop reset-password](reset-password.md) — Reset desktop Password
 - [yc desktops desktop restart](restart.md) — Restart the specified desktop
+- [yc desktops desktop start](start.md) — Start the specified desktop
+- [yc desktops desktop stop](stop.md) — Stop the specified desktop
+- [yc desktops desktop update](update.md) — Update the specified desktop
+- [yc desktops desktop update-properties](update-properties.md) — Update a desktop
 
 #### Global Flags
 

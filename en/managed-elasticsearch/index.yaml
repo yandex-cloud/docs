@@ -42,3 +42,14 @@ meta:
   description: >-
     Managed Service for Elasticsearch helps deploy and maintain clusters of
     Elasticsearch servers in the Yandex Cloud infrastructure.
+  keywords:
+    - '{{ mes-name }}'
+    - '{{ mes-full-name }}'
+    - Service {{ mes-name }}
+    - '{{ ES }} in {{ yandex-cloud }}'
+    - '{{ ES }} cluster'
+    - '{{ ES }} server clusters'
+    - '{{ ES }}'
+    - Elasticsearch
+    - '{{ ES }} in cloud'
+    - Elasticsearch in {{ yandex-cloud }}

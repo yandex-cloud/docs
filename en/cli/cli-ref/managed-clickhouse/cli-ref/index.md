@@ -56,6 +56,7 @@ Aliases:
 	- [yc managed-clickhouse cluster update](cluster/update.md) — Modify configuration or attributes of a ClickHouse cluster.
 	- [yc managed-clickhouse cluster update-config](cluster/update-config.md) — Update the configuration of a ClickHouse cluster.
 	- [yc managed-clickhouse cluster update-extension](cluster/update-extension.md) — Modify configuration or attributes of a ClickHouse cluster extension.
+	- [yc managed-clickhouse cluster update-external-dictionary](cluster/update-external-dictionary.md) — Update an external dictionary in a ClickHouse cluster.
 - [yc managed-clickhouse database](database/index.md) — Manage ClickHouse databases.
 	- [yc managed-clickhouse database create](database/create.md) — Create a database in a ClickHouse cluster.
 	- [yc managed-clickhouse database delete](database/delete.md) — Delete a ClickHouse database.

@@ -2,7 +2,7 @@ title: '{{ mtr-full-name }}'
 description:
   - >-
     With {{ mtr-name }}, you can manage {{ TR }}, a distributed SQL analysis
-    engine in {{ yandex-cloud }} infrastructure.
+    engine, in the {{ yandex-cloud }} infrastructure.
   - >-
     The {{ yandex-cloud }} infrastructure is <a
     href="/docs/security/conform">protected</a> pursuant to the following
@@ -33,3 +33,14 @@ meta:
   description: >-
     {{ mtr-name }} helps you deploy and maintain {{ TR }} server clusters in the
     {{ yandex-cloud }} infrastructure.
+  keywords:
+    - '{{ mtr-name }}'
+    - '{{ mtr-full-name }}'
+    - Service {{ mtr-name }}
+    - '{{ TR }} in {{ yandex-cloud }}'
+    - '{{ TR }} cluster'
+    - '{{ TR }} server clusters'
+    - '{{ TR }}'
+    - Trino engine
+    - SQL engine
+    - '{{ TR }} in cloud'

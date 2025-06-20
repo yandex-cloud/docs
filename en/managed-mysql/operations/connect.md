@@ -70,7 +70,7 @@ Rule settings depend on the connection method you select:
 
 {% note info %}
 
-You can specify more detailed rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
 
 You must configure security groups correctly for all subnets in which the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster.
 
@@ -91,20 +91,20 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can use the [FQDN of a particular host](#get-fqdn) in the cluster or a special FQDN always pointing to the [current master host](#fqdn-master) or the [least lagging replica](#fqdn-replica).
 
-Host FQDN example:
+Example of the host FQDN:
 
 ```text
 {{ host-name }}.{{ dns-zone }}
 ```
 
-### Getting host FQDN {#get-fqdn}
+### Getting a host FQDN {#get-fqdn}
 
 You can obtain the {{ MY }} host FQDN by doing one of the following:
 
 * Look up the FQDN in the management console:
 
     1. Go to the cluster page.
-    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
 * In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
@@ -113,19 +113,19 @@ You can obtain the {{ MY }} host FQDN by doing one of the following:
 
 ### Current master {#fqdn-master}
 
-An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host in the cluster. You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
 {% note warning %}
 
-If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master host, you will not be able to connect to it from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master host, you will not be able to connect to it from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all the cluster hosts.
 
 {% endnote %}
 
 ### Most recent replica {#fqdn-replica}
 
-An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../concepts/replication.md) that is most up-to-date with the master host. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../concepts/replication.md) that is most up-to-date with the master host. You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 **Specifics:**
 
@@ -134,9 +134,10 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../co
 
 {% note warning %}
 
-If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes the least lagging replica, you will not be able to connect to it from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes the least lagging replica, you will not be able to connect to it from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all the cluster hosts.
 
 {% endnote %}
+
 
 ## Connecting from graphical IDEs {#connection-ide}
 
@@ -153,7 +154,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
   1. Create a data source:
      1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
      1. On the **General** tab:
-        1. Specify the connection parameters:
+        1. Specify the connection settings:
            * **Host**: [Any {{ MY }}](#fqdn) host FQDN or a [special FQDN](#fqdn-master).
            * **Port**: `{{ port-mmy }}`.
            * **User**, **Password**: DB user's name and password.

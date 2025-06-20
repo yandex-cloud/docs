@@ -1281,6 +1281,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/container/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/container/cli-ref/cluster/add-access-binding.md
               - name: add-labels
                 href: cli-ref/container/cli-ref/cluster/add-labels.md
               - name: create
@@ -1293,16 +1295,22 @@ items:
                 href: cli-ref/container/cli-ref/cluster/get-credentials.md
               - name: list
                 href: cli-ref/container/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/container/cli-ref/cluster/list-access-bindings.md
               - name: list-node-groups
                 href: cli-ref/container/cli-ref/cluster/list-node-groups.md
               - name: list-nodes
                 href: cli-ref/container/cli-ref/cluster/list-nodes.md
               - name: list-operations
                 href: cli-ref/container/cli-ref/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/container/cli-ref/cluster/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/container/cli-ref/cluster/remove-labels.md
               - name: reschedule-maintenance
                 href: cli-ref/container/cli-ref/cluster/reschedule-maintenance.md
+              - name: set-access-bindings
+                href: cli-ref/container/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/container/cli-ref/cluster/start.md
               - name: stop
@@ -1637,6 +1645,14 @@ items:
                 href: cli-ref/desktops/cli-ref/desktop/reset-password.md
               - name: restart
                 href: cli-ref/desktops/cli-ref/desktop/restart.md
+              - name: start
+                href: cli-ref/desktops/cli-ref/desktop/start.md
+              - name: stop
+                href: cli-ref/desktops/cli-ref/desktop/stop.md
+              - name: update
+                href: cli-ref/desktops/cli-ref/desktop/update.md
+              - name: update-properties
+                href: cli-ref/desktops/cli-ref/desktop/update-properties.md
           - name: group
             items:
               - name: Overview
@@ -1661,6 +1677,8 @@ items:
                 href: cli-ref/desktops/cli-ref/group/remove-access-bindings.md
               - name: set-access-bindings
                 href: cli-ref/desktops/cli-ref/group/set-access-bindings.md
+              - name: update
+                href: cli-ref/desktops/cli-ref/group/update.md
           - name: image
             items:
               - name: Overview
@@ -1673,6 +1691,8 @@ items:
                 href: cli-ref/desktops/cli-ref/image/get.md
               - name: list
                 href: cli-ref/desktops/cli-ref/image/list.md
+              - name: update
+                href: cli-ref/desktops/cli-ref/image/update.md
       - name: dns
         items:
           - name: Overview
@@ -2513,6 +2533,9 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/update-config.md
               - name: update-extension
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/update-extension.md
+              - name: update-external-dictionary
+                href: >-
+                  cli-ref/managed-clickhouse/cli-ref/cluster/update-external-dictionary.md
           - name: database
             items:
               - name: Overview
@@ -3015,6 +3038,9 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: >-
+                  cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md
               - name: add-labels
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/add-labels.md
               - name: create
@@ -3027,17 +3053,26 @@ items:
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/get-credentials.md
               - name: list
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: >-
+                  cli-ref/managed-kubernetes/cli-ref/cluster/list-access-bindings.md
               - name: list-node-groups
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/list-node-groups.md
               - name: list-nodes
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/list-nodes.md
               - name: list-operations
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/list-operations.md
+              - name: remove-access-binding
+                href: >-
+                  cli-ref/managed-kubernetes/cli-ref/cluster/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/remove-labels.md
               - name: reschedule-maintenance
                 href: >-
                   cli-ref/managed-kubernetes/cli-ref/cluster/reschedule-maintenance.md
+              - name: set-access-bindings
+                href: >-
+                  cli-ref/managed-kubernetes/cli-ref/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref/managed-kubernetes/cli-ref/cluster/start.md
               - name: stop
@@ -3717,6 +3752,60 @@ items:
         items:
           - name: Overview
             href: cli-ref/managed-trino/cli-ref/index.md
+          - name: catalog
+            items:
+              - name: Overview
+                href: cli-ref/managed-trino/cli-ref/catalog/index.md
+              - name: create
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/index.md
+                  - name: clickhouse
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/clickhouse.md
+                  - name: delta-lake
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/delta-lake.md
+                  - name: hive
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/hive.md
+                  - name: iceberg
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/iceberg.md
+                  - name: oracle
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/oracle.md
+                  - name: postgresql
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/postgresql.md
+                  - name: sqlserver
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/sqlserver.md
+                  - name: tpcds
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/tpcds.md
+                  - name: tpch
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/tpch.md
+              - name: delete
+                href: cli-ref/managed-trino/cli-ref/catalog/delete.md
+              - name: get
+                href: cli-ref/managed-trino/cli-ref/catalog/get.md
+              - name: list
+                href: cli-ref/managed-trino/cli-ref/catalog/list.md
+              - name: update
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/index.md
+                  - name: clickhouse
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/clickhouse.md
+                  - name: delta-lake
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/delta-lake.md
+                  - name: hive
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/hive.md
+                  - name: iceberg
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/iceberg.md
+                  - name: oracle
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/oracle.md
+                  - name: postgresql
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/postgresql.md
+                  - name: sqlserver
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/sqlserver.md
+                  - name: tpcds
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/tpcds.md
+                  - name: tpch
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/tpch.md
           - name: cluster
             items:
               - name: Overview

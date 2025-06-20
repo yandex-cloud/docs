@@ -1,22 +1,29 @@
-# Перезапустить хост
+# Перезагрузить хост
 
-Перезапуск хостов может понадобиться, если нужно экстренно устранить такие проблемы, как:
+Перезагрузка хостов может понадобиться, если нужно экстренно устранить такие проблемы, как:
 
 * перерасход ресурсов;
 * утечка памяти;
 * взаимоблокировка (deadlock) между запросами;
 * зависание операций и внутренних процессов {{ CH }}.
 
-Чтобы перезапустить хост:
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. В строке нужного хоста нажмите на значок ![icon](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
-  1. Подтвердите перезагрузку хоста.
+  Чтобы перезагрузить один хост:
+
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. В строке нужного хоста нажмите на значок ![icon](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
+    1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+
+  Чтобы перезагрузить несколько хостов сразу:
+
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Выберите хосты, которые хотите перезагрузить, и нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}** в нижней части экрана.
+    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI {#cli}
 
@@ -24,7 +31,9 @@
 
   {% include [default-catalogue](../../default-catalogue.md) %}
 
-  Чтобы перезапустить хост, выполните команду:
+  Чтобы перезагрузить один или несколько хостов, выполните команду, передав их имена. Используйте пробел в качестве разделителя.
+
+  Команда для перезагрузки одного хоста выглядит так:
 
   ```bash
   {{ yc-mdb-ch }} host restart <имя_хоста> \
@@ -54,7 +63,7 @@
                     }'
         ```
 
-        Где `hostNames` — массив строк. Каждая строка — имя хоста, который нужно перезапустить. Имена хостов можно запросить со [списком хостов в кластере](../../../managed-clickhouse/operations/hosts.md#list-hosts).
+        Где `hostNames` — массив строк. Каждая строка — имя хоста, который нужно перезагрузить. Имена хостов можно запросить со [списком хостов в кластере](../../../managed-clickhouse/operations/hosts.md#list-hosts).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
@@ -87,7 +96,7 @@
             yandex.cloud.mdb.clickhouse.v1.ClusterService.RestartHosts
         ```
 
-        Где `host_names` — массив строк. Каждая строка — имя хоста, который нужно перезапустить. Имена хостов можно запросить со [списком хостов в кластере](../../../managed-clickhouse/operations/hosts.md#list-hosts).
+        Где `host_names` — массив строк. Каждая строка — имя хоста, который нужно перезагрузить. Имена хостов можно запросить со [списком хостов в кластере](../../../managed-clickhouse/operations/hosts.md#list-hosts).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 

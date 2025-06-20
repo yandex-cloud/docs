@@ -56,3 +56,15 @@ meta:
   description: >-
     With Yandex Managed Service for MongoDB, you can deploy and maintain MongoDB
     6.0 and 7.0 server clusters in the Yandex Cloud infrastructure.
+  keywords:
+    - '{{ mmg-name }}'
+    - '{{ mmg-full-name }}'
+    - Service {{ mmg-name }}
+    - '{{ MG }} in {{ yandex-cloud }}'
+    - '{{ MG }} cluster'
+    - '{{ MG }} server clusters'
+    - '{{ MG }}'
+    - MongoDB
+    - '{{ MG }} in cloud'
+    - NoSQL DBMS
+    - Open source DBMS

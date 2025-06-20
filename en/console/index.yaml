@@ -16,3 +16,14 @@ meta:
   description: >-
     Yandex Cloud Console (management console) is a Yandex Cloud UI you can use
     to manage cloud resources, set up notifications, and contact support.
+  keywords:
+    - '{{ console-full-name }}'
+    - Service {{ console-name }}
+    - Yandex Console
+    - Yandex Cloud management console
+    - '{{ yandex-cloud }} in a browser'
+    - Yandex Cloud in a browser
+    - How to manage a cloud
+    - Managing a cloud
+    - Cloud console
+    - How to configure notifications in a cloud

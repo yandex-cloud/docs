@@ -88,6 +88,14 @@ items:
             href: cli-ref/desktop/reset-password.md
           - name: restart
             href: cli-ref/desktop/restart.md
+          - name: start
+            href: cli-ref/desktop/start.md
+          - name: stop
+            href: cli-ref/desktop/stop.md
+          - name: update
+            href: cli-ref/desktop/update.md
+          - name: update-properties
+            href: cli-ref/desktop/update-properties.md
       - name: group
         items:
           - name: Overview
@@ -112,6 +120,8 @@ items:
             href: cli-ref/group/remove-access-bindings.md
           - name: set-access-bindings
             href: cli-ref/group/set-access-bindings.md
+          - name: update
+            href: cli-ref/group/update.md
       - name: image
         items:
           - name: Overview
@@ -124,6 +134,8 @@ items:
             href: cli-ref/image/get.md
           - name: list
             href: cli-ref/image/list.md
+          - name: update
+            href: cli-ref/image/update.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

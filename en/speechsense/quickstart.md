@@ -2,7 +2,7 @@
 
 {{ speechsense-full-name }} allows you to analyze your business communication channels based on dialog audio recordings or text chat messages and supports integration with your PBX and CRM systems. {{ speechsense-name }} utilizes {{ speechkit-full-name }} voice technologies to transcribe speech and perform statistical and qualitative analysis of recorded audio dialogs.
 
-{{ speechsense-name }} can analyze audio and text dialogs in Russian and Kazakh languages.
+{{ speechsense-name }} can analyze audio and text dialogs in Russian and Kazakh.
 
 You can upload your data to {{ speechsense-name }} or use a [demo recording](https://storage.yandexcloud.net/doc-files/speechsense-demo-dialog.wav) synthesized using {{ speechkit-name }}.
 
@@ -32,7 +32,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and create a [connection](concepts/resources-hierarchy.md#connection) based on the metainformation of your audio recordings or text chats:
 
    1. Specify **{{ ui-key.yc-ui-talkanalytics.connections.connection-name }}**.
-   1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** or **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
+   1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}**, or **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
    1. Set the connection parameters. For more information, see [Creating a connection](operations/connection/create.md).
    1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 
@@ -66,8 +66,10 @@ To upload data:
 1. [Create a service account](../iam/operations/sa/create.md).
 1. [Add the service account to the namespace](operations/space/add-user-to-space.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](security/index.md).
 1. [Create an API key](../iam/operations/authentication/manage-api-keys.md#create-api-key) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
-1. [Upload your audio data](operations/data/upload-data.md) or [chat history data](operations/data/upload-chat-text.md) using a Python data transfer script.
+1. Upload your audio data ([split](operations/data/upload-data-split.md) or [not split](operations/data/upload-data.md) into chunks) or [chat history data](operations/data/upload-chat-text.md) using a Python data transfer script.
 
     Use one message for the whole audio.
 
     {% include [supported-formats](../_includes/speechsense/formats.md) %}
+
+    {% include [max-duration](../_includes/speechsense/data/max-duration.md) %}

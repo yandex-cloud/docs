@@ -54,3 +54,19 @@ meta:
   description: >-
     Yandex Managed Service for Valkey™ helps you deploy and maintain Valkey™ 7.2
     server clusters in the Yandex Cloud infrastructure.
+  keywords:
+    - '{{ mrd-name }}'
+    - '{{ mrd-full-name }}'
+    - Service {{ mrd-name }}
+    - '{{ RD }} in {{ yandex-cloud }}'
+    - '{{ RD }} cluster'
+    - '{{ RD }} server clusters'
+    - '{{ RD }}'
+    - Redis DBMS
+    - '{{ RD }} in cloud'
+    - Non-relational DBMS
+    - '{{ VLK }} in {{ yandex-cloud }}'
+    - '{{ VLK }} cluster'
+    - '{{ VLK }} server clusters'
+    - '{{ VLK }}'
+    - '{{ VLK }} in cloud'

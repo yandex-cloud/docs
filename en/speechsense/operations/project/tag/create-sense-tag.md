@@ -17,7 +17,7 @@ When creating a semantic tag, the following options are available:
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
 1. In the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab, click ![icon](../../../../_assets/console-icons/tag.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
-1. Select the tag type: **Semantic**.
+1. Select the tag type: **{{ ui-key.yc-ui-talkanalytics.tags.tags-type.neuro-key-value }}**.
 1. Set the tag parameters:
 
     * Enter a name for the tag.
@@ -37,4 +37,4 @@ When creating a semantic tag, the following options are available:
 
 1. Click **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
 
-Once created, the tag is activated automatically.
+Once created, tags are applied to all new dialogs in one go. The markup of previously created dialogs starts at 09:00 p.m. Moscow time.

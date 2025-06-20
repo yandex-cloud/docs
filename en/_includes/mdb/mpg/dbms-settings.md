@@ -150,6 +150,8 @@
 
   The minimum value is `-1` (disables the setting); the maximum value is `2147483647`; the default value is `1000`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-THRESHOLD).
 
 - **Autovacuum vacuum scale factor**{#setting-autovacuum-vacuum-scale-factor} {{ tag-all }}
@@ -260,9 +262,11 @@
 
 - **Client connection check interval**{#setting-client-connection-check-interval} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Client connection check interval when executing queries (in milliseconds). The check polls the server socket for a connection and aborts long-running queries if it detects that the connection has been terminated. {{ PG }} supports this feature starting from version 14.
+  Client connection check interval when executing queries (in milliseconds). The check polls the server socket for a connection and aborts long-running queries if it detects that the connection has been terminated.
 
   The minimum value is `0` (disables checks); the maximum value is `2147483647`. By default, the minimum value is used.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-CLIENT-CONNECTION-CHECK-INTERVAL).
 
@@ -346,9 +350,9 @@
   - Either without specifying `WITH OIDS` and `WITHOUT OIDS`.
   - Or using the `SELECT INTO` statement.
 
-  The practice of using `OID` in user tables is considered obsolete, so enable this setting for backward compatibility reasons only.
-
   This setting is disabled by default (no `OID` column is added).
+
+  This feature is not supported by {{ PG }} starting from version 12. Use this setting only for compatibility with legacy apps.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-DEFAULT-WITH-OIDS).
 
@@ -370,9 +374,11 @@
 
 - **Enable async append**{#setting-enable-async-append} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Allows the query planner to consider asynchronous execution of the query plan on different hosts when adding data from external sources. {{ PG }} supports this feature starting from version 14.
+  Allows the query planner to consider asynchronous execution of the query plan on different hosts when adding data from external sources.
 
   This setting is on by default.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-ASYNC-APPEND).
 
@@ -394,9 +400,11 @@
 
 - **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-  Allows the query planner to use a Gather Merge node for merging query execution results while preserving their order in the parallel query plan. {{ PG }} supports this feature starting from version 14.
+  Allows the planner to use the Gather Merge node to merge rows produced by parallel processes and preserve the order they were produced in.
 
   This setting is on by default.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GATHERMERGE).
 
@@ -410,7 +418,7 @@
 
 - **Enable hashjoin**{#setting-enable-hashjoin} {{ tag-all }}
 
-  Allows the scheduler to `JOIN` tables based on row hash values, even if this is not specified in the query explicitly. This setting is effective when handling large amounts of data or when the tables are not sorted by the join columns.
+  Allows the planner to `JOIN` tables based on row hash values, even if this is not specified in the query explicitly. This setting is effective when handling large amounts of data or when the tables are not sorted by the join columns.
 
   This setting is on by default.
 
@@ -418,9 +426,11 @@
 
 - **Enable incremental sort**{#setting-enable-incremental-sort} {{ tag-all }}
 
-  Allows the query planner to use incremental sorting. This type of sorting can reduce query execution time and RAM requirements if rows need to be sorted by multiple columns, and one or more of them have already been sorted. This feature has been supported by {{ PG }} starting from version 13.
+  Allows the query planner to use incremental sorting. This sorting method allows you to reduce query execution time and required RAM if you need to sort rows by several columns with sorting already done for one or more of them.
 
   This setting is on by default.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INCREMENTAL-SORT).
 
@@ -644,6 +654,8 @@
 
   The minimum value is `0.0`; the maximum value is `1000.0`; the default value is `1.0`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER).
 
 - **Idle in transaction session timeout**{#setting-idle-session-timeout} {{ tag-all }}
@@ -746,6 +758,8 @@
 
   The minimum value is `-1` (disables statement runtime logging); the maximum value is `2147483647`; the default value is `-1`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE).
 
 - **Log min duration statement**{#setting-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
@@ -788,6 +802,8 @@
 
   The minimum value is `-1` (parameter values are logged fully); the maximum value is `1073741823`. By default, the minimum value is used.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH).
 
 - **Log parameter max length on error**{#setting-log-parameter-max-length} {{ tag-all }}
@@ -798,13 +814,17 @@
 
   The minimum value is `-1` (parameter values are logged fully); the maximum value is `1073741823`. By default, the minimum value is used.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH-ON-ERROR).
 
 - **Log recovery conflict waits**{#setting-log-recovery-conflict-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Controls logging of long recovery conflict waits when reading WAL to continue replication. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to resolve a recovery conflict. {{ PG }} supports this feature starting from version 14.
+  Enables logging of replication delays occurring due to recovery conflicts when reading WAL. Log entries will be added if conflict resolution timeout exceeds the [Deadlock timeout](#setting-deadlock-timeout) value.
 
   The setting is disabled by default.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
 
@@ -829,6 +849,8 @@
 
   The minimum value is `0.0`; the maximum value is `1.0`; the default value is `0.0`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT-SAMPLE-RATE).
 
 - **Log temp files**{#setting-log-temp-files} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
@@ -845,6 +867,8 @@
 
   The minimum value is `0.0`; the maximum value is `1.0`; the default value is `0.0`.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-12.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE).
 
 - **Logical decoding work mem**{#setting-logical-decoding-work-mem} {{ tag-all }}
@@ -853,6 +877,8 @@
 
   The minimum value is `65536` (64 KB); the maximum value is `1099511627776` (1 TB); the default value is `67108864` (64 MB).
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM).
 
 - **Maintenance io concurrency**{#setting-maintenance-io-concurrency} {{ tag-all }}
@@ -860,6 +886,8 @@
   Maximum number of concurrent disk I/O operations during {{ PG }} maintenance using the `VACUUM`, `CREATE INDEX`, and `ALTER TABLE ADD FOREIGN KEY` statements for an individual DB session. The higher this number, the more maintenance statements {{ PG }} will attempt to execute in parallel within a session.
 
   The minimum value is `0`; the maximum value is `1000`; the default value is `10`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-IO-CONCURRENCY).
 
@@ -959,6 +987,8 @@
 
   The minimum value is `67108864` (64 MB). The maximum value is 50% of the [storage](../../../managed-postgresql/concepts/storage.md) size. The default value is `-1` (unlimited). The value must be a multiple of 1,024.
 
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
 
 - **Max standby streaming delay**{#setting-max-standby-streaming-delay} {{ tag-all }}
@@ -1015,9 +1045,11 @@
 
 - **Operator precedence warning**{#setting-operator-precedence-warning} {{ tag-all }}
 
-  Allows the query parser to emit a warning for any constructs that changed their behavior since version 9.4 as a result of changes in operator precedence. This feature is not supported by {{ PG }} starting from version 14.
+  Enables the query parser to issue warnings for all structures that have changed their behavior due to reprioritization of commands in version 9.5.
 
   The setting is disabled by default.
+
+  This feature is not supported by {{ PG }} starting from version 14.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/13/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING).
 
@@ -1090,7 +1122,7 @@
 
 - **Pg qualstats track constants**{#setting-pg-qualstats-track-constants} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Enables tracking of already encountered predicates in subsequent queries when collecting statistics using  the `pg_qualstats` module. Only applies when the [Pg qualstats enabled](#setting-pg-qualstats-enabled) setting is on.
+  Enables tracking of already encountered predicates in subsequent queries when collecting statistics using the `pg_qualstats` module. Only applies when the [Pg qualstats enabled](#setting-pg-qualstats-enabled) setting is on.
 
   This setting is on by default.
 
@@ -1103,6 +1135,8 @@
   - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` for {{ TF }} and API): Force generic plans.
 
   The default value is `auto`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-12.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PLAN-CACHE_MODE).
 
@@ -1292,9 +1326,11 @@
 
 - **Vacuum cleanup index scale factor**{#setting-vacuum-index-scale-factor} {{ tag-all }}
 
-  Rate of tuples in the index counted in the previous statistics collection. When running the `VACUUM` operation, index statistics are considered obsolete if the ratio of newly inserted tuples to the total number of tuples in the index exceeds this value. In this case, the index will be re-scanned. This feature is not supported by {{ PG }} starting from version 14.
+  Share of index rows used in the previous statistics. During the `VACUUM` operation, the index statistics are considered obsolete if the ratio of newly inserted rows to the total number of rows in the index exceeds the specified value. In this case, the index will be re-scanned.
 
   The minimum value is `0.0`; the maximum value is `10000000000.0`; the default value is `0.1`.
+
+  This feature is not supported by {{ PG }} starting from version 14.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/12/runtime-config-client.html#GUC-VACUUM-CLEANUP-INDEX-SCALE-FACTOR).
 
@@ -1340,17 +1376,21 @@
 
 - **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-  Maximum age of <q>frozen</q> (already completed) transaction measured as the number of transactions initiated after it. As soon as this value is reached, the `VACUUM` process runs vacuuming to avoid transaction counter overflow. {{ PG }} supports this feature starting from version 14.
+  Maximum age of <q>frozen</q> (already completed) transaction measured as the number of transactions initiated after it. As soon as this value is reached, the `VACUUM` process runs vacuuming to avoid transaction counter overflow.
 
   The minimum value is `0`; the maximum value is `2100000000`; the default value is `1600000000`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
 
 - **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-  Maximum age of frozen (already completed) [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured as the number of multi-transactions initiated after it. As soon as this value is reached, the `VACUUM` process runs vacuuming to avoid multi-transaction counter overflow. {{ PG }} supports this feature starting from version 14.
+  Maximum age of <q>frozen</q> (already completed) [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured as the number of multi-transactions initiated after it. As soon as this value is reached, the `VACUUM` process runs vacuuming to avoid multi-transaction counter overflow.
 
   The minimum value is `0`; the maximum value is `2100000000`; the default value is `1600000000`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
 
@@ -1359,6 +1399,8 @@
   Minimum size (in bytes) of obsolete log segments kept in the [WAL](https://www.postgresql.org/docs/current/wal-intro.html) directory for [replicas](../../../managed-postgresql/concepts/replication.md#replication) to download, if required.
 
   The minimum value is `0` (past segments are not saved for replication); the maximum value is `2251799812636672` (2 TB); the default value is `0`.
+
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
 

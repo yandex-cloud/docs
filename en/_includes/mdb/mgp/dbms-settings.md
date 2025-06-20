@@ -6,6 +6,22 @@
 
     For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting).
 
+* **Gp enable global deadlock detector**{#setting-gp-enable-global-deadlock-detector} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+
+    Enables or disables the global deadlock detector. This feature checks for locks when performing `UPDATE` and `DELETE` operations with heap tables in parallel.
+    
+    The setting is disabled by default. In which case the `UPDATE` and `DELETE` operations are performed one after the other instead of in parallel.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_enable_global_deadlock_detector).
+
+* **Gp global deadlock detector period**{#setting-gp-global-deadlock-detector-period} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+
+    Sets the global deadlock detector's trigger frequency (in seconds).
+
+    The minimum value is `5`; the default value is `120`.
+
+    For more information, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period).
+
 * **Gp workfile compression**{#setting-gp-workfile-compression} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     This setting determines whether temporary files created on the disk during a hash connection or hash aggregation will be compressed.

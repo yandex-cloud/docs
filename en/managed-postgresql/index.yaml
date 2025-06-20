@@ -43,3 +43,14 @@ meta:
   description: >-
     Yandex Managed Service for PostgreSQL helps deploy and maintain PostgreSQL
     server clusters in the Yandex Cloud infrastructure.
+  keywords:
+    - '{{ mpg-name }}'
+    - '{{ mpg-full-name }}'
+    - Service {{ mpg-name }}
+    - '{{ PG }} in {{ yandex-cloud }}'
+    - '{{ PG }} cluster'
+    - '{{ PG }} server clusters'
+    - '{{ PG }}'
+    - Postgres
+    - '{{ PG }} in cloud'
+    - Object-relational DBMS

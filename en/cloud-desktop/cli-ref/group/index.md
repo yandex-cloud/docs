@@ -25,6 +25,7 @@ Syntax:
 - [yc desktops group list-operations](list-operations.md) — List operations for the specified desktop group
 - [yc desktops group remove-access-bindings](remove-access-bindings.md) — Remove access binding for the specified desktop group
 - [yc desktops group set-access-bindings](set-access-bindings.md) — Set access bindings for the specified desktop group and delete all existing access bindings if there were any
+- [yc desktops group update](update.md) — Update desktop group
 
 #### Global Flags
 

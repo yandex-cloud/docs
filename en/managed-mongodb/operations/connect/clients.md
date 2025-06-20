@@ -21,7 +21,6 @@ If the connection to the cluster is successful and the test query is executed, t
 The setup method depends on whether cluster [sharding](../../concepts/sharding.md) is enabled:
 
 
-
 ### Linux (Bash) {#bash}
 
 Before connecting, install the [MongoDB Shell utility](index.md#install-mongosh).
@@ -156,7 +155,7 @@ Before connecting, install the [MongoDB Shell utility](index.md#install-mongosh)
 
     ```powershell
     mongosh.exe --norc `
-               --host '<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:{{ port-mmg-sharded }},...,<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:{{ port-mmg-sharded }}' `
+                --host '<MONGOINFRA_or_MONGOS_host_1_FQDN>:{{ port-mmg-sharded }},...,<MONGOINFRA_or_MONGOS_host_N_FQDN>:{{ port-mmg-sharded }}' `
                 --username <DB_username> `
                 --password <DB_user_password> `
                 <DB_name>
