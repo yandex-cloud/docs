@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/cluster/index.md
 
 # yc managed-trino cluster
 
-Manage Trino clusters.
+Manage Trino clusters
 
 #### Command Usage
 

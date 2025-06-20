@@ -60,6 +60,8 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](bigquery-to-clickhouse.md)
+* [{#T}](jdbc-ch-to-sql-server-integration.md)
+* [{#T}](jdbc-ch-to-oracle-integration.md)
 
 ## {{ GP }} {#greenplum}
 
@@ -213,5 +215,9 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)
 * [{#T}](schema-registry-cdc-debezium-kafka.md)
+
+## {{ msp-full-name }} {#spark}
+
+* [{#T}](airflow-and-spark.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

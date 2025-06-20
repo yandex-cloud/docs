@@ -16,7 +16,7 @@ Syntax:
 #### Command Tree
 
 - [yc desktops desktop](desktop/index.md) — [PREVIEW] Manage desktop instances
-	- [yc desktops desktop create](desktop/create.md) — Create an desktop
+	- [yc desktops desktop create](desktop/create.md) — Create a desktop
 	- [yc desktops desktop delete](desktop/delete.md) — Delete the specified desktop
 	- [yc desktops desktop get](desktop/get.md) — Get information about a desktop
 	- [yc desktops desktop get-rdp-file](desktop/get-rdp-file.md) — Download desktop RDP file
@@ -24,6 +24,10 @@ Syntax:
 	- [yc desktops desktop list-operations](desktop/list-operations.md) — List operations for the specified desktop
 	- [yc desktops desktop reset-password](desktop/reset-password.md) — Reset desktop Password
 	- [yc desktops desktop restart](desktop/restart.md) — Restart the specified desktop
+	- [yc desktops desktop start](desktop/start.md) — Start the specified desktop
+	- [yc desktops desktop stop](desktop/stop.md) — Stop the specified desktop
+	- [yc desktops desktop update](desktop/update.md) — Update the specified desktop
+	- [yc desktops desktop update-properties](desktop/update-properties.md) — Update a desktop
 - [yc desktops group](group/index.md) — [PREVIEW] Manage desktop groups
 	- [yc desktops group add-access-bindings](group/add-access-bindings.md) — Add access binding for the specified desktop group
 	- [yc desktops group create](group/create.md) — Create a desktop group
@@ -35,11 +39,13 @@ Syntax:
 	- [yc desktops group list-operations](group/list-operations.md) — List operations for the specified desktop group
 	- [yc desktops group remove-access-bindings](group/remove-access-bindings.md) — Remove access binding for the specified desktop group
 	- [yc desktops group set-access-bindings](group/set-access-bindings.md) — Set access bindings for the specified desktop group and delete all existing access bindings if there were any
+	- [yc desktops group update](group/update.md) — Update desktop group
 - [yc desktops image](image/index.md) — [PREVIEW] Manage desktop images
 	- [yc desktops image copy](image/copy.md) — Create desktop image as copy of the specified desktop or compute image
 	- [yc desktops image delete](image/delete.md) — Delete the specified desktop image
 	- [yc desktops image get](image/get.md) — Get information about a desktop image
 	- [yc desktops image list](image/list.md) — List desktop images
+	- [yc desktops image update](image/update.md) — Update the specified desktop image
 
 #### Global Flags
 

@@ -26,6 +26,7 @@ description: На странице представлены релизы CLI, а
 * Добавлена команда `yc desktops desktop start` для запуска рабочего стола.
 * Добавлена команда `yc desktops desktop stop` для остановки рабочего стола.
 * Добавлена команда `yc desktops desktop update` для синхронизации рабочего стола с конфигурацией группы.
+* Добавлена команда `yc desktops group update` для обновления группы рабочих столов.
 
 ##### {{ managed-k8s-name }}
 
@@ -39,8 +40,8 @@ description: На странице представлены релизы CLI, а
 
 **{{ mch-name }}**
 
-* Добавлена команда `yc clickhouse extension list` для изменения формата вывода списка доступных к установке расширений.
 * Добавлена команда `yc clickhouse cluster update-external-dictionary`, позволяющая редактировать созданные в кластере словари.
+* В команде `yc clickhouse cluster list-logs` у параметра `--service-type` появилось новое возможное значение: `clickhouse-keeper`.
 
 **{{ mkf-name }}**
 
@@ -49,6 +50,15 @@ description: На странице представлены релизы CLI, а
   * `yc managed-kafka user update`
   * `yc managed-kafka user grant-permission`
   * `yc managed-kafka user revoke-permission`
+
+**{{ mtr-name }}**
+
+* Добавлены команды для работы с каталогами {{ mtr-full-name }}:
+  * `yc managed-trino catalog create`
+  * `yc managed-trino catalog delete`
+  * `yc managed-trino catalog get`  
+  * `yc managed-trino catalog list`
+  * `yc managed-trino catalog update`
 
 ## Предыдущие релизы {#previous-release}
 

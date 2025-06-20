@@ -51,7 +51,7 @@ items:
         items:
           - name: SQL queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
-          - name: Managing databases
+          - name: Database management
             href: operations/databases.md
           - name: DB user management
             href: operations/cluster-users.md
@@ -143,7 +143,7 @@ items:
           Copying data from {{ mos-name }} to {{ mch-name }} using {{
           data-transfer-full-name }}
         href: tutorials/opensearch-to-clickhouse.md
-      - name: Entering data into storage systems
+      - name: Ingesting data into storage systems
         href: tutorials/data-ingestion.md
       - name: Using parameters
         href: tutorials/data-from-ch-with-parameters.md
@@ -179,6 +179,12 @@ items:
         href: tutorials/yq-clickhouse.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md
+      - name: >-
+          Integration with an external Microsoft SQL Server database via {{ CH
+          }} JDBC Bridge
+        href: tutorials/jdbc-ch-to-sql-server-integration.md
+      - name: Integration with an external Oracle database via {{ CH }} JDBC Bridge
+        href: tutorials/jdbc-ch-to-oracle-integration.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -308,6 +314,8 @@ items:
             href: cli-ref/cluster/update-config.md
           - name: update-extension
             href: cli-ref/cluster/update-extension.md
+          - name: update-external-dictionary
+            href: cli-ref/cluster/update-external-dictionary.md
       - name: database
         items:
           - name: Overview

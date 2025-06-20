@@ -11,7 +11,7 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
 
 ## Getting started {#before-you-begin}
 
-1. [Create a connection](../connection/create.md#create-audio-connection) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** type.
+1. [Create a connection](../connection/create.md) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** or **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** type. You do not need to use advanced settings for splitting dialogs.
 1. [Create a project](../project/create.md) with the new connection.
 
    Voice call recordings will be uploaded to the project and connection you created.
@@ -29,6 +29,8 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
     {% note info %}
 
     Via the interface, you can only upload [MP3](../../concepts/formats.md) audio files. Use the API to upload audio files in other formats supported by {{ speechsense-name }}.
+
+    {% include notitle [max-duration](../../../_includes/speechsense/data/max-duration.md) %}
 
     {% endnote %}
 

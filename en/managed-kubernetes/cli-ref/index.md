@@ -22,17 +22,21 @@ Aliases:
 - [yc managed-kubernetes create-token](create-token.md) — Create K8S token and print to STDOUT.
 - [yc managed-kubernetes list-versions](list-versions.md) — List available kubernetes versions.
 - [yc managed-kubernetes cluster](cluster/index.md) — Manage Kubernetes clusters.
+	- [yc managed-kubernetes cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster add-labels](cluster/add-labels.md) — Add labels to the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster create](cluster/create.md) — Create a Kubernetes cluster.
 	- [yc managed-kubernetes cluster delete](cluster/delete.md) — Delete a Kubernetes cluster.
 	- [yc managed-kubernetes cluster get](cluster/get.md) — Get information about a Kubernetes cluster.
 	- [yc managed-kubernetes cluster get-credentials](cluster/get-credentials.md) — Create or update kubeconfig for the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster list](cluster/list.md) — List Kubernetes clusters available in a folder.
+	- [yc managed-kubernetes cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster list-node-groups](cluster/list-node-groups.md) — List Kubernetes cluster node groups.
 	- [yc managed-kubernetes cluster list-nodes](cluster/list-nodes.md) — List nodes in all node groups of the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster list-operations](cluster/list-operations.md) — List operations for the specified Kubernetes cluster.
+	- [yc managed-kubernetes cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster remove-labels](cluster/remove-labels.md) — Remove labels from the specified Kubernetes cluster.
 	- [yc managed-kubernetes cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule mandatory maintenance for the specified Kubernetes cluster.
+	- [yc managed-kubernetes cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified Kubernetes cluster and delete all existing access bindings if there were any
 	- [yc managed-kubernetes cluster start](cluster/start.md) — Start a Kubernetes cluster and all its node groups.
 	- [yc managed-kubernetes cluster stop](cluster/stop.md) — Stop a Kubernetes cluster and all its node groups.
 	- [yc managed-kubernetes cluster update](cluster/update.md) — Modify configuration or attributes of a Kubernetes cluster.

@@ -9,11 +9,17 @@ description: Из статьи вы узнаете, как создать инс
 
 Для создания инстанса {{ mgl-name }} нужна роль [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) и роль [{{ roles.gitlab.editor }} или выше](../../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../../iam/operations/roles/grant.md).
 
+{% include [warn-subnet](../../../_includes/managed-gitlab/warn-subnet.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
    {% include [instance-create-console](../../../_includes/managed-gitlab/instance-create-console.md) %}
+
+- CLI {#cli}
+
+  {% include [instance-create-cli](../../../_includes/managed-gitlab/instance-create-cli.md) %}
 
 {% endlist %}
 

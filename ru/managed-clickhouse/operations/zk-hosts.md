@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 * [получить список хостов в кластере](#list-hosts);
 * [добавить хосты {{ ZK }}](#add-zk);
 * [изменить настройки хостов {{ ZK}}](#update-zk-settings);
-* [перезапустить хост](#restart);
+* [перезагрузить хост](#restart);
 * [перенести хосты {{ ZK }} в другую зону доступности](host-migration.md#zookeeper-hosts);
 * [удалить хост](#delete-zk-host).
 
@@ -425,7 +425,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Перезапустить хост {{ ZK }} {#restart}
+## Перезагрузить хост {{ ZK }} {#restart}
 
 {% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 

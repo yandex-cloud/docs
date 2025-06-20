@@ -54,3 +54,5 @@
 * [Are there any special aspects or restrictions on the use of a garbage collector in {{ mpg-name }} clusters?](#vacuum)
 
 * [Why is the cluster slow even though the computing resources are not used fully?](#throttling)
+
+* [Why do I get an error when using the TimescaleDB extension?](#timescale)

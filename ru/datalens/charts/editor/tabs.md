@@ -5,7 +5,9 @@ description: Из статьи вы узнаете, за что отвечают
 
 # Вкладки
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Конфигурация чарта настраивается с помощью кода на JavaScript, который заполняется на вкладках в редакторе в [интерфейсе](./index.md#interface).
 

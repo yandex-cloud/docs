@@ -1,7 +1,7 @@
 # Automating operations with {{ dataproc-full-name }} using {{ maf-full-name }}
 
 
-{{ maf-full-name }} enables you to create [Directed Acyclic Graphs (DAGs) of tasks](../../../managed-airflow/concepts/index.md) to automate your operations with [{{ dataproc-full-name }}](../../../data-proc/index.yaml). Below is an example of a DAG that includes multiple tasks:
+With {{ maf-full-name }}, you can create a [Directed Acyclic Graphs (DAG)](../../../managed-airflow/concepts/index.md) to automate your operations with [{{ dataproc-full-name }}](../../../data-proc/index.yaml). Below is an example of a DAG that includes multiple tasks:
 
 1. Create a {{ dataproc-name }} cluster.
 1. Create and run a [PySpark job](../../../data-proc/concepts/jobs.md).
@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * {{ maf-name }} cluster fee: Computing resources of the cluster components (see [{{ AF }} pricing](../../../managed-airflow/pricing.md)).
-* NAT gateway fee (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * {{ dataproc-name }} cluster fee: Using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 
@@ -51,7 +51,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * High security level
 
-   Set up your infrastructure:
+   Set up the infrastructure:
 
    1. [Create service accounts](../../../iam/operations/sa/create.md) with the following roles:
 
@@ -118,7 +118,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
          * Port range: `{{ port-any }}`
          * Protocol: `Any`
-         * Source: `Security group`
+         * Destination: `Security group`
          * Security group: `Self`
 
       * For outgoing HTTPS traffic:
@@ -132,7 +132,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
          * Port range: `{{ port-metastore }}`
          * Protocol: `Any`
-         * Source: `Security group`
+         * Destination: `Security group`
          * Security group: `metastore-sg` (`From list`)
 
    1. [Create a {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) cluster with the following parameters:
@@ -153,7 +153,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * Simplified setup
 
-   Set up your infrastructure:
+   Set up the infrastructure:
 
    1. [Create a service account](../../../iam/operations/sa/create.md) named `my-editor` with the following roles:
 
@@ -498,10 +498,10 @@ Some resources are not free of charge. Delete the resources you no longer need t
 * High security level
 
    1. [Service accounts](../../../iam/operations/sa/delete.md).
-   1. [{{ objstorage-name }}](../../../storage/operations/buckets/delete.md) buckets
+   1. [{{ objstorage-name }}](../../../storage/operations/buckets/delete.md) buckets.
    1. [{{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md) cluster.
    1. [{{ maf-name }}](../../../managed-airflow/operations/cluster-delete.md) cluster.
-   1. [Route table](../../../vpc/operations/delete-route-table.md)
+   1. [Route table](../../../vpc/operations/delete-route-table.md).
    1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
    1. [Security groups](../../../vpc/operations/security-group-delete.md).
    1. [Cloud subnets](../../../vpc/operations/subnet-delete.md) created in `data-processing-network` by default.

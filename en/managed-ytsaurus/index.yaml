@@ -2,9 +2,9 @@ title: '{{ myt-full-name }}'
 description:
   - >-
     {{ myt-full-name }} helps you deploy and maintain {{ ytsaurus-name }}
-    clusters in the {{ yandex-cloud }} infrastructure. <a
-    href="https://ytsaurus.tech">YTsaurus</a> an open source big data platform
-    for distributed storage and processing.
+    clusters in the Yandex Cloud infrastructure. <a
+    href="https://ytsaurus.tech">YTsaurus</a> is an open source distributed big
+    data storage and processing platform.
   - >-
     The {{ yandex-cloud }} infrastructure is <a
     href="/docs/security/conform">protected</a> pursuant to the Russian Federal
@@ -26,4 +26,4 @@ meta:
   keywords:
     - '{{ myt-name }}'
     - '{{ myt-full-name }}'
-    - сервис {{ myt-name }}
+    - service {{ myt-name }}

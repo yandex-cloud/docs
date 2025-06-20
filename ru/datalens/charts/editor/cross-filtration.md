@@ -5,7 +5,9 @@ description: Из статьи вы узнаете, как настроить ф
 
 # Кросс-фильтрация
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Фильтрующие параметры используются для фильтрации чартов чартами. В этом случае один чарт работает как селектор для других чартов.
 

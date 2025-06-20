@@ -51,6 +51,7 @@ Aliases:
 - [yc managed-clickhouse cluster update](update.md) — Modify configuration or attributes of a ClickHouse cluster.
 - [yc managed-clickhouse cluster update-config](update-config.md) — Update the configuration of a ClickHouse cluster.
 - [yc managed-clickhouse cluster update-extension](update-extension.md) — Modify configuration or attributes of a ClickHouse cluster extension.
+- [yc managed-clickhouse cluster update-external-dictionary](update-external-dictionary.md) — Update an external dictionary in a ClickHouse cluster.
 
 #### Global Flags
 

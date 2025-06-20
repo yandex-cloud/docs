@@ -33,8 +33,8 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
 ### 2.1.21 {#2-1-21}
 * Added the option to set the following environment variables:
 
-    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for `hadoop`.
-    * `HADOOP_HEAPSIZE` for `hive`.
+    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for `hadoop`
+    * `HADOOP_HEAPSIZE` for `hive`
 
 ### 2.1.19 {#2-1-19}
 * Fixed an error where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving a memory share for YARN NodeManager.
@@ -84,8 +84,8 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
 ### 2.0.80 {#2-0-80}
 * Added the option to set the following environment variables:
 
-    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for `hadoop`.
-    * `HADOOP_HEAPSIZE` for `hive`.
+    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for `hadoop`
+    * `HADOOP_HEAPSIZE` for `hive`
 
 ### 2.0.78 {#2-0-78}
 * Fixed an error where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving a memory share for YARN NodeManager.

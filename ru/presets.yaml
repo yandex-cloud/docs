@@ -7013,9 +7013,14 @@ default:
           field_backup-periodicity: Периодичность
           field_backup-type: Тип резервных копий
           field_interval-between-attempts: Интервал между попытками
+          field_lvm-snapshotting-disabled: С помощью агента Cloud Backup
+          field_lvm-snapshotting-enabled: С помощью LVM
           field_retention: Хранение копий
+          field_run-later: Запуск пропущенных заданий после загрузки
+          field_sector-by-sector: Посекторное резервное копирование
           field_snapshot-reaatempt: В случае ошибки при создании снимка повторить попытку
           field_start-time: Время запуска
+          field_validation-enabled: Проверка резервных копий
           field_week-days: Дни недели
           title_additional-section: Дополнительно
           title_incremental-backup-card: Инкрементальные
@@ -7299,7 +7304,11 @@ default:
         field_convert_tables_to_replicated: Преобразовать нереплицируемые таблицы
         hosts:
           dialog:
+            action_add-clickhouse-hosts: Создать хосты ClickHouse
+            action_add-host-item: Создать хост
+            action_submit: Создать хосты
             field_copy_schema: Копировать схему данных
+            title_additional-settings: Дополнительные настройки
         switch_backups: Резервные копии
         switch_list: Кластеры
         switch_operations: Операции
@@ -8757,6 +8766,7 @@ default:
           field_thresholds: Увеличивать размер
           hosts:
             action_add-host: Создать хост
+            action_delete-host: Удалить
             action_restart-host: Перезагрузить
             button_add-zookeeper: Добавить хосты ZooKeeper
             button_create-zookeeper: Настроить хосты ZooKeeper

@@ -57,7 +57,6 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 {% endlist %}
 
-
 ### C++ (userver framework) {#cpp-userver}
 
 The asynchronous [userver](https://userver.tech/) framework provides a rich set of abstractions for creating utilities, services, and microservices in C++. Among other things, the framework provides opportunities to work with {{ PG }}.

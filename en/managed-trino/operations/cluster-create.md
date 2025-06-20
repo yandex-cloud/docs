@@ -59,7 +59,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             * For Hive, Iceberg, and Delta Lake [connectors](../concepts/index.md#connector):
 
                 * **URI** to connect to the Metastore cluster in this format: `thrift://<IP_address>:<port>`.
-                * **File storage**: Select the file storage type): **Yandex Object Storage** or **External storage**. For external storage, specify the following settings:
+                * **File storage**: Select the file storage type: **Yandex Object Storage** or **External storage**. For external storage, specify the following settings:
                     * AWS-compatible static access key ID.
                     * AWS-compatible static access key secret key.
                     * File storage endpoint, such as `{{ s3-storage-host }}`.
@@ -81,8 +81,8 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         1. Optionally, configure logging:
 
             1. Enable the **{{ ui-key.yacloud.logging.field_logging }}** setting.
-            1. Select where the logs will be stored:
-                * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list.
+            1. Select the log destination:
+                * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list. Logs will be written to the default log group for the selected folder.
                 * **{{ ui-key.yacloud.logging.label_group }}**: Select a [log group](../../logging/concepts/log-group.md) from the list or create a new one.
             1. Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
 
@@ -168,7 +168,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
                      * `count`: Number of workers.
 
-                  * `fixed_scale`: Automatic scaling policy.
+                  * `autoScale`: Automatic scaling policy.
 
                       * `minCount`: Minimum number of workers.
                       * `maxCount`: Maximum number of workers.
@@ -288,7 +288,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
                        * `count`: Number of workers.
 
-                    * `fixed_scale`: Automatic scaling policy.
+                    * `auto_scale`: Automatic scaling policy.
 
                        * `min_count`: Minimum number of workers.
                        * `max_count`: Maximum number of workers.

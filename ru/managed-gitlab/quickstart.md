@@ -46,11 +46,17 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создайте инстанс {#instance-create}
 
+{% include [warn-subnet](../_includes/managed-gitlab/warn-subnet.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   {% include [instance-create-console](../_includes/managed-gitlab/instance-create-console.md) %}
+
+- CLI {#cli}
+
+  {% include [instance-create-cli](../_includes/managed-gitlab/instance-create-cli.md) %}
 
 {% endlist %}
 

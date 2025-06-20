@@ -1,10 +1,14 @@
 #### Quotas {#quotas}
 
-Type of limit | Value
---- | ---
-Number of clusters per cloud | 5
-Total number of processor cores for all cluster components per cloud | 128
-Total virtual memory for all cluster components per cloud | 256 GB
+#|
+|| Type of limit | Value ||
+|| Number of clusters per cloud 
+`managed-airflow.clusters.count` | 5 ||
+|| Total number of processor cores for all cluster components per cloud 
+`managed-airflow.cpu.count` | 128 ||
+|| Total virtual memory for all cluster components per cloud 
+`managed-airflow.memory.size` | 256 GB ||
+|#
 
 #### Limits {#limits}
 

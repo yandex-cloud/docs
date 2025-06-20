@@ -36,6 +36,15 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
+
+  {% include [acl-for-buckets](../../../_includes/storage/acl-for-buckets.md) %}
+
+  Вы можете редактировать ACL бакета с помощью следующих команд:
+  * [yc storage bucket update](#yc-storage-bucket-update)
+  * [yc storage s3api put-bucket-acl](#yc-storage-s3api-put-bucket-acl)
+
+  **yc storage bucket update** {#yc-storage-bucket-update}
+
   Перед настройкой ACL посмотрите описание команды CLI для редактирования бакета:
 
   ```bash
@@ -48,72 +57,132 @@ description: Следуя данной инструкции, вы сможете
   yc storage bucket get <имя_бакета> --with-acl
   ```
 
-  Вы можете применить к бакету [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+  _Предопределенный ACL_
 
+  Выполните команду:
 
-  Предопределенный ACL
+  ```bash
+  yc storage bucket update \
+    --name <имя_бакета> \
+    --acl <предопределенный_ACL>
+  ```
 
-  : Выполните команду:
+  Где:
+  * `--name` — имя бакета.
+  * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
 
-    ```bash
-    yc storage bucket update --name <имя_бакета> --acl <предопределенный_ACL>
-    ```
+  Результат:
 
-    Где:
-    * `--name` — имя бакета.
-    * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
+  ```text
+  name: my-bucket
+  folder_id: csgeoelk7fl1********
+  default_storage_class: STANDARD
+  versioning: VERSIONING_DISABLED
+  max_size: "1073741824"
+  acl:
+    grants:
+      - permission: PERMISSION_READ
+        grant_type: GRANT_TYPE_ALL_USERS
+  created_at: "2022-12-14T19:10:05.957940Z"
+  ```
 
-    Результат:
+  _Настройка отдельных разрешений_
 
-    ```text
-    name: my-bucket
-    folder_id: csgeoelk7fl1********
-    default_storage_class: STANDARD
-    versioning: VERSIONING_DISABLED
-    max_size: "1073741824"
-    acl:
-      grants:
-        - permission: PERMISSION_READ
-          grant_type: GRANT_TYPE_ALL_USERS
-    created_at: "2022-12-14T19:10:05.957940Z"
-    ```
+  1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
 
-  Настройка отдельных разрешений
+      {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
-  : 1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
+  1. Выполните команду:
 
-        
-        * [Пользователь](../../../iam/operations/users/get.md).
-        * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-        * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+      ```bash
+      yc storage bucket update --name <имя_бакета> \
+        --grants grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>
+      ```
 
+      Где:
+      * `grant-type` — тип получателя разрешения. Возможные значения:
+        * `grant-type-account` — пользователь, [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../../organization/concepts/groups.md);
+        * `grant-type-all-authenticated-users` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
+        * `grant-type-all-users` — публичная группа всех пользователей интернета.
+      * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
+      * `permission` — тип разрешения ACL. Возможные значения:
+        * `permission-read` — доступ к списку объектов в бакете, чтению различных настроек бакета (жизненный цикл, CORS, статический хостинг), чтению всех объектов в бакете.
+        * `permission-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `permission-read`.
+        * `permission-full-control` — полный доступ к бакету и объектам в нем.
+      
+        Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
 
-    1. Выполните команду:
+      Чтобы настроить несколько разрешений, укажите параметр `--grants` несколько раз. Например, чтобы выдать разрешение на запись в бакет, выполните команду:
 
-       ```bash
-       yc storage bucket update --name <имя_бакета> \
-         --grants grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>
-       ```
+      ```bash
+      yc storage bucket update --name <имя_бакета> \
+        --grants grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=permission-read \
+        --grants grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=permission-write
+      ```
 
-       Где:
-       * `grant-type` — тип получателя разрешения. Возможные значения:
-         * `grant-type-account` — пользователь, [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../../organization/concepts/groups.md);
-         * `grant-type-all-authenticated-users` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
-         * `grant-type-all-users` — публичная группа всех пользователей интернета.
-       * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
-       * `permission` — тип разрешения ACL. Возможные значения:
-         * `permission-read` — доступ к списку объектов в бакете, чтению различных настроек бакета (жизненный цикл, CORS, статический хостинг), чтению всех объектов в бакете.
-         * `permission-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `permission-read`.
-         * `permission-full-control` — полный доступ к бакету и объектам в нем.
-         Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
+  **yc storage s3api put-bucket-acl** {#yc-storage-s3api-put-bucket-acl}
 
-       Чтобы настроить несколько разрешений, укажите параметр `--grants` несколько раз. Например, чтобы выдать разрешение на запись в бакет, выполните команду:
+  Посмотрите текущий ACL бакета:
 
-       ```bash
-       yc storage bucket update --name <имя_бакета> \
-         --grants grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=permission-read \
-         --grants grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=permission-write
-       ```
+  ```bash
+  yc storage s3api get-bucket-acl \
+    --bucket <имя_бакета>
+  ```
+
+  Где `--bucket` — имя бакета.
+
+  _Предопределенный ACL_
+
+  Выполните команду:
+
+  ```bash
+  yc storage s3api put-bucket-acl \
+    --bucket <имя_бакета> \
+    --acl <предопределенный_ACL>
+  ```
+
+  Где:
+  * `--name` — имя бакета.
+  * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
+
+  _Настройка отдельных разрешений_
+
+  1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
+
+      {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
+
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3api put-bucket-acl \
+        --bucket <имя_бакета> \
+        <тип_разрешения> <получатель_разрешения>
+      ```
+
+      Где:
+      * `--bucket` — имя бакета.
+      * Возможные типы разрешений ACL:
+
+        * `--grant-read` — доступ к списку объектов в бакете, чтению различных настроек бакета (жизненный цикл, CORS, статический хостинг), чтению всех объектов в бакете.
+        * `--grant-write` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `--grant-read`.
+        * `--grant-full-control` — полный доступ к бакету и объектам в нем.
+
+        Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
+
+      * Возможные получатели разрешений:
+
+        * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
+        * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
+        * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — публичная группа всех пользователей интернета.
+
+      Чтобы настроить несколько разрешений, укажите параметры, тип разрешения и получателя разрешения несколько раз. Например, чтобы выдать разрешение на запись в бакет, выполните команду:
+
+      ```bash
+      yc storage s3api put-bucket-acl \
+        --bucket <имя_бакета> \
+        --grant-read id=<идентификатор_получателя> \
+        --grant-write id=<идентификатор_получателя>
+      ```
 
 - AWS CLI {#aws-cli}
 
@@ -138,7 +207,7 @@ description: Следуя данной инструкции, вы сможете
   * `--bucket` — имя бакета.
   * `--endpoint` — эндпоинт {{ objstorage-name }}.
 
-  Вы можете применить к бакету [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+  {% include [acl-for-buckets](../../../_includes/storage/acl-for-buckets.md) %}
 
   Предопределенный ACL
 
@@ -161,11 +230,7 @@ description: Следуя данной инструкции, вы сможете
 
   : 1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
 
-        
-        * [Пользователь](../../../iam/operations/users/get.md).
-        * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-        * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
-
+        {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
     1. Выполните команду:
 
@@ -249,14 +314,11 @@ description: Следуя данной инструкции, вы сможете
 
          Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
 
-       * `id` — идентификатор пользователя, сервисного аккаунта или группы пользователей. Используется с типом получателя разрешений `CanonicalUser`.
+       * `id` — идентификатор пользователя, сервисного аккаунта или группы пользователей:
 
-         
-         Идентификаторы можно получить следующими способами:
-         * [Пользователь](../../../iam/operations/users/get.md).
-         * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
+         Используется с типом получателя разрешений `CanonicalUser`.
 
        * `uri` — идентификатор публичной группы. Используется с типом получателя разрешений `Group`. Возможные значения:
          * `http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.

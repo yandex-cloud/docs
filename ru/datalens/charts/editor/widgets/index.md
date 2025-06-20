@@ -5,7 +5,9 @@ description: Из статьи вы узнаете, какие типы визу
 
 # Типы визуализаций
 
+
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 В Editor доступно несколько типов визуализации, для отрисовки которых используются разные библиотеки:
 

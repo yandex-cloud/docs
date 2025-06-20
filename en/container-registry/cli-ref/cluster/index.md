@@ -19,17 +19,21 @@ Aliases:
 
 #### Command Tree
 
+- [yc container cluster add-access-binding](add-access-binding.md) — Add access binding for the specified Kubernetes cluster.
 - [yc container cluster add-labels](add-labels.md) — Add labels to the specified Kubernetes cluster.
 - [yc container cluster create](create.md) — Create a Kubernetes cluster.
 - [yc container cluster delete](delete.md) — Delete a Kubernetes cluster.
 - [yc container cluster get](get.md) — Get information about a Kubernetes cluster.
 - [yc container cluster get-credentials](get-credentials.md) — Create or update kubeconfig for the specified Kubernetes cluster.
 - [yc container cluster list](list.md) — List Kubernetes clusters available in a folder.
+- [yc container cluster list-access-bindings](list-access-bindings.md) — List access bindings for the specified Kubernetes cluster.
 - [yc container cluster list-node-groups](list-node-groups.md) — List Kubernetes cluster node groups.
 - [yc container cluster list-nodes](list-nodes.md) — List nodes in all node groups of the specified Kubernetes cluster.
 - [yc container cluster list-operations](list-operations.md) — List operations for the specified Kubernetes cluster.
+- [yc container cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified Kubernetes cluster.
 - [yc container cluster remove-labels](remove-labels.md) — Remove labels from the specified Kubernetes cluster.
 - [yc container cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule mandatory maintenance for the specified Kubernetes cluster.
+- [yc container cluster set-access-bindings](set-access-bindings.md) — Set access bindings for the specified Kubernetes cluster and delete all existing access bindings if there were any
 - [yc container cluster start](start.md) — Start a Kubernetes cluster and all its node groups.
 - [yc container cluster stop](stop.md) — Stop a Kubernetes cluster and all its node groups.
 - [yc container cluster update](update.md) — Modify configuration or attributes of a Kubernetes cluster.

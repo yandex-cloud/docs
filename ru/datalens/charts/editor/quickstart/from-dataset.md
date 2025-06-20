@@ -5,7 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Построение таблицы на основе датасета
 
+
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Следуя данной инструкции, вы построите в Editor таблицу на основе датасета. Для удобства в качестве источника данных мы будем использовать подключение и датасет из развернутого демо-воркбука.
 
@@ -15,7 +17,10 @@ description: Следуя данной инструкции, вы сможете
 
 ## Разверните демо-воркбук {#create-template}
 
+
 1. [Разверните из маркетлейса](../../../operations/marketplace/add-marketplace-product.md) демо-воркбук с названием [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r).
+
+
 
 1. Перейдите в развернутый воркбук и на вкладке **Датасеты** найдите датасет с названием `00: Продажи`.
 
