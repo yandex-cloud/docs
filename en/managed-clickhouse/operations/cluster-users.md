@@ -189,24 +189,45 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Add a `user` block to the {{ mch-name }} cluster description:
+    1. Add the `yandex_mdb_clickhouse_user` resource:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-          ...
-          user {
-            name     = "<username>"
-            password = "<password>"
+        resource "yandex_mdb_clickhouse_user" "<username>" {
+          cluster_id = "<cluster_ID>"
+          name       = "<username>"
+          password   = "<password>"
+          permission {
+            database_name = "<DB_name>"
+          }
+          settings {
+            <parameter_1_name> = <value_1>
+            <parameter_2_name> = <value_2>
             ...
           }
         }
         ```
 
         {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+        If you create a cluster with the help of {{ TF }} at the same time as creating a user, specify a link to the new cluster's name instead of cluster ID in the `yandex_mdb_clickhouse_user` resource:
+
+        ```hcl
+
+        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+          name = "<cluster_name>"
+          ...
+        }
+
+        resource "yandex_mdb_clickhouse_user" "<username>" {
+          cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
+          name       = "<username>"
+          ...
+        }
+        ```
 
     1. Make sure the settings are correct.
 
@@ -216,9 +237,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 
@@ -413,22 +432,20 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. In the {{ mch-name }} cluster description, find the `user` block for the required user.
+    1. Locate the user's `yandex_mdb_clickhouse_user` resource.
 
     1. Change the value of the `password` field:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_user" "<username>" {
           ...
-          user {
-            name     = "<username>"
-            password = "<new_password>"
-            ...
-          }
+          name     = "<username>"
+          password = "<password>"
+          ...
         }
         ```
 
@@ -442,9 +459,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 
@@ -563,7 +578,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -588,8 +603,6 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -706,8 +719,8 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  You can change the user settings from the command line interface:
-  1. To set up the user's permissions to access certain databases, run the command, listing the database names in the `--permissions` parameter:
+  You can change the user's settings from the command line interface:
+  1. To set up the user's permissions to access particular databases, run the command by listing the database names in the `--permissions` parameter:
 
      ```bash
      {{ yc-mdb-ch }} user update <username> \
@@ -760,26 +773,27 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. To configure the user's permissions to access certain databases, add the required number of `permission` sections to the cluster user description, one for each database:
+    1. Locate the user's `yandex_mdb_clickhouse_user` resource.
+
+    1. To set up the user's permissions to access particular databases, add the required number of `permission` sections, one for each database:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_user" "<username>" {
           ...
-          user {
-            name     = "<username>"
-            password = "<password>"
-            permission {
-              database_name = "<database_1>"
-            }
-            ...
-            permission {
-              database_name = "<database_N>"
-            }
+          name       = "<username>"
+          password   = "<password>"
+          permission {
+            database_name = "<DB_1_name>"
           }
+          ...
+          permission {
+            database_name = "<DB_N_name>"
+          }
+          ...
         }
         ```
 
@@ -790,16 +804,14 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
         When describing quotas, only the `interval_duration` field is required.
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_user" "<username>" {
           ...
-          user {
-            name     = "<username>"
-            password = "<password>"
+          name       = "<username>"
+          password   = "<password>"
+          ...
+          quota {
+            interval_duration = <interval_in_milliseconds>
             ...
-            quota {
-              interval_duration = <interval_in_milliseconds>
-              ...
-            }
           }
         }
         ```
@@ -807,15 +819,15 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
     1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) add a `settings` section to its description.
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_user" "<username>" {
           ...
-          user {
-            name     = "<username>"
-            password = "<password>"
+          name       = "<username>"
+          password   = "<password>"
+          ...
+          settings {
+            <parameter_1_name> = <value_1>
+            <parameter_2_name> = <value_2>
             ...
-            settings {
-              <DBMS_settings_for_individual_user>
-            }
           }
         }
         ```
@@ -828,9 +840,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster) provider documentation.
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 
@@ -1009,11 +1019,11 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Delete the `user` block with the user's description from the {{ mch-name }} cluster description.
+    1. Delete the `yandex_mdb_clickhouse_user` resource with the user's description.
 
     1. Make sure the settings are correct.
 
@@ -1023,9 +1033,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    For more information, see the [{{ TF }} provider documentation.]({{ tf-provider-resources-link }}/mdb_clickhouse_user)
 
 - REST API {#api}
 
@@ -1137,31 +1145,23 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Add the `user` section to the cluster description.
+    1. Add the `yandex_mdb_clickhouse_user` resource:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "mych" {
-          name = "mych"
-
-          database {
-            name = "db1"
+        resource "yandex_mdb_clickhouse_user" "ro-user" {
+          cluster_id = "cat0adul1fj0********"
+          name = "ro-user"
+          password = "Passw0rd"
+          permission {
+            database_name = "db1"
           }
-
-          user {
-            name     = "ro-user"
-            password = "Passw0rd"
-            permission {
-              database_name = "db1"
-            }
-            settings {
-              readonly = 1
-            }
+          settings {
+            readonly = 1
           }
-          ...
         }
         ```
 
@@ -1241,7 +1241,7 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
 
 - SQL {#sql}
 
-  1. [Connect](connect/clients.md) to the `mych` cluster using [the `admin` account](#sql-user-management).
+  1. [Connect](connect/clients.md) to the `mych` cluster using the [`admin` account](#sql-user-management).
   1. Create a user:
 
       ```sql

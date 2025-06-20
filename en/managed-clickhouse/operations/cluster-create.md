@@ -307,16 +307,18 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
        ```
 
 
-    1. Create a configuration file with a description of the cluster and its hosts.
+    1. Create a configuration file with a description of the cluster resources to create:
 
-       * Database cluster: Description of the cluster and its hosts. Also as required here:
-          * Specify [DBMS settings](../concepts/settings-list.md). You can specify them later.
-
-             Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
-
+       * Database cluster: description of the cluster and its hosts. Also here, as needed:
+          * Specify the [DBMS server-level settings](../concepts/settings-list.md#server-level-settings). You can also provide them later.
           * Enable cluster protection against accidental deletion.
 
              {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+       * Database: cluster DB description.
+       * User: cluster user description. Also here, as needed, specify the [DBMS user-level settings](../concepts/settings-list.md#dbms-user-settings). You can also provide them later.
+
+          Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
 
        Example structure of a configuration file that describes a cluster with a single host:
 
@@ -337,23 +339,34 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
            }
          }
 
-         database {
-           name = "<DB_name>"
-         }
-
-         user {
-           name     = "<DB_user_name>"
-           password = "<password>"
-           permission {
-             database_name = "<name_of_DB_to_create_user_in>"
-           }
-         }
-
          host {
            type             = "CLICKHOUSE"
            zone             = "<availability_zone>"
            subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
            assign_public_ip = <public_access_to_host>
+         }
+
+         lifecycle {
+           ignore_changes = [database, user]
+         }
+       }
+
+       resource "yandex_mdb_clickhouse_database" "<DB_name>" {
+         cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
+         name       = "<DB_name>"
+       }
+
+       resource "yandex_mdb_clickhouse_user" "<username>" {
+         cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
+         name       = "<username>"
+         password   = "<user_password>"
+         permission {
+           database_name = yandex_mdb_clickhouse_database.<DB_name>.name
+         }
+         settings {
+           <parameter_1_name> = <value_1>
+           <parameter_2_name> = <value_2>
+           ...
          }
        }
        ```
@@ -362,12 +375,16 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
        Where:
 
        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+       * `assign_public_ip`: Public access to the host, `true` or `false`.
+       * `lifecycle.ignore_changes`: Eliminates resource conflicts in operations with users and databases created through individual resources.
 
-       * `user`: User data section. Contains the {{ CH }} user `name` and `password` as well as a list of DBs the user must have access to in the `permission` section.
+       For a user, specify the following:
 
-         {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+       * `name` and `password`: {{ CH }} user's username and password, respectively.
 
-       * `assign_public_ip`: Public access to the host, `true` or `false`.     
+          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+       * `permission`: List of DBs the user must have access to.
 
        1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
@@ -405,7 +422,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
           {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-          *  {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
+          * {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
 
 
           * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
@@ -599,7 +616,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
-                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+                {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
@@ -797,7 +814,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
-                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+                {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
@@ -878,9 +895,11 @@ To create a {{ CH }} cluster copy:
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
         * In the `host` sections, delete the `fqdn` parameters.
-        * If the `clickhouse.config.merge_tree` section has `max_parts_in_total = 0`, delete this parameter.
+        * Under `clickhouse.config.merge_tree`, if `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, and `number_of_free_entries_in_pool_to_execute_mutation` are set to `0`, delete these parameters.
+        * Under `clickhouse.config.kafka`, set a value for `sasl_password` or delete this parameter.
+        * Under `clickhouse.config.rabbitmq`, set a value for `password` or delete this parameter.
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
-        * If there are `user` sections, add the `name` and `password` parameters to them.
+        * Delete all `user` sections (if any). You can add database users using the separate `yandex_mdb_clickhouse_user` resource.
         * Optionally, make further changes if you need to customize the configuration.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
@@ -895,7 +914,7 @@ To create a {{ CH }} cluster copy:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -932,7 +951,7 @@ To create a {{ CH }} cluster copy:
   * Cluster protection from accidental deletion.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

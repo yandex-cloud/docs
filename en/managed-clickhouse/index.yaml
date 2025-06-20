@@ -64,3 +64,18 @@ meta:
   description: >-
     With Managed Service for ClickHouse®, you can deploy and maintain
     ClickHouse® server clusters in the Yandex Cloud infrastructure.
+  keywords:
+    - '{{ mch-name }}'
+    - '{{ mch-full-name }}'
+    - Service {{ mch-name }}
+    - '{{ CH }} in {{ yandex-cloud }}'
+    - '{{ CH }} cluster'
+    - ClickHouse cluster
+    - ClickHouse server clusters
+    - '{{ CH }} server clusters'
+    - '{{ CH }}'
+    - Clickhouse
+    - '{{ CH }} in cloud'
+    - Open source DBMS
+    - Analytical DBMS
+    - Column-oriented DBMS

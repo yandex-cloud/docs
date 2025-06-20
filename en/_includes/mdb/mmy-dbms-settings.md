@@ -610,6 +610,8 @@
 
   The minimum value is `0` (no limit), and the maximum value is `1048576`. The default value is `0`.
 
+  This feature is supported only by {{ MY }} 8.0.
+
   For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_regexp_time_limit).
 
 - **Replication optimize for static plugin config**{#setting-replication-optimize-for-static-plugin-config} {{ tag-con }} {{ tag-api }}
@@ -620,7 +622,7 @@
 
   Enable this setting together with **Replication sender observe commit only**. This will improve cluster performance even with a large number of replicas.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config).
 
@@ -632,7 +634,7 @@
 
   Enable this setting together with **Replication optimize for static plugin config**. This will improve cluster performance even with a large number of replicas.
 
-  This setting is disabled by default.
+  The setting is disabled by default.
 
   For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only).
 

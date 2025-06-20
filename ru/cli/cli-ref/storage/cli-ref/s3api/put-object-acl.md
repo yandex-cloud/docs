@@ -20,7 +20,7 @@ Syntax:
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
 |`--key`|<b>`string`</b><br/>[REQUIRED] Object key|
 |`--version-id`|<b>`string`</b><br/>Version ID used to reference a specific version of the object.|
-|`--acl`|<b>`string`</b><br/>Grants the access grantee the following permissions: READ, WRITE, READ_ACP, and WRITE_ACP for an object.|
+|`--acl`|<b>`string`</b><br/>Sets a predefined ACL for an object.|
 |`--access-control-policy`|<b>`string`</b><br/>Contains the elements that set the ACL permissions for an object per grantee.|
 |`--grant-full-control`|<b>`string`</b><br/>Grants the access grantee the following permissions: READ, WRITE, READ_ACP, and WRITE_ACP for an object.|
 |`--grant-read`|<b>`string`</b><br/>Grants the access grantee object read permission.|

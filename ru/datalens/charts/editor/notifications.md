@@ -5,7 +5,9 @@ description: Из статьи вы узнаете про уведомления
 
 # Уведомления
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Чтобы сообщить информацию пользователю, просматривающему ваш чарт, используйте механизм уведомлений в Editor.
 

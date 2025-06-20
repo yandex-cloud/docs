@@ -1,12 +1,17 @@
 #### Quotas {#mpg-quotas}
 
-| Type of limit                                                                | Value |
-|:-------------------------------------------------------------------------------|:---------|
-| Connection time-to-live                                                        | 12 hours |
-| Number of clusters per cloud                                            | 16       |
-| Total number of processor cores for all database hosts per cloud | 96       |
-| Total virtual memory for all database hosts per cloud   | 640 GB   |
-| Total storage capacity for all clusters per cloud                     | 4,096 GB  |
+#|
+|| Type of limit | Value ||
+|| Connection time-to-live | 12 hours ||
+|| Number of clusters per cloud 
+`mdb.clusters.count` | 16 ||
+|| Total number of processor cores for all database hosts per cloud 
+`mdb.cpu.count` | 64 ||
+|| Total virtual memory for all database hosts per cloud 
+`mdb.memory.size` | 512 GB ||
+|| Total storage capacity for all clusters per cloud 
+`mdb.ssd.size` | 4,096 GB ||
+|#
 
 #### Limits {#mpg-limits}
 

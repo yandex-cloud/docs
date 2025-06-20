@@ -66,7 +66,7 @@ Rule settings depend on the connection method you select:
 
 {% note info %}
 
-You can specify more detailed rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
 
 You must configure security groups correctly for all subnets in which the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster if the master is switched [manually](hosts.md#update) or [automatically](../concepts/replication.md#replication-auto).
 
@@ -227,6 +227,7 @@ The `libpq` library supports the `read-write` value for this parameter starting 
 {% endcut %}
 
 {% endnote %}
+
 
 ## Connecting from graphical IDEs {#connection-ide}
 

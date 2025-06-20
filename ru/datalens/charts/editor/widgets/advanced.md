@@ -5,7 +5,9 @@ description: Из статьи вы узнаете, что такое Advanced-�
 
 # Advanced-чарт
 
+
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Этот тип визуализации позволяет создавать HTML с безопасной разметкой через функцию [Editor.generateHtml(args)](../methods.md#gen-html) и гибкие SVG-визуализации с использованием библиотек `d3`, `d3-chord` и `d3-sankey`.
 

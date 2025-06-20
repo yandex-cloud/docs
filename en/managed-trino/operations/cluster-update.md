@@ -33,8 +33,12 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cluster security group.
     1. Change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable or disable cluster deletion protection.
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable or disable logging. If logging is enabled, specify the log group or folder to write logs to and the minimum logging level.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+        * Enable or disable cluster deletion protection.
+        * Enable or disable logging. If logging is enabled, select:
+
+            * Log destination: custom [log group](../../logging/concepts/log-group.md) or default log group in the selected folder.  
+            * Minimum logging level.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - REST API {#api}
@@ -125,7 +129,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                        * `count`: Number of workers.
 
-                    * `fixed_scale`: Automatic scaling policy.
+                    * `autoScale`: Automatic scaling policy.
 
                        * `minCount`: Minimum number of workers.
                        * `maxCount`: Maximum number of workers.
@@ -271,7 +275,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                        * `count`: Number of workers.
 
-                    * `fixed_scale`: Automatic scaling policy.
+                    * `auto_scale`: Automatic scaling policy.
 
                        * `min_count`: Minimum number of workers.
                        * `max_count`: Maximum number of workers.

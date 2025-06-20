@@ -19,6 +19,7 @@ Syntax:
 - [yc desktops image delete](delete.md) — Delete the specified desktop image
 - [yc desktops image get](get.md) — Get information about a desktop image
 - [yc desktops image list](list.md) — List desktop images
+- [yc desktops image update](update.md) — Update the specified desktop image
 
 #### Global Flags
 

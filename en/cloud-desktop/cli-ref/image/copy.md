@@ -11,7 +11,7 @@ Create desktop image as copy of the specified desktop or compute image
 
 Syntax: 
 
-`yc desktops image copy <IAMGE-NAME>|<IAMGE-ID> [<IAMGE-NAME>|<IAMGE-ID>...] [Global Flags...]`
+`yc desktops image copy <IMAGE-NAME>|<IMAGE-ID> [<IMAGE-NAME>|<IMAGE-ID>...] [Global Flags...]`
 
 #### Flags
 

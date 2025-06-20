@@ -1,9 +1,3 @@
-{% note warning %}
-
-После создания инстанса нельзя изменить его сетевую конфигурацию: зону доступности и подсеть.
-
-{% endnote %}
-
 1. В консоли управления выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс {{ GL }}](../../managed-gitlab/concepts/index.md#instance).
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
@@ -28,11 +22,7 @@
    1. Выберите размер [диска](../../compute/concepts/disk.md). После создания инстанса размер его диска [можно увеличить](../../managed-gitlab/operations/instance/instance-update.md).
    1. Укажите [доменное имя инстанса](../../compute/concepts/network.md#hostname) — для него будут автоматически созданы нужные DNS-записи в домене `.gitlab.yandexcloud.net`.
 
-      Доменное имя должно быть уникальным в рамках {{ yandex-cloud }}.
-
-      * Длина — от 5 до 50 символов.
-      * Может содержать строчные буквы латинского алфавита, цифры и дефисы.
-      * Первый и последний символ — не дефис.
+      {% include [domain-name-format](domain-name-format.md) %}
 
    1. Задайте срок хранения автоматических резервных копий (в днях).
    1. (Опционально) Включите [правила ревью кода](../../managed-gitlab/concepts/approval-rules.md). Для этого выберите подходящую конфигурацию правил ревью.

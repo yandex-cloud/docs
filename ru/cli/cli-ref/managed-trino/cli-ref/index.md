@@ -19,7 +19,11 @@ Aliases:
 
 #### Command Tree
 
-- [yc managed-trino cluster](cluster/index.md) — Manage Trino clusters.
+- [yc managed-trino catalog](catalog/index.md) — Manage Trino catalogs
+	- [yc managed-trino catalog delete](catalog/delete.md) — Delete the specified Trino catalog
+	- [yc managed-trino catalog get](catalog/get.md) — Show information about the specified Trino catalog
+	- [yc managed-trino catalog list](catalog/list.md) — List Trino catalogs
+- [yc managed-trino cluster](cluster/index.md) — Manage Trino clusters
 	- [yc managed-trino cluster create](cluster/create.md) — Create Trino cluster
 	- [yc managed-trino cluster delete](cluster/delete.md) — Delete the specified Trino cluster
 	- [yc managed-trino cluster get](cluster/get.md) — Show information about the specified Trino cluster

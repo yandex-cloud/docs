@@ -5,9 +5,11 @@ description: Из статьи вы узнаете, как добавить се
 
 # Добавление селектора JS на дашборд
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
 
 Перед добавлением селектора убедитесь, что у вас есть право доступа `{{ permission-write }}` или `{{ permission-admin }}` на дашборд. Подробнее в разделе [{#T}](../../security/manage-access.md).
+
 
 Чтобы добавить [селектор](./widgets/controls.md) на дашборд:
 

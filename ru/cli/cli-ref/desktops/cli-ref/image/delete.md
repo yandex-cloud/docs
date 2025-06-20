@@ -11,7 +11,7 @@ Delete the specified desktop image
 
 Syntax: 
 
-`yc desktops image delete <IAMGE-NAME>|<IAMGE-ID> [<IAMGE-NAME>|<IAMGE-ID>...] [Global Flags...]`
+`yc desktops image delete <IMAGE-NAME>|<IMAGE-ID> [<IMAGE-NAME>|<IMAGE-ID>...] [Global Flags...]`
 
 #### Flags
 

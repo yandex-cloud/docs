@@ -7,7 +7,7 @@ description: Follow this guide to change {{ CH }} settings at the query level.
 
 You can specify [{{ CH }} settings at the query level](https://clickhouse.com/docs/en/operations/settings/query-level) to flexibly configure databases in a {{ mch-name }} cluster. You can specify settings in several ways:
 
-* Using the [{{ yandex-cloud }} interfaces](#yandex-cloud-interfaces). This way, you can specify only the [{{ CH }} settings available in {{ yandex-cloud }}](../concepts/settings-list.md#user-level-settings).
+* Using the [{{ yandex-cloud }} interfaces](#yandex-cloud-interfaces). This way you can specify only the [{{ CH }} settings available in {{ yandex-cloud }}](../concepts/settings-list.md#user-level-settings).
 * Using SQL queries. This way you can specify any {{ CH }} settings at the query level. The method of specifying settings depends on their type:
 
    * [User settings](#user). In the `CREATE USER` and `ALTER USER` SQL queries, you can use the `SETTINGS` condition to provide settings. This way, settings will apply to the selected user only.
@@ -51,7 +51,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
    To configure {{ CH }}:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the name of the cluster you need, then go the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** section.
    1. In the appropriate user row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.section_additional }}** list, expand **settings** and specify the [{{ CH }} settings](../concepts/settings-list.md#user-level-settings).
@@ -89,25 +89,20 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
    To configure {{ CH }}:
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
    1. In the {{ mch-name }} cluster user description, under `settings`, edit the following parameters:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+      resource "yandex_mdb_clickhouse_user" "<username>" {
         ...
-        user {
-          name = <username>
+        settings {
+          <parameter_1_name> = <value_1>
+          <parameter_2_name> = <value_2>
           ...
-          settings {
-            <parameter1_name> = <Value1>
-            <parameter2_name> = <Value2>
-            ...
-          }
         }
-        ...
       }
       ```
 
@@ -119,9 +114,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 
@@ -151,7 +144,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
         * `settings`: Required [{{ CH }} settings](../concepts/settings-list.md#user-level-settings) with new values.
 
-        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
 
     1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -194,7 +187,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
         * `settings`: Required [{{ CH }} settings](../concepts/settings-list.md#user-level-settings) with new values.
 
-        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
 
     1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

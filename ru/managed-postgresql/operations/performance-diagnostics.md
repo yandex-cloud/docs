@@ -324,7 +324,7 @@
 
 {% endlist %}
 
-Подробнее про отображаемые сведения см. в документации расширений [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6) и [pg_stat_kcache](https://pgstats.dev/pg_stat_kcache).
+Подробнее про отображаемые сведения см. в документации расширений [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) и [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache/blob/master/README.rst).
 
 ## Получить информацию о плане выполнения запроса {#auto-explain-enable}
 

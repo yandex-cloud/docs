@@ -1,0 +1,3 @@
+By default, connections include keys with the name and ID of the agent and the customer. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}. You can also add a description, if required.
+
+To specify additional metadata for the agent and the customer, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**. Make sure to enter the new key name and select a [metadata type](../../../speechsense/concepts/resources-hierarchy.md#connection).

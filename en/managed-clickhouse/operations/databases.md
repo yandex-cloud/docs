@@ -3,14 +3,14 @@ title: How to manage {{ CH }} cluster databases in {{ mch-full-name }}
 description: Follow this guide to manage {{ CH }} cluster databases.
 ---
 
-# Managing databases in {{ mch-name }}
+# Database management in {{ mch-name }}
 
 {{ mch-name }} provides two ways for you to manage cluster databases:
 
 * Using native {{ yandex-cloud }} interfaces, such as the CLI, API, or management console. Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
 
-## Managing databases via SQL {#sql-database-management}
+## Database management via SQL {#sql-database-management}
 
 To enable management, activate the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** options when [creating](cluster-create.md) or [reconfiguring](./update.md#SQL-management) a cluster.
 
@@ -145,18 +145,31 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Add the `database` DB description block to the {{ mch-name }} cluster description:
+    1. Add the `yandex_mdb_clickhouse_database` resource:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-          ...
-          database {
-            name = "<DB_name>"
-          }
+        resource "yandex_mdb_clickhouse_database" "<DB_name>" {
+          cluster_id = "<cluster_ID>"
+          name       = "<DB_name>"
         }
         ```
 
         {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
+        If you create a cluster with the help of {{ TF }} at the same time as creating a DB, specify a link to the new cluster's name instead of cluster ID in the `yandex_mdb_clickhouse_database` resource:
+
+        ```hcl
+
+        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+          name = "<cluster_name>"
+          ...
+        }
+
+        resource "yandex_mdb_clickhouse_database" "<DB_name>" {
+          cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
+          name       = "<DB_name>"
+        }
+        ```
 
     1. Make sure the settings are correct.
 
@@ -166,9 +179,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
 - REST API {#api}
 
@@ -275,7 +286,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Delete the `database` DB description block from the {{ mch-name }} cluster description.
+    1. Delete the `yandex_mdb_clickhouse_database` resource with the name of the database you want to delete.
 
     1. Make sure the settings are correct.
 
@@ -285,9 +296,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
 - REST API {#api}
 

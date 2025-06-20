@@ -884,8 +884,14 @@ items:
           Loading data from {{ ydb-name }} to {{ mch-name }} using {{
           data-transfer-name }}
         href: dataplatform/ydb-to-clickhouse.md
+      - name: >-
+          {{ mch-full-name }} integration with Microsoft SQL Server via {{ CH }}
+          JDBC Bridge
+        href: dataplatform/jdbc-ch-to-sql-server-integration.md
       - name: Migrating databases from Google BigQuery to {{ mch-name }}
         href: dataplatform/bigquery-to-clickhouse.md
+      - name: '{{ mch-full-name }} integration with Oracle via {{ CH }} JDBC Bridge'
+        href: dataplatform/jdbc-ch-to-oracle-integration.md
       - name: >-
           Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
           other cloud networks
@@ -1159,6 +1165,8 @@ items:
           Creating a schema registry to deliver data in Debezium CDC format from
           {{ KF }}
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
+      - name: Automating operations using {{ maf-full-name }}
+        href: dataplatform/airflow-and-spark.md
   - name: Microsoft products in {{ yandex-cloud }}
     items:
       - name: All tutorials

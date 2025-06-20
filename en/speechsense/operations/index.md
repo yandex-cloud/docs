@@ -11,6 +11,7 @@ description: This page presents all the guides on how to use {{ speechsense-name
 
   * [{#T}](data/upload-audio-console.md)
   * [{#T}](data/upload-data.md)
+  * [{#T}](data/upload-data-split.md)
   * [{#T}](data/upload-chat-text.md)
 
 * Searching data:
@@ -35,6 +36,7 @@ description: This page presents all the guides on how to use {{ speechsense-name
 ## Connections {#connection}
 
 * [{#T}](connection/create.md)
+* [{#T}](connection/edit.md)
 
 ## Projects {#project}
 

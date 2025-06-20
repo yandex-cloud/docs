@@ -43,3 +43,17 @@ meta:
   description: >-
     Managed Service for MySQL® helps deploy and maintain MySQL server clusters
     in the Yandex Cloud infrastructure.
+  keywords:
+    - '{{ mmy-name }}'
+    - '{{ mmy-full-name }}'
+    - Service {{ mmy-name }}
+    - '{{ MY }} in {{ yandex-cloud }}'
+    - '{{ MY }} cluster'
+    - '{{ MY }} server clusters'
+    - '{{ MY }}'
+    - MySQL
+    - '{{ MY }} in cloud'
+    - Relational DBMS
+    - MySQL
+    - MySQL server clusters
+    - MySQL cluster

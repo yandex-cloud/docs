@@ -1,10 +1,11 @@
 #### Quotas {#quotas}
 
-| Type of limit                                                                   | Value |
-|:----------------------------------------------------------------------------------|:---------|
-| Number of clusters per cloud                                               | 10       |
-| Total number of processor cores for all cluster components per cloud | 120      |
-| Total virtual memory for all cluster components per cloud   | 480 GB   |
+#|
+|| Type of limit | Value ||
+|| Number of clusters per cloud | 10 ||
+|| Total number of processor cores for all cluster components per cloud | 120 ||
+|| Total virtual memory for all cluster components per cloud | 480 GB ||
+|#
 
 #### Limits {#limits}
 

@@ -772,6 +772,7 @@ default:
   tf-provider-mos: https://terraform-provider.yandexcloud.net/resources/mdb_opensearch_cluster
   tf-provider-mpg: https://terraform-provider.yandexcloud.net/resources/mdb_postgresql_cluster
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/resources/mdb_redis_cluster
+  tf-provider-msp: https://terraform-provider.yandexcloud.net/resources/spark_cluster
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
   TF-version: '0.90'
   TR: Trino
@@ -7004,9 +7005,14 @@ default:
           field_backup-periodicity: Frequency
           field_backup-type: Backup type
           field_interval-between-attempts: Time between attempts
+          field_lvm-snapshotting-disabled: Via Cloud Backup agent
+          field_lvm-snapshotting-enabled: Via LVM
           field_retention: Copy retention
+          field_run-later: Run missed tasks after uploading
+          field_sector-by-sector: Sector-by-sector backup
           field_snapshot-reaatempt: Retry in case of an error while creating a snapshot
           field_start-time: Start time
+          field_validation-enabled: Backup checks
           field_week-days: Days of the week
           title_additional-section: Additional
           title_incremental-backup-card: Incremental
@@ -7286,7 +7292,11 @@ default:
         field_convert_tables_to_replicated: Convert non-replicated tables
         hosts:
           dialog:
+            action_add-clickhouse-hosts: Create ClickHouse hosts
+            action_add-host-item: Create host
+            action_submit: Create hosts
             field_copy_schema: Copy data schema
+            title_additional-settings: Additional settings
         switch_backups: Backups
         switch_list: Clusters
         switch_operations: Operations
@@ -8742,6 +8752,7 @@ default:
           field_thresholds: Increase size
           hosts:
             action_add-host: Create host
+            action_delete-host: Delete
             action_restart-host: Restart
             button_add-zookeeper: Add ZooKeeper hosts
             button_create-zookeeper: Set up ZooKeeper hosts

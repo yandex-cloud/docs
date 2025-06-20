@@ -2,8 +2,8 @@ title: Yandex Managed Service for Apache Kafka®
 description:
   - >-
     Yandex Managed Service for Apache Kafka<sup>®</sup> helps you deploy and
-    maintain clusters of Apache Kafka<sup>®</sup> server versions 2.8, 3.0, 3.1,
-    3.2, 3.3, 3.4, 3.5, and 3.6 in the Yandex Cloud infrastructure.
+    maintain Apache Kafka<sup>®</sup> 3.5 and 3.6 server clusters in the Yandex
+    Cloud infrastructure.
   - >-
     The Yandex Cloud infrastructure is <a
     href="/docs/security/conform">protected</a> pursuant to the following
@@ -34,7 +34,7 @@ links:
     description: Address common tasks with {{ mkf-name }}
     href: tutorials/
   - title: Quotas and limits
-    description: Technical and organizational limitations
+    description: Technical and management-related limitations
     href: concepts/limits
   - title: Access management
     description: Configure access permissions to use the service
@@ -48,3 +48,15 @@ meta:
     Yandex Managed Service for Apache Kafka® helps you deploy and maintain
     Apache Kafka® 3.5 and 3.6 server clusters in the Yandex Cloud
     infrastructure.
+  keywords:
+    - Apache Kafka
+    - Kafka
+    - '{{ mkf-name }} cluster'
+    - '{{ mkf-name }}'
+    - broker host
+    - KRaft
+    - '{{ mkf-name }} server clusters'
+    - Kafka in {{ yandex-cloud }}
+    - Apache Kafka in {{ yandex-cloud }}
+    - '{{ mkf-name }} in {{ yandex-cloud }}'
+    - '{{ mkf-name }}'

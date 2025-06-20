@@ -1,0 +1,1 @@
+This feature is supported by {{ PG }} starting from version 14.

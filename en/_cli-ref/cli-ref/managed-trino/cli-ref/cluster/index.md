@@ -4,7 +4,7 @@ editable: false
 
 # yc managed-trino cluster
 
-Manage Trino clusters.
+Manage Trino clusters
 
 #### Command Usage
 
