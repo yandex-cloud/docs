@@ -1,3 +1,3 @@
-## Batching {#batching}
+## Event batching {#batching}
 
-Batching settings allow you to simultaneously send multiple events to a container. They set a top limit on the size of an event group and its accumulation time. For example, if the size of an event group is 3, the container can receive groups with 1 to 3 events.
+Batching settings allow you to send multiple events to a container at the same time. They set a top limit on the event batch size and accumulation time. For example, if the event batch size is 3, the container can receive batches of 1 to 3 events.

@@ -15,21 +15,21 @@ There are two types of roles in {{ datalens-short-name }}:
 
 To grant a user access to {{ datalens-short-name }}, [assign](../../organization/security/index.md#add-role) them a role. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md).
 
-{% list tabs %}
+{% list tabs group=datalens_roles %}
 
-- Before switching to workbooks and collections
-
-  {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
-
-  {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
-
-- After switching to workbooks and collections
+- After switching to workbooks and collections {#after-workbooks-collections}
 
   {% include [roles-datalens-visitor](../../_includes/roles-datalens-visitor.md) %}
 
   {% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
 
   {% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
+
+- Before switching to workbooks and collections {#before-workbooks-collections}
+
+  {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
+
+  {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
 
 {% endlist %}
 

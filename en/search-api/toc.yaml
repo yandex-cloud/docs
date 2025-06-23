@@ -2,67 +2,67 @@ title: '{{ search-api-full-name }}'
 href: index.yaml
 items:
   - name: Getting started
-    items:
-      - name: Overview
-        href: quickstart/index.md
-      - name: Getting started with API v1
-        href: quickstart.md
-      - name: Getting started with API v2
-        href: quickstart/v2.md
+    href: quickstart/index.md
   - name: Step-by-step guides
     items:
       - name: All guides
         href: operations/index.md
+      - name: Synchronous search
+        href: operations/web-search-sync.md
+      - name: Deferred search
+        href: operations/web-search.md
+      - name: Mobile search results
+        href: operations/v2-mobile.md
       - name: API v1
         items:
           - name: General connection procedure
             href: operations/workaround.md
+            hidden: true
           - name: Query testing
             href: operations/test-request.md
-          - name: Authentication with the API
+            hidden: true
+          - name: API authentication
             href: operations/auth.md
+            hidden: true
           - name: Requesting limits
             href: operations/request-limits.md
+            hidden: true
           - name: Performing search queries
             href: operations/searching.md
+            hidden: true
           - name: Mobile search results
             href: operations/mobile.md
-      - name: API v2
-        items:
-          - name: Performing search queries in synchronous mode
-            href: operations/web-search-sync.md
-          - name: Performing search queries in deferred mode
-            href: operations/web-search.md
-          - name: Mobile search results
-            href: operations/v2-mobile.md
+            hidden: true
   - name: Concepts
     items:
       - name: Overview
         href: concepts/index.md
-      - name: API v1
-        items:
-          - name: Text search
-            items:
-              - name: GET requests
-                href: concepts/get-request.md
-              - name: POST requests
-                href: concepts/post-request.md
-          - name: Searching by images
-            items:
-              - name: GET requests
-                href: concepts/pic-search.md
-              - name: Response format
-                href: concepts/pic-response.md
-      - name: API v2
-        items:
-          - name: Text search
-            href: concepts/web-search.md
+      - name: Text search
+        href: concepts/web-search.md
       - name: XML response
         href: concepts/response.md
       - name: HTML response
         href: concepts/html-response.md
       - name: Generative response
         href: concepts/generative-response.md
+      - name: API v1
+        items:
+          - name: Text search
+            items:
+              - name: GET requests
+                href: concepts/get-request.md
+                hidden: true
+              - name: POST requests
+                href: concepts/post-request.md
+                hidden: true
+          - name: Searching by images
+            items:
+              - name: GET requests
+                href: concepts/pic-search.md
+                hidden: true
+              - name: Response format
+                href: concepts/pic-response.md
+                hidden: true
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

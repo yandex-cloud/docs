@@ -271,7 +271,6 @@ The current release improved the quality of the Russian-language `general:rc` mo
 
 1. New languages are also available under their own codes. The `general:rc` model uses an indication as a hint for language recognition. If the language is indicated explicitly, the model will use it as a hint to improve the recognition quality. Currently, a hint only affects the quality of recognition of Russian.
 
-When using `general:rc`, we recommend that you enable [autotuning](stt/additional-training.md#autotuning).
 
 _Known problems_: in universal mode, recognition quality may deteriorate in the case of continuous speech without pauses.
 

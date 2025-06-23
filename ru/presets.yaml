@@ -6641,7 +6641,7 @@ default:
             button_create: Создать
             field_description: Описание
       layout:
-        organization: Организация
+        organization: Identity Hub
       organization:
         userpool:
           action_delete-domain: Удалить
@@ -6655,7 +6655,7 @@ default:
           field_full-name: Полное имя
           field_password: Пароль
           title_personal-info: Персональная информация
-          title_userpool_members: Участники
+          title_userpool_members: Пользователи
       page:
         acl-diagnostics:
           action_select-subject: Выбрать субъект
@@ -9534,6 +9534,10 @@ default:
           create_action: Создать задание
           popup-action_label_cancel-msg: Отменить задание
         label_history-server: History Server
+      speechkit-common:
+        brand-voice_create-dataset_option_title_upload-zip_nFtBR: Загрузить ZIP-архив
+        button_create-dataset_nLanW: Создать датасет
+        button_create-voice_nkMBz: Создать голос
       speechkit:
         help-speech-synthesis:
           context_pauses-title: Паузы
@@ -11905,7 +11909,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
-        tag: 1.0.8-1
+        tag: 1.0.9
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh
@@ -11917,7 +11921,7 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.42.1
+        tag: 0.43.0
     yc_external-secrets:
       helmChart:
         name: >-
@@ -11947,7 +11951,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.6.1
+        tag: v0.7.0
     yc_gitlab-agent:
       helmChart:
         name: >-

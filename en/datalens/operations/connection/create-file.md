@@ -9,7 +9,7 @@ To create a connection to a file:
 
 1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Files and services**, select the **Files** connection.
-1. Click **Upload files** and select the file. The information about the added file and the uploaded data will be displayed in the center of the screen.
+1. Click **Upload files** and select the file. The information about the added file and the uploaded data will be displayed at the center of the screen.
 
    {% note info %}
 
@@ -51,7 +51,20 @@ To create a connection to a file:
 
 1. Enter a name for the connection and click **Create**.
 
-You can add, rename, and delete files in the connection.
+You can add, rename, [replace](#file-replace), and delete existing files in the connection.
+
+## File replacement {#file-replace}
+
+To update the connection data, replace a file:
+
+1. In the row with the file name, click ![image](../../../_assets/console-icons/ellipsis.svg) → **Replace** and specify a file. After the file is uploaded, the updated data will be displayed in the central area of the screen.
+1. Click **Save changes**. This will update the data for all datasets and chats built based on this connection.
+
+{% note tip %}
+
+For dynamic data, you can use other sources, e.g., [{{ CH }}](./create-clickhouse.md).
+
+{% endnote %}
 
 
 ## Use cases {#examples}
@@ -60,3 +73,5 @@ You can add, rename, and delete files in the connection.
 * [{#T}](../../tutorials/data-from-csv-to-public-visualization.md)
 * [{#T}](../../tutorials/data-from-ch-visualization.md)
 
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

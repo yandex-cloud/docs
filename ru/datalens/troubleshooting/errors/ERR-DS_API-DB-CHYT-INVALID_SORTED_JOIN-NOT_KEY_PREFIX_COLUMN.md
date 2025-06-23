@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_KEY_PREFIX_COLUMN
+description: На странице приведено описание ошибки ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_KEY_PREFIX_COLUMN.
+---
+
 # Joined columns should form prefix of joined table key columns
 
 `ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_KEY_PREFIX_COLUMN`

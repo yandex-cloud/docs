@@ -1,6 +1,8 @@
 # x-yc-apigateway:smartWebSecurity extension
 
-The `x-yc-apigateway:smartWebSecurity` extension uses rules set in the [{{ sws-full-name }} security profile](../../../smartwebsecurity/concepts/profiles.md) to protect an [API gateway](../../concepts/index.md). For example, you can use the [basic rules](../../../smartwebsecurity/concepts/rules.md#base-rules) to block unwanted traffic or [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) to limit the number of requests. You are not charged for blocked API gateway requests. 
+The `x-yc-apigateway:smartWebSecurity` extension uses rules set in the [{{ sws-full-name }} security profile](../../../smartwebsecurity/concepts/profiles.md) to protect an [API gateway](../../concepts/index.md). For example, you can use the [basic rules](../../../smartwebsecurity/concepts/rules.md#base-rules) to block unwanted traffic or [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) to limit the number of requests.
+
+You only pay for those requests to an API gateway that were checked and not blocked. There is a separate fee for using the security profile as per the [{{ sws-full-name }} pricing policy](../../../smartwebsecurity/pricing.md).
 
 ## Supported parameters {#parameters}
 

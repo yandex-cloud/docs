@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS
+description: На странице приведено описание ошибки ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS.
+---
+
 # Invalid top-level LOD dimension found in expression
 
 `ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS`

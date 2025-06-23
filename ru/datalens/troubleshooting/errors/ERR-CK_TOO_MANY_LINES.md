@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.CK.TOO_MANY_LINES
+description: На странице приведено описание ошибки ERR.CK.TOO_MANY_LINES.
+---
+
 # Too many series on the chart
 
 `ERR.CK.TOO_MANY_LINES`

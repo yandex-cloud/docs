@@ -1,0 +1,1 @@
+You can export data to [{{ yds-name }}](../../data-streams/) only from the `*/events` and `*/commands` topics.

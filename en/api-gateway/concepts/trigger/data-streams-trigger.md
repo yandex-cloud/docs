@@ -1,6 +1,6 @@
 ---
 title: Trigger for {{ yds-full-name }} that sends messages to WebSocket connections
-description: In this article, you will learn about the {{ yds-name }} trigger, the format of the messages it sends, and the roles required to work with the trigger.
+description: In this article, you will learn about the {{ yds-name }} trigger, the format of the messages it sends, and the roles required to use the trigger.
 ---
 
 # Trigger for {{ yds-name }} that sends messages to WebSocket connections
@@ -11,9 +11,11 @@ A trigger for {{ yds-name }} requires [service accounts](../../../iam/concepts/u
 
 For more information about creating a trigger for {{ yds-name }}, see [{#T}](../../operations/trigger/data-streams-trigger-create.md).
 
+{% include [batching-messages](../../../_includes/api-gateway/batching-messages.md) %}
+
 ## Roles required for the proper operation of a trigger for {{ yds-name }} {#roles}
 
-* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
+* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
 * For the trigger to fire, service accounts need the following roles:
     * `api-gateway.websocketBroadcaster` for the folder containing the API gateway.
     * `yds.admin` for the stream that invokes the trigger when data is sent to it.
@@ -22,7 +24,7 @@ For more information about creating a trigger for {{ yds-name }}, see [{#T}](../
 
 {% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
 
-Once the trigger fires, it will send a message with the `messages` array to WebSocket connections:
+After the trigger fires, it will send a message with the `messages` array to WebSocket connections:
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 

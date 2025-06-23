@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN
+description: На странице приведено описание ошибки ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN.
+---
+
 # Unknown referenced source column
 
 `ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN`

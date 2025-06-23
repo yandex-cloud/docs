@@ -13,7 +13,7 @@ You can edit parameter values on dashboards using selectors with manual input. H
 
 * Use the **Multiple choice** option.
 * Choose an operation in a selector (leave a dash in the selection field of the **Operation** drop-down list).
-* When using a selector based on a dataset parameter, you must unlink the selector from any others on the dashboard tab (set **Ignore** as your [link](../dashboard/link.md) type).
+* When using a selector based on a dataset parameter, you must unlink the selector from the other selectors on the dashboard tab (set **Not linked** for [link](../dashboard/link.md) type).
 
 You can also specify parameter values in chart links. To do this, add `?` at the end of a URL, write the parameter name without spaces after the URL, put `=`, and specify the parameter value without spaces. You can list multiple parameters in a URL using `&` as a separator. 
 
@@ -24,10 +24,10 @@ To use a chart with a parameter:
 1. [Add a selector](../operations/dashboard/add-selector.md) to the dashboard to manage the chart parameter:
 
    * Select **Manual input**.
-   * In the **Field or parameter name** field, enter the name of the parameter from the chart.
+   * In the **Field or parameter** field, enter the name of the parameter from the chart.
    * Leave a dash in the selection field of the **Operation** drop-down list.
    * In the **Default value** field, specify the value to propagate in the chart parameter.
-   * Enter the selector **Name** to display on the dashboard.
+   * Enter the selector **Header** to display on the dashboard.
 
    By changing selector values, you can customize visualization in the chart through the parameter.
 
@@ -46,15 +46,28 @@ Set up visualization of a sales chart on a dashboard by changing the detail leve
    * [Add to the chart a field](../concepts/calculations/index.md#how-to-create-calculated-field) named `period` with the `DATETRUNC([OrderDatetime], [scale])` formula and drag it to the **X** section.
    * Drag the `Sales` dimension to the **Y** section. The `Sales` dimension will be automatically converted to the `SUM[Sales]` measure.
 
+   {% cut "Sales by period" %}
+
+   ![image](../../_assets/datalens/concepts/parameters/sales-by-periods.png)
+
+   {% endcut %}
+
 1. [Place your chart](../operations/dashboard/add-chart.md) on a dashboard.
 1. [Add a selector](../operations/dashboard/add-selector.md) to manage the chart parameter:
 
    * Select **Manual input**.
-   * In the **Field or parameter name** field, specify `scale`.
+   * Specify `scale` in the **Field or parameter** field.
+   * Leave `List` in the selection field of the **Selector type** drop-down list.
    * Leave a dash in the selection field of the **Operation** drop-down list.
    * In the **Possible values** window, add: `year`, `month`, `week`.
    * In the **Default value** field, specify `year` to round dates to a year in the chart by default.
-   * In the **Name** field, enter the selector name to display on the dashboard.
+   * In the **Header** field, enter the selector name to display on the dashboard.
+
+   {% cut "Period selector" %}
+
+   ![image](../../_assets/datalens/concepts/parameters/add-selector.png)
+
+   {% endcut %}
 
 1. Make sure a link between the selector and the chart on the dashboard is set up properly:
 
@@ -62,9 +75,19 @@ Set up visualization of a sales chart on a dashboard by changing the detail leve
    1. Select the added selector from the list. Check that it has an outgoing link to the appropriate chart by the `scale` field.
    1. [Add a link](../operations/dashboard/create-alias.md) between widgets if needed.
 
+      {% cut "Links between widgets" %}
+
       ![image](../../_assets/datalens/concepts/chart_param_round_alias.png)
 
+      {% endcut %}
+
    Now, by choosing selector values, you can change the way dates are rounded in the chart, e.g., by year or by month.
+
+   {% cut "Sales by month" %}
+
+   ![image](../../_assets/datalens/concepts/parameters/sales-by-month.png)
+
+   {% endcut %}
 
 **Example 2**
 
@@ -76,17 +99,30 @@ Enable selecting a dimension with a selector to display it in your chart on a da
    * [Add to the chart a field](../concepts/calculations/index.md#how-to-create-calculated-field) named `shop_product_cat` with the `CASE([dimension_control], "by shop", [ShopName], "by product category",[ProductCategory], "by product subcategory", [ProductSubcategory], '')` formula and drag it to the **X** section.
    * Drag the `Sales` dimension to the **Y** section. The `Sales` dimension will be automatically converted to the `SUM[Sales]` measure.
 
+   {% cut "Sales with choice of dimension four grouping" %}
+
+   ![image](../../_assets/datalens/concepts/parameters/choice-of-dimension.png)
+
+   {% endcut %}
+
 1. [Place your chart](../operations/dashboard/add-chart.md) on a dashboard.
 1. [Add a selector](../operations/dashboard/add-selector.md) to manage the chart parameter:
 
    * Select **Manual input**.
-   * In the **Field or parameter name** field, specify `dimension_control`.
+   * Specify `dimension_control` in the **Field or parameter** field.
+   * Leave `List` in the selection field of the **Selector type** drop-down list.
    * Leave a dash in the selection field of the **Operation** drop-down list.
    * In the **Possible values** window, add: `by shop`, `by product category`, and `by product subcategory`.
    * In the **Default value** field, specify `by shop` to display sales amounts by shop by default.
-   * In the **Name** field, enter the selector name to display on the dashboard.
+   * In the **Header** field, enter the selector name to display on the dashboard.
 
    Now, by choosing selector values, you can change the dimension displayed on the chart.
+
+   {% cut "Sales by category" %}
+
+   ![image](../../_assets/datalens/concepts/parameters/sales-by-categories.png)
+
+   {% endcut %}
 
 **Example 3**
 
@@ -98,17 +134,30 @@ Use a selector to enable selecting a dimension to color in your chart:
    * [Add to the chart a field](../concepts/calculations/index.md#how-to-create-calculated-field) named `dimension_colors` with the `IF([colors]="categories", [ProductCategory], [ProductSubcategory])` formula and drag it to the **Color** section.
    * Drag the `Sales` dimension to the **Measures** section. The `Sales` dimension will be automatically converted to the `SUM[Sales]` measure.
 
+   {% cut "Sales by group" %}
+
+   ![image](../../_assets/datalens/concepts/parameters/choice-of-group.png)
+
+   {% endcut %}
+
 1. [Place your chart](../operations/dashboard/add-chart.md) on a dashboard.
 1. [Add a selector](../operations/dashboard/add-selector.md) to manage the chart parameter:
 
    * Select **Manual input**.
-   * In the **Field or parameter name** field, specify `colors`.
+   * Specify `colors` in the **Field or parameter** field.
+   * Leave `List` in the selection field of the **Selector type** drop-down list.
    * Leave a dash in the selection field of the **Operation** drop-down list.
    * In the **Possible values** window, add `categories` and `subcategories`.
    * In the **Default value** field, specify `categories` to color sales amounts by product category by default.
-   * In the **Name** field, enter the selector name to display on the dashboard.
+   * In the **Header** field, enter the selector name to display on the dashboard.
 
    Now, by choosing selector values, you can change the dimension to color in your chart.
+
+   {% cut "Sales with choice of group" %}
+
+   ![image](../../_assets/datalens/concepts/parameters/sales-with-group-choice.png)
+
+   {% endcut %}
 
 
 ## Limitations {#restrictions-params}

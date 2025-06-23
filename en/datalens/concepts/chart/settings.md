@@ -52,18 +52,23 @@ For more information, see [this guide](../../operations/chart/config-chart-navig
 
 * **On**: Shows the **Total** row.
 * **Off**: Hides the **Total** row. ||
+|| Preserving spaces and line breaks | Displays spaces and line breaks in the table as in the source data.<br/><br/>Available values:
+
+* **On**: Display all spaces and line breaks.
+* **Off**: Reduce multiple spaces and line breaks to a single space. ||
+
 || Stacking | Stacked or isolated data display for each category in the [area chart](../../visualization-ref/area-chart.md#stacking).<br/><br/>Available values:
 
 * **On**: Displays stacked data.
 * **Off**: Displays unstacked data. ||
-|| Center | Sets the default coordinates of the center in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
+|| Center | Sets the default center coordinates in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
 
 * **Auto**: Set the coordinates automatically.
 * **Manually**: Set the coordinates manually, e.g., `54.630761, 39.736882`. You can use [Yandex Maps](https://yandex.ru/maps) to get the exact coordinates. ||
 || Scale | Sets the default scale in [Maps](../../visualization-ref/map-chart.md).<br/><br/>Available values:
 
 * **Auto**: Enables autoscaling.
-* **Manually**: Scale the map manually. The values correspond to the scale in Yandex Maps:
+* **Manually**: Scale the map manually. The values match the scale in Yandex Maps:
   
   * `1`: Minimum scale.
   * `21`: Maximum scale. ||
@@ -97,21 +102,21 @@ If you apply an aggregation to the dimension, it will become a measure and the r
 * **Continuous**: Displays all dates continuously.
 * **Discrete**: Displays dates that contain values. ||
 || Aggregation | Sets the aggregation type. Aggregation functions are available according to the [{#T}](../../dataset/data-model.md#aggregation) table. ||
-|| Markup | The field value will be formatted according to the option you select:
+|| Markup | The field value will be formatted according to the selected option:
 
 * `None`: No markup.
-* `HTML`: HTML markup. Available only for `String` type fields.
-* `Markdown`: [{#T}](../../dashboard/markdown.md) markup. Available only for `String` type fields in relevant sections, depending on visualization type.
+* `HTML`: HTML markup. Only available for `String` type fields.
+* `Markdown`: [{#T}](../../dashboard/markdown.md) markup. Only available for `String` type fields in the relevant sections, where the visualization type so supports.
   
   #|
   || **Visualization types** | **Sections** ||
   || [Scatter chart](../../visualization-ref/scatter-chart.md) | X, Y, Points, [Colors](#color-settings), Shapes ||
   || [Tree chart](../../visualization-ref/tree-chart.md) | Dimensions ||
   || [Maps](../../visualization-ref/map-chart.md) | [Tooltip](#map-settings) ||
-  || [Line](../../visualization-ref/line-chart.md), [Column](../../visualization-ref/column-chart.md), [Bar](../../visualization-ref/bar-chart.md), [Pie](../../visualization-ref/pie-chart.md), [Ring](../../visualization-ref/ring-chart.md), and [Area](../../visualization-ref/area-chart.md) chart | [Labels](#sign) ||
+  || [Line](../../visualization-ref/line-chart.md), [Column](../../visualization-ref/column-chart.md), [Bar](../../visualization-ref/bar-chart.md), [Pie](../../visualization-ref/pie-chart.md), and [Ring](../../visualization-ref/ring-chart.md) charts, and [Area](../../visualization-ref/area-chart.md) chart | [Labels](#sign) ||
   |#
 
-This setting is not available in the following visualizations: [Indicator](../../visualization-ref/indicator-chart.md), [Table](../../visualization-ref/table-chart.md) and [Pivot table](../../visualization-ref/pivot-table-chart.md). ||
+This setting is not available in the following visualizations: [Indicator](../../visualization-ref/indicator-chart.md), [Table](../../visualization-ref/table-chart.md), and [Pivot table](../../visualization-ref/pivot-table-chart.md). ||
 || Sub-totals | Shows columns and/or rows with subtotals. This setting is only available for [Pivot table](../../visualization-ref/pivot-table-chart.md) charts. ||
 |#
 
@@ -213,7 +218,7 @@ Some of these settings may not be available for some axes.
 
 Generally, you can set a specific color for any graph value.
 
-For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualization-ref/table-chart.md) (including a [pivot table](../../visualization-ref/pivot-table-chart.md)), and [map](../../visualization-ref/map-chart.md), the following settings are available:
+For a [tree chart](../../visualization-ref/tree-chart.md), as well as [table](../../visualization-ref/table-chart.md) (including a [pivot table](../../visualization-ref/pivot-table-chart.md)), and a [map](../../visualization-ref/map-chart.md), the following settings are available:
 
 #|
 || **Name** | **Description** ||
@@ -229,7 +234,7 @@ For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualiza
 * **Hide**: Hides geopolygon borders. ||
 |#
 
-If the **Legend** option is enabled in [common settings](#common-settings), placing this field into the **Colors** section will make the legend visible below the chart. The legend contains chart colors with text descriptions corresponding to the field values in the **Colors** section.
+If the **Legend** option is enabled in [common settings](#common-settings), placing this field into the **Colors** section will make the legend visible below the chart. The legend contains chart colors with text descriptions referring to the field values in the **Colors** section.
 
 {% cut "Available color settings" %}
 
@@ -318,7 +323,7 @@ Depending on the visualization type, different settings are available.
 || **Name** | **Description** ||
 || Size | Sets point size depending on the measure value. ||
 || Colors | These set a color for geopoints and geopolygons depending on the measure value. ||
-|| Tooltips | These create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. For `String` type fields, you can configure using basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**. ||
+|| Tooltips | These create a tooltip displayed when you hover over a point. The tooltip contains dimension and measure values. For `String` type fields, you can configure using the basic [{#T}](../../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**. ||
 || Layer filters | Create a selection by dimension or measure for the current layer. ||
 || General filters | Create a selection by dimension or measure for the whole chart. ||
 |#

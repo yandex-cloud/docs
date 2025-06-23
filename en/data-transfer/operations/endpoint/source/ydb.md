@@ -77,21 +77,36 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_consumer_name.title }}**: Specify the data consumer you created for the update stream. The default consumer is `__data_transfer_consumer`.
 
+
+      
       {% note info %}
 
       If a consumer is specified, the `ydb.viewer` role is enough for the service account specified in the endpoint settings to connect the transfer to {{ ydb-short-name }}. If no consumer is specified, the service account must have the `ydb.editor` role to create the default consumer.
 
       {% endnote %}
+      
 
-  * [Parallel copying](../../../concepts/sharded.md) settings:
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.YdbSourceAdvancedSettings.sharded_snapshot.title }}**:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.is_snapshot_sharded.title }}**: Enable to speed up the transfer with the help of a sharded snapshot.
 
-      During the snapshot stage, tables are divided into partitions. Copying will proceed faster if the number of workers multiplied by the number of threads inside a worker is proportional to the number of partitions.
+      During the copying stage, tables are divided into partitions. Copying will proceed faster if the number of workers multiplied by the number of threads inside a worker is proportional to the number of partitions.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.copy_folder.title }}**: Specify the name of the directory to store the copies of the migrated tables during the snapshot stage. The directory is created in the root directory of the source base and gets the default name of `data-transfer`. The copies of tables in the directory contain only metadata, so they do not take up much memory. When the snapshot stage is complete, the directory will be deleted.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.copy_folder.title }}**: Specify the name of the directory to store the copies of the tables during the copying stage. The directory is created in the root directory of the source base and gets the default name of `data-transfer`. The copies of tables in the directory contain only metadata, so they do not take up much memory. As soon as the copying stage is over, the directory will be deleted.
     
-    To manage parallel copying, the service account specified in the endpoint settings must have the [`ydb.editor` role](../../../../ydb/security/index.md#ydb-editor).
+    
+    To control parallel copying, the service account specified in the endpoint settings must have the [`ydb.editor` role](../../../../ydb/security/index.md#ydb-editor).
+
+
+    To maximize the parallel copying speed:
+
+      * In the source endpoint parameters, enable **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.is_snapshot_sharded.title }}**.
+
+      
+      * In the transfer parameters, under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}**, set the number of workers and threads per worker so that the total number of threads equals the number of partitions. For example, to copy a table of 6 partitions faster, you can allocate three workers with two threads per worker.
+      
+
+    [More on parallel copying](../../../concepts/sharded.md).
 
 - {{ TF }} {#tf}
 

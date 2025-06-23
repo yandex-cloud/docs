@@ -9,6 +9,7 @@ description: Следуя данной инструкции, вы выполни
 
 * Если вы не видите на панели слева ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**, [включите воркбуки и коллекции](../../datalens/workbooks-collections/index.md#enable-workbooks) в вашей организации.
 * Выполнить миграцию может пользователь с ролью `{{ roles-datalens-admin }}`.
+* Чтобы перенести воркбук между инсталляциями или [организациями](../concepts/organizations.md), воспользуйтесь инструментом [экспорта и импорта](./export-and-import.md).
 
 {% endnote %}
 

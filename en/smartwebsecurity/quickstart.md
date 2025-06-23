@@ -1,4 +1,4 @@
-# How to get started with {{ sws-full-name }}
+# Getting started with {{ sws-full-name }}
 
 {% include [about-sws](../_includes/smartwebsecurity/about-sws.md) %}
 
@@ -50,7 +50,7 @@
 
   - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. In the [management console]({{ link-console-main }}), select your folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
     1. In the left-hand panel, select **Domain protection**.
     1. Click **Create proxy server**.
@@ -83,7 +83,7 @@
        1. Protocol your web application runs on.
     1. Click **Save**.
 
-    After you create a domain, the domain parameters overview page will open. Under **Enable protection**, copy the proxy server IP address and {{ yandex-cloud }} trusted addresses. You will need this data at the next step.
+    After you create a domain, the domain parameters overview page will open. Under **Enable protection**, copy the proxy server IP address as you will need it in the next step.
   
   {% endlist %}
 
@@ -96,7 +96,7 @@
   
      This record redirects requests coming to your domain to the proxy server IP address.
 
-  * In your server settings, block all connections except those for {{ yandex-cloud }} IP addresses.
+  * In your server settings, block all connections except those for [{{ yandex-cloud }} IP addresses](../overview/concepts/public-ips.md).
   
   ### Check your resource status {#check-status}
 
@@ -141,7 +141,7 @@
 
   1. Enter a name for the profile, e.g., `test-sp1`.
   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
-  1. Optionally, enable or disable the use of HTTP request information to improve machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+  1. Optionally, enable or disable the use of HTTP request information to tune machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -156,11 +156,11 @@
   1. Select the `test-sp1` profile you created earlier.
   1. Make sure the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab contains a rule with the following parameters:
 
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`.
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`.
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`
 
-      This rule sends all incoming traffic of the protected resource for automatic analysis using ML and behavioral analysis algorithms. As a result of automatic analysis:
+      This rule sends all incoming traffic of the protected resource for an automatic check using ML and behavioral analysis algorithms. As a result of this check:
 
       * Legitimate requests are routed to the protected resource.
       * Illegitimate requests and attacks are blocked.
@@ -178,29 +178,29 @@
   The connection method depends on the resource type.
 
   * To connect a domain: 
-    1. Under **Domain protection** → **Domains**, select the domain you need. 
-    1. Click **Connect a security profile** and select a profile.
+    1. Under **Domain protection** → **Domains**, select the desired domain. 
+    1. Click **Connect a security profile** and select the profile.
   
   * To connect a virtual host in {{ alb-name }}:
 
-    1. If the load balancer is managed by an {{ alb-name }} [Ingress Controller](../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [Ingress resource annotation](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
-    1. If the load balancer is managed by you, select the created profile under **Security profiles**.
+    1. If the load balancer is managed by an {{ alb-name }} [ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+    1. If you manage the load balancer, select the created profile in the **Security profiles** section.
     1. At the top right, click ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
     1. In the window that opens, select:
 
        * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../application-load-balancer/concepts/application-load-balancer.md).
        * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../application-load-balancer/concepts/http-router.md).
-       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). You can connect the security profile to several virtual hosts at the same time.
+       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). You can associate the security profile with multiple virtual hosts at once.
 
-        To connect the profile to another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
+        To associate the profile with another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
 
     1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
       You will see the associated virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
 
   * To connect an API gateway:
-    1. In the **Security Profiles** section, copy the ID of the profile of your choice.
-    1. When creating an API gateway or in the existing API gateway specification, set this extension: [x-yc-apigateway:smartWebSecurity](../api-gateway/concepts/extensions/sws.md).
+    1. In the **Security Profiles** section, copy the ID of the profile you need.
+    1. Specify the [x-yc-apigateway:smartWebSecurity](../api-gateway/concepts/extensions/sws.md) extension when creating an API gateway or in the existing API gateway specification.
     1. Specify the copied ID in the extension.
 
 
@@ -220,7 +220,7 @@
 
 ## Create and connect a WAF profile {#waf}
 
-WAF allows using rule sets to protect web applications from various information attacks.
+WAF allows using rule sets to protect web applications against various cyber attacks.
 
 ### Create a WAF profile {#waf-create}
 
@@ -228,11 +228,11 @@ WAF allows using rule sets to protect web applications from various information 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a WAF profile in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a WAF profile.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-waf-profile-1`.
-  1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the line with its description.
+  1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the row with its description.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -244,18 +244,18 @@ WAF allows using rule sets to protect web applications from various information 
 
 - Management console {#console}
 
-  1. On the WAF profile's review page that opens, click **{{ ui-key.yacloud.smart-web-security.waf.action_setup-base-rules }}**.
-  1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}**, which is the sum of [anomaly](concepts/waf.md#anomaly) values of the triggered rules that will block the request, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-medium }}`.
+  1. On the WAF profile's overview page that opens, click **{{ ui-key.yacloud.smart-web-security.waf.action_setup-base-rules }}**.
+  1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}**, which is the sum of [anomaly](concepts/waf.md#anomaly) scores of the triggered rules that will block the request, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-medium }}`.
 
-      We recommend to start with the anomaly threshold of `25` and gradually reduce it to `5`. To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and configure [exclusion rules](#create-exclusion). You can use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)** mode in the security profile to test various anomaly thresholds.
+      We recommend that you start with an anomaly threshold of `25` and gradually reduce it to `5`. To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and configure [exclusion rules](#create-exclusion). You can use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)** mode in the security profile to test various anomaly thresholds.
 
   1. Set the required **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-option-2 }}`.
 
-      [Paranoia level](concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the higher the probability of WAF false positives.
+      The [paranoia level](concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the greater the risk of WAF false positives.
 
-  1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly values and paranoia levels.
+  1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly scores and paranoia levels.
 
-  You can turn any rule from the set into a blocking rule. A request that satisfies such a rule will be blocked regardless of the anomaly threshold you specified. To turn a rule into a blocking rule, click ![image](../_assets/console-icons/ban.svg) to the right of it. If the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}(dry-run)** mode is enabled in the security profile, requests will not be blocked even when if they satisfy the blocking rules.
+  You can configure any rule in the set to block requests. Requests matching such a rule get blocked regardless of the anomaly threshold you set. To turn a rule into a blocking one, click ![image](../_assets/console-icons/ban.svg) on its right. If the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}(dry-run)** mode is enabled in the security profile, requests will not be blocked even when if they match the blocking rules.
 
 {% endlist %}
 
@@ -268,7 +268,7 @@ WAF allows using rule sets to protect web applications from various information 
 
   1. Go to the ![image](../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_exclusion-rules }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
   1. Enter a name for the [exclusion rule](concepts/waf.md#exclusion-rules), e.g., `exception-rule-1`.
-  1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}**, specify rules from the basic set for which the exclusion will be valid. You can either select `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` or specify particular rules.
+  1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}**, specify rules from the basic set for which the exclusion will apply. You can either select `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` or specify particular rules.
   1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, select the triggering [conditions](concepts/conditions.md) for the exclusion rule.
 
       If you leave the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field empty, the exclusion rule will apply to all traffic.
@@ -278,19 +278,19 @@ WAF allows using rule sets to protect web applications from various information 
 {% endlist %}
 
 
-### Connect the WAF profile to a security profile {#waf-connect}
+### Connect the WAF profile to the security profile {#waf-connect}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Navigate to the ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** tab.
-  1. From the list, select the security profile you want to connect your WAF profile to, e.g., `test-sp1`.
+  1. From the list, select the security profile to connect your WAF profile to, e.g., `test-sp1`.
   1. Click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `waf-rule-1`.
   1. In the **{{ ui-key.yacloud.smartcaptcha.field_security-rule_priority }}** field, set a value higher than that of the Smart Protection rules already existing in the security profile, e.g., `888800`.
-  1. (Optional) To test your WAF profile and simulate false positives triggered by legitimate requests, use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)** mode in the security profile.
-  1. In the **Type** field, select `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
+  1. Optionally, to test your WAF profile and simulate false positives triggered by legitimate requests, use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)** mode in the security profile.
+  1. In the **Rule type** field, select `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
   1. In the **{{ ui-key.yacloud.smart-web-security.overview.title_waf-profile }}** field, select the previously created profile named `test-waf-profile-1`.
   1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** field, select `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
   1. If required, set the [conditions](concepts/conditions.md) for traffic mapping.
@@ -301,7 +301,7 @@ WAF allows using rule sets to protect web applications from various information 
 
 ## Create and connect an ARL profile {#arl}
 
-ARL allows limiting the number of requests to the protected resource to avoid an overload.
+ARL allows limiting the number of requests to the protected resource to prevent an overload.
 
 ### Create an ARL profile {#arl-create}
 
@@ -309,11 +309,11 @@ ARL allows limiting the number of requests to the protected resource to avoid an
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create your ARL profile in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create an ARL profile.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-arl-profile-1`.
-  1. Add profile description and labels if needed.
+  1. Add a profile description and labels if needed.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -325,10 +325,10 @@ ARL allows limiting the number of requests to the protected resource to avoid an
 
 - Management console {#console}
 
-  1. On the ARL profile's review page that opens, click **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. On the ARL profile's overview page that opens, click **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `arl-rule-1`.
-  1. In the **{{ ui-key.yacloud.smartcaptcha.field_security-rule_priority }}** field, set the rule's priority within the ARL profile, e.g., `1000`.
-  1. (Optional) To test the ARL rule, enable the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode. Requests will not be blocked in this mode.
+  1. In the **{{ ui-key.yacloud.smartcaptcha.field_security-rule_priority }}** field, set the rule priority within the ARL profile, e.g., `1000`.
+  1. Optionally, to test the ARL rule, enable the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode. Requests will not be blocked in this mode.
   1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, select `All traffic` or `On condition`.
   1. To set [traffic conditions](concepts/conditions.md), select one or more items from the **Conditions** list:
 
@@ -338,10 +338,10 @@ ARL allows limiting the number of requests to the protected resource to avoid an
       * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`: Request method.
       * `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`: Cookie header string.
 
-  1. Under **Request counting**, select how to count requests for limit application purposes:
+  1. Under **Request counting**, select how to count requests for limiting:
 
       * `{{ ui-key.yacloud.smart-web-security.arl.label_rule-without-grouping }}`: Count each request separately.
-      * `Grouping by property`: Count the number of request groups sharing one or more common properties.
+      * `Grouping by property`: Count the number of request groups sharing one or more properties.
 
       1. Select a grouping property:
 
@@ -352,9 +352,9 @@ ARL allows limiting the number of requests to the protected resource to avoid an
           * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}`: Domain receiving the request.
           * `HTTP cookie`: String in the cookie header.
           * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`: HTTP header string.
-          * `Query params`: String in query parameters.
+          * `Query params`: String in the request parameters.
 
-      1. (Optional) Enable **Case-sensitive** to put properties with the same values in different cases into different groups.
+      1. Optionally, enable **Case-sensitive** to put properties with the same values in different cases into different groups.
 
   1. Specify the request limit and select the time interval, e.g., `1000` requests per `1` minute.
   1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
@@ -362,14 +362,14 @@ ARL allows limiting the number of requests to the protected resource to avoid an
 {% endlist %}
 
 
-### Connect your ARL profile to a security profile {#arl-connect}
+### Connect your ARL profile to the security profile {#arl-connect}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Navigate to the ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** tab.
-  1. From the list, select the security profile you want to connect your ARL profile to, e.g., `test-sp1`.
+  1. From the list, select the security profile to connect your ARL profile to, e.g., `test-sp1`.
   1. Click ![image](../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** list, select the previously created `test-arl-profile-1`.
   1. Click **{{ ui-key.yacloud.common.save }}**.

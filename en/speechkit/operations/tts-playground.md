@@ -8,12 +8,12 @@ description: Follow this guide to convert text into human speech via the {{ spee
 To convert text to speech via the {{ speechkit-name }} Playground interface: 
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to use to work with {{ speechkit-name }}.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. Go to the **{{ ui-key.yacloud.yagpt.speechkit.services.speech-synthesys.title }}** tab.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+1. Navigate to the **{{ ui-key.yacloud.yagpt.speechkit.services.speech-synthesys.title }}** tab.
 1. Paste up to 5,000 characters of text into the central part of the window.
 1. In the settings section on the left side of the window:
 
-   * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_pauses-title }}**: Set up fixed [pauses](../tts/markup/tts-markup.md#pause) between words using tags, e.g., `<[small]>`, `<[large]>`. For a pause of a particular length, use the `sil<[t]>` tag, where `t` is the the pause length in milliseconds.
+   * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_pauses-title }}**: Set up fixed [pauses](../tts/markup/tts-markup.md#pause) between words using tags, e.g., `<[small]>`, `<[large]>`. For a pause of a particular length, use the `sil<[t]>` tag, where `t` is the the pause length in milliseconds. The maximum value is 7,000.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_word-title }}**: [Accent](../tts/markup/tts-markup.md#accent) a word using the `<[accented]>` tag or by enclosing it in asterisks (`** **`).
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_word-stress-title }}**: Mark the [stressed](../tts/markup/tts-markup.md#a) vowel in homographs by prefixing it with `+`.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_phonemes-title }}**: Tag words with `[[]]` to ensure proper pronunciation using [phonemes](../tts/markup/tts-supported-phonemes.md).

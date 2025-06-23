@@ -13,6 +13,8 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ sf-name }} {#rules}
 
 В рамках сервиса {{ sf-name }} тарифицируется количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, время простоя [подготовленных экземпляров](concepts/function.md#provisioned-instances) и исходящий трафик.

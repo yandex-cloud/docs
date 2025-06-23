@@ -1,4 +1,4 @@
-The `name` label contains the metric name.
+The metric name goes into the `name` label.
 
 Labels shared by all {{ dataproc-name }} metrics:
 
@@ -75,5 +75,5 @@ host | Host FQDN
 ## Other metrics {#data-proc-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `dataproc.cluster.health_status`<br/>`IGAUGE`, 0/1/2 | Cluster health and technical condition:<br/>`0`: Cluster is out of order (all of its hosts are down).<br/>`1`: Cluster is not running at its full capacity (the state of at least one of the hosts is other than `ALIVE`).<br/>`2`: Cluster is running normally. |
+| `dataproc.cluster.health_status`<br/>`IGAUGE` | Cluster health and technical condition. Only one metric is delivered to monitoring – it represents the cluster's state and has a value of `1`. When the cluster is in a transition state, e.g., being created or stopped, the metric may not be delivered. In which case its value is displayed as `-`. After the cluster transitions to a new state, the old metric is replaced with a new one, also with a value of `1`. |
 | `dataproc.cluster.neededAutoscalingNodesNumber`<br/>`DGAUGE`, count | {{ dataproc-full-name }} default scaling metric |

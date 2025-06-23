@@ -25,7 +25,7 @@ If you do not have a WAV audio file, you can use [this sample file](https://{{ s
 
 - cURL {#curl}
 
-  {% include [transcribation-before-you-begin](../../../_includes/speechkit/async-recognition-v3.md) %}
+  {% include [transcribation](../../../_includes/speechkit/async-recognition-v3.md) %}
 
 - Python 3 {#python}
 

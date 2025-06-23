@@ -10,6 +10,17 @@
 
 {% endnote %}
 
+Схема отказоустойчивого решения:
+
+![integrate-nextcloud](../../_assets/tutorials/integrate-nextcloud/integrate-nextcloud.svg)
+
+Где:
+* `example.com` — ваш домен, для которого в {{ certificate-manager-full-name }} выпущен [сертификат](../../certificate-manager/concepts/managed-certificate.md) и который подключен к [L7-балансировщику](../../application-load-balancer/concepts/application-load-balancer.md) нагрузки.
+* `nextcloud-alb` — L7-балансировщик, который равномерно распределяет входящий трафик от пользователей между хостами группы виртуальных машин.
+* `nextcloud-instance-group` — [группа виртуальных машин](../../compute/concepts/instance-groups/index.md), в которую входят хосты с развернутым решением Nextcloud.
+* `nextcloud-db-cluster` — [кластер](../../managed-mysql/concepts/index.md) {{ mmy-full-name }}, в котором расположена служебная база данных Nextcloud.
+* `my-nextcloud-bucket` — [бакет](../../storage/concepts/bucket.md) {{ objstorage-full-name }}, подключенный к решению Nextcloud.
+
 Чтобы развернуть Nextcloud в {{ yandex-cloud }} с интеграцией бакета {{ objstorage-name }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).

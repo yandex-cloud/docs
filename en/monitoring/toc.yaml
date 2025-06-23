@@ -37,7 +37,9 @@ items:
             href: operations/dashboard/add-widget.md
           - name: Adding a dashboard parameter
             href: operations/dashboard/add-parameters.md
-          - name: Deleting widgets from a dashboard
+          - name: Managing widgets
+            href: operations/dashboard/widget-management.md
+          - name: Deleting a widget from a dashboard
             href: operations/dashboard/delete-widget.md
           - name: Deleting a dashboard
             href: operations/dashboard/delete-dashboard.md
@@ -89,7 +91,7 @@ items:
         href: concepts/data-collection/unified-agent/delete.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
       - name: Data model
         href: concepts/data-model.md

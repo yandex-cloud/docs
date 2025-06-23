@@ -51,6 +51,9 @@ This step describes actions for users with permissions for any Yandex Metrics ta
    If this is your first connection to a Yandex Metrica tag, grant the necessary permissions to the service.
 
 1. Select the tag from the drop-down list.
+
+   Maximum number of Yandex Metrica tags: 1,000.
+
 1. Select the [accuracy](https://yandex.com/dev/metrika/doc/api2/api_v1/sampling-docpage/) level from the drop-down list.
 1. Enable **Automatically create a dashboard, charts, and a dataset on the connection**.
 1. Click **Create connection**.

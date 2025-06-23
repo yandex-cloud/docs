@@ -1,11 +1,11 @@
 ---
-title: '{{ yandex-cloud }} {{ support-center-name }}'
-description: 'This guide will help you get started with the {{ yandex-cloud }} {{ support-center-name }}: find troubleshooting recommendations, create or view support tickets, or change your service plan.'
+title: '{{ support-center-name }}'
+description: 'This guide will help you get started with the {{ support-center-name }}: finding troubleshooting recommendations, creating or viewing your support tickets, or switching your service plan.'
 ---
 
 # Working with {{ support-center-name }}
 
-{{ support-center-name }} will help you troubleshoot {{ yandex-cloud }} issues, create and view support tickets. You can also change your service plan in {{ support-center-name }}.
+{{ support-center-name }} will help you troubleshoot {{ yandex-cloud }} issues and create or view support tickets. You can also change your service plan in {{ support-center-name }}.
 
 {% note info %}
 
@@ -29,7 +29,7 @@ To find answers to questions about {{ yandex-cloud }}, do the following in {{ su
 1. Navigate to **{{ ui-key.support-center.common.tickets }}**.
 1. Check out the answers to FAQ using quick search buttons.
 1. If you did not find your question in the FAQ list:
-   1. In the **{{ ui-key.support-center.search.common.value_search-input-placeholder }}** window, provide a brief description of your issue, e.g., `How to restore access to a billing account`. The {{ yandex-cloud }}{{ support-center-name }} will take your query to the support knowledge base and return all relevant articles.
+   1. In the **{{ ui-key.support-center.search.common.value_search-input-placeholder }}** window, briefly describe your issue, e.g., `How to restore access to my billing account`. The {{ support-center-name }} will take your query to the support knowledge base and return all relevant articles.
    1. If no suitable article is found, a notification window will appear under the search bar. In this window, click **{{ ui-key.support-center.search.common.action_search-in-documentation }}** to find the answer to your question in the {{ yandex-cloud }} documentation or **{{ ui-key.support-center.tickets.common.action_create-ticket }}** to create a ticket.
 
 ## Creating a ticket {#create-request}

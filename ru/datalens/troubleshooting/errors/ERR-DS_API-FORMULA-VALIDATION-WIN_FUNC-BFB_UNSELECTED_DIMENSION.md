@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION
+description: На странице приведено описание ошибки ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION.
+---
+
 # Window function has unselected dimension
 
 `ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION`

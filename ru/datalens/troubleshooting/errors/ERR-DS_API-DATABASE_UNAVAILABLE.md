@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DATABASE_UNAVAILABLE
+description: На странице приведено описание ошибки ERR.DS_API.DATABASE_UNAVAILABLE.
+---
+
 # Data source is unavailable
 
 `ERR.DS_API.DATABASE_UNAVAILABLE`

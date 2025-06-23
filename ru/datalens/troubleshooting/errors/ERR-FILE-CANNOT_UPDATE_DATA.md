@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.FILE.CANNOT_UPDATE_DATA
+description: На странице приведено описание ошибки ERR.FILE.CANNOT_UPDATE_DATA.
+---
+
 # Невозможно обновить данные
 
 `ERR.FILE.CANNOT_UPDATE_DATA`

@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED
+description: На странице приведено описание ошибки ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED.
+---
+
 # Memory limit has been exceeded during query execution
 
 `ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED`

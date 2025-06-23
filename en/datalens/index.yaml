@@ -47,3 +47,13 @@ meta:
     Yandex DataLens is a business analytics service that allows you to connect
     to various data sources, visualize data, create dashboards, and share your
     results.
+  keywords:
+    - '{{ datalens-name }}'
+    - '{{ datalens-full-name }}'
+    - '{{ datalens-name }}'
+    - Business analytics service
+    - BI analytics
+    - Data visualization in {{ yandex-cloud }}
+    - How to connect to a data source
+    - business metrics in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} analytics'

@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION
+description: На странице приведено описание ошибки ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION.
+---
+
 # Invalid grouping configuration
 
 `ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION`

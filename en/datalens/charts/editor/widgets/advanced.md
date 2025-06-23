@@ -25,7 +25,7 @@ Advanced charts are slower than other visualizations. We recommend using them on
 
 {% endnote %}
 
-## Getting started with an advanced chart {#begin}
+## Getting started with advanced charts {#begin}
 
 1. To render a chart, define the `render` function:
 
@@ -145,6 +145,9 @@ Chart.getState()
 // Calling the method will run the `render` method. To update the state without re-rendering, include {silent: true} as the second argument.
 Chart.setState(state: object, options?: {silent: boolean})
 
+// Setting parameters
+Editor.updateParams(params)
+
 // Setting cross-filtering parameters. To learn more, see the chart cross-filtering section.
 Editor.updateActionParams(params)
 ```
@@ -170,7 +173,7 @@ events: {
 
 ## Tooltip {#tooltip}
 
-For example:
+Here is an example:
 
 ```js
 module.exports = {
@@ -199,7 +202,7 @@ module.exports = {
 
 ## Chart cross-filtering {#chart-chart-filtration}
 
-For example:
+Here is an example:
 
 ```js
 const chartData = [{id: '1', OrderYear: '2024'}];

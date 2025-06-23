@@ -349,6 +349,8 @@ default:
   lockbox-full-name: Yandex Lockbox
   lockbox-name: Yandex Lockbox
   lockbox-short-name: Lockbox
+  logging-endpoint-ingester: ingester.logging.yandexcloud.net
+  logging-endpoint-reader: reader.logging.yandexcloud.net
   login-example: login@yandex.com
   lora: LoRA
   maf-full-name: Yandex Managed Service for Apache Airflow™
@@ -581,6 +583,7 @@ default:
   roles-lockbox-editor: lockbox.editor
   roles-lockbox-payloadviewer: lockbox.payloadViewer
   roles-lockbox-viewer: lockbox.viewer
+  roles-logging-reader: logging.reader
   roles-logging-writer: logging.writer
   roles-mdb-admin: mdb.admin
   roles-monitoring-editor: monitoring.editor
@@ -589,6 +592,7 @@ default:
   roles-organization-owner: organization-manager.organizations.owner
   roles-resource-manager-editor: resource-manager.editor
   roles-search-api-executor: search-api.executor
+  roles-serverless-containers-invoker: serverless-containers.containerInvoker
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-speechsense-admin: Admin
@@ -6633,7 +6637,7 @@ default:
             button_create: Create
             field_description: Description
       layout:
-        organization: Organization
+        organization: Identity Hub
       organization:
         userpool:
           action_delete-domain: Delete
@@ -6647,7 +6651,7 @@ default:
           field_full-name: Full name
           field_password: Password
           title_personal-info: Personal information
-          title_userpool_members: Members
+          title_userpool_members: Users
       page:
         acl-diagnostics:
           action_select-subject: Select subject
@@ -7127,7 +7131,7 @@ default:
         field_secure-key-enabled: Access via secure token
         field_secure-key-type: Limit access by IP address
         label_access: Enable access to content
-        label_activate-provider-empty-container_action-text: Activate provider
+        label_activate-provider-empty-container_action-text: Connect to provider
         label_additional: Additional settings
         label_balancer: L7 load balancer
         label_bucket: Bucket
@@ -8942,7 +8946,7 @@ default:
           section_configuration: Configuration
           section_database: Database
           section_dependencies: Dependencies
-          section_disk: Size of storage
+          section_disk: Storage size
           section_host: Hosts
           section_network: Network settings
           section_network-settings: Network settings
@@ -9520,6 +9524,10 @@ default:
           create_action: Create job
           popup-action_label_cancel-msg: Cancel job
         label_history-server: History Server
+      speechkit-common:
+        brand-voice_create-dataset_option_title_upload-zip_nFtBR: Download ZIP archive
+        button_create-dataset_nLanW: Create a dataset
+        button_create-voice_nkMBz: Create voice
       speechkit:
         help-speech-synthesis:
           context_pauses-title: Pauses
@@ -11891,7 +11899,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
-        tag: 1.0.8-1
+        tag: 1.0.9
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh
@@ -11903,7 +11911,7 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.42.1
+        tag: 0.43.0
     yc_external-secrets:
       helmChart:
         name: >-
@@ -11933,7 +11941,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.6.1
+        tag: v0.7.0
     yc_gitlab-agent:
       helmChart:
         name: >-

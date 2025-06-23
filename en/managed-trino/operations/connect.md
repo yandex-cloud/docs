@@ -7,40 +7,7 @@ keywords:
 
 # Connecting to a {{ TR }} cluster
 
-You can connect to a {{ mtr-name }} cluster:
-
-* Over the internet using an [SSL connection](#get-ssl-cert)
-
-* From {{ yandex-cloud }} VMs located in the same [cloud network](../../vpc/concepts/network.md)
-
-## Getting an SSL certificate {#get-ssl-cert}
-
-To use an encrypted connection, get an SSL certificate:
-
-{% list tabs group=operating_system %}
-
-- Linux (Bash)/macOS (Zsh) {#linux-macos}
-
-   ```bash
-   mkdir -p ~/.trino && \
-   wget "{{ crt-web-path }}" \
-        --output-document ~/.trino/root.crt && \
-   chmod 0655 ~/.trino/root.crt
-   ```
-
-   The certificate will be saved to the `~/.trino/root.crt` file.
-
-- Windows (PowerShell) {#windows}
-
-   ```powershell
-   mkdir $HOME\.trino; curl.exe -o $HOME\.trino\root.crt {{ crt-web-path }}
-   ```
-
-   The certificate will be saved to the `$HOME\.trino\root.crt` file.
-
-{% endlist %}
-
-{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+You can connect to a {{ mtr-name }} cluster.
 
 ## Command line tools {#cli-tools}
 
@@ -72,9 +39,6 @@ Before connecting:
         * **Port**: `443`.
         * **User**: `iam`.
         * **Password**: Previously created IAM token.
-     1. On the **SSH/SSL** tab:
-         1. Enable the **Use SSL** setting.
-         1. In the **CA file** field, specify the path to the file with an [SSL certificate](#get-ssl-cert) for the connection.
   1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **OK** to save the data source.
 
@@ -129,7 +93,7 @@ Before connecting:
 
 {% list tabs group=instruction %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting {#connecting}
 
   1. Code example:
 
@@ -265,7 +229,7 @@ Before connecting:
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting {#connecting}
 
   1. Code example:
 
@@ -331,7 +295,7 @@ Before connecting:
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting {#connecting}
 
     `app.mjs`
 

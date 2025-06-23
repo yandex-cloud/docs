@@ -5,6 +5,7 @@ description: This section contains {{ data-transfer-name }} release notes.
 
 # {{ data-transfer-name }} release notes
 
+- [May 2025](2505.md)
 - [April 2025](2504.md)
 - [March 2025](2503.md)
 - [February 2025](2502.md)

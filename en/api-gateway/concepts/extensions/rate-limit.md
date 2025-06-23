@@ -11,13 +11,15 @@ This extension is deprecated and discontinued. To limit the request processing r
 
 {% endnote %}
 
-Use the `x-yc-apigateway-rate-limits` and `x-yc-apigateway-rate-limit` extensions to limit the request processing rate. You can set limits for an API gateway or specific paths and/or HTTP methods. If the number of requests within a given time period exceeds the value set in the specification, new requests will not be processed and billed, and you will get the `429 Too Many Requests` HTTP status code.
+The `x-yc-apigateway-rate-limits` and `x-yc-apigateway-rate-limit` extensions allow you to limit the request processing rate. You can set limits for an API gateway or specific paths and/or HTTP methods. If the number of requests within a given time period exceeds the value set in the specification, new requests will not be processed and billed, and you will get the `429 Too Many Requests` HTTP status code.
 
 {{ api-gw-name }} does not guarantee that it will always limit the request processing rate to the exact value provided in the specification.
 
+There is no additional charge for this functionality. Only requests processed by the API gateway are charged.
+
 ## RateLimitObject {#rate_limit_object}
 
-`RateLimitObject` is a set of OpenAPI specification parameters used to limit the request processing rate.
+`RateLimitObject` is a set of OpenAPI specification parameters to limit the request processing rate.
 
 `RateLimitObject` object structure:
 
@@ -31,11 +33,11 @@ Specify either `rps` or `rpm` but not both at the same time.
 
 ## x-yc-apigateway-rate-limits extension {#rate-limits}
 
-With `x-yc-apigateway-rate-limits`, you can describe the request processing rate limits in the [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object) section. You can reference the limits set in this way using the `$ref` parameter in the `x-yc-apigateway-rate-limit` extension and apply them to different paths and operations (HTTP methods) or the entire API gateway. For details, see `rateLimit` for [`x-yc-apigateway`](index.md#top-level).
+With `x-yc-apigateway-rate-limits`, you can describe the request rate limits in the [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object) section. You can reference the limits set in this way using the `$ref` parameter in the `x-yc-apigateway-rate-limit` extension and apply them to different paths and operations (HTTP methods) or the entire API gateway. For details, see `rateLimit` for [`x-yc-apigateway`](index.md#top-level).
 
 ## x-yc-apigateway-rate-limit extension {#rate-limit}
 
-With `x-yc-apigateway-rate-limit`, you can set request processing rate limits for all operations in a [path](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#path-item-object) or for a specific [operation](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#operation-object). The extension type is [RateLimitObject](#rate_limit_object). Limits for paths with [greedy parameters](greedy-parameters.md) are currently not supported.
+With `x-yc-apigateway-rate-limit`, you can set request rate limits for all operations in a [path](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#path-item-object) or for a specific [operation](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#operation-object). The extension type is [RateLimitObject](#rate_limit_object). Currently, limits for paths with [greedy parameters](greedy-parameters.md) are not supported.
 
 ## Specification examples {#spec}
 
@@ -90,7 +92,7 @@ components:
           type: string
 ```
 
-### Example of a specification with a global limit overridden at the path level
+### Example of a specification that overrides a global limit at the path level
 
 In this example, a general request rate limit set at the top level for the entire API gateway is overridden at the level of a specific path.
 

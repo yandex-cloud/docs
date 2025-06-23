@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.FIELD.NOT_FOUND
+description: На странице приведено описание ошибки ERR.DS_API.FIELD.NOT_FOUND.
+---
+
 # Unknown field
 
 `ERR.DS_API.FIELD.NOT_FOUND`

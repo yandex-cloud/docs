@@ -11,7 +11,7 @@ description:
     ="https://yandex.com/legal/cloud_terms_yandex_foundation_models">Yandex
     Foundation Models Terms of Use</a>.
   - >-
-    The service is subject to a <a
+    This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_yandex_foundation_models/">Yandex
@@ -27,8 +27,11 @@ links:
     description: Read about basic concepts
     href: concepts/
   - title: Quotas and limits
-    description: Technical and organizational limitations
+    description: Technical and management-related limitations
     href: concepts/limits
+  - title: Prompting guide
+    description: How to get best from our models
+    href: gpt-prompting-guide/about
   - title: API references
     description: Learn about authorization when working with API
     href: api-ref/authentication
@@ -46,3 +49,20 @@ meta:
     leveraging generative models in your business apps and web services. Yandex
     Foundation Models will be useful for everyone who seeks the ways to
     streamline their business with machine learning.
+  keywords:
+    - '{{ foundation-models-full-name }}'
+    - '{{ foundation-models-name }}'
+    - '{{ foundation-models-name }}'
+    - generative models for business
+    - neural networks in {{ yandex-cloud }}
+    - prompting guide
+    - YandexGPT Lite
+    - YandexGPT Pro
+    - YandexART
+    - AI assistant
+    - AI agent
+    - machine learning technologies
+    - generative models in {{ yandex-cloud }}
+    - neural networks in business apps
+    - neural networks in web services
+    - neural networks in business

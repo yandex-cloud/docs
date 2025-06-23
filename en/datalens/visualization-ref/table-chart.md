@@ -38,6 +38,7 @@ To simplify the comparison of different values and make the information easier t
 * [Setting up column width](#set-column-width)
 * [Freezing table columns](#column-fixation)
 * [Adding a row with totals](#add-totals)
+* [Preserving spaces and line breaks](#spaces-and-line-breaks)
 * [Adding row color](#add-column-color)
 * [Setting field fill color](#set-field-color)
 * [Adding a linear indicator to a column with a measure](#add-linear-indicator)
@@ -102,8 +103,8 @@ When the option is enabled, the ![image](../../_assets/console-icons/circle-ques
 
 ### Setting up table data sorting by multiple columns {#sorting-columns}
 
-1. On the left side of the screen above the chart, click ![image](../../_assets/console-icons/gear.svg).
-1. Enable the **Pagination** setting and click **Apply**.
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Disable **Pagination** and click **Apply**.
 1. Press and hold **Ctrl** while clicking the headers of columns to change the sorting for.
 
 ### Setting the width of table columns {#set-column-width}
@@ -141,19 +142,26 @@ To set the width of any column to `Auto`, click **Reset**.
 
 ### Adding a row with totals {#add-totals}
 
-1. On the left side of the screen above the chart, click ![image](../../_assets/console-icons/gear.svg).
-1. Enable the **Results** option and click **Apply**.
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Enable **Totals** and click **Apply**.
 
-The **Total** row is displayed in the table. Values in the row are calculated using the same formulas as [aggregation](../dataset/data-model.md#aggregation) in the measure.
+The **Total** row will now appear in the table. Values in the row are calculated using the same formulas as [aggregation](../dataset/data-model.md#aggregation) in the measure.
 
 {% note info %}
 
 * Values in the **Total** row are calculated only for measures. For dimensions, the row is empty.
 * If the **Pagination** option is selected, the **Total** row is placed on the last page.
 * If a table consists of a single entry, the **Total** row is not displayed.
-* The row with totals does not display results calculated using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md).
+* The results calculated using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) are not displayed in the row with totals.
 
 {% endnote %}
+
+### Preserving spaces and line breaks {#spaces-and-line-breaks}
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Enable **Preserve spaces and line breaks** and click **Apply**.
+
+With this option on, the text will feature the same spaces and line breaks as in the source data.
 
 ### Adding row color {#add-column-color}
 

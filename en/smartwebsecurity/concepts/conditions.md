@@ -40,10 +40,10 @@ You can set the following rule [conditions](rules.md):
 * Matches regular expression
 * Does not match regular expression
 |
-Format: `key: value`, where key is an HTTP header,
-value is a specific header value, value
-prefix, or [regular expression](https://en.wikipedia.org/wiki/Regular_expression) of
-[PIRE](https://github.com/yandex/pire) library
+`key: value` format, where `key` is an HTTP header,
+and `value` is a specific header value, value prefix, 
+or [regular expression](https://en.wikipedia.org/wiki/Regular_expression) of the
+[PIRE](https://github.com/yandex/pire)
 |
 * `User-Agent: curl/7.55.1`
 | _and_ ||
@@ -71,7 +71,7 @@ expression of the PIRE library
 `key: value` format, where `key` is a request parameter, 
 value is a specific parameter value,
 value prefix, or regular expression of the
-PIRE library
+PIRE
 |  
 * `a: 1`
 * `A: 2`
@@ -209,15 +209,15 @@ To use a character not as a regular expression operator or special character, es
 
 ### Examples of regular expressions
 
-* `^User-Agent:\s*$`: Block requests with empty or space-only `User-Agent` header value.
+* `User-Agent:\s*`: Block requests with empty or space-only `User-Agent` header value.
     
-    In this expression, `^` is the beginning of the string, `\s*` is zero or more spaces, and `$` is the end of the string.
+    In this expression, `\s*` is zero or more spaces.
 
 * `\\[\'\"\.\;]`: Block requests containing `\` before a suspicious character (backslash injections).
 
     In this expression, `\\` is backslash, and `[\'\"\.\;]` is any character from between the square brackets.
 
-* `a{100,}`: Block requests containing unusually long sequences of identical characters, as this may be a sign of a DDoS attack.
+* `a{100,}`: Block requests containing long sequences of identical characters, as this may be a sign of an attack.
     
     In this expression, `a{100,}` stands for 100 or more `a` in a row.
 

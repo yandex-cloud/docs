@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST
+description: На странице приведено описание ошибки ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST.
+---
+
 # Requested database column does not exist
 
 `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST`

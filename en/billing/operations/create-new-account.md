@@ -13,7 +13,7 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
    {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
-- Legal entities and individual entrepreneurs {#businesses-entrepreneurs}
+- Businesses and individual entrepreneurs {#businesses-entrepreneurs}
 
    {% include [start-for-legal-entities](../../_includes/billing/billing-account-create-legal-entities.md) %}
 

@@ -1,6 +1,6 @@
 ---
 title: What are quotas and limits in {{ yandex-cloud }}
-description: '{{ yandex-cloud }} services can be subject to quotas and limits. Quotas are organizational constraints that can be changed by technical support upon request. Limits are technical constraints due to the {{ yandex-cloud }} architecture. Limits cannot be changed.'
+description: '{{ yandex-cloud }} services can be subject to quotas and limits. Quotas are organizational constraints that can be changed by technical support upon request. Limits are technical constraints of the {{ yandex-cloud }} architecture. Limits cannot be changed.'
 ---
 
 # {{ yandex-cloud }} service quotas and limits
@@ -17,8 +17,8 @@ Quotas serve as a soft constraint for requesting resources and allow you to mana
 
 If ready to use more resources, you can increase your quotas in the following ways:
 
-* [Generate a request for a quota increase]({{ link-console-quotas }}).
-* Contact [support]({{ link-console-support }}) and tell us which quotas you want increased and by how much.
+* [Make a request to increase your quotas]({{ link-console-quotas }}).
+* Contact [support]({{ link-console-support }}) and specify which quotas you want increased and by how much.
 
 To have your request processed, you must have the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher (`editor` or `admin`).
 
@@ -27,6 +27,8 @@ You can manage quotas with [{{ quota-manager-name }}](../../quota-manager/quicks
 ## Default quotas and limits for {{ yandex-cloud }} services {#quotas-limits-default}
 
 Quotas are listed with default values that match the quotas of the [trial period](../../getting-started/free-trial/concepts/quickstart.md).
+
+For each quota, the table provides an ID you can use to manage quotas via {{ quota-manager-name }}.
 
 
 ### {{ api-gw-full-name }} {#api-gw}
@@ -299,6 +301,11 @@ There are no limits for {{ metadata-hub-full-name }}.
 ### {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
+
+
+### {{ si-full-name }} {#serverless-integrations}
+
+{% include [serverless-integrations-limits](../../_includes/si-limits.md) %}
 
 
 ### {{ captcha-full-name }} {#captcha}

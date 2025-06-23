@@ -124,10 +124,10 @@ Parameter descriptions:
     output:
       plugin: yc_logs
       config:
-        # Optional. The URL to send logs to.
-        url: "ingester.logging.yandexcloud.net:443"
+        # It is optional. The URL to send logs to.
+        url: "{{ logging-endpoint-ingester }}:443"
 
-        # Optional. Use an SSL connection.
+        # It is optional. Use an SSL connection.
         use_ssl: null # The directive disables SSL, by default SSL is enabled.
           # Optionally, you can explicitly specify a list of server root certificates
           # as a file path in PEM format.
