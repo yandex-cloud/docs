@@ -1,11 +1,12 @@
 ---
 title: How to authenticate with {{ search-api-full-name }}'s API v1
 description: This section describes the methods of authentication with the {{ search-api-name }}'s API v1.
+noIndex: true
 ---
 
-# Authentication with the API v1
+# Authentication in API v1
 
-To work with {{ search-api-name }} using [API v1](../concepts/index.md#api-v1), you need to send API requests under a service account. API v1 only supports authentication with [API keys](../../iam/concepts/authorization/api-key.md).
+To work with {{ search-api-name }} using API v1, you need to send API requests under a service account. API v1 only supports authentication with [API keys](../../iam/concepts/authorization/api-key.md).
 
 {% note warning %}
 

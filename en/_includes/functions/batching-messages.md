@@ -1,3 +1,3 @@
-## Batching {#batching}
+## Message batching {#batching}
 
-Batching settings allow you to send multiple messages to a function at the same time. They set a top limit on the size of a message group and its accumulation time. For example, if the size of a message group is 3, the function can receive groups that contain from 1 to 3 messages.
+The grouping settings allow sending several messages to the function in one go. They set a top limit on a message batch size and its accumulation time. For example, if the message batch size is 3, the function can receive batches containing from 1 to 3 messages.

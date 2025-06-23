@@ -31,6 +31,7 @@ The report builder has these structural elements:
    * ![icon](../../_assets/console-icons/magnifier-plus.svg): Zooms in on the report.
    * ![icon](../../_assets/console-icons/square-dashed.svg): Resets the report display scale and centers it on the screen.
    * ![icon](../../_assets/console-icons/gear.svg): Opens the [current page settings](./report-operations.md#page-settings) window.
+   * ![icon](../../_assets/console-icons/funnel.svg): Opens the report [selector settings](./report-operations.md#add-selector) window.
 
 1. Area for working with the contents of the current report page.
 

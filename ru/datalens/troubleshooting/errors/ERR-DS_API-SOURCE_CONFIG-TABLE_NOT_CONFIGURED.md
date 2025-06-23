@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED
+description: На странице приведено описание ошибки ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED.
+---
+
 # Нарушена конфигурация таблицы
 
 `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`

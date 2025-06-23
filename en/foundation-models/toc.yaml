@@ -57,7 +57,7 @@ items:
             href: operations/tuning/create.md
           - name: Fine-tuning a text classification model
             href: operations/tuning/tune-classifiers.md
-          - name: Fine-tuning an embedding model
+          - name: Tuning an embedding model
             href: operations/tuning/create-embeddings.md
       - name: '{{ assistant-api }}'
         items:

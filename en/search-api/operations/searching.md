@@ -1,11 +1,12 @@
 ---
 title: How to perform queries to {{ search-api-full-name }} via API v1
 description: Follow this guide to learn how to use {{ search-api-name }}'s API v1 to submit search queries and get search results.
+noIndex: true
 ---
 
 # Running search queries via API v1
 
-With {{ search-api-name }}'s [API v1](../concepts/index.md#api-v1), you can perform [text](../concepts/get-request.md) and [image](../concepts/pic-search.md) search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format (for text search) in synchronous mode. The search results you get depend on the parameters specified in your query.
+With {{ search-api-name }}'s API v1, you can perform [text](../concepts/get-request.md) and [image](../concepts/pic-search.md) search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format (for text search) in synchronous mode. The search results you get depend on the parameters specified in your query.
 
 ## Getting started {#before-you-begin}
 

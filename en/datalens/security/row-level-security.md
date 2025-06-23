@@ -143,7 +143,7 @@ To avoid this, you can move the row-level security logic to the data source side
 1. Add a new field for storing user IDs to the source data. All requests to the source will be filtered by this field.
 
    
-   To view your ID, follow [this link]({{ link-console-access-management }}). If you need another user's ID, ask them to open this link and pass the ID to you.
+   To view your ID, follow [this link]({{ link-org-cloud-center }}/users). If you need another user's ID, ask them to open this link and pass the ID to you.
 
 
 1. For each row of source data, specify the ID of the user who is allowed to access this row. If multiple users must have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.

@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN
+description: На странице приведено описание ошибки ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN.
+---
+
 # Ошибка в синтаксисе формулы
 
 `ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN`

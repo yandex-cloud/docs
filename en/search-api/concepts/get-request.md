@@ -1,11 +1,14 @@
 ---
 title: GET requests via {{ search-api-full-name }}'s API v1
 description: This article describes the specificities and format of GET requests when accessing {{ search-api-name }} via API v1.
+noIndex: true
 ---
 
 # GET requests
 
 With {{ search-api-name }}'s API v1, you can run requests with preset parameters to the Yandex search database. You can submit search parameters to the service as an HTTP request using the GET method. {{ search-api-name }} will return a response as an [XML](./response.md) or [HTML](./html-response.md) document.
+
+{% include [api-v1](../../_includes/search-api/api-v1.md) %}
 
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
@@ -102,7 +105,7 @@ The URL of your request to {{ search-api-name }} and the list of supported param
 - HTML {#html}
 
   ```httpget
-  https://yandex.ru/search/xml/html?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3&maxpassages=3&page=4
+  https://yandex.ru/search/xml/html?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&query=%3Ctable%3E&lr=11316&filter=strict&page=4
   ```
 
 {% endlist %}

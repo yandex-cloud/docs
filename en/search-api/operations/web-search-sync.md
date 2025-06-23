@@ -1,18 +1,17 @@
 ---
-title: How to search in {{ search-api-full-name }} using API v2 in synchronous mode
+title: How to search in synchronous mode in {{ search-api-full-name }} using API v2
 description: Follow this guide to learn how to use the API v2 interface in {{ search-api-name }} to send search queries and get search results in XML or HTML format in synchronous mode.
 ---
 
 # Performing search queries using API v2 in synchronous mode
 
-With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in synchronous mode. You can run queries using the [gPRC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
+With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in synchronous mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
 ## Getting started {#before-you-begin}
 
 {% include [before-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
-To use the examples, install [gRPCurl](https://github.com/fullstorydev/grpcurl) and [jq](https://stedolan.github.io/jq).
+To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq) utilities, plus [gRPCurl](https://github.com/fullstorydev/grpcurl) if you are going to use [gRPC API](../api-ref/grpc/).
 
 
 ## Get your cloud ready {#initial-setup}
@@ -24,6 +23,31 @@ To use the examples, install [gRPCurl](https://github.com/fullstorydev/grpcurl) 
 1. Send a query and get a Base64-encoded result:
 
     {% list tabs group=instructions %}
+
+    - REST API {#api}
+
+      1. Create a file with the request body, e.g., `body.json`:
+
+          **body.json**
+
+          {% include [http-body-v2](../../_includes/search-api/http-body-v2.md) %}
+
+          {% cut "Description of fields" %}
+
+          {% include [http-v2-body-params](../../_includes/search-api/http-v2-body-params.md) %}
+
+          {% endcut %}
+
+      1. Run an http query by specifying the IAM token you got earlier:
+
+      ```bash
+      curl \
+        --request POST \
+        --header "Authorization: Bearer <IAM_token>" \
+        --data "@body.json" \
+        "https://searchapi.{{ api-host }}/v2/web/search" \
+        > result.json
+      ```
 
     - gRPC API {#grpc-api}
 
@@ -39,7 +63,7 @@ To use the examples, install [gRPCurl](https://github.com/fullstorydev/grpcurl) 
 
           {% endcut %}
 
-      1. Run an gRPC call by specifying the IAM token you got earlier:
+      1. Run a gRPC call by specifying the IAM token you got earlier:
 
           ```bash
           grpcurl \
@@ -49,9 +73,9 @@ To use the examples, install [gRPCurl](https://github.com/fullstorydev/grpcurl) 
             > result.json
           ```
 
-        Eventually the search query result will be saved to a file named `result.json` containing a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) response in the `rawData` field.
-
     {% endlist %}
+
+    Eventually the search query result will be saved to a file named `result.json` containing a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) response in the `rawData` field.
 
 1. Depending on the requested response format, decode the result from `Base64`:
 

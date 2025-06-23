@@ -59,7 +59,7 @@ items:
         href: concepts/visibility-timeout.md
       - name: Long Polling
         href: concepts/long-polling.md
-      - name: What is Dead Letter Queue (DLQ)?
+      - name: What is a Dead Letter Queue (DLQ)?
         href: concepts/dlq.md
       - name: Delay queues
         href: concepts/delay-queues.md
@@ -75,7 +75,7 @@ items:
         href: tutorials/index.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
-      - name: Autoscaling a group of instances to process messages from a queue
+      - name: Autoscaling an instance group to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: >-
           Creating triggers that invoke a function to stop a VM and send a
@@ -161,6 +161,8 @@ items:
             href: api-ref/data-types/SendMessageBatchResultEntry.md
       - name: Common errors
         href: api-ref/common-errors.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: Public materials

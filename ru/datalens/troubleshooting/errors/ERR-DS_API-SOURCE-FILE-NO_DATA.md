@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.SOURCE.FILE.NO_DATA
+description: На странице приведено описание ошибки ERR.DS_API.SOURCE.FILE.NO_DATA.
+---
+
 # Empty document
 
 `ERR.DS_API.SOURCE.FILE.NO_DATA`

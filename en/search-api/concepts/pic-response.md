@@ -1,6 +1,7 @@
 ---
 title: XML response format for image search in {{ search-api-full-name }}
 description: This article describes the XML format of a response returned by {{ search-api-name }} for an image search query.
+noIndex: true
 ---
 
 # Image search response format
@@ -9,7 +10,7 @@ In response to an image search query, {{ search-api }} returns a [UTF-8](https:/
 
 XML files consist of the [request](#request-el) (aggregate information on search query parameters) and [response](#response-el) (search query handling results) grouping tags.
 
-Currently, image search is only available for queries received via [API v1](./index.md#api-v1).
+Currently, image search is only available for queries made via the API v1.
 
 Below is the general structure of the resulting XML document with examples of values.
 
@@ -87,7 +88,7 @@ The `request` group provides aggregate information about request parameters. It 
 #|
 || **Request group tags** | **Description** | **Attributes** ||
 || query | Search query text | None ||
-|| page | Number of the returned page with search results. Page numbering starts from zero (`0` stands for page 1). | None ||
+|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page 1). | None ||
 || sortby | 
 Result sorting parameters. Service tag, takes the `rlv` value: sorting by relevance.
 | 
@@ -113,19 +114,19 @@ It contains grouping parameters in the `groupby` tag.
 
 Results of processing the search query, information about which is provided in the [request](#request-el) tag.
 
-It contains the `date` attribute with the query date and time (UTC) in `<year><month><day>Т<hour><minute><second>` format.
+It contains the `date` attribute with the query date and time (UTC) in `<year><month><day>T<hour><minute><second>` format.
 
 This group consists of the following sections:
 
-* [General information about search results](#basic-search-info)
+* [General search results info](#basic-search-info)
 * [`results` section](#results-block)
 
-#### General information about search results {#basic-search-info}
+#### General search results info {#basic-search-info}
 
-The table below lists the tags used in the appropriate section.
+The table below lists the tags of the general search results info section.
 
 #|
-|| **Tags for general information about search results** | **Description** | **Attributes** ||
+|| **General search results info tags** | **Description** | **Attributes** ||
 || error |
 Error description 
 
@@ -134,7 +135,7 @@ Used only if a search query is handled incorrectly (e.g., if the query is empty 
 In some cases, it is mutually exclusive with other tags of the `response` grouping tag.
 | `code`: Error [code](../reference/error-codes.md). ||
 || reqid | Unique query ID | None ||
-|| found | Estimate of the number of images found in response to the query.
+|| found | Estimated number of images found for the query.
 | 
 `priority`: Service attribute. The possible values are:
 
@@ -142,13 +143,13 @@ In some cases, it is mutually exclusive with other tags of the `response` groupi
 * `strict`
 * `all`
 ||
-|| found-human | String in the language matching the selected [search type](../operations/workaround.md). Contains information about the number of found images and related information. | None ||
+|| found-human | String in the language according to the selected [search type](../operations/workaround.md). Contains information about the number of found images and related information. | None ||
 |#
 
 
 #### results section {#results-block}
 
-This is an optional tag and only used if any results are found for a query.
+Optional. It is present if results are found for the query.
 
 The table below lists the tags for this section.
 
@@ -168,10 +169,10 @@ Attributes reflect the grouping rules for images.
 * `docs-in-group`: Maximum number of images that can be returned per group. Service attribute, takes the `1` value.
 * `curcateg`: Service attribute. Takes the `-1` value.
 ||
-|| page | Number of the returned page with search results. Page numbering starts from zero (`0` stands for page 1).
+|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page 1).
 | 
-* `first`: Number of the first group with search results displayed on the page.
-* `last`: Number of the last group with search results displayed on the page.
+* `first`: Sequence number of the first search results group displayed on the page.
+* `last`: Sequence number of the last search results group displayed on the page.
 ||
 || group | 
 Grouping tag.
@@ -195,7 +196,7 @@ Each `doc` tag contains information about one of the found images.
 || relevance | Service tag | `priority`: Service attribute. ||
 || url | Image address | None ||
 || domain | Domain that hosts the document containing the image | None ||
-|| modtime | Image modification date and time (UTC) in `<year><month><day>Т<hour><minute><second>` format | None ||
+|| modtime | Image modification date and time (UTC) in `<year><month><day>T<hour><minute><second>` format | None ||
 || size | Image size in bytes | None ||
 || charset | Encoding of the document containing the image | None ||
 || image-properties | 
@@ -226,9 +227,9 @@ Contains information about the image properties to include in search results.
 ||
 || found-docs | 
 
-Estimate of the number of images found in response to the query.
+Estimated number of images found for the query.
 
-It is a more accurate estimate as compared to the value provided in the `found` tag of the section with [general information about search results](#basic-search-info).
+It is a more accurate estimate compared to the value provided in the `found` tag of the [general search results info](#basic-search-info) section.
 
 | 
 `priority`: Service attribute. The possible values are:

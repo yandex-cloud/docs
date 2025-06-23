@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.CHYT.SUBQ_WEIGHT_LIMIT_EXCEEDED
+description: На странице приведено описание ошибки ERR.DS_API.DB.CHYT.SUBQ_WEIGHT_LIMIT_EXCEEDED.
+---
+
 # Subquery exceeds data weight limit
 
 `ERR.DS_API.DB.CHYT.SUBQ_WEIGHT_LIMIT_EXCEEDED`

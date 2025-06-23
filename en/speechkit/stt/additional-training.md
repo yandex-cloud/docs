@@ -8,8 +8,8 @@ description: 'In this tutorial, you will learn about methods of extending a spee
 {{ speechkit-name }} provides multiple ways to improve speech recognition:
 
 * [Auto-tuning](#autotuning)
-* [Model tuning](#advanced-training)
 * [Using audio to improve quality](#audio)
+* [Model tuning](#advanced-training)
 
 
 ## Auto-tuning based on logged data {#autotuning}
@@ -44,58 +44,9 @@ The basic speech recognition model is designed to work with everyday language, b
 * Trade: Product ranges (jewelry, electronics, and so on).
 * Finance: Banking terms and names of banking products.
 
-Model tuning relies on text templates and glossaries.
+For tuning you will need a list of terms (words or phrases) and at least three free-form text examples for each term.
 
-### Text template {#templates}
+Tuning is available for the Russian language only.
 
-A _text template_ contains similar phrases with variables the model uses to generate utterances. The variables are replaced with glossary terms.
-
-To improve overall recognition quality, you can use templates together with [auto-tuning](#autotuning). They work even for domain-specific vocabulary, such as drug names.
-
-### Glossary {#glossary}
-
-A _glossary_ is a full list of terms used in place of variables in templates. It contains words found in test audio files, as well as other vocabulary.
-
-A glossary must be provided as a separate file. One such file is created for each template variable. The variable serves as the name for the relevant glossary file. Each term occupies a separate line in the file.
-
-For example, the `first-name.tsv`, `middle-name.tsv`, and `last-name.tsv` glossary files used for tuning a call center model may contain the first, middle, and last names of customers.
-
-| first-name.tsv | middle-name.tsv | last-name.tsv |
-|---|---|---|
-|  John<br>Tom<br>Peter<br>... <br> |  Wendell<br>Sean<br>Larry<br>... <br> | Thompson<br>Carter<br>Smith<br>... <br> |
-
-If the pattern phrases assume that the glossary terms may have possessive case forms, you need to create a separate glossary file for each form. For example, files with names in the possessive case will contain the following entries:
-
-| first-name-ablative.tsv | middle-name-ablative.tsv | last-name-ablative.tsv |
-|---|---|---|
-|  John<br>Tom<br>Peter<br>... <br> |  Wendell<br>Sean<br>Larry<br>... <br> | Thompson's<br>Carter's<br>Smith's<br>... <br> |
-
-Then, the `templates.tsv` file may contain entries in the following format:
-
-```text
-Hello, are you {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
-Hello, can I talk to {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv}?
-```
-
-### Restrictions and requirements for text templates and glossaries {#requirements}
-
-Glossaries and text templates must be provided in normalized [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) format:
-
-* Numerals: Written as words.
-* Latin words and characters: Transcribed.
-* Abbreviations: Spelled out.
-* Foreign language acronyms: Spelled out or transcribed.
-* Russian acronyms: Left unchanged.
-
-> ![No](../../_assets/common/no.svg): We're giving away, i.e. for free, 2 kilos of potatoes, a DNA helix model, and some ABC magazine from 2020.
-> 
-> ![Yes](../../_assets/common/yes.svg): We are giving away, that is for free, two kilos of potatoes, a dee-en-ay helix model, and some ay-bee-cee magazines from twenty-twenty.
-
-Requirements for text templates and glossaries:
-
-* The length of a template including variables must not exceed 200 characters.
-* Only Russian is supported.
-* Tuning works better if there are at least 100 phrases for each glossary term.
 
 Tuning takes about two months from when you [submit the data archive to the support team](upload-data-for-training.md).
-

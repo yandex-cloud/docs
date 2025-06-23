@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.CHARTS.RUNTIME_TIMEOUT
+description: На странице приведено описание ошибки ERR.CHARTS.RUNTIME_TIMEOUT.
+---
+
 # Response processing timeout
 
 `ERR.CHARTS.RUNTIME_TIMEOUT`

@@ -28,3 +28,15 @@ meta:
   description: >-
     See our step-by-step guides to get started with ease and discover Yandex
     Cloud features.
+  keywords:
+    - Getting started with {{ yandex-cloud }}
+    - How to get started with {{ yandex-cloud }}
+    - How to sign up in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} for individuals'
+    - '{{ yandex-cloud }} for businesses'
+    - Conditions for getting a grant in {{ yandex-cloud }}
+    - Grants in {{ yandex-cloud }}
+    - Trial period in {{ yandex-cloud }}
+    - Give {{ yandex-cloud }} a try
+    - Signing up to {{ yandex-cloud }}
+    - Payments in {{ yandex-cloud }}

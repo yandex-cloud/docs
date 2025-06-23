@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT
+description: На странице приведено описание ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT.
+---
+
 # Inconsistent aggregation among operands
 
 `ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT`

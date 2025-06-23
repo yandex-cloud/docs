@@ -3,7 +3,7 @@ title: Search queries via {{ search-api-full-name }}'s API v2 interface
 description: This section describes the specificities and format of text queries when accessing {{ search-api-name }} via API v2.
 ---
 
-# Text search with API v2
+# Text search
 
 With {{ search-api-name }} v2, you can run queries to the Yandex search database and get a response in [synchronous](#sync-mode) or [deferred](#async-mode) mode. The search results you get depend on the [parameters](#parameters) specified in your query.
 
@@ -11,9 +11,9 @@ Queries can be submitted by a user or [service account](../../iam/concepts/users
 
 Depending on the specified query parameters, you will get the result in [XML](./response.md) or [HTML](./html-response.md) format.
 
-## Query body format {#parameters}
+## Request body format {#parameters}
 
-The names of the query body fields are different in [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/): the former uses [CamelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter uses [snake_case](https://en.wikipedia.org/wiki/Snake_case).
+The names of the request body fields are different in [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/): the former uses [CamelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter uses [snake_case](https://en.wikipedia.org/wiki/Snake_case).
 
 {% list tabs group=instructions %}
 

@@ -13,6 +13,8 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ backup-name }} {#rules}
 
 Стоимость {{ backup-name }} зависит от количества защищенных ресурсов — виртуальных машин {{ compute-full-name }} и серверов {{ baremetal-full-name }}, а также суммарного объема хранилища, занятого резервными копиями.

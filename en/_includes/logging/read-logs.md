@@ -68,7 +68,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
 - SDK {#sdk}
 
-  You can read {{ cloud-logging-name }} records using the [{{ yandex-cloud }} SDK](../../overview/sdk/quickstart), which is available for various languages. Below are examples of using the Python SDK. You can work with code in your infrastructure or in [{{ sf-full-name }}](../../functions/).
+  You can read records in {{ cloud-logging-name }} using the [{{ yandex-cloud }} SDK](../../overview/sdk/quickstart), which is available for various languages. Below are examples of using the Python SDK. You can work with code in your infrastructure or in [{{ sf-full-name }}](../../functions/).
 
   **Locally**
 
@@ -123,7 +123,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
 - API {#api}
 
-  To view [log group](../../logging/concepts/log-group.md) entries, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+  To view [log group](../../logging/concepts/log-group.md) records, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
   **Example**
 
@@ -142,7 +142,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
       ONE_HOUR_AGO=$(date -u -d "1 hour ago" +"%Y-%m-%dT%H:%M:%SZ")
       ```
 
-      You can specify a different period instead of 1 hour: `"1 hour ago"`. For example, an interval of `1 month, 2 weeks, 3 days, and 4 hours` will look like this:
+      You can specify a different period instead of 1 hour: `"1 hour ago"`. For example, an interval such as `1 month, 2 weeks, 3 days, and 4 hours` would look like this:
 
       ```text
       "1 month ago 2 weeks ago 3 days ago 4 hours ago"
@@ -159,7 +159,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
       {% endcut %}
 
-  1. Write the log group ID into the variable:
+  1. Write the ID of the required log group to the variable:
 
       ```bash
       LOG_GROUP_ID="<log_group_ID>"
@@ -180,7 +180,7 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
         -import-path ~/cloudapi/ \
         -import-path ~/cloudapi/third_party/googleapis/ \
         -proto ~/cloudapi/yandex/cloud/logging/v1/log_reading_service.proto \
-        reader.logging.yandexcloud.net:443 \
+        {{ logging-endpoint-reader }}:443 \
         yandex.cloud.logging.v1.LogReadingService/Read
       ```
 

@@ -11,7 +11,7 @@ Yes, you can.
 
 #### What payment methods can I use? {#payment-types}
 
-Non-residents of Russia and Kazakhstan can top up their accounts and pay for resources using a [bank card](../../billing/payment/payment-methods-individual.md) or [wire transfer](../../billing/payment/payment-methods-business.md).
+Non-residents of Russia and Kazakhstan can top up their accounts and pay for resources with a [bank card](../../billing/payment/payment-methods-individual.md) or [wire transfer](../../billing/payment/payment-methods-business.md).
 
 #### In what currency can non-residents of Russia and Kazakhstan pay for {{ yandex-cloud }} services? {#currency}
 
@@ -20,7 +20,6 @@ Non-residents of Russia and Kazakhstan can pay for {{ yandex-cloud }} services o
 #### What documents do I get after I pay for the services? {#documents}
 
 {{ yandex-cloud }} issues a [payment invoice](../../billing/concepts/bill.md) for non-resident businesses of Russia and Kazakhstan. A copy of the payment invoice will be sent to the email address of the billing account owner at the beginning of the next reporting period.
-
 
 #### What is the procedure for taxes when paying for services? {#taxes}
 
@@ -36,7 +35,7 @@ Clicking **{{ ui-key.yacloud.common.create }}** on the **{{ ui-key.yacloud_billi
 
 #### I received no email with instructions on what to do after creating a billing account. Why? {#account-notification}
 
-For your billing account to be activated, you must have your documents and data checked. With that done, your billing account can be activated and you can start using {{ yandex-cloud }}.
+For your billing account to be activated, you must have your documents and data checked. Following that, your billing account can be activated and you can start using {{ yandex-cloud }}.
 If you still get no email, inquire at [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
 
 In the request, specify the full organization name and the [billing account ID](../../billing/concepts/billing-account.md#billing-account-id), and attach a copy of the certificate of incorporation (translated into English or Russian).

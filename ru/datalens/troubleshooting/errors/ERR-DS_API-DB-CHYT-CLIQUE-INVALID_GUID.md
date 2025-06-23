@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.CHYT.CLIQUE.INVALID_GUID
+description: На странице приведено описание ошибки ERR.DS_API.DB.CHYT.CLIQUE.INVALID_GUID.
+---
+
 # Не удалось распарсить название клики
 
 `ERR.DS_API.DB.CHYT.CLIQUE.INVALID_GUID`

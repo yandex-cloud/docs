@@ -2,7 +2,7 @@
 1. In ![image](../../_assets/console-icons/folder-tree.svg) **Connections**, click ![image](../../_assets/console-icons/square-plus.svg).
 1. In the bottom-left corner of the window that opens, click **External connection**.
 1. **Name** the connection.
-1. In the **Database type** field, select the database you need: {{ PG }}, {{ CH }}, {{ MY }}, {{ RD }}, {{ VLK }}, or {{ MG }}.
+1. In the **Database type** field, select the database you need: {{ PG }}, {{ CH }}, {{ MY }}, {{ RD }}, {{ GP }}, {{ VLK }}, or {{ MG }}.
 1. Under **Hosts**, configure the hosts:
     * Specify the database host FQDN and port number for connecting to the database.
     * For {{ CH }}, also specify the Native Protocol port and [shard](../../managed-clickhouse/operations/shards.md#list-shards) name.

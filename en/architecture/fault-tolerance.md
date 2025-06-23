@@ -13,7 +13,7 @@ keywords:
 # Recommendations on fault tolerance in {{ yandex-cloud }}
 
 Fault tolerance is the capability of a system to continue its operation in case of any fault in one or multiple components. 
-Faults can be either total or partial. A partial fault is intermediate between a fully operational state and a total fault, manifested by a partial rather than full loss of the system’s capacity to perform its functions. For example: 50% loss of network packages during transmission via communication circuits is a partial fault.
+Faults can be either total or partial. A partial fault is intermediate between a fully operational state and a total fault, manifested by a partial rather than full loss of the system’s capacity to perform its functions. Here is an example: 50% loss of network packages during transmission via communication circuits is a partial fault.
 
 Below are recommendations on designing a fault-tolerant infrastructure in {{ yandex-cloud }}.
 
@@ -111,7 +111,7 @@ Here is an [example](../tutorials/web/load-balancer-website/) of creating a faul
 
 ### {{ alb-name }} {#alb}
 
-[{{ alb-name }}](../application-load-balancer/) is a smarter yet more costly balancing tool. At the architecture level, the service is a {{ network-load-balancer-name }} that distributes network traffic between [resource units](../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling), i.e., internal VMs acting as [reverse proxies](https://ru.wikipedia.org/wiki/Обратный_прокси) which, in turn, distribute traffic further between the customer’s targets. Unlike {{ network-load-balancer-name }} with only VM network interfaces for targets, {{ alb-name }} can distribute traffic to any private IP addresses, e.g., IP addresses outside of the cloud network, IP addresses of {{ network-load-balancer-name }} listeners, etc.
+[{{ alb-name }}](../application-load-balancer/) is a smarter yet more costly balancing tool. At the architecture level, the service is a {{ network-load-balancer-name }} that distributes network traffic between [resource units](../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling), i.e., internal VMs acting as [reverse proxies](https://en.wikipedia.org/wiki/Reverse_proxy) which, in turn, distribute traffic further between the customer’s targets. Unlike {{ network-load-balancer-name }} with only VM network interfaces for targets, {{ alb-name }} can distribute traffic to any private IP addresses, e.g., IP addresses outside of the cloud network, IP addresses of {{ network-load-balancer-name }} listeners, etc.
 
 To handle situations with partial availability zone faults, with {{ alb-name }}, you can manually stop delivering customer traffic to the compromised zone.
 
@@ -156,9 +156,16 @@ Currently, {{ yandex-cloud }} does not have a service automatically balancing re
 
 Under the [SLA](https://yandex.ru/legal/cloud_sla_kb/), {{ k8s }} clusters are only deemed fault-tolerant if they use a `master with fault tolerance settings in three availability zones (one host per zone)`.
 
-To build a fault-tolerant infrastructure, beyond the cluster itself, you need to:
-   * Place cluster worker nodes in multiple availability zones.
+For maximum fault tolerance, use multiple clusters with traffic balancing. In addition to fault tolerance, this configuration allows you to update cluster versions without interruptions, implement locality-aware traffic routing, and run A/B testing.
+
+To build a fault-tolerant infrastructure in a single-cluster configuration, beyond the cluster itself, you need to:
+   * Host cluster worker nodes in multiple availability zones.
    * Distribute maintenance services, such as CoreDNS, and application services among multiple availability zones.
+
+In case of a multi-cluster configuration:
+   * Host cluster worker nodes in different availability zones for each cluster within a single zone.
+   * Provide identical configuration of clusters and applications deployed in them.
+   * Set up request balancing between clusters using {{ alb-name }}.
 
 To minimize the impact of cluster node faults, you need to ensure even load distribution. To do this, we recommend using such tools as:
    * `topologySpreadConstraints`: To ditribute pods among availability zones.

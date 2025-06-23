@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.ZERO_DIVISION
+description: На странице приведено описание ошибки ERR.DS_API.DB.ZERO_DIVISION.
+---
+
 # Division by zero
 
 `ERR.DS_API.DB.ZERO_DIVISION`

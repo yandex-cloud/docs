@@ -1,11 +1,12 @@
 ---
 title: Getting limits on the number of requests to {{ search-api-full-name }} via API v1
 description: Follow this guide to get information about the limits on the number of requests you can send to {{ search-api-name }} via API v1 in the next 24 hours.
+noIndex: true
 ---
 
 # Requesting limits for the next 24 hours
 
-You can use [API v1](../concepts/index.md#api-v1) to request information about [limits](../concepts/limits.md) on the number of requests to {{ search-api-name }}.
+You can use API v1 to request information about [limits](../concepts/limits.md) on the number of requests to {{ search-api-name }}.
 
 The [response](#limit-response-format) contains information about the limit for each hour during the next 24 hours.
 

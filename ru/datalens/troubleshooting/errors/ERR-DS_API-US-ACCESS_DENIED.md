@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.US.ACCESS_DENIED
+description: На странице приведено описание ошибки ERR.DS_API.US.ACCESS_DENIED.
+---
+
 # Access denied
 
 `ERR.DS_API.US.ACCESS_DENIED`

@@ -41,7 +41,17 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
        {% endnote %}
 
-     * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
+     * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type.
+       
+       {% note info %}
+       
+       Do not specify an operation in the following cases:
+
+       * Selector will filter a QL chart.
+       * Selector is linked to parameters of a chart or dataset.
+
+       {% endnote %}
+
      * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
      * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
      * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is added to the end of the selector name. Not available for the **Checkbox** selector type.
@@ -73,7 +83,17 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
        {% endnote %}
 
-     * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
+     * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type.
+       
+       {% note info %}
+       
+       Do not specify an operation in the following cases:
+
+       * Selector will filter a QL chart.
+       * Selector is linked to parameters of a chart or dataset.
+
+       {% endnote %}
+
      * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is added to the end of the selector name. Not available for the **Checkbox** selector type.
      * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
      * **Possible values**: List of values to select. Only available for the **List** selector type.

@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND
+description: На странице приведено описание ошибки ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND.
+---
+
 # ROUND with precision parameter is not supported for double precision data type in {{ PG }}
 
 `ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND`

@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.CHYT.AUTH_FAILED
+description: На странице приведено описание ошибки ERR.DS_API.DB.CHYT.AUTH_FAILED.
+---
+
 # Authentication failed
 
 `ERR.DS_API.DB.CHYT.AUTH_FAILED`

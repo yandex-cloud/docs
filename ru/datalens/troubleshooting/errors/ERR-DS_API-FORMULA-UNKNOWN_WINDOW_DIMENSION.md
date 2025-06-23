@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.FORMULA.UNKNOWN_WINDOW_DIMENSION
+description: На странице приведено описание ошибки ERR.DS_API.FORMULA.UNKNOWN_WINDOW_DIMENSION.
+---
+
 # Unknown dimension for window
 
 `ERR.DS_API.FORMULA.UNKNOWN_WINDOW_DIMENSION`

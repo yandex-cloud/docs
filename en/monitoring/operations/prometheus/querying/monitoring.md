@@ -5,11 +5,10 @@ description: Follow this guide to read and visualize {{ prometheus-name }} metri
 
 # Reading and visualizing metrics in {{ monitoring-name }}
 
-In {{ monitoring-full-name }}, you can work with data collected by {{ managed-prometheus-name }}. With {{ prometheus-name }} metrics, you can build charts in the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** section and add them to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+You can build charts based on {{ prometheus-name }} metrics:
 
-Previously, {{ prometheus-name }} metrics-based charts were in **{{ prometheus-name }}** → <Workspace> → **Metrics**.
-
-Alert configuration with the help of {{ prometheus-name }} metrics remains in the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** section. For more information, see [{#T}](../alerting-rules.md).
+* Under **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**, for a quick overview of resource state.
+* Under **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**, for regular monitoring over certain indicators.
 
 
 ## Adding charts in {{ monitoring-name }} {#prometheus-metrics}
@@ -63,7 +62,7 @@ Adding a chart under **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.d
 - Management console {#console}
 
   1. Open the [service home page]({{ link-monitoring }}).
-  1. Go to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** section.
+  1. Navigate to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
   1. Select an existing dashboard or [create a new one](../../dashboard/create.md).
   1. At the top right, click ![image](../../../../_assets/console-icons/plus.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
   1. In the **Data source** list at the top, select **{{ prometheus-name }}**.

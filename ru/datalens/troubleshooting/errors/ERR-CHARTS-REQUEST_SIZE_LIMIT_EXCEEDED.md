@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED
+description: На странице приведено описание ошибки ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED.
+---
+
 # Request size limit exceeded
 
 `ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED`

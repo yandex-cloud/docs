@@ -10,6 +10,8 @@ When the trigger is running, requests to the message queue are free of charge.
 
 For more information about creating a trigger for {{ message-queue-short-name }}, see [{#T}](../../operations/trigger/ymq-trigger-create.md).
 
+{% include [batching-messages](../../../_includes/functions/batching-messages.md) %}
+
 ## Roles required for the proper operation of a trigger for {{ message-queue-short-name }} {#roles}
 
 * To create a trigger, you need: 

@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.DB_OPERATIONAL_ERROR
+description: На странице приведено описание ошибки ERR.DS_API.DB.DB_OPERATIONAL_ERROR.
+---
+
 # Ошибка на стороне БД
 
 `ERR.DS_API.DB.DB_OPERATIONAL_ERROR`

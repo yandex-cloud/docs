@@ -15,10 +15,10 @@ If the basic embedding model does not suit you, you can [fine-tune](./tuning/ind
 
 {{ foundation-models-full-name }} provides two text vectorization models.
 
-| **Target** | **URI** | **Output vector size** | **[Operating modes](./index.md#working-mode)** |
-|---|---|---|---|
-| Vectorization of large source texts, e.g., documentation articles | `emb://<folder_ID>/text-search-doc/latest` | {{ emb-vector }} | Synchronous |
-| Vectorization of short texts, such as search queries, requests, etc. | `emb://<folder_ID>/text-search-query/latest` | {{ emb-vector }} | Synchronous |
+| **Target** | **URI** | **Output vector size**                        | **[Operating modes](./index.md#working-mode)** |
+|---|---|----------------------------------------------------------|---|
+| Vectorization of large source texts, e.g., documentation articles | `emb://<folder_ID>/text-search-doc/latest` | {{ emb-vector }}                                         | Synchronous |
+| Vectorization of short texts, such as search queries, requests, etc. | `emb://<folder_ID>/text-search-query/latest` | {{ emb-vector }}                                         | Synchronous |
 | Fine-tuned embedding models | `gpt://<folder_ID>/text-embeddings/<version>@<tuning_suffix>` | Depends on fine-tuning parameters.</br> The default value is 256. | Synchronous |
 
 To use the {{ foundation-models-full-name }} text vectorization models, you need the `ai.languageModels.user` [role](../security/index.md#languageModels-user) or higher for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).

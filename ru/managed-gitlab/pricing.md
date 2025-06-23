@@ -21,6 +21,8 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
 
 При работе с {{ mgl-name }} вы оплачиваете:
@@ -112,10 +114,6 @@ editable: false
 ## Цены для региона Россия {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-Все цены указаны с включением НДС.
-
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 

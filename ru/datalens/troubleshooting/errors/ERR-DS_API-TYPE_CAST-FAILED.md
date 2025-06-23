@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.TYPE_CAST.FAILED
+description: На странице приведено описание ошибки ERR.DS_API.TYPE_CAST.FAILED.
+---
+
 # Ошибка преобразования типа данных
 
 `ERR.DS_API.TYPE_CAST.FAILED`

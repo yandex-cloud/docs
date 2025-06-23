@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST
+description: На странице приведено описание ошибки ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST.
+---
+
 # Data source (table) does not exist
 
 `ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST`

@@ -61,7 +61,7 @@ Year |	Delivery|	Pickup
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 X | Dimensions You can specify one or two dimensions. Affects X-axis value grouping. The order of specified dimensions affects the order of value grouping on the X-axis. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on.
 Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). 
@@ -87,7 +87,12 @@ To create a column chart:
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as columns on the Y-axis.
 
-By default, a stacked chart is displayed if you have multiple measures.
+{% note info %}
+
+* By default, a stacked chart is displayed if you have more than one measure.
+* To make a [grouped chart](#grouped-column-chart), use the **Colors** section for grouping.
+
+{% endnote %}
 
 ### Creating a grouped column chart {#grouped-column-chart}
 

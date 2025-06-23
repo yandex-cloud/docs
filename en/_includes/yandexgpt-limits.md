@@ -40,7 +40,6 @@ Period to store results of asynchronous requests on the server | 3 days
 Number of input [tokens](../foundation-models/concepts/yandexgpt/tokens.md) | 2,000
 Output vector size | {{ emb-vector }}
 **[Text generation](../foundation-models/concepts/yandexgpt/index.md)** |
-Maximum number of tokens in response via API | 2,000 
 Maximum number of tokens per response in the [management console]({{ link-console-main }}) | 1,000
 Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }}
 **[Assistants](../foundation-models/concepts/assistant/index.md)**|

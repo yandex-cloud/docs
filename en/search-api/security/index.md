@@ -1,31 +1,31 @@
 ---
 title: Access management in {{ search-api-full-name }}
-description: Access management in {{ search-api-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ search-api-full-name }}. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
 ---
 
 # Access management in {{ search-api-name }}
 
 In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [Roles existing in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
 ### Service roles {#service-roles}
-
-#### search-api.executor {#search-api-executor}
-
-{% include [searchapi-executor](../../_roles/search-api/executor.md) %}
 
 #### search-api.webSearch.user {#search-api-webSearch-user}
 
 {% include [search-api-webSearch-user](../../_roles/search-api/webSearch/user.md) %}
+
+#### search-api.executor {#search-api-executor}
+
+{% include [searchapi-executor](../../_roles/search-api/executor.md) %}
 
 #### search-api.auditor {#search-api-auditor}
 

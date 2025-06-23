@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.US.BAD_REQUEST.ALREADY_EXISTS
+description: На странице приведено описание ошибки ERR.US.BAD_REQUEST.ALREADY_EXISTS.
+---
+
 # Не удалось создать <тип_объекта>
 
 `ERR.US.BAD_REQUEST.ALREADY_EXISTS`
