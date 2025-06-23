@@ -44,6 +44,7 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [AI agent](workflows/constructor/aiagent.md)
 * [Switch](workflows/constructor/switch.md)
 * [Foreach](workflows/constructor/foreach.md)
+* [While](workflows/constructor/while.md)
 * [Parallel](workflows/constructor/parallel.md)
 * [No op](workflows/constructor/noop.md)
 * [Fail](workflows/constructor/fail.md)

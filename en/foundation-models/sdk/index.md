@@ -115,6 +115,11 @@ print(f'{result.alternatives[0].text=}')
 print(f'{result.alternatives[0].status=}')
 ```
 
+Where:
+
+* `folder_id`: [Service account](../../iam/concepts/users/service-accounts.md) [folder ID](../../resource-manager/operations/folder/get-id.md).
+* `auth`: Key, token, or other [authentication](#authentication) data to identify the subject.
+
 Result:
 
 1. The `result` variable contains an array of alternatives from the model's responses:
@@ -123,7 +128,7 @@ Result:
     GPTModelResult(alternatives=(Alternative(role='assistant', text=’Heaven, in many religions, is the place believed to be the home of God where good people go when they die. It is sometimes imagined to be in the sky, inhabited by angels, souls, saints, and other celestial beings.\n\nThe word _heaven_ can also be used figuratively to mean something sublime, ideal, or divine.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=14, completion_tokens=83, total_tokens=97), model_version='23.10.2024')
     ```
 
-1. The `result[0]` array element contains the `result.alternatives[0]` object of the {{ ml-sdk-name }} `TextMessage` class, which in turn contains the `role`, `text`, and `status` fields:
+1. The `result[0]` array element contains the `result.alternatives[0]` object of the {{ ml-sdk-name }} `TextMessage` [class](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/src/yandex_cloud_ml_sdk/_models/completions/message.py), which in turn contains the `role`, `text`, and `status` fields:
 
     ```text
     Alternative(role='assistant', text='Heaven, in many religions, is the place believed to be the home of God where good people go when they die. It is sometimes imagined to be in the sky, inhabited by angels, souls, saints, and other celestial beings.\n\nThe word _heaven_ can also be used figuratively to mean something sublime, ideal, or divine.', status=<AlternativeStatus.FINAL: 3>)

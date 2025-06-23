@@ -7,7 +7,7 @@ When creating a cluster, you can specify the following network settings:
 
    There are certain [requirements](#subnet-requirements) for subnets, because a cluster allocates special [network addresses](#addresses).
 
-* [Security groups](#security-groups) to allow strictly defined outgoing traffic.
+* [Security groups](#security-groups) to allow only specific outbound traffic.
 
 ## Cluster network addresses {#addresses}
 
@@ -49,7 +49,7 @@ Each {{ maf-name }} cluster subnet must meet the following conditions:
 
 Security groups allow limiting only outgoing traffic for a {{ maf-name }} cluster, so there is no need to set rules for incoming traffic. Outgoing traffic rules allow the cluster to connect only to specified resources. But security group settings affect neither access to the [{{ AF }} web interface](../operations/af-interfaces.md#web-gui) nor incoming traffic, which only enters the cluster’s web server.
 
-If you assign no security group for the {{ maf-name }} cluster, it will automatically be assigned the cluster network's default security group. When this network is created, all traffic is allowed in the default security group.
+If you assign no security group to the {{ maf-name }} cluster, it is automatically assigned the default group used in the cluster network. When this network is created, all traffic is allowed in the default security group.
 
 {% note tip %}
 

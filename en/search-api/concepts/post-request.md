@@ -7,6 +7,8 @@ description: This article describes the specificities and format of POST request
 
 With the {{ search-api-name }} API v1, you can run requests with preset parameters to the Yandex search database. You can submit search parameters to the service as an HTTP request using the POST method. {{ search-api-name }} will return a response as an [XML](./response.md) or [HTML](./html-response.md) document.
 
+{% include [api-v1](../../_includes/search-api/api-v1.md) %}
+
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
 ## Request format {#post-request-format}
@@ -17,7 +19,7 @@ If you have any special characters in the parameter values provided in the reque
 
 {% endnote %}
 
-The URL of your request to {{ search-api-name }} and the list of supported parameters will be different depending on the format you want the result in: XML or HTML.
+The URL of your request to {{ search-api-name }}, as well as a list of supported parameters, will be different depending on the format you want to get the result in: XML or HTML.
 
 {% list tabs group=search_api_request %}
 
@@ -46,7 +48,7 @@ The URL of your request to {{ search-api-name }} and the list of supported param
 
 {% include [name-and-key](../../_includes/search-api/key.md) %}
 
-[Provide](../operations/auth.md) the API key value in the `Authorization` header in the following format:
+Provide the API key value in the `Authorization` header in the following format:
 
 ```yaml
 Authorization: Api-Key <API_key>
@@ -152,4 +154,3 @@ Request body:
 
 * [{#T}](./response.md)
 * [{#T}](./html-response.md)
-* [{#T}](../operations/searching.md)

@@ -478,6 +478,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: May 2025
+        href: release-notes/2505.md
       - name: April 2025
         href: release-notes/2504.md
       - name: March 2025

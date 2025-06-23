@@ -4,6 +4,12 @@
 
 For more information about voice models, see [About technology](tts/index.md#voices).
 
+
+## Release
+
+Added a new option of creating a unique voice, {{ brand-voice-lite-name }}. For more information, see [{#T}](tts/brand-voice/index.md).
+
+
 ## Release as of 30/04/25 {#300425}
 
 Renamed the `lola` and `lola_ru` voices to `zamira` and `zamira_ru`.

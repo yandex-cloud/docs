@@ -19,6 +19,7 @@ description: Follow this guide to add integration with an AI agent to a {{ sw-fu
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
       1. Under **AI agent settings**:
 
+          1. In the **Model** field, select a large language model for the AI agent to use.
           1. In the **Role** field, describe the role that defines the AI agent's functions and experience, e.g., `car parts consultant`.
           1. In the **Goal** section, describe an individual goal that guides the AI agent's decision-making, e.g., `help with the choice of parts for the specified vehicle`.
           1. In the **Backstory** field, specify a backstory defining the AI agent's personality and enriching the context, e.g., `you find the best value for money car parts and briefly explain your choice`.

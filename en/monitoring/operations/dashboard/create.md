@@ -7,10 +7,12 @@ description: To create a dashboard in {{ monitoring-full-name }}, open the servi
 
 
 
+Dashboards are visual panels that allow you to quickly assess the status and performance of your cloud resources. You can use ready-made dashboards offered by various services or create one of your own.
+
 To create a [dashboard](../../concepts/visualization/dashboard.md):
 
 1. On the home page, click **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.
-1. Add a [widget](../../concepts/visualization/widget.md) to your dashboard, e.g., **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
+1. Add a [widget](../../concepts/visualization/widget.md) to your dashboard. For example, the **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}** widget.
     1. Click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
     1. Enter text in the input field.
     1. Select the title size.

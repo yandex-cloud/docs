@@ -1,9 +1,9 @@
 ---
-title: Registering an account in {{ yandex-cloud }}
-description: To use {{ yandex-cloud }} services, create a billing account first. The account is required even if you plan to use only free services.
+title: Registering an account in the cloud
+description: To use {{ yandex-cloud }} services, register and create a billing account. The account is required even if you plan to use only free services.
 keywords:
   - how to register in the cloud
-  - how to register in the cloud in {{ yandex-cloud }}
+  - how to register in {{ yandex-cloud }}
   - "registering in the\_cloud"
   - creating an account in the cloud
 ---
@@ -22,7 +22,7 @@ New customers who are legal entities are eligible for a trial period. The [trial
 
    {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
-- Legal entities and individual entrepreneurs {#businesses-entrepreneurs}
+- Businesses and individual entrepreneurs {#businesses-entrepreneurs}
 
    {% include [start-for-legal-entities](../../_includes/billing/billing-account-create-legal-entities.md) %}
 

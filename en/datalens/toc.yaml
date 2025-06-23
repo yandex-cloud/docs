@@ -833,6 +833,8 @@ items:
         href: reports/index.md
       - name: Working with reports
         href: reports/report-operations.md
+      - name: Selectors in reports
+        href: reports/add-selector.md
       - name: Versioning
         href: reports/versioning.md
   - name: Access management
@@ -893,8 +895,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: April 2025
+      - name: May 2025
         href: release-notes/index.md
+      - name: April 2025
+        href: release-notes/2504.md
       - name: March 2025
         href: release-notes/2503.md
       - name: February 2025
@@ -903,10 +907,10 @@ items:
         href: release-notes/2501.md
       - name: December 2024
         href: release-notes/2412.md
-      - name: November 2024
-        href: release-notes/2411.md
       - name: Archive
         items:
+          - name: November 2024
+            href: release-notes/2411.md
           - name: October 2024
             href: release-notes/2410.md
           - name: September 2024

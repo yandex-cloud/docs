@@ -25,7 +25,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. Go to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
+   1. Navigate to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
    1. Open the **{{ ui-key.yacloud_billing.billing.account.tab_acts-title }}** tab.
    1. In the line with the relevant reporting period, click **{{ ui-key.yacloud_billing.billing.account.button_download-action }}**. This will open a window with reporting documents for the selected period which you can save.
    1. To download documents for multiple periods as a single archive, select the required periods in the left-hand column (or select the checkbox in the table header to select all periods) and click **{{ ui-key.yacloud_billing.billing.account.acts_batch-download-text_pdf }}** or **{{ ui-key.yacloud_billing.billing.account.acts_batch-download-text_zip }}**.
@@ -40,7 +40,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. Go to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
+   1. Navigate to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
    1. Open the **{{ ui-key.yacloud_billing.billing.account.tab_reconciliation-reports-title }}** tab.
    1. Click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report }}**. In the window that opens, select the period to generate the reconciliation report for and click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report-short }}**.
    1. As soon as the request status changes to **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.value_completed }}**, the download button will appear in the **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.field_actions }}** column. Select **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-with-facsimile }}** or **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
@@ -48,10 +48,10 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    To exchange original documents, download an unsigned report, print and sign two copies, and send them as follows:
 
-   * By post to: 115035, Sadovnicheskaya St. 82, Building 2, Moscow, Russia.
-      Put on the envelope "For the Project Transaction Support Group" without giving any employee names.
+   * By post: Sadovnicheskaya St. 82, bldg. 2, Moscow, Russia, 115035.
+      Put "For the Project Transaction Support Group" on the envelope without giving any names.
 
-   * By courier to: 115035, Sadovnicheskaya St. 82, Building 2, Moscow, Russia.
+   * By courier: Sadovnicheskaya St. 82, bldg. 2, Moscow, Russia, 115035.
       Enter the building from Sadovnicheskaya Street, between entrances 5 and 6 of the Aurora Business Center.
       The delivery reception desk is open from 9 am to 6 pm, GMT+3, Monday to Friday.
       To call the office phone number, dial +7 495 739-70-00, then press 1; once the voice menu is on, dial 7704.
@@ -72,10 +72,10 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. Go to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
+   1. Navigate to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
    1. Open the **{{ ui-key.yacloud_billing.billing.account.tab_acts-title }}** tab.
-   1. In the line for the relevant reporting period, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_billing.billing.account.button_download-action }}**. This will open a window with reports for the selected period.
-   1. To the right of a document, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. The document will open in a new browser tab and will be available for saving.
+   1. Next to the relevant reporting period, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_billing.billing.account.button_download-action }}**. This will open a window with reports for the selected period.
+   1. To the right of the document, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. The document will open in a new browser tab and will be available for saving.
    1. To download reports for multiple periods as a single archive, select the required periods in the left-hand column (or select the checkbox in the table header to select all periods) and click **{{ ui-key.yacloud_billing.billing.account.acts_batch-download-text_pdf }}** or **{{ ui-key.yacloud_billing.billing.account.acts_batch-download-text_zip }}**.
 
    ### Electronic invoice {#electronic-invoice}
@@ -92,25 +92,25 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. Go to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
+   1. Navigate to **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
    1. Open the **{{ ui-key.yacloud_billing.billing.account.tab_reconciliation-reports-title }}** tab.
    1. Click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report }}**. In the window that opens, select the period to generate the reconciliation report for and click **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_request-report-short }}**.
    1. As soon as the request status changes to **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.value_completed }}**, the download button will appear in the **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.field_actions }}** column. Select **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-with-facsimile }}** or **{{ ui-key.yacloud_billing.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
    1. Click the button with the selected download type. The document will open in a new window and become available for saving.
 
-   To exchange original documents, download the unsigned report, print two copies, sign them, and send them to 11/1 Al-Farabi Avenue, Bostandyk district, Almaty, Republic of Kazakhstan, 050059, reception. As soon as the documents are signed, your copy will be sent to you.
+   To exchange original documents, download the unsigned report, print two copies, sign them, and send them to: 11/1 Al-Farabi Avenue, Bostandyq District, Almaty, Republic of Kazakhstan, 050059, reception. As soon as the documents are signed, your copy will be sent to you.
 
 - Individuals {#individuals}
 
    ## Viewing your expense history {#expense-history}
 
-   Individuals can view their spending history by month in {{ billing-name }}.
+   Individuals can view their monthly spending history in {{ billing-name }}.
 
    To view your expense history:
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. Go to **{{ ui-key.yacloud_billing.billing.account.switch_expences }}**.
+   1. Navigate to **{{ ui-key.yacloud_billing.billing.account.switch_expences }}**.
 
    Individuals cannot download reporting documents.
 

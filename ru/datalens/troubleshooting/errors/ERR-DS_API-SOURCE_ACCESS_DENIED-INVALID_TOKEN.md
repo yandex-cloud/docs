@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN
+description: На странице приведено описание ошибки ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN.
+---
+
 # Invalid user token
 
 `ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN`

@@ -29,6 +29,8 @@ editable: false
 {% endnote %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 {% include [not-charged-postbox.md](../_includes/pricing/price-formula/not-charged-postbox.md) %}
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}

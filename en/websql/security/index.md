@@ -1,29 +1,29 @@
 ---
 title: Access management in {{ websql-name }}
-description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section covers the resources supporting role assignment, the available service roles, and required permissions for specific actions.
+description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
 ---
 
 # Access management in {{ websql-name }}
 
 In this section, you will learn:
 
-* [What resources support role assignment](#resources).
-* [What roles are available in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [What roles this service has](#roles-list).
 * [What roles are required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user needs the `websql.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `websql.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources supporing role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 You can also assign roles in the [{{ websql-name }} interface]({{ websql-link }}) for [saved](../concepts/index.md#saved-queries) and [historical queries](../concepts/index.md#query-log) you published.
 
-## Available service roles {#roles-list}
+## What roles exist in this service {#roles-list}
 
 You can use {{ websql-full-name }} roles (_service roles_) and {{ yandex-cloud }} roles (_primitive roles_) to manage query access permissions.
 
@@ -114,6 +114,7 @@ Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an or
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
 Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Viewing metadata of published queries | `websql.auditor` for an organization, cloud, or folder
 Viewing published queries | `websql.viewer` for an organization, cloud, or folder
@@ -124,6 +125,7 @@ Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an or
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
 Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Running queries | `websql.user` for an organization, cloud, or folder
 Running [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.user` for an organization, cloud, or folder
@@ -134,6 +136,7 @@ Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an or
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
 Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Running, publishing, and editing queries | `websql.editor` for an organization, cloud, or folder
 Running [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.user` for an organization, cloud, or folder
@@ -144,6 +147,7 @@ Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an or
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
 Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Running, publishing, and editing queries and managing access permissions to them | `websql.admin` for an organization, cloud, or folder
 Running [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.user` for an organization, cloud, or folder

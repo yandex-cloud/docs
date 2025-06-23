@@ -15,6 +15,7 @@ In this section, you will learn how to work with a report:
 * [Adding, moving, or deleting pages](#report-pages)
 * [Configuring widgets](#report-widget-settings)
 * [Configuring a report](#report-settings)
+* [Configuring selectors](#add-selector)
 * [Configuring pages](#page-settings)
 * [Sharing a link to a report](#link-on-report)
 * [Configuring scaling](#scaling-settings)
@@ -122,7 +123,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
    - Title {#header}
 
      * Enter title text.
-     * Select one of the size presets: `XS`, `S`, `M`, `L`, `XL`. Or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify font size in pixels.
+     * Select the size from the preset ones: `XS`, `S`, `M`, `L`, and `XL`. Alternatively, click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify the font size in pixels.
      * Optionally, set a [background for your widget](#widget-background).
 
    {% endlist %}
@@ -174,22 +175,22 @@ Widgets are arranged in layers overlapping each other. You can set the order of 
 
 When you select or move a widget around the page, it is automatically overlaid on top of other widgets. As soon as you stop interacting with the widget, it returns to its layer.
 
-### Configuring widget background {#widget-background}
+### Configuring a widget background {#widget-background}
 
-To configure widget background:
+To configure your widget's background, do the following:
 
-1. Click the current background color button next to the setting.
+1. Click the button holding the current background color, next to the setting.
 1. Set the background in one of the following ways:
 
-   * Select a color from among the color palette presets.
+   * Select a color of those available as part of color palette options.
 
-     {% cut "Selecting a color from the color palette" %}
+     {% cut "Selecting a color from a color palette" %}
 
      ![report-widget-background](../../_assets/datalens/report/report-widget-background.png)
 
      {% endcut %}
 
-   * Click ![icon](../../_assets/console-icons/pencil-to-line.svg) and set the color in hex format. You can also specify background transparency as a percentage.
+   * Click ![icon](../../_assets/console-icons/pencil-to-line.svg) and set a color in hex format. Also, you can specify the background transparency as a percentage value.
 
      {% cut "Setting a color in hex format" %}
 
@@ -197,7 +198,7 @@ To configure widget background:
 
      {% endcut %}
 
-   * Click ![icon](../../_assets/console-icons/pencil-to-line.svg) and then click the color icon preceding its hex value. In the window that opens, select a color from the color palette or specify a color in RGB, HSL, or hex format. To switch between formats, click ![icon](../../_assets/console-icons/chevrons-expand-vertical.svg).
+   * Click ![icon](../../_assets/console-icons/pencil-to-line.svg). Click the color icon preceding its hex value. In the window that opens, select a color from the color palette or specify a color in RGB, HSL, or hex format. To switch between formats, click ![icon](../../_assets/console-icons/chevrons-expand-vertical.svg).
 
      {% cut "Switching between color formats" %}
 
@@ -205,7 +206,7 @@ To configure widget background:
 
      {% endcut %}
      
-     You can also use the eyedropper tool to select a color on the report page.
+     You can also use the color picker (eyedropper) tool to select a color on the report page.
 
      {% cut "Picking a color on the screen" %}
 
@@ -222,7 +223,7 @@ Report settings are valid for all its pages:
 
    * **Theme**: Select a page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
-   * **Background color**: Specify a color in hex format or select one from the color palette.
+   * **Background color**: Specify a color in hexadecimal format or select one from the color palette.
    * **Format**: `A4` or `A3`.
    * **Orientation**: `Album` or `Portrait`.
    * Optionally, enable the **Display grid** option for easy alignment of widgets in your report.
@@ -261,11 +262,24 @@ Page settings have a higher priority than the same report settings. If page sett
 
    * **Theme**: Page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
-   * **Background color**: Specify a color in hex format or select one from the color palette.
+   * **Background color**: Specify a color in hexadecimal format or select one from the color palette.
    * **Format**: `A4` or `A3`.
    * **Orientation**: `Album` or `Portrait`.
 
 1. In the top-right corner, click **Save**.
+
+## Configuring selectors {#add-selector}
+
+For operations with [selectors](../dashboard/selector.md), click ![icon](../../_assets/console-icons/funnel.svg) at the top right. The **Selectors** window will open on the right. Set the selector values to filter your report data with.
+
+You can add, configure, or delete a selector in your report:
+
+* To enter edit mode, click ![icon](../../_assets/console-icons/pencil.svg).
+* To get back to filter mode, click ![icon](../../_assets/console-icons/check.svg).
+
+To hide the **Selectors** window, click ![icon](../../_assets/console-icons/xmark.svg).
+
+For more information, see [{#T}](./add-selector.md).
 
 ## Sharing a link to a report {#link-on-report}
 

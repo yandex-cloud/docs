@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED
+description: На странице приведено описание ошибки ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED.
+---
+
 # Подготовка данных еще не завершилась
 
 `ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED`

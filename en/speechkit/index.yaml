@@ -6,20 +6,19 @@ description:
     technologies.
   - To access {{ speechkit-name }}, use the API.
   - >-
-    The {{ yandex-cloud }} infrastructure <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">is
-    protected</a> pursuant to the Russian Federal Law No. 152-FZ on Personal
-    Data.
+    The {{ yandex-cloud }} infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
+    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
   - >-
     For terms of use, see the <a
     href="https://yandex.ru/legal/cloud_terms_speechkit">{{ speechkit-full-name
     }}</a> Terms of Use.
   - >-
-    The service is subject to a <a
+    This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_speechkit">{{ speechkit-full-name
-    }}</a> Service Level.
+    }} Service Level</a>.
 links:
   - title: Getting started
     description: Convert text to speech and speech to text
@@ -42,7 +41,7 @@ links:
   - title: '{{ sk-hybrid-name }}'
     description: '{{ speechkit-name }} voice technologies in on-premise infrastructure'
     href: hybrid-speechkit/
-  - title: Authentication with the API
+  - title: API authentication
     description: Get an access token and use it in requests
     href: concepts/auth
   - title: Response format
@@ -63,3 +62,16 @@ meta:
     Developers can use the Yandex SpeechKit service to implement Yandex speech
     technologies in their apps: speech recognition (speech-to-text) and speech
     synthesis (text-to-speech).
+  keywords:
+    - '{{ speechkit-full-name }}'
+    - '{{ speechkit-name }}'
+    - Yandex speech technologies
+    - Speech-to-Text
+    - ASR
+    - speech recognition
+    - speech recognition in {{ yandex-cloud }}
+    - Text-to-Speech
+    - speech synthesis in {{ yandex-cloud }}
+    - speech synthesis
+    - '{{ yandex-cloud }} recognition API'
+    - '{{ yandex-cloud }} synthesis API'

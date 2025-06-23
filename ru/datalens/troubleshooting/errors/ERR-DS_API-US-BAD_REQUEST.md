@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.US.BAD_REQUEST
+description: На странице приведено описание ошибки ERR.DS_API.US.BAD_REQUEST.
+---
+
 # Ошибка в запросе к объекту
 
 `ERR.DS_API.US.BAD_REQUEST`

@@ -130,7 +130,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
   1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Choose a registry or [create](registry/registry-create.md) a new one.
-  1. Go to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
   1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
   1. Under **{{ ui-key.yacloud.cr.registry.title_scan-on-push }}**, select **{{ ui-key.yacloud.cr.image.label_start-scan }}** and one of the scanning options:
      * `{{ ui-key.yacloud.cr.registry.label_all-repositories }}` to scan all registry repositories.
@@ -159,7 +159,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
   1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Choose a registry or [create](registry/registry-create.md) a new one.
-  1. Go to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
   1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
   1. Under **{{ ui-key.yacloud.cr.registry.title_scheduled-scan }}**, click **{{ ui-key.yacloud.cr.registry.label_add-scan-rule }}**.
   1. Select **{{ ui-key.yacloud.cr.image.label_start-scan }}** and one of the scanning options:

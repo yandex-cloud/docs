@@ -10,7 +10,7 @@ To adjust the pronunciation of individual words and the text in general, use the
 
 #### How do I add a pause in text? {#add-pause}
 
-To add a pause to your text, use [TTS markup](../../speechkit/tts/markup/tts-markup#markup-elements). Specify the pause duration in milliseconds in parentheses. A pause will appear where you place the tag. For example: `Start sil<[3000]> continue in 3 seconds`.
+To add a pause to your text, use [TTS markup](../../speechkit/tts/markup/tts-markup#markup-elements). Specify the pause duration in milliseconds in parentheses. A pause will appear where you place the tag. Here is an example: `Start sil<[3000]> continue in 3 seconds`. The maximum value is 7,000.
 
 Note that the pause is indicated as a recommendation only. {{ speechkit-name }} is designed to generate natural speech.
 

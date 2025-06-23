@@ -12,11 +12,11 @@ description:
     natively integrated into the {{ yandex-cloud }} ecosystem, and the original
     Yandex XML-compatible API v1.
   - >-
-    The service is subject to a <a
+    This service is subject to a <a
     href="https://yandex.ru/legal/cloud_sla">service level agreement</a>. The
     service level is set out in the document titled <a
     href="https://yandex.ru/legal/cloud_sla_search_api">{{ search-api-full-name
-    }}</a> Service Level.
+    }} Service Level</a>.
   - <h2>Terms of Use and License Agreement</h2>
   - >-
     In addition to the {{ yandex-cloud }} Terms of Use, the following Terms of
@@ -35,9 +35,6 @@ links:
   - title: Restrictions and requirements
     description: Restrictions and requirements
     href: concepts/limits
-  - title: Running queries via API v1
-    description: Running search queries via API v1
-    href: operations/searching
   - title: Running queries via API v2
     description: Running search queries via API v2
     href: operations/web-search
@@ -52,3 +49,13 @@ meta:
   description: >-
     {{ search-api-full-name }} is a service that allows you to query the Yandex
     search database and get responses in XML and HTML format.
+  keywords:
+    - '{{ search-api-full-name }}'
+    - '{{ search-api-name }}'
+    - how to send queries to Yandex search base
+    - how to get responses in XML or HTML format
+    - website search development service
+    - search development service for a group of websites
+    - internet search development service
+    - API v2 interface
+    - generative response

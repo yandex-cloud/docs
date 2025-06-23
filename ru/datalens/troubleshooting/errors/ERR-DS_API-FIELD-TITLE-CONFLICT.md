@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.FIELD.TITLE.CONFLICT
+description: На странице приведено описание ошибки ERR.DS_API.FIELD.TITLE.CONFLICT.
+---
+
 # Field title conflicts with another field
 
 `ERR.DS_API.FIELD.TITLE.CONFLICT`

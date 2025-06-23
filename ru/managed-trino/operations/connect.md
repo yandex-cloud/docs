@@ -7,40 +7,7 @@ keywords:
 
 # Подключение к кластеру {{ TR }}
 
-Вы можете подключиться к кластеру {{ mtr-name }}:
-
-* Через интернет с использованием [SSL-соединения](#get-ssl-cert).
-
-* С виртуальных машин {{ yandex-cloud }}, расположенных в той же [облачной сети](../../vpc/concepts/network.md).
-
-## Получение SSL-сертификата {#get-ssl-cert}
-
-Чтобы использовать шифрованное соединение, получите SSL-сертификат:
-
-{% list tabs group=operating_system %}
-
-- Linux (Bash)/macOS (Zsh) {#linux-macos}
-
-   ```bash
-   mkdir -p ~/.trino && \
-   wget "{{ crt-web-path }}" \
-        --output-document ~/.trino/root.crt && \
-   chmod 0655 ~/.trino/root.crt
-   ```
-
-   Сертификат будет сохранен в файле `~/.trino/root.crt`.
-
-- Windows (PowerShell) {#windows}
-
-   ```powershell
-   mkdir $HOME\.trino; curl.exe -o $HOME\.trino\root.crt {{ crt-web-path }}
-   ```
-
-   Сертификат будет сохранен в файле `$HOME\.trino\root.crt`.
-
-{% endlist %}
-
-{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+В этом разделе представлены настройки для подключения к кластеру {{ mtr-name }} с помощью [инструментов командной строки](#cli-tools), из [графических IDE](#connection-ide) и [WebSQL](#websql). О подключении из кода вашего приложения см. [Примеры строк подключения](#connection-strings).
 
 ## Инструменты командной строки {#cli-tools}
 
@@ -72,9 +39,6 @@ keywords:
         * **Port** — `443`;
         * **User** — `iam`;
         * **Password** — созданный ранее IAM-токен.
-     1. На вкладке **SSH/SSL**:
-         1. Включите настройку **Use SSL**.
-         1. В поле **CA file** укажите путь к файлу [SSL-сертификата](#get-ssl-cert) для подключения.
   1. Нажмите ссылку **Test Connection** для проверки подключения. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
   1. Нажмите кнопку **OK**, чтобы сохранить источник данных.
 
@@ -129,7 +93,7 @@ keywords:
 
 {% list tabs group=instruction %}
 
-- Подключение с SSL {#with-ssl}
+- Подключение {#connecting}
 
   1. Пример кода:
 
@@ -265,7 +229,7 @@ keywords:
 
 {% list tabs group=connection %}
 
-- Подключение с SSL {#with-ssl}
+- Подключение {#connecting}
 
   1. Пример кода:
 
@@ -331,7 +295,7 @@ keywords:
 
 {% list tabs group=connection %}
 
-- Подключение с SSL {#with-ssl}
+- Подключение {#connecting}
 
     `app.mjs`
 

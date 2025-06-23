@@ -1,6 +1,7 @@
 ---
 title: '{{ search-api-full-name }} general connection procedure for API v1'
 description: Follow this guide to connect to {{ search-api-name }} to use it via API v1.
+noIndex: true
 ---
 
 # General connection procedure
@@ -9,13 +10,14 @@ To submit queries to the Yandex search database using {{ search-api-full-name }}
 
 Follow these steps to set up {{ search-api }} to operate via API v1:
 
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Prepare a service account](#prepare-sa).
 1. [Sign up to {{ search-api-name }}](#registration).
 1. [Create a test request](#test-request).
 1. [Set up integration with {{ search-api }}](#results).
 
-## Prepare your cloud environment {#before-you-begin}
+
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 

@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT
+description: На странице приведено описание ошибки ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT.
+---
+
 # Data source timed out
 
 `ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT`

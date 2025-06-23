@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.FILE.PARSE_FAILED.INVALID_EXCEL
+description: На странице приведено описание ошибки ERR.FILE.PARSE_FAILED.INVALID_EXCEL.
+---
+
 # Неверный формат файла
 
 `ERR.FILE.PARSE_FAILED.INVALID_EXCEL`

@@ -14,7 +14,7 @@ Pausing is available for testing in all languages the speech synthesis is suppor
 | Description | Special characters and tags |
 |---|---|
 | [Mark the stress](#a) | `+` |
-| [Set a pause between sentences explicitly](#pause) | `sil<[t]>`, where `t` is the pause duration in milliseconds. |
+| [Set a pause between sentences explicitly](#pause) | `sil<[t]>`, where `t` is the pause duration in milliseconds. The maximum value is 7,000. |
 | [Set a pause depending on the context](#context-pause) | `<[small]>`. Acceptable values: `tiny`, `small`, `medium`, `large`, and `huge`. |
 | [Place emphasis](#accent) | `<[accented]>` or `**emphasized word**` |
 | [Use phonetic pronunciation](#phoneme) | `[[<word_phonemes_separated_by_spaces>]]` |

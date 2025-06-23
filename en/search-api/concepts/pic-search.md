@@ -1,13 +1,16 @@
 ---
 title: '{{ search-api-name }} image search'
 description: On this page, you will learn how to use {{ search-api-name }} to submit image search queries and get search results in XML format.
+noIndex: true
 ---
 
 # GET requests
 
 {{ search-api-name }} allows you to search for images using the [Yandex Images](https://yandex.ru/images) index with set parameters and get search results in XML format. You submit the search parameters as an HTTP request using the GET method. {{ search-api-name }} generates a [response](./pic-response.md) as an XML document.
 
-Currently, image search is only available for queries received via [API v1](./index.md#api-v1).
+Currently, image search is only available for queries made via the API v1.
+
+{% include [api-v1](../../_includes/search-api/api-v1.md) %}
 
 {% include [text-search-intro](../../_includes/search-api/text-search-intro.md) %}
 
@@ -32,7 +35,7 @@ https://yandex.<domain>/images-xml
 
 * `folderid`: [Folder ID](../../resource-manager/operations/folder/get-id.md) of the service account you will use to submit queries. This is a required parameter.
 * `apikey`: Service account [API key](../../iam/concepts/authorization/api-key.md). This is a required parameter.
-* `text`: Search query text. e.g., `funny+cats`. This is a required parameter.
+* `text`: Search query text. For example, `funny+cats`. This is a required parameter.
 
     {% note warning %}
 

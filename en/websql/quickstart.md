@@ -11,7 +11,8 @@ Once connected to a database, you will be able to view DB schemas, tables, and v
 * {{ CH }}: 23 and higher
 * {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 and higher
 * {{ MG }}: 6 and higher
-* [{{ mtr-full-name }}](../managed-trino/) (currently at the [Preview](../overview/concepts/launch-stages.md) stage): 454 and higher.
+* [{{ mtr-full-name }}](../managed-trino/) (currently at the [Preview](../overview/concepts/launch-stages.md) stage): 454 and higher
+* {{ GP }}: 6 and higher
 
 In this section, you will learn how to connect to:
 

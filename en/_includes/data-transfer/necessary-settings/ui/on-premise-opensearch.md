@@ -10,7 +10,9 @@
   **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearch.subnet_id.title }}**: Select or [create](../../../../vpc/operations/subnet-create.md) a subnet in the required [availability zone](../../../../overview/concepts/geo-scope.md). The transfer will use this subnet to access the cluster.
 
 
-  If the value in this field is specified for both endpoints, both subnets must be hosted in the same availability zone.
+  If this field has a value specified for both endpoints, both subnets must be hosted in the same availability zone.
+
+  If you do not specify a subnet, you may get an [error](../../../../managed-opensearch/qa/index.md#data-transfer-error) when activating the transfer.
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: Specify the username {{ data-transfer-name }} will use to connect to the cluster.
 

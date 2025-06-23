@@ -30,6 +30,7 @@ You can configure the following workflow steps using the constructor:
 
 * [Switch](./switch.md)
 * [Foreach](./foreach.md)
+* [While](./while.md)
 * [Parallel](./parallel.md)
 * [No op](./noop.md)
 * [Fail](./fail.md)

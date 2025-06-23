@@ -38,6 +38,8 @@ items:
             href: operations/users-get.md
           - name: Deleting a user account
             href: operations/edit-account.md
+          - name: Viewing user groups
+            href: operations/get-users-groups.md
           - name: Leaving an organization
             href: operations/leave-organization.md
       - name: Managing user groups
@@ -54,6 +56,8 @@ items:
             href: operations/access-manage-group.md
           - name: Granting permissions to a group
             href: operations/access-group.md
+          - name: Viewing user groups
+            href: operations/get-users-groups.md
           - name: Deleting members
             href: operations/delete-member-group.md
           - name: Deleting a group

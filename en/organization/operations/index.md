@@ -24,6 +24,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./users-get.md).
 * [{#T}](./add-role.md).
 * [{#T}](./edit-account.md).
+* [{#T}](./get-users-groups.md)
 * [{#T}](./leave-organization.md).
 
 ## Managing user groups {#manage-groups}
@@ -33,6 +34,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./edit-group.md).
 * [{#T}](./access-manage-group.md).
 * [{#T}](./access-group.md).
+* [{#T}](./get-users-groups.md)
 * [{#T}](./delete-member-group.md).
 * [{#T}](./delete-group.md).
 

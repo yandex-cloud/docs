@@ -8,17 +8,18 @@ To enable parallel copy, specify its [settings](#settings). We recommend selecti
 
 Scaling capabilities depend on the type of source database:
 
-* The [{{ PG }}](../operations/endpoint/source/postgresql.md), [{{ MG }}](../operations/endpoint/source/mongodb.md), and [{{ GP }}](../operations/endpoint/source/greenplum.md) sources support table partitioning and parallel copy of data from a single table. These sources require a primary key. When using a [`serial` type](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL) key, parts of tables are read by ranges. Other types of keys allow you to distribute tables evenly according to a special algorithm.
+* The [{{ PG }}](../operations/endpoint/source/postgresql.md), [{{ MG }}](../operations/endpoint/source/mongodb.md), and [{{ GP }}](../operations/endpoint/source/greenplum.md) sources support table partitioning and parallel copy of data from a single table. These sources require a primary key. When using a key of the [`serial` type](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL), parts of tables are read in ranges. Other types of keys allow you to distribute tables evenly matching a special algorithm.
 
   {% cut "Calculation algorithm" %}
 
-  If the primary key is not `serial`, a numeric hash value is calculated from the primary key value. This value is divided by the number of parts the table will be split into for parallel copying. The remainder of this division determines which part of the table the row with this key will end up in.
+  If the primary key is not `serial`, a numeric hash value is calculated from the primary key value. This value is divided by the number of parts to split the table into for parallel copying. The remainder of this division determines which part of the table the row with this key will end up in.
 
   {% endcut %}
 
 * The [{{ OS }}](../operations/endpoint/source/opensearch.md) and [{{ ES }}](../operations/endpoint/source/elasticsearch.md) sources support parallel copy of data from a single index.
-* [{{ CH }}](../operations/endpoint/source/clickhouse.md) sources support parallel partition-based copying. For this, a table must have multiple partitions. A single-partition table will be copied in a single thread. Parallel copying is only available for {{ CH }}-to-{{ CH }} transfers.
+* [{{ CH }}](../operations/endpoint/source/clickhouse.md) sources support parallel copying into partitions. For this, a table must have multiple partitions. A single-partition table will be copied in a single thread. Parallel copying is only available for {{ CH }}-to-{{ CH }} transfers.
 * The [{{ objstorage-full-name }}](../operations/endpoint/source/object-storage.md) source supports parallel copy of data from a single folder.
+* The [{{ ydb-name }}](../operations/endpoint/source/ydb.md) source supports automatic table partitioning and parallel copying into partitions.
 
 Other sources support parallel copying of multiple tables at the same time (without parallelization within a single table).
 

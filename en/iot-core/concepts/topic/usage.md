@@ -132,6 +132,8 @@ You can set up [export of messages](../../operations/yds-export.md) from registr
 
 {% note info %}
 
+{% include [yds-export-topics](../../../_includes/iot-core/yds-export-topics.md) %}
+
 Exporting messages from broker topics is not supported.
 
 {% endnote %}

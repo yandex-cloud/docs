@@ -55,6 +55,8 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 
 ## Из чего складывается стоимость использования {{ compute-short-name }} {#rules}
 
@@ -245,11 +247,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-Все цены указаны с включением НДС.
-
-
 
 
 Цена с (CVoS) доступна только для обычных ВМ.

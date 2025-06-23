@@ -7,7 +7,7 @@ description: If search queries are handled incorrectly, server responses contain
 
 If search queries are handled incorrectly, the server [response](../concepts/response.md) contains the `error` tag.
 
-Format:
+It has the following format:
 
 ```xml
 <error code="error code">
@@ -34,11 +34,11 @@ Unable to validate the transmitted XML file, or query parameters are incorrect. 
 ||
 || 19 | The search query contains incompatible parameters (e.g., incompatible `groupings` values). ||
 || 20 | Unknown error cause. If you encounter this error again, contact [support]({{ link-console-support }}). ||
-|| 31 | The query includes an ID of a folder (`folderid`) whose user has not [registered](../operations/workaround.md) in {{ search-api }}. ||
+|| 31 | The query includes an ID of a folder (`folderid`) whose user has not registered in {{ search-api }}. ||
 || 32 | Limit on the allowed number of queries per day was exceeded. Learn about the [limits](../concepts/limits.md) and request a quota increase. ||
-|| 33 | The IP address the search query was sent from does not match the one(s) specified during [registration](../operations/workaround.md). ||
+|| 33 | The IP address the search query was sent from does not match the one(s) specified during registration. ||
 || 37 | Error in query parameters. Some required parameters may be missing or mutually exclusive parameters defined. ||
-|| 42 | The provided API key failed authentication or authorization. Check that your API key is valid and that the [service account](../../iam/concepts/users/service-accounts.md) used to send requests has the `search-api.executor` [role](../security/index.md). ||
+|| 42 | The provided API key failed authentication or authorization. Check that your API key is valid and the [service account](../../iam/concepts/users/service-accounts.md) used to send queries has the `search-api.executor` [role](../security/index.md). ||
 || 44 | The IP address you are trying to access is no longer supported. Fix the value to match the address specified during registration. ||
 || 48 | The search type specified during registration is different from the type used to request data. Correct the search type in your query or the management console. ||
 || 55 | The maximum [allowed number of queries per second](../concepts/limits.md) was exceeded. ||

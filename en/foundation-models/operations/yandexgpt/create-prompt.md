@@ -102,11 +102,14 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
            }
          ],
          "usage": {
-           "inputTextTokens": "28",
+           "inputTextTokens": "30",
            "completionTokens": "10",
-           "totalTokens": "38"
+           "totalTokens": "40",
+           "completionTokensDetails": {
+             "reasoningTokens": "0"
+           }
          },
-         "modelVersion": "06.12.2023"
+         "modelVersion": "09.02.2025"
        }
      }
      ```
@@ -123,7 +126,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
      
      URL = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
      
-     def run(iam_token, folder_id, user_text):    
+     def run(iam_token, folder_id, user_text):
          # Building a request
          data = {}
          # Specifying model type
@@ -167,13 +170,13 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
      python test.py \
        --iam_token ${IAM_TOKEN} \
        --folder_id ${FOLDER_ID} \
-       --user_text ${TEXT}
+       --user_text "${TEXT}"
      ```
 
      {% cut "Result:" %}
 
      ```text
-     {'result': {'alternatives': [{'message': {'role': 'assistant', 'text': 'Errors will not correct themselves.'}, 'status': 'ALTERNATIVE_STATUS_FINAL'}], 'usage': {'inputTextTokens': '29', 'completionTokens': '9', 'totalTokens': '38'}, 'modelVersion': '07.03.2024'}}
+     {'result': {'alternatives': [{'message': {'role': 'assistant', 'text': 'Errors will not correct themselves.'}, 'status': 'ALTERNATIVE_STATUS_FINAL'}], 'usage': {'inputTextTokens': '32', 'completionTokens': '8', 'totalTokens': '40', 'completionTokensDetails': {'reasoningTokens': '0'}}, 'modelVersion': '09.02.2025'}}
      ```
 
      {% endcut %}
@@ -192,7 +195,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 
   {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
-  1. Clone the {{ yandex-cloud }} API repository by entering the code into a notebook cell:
+  1. Clone the {{ yandex-cloud }} API repository:
 
      ```bash
      git clone https://github.com/yandex-cloud/cloudapi
@@ -207,7 +210,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
   1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository:
 
      ```bash
-     cd <path_to_cloudapi_folder>
+     cd <path_to_cloudapi_directory>
      ```
 
   1. Create the `output` folder:
@@ -288,7 +291,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
      python output/test.py \
        --iam_token ${IAM_TOKEN} \
        --folder_id ${FOLDER_ID} \
-       --user_text ${TEXT}
+       --user_text "${TEXT}"
      ```
 
      {% cut "Result:" %}
@@ -365,27 +368,27 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
       stub = service_pb_grpc.TextGenerationServiceStub(channel)
 
       request = service_pb.CompletionRequest(
-              model_uri=f"gpt://{folder_id}/yandexgpt",
-              completion_options=pb.CompletionOptions(
-                  max_tokens={"value": 2000},
-                  temperature={"value": 0.5},
-                  stream=True
+          model_uri=f"gpt://{folder_id}/yandexgpt",
+          completion_options=pb.CompletionOptions(
+              max_tokens={"value": 2000},
+              temperature={"value": 0.5},
+              stream=True
               ),
-          )
-          message_system = request.messages.add()
-          message_system.role = "system"
-          message_system.text = "Correct errors in the text."
+      )
+      message_system = request.messages.add()
+      message_system.role = "system"
+      message_system.text = "Correct errors in the text."
       
-          message_user = request.messages.add()
-          message_user.role = "user"
-          message_user.text = user_text
+      message_user = request.messages.add()
+      message_user.role = "user"
+      message_user.text = user_text
       
-          it = stub.Completion(request, metadata=(
-              ('authorization', f'Bearer {iam_token}'),
-          ))             
+      it = stub.Completion(request, metadata=(
+          ('authorization', f'Bearer {iam_token}'),
+      ))
           
-          for response in it:
-              print(response)
+      for response in it:
+          print(response)
 
   if __name__ == '__main__':
       parser = argparse.ArgumentParser()
@@ -407,11 +410,11 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
     status: ALTERNATIVE_STATUS_PARTIAL
   }
   usage {
-    input_text_tokens: 29
+    input_text_tokens: 32
     completion_tokens: 1
-    total_tokens: 30
+    total_tokens: 33
   }
-  model_version: "07.03.2024"
+  model_version: "09.02.2025"
 
   alternatives {
     message {
@@ -421,11 +424,11 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
     status: ALTERNATIVE_STATUS_FINAL
   }
   usage {
-    input_text_tokens: 29
-    completion_tokens: 9
-    total_tokens: 38
+    input_text_tokens: 32
+    completion_tokens: 8
+    total_tokens: 40
   }
-  model_version: "07.03.2024"
+  model_version: "09.02.2025"
   ```
 
   {% endcut %}

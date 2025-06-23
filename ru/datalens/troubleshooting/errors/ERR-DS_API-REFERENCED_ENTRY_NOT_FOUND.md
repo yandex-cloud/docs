@@ -1,3 +1,8 @@
+---
+title: Ошибка ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND
+description: На странице приведено описание ошибки ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND.
+---
+
 # Обращение к несуществующему объекту
 
 `ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND`
