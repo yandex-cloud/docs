@@ -15,13 +15,16 @@ description: Следуя данной инструкции, вы сможете
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер, для которого хотите настроить логирование.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-    1. В блоке **{{ ui-key.yacloud.logging.label_title }}** в поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
-        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` — чтобы выключить логирование.
-        * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать [логи](../concepts/logs.md) в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится контейнер.
-            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
-        * `{{ ui-key.yacloud.logging.label_loggroup }}` — чтобы записывать логи в пользовательскую лог-группу.
-            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
-            1. В поле **{{ ui-key.yacloud.logging.label_loggroup }}** выберите лог-группу, в которую будут записываться логи. Если у вас нет лог-группы, [создайте ее](../../logging/operations/create-group.md).
+    1. В блоке **{{ ui-key.yacloud.logging.label_title }}**:
+
+        1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+        1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
+                  
+           * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать [логи](../concepts/logs.md) в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится контейнер.
+           * {% include [log-group](../../_includes/functions/log-group.md) %}
+        
+        1. (Опционально) Выберите минимальный уровень логирования.
+
     1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. 
     
     {% include [min-log-level](../../_includes/serverless-containers/min-log-level.md) %}

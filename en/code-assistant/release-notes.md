@@ -5,6 +5,13 @@ description: This section contains {{ ca-name }} release notes.
 
 # {{ ca-full-name }} release notes
 
+## May 2025 {#may-2025}
+
+* Implemented a [chat](concepts/index.md#chat) to interact with the AI assistant in the IDE interface, with support for generation of tests and documentation.
+* Added new [quotas](concepts/limits.md) for generation of documentation and tests as well as the number of chats.
+* Added support for [quick actions](concepts/index.md#quick-actions): {{ ca-name }} integrations into the IDE.
+* For Visual Studio Code, added localization of the plugin UI based on the IDE language.
+
 ## February 2025 {#feb-2025}
 
 * {% include [rebranding](../_includes/code-assistant/rebranding.md) %}

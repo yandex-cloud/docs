@@ -273,9 +273,6 @@ items:
             href: tutorials/app-security/quickstart-android-flutter.md
           - name: '{{ captcha-name }} in iOS apps'
             href: tutorials/app-security/quickstart-ios.md
-          - name: Setting up PT Application Firewall
-            href: tutorials/app-security/pt-application-firewall.md
-            hidden: true
       - name: '{{ k8s }} security'
         items:
           - name: Encrypting secrets in {{ managed-k8s-name }}

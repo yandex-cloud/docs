@@ -326,7 +326,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[pgrouting](http://pgrouting.org/)</p><p>Extends the [PostGIS](https://www.postgis.net/) database to provide geospatial routing functionality.</p> | 2.6.2 | 2.6.2 | 3.0.2 | 3.3.0 | 3.4.1 | 3.5.0 | 3.6.2 ||
 || <p>[pgrowlocks]({{ pg-docs }}/static/pgrowlocks.html)</p><p>Contains the `pgrowlocks()` function to return row locking information for the specified table.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p>Contains functions you need to get tuple-level statistics.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role or the [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 ||
-|| <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Adds a vector similarity search.</p> | 0.2.5 | 0.2.5 | 0.2.5 | 0.2.5 | 0.3.2 | 0.5.1 | 0.5.1 ||
+|| <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Adds a vector similarity search.</p> | 0.2.5 | 0.2.5 | 0.2.5 | 0.2.5 | 0.3.2 | 0.8.0 | 0.8.0 ||
 || <p>[plpgsql](https://www.timescale.com/learn/postgresql-extensions-plpgsql)</p><p>Adds support for the PL/pgSQL procedural language.</p> | - | - | - | - | - | - | 1.0 ||
 || <p>[plv8](https://plv8.github.io/)</p><p>Adds support for plv8, a procedural language based on JavaScript and the V8 engine.</p> | 3.0.0 | 3.0.0 | 3.0.0 | 3.0.0 | - | 3.2.0 | - ||
 || <p>[postgis](https://postgis.net/docs/)</p><p>Allows GIS (Geographic Information Systems) objects to be stored and processed in {{ PG }} databases.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||

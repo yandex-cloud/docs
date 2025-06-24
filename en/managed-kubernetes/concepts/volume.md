@@ -62,7 +62,8 @@ To learn how to provision a volume pod in `volumeMode: Block`, see [{#T}](../ope
 
 In {{ managed-k8s-name }}, you can use `PersistentVolumes` based on {{ compute-full-name }} disks. You can set the disk type and other parameters using applicable [storage classes](../operations/volumes/manage-storage-class.md).
 
-The following [disk types](../../compute/concepts/disk.md##disks-types) are available in {{ managed-k8s-name }}:
+The following [disk types](../../compute/concepts/disk.md##disks-types) are available in {{ managed-k8s-name }}: {#disks-types}
+
 * Network SSD (`network-ssd`): Fast network drive; SSD network block storage.
 * Network HDD (`network-hdd`): Standard network drive; HDD network block storage.
 * Non-replicated SSD (`network-ssd-nonreplicated`): Enhanced performance network drive without redundancy.
@@ -107,7 +108,21 @@ Depending on the `PersistentVolume` and `PersistentVolumeClaim` settings, volume
 
 {% include [about-cluster-delete](../../_includes/managed-kubernetes/note-k8s-cluster-delete.md) %}
 
-Learn more about volumes in the relevant [{{ k8s }} guides](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+Learn more about volumes in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+
+## Using encrypted disks {#encrypted-disks}
+
+{% include [encrypted-disks-intro](../../_includes/managed-kubernetes/encrypted-disks-intro.md) %}
+
+For [static volume provisioning](#static-provisioning), you can use an existing encrypted disk in the same way as a regular {{ compute-name }} disk.
+
+For [dynamic volume provisioning](#dynamic-provisioning), you will need to create a new `StorageClass` and specify the symmetric key ID in the `parameters:kmsKeyId` field.
+
+Here is a manifest for an encrypted storage class:
+
+{% include [encrypted-storage-class-config](../../_includes/managed-kubernetes/encrypted-storage-class-config.md) %}
+
+For more information on using encrypted disks, see [{#T}](../operations/volumes/encrypted-disks.md).
 
 ## Use cases {#examples}
 

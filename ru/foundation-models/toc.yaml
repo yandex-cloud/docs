@@ -849,10 +849,14 @@ items:
         href: tutorials/pdf-searchindex-ai-assistant.md
       - name: Дообучение моделей в {{ ml-platform-name }}
         href: tutorials/models-fine-tuning.md
+      - name: Создание AI-агента с помощью {{ sf-full-name }}
+        href: tutorials/create-ai-agent-function.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Публичные материалы
     href: public-talks.md
   - name: История изменений

@@ -82,3 +82,6 @@ request_body = {
 ## Примеры использования {#examples}
 
 [{#T}](../../operations/yandexgpt/function-call.md)
+
+
+^1^ {{ meta-disclaimer }}

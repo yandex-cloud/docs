@@ -18,10 +18,8 @@ description: Следуя данной инструкции, вы сможете
       1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
       1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
 
-          * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать логи в лог-группу по умолчанию для каталога, в котором находится рабочий процесс.
-          * `{{ ui-key.yacloud.logging.label_loggroup }}` — чтобы записывать логи в пользовательскую лог-группу.
-
-              1. Выберите лог-группу, в которую будут записываться логи или [создайте](../../../../logging/operations/create-group.md) новую.
+         * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать логи в лог-группу по умолчанию для каталога, в котором находится рабочий процесс.
+         * {% include [log-group](../../../../_includes/functions/log-group.md) %}
 
       1. (Опционально) Выберите минимальный уровень логирования.
 

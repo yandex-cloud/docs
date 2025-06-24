@@ -1,0 +1,1 @@
+This feature is only available in Visual Studio Code.

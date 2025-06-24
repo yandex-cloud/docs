@@ -1,12 +1,14 @@
-# Adding your own geobase in {{ mch-name }}
+# Managing a custom geobase in {{ mch-name }}
 
-Geobases in {{ CH }} are text files containing the hierarchy and names of regions. You can add several alternative geobases to {{ CH }} to support different stances on how regions pertain to countries. For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/internal-dicts/).
+A {{ CH }} geobase consists of text files containing the names and hierarchy of regions. You can add several alternative geobases to {{ CH }} to support different views on what regions belong to what countries. For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/internal-dicts/).
 
-To add your own geobase to a {{ CH }} cluster:
+To add a custom geobase to a {{ CH }} cluster:
 
 1. [Create a geobase](#create).
 1. [Upload the geobase to {{ objstorage-full-name }}](#upload).
 1. [Add the geobase to a {{ CH }} cluster](#add).
+
+If you are not using your custom geobase, [disable it](#disconnect).
 
 ## Creating a geobase {#create}
 
@@ -205,5 +207,131 @@ To add your own geobase to a {{ CH }} cluster:
 
 {% endlist %}
 
+## Deleting a geobase {#disconnect}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
+    1. Delete the value in the **Geobase uri** field.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To delete a geobase:
+
+    1. View the description of the CLI command to update the cluster configuration:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update-config --help
+        ```
+
+    1. Run the command by providing an empty value in the `geobase_uri` parameter:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
+             --set geobase_uri=""
+        ```
+
+        You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.clickhouse.config.geobaseUri",
+                      "configSpec": {
+                        "clickhouse": {
+                          "config": {
+                            "geobaseUri": ""
+                          }
+                        }
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Here only one parameter is specified: `configSpec.clickhouse.config.geobaseUri`.
+
+        * `configSpec.clickhouse.config.geobaseUri`: Link to the geobase archive in {{ objstorage-name }}. Set an empty value for this parameter.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.clickhouse.config.geobase_uri"
+                    ]
+                  },
+                  "config_spec": {
+                    "clickhouse": {
+                      "config": {
+                        "geobase_uri": ""
+                      }
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Here only one parameter is specified: `config_spec.clickhouse.config.geobase_uri`.
+
+        * `config_spec.clickhouse.config.geobase_uri`: Link to the geobase archive in {{ objstorage-name }}. Set an empty value for this parameter.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+{% endlist %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

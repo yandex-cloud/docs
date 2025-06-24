@@ -33,7 +33,7 @@ When [creating a cluster](../operations/cluster-create.md), you can either set a
 
 The coordinator and workers can access data sources through _catalogs_.
 
-A catalog is a set of parameters describing a connection to a data source. In a {{ mtr-name }} cluster, you can create one or more catalogs. {{ TR }} supports working with data from multiple catalogs within a single query.
+A catalog is a set of parameters describing a connection to a data source. You can [create](../operations/catalog-create.md) one or more catalogs in a {{ mtr-name }} cluster. {{ TR }} supports working with data from multiple catalogs within a single query.
 
 Each catalog describes only one data source. The data source type is determined by the selected _connector_.
 

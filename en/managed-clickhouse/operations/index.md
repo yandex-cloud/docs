@@ -31,11 +31,11 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 
 * [{#T}](web-sql-query.md)
 * [Managing databases](databases.md)
-* [Managing users](cluster-users.md)
+* [User management](cluster-users.md)
 
 ## Storing and processing data {#data-storage-and-processing}
 
-* [Adding your own geobase](geobase.md)
+* [Managing a custom geobase](geobase.md)
 * [Connecting external dictionaries](dictionaries.md)
 * [Managing data format schemas](format-schemas.md)
 * [Managing machine learning models](ml-models.md)

@@ -51,13 +51,13 @@ items:
         items:
           - name: SQL queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
-          - name: Database management
+          - name: Managing databases
             href: operations/databases.md
           - name: DB user management
             href: operations/cluster-users.md
       - name: Storing and processing data
         items:
-          - name: Adding your own geobase
+          - name: Managing a custom geobase
             href: operations/geobase.md
           - name: Connecting external dictionaries
             href: operations/dictionaries.md

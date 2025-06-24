@@ -159,3 +159,10 @@ kubectl delete pvc <PersistentVolumeClaim_object_ID>
 ```
 
 The disk will be deleted automatically from [{{ compute-full-name }}](../../../compute/).
+
+### See also {#see-also}
+
+* [{#T}](../../concepts/volume.md)
+* [{#T}](./encrypted-disks.md)
+* [{#T}](./static-create-pv.md)
+* [{#T}](./manage-storage-class.md)

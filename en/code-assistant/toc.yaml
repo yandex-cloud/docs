@@ -3,6 +3,17 @@ stage: preview
 items:
   - name: Getting started
     href: index.md
+  - name: Step-by-step guides
+    expanded: true
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Code autocompletion
+        href: operations/autocompletion.md
+      - name: Chat
+        href: operations/chat.md
+      - name: Quick actions
+        href: operations/quick-actions.md
   - name: Concepts
     href: concepts/index.md
   - name: Quotas

@@ -46,3 +46,5 @@
 
 * Сообщество пользователей {{ datalens-short-name }} в [Telegram](https://t.me/YandexDataLens).
 
+* Сертификация [{{ datalens-full-name }} Certified Analyst](https://yandex.cloud/ru/certification/datalens-analyst).
+
