@@ -34,6 +34,8 @@ where измерение in (значение_1, значение_2 ... знач
 'first-company': user-login@yandex.ru
 ```
 
+{% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
+
 
 Чтобы настроить доступ для нескольких пользователей, перечислите через запятую их аккаунты в конфигурации доступа:
 
@@ -79,6 +81,8 @@ where измерение in (значение_1, значение_2 ... знач
 ```yaml
 'first-company': user-login-1@yandex.ru, user-login-2@yandex.ru, @group:group-name-1, @group:group-name-2
 ```
+
+{% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
 
 
 

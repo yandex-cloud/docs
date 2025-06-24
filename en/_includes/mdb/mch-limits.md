@@ -15,7 +15,7 @@
 
 #### Limits {#mch-limits}
 
-| Type of limitation                                                                                                                   | Minimum value                                                                                                                                  | Maximum value                            |
+| Type of limit                                                                                                                  | Minimum value                                                                                                                                  | Maximum value                            |
 |:----------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|
 | Host class                                                                                                                       | b1.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 4 GB RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
 | Number of {{ CH }} hosts per non-sharded cluster when using an HDD or SSD network storage or an ultra high-speed network storage with three replicas (SSD) | 1                                                                                                                                                     | 7                                                |

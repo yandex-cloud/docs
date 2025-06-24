@@ -69,6 +69,8 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Решение проблем
     items:
       - name: Обработка ошибок

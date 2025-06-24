@@ -11,3 +11,5 @@
 * [Why can a data transfer through creating and restoring a logical dump fail with an error?](#backup-error)
 
 * [What should I do if I get the `replication slot already exists` error when performing logical replication?](#repl-slot-exists)
+
+* [Why do I get an `extension... is not available` error when migrating my DB to {{ mpg-short-name }}?](#extension-is-not-available)

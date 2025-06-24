@@ -42,3 +42,18 @@ You can fix this error by doing one of the following:
 
 1. Link your subscription to an existing replication slot. To do this, add the `create_slot = false` parameter to the request to create a subscription.
 1. [Delete the existing replication slot](../../managed-postgresql/operations/replication-slots.md#delete) and try creating the subscription again.
+
+#### Why do I get an `extension... is not available` error when migrating my DB to {{ mpg-short-name }}? {#extension-is-not-available}
+
+Error message:
+
+```text
+extension "<extension_name>" is not available
+```
+
+You may get this error when migrating a DB to {{ mpg-short-name }} with a script attempting to install and use the [{{ PG }} extension](../../managed-postgresql/operations/extensions/cluster-extensions.md). The reason for the error is that in {{ mpg-short-name }} clusters, you cannot use SQL commands to manage {{ PG }} extensions.
+
+To avoid this error:
+
+1. If the script or logical dump is in text format, remove the operators for creating {{ PG }} extensions from them.
+1. [Install](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) all required extensions in the target database using the {{ yandex-cloud }} interfaces.

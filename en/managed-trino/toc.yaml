@@ -8,24 +8,42 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating a cluster
-        href: operations/cluster-create.md
-      - name: Updating a cluster
-        href: operations/cluster-update.md
-      - name: Stopping and starting a cluster
-        href: operations/cluster-stop.md
-      - name: Connecting to a cluster
-        href: operations/connect.md
-      - name: Viewing cluster logs
-        href: operations/cluster-logs.md
-      - name: Deleting a cluster
-        href: operations/cluster-delete.md
+      - name: Clusters
+        items:
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating a cluster
+            href: operations/cluster-create.md
+          - name: Updating a cluster
+            href: operations/cluster-update.md
+          - name: Stopping and starting a cluster
+            href: operations/cluster-stop.md
+          - name: Connecting to a cluster
+            href: operations/connect.md
+          - name: Deleting a cluster
+            href: operations/cluster-delete.md
+      - name: Folders
+        items:
+          - name: Getting a list of catalogs in a cluster
+            href: operations/catalog-list.md
+          - name: Creating a catalog
+            href: operations/catalog-create.md
+          - name: Updating a folder
+            href: operations/catalog-update.md
+          - name: Deleting a catalog
+            href: operations/catalog-delete.md
+      - name: Logs and monitoring
+        items:
+          - name: Monitoring cluster state
+            href: operations/monitoring.md
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
   - name: Concepts
     items:
       - name: Resource relationships
         href: concepts/index.md
+      - name: Networking in {{ mtr-name }}
+        href: concepts/network.md
       - name: Impersonation
         href: concepts/impersonation.md
   - name: API reference

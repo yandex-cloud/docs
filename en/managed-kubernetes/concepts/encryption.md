@@ -18,9 +18,13 @@ The minimum used key length is 128 bits for symmetric encryption algorithms, and
 
 {{ yandex-cloud }} provides management for these keys.
 
-You can also [encrypt {{ k8s }} secrets](#k8s-secrets-encryption) using a [symmetric encryption key](../../kms/concepts/key.md) stored in [{{ kms-full-name }}](../../kms/concepts/index.md).
+## Encryption with custom symmetric keys {#kms-keys-encryption}
 
-Such key is managed on the user side, which provides additional opportunities:
+{{ managed-k8s-name }} supports encryption with [custom {{ kms-full-name }} symmetric keys](../../kms/concepts/key.md) for the following resources:
+* [{{ k8s }} secrets](#k8s-secrets-encryption)
+* [Disks for persistent volumes](./volume.md#encrypted-disks)
+
+Such keys are managed on the user side, which provides extra opportunities:
 
 * Auditing [events](../../kms/at-ref.md) related to the key usage with [{{ at-full-name }}](../../audit-trails/).
 * Tracking operations with keys using [{{ monitoring-full-name }}](../../monitoring/).
@@ -34,7 +38,7 @@ Such key is managed on the user side, which provides additional opportunities:
 
     {% endnote %}
 
-## Encrypting {{ k8s }} secrets {#k8s-secrets-encryption}
+### Encrypting {{ k8s }} secrets {#k8s-secrets-encryption}
 
 A [_{{ k8s }} secret_](https://kubernetes.io/docs/concepts/configuration/secret/) is private information the {{ k8s }} clusters use when managing pods, e.g., OAuth keys, passwords, SSH keys, etc.
 
@@ -68,6 +72,7 @@ Secrets are decrypted in a similar way.
 
 * [{#T}](../tutorials/kms-k8s.md)
 * [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+* [{#T}](../operations/volumes/encrypted-disks.md)
 
 
 * [{#T}](../tutorials/kubernetes-lockbox-secrets.md)

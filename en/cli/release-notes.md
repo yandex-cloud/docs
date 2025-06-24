@@ -7,6 +7,64 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.150.0 (02/06/25) {#version0.150.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ baremetal-name }}
+* Added the following groups of commands for {{ baremetal-name }}:
+  * `yc baremetal boot-image`
+  * `yc baremetal configuration`
+  * `yc baremetal private-subnet`
+  * `yc baremetal public-subnet`
+  * `yc baremetal hardware-pool`
+  * `yc baremetal server`
+  * `yc baremetal vrf`
+  * `yc baremetal zone`
+
+##### {{ compute-name }}
+* Added the `--snapshot-description` and `--snapshot-labels` parameters to the `yc compute snapshot-schedule update` command, which you can use to provide descriptions and labels for scheduled disk snapshots.
+* Added the following commands to edit labels of scheduled disk snapshots:
+  * `yc compute snapshot-schedule add-snapshot-labels`
+  * `yc compute snapshot-schedule remove-snapshot-labels`
+
+##### {{ dataproc-name }}
+* Added the `--oslogin` parameter to the `yc dataproc cluster create` command to enable OS Login access on the cluster.
+
+##### {{ mgl-name }}
+* Added these {{ mgl-name }} instance management commands:
+  * `yc managed-gitlab instance get`
+  * `yc managed-gitlab instance list`
+  * `yc managed-gitlab instance create`
+  * `yc managed-gitlab instance stop`
+  * `yc managed-gitlab instance start`
+  * `yc managed-gitlab instance delete`
+
+##### {{ objstorage-name }}
+* Added these commands for bucket and object ACLs:
+  * `yc storage s3api get-bucket-acl`
+  * `yc storage s3api put-bucket-acl`
+  * `yc storage s3api get-object-acl`
+  * `yc storage s3api put-object-acl`
+
+##### Managed database services {#managed-db}
+
+**{{ mmy-name }}**
+* Updated the `--permissions` parameter behavior in the `yc mysql users create` and `yc mysql users update` commands.
+
+**{{ mtr-name }}**
+* Added these {{ mgl-name }} cluster management commands:
+  * `yc managed-trino cluster get`
+  * `yc managed-trino cluster list`
+  * `yc managed-trino cluster create`
+  * `yc managed-trino cluster update`
+  * `yc managed-trino cluster delete`
+  * `yc managed-trino cluster start`
+  * `yc managed-trino cluster stop`
+  * `yc managed-trino cluster list-operations`
+
+## Previous releases {#previous-release}
+
 ### Version 0.149.0 (20/05/25) {#version0.149.0}
 
 #### Changes to {{ yandex-cloud }} services {#version0.149.0-services}
@@ -26,8 +84,6 @@ Added these extension management commands:
 * `yc clickhouse cluster get-extension`
 * `yc clickhouse cluster list-extensions`
 * `yc clickhouse cluster remove-extension`
-
-## Previous releases {#previous-release}
 
 ### Version 0.148.0 (30/04/25) {#version0.148.0}
 
@@ -1442,7 +1498,7 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 
 ##### {{ kms-name }} {#kms}
 
-* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../kms/).
+* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../kms/).
 
 ### Version 0.107.0 (15/06/23) {#version0.107.0}
 
@@ -2482,7 +2538,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
 #### Changes to the CLI {#cli}
 
-* Added a description of parameters and commands in auto-completion by default.
+* Added a description of default autocompletion parameters and commands.
 * `yc completion <SHELL>` command
 
   Added the `--without-desc` flag to disable descriptions in autocompletion.
@@ -2608,7 +2664,7 @@ Added support for {{ org-full-name }}.
 
 {{ org-name }} is an enterprise solution that you can use to connect your organization to {{ yandex-cloud }} services and manage employee access to these services.
 
-{{ org-name }} is at the [Preview stage](../overview/concepts/launch-stages.md). Read more about the service in the [documentation](../organization/).
+{{ org-name }} is at the [Preview stage](../overview/concepts/launch-stages.md). For more information about the service, refer to the [documentation](../organization/).
 
 ##### {{ sf-name }} {#serverless-functions}
 
@@ -2628,7 +2684,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 {{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
 
-{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about the service, see [our relevant documentation](../logging/).
+{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -3158,7 +3214,7 @@ You can use {{ certificate-manager-name }} to obtain and update TLS certificates
 
 These certificates can be used in {{ yandex-cloud }} services to provide connection security.
 
-{{ certificate-manager-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../certificate-manager/).
+{{ certificate-manager-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../certificate-manager/).
 
 
 ### Version 0.63.0 (28/08/20) {#version0.63.0}
@@ -3283,7 +3339,7 @@ Added support for {{ api-gw-full-name }}.
 
 {{ api-gw-name }} is an API gateway management service supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) and extensions for compatibility with other cloud services.
 
-{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about the service, see [our relevant documentation](../api-gateway/).
+{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 
@@ -3449,10 +3505,10 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ coi }} {#coi}
 
-* `yc compute instance create-with-container` command.
+* `yc compute instance create-with-container` command
 
   Added mounting of `docker volumes` into a Docker container created in {{ coi }} by using the `container-volume-tmpfs` and `container-volume-host-path` parameters.
-* `yc compute instance update-container` command.
+* `yc compute instance update-container` command
 
   Now you can update `docker volumes` in a Docker container created in {{ coi }}.
 
@@ -3566,7 +3622,7 @@ Added support for {{ api-gw-full-name }}.
 * `yc managed-kubernetes cluster create` command
 
   Added the `--enable-network-policy` flag to create a {{ k8s }} cluster with [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) support.
-* `yc k8s cluster get-credentials` command.
+* `yc k8s cluster get-credentials` command
 
   Added the `--context-name` parameter allowing the user to specify the name of the `context` created in `kubeconfig`.
 
@@ -3647,7 +3703,7 @@ Support for the cryptographic key management service: {{ kms-full-name }}.
 
 Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
 
-{{ kms-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../kms/).
+{{ kms-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../kms/).
 
 
 ### Version 0.48.0 (27/12/19) {#version0.48.0}
@@ -3866,7 +3922,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 * `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands.
 
   Added parameters for maintenance policy management: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
-* `yc managed-kubernetes node-groups update` command.
+* `yc managed-kubernetes node-groups update` command
 
   Added parameters for maintenance policy management: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
 
@@ -3894,7 +3950,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **{{ mmg-name }}**
 
-* `{{ yc-mdb-mg }} create clusters` command.
+* `{{ yc-mdb-mg }} create clusters` command
 
   For the `--mongodb-version` parameter, changed the default value from 3.6 to 4.0.
 

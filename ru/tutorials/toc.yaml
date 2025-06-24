@@ -761,6 +761,8 @@ items:
             href: infrastructure/gta-v-server.md
           - name: Конвертация видео в GIF на Python
             href: serverless/video-converting-queue.md
+          - name: Интеграция {{ speechsense-name }} с Битрикс24
+            href: speechsense/bitrix24.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
@@ -1247,9 +1249,6 @@ items:
           Переключение сетевого соединения при пересоздании кластера {{
           dataproc-name }}
         href: routing/data-processing-dns-reconnect.md
-      - name: Настройка PT Application Firewall
-        href: routing/pt-application-firewall.md
-        hidden: true
       - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
         href: routing/storage-vpc-access.md
       - name: Подключение к {{ container-registry-name }} из {{ vpc-short-name }}
@@ -1466,6 +1465,8 @@ items:
           Создание адреса {{ postbox-full-name }} и проверка владения доменом с
           помощью {{ TF }}
         href: serverless/domain-identity-creating.md
+      - name: Создание AI-агента с помощью {{ sf-full-name }}
+        href: serverless/create-ai-agent-function.md
   - name: Машинное обучение и искусственный интеллект
     items:
       - name: Все руководства

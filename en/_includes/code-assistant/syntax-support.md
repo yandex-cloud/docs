@@ -1,4 +1,4 @@
-The smart autocompletion mode **explicitly** supports code autocompletion for the following programming languages and frameworks:
+The smart autocompletion mode explicitly supports code autocompletion for the following programming languages and frameworks:
 
 * C++
 * Go

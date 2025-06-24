@@ -3,7 +3,7 @@
 
 A {{ mgp-name }} cluster consists of master hosts that accept client queries and segment hosts that provide data processing and storage capability.
 
-To learn more, see [{#T}](../concepts/index.md).
+For more information, see [{#T}](../concepts/index.md).
 
 
 ## Creating a cluster {#create-cluster}
@@ -78,6 +78,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
+        * {% include [WebSQL access](../../_includes/mdb/console/websql-access.md) %}
 
 
 
@@ -248,13 +249,15 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         {{ yc-mdb-gp }} cluster create <cluster_name> \
            ...
            --datalens-access=<access_from_{{ datalens-name }}> \
-           --yandexquery-access=<access_from_Yandex_Query>
+           --yandexquery-access=<access_from_Yandex_Query> \
+           --websql-access=<true_or_false>
         ```
 
         Available services:
 
         * `--datalens-access`: [{{ datalens-full-name }}](../../datalens/concepts/index.md)
         * `--yandexquery-access`: [{{ yq-full-name }}](../../query/concepts/index.md)
+        * `--websql-access`: [{{ websql-full-name }}](../../websql/concepts/index.md)
 
 
 
@@ -359,7 +362,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 
 
-      For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-mgp }}).
+      For more information about the resources you can create with {{ TF }}, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
 
   
   1. Optionally, specify [dedicated host](../../compute/concepts/dedicated-host.md) groups to place master or segment hosts on dedicated hosts:
@@ -767,7 +770,7 @@ To create a {{ GP }} cluster copy:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -805,7 +808,7 @@ To create a {{ GP }} cluster copy:
     * Deletion protection: Enabled.
 
 
-    Run the following command:
+    Run this command:
 
     
     ```bash

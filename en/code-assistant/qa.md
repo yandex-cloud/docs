@@ -41,7 +41,6 @@ Error refreshing token: no refresh token found
 
 
 
-
 Your [organization](../overview/roles-and-resources.md) does not allow issuing [refresh tokens](../iam/api-ref/RefreshToken/) used by {{ ca-name }} for authentication. To work with {{ ca-name }}, [register](../getting-started/) in {{ yandex-cloud }} using your personal [Yandex account](../iam/concepts/users/accounts.md#passport) and [create](../organization/operations/enable-org.md) a new organization.
 
 
@@ -57,7 +56,7 @@ crypto is not defined
 
 This is an error returned by the internal IDE library used for authentication in {{ yandex-cloud }}. To resolve this error, [upgrade](https://code.visualstudio.com/docs/setup/setup-overview#_update-cadence) your Visual Studio Code version.
 
-{% cut "Below is an example of a Visual Studio Code build with plugin support" %}
+{% cut "Below is an example of a Visual Studio Code build with the plugin support" %}
 
 ```text
 Version: 1.92.2 (system setup)
@@ -75,13 +74,17 @@ OS: Windows_NT x64 10.0.19045
 
 See also [How to find out your IDE version](https://code.visualstudio.com/docs/setup/setup-overview#_how-do-i-know-which-version-im-running).
 
+### How to change the plugin interface language {#plugin-language}
+
+The plugin interface language depends on the IDE interface language.
+
 ## Using JetBrains IDE {#jetbrains-ide}
 
 ### The plugin does not start, there is a 404 error, suggestions from {{ ca-name }} are not displayed {#plugin-doesnt-start}
 
 Try restarting the IDE.
 
-### Plugin is failing to install correctly {#plugin-installed-incorrectly}
+### The plugin installs incorrectly {#plugin-installed-incorrectly}
 
 {% include [plugin-ide-zip](../_includes/code-assistant/plugin-ide-zip.md) %}
 

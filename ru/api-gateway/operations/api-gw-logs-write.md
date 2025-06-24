@@ -15,13 +15,16 @@ description: Следуя данной инструкции, вы сможете
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз, для которого хотите настроить логирование.
     1. В верхней части страницы нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-    1. В блоке **{{ ui-key.yacloud.logging.label_title }}** в поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
-        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` — чтобы выключить логирование.
-        * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать логи в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится API-шлюз.
-            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
-        * `{{ ui-key.yacloud.logging.label_loggroup }}` — чтобы записывать логи в пользовательскую лог-группу.
-            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
-            1. В поле **{{ ui-key.yacloud.logging.label_loggroup }}** выберите лог-группу, в которую будут записываться логи. Если у вас нет лог-группы, [создайте ее](../../logging/operations/create-group.md).
+    1. В блоке **{{ ui-key.yacloud.logging.label_title }}**:
+
+        1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+        1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
+                  
+           * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать логи в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится API-шлюз.
+           * {% include [log-group](../../_includes/functions/log-group.md) %}
+        
+        1. (Опционально) Выберите минимальный уровень логирования.
+
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**. 
     
     {% include [min-log-level](../../_includes/api-gateway/min-log-level.md) %}

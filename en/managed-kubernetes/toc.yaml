@@ -17,7 +17,7 @@ items:
         href: operations/update-kubernetes.md
       - name: Configuring autoscaling
         href: operations/autoscale.md
-      - name: Activating the {{ k8s }} {{ TF }} provider
+      - name: Activating a {{ k8s }} {{ TF }} provider
         href: operations/apply-tf-provider.md
       - name: Connecting to a cluster
         items:
@@ -111,6 +111,8 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
+          - name: Encrypted disks for persistent volumes
+            href: operations/volumes/encrypted-disks.md
           - name: Expanding a pod volume
             href: operations/volumes/volume-expansion.md
           - name: Increasing volume size for the StatefulSet controller
@@ -226,7 +228,7 @@ items:
             href: tutorials/ci-cd-serverless.md
       - name: Working with DNS
         items:
-          - name: Integrating with a corporate DNS zone
+          - name: Integration with a corporate DNS zone
             href: tutorials/custom-dns.md
           - name: DNS autoscaling based on cluster size
             href: tutorials/dns-autoscaler.md
@@ -275,8 +277,8 @@ items:
               ingress controller
             href: tutorials/alb-ingress-controller-log-options.md
           - name: >-
-              Creating an L7 load balancer with a {{ sws-name }} profile through
-              an {{ alb-name }} Ingress Controller
+              Creating an L7 load balancer with a {{ sws-name }} security
+              profile through an {{ alb-name }} Ingress controller
             href: tutorials/alb-ingress-with-sws-profile.md
           - name: >-
               Performing health checks on {{ managed-k8s-name }} cluster

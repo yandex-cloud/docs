@@ -258,6 +258,12 @@ description: В данном разделе приведены описания 
 
 {% include [mpg-events](../../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
+## {{ mtr-full-name }} {#managed-service-for-trino}
+
+Имя сервиса — `trino`.
+
+{% include [mtr-events](../../_includes/audit-trails/events/managed-trino-events.md) %}
+
 ## {{ mrd-full-name }} {#managed-service-for-redis}
 
 Имя сервиса — `mdb.redis`.
