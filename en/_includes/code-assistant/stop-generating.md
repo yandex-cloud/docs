@@ -1,0 +1,1 @@
+If, for example, you change your mind and want to rephrase your question, click ![image](../../_assets/console-icons/stop.svg) in the message input window.

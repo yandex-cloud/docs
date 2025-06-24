@@ -16,6 +16,7 @@ The host class also determines which [disk types](./storage.md) are available:
 
 The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
 
+
 ## Available host classes {#available-flavors}
 
 

@@ -16,11 +16,11 @@ You can create backups and restore clusters from existing backups, including poi
 - Management console {#console}
 
   To get a list of cluster backups:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
 
   To get a list of all backups in a folder:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -29,7 +29,7 @@ You can create backups and restore clusters from existing backups, including poi
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ MY }} cluster backups available in the default folder, run the command:
+  To get a list of {{ MY }} cluster backups available in the default folder, run this command:
 
   ```bash
   {{ yc-mdb-my }} backup list
@@ -147,11 +147,11 @@ You can create backups and restore clusters from existing backups, including poi
 - Management console {#console}
 
   To get information about the backup of an existing cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
 
   To get information about the backup of a previously deleted cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -160,13 +160,13 @@ You can create backups and restore clusters from existing backups, including poi
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ MY }} cluster backup, run the command:
+  To get information about a {{ MY }} cluster backup, run this command:
 
   ```bash
   {{ yc-mdb-my }} backup get <backup_ID>
   ```
 
-  You can retrieve the backup ID with the [list of backups](#list-backups).
+  You can get the backup ID together with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -222,7 +222,7 @@ You can create backups and restore clusters from existing backups, including poi
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -313,7 +313,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   To restore an existing cluster from a backup:
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
@@ -323,7 +323,7 @@ For a new cluster, you should set all the parameters that are required at creati
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_IP>`.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -415,7 +415,8 @@ For a new cluster, you should set all the parameters that are required at creati
           * `network-hdd`
           * `network-ssd`
           * `local-ssd`
-          * `network-ssd-nonreplicated`          * `network-ssd-io-m3`
+          * `network-ssd-nonreplicated`
+          * `network-ssd-io-m3`
 
 
 - {{ TF }} {#tf}
@@ -693,7 +694,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -860,7 +861,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 

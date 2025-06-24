@@ -786,6 +786,7 @@ default:
   translate-full-name: Yandex Translate
   translate-name: Translate
   translate-short-name: Translate
+  trino-service-address: 10.248.0.0/13
   tts-cc-quality: 8 kHz
   tts-v3-count: 250 characters
   tts-v3-time: 24 seconds
@@ -10109,6 +10110,8 @@ default:
                     ConnmanConnection:
                       connection_id:
                         title: Connection
+                      mdb_cluster_id:
+                        title: Cluster for Managed DB
                     ConvertRecordOptions:
                       add_rest_column:
                         title: Add a column for missing keys

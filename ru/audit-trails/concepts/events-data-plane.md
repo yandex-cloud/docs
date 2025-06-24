@@ -17,6 +17,12 @@ description: В данном разделе приведены описания 
 
 {% include [dp-events-service-list](../../_includes/audit-trails/dp-events-service-list.md) %}
 
+## {{ alb-full-name }} {#alb}
+
+Имя сервиса — `apploadbalancer`.
+
+{% include [alb-events-dp](../../_includes/audit-trails/events/alb-events-dp.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
 Имя сервиса — `certificatemanager`.
@@ -34,6 +40,12 @@ description: В данном разделе приведены описания 
 Имя сервиса — `compute`.
 
 {% include [compute-events-dp](../../_includes/audit-trails/events/compute-events-dp.md) %}
+
+## {{ foundation-models-full-name }} {#foundation-models}
+
+Имя сервиса — `ai.foundationmodels`.
+
+{% include [foundation-models-dp](../../_includes/audit-trails/events/foundation-models-dp.md) %}
 
 ## {{ iam-full-name }} {#iam}
 
@@ -103,6 +115,12 @@ description: В данном разделе приведены описания 
 
 {% include [sd-events-dp](../../_includes/audit-trails/events/sd-events-dp.md) %}
 
+## {{ speechkit-full-name }} {#speechkit}
+
+Имя сервиса — `ai.speechkit`.
+
+{% include [speechkit-events-dp](../../_includes/audit-trails/events/speechkit-events-dp.md) %}
+
 ## {{ speechsense-full-name }} {#speechsense}
 
 Имя сервиса — `speechsense`.
@@ -115,6 +133,18 @@ description: В данном разделе приведены описания 
 
 {% include [sws-events-dp](../../_includes/audit-trails/events/sws-events-dp.md) %}
 
+## {{ translate-full-name }} {#translate}
+
+Имя сервиса — `ai.translate`.
+
+{% include [translate-events-dp](../../_includes/audit-trails/events/translate-events-dp.md) %}
+
+
+## {{ vision-full-name }} {#vision}
+
+Имя сервиса — `ai.ocr`.
+
+{% include [vision-events-dp](../../_includes/audit-trails/events/vision-events-dp.md) %}
 
 ## {{ wiki-full-name }} {#wiki}
 

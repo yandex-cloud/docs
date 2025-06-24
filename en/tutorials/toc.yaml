@@ -1227,9 +1227,6 @@ items:
           Reconfiguring a network connection when recreating a {{ dataproc-name
           }} cluster
         href: routing/data-processing-dns-reconnect.md
-      - name: Setting up PT Application Firewall
-        href: routing/pt-application-firewall.md
-        hidden: true
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: routing/storage-vpc-access.md
       - name: Connecting to {{ container-registry-name }} from {{ vpc-short-name }}

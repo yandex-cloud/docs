@@ -1,6 +1,9 @@
 **Type of limit** | **Value**
 ----- | -----
-Maximum weekly number of non-empty suggestions per user | 3000
+Maximum weekly number of non-empty suggestions per user | 3,000
+Maximum weekly number of chats per user | 100
+Maximum weekly number of generated documents per user | 100
+Maximum weekly number of generated tests per user | 100
 
 {% note info %}
 

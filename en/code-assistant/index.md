@@ -113,85 +113,13 @@ To work with {{ ca-name }}, you will need continuous internet access.
 
 {% endnote %}
 
-{% include [syntax-support](../_includes/code-assistant/syntax-support.md) %}
+{% include [instruction-autocompletion](../_includes/code-assistant/instruction-autocompletion.md) %}
 
-{% include [auto-manual-modes](../_includes/code-assistant/auto-manual-modes.md) %}
-
-How to work with {{ ca-name }}:
-
-1. Open the IDE and create a test file named `server.cpp` with the following contents:
-
-    ```cpp
-    // simple web-server to work with sockets
-
-    #include <iostream>
-    #include <string>
-    #include <sys/socket.h>
-    #include <netinet/in.h>
-    #include <unistd.h>
-
-    using namespace std;
-
-    int main() {
-
-    }
-    ```
-
-1. In the `int main()` section, start typing something, e.g., `//create socket`. See the {{ ca-name }} suggestion:
-
-    ```cpp
-    ...
-    int main() {
-
-    //create socket
-    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
-
-    }
-    ```
-
-1. Select an action for the suggestion:
-
-    {% list tabs group=ide %}
-
-    - Visual Studio Code {#vscode}
-
-      {% include [actions-with-suggestions](../_includes/code-assistant/actions-with-suggestions.md) %}
-
-      * If there are multiple suggestions, you can switch between them using **Alt** + **[** and **Alt** + **]** for Windows or Linux or **Option** + **[** and **Option** + **]** for macOS.
-
-    - JetBrains IDE {#jb}
-
-      * Click **Tab** to accept the suggestion.
-      * To discard the suggestion, press **Esc**. 
-
-    {% endlist %}
-
-You can also watch our {{ ca-name }} video tutorial [here](https://cloud.yandex.ru/services/code-assistant).
+Also test [quick actions](./operations/quick-actions.md) and the plugin's performance in [chat mode](./operations/chat.md).
 
 ### Suggestion indicator {#help-indicator}
 
-{% include [help-indicator-load](../_includes/code-assistant/help-indicator-load.md) %}
-
-The suggestion indicator is enabled by default.
-
-To enable or disable the indicator:
-
-{% list tabs group=ide %}
-
-  - Visual Studio Code {#vscode}
-
-    1. Click the ![image](../_assets/code-assistant/vsc-icon-small.svg) plugin icon in the bottom-right panel.
-    1. In the menu that opens, select **Settings**.
-    1. In the settings window, enable or disable **Enable Empty Indicator** and **Enable Loading Indicator**.
-
-  - JetBrains IDE {#jb}
-
-    1. In the top-right corner, click ![image](../_assets/console-icons/gear.svg) and select **Settings...**.
-    1. In the left-hand column, select **{{ ca-full-name }}**.
-    1. Enable or disable **Disable suggest indicator**.
-    1. Click **Save** to save the settings.
-
-{% endlist %}
+{% include [instruction-help-indicator](../_includes/code-assistant/help-indicator.md) %}
 
 
 ## Manage the plugin {#manage-plugin}
@@ -278,3 +206,5 @@ To re-authenticate in the plugin, follow the instructions described in step 3 of
 #### See also {#see-also}
 
 * [{{ ca-name }} overview](./concepts/index.md)
+* [{#T}](./operations/chat.md)
+* [{#T}](./operations/quick-actions.md)

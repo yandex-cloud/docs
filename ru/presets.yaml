@@ -10121,6 +10121,8 @@ default:
                     ConnmanConnection:
                       connection_id:
                         title: Подключение
+                      mdb_cluster_id:
+                        title: Кластер управляемой БД
                     ConvertRecordOptions:
                       add_rest_column:
                         title: Добавить неразмеченные столбцы

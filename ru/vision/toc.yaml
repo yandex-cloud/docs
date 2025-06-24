@@ -170,6 +170,8 @@ items:
                     href: classifier/api-ref/grpc/ImageClassifier/index.md
                   - name: Annotate
                     href: classifier/api-ref/grpc/ImageClassifier/annotate.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     href: release-notes.md
   - name: Решение проблем

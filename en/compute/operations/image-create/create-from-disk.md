@@ -21,7 +21,7 @@ To create an image from a disk:
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. In the line with the disk, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
-  1. Enter a name for the image. The naming requirements are as follows:
+  1. Specify the image name. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -37,7 +37,7 @@ To create an image from a disk:
 
   1. See the description of the CLI command for creating an image:
   
-      ```
+      ```bash
       yc compute image create --help
       ```
   
@@ -48,7 +48,7 @@ To create an image from a disk:
   1. Select `ID` or `NAME` of the disk you need.
   1. Create an image in the default folder:
   
-      ```
+      ```bash
       yc compute image create \
         --name first-image \
         --source-disk-name first-disk \
@@ -59,7 +59,7 @@ To create an image from a disk:
 
       To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), use the `--pooled` flag:
 
-      ```
+      ```bash
       yc compute image create \
         --name first-image \
         --source-disk-name first-disk \
@@ -75,7 +75,7 @@ To create an image from a disk:
 
      Here is an example of the configuration file structure:
 
-     ```
+     ```hcl
      resource "yandex_compute_image" "image-1" {
        name        = "<image_name>"
        source_disk = "<disk_ID>"
@@ -86,14 +86,14 @@ To create an image from a disk:
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-       If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -105,7 +105,7 @@ To create an image from a disk:
 
      1. Confirm creating the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

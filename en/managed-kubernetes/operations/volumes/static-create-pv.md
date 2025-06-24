@@ -262,3 +262,10 @@ Disks are not deleted automatically from {{ compute-name }} when you delete `Per
    ```
 
 1. In {{ compute-name }}, [delete the disk](../../../compute/operations/disk-control/delete.md)  linked to the `PersistentVolume` object.
+
+### See also {#see-also}
+
+* [{#T}](../../concepts/volume.md)
+* [{#T}](./encrypted-disks.md)
+* [{#T}](./dynamic-create-pv.md)
+* [{#T}](./manage-storage-class.md)

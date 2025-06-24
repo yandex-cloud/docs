@@ -14,9 +14,7 @@
 
 - **Conn limit**{#setting-conn-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Maximum allowed number of connections for the user.
-
-  In transaction pooling, this setting limits the number of simultaneous connections per user transaction. When using this type of pooling, the user can open thousands of connections, but only `N` connections can run concurrently (where `N` is the setting value).
+  In transaction pooling, this setting limits the number of simultaneous active connections per user. When using this type of pooling, the user can open thousands of connections, but only `N` connections can run concurrently (where `N` is the setting value).
 
   In session pooling, the setting limits the number of user connections to each host in a {{ PG }} cluster. When using this type of pooling, make sure the setting value is not less than the sum of all connections that can be opened by the user service backends. Each open server connection slightly slows down the OLTP performance for {{ PG }}.
 
@@ -49,7 +47,7 @@
 
   We recommend you to define the meaning of slow query execution for each service and its user and log only the queries that meet the definition. For example, for a web service, a query is slow if it runs for more than one second, while, for the reporting service, it is a query that runs for more than 10 minutes.
 
-  For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+  For more information, see the relevant [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
 - **Log statement**{#setting-user-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 

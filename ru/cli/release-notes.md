@@ -40,8 +40,8 @@ description: На странице представлены релизы CLI, а
 
 **{{ mch-name }}**
 
-* Добавлена команда `yc clickhouse cluster update-external-dictionary`, позволяющая редактировать созданные в кластере словари.
-* В команде `yc clickhouse cluster list-logs` у параметра `--service-type` появилось новое возможное значение: `clickhouse-keeper`.
+* Добавлена команда `yc managed-clickhouse cluster update-external-dictionary`, позволяющая редактировать созданные в кластере словари.
+* В команде `yc managed-clickhouse cluster list-logs` у параметра `--service-type` появилось новое возможное значение: `clickhouse-keeper`.
 
 **{{ mkf-name }}**
 
@@ -130,17 +130,17 @@ description: На странице представлены релизы CLI, а
 ##### {{ mch-name }}
 
 Добавлены команды для управления расширениями:
-* `yc clickhouse extension list`
-* `yc clickhouse extension get`
-* `yc clickhouse cluster add-extension`
-* `yc clickhouse cluster update-extension`
-* `yc clickhouse cluster get-extension`
-* `yc clickhouse cluster list-extensions`
-* `yc clickhouse cluster remove-extension`
+* `yc managed-clickhouse extension list`
+* `yc managed-clickhouse extension get`
+* `yc managed-clickhouse cluster add-extension`
+* `yc managed-clickhouse cluster update-extension`
+* `yc managed-clickhouse cluster get-extension`
+* `yc managed-clickhouse cluster list-extensions`
+* `yc managed-clickhouse cluster remove-extension`
 
 ### Версия 0.148.0 (30.04.25) {#version0.148.0}
 
-####  Изменения в сервисах {{ yandex-cloud }} {#version0.148.0-services}
+#### Изменения в сервисах {{ yandex-cloud }} {#version0.148.0-services}
 
 ##### {{ compute-name }}
 
@@ -191,7 +191,7 @@ description: На странице представлены релизы CLI, а
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-* В команды `yc managed-kafka user create`, `yc managed-kafka user update` добавлен параметр `--rest-api-enabled` для включения REST API на кластере.
+* В команды `yc managed-kafka cluster create`, `yc managed-kafka cluster update` добавлен параметр `--rest-api-enabled` для включения REST API на кластере.
 
 * В команде `yc managed-mysql cluster create` поддержан аргумент `--user generate-password` для автоматической генерации пароля с использованием {{ connection-manager-full-name }}.
 
@@ -199,7 +199,7 @@ description: На странице представлены релизы CLI, а
 
 * В команде `yc managed-clickhouse cluster create` поддержан аргумент `--user generate-password` для автоматической генерации пароля с использованием {{ connection-manager-full-name }}.
 
-* В команды `yc clickhouse cluster create` и `yc clickhouse cluster restore` добавлен параметр `--shard`, позволяющий задать один или несколько шардов. Пример: `yc clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
+* В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster restore` добавлен параметр `--shard`, позволяющий задать один или несколько шардов. Пример: `yc managed-clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
 
 * В команде `yc managed-clickhouse shard add` поддержан повторяемый композитный параметр `--shard`:
   * Будет создано столько шардов, сколько раз встретился параметр `--shard`.
@@ -208,7 +208,7 @@ description: На странице представлены релизы CLI, а
 
 * Ускорено удаление нескольких шардов через `yc managed-clickhouse shards delete`.
 
-* В команду `yc clickhouse cluster add-external-dictionary` добавлены следующие параметры:
+* В команду `yc managed-clickhouse cluster add-external-dictionary` добавлены следующие параметры:
   * `--layout-allow-read-expired-keys `
   * `--layout-max-update-queue-size`
   * `--layout-update-queue-push-timeout-milliseconds`
@@ -1295,7 +1295,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mch-name }}**
 
-* Параметр `network-id` для `yc clickhouse cluster restore` теперь опциональный.
+* Параметр `network-id` для `yc managed-clickhouse cluster restore` теперь опциональный.
 
 ##### {{ alb-name }} {#alb}
 
@@ -1353,7 +1353,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Расширен список выводимых полей в отображении по умолчанию списка шардов и кластеров.
 * Добавлены тип и размер резервной копии при выводе списка резервных копий.
-* Исправлен баг при попытке восстановить кластер с включенным гибридным хранилищем или SQL Management командой `yc clickhouse cluster restore`.
+* Исправлен баг при попытке восстановить кластер с включенным гибридным хранилищем или SQL Management командой `yc managed-clickhouse cluster restore`.
 
 ### Версия 0.113.0 (31.10.23) {#version0.113.0}
 

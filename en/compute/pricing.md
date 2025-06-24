@@ -7,24 +7,11 @@ editable: false
 
 # {{ compute-name }} pricing policy
 
-{% note warning %}
-
-Starting June 13, 2025, new _reduced_ prices will apply to using GPUs and GPU clusters for **AMD EPYC™ 9474F with Gen2**. The new prices are as follows:
-
-
-
-* 1 GPU on a regular VM: $6.209835 per hour, without VAT.
-* 1 GPU on a preemptible VM: $6.209835 per hour, without VAT.
-* High-speed GPU cluster for regular VMs: $2.757973 per cluster VM, per hour, without VAT.
-* High-speed GPU cluster for preemptible VMs: $2.757973 per cluster VM, per hour, without VAT.
-
-
-{% endnote %}
 
 
 {% note warning %}
 
-The prices for the AMD Zen 3 platform will be effective starting June 24, 2025.
+AMD Zen 3 prices will apply starting June 13, 2025.
 
 {% endnote %}
 
@@ -35,7 +22,7 @@ The prices for the AMD Zen 3 platform will be effective starting June 24, 2025.
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=577e4326f11d#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
+To calculate the cost of using the service, use the {{ yandex-cloud }} [calculator](https://yandex.cloud/en/prices?state=577e4326f11d#calculator) or check the prices in this section.
 
 
 {% endnote %}
@@ -64,13 +51,13 @@ The {{ compute-name }} usage cost includes:
 
 The monthly prices are based on 720 hours per month.
 
-### Using reserved instance pools {#pool}
+### Using pools of reserved VMs {#pool}
 
 {% include [reserved-pools-preview-notice](../_includes/compute/reserved-pools-preview-notice.md) %}
 
-The cost of using [reserved instance pools](./concepts/reserved-pools.md) includes fees for the whole unused volume of reserved computing resources of [VMs](#prices-instance-resources), [GPU clusters](#prices-gpu-clusters), and [software accelerated networks](#software-accelerated-network).
+The cost of using [pools of reserved VMs](./concepts/reserved-pools.md) includes payment for the entire unused volume of reserved [computational resources of VMs](#prices-instance-resources), [GPU clusters](#prices-gpu-clusters), and [software accelerated networks](#software-accelerated-network).
 
-Pool charges apply to free slots, while occupied slots are [billed as regular VMs](#instance). That is, if you attach a VM to a pool, it is still billed separately while using some of the pool’s resources. As a result, your pool usage fee is reduced. When you remove a VM from the pool, the computing resources are released and the fee for using the pool increases.
+Within the pool, unused slots are charged, and occupied slots are [billed as regular VMs](#instance). That is, if you attach a VM to the pool, it is still billed separately but consumes part of the pool's reserved resources. That's why the pool's usage fee is reduced. When you remove a VM from the pool, the compute resources are released and the fee for using the pool increases.
 
 ### VM usage {#instance}
 

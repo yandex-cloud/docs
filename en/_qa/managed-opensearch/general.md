@@ -34,8 +34,8 @@ The owner of the affected clusters will receive a notice of expected work times 
 
 For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of the disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
@@ -52,7 +52,7 @@ To increase the maximum IOPS and bandwidth values and make throttling less likel
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -60,7 +60,7 @@ Here is the full text of the error:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+This means, when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
 
 To fix this error:
 
@@ -75,3 +75,14 @@ To fix this error:
 
 {% include notitle [attach-sa](../../_qa/attach-sa.md) %}
 
+#### Why do I get an `Unable to confirm permission` error when activating a transfer? {#data-transfer-error}
+
+Here is the full text of the error:
+
+```text
+Unable to confirm permission 'data-transfer.transfers.createExternal'
+```
+
+This error occurs if the transfer is activated in or from a custom {{ OS }} installation database, but the {{ OS }} endpoint settings have no subnet ID specified.
+
+To fix this error, specify a subnet ID in the {{ OS }} endpoint settings, even if the source and target can access each other without the internet.

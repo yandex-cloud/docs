@@ -13,17 +13,22 @@ Live migration does not change any VM settings. The live migration process moves
 
 ## Limitations {#limitations}
 
-The following types of VMs cannot be moved:
-* VMs with [GPUs](../concepts/gpus.md) ^1^
-* [Preemptible](../concepts/preemptible-vm.md) ^1^ VMs
-* [{{ sf-full-name }}](../../functions/) VMs
-* Managed DBMS VMs with local SSDs
-* VMs with disabled migration
+Live migration is not supported for:
 
-^1^ These VMs are dynamically moved after a [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).
+* VMs with [GPUs](../concepts/gpus.md) ^1^
+* VMs with the `RESTART` [maintenance policy](../concepts/vm-policies.md) ^1^
+* [Preemptible](../concepts/preemptible-vm.md) VMs ^2^
+* Managed DBMS VMs with local SSDs
+* VMs on dedicated hosts with [local SSDs](../concepts/dedicated-host.md#resource-disks)
+* VMs on dedicated hosts [attached to a specific host](../concepts/dedicated-host.md#bind-vm)
+
+^1^ When under maintenance, these VMs stop and get restarted on a new server.
+^2^ When under maintenance, these VMs stop.
+
 
 ## See also {#see-also}
 
+* [VM maintenance policies](./vm-policies.md)
 * [How to move a VM to a different availability zone](../operations/vm-control/vm-change-zone.md)
 * [How to move a VM to another folder](../operations/vm-control/vm-change-folder.md)
 * [How to move a VM to another cloud](../operations/vm-control/vm-change-cloud.md)

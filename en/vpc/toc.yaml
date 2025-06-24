@@ -168,9 +168,6 @@ items:
         href: tutorials/data-processing-nat-instance.md
       - name: Network between folders
         href: tutorials/multi-folder-vpc.md
-      - name: Setting up PT Application Firewall
-        href: tutorials/pt-application-firewall.md
-        hidden: true
       - name: >-
           Implementing a secure high-availability network infrastructure with a
           dedicated DMZ based on the Check Point NGFW

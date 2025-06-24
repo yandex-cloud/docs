@@ -9,7 +9,7 @@ description: Follow this guide to change {{ GP }} cluster settings.
 After creating a cluster, you can:
 
 * [Change cluster name and description](#change-name-and-description).
-* [Change the public access setting](#change-public-access).
+* [Change public access setting](#change-public-access).
 * [Change additional cluster settings](#change-additional-settings).
 * [Change scheduled maintenance operation settings](#change-background-settings).
 * [Change {{ GP }} settings](#change-gp-settings) according to the {{ GP }} documentation.
@@ -302,6 +302,7 @@ If you enabled public access to the cluster but cannot access it from the inter
         
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
+        * {% include [WebSQL access](../../_includes/mdb/console/websql-access.md) %}
 
 
 
@@ -350,6 +351,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
                                 `hour=<hour> \
+            --websql-access=<true_or_false> \
             --deletion-protection
         ```
 
@@ -364,6 +366,8 @@ If you enabled public access to the cluster but cannot access it from the inter
     * `--datalens-access`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
 
     * `--yandexquery-access`: Access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
+
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
 
 
@@ -846,17 +850,17 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
 ## Changing {{ GP }} settings {#change-gp-settings}
 
-You can change your cluster's [global DBMS settings](../concepts/settings-list.md). For a list of settings you can edit, see [{#T}](../concepts/settings-list.md).
+You can change the [global DBMS settings](../concepts/settings-list.md) of your cluster. For a list of settings available for editing, see [{#T}](../concepts/settings-list.md).
 
 {% note info %}
 
-To change user-level settings, including those not managed by {{ mgp-name }} at the cluster level, use the following command:
+To update user-level settings, including those not managed by {{ mgp-name }} at the cluster level, use the following command:
 
 ```sql
 ALTER ROLE <role_name> SET <setting> = <value>;
 ```
 
-To change settings at the individual database level, use the following command:
+To update settings at the individual database level, use the following command:
 
 ```sql
 ALTER DATABASE <DB_name> SET <setting> = <value>;

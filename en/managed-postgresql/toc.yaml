@@ -129,7 +129,7 @@ items:
             href: tutorials/joomla-postgresql/terraform.md
       - name: Status monitoring of geographically distributed devices
         href: tutorials/datalens.md
-      - name: Storing load balancer logs to {{ PG }}
+      - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
       - name: Creating an MLFlow server for logging experiments and artifacts
         href: tutorials/mlflow-datasphere.md
@@ -607,6 +607,8 @@ items:
         href: qa/configuration.md
       - name: Moving and restoring a cluster
         href: qa/backup.md
+      - name: High availability and load balancing
+        href: qa/ha.md
       - name: Monitoring and logs
         href: qa/monitoring.md
       - name: All questions on a single page
