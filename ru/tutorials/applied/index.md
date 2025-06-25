@@ -8,6 +8,7 @@ description: На странице представлен список прак�
 ## Создание сайта {#web}
 
 * [Статический сайт в {{ objstorage-full-name }}](../web/static/index.md)
+* [Статический сайт в {{ objstorage-name }} с доступом через {{ cdn-name }}](cdn-hosting.md)
 * [Сайт на LAMP- или LEMP-стеке](../web/lamp-lemp/index.md)
 * [Сайт на базе Joomla с базой данных {{ PG }}](../web/joomla-postgresql/index.md)
 * [Создание сайта на WordPress](../web/wordpress/index.md)

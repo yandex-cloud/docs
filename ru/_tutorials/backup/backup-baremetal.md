@@ -1,4 +1,6 @@
+
 # Подключить существующий сервер {{ baremetal-full-name }} к {{ backup-full-name }}
+
 
 Вы можете подключить существующий [сервер {{ baremetal-name }}](../../baremetal/concepts/servers.md) к {{ backup-name }} и настроить на нем резервное копирование данных.
 

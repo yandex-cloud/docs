@@ -45,7 +45,7 @@ description: Из статьи вы узнаете, как задать наст
 
 ## Настройка эндпоинта-приемника {{ MG }} {#endpoint-settings}
 
-{% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
+{% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 

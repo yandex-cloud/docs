@@ -1,4 +1,10 @@
+---
+title: Как активировать сервис {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете активировать сервис {{ backup-name }}.
+---
+
 # Активировать сервис
+
 
 Минимальная роль в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), необходимая для активации сервиса, — `backup.editor` (см. [описание роли](../security/index.md#backup-editor)).
 

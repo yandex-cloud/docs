@@ -85,6 +85,10 @@ items:
             href: tutorials/protected-access-to-content/terraform.md
       - name: Миграция в {{ cdn-full-name }} из стороннего CDN-провайдера
         href: tutorials/migrate-to-yc-cdn.md
+      - name: >-
+          Настройка хостинга статического сайта в бакете {{ objstorage-full-name
+          }} с доступом через {{ cdn-full-name }}
+        href: tutorials/cdn-hosting.md
   - name: Концепции
     items:
       - name: Обзор сервиса

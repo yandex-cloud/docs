@@ -50,7 +50,7 @@ description: Следуя данной инструкции, вы сможете
       1. Выполните команду:
 
           ```bash
-          curl 'https://storage.yandexcloud.net/backup-distributions/agent_reinit.sh' | sudo bash
+          curl 'https://{{ s3-storage-host }}/backup-distributions/agent_reinit.sh' | sudo bash
           ```
 
           Результат:
@@ -72,7 +72,7 @@ description: Следуя данной инструкции, вы сможете
       1. Выполните команду:
 
           ```powershell
-          . { iwr -useb https://storage.yandexcloud.net/backup-distributions/agent_reinit.ps1 } | iex
+          . { iwr -useb https://{{ s3-storage-host }}/backup-distributions/agent_reinit.ps1 } | iex
           ```
 
           Результат:

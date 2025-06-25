@@ -1,4 +1,10 @@
+---
+title: Обзор сервиса {{ backup-full-name }}
+description: '{{ backup-name }} — сервис для создания резервных копий и восстановления ресурсов {{ yandex-cloud }} и данных на них.'
+---
+
 # Обзор сервиса {{ backup-full-name }}
+
 
 {{ backup-full-name }} — сервис для создания [резервных копий](../../glossary/backup.md) и восстановления ресурсов {{ yandex-cloud }} и данных на них. Доступно копирование и восстановление [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md), созданных из [поддерживаемых образов {{ marketplace-name }}](vm-connection.md#os), а также [серверов {{ baremetal-full-name }}](../../baremetal/concepts/servers.md) с [поддерживаемыми операционными системами](vm-connection.md#self-install).
 
