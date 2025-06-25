@@ -1051,6 +1051,18 @@ default:
         12_month|string: ₸424575.00
         3_month|string: ₸474525.00
         6_month|string: ₸464535.00
+      ba_i211_8s_25g:
+        1_day|string: ₸509500.00
+        1_month|string: ₸494215.00
+        12_month|string: ₸433075.00
+        3_month|string: ₸484025.00
+        6_month|string: ₸473835.00
+      ba_i211_8s_2x25g:
+        1_day|string: ₸562000.00
+        1_month|string: ₸545140.00
+        12_month|string: ₸477700.00
+        3_month|string: ₸533900.00
+        6_month|string: ₸522660.00
       ba_i212_10s_10g:
         1_day|string: ₸517500.00
         1_month|string: ₸501975.00
@@ -1063,6 +1075,24 @@ default:
         12_month|string: ₸366350.00
         3_month|string: ₸409450.00
         6_month|string: ₸400830.00
+      ba_i501_h_25g:
+        1_day|string: ₸1106500.00
+        1_month|string: ₸1073305.00
+        12_month|string: ₸940525.00
+        3_month|string: ₸1051175.00
+        6_month|string: ₸1029045.00
+      ba_i506_nh_25g:
+        1_day|string: ₸1205500.00
+        1_month|string: ₸1169335.00
+        12_month|string: ₸1024675.00
+        3_month|string: ₸1145225.00
+        6_month|string: ₸1121115.00
+      ba_i511_nh_25g:
+        1_day|string: ₸1499500.00
+        1_month|string: ₸1454515.00
+        12_month|string: ₸1274575.00
+        3_month|string: ₸1424525.00
+        6_month|string: ₸1394535.00
       ha_i302_s_10g:
         1_day|string: ₸459000.00
         1_month|string: ₸445230.00
@@ -2729,6 +2759,18 @@ default:
         12_month|string: ₽84915.00
         3_month|string: ₽94905.00
         6_month|string: ₽92907.00
+      ba_i211_8s_25g:
+        1_day|string: ₽101900.00
+        1_month|string: ₽98843.00
+        12_month|string: ₽86615.00
+        3_month|string: ₽96805.00
+        6_month|string: ₽94767.00
+      ba_i211_8s_2x25g:
+        1_day|string: ₽112400.00
+        1_month|string: ₽109028.00
+        12_month|string: ₽95540.00
+        3_month|string: ₽106780.00
+        6_month|string: ₽104532.00
       ba_i212_10s_10g:
         1_day|string: ₽103500.00
         1_month|string: ₽100395.00
@@ -2741,6 +2783,24 @@ default:
         12_month|string: ₽73270.00
         3_month|string: ₽81890.00
         6_month|string: ₽80166.00
+      ba_i501_h_25g:
+        1_day|string: ₽221300.00
+        1_month|string: ₽214661.00
+        12_month|string: ₽188105.00
+        3_month|string: ₽210235.00
+        6_month|string: ₽205809.00
+      ba_i506_nh_25g:
+        1_day|string: ₽241100.00
+        1_month|string: ₽233867.00
+        12_month|string: ₽204935.00
+        3_month|string: ₽229045.00
+        6_month|string: ₽224223.00
+      ba_i511_nh_25g:
+        1_day|string: ₽299900.00
+        1_month|string: ₽290903.00
+        12_month|string: ₽254915.00
+        3_month|string: ₽284905.00
+        6_month|string: ₽278907.00
       ha_i302_s_10g:
         1_day|string: ₽91800.00
         1_month|string: ₽89046.00
@@ -4402,6 +4462,18 @@ default:
         12_month|string: $707.624717
         3_month|string: $790.874684
         6_month|string: $774.224690
+      ba_i211_8s_25g:
+        1_day|string: $849.166327
+        1_month|string: $823.691337
+        12_month|string: $721.791378
+        3_month|string: $806.708011
+        6_month|string: $789.724684
+      ba_i211_8s_2x25g:
+        1_day|string: $936.666292
+        1_month|string: $908.566303
+        12_month|string: $796.166348
+        3_month|string: $889.832977
+        6_month|string: $871.099652
       ba_i212_10s_10g:
         1_day|string: $862.499655
         1_month|string: $836.624665
@@ -4414,6 +4486,24 @@ default:
         12_month|string: $610.583089
         3_month|string: $682.416394
         6_month|string: $668.049733
+      ba_i501_h_25g:
+        1_day|string: $1844.165929
+        1_month|string: $1788.840951
+        12_month|string: $1567.541040
+        3_month|string: $1751.957633
+        6_month|string: $1715.074314
+      ba_i506_nh_25g:
+        1_day|string: $2009.165863
+        1_month|string: $1948.890887
+        12_month|string: $1707.790984
+        3_month|string: $1908.707570
+        6_month|string: $1868.524253
+      ba_i511_nh_25g:
+        1_day|string: $2499.165667
+        1_month|string: $2424.190697
+        12_month|string: $2124.290817
+        3_month|string: $2374.207384
+        6_month|string: $2324.224070
       ha_i302_s_10g:
         1_day|string: $764.999694
         1_month|string: $742.049703
@@ -5956,6 +6046,43 @@ default:
         templates:
           view:
             label_metric: Indicator
+    sourcecraft:
+      ui_lib:
+        home: Home
+        tab_secrets: Secrets
+      ui_modules_cicd:
+        value_status-created: Queued
+        value_succeeded: Success
+      ui_modules_mainApp:
+        route_create-repository: Create repository
+        route_repositories: Repositories
+      ui_modules_repo:
+        action_cicd: CI/CD
+        action_commit: Commit changes
+        action_create-file: Create file
+        button_commit-and-go-to-read-mode: Commit and back to Read mode
+        field_after-commit-action: After commit action
+        field_commit-branch: Commit branch
+        field_text_commit-directly-to-the-branch: 'Commit directly to the branch:'
+        file: File
+        option_just-commit: Just commit
+        title_navigation-code: Code
+        title_navigation-repository-settings: Repository settings
+      ui_modules_repoCreate:
+        button_create-repo: Create repository
+        title_create-blank: Create blank repository
+        title_new-repo-details: Your new repository details
+        title_owner-field: Owner
+        title_repo-field: Name
+      ui_modules_repoMain:
+        action_go-to-browse: Browse all repository files
+      ui_modules_repoSettings:
+        field_description: Description
+      ui_modules_secrets:
+        action_add-secret: Add secret
+        action_new-secrete: New secret
+        field_name: Name
+        field_secret: Secret
     support-center:
       billing-account:
         common:

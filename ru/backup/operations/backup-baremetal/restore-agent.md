@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Восстановить работоспособность агента {{ backup-name }} после обновления ядра Linux
 
+
 {% include [update-kernel-headers-description](../../../_includes/backup/operations/update-kernel-headers-description.md) %}
 
 {% list tabs group=operating_system %}

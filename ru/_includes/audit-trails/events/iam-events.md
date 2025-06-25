@@ -17,6 +17,11 @@
 `DetectLeakedCredential` | Обнаружение секрета в открытом источнике
 `DisableService` | Отзыв у сервиса доступа к ресурсам других сервисов в облаке
 `EnableService` | Выдача сервису доступа к ресурсам других сервисов в облаке
+`oauthclient.CreateOAuthClient` | Создание OAuth-клиента
+`oauthclient.CreateOAuthClientSecret` | Создание секрета для OAuth-клиента
+`oauthclient.DeleteOAuthClient` | Удаление OAuth-клиента
+`oauthclient.DeleteOAuthClientSecret` | Удаление секрета для OAuth-клиента
+`oauthclient.UpdateOAuthClient` | Обновление OAuth-клиента
 `RevokeLeakedCredential` | Отзыв скомпрометированного секрета
 `SetServiceAccountAccessBindings` | Назначение прав доступа для сервисного аккаунта
 `UpdateAccessKey` | Обновление статического ключа

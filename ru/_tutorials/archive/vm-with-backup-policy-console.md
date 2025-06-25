@@ -1,6 +1,5 @@
 # Автоматическая привязка политики резервного копирования {{ backup-full-name }} к ВМ с помощью консоли управления, CLI или API
 
-
 Чтобы создать виртуальную машину с автоматической привязкой к политике резервного копирования {{ backup-name }}:
 
 1. [Подготовьте облако к работе](#before-begin).
@@ -484,7 +483,7 @@
         - perl
         - jq
       runcmd:
-        - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+        - curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
       ```
 
   1. Сохраните идентификатор политики `weekly-backup` в файле `cloudbackup.json`:
@@ -534,7 +533,7 @@
       "cores": "2"
     },
     "metadata": {
-      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh_authorized_keys:\n  - <публичный_SSH-ключ>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash",
+      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh_authorized_keys:\n  - <публичный_SSH-ключ>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash",
       "cloudbackup": "{\"initialPolicies\": [\"<идентификатор_политики>\"]}"
     },
     "bootDiskSpec": {

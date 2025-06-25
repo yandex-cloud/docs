@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Переподключить сервер {{ baremetal-full-name }} к {{ backup-name }}
 
+
 Если вы развернули резервную копию одного сервера на другом, подключение исходного сервера к {{ backup-name }} становится неактуальным. Чтобы продолжить резервное копирование исходного сервера и избежать конфликтов с новым, обновите подключение исходного сервера к {{ backup-name }}:
 
 1. Для подключения сервера {{ baremetal-name }} к {{ backup-name }} нужен [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с минимальными [ролями](../../../iam/concepts/access-control/roles.md) `backup.editor` и `baremetal.editor`. [Создайте](backup-baremetal.md#prepare-service-account) его или назначьте необходимые роли имеющемуся сервисному аккаунту.
@@ -35,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
       1. Обновите подключение к {{ backup-name }}:
 
           ```bash
-          wget https://storage.yandexcloud.net/backup-distributions/agent_reinit_bms.sh
+          wget https://{{ s3-storage-host }}/backup-distributions/agent_reinit_bms.sh
           sudo bash agent_reinit_bms.sh -t=<IAM-токен>
           ```
 

@@ -7,6 +7,47 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.152.0 (25.06.25) {#version0.152.0}
+
+### Изменения в сервисах {{ yandex-cloud }}
+
+#### {{ alb-name }} {#version-0.152-alb}
+
+В командах `yc application-load-balancer load-balancer start-zonal-shift` и `yc application-load-balancer load-balancer cancel-zonal-shift` для старта и отмены Zonal Shift на балансировщике разрешено указывать список зон.
+
+#### {{ cloud-desktop-name }} {#version-0.152-desktop}
+
+* Добавлена команда `yc desktops group update` для обновления информации о группе рабочих столов.
+* В команду `yc desktops group create` добавлены параметры `max-group-size`, `hot-standby`, `user-account-id`.
+
+#### {{ network-load-balancer-name }} {#version-0.152-nlb}
+
+Добавлены команды для старта и отмены блокировки зон балансировщика:
+* `yc load-balancer network-load-balancer start-zonal-shift`
+* `yc load-balancer network-load-balancer cancel-zonal-shift`
+
+#### {{ metastore-full-name }} {#version-0.152-metastore}
+
+Добавлены команды для управления кластерами {{ metastore-name }}:
+* `yc managed-metastore cluster get`
+* `yc managed-metastore cluster list`
+* `yc managed-metastore cluster create`
+* `yc managed-metastore cluster update`
+* `yc managed-metastore cluster delete`
+* `yc managed-metastore cluster start`
+* `yc managed-metastore cluster stop`
+* `yc managed-metastore cluster import-data`
+* `yc managed-metastore cluster export-data`
+* `yc managed-metastore cluster list-operations`
+
+##### Сервисы управляемых баз данных {#version-0.152-managed-db}
+
+**{{ mpg-name }}**
+
+Устаревший аргумент `version` параметра `extension` в команде `postgresql database` больше не существует.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.151.0 (19.06.25) {#version0.151.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -59,8 +100,6 @@ description: На странице представлены релизы CLI, а
   * `yc managed-trino catalog get`  
   * `yc managed-trino catalog list`
   * `yc managed-trino catalog update`
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.150.0 (02.06.25) {#version0.150.0}
 

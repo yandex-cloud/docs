@@ -32,7 +32,7 @@ description: Из статьи вы узнаете, как задать наст
 
 ## Настройка эндпоинта-источника {{ MG }} {#endpoint-settings}
 
-{% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
+{% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
@@ -47,6 +47,7 @@ description: Из статьи вы узнаете, как задать наст
 Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mmg.viewer }}`](../../../../managed-mongodb/security/index.md#mmg-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
+
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
@@ -102,7 +103,6 @@ description: Из статьи вы узнаете, как задать наст
     {% include [Managed MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
 
 {% endlist %}
-
 
 ### Пользовательская инсталляция {#on-premise}
 

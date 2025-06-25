@@ -22,6 +22,9 @@
 `SetDefaultProfile` | Назначение профиля по умолчанию
 `SetGroupAccessBindings` | Назначение прав доступа к группе пользователей
 `SetOrganizationAccessBindings` | Назначение прав доступа к организации
+`saml.AddFederationDomain` | Добавление [домена](../../../organization/concepts/domains.md)
+`saml.DeleteFederationDomain` | Удаление домена
+`saml.ValidateFederationDomain` | Валидация домена
 `UpdateGroup` | Изменение группы пользователей
 `UpdateGroupAccessBindings` | Изменение прав доступа к группе пользователей
 `UpdateGroupMapping` | Изменение сопоставления групп федеративных пользователей

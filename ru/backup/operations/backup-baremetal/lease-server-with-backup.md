@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Арендовать сервер {{ baremetal-full-name }} с подключением к {{ backup-name }}
 
+
 Вы можете создавать резервные копии [серверов](../../../baremetal/concepts/servers.md) {{ baremetal-name }} с поддерживаемыми операционными системами на базе Linux: {#os-support}
 
 {% include [baremetal-os-list](../../../_includes/backup/baremetal-os-list.md) %}

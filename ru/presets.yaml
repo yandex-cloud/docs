@@ -572,6 +572,7 @@ default:
   roles-datasphere-project-editor: datasphere.community-projects.editor
   roles-datasphere-user: datasphere.user
   roles-editor: editor
+  roles-functions-admin: functions.admin
   roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
   roles-functions-mdbProxiesUser: functions.mdbProxiesUser
@@ -1054,6 +1055,18 @@ default:
         12_month|string: "424\_575,00\_₸"
         3_month|string: "474\_525,00\_₸"
         6_month|string: "464\_535,00\_₸"
+      ba_i211_8s_25g:
+        1_day|string: "509\_500,00\_₸"
+        1_month|string: "494\_215,00\_₸"
+        12_month|string: "433\_075,00\_₸"
+        3_month|string: "484\_025,00\_₸"
+        6_month|string: "473\_835,00\_₸"
+      ba_i211_8s_2x25g:
+        1_day|string: "562\_000,00\_₸"
+        1_month|string: "545\_140,00\_₸"
+        12_month|string: "477\_700,00\_₸"
+        3_month|string: "533\_900,00\_₸"
+        6_month|string: "522\_660,00\_₸"
       ba_i212_10s_10g:
         1_day|string: "517\_500,00\_₸"
         1_month|string: "501\_975,00\_₸"
@@ -1066,6 +1079,24 @@ default:
         12_month|string: "366\_350,00\_₸"
         3_month|string: "409\_450,00\_₸"
         6_month|string: "400\_830,00\_₸"
+      ba_i501_h_25g:
+        1_day|string: "1\_106\_500,00\_₸"
+        1_month|string: "1\_073\_305,00\_₸"
+        12_month|string: "940\_525,00\_₸"
+        3_month|string: "1\_051\_175,00\_₸"
+        6_month|string: "1\_029\_045,00\_₸"
+      ba_i506_nh_25g:
+        1_day|string: "1\_205\_500,00\_₸"
+        1_month|string: "1\_169\_335,00\_₸"
+        12_month|string: "1\_024\_675,00\_₸"
+        3_month|string: "1\_145\_225,00\_₸"
+        6_month|string: "1\_121\_115,00\_₸"
+      ba_i511_nh_25g:
+        1_day|string: "1\_499\_500,00\_₸"
+        1_month|string: "1\_454\_515,00\_₸"
+        12_month|string: "1\_274\_575,00\_₸"
+        3_month|string: "1\_424\_525,00\_₸"
+        6_month|string: "1\_394\_535,00\_₸"
       ha_i302_s_10g:
         1_day|string: "459\_000,00\_₸"
         1_month|string: "445\_230,00\_₸"
@@ -2732,6 +2763,18 @@ default:
         12_month|string: "84\_915,00\_₽"
         3_month|string: "94\_905,00\_₽"
         6_month|string: "92\_907,00\_₽"
+      ba_i211_8s_25g:
+        1_day|string: "101\_900,00\_₽"
+        1_month|string: "98\_843,00\_₽"
+        12_month|string: "86\_615,00\_₽"
+        3_month|string: "96\_805,00\_₽"
+        6_month|string: "94\_767,00\_₽"
+      ba_i211_8s_2x25g:
+        1_day|string: "112\_400,00\_₽"
+        1_month|string: "109\_028,00\_₽"
+        12_month|string: "95\_540,00\_₽"
+        3_month|string: "106\_780,00\_₽"
+        6_month|string: "104\_532,00\_₽"
       ba_i212_10s_10g:
         1_day|string: "103\_500,00\_₽"
         1_month|string: "100\_395,00\_₽"
@@ -2744,6 +2787,24 @@ default:
         12_month|string: "73\_270,00\_₽"
         3_month|string: "81\_890,00\_₽"
         6_month|string: "80\_166,00\_₽"
+      ba_i501_h_25g:
+        1_day|string: "221\_300,00\_₽"
+        1_month|string: "214\_661,00\_₽"
+        12_month|string: "188\_105,00\_₽"
+        3_month|string: "210\_235,00\_₽"
+        6_month|string: "205\_809,00\_₽"
+      ba_i506_nh_25g:
+        1_day|string: "241\_100,00\_₽"
+        1_month|string: "233\_867,00\_₽"
+        12_month|string: "204\_935,00\_₽"
+        3_month|string: "229\_045,00\_₽"
+        6_month|string: "224\_223,00\_₽"
+      ba_i511_nh_25g:
+        1_day|string: "299\_900,00\_₽"
+        1_month|string: "290\_903,00\_₽"
+        12_month|string: "254\_915,00\_₽"
+        3_month|string: "284\_905,00\_₽"
+        6_month|string: "278\_907,00\_₽"
       ha_i302_s_10g:
         1_day|string: "91\_800,00\_₽"
         1_month|string: "89\_046,00\_₽"
@@ -4405,6 +4466,18 @@ default:
         12_month|string: "707,624717\_$"
         3_month|string: "790,874684\_$"
         6_month|string: "774,224690\_$"
+      ba_i211_8s_25g:
+        1_day|string: "849,166327\_$"
+        1_month|string: "823,691337\_$"
+        12_month|string: "721,791378\_$"
+        3_month|string: "806,708011\_$"
+        6_month|string: "789,724684\_$"
+      ba_i211_8s_2x25g:
+        1_day|string: "936,666292\_$"
+        1_month|string: "908,566303\_$"
+        12_month|string: "796,166348\_$"
+        3_month|string: "889,832977\_$"
+        6_month|string: "871,099652\_$"
       ba_i212_10s_10g:
         1_day|string: "862,499655\_$"
         1_month|string: "836,624665\_$"
@@ -4417,6 +4490,24 @@ default:
         12_month|string: "610,583089\_$"
         3_month|string: "682,416394\_$"
         6_month|string: "668,049733\_$"
+      ba_i501_h_25g:
+        1_day|string: "1\_844,165929\_$"
+        1_month|string: "1\_788,840951\_$"
+        12_month|string: "1\_567,541040\_$"
+        3_month|string: "1\_751,957633\_$"
+        6_month|string: "1\_715,074314\_$"
+      ba_i506_nh_25g:
+        1_day|string: "2\_009,165863\_$"
+        1_month|string: "1\_948,890887\_$"
+        12_month|string: "1\_707,790984\_$"
+        3_month|string: "1\_908,707570\_$"
+        6_month|string: "1\_868,524253\_$"
+      ba_i511_nh_25g:
+        1_day|string: "2\_499,165667\_$"
+        1_month|string: "2\_424,190697\_$"
+        12_month|string: "2\_124,290817\_$"
+        3_month|string: "2\_374,207384\_$"
+        6_month|string: "2\_324,224070\_$"
       ha_i302_s_10g:
         1_day|string: "764,999694\_$"
         1_month|string: "742,049703\_$"
@@ -5959,6 +6050,43 @@ default:
         templates:
           view:
             label_metric: Индикатор
+    sourcecraft:
+      ui_lib:
+        home: Домой
+        tab_secrets: Секреты
+      ui_modules_cicd:
+        value_status-created: В очереди
+        value_succeeded: Успех
+      ui_modules_mainApp:
+        route_create-repository: Создать репозиторий
+        route_repositories: Репозитории
+      ui_modules_repo:
+        action_cicd: Автоматизации
+        action_commit: Сохранить изменения
+        action_create-file: Создать файл
+        button_commit-and-go-to-read-mode: Сохранить и вернуться в режим чтения
+        field_after-commit-action: Действие после сохранения изменений
+        field_commit-branch: Ветка изменений
+        field_text_commit-directly-to-the-branch: 'Сохранить непосредственно в ветку:'
+        file: Файл
+        option_just-commit: Просто сохранить
+        title_navigation-code: Код
+        title_navigation-repository-settings: Настройки репозитория
+      ui_modules_repoCreate:
+        button_create-repo: Создать репозиторий
+        title_create-blank: Создать пустой репозиторий
+        title_new-repo-details: Сведения о новом репозитории
+        title_owner-field: Владелец
+        title_repo-field: Название
+      ui_modules_repoMain:
+        action_go-to-browse: Просмотр всех файлов репозитория
+      ui_modules_repoSettings:
+        field_description: Описание
+      ui_modules_secrets:
+        action_add-secret: Добавить секрет
+        action_new-secrete: Новый секрет
+        field_name: Название
+        field_secret: Секрет
     support-center:
       billing-account:
         common:
