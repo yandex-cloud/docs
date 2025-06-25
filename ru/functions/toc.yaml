@@ -514,6 +514,8 @@ items:
             href: tutorials/forms-and-datalens-integration/console.md
           - name: Terraform
             href: tutorials/forms-and-datalens-integration/terraform.md
+      - name: Настройка CI/CD с {{ src-name }}
+        href: tutorials/ci-cd-sourcecraft-functions.md
       - name: Создание AI-агента с помощью {{ sf-name }}
         href: tutorials/create-ai-agent-function.md
   - name: Инструменты

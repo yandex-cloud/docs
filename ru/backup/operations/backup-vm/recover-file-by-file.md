@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Восстановить на виртуальной машине или сервере {{ baremetal-name }} отдельные директории и файлы
 
+
 Вы можете восстановить из резервной копии отдельные файлы и директории на любые из ВМ или серверов {{ baremetal-name }}, подключенных к {{ backup-name }} и находящихся в [статусе](../../../compute/concepts/vm-statuses.md#list-of-statuses) `Running`:
 
 {% list tabs group=instructions %}

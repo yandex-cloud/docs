@@ -635,6 +635,10 @@ items:
                 href: web/static/console.md
               - name: Terraform
                 href: web/static/terraform.md
+          - name: >-
+              Статический сайт в {{ objstorage-name }} с доступом через {{
+              cdn-name }}
+            href: applied/cdn-hosting.md
           - name: Сайт на LAMP- или LEMP-стеке
             items:
               - name: Обзор
@@ -1395,6 +1399,8 @@ items:
         href: serverless/movies-database.md
       - name: Построение пайплайна CI/CD в {{ GL }}
         href: serverless/ci-cd-serverless.md
+      - name: Настройка CI/CD между {{ sf-name }} и {{ src-name }}
+        href: serverless/ci-cd-sourcecraft-functions.md
       - name: Работа с API-шлюзом по протоколу WebSocket
         href: serverless/api-gw-websocket.md
       - name: >-

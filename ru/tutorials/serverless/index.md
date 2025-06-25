@@ -9,6 +9,7 @@
 * [Разработка пользовательской интеграции в {{ api-gw-full-name }}](api-gw-integration.md)
 * [Разработка CRUD API для сервиса фильмов](movies-database.md)
 * [Построение пайплайна CI/CD в {{ GL }}](ci-cd-serverless.md)
+* [{#T}](ci-cd-sourcecraft-functions.md)
 * [{#T}](api-gw-websocket.md)
 * [Создание интерактивного serverless-приложения с использованием WebSocket](websocket-app.md)
 * [Автоматическое копирование объектов из одного бакета {{ objstorage-full-name }} в другой](bucket-to-bucket-copying.md)

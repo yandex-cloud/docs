@@ -39,4 +39,5 @@ description: В этом разделе собраны практические 
 * [{#T}](logging-functions.md)
 * [{#T}](functions-framework-to-container.md)
 * [{#T}](forms-and-datalens-integration/index.md)
+* [{#T}](ci-cd-sourcecraft-functions.md)
 * [{#T}](create-ai-agent-function.md)

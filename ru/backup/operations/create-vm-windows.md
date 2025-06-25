@@ -82,7 +82,7 @@
       ```powershell
       #ps1_sysnative
       echo 'Starting to execute backup agent installation'
-      Invoke-WebRequest https://storage.yandexcloud.net/backup-distributions/agent_installer.ps1 -UseBasicParsing | Invoke-Expression
+      Invoke-WebRequest https://{{ s3-storage-host }}/backup-distributions/agent_installer.ps1 -UseBasicParsing | Invoke-Expression
       ```
 
   1. Создайте ВМ:

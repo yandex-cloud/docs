@@ -78,3 +78,4 @@ description: На странице представлен список прак�
 * [{#T}](mgp-config-server-for-s3.md)
 * [{#T}](bigquery-to-clickhouse.md)
 * [{#T}](integrate-nextcloud.md)
+* [{#T}](cdn-hosting.md)

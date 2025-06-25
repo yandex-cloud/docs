@@ -5,6 +5,7 @@ description: Из статьи вы узнаете, как создать пол
 
 # Создать политику резервного копирования
 
+
 Создание [политики](../../concepts/policy.md) доступно после [активации](../../concepts/index.md#providers) сервиса {{ backup-name }}.
 
 Создать или [изменить](update.md) политику можно с помощью консоли управления {{ yandex-cloud }}, {{ TF }}, а также задать по [спецификации](../../concepts/policy.md#specification) в формате [JSON](https://ru.wikipedia.org/wiki/JSON), с помощью [CLI](../../../cli/quickstart.md) {{ yandex-cloud }} или API.

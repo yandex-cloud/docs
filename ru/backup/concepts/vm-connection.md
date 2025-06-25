@@ -1,4 +1,10 @@
+---
+title: Подключение виртуальных машин {{ compute-name }} и серверов {{ baremetal-full-name }} к {{ backup-name }}
+description: Из этой статьи вы узнаете, какие виртуальные машины и сервера {{ baremetal-name }} можно подключить к {{ backup-name }}.
+---
+
 # Подключение виртуальных машин {{ compute-name }} и серверов {{ baremetal-full-name }} к {{ backup-name }}
+
 
 Если вы хотите создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/) или [серверов {{ baremetal-name }}](../../baremetal/concepts/servers.md) в сервисе {{ backup-name }}, эти ВМ и сервера нужно подключить к сервису и корректно настроить.
 
