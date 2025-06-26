@@ -5,6 +5,22 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## May {#may}
+
+### Improvements {#improvements-may}
+
+1. The editor now features improved query formatting.
+
+1. In multi-queries, metadata is now displayed separately for each subquery.
+
+### Fixed issues {#fixes-may}
+
+1. Fixed an issue with the connection creation dialog rendering.
+
+1. Fixed incorrect rendering of empty values in the query results table.
+
+1. Fixed incorrect editor fonts in Windows.
+
 ## April {#april}
 
 ### New features {#new-features-apr}

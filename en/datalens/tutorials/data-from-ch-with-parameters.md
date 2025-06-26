@@ -1,4 +1,6 @@
 ---
+title: Using parameters
+description: Follow this guide to learn how to manage visualizations using parameters.
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-ch-with-parameters'
 ---
 

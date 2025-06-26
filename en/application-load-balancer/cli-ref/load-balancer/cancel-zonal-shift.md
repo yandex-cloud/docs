@@ -20,7 +20,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/>ID of the Application load balancer.|
 |`--name`|<b>`string`</b><br/>Name of the Application load balancer.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--zone`|<b>`string`</b><br/>Zone of the load balancer to cancel zonal shift, --zone zone-id1|
+|`--zones`|<b>`value[,value]`</b><br/>Zones of the load balancer to cancel zonal shift, --zones zone-id1,zone-id2|
 
 #### Global Flags
 

@@ -175,6 +175,8 @@ items:
             href: cli-ref/network-load-balancer/add-listener.md
           - name: attach-target-group
             href: cli-ref/network-load-balancer/attach-target-group.md
+          - name: cancel-zonal-shift
+            href: cli-ref/network-load-balancer/cancel-zonal-shift.md
           - name: create
             href: cli-ref/network-load-balancer/create.md
           - name: delete
@@ -191,6 +193,8 @@ items:
             href: cli-ref/network-load-balancer/remove-listener.md
           - name: start
             href: cli-ref/network-load-balancer/start.md
+          - name: start-zonal-shift
+            href: cli-ref/network-load-balancer/start-zonal-shift.md
           - name: stop
             href: cli-ref/network-load-balancer/stop.md
           - name: target-states

@@ -65,7 +65,7 @@ items:
             items:
               - name: Разрешить и запретить перенос трафика
                 href: operations/manage-zone/allow-and-deny-shift.md
-              - name: Включить и отключить перенос трафика
+              - name: Отключить и подключить зоны доступности
                 href: operations/manage-zone/start-and-cancel-shift.md
           - name: Удалить L7-балансировщик
             href: operations/application-load-balancer-delete.md
@@ -191,6 +191,10 @@ items:
         href: tutorials/balancer-with-sws-profile.md
       - name: Интеграция {{ objstorage-full-name }} с Nextcloud
         href: tutorials/integrate-nextcloud.md
+      - name: >-
+          Развертывание веб-приложения на серверах {{ baremetal-name }} с
+          L7-балансировщиком и защитой {{ sws-name }}
+        href: tutorials/webapp-on-bms-behind-sws.md
   - name: Концепции
     items:
       - name: Обзор

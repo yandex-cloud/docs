@@ -72,9 +72,9 @@ items:
         href: scenarios/prc-ha-with-default-active-active.md
       - name: Приоритизация трафика по направлению для маршрута 0.0.0.0/0
         href: scenarios/prc-ha-with-default-active-standby.md
-      - name: VPC Stitching. Связность для двух облачных сетей
+      - name: Связность для двух облачных сетей
         href: scenarios/vpc-st-with-two-vpc.md
-      - name: VPC Stitching. Связность для двух облачных сетей и On-Prem
+      - name: Связность для двух облачных сетей и On-Prem
         href: scenarios/vpc-st-with-two-vpc-and-onprem.md
   - name: Практические руководства
     items:

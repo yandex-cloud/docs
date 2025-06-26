@@ -1,4 +1,6 @@
 ---
+title: 'AppMetrica: data export, post-processing, and visualization'
+description: In this tutorial, you will analyze mobile app user behavior based on AppMetrica data.
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-appmetrica-yc-visualization'
 ---
 

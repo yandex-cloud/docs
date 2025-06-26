@@ -327,6 +327,7 @@ default:
   link-sla-greenplum: https://yandex.ru/legal/cloud_sla_greenplum/
   link-sla-kafka: https://yandex.ru/legal/cloud_sla_kfk/
   link-speechsense-main: https://speechsense.yandex.cloud/
+  link-src-docs: https://sourcecraft.dev/portal/docs/ru
   link-src-main: https://sourcecraft.dev
   link-support-mail: cloud@support.yandex.ru
   link-tracker: https://tracker.yandex.ru/
@@ -6136,21 +6137,8 @@ default:
         field_person-id: Плательщик
     yacloud_billing:
       alb:
-        button_add-route: Добавить маршрут
-        button_backend-group-create: Создать группу бэкендов
-        label_backend-group: Группа бэкендов
         label_backends: Бэкенды
-        label_certificate: Сертификаты
-        label_http-router: HTTP-роутер
-        label_listeners: Обработчики
         label_max-timeout: Максимальный таймаут, с
-        label_new-backend: Новый бэкенд
-        label_new-virtual-host: Новый виртуальный хост
-        label_session-affinity: Привязка сессий
-        label_session-affinity-mode: Режим привязки
-        label_target-groups: Целевые группы
-        label_virtual-hosts: Виртуальные хосты
-        section_allocation-settings: Размещение
       backup:
         button_attach-instance-submit: Привязать
         label_instances: Виртуальные машины
@@ -6299,8 +6287,10 @@ default:
         label_service: Yandex Cloud Billing
         title_accounts: Платёжные аккаунты
       common:
+        add: Добавить
         button_cron-1min: Каждую минуту
         monitoring: Мониторинг
+        name: Имя
         resource-acl:
           button_assign-binding: Изменить роли
       component:
@@ -7023,7 +7013,9 @@ default:
         label_modification-operation: Операция
         label_modification-type: Тип
         label_modifications: Изменение заголовков
+        label_new-backend: Новый бэкенд
         label_new-route: Новый маршрут
+        label_new-virtual-host: Новый виртуальный хост
         label_panic-threshold: Порог для режима паники
         label_path: Путь
         label_port: Порт
@@ -7058,6 +7050,7 @@ default:
         label_server-names: Имена серверов
         label_service-name: Имя сервиса
         label_session-affinity: Привязка сессий
+        label_session-affinity-mode: Режим привязки
         label_sni: SNI
         label_strict-locality: Строгая локализация
         label_strict-query: Удалить query-параметры
@@ -7177,8 +7170,10 @@ default:
         value_bms-recourses: Серверы BareMetal
         value_vm-recourses: Виртуальные машины
       baremetal:
+        action_add-vrf-interconnect: Настроить соединение
         action_create-public-subnet-from-server: Заказать
         action_dedicate-ephemeral-subnet: Сделать выделенной
+        action_delete-external-connection: Отключить соединение
         action_destroy-raid: Разобрать RAID
         action_disk-layout-settings: Настроить разделы диска
         action_reboot-server: Перезагрузить
@@ -7194,6 +7189,8 @@ default:
         field_dhcp-ip-range: Диапазон IP-адресов
         field_dhcp-settings: Назначение IP-адресов по DHCP
         field_gateway: Шлюз по умолчанию
+        field_interconnect-direct-id: Указать идентификатор
+        field_interconnect-from-folder: Выбрать из каталога
         field_name: Имя
         field_needed-public-ip: Публичный адрес
         field_network-id: Виртуальный сетевой сегмент (VRF)
@@ -7201,6 +7198,7 @@ default:
         field_server-count: Число серверов
         field_server-lease-duration: Период аренды
         field_server-pool: Пул
+        field_server-private-ip: Приватный IPv4
         field_server-zone: Зона доступности
         field_ssh-public-key: Открытый SSH-ключ
         field_subnet-id: Приватная подсеть
@@ -7226,6 +7224,11 @@ default:
         label_public-ip-no: Без адреса
         label_public-subnets: Публичные адреса и подсети
         label_subnetworks: Приватные подсети
+        label_vrf-interconnect-direct-type: Идентификатор соединения
+        label_vrf-interconnect-select-type: Способ настройки
+        servers:
+          ConfigurationField:
+            poolFilter_frWLA: Пул
         title_common-info: Общая информация
         title_routing-settings: IP-адресация и маршрутизация
         title_section-accesses: Доступы
@@ -7242,6 +7245,7 @@ default:
         title_section-server-product: Образ
         title_section-server-public-network: Публичная сеть
         title_server-access: Доступ
+        title_vrf-interconnect-section: Приватное соединение с облачными сетями
       cdn:
         button_activate-shielding: Включить
         button_add-domain: Добавить доменное имя
@@ -9531,6 +9535,7 @@ default:
         arl:
           column_rule-conditions: Условия на трафик
           column_rule-priority: Приоритет
+          label_add-rule: Добавить правило
           label_connected-security-profiles: Подключенные профили безопасности
           label_create-profile: Создать профиль ARL
           label_profiles: Профили ARL
@@ -9573,7 +9578,9 @@ default:
           label_action-deny: Запретить
           label_arl-profile: Профиль ARL
           label_default-action: Действие для базового правила по умолчанию
+          label_smartcaptcha: SmartCaptcha
           section_security-rules: Правила безопасности
+        label_default-smartcaptcha-name: По умолчанию
         label_domain-protection: Защита доменов
         label_domain-protection-domains: Домены
         label_search-rule-type: 'Тип правила:'
@@ -9586,9 +9593,11 @@ default:
           cell_mode-api: Защита API
           cell_mode-full: Полная защита
           cell_sec-action-allow: Разрешить
+          cell_sec-action-captcha: Показать капчу
           cell_sec-action-deny: Запретить
           column_action-type: Действие
           column_dry-run-rule: Только логирование
+          column_priority: Приоритет
           column_rule-conditions: Условия
           column_type: Тип
           label_base-rule: Базовое

@@ -670,13 +670,13 @@ Nextcloud использует базу данных {{ MY }} для хране�
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** и нажмите кнопку **{{ ui-key.yacloud_billing.alb.button_backend-group-create }}**.
+      1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** и нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя группы `nextcloud-bg`.
-      1. Включите опцию **{{ ui-key.yacloud_billing.alb.label_session-affinity }}** и в появившемся поле **{{ ui-key.yacloud_billing.alb.label_session-affinity-mode }}** выберите `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
-      1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}** и в появившейся форме **{{ ui-key.yacloud_billing.alb.label_new-backend }}**:
+      1. Включите опцию **{{ ui-key.yacloud.alb.label_session-affinity }}** и в появившемся поле **{{ ui-key.yacloud.alb.label_session-affinity-mode }}** выберите `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
+      1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}** и в появившейся форме **{{ ui-key.yacloud.alb.label_new-backend }}**:
 
           1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя `nextcloud-backend`.
-          1. В поле **{{ ui-key.yacloud_billing.alb.label_target-groups }}** выберите созданную ранее целевую группу `nextcloud-target-group`.
+          1. В поле **{{ ui-key.yacloud.alb.label_target-groups }}** выберите созданную ранее целевую группу `nextcloud-target-group`.
           1. Разверните секцию **{{ ui-key.yacloud.alb.label_lb-settings }}** и в поле **{{ ui-key.yacloud.alb.label_load-balancing-mode }}** выберите `MAGLEV_HASH`.
           1. В секции **HTTP проверка состояния** нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -693,11 +693,11 @@ Nextcloud использует базу данных {{ MY }} для хране�
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** и нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя HTTP-роутера `nextcloud-router`.
-      1. В блоке **{{ ui-key.yacloud_billing.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}** и в открывшейся форме **{{ ui-key.yacloud_billing.alb.label_new-virtual-host }}**:
+      1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}** и в открывшейся форме **{{ ui-key.yacloud.alb.label_new-virtual-host }}**:
 
-          1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя виртуального хоста `nextcloud-vh` и нажмите кнопку **{{ ui-key.yacloud_billing.alb.button_add-route }}**.
+          1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя виртуального хоста `nextcloud-vh` и нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
           1. В открывшейся форме **{{ ui-key.yacloud.alb.label_new-route }}** в поле **{{ ui-key.yacloud.common.name }}** задайте имя маршрута `nextcloud-route`.
-          1. В поле **{{ ui-key.yacloud_billing.alb.label_backend-group }}** выберите созданную на предыдущем шаге группу бэкендов `nextcloud-bg`.
+          1. В поле **{{ ui-key.yacloud.alb.label_backend-group }}** выберите созданную на предыдущем шаге группу бэкендов `nextcloud-bg`.
           1. Значения остальных параметров оставьте без изменения и внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
     {% endlist %}
@@ -714,14 +714,14 @@ Nextcloud использует базу данных {{ MY }} для хране�
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя балансировщика `nextcloud-alb`.
       1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите сеть `nextcloud-network`.
       1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` и в появившемся списке выберите группу безопасности `nextcloud-sg`.
-      1. В блоке **{{ ui-key.yacloud_billing.alb.section_allocation-settings }}** убедитесь, что выбраны все зоны доступности.
+      1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** убедитесь, что выбраны все зоны доступности.
       1. Если вы не хотите сохранять логи работы балансировщика в [лог-группу](../../logging/concepts/log-group.md), отключите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
-      1. В секции **{{ ui-key.yacloud_billing.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}** и в открывшейся форме:
+      1. В секции **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}** и в открывшейся форме:
 
           1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя обработчика `nextcloud-listener`.
           1. В поле **{{ ui-key.yacloud.alb.label_protocol-type }}** выберите `HTTPS`.
-          1. В поле **{{ ui-key.yacloud_billing.alb.label_certificate }}** выберите созданный ранее сертификат `mymanagedcert`.
-          1. В поле **{{ ui-key.yacloud_billing.alb.label_http-router }}** выберите созданный ранее HTTP-роутер `nextcloud-router`.
+          1. В поле **{{ ui-key.yacloud.alb.label_certificate }}** выберите созданный ранее сертификат `mymanagedcert`.
+          1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите созданный ранее HTTP-роутер `nextcloud-router`.
       1. Значения остальных параметров оставьте без изменения и внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
     {% endlist %}

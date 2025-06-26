@@ -1,3 +1,8 @@
+---
+title: Chart settings
+description: In this article, you will learn about chart settings and how to undo and redo changes to charts.
+---
+
 # Chart settings
 
 Charts are configurable. For example, you can choose to display a legend, customize a color scheme, or set your own title.
@@ -102,18 +107,18 @@ If you apply an aggregation to the dimension, it will become a measure and the r
 * **Continuous**: Displays all dates continuously.
 * **Discrete**: Displays dates that contain values. ||
 || Aggregation | Sets the aggregation type. Aggregation functions are available according to the [{#T}](../../dataset/data-model.md#aggregation) table. ||
-|| Markup | The field value will be formatted according to the selected option:
+|| Markup | The field value will be formatted according to the option you select:
 
 * `None`: No markup.
-* `HTML`: HTML markup. Only available for `String` type fields.
-* `Markdown`: [{#T}](../../dashboard/markdown.md) markup. Only available for `String` type fields in the relevant sections, where the visualization type so supports.
-  
+* `HTML`: HTML markup. Available only for `String` type fields.
+* `Markdown`: [{#T}](../../dashboard/markdown.md) markup. Available only for `String` type fields in relevant sections depending on visualization type.
+
   #|
   || **Visualization types** | **Sections** ||
   || [Scatter chart](../../visualization-ref/scatter-chart.md) | X, Y, Points, [Colors](#color-settings), Shapes ||
   || [Tree chart](../../visualization-ref/tree-chart.md) | Dimensions ||
-  || [Maps](../../visualization-ref/map-chart.md) | [Tooltip](#map-settings) ||
-  || [Line](../../visualization-ref/line-chart.md), [Column](../../visualization-ref/column-chart.md), [Bar](../../visualization-ref/bar-chart.md), [Pie](../../visualization-ref/pie-chart.md), and [Ring](../../visualization-ref/ring-chart.md) charts, and [Area](../../visualization-ref/area-chart.md) chart | [Labels](#sign) ||
+ || [Maps](../../visualization-ref/map-chart.md) | [Tooltip](#map-settings) ||
+  || [Line](../../visualization-ref/line-chart.md), [Column](../../visualization-ref/column-chart.md), [Bar](../../visualization-ref/bar-chart.md), [Pie](../../visualization-ref/pie-chart.md), [Ring](../../visualization-ref/ring-chart.md), and [Area](../../visualization-ref/area-chart.md) chart | [Labels](#sign) ||
   |#
 
 This setting is not available in the following visualizations: [Indicator](../../visualization-ref/indicator-chart.md), [Table](../../visualization-ref/table-chart.md), and [Pivot table](../../visualization-ref/pivot-table-chart.md). ||
@@ -218,7 +223,7 @@ Some of these settings may not be available for some axes.
 
 Generally, you can set a specific color for any graph value.
 
-For a [tree chart](../../visualization-ref/tree-chart.md), as well as [table](../../visualization-ref/table-chart.md) (including a [pivot table](../../visualization-ref/pivot-table-chart.md)), and a [map](../../visualization-ref/map-chart.md), the following settings are available:
+For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualization-ref/table-chart.md) (including a [pivot table](../../visualization-ref/pivot-table-chart.md)), and [map](../../visualization-ref/map-chart.md), the following settings are available:
 
 #|
 || **Name** | **Description** ||
@@ -234,7 +239,7 @@ For a [tree chart](../../visualization-ref/tree-chart.md), as well as [table](..
 * **Hide**: Hides geopolygon borders. ||
 |#
 
-If the **Legend** option is enabled in [common settings](#common-settings), placing this field into the **Colors** section will make the legend visible below the chart. The legend contains chart colors with text descriptions referring to the field values in the **Colors** section.
+If the **Legend** option is enabled in [common settings](#common-settings), placing this field into the **Colors** section will make the legend visible below the chart. The legend contains chart colors with text descriptions corresponding to the field values in the **Colors** section.
 
 {% cut "Available color settings" %}
 

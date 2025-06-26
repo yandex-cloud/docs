@@ -64,3 +64,15 @@ You can manage pinned widgets in dashboard edit mode as follows:
 * To unpin all widgets, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin all** to the right of the lock area.
 * To customize the bottom lock area behavior as you open the dashboard, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/square.svg) **Hide by default** or ![image](../../_assets/console-icons/square-check.svg) **Hide by default** to the right of the lock area.
 
+
+## Undoing and redoing changes to dashboards {#undo-redo}
+
+When editing a dashboard, you can undo/redo any change introduced within the current version:
+
+* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
+* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+
+Unsaved changes in the current version are reset:
+
+* When refreshing the page.
+* When saving a dashboard.

@@ -32,6 +32,7 @@
 [Obit](https://www.obit.ru/company/channels/) | M9 | 1 000 | - |
 [TNS Plus](https://tnsplus.kz/) | M9 | 1 000 | - |
 [Selectel](https://selectel.ru) | M9 | 1 000 | - |
+[Юл-ком](https://ul-com.ru) | TEHNO | 10 000 | - |
 
 где:
 

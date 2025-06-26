@@ -1,6 +1,6 @@
-## Организация сетевой связности между двумя (и более) облачными сетями и On-Prem ресурсами.
+# Организация сетевой связности между двумя и более облачными сетями и On-Prem ресурсами (VPC Stitching)
 
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
+{% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
 Резервируемое подключение On-Prem через два приватных соединения Cloud Interconnect к одному RI с двумя *(и более)* облачными сетями и сетевой связностью облачных сетей между собой. Такая полносвязная топология называется `Full Mesh`.
 

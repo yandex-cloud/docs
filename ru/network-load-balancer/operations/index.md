@@ -17,6 +17,11 @@ description: Пошаговые инструкции по работе с сет
 - [{#T}](listener-add.md)
 - [{#T}](listener-remove.md)
 
+## Управление зоной доступности
+
+- [{#T}](manage-zone/allow-and-deny-shift.md)
+- [{#T}](manage-zone/disable-enable-zone.md)
+
 ## Целевая группа {#target-group}
 
 - [{#T}](target-group-list.md)

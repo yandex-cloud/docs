@@ -1,8 +1,8 @@
 # VPC Stitching
 
-**VPC Stitching** — один из механизмов сервиса `Cloud Router`, который обеспечивает сетевую связность между [облачными сетями (VPC)](../../vpc/concepts/network.md), которые расположены в каталогах одного или разных облаков в границах одной [облачной организации](../../organization/concepts/organization.md).
+{% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
+**VPC Stitching** — один из механизмов сервиса `Cloud Router`, который обеспечивает сетевую связность между [облачными сетями (VPC)](../../vpc/concepts/network.md), которые расположены в каталогах одного или разных облаков в границах одной [облачной организации](../../organization/concepts/organization.md).
 
 При настройке топологий с использованием механизма `VPC Stitching` необходимо использовать склеивающие анонсы.
 

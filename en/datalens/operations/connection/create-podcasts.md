@@ -1,3 +1,8 @@
+---
+title: How to create a connection to Yandex Music
+description: In this tutorial, you will learn how to connect to Yandex Music in {{ datalens-name }}.
+---
+
 # Creating a Yandex Music podcast connection
 
  Only users with permissions for a Yandex Music podcast can create connections and process podcast analytics. If you do not have access to any podcast, no data will be displayed on the dashboard.

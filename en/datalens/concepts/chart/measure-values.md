@@ -1,4 +1,9 @@
-# Measure names and measure values
+---
+title: Technical fields Measure Names and Measure Values
+description: From this article, you will learn about the Measure Names and Measure Values​​ fields and how to use them in the wizard.
+---
+
+# Measure Names and Measure Values
 
 When you add a measure to a chart section, two auxiliary fields are added to the list of dataset fields: `Measure Names` and `Measure Values`. They are missing in the original dataset field list, as {{ datalens-short-name }} creates them automatically. The `Measure Names` and `Measure Values` fields are used to create charts with multiple measures.
 
@@ -6,7 +11,7 @@ When you add a measure to a chart section, two auxiliary fields are added to the
 
 `Measure Values` is a **measure** (blue field) that includes **values** of all measures in the chart. It is used to label values of each measure. For example, you can use `Measure Values` to label each line in a chart or each column in a column chart.
 
-## Using measure names and measure values in charts {#usage}
+## Using Measure Names and Measure Values in charts {#usage}
 
 Let's see some examples of how to use `Measure Names` and `Measure Values` in charts. As a data source, we will use a direct [connection](../../quickstart.md#create-connection) to a demo database; the dataset is based on the `SampleSuperstore` table.
 

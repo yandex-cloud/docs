@@ -2,6 +2,8 @@
 
 You can use [identity federation](../concepts/add-federation.md) to set up user authentication in the cloud. Identity federations are compatible with any identity provider (IdP) that supports [SAML 2.0](https://wiki.oasis-open.org/security/FrontPage).
 
+To set up authentication through an identity federation, you need _at least_ the [`organization-manager.federations.editor` role](../../organization/security/index.md#organization-manager-federations-editor) for the [organization](../../organization/concepts/organization.md).
+
 To set up federated authentication, follow these steps:
 
 1. [Create an identity federation](#create-federation).
@@ -22,7 +24,7 @@ For IdP-specific examples, see our tutorials:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
@@ -264,7 +266,7 @@ When informing {{ org-full-name }} that a user has been authenticated, the IdP s
 
     {% list tabs group=instructions %}
 
-    - {{ cloud-center }} interface {#cloud-center}
+    - {{ cloud-center }} UI {#cloud-center}
 
       1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
 
@@ -289,7 +291,7 @@ When informing {{ org-full-name }} that a user has been authenticated, the IdP s
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. View a description of the add certificate command:
+      1. View the description of the add certificate command:
 
           ```bash
           yc organization-manager federation saml certificate create --help
@@ -341,7 +343,7 @@ If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertio
 
     {% list tabs group=instructions %}
 
-    - {{ cloud-center }} interface {#cloud-center}
+    - {{ cloud-center }} UI {#cloud-center}
 
       1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
       1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
@@ -432,7 +434,7 @@ Set up the SAML application for the message to contain:
 
 * The ID from the SAML authentication request sent by {{ yandex-cloud }} in the `Response` and `SubjectConfirmationData` elements of the `InResponseTo` attribute.
 * ACS URL in the following elements:
-  
+
   * In `Response` of the `Destination` attribute.
   * In `SubjectConfirmationData` of the `Recipient` attribute.
   * `Audience`.
@@ -472,7 +474,7 @@ To correctly provide user information to {{ org-full-name }}, you need to set up
 User data | Comment | SAML message elements
 ------------------- | ----------- | ----------------------
 Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. | `<NameID>`
-Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
+Surname | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
 Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
 Full name | Displayed in {{ yandex-cloud }} services.<br>Example: Ivan Ivanov.<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
 Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `ivanov@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
