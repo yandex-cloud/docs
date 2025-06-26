@@ -1,0 +1,1 @@
+В стоимость инфраструктуры для защиты от DDoS входит плата за запросы, обработанные правилами [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) (см. [тарифы {{ sws-full-name }}](../../../smartwebsecurity/pricing.md)).

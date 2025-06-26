@@ -87,8 +87,62 @@ description: Следуя данной инструкции, вы сможете
         version_id: abj295dgqnlp********
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  Чтобы создать высокопроизводительный диск:
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+     ```hcl
+     resource "yandex_compute_disk" "empty-fast-disk" {
+       name       = "<имя_диска>"
+       type       = "network-ssd-io-m3"
+       zone       = "<зона_доступности>"
+       size       = 93
+       block_size = 4096
+       kms_key_id = <идентификатор_ключа>
+     }
+     ```
+
+     Где:
+     * `name` — имя диска. Формат имени:
+
+         {% include [name-format](../../../_includes/name-format.md) %}
+
+     * `type` — тип создаваемого диска: `ssd-io-m3`.
+     * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md). Зона доступности для диска должна соответствовать зоне группы размещения, в которой вы хотите создать диск. Рекомендуется создавать диски в зонах доступности `{{ region-id }}-a` или `{{ region-id }}-b`.
+     * `size` — размер диска в ГБ, должен быть кратен 93 ГБ. Максимальный размер диска зависит от заданного размера блока.
+     * `block_size` — размер блока в байтах (минимальный объем хранения информации на диске). По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно. Подробнее см. в разделе [{#T}](empty-disk-blocksize.md).
+     * `kms_key_id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания [зашифрованного](../../concepts/encryption.md) диска. Необязательный параметр.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+
+     Более подробную информацию о ресурсе `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc compute disk list
+     ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/Disk/create.md).
 
 {% endlist %}
+
+
+#### См. также {#see-also}
+
+* [{#T}](../snapshot-control/create-schedule.md)

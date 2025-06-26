@@ -24,7 +24,7 @@ Syntax:
 |`--database`|<b>`string`</b><br/>HBA database name|
 |`--user`|<b>`string`</b><br/>HBA user name|
 |`--address`|<b>`string`</b><br/>IP/CIDR/FQDN|
-|`--auth-method`|<b>`string`</b><br/>HBA auth method Values: 'md5', 'ldap', 'reject'|
+|`--auth-method`|<b>`string`</b><br/>HBA auth method Values: 'md5', 'ldap', 'reject', 'iam'|
 
 #### Global Flags
 

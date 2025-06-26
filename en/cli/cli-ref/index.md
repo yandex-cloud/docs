@@ -46,6 +46,7 @@ Syntax:
 - [yc managed-greenplum](managed-greenplum/cli-ref/index.md) — Manage Greenplum clusters and hosts.
 - [yc managed-kafka](managed-kafka/cli-ref/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
 - [yc managed-kubernetes](managed-kubernetes/cli-ref/index.md) — Manage Kubernetes clusters.
+- [yc managed-metastore](managed-metastore/cli-ref/index.md) — Manage Metastore clusters.
 - [yc managed-mongodb](managed-mongodb/cli-ref/index.md) — Manage MongoDB clusters, hosts, databases, backups and users.
 - [yc managed-mysql](managed-mysql/cli-ref/index.md) — Manage MySQL clusters, hosts, databases, backups and users.
 - [yc managed-opensearch](managed-opensearch/cli-ref/index.md) — Managed OpenSearch clusters, hosts, indexes and backups.

@@ -1,3 +1,7 @@
+---
+description: In this article, you will learn how to create a connection to get detailed statistics on dataset queries and dashboard views.
+---
+
 
 # Creating a connection to {{ datalens-short-name }} Usage Analytics
 

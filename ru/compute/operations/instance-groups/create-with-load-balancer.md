@@ -366,7 +366,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `yandex_resourcemanager_folder_iam_member` — описание прав доступа сервисного аккаунта к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), где:
        * `role = "compute.editor"` — назначение сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) для создания, обновления и удаления ВМ в группе.
-       * `role = "alb.editor"` — назначение сервисному аккаунту роли [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) для интеграции группы ВМ c балансировщиком {{ alb-name }}.
+       * `role = "alb.editor"` — назначение сервисному аккаунту роли [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) для интеграции группы ВМ с балансировщиком {{ alb-name }}.
      * `yandex_compute_instance_group` — описание группы ВМ:
        * Общая информация о группе ВМ:
          * `name` — имя группы ВМ.

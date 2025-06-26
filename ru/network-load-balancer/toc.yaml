@@ -29,6 +29,12 @@ items:
             href: operations/listener-add.md
           - name: Удалить обработчик
             href: operations/listener-remove.md
+          - name: Управление зонами доступности
+            items:
+              - name: Разрешить и запретить перенос трафика
+                href: operations/manage-zone/allow-and-deny-shift.md
+              - name: Отключить и подключить зоны доступности
+                href: operations/manage-zone/disable-enable-zone.md
       - name: Целевые группы
         items:
           - name: Информация об имеющихся целевых группах
@@ -177,6 +183,8 @@ items:
             href: cli-ref/network-load-balancer/add-listener.md
           - name: attach-target-group
             href: cli-ref/network-load-balancer/attach-target-group.md
+          - name: cancel-zonal-shift
+            href: cli-ref/network-load-balancer/cancel-zonal-shift.md
           - name: create
             href: cli-ref/network-load-balancer/create.md
           - name: delete
@@ -193,6 +201,8 @@ items:
             href: cli-ref/network-load-balancer/remove-listener.md
           - name: start
             href: cli-ref/network-load-balancer/start.md
+          - name: start-zonal-shift
+            href: cli-ref/network-load-balancer/start-zonal-shift.md
           - name: stop
             href: cli-ref/network-load-balancer/stop.md
           - name: target-states

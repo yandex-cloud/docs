@@ -5,6 +5,8 @@ description: Follow this guide to configure workflow logging.
 
 # Writing to the workflow execution log
 
+{% include [logging-note](../../../../_includes/functions/logging-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

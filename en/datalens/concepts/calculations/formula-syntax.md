@@ -1,3 +1,8 @@
+---
+title: Formula syntax in {{ datalens-full-name }}
+description: This article describes the syntax of formulas for calculated expressions in {{ datalens-name }}.
+---
+
 # Formula syntax
 
 The syntax of calculated expressions in {{ datalens-full-name }} is similar to SQL.
@@ -59,7 +64,7 @@ You can use the following operators in expressions:
   [City] + " " + "city"
   ```
 
-[Addition (+)](../../function-ref/OP_PLUS.md#description), [subtraction (-)](../../function-ref/OP_MINUS.md#description), and [multiplication (*)](../../function-ref/OP_MULT.md#description) operators behave differently depending on the argument type.
+The [addition (+)](../../function-ref/OP_PLUS.md#description), [subtraction (-)](../../function-ref/OP_MINUS.md#description), and [multiplication (*)](../../function-ref/OP_MULT.md#description) operators behave differently depending on the argument type.
 
 - Exponentiation: `^`.
 
@@ -228,7 +233,7 @@ REPLACE([ShopAddress], "\n", " ")
 
 {% note info %}
 
-Such special characters as `\n`, `\t`, or `\r` do not affect the way the source data is displayed.
+Special characters `\n`, `\t`, and `\r` do not affect the way the source data is displayed.
 
 {% endnote %}
 

@@ -1,3 +1,7 @@
+---
+description: In this guide, you will learn how to create a CHYT connection.
+---
+
 
 # Creating a {{ ytsaurus-name }} CHYT connection
 

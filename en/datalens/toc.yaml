@@ -799,7 +799,7 @@ items:
             href: operations/dashboard/add-selector.md
           - name: Adding text to a dashboard
             href: operations/dashboard/add-text.md
-          - name: Adding a dashboard header
+          - name: Adding a title to a dashboard
             href: operations/dashboard/add-title.md
           - name: Adding a description to a dashboard
             href: operations/dashboard/add-description.md
@@ -1061,6 +1061,9 @@ items:
       - name: Measure filter is unsupported for this type of query
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
+      - name: Data preparation is not complete yet
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md

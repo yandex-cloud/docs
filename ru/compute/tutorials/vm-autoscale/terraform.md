@@ -7,7 +7,7 @@ canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/ter
 # Работа с группой виртуальных машин с автоматическим масштабированием с помощью {{ TF }}
 
 
-Чтобы создать инфраструктуру для [группы ВМ с политикой автоматического масштабирования](index.md) c помощью {{ TF }}:
+Чтобы создать инфраструктуру для [группы ВМ с политикой автоматического масштабирования](index.md) с помощью {{ TF }}:
 
 {% include [vm-autoscale-terraform](../../../_tutorials/infrastructure/vm-autoscale-terraform.md) %}
 

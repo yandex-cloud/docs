@@ -109,7 +109,7 @@ editable: false
 
 #### Пример расчета стоимости вычислительных ресурсов {#instance-resources-example}
 
-Сравним стоимость ВМ для [платформы](concepts/vm-platforms.md) Intel Ice Lake c разным [уровнем производительности vCPU](concepts/performance-levels.md).
+Сравним стоимость ВМ для [платформы](concepts/vm-platforms.md) Intel Ice Lake с разным [уровнем производительности vCPU](concepts/performance-levels.md).
 
 Созданы две ВМ с операционной системой Linux:
 * 2 × 20% vCPU и 2 ГБ RAM.

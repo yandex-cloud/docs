@@ -22,3 +22,4 @@ description: Различные сценарии использования {{ a
 * [{#T}](custom-health-checks.md)
 * [{#T}](balancer-with-sws-profile.md)
 * [{#T}](./integrate-nextcloud.md)
+* [{#T}](./webapp-on-bms-behind-sws.md)

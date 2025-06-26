@@ -11,3 +11,5 @@ description: Различные сценарии использования {{ s
 * [{#T}](api-gw-sws-integration.md)
 * [{#T}](different-folders-services.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
+* [{#T}](sws-protection-ongoing-ddos.md)
+* [{#T}](webapp-on-bms-behind-sws.md)

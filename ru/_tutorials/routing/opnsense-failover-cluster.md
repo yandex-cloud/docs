@@ -114,7 +114,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. В поле **{{ ui-key.yacloud.baremetal.field_server-pool }}** выберите выберите пул серверов `{{ region-id }}-m4`.
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}** нажмите фильтр `{{ ui-key.yacloud.baremetal.servers.ConfigurationField.poolFilter_frWLA }}` и выберите пул серверов `{{ region-id }}-m4`.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
   
       Для тестирования предлагаемого решения будет достаточно конфигурации с минимальными аппаратными характеристиками.

@@ -25,9 +25,7 @@ Syntax:
 |`--network-interface-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Resources specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>network-id</code>:     Network id (required)</li> <li><code>subnet-id</code>:     Subnet IDs (required)</li> </ul>|
 |`--boot-disk-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Boot disk specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>disk-type</code>:     Disk type (required)</li> <li><code>disk-size</code>:     Disk size (required)</li> </ul>|
 |`--data-disk-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Data disk specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>disk-type</code>:     Disk type (required)</li> <li><code>disk-size</code>:     Disk size (required)</li> </ul>|
-|`--max-group-size`|<b>`int`</b><br/>Maximum desktop group size.|
-|`--hot-standby`|<b>`int`</b><br/>Hot standby.|
-|`--user-account-id`|<b>`value[,value]`</b><br/>Desktop group members.|
+|`--group-config`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Desktop group configuration.<br/><br/>Possible property names:<br/><ul> <li><code>max-group-size</code>:     Max group size (required)</li> <li><code>hot-standby</code>:     Hot standby (required)</li> <li><code>user-account-id</code>:     User account ids</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

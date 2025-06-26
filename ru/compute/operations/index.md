@@ -104,6 +104,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
 * [{#T}](disk-create/nonreplicated.md)
+* [{#T}](disk-create/ssd-io.md)
 * [{#T}](disk-create/from-snapshot.md)
 * [{#T}](disk-create/from-image.md)
 
@@ -112,6 +113,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
+* [{#T}](disk-control/disk-change-zone.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/get-info.md)
 * [{#T}](disk-control/disk-access.md)

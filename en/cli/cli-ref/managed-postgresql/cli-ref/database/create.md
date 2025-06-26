@@ -23,7 +23,7 @@ Syntax:
 |`--owner`|<b>`string`</b><br/>Name of the user assigned as the owner of the database.|
 |`--lc-collate`|<b>`string`</b><br/>Locale property for database to be created.|
 |`--lc-type`|<b>`string`</b><br/>Locale property for database to be created.|
-|`--extensions`|<b>`key=value[,key=value...]`</b><br/>A list of extensions NAME=VERSION pairs to add.|
+|`--extensions`|<b>`value[,value]`</b><br/>A list of extension names to add.|
 |`--template-db`|<b>`string`</b><br/>Name of the PostgreSQL database template.|
 
 #### Global Flags

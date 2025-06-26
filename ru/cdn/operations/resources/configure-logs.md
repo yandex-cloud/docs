@@ -2,6 +2,8 @@
 
 [Выгрузка логов](../../concepts/logs.md) — платная функция, о ее тарификации см. раздел [{#T}](../../pricing.md).
 
+{% include [logs-unload-delay](../../../_includes/cdn/logs-unload-delay.md) %}
+
 ## Включение выгрузки {#enabling}
 
 Чтобы включить выгрузку для [ресурса](../../concepts/resource.md):

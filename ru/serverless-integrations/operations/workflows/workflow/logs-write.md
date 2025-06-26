@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Записать логи в журнал выполнения рабочего процесса
 
+{% include [logging-note](../../../../_includes/functions/logging-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

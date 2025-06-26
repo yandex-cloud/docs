@@ -1,3 +1,8 @@
+---
+title: LOD expressions in {{ datalens-full-name }}
+description: This article describes how {{ datalens-name }} LOD expressions allow you to add or remove dimensions to/from a group and use nested aggregations.
+---
+
 # LOD expressions and filtering in aggregation functions
 
 By default, in {{ datalens-short-name }}, [aggregate functions](../function-ref/aggregation-functions.md) are calculated with grouping by the dimensions involved in the chart building (i.e., located in one of the chart sections). You can change the grouping for an aggregate function if you specify the [level of detail](../function-ref/aggregation-functions.md#syntax-lod). By managing it, you can add or exclude dimensions from grouping and use nested aggregations. For more information about how data aggregation and groupings work in {{ datalens-short-name }}, see [{#T}](aggregation-tutorial.md).
@@ -6,7 +11,7 @@ As a data source, we will use a direct [connection](../tutorials/data-from-ch-to
 
 ## Grouping in LOD expressions {#lod-grouping}
 
-Use the following keywords to specify the level of detail in LOD expressions (see [this section](../function-ref/aggregation-functions.md#syntax)):
+Use the following keywords to specify the level of detail in LOD expressions (see [{#T}](../function-ref/aggregation-functions.md#syntax)):
 
 * [FIXED](#fixed)
 * [INCLUDE](#include)
@@ -96,7 +101,7 @@ If used with an empty list of dimensions, `EXCLUDE` results in the same grouping
 
 **Example 1**
 
-Let's calculate sales for regions broken down by delivery type. First off, we are going to set the chart up to use grouping by `[Region]` and `[Ship Mode]`. To get total sales across all delivery types, we are going to add the following measure to the **Signatures** section: `IF([Ship Mode]="First Class", SUM([Sales] EXCLUDE [Ship Mode]), NULL)`. With `EXCLUDE`, the `[Ship Mode]` dimension is excluded from grouping when calculating this measure, so that total sales across all delivery types can be calculated.
+Let's calculate sales for regions broken down by delivery type. First off, we are going to set the chart up to use grouping by `[Region]` and `[Ship Mode]`. To get total sales across all delivery types, we are going to add the following measure to the **Labels** section: `IF([Ship Mode]="First Class", SUM([Sales] EXCLUDE [Ship Mode]), NULL)`. With `EXCLUDE`, the `[Ship Mode]` dimension is excluded from grouping when calculating this measure, so that total sales across all delivery types can be calculated.
 
 For the **Bar chart**, the result will look like this:
 
@@ -104,7 +109,7 @@ For the **Bar chart**, the result will look like this:
 
 **Example 2**
 
-Let's calculate average daily sales, broken down by month. First, let's add grouping by month to the chart: set the `[Order Date]` field in the **Grouping** setting to **Rounding** ⟶ **Month** (for more information, see [{#T}](chart/settings.md#field-settings)). Proceed to create a measure with the `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])` formula, where:
+Let's calculate average daily sales broken down by month. First let's add grouping by month to the chart: set the `[Order Date]` field in the **Grouping** setting to **Rounding** ⟶ **Month** (for more information, see [{#T}](chart/settings.md#field-settings)). Proceed to create a measure with the `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])` formula, where:
 
 * `SUM([Sales] FIXED [Order Date])`: Total sales under all orders per day.
 * `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])`: The `[Order Date]` dimension is excluded from the grouping to calculate average daily sales with grouping by month (as set in the chart).
@@ -145,7 +150,7 @@ For example, a `FIXED` expression with a list of dimensions can be used the same
 
 **Example 1**
 
-Let's have a look at the chart, which calculates the percentage of each product category from the total sales per city. The `% Total by city window` and `% Total by city lod` measures yield the same result:
+Let's have a look at the chart which calculates the percentage of each product category from the total sales per city. The `% Total by city window` and `% Total by city lod` measures yield the same result:
 
 * % Total by city lod: `SUM([Sales]) / SUM([Sales] FIXED [City])`
 * % Total by city window: `SUM([Sales]) / SUM(SUM([Sales]) WITHIN [City])`
@@ -154,7 +159,7 @@ In some cases, `FIXED` with an empty list of dimensions is the same as a window 
 
 **Example 2**
 
-Let's have a look at the chart, which calculates the percentage of each product category from the total sales across all cities. The `% Total window` and `% Total lod` measures yield the same result:
+Let's have a look at the chart which calculates the percentage of each product category from the total sales across all cities. The `% Total window` and `% Total lod` measures yield the same result:
 
 * % Total lod: `SUM([Sales]) / SUM([Sales] FIXED)`
 * % Total window: `SUM([Sales]) / SUM(SUM([Sales]) TOTAL)`
@@ -179,15 +184,15 @@ Certain limitations apply when it comes to the level of detail in LOD expression
      AVG(AVG([Sales] INCLUDE [City]))
      ```
 
-     In this case, the nested aggregation will be grouped by dimensions [inherited](../function-ref/aggregation-functions.md#syntax-lod-inheritance) from the top-level aggregation (`[Region]` and `[Category]`) plus the `[City]` dimension added to the grouping with the help of `INCLUDE`. The top-level aggregation will thus be calculated, grouped by the chart's `[Region]` and `[Category]` dimensions, and the nested aggregation will use grouping by the `[Region]`, `[Category]`, and `[City]` dimensions.
+     In this case, the nested aggregation will be grouped by dimensions [inherited](../function-ref/aggregation-functions.md#syntax-lod-inheritance) from the top-level aggregation (`[Region]` and `[Category]`) plus the `[City]` dimension added to the grouping with the help of `INCLUDE`. The top-level aggregation will thus be calculated grouped by the chart's `[Region]` and `[Category]` dimensions, and the nested aggregation will use grouping by the `[Region]`, `[Category]`, and `[City]` dimensions.
 
    - Incorrect
-  
+
      ```
      AVG([Sales] INCLUDE [City])
      ```
 
-     When calculating this measure, the top-level grouping is done based on the `[Region]`, `[Category]`, and `[City]` dimensions. In this case, the error occurs because the chart does not use the `[City]` dimension, which was added to the grouping with the help of `INCLUDE`.
+     When calculating this measure, the top-level grouping is done based on the `[Region]`, `[Category]`, and `[City]` dimensions. In this case the error occurs because the chart does not use the `[City]` dimension, which was added to the grouping with the help of `INCLUDE`.
 
    {% endlist %}
 

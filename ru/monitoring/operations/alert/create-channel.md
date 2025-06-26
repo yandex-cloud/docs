@@ -29,4 +29,6 @@ description: Следуя данной инструкции, вы сможете
         1. В [настройках]({{ link-console-main }}/settings) консоли управления, в поле **{{ ui-key.yacloud_components.settings.label_telegram }}**, нажмите **{{ ui-key.yacloud_components.settings.button_add-empty-telegram }}**.
         1. Вставьте код авторизации и нажмите **{{ ui-key.yacloud_components.settings.button_submit }}**.
 
+            При отправке уведомления через Telegram статусы алерта дополнительно [обозначаются цветом](../../concepts/alerting/alert.md#alert-statuses).
+
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Канал появится в списке.

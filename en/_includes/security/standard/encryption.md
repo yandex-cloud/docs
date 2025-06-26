@@ -132,7 +132,7 @@ Check the list of returned encrypted disks. If the list matches your threat mode
   1. Create a new encrypted disk from the snapshot:
 
       1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-      1. In the form that opens:
+      1. In the dialog that opens:
           1. Name the disk in the **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** field.
           1. Specify the preferred [availability zone](../../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.compute.disk-form.field_zone }}** field.
           1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, go `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and select the snapshot you created earlier.
@@ -156,7 +156,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
   1. Go to the bucket settings.
   1. Go to the **Encryption** tab.
   1. Make sure that encryption is enabled and the {{ kms-short-name }} encryption key is specified.
-  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -169,7 +169,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
      --bucket <bucket_name>
      ```
 
-  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -213,7 +213,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
   1. Make sure you have enabled access over HTTPS and specified a TLS certificate.
-  1. If access over HTTPS is enabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If access over HTTPS is enabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -223,7 +223,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
   yc storage bucket get-https <bucket_name>
   ```
 
-  If the command returns a certificate ID in the `certificate_id` field, it means access over HTTPS is enabled and the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  If the command returns a certificate ID in the `certificate_id` field, it means access over HTTPS is enabled and the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -243,7 +243,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
   1. In the list of services, select **{{ alb-name }}**.
   1. Go to the load balancer settings.
   1. Make sure that **HTTPS** is specified for the load balancer.
-  1. If HTTPS is specified, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If HTTPS is specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -294,7 +294,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
 
       {% endcut %}
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -313,7 +313,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
   1. In the management console, select the cloud or folder to check the gateways in.
   1. In the list of services, select **{{ api-gw-name }} → Gateway settings → Domains**.
   1. Make sure the domain and certificate are enabled.
-  1. If the domain and certificate are active, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the domain and certificate are active, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -336,7 +336,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -359,7 +359,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
   1. Go to the resource settings, the **Additional** tab.
   1. Make sure the **Origin request protocol** field is set to **HTTPS**.
   1. Make sure the **Certificate** field specifies your own certificate or a **Let’s encrypt** certificate.
-  1. If HTTPS and your own certificate are specified, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If HTTPS and your own certificate are specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -382,7 +382,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -447,9 +447,9 @@ By default, all data on {{ compute-full-name }} disks is encrypted at the storag
 
 We also recommend encrypting disks and [disk snapshots](../../../compute/concepts/snapshot.md) using {{ kms-full-name }} custom [symmetric keys](../../../kms/concepts/key.md). This approach allows you to:
 * Protect against the potential threats of data isolation breach and compromise at the virtual infrastructure level.
-* Control the encryption and lifecycle of {{ kms-short-name }} keys, as well as manage them. To learn more, see [{#T}](../../../kms/operations/key.md).
-* Improve access control to the data on your disk by setting permissions for {{ kms-short-name }} keys. To learn more, see [{#T}](../../../kms/operations/key-access.md).
-* Use {{ at-full-name }} to track encryption and decryption operations performed using your {{ kms-short-name }} key. To learn more, see [{#T}](../../../kms/concepts/index.md#keys-audit).
+* Control the encryption and lifecycle of {{ kms-short-name }} keys, as well as manage them. For more information, see [{#T}](../../../kms/operations/key.md).
+* Improve access control to the data on your disk by setting permissions for {{ kms-short-name }} keys. For more information, see [{#T}](../../../kms/operations/key-access.md).
+* Use {{ at-full-name }} to track encryption and decryption operations performed using your {{ kms-short-name }} key. For more information, see [{#T}](../../../kms/concepts/index.md#keys-audit).
 
 You can encrypt the following types of disks:
 * Network SSD (`network-ssd`)
@@ -491,7 +491,7 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
   1. In the list of services, select **{{ kms-name }}**.
   1. Go to the **Keys** tab.
   1. Make sure the **Encryption algorithm** field is set to **AES-256 HSM**.
-  1. If AES-256 HSM is specified, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If AES-256 HSM is specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -512,7 +512,7 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
      done
      ```
 
-  1. If the encryption algorithm contains AES-256 HSM, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the encryption algorithm contains AES-256 HSM, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -558,7 +558,7 @@ To check the {{ kms-short-name }} key access permissions, check who has access p
      yc organization-manager organization list-access-bindings --id=${ORG_ID} --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="kms.admin" or .role_id=="kms.editor" or .role_id=="kms.keys.encrypterDecrypter")'
      ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
   1. Find accounts with roles assigned at the cloud level:
 
@@ -569,7 +569,7 @@ To check the {{ kms-short-name }} key access permissions, check who has access p
      done
      ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
   1. Run the command below to search for accounts with primitive roles assigned at the level of all folders in your clouds:
 
@@ -582,7 +582,7 @@ To check the {{ kms-short-name }} key access permissions, check who has access p
      done
      ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
   1. Find accounts with roles assigned at the key level:
 
@@ -631,7 +631,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
   1. In the list of services, select **{{ kms-name }}**.
   1. Go to the key settings.
   1. Find the **Rotation period** parameter.
-  1. If the parameter is set to any value different from **No rotation**, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameter is set to any value different from **No rotation**, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -652,7 +652,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -672,7 +672,7 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, mak
   1. In the list of services, select **{{ kms-name }}**.
   1. Go to the key settings.
   1. Find the **Deletion protection** parameter.
-  1. If it is set to **Yes**, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If it is set to **Yes**, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -693,7 +693,7 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, mak
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
