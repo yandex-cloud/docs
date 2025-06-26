@@ -20,14 +20,14 @@ Syntax:
 |`--id`|<b>`string`</b><br/>Desktop group id.|
 |`--name`|<b>`string`</b><br/>Desktop group name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--image-id`|<b>`string`</b><br/>Desktop image id.|
-|`--new-name`|<b>`string`</b><br/>New desktop name.|
-|`--description`|<b>`string`</b><br/>New desktop description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>New desktop labels.|
+|`--image-id`|<b>`string`</b><br/>Desktop group image id.|
+|`--new-name`|<b>`string`</b><br/>New desktop group name.|
+|`--description`|<b>`string`</b><br/>New desktop group description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>New desktop group labels.|
 |`--resources-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New resources specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>memory</code>:     Specifies how much memory desktop should have. (required)</li> <li><code>cores</code>:     Amount of cores to attach to the desktop. (required)</li> <li><code>core-fraction</code>:     Amount of core-fraction to attach to the desktop. (required)</li> </ul>|
 |`--boot-disk-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New boot disk specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>disk-type</code>:     Disk type (required)</li> <li><code>disk-size</code>:     Disk size (required)</li> </ul>|
 |`--data-disk-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New data disk specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>disk-type</code>:     Disk type (required)</li> <li><code>disk-size</code>:     Disk size (required)</li> </ul>|
-|`--config`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New configuration for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>max-group-size</code>:     Max group size (required)</li> <li><code>hot-standby</code>:     Hot standby (required)</li> <li><code>user-account-ids</code>:     User account ids</li> </ul>|
+|`--group-config`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New configuration for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>max-group-size</code>:     Max group size (required)</li> <li><code>hot-standby</code>:     Hot standby (required)</li> <li><code>user-account-id</code>:     User account ids</li> </ul>|
 
 #### Global Flags
 

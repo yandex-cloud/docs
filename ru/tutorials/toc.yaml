@@ -21,6 +21,8 @@ items:
         href: security/alb-ingress-with-sws-profile.md
       - name: Централизованная публикация в интернете и защита приложений от DDoS
         href: security/different-folders-services.md
+      - name: Экстренная защита сервисов в {{ alb-name }} от DDoS на уровне L7
+        href: security/sws-protection-ongoing-ddos.md
       - name: >-
           Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
           защиты от DDoS-атак с помощью {{ sws-name }}
@@ -1306,6 +1308,10 @@ items:
           Настройка межсетевого экрана OPNsense в режиме кластера высокой
           доступности на серверах {{ baremetal-name }}
         href: routing/opnsense-failover-cluster.md
+      - name: >-
+          Развертывание веб-приложения на серверах {{ baremetal-name }} с
+          L7-балансировщиком и защитой {{ sws-name }}
+        href: routing/webapp-on-bms-behind-sws.md
   - name: Анализ и визуализация данных
     items:
       - name: Все руководства

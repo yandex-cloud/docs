@@ -1,6 +1,6 @@
-## Организация сетевой связности между двумя (и более) облачными сетями
+# Организация сетевой связности между двумя и более облачными сетями (VPC Stitching)
 
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
+{% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
 ![ri-topology-6](../../_assets/cloud-router/ri-topology-6.svg)
 

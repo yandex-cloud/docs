@@ -82,7 +82,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. В поле **{{ ui-key.yacloud.baremetal.field_server-pool }}** выберите пул серверов `{{ region-id }}-m3`.
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}** нажмите фильтр `{{ ui-key.yacloud.baremetal.servers.ConfigurationField.poolFilter_frWLA }}` и выберите пул серверов `{{ region-id }}-m3`.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
   1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ. Например: `Ubuntu 24.04`.
@@ -182,29 +182,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Проверьте наличие Routing Instance в каталоге по умолчанию:
-
-    {% list tabs group=instructions %}
-
-    - CLI {#cli}
-
-        Выполните команду:
-
-        ```bash
-        yc cloudrouter routing-instance list
-        ```
-
-        Если в вашем каталоге уже есть Routing Instance, команда выведет такой результат:
-
-        ```text
-        +----------------------+------------------+--------+-----------------------+
-        |          ID          |       NAME       | STATUS | PRIVATE CONNECTION ID |
-        +----------------------+------------------+--------+-----------------------+
-        | cf35oot8f0eu******** | routing-instance | ACTIVE | cf395uf8dg7h********  |
-        +----------------------+------------------+--------+-----------------------+
-        ```
-
-    {% endlist %}
+1. {% include [check-for-routing-instance](../../_includes/baremetal/check-for-routing-instance.md) %}
 
 1. Если у вас уже есть Routing Instance, вы можете пропустить следующий шаг и [переходить](#create-private-connection) к созданию приватного соединения.
 
@@ -212,38 +190,7 @@
 
 ### Запросите создание Routing Instance {#request-ri}
 
-[Обратитесь]({{ link-console-support }}/tickets/create) в службу технической поддержки для создания Routing Instance в вашем каталоге.
-
-Оформите ваше обращение следующим образом:
-
-```text
-Тема: [CIC для BareMetal] Создать Routing Instance.
-
-Текст обращения:
-Прошу Создать Routing Instance в указанном облачном каталоге со следующими параметрами:
-
-folder_id: <идентификатор_каталога>
-
-vpc:
-  vpc_net_id: <идентификатор_сети>
-    vpc_subnets: 
-      {{ region-id }}-a: [CIDR_a1, CIDR_a2, ..., CIDR_an]
-      {{ region-id }}-b: [CIDR_b1, CIDR_b2, ..., CIDR_bn]
-      {{ region-id }}-d: [CIDR_d1, CIDR_d2, ..., CIDR_dn]
-```
-
-Где:
-* `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
-* `vpc_net_id` — [идентификатор](../../vpc/operations/network-get-info.md) облачной сети.
-* `vpc_subnets` — список [анонсируемых](../../interconnect/concepts/priv-con.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети {{ vpc-short-name }} вы укажете `{{ region-id }}-b: [192.168.11.0/24]`.
-
-    Допускается анонсирование адресных префиксов с [агрегированием](../../interconnect/concepts/priv-con.md#agg-subnets).
-
-{% note info %}
-
-Создание Routing Instance службой технической поддержки может занять до 24 часов. В результате вы сможете получить идентификатор созданного Routing Instance, выполнив команду [{{ yandex-cloud }} CLI](../../cli/index.yaml) `yc cloudrouter routing-instance list`.
-
-{% endnote %}
+{% include [request-routing-instance](../../_includes/baremetal/request-routing-instance.md) %}
 
 ## Создайте приватное соединение {#create-private-connection}
 
@@ -363,7 +310,7 @@ vpc:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
       1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** и выберите виртуальный сегмент сети `my-vrf`.
-      1. В блоке **Приватное соединение с облачными сетями** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **Отключить соединение**.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **{{ ui-key.yacloud.baremetal.action_delete-external-connection }}**.
       1. В открывшемся окне подтвердите удаление.
 
       В результате статус соединения сменится на `Deleting`. После того как все связи будут удалены, соединение пропадет из списка.

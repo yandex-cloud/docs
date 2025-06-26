@@ -1,3 +1,8 @@
+---
+title: Specifics of JOIN
+description: In this article, you will learn how to use the JOIN operator and discover various JOIN query types in {{ CH }}.
+---
+
 # Specifics of JOIN
 
 You can [join data](../../../dataset/create-dataset.md#links) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the `JOIN` operator. For {{ ytsaurus-name }} tables, a join like this causes an error. It is due to the table storage structure and default query logic in {{ ytsaurus-name }}. To avoid the error, use an [SQL query to the source](../../../dataset/create-dataset.md#add-data).
@@ -87,7 +92,7 @@ In this case, additional restrictions are imposed on `lhs` and `rhs`:
 * The `lhs` and `rhs` parts must be sorted tables.
 * The `USING/ON` clause must use sorted columns only.
 
-For example:
+Here is an example:
 
 * Let's assume that `lhs` is sorted by the `l1, l2, ..., ln` columns, and `rhs`, by the `r1, r2, ..., rm` columns.
 * The `JOIN` `ON` clause should look like a set of `l1 = r1 , ..., lk = rk` equations for a certain `k` (the equations can be listed in any order).

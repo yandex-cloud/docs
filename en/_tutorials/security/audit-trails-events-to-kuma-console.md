@@ -2,8 +2,8 @@
 
 To configure delivery of [audit log](../../audit-trails/concepts/format.md) files to [KUMA](https://www.kaspersky.com/enterprise-security/unified-monitoring-and-analysis-platform):
 
-1. [Prepare your cloud environment](#before-you-begin).
-1. [Prepare your environment](#setup-environment).
+1. [Get your cloud ready](#before-you-begin).
+1. [Set up your environment](#setup-environment).
 1. [Create a bucket](#create-bucket).
 1. [Create a trail](#create-trail).
 1. [Create a server](#create-server).
@@ -13,7 +13,7 @@ To configure delivery of [audit log](../../audit-trails/concepts/format.md) file
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Prepare your cloud environment{#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [paid-resources](../_tutorials_includes/audit-trails-events-to-kuma/paid-resources.md) %}
 
 
-## Prepare your environment {#setup-environment}
+## Set up your environment {#setup-environment}
 
 ### Create service accounts {#create-service-accounts}
 
@@ -37,7 +37,7 @@ For your new infrastructure to run properly, create two [service accounts](../..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name of the service account for the bucket: `kuma-bucket-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -92,7 +92,7 @@ To mount a bucket on a server with a KUMA collector installed, create a [static 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `kuma-bucket-sa` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
@@ -101,7 +101,7 @@ To mount a bucket on a server with a KUMA collector installed, create a [static 
 
       {% note alert %}
 
-      After you close this dialog, the key value will not be shown again.
+      After you close this dialog, the key value will no longer be available.
 
       {% endnote %}
 
@@ -146,9 +146,9 @@ Create a [symmetric encryption key](../../kms/concepts/key.md) for encryption of
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify the key attributes:
+  1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify its attributes:
 
       * **{{ ui-key.yacloud.common.name }}**: `kuma-key`.
       * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
@@ -221,7 +221,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
   1. Assign roles for the folder:
 
       1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
       1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
       1. Select the `kuma-trail-sa` service account from the list, use the search if required.
@@ -235,7 +235,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
 
   1. Assign roles for the encryption key:
 
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}** and click on the line with `kuma-key`.
       1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
       1. Select the `kuma-trail-sa` service account.
@@ -301,7 +301,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
 
 - API {#api}
 
-  To assign a service account a role, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+  To assign a role to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -315,7 +315,7 @@ Create a [bucket](../../storage/concepts/bucket.md) for the trail to save audit 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket, e.g., `my-audit-logs-for-kuma`.
 
@@ -433,7 +433,7 @@ Create a [trail](../../audit-trails/concepts/trail.md) to collect and deliver au
     --destination-bucket-object-prefix <prefix> \
     --service-account-id <kuma-trail-sa_ID> \
     --filter-from-cloud-id <cloud_ID> \
-    --filter-some-folder-ids <folder_ID>
+    --filter-some-folder-ids <catalog_ID>
   ```
 
   Where:
@@ -481,14 +481,14 @@ Create a [trail](../../audit-trails/concepts/trail.md) to collect and deliver au
 As a server to install the KUMA collector on, you can use a {{ compute-name }} [VM](../../compute/concepts/vm.md) or your own hardware. In this tutorial, we are using a {{ compute-short-name }} VM residing in a {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network).
 
 
-### Create a network and subnet {#create-network}
+### Create a network with a subnet {#create-network}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Specify the network name, e.g., `kuma-network`.
   1. Make sure the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option is enabled.
@@ -564,7 +564,7 @@ As a server to install the KUMA collector on, you can use a {{ compute-name }} [
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create the infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
@@ -574,7 +574,7 @@ As a server to install the KUMA collector on, you can use a {{ compute-name }} [
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `kuma-network-{{ region-id }}-b`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to give the VM a random external IP address from the {{ yandex-cloud }} pool or select a static IP address from the list if you reserved one in advance.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option and specify the information required to access the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for the user you are going to create on the VM, e.g., `yc-user`.
 
@@ -611,7 +611,7 @@ As a server to install the KUMA collector on, you can use a {{ compute-name }} [
 
   * `--create-boot-disk`: Boot [disk](../../compute/concepts/disk.md) settings, where `image-id` is the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) public image ID.
 
-  * `--ssh-key`: Path to the public SSH key file and its name, e.g., `~/.ssh/id_ed25519.pub`. You need to create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to a VM yourself.
+  * `--ssh-key`: Path to the public SSH key file and its name, e.g., `~/.ssh/id_ed25519.pub`. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to a VM on your own.
 
       When the VM is created, a user named `yc-user` will be created in its operating system; use this username to connect to the VM over SSH.
 
@@ -685,7 +685,7 @@ As a server to install the KUMA collector on, you can use a {{ compute-name }} [
 To stop paying for the resources you created:
 
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
-1. [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.
+1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one.
 1. [Delete the subnet](../../vpc/operations/subnet-delete.md).
 1. [Delete the network](../../vpc/operations/network-delete.md).
 1. Delete the [trail](../../audit-trails/concepts/trail.md).

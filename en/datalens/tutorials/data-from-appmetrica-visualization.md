@@ -1,4 +1,6 @@
 ---
+title: 'AppMetrica: direct connection'
+description: Follow this tutorial to visualize and explore AppMetrica data in {{ datalens-short-name }} using direct access.
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-appmetrica-visualization'
 ---
 

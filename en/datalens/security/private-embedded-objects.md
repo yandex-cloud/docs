@@ -1,3 +1,8 @@
+---
+title: Embedding private objects
+description: In this article, you will learn how to securely embed private charts and dashboards into a website or app.
+---
+
 # Embedding private objects
 
 {% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}

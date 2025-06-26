@@ -19,7 +19,7 @@ The tabs are executed in a specific order.
 
 Serves to describe service information about the list of related entities.
 
-The **Meta** tab is used to add the object IDs of the sources used for the chart/selector. Object ID description is mandatory. This information is used to detect what connections and datasets the chart is related to, as well as for the related objects dialog, when copying a workbook and when publishing to Public.
+The **Meta** tab is used to add the object IDs of the sources used for the chart/selector. Object ID description is a required element. This information is used to find out what connections and datasets the chart is related to, for the related objects dialog, when copying a workbook, and when publishing to Public.
 
 You can copy object IDs from the relevant object's menu or in navigation by clicking **Copy ID**. The ID will be saved to the clipboard.
 
@@ -45,7 +45,7 @@ As a key, you need to specify any alias name that will be assigned to this data 
       "links": {
           "myDatasetKeyName": "qvnkqzm0wstyf",
           "connectionKey": "ch96co0501xy1",
-          "apiConnectionKey": "uzrou8sqm5zaj"     
+          "apiConnectionKey": "uzrou8sqm5zaj"
       } 
   }
   ```
@@ -54,7 +54,7 @@ As a key, you need to specify any alias name that will be assigned to this data 
 
 ## Params {#params}
 
-This tab is for default chart/selector parameters. It may be empty if you do not intend to set up any links to this chart/selector. The parameter values ​​are arrays of strings. If you only need to provide one value, you need to format it as an array consisting of one element.
+This tab is for default chart/selector parameters. All chart/selector parameters must be described on the **Params** tab. The parameter values ​​are arrays of strings. If you only need to provide one value, you need to format it as an array consisting of one element.
 
 {% list tabs %}
 
@@ -82,7 +82,7 @@ If you set other parameter values for such a chart on the dashboard or in the re
 
 You can get the values ​​of all current parameters on subsequent tabs using the [Editor.getParams()](./methods.md#get-params) method; you can also get the current value of any parameter by its name using [Editor.getParam(name)](./methods.md#get-param).
 
-You can override the parameters using the chart's URL. For example:
+You can override the parameters using the chart's URL. Here is an example:
 
 ```text
 &period=40&metric=2012&metric=2014

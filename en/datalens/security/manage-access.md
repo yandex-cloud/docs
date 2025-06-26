@@ -1,8 +1,13 @@
+---
+title: Object access permissions
+description: In this tutorial, you will learn about object access management in {{ datalens-short-name }}.
+---
+
 # Object access permissions
 
-Permission differentiation in {{ datalens-short-name }} is implemented at the directory and object level. The available operations depend on what access permissions were assigned.
+Permission differentiation in {{ datalens-short-name }} is implemented at the directory and object level. Available operations depend on the assigned access permissions.
 
-If you create or copy a directory or object, the permissions for them are inherited from the parent directory at the time of creation or copying. Note that access permissions do not change automatically when you move the objects later.
+If you create or copy a directory or an object, its permissions are inherited from the parent directory at the moment of creation or copying. Note that access permissions do not change automatically when objects are subsequently moved.
 
 
 You can grant users access to a directory or any service object:

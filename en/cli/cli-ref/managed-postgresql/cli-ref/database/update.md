@@ -20,7 +20,7 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
 |`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--extensions`|<b>`key=value[,key=value...]`</b><br/>A list of extensions NAME=VERSION pairs to update.|
+|`--extensions`|<b>`value[,value]`</b><br/>A list of extension names to update.|
 
 #### Global Flags
 

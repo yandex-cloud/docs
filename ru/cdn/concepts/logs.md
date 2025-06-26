@@ -12,6 +12,8 @@
 
 Выгрузка логов — платная функция, о ее тарификации см. раздел [{#T}](../pricing.md).
 
+{% include [logs-unload-delay](../../_includes/cdn/logs-unload-delay.md) %}
+
 
 ## Примеры использования {#examples}
 

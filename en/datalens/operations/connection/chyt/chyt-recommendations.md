@@ -1,3 +1,7 @@
+---
+description: In this tutorial, you will learn how to optimize operations with {{ CH }} connections in {{ datalens-name }}.
+---
+
 
 # Recommendations for creating a CHYT connection
 
@@ -51,3 +55,5 @@ When building a dataset on a range of tables, {{ datalens-short-name }} uses the
 * [CHYT performance](https://ytsaurus.tech/docs/ru/user-guide/data-processing/chyt/reference/performance)
 * [Visualizing data from CHYT](../../../tutorials/data-from-ch-over-yt.md)
 * [Managing access to {{ datalens-short-name }}](../../../security/index.md)
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

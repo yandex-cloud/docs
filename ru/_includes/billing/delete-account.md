@@ -18,6 +18,8 @@
 
 1. После удовлетворения всех условий, платежный аккаунт становится неактивным и не может быть использован для работы с ресурсами {{ yandex-cloud }}. Для удаления неактивного аккаунта отправьте письмо на адрес [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
 
+   {% include [delete-cancel-note](delete-cancel-note.md) %}
+
 {% include [payment-refund](../../_includes/billing/payment-refund.md) %}
 
 {% note warning %}

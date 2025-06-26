@@ -1,3 +1,8 @@
+---
+title: Multi-dataset charts
+description: In this tutorial, you will learn about multi-dataset charts and their features.
+---
+
 # Multi-dataset charts
 
 Multi-dataset charts are charts that visualize data from different datasets.

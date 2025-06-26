@@ -1,6 +1,11 @@
-# Adding a dashboard header
+---
+title: How to add a title to a dashboard
+description: Follow this guide to add a title to a dashboard.
+---
 
-To add a [header](../../dashboard/widget.md#title) to a dashboard:
+# Adding a title to a dashboard
+
+To add a [title](../../dashboard/widget.md#title) to a dashboard:
 
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
@@ -18,8 +23,8 @@ To add a [header](../../dashboard/widget.md#title) to a dashboard:
    * Select the text size from the preset options: `XS`, `S`, `M`, `L`, or `XL`.
    * (Optional) Set a background.
 
-1. Click **Add**. The widget will be displayed on the dashboard. A hash for the header is created automatically, you can see the `#` icon when hovering over the header.
+1. Click **Add**. The widget will be displayed on the dashboard. A hash for the title is created automatically, you can see the `#` icon when hovering over the title.
 
 ## Adding to the table of contents {#dashboard-content}
 
-To add a header with an anchor link to the table of contents, enable the **Display in contents** option in the widget editing window. When you click the header in the table of contents, the dashboard page automatically scrolls to the corresponding section and its hash is added to the address bar.
+To add a title with an anchor link to the table of contents, enable the **Display in table of contents** option in the widget editing window. When you click the title in the table of contents, the dashboard page automatically scrolls to the corresponding section and its hash is added to the address bar.

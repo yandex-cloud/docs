@@ -110,6 +110,8 @@ items:
             href: tutorials/alb-with-ddos-protection/terraform.md
       - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
         href: tutorials/api-gw-sws-integration.md
+      - name: Экстренная защита сервисов в {{ alb-name }} от DDoS на уровне L7
+        href: tutorials/sws-protection-ongoing-ddos.md
       - name: Централизованная публикация в интернете и защита приложений от DDoS
         href: tutorials/different-folders-services.md
       - name: >-
@@ -164,6 +166,10 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
+      - name: >-
+          Развертывание веб-приложения на серверах {{ baremetal-name }} с
+          L7-балансировщиком и защитой {{ sws-name }}
+        href: tutorials/webapp-on-bms-behind-sws.md
   - name: Концепции
     expanded: true
     items:

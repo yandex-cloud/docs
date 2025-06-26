@@ -113,6 +113,10 @@ items:
           Настройка межсетевого экрана OPNsense в режиме кластера высокой
           доступности
         href: tutorials/opnsense-failover-cluster.md
+      - name: >-
+          Развертывание веб-приложения на серверах {{ baremetal-name }} с
+          L7-балансировщиком и защитой {{ sws-name }}
+        href: tutorials/webapp-on-bms-behind-sws.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

@@ -325,6 +325,7 @@ default:
   link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
   link-sla-kafka: https://yandex.com/legal/cloud_sla_kfk/
   link-speechsense-main: https://speechsense.yandex.cloud/
+  link-src-docs: https://sourcecraft.dev/portal/docs/en
   link-src-main: https://sourcecraft.dev
   link-support-mail: cloud@support.yandex.ru
   link-tracker: https://tracker.yandex.com/
@@ -6132,21 +6133,8 @@ default:
         field_person-id: Payer
     yacloud_billing:
       alb:
-        button_add-route: Add route
-        button_backend-group-create: Create backend group
-        label_backend-group: Backend group
         label_backends: Backends
-        label_certificate: Certificates
-        label_http-router: HTTP router
-        label_listeners: Listeners
         label_max-timeout: Maximum timeout, sec.
-        label_new-backend: New backend
-        label_new-virtual-host: New virtual host
-        label_session-affinity: Session affinity
-        label_session-affinity-mode: Affinity mode
-        label_target-groups: Target groups
-        label_virtual-hosts: Virtual hosts
-        section_allocation-settings: Allocation
       backup:
         button_attach-instance-submit: Attach
         label_instances: Virtual machines
@@ -6295,8 +6283,10 @@ default:
         label_service: Yandex Cloud Billing
         title_accounts: Billing accounts
       common:
+        add: Add
         button_cron-1min: Every minute
         monitoring: Monitoring
+        name: Name
         resource-acl:
           button_assign-binding: Edit roles
       component:
@@ -7019,7 +7009,9 @@ default:
         label_modification-operation: Operation
         label_modification-type: Type
         label_modifications: Manage headers
+        label_new-backend: New backend
         label_new-route: New route
+        label_new-virtual-host: New virtual host
         label_panic-threshold: Panic mode threshold
         label_path: Path
         label_port: Port
@@ -7054,6 +7046,7 @@ default:
         label_server-names: Server names
         label_service-name: Service name
         label_session-affinity: Session affinity
+        label_session-affinity-mode: Affinity mode
         label_sni: SNI
         label_strict-locality: Strict locality
         label_strict-query: Delete query parameters
@@ -7169,8 +7162,10 @@ default:
         value_bms-recourses: BareMetal servers
         value_vm-recourses: Virtual machines
       baremetal:
+        action_add-vrf-interconnect: Configure connection
         action_create-public-subnet-from-server: Order
         action_dedicate-ephemeral-subnet: Make dedicated
+        action_delete-external-connection: Disable connection
         action_destroy-raid: Remove RAID
         action_disk-layout-settings: Configure disk layout
         action_reboot-server: Reboot
@@ -7186,6 +7181,8 @@ default:
         field_dhcp-ip-range: IP address range
         field_dhcp-settings: Assigning IP addresses via DHCP
         field_gateway: Default gateway
+        field_interconnect-direct-id: Enter ID
+        field_interconnect-from-folder: Choose from folder
         field_name: Name
         field_needed-public-ip: Public address
         field_network-id: Virtual network segment (VRF)
@@ -7193,6 +7190,7 @@ default:
         field_server-count: Number of servers
         field_server-lease-duration: Lease duration
         field_server-pool: Pool
+        field_server-private-ip: Private IPv4
         field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
         field_subnet-id: Private subnet
@@ -7218,6 +7216,11 @@ default:
         label_public-ip-no: No address
         label_public-subnets: Public addresses and subnets
         label_subnetworks: Private subnets
+        label_vrf-interconnect-direct-type: Connection ID
+        label_vrf-interconnect-select-type: Setup method
+        servers:
+          ConfigurationField:
+            poolFilter_frWLA: Pool
         title_common-info: General information
         title_routing-settings: IP addressing and routing
         title_section-accesses: Accesses
@@ -7234,6 +7237,7 @@ default:
         title_section-server-product: Image
         title_section-server-public-network: Public network
         title_server-access: Access
+        title_vrf-interconnect-section: Private connection to cloud networks
       cdn:
         button_activate-shielding: Activate
         button_add-domain: Add domain name
@@ -9521,6 +9525,7 @@ default:
         arl:
           column_rule-conditions: Conditions for traffic
           column_rule-priority: Priority
+          label_add-rule: Add rule
           label_connected-security-profiles: Connecting a security profile
           label_create-profile: Create ARL profile
           label_profiles: ARL profiles
@@ -9563,7 +9568,9 @@ default:
           label_action-deny: Deny
           label_arl-profile: ARL profile
           label_default-action: Action for the default base rule
+          label_smartcaptcha: SmartCaptcha
           section_security-rules: Security rules
+        label_default-smartcaptcha-name: Default
         label_domain-protection: Domain security
         label_domain-protection-domains: Domains
         label_search-rule-type: 'Rule type:'
@@ -9576,9 +9583,11 @@ default:
           cell_mode-api: API protection
           cell_mode-full: Full protection
           cell_sec-action-allow: Allow
+          cell_sec-action-captcha: Show CAPTCHA
           cell_sec-action-deny: Deny
           column_action-type: Action
           column_dry-run-rule: Only logging
+          column_priority: Priority
           column_rule-conditions: Conditions
           column_type: Type
           label_base-rule: Base
