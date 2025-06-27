@@ -1,6 +1,6 @@
 ---
 title: How to delete a disk
-description: You can only delete a disk that is not attached to a virtual machine. Deleting a disk is permanent and cannot be undone, so you cannot recover a deleted disk. If you delete a disk, its snapshots remain unaffected. Snapshots must be deleted separately. To delete a disk using the management console, go to the folder the disk belongs to, select {{ compute-name }}, and go to the **Disks** tab on the **Virtual machines** page. In the line with the disk in question, click the select icon and then **Delete**.
+description: You can only delete a disk that is not attached to a virtual machine. Deleting a disk is permanent and cannot be undone, so you cannot recover a deleted disk. If you delete a disk, its snapshots remain unaffected. Snapshots need to be deleted separately. To delete a disk using the management console, go to the folder the disk belongs to, select {{ compute-name }}, and go to the **Disks** tab on the **Virtual machines** page. In the line with the disk in question, click the select icon and then **Delete**.
 ---
 
 # Deleting a disk

@@ -8,7 +8,7 @@ Similarly, you can set up network connectivity with your on-prem resources locat
 
 You can use {{ interconnect-full-name }} free of charge as part of integration with {{ baremetal-full-name }}.
 
-Solution diagram:
+You can see the solution architecture in the diagram below:
 
 ![bm-vrf-and-vpc-interconnect](../../_assets/tutorials/bm-vrf-and-vpc-interconnect.svg)
 
@@ -66,7 +66,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
         1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select the previously created segment, `my-vrf`.
         1. In the **{{ ui-key.yacloud.baremetal.field_CIDR }}** field, specify `192.168.1.0/24`.
         1. In the **{{ ui-key.yacloud.baremetal.field_gateway }}** field, keep the default value, `192.168.1.1`.
-        1. Enable the **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}** option and in the **{{ ui-key.yacloud.baremetal.field_dhcp-ip-range }}** field that appears, leave the default values, `192.168.1.1`—`192.168.1.254`.
+        1. Enable the **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}** option and in the **{{ ui-key.yacloud.baremetal.field_dhcp-ip-range }}** field that appears, leave the default values, `192.168.1.1`-`192.168.1.254`.
         1. Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
 {% endlist %}
@@ -78,7 +78,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
@@ -87,21 +87,21 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
+     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3` you created earlier.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}** in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the server: `server-m3`.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `server-m3`.
   1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
 
 {% endlist %}
 
 {% note info %}
 
-Getting the server ready and installing an operating system on it may take up to 45 minutes. The server will have the `Provisioning` status during this time. After OS installation is complete, the server status will change to `Ready`.
+Server setup and OS installation may take up to 45 minutes. The server will have the `Provisioning` status during this time. After OS installation is complete, the server status will change to `Ready`.
 
 {% endnote %}
 
@@ -114,7 +114,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 
 - Management console {#console} 
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Create a cloud network:
 
@@ -122,7 +122,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 
       1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `sample-network`.
 
-      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
+      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
 
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Create a subnet:
@@ -130,7 +130,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
       1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
       1. At the top right, click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `subnet-{{ region-id }}-b`.
-      1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select the `{{ region-id }}-b` availability zone.
+      1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select `{{ region-id }}-b`.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select `sample-network`.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, specify `192.168.11.0/24`.
       
@@ -154,7 +154,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-{{ region-id }}-b`, which you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-{{ region-id }}-b`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
@@ -220,7 +220,7 @@ Request text:
 Please, add a routing instance.
 
 Connection settings:
-folder_id: <folder_ID>
+folder_id: <catalog_ID>
 region_id: {{ region-id }}
 
 vpc:

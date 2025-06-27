@@ -26,7 +26,7 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
   1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
-  1. Depending on what resource you want to recover from the backup, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
+  1. Depending on the resource you want to recover from the backup, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. In the line with the backup to restore the VM or {{ baremetal-name }} server from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}** or **{{ ui-key.yacloud.backup.action_bms-recovery }}**, respectively. In the window that opens:
   
       1. Select the VM or {{ baremetal-name }} server to restore the backup to. If needed, click **{{ ui-key.yacloud.common.create }}** to [create](../index.md#connect-vm) a new VM or to [lease](../../../baremetal/operations/servers/server-lease.md) a new {{ baremetal-name }} server for recovery from a backup.
@@ -44,7 +44,7 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
 
   1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to restore a VM or {{ baremetal-name }} server from a backup:
+  1. View the description of the CLI command to restore a VM or {{ baremetal-name }} server from a backup:
 
      ```bash
      yc backup backups recover --help
@@ -76,7 +76,7 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
      +--------------------------------------+--------------------------------------+----------------------+--------------------------------------+----------------------+------+------------------+--------+---------------------+
      ```
 
-  1. Restore the VM or {{ baremetal-name }} server from the backup:
+  1. Restore your VM or {{ baremetal-name }} server from the backup:
 
      ```bash
      yc backup backups recover \

@@ -89,7 +89,7 @@ The [previously created](#creating-ssh-keys) public key has the following format
 <key_type> <public_key_body> <optional_comment>
 ```
 
-Example:
+Here is an example:
 
 > ```text
 > ssh-ed25519 AAAAB3NzaC***********lP1ww ed25519-key-20190412
@@ -101,7 +101,7 @@ Create a file with credentials for connecting over SSH in the following format:
 <username>:<key_type> <public_key_body> <username>
 ```
 
-Example:
+Here is an example:
 
 > ```text
 > testuser:ssh-ed25519 AAAAB3NzaC***********lP1ww testuser
@@ -111,7 +111,7 @@ This format is suitable for creating and updating a {{ managed-k8s-name }} node 
 
 You can provide credentials for multiple users in one file.
 
-Example:
+Here is an example:
 
 > ```text
 > testuser1:ssh-ed25519 AAAAB3NzaC***********lP1ww testuser1
@@ -130,7 +130,7 @@ Example:
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
   1. Set the node group parameters.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the information required to access the {{ managed-k8s-name }} node:
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -234,7 +234,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
   {% endnote %}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. On the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab, select the node group in which you want to update the credentials.
@@ -463,7 +463,7 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it is started (wi
      1. In the context menu, select **Add key**.
      1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if any.
   1. Run PuTTY.
-     1. In the **Host Name (or IP address)** field, enter the [public IP address](#node-public-ip) of the VM you want to connect to. Set the port to `22` and connection type to **SSH**.
+     1. In the **Host Name (or IP address)** field, enter the [public IP address](#node-public-ip) of the VM you want to connect to. Set the port to `22` and the connection type to **SSH**.
 
         ![ssh_add_ip](../../_assets/compute/ssh-putty/ssh_add_ip.png)
 

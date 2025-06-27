@@ -80,7 +80,7 @@ Create a cloud network named `exchange-network` with subnets in all availability
       1. Click the name of your cloud network.
       1. Click **Add subnet**.
       1. Specify `exchange-subnet-a` as the name and select the `{{ region-id }}-a` availability zone from the drop-down list.
-      1. Enter the subnet CIDR, including the IP address and subnet mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+      1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
       Repeat these steps for two more subnets, `exchange-subnet-b` and `exchange-subnet-d`, in the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones with `10.2.0.0/16` and `10.3.0.0/16` as the CIDR, respectively.
@@ -210,7 +210,7 @@ You will use a file server with internet access to configure VMs with Active Dir
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, set `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
@@ -442,7 +442,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
          * Set the boot [disk](../../compute/concepts/disk.md) size: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
          * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}** and add another `250 {{ ui-key.yacloud.common.units.label_gigabyte }}` SSD named `db-a`.
 
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`.
@@ -539,7 +539,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
          * Set the boot [disk](../../compute/concepts/disk.md) size: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
          * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}** and add another `250 {{ ui-key.yacloud.common.units.label_gigabyte }}` SSD named `db-b`.
 
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`.
@@ -860,7 +860,7 @@ All new mailboxes will automatically get an alias with the `@yantoso.net` domain
 
 ## Create a VM for Edge Transport servers {#create-edge-vm}
 
-The Edge Transport servers will handle the primary user load, such as accepting emails from the internet, filtering out spam, and forwarding messages to internal Exchange mailbox servers.
+The Edge Transport servers will take on the main user load, such as receiving emails from the internet, filtering out spam, and forwarding messages to internal Exchange mailbox servers.
 
 ### Create a VM for the `vm-edge-a` server {#create-edge-a}
 
@@ -1189,7 +1189,7 @@ Each Edge Transport server must subscribe to a site in its own availability zone
    New-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path "C:\root\vm-edge-b.xml" -Encoding Byte -ReadCount 0)) -Site "{{ region-id }}-b"
    ```
 
-1. Use this command to check the subscription:
+1. Make sure the subscription was created using this command:
 
    ```powershell
    Get-EdgeSubscription

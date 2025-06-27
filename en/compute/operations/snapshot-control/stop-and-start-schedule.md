@@ -16,7 +16,7 @@ To disable an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](.
   1. In the [management console]({{ link-console-main }}), select the folder containing the schedule.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
-  1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Next to the schedule you want to disable, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
   1. Confirm disabling the schedule.
 
@@ -116,7 +116,7 @@ To enable an automatic disk snapshot schedule:
   1. In the [management console]({{ link-console-main }}), select the folder containing the schedule.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
-  1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Next to the schedule you want to enable, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}

@@ -13,6 +13,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 #|
 ||Service | Description ||
+|| [Catalog](Catalog/index.md) | A set of methods for managing Trino Cluster Catalog resources. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing Trino Cluster resources. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 |#

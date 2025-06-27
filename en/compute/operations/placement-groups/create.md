@@ -9,11 +9,11 @@ Create a [placement group](../../concepts/placement-groups.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your placement group in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
-  1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** and select **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-instance-placement-group }}**.
-  1. Enter a name for the placement group. The naming requirements are as follows:
+  1. Enter a name for the placement group. Follow these naming requirements:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -59,7 +59,7 @@ Create a [placement group](../../concepts/placement-groups.md).
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. In the configuration file, define the placement group parameters:
-     * `name`: Placement group name. The name format is as follows:
+     * `name`: Placement group name. Follow these naming requirements:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -71,7 +71,7 @@ Create a [placement group](../../concepts/placement-groups.md).
      ```hcl
      resource "yandex_compute_placement_group" "group1" {
        name        = "<placement_group_name>"
-       folder_id   = "<folder_ID>"
+       folder_id   = "<catalog_ID>"
        description = "<placement_group_description>"
      }
      ```
@@ -96,8 +96,8 @@ Create a [placement group](../../concepts/placement-groups.md).
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
      ```bash
      terraform apply
@@ -105,7 +105,7 @@ Create a [placement group](../../concepts/placement-groups.md).
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc compute placement-group list

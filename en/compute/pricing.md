@@ -11,7 +11,7 @@ editable: false
 
 {% note warning %}
 
-AMD Zen 3 prices will apply starting June 13, 2025.
+AMD Zen 3 prices will apply starting June 24, 2025.
 
 {% endnote %}
 
@@ -22,7 +22,7 @@ AMD Zen 3 prices will apply starting June 13, 2025.
 
 
 
-To calculate the cost of using the service, use the {{ yandex-cloud }} [calculator](https://yandex.cloud/en/prices?state=577e4326f11d#calculator) or check the prices in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=577e4326f11d#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -51,13 +51,13 @@ The {{ compute-name }} usage cost includes:
 
 The monthly prices are based on 720 hours per month.
 
-### Using pools of reserved VMs {#pool}
+### Using reserved VM pools {#pool}
 
 {% include [reserved-pools-preview-notice](../_includes/compute/reserved-pools-preview-notice.md) %}
 
-The cost of using [pools of reserved VMs](./concepts/reserved-pools.md) includes payment for the entire unused volume of reserved [computational resources of VMs](#prices-instance-resources), [GPU clusters](#prices-gpu-clusters), and [software accelerated networks](#software-accelerated-network).
+The cost of using [reserved instance pools](./concepts/reserved-pools.md) includes fees for the whole unused volume of reserved computing resources of [VMs](#prices-instance-resources), [GPU clusters](#prices-gpu-clusters), and [software accelerated networks](#software-accelerated-network).
 
-Within the pool, unused slots are charged, and occupied slots are [billed as regular VMs](#instance). That is, if you attach a VM to the pool, it is still billed separately but consumes part of the pool's reserved resources. That's why the pool's usage fee is reduced. When you remove a VM from the pool, the compute resources are released and the fee for using the pool increases.
+Pool charges apply to free slots, while occupied slots are [billed as regular VMs](#instance). That is, if you attach a VM to a pool, it is still billed separately while using some of the pool’s resources. As a result, your pool usage fee is reduced. When you remove a VM from the pool, the computing resources are released and the fee for using the pool increases.
 
 ### VM usage {#instance}
 
@@ -177,7 +177,7 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ compute-name }} provides two types of CVoS: on vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ compute-name }} provides two types of CVoS: on vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

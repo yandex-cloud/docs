@@ -9,7 +9,7 @@ description: This page provides reference information on the Terraform provider 
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ backup-name }}:
+{{ backup-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |

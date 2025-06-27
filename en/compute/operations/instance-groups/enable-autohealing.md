@@ -8,7 +8,7 @@ This section describes how to configure an application health check for an exist
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the instance group in question.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group to update.
@@ -39,12 +39,12 @@ This section describes how to configure an application health check for an exist
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for updating an instance group:
+  1. See the description of the CLI command for updating a group:
 
      ```
      {{ yc-compute-ig }} update --help
      ```
-
+  
   1. Get a list of instance groups in the default folder:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}

@@ -17,7 +17,7 @@ To delete an instance group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing the instance group you need.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the instance group in question.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. In the line with the instance group, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
@@ -53,7 +53,7 @@ To delete an instance group:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To delete an instance group created using {{ TF }}, follow these steps:
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, go to the folder with the {{ TF }} configuration file.
   1. Delete the resources using this command:
 
      ```bash

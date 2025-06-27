@@ -23,7 +23,7 @@ To add a disk to a placement group:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in which you want to add a disk to a placement group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
-  1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
   1. Select the placement group to add a disk to.
   1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** panel and click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.disks.button_add-disk }}**.
   1. In the window that opens, select the disk you want to add.

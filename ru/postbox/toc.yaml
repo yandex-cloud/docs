@@ -37,6 +37,8 @@ items:
         href: concepts/limits.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: >-
           Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
           анализ с помощью {{ datalens-full-name }}
@@ -45,6 +47,10 @@ items:
           Создание адреса {{ postbox-full-name }} и проверка владения доменом с
           помощью {{ TF }}
         href: tutorials/domain-identity-creating.md
+      - name: Отправка писем с помощью AWS SDK
+        items:
+          - name: Go
+            href: tutorials/send-emails-aws-sdk-go.md
   - name: Инструменты
     items:
       - name: AWS CLI

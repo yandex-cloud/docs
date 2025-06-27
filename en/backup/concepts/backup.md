@@ -30,7 +30,7 @@ You should keep in mind the following when restoring VMs and {{ baremetal-name }
 
 {% list tabs group=backup_resource_type %}
 
-- VM instance {#vm}
+- VM {#vm}
 
   * To restore a backup to the VM it was created for, you do not need to take any additional actions: the structure of LVM volumes should recover correctly.
   * Before restoring a backup to a different VM, make sure disk partitioning and LVM volume structure on the target VM is exactly the same as on the original one.

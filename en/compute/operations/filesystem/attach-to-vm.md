@@ -163,7 +163,7 @@ To check the kernel version, run `sudo uname -r`.
       ```
 
       Save the value of the `device_name` field under `filesystems`. This is the name of the device to mount your file storage on; you will need it later.
-   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
+   1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
    1. Run this command:
 
       ```bash

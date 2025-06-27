@@ -16,12 +16,12 @@ description: In this article, you will learn how to work with {{ mtr-full-name }
 * [Connecting to a cluster](connect.md)
 * [Deleting a cluster](cluster-delete.md)
 
-## Folders {#catalogs}
+## {{ TR }} catalogs {#catalogs}
 
-* [Getting a list of folders in a cluster](catalog-list.md)
-* [Creating a folder](catalog-create.md)
-* [Updating a folder](catalog-update.md)
-* [Deleting a folder](catalog-delete.md)
+* [Getting a list of {{ TR }} catalog in a cluster](catalog-list.md)
+* [Creating a {{ TR }} catalog](catalog-create.md)
+* [Updating a {{ TR }} catalog](catalog-update.md)
+* [Deleting a {{ TR }} catalog](catalog-delete.md)
 
 ## Logs and monitoring {#monitoring-and-logs}
 

@@ -3,7 +3,7 @@
 #|
 || Type of limit | Value ||
 || Number of [servers](../baremetal/concepts/servers.md)
-`baremetal.servers.count` | 2 ||
+`baremetal.servers.count` | 5 ||
 || Number of [VRFs](../baremetal/concepts/network#vrf-segment)
 `baremetal.vrfs.count` | 20 ||
 || Number of subnets

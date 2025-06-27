@@ -70,7 +70,7 @@ title: How to get information about a disk image in {{ compute-full-name }}
       * `data "yandex_compute_image"`: Description of the disk image as a data source:
         * `image_id`: Disk image ID.
       * `output "image"`: Output variable that contains information about the minimum disk size:
-        * `value`: Returned value.
+        * `value`: Return value.
 
       You can replace `min_disk_size` with any other parameter to get the information you need. For more information about the `yandex_compute_image` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_image).
 
@@ -78,7 +78,7 @@ title: How to get information about a disk image in {{ compute-full-name }}
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

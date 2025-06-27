@@ -21,7 +21,7 @@ To create an image from a disk:
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. In the line with the disk, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
-  1. Specify the image name. The naming requirements are as follows:
+  1. Specify the image name. Follow these naming requirements:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

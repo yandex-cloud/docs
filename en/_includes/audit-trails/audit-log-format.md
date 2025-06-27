@@ -8,17 +8,17 @@ Depending on the [destination object](../../audit-trails/concepts/trail.md#targe
 
 Below is the template for the full name of an audit log file in a bucket:
 
-`<object_prefix>/<trail_ID>/<year>/<month>/<file_name.json>`
+`<object_prefix>/<trail_id>/<year>/<month>/<file_name.json>`
 
 ### Log group entry {#logging-group-name}
 
 Log group entries have the following values:
-* **Time**: `Event_time` field value of the event.
+* **Time**: `event_time` value.
 * **JSON**: JSON object of the event.
 * **Level**: Calculated depending on the `event_status` value:
-   * `ERROR`: For the `ERROR` value
-   * `WARN`: For the `CANCELLED` value
-   * `INFO`: For all other cases
-* **{{ ui-key.yacloud.logging.column_header-message }}**: Includes the values of the `event_status`, `event_type`, `subject_name`, `cloud_name`, and `resource_name` fields.
+  * `ERROR`: For the `ERROR` value.
+  * `WARN`: For the `CANCELLED` value.
+  * `INFO`: In all other cases.
+* **{{ ui-key.yacloud.logging.column_header-message }}**: Contains the values of the `event_status`, `event_type`, `subject_name`, `cloud_name`, and `resource_name` fields.
 
 {% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}

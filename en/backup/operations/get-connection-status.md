@@ -1,9 +1,9 @@
 ---
-title: Viewing VM connection status
+title: Viewing a VM connection status
 description: Follow this guide to find out the status of a {{ backup-name }} connection to a VM.
 ---
 
-# Viewing VM connection status
+# Viewing a VM connection status
 
 {% list tabs group=instructions %}
 

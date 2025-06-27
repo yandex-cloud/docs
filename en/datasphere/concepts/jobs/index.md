@@ -10,7 +10,7 @@ Before [running a job](../../operations/projects/work-with-jobs.md), set up a Py
 
 {% include [vscode-extension-info](../../../_includes/datasphere/vscode-extension-info.md) %}
 
-You can find jobs in the **{{ ml-platform-name }} Jobs** tab of a project. Their progress and results will be available under **Run history**.
+You can find jobs in the **{{ ml-platform-name }} Jobs** tab of a project. Their [progress](../../operations/projects/work-with-jobs.md#progress) and results will be available under **Run history** and locally.
 
 {% note tip %}
 

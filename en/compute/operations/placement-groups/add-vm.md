@@ -9,9 +9,9 @@ Add an existing [VM](../../concepts/vm.md) to a [placement group](../../concepts
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the placement group belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
-  1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
   1. Select the placement group to add a VM to.
   1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
   1. In the top-right corner, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.instances.button_add-instance }}**.
@@ -199,8 +199,8 @@ Add an existing [VM](../../concepts/vm.md) to a [placement group](../../concepts
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
      ```bash
      terraform apply
@@ -208,7 +208,7 @@ Add an existing [VM](../../concepts/vm.md) to a [placement group](../../concepts
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check that the VM has been added to the placement group using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check that the VM has been added to the placement group using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

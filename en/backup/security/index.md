@@ -8,7 +8,7 @@ description: Access management in {{ backup-full-name }} – {{ yandex-cloud }}'
 In this section, you will learn:
 
 * [What resources you can assign a role for](#resources).
-* [Roles existing in this service](#roles-list).
+* [What roles exist in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -16,11 +16,11 @@ To assign a role for a resource, a user should have the `backup.admin` role or o
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources supporing role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 Using the {{ yandex-cloud }} console or the CLI, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These assigned roles will also apply to nested resources.
 
-## Available service roles {#roles-list}
+## What roles exist in this service {#roles-list}
 
 ### Service roles {#service-roles}
 

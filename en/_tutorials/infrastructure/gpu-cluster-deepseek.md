@@ -42,7 +42,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a cluster.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
    1. Click **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
    1. In the **{{ ui-key.yacloud.gpu-cluster.field_name }}** field, enter cluster name: `test-gpu-cluster`.
@@ -70,7 +70,7 @@ The infrastructure support costs include:
             * **{{ ui-key.yacloud.component.compute.resources.field_gpu-cluster }}**: Select the `test-gpu-cluster` cluster you created earlier.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
             * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

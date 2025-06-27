@@ -17,10 +17,10 @@ To update basic settings of a [disk snapshot](../../concepts/snapshot.md) [sched
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the schedule.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
-  1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Next to the schedule you want to update, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit [disk](../../concepts/disk.md) snapshot schedule parameters as needed:
-     * **{{ ui-key.yacloud.common.name }}**. The naming requirements are as follows:
+     * **{{ ui-key.yacloud.common.name }}**. Follow these naming requirements:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 

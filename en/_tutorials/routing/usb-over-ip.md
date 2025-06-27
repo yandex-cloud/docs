@@ -1,48 +1,48 @@
-In this tutorial, you will configure delivering USB devices to a {{ baremetal-full-name }} [server](../../baremetal/concepts/servers.md) via a VPN connection over a public internet segment. You will do it using the _USB over IP_ technology and freely distributed software that comes with [Linux](https://en.wikipedia.org/wiki/Linux) distributions.
+In this tutorial, you will configure forwarding USB devices to a {{ baremetal-full-name }} [server](../../baremetal/concepts/servers.md) via a VPN connection over a public internet segment. You will do it using the _USB over IP_ technology and freely distributed software that comes with [Linux](https://en.wikipedia.org/wiki/Linux) distributions.
 
 {% note info %}
 
-In a similar way, you can deliver USB devices to a {{ compute-full-name }} [virtual machine](../../compute/concepts/vm.md).
+In a similar way, you can forward USB devices to a {{ compute-full-name }} [virtual machine](../../compute/concepts/vm.md).
 
 {% endnote %}
 
-USB over IP allows you to transfer data from USB devices over a network (local or internet) as if they were directly connected to the client computer. This is particularly important in situations where it is difficult or impossible to physically connect USB devices to the computer.
+_USB over IP_ allows you to transfer data from USB devices over a network (local or internet) as if they were directly connected to the client computer. This is particularly important in situations where it is difficult or impossible to physically connect USB devices to the computer.
 
-With USB over IP:
-* You can deliver USB devices to cloud services, and {{ compute-name }} virtual machines or {{ baremetal-name }} servers can act as clients for remote USB devices.
-* You can connect remote printers, scanners, cameras, hardware tokens, flash drives, and other USB peripherals to VMs and servers.
-* To deliver USB devices, you can use both specialized integrated system platforms and freely distributed software.
+With _USB over IP_:
+* You can forward USB devices to cloud services, using {{ compute-name }} VMs or {{ baremetal-name }} servers as clients for remote USB devices.
+* You can connect remote USB peripherals, such as printers, scanners, cameras, hardware tokens, and flash drives, to VMs and servers.
+* To forward USB devices, you can use both specialized integrated system platforms and open-source software.
 * You can place keys, tokens, and smart cards delivered to servers and VMs within a controlled perimeter with limited access.
-* Connections to remote USB devices can be restricted with the help of standard network security tools.
+* You can use common network security tools to restrict connections to remote USB devices.
 
 {% note warning %}
 
-The USB over IP technology requires a highly reliable network for write operations to a remote USB device. In addition, this technology is not suitable for connecting USB devices that require high data transfer rates.
+The _USB over IP_ technology requires a highly reliable network for writes to a remote USB device. In addition, this technology is not suitable for connecting USB devices that require high data transfer rates.
 
 {% endnote %}
 
-Solution diagram:
+You can see the solution architecture in the diagram below:
 
 ![usb-over-ip](../../_assets/tutorials/usb-over-ip.svg)
 
-* Remote site **USB client** is a Windows or Linux-based virtual machine or physical server. In this tutorial, we are going to use as a client a physical server running Linux Ubuntu 24.04 LTS leased from {{ baremetal-full-name }}.
-* Remote site **USB server** is a Linux-based device with a connection to a local network and VPN access (if the USB device data is delivered via the internet). USB devices will be physically inserted into the USB ports of the USB server. For a server, you can use microcomputers, e.g., [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi). In this tutorial, we will use as a server a computer running Linux Ubuntu 22.04 LTS with several USB ports.
-* **Software**. In this tutorial, USB devices will be delivered to the client via `usbip` with the help of the standard set of system utilities and core modules from the `linux-tools` package.
+* Remote site **USB client**: Windows or Linux-based virtual machine or physical server. In this tutorial, a physical server running Linux Ubuntu 24.04 LTS leased from {{ baremetal-full-name }} will serve as a client.
+* Remote site **USB server**: Linux-based device with a connection to a local network and VPN access (if the USB device data is delivered via the internet). USB devices will be physically inserted into the USB ports of the USB server. For a server, you can use microcomputers, e.g., [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi). In this tutorial, a computer running Linux Ubuntu 22.04 LTS with several USB ports will be used as the server.
+* **Software**: In this tutorial, we will use `usbip` with the standard system tools and core modules from the `linux-tools` package to forward USB devices to the client.
 * **Connected USB equipment**:
     * USB data drive
     * USB token
-* **Network delivery method**. Remote USB devices will be delivered via a VPN connection over a public internet segment using [WireGuard](https://www.wireguard.com/). 
+* **USB forwarding method**: Remote USB devices will be forwarded through a VPN connection over a public internet segment using [WireGuard](https://www.wireguard.com/). 
 
     The proposed WireGuard-based arrangement is for demonstration purposes only; you can use any other technology to connect your remote servers.
 
-To deliver USB devices to a {{ baremetal-name }} server using USB over IP:
+To forward USB devices to a {{ baremetal-name }} server using USB over IP:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Configure a cloud network](#setup-vpc).
+1. [Set up a cloud network](#setup-vpc).
 1. [Create a virtual machine for a VPN server](#create-vpn-server).
 1. [Create a private {{ baremetal-name }} subnet](#create-subnet).
 1. [Lease a {{ baremetal-name }} server](#rent-server).
-1. [Configure VPN](#setup-vpn).
+1. [Set up a VPN](#setup-vpn).
 1. [Configure USB over IP](#setup-usbip).
 1. [Test the solution](#test-solution).
 
@@ -61,7 +61,7 @@ The cost of the proposed solution includes:
 * {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 
-## Configure a cloud network {#setup-vpc}
+## Set up a cloud network {#setup-vpc}
 
 ### Create a cloud network and subnet {#setup-network-and-subnet}
 
@@ -71,20 +71,20 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM (VPN serv
 
 - Management console {#console} 
 
-  1. In the [management console]({{ link-console-main }}), select the folder you are going to create your cloud infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your cloud infrastructure.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Create a cloud network:
 
       1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
       1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `sample-network`.
-      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
+      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Create a subnet:
 
       1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
       1. At the top right, click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `subnet-{{ region-id }}-b`.
-      1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select the `{{ region-id }}-b` availability zone.
+      1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select `{{ region-id }}-b`.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select `sample-network`.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, specify `192.168.11.0/24`.
       1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
@@ -99,18 +99,18 @@ Create a [security group](../../vpc/concepts/security-groups.md) named `vpn-sg` 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your cloud infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your cloud infrastructure.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** and click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter `vpn-sg`.
-  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `sample-network`, which you created earlier.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `vpn-sg`.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `sample-network` you created earlier.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
       | --- | --- | --- | --- | --- | --- |
       | Ingress | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Ingress | `vpn`            | `63665`   | `UDP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Outbound | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -128,9 +128,9 @@ Create a [security group](../../vpc/concepts/security-groups.md) named `vpn-sg` 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-{{ region-id }}-b`, which you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-{{ region-id }}-b`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `vpn-sg` security group you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `vpn-sg`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
@@ -155,12 +155,12 @@ To keep the VPN connection alive if you stop and restart your VPN server, [make]
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your cloud infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your cloud infrastructure.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
-  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `subnet-m3`.
-  1. Without enabling the **{{ ui-key.yacloud.baremetal.title_routing-settings }}** option, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
+  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.
+  1. Without enabling **{{ ui-key.yacloud.baremetal.title_routing-settings }}**, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
 {% endlist %}
 
@@ -171,7 +171,7 @@ To keep the VPN connection alive if you stop and restart your VPN server, [make]
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your cloud infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your cloud infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
@@ -180,34 +180,34 @@ To keep the VPN connection alive if you stop and restart your VPN server, [make]
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
+     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3` you created earlier.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}** in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the server: `my-usbip-client`.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `my-usbip-client`.
   1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
 
 {% endlist %}
 
 {% note info %}
 
-Getting the server ready and installing an operating system on it may take up to 45 minutes. The server will have the `Provisioning` status during this time. After OS installation is complete, the server status will change to `Ready`.
+Server setup and OS installation may take up to 45 minutes. The server will have the `Provisioning` status during this time. After OS installation is complete, the server status will change to `Ready`.
 
 {% endnote %}
 
 
-## Configure VPN {#setup-vpn}
+## Set up a VPN {#setup-vpn}
 
-To set up delivering USB devices to a {{ baremetal-name }} server from a remote site computer, establish a VPN connection consisting of a VPN server deployed on a {{ compute-name }} virtual machine and two VPN clients: one on the {{ baremetal-name }} server and one on the remote site computer.
+To enable USB device forwarding to a {{ baremetal-name }} server from a remote computer, set up a VPN connection using a VPN server deployed on a {{ compute-name }} virtual machine and two VPN clients: one on the {{ baremetal-name }} server and one on the remote computer.
 
 In this tutorial, you will use the [WireGuard](https://www.wireguard.com/) open source solution to set up a VPN connection. However, you can set up your VPN connection using other tools.
 
 {% note info %}
 
-On the server side, you should have port `TCP 3240` open with traffic to it allowed by the VPN connection.
+The server must have port `TCP 3240` open and accessible through the VPN connection.
 
 {% endnote %}
 
@@ -234,7 +234,7 @@ On the server side, you should have port `TCP 3240` open with traffic to it allo
     * `remote_public.key`: Contains the public encryption key of the remote site VPN client.
 
     Save all the encryption keys: you will need them to create WireGuard configuration files on the relevant machines.
-1. Create a configuration file of the WireGuard VPN server:
+1. Create a WireGuard VPN server configuration file:
 
     1. {% include [setup-vpn-step-5](../_tutorials_includes/usb-over-ip/setup-vpn-step-5.md) %}
     1. Add the following configuration to the file using the contents of the encryption keys you got in the previous step:
@@ -257,10 +257,10 @@ On the server side, you should have port `TCP 3240` open with traffic to it allo
 
 ### Configure VPN clients {#vpn-client-setup}
 
-1. [Connect via SSH](../../compute/operations/vm-connect/ssh.md) to the {{ baremetal-name }} server named `my-usbip-client` you leased earlier.
+1. [Connect over SSH](../../compute/operations/vm-connect/ssh.md) to the `my-usbip-client` {{ baremetal-name }} server you leased earlier.
 1. {% include [setup-vpn-step-2](../_tutorials_includes/usb-over-ip/setup-vpn-step-2.md) %}
 1. {% include [setup-vpn-step-3](../_tutorials_includes/usb-over-ip/setup-vpn-step-3.md) %}
-1. Create a configuration file of the WireGuard VPN client:
+1. Create a WireGuard VPN client configuration file:
 
     1. {% include [setup-vpn-step-5](../_tutorials_includes/usb-over-ip/setup-vpn-step-5.md) %}
     1. Add the following configuration to the file:
@@ -279,8 +279,8 @@ On the server side, you should have port `TCP 3240` open with traffic to it allo
 
         Where:
 
-        * `PrivateKey`: Contents of the `bms_private.key` file created when setting up the VPN server and containing the private encryption key of that VPN client.
-        * `PublicKey`: Contents of the `server_public.key` file created when setting up the VPN server and containing the public encryption key of the VPN server.
+        * `PrivateKey`: Contents of the `bms_private.key` file created when configuring the VPN server. This is the client's private encryption key.
+        * `PublicKey`: Contents of the `server_public.key` file created when configuring the VPN server. This is the server's public encryption key.
         * `<VM_public_IP_address>`: Public IP address of the virtual machine with the deployed VPN server. You can look up the VM's public IP address in the [management console]({{ link-console-main }}): see the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section's **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field on the VM information page.
 1. Run WireGuard:
 
@@ -301,9 +301,9 @@ On the server side, you should have port `TCP 3240` open with traffic to it allo
 
 ### Test the VPN connection {#check-vpn}
 
-At this point, the VPN connection has been established. To test it:
+By now, your VPN connection should be successfully established. To test it:
 
-1. [Connect over SSH](../../compute/operations/vm-connect/ssh.md) to the {{ baremetal-name }} server named `my-usbip-client` and run this command:
+1. [Connect over SSH](../../compute/operations/vm-connect/ssh.md) to the `my-usbip-client` {{ baremetal-name }} server and run this command:
 
     ```bash
     ping 192.168.100.3 -c 5
@@ -325,7 +325,7 @@ At this point, the VPN connection has been established. To test it:
     ```
 
     Network connectivity between the VPN clients has been established with zero packet loss.
-1. Run this command in the remote site computer's terminal:
+1. Run this command in the remote computer's terminal:
 
     ```bash
     ping 192.168.100.2 -c 5
@@ -351,11 +351,11 @@ At this point, the VPN connection has been established. To test it:
 
 ## Configure USB over IP {#setup-usbip}
 
-The USB device will be delivered to the {{ baremetal-name }} server via `usbip`.
+You will use `usbip` to forward your USB device to the {{ baremetal-name }} server.
 
 ### Configure a usbip server {#setup-usbip-server}
 
-The usbip server's role will be played by a remote site computer equipped with several USB ports. In this computer's terminal:
+A remote computer equipped with multiple USB ports will act as your `usbip` server. In this computer's terminal:
 
 1. {% include [setup-usbip-step-1](../_tutorials_includes/usb-over-ip/setup-usbip-step-1.md) %}
 1. {% include [setup-usbip-step-2](../_tutorials_includes/usb-over-ip/setup-usbip-step-2.md) %}
@@ -418,18 +418,18 @@ The usbip server's role will be played by a remote site computer equipped with s
     sudo usbipd -4 -D
     ```
 
-At this point, the selected USB devices are published and available for import over the network on the usbip client side.
+At this point, the selected USB devices are published and available for import over the network on the `usbip` client side.
 
 ### Configure the usbip client {#setup-usbip-client}
 
-The role of the usbip client will be played by the {{ baremetal-name }} server named `my-usbip-client`.
+The `my-usbip-client` {{ baremetal-name }} server will serve as your `usbip` client.
 
-1. [Connect over SSH](../../compute/operations/vm-connect/ssh.md) to the {{ baremetal-name }} server named `my-usbip-client`.
+1. [Connect over SSH](../../compute/operations/vm-connect/ssh.md) to the `my-usbip-client` {{ baremetal-name }} server.
 1. {% include [setup-usbip-step-1](../_tutorials_includes/usb-over-ip/setup-usbip-step-1.md) %}
 
     {% note info %}
 
-    If using a {{ compute-full-name }} virtual machine as a usbip client, you should additionally install the `linux-image-extra-virtual` package:
+    If using a {{ compute-full-name }} virtual machine as a `usbip` client, you need to additionally install `linux-image-extra-virtual`:
 
     ```bash
     sudo apt install linux-image-extra-virtual
@@ -438,7 +438,7 @@ The role of the usbip client will be played by the {{ baremetal-name }} server n
     {% endnote %}
 
 1. {% include [setup-usbip-step-2](../_tutorials_includes/usb-over-ip/setup-usbip-step-2.md) %}
-1. Request a list of USB devices available for import from the usbip server:
+1. Request a list of USB devices available for import from the `usbip` server:
 
     ```bash
     usbip list -r 192.168.100.3
@@ -458,18 +458,18 @@ The role of the usbip client will be played by the {{ baremetal-name }} server n
               : /sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2
               : (Defined at Interface level) (00/00/00)
     ```
-1. Import devices from the usbip client:
+1. Import devices from the `usbip` client:
 
     ```bash
     usbip attach -r 192.168.100.3 -b 1-1.2
     usbip attach -r 192.168.100.3 -b 1-1.5
     ```
 
-At this point, the selected USB devices have been imported over the network to the {{ baremetal-name }} server.
+By now, the selected USB devices have been imported over the network to the {{ baremetal-name }} server.
 
 ## Test the solution {#test-solution}
 
-To test the connection to your remote USB devices, connect over SSH to the {{ baremetal-name }} server `my-usbip-client` and perform these test actions in the terminal:
+To test the connection to your remote USB devices, connect to the `my-usbip-client` {{ baremetal-name }} server over SSH and perform these test actions in the terminal:
 
 1. Run this command to view the `dmesg` log:
 
@@ -596,16 +596,16 @@ To test the connection to your remote USB devices, connect over SSH to the {{ ba
           -rwxr-xr-x 1 root root   247 Apr 20 19:46 wg0.conf
           ```
 
-      Verification completed: your file has been successfully copied to the remote USB drive.
+      The test is complete: your file has been successfully copied to the remote USB drive.
 
     - YubiKey device {#yubikey}
 
-      1. Install the utilities required to work with the YubiKey hardware token:
+      1. Install the tools required to work with the YubiKey hardware token:
 
           ```bash
           apt install yubico-piv-tool
           ```
-      1. Run a Yubico hardware status query:
+      1. Get the Yubico hardware status by running this command:
 
           ```bash
           yubico-piv-tool -a status
@@ -658,7 +658,7 @@ To test the connection to your remote USB devices, connect over SSH to the {{ ba
           -----END CERTIFICATE-----
           ```
 
-      Verification completed: Yubico hardware returns the correct status; the certificate data from token storage can be read without errors.
+      The test is complete: the Yubico token returns the correct status and the certificate data has been read successfully.
 
     {% endlist %}
 

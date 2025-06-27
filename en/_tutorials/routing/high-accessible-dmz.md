@@ -9,9 +9,9 @@ The infrastructure elements reside in two [availability zones](../../overview/co
 
 Our solution uses the following folders:
 
-* **public** that contains [{{ alb-name }}](../../application-load-balancer/) enabling public access to DMZ applications.
-* **mgmt** that contains NGFW firewalls and other resources, including `FW-A` and `FW-B` firewall VMs, `mgmt-server`, which is a firewall management server VM, and `jump-vm`, a VM for accessing the VPN protected segment.
-* **dmz** that contains publicly accessible applications.
+* **public** that contains [{{ alb-name }}](../../application-load-balancer/) enabling public access to DMZ applications from the internet.
+* **mgmt** that contains NGFWs and cloud infrastructure management resources, including `fw-a` and `fw-b` firewall VMs, `mgmt-server`, which is a firewall management server VM, and `jump-vm`, a VM for accessing the VPN protected segment.
+* **dmz** that enables you to publish open-access applications.
 * **app** and **database** that contain application business logic; we will not use them in this tutorial.
 
 For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw/blob/main/README.md).
@@ -29,16 +29,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Next-Generation Firewall {#ngfw}
 
-A next generation firewall provides cloud network protection and segmentation, creating a dedicated DMZ for publicly accessible applications. [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions.
+We will use a next-generation firewall for cloud network protection and segmentation, creating a dedicated DMZ for publicly accessible applications. [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions.
 
-In this scenario, we will use the [Check Point CloudGuard IaaS]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m) solution offering the following features:
+In this tutorial, we will use the [Check Point CloudGuard IaaS]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m) solution. Its features include:
 
 * Firewalling
 * NAT
 * Intrusion prevention
 * Antivirus
 * Bot protection
-* Application layer granular traffic control
+* Application-layer granular traffic control
 * Session logging
 * Centralized management with Check Point Security Management
 
@@ -63,11 +63,11 @@ The infrastructure support cost includes:
 
 {% note warning %}
 
-In this tutorial, you will have to deploy a resource-intensive infrastructure.
+In this tutorial, you will deploy a resource-intensive infrastructure.
 
 {% endnote %}
 
-Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) that are not used by other projects.
+Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limits.md) not used by other projects.
 
 {% cut "Resources used by this tutorial" %}
 
@@ -151,9 +151,9 @@ We use the Linux terminal to perform the following steps.
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `sa-terraform`.
+   1. Specify the service account name, e.g., `sa-terraform`.
 
-       Follow these naming requirements:
+       The naming requirements are as follows:
 
        {% include [name-format](../../_includes/name-format.md) %}
 
@@ -182,7 +182,7 @@ We use the Linux terminal to perform the following steps.
          yc iam service-account create --name sa-terraform
          ```
 
-         Where `name` is the service account name. It must meet the following requirements:
+         Where `name` is the service account name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -353,7 +353,7 @@ We use the Linux terminal to perform the following steps.
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>
+         yc config set folder-id <catalog_ID>
          ```
 
          Where:
@@ -560,7 +560,7 @@ Renaming the interfaces again will cause the network object name replication err
     | public - b | 172.16.2.0 | 255.255.255.0 |
 
 1. Select **New Network Group...**, create the `public` group, and add the `public - a` and `public - b` networks to it.
-1. Select **New Host...** and create hosts with the following settings:
+1. Select **New Host...** and create hosts with the following parameters:
 
     | Name | IPv4 address |
     | ----------- | ----------- |
@@ -645,7 +645,7 @@ terraform plan
 terraform apply
 ```
 
-Within five minutes, the `route-switcher` module will start working, providing outbound traffic fault tolerance.
+Within five minutes, the `route-switcher` module will start operating to ensure fault tolerance of outbound traffic in segments.
 
 ## Test the solution for performance and fault tolerance {#test-accessibility}
 
@@ -723,7 +723,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.

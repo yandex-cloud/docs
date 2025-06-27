@@ -31,8 +31,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the service is activated in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for [the service account](../../iam/concepts/users/service-accounts.md): `backup-sa`.
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `backup.editor` [role](../../backup/security/index.md#backup-editor).
@@ -64,7 +64,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. Assign the `backup.editor` role for the folder to the service account:
 
       ```bash
-      yc resource-manager folder add-access-binding <folder_ID> \
+      yc resource-manager folder add-access-binding <catalog_ID> \
         --role backup.editor \
         --subject serviceAccount:<service_account_ID>
       ```
@@ -101,7 +101,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a cloud network in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `cloud-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -168,8 +168,8 @@ A rule to enable VM access over SSH will also be added to the security group.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder you want to create a VM with a {{ backup-name }} connection in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM connected to {{ backup-name }}.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `backup-sg`.
@@ -189,7 +189,7 @@ A rule to enable VM access over SSH will also be added to the security group.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc vpc security-group create backup-sg \
@@ -267,7 +267,7 @@ You can create a new policy or use one of those automatically generated upon ser
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a backup policy in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. Specify the policy properties:
@@ -435,7 +435,7 @@ You can create a new policy or use one of those automatically generated upon ser
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
@@ -525,7 +525,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
   ```json
   {
-    "folderId": "<folder_ID>",
+    "folderId": "<catalog_ID>",
     "name": "backup-instance",
     "zoneId": "{{ region-id }}-d",
     "platformId": "standard-v3",
@@ -573,4 +573,4 @@ To stop paying for the resources you created:
 1. [Delete](../../backup/operations/delete-vm.md) the VM from {{ backup-name }}.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM from {{ compute-name }}.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one.
-1. [Delete](../../backup/operations/backup-vm/delete.md) VM backups, if any. 
+1. [Delete](../../backup/operations/backup-vm/delete.md) the VM backups, if any. 

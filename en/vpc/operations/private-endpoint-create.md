@@ -24,13 +24,13 @@ To create a [service connection](../concepts/private-endpoint.md):
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_vpc_private_endpoint" "my-vpc-endpoint" {
        name        = "<service_connection_name>"
        description = "<service_connection_description>"
-       network_id  = "<cloud_network_ID>
+       network_id  = "<cloud_network_ID>"
        
        # Service connection to Object Storage
        object_storage {}
@@ -41,23 +41,23 @@ To create a [service connection](../concepts/private-endpoint.md):
        }
 
        endpoint_address {
-         subnet_id = "<subnet_ID>
+         subnet_id = "<subnet_ID>"
        }
      }
      ```
 
      Where:
-     * `name`: Service connection name. This is an optional setting.
-     * `description`: Service connection description. This is an optional setting.
-     * `network_id`: Name of the [cloud network](../../vpc/concepts/network.md#network) the service connection will be created in. This is a required setting.
+     * `name`: Service connection name. This is an optional parameter.
+     * `description`: Service connection description. This is an optional parameter.
+     * `network_id`: Name of the [cloud network](../../vpc/concepts/network.md#network) the service connection will be created in. This is a required parameter.
      * `object_storage`: Service connection to {{ objstorage-short-name }}. Other service connection types are not available yet.
      * `dns_options`: Section with parameters for creating DNS records:
-         * `private_dns_records_enabled`: Parameter to create additional DNS resource records to override the public FQDN of the service to which the connection is created. This is an optional setting.
+         * `private_dns_records_enabled`: Parameter to create additional DNS resource records to override the public FQDN of the service to which the connection is created. This is an optional parameter.
 
              {% include [private-endpoint-create-dns](../../_includes/vpc/private-endpoint-create-dns.md) %}
 
      * `endpoint_address`: Section with parameters of the service connection internal IP address:
-         * `subnet_id`: ID of the subnet to provide an IP address for the service connection. If no subnet ID is provided, a random internal IP address will be assigned from the range of one of the subnets in the cloud network. This is an optional setting.
+         * `subnet_id`: ID of the subnet to provide an IP address for the service connection. If no subnet ID is provided, a random internal IP address will be assigned from the range of one of the subnets in the cloud network. This is an optional parameter.
 
         {% note info %}
 
@@ -71,7 +71,7 @@ To create a [service connection](../concepts/private-endpoint.md):
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
      ```bash
      yc vpc private-endpoint list

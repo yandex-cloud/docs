@@ -142,7 +142,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           {% note alert %}
 
-          After you close this dialog, the key value will not be shown again.
+          After you close this dialog, the key value will no longer be available.
 
           {% endnote %}
 
@@ -184,7 +184,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `my-sample-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
@@ -193,7 +193,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. At the top right, click **{{ ui-key.yacloud.common.create }}**.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `sample-subnet-{{ region-id }}-b`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select the `{{ region-id }}-b` availability zone.
-  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select the `my-sample-network` cloud network.
+  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select `my-sample-network`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, specify `192.168.1.0/24`.
   1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -395,7 +395,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
             --runtime=golang119 \
             --entrypoint=budget_trigger_handler.Handler \
             --service-account-id=<service_account_ID> \
-            --environment FOLDER_ID=<folder_ID> \
+            --environment FOLDER_ID=<catalog_ID> \
             --environment TAG=target-for-stop \
             --environment AWS_ACCESS_KEY_ID=<static_key_ID> \
             --environment AWS_SECRET_ACCESS_KEY=<private_key_value> \
@@ -782,17 +782,17 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `sample-subnet-{{ region-id }}-b` subnet you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `sample-subnet-{{ region-id }}-b`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify a username, e.g., `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}

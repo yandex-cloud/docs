@@ -75,7 +75,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
@@ -94,7 +94,7 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
@@ -103,14 +103,14 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
+     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3` you created earlier.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
   
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}** in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the server: `master-server-m3`.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `master-server-m3`.
   1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
   1. Similarly, lease two more servers: one named `backup-server-m3` in the `{{ region-id }}-m3` server pool and another one named `client-server-m4` with the `subnet-m4` subnet in the `{{ region-id }}-m4` server pool.
 
@@ -216,7 +216,7 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
     Where:
 
     * `vrrp_instance`: Virtual router name:
-
+    
         * `M3_1` for the server with the `MASTER` role.
         * `M3_2` for the server with the `BACKUP` role.
     * `state`: Server state, `MASTER` or `BACKUP`.
@@ -352,9 +352,9 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
         ```bash
         sudo systemctl stop keepalived
         ```
-
+        
         When it stops, observe the terminal window with the `client-server-m4` session. If the virtual IP address was shared successfully, ICMP requests should switch to the backup host almost seamlessly without interrupting the running `ping` command.
-
+        
         {% note info %}
 
         A minor loss of 1 to 3 packages is acceptable, which may happen when the timer for selecting a new group `MASTER` is triggered and the server is assigned the virtual IP address.

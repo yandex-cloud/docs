@@ -21,7 +21,7 @@ To create a [file storage](../../concepts/filesystem.md):
      {% include [name-format-2](../../../_includes/name-format-2.md) %}
 
   1. Optionally, provide a description for file storage.
-  1. Select an [availability zone](../../../overview/concepts/geo-scope.md). You can only attach a file storage to [VMs](../../concepts/vm.md) from the same availability zone.
+  1. Select the [availability zone](../../../overview/concepts/geo-scope.md). You can only attach a file storage to [VMs](../../concepts/vm.md) from the same availability zone.
   1. Select the [file storage type](../../concepts/filesystem.md#types).
 
      {% note warning %}
@@ -57,7 +57,7 @@ To create a [file storage](../../concepts/filesystem.md):
       ```
 
       Where:
-      * `--name`: File storage name. The naming requirements are as follows:
+      * `--name`: File storage name. Follow these naming requirements:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -119,7 +119,7 @@ To create a [file storage](../../concepts/filesystem.md):
      * `size`: File storage size in GB. This is an optional parameter. The default value is 150 GB.
      * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional parameter.
 
-      For more information about the `yandex_compute_filesystem` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_filesystem).
+      For more information about `yandex_compute_filesystem` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/compute_filesystem).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

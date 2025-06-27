@@ -110,7 +110,7 @@ To get back the ability to [connect](ssh.md) to the VM over SSH without using {{
       ```bash
       yc compute instance update
         --name <VM_name> \
-        --folder-id <folder_ID> \
+        --folder-id <catalog_ID> \
         --metadata enable-oslogin=false
       ```
 
@@ -119,7 +119,7 @@ To get back the ability to [connect](ssh.md) to the VM over SSH without using {{
       ```bash
       yc compute ssh
         --name <VM_name> \
-        --folder-id <folder_ID>
+        --folder-id <catalog_ID>
       ```
 
       Result:

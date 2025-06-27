@@ -5,5 +5,4 @@ description: Различные сценарии использования {{ s
 
 # Практические руководства {{ speechsense-name }}
 
-* [Автоматическая загрузка данных с помощью {{ sw-full-name }}](auto-upload.md)
-* [{#T}](bitrix24.md)
+[Автоматическая загрузка данных с помощью {{ sw-full-name }}](auto-upload.md)

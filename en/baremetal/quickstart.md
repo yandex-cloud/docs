@@ -1,5 +1,5 @@
 ---
-title: Getting started with {{ baremetal-full-name }}
+title: How to get started with {{ baremetal-full-name }}
 description: Follow this guide to lease and set up your first physical server in {{ baremetal-full-name }}.
 ---
 
@@ -18,14 +18,14 @@ Lease your first physical server and connect to it. All the leased server's reso
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to lease a server in.
-  1. From the list of services, select **{{ baremetal-name }}**.
+  1. In the list of services, select **{{ baremetal-name }}**.
   1. Click **Order server**.
   1. Select the `{{ region-id }}-m` [availability zone](../overview/concepts/geo-scope.md).
   1. Select the `{{ region-id }}-m3` pool.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
 
      1. Select the `BA-i103-S-10G` server configuration.
-     1. (Optional) Configure disk partitioning:
+     1. Optionally, configure disk partitioning:
 
         1. Click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
         1. Specify the layout parameters and click **{{ ui-key.yacloud.common.save }}**.
@@ -63,7 +63,7 @@ Lease your first physical server and connect to it. All the leased server's reso
 
 - Linux/macOS {#linux-macos}
    
-  To establish a server connection, specify its public IP address which can be found in the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
+  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
 
   In the terminal, run this command:
 
@@ -84,9 +84,9 @@ Lease your first physical server and connect to it. All the leased server's reso
 
 - Windows 10/11 {#windows}
 
-  To establish a server connection, specify its public IP address which can be found in the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
+  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
 
-  Make sure the Windows account has read permissions for the directory containing the keys.
+  Make sure the Windows account has read permissions for the folder containing the keys.
 
   To connect to the server, run the following command in the command line:
 
@@ -106,7 +106,7 @@ Lease your first physical server and connect to it. All the leased server's reso
 
 - Windows 7/8 {#windows7-8}
 
-  To establish a server connection, specify its public IP address which can be found in the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
+  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
 
   Establish a connection using PuTTY:
 
@@ -115,7 +115,7 @@ Lease your first physical server and connect to it. All the leased server's reso
      1. In the context menu, select **Add key**.
      1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if any.
   1. Run PuTTY.
-     1. In the **Host Name (or IP address)** field, enter the public IP address of the server you want to connect to. Set the port to `22` and connection type to **SSH**.
+     1. In the **Host Name (or IP address)** field, enter the public IP address of the server you want to connect to. Set the port to `22` and the connection type to **SSH**.
 
         ![ssh_add_ip](../_assets/compute/ssh-putty/ssh_add_ip.png)
 

@@ -42,6 +42,8 @@ description: This page provides a list of step-by-step guides for {{ sws-name }}
 
 * [{#T}](proxy-create.md)
 * [{#T}](domain-create.md)
+* [{#T}](setup-infrastructure.md)
+* [{#T}](validate-availability.md)
 
 ## Managing address lists {#ip-lists}
 

@@ -59,3 +59,7 @@ description: Из статьи вы узнаете про варианты ши�
 ### См. также {#see-also}
 
 * [Шифрование данных и управление ключами и секретами](../../security/standard/encryption.md)
+* [{#T}](../operations/disk-control/disk-encrypt.md)
+* [{#T}](../operations/image-control/encrypt.md)
+* [{#T}](../operations/snapshot-control/snapshot-encrypt.md)
+

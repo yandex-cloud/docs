@@ -28,7 +28,7 @@ locals {
   vm_image_family    = "lemp"
 }
 
-# Configuring a provider
+# Configuring the provider
 
 terraform {
   required_providers {
@@ -134,7 +134,7 @@ resource "yandex_sws_security_profile" "demo-profile-simple" {
   name           = "test-profile"
   default_action = "DENY"
   
-  # Smart Protection rule with full protection
+  # Smart Protection rule providing full protection
   security_rule {
     name     = "smart-protection"
     priority = 999900

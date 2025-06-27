@@ -95,7 +95,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `snapshot_schedule_id`: Schedule ID.
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `role`: [Role](../../security/index.md#roles-list) being assigned.
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_snapshot_schedule_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
@@ -144,7 +144,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [set-access-bindings](../../../_includes/compute/set-access-bindings-note.md) %}
 
-  1. Make sure the resource has no roles assigned that you would not want to lose:
+  1. Make sure the resource has no important roles assigned before proceeding:
 
      ```bash
      yc compute snapshot-schedule list-access-bindings <schedule_ID>
@@ -185,7 +185,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   To assign multiple roles for a schedule using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_compute_snapshot_schedule_iam_binding" "role-1" {
@@ -204,7 +204,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `snapshot_schedule_id`: Schedule ID.
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `role`: [Role](../../security/index.md#roles-list) being assigned.
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_snapshot_schedule_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
@@ -269,7 +269,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       Where:
 
-      * `--role`: ID of the role to revoke.
+      * `--role`: ID of the role you want to revoke.
       * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
       For example, this command revokes the `{{ roles-viewer }}` role for the schedule from a user with the `ajel6l0jcb9s********` ID:

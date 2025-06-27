@@ -20,7 +20,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-  1. Enter a name for the disk. The naming requirements are as follows:
+  1. Enter a name for the disk. Follow these naming requirements:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -59,7 +59,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
        * `--name`: Disk name.
        * `--type`: Disk type.
        * `--size`: Disk size.
-       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
 
          {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
          
@@ -104,7 +104,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
      ```
 
      Where:
-     * `name`: Non-replicated disk name. The naming requirements are as follows:
+     * `name`: Non-replicated disk name. Follow these naming requirements:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -115,14 +115,14 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
      For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -130,7 +130,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
         terraform apply
         ```
 
-     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
         This will create all the resources you need in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
@@ -156,12 +156,12 @@ You can only create a disk in an existing disk placement group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-  1. Enter a name for the disk. The naming requirements are as follows:
+  1. Enter a name for the disk. Follow these naming requirements:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Add a description for the disk, if required.
-  1. Select the availability zone the disk will be in.
+  1. Select the availability zone the disk will reside in.
 
      The availability zone for your disk must match the zone of the placement group where you want to create it.
   1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated_d7W56 }}` as the disk type.
@@ -203,7 +203,7 @@ You can only create a disk in an existing disk placement group.
        * `--type`: Disk type.
        * `--size`: Disk size.
        * `--disk-placement-group-name`: Placement group name.
-       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
 
          {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
          
@@ -246,7 +246,7 @@ You can only create a disk in an existing disk placement group.
        * `--size`: Disk size.
        * `--disk-placement-group-name`: Placement group name.
        * `--disk-placement-group-partition`: Partition number in the placement group.
-       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
 
          {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
          

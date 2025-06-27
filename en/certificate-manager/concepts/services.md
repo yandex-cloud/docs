@@ -11,6 +11,7 @@ You can use {{ certificate-manager-name }} certificates in the following {{ yand
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 * [{{ cdn-full-name }}](#cdn).
+* [{{ sws-full-name }}](#sws).
 
 You can also store a user certificate's private key as a [{{ lockbox-full-name }}](#lockbox) secret using {{ TF }}.
 
@@ -40,6 +41,12 @@ A certificate linked to the domain is used to provide a TLS connection.
 {{ cdn-full-name }} allows you to set up content delivery to your end users via a content delivery network (CDN). 
 
 To access [CDN resources](../../cdn/concepts/resource.md) over HTTPS, you can [use](../../storage/operations/hosting/certificate.md#cert-manager) certificates from {{ certificate-manager-name }}.
+
+## {{ sws-full-name }} {#sws}
+
+{{ sws-full-name }} protects your infrastructure against cybersecurity threats at [OSI](https://en.wikipedia.org/wiki/OSI_model) application level (L7). These may include DDoS attacks, bots, and SQL injections.
+
+To connect the [domain](../../smartwebsecurity/concepts/domain-protect.md#domain) to a [proxy server](../../smartwebsecurity/concepts/domain-protect.md#proxy) over HTTPS, you can use a certificate from {{ certificate-manager-name }}.
 
 ## {{ lockbox-full-name }} {#lockbox}
 

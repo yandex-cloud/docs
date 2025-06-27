@@ -31,13 +31,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
 - Management console {#console}
 
-    1. In the management console, select the folder where you want to create a {{ mtr-name }} cluster.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-        1. Specify a name for the cluster. The name must be unique within the folder.
-        1. (Optional) Enter a cluster description.
+        1. Give the cluster a name. The name must be unique within the folder.
+        1. Optionally, enter a description for the cluster.
         1. Optionally, create [labels](../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -50,31 +50,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
-    1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add the required [folders](../concepts/index.md#catalog). You can do this either when creating the cluster or later.
-
-        1. Specify a name for the folder. The name must be unique within the cloud.
-        1. Select **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**.
-        1. Under **Folder settings**, set the parameters depending on the selected type:
-
-            * For Hive, Iceberg, and Delta Lake [connectors](../concepts/index.md#connector):
-
-                * **URI** to connect to the Metastore cluster in this format: `thrift://<IP_address>:<port>`.
-                * **File storage**: Select the file storage type: **Yandex Object Storage** or **External storage**. For external storage, specify the following settings:
-                    * AWS-compatible static access key ID.
-                    * AWS-compatible static access key secret key.
-                    * File storage endpoint, such as `{{ s3-storage-host }}`.
-                    * File storage region, such as `{{ region-id }}`.
-
-            * For {{ PG }} and {{ CH }} connectors:
-
-                * **URL** to connect to a cluster in this format: `jdbc:<DBMS>://<host_address>:<port>/<DB_name>`, where `DBMS` is `postgresql` or `clickhouse`.
-                * **Username** to connect to the cluster.
-                * User **Password**.
-
-            * [TPC-H](https://trino.io/docs/current/connector/tpch.html) and [TPC-DS](https://trino.io/docs/current/connector/tpcds.html) connectors provide access to test data and do not require configuration.
-
-        1. Optionally, specify additional folder settings in `key:value` format.
-
+    1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add the required [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](../../backup/concepts/vm-connection.md).
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. Optionally, enable cluster deletion protection.

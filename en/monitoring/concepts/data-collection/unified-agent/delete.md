@@ -85,9 +85,9 @@ The way you delete {{ unified-agent-short-name }} depends on the way it was inst
 
 - When creating a VM {#vm}
 
-  If {{ unified-agent-short-name }} was installed this way, the `unified_agent` binary file and the `config.yml` default configuration file are copied to the VM. Therefore, {{ unified-agent-short-name }} is deleted the same way as the binary file.
+  If {{ unified-agent-short-name }} was installed this way, the `unified_agent` binary file and the `config.yml` default configuration file are copied to the VM. Therefore, {{ unified-agent-short-name }} is deleted the same way as the binary file. 
  
-  Information about the installed {{ unified-agent-short-name }} is stored in the VM metadata. When deleting {{ unified-agent-short-name }}, metadata is not updated automatically; however, you can do it manually.
+  Information about the installed {{ unified-agent-short-name }} is stored in the VM metadata. When deleting {{ unified-agent-short-name }}, metadata is not updating automatically; however, you can do it manually.
 
   {% note info %}
 

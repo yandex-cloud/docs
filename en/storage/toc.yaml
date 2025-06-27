@@ -121,7 +121,7 @@ items:
         items:
           - name: Overview
             href: tutorials/search-events-audit-logs/index.md
-          - name: Tools for working with audit logs
+          - name: Tools for operations with audit logs
             href: tutorials/search-events-audit-logs/tools.md
           - name: Sample requests for searching events
             href: tutorials/search-events-audit-logs/examples.md
@@ -284,6 +284,10 @@ items:
         href: tutorials/yq-federative-queries.md
       - name: Recognizing text in image archives using {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
+      - name: >-
+          Regular recognition of images and PDF documents from an {{
+          objstorage-short-name }} bucket
+        href: tutorials/vision-ocrrecognizer-storage.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
       - name: Automating tasks using {{ maf-short-name }}

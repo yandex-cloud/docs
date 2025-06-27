@@ -5,6 +5,12 @@ description: Follow this guide to create a proxy server to process incoming requ
 
 # Creating a proxy server
 
+{% note info %}
+
+The proxy server has an MTU limit of 1,450 bytes for all packets.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 A [proxy server](../concepts/domain-protect.md#proxy) accepts requests from users to your website or web application and forwards them for validation. 
@@ -13,22 +19,24 @@ You can add multiple proxy servers, for example, to separate the application's s
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Open the **Domain protection** section.
-  1. Click **Create proxy server**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
+  1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
   1. Enter a name for the proxy server.
-  1. Optionally, enter a description.
+  1. Optionally, provide a description.
   1. Optionally, add [labels](../../resource-manager/concepts/labels.md).
-  1. To save detailed information about operations with requests:
-     1. Enable the **Log requests** option.
-     1. Select an existing log group or [create a new one](../../logging/operations/create-group.md).
-  1. To reduce the volume of logs in storage, add log discard rules:
-      1. Click **Add rule**.
-      1. Select **HTTP codes** or **HTTP code classes** for which logs will be discarded.
-      1. Specify what percentage of logs to discard.
-      1. Add another rule if a different percentage is required for different HTTP codes.
-  1. Click **Create server**.
+  1. Optionally, to save detailed information about operations with requests:
+
+      1. Enable **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}**.
+      1. Select an existing log group or [create a new one](../../logging/operations/create-group.md).
+      1. Optionally, to reduce the stored log data volume, add log discard rules:
+
+          1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.add-rule_fnmLk }}**.
+          1. Select **HTTP codes** and, optionally, **HTTP code classes** to discard logs for.
+          1. Specify what percentage of logs to discard.
+          1. Add more rules to use different discard percentages for different HTTP codes.
+  1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
 
 {% include [after-proxy-create](../../_includes/smartwebsecurity/after-proxy-create.md) %}
 
