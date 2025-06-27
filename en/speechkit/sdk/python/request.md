@@ -27,6 +27,7 @@ Below, we provide an example of synchronous speech recognition from an audio fil
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
    1. Create a file named `test.py` and add the following code to it:
 
+            
       ```python
       from argparse import ArgumentParser
       from speechkit import model_repository, configure_credentials, creds
@@ -65,6 +66,8 @@ Below, we provide an example of synchronous speech recognition from an audio fil
 
          recognize(args.audio)
       ```
+
+
 
       Where:
 

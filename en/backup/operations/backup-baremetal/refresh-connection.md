@@ -20,7 +20,7 @@ If you deploy a backup of one server to another, the original server's connectio
 
           {% note info %}
 
-          If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
+          If you are using a distribution other than Ubuntu, install the specified tools using your package manager.
 
           {% endnote %}
 

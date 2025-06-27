@@ -4,7 +4,7 @@ To assign a domain name in {{ dns-name }} to a web server VM:
 1. [Create a web server VM](#create-web-server).
 1. [Create a public DNS zone](#configure-dns).
 1. [Delegate your domain to {{ dns-name }}](#delegate-domain).
-1. [Create a type `A` resource record](#create-record).
+1. [Create a type A resource record](#create-record).
 1. [Test the website](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -115,7 +115,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
       | Inbound | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Inbound | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Inbound | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Outbound | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -218,7 +218,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
   1. In the window that opens, find and select [LAMP](/marketplace/products/yc/lamp).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `webserver-subnet-{{ region-id }}-b`, which you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `webserver-subnet-{{ region-id }}-b`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `webserver-sg` security group you created earlier.
 
@@ -310,7 +310,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify your domain’s [DNS zone](../../dns/concepts/dns-zone.md) settings:
 
-      1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. Its name must end with a trailing dot, e.g., `example.com.` for the `example.com` domain. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use the [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
+      1. **{{ ui-key.yacloud.dns.label_zone }}**: Domain zone. Its name must end with a trailing dot, e.g., `example.com.` for the `example.com` domain. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
       1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
       1. **{{ ui-key.yacloud.common.name }}**: DNS zone name.
 
@@ -356,9 +356,9 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
 
 {% include [dns-delegate](../_tutorials_includes/bind-domain-vm/dns-delegate.md) %}
 
-## Create a type `A` resource record {#create-record}
+## Create a type A resource record {#create-record}
 
-In your DNS zone, create a [type `A` resource record](../../dns/concepts/resource-record.md#a) pointing to your web server public IP address:
+In your DNS zone, create a [type A resource record](../../dns/concepts/resource-record.md#a) pointing to your web server public IP address:
 
 {% list tabs group=instructions %}
 

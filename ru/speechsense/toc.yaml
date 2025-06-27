@@ -105,6 +105,7 @@ items:
         href: tutorials/auto-upload.md
       - name: Интеграция с Битрикс24
         href: tutorials/bitrix24.md
+        hidden: true
   - name: Концепции
     items:
       - name: Иерархия ресурсов

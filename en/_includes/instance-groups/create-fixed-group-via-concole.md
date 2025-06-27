@@ -1,30 +1,30 @@
 1. In the [management console]({{ link-console-main }}), select a folder to create your VM group in.
-1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
 1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
-   * Enter a name and description for your instance group. The naming requirements are as follows:
+   * Enter a name and description for your instance group. Follow these naming requirements:
 
      {% include [name-format](../name-format.md) %}
 
      {% include [name-fqdn](../compute/name-fqdn.md) %}
 
-   * Select the [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete VMs in the group, assign the [compute.editor](../../compute/security/index.md#compute-editor) role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of the service account.
+   * Select the [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete VMs in the group, assign the [compute.editor](../../compute/security/index.md#compute-editor) role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
 
      {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-   * Enable **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}**, if required. You cannot delete a group with this option enabled.
+   * Enable **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}**, if required. You cannot delete a group while it is enabled.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required zones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances from a single group may reside in [different availability zones](../../overview/concepts/geo-scope.md).
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../compute/concepts/instance-groups/instance-template.md).
-   * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the instance boot [disk](../../compute/concepts/disk.md).
+   * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the VM instance boot [disk](../../compute/concepts/disk.md).
 
    * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
      * Select the [disk type](../../compute/concepts/disk.md#disks_types).
      * Specify the disk size.
      * To add more disks, click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-     * Select the [platform](../../compute/concepts/vm-platforms.md).
+     * Select a [platform](../../compute/concepts/vm-platforms.md).
      * Enter the required number of vCPUs, [guaranteed vCPU share](../../compute/concepts/performance-levels.md), and the amount of RAM.
 
      * {% include [include](specify-preemptible-vm.md) %}
@@ -34,8 +34,8 @@
 
      {% include [network-settings-group](../../_includes/compute/network-settings-group.md) %}
 
-   * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for accessing the instance:
-     * Select the service account to link to the instance.
+   * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
+     * Select the service account to link to the VM instance.
      * If you selected a Linux [image](../../compute/concepts/image.md), fill out the **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}** fields. Provide the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file as the key value.
      * Enable `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`, if required.
    * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.

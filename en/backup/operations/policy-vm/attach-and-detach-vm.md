@@ -12,7 +12,7 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder where you want to link a VM or {{ baremetal-name }} server to a backup policy.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}** tab.
   1. Select the policy to link the VM or {{ baremetal-name }} server to.
   1. Under **{{ ui-key.yacloud.backup.title_linked-recourses }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**, and in the window that opens:

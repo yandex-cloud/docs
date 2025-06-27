@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Select a [GPU-optimized image](/marketplace?search=gpu) and OS version under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
@@ -19,7 +19,7 @@
 1. {% include [section-storages-filesystem](section-storages-filesystem.md) %}
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
-    * Go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}** tab.
+    * Navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}** tab.
     * Select one of these [platforms](../../../compute/concepts/vm-platforms.md#gpu-platforms):
 
         * {{ v100-broadwell }}

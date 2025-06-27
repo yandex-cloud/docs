@@ -1,6 +1,6 @@
 ---
-title: Зашифровать снимок
-description: Следуя данной инструкции, вы сможете зашифровать снимок.
+title: Зашифровать снимок в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете зашифровать снимок диска в {{ compute-short-name }}.
 ---
 
 # Зашифровать снимок
@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [encryption-preparations](../../../_includes/compute/encryption-preparations.md) %}
   1. Создайте зашифрованный диск из снимка, который вы хотите зашифровать:
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать зашифрованный диск.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен исходный снимок.
       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks.label_title }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
@@ -22,7 +22,6 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      1. Выберите ту же [зону доступности](../../../overview/concepts/geo-scope.md), в которой находился исходный диск.
       1. Задайте параметры диска: [тип диска](../../../compute/concepts/disk.md#disks_types), а также [размер блока](../../../compute/concepts/disk.md#maximum-disk-size) и [размер диска](../../../compute/concepts/disk.md#maximum-disk-size).
       1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и в списке ниже отметьте снимок, который создали ранее. Для поиска снимка воспользуйтесь фильтром.
       1. В блоке **{{ ui-key.yacloud.compute.disk-form.section_encryption }}** включите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** и в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** выберите [ключ](../../../kms/concepts/key.md), созданный ранее.
@@ -51,8 +50,7 @@ description: Следуя данной инструкции, вы сможете
         --deletion-protection
       ```
 
-      Где:
-      * `--name` — имя создаваемого ключа {{ kms-name }}.
+      Где `--name` — имя создаваемого ключа {{ kms-name }}.
 
       Результат:
 
@@ -106,12 +104,12 @@ description: Следуя данной инструкции, вы сможете
 
       ```text
       done (53s)
-      id: fhmihpagi991amj4m7h3
+      id: fhmihpagi991********
       folder_id: b1geoelk7fld********
       created_at: "2025-05-20T17:39:01Z"
-      name: fromcliencrypte
+      name: fromcliencrypted
       type_id: network-hdd
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       size: "21474836480"
       block_size: "4096"
       status: READY
@@ -138,8 +136,8 @@ description: Следуя данной инструкции, вы сможете
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       |          ID          |     NAME     |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     |       DESCRIPTION       |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
-      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | ru-central1-a | READY  | a7lcvu28njbh******** |                         |
-      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | ru-central1-a | READY  |                      |                         |
+      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbh******** |                         |
+      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       ```
 
@@ -200,7 +198,7 @@ description: Следуя данной инструкции, вы сможете
       # Создание ключа {{ kms-full-name }}
 
       resource "yandex_kms_symmetric_key" "my-key" {
-        name                = "Encrypt key"
+        name                = "encrypt-key"
         default_algorithm   = "AES_256"
         rotation_period     = "8760h"
         deletion_protection = true
@@ -214,10 +212,10 @@ description: Следуя данной инструкции, вы сможете
       resource "yandex_compute_disk" "encrypted-disk" {
         name        = "new-encrypted-disk"
         type        = "network-hdd"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
         size        = 20
         block_size  = 4096
-        snapshot_id = "<идентификатор_незашифрованного_снимка"
+        snapshot_id = "<идентификатор_незашифрованного_снимка>"
         kms_key_id  = yandex_kms_symmetric_key.my-key.id
       }
 
@@ -231,7 +229,7 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
-      * `source_snapshot` — идентификатор незашифрованного снимка.
+      * `snapshot_id` — идентификатор незашифрованного снимка.
       * `name` — имя создаваемого зашифрованного снимка.
 
       Более подробную информацию о параметрах ресурса `yandex_compute_snapshot` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot).
@@ -243,7 +241,7 @@ description: Следуя данной инструкции, вы сможете
       {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
 
   1. [Удалите](../disk-control/delete.md) зашифрованный диск.
-  1. [Удалите](../disk-control/delete.md) исходный снимок.
+  1. [Удалите](../snapshot-control/delete.md) исходный снимок.
 
 
 - API {#api}
@@ -269,3 +267,4 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](../../concepts/encryption.md)
 * [{#T}](../disk-control/disk-encrypt.md)
+* [{#T}](../image-control/encrypt.md)

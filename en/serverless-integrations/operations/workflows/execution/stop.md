@@ -9,6 +9,14 @@ If you stop a [workflow](../../../concepts/workflows/workflow.md) execution, {{ 
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where the [workflow execution](./start.md) is in progress.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}** and select a workflow.
+  1. In the left-hand panel, click ![image](../../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**.
+  1. Next to the execution, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../../_assets/console-icons/circle-stop.svg) **{{ ui-key.yacloud.serverless-workflows.label_stop-workflow }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../../_includes/cli-install.md) %}

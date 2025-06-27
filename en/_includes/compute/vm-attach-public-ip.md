@@ -5,9 +5,9 @@
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Select the VM in question.
+  1. Select the VM.
   1. In the window that opens, under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**. In the window that opens:
-      * In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` to get an IP address automatically assigned or `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` to choose a reserved address from the list.
+      * In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` to get an IP address automatically or `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` to choose a reserved address from the list.
       * Optionally, if you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, enable **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_ddos-protection-provider }}**. For more information, see [{#T}](../../vpc/ddos-protection/index.md).
       * If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, choose the IP address you want to assign to your VM. The IP address and the VM must be in the same availability zone.
       * Click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
@@ -28,13 +28,13 @@
   ```
 
   Where:
-  * `--id`: VM ID. You can get a list of available VM IDs in a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) using the `yc compute instance list` [CLI command](../../cli/cli-ref/compute/cli-ref/instance/list.md).
-  * `--network-interface-index`: VM network interface number. The default value is `0`. To get a list of VM network interfaces and their numbers, run the following command: `yc compute instance get <VM_ID>`.
-  * `--nat-address`: Public IP address to assign to the VM. This is an optional parameter. If you omit it, a public IP address will be assigned to the VM automatically.
+  * `--id`: VM ID. You can get a list of available VM IDs in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) using the `yc compute instance list` [CLI command](../../cli/cli-ref/compute/cli-ref/instance/list.md).
+  * `--network-interface-index`: VM network interface number. The default value is `0`. To get a list of VM network interfaces and their numbers, run `yc compute instance get <VM_ID>`.
+  * `--nat-address`: Public IP address to assign to the VM. This is an optional setting. If you skip it, the VM will get a public IP address automatically.
 
-    You can get a list of reserved public IP addresses available in a folder using the `yc vpc address list` [CLI command](../../cli/cli-ref/vpc/cli-ref/address/list.md). The IP address and the VM must be in the same availability zone.
+    You can get a list of reserved public IP addresses available in the folder using the `yc vpc address list` [CLI command](../../cli/cli-ref/vpc/cli-ref/address/list.md). The IP address and the VM must be in the same availability zone.
 
-  Usage example:
+  Here is a possible use case:
 
   ```bash
   yc compute instance add-one-to-one-nat \
@@ -107,12 +107,12 @@
 
      The IP address and the VM must be in the same availability zone.
 
-     For more information about the `yandex_compute_instance` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+     For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -120,4 +120,4 @@
 
 {% endlist %}
 
-Your VM network interface will have a public IP address assigned. You can use this IP address to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via SSH.
+Your VM network interface will have a public IP address assigned. You can use this IP address to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.

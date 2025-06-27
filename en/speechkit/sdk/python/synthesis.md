@@ -28,6 +28,7 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
    1. Create a file named `test.py` and add the following code to it:
 
+      
       ```python
       from argparse import ArgumentParser
 
@@ -60,6 +61,8 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
 
          synthesize(args.text, args.export)
       ```
+
+
 
       Where:
 

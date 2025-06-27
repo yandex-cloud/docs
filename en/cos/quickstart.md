@@ -1,5 +1,5 @@
 ---
-title: Getting started with {{ cos-name }}
+title: How to get started with {{ cos-name }}
 description: Follow this guide to create a VM from a {{ coi }} and run a Docker container on it.
 ---
 
@@ -79,7 +79,7 @@ If the required Docker image has been pushed to {{ container-registry-name }}, c
 
      * `--public-ip`: Public IP address allocated to the VM.
      * `--container-name`: Docker container name.
-     * `--container-image`: Name of the Docker image used to run the Docker container.
+     * `--container-image`: Name of the Docker image for running the Docker container.
      * `--container-command`: Command to run when you start the Docker container.
      * `--container-arg`: Parameters for the command specified in `--container-command`.
      * `--container-env`: Environment variables available in the Docker container.

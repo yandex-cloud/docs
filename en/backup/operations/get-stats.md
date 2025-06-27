@@ -1,6 +1,6 @@
 # Viewing backup statistics
 
-{{ backup-name }} automatically supplies the metrics on the number of protected VMs and {{ baremetal-full-name }} servers, as well as storage space used by backups, to [{{ monitoring-full-name }}](../../monitoring/).
+{{ backup-name }} automatically delivers metrics on the number of protected VMs and {{ baremetal-full-name }} servers, as well as storage space used by backups, to [{{ monitoring-full-name }}](../../monitoring/).
 
 To view the statistics:
 
@@ -15,8 +15,8 @@ To view the statistics:
 
      If you select `*` for this field, the dashboard will display the aggregate statistics for all VMs and {{ baremetal-name }} servers in the folder.
 
-  1. Select the time period to view the statistics for.
-  1. To refresh a dashboard, click ![](../../_assets/console-icons/arrows-rotate-right.svg). Next to the button, you can also set the statistics auto refresh rate.
+  1. Select the statistics time interval.
+  1. To refresh the dashboard, click ![](../../_assets/console-icons/arrows-rotate-right.svg). You can also set the auto refresh rate next to this button.
 
 {% endlist %}
 

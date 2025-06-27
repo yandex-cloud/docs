@@ -62,7 +62,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-          * Select the `nlb-network` cloud network and its subnets.
+          * Select the cloud network named `nlb-network` and its subnets.
           * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:

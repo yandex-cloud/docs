@@ -1,6 +1,6 @@
 # Using file storages
 
-A [file storage](../../concepts/filestores.md) allows you to store large amounts of information and access it from your notebooks.
+With {{ ml-platform-name }} [file storages](../../concepts/filestores.md), you can store large amounts of information and access it from your notebooks.
 
 ## Creating a file storage {#create}
 
@@ -15,29 +15,27 @@ A [file storage](../../concepts/filestores.md) allows you to store large amounts
 1. Under **Storage volume, GB**, set the storage size you need. At the bottom of the window, you will see the total cost of storage per month.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. You will now see a page with information on the file storage you just created.
 
-## Updating a file storage {#change}
+## Mounting a file storage to a project {#mount}
 
-1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
-1. In the list of file storages, select the one you want to update, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yc-ui-datasphere.common.edit }}**.
-1. Update the file storage: edit its name and connection name.
-1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
+Go to the file storage page and click **{{ ui-key.yc-ui-datasphere.common.activate }}**. Once activated, the file storage will be available in the `/filestore/` folder of the {{ jlab }}Lab file browser, and you will be able to view it as a file system.
 
-## Activating a file storage {#activate}
+## Using a file storage in a project {#usage}
 
-Newly created file storages are deactivated. To activate a file storage:
+You can access files in the storage from your project code. Right-click the file you need and select **Copy path**. This will copy the file path to the clipboard. Paste the copied path wherever you need in the project.
 
-1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
-1. In the row with the file storage, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.activate }}**.
-
-The activated file storage will appear in the {{ ml-platform-name }} root directory in the {{ jlab }}Lab interface.
-
-## Deactivating a file storage {#deactivate}
+## Unmounting a file storage {#deactivate}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
 1. In the row with the file storage, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.deactivate }}**.
+
+## Updating a file storage {#change}
+
+1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
+1. In the file storage row, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Update the file storage: edit its name and connection name and add a description.
+1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 ## Sharing a file storage {#share}
 
@@ -59,7 +57,7 @@ To make the file storage available in a different project, the project admin has
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![filestore](../../../_assets/console-icons/cube.svg) **{{ ui-key.yc-ui-datasphere.resources.filestore }}**.
-1. In the list of file storages, select the one you want to delete, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. In the file storage row, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message stating that the file storage was deleted.

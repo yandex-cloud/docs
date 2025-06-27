@@ -7,20 +7,20 @@ description: This section describes the resources you can assign a role for and 
 
 In this section, you will learn:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles).
+* [What resources you can assign a role for](#resources).
+* [What roles exist in this service](#roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `smart-web-security.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `smart-web-security.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 You can assign a role for an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned for an organization, cloud, or folder also apply to security profiles in them.
 
-## Which roles exist in the service {#roles-list}
+## What roles exist in this service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 

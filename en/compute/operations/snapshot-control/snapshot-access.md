@@ -17,7 +17,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Select the disk snapshot from the list.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the disk snapshot.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
@@ -94,7 +94,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `snapshot_id`: Snapshot ID.
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `role`: [Role](../../security/index.md#roles-list) being assigned.
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_snapshot_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_iam_binding).
@@ -125,7 +125,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Select the disk snapshot from the list.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the disk snapshot.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
@@ -166,7 +166,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      * `--access-binding`: Role to assign:
 
        * `role`: ID of the role to assign.
-       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you are assigning the role to.
 
      For example, this command will assign roles to multiple users and a single service account:
 
@@ -183,7 +183,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   To assign multiple roles for a snapshot using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_compute_snapshot_iam_binding" "role-1" {
@@ -202,7 +202,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `snapshot_id`: Snapshot ID.
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `role`: [Role](../../security/index.md#roles-list) being assigned.
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_snapshot_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_iam_binding).
@@ -233,7 +233,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Select the disk snapshot from the list.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Click ![cross](../../../_assets/console-icons/xmark.svg) next to a role to delete it.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -266,7 +266,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       Where:
 
-      * `--role`: ID of the role to revoke.
+      * `--role`: ID of the role you want to revoke.
       * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
       For example, this command revokes the `{{ roles-viewer }}` role for the disk snapshot from a user with the `ajel6l0jcb9s********` ID:

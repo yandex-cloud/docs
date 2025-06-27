@@ -17,7 +17,7 @@ By default, serial console access is disabled.
 ## Getting started {#before-you-begin}
 
 Before you enable serial console access on a VM:
-1. Prepare a key pair (public and private keys) for SSH access to your VM. The serial console authenticates users via SSH keys.
+1. Prepare a key pair (public and private keys) for SSH access to your VM. The serial console authenticates users with SSH keys.
 1. Create a text file, e.g., `sshkeys.txt`, and specify the following:
 
    ```txt
@@ -106,7 +106,7 @@ For the serial console to be accessible from the OS side, configure the OS accor
 
 To connect to a Linux serial console, make sure [SSH password authentication is disabled](#ssh-pass-off) and [set a password](#create-pass) for the OS user, if required.
 
-#### Disabling SSH password authentication {#ssh-pass-off}
+#### Disable SSH password authentication {#ssh-pass-off}
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 

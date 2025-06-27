@@ -58,7 +58,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
      1. Assign the `compute.editor` role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding <folder_ID> \
+        yc resource-manager folder add-access-binding <catalog_ID> \
           --role compute.editor \
           --subject serviceAccount:<service_account_ID>
         ```
@@ -66,7 +66,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
       1. Assign the `load-balancer.editor` role to the service account:
 
           ```bash
-          yc resource-manager folder add-access-binding <folder_ID> \
+          yc resource-manager folder add-access-binding <catalog_ID> \
             --role load-balancer.editor \
             --subject serviceAccount:<service_account_ID>
           ```
@@ -164,7 +164,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create an instance group.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
      1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -266,7 +266,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Click `group-for-load`.
 
@@ -372,7 +372,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Click `load-generator`.
 
    - CLI {#cli}
@@ -406,7 +406,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
    
      1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Copy the **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** of the `load-generator` load balancer.
      
    - CLI {#cli}
@@ -535,7 +535,7 @@ To delete the created resources:
       1. In the window that opens, click **{{ ui-key.yacloud.common.remove }}**.
    1. Delete the instance group:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
       1. To the right of `load-generator`, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.

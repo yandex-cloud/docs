@@ -61,14 +61,14 @@ To get information about an instance group:
      * `data "yandex_compute_instance_group"`: Description of the data source to get information about the instance group from:
        * `instance_group_id`: Instance group ID.
      * `output "instancegroupvm_external_ip"`: List of all [public IP addresses](../../../vpc/concepts/address.md#public-addresses) of the group instances to return in the output:
-       * `value`: Returned value.
+       * `value`: Return value.
 
      For more information about the `yandex_compute_instance_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_instance_group).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output instancegroupvm_external_ip

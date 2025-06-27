@@ -191,7 +191,7 @@ We will create an instance group with manual scaling so that the {{ sf-name }} f
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. At the top right, click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -225,7 +225,7 @@ We will create an instance group with manual scaling so that the {{ sf-name }} f
 
 - CLI {#cli}
 
-  1. Get the IDs of the resources you created in the previous steps:
+  1. Get the IDs of the resources you created at the previous steps:
      * `vm-scale-scheduled-sa` service account ID:
 
        ```bash
@@ -399,7 +399,7 @@ The function will contain the code with the {{ yandex-cloud }} CLI commands used
        --execution-timeout 60s \
        --service-account-id <service_account_ID> \
        --environment \
-         IG_NAME=vm-scale-scheduled-ig,IG_BASE_SIZE=2,FOLDER_ID=<folder_ID>
+         IG_NAME=vm-scale-scheduled-ig,IG_BASE_SIZE=2,FOLDER_ID=<catalog_ID>
      ```
 
      Where:

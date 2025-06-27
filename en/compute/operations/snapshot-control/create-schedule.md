@@ -72,7 +72,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
      * `--snapshot-count 5`: Retain 5 latest snapshots.
      * `--retention-period 72h`: Retain snapshots for the last 3 days.
 
-     To add the start date for a schedule, specify the `--start-at` parameter, such as follows:
+     To add the start date for a schedule, specify the `--start-at` parameter. Here is an example:
      * `--start-at "2022-12-31T16:39:00+05:00"`: Schedule starts at 16:39 UTC+5 on December 31, 2022.
      * `--start-at "2h"`: Schedule starts two hours before the current time point.
 
@@ -150,7 +150,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
        * `labels`: Snapshot [label](../../../overview/concepts/services.md#labels) in `<key> = "<value>"` format.
      * `disk_ids`: IDs of disks to create snapshots for. This is a required parameter.
 
-     For more information about the `yandex_compute_snapshot_schedule` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
+     For more information about `yandex_compute_snapshot_schedule` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

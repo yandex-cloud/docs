@@ -20,7 +20,7 @@ Get an access key from your S3 storage provider. To do this in [{{ objstorage-fu
 1. Optionally, in the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.secret }}** and [create a secret](secrets.md#create) with the secret part of the static access key for your service account. You can also create a secret when creating an S3 connector.
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Fill in the fields as follows:
-   * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the new connector. The naming requirements are as follows:
+   * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the new connector. Follow these naming requirements:
 
      {% include [name-format](../../../_includes/name-format-2.md) %}
 
@@ -79,7 +79,7 @@ You can only delete a [deactivated](#unmount) connector that is not available to
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/bucket.svg)**{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
-1. In the list of S3 connectors, select the one you want to delete. Click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Next to the S3 storage, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the secret has been deleted.

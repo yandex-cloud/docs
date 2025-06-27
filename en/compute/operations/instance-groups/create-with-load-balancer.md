@@ -23,11 +23,11 @@ To create an instance group with an L7 load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your instance group.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
-     * Enter a name and description for your instance group. The naming requirements are as follows:
+     * Enter a name and description for your instance group. Follow these naming requirements:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -41,7 +41,7 @@ To create an instance group with an L7 load balancer:
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required zones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances from a single group may reside in [different availability zones](../../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the instance boot [disk](../../concepts/disk.md).
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the VM instance boot [disk](../../concepts/disk.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
        * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
        * Specify the disk size.
@@ -55,8 +55,8 @@ To create an instance group with an L7 load balancer:
 
        {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
 
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for accessing the instance:
-       * Select the service account to link to the instance.
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
+       * Select the service account to link to the VM instance.
        * If you selected a Linux [image](../../concepts/image.md), fill out the **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}** fields. Provide the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file as the key value.
        * Enable `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`, if required.
      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
@@ -121,7 +121,7 @@ To create an instance group with an L7 load balancer:
        ```
 
        Where:
-       * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
+       * `name`: Instance group name. The name must be unique within the catalog. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
        * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
 
          To create, update, and delete VM instances in the group, as well as integrate the group with an {{ alb-name }} L7 load balancer, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) roles to a service account. By default, all operations you perform with an instance group are run under a service account.
@@ -209,7 +209,7 @@ To create an instance group with an L7 load balancer:
 
        Where:
        * `target_group_spec`: Specification of the {{ alb-name }} target group linked to the instance group.
-       * `name`: Name for the {{ alb-name }} target group. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
+       * `name`: Name for the {{ alb-name }} target group. The name must be unique within the catalog. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
 
        For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
 
@@ -285,20 +285,20 @@ To create an instance group with an L7 load balancer:
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "compute_editor" {
-       folder_id = "<folder_ID>"
+       folder_id = "<catalog_ID>"
        role      = "compute.editor"
        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "load-balancer-editor" {
-       folder_id = "<folder_ID>"
+       folder_id = "<catalog_ID>"
        role      = "alb.editor"
        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
      resource "yandex_compute_instance_group" "ig-1" {
        name                = "fixed-ig-with-balancer"
-       folder_id           = "<folder_ID>"
+       folder_id           = "<catalog_ID>"
        service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
        deletion_protection = "<deletion_protection>"
        instance_template {
@@ -364,7 +364,7 @@ To create an instance group with an L7 load balancer:
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * `yandex_resourcemanager_folder_iam_member`: Description of the service account's access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
+     * `yandex_resourcemanager_folder_iam_member`: Service account access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
        * `role = "compute.editor"`: Service account gets the [compute.editor](../../security/index.md#compute-editor) role to create, update, and delete VMs in the group.
        * `role = "alb.editor"`: Service account gets the [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) role to integrate the VM group with an {{ alb-name }}.
      * `yandex_compute_instance_group`: Instance group description:
@@ -390,7 +390,7 @@ To create an instance group with an L7 load balancer:
          * `target_group_description`: Target group description.
          For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
      * `yandex_vpc_network`: Cloud network description.
-     * `yandex_vpc_subnet`: Description of the subnet to which you connect the instance group.
+     * `yandex_vpc_subnet`: Description of the subnet the instance group will be connected to.
 
      {% note info %}
 

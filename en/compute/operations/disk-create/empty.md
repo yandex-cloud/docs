@@ -15,7 +15,7 @@ You can create an empty disk of the specified size.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-  1. Enter a name for the disk. The naming requirements are as follows:
+  1. Enter a name for the disk. Follow these naming requirements:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -63,7 +63,7 @@ You can create an empty disk of the specified size.
 
       * `--size`: Disk size.
       * `--description`: Disk description.
-      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
 
         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
         

@@ -36,7 +36,7 @@
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Select `auto-group`.
-     1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
         The load balancer sent the request to an instance in the group. In the availability zone this instance belongs to, the average CPU utilization is higher than in other zones (see the **Average CPU utilization in zone** chart).
 

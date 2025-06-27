@@ -67,6 +67,7 @@
 * [{{ org-full-name }}](../organization/release-notes.md)
 * [{{ iam-full-name }}](../iam/release-notes.md)
 * [{{ monitoring-full-name }}](../monitoring/release-notes.md)
+* [{{ cloud-logging-full-name }}](../logging/release-notes.md)
 * [{{ resmgr-full-name }}](../resource-manager/release-notes.md)
 
 ## Машинное обучение {#ml-ai}

@@ -14,8 +14,9 @@ With {{ sf-name }}, you can run applications written in [Node.js](https://nodejs
 | nodejs10 | 10.16.3 | 1.3.3 | Ubuntu 18.04 | No | No |
 | nodejs12 | 12.22.10 | 1.3.3 | Ubuntu 18.04 | No | No |
 | nodejs14 | 14.19.0 | 1.3.3 | Ubuntu 18.04 | No | No |
-| nodejs16 | 16.14.1 | None | Ubuntu 18.04 | Yes | No |
-| nodejs18 | 18.16.1 | None | Ubuntu 22.04 LTS | Yes | Yes |
+| nodejs16 | 16.14.1 | none | Ubuntu 18.04 | Yes | No |
+| nodejs18 | 18.16.1 | none | Ubuntu 22.04 LTS | Yes | No |
+| nodejs22 | 22.15.0 | none | Ubuntu 22.04 LTS | Yes | Yes  |
 
 {% include [note-preload-runtime](../../../_includes/functions/note-preload-runtime.md) %}
 

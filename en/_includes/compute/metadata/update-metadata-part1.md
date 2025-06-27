@@ -104,7 +104,7 @@ To update the VM metadata:
     ...
     ```
 
-    If you are using an out-of-the-box public [image](../../../compute/concepts/image.md) from {{ marketplace-full-name }}, the specified username does not matter. The key will be assigned to the user specified in the `cloud-init` configuration by default. Such users vary depending on an image.
+    If you are using an out-of-the-box public [image](../../../compute/concepts/image.md) from {{ marketplace-full-name }}, the specified username does not matter. The key will be assigned to the user specified in the `cloud-init` configuration by default. Such users differ depending on the image.
 
     If you do not know the default user, find the string containing `Authorized keys from` in the [serial port output](../../../compute/operations/vm-info/get-serial-port-output.md). It will contain the name of the user the authorized keys are assigned to.
 

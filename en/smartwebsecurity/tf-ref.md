@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ sws-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ sws-full-name }}.
+description: This page provides information about the {{ TF }} provider’s resources and data sources that {{ sws-full-name }} supports.
 ---
 
 # {{ TF }} reference for {{ sws-full-name }}
@@ -9,9 +9,9 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ sws-full-name }}:
+{{ sws-full-name }} supports the following {{ TF }} provider resources:
 
-| **{{ TF }} resource** | **{{ yandex-cloud }} resource**|
+| **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [sws_security_profile]({{ tf-provider-resources-link }}/sws_security_profile) | [Security profile](./concepts/profiles.md) |
 | [sws_waf_profile]({{ tf-provider-resources-link }}/sws_waf_profile) | [WAF profiles](./concepts/waf.md) |

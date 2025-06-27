@@ -56,7 +56,7 @@ To create a virtual network and subnet for your web server:
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `webserver-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
@@ -132,7 +132,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter this name: `webserver-sg`.
@@ -143,7 +143,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
       | --- | --- | --- | --- | --- | --- |
       | Inbound | `Flask`           | `5000` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Inbound | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Outbound | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -227,14 +227,14 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `webserver-subnet-{{ region-id }}-b`.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `webserver-sg`, which you created earlier.
 
@@ -1430,7 +1430,7 @@ Your application is now ready. If you did everything correctly, the final source
 
 ## Summarize the results {#results}
 
-In this tutorial, you created a simple web application using [Flask](http://flask.pocoo.org/), [SQLite](https://sqlite.org/) [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/), [Jinja](http://jinja.palletsprojects.com/), and [Bootstrap](https://getbootstrap.com/). The result is a fully functional blog that allows you to create, read, edit, and delete posts using URL parameters and HTML forms.
+In this tutorial, you created a simple web application using [Flask](http://flask.pocoo.org/), [SQLite](https://sqlite.org/), [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/), [Jinja](http://jinja.palletsprojects.com/), and [Bootstrap](https://getbootstrap.com/). The result is a fully functional blog that allows you to create, read, edit, and delete posts using URL parameters and HTML forms.
 
 You can take this project further with a wide range of community-created [Flask extensions](http://flask.palletsprojects.com/en/latest/extensions/), e.g.:
 

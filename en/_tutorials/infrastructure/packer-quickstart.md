@@ -211,7 +211,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
         {
           "type":      "yandex",
           "token":     "<OAuth_token_or_IAM_token>",
-          "folder_id": "<folder_ID>",
+          "folder_id": "<catalog_ID>",
           "zone":      "<availability_zone>",
 
           "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name}}",

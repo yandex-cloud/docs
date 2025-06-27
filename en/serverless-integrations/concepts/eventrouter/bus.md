@@ -18,6 +18,6 @@ A _bus_ is a logical entity that groups events and links [connectors](connector.
 
 An event is a JSON object delivered to the bus in one of these ways:
 * Via a connector.
-* Using the [EventService/Put](../../eventrouter/api-ref/grpc/Event/put.md) gRPC API call. You can use the API to deliver user events.
+* Via the [EventService/Put](../../eventrouter/api-ref/grpc/Event/put.md) gRPC API call. You can use the API to deliver user events.
 
 An event is considered processed when all targets of all triggered rules return a successful response, or when the event is moved to a dead-letter queue.

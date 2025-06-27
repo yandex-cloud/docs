@@ -120,7 +120,7 @@ items:
                 href: operations/workflows/execution/start.md
               - name: Stopping a workflow execution
                 href: operations/workflows/execution/stop.md
-              - name: Force stopping a workflow execution
+              - name: Terminating a workflow execution
                 href: operations/workflows/execution/terminate.md
       - name: '{{ er-name }}'
         items:

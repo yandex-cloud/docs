@@ -1,5 +1,5 @@
-1. For authenticating with the API v2 as a service account, [create](../../iam/operations/sa/create.md) a service account.
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `search-api.webSearch.user` [role](../../search-api/security/index.md#search-api-webSearch-user) to the user or [service account](../../iam/concepts/users/service-accounts.md) you will use to run queries.
+1. [Create](../../iam/operations/sa/create.md) a service account you will use to send requests. You can also use a Yandex account or a federated account, but a [service account](../../iam/concepts/users/service-accounts.md) is a better choice for automation purposes.
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `search-api.webSearch.user` [role](../../search-api/security/index.md#search-api-webSearch-user) to the account you will use to send requests.
 1. [Get an IAM token](../../iam/operations/index.md#authentication), which is required for [authentication](../../search-api/api-ref/authentication.md). 
 
     The following examples use [IAM token](../../iam/concepts/authorization/iam-token.md) authentication. To use a service account's [API key](../../iam/concepts/authorization/api-key.md) for authentication, edit the `Authorization` header in the query examples. For more information, see [{#T}](../../search-api/api-ref/authentication.md).

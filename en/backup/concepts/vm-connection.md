@@ -29,7 +29,7 @@ On VMs and {{ baremetal-name }} servers , the {{ backup-name }} agent is availab
 
 {% list tabs group=backup_resource_type %}
 
-- VM instance {#vm}
+- VM {#vm}
 
   * [Astra Linux SE 1.7 Voronezh](/marketplace/products/astralinux/alse)
   * [Astra Linux SE 1.7 Orel](/marketplace/products/astralinux/alse-orel)
@@ -62,7 +62,7 @@ On VMs and {{ baremetal-name }} servers , the {{ backup-name }} agent is availab
 
 {% list tabs group=backup_resource_type %}
 
-- VM instance {#vm}
+- VM {#vm}
 
   * [Kosmos VM 2022 based on Windows Server Datacenter 2022](/marketplace/products/fotonsrv/kosmosvm2022)
   * [Kosmos VM 2019 based on Windows Server Datacenter 2019](/marketplace/products/fotonsrv/kosmosvm2019)
@@ -129,7 +129,7 @@ For the {{ backup-name }} agent to be able to exchange data with the [backup pr
 
 {% list tabs group=traffic %}
 
-- Outbound traffic {#outgoing}
+- Outgoing traffic {#outgoing}
 
   {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %}
 
@@ -140,7 +140,7 @@ To provide network access:
 
 {% list tabs group=backup_resource_type %}
 
-- VM instance {#vm}
+- VM {#vm}
 
   [Assign](../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../vpc/concepts/routing.md#rt-vm) that allows internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or a custom router.
 
@@ -158,7 +158,7 @@ To provide network access:
 
 {% list tabs group=backup_resource_type %}
 
-- VM instance {#vm}
+- VM {#vm}
 
   {% include [connection-statuses](../../_includes/backup/connection-statuses.md) %}
 
@@ -167,8 +167,8 @@ To provide network access:
   You can view the server connection to {{ backup-name }} status info in the [management console]({{ link-console-main }}) on the server list page in **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**. The following statuses are available:
 
   * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-ok }}`: {{ backup-name }} is connected to the server, backups are being created as per the specified policies, the {{ backup-name }} agent is online.
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-no-applications }}`: {{ backup-name }} is connected, but no policy has been assigned, no backups are being created.
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-failed }}`: The agent is offline or failed to register.
+  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-no-applications }}`: {{ backup-name }} is connected, but no policies are set up, and backups are not being created.
+  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-failed }}`: Agent is offline, or agent registration failed.
   * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-not-connected }}`: {{ backup-name }} is not connected to the server.
 
 {% endlist %}

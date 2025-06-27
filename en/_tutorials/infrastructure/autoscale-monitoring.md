@@ -391,7 +391,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      
      - CLI {#cli}
      
-       Run this command:
+       Run the following command:
        
        ```bash
        yc resource-manager folder get example-folder
@@ -430,7 +430,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
             
      - CLI {#cli}
      
-       Run this command:
+       Run the following command:
        
        ```bash
        yc vpc subnet get queue-autoscale-subnet-d
@@ -642,7 +642,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
         
        {% endcut %}
      
-     * In the `service_account_id` field, specify the `queue-autoscale-sa` ID.
+     * In the `service_account_id` field, specify the `queue-autoscale-sa` service account ID.
      
      To learn how to get the required IDs (except for the image ID and network ID), see [Create an application image](#create-image).
      
@@ -675,7 +675,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
                
        - CLI {#cli}
         
-         Run this command:
+         Run the following command:
           
          ```bash
          yc vpc network get queue-autoscale-network
@@ -698,9 +698,9 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
         
        {% endcut %}
        
-     * In the `service_account_id` field, specify the `queue-autoscale-sa` ID.
+     * In the `service_account_id` field, specify the `queue-autoscale-sa` service account ID.
      
-     To learn how to get the required IDs (except for the image ID and network ID), see [Create an application image](#create-image).
+     To learn how to get the required IDs (except for the image ID and network ID), see this section: [Create an application image](#create-image).
      
   1. To create the `queue-autoscale-ig` instance group as specified in `spec.yaml`, use the [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API call or the [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) REST API method.
 

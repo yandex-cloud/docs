@@ -12,6 +12,8 @@ How {{ mgl-name }} works:
 
 A {{ GL }} _instance_ is the service's primary entity. It is a VM deployed in {{ yandex-cloud }}. {{ mgl-name }} takes care of its routine maintenance, such as storage fault tolerance, security updates, automated {{ GL }} version upgrades, and so on.
 
+Users can mange instances from the [{{ yandex-cloud }} management console]({{ link-console-main }}), [CLI](../cli-ref/index.md), and [API](../api-ref/authentication.md).
+
 ## Instance configuration {#config}
 
 When creating an instance, you specify:
@@ -30,7 +32,7 @@ When creating an instance, you specify:
 
 ## {{ GLR }} {#runners}
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application which executes {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It allows running automated builds inside [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on [{{ compute-name }} VMs](../../compute/concepts/vm.md).
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application which executes {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on [{{ compute-name }} VMs](../../compute/concepts/vm.md).
 
 You can get started with {{ GLR }} in the following ways:
 

@@ -54,7 +54,7 @@ To delete an image:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To delete an image created with {{ TF }}, follow these steps:
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, go to the folder with the {{ TF }} configuration file.
   1. Delete the resources using this command:
 
      ```bash

@@ -265,6 +265,8 @@ items:
             href: operations/image-control/image-control-get-info.md
           - name: Импортировать образ из другого облака или каталога
             href: operations/image-control/import.md
+          - name: Зашифровать образ
+            href: operations/image-control/encrypt.md
           - name: Настроить права доступа к образу
             href: operations/image-control/access.md
           - name: Удалить образ

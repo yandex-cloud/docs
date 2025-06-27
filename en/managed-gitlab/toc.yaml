@@ -61,7 +61,7 @@ items:
         href: tutorials/test-vms-creation-via-gitlab-ci.md
       - name: Integration with {{ tracker-full-name }}
         href: tutorials/tracker-integration.md
-      - name: Invoking load testing from {{ GL }} CI
+      - name: Invoking a load test from {{ GL }} CI
         href: tutorials/loadtesting-gitlab-ci.md
       - name: Integration with Argo CD
         href: tutorials/argo-cd.md
@@ -85,6 +85,26 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: instance
+        items:
+          - name: Overview
+            href: cli-ref/instance/index.md
+          - name: create
+            href: cli-ref/instance/create.md
+          - name: delete
+            href: cli-ref/instance/delete.md
+          - name: get
+            href: cli-ref/instance/get.md
+          - name: list
+            href: cli-ref/instance/list.md
+          - name: start
+            href: cli-ref/instance/start.md
+          - name: stop
+            href: cli-ref/instance/stop.md
   - name: API reference
     items:
       - name: API authentication

@@ -1,6 +1,6 @@
 ---
 title: Reference for {{ sws-full-name }} metrics in {{ monitoring-full-name }}
-description: This page is a reference for {{ sws-name }} metrics delivered to {{ monitoring-full-name }}.
+description: This page contains a reference for {{ sws-name }} metrics delivered to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference

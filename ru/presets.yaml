@@ -6465,6 +6465,10 @@ default:
             add: Добавить
             add-and-go: Добавить и перейти к дашборду
             copy-and-go: Копировать и перейти к дашборду
+        juggler-modal:
+          form:
+            juggler-links:
+              title: Ссылки
         parametrizer:
           add: Добавить параметр
           dashboard:
@@ -6476,9 +6480,16 @@ default:
             custom: Набор значений
             query: Значение метки
             text-field: Текстовое поле
+      context-links:
+        label:
+          type:
+            url: Внешняя ссылка
+        target:
+          dashboard: Дашборд
       dashboard:
         dash:
           create-alert: Создать алерт
+          edit: Редактировать
           open-in-monitoring: Открыть в Мониторинге
           setup: Настроить виджет
         settings:
@@ -6576,6 +6587,9 @@ default:
           execute-query: Выполнить запрос
         hint:
           search-hotkey: 'Хоткей поиска: Cmd/Ctrl + Enter'
+      quicklinks:
+        action:
+          add-link: Добавить ссылку
       service:
         field:
           function: Функция агрегации

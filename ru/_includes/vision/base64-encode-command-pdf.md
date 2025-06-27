@@ -56,10 +56,10 @@
   
   ```go
   import (
-    "bufio"
-    "encoding/base64"
-    "io/ioutil"
-    "os"
+      "bufio"
+      "encoding/base64"
+      "io/ioutil"
+      "os"
   )
   
   // Откройте файл

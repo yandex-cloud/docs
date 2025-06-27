@@ -16,7 +16,7 @@ To avoid errors when recovering from a backup, start by comparing the parameters
       yc backup backup get --help
       ```
 
-  1. Get the ID of the appropriate backup:
+  1. Get the ID of the backup:
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-backup-id.md) %}
 

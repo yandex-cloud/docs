@@ -38,10 +38,14 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Recognizing text in image archives in {{ vision-name }}
+      - name: Recognizing text in image archives using {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
       - name: Telegram bot for text recognition in images
         href: tutorials/recognizer-bot.md
+      - name: >-
+          Regular recognition of images and PDF documents from an {{
+          objstorage-short-name }} bucket
+        href: tutorials/vision-ocrrecognizer-storage.md
   - name: Concepts
     items:
       - name: Overview
@@ -74,7 +78,7 @@ items:
     href: pricing.md
   - name: API references
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: OCR API
         items:

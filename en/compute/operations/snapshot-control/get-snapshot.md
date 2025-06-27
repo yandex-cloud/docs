@@ -67,14 +67,14 @@ title: How to get information about a disk snapshot in {{ compute-full-name }}
      * `data "yandex_compute_snapshot"`: Description of the disk snapshot as a data source:
        * `snapshot_id`: Disk snapshot ID.
      * `output "snapshot"`: Output variable that contains information about the disk snapshot size:
-       * `value`: Returned value.
+       * `value`: Return value.
 
      You can replace `storage_size` with any other parameter to get the information you need. For more information about the `yandex_compute_snapshot` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_snapshot).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output

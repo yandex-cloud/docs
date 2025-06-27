@@ -16,7 +16,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the [management console]({{ link-console-main }}), select the folder containing the instance group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
-  1. Select the group you need.
+  1. Select the group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the instance group.
@@ -88,7 +88,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the [management console]({{ link-console-main }}), select the folder containing the instance group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
-  1. Select the group you need.
+  1. Select the group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the instance group.
@@ -156,8 +156,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the [management console]({{ link-console-main }}), select the folder containing the instance group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
-  1. Select the group you need.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Select the group.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Click ![cross](../../../_assets/console-icons/xmark.svg) next to a role to delete it.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -190,7 +190,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      Where:
 
-     * `--role`: ID of the role to revoke.
+     * `--role`: ID of the role you want to revoke.
      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
      For example, this command revokes the `{{ roles-viewer }}` role for the instance group from a user with the `ajel6l0jcb9s********` ID:
