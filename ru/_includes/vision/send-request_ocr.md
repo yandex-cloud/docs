@@ -41,7 +41,7 @@
             "x-folder-id": "<идентификатор_каталога>",
             "x-data-logging-enabled": "true"}
     
-    w = requests.post(url=url, headers=headers, data=json.dumps(data))
+  w = requests.post(url=url, headers=headers, data=json.dumps(data))
   ```
 
 {% endlist %}
