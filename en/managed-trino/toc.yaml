@@ -22,13 +22,13 @@ items:
             href: operations/connect.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: Folders
+      - name: Catalogs
         items:
           - name: Getting a list of catalogs in a cluster
             href: operations/catalog-list.md
           - name: Creating a catalog
             href: operations/catalog-create.md
-          - name: Updating a folder
+          - name: Updating a catalog
             href: operations/catalog-update.md
           - name: Deleting a catalog
             href: operations/catalog-delete.md
@@ -54,6 +54,20 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: Catalog
+            items:
+              - name: Overview
+                href: api-ref/grpc/Catalog/index.md
+              - name: Get
+                href: api-ref/grpc/Catalog/get.md
+              - name: List
+                href: api-ref/grpc/Catalog/list.md
+              - name: Create
+                href: api-ref/grpc/Catalog/create.md
+              - name: Update
+                href: api-ref/grpc/Catalog/update.md
+              - name: Delete
+                href: api-ref/grpc/Catalog/delete.md
           - name: Cluster
             items:
               - name: Overview
@@ -86,6 +100,20 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Catalog
+            items:
+              - name: Overview
+                href: api-ref/Catalog/index.md
+              - name: Get
+                href: api-ref/Catalog/get.md
+              - name: List
+                href: api-ref/Catalog/list.md
+              - name: Create
+                href: api-ref/Catalog/create.md
+              - name: Update
+                href: api-ref/Catalog/update.md
+              - name: Delete
+                href: api-ref/Catalog/delete.md
           - name: Cluster
             items:
               - name: Overview

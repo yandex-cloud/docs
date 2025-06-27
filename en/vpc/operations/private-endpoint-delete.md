@@ -55,13 +55,13 @@ description: Follow this guide to delete a service connection (private endpoint)
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To delete a [service connection](../concepts/private-endpoint.md) created with {{ TF }}:
-  1. Open the {{ TF }} configuration file and delete the fragment with the `yandex_vpc_private_endpoint` resource description:
+  1. Open the {{ TF }} configuration file and delete the section describing the `yandex_vpc_private_endpoint` resource:
 
      ```hcl
      resource "yandex_vpc_private_endpoint" "vpc-endpoint" {
        name        = "<service_connection_name>"
        description = "<service_connection_description>"
-       network_id  = "<cloud_network_ID>
+       network_id  = "<cloud_network_ID>"
        
        # Service connection to Object Storage
        object_storage {}
@@ -72,14 +72,14 @@ description: Follow this guide to delete a service connection (private endpoint)
        }
 
        endpoint_address {
-         subnet_id = "<subnet_ID>
+         subnet_id = "<subnet_ID>"
        }
      }
      ```
 
   {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+  You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
   ```bash
   yc vpc private-endpoint list

@@ -27,7 +27,7 @@ To delete a snapshot:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI commands for deleting a snapshot:
+  1. See the description of the CLI commands for deleting snapshots:
 
      ```bash
      yc compute snapshot delete --help
@@ -50,7 +50,7 @@ To delete a snapshot:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To delete a snapshot created with {{ TF }}, follow these steps:
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, go to the folder with the {{ TF }} configuration file.
   1. Delete the resources using this command:
 
      ```bash

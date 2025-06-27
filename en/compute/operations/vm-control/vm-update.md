@@ -32,7 +32,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select `ID` or `NAME` of the VM you need, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Change the VM parameters, e.g., rename the VM:
 
      ```bash

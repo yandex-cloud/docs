@@ -219,6 +219,10 @@ items:
           Developing functions in Functions Framework and deploying them to {{
           serverless-containers-full-name }}
         href: tutorials/functions-framework-to-container.md
+      - name: >-
+          Regular recognition of images and PDF documents from an {{
+          objstorage-short-name }} bucket
+        href: tutorials/vision-ocrrecognizer-storage.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

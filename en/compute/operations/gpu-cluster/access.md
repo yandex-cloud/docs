@@ -18,7 +18,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the GPU cluster.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
@@ -74,7 +74,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: [Role](../../security/index.md#roles-list) to assign.
+       * `--role`: [Role](../../security/index.md#roles-list) being assigned.
 
 - {{ TF }} {#tf}
 
@@ -97,7 +97,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `gpu_cluster_id`: GPU cluster ID.
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `role`: [Role](../../security/index.md#roles-list) being assigned.
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_gpu_cluster_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_gpu_cluster_iam_binding).
@@ -129,7 +129,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the GPU cluster.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
@@ -190,7 +190,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   To assign multiple roles for a file storage using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_compute_gpu_cluster_iam_binding" "role1" {
@@ -209,7 +209,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `gpu_cluster_id`: GPU cluster ID.
-      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `role`: [Role](../../security/index.md#roles-list) being assigned.
       * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about the `yandex_compute_gpu_cluster_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_gpu_cluster_iam_binding).
@@ -231,7 +231,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% note alert %}
 
-  The `set-access-binding` method and the `GpuClusterService/SetAccessBindings` call completely overwrite access permissions for the resource. All current roles for the resource will be deleted.
+  The `setAccessBindings` method and the `GpuClusterService/SetAccessBindings` call overwrite all existing access permissions for the resource. All current roles for the resource will be deleted.
 
   {% endnote %}
 
@@ -247,7 +247,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Next to the role, click ![image](../../../_assets/cross.svg).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -280,8 +280,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      Where:
 
-     * `--role`: ID of the role to revoke.
-     * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+     * `--role`: ID of the role you want to revoke.
+     * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you want to revoke the role from.
 
      For example, this command revokes the `{{ roles-viewer }}` role for the GPU cluster from a user with the `ajel6l0jcb9s********` ID:
 

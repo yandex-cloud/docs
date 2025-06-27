@@ -34,7 +34,7 @@ For configuration steps, see [{#T}](custom-image.md).
 Upload your image file to {{ objstorage-name }} and get a link to it:
 
 1. If you do not have a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }} yet, [create](../../../storage/operations/buckets/create.md) one with restricted access.
-1. Upload the image to your bucket, for example, [using the management console](../../../storage/operations/objects/upload.md), [AWS CLI](../../../storage/tools/aws-cli.md), or [WinSCP](../../../storage/tools/winscp.md). Within the {{ objstorage-name }} context, the uploaded image is called an _object_.
+1. Upload the image to your bucket, for example, [using the management console](../../../storage/operations/objects/upload.md), [AWS CLI](../../../storage/tools/aws-cli.md), or [WinSCP](../../../storage/tools/winscp.md). In {{ objstorage-name }} terminology, your uploaded image will be called an _object_.
 1. [Get](../../../storage/operations/objects/link-for-download.md) a signed [link](../../../storage/concepts/pre-signed-urls.md) to download the image from the bucket. Use this link when creating an image in {{ compute-name }}.
 
 ## Creating an image in {{ compute-name }} {#create-image}
@@ -49,7 +49,7 @@ Create a new image from the link you got in {{ objstorage-name }}:
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**.
-  1. Name your image. The naming requirements are as follows:
+  1. Name your image. Follow these naming requirements:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

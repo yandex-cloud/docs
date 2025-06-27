@@ -73,7 +73,7 @@ description: Follow this guide to get information about a disk.
       * `data "yandex_compute_disk"`: Description of the [disk](../../concepts/disk.md) as a data source:
          * `disk_id`: Disk ID.
       * `output "my_disk_size"`: Output variable that contains information about the disk size:
-         * `value`: Returned value.
+         * `value`: Return value.
 
      You can replace `size` with any other parameter to get the information you need. For more information about the `yandex_compute_disk` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_disk).
 
@@ -81,7 +81,7 @@ description: Follow this guide to get information about a disk.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

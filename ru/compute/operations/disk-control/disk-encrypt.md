@@ -1,6 +1,6 @@
 ---
 title: Как зашифровать диск в {{ compute-full-name }}
-description: Следуя данной инструкции, вы сможете зашифровать диск.
+description: Следуя данной инструкции, вы сможете зашифровать диск в {{ compute-short-name }}.
 ---
 
 # Зашифровать диск
@@ -40,8 +40,7 @@ description: Следуя данной инструкции, вы сможете
         --deletion-protection
       ```
 
-      Где:
-      * `--name` — имя создаваемого ключа {{ kms-name }}.
+      Где `--name` — имя создаваемого ключа {{ kms-name }}.
 
       Результат:
 
@@ -74,8 +73,8 @@ description: Следуя данной инструкции, вы сможете
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       |          ID          |     NAME     |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     |       DESCRIPTION       |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
-      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | ru-central1-a | READY  | a7lcvu28njbh******** |                         |
-      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | ru-central1-a | READY  |                      |                         |
+      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbh******** |                         |
+      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       ```
 
@@ -124,12 +123,12 @@ description: Следуя данной инструкции, вы сможете
 
       ```text
       done (53s)
-      id: fhmihpagi991amj4m7h3
+      id: fhmihpagi991********
       folder_id: b1geoelk7fld********
       created_at: "2025-05-20T17:39:01Z"
-      name: fromcliencrypte
+      name: fromcliencrypted
       type_id: network-hdd
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       size: "21474836480"
       block_size: "4096"
       status: READY
@@ -249,4 +248,5 @@ description: Следуя данной инструкции, вы сможете
 #### См. также {#see-also}
 
 * [{#T}](../../concepts/encryption.md)
+* [{#T}](../image-control/encrypt.md)
 * [{#T}](../snapshot-control/snapshot-encrypt.md)

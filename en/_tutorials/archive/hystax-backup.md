@@ -121,7 +121,7 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -130,7 +130,7 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
       * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
       * From the list of public images, select [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) your VM will reside in.
 
       Save the availability zone ID. You will need it later.
 
@@ -324,7 +324,7 @@ Hystax Acura Backup will automatically check whether it can access your cloud. I
 To install an agent on the VMs you need to back up:
 1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
 1. On the left-hand panel, click **Download agents**.
-1. Select the agent type for the OS you need:
+1. Select the agent type for the your OS:
    * VMware.
    * Windows.
    * Linux.
@@ -335,7 +335,7 @@ To install an agent on the VMs you need to back up:
 
    - VMware {#vmware}
 
-     1. From the drop-down list, select an instance group to prepare agents for, e.g., `Default`.
+     1. From the drop-down list, select an instance group you want to prepare agents for, e.g., `Default`.
      1. Select **New VMware vSphere** and fill out these fields:
         * **Platform Name**.
         * **Endpoint**: Public IP address of the ESXi host where the replication agent will be deployed.
@@ -349,14 +349,14 @@ To install an agent on the VMs you need to back up:
 
    - Windows {#windows}
 
-     1. From the drop-down list, select an instance group to prepare agents for, e.g., `Default`.
+     1. From the drop-down list, select an instance group you want to prepare agents for, e.g., `Default`.
      1. Click **Next**.
      1. Click **Download Agent** and wait until the download is complete.
      1. Unpack the archive and install the agent from the `hwragent.msi` file on the VMs you need to back up.
 
    - Linux {#linux}
 
-     1. From the drop-down list, select an instance group to prepare agents for, e.g., `Default`.
+     1. From the drop-down list, select an instance group you want to prepare agents for, e.g., `Default`.
      1. Select Linux distribution:
         * **CentOS/RHEL (.rpm package)**: CentOS or Red Hat-based.
         * **Debian/Ubuntu (.deb package)**.

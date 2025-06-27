@@ -27,7 +27,7 @@ To make sure users can [connect](../../../compute/operations/vm-connect/os-login
 
      {% include [compute-instance-list](../../../compute/_includes_service/compute-instance-list.md) %}
 
-  1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
 
   1. Enable access via {{ oslogin }}:
 

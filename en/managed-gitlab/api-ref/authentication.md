@@ -1,8 +1,8 @@
 ---
-title: Authentication in the {{ mgl-full-name }} API
-description: To perform operations via the API in {{ mgl-full-name }}, get an IAM token for your account.
+title: '{{ mgl-full-name }} API authentication'
+description: To perform operations in {{ mgl-full-name }} via the API, get an IAM token for your account.
 ---
 
-# Authentication in the {{ mgl-full-name }} API
+# {{ mgl-full-name }} API authentication
 
 {% include notitle [auth](../../_includes/authentication.md) %}

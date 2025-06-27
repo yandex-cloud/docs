@@ -23,9 +23,9 @@ items:
             href: operations/rule-update.md
           - name: Deleting a rule
             href: operations/rule-delete.md
-          - name: Connecting a profile to a resource
+          - name: Associating a profile with a host
             href: operations/host-connect.md
-          - name: Disconnecting a profile from a resource
+          - name: Disassociating a profile from a host
             href: operations/host-delete.md
       - name: WAF profiles
         items:
@@ -67,6 +67,10 @@ items:
             href: operations/proxy-create.md
           - name: Creating a domain
             href: operations/domain-create.md
+          - name: Setting up the infrastructure
+            href: operations/setup-infrastructure.md
+          - name: Checking resources for availability
+            href: operations/validate-availability.md
       - name: Address lists
         href: operations/list-create.md
       - name: Viewing operations

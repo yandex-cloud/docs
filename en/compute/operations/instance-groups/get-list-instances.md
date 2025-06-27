@@ -30,7 +30,7 @@ To get a list of VM instances:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select `ID` or `NAME` of the group in question, e.g., `first-instance-group`.
+  1. Select the `ID` or `NAME` of the group you need, e.g., `first-instance-group`.
   1. Get information about the instance group:
 
       ```

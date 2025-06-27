@@ -27,16 +27,16 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#linux).
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) your VM will reside in.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Choose a subnet in the selected availability zone.
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select a [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name and description. The naming requirements are as follows:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name and description. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -74,7 +74,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
   1. Select a [subnet](../../vpc/concepts/network.md#subnet):
 
       ```bash
-      yc vpc subnet list --folder-id <folder_ID>
+      yc vpc subnet list --folder-id <catalog_ID>
       ```
 
       Result:
@@ -93,7 +93,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 
       ```bash
       yc compute instance create \
-        --folder-id <folder_ID> \
+        --folder-id <catalog_ID> \
         --name <VM_name> \
         --zone <availability_zone> \
         --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4,security-group-ids=<security_group_ID> \

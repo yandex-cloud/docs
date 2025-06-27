@@ -769,6 +769,7 @@ items:
             href: serverless/video-converting-queue.md
           - name: Интеграция {{ speechsense-name }} с Битрикс24
             href: speechsense/bitrix24.md
+            hidden: true
   - name: Построение Data Platform
     items:
       - name: Все руководства
@@ -1244,6 +1245,10 @@ items:
           выделением DMZ на основе UserGate NGFW
         href: routing/high-accessible-dmz-usergate.md
       - name: >-
+          Реализация защищенной высокодоступной сетевой инфраструктуры с
+          выделением DMZ на основе Смарт-Софт NGFW
+        href: routing/high-accessible-dmz-ting.md
+      - name: >-
           Организация доступа через {{ interconnect-name }} к облачным сетям,
           размещенным за NGFW
         href: routing/cic-with-ngfw.md
@@ -1477,6 +1482,10 @@ items:
           Создание адреса {{ postbox-full-name }} и проверка владения доменом с
           помощью {{ TF }}
         href: serverless/domain-identity-creating.md
+      - name: Отправка писем в {{ postbox-full-name }} с помощью AWS SDK
+        items:
+          - name: Go
+            href: serverless/send-emails-aws-sdk-go.md
       - name: Создание AI-агента с помощью {{ sf-full-name }}
         href: serverless/create-ai-agent-function.md
   - name: Машинное обучение и искусственный интеллект

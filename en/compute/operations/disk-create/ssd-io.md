@@ -18,7 +18,7 @@ The disk size must be a multiple of 93 GB.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-  1. Enter a name for the disk. The naming requirements are as follows:
+  1. Enter a name for the disk. Follow these naming requirements:
   
       {% include [name-format](../../../_includes/name-format.md) %}
   
@@ -58,7 +58,7 @@ The disk size must be a multiple of 93 GB.
       * `--zone`: Availability zone.
       * `--type`: Disk type.
       * `--size`: Disk size.
-      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
 
         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
         

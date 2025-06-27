@@ -53,7 +53,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Assign the `compute.editor` role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding <folder_ID> \
+        yc resource-manager folder add-access-binding <catalog_ID> \
           --role compute.editor \
           --subject serviceAccount:<service_account_ID>
         ```
@@ -61,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Assign the `load-balancer.editor` role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding <folder_ID> \
+        yc resource-manager folder add-access-binding <catalog_ID> \
           --role load-balancer.editor \
           --subject serviceAccount:<service_account_ID>
         ```
@@ -173,7 +173,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            --- | --- | --- | --- | --- | ---
            Egress | any | All | Any | CIDR | 0.0.0.0/0
            Ingress | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
-           Ingress | healthchecks | 80 | TCP | Load balancer health checks | —
+           Inbound | healthchecks | 80 | TCP | Load balancer health checks | —
 
            1. Select the **Egress** or **Ingress** tab.
            1. Click **Add rule**.
@@ -190,7 +190,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create an autoscaling instance group with a network load balancer {#create-vm-group}
 
-1. You will be creating all instance groups from a [{{ coi }}](../../cos/concepts/index.md). Each VM instance will have a Docker container running a web server that emulates the service load.
+1. In this tutorial, you will be creating all instance groups from a [{{ coi }}](../../cos/concepts/index.md). Each VM instance will have a Docker container running a web server that emulates the service load.
 
    {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 

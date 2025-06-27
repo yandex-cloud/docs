@@ -67,15 +67,15 @@ title: How to get information about a placement group in {{ compute-full-name }}
       * `data "yandex_compute_placement_group"`: Description of the placement group as a data source:
         * `group_id`: Placement group ID.
       * `output "placement_group"`: Output variable that contains information about the placement group creation time:
-        * `value`: Returned value.
+        * `value`: Return value.
 
-      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_compute_placement_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_placement_group).
+      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_compute_placement_group` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/compute_placement_group).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

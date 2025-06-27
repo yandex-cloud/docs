@@ -1,23 +1,24 @@
 # Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the UserGate NGFW
 
 
-Using the tutorial, you will deploy a secure network infrastructure based on the [UserGate next-generation firewall](https://www.usergate.com/products/next-generation-firewall). The infrastructure is made up of segments, each containing resources of a single purpose, isolated from other resources. For example, the [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is where public-facing applications are placed, and the `mgmt` segment hosts infrastructure management resources. Each segment in a cloud has its own folder and a dedicated {{ vpc-short-name }} [cloud network](../../vpc/concepts/network#network). The segments communicate with each other via a [next-generation firewall (NGFW)](https://en.wikipedia.org/wiki/Next-generation_firewall) VM, which provides end-to-end protection and traffic control across the segments.
+Follow this tutorial to deploy a secure network infrastructure based on the [UserGate next-generation firewall](https://www.usergate.com/products/next-generation-firewall). The infrastructure is made up of segments, each containing single-purpose resources, isolated from other resources. For example, the [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is reserved for public-facing applications, whereas the `mgmt` segment contains infrastructure management resources. Each segment will have its own cloud folder and a dedicated {{ vpc-short-name }} [cloud network](../../vpc/concepts/network#network). The segments communicate with each other via a [next-generation firewall (NGFW)](https://en.wikipedia.org/wiki/Next-generation_firewall) VM, which provides end-to-end protection and traffic control across the segments.
 
-The solution has the following basic segments (folders):
+
+Our solution uses the following folders:
 
 * The **public** folder contains the internet-facing resources.
-* The **mgmt** folder is used to manage the cloud infrastructure and host internal resources. It includes two VMs for infrastructure protection and network segmentation into security zones (`fw-a` and `fw-b`) and a VM with [WireGuard VPN](https://www.wireguard.com/) configured for secure access to the management segment (`jump-vm`).
-* The **dmz** folder enables you to publish applications with public access from the internet.
+* The `mgmt` folder manages the cloud infrastructure and hosts internal resources. It includes two VMs for infrastructure protection and network segmentation into security zones (`fw-a` and `fw-b`) and a VM with [WireGuard VPN](https://www.wireguard.com/) configured for secure access to the management segment (jump-vm).
+* **dmz** that enables you to publish open-access applications.
 
 For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw).
 
 To deploy a secure high-availability network infrastructure with a dedicated DMZ based on the UserGate next-generation firewall:
 
-1. [Prepare your cloud](#prepare-cloud).
-1. [Prepare the environment](#prepare-environment).
+1. [Get your cloud ready](#prepare-cloud).
+1. [Set up your environment](#prepare-environment).
 1. [Deploy your resources](#create-resources).
 1. [Configure the NGFW](#configure-ngfw).
-1. [Enable the route-switcher module](#enable-route-switcher).
+1. [Enable the route switcher](#enable-route-switcher).
 1. [Test the solution for performance and fault tolerance](#test-accessibility).
 1. [Requirements for production deployment](#deployment-requirements).
 
@@ -40,7 +41,7 @@ In this tutorial, we use the UserGate NGFW configuration with basic firewall and
 
 Learn more about the UserGate NGFW features in the [official documentation](https://www.usergate.com/ru/products/usergate-vm).
 
-## Prepare your cloud {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -59,15 +60,15 @@ The infrastructure support cost includes:
 
 {% note warning %}
 
-The tutorial involves deploying a resource-intensive infrastructure.
+In this tutorial, you will deploy a resource-intensive infrastructure.
 
 {% endnote %}
 
-Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) not being used by resources for other jobs.
+Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limits.md) not used by other projects.
 
-{% cut "Amount of resources used by the tutorial" %}
+{% cut "Resources used by this tutorial" %}
 
-   | Resource | Amount |
+   | Resource | Quantity |
    | ----------- | ----------- |
    | Folders | 3 |
    | Instance groups | 1 |
@@ -86,7 +87,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | Static routes | 5 |
    | Buckets | 1 |
    | Cloud functions | 1 |
-   | Triggers for cloud functions | 1 |
+   | Cloud function triggers | 1 |
    | Total RAM for all running functions | 128 MB |
    | Network load balancers (NLB) | 2 |
    | NLB target groups | 2 |
@@ -96,20 +97,20 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 {% endcut %}
 
-## Prepare the environment {#prepare-environment}
+## Set up your environment {#prepare-environment}
 
-### Create a service account with the admin privileges for the cloud {#create-account}
+### Create a cloud administrator service account {#create-account}
    
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `sa-terraform`.
+   1. Specify the service account name, e.g., `sa-terraform`.
 
-       The name format requirements are as follows:
+       The naming requirements are as follows:
 
        {% include [name-format](../../_includes/name-format.md) %}
 
@@ -117,12 +118,12 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the service account.
+   1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the service account:
 
-       1. On the management console [home page]({{ link-console-main }}), select the cloud.
-       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+       1. On the management console [home page]({{ link-console-main }}), select your cloud.
+       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
        1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-       1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and then select the `sa-terraform` service account.
+       1. In the window that opens, click **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the `sa-terraform` service account.
        1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
        1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -138,7 +139,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          yc iam service-account create --name sa-terraform
          ```
 
-         Where `name` is the service account name. The naming requirements are as follows:
+         Where `name` is the service account name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -151,7 +152,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          name: sa-terraform
          ```
       
-   1. Assign the account the admin [role](../../iam/concepts/access-control/roles.md):
+   1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the account:
 
          ```bash
          yc resource-manager cloud add-access-binding <cloud_ID> \
@@ -173,7 +174,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 {% endlist %}
 
-### Install the required utilities {#install-utilities}
+### Install the required tools {#install-utilities}
 
 1. Install [Git](https://en.wikipedia.org/wiki/Git) using the following command:
 
@@ -183,13 +184,13 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. Install {{ TF }}:
 
-   1. Go to the root folder:
+   1. Navigate to the root directory:
 
       ```bash
       cd ~
       ```
 
-   1. Create a directory named `terraform` and open it:
+   1. Create the `terraform` directory and open it:
    
       ```bash
       mkdir terraform
@@ -205,7 +206,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
         https://hashicorp-releases.yandexcloud.net/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
       ```
 
-   1. Install the `zip` utility and unpack the ZIP archive:
+   1. Install `zip` and unpack the ZIP archive:
       
       ```bash
       apt install zip
@@ -224,9 +225,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       terraform -help
       ```
 
-1. Create a configuration file specifying the provider source for {{ TF }}:
+1. Create a configuration file specifying the {{ TF }} provider source:
 
-   1. Create a file named `.terraformrc` using the native `nano` editor:
+   1. Create the `.terraformrc` file in `nano`:
 
       ```bash
       cd ~
@@ -247,18 +248,18 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       }
       ```
 
-      For more information about setting up mirrors, see the [{{ TF }} documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+      For more information about mirror settings, see the relevant [{{ TF }} documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Deploy your resources {#create-resources}
 
-1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw) and go to the `yc-dmz-with-high-available-usergate-ngfw` script directory:
+1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw) and navigate to the `yc-dmz-with-high-available-usergate-ngfw` script directory:
    
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw.git
    cd yc-dmz-with-high-available-usergate-ngfw
    ```
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Set up the CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -268,7 +269,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save the file:
+      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save it to the file:
          
          ```bash
          yc iam key create \
@@ -280,8 +281,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          Where:
          
          * `service-account-id`: Service account ID.
-         * `folder-id`: ID of the folder in which the service account was created.
-         * `output`: Name of the file with the authorized key.
+         * `folder-id`: ID of the folder where you created the service account.
+         * `output`: Authorized key file name.
 
          Result:
          
@@ -292,7 +293,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to run operations on behalf of the service account:
+      1. Create a CLI profile to run operations under the service account:
         
          ```bash
          yc config profile create sa-terraform
@@ -304,21 +305,21 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          Profile 'sa-terraform' created and activated
          ```
 
-      1. Set the profile configuration:
+      1. Configure the profile:
          
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>  
+         yc config set folder-id <catalog_ID>  
          ```
 
          Where:
 
-         * `service-account-key`: File with the service account authorized key.
+         * `service-account-key`: Service account authorized key file.
          * `cloud-id`: [Cloud](../../resource-manager/operations/cloud/get-id.md) ID.
-         * `folder-id`: [Folder](../../resource-manager/operations/folder/get-id.md) ID.
+         * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Add the credentials to the environment variables:
+      1. Add your credentials to the environment variables:
          
          ```bash
          export YC_TOKEN=$(yc iam create-token)
@@ -338,39 +339,39 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    192.2**.**.**
    ```
 
-1. Open the `terraform.tfvars` file in the `nano` editor to edit as follows:
+1. Open the `terraform.tfvars` file in `nano` and edit the following:
 
-   1. The line with the cloud ID:
+   1. Cloud ID line:
       
       ```text
       cloud_id = "<cloud_ID>"
       ```
 
-   1. The line with a list of allowed public IP addresses for `jump-vm` access:
+   1. Line with a list of public IP addresses allowed to access `jump-vm`:
       
       ```text
       trusted_ip_for_access_jump-vm = ["<external_IP_address_of_your_PC>/32"]
       ```
 
-   {% cut "Description of variables in terraform.tfvars" %}
+   {% cut "`terraform.tfvars` variable description" %}
 
-   | Name<br>of parameter | Needs<br>editing | Description | Type | Example |
+   | Parameter<br>name | Change<br>required | Description | Type | Example |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
-   | `cloud_id` | Yes | ID of your cloud in Yandex Cloud | `string` | `b1g8dn6s3v2e********` |
+   | `cloud_id` | Yes | Your Yandex Cloud ID | `string` | `b1g8dn6s3v2e********` |
    | `az_name_list` | - | List of two Yandex Cloud <a href="../../overview/concepts/geo-scope">availability zones</a> to host your resources | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
-   | `security_segment_names` | - | List of segment names. The first segment is for the management resources, the second, for the resources with public internet access, the third, for the DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefixes in `zone1_subnet_prefix_list` and `zone2_subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
+   | `security_segment_names` | - | Segment names specify three segments: for management resources, public-facing resources, and DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefixes in `zone1_subnet_prefix_list` and `zone2_subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
    | `zone1_subnet_prefix_list` | - | List of subnet prefixes in the first availability zone as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `zone2_subnet_prefix_list` | - | List of subnet prefixes in the second availability zone as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.2.0/24", "172.16.2.0/24", "10.160.2.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for internet connection | `number` | `80` |
-   | `internal_app_port` | - | Internal TCP port of a DMZ application to which the NGFW will direct traffic. You may specify the same port as `public_app_port` or a different one. | `number` | `8080` |
+   | `internal_app_port` | - | DMZ application internal TCP port receiving traffic from NGFW. You may specify the same port as `public_app_port` or a different one. | `number` | `8080` |
    | `trusted_ip_for_access_jump-vm` | Yes | List of public IP addresses/subnets allowed to access the jump VM. It is used in the security group's incoming rule for the jump VM. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
-   | `jump_vm_admin_username` | - | Username for connection to the jump VM over SSH | `string` | `admin` |
-   | `wg_port` | - | UDP port for incoming connections in the jump VM WireGuard settings | `number` | `51820` |
+   | `jump_vm_admin_username` | - | `jump` VM username for SSH connections | `string` | `admin` |
+   | `wg_port` | - | `jump` VM WireGuard inbound UDP port | `number` | `51820` |
    | `wg_client_dns` | - | List of DNS server addresses in the management cloud network the admin workstation will use after establishing a WireGuard tunnel to the jump VM. | `string` | `192.168.1.2, 192.168.2.2` |
 
    {% endcut %}
 
-1. Deploy the resources in the cloud using {{ TF }}:
+1. Deploy your cloud resources using {{ TF }}:
 
    1. Initialize {{ TF }}:
        
@@ -384,25 +385,25 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       terraform validate
       ```
 
-   1. Check the list of cloud resources you are about to create:
+   1. Check the list of new cloud resources:
        
       ```bash
       terraform plan
       ```
 
-   1. Create resources:
+   1. Create the resources:
        
       ```bash
       terraform apply
       ```
 
-1. After the `terraform apply` process is over, the command line will output a list of information on the deployed resources. Later on, you can view this info by running the `terraform output` command:
+1. Once the process is completed, you will see the list of created resources. You can also display this list with the `terraform output` command:
 
-   {% cut "View info on deployed resources" %}
+   {% cut "Expand to view the deployed resource details" %}
 
-   | Name | Description | Sample value |
+   | Name | Description | Value (example) |
    | ----------- | ----------- | ----------- |
-   | `dmz-web-server-nlb_ip_address` | IP address of the load balancer in the DMZ segment downstream of which there is a target group of web servers to test publishing an application from the DMZ. Used for configuring destination NAT on a firewall. | `"10.160.1.100"` |
+   | `dmz-web-server-nlb_ip_address` | IP address of the load balancer in the DMZ segment downstream of which there is a target group of web servers to test publishing an application from the DMZ. configuring destination NAT on the firewall. | `"10.160.1.100"` |
    | `fw-a_ip_address` | FW-A IP address in the management network | `"192.168.1.10"` |
    | `fw-alb_public_ip_address` | ALB public IP address. It is used to access an application published in the DMZ from the internet. | `"C.C.C.C"` |
    | `fw-b_ip_address` | FW-B IP address in the management network | `"192.168.2.10"` |
@@ -416,9 +417,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 This tutorial describes how to configure firewalls named FW-A and FW-B with the basic firewall and NAT rules required to test performance and fault tolerance in our scenario but insufficient for [production deployment](#deployment-requirements).
 
-### Connect to the control segment via a VPN {#connect-via-vpn}
+### Connect to the management segment via a VPN {#connect-via-vpn}
 
-After deploying the infrastructure, the `mgmt` folder will contain a VM named `jump-vm` based on an Ubuntu image with the [WireGuard VPN](https://www.wireguard.com/) configured for a secure connection. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, and `public` segment subnets.
+After deploying the infrastructure, the `mgmt` folder will contain the `jump-vm` Ubuntu instance with the configured [WireGuard VPN](https://www.wireguard.com/) allowing secure connections. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, and `public` segment subnets.
 
 You can also connect to the jump VM over SSH using the SSH key from `terraform output` and the username from the `jump_vm_admin_username` variable.
 
@@ -426,7 +427,7 @@ To set up a VPN tunnel:
 
 1. [Install](https://www.wireguard.com/install/) WireGuard on your PC.
 1. Open WireGuard and click **Add Tunnel**.
-1. In the dialog box that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-usergate-ngfw` directory.
+1. In the dialog that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-usergate-ngfw` directory.
 
 1. Click **Activate** to activate the tunnel.
 1. Check network connectivity with the management server via the WireGuard VPN tunnel by running the following command in the terminal:
@@ -445,7 +446,7 @@ To set up a VPN tunnel:
 
 Connect to the FW-A management web interface at `https://192.168.1.10:8001`. Use the admin credentials: `Admin` for the username and `utm` for the password. After connecting, the system will prompt you to change your password.
 
-#### Configure a network {#configure-fw-a-network}
+#### Configure your network {#configure-fw-a-network}
 
 1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp)).
 
@@ -585,7 +586,7 @@ Optionally, you can update your UserGate version.
    | 1 | `Web-server port forwarding on FW-a` | Allow | Log session start | `Untrusted` | Any | `DMZ` | `dmz-web-server` | `TCP_8080` |
    | 2 | `Mgmt to DMZ` | Allow | Log session start | `Management` | `mgmt` | `DMZ` | `dmz` | Any |
    | 3 | `Ping from dmz to internet` | Allow | Log session start | `DMZ` | `dmz` | `Untrusted` | Any | `Any ICMP` |
-   | 4 | `Block all` | Forbid | No | Any | Any | Any | Any | Any |
+   | 4 | `Block all` | Deny | No | Any | Any | Any | Any | Any |
 
    {% note info %}
 
@@ -597,7 +598,7 @@ Optionally, you can update your UserGate version.
 
 Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use the admin credentials: `Admin` for the username and `utm` for the password. After connecting, the system will prompt you to change your password.
 
-#### Configure a network {#configure-fw-b-network}
+#### Configure your network {#configure-fw-b-network}
 
 1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp)).
 
@@ -692,32 +693,32 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
    | 1 | `Web-server port forwarding on FW-b` | Allow | Log session start | `Untrusted` | Any | `DMZ` | `dmz-web-server` | `TCP_8080` |
    | 2 | `Mgmt to DMZ` | Allow | Log session start | `Management` | `mgmt` | `DMZ` | `dmz` | Any |
    | 3 | `Ping from dmz to internet` | Allow | Log session start | `DMZ` | `dmz` | `Untrusted` | Any | `Any ICMP` |
-   | 4 | `Block all` | Forbid | No | Any | Any | Any | Any | Any |
+   | 4 | `Block all` | Deny | No | Any | Any | Any | Any | Any |
 
 ## Enable the route-switcher module {#enable-route-switcher}
 
-After you complete the NGFW setup, make sure that FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), the `mgmt` folder, select **{{ network-load-balancer-name }}** and go to the `route-switcher-lb-...` network load balancer page. Expand the target group and make sure the target resources are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and [configured](#configure-gateways).
+After completing the NGFW setup, make sure `FW-A` and `FW-B` health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), navigate to the `mgmt` folder, select **{{ network-load-balancer-name }}**, and go to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and [configured](#configure-gateways).
 
-Once the FW-A and FW-B status changes to `Healthy`, open the `route-switcher.tf` file and change the `start_module` parameter value of the `route-switcher` module to `true`. To enable the module, run this command:
+Once the `FW-A` and `FW-B` status changes to `Healthy`, open the `route-switcher.tf` file and change the `route-switcher` `start_module` value to `true`. To enable the module, run this command:
 
 ```bash
 terraform plan
 terraform apply
 ```
 
-Within 5 minutes, the `route-switcher` module starts providing fault tolerance of outgoing traffic across the segments.
+Within five minutes, the `route-switcher` module will start operating to ensure fault tolerance of outbound traffic in segments.
 
 ## Test the solution for performance and fault tolerance {#test-accessibility}
 
 ### Test the system {#test-accessibility}
 
-1. To find out the public IP address of the load balancer, run this command in the terminal:
+1. To get the load balancer public IP address, run this command in the terminal:
 
    ```bash
    terraform output fw-alb_public_ip_address
    ```
 
-1. Make sure the network infrastructure is externally accessible. To do so, in your browser, go to:
+1. Make sure your network infrastructure is accessible from outside by opening the following address in your browser:
     
    ```text
    http://<ALB_load_balancer_public_IP_address>
@@ -731,7 +732,7 @@ Within 5 minutes, the `route-switcher` module starts providing fault tolerance o
    ssh -i pt_key.pem admin@<VM_internal_IP_address_in_DMZ_segment>
    ```
 
-1. To check that there is access from the VM in the DMZ segment to a public resource on the internet, run this command:
+1. To check whether the DMZ-hosted VM has internet access, run this command:    
    
    ```bash
    ping ya.ru
@@ -748,31 +749,31 @@ Within 5 minutes, the `route-switcher` module starts providing fault tolerance o
    ```bash
    ping 192.168.1.101
    ```
-   The command must fail according to the `Block all` rule that prohibits traffic.
+   The command should end with an error according to the `Block all` rule.
 
 1. Connect to the FW-A management web interface at `https://192.168.1.10:8001`. In the top menu, go to **Logs and reports** and select **Traffic log** in the left-hand menu under **Logs**. In the `Rules:` filter, select `Block all` and `ping from dmz to internet`. Make sure the logs include records of allowed and blocked traffic for the tests performed. After that, disable logging for the `Block all` rule. 
 
 ### Testing fault tolerance {#fault-tolerance-check}
 
-1. Install `httping` on your PC to make regular HTTP requests:
+1. Install `httping` for making HTTP requests on your PC:
 
    ```bash
    sudo apt-get install httping
    ```
 
-1. To find out the public IP address of the load balancer, run this command in the terminal:
+1. To get the load balancer public IP address, run this command in the terminal:
 
    ```bash
    terraform output fw-alb_public_ip_address
    ```
 
-1. Enable incoming traffic to the application published in the DMZ segment by making the following request to the ALB public IP:
+1. Initiate DMZ application inbound traffic by making a request to the ALB public IP address:
 
    ```bash
    httping http://<ALB_load_balancer_public_IP_address>
    ```
 
-1. Open another terminal window and connect to a VM in the DMZ segment over SSH:
+1. Open another terminal window and connect to a DMZ VM over SSH:
    
    ```bash
    ssh -i pt_key.pem admin@<VM_internal_IP_address_in_DMZ_segment>
@@ -784,30 +785,30 @@ Within 5 minutes, the `route-switcher` module starts providing fault tolerance o
    sudo passwd admin
    ```
 
-1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the parameters of this VM:
+1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-   1. In the line with the appropriate VM, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
    
 1. Connect to the VM serial console, enter the `admin` username and the password you set earlier.
 
-1. Enable outgoing traffic from the VM in the DMZ segment to a resource on the internet using the `ping` command:
+1. Initiate outbound traffic from the DMZ VM to an internet resource by running `ping`:
 
    ```bash
    ping ya.ru
    ```
 
-1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), in the `mgmt` folder, [stop](../../compute/operations/vm-control/vm-stop-and-start.md#stop) the `fw-a` VM by emulating the recovery of the main firewall.
-1. Monitor the loss of packets sent by `httping` and `ping`. After FW-A fails, there may be a traffic loss for approximately 1 minute with subsequent traffic recovery.
-1. Make sure the FW-B address is used in the `dmz-rt` route table in the `dmz` folder for `next hop`.
-1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), [run](../../compute/operations/vm-control/vm-stop-and-start.md#start) the `fw-a` VM by emulating the recovery of the main firewall. 
-1. Monitor the loss of packets sent by `httping` and `ping`. After FW-A is restored, there may be a traffic loss for approximately 1 minute with subsequent traffic recovery.
+1. Emulate the main firewall failure by [stopping](../../compute/operations/vm-control/vm-stop-and-start.md#stop) the `FW-A` VM in the `mgmt` folder of the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+1. Monitor the loss of `httping` and `ping` packets. After `FW-A` fails, you may see a traffic loss for about one minute with the subsequent traffic recovery.
+1. Make sure the `dmz-rt` route table in the `dmz` folder uses the `FW-B` address as `next hop`.
+1. Emulate the main firewall recovery by [running](../../compute/operations/vm-control/vm-stop-and-start.md#start) the `FW-A` VM in the {{ yandex-cloud }} [management console]({{ link-console-main }}). 
+1. Monitor the loss of `httping` and `ping` packets. After `FW-A` recovers, you may see a traffic loss for about one minute with the subsequent traffic recovery.
 1. Make sure the FW-A address is used in the `dmz-rt` route table in the `dmz` folder for `next hop`.
 
-## Requirements for production deployment {#deployment-requirements}
+## Production deployment requirements {#deployment-requirements}
 
 * Save the `pt_key.pem` private SSH key to a secure location or recreate it separately from {{ TF }}.
 * Delete the public IP address of the jump VM if you are not going to use it.
@@ -825,7 +826,7 @@ To stop paying for the resources you created, run this command:
 
    {% note warning %}
 
-   {{ TF }} will **permanently** delete all the resources: networks, subnets, VMs, load balancers, folders, etc.
+   {{ TF }} will **permanently** delete all resources, such as networks, subnets, VMs, load balancers, folders, etc.
 
    {% endnote %}
 

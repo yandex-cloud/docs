@@ -1,4 +1,4 @@
-The `name` label is for the metric name.
+The metric name goes into the `name` label.
 
 
 ## {{ sw-full-name }} metrics {#workflows}
@@ -10,7 +10,7 @@ Metric name<br>Type, units | Description<br>Labels
 `step_completed_per_second`<br>`DGAUGE`, steps per second | Number of completed steps per second.<br>This metric features the `step` label containing the step name.
 `step_failed_per_second`<br>`DGAUGE`, steps per second | Number of failed steps per second.<br>Labels:<ul><li>`step`: Step name</li><li>`error_code`: Error code.</li></ul>
 `step_inflight_count`<br>`DGAUGE`, steps | Number of steps currently in progress.<br>This metric features the `step` label containing the step name.
-`step_started_per_second`<br>`DGAUGE`, steps per second | Number of started steps per second.<br>This metric features the `step` label containing the step name.
+`step_started_per_second`<br>`DGAUGE`, steps/s | Number of started steps per second.<br>This metric features the `step` label containing the step name.
 `step_time_milliseconds`<br>`DGAUGE`, milliseconds | Step execution time.<br>Labels:<ul><li>`bin`: Histogram buckets.</li><li>`step`: Step name</li></ul>
 `step_time_milliseconds_count`<br>`DGAUGE`, number of steps | Total number of step time measurements.<br>This metric features the `step` label containing the step name.
 `step_time_milliseconds_sum`<br>`DGAUGE`, milliseconds | Total execution time for all steps.<br>This metric features the `step` label containing the step name.

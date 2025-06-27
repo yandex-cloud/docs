@@ -13,7 +13,7 @@ editable: false
 The cost depends on the billing mode:
 
 * [By subscription](#subscription): Best for large amounts of incoming traffic.
-  
+
 * [By request count](#requests): Best for small amounts of incoming traffic.
 
 Both methods are based on the number of requests across all [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud) linked to a single [billing account](../billing/concepts/billing-account.md).
@@ -22,11 +22,11 @@ Only [legitimate requests](concepts/rules.md#rule-action) are counted for billin
 
 At the same time, there are things to consider about billing in the dry run mode.
 
-* If a rule has blocked a request, in the dry run mode, requests are not blocked and reach their destination. Such requests will be counted towards consumption. 
+* If a rule has blocked a request, in the dry run mode, requests are not blocked and reach their destination. Such requests will be counted for billing. 
 
-* If dry run was enabled only for one rule type, e.g., security profile rules, and the request was blocked by a WAF or ARL rule without dry run on, such a request will not be counted towards consumption.
+* If dry run was enabled only for one rule type, e.g., security profile rules, and the request was blocked by a WAF or ARL rule without dry run on, such a request will not be counted for billing.
 
-Requests processed by ARL profile rules will not be counted towards consumption. Blocked requests will not be counted either, no matter when and which rule blocked them.
+Requests processed by ARL profile rules will not be counted for billing. Blocked requests will not be counted either, no matter when and which rule blocked them.
 
 ## Prices for the Russia region {#prices}
 
@@ -47,7 +47,7 @@ Our subscription plans are priced per month.
 
 The shown prices are for a yearly subscription; no monthly subscription is available.
 
-If the plan you select is not enough, you can move on to the next one with pro-rata recalculation of the resources consumed to date.
+If the plan you select is not enough, you can switch to another with pro-rata recalculation of the resources consumed to date.
 
 ### Billing by request count {#requests}
 
@@ -56,7 +56,7 @@ If the plan you select is not enough, you can move on to the next one with pro-r
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
+To calculate the cost of using the service, use the [{{ yandex-cloud }} calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) or check the prices in this section.
 
 
 {% endnote %}
@@ -66,9 +66,9 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 You pay for the actual number of legitimate requests. For each request, you pay for:
 
 * Processing by security profile rules: [basic](concepts/rules.md#base-rules) and [Smart Protection](concepts/rules.md#smart-protection-rules).
-  
+
 * Processing by [WAF rules](concepts/rules.md#waf-rules). If your request is processed by security profile rules and then WAF rules, you pay for both.
-  
+
 * Processing by rules in the dry run mode if the request has reached the protected resource.
 
 #### Requests processed by security profile rules {#requests-smart}

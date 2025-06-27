@@ -17,7 +17,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
   1. Select the image you need.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the image.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
@@ -73,7 +73,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: [Role](../../security/index.md#roles-list) to assign.
+       * `--role`: [Role](../../security/index.md#roles-list) being assigned.
 
 - {{ TF }} {#tf}
 
@@ -127,7 +127,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
   1. Select the image you need.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the image.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
@@ -169,7 +169,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      * `--access-binding`: Parameters for setting access permissions:
 
        * `role`: [Role](../../security/index.md#roles-list) to assign.
-       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you are assigning the role to.
+       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) assigned the role.
 
      For example, this command will assign roles to multiple users and a single service account:
 
@@ -228,7 +228,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `ImageService/SetAccessBindings` call completely overwrite access permissions for the resource. All current roles for the resource will be deleted.
+  The `setAccessBindings` method and the `ImageService/SetAccessBindings` call overwrite all existing access permissions for the resource. All current roles for the resource will be deleted.
 
   {% endnote %}
 
@@ -244,7 +244,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Select **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images.label_title }}**.
   1. Select the image you need.
-  1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Next to the role, click ![image](../../../_assets/cross.svg).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -277,7 +277,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      Where:
 
-     * `--role`: ID of the role to revoke.
+     * `--role`: ID of the role you want to revoke.
      * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
      For example, this command revokes the `{{ roles-viewer }}` role for the image from a user with the `ajel6l0jcb9s********` ID:

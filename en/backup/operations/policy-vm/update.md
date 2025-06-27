@@ -205,7 +205,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+     You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc backup policy get <backup_policy_ID>

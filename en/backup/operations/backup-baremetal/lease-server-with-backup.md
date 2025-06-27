@@ -3,7 +3,7 @@ title: How to lease a {{ baremetal-full-name }} server with a connection to {{ b
 description: Follow this guide to lease a {{ baremetal-name }} server with a connection to {{ backup-name }}.
 ---
 
-# Leasing a {{ baremetal-full-name }} server with a connection to {{ backup-name }}
+# Leasing a {{ baremetal-full-name }} server connected to {{ backup-name }}
 
 You can back up your {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md) with supported Linux-based operating systems: {#os-support}
 

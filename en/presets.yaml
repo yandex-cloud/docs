@@ -6461,6 +6461,10 @@ default:
             add: Add
             add-and-go: Add and edit
             copy-and-go: Copy and edit
+        juggler-modal:
+          form:
+            juggler-links:
+              title: Links
         parametrizer:
           add: Add parameter
           dashboard:
@@ -6472,9 +6476,16 @@ default:
             custom: Custom
             query: Label
             text-field: Text
+      context-links:
+        label:
+          type:
+            url: External link
+        target:
+          dashboard: Dashboard
       dashboard:
         dash:
           create-alert: Create alert
+          edit: Edit
           open-in-monitoring: Open in Monitoring
           setup: Setup widget
         settings:
@@ -6572,6 +6583,9 @@ default:
           execute-query: Execute query
         hint:
           search-hotkey: 'Search hotkey: Cmd/Ctrl + Enter'
+      quicklinks:
+        action:
+          add-link: Add a link
       service:
         field:
           function: Aggregation function

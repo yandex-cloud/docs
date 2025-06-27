@@ -1,4 +1,4 @@
-The `name` label is for the metric name.
+The metric name goes into the `name` label.
 
 Labels shared by all {{ backup-name }} metrics:
 

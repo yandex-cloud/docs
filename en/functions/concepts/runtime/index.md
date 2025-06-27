@@ -1,11 +1,11 @@
 ---
 title: Runtime environment. Overview
-description: You select the runtime environment when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration.
+description: When you create a function, you select a runtime environment providing additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration.
 ---
 
 # Runtime environment. Overview
 
-You select the runtime environment when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration. A [preloaded runtime environment](./preload-runtime.md) is automatically updated in the function version settings to the latest minor version available in {{ sf-name }}. For more information about its update, see [{#T}](preload-runtime.md#update).
+When you create a function, you select a runtime environment providing additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration. The system automatically updates the [preloaded runtime environment](./preload-runtime.md) in the function version settings to the latest minor version available in {{ sf-name }}. For more information about its update, see [{#T}](preload-runtime.md#update).
 
 Runtime environment characteristics:
 
@@ -31,7 +31,8 @@ Runtime environments available in {{ sf-name }}.
 | Node.js 12 | `nodejs12` | No | No |
 | Node.js 14 | `nodejs14` | No | No |
 | Node.js 16 | `nodejs16` | Yes | No |
-| Node.js 18 | `nodejs18` | Yes | Yes |
+| Node.js 18 | `nodejs18` | Yes | No |
+| Node.js 22 | `nodejs22` | Yes | Yes  |
 | **PHP** |  |  |
 | PHP 7.4 | `php74` | No | No |
 | PHP 8.0 | `php8`  | No | No |

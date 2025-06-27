@@ -28,7 +28,7 @@ The infrastructure support costs include:
 * Fee for the number of function calls, computing resources allocated to the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
 
-## Prepare the environment {#prepare}
+## Set up your environment {#prepare}
 
 1. [Create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) for calling the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-functions-invoker }}` and `{{ roles-lockbox-payloadviewer }}` [roles](../../iam/concepts/access-control/roles.md) to it.
 1. [Create](../../compute/operations/vm-create/create-preemptible-vm.md#create-preemptible) a preemptible VM.
@@ -97,7 +97,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
        secret_id = yandex_lockbox_secret.my_secret.id
        entries {
          key        = "key_token"
-         text_value = "<OAuth token>"
+         text_value = "<OAuth_token>"
        }
      }
      ```
@@ -123,7 +123,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -131,7 +131,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         terraform apply
         ```
 
-     1. Confirm secret creation by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the secret creation by typing `yes` in the terminal and pressing **Enter**.
 
 - API {#api}
 
@@ -266,7 +266,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
        --runtime=nodejs18 \
        --entrypoint=index.handler \
        --service-account-id=<service_account_ID> \
-       --environment FOLDER_ID=<folder_ID>,INSTANCE_ID=<VM_ID> \
+       --environment FOLDER_ID=<catalog_ID>,INSTANCE_ID=<VM_ID> \
        --secret name=oauth-token,version-id=<secret_version_ID>,key=key_token,environment-variable=OAUTHTOKEN \
        --source-path=./function-js.zip \
        --no-logging
@@ -275,10 +275,10 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      Where:
      * `--function-name`: Name of the function whose version you are creating.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum running time of the function until timeout.
+     * `--execution-timeout`: Maximum function running time before timeout.
      * `--runtime`: Runtime environment.
      * `--entrypoint`: Entry point.
-     * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to call the function.
+     * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to invoke the function.
      * `--environment`: Environment variables:
        * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to start the stopped VMs.
        * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
@@ -316,9 +316,9 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
        memory             = "128"
        execution_timeout  = "3"
        service_account_id = "<service_account_ID>"
-       folder_id = "<folder_ID>"
+       folder_id = "<catalog_ID>"
        environment = {
-         FOLDER_ID = "<folder_ID>"
+         FOLDER_ID = "<catalog_ID>"
          INSTANCE_ID = "<VM_ID>"
        }
        secrets {
@@ -335,12 +335,12 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      Where:
      * `name`: Function name.
-     * `user_hash`: Random string to identify the function version.
+     * `user_hash`: Custom string to define the function version.
      * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
      * `entrypoint`: Entry point.
      * `memory`: Amount of memory allocated for the function, in MB.
      * `execution_timeout`: Function execution timeout.
-     * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to call the function.
+     * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to invoke the function.
      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the function.
      * `environment`: Environment variables:
        * `FOLDER_ID`: ID of the folder where you want to start the stopped VMs.
@@ -352,7 +352,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
        * `environment_variable`: Environment variable where you will keep the secret.
      * `zip_filename`: Path to the `function-js.zip` archive you created earlier.
 
-     For more information about the `yandex_function` resource parameters, see [this Terraform article]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
@@ -361,7 +361,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources you created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -435,7 +435,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
   * `--name`: Trigger name.
   * `--cron-expression`: Function call schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
   * `--invoke-function-name`: Name of the function to call.
-  * `--invoke-function-service-account-id`: ID of the service account with permissions to call the function.
+  * `--invoke-function-service-account-id`: ID of the service account with permissions to invoke the function.
 
   Result:
 
@@ -471,7 +471,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      * `name`: Trigger name.
      * `cron_expression`: Function call schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
      * `id`: ID of the function for the trigger to call.
-     * `service_account_id`: ID of the service account with permissions to call the function.
+     * `service_account_id`: ID of the service account with permissions to invoke the function.
 
      For more information about resource parameters in {{ TF }}, see [thisTerraform article]({{ tf-provider-resources-link }}/function_trigger).
   1. Make sure the configuration files are correct.
@@ -482,7 +482,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources you created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -490,7 +490,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         terraform apply
         ```
 
-     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
         This will create a trigger named `timer` in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

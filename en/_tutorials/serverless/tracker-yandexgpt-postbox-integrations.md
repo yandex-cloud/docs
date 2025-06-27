@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Log in]({{ link-passport-login }}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
 1. Sign up in {{ yandex-cloud }} and create a [billing account](../../billing/concepts/billing-account.md):
     1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register a new account.
-    1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a billing account linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a cloud to it.
+    1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a linked billing account and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a cloud to it.
 
     If you have an active billing account, you can navigate to the [cloud page]({{ link-console-cloud }}) to create or select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your infrastructure to operate in.
 
@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of the web service infrastructure support includes:
+The cost of support for the new infrastructure includes:
 
 * Fee for storing the [secret](../../lockbox/concepts/secret.md) and requests to the secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 * Fee for using {{ foundation-models-full-name }} (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
@@ -61,7 +61,7 @@ For the workflows you are creating in this tutorial to work correctly, configure
 
 {% list tabs group=instructions %}
 
-- {{ tracker-name }} interface {#console}
+- {{ tracker-name }} UI {#console}
 
   1. If your organization does not have {{ tracker-full-name }} connected, [connect]({{ link-tracker-cloudless }}enable-tracker) it.
   1. If you do not have a queue in {{ tracker-name }} yet, [create]({{ link-tracker-cloudless }}manager/create-queue) one.
@@ -212,11 +212,8 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
         "v=DKIM1;h=sha256;k=rsa;p=M1B...aCA8"
         ```
 
-    {% note info %}
+    {% include [create-record-instruction-notice](../../_includes/dns/create-record-instruction-notice.md) %}
 
-    If your domain is delegated to {{ dns-full-name }}, use [this guide](../../dns/operations/resource-record-create.md) to create a resource record. In other cases, use your domain name registrar's personal account page. If you have any questions, refer to the relevant documentation or contact the registrar's support service.
-
-    {% endnote %}
 1. Run a domain rights check.
 
     {% list tabs group=instructions %}

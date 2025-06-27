@@ -153,9 +153,10 @@ description: Пошаговые инструкции по работе и упр
 
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/image-control-get-info.md)
-* [{#T}](image-control/delete.md)
 * [{#T}](image-control/import.md)
+* [{#T}](image-control/encrypt.md)
 * [{#T}](image-control/access.md)
+* [{#T}](image-control/delete.md)
 
 ## Файловые хранилища {#filesystem}
 
