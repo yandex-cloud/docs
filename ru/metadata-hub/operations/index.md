@@ -15,7 +15,6 @@ description: Пошаговые инструкции по работе с {{ met
 * [{#T}](delete-connection.md)
 * [{#T}](connection-access.md)
 
-
 ## Кластеры {{ metastore-full-name }} {#metastore}
 
 * [{#T}](metastore/cluster-create.md)
@@ -43,3 +42,53 @@ description: Пошаговые инструкции по работе с {{ met
   * [{#T}](create-subject.md)
   * [{#T}](update-subject.md)
   * [{#T}](delete-subject.md)
+
+
+## {{ data-catalog-name }} {#instructions-data-catalog} 
+
+{% include [preview-tp](../../_includes/preview-tp.md) %}
+
+* Каталог:
+  * [{#T}](data-catalog/catalog-list.md)
+  * [{#T}](data-catalog/create-catalog.md)
+  * [{#T}](data-catalog/update-catalog.md)
+  * [{#T}](data-catalog/delete-catalog.md)
+* Загрузки:
+  * [{#T}](data-catalog/list-ingestions.md)
+  * [{#T}](data-catalog/create-ingestion.md)
+  * [{#T}](data-catalog/start-ingestion.md)
+  * [{#T}](data-catalog/update-ingestion.md)
+  * [{#T}](data-catalog/delete-ingestion.md)
+* Классификации:
+  * [{#T}](data-catalog/list-classifications.md)
+  * [{#T}](data-catalog/create-classification.md)
+  * [{#T}](data-catalog/update-classification.md)
+  * [{#T}](data-catalog/delete-classification.md)
+* Теги:
+  * [{#T}](data-catalog/list-tags.md)
+  * [{#T}](data-catalog/create-tag.md)
+  * [{#T}](data-catalog/update-tag.md)
+  * [{#T}](data-catalog/delete-tag.md)
+* Глоссарии:
+  * [{#T}](data-catalog/list-glossaries.md)
+  * [{#T}](data-catalog/create-glossary.md)
+  * [{#T}](data-catalog/update-glossary.md)
+  * [{#T}](data-catalog/delete-glossary.md)
+* Термины
+  * [{#T}](data-catalog/list-terms.md)
+  * [{#T}](data-catalog/list-terms-child.md)
+  * [{#T}](data-catalog/create-term.md)
+  * [{#T}](data-catalog/create-term-child.md)
+  * [{#T}](data-catalog/update-term.md)
+  * [{#T}](data-catalog/delete-term.md)
+  * [{#T}](data-catalog/delete-term-child.md)
+* Домены:
+  * [{#T}](data-catalog/list-domains.md)
+  * [{#T}](data-catalog/create-domain.md)
+  * [{#T}](data-catalog/update-domain.md)
+  * [{#T}](data-catalog/delete-domain.md)
+* Источники:
+  * [{#T}](data-catalog/source-list.md)
+  * [{#T}](data-catalog/create-source.md)
+  * [{#T}](data-catalog/update-source.md)
+  * [{#T}](data-catalog/delete-source.md)
