@@ -249,12 +249,20 @@ items:
             items:
               - name: Gateway
                 href: k8s-ref/gateway.md
+              - name: GatewayPolicy
+                href: k8s-ref/gateway-policy.md
               - name: HTTPRoute
                 href: k8s-ref/http-route.md
+              - name: RoutePolicy
+                href: k8s-ref/route-policy.md
               - name: TLSRoute
                 href: k8s-ref/tls-route.md
               - name: Service для Gateway API
                 href: k8s-ref/service-for-gateway.md
+              - name: YCCertificate
+                href: k8s-ref/yc-certificate.md
+              - name: YCStorageBucket
+                href: k8s-ref/yc-storage-bucket.md
       - name: Настройка групп безопасности
         href: tools/k8s-ingress-controller/security-groups.md
       - name: Работа с сервисными аккаунтами

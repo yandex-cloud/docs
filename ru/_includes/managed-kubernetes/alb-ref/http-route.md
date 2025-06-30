@@ -1,6 +1,6 @@
 # Поля ресурса HTTPRoute
 
-В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов `Gateway`](../../../application-load-balancer/k8s-ref/gateway.md), требованиям которых соответствует.
+В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов Gateway](../../../application-load-balancer/k8s-ref/gateway.md), требованиям которых он соответствует.
 
 `HTTPRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
@@ -14,6 +14,43 @@ kind: HTTPRoute
 metadata:
   name: <string>
   namespace: <string>
+  annotations:
+    gateway.alb.yc.io/rules.backends.http.useHTTP2: <bool>
+    gateway.alb.yc.io/rules.backends.balancing.mode: <string>
+    gateway.alb.yc.io/rules.backends.balancing.localityAwareRouting: <string>
+    gateway.alb.yc.io/rules.backends.balancing.strictLocality: <bool>
+    gateway.alb.yc.io/rules.backends.balancing.panicThreshold: <string>
+    gateway.alb.yc.io/rule.<имя_правила>.backends.balancing.mode: <string>
+    gateway.alb.yc.io/rules.backends.hc.timeout: <string>
+    gateway.alb.yc.io/rules.backends.hc.interval: <string>
+    gateway.alb.yc.io/rules.backends.hc.healthyThreshold: <string>
+    gateway.alb.yc.io/rules.backends.hc.unhealthyThreshold: <string>
+    gateway.alb.yc.io/rules.backends.hc.port: <string>
+    gateway.alb.yc.io/rules.backends.hc.http.path: <string>
+    gateway.alb.yc.io/rules.backends.hc.http.useHTTP2: <bool>
+    gateway.alb.yc.io/rules.backends.hc.http.host: <string>
+    gateway.alb.yc.io/rules.backends.hc.grpc.serviceName: "Check"
+    gateway.alb.yc.io/rules.backends.hc.stream.send: <string>
+    gateway.alb.yc.io/rules.backends.hc.stream.receive: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.header.name: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.cookie.name: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.cookie.ttl: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.sourceIP: <bool>
+    gateway.alb.yc.io/rules.timeout: <string>
+    gateway.alb.yc.io/rules.idleTimeout: <string>
+    gateway.alb.yc.io/rule.<имя_правила>.timeout: <string>
+    gateway.alb.yc.io/rule.<имя_правила>.idleTimeout: <string>
+    gateway.alb.yc.io/rules.httpUpgradeTypes: <string>
+    gateway.alb.yc.io/rules.securityProfileId: <string>
+    gateway.alb.yc.io/rules.rbac.action: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.header.name: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.header.regex: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.header.exact: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.header.prefix: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.ip.remoteIp: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.any: <bool>
+    gateway.alb.yc.io/hosts.securityProfileId: <string>
+    gateway.alb.yc.io/hosts.rbac.action: <string>
 spec: <HTTPRouteSpec>
 ```
 
@@ -30,15 +67,180 @@ spec: <HTTPRouteSpec>
     Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Не является именем маршрута в {{ alb-name }}.
- 
+
   * `namespace` (`string`)
 
     [Пространство имен](../../../managed-kubernetes/concepts/index.md#namespace), к которому относится ресурс. Значение по умолчанию — `default`.
 
+  * `annotations` (`map[string]string`)
+
+    Аннотации ресурса.
+
+    {% note info %}
+
+    Вы можете определить ресурс [RoutePolicy](../../../application-load-balancer/k8s-ref/route-policy.md) вместо аннотаций. Набор параметров ресурса `RoutePolicy` и аннотации `HTTPRoute` равнозначны.
+
+    {% endnote %}
+
+    * `gateway.alb.yc.io/rules.timeout` (`string`)
+
+      Таймаут для HTTP-соединения балансировщика и бэкенда. Соединение поддерживается до истечения указанного времени, независимо от того, происходит ли передача данных. При достижении таймаута ресурс возвращает статус `UNAVAILABLE`.
+
+    * `gateway.alb.yc.io/rules.idleTimeout` (`string`)
+
+      Таймаут неактивного HTTP-соединения, в течение которого отсутствует передача данных. По истечении таймаута возвращает статус `504 Gateway Timeout`.
+    
+    * `gateway.alb.yc.io/rules.securityProfileId` (`string`)
+    
+      Идентификатор [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} для маршрута.
+
+    * `gateway.alb.yc.io/hosts.securityProfileId` (`string`)
+    
+      Идентификатор профиля безопасности для хоста.
+
+    * `gateway.alb.yc.io/rules.backends.http.useHTTP2`
+
+      Использовать HTTP/2 для соединения между балансировщиком и бэкендом.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.header.name`
+
+      Имя HTTP-заголовка для session affinity.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.cookie.name` 
+
+      Имя cookie для session affinity.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.cookie.ttl`
+
+      Время жизни cookie для session affinity.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.sourceIP`
+
+      Признак использования IP-адреса клиента для session affinity.
+
+    * `gateway.alb.yc.io/rules.backends.balancing.mode`
+
+      Режим балансировки нагрузки. Возможные значения: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`.
+
+    * `gateway.alb.yc.io/rules.backends.balancing.localityAwareRouting`
+
+      Процент трафика, направляемого в зону доступности ресурса `HTTPRoute`, где размещены бэкенды в статусе healthy. Остальной трафик делится между другими зонами доступности. Параметр не применяется, если задан `strictLocality=true` (см. ниже).
+
+    * `gateway.alb.yc.io/rules.backends.balancing.strictLocality`
+
+      Строгая локальность маршрутизации трафика на бэкенды (только в зоне доступности ресурса `HTTPRoute`)
+
+    * `gateway.alb.yc.io/rules.backends.balancing.panicThreshold`
+
+      Порог panic mode для балансировки (%).
+
+    * `gateway.alb.yc.io/rules.backends.hc.timeout`
+
+      Таймаут ответа на проверку состояния.
+
+    * `gateway.alb.yc.io/rules.backends.hc.interval`
+
+      Интервал между проверками состояния.
+
+    * `gateway.alb.yc.io/rules.backends.hc.healthyThreshold`
+
+      Количество успешных проверок для присвоения ресурсу статуса healthy.
+
+    * `gateway.alb.yc.io/rules.backends.hc.unhealthyThreshold`
+
+      Количество неуспешных проверок для присвоения ресурсу статуса unhealthy.
+
+    * `gateway.alb.yc.io/rules.backends.hc.port`
+
+      Порт для проверок health check.
+
+    * `gateway.alb.yc.io/rules.backends.hc.http.path`
+
+      Путь для HTTP-проверок health check. Пример: `/health`. Используется для HTTP(S)-бэкендов.
+
+    * `gateway.alb.yc.io/rules.backends.hc.http.useHTTP2`
+
+      Использовать HTTP/2 для проверок health check. По умолчанию используется HTTP/1.1. Используется для HTTP(S)-бэкендов.
+
+    * `gateway.alb.yc.io/rules.backends.hc.http.host`
+
+      Адрес хоста для HTTP-проверок health check.
+
+    * `gateway.alb.yc.io/rules.backends.hc.grpc.serviceName`
+
+      Имя gRPC-сервиса для проверок health check gRPC-бэкендов.
+
+    * `gateway.alb.yc.io/rules.backends.hc.stream.send`
+
+      Данные для отправки при TCP health check. Используется для бэкендов с TCP-интерфейсом.
+
+    * `gateway.alb.yc.io/rules.backends.hc.stream.receive`
+
+      Ожидаемый ответ при TCP health check. Используется для бэкендов с TCP-интерфейсом.
+
+    * `gateway.alb.yc.io/rules.timeout`
+
+      Общий таймаут HTTP-соединения между балансировщиком и бэкендом.
+
+    * `gateway.alb.yc.io/rules.idleTimeout`
+
+      Таймаут неактивного HTTP-соединения.
+
+    * `gateway.alb.yc.io/rules.httpUpgradeTypes`
+
+      Поддерживаемые значения HTTP Upgrade (например, websocket).
+
+    * `gateway.alb.yc.io/rules.securityProfileId`
+
+      Идентификатор профиля безопасности {{ sws-name }} для маршрута.
+
+    * `gateway.alb.yc.io/rules.rbac.action`
+    
+      Действие при совпадении заданных условий (`ALLOW`/`DENY`) для контроля доступа к бэкендам.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.header.name`
+
+      Имя заголовка для проверок условий RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.header.regex`
+
+      Регулярное выражение для проверки значения заголовка для управления доступом к хосту по RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.header.exact`
+
+      Точное значение заголовка для управления доступом к хосту по RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.header.prefix`
+
+      Префикс значения заголовка для управления доступом к хосту по RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.ip.remoteIp`
+
+      IP-адрес или CIDR-блок для управления доступом к хосту по RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<имя_группы>.<имя_принципала>.any`
+
+      Любое совпадение заданных условий для управления доступом к хосту по RBAC (`true`/`false`).
+
+    * `gateway.alb.yc.io/hosts.rbac.action`
+
+      Действие при совпадении заданных условий (`ALLOW`/`DENY`) для контроля доступа к хосту по RBAC.
+
+    * `gateway.alb.yc.io/rule.<имя_правила>.backends.balancing.mode`
+
+      Режим балансировки для конкретного правила. Возможные значения: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`.
+
+    * `gateway.alb.yc.io/rule.<имя_правила>.timeout`
+
+      Таймаут для конкретного правила балансировки.
+
+    * `gateway.alb.yc.io/rule.<имя_правила>.idleTimeout`
+
+      Таймаут неактивности для конкретного правила балансировки.
+
 * `spec` (`HTTPRouteSpec`, обязательное)
 
   Спецификация ресурса. Подробнее см. [ниже](#spec).
-
 
 ## HTTPRouteSpec {#spec}
 
@@ -157,19 +359,29 @@ rules:
 
     Список [сервисов {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service), которые должны обрабатывать запрос в качестве бэкенда.
 
-    Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+    Можно указать ресурс [YCStorageBucket](../../../application-load-balancer/k8s-ref/yc-storage-bucket.md) (бакет {{ objstorage-name }}) либо ресурс [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
   
      * `name` (`string`)
 
-       Имя сервиса {{ k8s }}.
+       Имя сервиса {{ k8s }} или ресурса с бакетом.
 
      * `namespace` (`string`)
   
-       Пространство имен, к которому относится сервис.
+       Пространство имен, к которому относится сервис или ресурс с бакетом.
+
+     * `group` (`string`)
+
+       Имя группы API {{ k8s }}, к которой относится ресурс с бакетом, например `gwin.yandex.cloud`. Только для ресурса `YCStorageBucket`.
+
+       Значение по умолчанию — пустая строка, обозначающая корневую группу API.
+
+     * `kind` (`string`)
+
+       Тип ресурса {{ k8s }} с бакетом. Только для ресурса `YCStorageBucket`. Используется значение `YCStorageBucket`.
 
      * `port` (`int32`)
 
-       Номер порта сервиса.
+       Номер порта сервиса. Только для ресурса `Service`.
 
        Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
 

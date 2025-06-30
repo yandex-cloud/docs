@@ -79,6 +79,12 @@ description: Следуя данной инструкции, вы сможете
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
+{% note info %}
+
+Если вы используете [высокодоступный тип мастера](../../concepts/index.md#master), разрешите трафик для групп узлов до CIDR подсетей, в которых расположены хосты мастера, или до CIDR кластера. Это нужно для передачи служебного трафика между мастером и узлами.
+
+{% endnote %}
+
 ### Разрешить трафик для групп узлов {#rules-internal-nodegroup}
 
 Чтобы группы узлов работали корректно, создайте правила для входящего и исходящего трафика, и [примените их к группам узлов](#apply):
@@ -94,6 +100,30 @@ description: Следуя данной инструкции, вы сможете
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
+    {% note info %}
+
+    Если вы используете [высокодоступный тип мастера](../../concepts/index.md#master) и не хотите разрешать узлам подключаться к любым адресам (CIDR — `0.0.0.0/0`), разрешите исходящий трафик до CIDR подсетей, в которых расположены хосты мастера, или до CIDR кластера. Это нужно, чтобы у узлов был доступ к мастеру.
+
+      {% cut "Примеры" %}
+
+      * Доступ к CIDR кластера:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `10.131.0.32/32`.
+
+      * Доступ к CIDR подсетей с хостами мастера:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `10.128.0.0/24`, `10.129.0.0/24`, `10.131.0.0/24`.
+
+      {% endcut %}
+
+    {% endnote %}
 
 ### Разрешить трафик для кластера {#rules-master}
 
