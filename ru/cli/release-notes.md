@@ -7,6 +7,16 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.153.0 (30.06.25) {#version0.153.0}
+
+###  Изменения в сервисах {{ yandex-cloud }}
+
+#### {{ cloud-desktop-name }}
+
+В команде `desktops update group` изменен тип флага `--disk-size` для загрузочного (boot) и рабочего (data) дисков на `byteSize`.
+
+## Предыдущие релизы {#previous-release}
+
 ## Версия 0.152.0 (25.06.25) {#version0.152.0}
 
 ### Изменения в сервисах {{ yandex-cloud }}
@@ -45,8 +55,6 @@ description: На странице представлены релизы CLI, а
 **{{ mpg-name }}**
 
 Устаревший аргумент `version` параметра `extension` в команде `postgresql database` больше не существует.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.151.0 (19.06.25) {#version0.151.0}
 

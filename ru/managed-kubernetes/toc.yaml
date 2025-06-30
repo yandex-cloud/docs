@@ -668,8 +668,16 @@ items:
         items:
           - name: Gateway
             href: alb-ref/gateway.md
+          - name: GatewayPolicy
+            href: alb-ref/gateway-policy.md
+          - name: YCCertificate
+            href: alb-ref/yc-certificate.md
           - name: HTTPRoute
             href: alb-ref/http-route.md
+          - name: RoutePolicy
+            href: alb-ref/route-policy.md
+          - name: YCStorageBucket
+            href: alb-ref/yc-storage-bucket.md
           - name: TLSRoute
             href: alb-ref/tls-route.md
           - name: Service для Gateway API
