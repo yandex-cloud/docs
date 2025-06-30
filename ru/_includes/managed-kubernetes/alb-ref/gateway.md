@@ -20,6 +20,16 @@ metadata:
   namespace: <string>
   annotations:
     gateway.alb.yc.io/security-groups: <string>
+    gateway.alb.yc.io/subnets: <string>
+    gateway.alb.yc.io/autoScale.minZoneSize: <string>
+    gateway.alb.yc.io/autoScale.maxSize: <string>
+    gateway.alb.yc.io/zone.<зона_доступности>.receiveTraffic: <bool>
+    gateway.alb.yc.io/logs.logGroupId: <string>
+    gateway.alb.yc.io/logs.disable: <bool>
+    gateway.alb.yc.io/logs.discardRule.<имя_правила>.httpCodes: <string>
+    gateway.alb.yc.io/logs.discardRule.<имя_правила>.httpCodeIntervals: <string>
+    gateway.alb.yc.io/logs.discardRule.<имя_правила>.grpcCodes: <string>
+    gateway.alb.yc.io/logs.discardRule.<имя_правила>.discardPercent: <string>
 spec: <GatewaySpec>
 ```
 
@@ -40,25 +50,70 @@ spec: <GatewaySpec>
   * `namespace` (`string`)
   
     [Пространство имен](../../../managed-kubernetes/concepts/index.md#namespace), к которому относится ресурс. Значение по умолчанию — `default`.
-   
+
   * `annotations` (`map[string]string`, обязательное)
-    
+
     Аннотации ресурса.
+
+    {% note info %}
+
+    Вы можете определить ресурс [GatewayPolicy](../../../application-load-balancer/k8s-ref/gateway-policy.md) вместо аннотаций. Набор параметров ресурса `GatewayPolicy` и аннотации `Gateway` равнозначны.
+
+    {% endnote %}
 
     * `gateway.alb.yc.io/security-groups` (`string`, обязательное)
 
       Список [групп безопасности](../../../vpc/concepts/security-groups.md) {{ vpc-name }} для балансировщика. Идентификаторы групп перечисляются через запятую, например:
-    
+
       ```
       gateway.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
       ```
-    
+
       Для корректной работы балансировщика и Gateway API группы безопасности должны быть настроены, как описано в разделе [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+
+    * `gateway.alb.yc.io/subnet-ids` (`string`)
+
+      Список [подсетей](../../../vpc/concepts/network.md#subnet) {{ vpc-name }} в [зонах доступности](../../../overview/concepts/geo-scope.md), где размещен балансировщик. Идентификаторы подсетей перечисляются через запятую.
+
+    * `gateway.alb.yc.io/autoScale.minZoneSize` (`string`)
+
+      Минимальное количество [ресурсных единиц](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) в каждой зоне доступности. По умолчанию минимум равен 2. Указать минимальное значение меньше 2 нельзя.
+
+    * `gateway.alb.yc.io/autoScale.maxSize` (`string`)
+
+      Максимальное суммарное количество ресурсных единиц. По умолчанию количество не ограничено. Значение должно быть не меньше, чем количество зон доступности балансировщика, умноженное на минимальное количество ресурсных единиц в каждой зоне.
+
+    * `gateway.alb.yc.io/zone.<зона_доступности>.receiveTraffic` (`bool`)
+
+      Значение `true` выключает трафик на узлы балансировщика в указанной зоне доступности.
+
+    * `gateway.alb.yc.io/logs.disable` (`bool`)
+
+      Значение `true` выключает логирование балансировщика.
+
+    * `gateway.alb.yc.io/logs.logGroupId` (`string`)
+
+      Идентификатор [лог-группы](../../../logging/concepts/log-group.md) для записи [логов балансировщика](../../../application-load-balancer/logs-ref.md) в {{ cloud-logging-full-name }}.
+
+    * `gateway.alb.yc.io/logs.discardRule.<имя_правила>.httpCodes` (`string`)
+
+      Список HTTP-кодов. Коды перечисляются через запятую. Параметр правила отбрасывания логов. Для имени правила используйте латинские буквы, цифры и дефис.
+
+    * `gateway.alb.yc.io/logs.discardRule.<имя_правила>.httpCodeIntervals` (`string`)
+
+      Список классов HTTP-кодов (например, `HTTP_4XX`). Классы перечисляются через запятую. Параметр правила отбрасывания логов. Для имени правила используйте латинские буквы и цифры.
+
+    * `gateway.alb.yc.io/logs.discardRule.<имя_правила>.grpcCodes` (`string`)
+
+      Список gRPC-кодов. Коды перечисляются через запятую. Параметр правила отбрасывания логов. Для имени правила используйте латинские буквы и цифры.
+
+    * `gateway.alb.yc.io/logs.discardRule.<имя_правила>.discardPercent` (`string`)
+
+      Доля отбрасываемых логов в процентах. Параметр правила отбрасывания логов. Для имени правила используйте латинские буквы и цифры.
 
 * `spec` (`GatewaySpec`, обязательное)
 
   Спецификация ресурса. Подробнее см. [ниже](#spec).
-
 
 ## GatewaySpec {#spec}
 
@@ -152,7 +207,7 @@ addresses:
 
       В балансировщике используется только первый сертификат из списка, остальные игнорируются.
   
-      Добавить сертификат в кластер можно в виде секрета (ресурса `Secret`) через консоль управления {{ managed-k8s-name }} или с помощью kubectl:
+      Можно указать сертификат {{ certificate-manager-name }} (ресурс [YCCertificate](../../../application-load-balancer/k8s-ref/yc-certificate.md)) либо добавить сертификат в кластер в виде секрета (ресурса `Secret`) через консоль управления {{ managed-k8s-name }} или с помощью kubectl:
   
       ```
       kubectl create secret tls <имя_секрета> \
@@ -162,19 +217,19 @@ addresses:
       ```
   
       * `group` (`string`)
-        
-        Имя группы API {{ k8s }}, к которой относится ресурс с сертификатом, например `networking.k8s.io`. 
-        
+
+        Имя группы API {{ k8s }}, к которой относится ресурс с сертификатом, например `networking.k8s.io`.
+
         Значение по умолчанию — пустая строка, обозначающая корневую группу API.
 
       * `kind` (`string`)
-        
+
         Тип ресурса {{ k8s }}, в котором хранится сертификат.
   
-        Значение по умолчанию — `Secret`.
+        Значение по умолчанию — `Secret`. Для сертификата {{ certificate-manager-name }} используется значение `YCCertificate`.
 
       * `name` (`string`)
-        
+
         Имя ресурса {{ k8s }}, в котором хранится сертификат.
 
       * `namespace` (`string`)
@@ -203,17 +258,18 @@ addresses:
   
         Селектор — набор требований к пространствам имен. Выбираются только те пространства, которые удовлетворяют всем требованиям из полей `matchExpressions` и `matchLabels`.
   
-        Подробнее см. в [справочнике API {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#labelselector-v1-meta).
+        Подробнее см. в [справочнике API {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#labelselector-v1-meta).
   
-        Если значение поля `from` — не `Selector`, то поле `selector` игнорируется. 
+        Если значение поля `from` — не `Selector`, то поле `selector` игнорируется.
 
 * `addresses` (`[]GatewayAddress`)
 
   Настройки публичных IP-адресов балансировщика.
 
-  Если поле не указано, балансировщику будет автоматически присвоен один публичный адрес. 
+  Если поле не указано, балансировщику будет автоматически присвоен один публичный адрес.
 
   * `type`: `IPAddress`
+
   * `value` (`string`)
   
     Публичный IP-адрес {{ vpc-full-name }}, присваиваемый балансировщику.
