@@ -31,6 +31,7 @@ description: Управление доступом в сервисе {{ metadata
 * [Роли для управления подключениями с помощью {{ connection-manager-name }}](connection-manager-roles.md).
 * [Роли для работы с метаданными в кластере {{ metastore-name }}](metastore-roles.md).
 * [Роли для работы со {{ schema-registry-name }}](schema-registry-roles.md).
+* [Роли для работы с {{ data-catalog-full-name }}](data-catalog-roles.md).
 
 ### Примитивные роли {#primitive-roles}
 

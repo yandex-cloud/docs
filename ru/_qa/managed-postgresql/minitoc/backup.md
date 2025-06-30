@@ -12,4 +12,6 @@
 
 * [Что делать, если при выполнении логической репликации возникает ошибка `replication slot already exists`?](#repl-slot-exists)
 
+* [Можно ли восстановить из резервной копии одну базу данных?](#restore-one-database)
+
 * [Почему при миграции БД в {{ mpg-short-name }} возникает ошибка `extension... is not available`?](#extension-is-not-available)

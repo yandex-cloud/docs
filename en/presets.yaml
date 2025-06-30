@@ -7522,6 +7522,7 @@ default:
         confirm: Confirm
         continue: Continue
         create: Create
+        created-at: Date created
         delete: Delete
         description: Description
         disable: Disable
@@ -7532,6 +7533,7 @@ default:
         field_ddos-protection-provider: DDoS protection
         folder: Folder
         id: ID
+        label_author: Author
         label_auto: Auto
         label_filters: Filters
         label_http: HTTP
@@ -7576,6 +7578,7 @@ default:
         section-base: General information
         select: Select
         start: Start
+        status: Status
         stop: Stop
         type: Type
         units:
@@ -8064,6 +8067,9 @@ default:
           title_scan-on-push: Scan Docker images when uploading
           title_scheduled-scan: Scheduled Docker image scans
         switch_registry: Registries
+      data-catalog:
+        action_create-catalog: Create catalog
+        label_create-catalog: Create catalog
       data-streams:
         button_connect: Connect
         button_create-stream: Create stream
@@ -8094,6 +8100,8 @@ default:
         label_endpoint-status-UPDATING: Updating
         label_endpoints: Endpoints
         label_monitoring: Monitoring
+        switch_all: All
+        switch_my: My
       dataproc:
         jobs:
           button_create: Submit job
@@ -8335,6 +8343,7 @@ default:
             label_compute: Compute Cloud
             label_connection-manager: Connection manager
             label_container-registry: Container Registry
+            label_data-catalog: Data Catalog
             label_data-proc: Yandex Data Processing
             label_data-streams: Data Streams
             label_data-transfer: Data Transfer
@@ -12094,7 +12103,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.7.0
+        tag: v0.7.1
     yc_gitlab-agent:
       helmChart:
         name: >-
