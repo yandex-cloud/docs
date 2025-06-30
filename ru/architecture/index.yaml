@@ -6,6 +6,10 @@ description:
 links:
   - title: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
     href: fault-tolerance
+  - title: >-
+      Развертывание веб-приложения в отказоустойчивой конфигурации в {{
+      yandex-cloud }}
+    href: app-in-k8s
 meta:
   title: Архитектурные решения
   description: >-

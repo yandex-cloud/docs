@@ -149,6 +149,8 @@ default:
   crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
   crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   CSI: Container Storage Interface
+  data-catalog-full-name: Yandex Data Catalog
+  data-catalog-name: Data Catalog
   data-transfer-full-name: Yandex Data Transfer
   data-transfer-name: Data Transfer
   data-transfer-short-name: Data Transfer
@@ -613,6 +615,12 @@ default:
   roles-yaart-user: ai.imageGeneration.user
   roles-yagpt-user: ai.languageModels.user
   roles:
+    data-catalog:
+      catalog:
+        admin: data-catalog.catalogs.admin
+        auditor: data-catalog.catalogs.auditor
+        editor: data-catalog.catalogs.editor
+        viewer: data-catalog.catalogs.viewer
     gitlab:
       admin: gitlab.admin
       editor: gitlab.editor
@@ -7530,6 +7538,7 @@ default:
         confirm: Подтвердить
         continue: Продолжить
         create: Создать
+        created-at: Дата создания
         delete: Удалить
         description: Описание
         disable: Выключить
@@ -7540,6 +7549,7 @@ default:
         field_ddos-protection-provider: Защита от DDoS-атак
         folder: Каталог
         id: Идентификатор
+        label_author: Автор
         label_auto: Автоматически
         label_filters: Фильтры
         label_http: HTTP
@@ -7584,6 +7594,7 @@ default:
         section-base: Общая информация
         select: Выбрать
         start: Запустить
+        status: Статус
         stop: Остановить
         type: Тип
         units:
@@ -8074,6 +8085,9 @@ default:
           title_scan-on-push: Сканирование Docker-образов при загрузке
           title_scheduled-scan: Сканирование Docker-образов по расписанию
         switch_registry: Реестры
+      data-catalog:
+        action_create-catalog: Cоздать каталог
+        label_create-catalog: Создать каталог
       data-streams:
         button_connect: Подключиться
         button_create-stream: Создать поток
@@ -8104,6 +8118,8 @@ default:
         label_endpoint-status-UPDATING: Обновляется
         label_endpoints: Эндпоинты
         label_monitoring: Мониторинг
+        switch_all: Все
+        switch_my: Мои
       dataproc:
         jobs:
           button_create: Создать задание
@@ -8345,6 +8361,7 @@ default:
             label_compute: Compute Cloud
             label_connection-manager: Connection manager
             label_container-registry: Container Registry
+            label_data-catalog: Data Catalog
             label_data-proc: Yandex Data Processing
             label_data-streams: Data Streams
             label_data-transfer: Data Transfer
@@ -12104,7 +12121,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.7.0
+        tag: v0.7.1
     yc_gitlab-agent:
       helmChart:
         name: >-

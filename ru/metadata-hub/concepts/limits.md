@@ -23,4 +23,8 @@ description: В {{ metadata-hub-full-name }} действуют квоты на 
 
 {% include [schema-registry-quotas](../../_includes/metadata-hub/schema-registry-quotas.md) %}
 
+## Квоты {{ data-catalog-name }} {#data-catalog-quota}
+
+{% include [schema-registry-quotas](../../_includes/metadata-hub/data-catalog-quotas.md) %}
+
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
