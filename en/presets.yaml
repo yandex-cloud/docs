@@ -455,6 +455,9 @@ default:
     docs: https://docs.microsoft.com/en-us
   msp-full-name: Yandex Managed Service for Apache Spark™
   msp-name: Managed Service for Apache Spark™
+  mspqr-full-name: Yandex Managed Service for Sharded PostgreSQL
+  mspqr-name: Managed Service for Sharded PostgreSQL
+  mspqr-short-name: Managed Service for Sharded PostgreSQL
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -719,6 +722,7 @@ default:
   speechsense-endpoint: api.speechsense.yandexcloud.net:443
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
+  SPQR: Sharded PostgreSQL
   SPRK: Apache Spark™
   src-full-name: SourceCraft
   src-name: SourceCraft
@@ -8069,7 +8073,7 @@ default:
         switch_registry: Registries
       data-catalog:
         action_create-catalog: Create catalog
-        label_create-catalog: Create catalog
+        label_create-catalog: Creating a catalog
       data-streams:
         button_connect: Connect
         button_create-stream: Create stream
@@ -8150,26 +8154,6 @@ default:
         label_zone: Zone
         label_zone-record-sets: Records
         label_zones-list: Zones
-      elasticsearch:
-        auth:
-          auth-providers: Access control
-          provider-enabled: Enabled
-          provider-hint: Hint
-          provider-icon: Icon
-          provider-type: Provider type
-          saml_settings: SAML settings
-          saml-attribute_dn: attribute_dn
-          saml-attribute_email: attribute_email
-          saml-attribute_groups: attribute_groups
-          saml-attribute_name: attribute_name
-          saml-attribute_principal: attribute_principal
-          saml-idp_entity_id: idp_entity_id
-          saml-idp_metadata_file: idp_metadata_file
-          saml-kibana_url: kibana_url
-          saml-sp_entity_id: sp_entity_id
-        base_field_edition: Edition
-        button_add-hosts: Add hosts
-        label_kibana: Kibana
       forms:
         label_form-id: ID
         label_form-list: List
@@ -8360,7 +8344,6 @@ default:
             label_logging: Cloud Logging
             label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
             label_managed-clickhouse: Managed Service for&nbsp;ClickHouse
-            label_managed-elasticsearch: Managed Service for&nbsp;Elasticsearch
             label_managed-gitlab: Managed Service for&nbsp;GitLab
             label_managed-greenplum: Managed Service for&nbsp;Greenplum
             label_managed-kafka: Managed Service for&nbsp;Kafka
@@ -8371,6 +8354,7 @@ default:
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
             label_managed-redis: Yandex Managed Service for&nbsp;Valkey™
             label_managed-spark: Managed Service for Apache Spark™
+            label_managed-spqr: Yandex Managed Service for Sharded&nbsp;PostgreSQL
             label_managed-trino: Managed Service for&nbsp;Trino
             label_mdb: Managed Databases
             label_message-queue: Message Queue

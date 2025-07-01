@@ -9,7 +9,3 @@
 * [Можно ли изменить тип диска в существующем кластере?](#disk-type)
 
 * [Можно ли управлять кластером с помощью команд SQL?](#sql-control)
-
-* [Почему я не могу остановить кластер?](#stop-cluster)
-
-* [Почему при изменении кластера возникает ошибка `max_connections is less than sum of users connection limit`?](#max-connections-error)

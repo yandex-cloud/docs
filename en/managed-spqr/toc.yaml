@@ -1,0 +1,10 @@
+title: '{{ mspqr-full-name }}'
+href: index.yaml
+stage: preview
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Quotas and limits
+    href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md

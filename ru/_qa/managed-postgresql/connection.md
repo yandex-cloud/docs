@@ -25,25 +25,6 @@ mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt {{ crt-web
 
 Подробнее о получении сертификата и подключении к базе данных см. в [документации сервиса](../../managed-postgresql/operations/connect.md).
 
-#### Что делать, если при получении SSL-сертификата через PowerShell возникает ошибка проверки отзыва? {#get-ssl-error}
-
-Полный текст ошибки:
-
-```text
-curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
-The revocation function was unable to check revocation for the certificate
-```
-Это означает, что при подключении к сайту не удалось проверить, есть ли его сертификат в списке отозванных.
-
-Чтобы исправить ошибку:
-
-* убедитесь, что проверку не блокируют настройки корпоративной сети;
-* выполните команду с параметром `--ssl-no-revoke`.
-
-  ```powershell
-  mkdir $HOME\.postgresql; curl.exe --ssl-no-revoke -o $HOME\.postgresql\root.crt {{ crt-web-path }}
-  ```
-
 #### Как установить SSL-сертификат для подключения Power BI к {{ mpg-name }} через psql? {#power-bi}
 
 1. Установите [Windows Subsystem for Linux]({{ ms.docs }}/windows/wsl/) (WSL) и выполните в терминале команду:
@@ -57,13 +38,6 @@ The revocation function was unable to check revocation for the certificate
    Сертификат будет доступен по пути `C:\temp\CA.pfx`.
 
 1. [Разместите полученный сертификат в хранилище сертификатов Windows](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
-
-#### Что делать, если при подключении я получаю ошибку SSL is required? {#ssl-req}
-
-Ошибка означает, что вы пытаетесь подключиться к кластеру с [хостом в публичном доступе](../../managed-postgresql/concepts/network.md#public-access-to-a-host). Такие хосты поддерживают только соединения с SSL-сертификатом. Вы можете:
-
-* [Получить SSL-сертификат](../../managed-postgresql/operations/connect.md#get-ssl-cert) и добавить его в приложение, которое вы используете для подключения.
-* [Отключить публичный доступ для хостов](../../managed-postgresql/operations/hosts.md#update) и подключаться к кластеру с виртуальной машины, расположенной в той же облачной сети.
 
 #### Можно ли подключиться к хостам кластера по SSH? {#connect-ssh}
 
@@ -89,28 +63,8 @@ The revocation function was unable to check revocation for the certificate
 too many active clients for user (pool_size for user <имя_пользователя> reached <значение_лимита>)
 ```
 
-О том, как изменить настройки {{ PG }} на уровне пользователя читайте в [документации](../../managed-postgresql/operations/cluster-users.md#update-settings).
-
-#### Почему при попытке подключиться к базе данных возникает ошибка? {#database-error}
-
-Подключение к базе данных может завершиться ошибкой вида:
-
-```text
-ERROR: odyssey: ce3ea075f4ffa: route for 'dbname.username' is not found
-```
-
-Ошибка означает, что в параметрах подключения указано неверное имя базы данных.
+О том, как изменить настройки {{ PG }} на уровне пользователя, читайте в [документации](../../managed-postgresql/operations/cluster-users.md#update-settings).
 
 #### Почему при попытке подключиться к базе данных из {{ google-looker }} возникает ошибка? {#google-looker}
 
 Для подключения из {{ google-looker }} необходимо сгенерировать и указать в настройках подключения файл сертификата клиента и приватный ключ. О том, как это сделать, см. в разделе [Подключение из {{ google-looker }}](../../managed-postgresql/operations/connect.md#connection-google-looker).
-
-#### Почему соединение завершается ошибкой? {#connection-error}
-
-Соединение с кластером {{ mpg-name }} может завершаться сообщением:
-
-```text
-FATAL: terminating connection due to administrator command
-```
-
-Такое сообщение не является ошибкой, а означает, что длительность сессии/транзакции превысила значение настройки [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout) (по умолчанию — 12 часов).

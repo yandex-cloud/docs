@@ -15,7 +15,7 @@ keywords:
 
 ## Удалить кластер {#delete}
 
-Перед удалением кластера отключите защиту от удаления для кластера, если она включена.
+Перед удалением кластера отключите его защиту от удаления, если она включена.
 
 {% list tabs group=instructions %}
 
@@ -25,6 +25,20 @@ keywords:
   1. Выберите сервис **{{ mtr-name }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. В открывшемся окне подтвердите удаление и нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить кластер {{ mtr-name }}, выполните команду:
+
+    ```bash
+    {{ yc-mdb-tr }} cluster delete <имя_или_идентификатор_кластера>
+    ```
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - REST API {#api}
 

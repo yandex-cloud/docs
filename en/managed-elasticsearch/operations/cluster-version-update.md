@@ -21,7 +21,7 @@ You can update a {{ mes-name }} cluster to a newer [{{ ES }} version](../concept
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
@@ -41,7 +41,7 @@ Make sure this does not affect your applications:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the appropriate {{ ES }} version.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -128,9 +128,9 @@ You can change the [{{ ES }} edition](../concepts/es-editions.md) used by the cl
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. In the **{{ ui-key.yacloud.elasticsearch.base_field_edition }}** field, select the {{ ES }} edition you need: `Basic` or `Platinum`.
+    1. In the **Edition** field, select the {{ ES }} edition you need: `Basic` or `Platinum`.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

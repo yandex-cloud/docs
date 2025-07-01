@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы сможете
 ## Создайте кластер {#cluster-create}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+1. Выберите сервис **Managed Service for&nbsp;Elasticsearch**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Задайте параметры кластера.
 
