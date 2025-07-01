@@ -32,7 +32,7 @@
 Создать транковое подключение через партнера | [Описание](../../interconnect/tutorials/partner-trunk-priv-add.md) | [Описание](../../interconnect/operations/trunk-create.md#partner)
 Изменить параметры транкового подключения | Да | [Описание](../../interconnect/operations/trunk-update.md)
 Изменить емкость транкового подключения | [Описание](../../interconnect/tutorials/trunk-capacity-change.md) | Не поддерживается
-Удалить транковое подключение | [Описание](../../interconnect/tutorials/trunk-del.html) | [Описание](../../interconnect/operations/trunk-delete.md)
+Удалить транковое подключение | [Описание](../../interconnect/tutorials/trunk-del.md) | [Описание](../../interconnect/operations/trunk-delete.md)
 
 
 ## Приватное соединение {#prc}

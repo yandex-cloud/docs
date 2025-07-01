@@ -6,7 +6,7 @@ With the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}), you can get
 
 Data sources are available as read only, which prevents any changes to external resources.
 
-Let's use {{ TF }} data sources to get an [Ubuntu 22.04 LTS](marketplace/products/yc/ubuntu-22-04-lts) image ID from {{ marketplace-name }}.
+Let's use {{ TF }} data sources to get an [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image ID from {{ marketplace-name }}.
 
 To get an `Ubuntu 22.04 LTS` image ID using {{ TF }}:
 

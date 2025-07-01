@@ -48,6 +48,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% endnote %}
 
+
 Подключение с указанием идентификатора кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
@@ -57,7 +58,6 @@ description: Из статьи вы узнаете, как задать наст
     {% include [Managed OpenSearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-opensearch.md) %}
 
 {% endlist %}
-
 
 ### Пользовательская инсталляция {#on-premise}
 

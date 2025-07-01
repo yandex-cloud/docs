@@ -1,1 +1,1 @@
-Вы можете [задать](../../managed-greenplum/operations/update.md/change-gp-settings) уровень логирования {{ GP }} в параметре `Log min messages`. Подробнее о [дополнительных настройках](../../managed-greenplum/concepts/settings-list.md#dbms-cluster-settings) {{ GP }}.
+Вы можете [задать](../../managed-greenplum/operations/update.md#change-gp-settings) уровень логирования {{ GP }} в параметре `Log min messages`. Подробнее о [дополнительных настройках](../../managed-greenplum/concepts/settings-list.md#dbms-cluster-settings) {{ GP }}.

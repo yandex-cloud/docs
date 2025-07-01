@@ -61,13 +61,14 @@
     * Роль `ACCESS_ROLE_CONSUMER`: пользователю доступны операции чтения над [субъектами](./managed-schema-registry.md#subjects), связанными с топиком, на который назначена роль.
     * Роль `ACCESS_ROLE_PRODUCER`: пользователю доступны любые операции над субъектами, связанными с топиком, на который назначена роль.
     * Роль `ACCESS_ROLE_ADMIN`: пользователю доступны любые операции над субъектами, связанными с любым топиком (эта роль назначается на все топики).
+    * Роль `ACCESS_ROLE_TOPIC_ADMIN`: пользователю доступны любые операции над субъектами, связанными с топиком, на который назначена роль.
 
     Перечень субъектов, с которыми можно работать, также определяется ролью пользователя. Подробнее о ролевой модели {{ mkf-msr }} см. в разделе [{#T}](./managed-schema-registry.md).
 
 * REST API для {{ KF }}:
 
     * Роль `ACCESS_ROLE_CONSUMER`: пользователь может получать информацию об объектах {{ KF }}, а также работать с потребителями.
-    * Роль `ACCESS_ROLE_ADMIN` или `ACCESS_ROLE_PRODUCER`: пользователь может работать с объектами {{ KF }} в полном объеме.
+    * Роль `ACCESS_ROLE_ADMIN`, `ACCESS_ROLE_PRODUCER` или `ACCESS_ROLE_TOPIC_ADMIN`: пользователь может работать с объектами {{ KF }} в полном объеме.
 
 Описания методов [REST API для {{ mkf-msr }}](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html) и [REST API для {{ KF }}](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html) приведены в документации Confluent. Пример работы с этими API см. в разделе [{#T}](../tutorials/managed-schema-registry-rest.md).
 

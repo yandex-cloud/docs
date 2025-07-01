@@ -12,7 +12,7 @@
 `billing.datasphereCommunityBindings.count` | 100 ||
 || Количество [экземпляров {{ speechsense-name }}](../../speechsense/quickstart.md), привязанных к одному платежному аккаунту 
 `billing.speechsenseSpaceBindings.count` | 100 ||
-|| Количество [экземпляров {{ tracker-name }}](../../tracker/), привязанных к одному платежному аккаунту 
+|| Количество [экземпляров {{ tracker-name }}]({{ link-tracker-cloudless }}), привязанных к одному платежному аккаунту 
 `billing.trackerBindings.count` | 5 ||
 |#
 

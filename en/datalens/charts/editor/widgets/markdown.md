@@ -535,7 +535,11 @@ When using Mermaid, keep the following limitations in mind:
 * [Markdown chart with parameterization](https://datalens.yandex/nvkfwnekf9xy9?tab=x6v#Markdown%20чарт%20с%20параметрами)
 * [Mermaid diagrams and flowcharts](https://datalens.yandex/nvkfwnekf9xy9?tab=x6v#Markdown%20чарт%20c%20Mermaid-диаграммами)
 
+```mermaid
+
 [*term_key]: Term definition which may include _basic_ markup:
 * Lists
 * Links
 * Images, etc.
+
+```

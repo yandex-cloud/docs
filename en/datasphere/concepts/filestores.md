@@ -4,7 +4,7 @@ _File storage_ is a way to store information that provides quick access to large
 
 File storages are not included in the main project storage and are [billed](../pricing.md) separately.
 
-To use your file storages in multiple projects, you can [share](../operations/data//filestores.md#share) your datasets within your community, just like any other resources. To access your file storage from a notebook, remember to first [activate](../operations/data/filestores.md#activate) the storage in the project.
+To use your file storages in multiple projects, you can [share](../operations/data/filestores.md#share) your datasets within your community, just like any other resources. To access your file storage from a notebook, remember to first [activate](../operations/data/filestores.md#activate) the storage in the project.
 
 {% include [filestore-upload-warning](../../_includes/datasphere/filestore-upload-warning.md) %}
 
