@@ -126,6 +126,9 @@ links:
   - title: Managed Service for Apache Spark™
     description: Управление кластерами Apache Spark™
     href: managed-spark/
+  - title: Managed Service for Sharded PostgreSQL
+    description: Управление кластерами Sharded PostgreSQL
+    href: managed-spqr/
   - title: Managed Service for ClickHouse
     description: Управление базой данных ClickHouse
     href: managed-clickhouse/

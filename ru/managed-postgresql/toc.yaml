@@ -609,6 +609,8 @@ items:
         href: qa/ha.md
       - name: Мониторинг и логи
         href: qa/monitoring.md
+      - name: Сообщения об ошибках
+        href: qa/errors.md
       - name: Все вопросы на одной странице
         href: qa/all.md
   - name: Обучающие курсы

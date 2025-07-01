@@ -4,6 +4,15 @@
 
 ## Образы 2.2.x (бета) {#2-2-x}
 
+### 2.2.8 (бета) {#2-2-8}
+
+* Добавлена возможность устанавливать переменные окружения:
+
+    * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`.
+    * `HADOOP_HEAPSIZE` для сервиса `hive`.
+
+* Поддержан {{ oslogin }} для хостов кластера. Опция включает доступ через [{{ oslogin }}](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
+
 ### 2.2.7 (бета) {#2-2-7}
 * Версия Java изменена на 11.
 
@@ -35,6 +44,10 @@
 
     * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`.
     * `HADOOP_HEAPSIZE` для сервиса `hive`.
+
+### 2.1.20 {#2-1-20}
+
+* Поддержан {{ oslogin }} для хостов кластера. Опция включает доступ через [{{ oslogin }}](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
 
 ### 2.1.19 {#2-1-19}
 * Исправлена ошибка с тем, что свойство `dataproc:nodemanager_available_memory_ratio` не влияло на долю памяти, резервируемую для YARN NodeManager.
@@ -86,6 +99,10 @@
 
     * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`.
     * `HADOOP_HEAPSIZE` для сервиса `hive`.
+
+### 2.0.79 {#2-0-79}
+
+* Поддержан {{ oslogin }} для хостов кластера. Опция включает доступ через [{{ oslogin }}](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
 
 ### 2.0.78 {#2-0-78}
 * Исправлена ошибка с тем, что свойство `dataproc:nodemanager_available_memory_ratio` не влияло на долю памяти, резервируемую для YARN NodeManager.

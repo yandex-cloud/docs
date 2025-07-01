@@ -45,6 +45,99 @@ keywords:
             * Минимальный уровень логирования.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update --help
+        ```
+
+    2. Передайте список настроек, которые хотите изменить, в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
+            --new-name <новое_имя_кластера> \
+            --description <описание_кластера> \
+            --labels <список_меток> \
+            --service-account-id <идентификатор_сервисного_аккаунта> \
+            --security-group-ids <идентификаторы_групп_безопасности> \
+            --retry-policy-enabled \ 
+            --retry-policy <тип_объекта_для_перезапроса> \
+            --retry-policy-additional-properties <список_дополнительных_параметров> \
+            --retry-policy-exchange-manager-service-s3 \
+            --retry-policy-exchange-manager-additional-properties <список_дополнительных_параметров> \     
+            --coordinator resource-preset-id=<класс_хостов> \
+            --worker min-count=<минимальное_количество_экземпляров>,`
+                    `max-count=<максимальное_количество_экземпляров>,`    
+                    `resource-preset-id=<класс_хостов> \
+            --deletion-protection \
+            --maintenance-window type=<тип_технического_обслуживания>,`
+                                `day=<день_недели>,`
+                                `hour=<час_дня> \                 
+            --log-enabled \
+            --log-folder-id <идентификатор_каталога> \
+            --log-min-level <уровень_логирования>
+        ```
+
+        Где:
+
+        * `--new-name` — новое имя кластера. Оно должно быть уникальным в рамках каталога.
+        * `--description` — описание кластера.
+        * `--labels` — список меток. Метки задаются в формате `<ключ>=<значение>`.
+        * `--service-account-id` — идентификатор сервисного аккаунта.
+        * `--security-group-ids` — список идентификаторов групп безопасности.
+        
+        * Параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
+
+          * `--retry-policy-enabled` — включает политику перезапросов.
+          * `--retry-policy` — способ повторного выполнения запросов. Возможные значения:
+
+              * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
+              * `task` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
+
+          * `--retry-policy-additional-properties` — дополнительные параметры перезапросов в формате `<ключ>=<значение>`. [Подробнее о параметрах в документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
+          * `--retry-policy-exchange-manager-service-s3` — включает использование служебного бакета Object Storage в качестве хранилища Exchange Manager для промежуточных данных.
+          * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища Exchange Manager в формате `<ключ>=<значение>`. [Подробнее о параметрах в документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
+
+        * `--coordinator`, `--worker` — конфигурация [компонентов](../concepts/index.md) кластера {{ TR }}.
+
+          * `resource-preset-id` — класс хостов [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers). Возможные значения:
+            * `c4-m16` — 4 vCPU, 16 ГБ RAM.
+            * `c4-m32` — 4 vCPU, 32 ГБ RAM.
+            * `c8-m32` — 8 vCPU, 32 ГБ RAM.
+            * `c8-m64` — 8 vCPU, 64 ГБ RAM.
+            * `c16-m64` — 16 vCPU, 64 ГБ RAM.
+            * `c16-m128` — 16 vCPU, 128 ГБ RAM.
+            * `c32-m128` — 32 vCPU, 128 ГБ RAM.
+            * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+
+          * `min-count`, `max-count` — задайте минимальное и максимальное количество воркеров, чтобы количество воркеров автоматически изменялось в зависимости от нагрузки.
+          * `count` — задайте фиксированное количество воркеров.
+
+            Вы можете указать либо `min-count` и `max-count`, либо `count`.
+
+        * `--deletion-protection` — включает защиту кластера от непреднамеренного удаления. Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+        * `--maintenance-window` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+
+            {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+        * Параметры логирования:
+
+          * `--log-enabled` — включает логирование. Логи, сгенерированные компонентами {{ TR }}, будут отправляться в {{ cloud-logging-full-name }}.
+          * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
+          * `--log-group-id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
+
+            Вы можете указать только один из параметров: `--log-folder-id` или `--log-group-id`.
+
+          * `--log-min-level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO` (значение по умолчанию), `WARN`, `ERROR` и `FATAL`.
+
+        Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).   
+
 - REST API {#api}
 
     Чтобы изменить настройки кластера:
@@ -70,12 +163,12 @@ keywords:
           "trino": {
             "coordinatorConfig": {
               "resources": {
-                "resourcePresetId": "<идентификатор_ресурсов>"
+                "resourcePresetId": "<класс_хостов>"
               }
             },
             "workerConfig": {
               "resources": {
-                "resourcePresetId": "<идентификатор_ресурсов>"
+                "resourcePresetId": "<класс_хостов>"
               },
               "scalePolicy": {
                 "autoScale": {
@@ -125,17 +218,29 @@ keywords:
 
             * `coordinatorConfig` — конфигурация координатора.
 
-               * `resources.resourcePresetId` — идентификатор вычислительных ресурсов координатора. Возможные значения:
+               * `resources.resourcePresetId` — класс хостов координатора. Возможные значения:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
+                    * `c4-m32` — 4 vCPU, 32 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-
+                    * `c8-m64` — 8 vCPU, 64 ГБ RAM.
+                    * `c16-m64` — 16 vCPU, 64 ГБ RAM.
+                    * `c16-m128` — 16 vCPU, 128 ГБ RAM.
+                    * `c32-m128` — 32 vCPU, 128 ГБ RAM.
+                    * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+              
             * `workerConfig` — конфигурация воркера.
 
-               * `resources.resourcePresetId` — идентификатор вычислительных ресурсов воркера. Возможные значения:
+               * `resources.resourcePresetId` — класс хостов воркера. Возможные значения:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
+                    * `c4-m32` — 4 vCPU, 32 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
+                    * `c8-m64` — 8 vCPU, 64 ГБ RAM.
+                    * `c16-m64` — 16 vCPU, 64 ГБ RAM.
+                    * `c16-m128` — 16 vCPU, 128 ГБ RAM.
+                    * `c32-m128` — 32 vCPU, 128 ГБ RAM.
+                    * `c32-m256` — 32 vCPU, 256 ГБ RAM.
 
                * `scalePolicy` — политика масштабирования воркеров:
 
@@ -221,12 +326,12 @@ keywords:
           "trino": {
             "coordinator_config": {
               "resources": {
-                "resource_preset_id": "<идентификатор_ресурсов>"
+                "resource_preset_id": "<класс_хостов>"
               }
             },
             "worker_config": {
               "resources": {
-                "resource_preset_id": "<идентификатор_ресурсов>"
+                "resource_preset_id": "<класс_хостов>"
               },
               "scale_policy": {
                 "auto_scale": {
@@ -292,17 +397,29 @@ keywords:
 
             * `coordinator_config` — конфигурация координатора.
 
-               * `resources.resource_preset_id` — идентификатор вычислительных ресурсов координатора. Возможные значения:
+               * `resources.resource_preset_id` — класс хостов координатора. Возможные значения:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
+                    * `c4-m32` — 4 vCPU, 32 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-
+                    * `c8-m64` — 8 vCPU, 64 ГБ RAM.
+                    * `c16-m64` — 16 vCPU, 64 ГБ RAM.
+                    * `c16-m128` — 16 vCPU, 128 ГБ RAM.
+                    * `c32-m128` — 32 vCPU, 128 ГБ RAM.
+                    * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+              
             * `worker_config` — конфигурация воркера.
 
-               * `resources.resource_preset_id` — идентификатор вычислительных ресурсов воркера. Возможные значения:
+               * `resources.resource_preset_id` — класс хостов воркера. Возможные значения:
 
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
+                    * `c4-m32` — 4 vCPU, 32 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
+                    * `c8-m64` — 8 vCPU, 64 ГБ RAM.
+                    * `c16-m64` — 16 vCPU, 64 ГБ RAM.
+                    * `c16-m128` — 16 vCPU, 128 ГБ RAM.
+                    * `c32-m128` — 32 vCPU, 128 ГБ RAM.
+                    * `c32-m256` — 32 vCPU, 256 ГБ RAM.
 
                * `scale_policy` — политика масштабирования воркеров:
 

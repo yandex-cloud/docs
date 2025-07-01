@@ -34,6 +34,10 @@ description: На странице представлены вопросы и о
 
 {% include [monitoring-minitoc](../../_qa/managed-postgresql/minitoc/monitoring.md) %}
 
+### Сообщения об ошибках {#toc-errors}
+
+{% include [errors-minitoc](../../_qa/managed-postgresql/minitoc/errors.md) %}
+
 ## Общие вопросы {#general}
 
 {% include [general](../../_qa/managed-postgresql/general.md) %}
@@ -61,3 +65,7 @@ description: На странице представлены вопросы и о
 ## Мониторинг и логи {#monitoring}
 
 {% include [monitoring](../../_qa/managed-postgresql/monitoring.md) %}
+
+## Сообщения об ошибках {#errors}
+
+{% include [errors](../../_qa/managed-postgresql/errors.md) %}

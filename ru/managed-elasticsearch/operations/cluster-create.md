@@ -40,7 +40,7 @@ keywords:
   Чтобы создать кластер {{ mes-name }}:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать кластер {{ mes-name }}.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Выберите сервис **Managed Service for&nbsp;Elasticsearch**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Введите имя кластера {{ mes-name }} и его описание. Имя кластера {{ mes-name }} должно быть уникальным в рамках каталога.
@@ -93,7 +93,7 @@ keywords:
   1. При необходимости задайте конфигурацию хостов с ролью _Master node_, выбрав вкладку **Master node**:
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите платформу, тип хостов и класс хостов.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** настройте хранилище по аналогии с хостами с ролью _Data node_.
-     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите кнопку **{{ ui-key.yacloud.elasticsearch.button_add-hosts }}**. Будут добавлены три хоста. Чтобы изменить один из добавленных хостов, наведите указатель на строку хоста и нажмите значок ![image](../../_assets/console-icons/pencil.svg).
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите кнопку **Добавить хосты**. Будут добавлены три хоста. Чтобы изменить один из добавленных хостов, наведите указатель на строку хоста и нажмите значок ![image](../../_assets/console-icons/pencil.svg).
 
         При изменении хоста можно: {#change-master-node-settings}
         * Выбрать зону доступности и подсеть.

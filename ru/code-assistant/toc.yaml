@@ -1,4 +1,3 @@
-title: '{{ ca-full-name }}'
 stage: preview
 items:
   - name: Начало работы

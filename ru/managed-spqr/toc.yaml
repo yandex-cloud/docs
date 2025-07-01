@@ -1,0 +1,18 @@
+title: '{{ mspqr-full-name }}'
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Управление шардами
+        href: operations/shards.md
+  - name: Концепции
+    items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
