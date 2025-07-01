@@ -155,7 +155,7 @@
     - {{ yandex-cloud }} CLI {#cli}
 
       ```bash
-      SECRET=$(yc lockbox payload get static-key)
+      SECRET=$(yc lockbox payload get --id <идентификатор_секрета>)
       ```
 
       Подробнее о команде `yc lockbox payload get` читайте в [справочнике CLI](../../cli/cli-ref/lockbox/cli-ref/payload/get.md).
