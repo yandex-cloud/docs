@@ -30,4 +30,4 @@ description: Follow this guide to create a service plan.
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-The service plan will be submitted for verification and approval. Once the SKU is approved, you will receive an `skuId` for the new service plan. You can use the `skuId` in the API to work with [application usage records](../api-ref/).
+The service plan will be submitted for verification and approval. Once the SKU is approved, you will receive an `skuId` for the new service plan. You can use the `skuId` in the API to work with [application usage records](../api-ref/quickstart.md).

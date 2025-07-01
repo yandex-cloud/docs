@@ -25,7 +25,7 @@ links:
     href: tutorials/
   - title: API reference
     description: HTTP API method descriptions
-    href: api-ref/
+    href: api-ref/grpc/
   - title: Quotas and limits
     description: Technical and management-related limitations
     href: concepts/limits

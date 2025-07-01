@@ -231,8 +231,6 @@ items:
         href: metrics-ref/functions-ref.md
       - name: '{{ cloud-logging-name }}'
         href: metrics-ref/logging-ref.md
-      - name: '{{ cns-name}}'
-        href: metrics-ref/cns-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
       - name: '{{ container-registry-name }}'

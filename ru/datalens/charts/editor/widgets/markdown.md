@@ -535,7 +535,11 @@ graph TD;
 * [Markdown чарт с параметризацией](https://datalens.yandex/nvkfwnekf9xy9?tab=x6v#Markdown%20чарт%20с%20параметрами)
 * [Диаграммы и блок-схемы Mermaid](https://datalens.yandex/nvkfwnekf9xy9?tab=x6v#Markdown%20чарт%20c%20Mermaid-диаграммами)
 
+```mermaid
+
 [*term_key]: Определение термина, которое может включать в себя _базовую_ разметку:
 * списки;
 * ссылки;
 * картинки и т.д.
+
+```

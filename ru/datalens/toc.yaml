@@ -888,6 +888,8 @@ items:
     items:
       - name: Действующие правила
         href: pricing.md
+      - name: Тарифные планы
+        href: concepts/service-plans-comparison.md
       - name: Настройка тарифного плана
         href: settings/service-plan.md
   - name: Аудитные логи {{ at-name }}

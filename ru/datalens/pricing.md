@@ -24,41 +24,45 @@ editable: false
 
 Выбранный тарифный план распространяется на организацию и может быть [изменен](./settings/service-plan.md#change-service-plan) только владельцем или администратором организации. Оплата производится за всех [активных пользователей](#active-users). Подробнее о тарифах читайте в [блоге](https://yandex.cloud/ru/blog/posts/2024/03/datalens-tariffs).
 
-Тарифные планы различаются своими возможностями и [стоимостью обслуживания](#prices).
-
-**Тарифный план**  | **Community** | **Business**
------------------- |---------------|---------------
-Создание [чартов в визарде](./concepts/chart/dataset-based-charts.md), [QL-чартов](./concepts/chart/ql-charts.md) и [дашбордов](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-JavaScript-кастомизации в [Editor](./charts/editor/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
-[Подключение к внешним API через Editor](./operations/connection/create-api-connector.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
-[Описание модели данных](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-[Аналитические вычисления и SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-[Ролевая модель прав доступа](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-[Аутентификация](./security/add-new-user.md) | Яндекс ID, Яндекс 360 | Яндекс ID, Яндекс 360, корпоративные учетные записи / SSO
-[Отчеты для экспорта и презентаций](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
-[Возможность запретить экспорт воркбуков](./workbooks-collections/export-and-import.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
-[Стилизация интерфейса {{ datalens-name }}](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Безопасное встраивание чартов и дашбордов](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Контроль публикаций](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
-Статистика использования сервиса {{ datalens-name }} | Общая ([Light](./concepts/datalens-usage-analytics.md#light-dash)) | Расширенная ([Detailed](./concepts/datalens-usage-analytics.md#detailed-dash)) 
-[SLA](https://yandex.ru/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)  
-Техническая поддержка | [Базовый тариф](../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../support/pricing.md#business) или [Премиум](../support/pricing.md#premium)) | [Тариф Бизнес](../support/pricing.md#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
+Тарифные планы различаются своими [возможностями](./concepts/service-plans-comparison.md) и стоимостью обслуживания.
 
 ## Цены для региона Россия {#prices}
 
-Стоимость использования {{ datalens-name }} зависит от выбранного тарифного плана.
-
-{% note info %}
-
-При переходе на тарифный план Business цена за первый месяц рассчитывается пропорционально оставшейся части месяца в момент перехода.
-
-{% endnote %}
+Стоимость использования {{ datalens-name }} зависит от выбранного тарифного плана и рассчитывается за каждого активного пользователя в месяц.
 
 **Активный пользователь** {#active-users}
 
 Пользователь считается активным и учитывается при тарификации, если его действия привели к запросу данных из источника: например, он открыл или редактировал дашборд, чарт или датасет.
 
 Подсчет пользователей для тарификации ведется в рамках месяца — каждый месяц активные пользователи считаются заново, по факту активности. Публичные ссылки на дашборды и чарты работают без аутентификации и при подсчете активных пользователей не учитываются. Узнать количество пользователей можно в [статистике использования {{ datalens-name }}](./operations/connection/create-usage-tracking.md).
+
+**Пробный период Business** {#business-trial}
+
+Пользователи {{ datalens-name }} могут включить пробный период тарифа Business — 30 дней, в течение которых можно бесплатно тестировать все [возможности](./concepts/service-plans-comparison.md) тарифа. 
+
+Правила пробного периода Business:
+* можно использовать один раз в рамках одного экземпляра {{ datalens-name }};
+* ранее не был подключен тариф {{ datalens-name }} Business.
+
+Чтобы включить пробный период тарифа Business, измените свой тарифный план на Business [по инструкции](./settings/service-plan.md##change-service-plan). По окончании пробного периода цена за второй месяц использования будет пропорциональна оставшемуся числу дней.
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/datalens/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt.md](../_pricing/datalens/kzt.md) %}
+
+{% endlist %}
+
+
+
 
 {% cut "Пример расчета стоимости" %}
 
@@ -117,24 +121,8 @@ JavaScript-кастомизации в [Editor](./charts/editor/index.md) | ![im
 
 {% endcut %}
 
-{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub.md](../_pricing/datalens/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt.md](../_pricing/datalens/kzt.md) %}
-
-{% endlist %}
-
-
-
-
 #### См. также {#see-also}
 
+* [Настройка тарифного плана {{ datalens-name }}](./settings/service-plan.md)
+* [Возможности тарифных планов](./concepts/service-plans-comparison.md)
 * [Вопросы про тарификацию и оплату](./qa/pricing.md)

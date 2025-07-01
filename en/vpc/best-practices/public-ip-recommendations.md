@@ -41,7 +41,6 @@ Connect your local network and cloud infrastructures using [{{ interconnect-name
 For more information, see the following:
 * [Traffic routing with {{ interconnect-name }}](../../cloud-router/concepts/routing-instance.md).
 
-
 #### Connect to VMs using the serial console {#serial-console}
 
 If you only need SSH access to a VM, use the [serial console](../../compute/operations/index.md#serial-console) instead of a public IP connection. We recommend disabling connections via the serial console when you do not use it.

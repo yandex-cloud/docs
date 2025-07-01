@@ -15,7 +15,8 @@ description: С помощью сервиса {{ sf-name }} вы можете з
 | golang117 | 1.17.8 | Ubuntu 18.04 | Нет | Нет
 | golang118 | 1.18.5 | Ubuntu 18.04 | Нет | Нет
 | golang119 | 1.19.3 | Ubuntu 18.04 | Нет | Нет
-| golang121 | 1.21.9 | Ubuntu 22.04 LTS | Нет | Да
+| golang121 | 1.21.9 | Ubuntu 22.04 LTS | Нет | Нет
+| golang123 | 1.23.9 | Ubuntu 22.04 LTS | Нет | Да
 
 В среду выполнения можно подключить [SDK-библиотеку](https://github.com/yandex-cloud/go-sdk) для работы с API {{ yandex-cloud }}. Подробнее о способах использования SDK читайте в разделе [Использование SDK](sdk.md).
 

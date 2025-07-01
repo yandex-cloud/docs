@@ -125,6 +125,8 @@ items:
         href: concepts/kraft.md
       - name: Производители и потребители
         href: concepts/producers-consumers.md
+      - name: Роли пользователей
+        href: concepts/account-roles.md
       - name: Управление схемами данных
         href: concepts/managed-schema-registry.md
       - name: API в {{ mkf-name }}
