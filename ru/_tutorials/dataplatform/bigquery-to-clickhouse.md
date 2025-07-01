@@ -93,7 +93,7 @@
 
     Где:
 
-    * `gs_service_client_id` — [имя сервисного аккаунта Google Cloud](service-account-name@project-id.iam.gserviceaccount.com) вида `service-account-name@project-id.iam.gserviceaccount.com`.
+    * `gs_service_client_id` — имя сервисного аккаунта Google Cloud вида `service-account-name@project-id.iam.gserviceaccount.com`.
     * `gs_service_key_file` — абсолютный путь к JSON-файлу ключа доступа сервисного аккаунта Google Cloud.
     * `aws_access_key_id` — идентификатор ключа сервисного аккаунта {{ yandex-cloud }}.
     * `aws_secret_access_key` — секретный ключ сервисного аккаунта {{ yandex-cloud }}.

@@ -2,8 +2,8 @@
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: Select one of the available formats:
        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`: JSON format.
-       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}`: [{{ at-name }}](../../../../audit-trails/) log format.
-       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_common_cloud_logging.title }}`: [{{ cloud-logging-short-name }}](../../../../logging) log format.
+       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}`: [{{ at-name }}](../../../../../audit-trails/) log format.
+       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_common_cloud_logging.title }}`: [{{ cloud-logging-short-name }}](../../../../../logging/) log format.
        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_common_debezium_cdc.title }}`: Debezium CDC. It allows specifying [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) in the settings.
 
           For **JSON**, specify:

@@ -22,7 +22,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ dns-full-name }}                     | [gRPC](../dns/api-ref/grpc/)<br>[REST](../dns/api-ref/) |
 | {{ sf-full-name }}                      | [Functions gRPC](../functions/functions/api-ref/grpc/)<br>[Functions REST](../functions/functions/api-ref/)<br>[Triggers gRPC](../functions/triggers/api-ref/grpc/)<br>[Triggers REST](../functions/triggers/api-ref/) |
 | {{ cloud-logging-full-name }}           | [gRPC](../logging/api-ref/grpc/)<br>[REST](../logging/api-ref/) |
-| {{ marketplace-full-name }}             | [gRPC](../marketplace/metering/api-ref/grpc/)<br>[REST](../marketplace/api-ref/) |
+| {{ marketplace-full-name }}             | [gRPC](../marketplace/metering/api-ref/grpc/)<br>[REST](../marketplace/api-ref/quickstart.md) |
 | {{ cns-full-name }}                     | [S3 REST](../notifications/api-ref/) |
 | {{ org-full-name }}                     | [gRPC](../organization/api-ref/grpc/)<br>[REST](../organization/api-ref/) |
 | {{ compute-full-name }}                 | [gRPC](../compute/api-ref/grpc/)<br>[REST](../compute/api-ref/) |

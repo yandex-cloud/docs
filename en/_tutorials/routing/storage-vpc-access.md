@@ -66,7 +66,7 @@ warp get \
 * When deploying your NAT instances in multiple availability zones, use an even number of VMs to evenly distribute them across the availability zones.
 * When selecting the number of NAT instances, consider the [internal NLB traffic processing locality](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 * Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter only during a pre-scheduled time window. Applying changes may cause interruptions in traffic processing.
-* If, with increased {{ objstorage-name }} workload, a NAT instance demonstrates a high `CPU steal time` metric value, enable a [software-accelerated network](../..//vpc/concepts/software-accelerated-network.md) for that NAT instance.
+* If, with increased {{ objstorage-name }} workload, a NAT instance demonstrates a high `CPU steal time` metric value, enable a [software-accelerated network](../../vpc/concepts/software-accelerated-network.md) for that NAT instance.
 * By default, you can access buckets in {{ objstorage-name }} via the {{ yandex-cloud }} [management console]({{ link-console-main }}). To disable this access option, provide `bucket_console_access = false` in the configuration.
 * With `bucket_private_access = true`, skipping `mgmt_ip` will cause a bucket access error during {{ TF }} deployment on your workstation.
 * If you are using your own DNS server, create the following type `A` resource records in its settings:

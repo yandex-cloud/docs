@@ -15,7 +15,6 @@ description: This page contains a list of references for {{ yandex-cloud }} metr
 * [{{ cdn-full-name }}](cdn-ref.md)
 * [{{ sf-full-name }}](functions-ref.md)
 * [{{ cloud-logging-full-name }}](logging-ref.md)
-* [{{ cns-full-name }}](cns-ref.md)
 * [{{ compute-full-name }}](compute-ref.md)
 * [{{ container-registry-full-name }}](container-registry-ref.md)
 * [{{ dataproc-full-name }}](data-processing-ref.md)

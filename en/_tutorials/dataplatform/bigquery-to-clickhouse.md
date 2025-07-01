@@ -93,7 +93,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
     Where:
 
-    * `gs_service_client_id`: [Google Cloud service account name](service-account-name@project-id.iam.gserviceaccount.com) in `service-account-name@project-id.iam.gserviceaccount.com` format.
+    * `gs_service_client_id`: Google Cloud service account name in `service-account-name@project-id.iam.gserviceaccount.com` format.
     * `gs_service_key_file`: Absolute path to the JSON file of the access key of the Google Cloud service account.
     * `aws_access_key_id`: {{ yandex-cloud }} service account key ID.
     * `aws_secret_access_key`: {{ yandex-cloud }} service account Secret key.

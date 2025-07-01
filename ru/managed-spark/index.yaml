@@ -20,7 +20,7 @@ links:
     href: tutorials/
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
-    href: api-ref/
+    href: api-ref/grpc/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
