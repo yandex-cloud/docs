@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Откройте список в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
 
@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите нужную версию {{ ES }}.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -128,9 +128,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В поле **{{ ui-key.yacloud.elasticsearch.base_field_edition }}** выберите нужную редакцию {{ ES }}: `Basic` или `Platinum`.
+    1. В поле **Редакция** выберите нужную редакцию {{ ES }}: `Basic` или `Platinum`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

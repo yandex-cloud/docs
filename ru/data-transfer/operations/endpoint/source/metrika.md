@@ -40,6 +40,7 @@ noIndex: true
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.counter_ids.title }}** — укажите [номера счетчиков](https://yandex.ru/support/metrica/general/tag-id.html), из которых будут поступать данные.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}** — укажите токен для подтверждения доступа к счетчикам. Его можно получить по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).
+    * (Опционально) укажите временной интервал, для которого надо произвести выгрузку данных. Эта возможность поддержана для трансферов типа {{ dt-type-copy }}.  
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.title }}** — выберите, передавать ли информацию о хитах.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.columns.title }}** — выберите поля хита, которые нужно экспортировать. Помимо выбранных полей, всегда экспортируется несколько обязательных полей.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.title }}** — выберите, передавать ли информацию о визитах.

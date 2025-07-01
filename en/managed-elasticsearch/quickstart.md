@@ -39,7 +39,7 @@ These instructions assume that you are connecting to the cluster from the intern
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+1. Select **Managed Service for&nbsp;Elasticsearch**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Set the cluster parameters.
 

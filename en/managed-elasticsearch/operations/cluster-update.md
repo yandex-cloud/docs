@@ -32,7 +32,7 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Select the service account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [Configuring access to {{ objstorage-name }} from a cluster](s3-access.md).
 
@@ -109,7 +109,7 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
   1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the class of {{ ES }} hosts with the *Data node* role:
      1. Go to the **Data node** tab.
@@ -214,7 +214,7 @@ Learn more about other cluster updates:
 
   To increase the cluster storage size:
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
   1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To increase the disk size for {{ ES }} hosts with the *Data node* role:
      1. Go to the **Data node** tab.
@@ -329,7 +329,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. Navigate to the folder dashboard and select **Managed Service for&nbsp;Elasticsearch**.
     1. Select a cluster and click ![Pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change the [{{ ES }} settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
     1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
@@ -385,7 +385,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
   1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Specify the `admin` user password in the **{{ ui-key.yacloud.mdb.forms.section_user }}** section.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -480,7 +480,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change additional cluster settings:
 

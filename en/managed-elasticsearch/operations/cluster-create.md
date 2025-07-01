@@ -40,7 +40,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
   To create a {{ mes-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ mes-name }} cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Select **Managed Service for&nbsp;Elasticsearch**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mes-name }} cluster. The {{ mes-name }} cluster name must be unique within the folder.
@@ -93,7 +93,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
   1. If necessary, configure the hosts with the _Master node_ role by opening the **Master node** tab:
      1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the platform, host type, and host class.
      1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, configure storage the same way as for hosts with the _Data node_ role.
-     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click **{{ ui-key.yacloud.elasticsearch.button_add-hosts }}** to add three hosts. To change one of the added hosts, hover over its row and click ![image](../../_assets/console-icons/pencil.svg).
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click **Add hosts** to add three hosts. To change one of the added hosts, hover over its row and click ![image](../../_assets/console-icons/pencil.svg).
 
         When changing the host, you can: {#change-master-node-settings}
         * Select the availability zone and subnet.

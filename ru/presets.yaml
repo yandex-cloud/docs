@@ -459,6 +459,9 @@ default:
     docs: https://docs.microsoft.com/ru-ru
   msp-full-name: Yandex Managed Service for Apache Spark™
   msp-name: Managed Service for Apache Spark™
+  mspqr-full-name: Yandex Managed Service for Sharded PostgreSQL
+  mspqr-name: Managed Service for Sharded PostgreSQL
+  mspqr-short-name: Managed Service for Sharded PostgreSQL
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -730,6 +733,7 @@ default:
   speechsense-endpoint: api.speechsense.yandexcloud.net:443
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
+  SPQR: Sharded PostgreSQL
   SPRK: Apache Spark™
   src-full-name: SourceCraft
   src-name: SourceCraft
@@ -792,6 +796,8 @@ default:
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
   TF-version: '0.90'
   TR: Trino
+  tr:
+    docs: https://trino.io/docs/current
   tracker-full-name: Yandex Tracker
   tracker-name: Tracker
   tracker-short-name: Tracker
@@ -841,6 +847,7 @@ default:
   yc-mdb-af: yc managed-airflow
   yc-mdb-ch: yc managed-clickhouse
   yc-mdb-es: yc managed-elasticsearch
+  yc-mdb-gl: yc managed-gitlab
   yc-mdb-gp: yc managed-greenplum
   yc-mdb-kf: yc managed-kafka
   yc-mdb-mg: yc managed-mongodb
@@ -849,6 +856,7 @@ default:
   yc-mdb-os: yc managed-opensearch
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
+  yc-mdb-tr: yc managed-trino
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
   yc-ydb: yc ydb
@@ -8087,7 +8095,7 @@ default:
         switch_registry: Реестры
       data-catalog:
         action_create-catalog: Cоздать каталог
-        label_create-catalog: Создать каталог
+        label_create-catalog: Создание каталога
       data-streams:
         button_connect: Подключиться
         button_create-stream: Создать поток
@@ -8168,26 +8176,6 @@ default:
         label_zone: Зона
         label_zone-record-sets: Записи
         label_zones-list: Зоны
-      elasticsearch:
-        auth:
-          auth-providers: Контроль доступа
-          provider-enabled: Активирован
-          provider-hint: Подсказка
-          provider-icon: Иконка
-          provider-type: Тип провайдера
-          saml_settings: Настройки SAML
-          saml-attribute_dn: attribute_dn
-          saml-attribute_email: attribute_email
-          saml-attribute_groups: attribute_groups
-          saml-attribute_name: attribute_name
-          saml-attribute_principal: attribute_principal
-          saml-idp_entity_id: idp_entity_id
-          saml-idp_metadata_file: idp_metadata_file
-          saml-kibana_url: kibana_url
-          saml-sp_entity_id: sp_entity_id
-        base_field_edition: Редакция
-        button_add-hosts: Добавить хосты
-        label_kibana: Kibana
       forms:
         label_form-id: ID
         label_form-list: Список
@@ -8378,7 +8366,6 @@ default:
             label_logging: Cloud Logging
             label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
             label_managed-clickhouse: Managed Service for&nbsp;ClickHouse
-            label_managed-elasticsearch: Managed Service for&nbsp;Elasticsearch
             label_managed-gitlab: Managed Service for&nbsp;GitLab
             label_managed-greenplum: Managed Service for&nbsp;Greenplum
             label_managed-kafka: Managed Service for&nbsp;Kafka
@@ -8389,6 +8376,7 @@ default:
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
             label_managed-redis: Yandex Managed Service for&nbsp;Valkey™
             label_managed-spark: Managed Service for Apache Spark
+            label_managed-spqr: Yandex Managed Service for Sharded&nbsp;PostgreSQL
             label_managed-trino: Managed Service for&nbsp;Trino
             label_mdb: Managed Databases
             label_message-queue: Message Queue

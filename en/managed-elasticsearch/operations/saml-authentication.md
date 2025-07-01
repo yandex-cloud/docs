@@ -70,41 +70,41 @@ Incorrect settings may cause the cluster to fail.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.auth.auth-providers }}** tab.
+    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+    1. Click the cluster name and open the **Access control** tab.
     1. Click **{{ ui-key.yacloud.common.create }}**.
     1. Create an authentication provider:
-        * **{{ ui-key.yacloud.elasticsearch.auth.provider-type }}**: `SAML`.
+        * **Provider type**: `SAML`.
 
         * **{{ ui-key.yacloud.common.name }}**: Provider name.
 
         * **{{ ui-key.yacloud.common.description }}**: Provider description.
 
-        * **{{ ui-key.yacloud.elasticsearch.auth.provider-hint }}**: Login hint.
+        * **Hint**: Login hint.
 
-        * **{{ ui-key.yacloud.elasticsearch.auth.provider-icon }}**: Provider icon.
+        * **Icon**: Provider icon.
 
-        * Select **{{ ui-key.yacloud.elasticsearch.auth.provider-enabled }}**.
+        * Select **Enabled**.
 
-        * **{{ ui-key.yacloud.elasticsearch.auth.saml_settings }}**:
+        * **SAML settings**:
         
-            * **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: Information about the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
+            * **idp_entity_id**: Information about the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
 
-            * **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_metadata_file }}**: Provider's metadata file in XML format obtained when [configuring the IdP](#configuration-idp).
+            * **idp_metadata_file**: Provider's metadata file in XML format obtained when [configuring the IdP](#configuration-idp).
 
-            * **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**: Application-defined SP Entity ID (Audience URI). Make sure it is the same as the ID specified when [configuring the IdP](#configuration-idp).
+            * **sp_entity_id**: Application-defined SP Entity ID (Audience URI). Make sure it is the same as the ID specified when [configuring the IdP](#configuration-idp).
 
-            * **{{ ui-key.yacloud.elasticsearch.auth.saml-kibana_url }}**: URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection), same as the **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**.
+            * **kibana_url**: URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection), same as the **sp_entity_id**.
 
-            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_principal }}**: Format of the `nameid` parameter, e.g, `nameid:persistent`. Same as the **Name ID Format** of the IdP.
+            * **attribute_principal**: Format of the `nameid` parameter, e.g, `nameid:persistent`. Same as the **Name ID Format** of the IdP.
 
-            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_groups }}**: User privileges groups (recommended).
+            * **attribute_groups**: User privileges groups (recommended).
 
-            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_name }}**: Username (optional).
+            * **attribute_name**: Username (optional).
 
-            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_email }}**: User's email address (optional).
+            * **attribute_email**: User's email address (optional).
 
-            * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_dn }}**: `X.500 Distinguished Name` user ID (optional).
+            * **attribute_dn**: `X.500 Distinguished Name` user ID (optional).
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -196,14 +196,14 @@ For more information about other parameters, see the [Okta documentation](https:
 
 #### Set up SSO for the cluster {#example-configuration-sso}
 
-Let's assume we have this **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}** provided after the IdP setup: `http://www.okta.com/exkv2pzpvigX********`. 
+Let's assume we have this **idp_entity_id** provided after the IdP setup: `http://www.okta.com/exkv2pzpvigX********`. 
 
 [Set up SSO for the cluster](#configuration-sso). When setting it up, specify:
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: `http://www.okta.com/exkv2pzpvigX********`.
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_metadata_file }}**: Metadata file provided by Okta.
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-kibana_url }}**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_principal }}**: `nameid:persistent`.
+* **idp_entity_id**: `http://www.okta.com/exkv2pzpvigX********`.
+* **idp_metadata_file**: Metadata file provided by Okta.
+* **sp_entity_id**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
+* **kibana_url**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
+* **attribute_principal**: `nameid:persistent`.
 
 #### Configure roles for SSO with Okta {#example-roles-sso}
 
@@ -215,8 +215,8 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
+    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+    1. Click the cluster name and open the **Kibana** tab.
     1. In the authorization window, specify the `admin` user and the password you set when configuring the cluster.
     1. Open **Management → Stack Management → Security → Role Mappings**.
         
@@ -263,8 +263,8 @@ To log in to the {{ mes-name }} cluster using the new user's credentials:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
+    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+    1. Click the cluster name and open the **Kibana** tab.
     1. In the authorization window, select the option that you specified when [setting up SSO](#configuration-sso) in the **Provider description**.
     1. Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
 

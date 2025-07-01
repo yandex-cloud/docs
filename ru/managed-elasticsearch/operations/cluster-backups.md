@@ -30,11 +30,11 @@ keywords:
 - Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
   Чтобы получить список всех резервных копий в каталоге:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
   1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
 - CLI {#cli}
@@ -79,11 +79,11 @@ keywords:
 - Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
   1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
 - CLI {#cli}
@@ -116,7 +116,7 @@ keywords:
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -171,14 +171,14 @@ keywords:
 - Консоль управления {#console}
 
   Чтобы восстановить из резервной копии существующий кластер:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.common.folder }}** можно выбрать каталог для нового кластера.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+  1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Elasticsearch**.
   1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
   1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.name }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
