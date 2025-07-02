@@ -262,7 +262,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 {% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
-## Restoring clusters from backups {#restore}
+## Restoring a cluster from a backup {#restore}
 
 
 The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any recovery point created after saving a backup. For more information, see [Backups](../concepts/backup.md).
@@ -282,6 +282,10 @@ Recovering from a backup imposes restrictions on parameters of the new cluster.
 {% endnote %}
 
 If you set the current time as the recovery time, the new cluster will match the state of the latest available recovery point.
+
+
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mgp.editor }}](../../iam/roles-reference.md#managed-greenplum-editor) role or higher to your {{ yandex-cloud }} account for the backup folder and the new cluster folder.
+
 
 {% list tabs group=instructions %}
 

@@ -19,6 +19,8 @@ To calculate the cost of [symmetric](https://yandex.cloud/en/prices?state=58d53a
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 The cost of using {{ kms-name }} is based on:
 
 * Number of active key versions: versions with the `Active` and `Scheduled For Destruction` statuses.

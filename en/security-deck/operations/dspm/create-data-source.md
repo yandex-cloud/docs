@@ -7,32 +7,39 @@ description: Follow this guide to create data sources from {{ objstorage-full-na
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-A [data source](../../concepts/dspm.md#data-source) contains information on the {{ objstorage-full-name }} [bucket](../../../storage/concepts/bucket.md) to scan, along with additional settings.
+A [data source](../../concepts/dspm.md#data-source) contains information about the {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) to scan as well as additional settings.
+
+Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#configure-sd) the default folder to store {{ sd-name }} data.
 
 To create a data source:
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} interface {#cloud-sd}
+- {{ sd-name }} UI {#cloud-sd}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Data Security Posture Management** and go to the **Data sources** tab.
   1. In the top-right corner, click **Create source**.
-  1. In the **Bucket** field, select an available bucket you want to use as a source of data for scanning.
-  1. Under **Selection settings**, specify the scope for the scan:
+  1. Add the resources you want to scan to the data source:
 
-      * `All files`: The scan will check all the files saved in the bucket.
-      * `Files by template`: The scan will check all the bucket files whose names match or do not match the specified templates:
+      * To add individual buckets, click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **Select bucket** and select one or more buckets from one or more of your available folders.
 
-          * **File name contains**: The scan will check files whose names match this template.
-          * **File name does not contain**: The scan will ignore files whose names match this template.
+          If required, use filters by access settings (`Limited` or `Public`) and by bucket name.
+      * To add [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folders](../../../resource-manager/concepts/resources-hierarchy.md#folder) to your data source, click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **Select cloud or folder** and select all or some of the clouds and/or folders available to you.
+      
+          All buckets in the selected clouds and/or folders will be added to the data source. In this case, DSPM will scan both the buckets that already exist in these clouds and folders and any other buckets added to them by the time the scan is run. 
+  1. Under **Include in selection**, specify one or more scan scopes:
 
-          You need to set each template as a [regular expression](https://en.wikipedia.org/wiki/Regular_expression). You can provide templates in both fields, in which case the scan will employ the `AND` logic to select files.
+      {% include [datasource-filetypes](../../../_includes/security-deck/datasource-filetypes.md) %}
 
-  1. Under **Information about source**, in the **Name** field, indicate the data source name you will use to select this source when [creating a scan](./create-scan.md).
+  1. If you want to add resources with different scan scope selection parameters to the same data source, click **Add resource group** and repeat steps `4` and `5` in the section that appears.
 
-      To use a bucket name as a data source name, click ![Arrows-Rotate-Right](../../../_assets/console-icons/arrows-rotate-right.svg) on the right side of the **Name** field.
+      You can add any number of resource groups to a single data source for scanning.
+  1. Under **Information about source**, indicate the data source name you will use to select this source when [creating a scan](./create-scan.md). Follow these naming requirements:
+      
+      {% include [name-format](../../../_includes/name-format.md) %}
 
+      Click ![Arrows-Rotate-Right](../../../_assets/console-icons/arrows-rotate-right.svg) on the right side of the **Name** field to automatically generate a name for the data source you are creating.
   1. Click **Create source**.
 
 {% endlist %}

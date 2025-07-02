@@ -1,5 +1,6 @@
 # Использование {{ api-gw-full-name }} для настройки синтеза речи в {{ speechkit-full-name }}
 
+
 С помощью serverless-технологий можно создать собственную интеграцию с сервисами {{ yandex-cloud }}.
 
 Пользовательская интеграция, создаваемая в данном руководстве, представляет собой [API-шлюз](../../api-gateway/concepts/index.md), сконфигурированный по стандарту [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) c [HTTP-интеграцией](../../api-gateway/concepts/extensions/http.md). 

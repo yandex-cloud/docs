@@ -155,12 +155,16 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 {% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 
-### Restoring clusters from backups {#restore}
+### Restoring a cluster from a backup {#restore}
 
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. You can manage the restore speed using [{{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/recovery.html).
 
 When creating a new cluster, set all required parameters.
+
+
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mes.editor }}](../../iam/roles-reference.md#managed-elasticsearch-editor) role or higher to your {{ yandex-cloud }} account for the backup folder and the new cluster folder.
+
 
 {% list tabs group=instructions %}
 

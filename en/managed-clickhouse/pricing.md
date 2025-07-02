@@ -15,7 +15,7 @@ In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=2febafd8c375#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=2febafd8c375#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -58,12 +58,12 @@ In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and w
 
 {% endnote %}
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
 
 
 ### Disk space usage {#rules-storage}
 
-You pay for the following:
+You are charged for the following:
 
 * Storage allocated for DB clusters.
 
@@ -78,7 +78,7 @@ You pay for the following:
 
     * If the combined size of the database and all backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
 
-   * When performing automatic backups, {{ mch-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
+   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the DB changes since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
    * The number of hosts in a cluster does not affect the storage size and, consequently, the free volume of backups.
 
@@ -90,14 +90,14 @@ You pay for the following:
 
    * The cost of using {{ objstorage-name }} considers both the space used by the backups and the space used by the data itself.
 
-   * When performing automatic backups, {{ mch-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
+   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the DB changes since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
 
 
 ### Example of cluster cost calculation {#example}
 
-The cost of using a cluster with the following parameters for 30 days:
+This is an example of calculating the cost of using a cluster with the following properties for 30 days:
 
 * **{{ CH }}** hosts: Three hosts of the `s3-c2-m8` class: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **Storage for {{ CH }} hosts**: 100 GB of network HDD storage per host.

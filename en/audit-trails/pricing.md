@@ -10,6 +10,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 Delivered [data events](./concepts/events-data-plane.md) are billed.
 
 [Management events](./concepts/events.md) are currently not billed.

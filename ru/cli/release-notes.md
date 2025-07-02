@@ -7,36 +7,36 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.153.0 (30.06.25) {#version0.153.0}
+### Версия 0.153.0 (30.06.25) {#version0.153.0}
 
-###  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
-#### {{ cloud-desktop-name }}
+##### {{ cloud-desktop-name }}
 
 В команде `desktops update group` изменен тип флага `--disk-size` для загрузочного (boot) и рабочего (data) дисков на `byteSize`.
 
 ## Предыдущие релизы {#previous-release}
 
-## Версия 0.152.0 (25.06.25) {#version0.152.0}
+### Версия 0.152.0 (25.06.25) {#version0.152.0}
 
-### Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
-#### {{ alb-name }} {#version-0.152-alb}
+##### {{ alb-name }} {#version-0.152-alb}
 
 В командах `yc application-load-balancer load-balancer start-zonal-shift` и `yc application-load-balancer load-balancer cancel-zonal-shift` для старта и отмены Zonal Shift на балансировщике разрешено указывать список зон.
 
-#### {{ cloud-desktop-name }} {#version-0.152-desktop}
+##### {{ cloud-desktop-name }} {#version-0.152-desktop}
 
 * Добавлена команда `yc desktops group update` для обновления информации о группе рабочих столов.
 * В команду `yc desktops group create` добавлены параметры `max-group-size`, `hot-standby`, `user-account-id`.
 
-#### {{ network-load-balancer-name }} {#version-0.152-nlb}
+##### {{ network-load-balancer-name }} {#version-0.152-nlb}
 
 Добавлены команды для старта и отмены блокировки зон балансировщика:
 * `yc load-balancer network-load-balancer start-zonal-shift`
 * `yc load-balancer network-load-balancer cancel-zonal-shift`
 
-#### {{ metastore-full-name }} {#version-0.152-metastore}
+##### {{ metastore-full-name }} {#version-0.152-metastore}
 
 Добавлены команды для управления кластерами {{ metastore-name }}:
 * `yc managed-metastore cluster get`
@@ -763,7 +763,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Изменен заголовок в табличном выводе команды `yc iam service accounts list`.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * В вывод команды `yc organization-manager user list --organization-id` добавлено время последней аутентификации пользователя.
 
@@ -1009,7 +1009,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлены команды для управления метками `yc iam service-account add-labels` и `yc iam service-account remove-labels`.
 * В команды `yc iam service-account create` и `yc iam service-account update` добавлен параметр `--labels` — он задает набор меток для БД.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Добавлены команды для управления метками:
   * `yc organization-manager organization add-labels`,
@@ -1100,7 +1100,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Параметры `--gateway-name`, `--gateway-id` и `--gateway-websocket-broadcast-path` позволяют указать для триггера параметры рассылки сообщений в веб-сокетные соединения {{ api-gw-name }}.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Добавлена группа команд `yc organization-manager oslogin profile` для управления пользовательскими профилями {{ oslogin }}.
 * В командах `yc organization-manager oslogin user-ssh-key create` и `yc organization-manager oslogin user-ssh-key update` исправлен параметр `--expires-at` при указании значения в виде интервала. Например, значение `5h` теперь отсылает к значению в будущем.
@@ -1184,7 +1184,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлены деревья команд `yc managed-greenplum pxf-datasource s3` и `yc managed-greenplum pxf-datasource jdbc` с командами `create` и `update`.
 * Добавлены параметры `--pxf-connection-timeout`, `--pxf-upload-timeout`, `--pxf-max-threads`, `--pxf-pool-allow-core-thread-timeout`, `--pxf-poll-core-size`, `--pxf-pool-queue-capacity`, `--pxf-pool-max-size`, `--pxf-xmx`, `--pxf-xms` для команды `yc managed-greenplum cluster update`.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Добавлена группа команд `yc organization-manager oslogin` для управления настройками {{ oslogin }} и пользовательскими SSH-ключами.
 
@@ -1252,7 +1252,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `yc datatransfer endpoint create`
   * `yc datatransfer endpoint update`
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Добавлена команда `yc organization-manager federation saml delete-user-accounts` для удаления федеративных пользователей.
 
@@ -2044,7 +2044,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Прекращена поддержка {{ RD }} версий 5.0 и 6.0.
 
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * В команды из группы `yc organization-manager federation saml` добавлен параметр `--organization-id` для указания идентификатора организации. Исправлена ошибка, возникавшая в этих командах при указании имени SAML-совместимой федерации как позиционного аргумента.
 * Добавлена группа команд `yc organization-manager group` для управления [группами пользователей](../organization/operations/manage-groups.md).
@@ -2758,7 +2758,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Добавлено отображение организации облака.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 Появилась поддержка сервиса {{ org-full-name }}.
 

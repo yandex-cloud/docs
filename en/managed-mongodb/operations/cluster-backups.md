@@ -9,7 +9,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {{ mmg-name }} also creates automatic daily backups. You can [set the backup start time and retention period](update.md#change-additional-settings).
 
-## Restoring clusters from backups {#restore}
+## Restoring a cluster from a backup {#restore}
 
 The Point-in-Time Recovery (PITR) technology allows you to restore your cluster to any state in the time interval between the oldest backup and the archiving of the most recent [oplog](https://www.mongodb.com/docs/manual/core/replica-set-oplog/) collection. For more information, see [Backups](../concepts/backup.md).
 
@@ -30,13 +30,17 @@ When restored to the current state, the new cluster will match the state of:
 * Existing cluster at the time of recovery.
 * Deleted cluster at the time of archiving the last oplog.
 
+
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mmg.editor }}](../../iam/roles-reference.md#managed-mongodb-editor) role or higher to your {{ yandex-cloud }} account for the backup folder and the new cluster folder.
+
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   To restore an existing cluster from a backup:
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
@@ -52,7 +56,7 @@ When restored to the current state, the new cluster will match the state of:
 
   To restore a previously deleted cluster from a backup:
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
@@ -207,7 +211,7 @@ When restored to the current state, the new cluster will match the state of:
           * `assignPublicIp`: Internet access to the host via a public IP address.
           * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
           * `shardName`: Shard name in a sharded cluster.
-          * `hidden`: The host will either be visible or hidden.
+          * `hidden`: Host will be visible or hidden.
           * `secondaryDelaySecs`: Host's lag behind the master.
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
@@ -330,7 +334,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -417,12 +421,12 @@ When restored to the current state, the new cluster will match the state of:
 
   To get a list of cluster backups:
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
   To get a list of all backups in a folder:
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   These lists contain the following information:
@@ -440,7 +444,7 @@ When restored to the current state, the new cluster will match the state of:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ MG }} cluster backups available in the default folder, run the command:
+  To get a list of {{ MG }} cluster backups available in the default folder, run this command:
 
   ```bash
   {{ yc-mdb-mg }} backup list
@@ -567,11 +571,11 @@ When restored to the current state, the new cluster will match the state of:
 - Management console {#console}
 
   To get information about the backup of an existing cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
   To get information about the backup of a previously deleted cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -580,13 +584,13 @@ When restored to the current state, the new cluster will match the state of:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ MG }} cluster backup, run the command:
+  To get information about a {{ MG }} cluster backup, run this command:
 
   ```bash
   {{ yc-mdb-mg }} backup get <backup_ID>
   ```
 
-  You can retrieve the backup ID with the [list of backups](#list-backups).
+  You can get the backup ID together with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -663,7 +667,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -716,7 +720,7 @@ When restored to the current state, the new cluster will match the state of:
           --data '{
                     "updateMask": "configSpec.backupRetainPeriodDays",
                     "configSpec": {
-                      "backupRetainPeriodDays": <backup_storage_time_in_days>
+                      "backupRetainPeriodDays": <backup_retention_in_days>
                     }
                   }'
       ```
@@ -762,7 +766,7 @@ When restored to the current state, the new cluster will match the state of:
                   ]
                 },
                 "config_spec": {
-                  "backup_retain_period_days": <backup_storage_time_in_days>
+                  "backup_retain_period_days": <backup_retention_in_days>
                 }
               }' \
           {{ api-host-mdb }}:{{ port-https }} \
@@ -805,7 +809,7 @@ Create a new {{ mmg-name }} cluster from a backup with the following test charac
 
 - CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

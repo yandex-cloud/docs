@@ -8,6 +8,8 @@ editable: false
 
 
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 ## What goes into the cost of using {{ sws-name }} {#rules}
 
 The cost depends on the billing mode:
@@ -56,7 +58,7 @@ If the plan you select is not enough, you can switch to another with pro-rata re
 
 
 
-To calculate the cost of using the service, use the [{{ yandex-cloud }} calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) or check the prices in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}

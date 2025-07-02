@@ -24,6 +24,8 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
 To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mmy.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 
+{% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -60,9 +62,17 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-     * DB owner username and password.
+     * DB owner username.
 
-       {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+       {% include [user-name-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
+     * User password:
+
+         * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select to enter your password. The password must be from 8 to 128 characters long.
+
+         * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select to generate a password with the help of {{ connection-manager-name }}.
+
+         To view the password, select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab after you create the cluster and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
   
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
@@ -151,6 +161,23 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      * `priority`: Host priority when selecting a new master host, between `0` and `100`.
      * `backup-priority`: Backup priority, between `0` and `100`.
      * `mysql-version`: {{ MY }} version, `{{ versions.cli.str }}`.
+     * `user`: Contains the {{ MY }} user `name` and `password`.
+
+       {% include [user-name-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
+       The password must be from 8 to 128 characters long.
+
+       {% note info %}
+
+       You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command, setting the user parameters as follows:
+
+       ```bash
+         --user name=<username>,generate-password=true
+       ```
+
+       To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+       {% endnote %}
 
      Configure additional {{ mmy-name }} cluster settings, if required:
 
@@ -198,11 +225,11 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   To create a {{ mmy-name }} cluster:
   1. In the configuration file, describe the resources you want to create:
      * DB cluster: Description of the cluster and its hosts
-     * Database: Description of the cluster DB
+     * Database: Cluster DB description
 
        {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-     * User: Description of the cluster user
+     * User: Cluster user description
 
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -272,6 +299,19 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      * `assign_public_ip`: Public access to the host, `true` or `false`.
      * `priority`: Host priority when selecting a new master host, between `0` and `100`.
      * `backup_priority`: Backup priority, between `0` and `100`.
+     * `name` and `password`: {{ MY }} user's username and password, respectively.
+
+       {% include [user-name-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
+       The password must be from 8 to 128 characters long.
+
+       {% note info %}
+
+       You can also generate a password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `"password" = "<user_password>"`.
+
+       To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+       {% endnote %}
 
      * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -325,7 +365,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
 
-     To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-mmy }}).
+     For more information about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-mmy }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -460,8 +500,14 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
 
           * `name`: Username.
-          * `password`: User password.
-          * `permissions`: User permissions settings:
+
+          * `password`: User password. The password must be from 8 to 128 characters long.
+
+              You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generatePassword": true` instead of `"password": "<user_password>"`.
+
+              To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+         * `permissions`: User permission settings:
 
               * `databaseName`: Name of the database the user gets access to.
               * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
@@ -603,7 +649,13 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `user_specs`: User settings as an array of elements, one for each user. Each element has the following structure:
 
           * `name`: Username.
-          * `password`: User password.
+
+          * `password`: User password. The password must be from 8 to 128 characters long.
+
+              You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
+
+              To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
           * `permissions`: User permission settings:
 
               * `database_name`: Name of the database the user gets access to.
@@ -707,7 +759,7 @@ To create an {{ MY }} cluster copy:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -1049,7 +1101,3 @@ To create an {{ MY }} cluster copy:
 
 
 {% endlist %}
-
-
-{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
-

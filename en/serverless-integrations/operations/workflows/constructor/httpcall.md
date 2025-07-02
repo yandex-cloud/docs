@@ -10,19 +10,19 @@ description: Follow this guide to add an HTTP request to a specified endpoint in
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![ArrowShapeRightToLine](../../../../_assets/console-icons/arrow-shape-right-to-line.svg) **{{ ui-key.yacloud.common.label_http }}** element to desired workflow location in the constructor window.
+  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![ArrowShapeRightToLine](../../../../_assets/console-icons/arrow-shape-right-to-line.svg) **{{ ui-key.yacloud.common.label_http }}** element to relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
-  1. In the workflow schema window, click the added **{{ ui-key.yacloud.common.label_http }}** block to select it.
+  1. In the workflow schema window, click the new **{{ ui-key.yacloud.common.label_http }}** section to select it.
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. In the **Method** field, select the HTTP request method: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, or `TRACE`.
-      1. In the **URL** field, specify the request URL.
-      1. Optionally, in the **Request's query parameters** field, click ![plus](../../../../_assets/console-icons/plus.svg) **Add parameter** to add the required query parameters in `<Name>`:`<Value>` format.
-      1. Optionally, in the **Request headers** field, click ![plus](../../../../_assets/console-icons/plus.svg) **Add header** to add the required headers in `<Name>`:`<Value>` format.
-      1. Optionally, in the **Request body** field, set the request body.
-      1. Optionally, enable **Use service account** to automatically add to the request a header containing the [IAM token](../../../../iam/concepts/authorization/iam-token.md) of the service account specified in the workflow settings.
+      1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_http_method_view_spec_layout_title }}** field, select the HTTP request method: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, or `TRACE`.
+      1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_url_view_spec_layout_title }}** field, specify the request URL.
+      1. Optionally, in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_query_view_spec_layout_title }}** field, click ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_query_view_spec_item_label }}** to add the required query parameters in `<Name>`:`<Value>` format.
+      1. Optionally, in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_headers_view_spec_layout_title }}** field, click ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_headers_view_spec_item_label }}** to add the required headers in `<Name>`:`<Value>` format.
+      1. Optionally, set the request body in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_body_view_spec_layout_title }}** field.
+      1. Optionally, enable **{{ ui-key.yc-serverless-workflows.dynamic-forms.http_properties_use_service_account_view_spec_layout_title }}** to automatically add to the request a header containing the [IAM token](../../../../iam/concepts/authorization/iam-token.md) of the service account specified in the workflow settings.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

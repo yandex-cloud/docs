@@ -1,6 +1,6 @@
-# Checking rights for a domain
+# Domain rights check
 
-To get and renew a Let's Encrypt certificate, check the rights for each domain specified in the certificate. In {{ certificate-manager-name }}, there are two types of checks available: `HTTP` and `DNS`. When you create a certificate, you can choose any type of check. Checking rights for domains may take a long time.
+To get and renew a Let's Encrypt certificate, check the rights for each domain specified in the certificate. In {{ certificate-manager-name }}, there are two types of checks available: `HTTP` and `DNS`. When you create a certificate, you can choose any type of check. A domain rights check may take time.
 
 {% note info %}
 
@@ -41,7 +41,7 @@ To check the rights for the `example.com` domain:
         * `/.well-known/acme-challenge/`: Path to the file.
         * `di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1B********`: File name.
 
-    1. Insert into the file you created the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field from **HTTP record**. For example:
+    1. Insert into the file you created the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field from **HTTP record**. Here is an example:
 
         > di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1BLW0QUDbE._TYLpfPMbwHQZ1aEmsdpidY5bPUnVyDvqSO********
 
@@ -74,35 +74,14 @@ To automatically check the rights for the `example.com` domain:
 1. In the certificate list, select the certificate to check.
 1. Further steps to follow will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider.
 
-    {% list tabs group=instructions %}
+    {% include [creating-cname](../../_includes/certificate-manager/creating-cname.md) %}
 
-    - {{ dns-full-name }} {#dns}
-
-      Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `CNAME` record type section, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens:
-
-      1. If the current folder contains an appropriate DNS zone, it will be automatically inserted into the **{{ ui-key.yacloud.dns.label_zone }}** field. If there is no appropriate DNS zone, click **{{ ui-key.yacloud.dns.button_zone-create }}** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
-      1. Click **{{ ui-key.yacloud.common.create }}**.
-
-    - Third-party DNS provider {#third-party-dns-server}
-
-      1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `CNAME` record type section, check out the record value for the domain in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_value }}** field.
-      1. Add a `CNAME` record to your DNS provider or to your own DNS server to delegate management privileges to the DNS zone used for the check:
-
-          ```
-          _acme-challenge.example.com CNAME <value>
-          ```
-          The `<value>` string is formatted as follows: `<certificate_ID>.cm.yandexcloud.net.`
-
-          {% include [checking-domain-rights-cname](../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
-
-    {% endlist %}
-
-   {% include [checking-domain-rights](../../_includes/certificate-manager/checking-domain-rights.md) %}
+    {% include [checking-domain-rights](../../_includes/certificate-manager/checking-domain-rights.md) %}
 
 
 ### Adding a TXT record {#txt}
 
-To check the rights for the `example.com` domain:
+To check rights for the `example.com` domain, follow these steps:
 1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, select the certificate to check.
@@ -112,7 +91,7 @@ To check the rights for the `example.com` domain:
 
     - {{ dns-full-name }} {#dns}
 
-      Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `TXT` record type section, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens:
+       Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the `TXT` record type section, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens:
 
       1. If the current folder contains an appropriate DNS zone, it will be automatically inserted into the **{{ ui-key.yacloud.dns.label_zone }}** field. If there is no appropriate DNS zone, click **{{ ui-key.yacloud.dns.button_zone-create }}** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
       1. Click **{{ ui-key.yacloud.common.create }}**.

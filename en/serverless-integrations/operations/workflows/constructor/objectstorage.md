@@ -10,21 +10,21 @@ description: Follow this guide to add interaction with {{ objstorage-full-name }
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![object-storage-icon](../../../../_assets/object-storage-icon.svg) **{{ objstorage-name }}** element to the appropriate workflow location in the constructor window.
+  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![object-storage-icon](../../../../_assets/object-storage-icon.svg) **{{ objstorage-name }}** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
-  1. In the workflow schema window, click the added **{{ objstorage-name }}** section to select it.
+  1. In the workflow schema window, click the new **{{ objstorage-name }}** section to select it.
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. In the **Bucket** field, select the [bucket](../../../../storage/concepts/bucket.md) with objects to interact with as part of your workflow.
-      1. In the **Object name** field, specify the name of the [object](../../../../storage/concepts/object.md) you are going to interact with.
-      1. In the **Action** field, select:
+      1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_bucket_view_spec_layout_title }}** field, select the [bucket](../../../../storage/concepts/bucket.md) containing the objects you will work with as part of your workflow.
+      1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_object_view_spec_layout_title }}** field, specify the name of the [object](../../../../storage/concepts/object.md) you are going to work with.
+      1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_view_spec_layout_title }}** field, select:
 
-          * `Add object` to add a new object to the bucket.
-          * `Get object` to get an object’s content from the bucket.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_description_put }}` to add a new object to the bucket.
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_description_get }}` to get object content from the bucket.
 
-      1. In the **Content type** field, select the content type of the target object:
+      1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_properties_get_properties_content_type_view_spec_layout_title }}** field, select the content type of the target object:
 
           {% cut "If you are adding an object to the bucket" %}
 
@@ -44,7 +44,7 @@ description: Follow this guide to add interaction with {{ objstorage-full-name }
 
           {% endcut %}
 
-      1. If you are adding an object to the bucket, specify the content of the new object in the **Object content** field.
+      1. If you are adding an object to the bucket, specify the content of the new object in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.object_storage_properties_action_properties_put_properties_content_view_spec_layout_title }}** field.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

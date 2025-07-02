@@ -15,6 +15,8 @@ description: Следуя данной инструкции, вы сможете
 * [Изменить настройки {{ GP }}](#change-gp-settings) согласно документации {{ GP }}.
 * [Изменить настройки протокола PXF для оптимизации работы с внешними данными](./pxf/settings.md).
 * [Изменить настройки аутентификации в конфигурационном файле pg_hba.conf](user-auth-rules.md).
+* [Изменить настройку сервисного аккаунта](#change-service-account)
+* [Изменить настройки логирования](#change-logging)
 
 ## Изменить имя и описание кластера {#change-name-and-description}
 
@@ -188,10 +190,10 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
-         --assign-public-ip=<публичный_доступ_к_кластеру>
+         --assign-public-ip=<разрешить_публичный_доступ_к_кластеру>
       ```
 
-      Где `assign-public-ip` — публичный доступ к кластеру: true или false.
+      Где `assign-public-ip` — публичный доступ к кластеру: `true` или `false`.
 
 - REST API {#api}
 
@@ -212,7 +214,7 @@ description: Следуя данной инструкции, вы сможете
             --data '{
                       "updateMask": "config.assignPublicIp",
                       "config": {
-                        "assignPublicIp": <публичный_доступ_к_хостам_кластера>
+                        "assignPublicIp": <разрешить_публичный_доступ_к_хостам_кластера>
                       }
                     }'
         ```
@@ -254,7 +256,7 @@ description: Следуя данной инструкции, вы сможете
                     "paths": [ "config.assign_public_ip" ]
                   },
                   "config": {
-                    "assign_public_ip": <публичный_доступ_к_хостам_кластера> 
+                    "assign_public_ip": <разрешить_публичный_доступ_к_хостам_кластера> 
                   }
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -346,12 +348,12 @@ description: Следуя данной инструкции, вы сможете
         ```bash
         {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
-            --datalens-access=<доступ_из_{{ datalens-name }}> \
-            --yandexquery-access=<доступ_из_Yandex_Query> \
+            --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
+            --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
-            --websql-access=<true_или_false> \
+            --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
             --deletion-protection
         ```
 
@@ -406,14 +408,14 @@ description: Следуя данной инструкции, вы сможете
           }
 
           access {
-            data_lens    = <доступ_из_{{ datalens-name }}>
-            yandex_query = <доступ_из_Yandex_Query>
+            data_lens    = <разрешить_доступ_из_{{ datalens-name }}>
+            yandex_query = <разрешить_доступ_из_Yandex_Query>
           }
 
-          deletion_protection = <защита_кластера_от_удаления>
+          deletion_protection = <защитить_кластер_от_удаления>
 
           cloud_storage {
-            enable = <использование_гибридного_хранилища>
+            enable = <использовать_гибридное_хранилище>
           }
 
           pooler_config {
@@ -498,8 +500,8 @@ description: Следуя данной инструкции, вы сможете
               "nanos": "<наносекунды>"
             },
             "access": {
-              "dataLens": <доступ_из_{{ datalens-name }}>,
-              "yandexQuery": <доступ_из_Yandex_Query>
+              "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+              "yandexQuery": <разрешить_доступ_из_Yandex_Query>
             }
           },
           "maintenanceWindow": {
@@ -508,7 +510,7 @@ description: Следуя данной инструкции, вы сможете
               "hour": "<час>"
             }
           },
-          "deletionProtection": <защита_кластера_от_удаления>,
+          "deletionProtection": <защитить_кластер_от_удаления>,
           "configSpec": {
             "pool": {
               "mode": "<режим_работы>",
@@ -517,7 +519,7 @@ description: Следуя данной инструкции, вы сможете
             }
           },
           "cloudStorage": {
-            "enable": <использование_гибридного_хранилища>
+            "enable": <использовать_гибридное_хранилище>
           }
         }
         ```
@@ -626,8 +628,8 @@ description: Следуя данной инструкции, вы сможете
               "nanos": "<наносекунды>"
             },
             "access": {
-              "data_lens": <доступ_из_{{ datalens-name }}>,
-              "yandex_query": <доступ_из_Yandex_Query>
+              "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+              "yandex_query": <разрешить_доступ_из_Yandex_Query>
             }
           },
           "maintenance_window": {
@@ -636,7 +638,7 @@ description: Следуя данной инструкции, вы сможете
               "hour": "<час>"
             }
           },
-          "deletion_protection": <защита_кластера_от_удаления>,
+          "deletion_protection": <защитить_кластер_от_удаления>,
           "config_spec": {
             "pool": {
               "mode": "<режим_работы>",
@@ -645,7 +647,7 @@ description: Следуя данной инструкции, вы сможете
             }
           },
           "cloud_storage": {
-            "enable": <использование_гибридного_хранилища>
+            "enable": <использовать_гибридное_хранилище>
           }
         }
         ```
@@ -1434,5 +1436,332 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
+
+
+## Изменить настройку сервисного аккаунта {#change-service-account}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить идентификатор сервисного аккаунта кластера:
+
+    1. Посмотрите описание команды CLI для изменения конфигурации кластера:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update --help
+        ```
+
+    1. Укажите идентификатор нужного сервисного аккаунта:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+           --service-account <идентификатор_сервисного_аккаунта>
+        ```
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+
+    1. Измените в описании кластера {{ mgp-name }} значение атрибута `service_account_id`:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "serviceAccountId",
+                      "serviceAccountId": "<идентификатор_сервисного_аккаунта>"
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае передается только один параметр.
+
+        * `serviceAccountId` — идентификатор сервисного аккаунта.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [ "service_account_id" ]
+                  },
+                  "service_account_id": "<идентификатор_сервисного_аккаунта>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае передается только один параметр.
+
+        * `service_account_id` — идентификатор сервисного аккаунта.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Изменить настройки логирования {#change-logging}
+
+Вы можете изменить настройки [передачи логов кластера в {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md).
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить настройки логирования:
+
+    1. Посмотрите описание команды CLI для изменения конфигурации кластера:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update --help
+        ```
+
+    1. Укажите настройки логирования, которые вы хотите изменить, в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+           --log-enabled \
+           --log-command-center-enabled \
+           --log-greenplum-enabled \
+           --log-pooler-enabled \
+           --log-folder-id <идентификатор_каталога>
+        ```
+
+        Где:
+
+        * `--log-enabled` — включает передачу логов.
+        * `--log-command-center-enabled` — передача логов Yandex Command Center.
+        * `--log-greenplum-enabled` — передача логов {{ GP }}.
+        * `--log-pooler-enabled` — передача логов [менеджера подключений](../concepts/pooling.md).
+        * `--log-folder-id` — идентификатор каталога, лог-группу которого нужно использовать.
+        * `--log-group-id` — идентификатор лог-группы, в которую будут записываться логи.
+
+            Укажите только одну из настроек: `--log-folder-id` либо `--log-group-id`.
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+
+    1. Измените в описании кластера {{ mgp-name }} значения атрибутов в блоке `logging`:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
+          ...
+          logging {
+            enabled                = <включить_передачу_логов>
+            command_center_enabled = <передавать_логи_Yandex_Command_Center>
+            greenplum_enabled      = <передавать_логи_{{ GP }}>
+            pooler_enabled         = <передавать_логи_менеджера_подключений>
+            folder_id              = "<идентификатор_каталога>"
+          }
+        }
+        ```
+
+        Где:
+
+        * `enabled` — включение передачи логов: `true` или `false`.
+        * `command_center_enabled` — передача логов Yandex Command Center: `true` или `false`.
+        * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
+        * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
+        * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
+        * `log_group_id` — идентификатор лог-группы, в которую будут записываться логи.
+
+            Укажите только одну из настроек: `folder_id` либо `log_group_id`.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "logging.enabled,logging.commandCenterEnabled,logging.greenplumEnabled,logging.poolerEnabled,logging.folderId",
+                      "logging": {
+                        "enabled": "<включить_передачу_логов>",
+                        "commandCenterEnabled": "<передавать_логи_Yandex_Command_Center>",
+                        "greenplumEnabled": "<передавать_логи_{{ GP }}>",
+                        "poolerEnabled": "<передавать_логи_менеджера_подключений>",
+                        "folderId": "<идентификатор_каталога>"
+                      }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+        * `logging` — настройки логирования:
+
+            * `enabled` — включение передачи логов: `true` или `false`.
+            * `commandCenterEnabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `greenplumEnabled` — передача логов {{ GP }}: `true` или `false`.
+            * `poolerEnabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
+            * `folderId` — идентификатор каталога, лог-группу которого нужно использовать.
+            * `logGroupId` — идентификатор лог-группы, в которую будут записываться логи.
+
+                Укажите только одну из настроек: `folderId` либо `logGroupId`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [ 
+                      "logging.enabled",
+                      "logging.command_center_enabled",
+                      "logging.greenplum_enabled",
+                      "logging.pooler_enabled",
+                      "logging.folder_id"
+                    ]
+                  },
+                  "logging": {
+                    "enabled": "<включить_передачу_логов>",
+                    "command_center_enabled": "<передавать_логи_Yandex_Command_Center>",
+                    "greenplum_enabled": "<передавать_логи_{{ GP }}>",
+                    "pooler_enabled": "<передавать_логи_менеджера_подключений>",
+                    "folder_id": "<идентификатор_каталога>"
+                  } 
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+        * `logging` — настройки логирования:
+
+            * `enabled` — включение передачи логов: `true` или `false`.
+            * `command_center_enabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
+            * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
+            * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
+            * `log_group_id` — идентификатор лог-группы, в которую будут записываться логи.
+
+                Укажите только одну из настроек: `folder_id` либо `log_group_id`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

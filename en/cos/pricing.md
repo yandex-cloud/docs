@@ -1,6 +1,6 @@
 ---
 title: '{{ cos-full-name }} pricing policy'
-description: This article provides the {{ cos-name }} pricing policy.
+description: This article covers the {{ cos-name }} pricing policy.
 editable: false
 ---
 

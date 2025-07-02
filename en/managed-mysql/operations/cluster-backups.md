@@ -303,9 +303,13 @@ You can create backups and restore clusters from existing backups, including poi
 
 In single-host clusters, you create a backup by reading data from the master host, whereas in multi-host clusters — from one of the replicas. At the same time, you can [specify host priorities when creating backups](#set-backup-priority).
 
-## Restoring clusters from backups {#restore}
+## Restoring a cluster from a backup {#restore}
 
-For a new cluster, you should set all the parameters that are required at creation, except for the cluster type.
+For a new cluster, all the required parameters must be set except for cluster type.
+
+
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mmy.editor }}](../../iam/roles-reference.md#managed-mysql-editor) role or higher to your {{ yandex-cloud }} account for the backup folder and the new cluster folder.
+
 
 {% list tabs group=instructions %}
 

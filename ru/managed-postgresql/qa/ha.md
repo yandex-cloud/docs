@@ -5,6 +5,6 @@ description: На странице представлены вопросы и о
 
 # Высокая доступность и балансировка
 
-{% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/ha.md) %}
+{% include [cluster-ha-minitoc](../../_qa/managed-postgresql/minitoc/ha.md) %}
 
-{% include [backup](../../_qa/managed-postgresql/ha.md) %}
+{% include [cluster-ha](../../_qa/managed-postgresql/ha.md) %}

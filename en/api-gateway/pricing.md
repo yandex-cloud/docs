@@ -12,6 +12,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 ## What goes into the cost of using {{ api-gw-name }} {#rules}
 
 In {{ api-gw-name }}, you are charged for the number of requests to the created API gateways and outgoing traffic. 
@@ -26,7 +28,7 @@ In {{ api-gw-name }}, you are charged for the number of requests to the created 
 
 
 
-Cost per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} × Request count (in millions)
+Price per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} × Request count (in millions)
 
 
 {% include [not-charged-gateway.md](../_includes/pricing/price-formula/not-charged-gateway.md) %}

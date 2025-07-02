@@ -1,4 +1,1 @@
-
-| Limit | Value |
-| ----- | ----- |
-| Number of queries for {{ CH }} | 1 |
+There are no limits for {{ websql-full-name }}.

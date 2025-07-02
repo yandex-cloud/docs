@@ -159,13 +159,9 @@ items:
         href: tutorials/load-testing-grpc-autoscaling.md
       - name: Setting up the Gateway API in {{ managed-k8s-full-name }}
         href: tutorials/gateway-api.md
-      - name: >-
-          Configuring an L7 {{ alb-name }} with the help of an ingress
-          controller
+      - name: Configuring an L7 {{ alb-name }} via an ingress controller
         href: tutorials/alb-ingress-controller.md
-      - name: >-
-          Configuring an L7 {{ alb-name }} logging with the help of an ingress
-          controller
+      - name: Configuring L7 {{ alb-name }} logging via an ingress controller
         href: tutorials/alb-ingress-controller-log-options.md
       - name: Fault-tolerant website with load balancing via an {{ alb-name }}
         items:
@@ -185,6 +181,8 @@ items:
         href: tutorials/high-accessible-dmz.md
       - name: Creating an L7 {{ alb-name }} with a {{ sws-name }} profile
         href: tutorials/balancer-with-sws-profile.md
+      - name: '{{ objstorage-full-name }} integration with Nextcloud'
+        href: tutorials/integrate-nextcloud.md
   - name: Concepts
     items:
       - name: Overview
@@ -213,9 +211,9 @@ items:
             href: tools/k8s-ingress-controller/index.md
           - name: How it works
             href: tools/k8s-ingress-controller/principles.md
-          - name: Installing an Ingress controller
+          - name: Installing an ingress controller
             href: operations/k8s-ingress-controller-install.md
-          - name: Upgrading an Ingress controller
+          - name: Upgrading an ingress controller
             href: operations/k8s-ingress-controller-upgrade.md
           - name: Resource configuration
             items:
@@ -249,7 +247,7 @@ items:
         href: tools/k8s-ingress-controller/security-groups.md
       - name: Working with service accounts
         href: tools/k8s-ingress-controller/service-account.md
-      - name: Creating and updating resources via Ingress controller configurations
+      - name: Creating and updating resources via ingress controller configurations
         href: operations/k8s-ingress-controller-apply.md
   - name: Access management
     href: security/index.md

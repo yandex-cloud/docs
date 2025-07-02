@@ -27,21 +27,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mpg.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 
-### {{ connection-manager-name }} {#conn-man}
-
-Cluster DB connections are managed by {{ connection-manager-name }}.
-
-Creating a cluster automatically creates:
-
-* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) with information about the database connection.
-
-* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) that stores the DB owner's user password. Storing passwords in {{ lockbox-name }} ensures their security.
-
-The connection and secret will be created for each new database user. To view all connections, select the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
-
-You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }} to configure access to connections](../../metadata-hub/operations/connection-access.md).
-
-You can use {{ connection-manager-name }} and secrets you create there free of charge.
+{% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
 
 {% list tabs group=instructions %}
 
@@ -259,8 +245,8 @@ You can use {{ connection-manager-name }} and secrets you create there free of c
   To create a {{ mpg-name }} cluster:
   1. In the configuration file, describe the resources you want to create:
      * DB cluster: Description of the cluster and its hosts
-     * Database: Description of the cluster DB
-     * User: Description of the cluster user
+     * Database: Cluster DB description
+     * User: Cluster user description
 
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -663,7 +649,7 @@ You can use {{ connection-manager-name }} and secrets you create there free of c
          * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
          * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
-     * `database_specs`: Database settings as an array of elements,  one for each DB. Each element has the following structure:
+     * `database_specs`: Database settings as an array of elements, one for each DB. Each element has the following structure:
 
        * `name`: DB name.
        * `owner`: DB owner username. It must match one of the usenames specified in the request.
@@ -777,7 +763,7 @@ To create an {{ PG }} cluster copy:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -813,7 +799,7 @@ To create an {{ PG }} cluster copy:
   * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

@@ -12,6 +12,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 ## What goes into the cost of using {{ sf-name }} {#rules}
 
 In {{ sf-name }}, you pay for the number of function calls, computing resources allocated for the function, downtime of [provisioned instances](concepts/function.md#provisioned-instances), and outgoing traffic.
@@ -30,7 +32,7 @@ You are only charged for the [function calls](concepts/function-invoke.md) that 
 
 
 
-Cost per month = {{ sku|USD|serverless.functions.compute.v1|pricingRate.10|string }} × Memory (GB) × Call processing time (Hours) + {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|string }} × Call count (in millions)
+Price per month = {{ sku|USD|serverless.functions.compute.v1|pricingRate.10|string }} × Memory (GB) × Call processing time (Hours) + {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|string }} × Call count (in millions)
 
 {% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
 

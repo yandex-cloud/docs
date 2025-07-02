@@ -12,6 +12,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 ## What goes into the cost of using {{ iot-name }} {#rules}
 
 In {{ iot-name }}, you are charged for the number of messages. The message count is rounded up using the following formula: 

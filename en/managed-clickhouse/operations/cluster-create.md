@@ -36,6 +36,8 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
   {% endnote %}
 
+{% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -69,7 +71,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size of disk to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
+      * Select the size of your data and backup disk. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
@@ -91,11 +93,19 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      * Username and password.
+      * Enter the username.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+        {% include [user-name-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-      * DB name. The DB name may contain Latin letters, numbers, and underscores. It may be up to 63 characters long. You cannot create a database named `default`.
+      * Enter the user password:
+
+        * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select to enter your password. The password must be from 8 to 128 characters long.
+
+        * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select to generate a password with the help of {{ connection-manager-name }}.
+
+        To view the password, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab after you create the cluster and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+      * Specify the DB name. The DB name may contain Latin letters, numbers, and underscores. It may be up to 63 characters long. You cannot create a database named `default`.
 
       * Enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster, if required.
 
@@ -192,7 +202,21 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       * `--user`: Contains the {{ CH }} user `name` and `password`.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+        {% include [user-name-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+        The password must be from 8 to 128 characters long.
+
+        {% note info %}
+
+        You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command, setting the user parameters as follows:
+
+        ```bash
+          --user name=<username>,generate-password=true
+        ```
+
+        To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+        {% endnote %}
 
       * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
@@ -378,11 +402,21 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
        * `assign_public_ip`: Public access to the host, `true` or `false`.
        * `lifecycle.ignore_changes`: Eliminates resource conflicts in operations with users and databases created through individual resources.
 
-       For a user, specify the following:
+       For a user, specify as follows:
 
        * `name` and `password`: {{ CH }} user's username and password, respectively.
 
-          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+          {% include [user-name](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+          The password must be from 8 to 128 characters long.
+
+          {% note info %}
+
+          You can also generate a password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `"password" = "<user_password>"`.
+
+          To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+          {% endnote %}
 
        * `permission`: List of DBs the user must have access to.
 
@@ -895,9 +929,9 @@ To create a {{ CH }} cluster copy:
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
         * In the `host` sections, delete the `fqdn` parameters.
-        * Under `clickhouse.config.merge_tree`, if `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, and `number_of_free_entries_in_pool_to_execute_mutation` are set to `0`, delete these parameters.
-        * Under `clickhouse.config.kafka`, set a value for `sasl_password` or delete this parameter.
-        * Under `clickhouse.config.rabbitmq`, set a value for `password` or delete this parameter.
+        * Under `clickhouse.config.merge_tree`, if `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, and `number_of_free_entries_in_pool_to_execute_mutation` is set to `0`, delete these parameters.
+        * Under `clickhouse.config.kafka`, set `sasl_password` or delete this parameter.
+        * Under `clickhouse.config.rabbitmq`, set `password` or delete this parameter.
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
         * Delete all `user` sections (if any). You can add database users using the separate `yandex_mdb_clickhouse_user` resource.
         * Optionally, make further changes if you need to customize the configuration.
@@ -1072,7 +1106,5 @@ To create a {{ CH }} cluster copy:
       {% include [terraform-mch-multiple-hosts-single-shard](../../_includes/mdb/mch/terraform/multiple-hosts-single-shard.md) %}
 
 {% endlist %}
-
-{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
