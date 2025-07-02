@@ -24,4 +24,4 @@ Name | Description
 **toTime** | End of the time interval in which the alert is calculated. This is a string in ISO8601 format, such as `2017-09-07T12:00:00Z`.
 **pointValue** | Metric value as of alert calculation.
 **status.code** | Alert status: `OK`, `ALARM`, `WARN`, `NO_DATA`, or `ERROR`.
-**isOk**</br>**isWarn**</br>**isAlarm**</br>**isNoData**</br>**isError** | Boolean variables that can be used to find out the alert status. Here is an example:</br></br>`not_var{{#isAlarm}}Disk usage is too high!not_var{{/isAlarm}}`</br>`not_var{{^isAlarm}}Disk usage is ok.not_var{{/isAlarm}}`
+**isOk**</br>**isWarn**</br>**isAlarm**</br>**isNoData**</br>**isError** | Boolean variables that can be used to find out the alert status. Here is an example:</br></br>`{{#isAlarm}}Disk usage is too high!{{/isAlarm}}`</br>`{{^isAlarm}}Disk usage is ok.{{/isAlarm}}`

@@ -337,14 +337,17 @@ You can get a list of backups created for the past 14 days.
 
 {% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
-### Restoring clusters from backups {#restore}
+### Restoring a cluster from a backup {#restore}
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
 When creating a new cluster, set all required parameters.
 
 
-Before you begin, [assign](../../iam/operations/roles/grant.md) your {{ yandex-cloud }} account the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
+Before you begin, [assign](../../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
+
+* [{{ roles.mos.editor }}](../../iam/roles-reference.md#managed-opensearch-editor) or higher for the backup folder and the new cluster folder.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) or higher if restoring from backup a cluster linked to a [service account](../../iam/concepts/users/service-accounts.md).
 
 
 {% list tabs group=instructions %}

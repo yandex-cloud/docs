@@ -43,7 +43,7 @@
 
       Где:
 
-      * `--service_account_id` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
+      * `--service-account` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
       * `--log-greenplum-enabled` — передача логов {{ GP }}.
 
@@ -253,13 +253,12 @@
          --log-enabled \
          --log-greenplum-enabled \
          --log-command-center-enabled \
-         --log-folder-id <идентификатор_каталога>
          --log-group-id <идентификатор_лог-группы>
       ```
 
       Где:
 
-      * `--service_account_id` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
+      * `--service-account` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
       * `--log-greenplum-enabled` — передача логов {{ GP }}.
 

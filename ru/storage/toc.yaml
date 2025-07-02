@@ -224,8 +224,6 @@ items:
           использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Миграция данных из {{ ES }} в {{ mos-full-name }}
-        href: tutorials/elasticsearch-to-opensearch.md
       - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
         href: tutorials/terraform-state-storage.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}

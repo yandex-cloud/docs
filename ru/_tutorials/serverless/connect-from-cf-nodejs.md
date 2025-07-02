@@ -1,3 +1,5 @@
+
+
 {% note info %}
 
 Руководство предназначено для пользователей Linux. На Windows пройти руководство можно в среде [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/about).

@@ -37,7 +37,7 @@ To link your service account to a {{ mch-name }} cluster, [assign](../../iam/ope
 
     To change the service account settings:
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, select the service account you need from the list, or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
@@ -68,7 +68,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the {{ CH }} host class, select the platform, VM type, and required host class under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**.
   1. To change the {{ ZK }} host class, select the platform, VM type, and required {{ ZK }} host class under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**.
@@ -316,7 +316,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
   To increase the cluster storage size:
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -686,7 +686,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, change the additional cluster settings:
 
@@ -1003,6 +1003,26 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 {% endlist %}
 
+### {{ connection-manager-name }} {#conn-man}
+
+If integration with {{ connection-manager-name }} is not enabled in the cluster, activate **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. It is available only in the [management console]({{ link-console-main }}).
+
+The following will be created for each database user:
+
+* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) with information about the database connection.
+
+* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) with the user password. Storing passwords in {{ lockbox-name }} ensures their security.
+
+  The connection and secret will be created for each new database user. To view all connections, select the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
+
+  You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
+
+  {% note info %}
+
+  You can use {{ connection-manager-name }} and secrets you create there free of charge.
+
+  {% endnote %}
+
 ## Moving a cluster {#move-cluster}
 
 {% list tabs group=instructions %}
@@ -1130,7 +1150,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
 

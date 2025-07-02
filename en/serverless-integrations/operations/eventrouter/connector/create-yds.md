@@ -16,7 +16,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
   1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select `{{ yds-full-name }}`.
-  1. Under **{{ yds-name }} settings**:
+  1. Under **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_yds_base_options_title }}**:
 
       * Select the [data stream](../../../../data-streams/concepts/glossary.md#stream-concepts) and [dedicated data consumer](../../../../data-streams/concepts/glossary.md#consumers).
       * Select a [service account](../../../../iam/concepts/users/service-accounts.md) that has read permissions for the data stream.
@@ -100,7 +100,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
 
   To create a [connector](../../../concepts/eventrouter/connector.md) for {{ yds-name }}:
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {
@@ -140,7 +140,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
       * `consumer`: Name of the [dedicated data consumer](../../../../data-streams/concepts/glossary.md#consumers).
       * `service_account_id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) that has read permissions for the data stream.
 
-      For more information about the `yandex_serverless_eventrouter_connector` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      For more information about `yandex_serverless_eventrouter_connector` properties, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Create the resources:
 

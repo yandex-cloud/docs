@@ -1,5 +1,6 @@
 # Настройка рабочего процесса {{ sw-name }} с интеграцией с {{ tracker-full-name }}, {{ foundation-models-full-name }} и {{ postbox-full-name }}
 
+
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../foundation-models/concepts/yandexgpt/index.md) и [{{ postbox-full-name }}](../../postbox/index.yaml).

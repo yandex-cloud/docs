@@ -13,7 +13,7 @@ In this section, you can find the {{ mrd-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [{{ yandex-cloud }} calculator](https://yandex.cloud/en/prices?state=c46046673ba9#calculator) or check the prices in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=c46046673ba9#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 
@@ -37,11 +37,11 @@ The {{ mrd-name }} usage cost includes:
 
 Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ VLK }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You do not pay for the time when the {{ VLK }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
-You pay for the following:
+You are charged for the following:
 
 * Storage allocated for DB clusters.
 
@@ -58,11 +58,11 @@ You pay for the following:
     * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
     * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
 
 ### Example of cluster cost calculation {#example}
 
-The cost of using a cluster with the following parameters for 30 days:
+This is an example of calculating the cost of using a cluster with the following properties for 30 days:
 
 * **{{ VLK }}** hosts: Three `hm3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of SSD network storage.
@@ -92,7 +92,7 @@ Calculation for the storage cost and total cost:
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

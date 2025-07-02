@@ -146,6 +146,12 @@ items:
                     href: operations/eventrouter/bus/label-delete.md
               - name: Удалить шину
                 href: operations/eventrouter/bus/delete.md
+          - name: Отправка событий в шину
+            items:
+              - name: Отправить события напрямую
+                href: operations/eventrouter/bus/data-put.md
+              - name: Отправить события с помощью коннектора
+                href: operations/eventrouter/bus/data-send.md
           - name: Получение информации о коннекторе
             items:
               - name: Получить список коннекторов
@@ -156,12 +162,14 @@ items:
             items:
               - name: Создать коннектор
                 items:
+                  - name: Таймер
+                    href: operations/eventrouter/connector/create-timer.md
+                  - name: API {{ er-name }}
+                    href: operations/eventrouter/connector/create-api-eventrouter.md
                   - name: '{{ yds-name }}'
                     href: operations/eventrouter/connector/create-yds.md
                   - name: '{{ message-queue-name }}'
                     href: operations/eventrouter/connector/create-message-queue.md
-                  - name: Таймер
-                    href: operations/eventrouter/connector/create-timer.md
               - name: Изменить коннектор
                 href: operations/eventrouter/connector/update.md
               - name: Управлять метками
@@ -320,6 +328,8 @@ items:
             href: concepts/eventrouter/connector.md
           - name: Правило
             href: concepts/eventrouter/rule.md
+          - name: Отправка событий в шину
+            href: concepts/eventrouter/sending-events.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Правила тарификации

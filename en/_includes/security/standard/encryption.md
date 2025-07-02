@@ -124,7 +124,7 @@ Check the list of returned encrypted disks. If the list matches your threat mode
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** and find the disk you want to encrypt in the list.
 
       If the disk is attached to a VM and the VM is on, it is recommended to turn it off.
@@ -394,33 +394,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 
 **When using services without built-in encryption, it is the customer's responsibility to ensure that critical data is encrypted.**
 
-#### 4.6 For critical data, MDB encryption with {{ kms-short-name }} is used {#self-data-kms}
-
-If data encryption is required, make sure to encrypt data at the application level prior to writing it to a database, for example, using [{{ kms-short-name }}](../../../kms/operations/symmetric-encryption.md) and an add-on, such as `pgcrypto`.
-
-{% list tabs group=instructions %}
-
-- Manual check {#manual}
-
-  Make sure that the stored data is encrypted.
-
-- Performing a check via the CLI {#cli}
-
-  To get a list of all extensions set in a database, run this command:
-
-     ```bash
-     yc managed-postgresql database get <database_name> --cluster-id <managed_postgre_cluster_id> --format=json | jq -r '.extensions | .[].name'
-     ```
-
-  If the command output contains the `pgcrypto` string, the database has an extension for application-level data encryption enabled.
-
-{% endlist %}
-
-**Guides and solutions to use:**
-
-See [{#T}](../../../managed-greenplum/operations/extensions/pgcrypto.md) for instructions on how to encrypt data in {{ mpg-full-name }} and {{ mgp-full-name }} using `pgcrypto`.
-
-#### 4.7 Data encryption at the application level is used {#self-data-app}
+#### 4.6 Data encryption at the application level is used {#self-data-app}
 
 For client-side encryption before uploading data to a {{ objstorage-full-name }} bucket, you can use the following approaches:
 * Integrating {{ objstorage-name }} with the {{ kms-name }} service for client-side encryption. For more information, see "Recommended cryptographic libraries".
@@ -441,7 +415,7 @@ For a comparison of libraries, see the {{ kms-short-name }} documentation, [Whic
 
 {% endlist %}
 
-#### 4.8 Encryption of disks and virtual machine snapshots is used {#managed-vm-kms}
+#### 4.7 Encryption of disks and virtual machine snapshots is used {#managed-vm-kms}
 
 By default, all data on {{ compute-full-name }} disks is encrypted at the storage database level using a system key. This protects your data from being compromised in the event of a physical theft of disks from {{ yandex-cloud }} data centers. 
 
@@ -475,7 +449,7 @@ We recommend using [{{ kms-name }}](../../../kms/tutorials/encrypt/sdk.md) for 
 
 {{ kms-short-name }} uses AES-GCM encryption mode. You can select the key length: 128/192/256 and set up the preferred key rotation period.
 
-#### 4.9 {{ kms-name }} keys are stored in a hardware security module (HSM) {#keys-hsm}
+#### 4.8 {{ kms-name }} keys are stored in a hardware security module (HSM) {#keys-hsm}
 
 In production environments, we recommend using separate keys whose every cryptographic operation will only be handled inside a HSM. For more information, see [Hardware security module (HSM)](../../../kms/concepts/hsm.md).
 
@@ -520,7 +494,7 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
 
 [Set](../../../kms/operations/symmetric-encryption.md) the encryption algorithm for {{ kms-short-name }} keys to AES-256 HSM.
 
-#### 4.10 Permissions to manage keys in {{ kms-short-name }} are granted to controlled users {#keys-controlled-users}
+#### 4.9 Permissions to manage keys in {{ kms-short-name }} are granted to controlled users {#keys-controlled-users}
 
 To access the {{ kms-short-name }} service, you need an [IAM token](../../../iam/concepts/authorization/iam-token.md).
 
@@ -603,7 +577,7 @@ To check the {{ kms-short-name }} key access permissions, check who has access p
 
 Check out who is granted access to {{ kms-short-name }} keys.
 
-#### 4.11 For {{ kms-short-name }} keys, rotation is enabled {#keys-rotation}
+#### 4.10 For {{ kms-short-name }} keys, rotation is enabled {#keys-rotation}
 
 To improve the security of your infrastructure, we recommend that you categorize your encryption keys into two groups:
 * Keys for services that process critical data but do not store it, such as {{ message-queue-name }} or {{ sf-name }}.
@@ -660,7 +634,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
 
 Set the key rotation period.
 
-#### 4.12 The deletion protection is enabled for {{ kms-short-name }} keys {#keys-deletion-protection}
+#### 4.11 Deletion protection is enabled for {{ kms-short-name }} keys {#keys-deletion-protection}
 
 Deleting a {{ kms-short-name }} key always means destroying data. Therefore, make sure to protect the keys against accidental deletion. {{ kms-short-name }} has the necessary feature.
 
@@ -705,7 +679,7 @@ Enable deletion protection.
 
 Critical data and access secrets (authentication tokens, API keys, and encryption keys, etc.) should not be used in plain text in code, cloud object names and descriptions, VM metadata, etc. Use secret storage services instead, e.g., {{ lockbox-short-name }} or HashiCorp Vault.
 
-#### 4.13 The organization uses {{ lockbox-full-name }} for secure secret storage {#secrets-lockbox}
+#### 4.12 The organization uses {{ lockbox-full-name }} for secure secret storage {#secrets-lockbox}
 
 Critical data and access secrets (authentication tokens, API keys, and encryption keys, etc.) should not be used in plain text in code, cloud object names and descriptions, VM metadata, etc. Use secret storage services instead, e.g., {{ lockbox-short-name }}.
 
@@ -755,7 +729,7 @@ When working in {{ TF }}, we recommend using a script to [fill in](https://terra
 
 Keep secrets in {{ lockbox-short-name }}.
 
-#### 4.14 For {{ serverless-containers-name }} and {{ sf-name }}, {{ lockbox-short-name }} secrets are used {#secrets-serverless-functions}
+#### 4.13 For {{ serverless-containers-name }} and {{ sf-name }}, {{ lockbox-short-name }} secrets are used {#secrets-serverless-functions}
 
 When working with {{ serverless-containers-name }} or {{ sf-name }}, it is often necessary to use a secret (such as a token or password).
 
@@ -800,7 +774,7 @@ Delete secret data from env and use the {{ lockbox-short-name }} integration fun
 * [{#T}](../../../serverless-containers/operations/lockbox-secret-transmit.md).
 * [{#T}](../../../functions/operations/function/lockbox-secret-transmit.md).
 
-#### 4.15 When working with {{ coi }}, secret encryption is used {#secrets-coi}
+#### 4.14 When working with a {{ coi }}, secret encryption is used {#secrets-coi}
 
 {{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, e.g., for transferring secrets to a VM in encrypted form. See [Encrypting secrets in {{ TF-full }}](../../../kms/tutorials/terraform-secret.md) in the {{ kms-short-name }} documentation. It is not safe to openly provide secrets through environment variables, because they are displayed in the VM properties.
 
@@ -810,7 +784,7 @@ Delete secret data from env and use the {{ lockbox-short-name }} integration fun
 
 For other recommendations on how to use {{ TF }} safely, see [Secure configuration: {{ TF }}](../../../security/standard/virtualenv-safe-config.md#tf-using).
 
-#### 4.16 There is a guide for cloud administrators on handling compromised secrets {#secrets-scanning}
+#### 4.15 There is a guide for cloud administrators on handling compromised secrets {#secrets-scanning}
 
 In {{ yandex-cloud }}, the [Secret Scanning Service](../../../security/operations/search-secrets.md) is enabled for everyone by default.
 It detects structured cloud secrets that are available in the public domain in the following sources:

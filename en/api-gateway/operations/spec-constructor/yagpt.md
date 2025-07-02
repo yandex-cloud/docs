@@ -17,32 +17,32 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * **Service account**: Service account for authorization when accessing the [text generation API](../../../foundation-models/concepts/yandexgpt/index.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account for authorization when accessing the [text generation API](../../../foundation-models/concepts/yandexgpt/index.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
 
-    1. Under **Model used** select a model and provide the following:
+    1. Under **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_title }}**, select a model and specify:
 
-        * For a `{{ yagpt-name }}` model: Folder ID that will be specified in the text generation model URI.
-        * For a `{{ ml-platform-short-name }}` model: ID of the model tuned in [{{ ml-platform-full-name }}](../../../datasphere/index.yaml).
+        * For a `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_yagpt_label }}` model: Folder ID that will be specified in the text generation model URI.
+        * For a `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_datasphere_label }}` model: ID of the model tuned in [{{ ml-platform-full-name }}](../../../datasphere/index.yaml).
 
-    1. Under **Prompt delivery method**, select a prompt source and specify the following:
+    1. Under **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}**, select a prompt source and specify the following:
 
-        * For the `Query parameter` source: Name of the query parameter where you will provide the prompt for the text generation API request.
-        * For the `Request body` source: Name of the request body field you will use to provide the prompt for the text generation API request.
-    1. Under **Use case**, select the model use case and set the relevant parameters:
+        * For the `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_query_option }}` source: Name of the query parameter where you will provide the prompt for the text generation API request.
+        * For the `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_body_option }}` source: Name of the request body field you will use to provide the prompt for the text generation API request.
+    1. Under **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_title }}**, select the model use case and set the relevant parameters:
 
-        * `Text generation`:
+        * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_hint }}`:
 
-            * (Optional) **Temperature**: Determines the variability of the model's response. Specify a value from `0` to `1`. With a higher temperature, you get a more creative and randomized response from the model. The default value is `0.3`.
-            * (Optional) **Number of tokens**: Maximum number of generation [tokens](../../../foundation-models/concepts/yandexgpt/tokens.md). The default value is `5`. This allows you to limit the size of the model response, if required.
+            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}**: Determines the variability of the model's response. Specify a value from `0` to `1`. With a higher temperature, you get a more creative and randomized response from the model. The default value is `0.3`.
+            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}**: Maximum number of generation [tokens](../../../foundation-models/concepts/yandexgpt/tokens.md). The default value is `5`. This allows you to limit the size of the model response, if required.
 
-        * `Text classification`:
+        * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_hint }}`:
 
-            * **Task description**: Text description of the task for the classifier.
-            * **Classes**: List of classes the text can belong to. To add a class, click ![image](../../../_assets/console-icons/plus.svg).
+            * **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_task_desc_title }}**: Text description of the task for the classifier.
+            * **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_labels_title }}**: List of classes the text can belong to. To add a class, click ![image](../../../_assets/console-icons/plus.svg).
 
                 To get correct results, use meaningful class names.
 
-            * (Optional) **Request examples**: Examples of text requests for classes in `text request:class` format. To add an example, click ![image](../../../_assets/console-icons/plus.svg). To learn more, see [{#T}](../../../foundation-models/concepts/classifier/index.md#few-shot).
+            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_samples_title }}**: Examples of text requests for classes in `text request:class` format. To add an example, click ![image](../../../_assets/console-icons/plus.svg). For more information, see [{#T}](../../../foundation-models/concepts/classifier/index.md#few-shot).
 
     1. Click **{{ ui-key.yacloud.common.add }}**.
 
@@ -54,9 +54,9 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
 ## Requirements to the structure of an incoming request {#requirements}
 
 For the API gateway to correctly process incoming requests, set the `Content-Type: application/json` header. Plus, consider the following:
-* If `Query parameter` is selected as a method to deliver the prompt, the request must include the query parameter from the **Prompt delivery method** section and its value.
+* If `Query parameter` is selected as a method to deliver the prompt, the request must include the query parameter from the **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}** section and its value.
 
     Here is an API gateway call path example: `<path_to_integration>?<specified_query_parameter>=<prompt_contents>`.
-* If `Request body` is selected as a method to deliver the prompt, the request body must include the field from the **Prompt delivery method** section and its value.
+* If `Request body` is selected as a method to deliver the prompt, the request body must include the field from the **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}** section and its value.
             
     Here is a request body example: `{"<request_body_field_name>": "<prompt_contents>"}`.

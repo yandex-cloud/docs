@@ -15,7 +15,7 @@ In this section, you can find the {{ mmy-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [{{ yandex-cloud }} calculator](https://yandex.cloud/en/prices?state=7f776c1fc309#calculator) or check the prices in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=7f776c1fc309#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -54,12 +54,12 @@ There are different ways to calculate the cost depending on the [host type](conc
 
 You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ MY }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You do not pay for the time when the {{ MY }} host is unable to perform its main functions.
 
 
 ### Disk space usage {#rules-storage}
 
-You pay for the following:
+You are charged for the following:
 
 * Storage allocated for DB clusters.
 
@@ -69,18 +69,18 @@ You pay for the following:
 
     * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
-* Space used by DB backups in excess of the storage amount specified for the cluster.
+* Space occupied by DB backups beyond the storage size specified for the cluster.
 
     * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the free volume of backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
 
 
 ### Example of cluster cost calculation {#example}
 
-The cost of using a cluster with the following parameters for 30 days:
+This is an example of calculating the cost of using a cluster with the following properties for 30 days:
 
 * **{{ MY }} hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
@@ -111,7 +111,7 @@ Calculation for the storage cost and total cost:
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
@@ -175,7 +175,7 @@ The cost is made up of two components: [the cost of {{ compute-full-name }}](../
 
 - Dedicated hosts
 
-  The cost is made up of two components: the [{{ compute-full-name }} storage cost](../compute/pricing.md#prices) and the {{ mmy-name }} price for it. All prices are per 1 GB per month.
+  The cost is made up of two components: the [{{ compute-full-name }} storage cost](../compute/pricing.md#prices) and the {{ mmy-name }} price for it. All prices are per GB, per month.
 
   {% include [usd-storage-dedicated.md](../_pricing/managed-mysql/usd-storage-dedicated.md) %}
 

@@ -162,7 +162,7 @@
                           `disk-type=<network-ssd-nonreplicated|local-ssd> \
            --zone-id=<зона_доступности> \
            --subnet-id=<идентификатор_подсети> \
-           --assign-public-ip=<публичный_доступ_к_хостам> \
+           --assign-public-ip=<разрешить_публичный_доступ_к_хостам_кластера> \
            --security-group-ids=<список_идентификаторов_групп_безопасности> \
            --deletion-protection
         ```
@@ -248,9 +248,9 @@
         ```bash
         {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
-           --datalens-access=<доступ_из_{{ datalens-name }}> \
-           --yandexquery-access=<доступ_из_Yandex_Query> \
-           --websql-access=<true_или_false>
+           --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
+           --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
+           --websql-access=<разрешить_доступ_из_{{ websql-name }}>
         ```
 
         Доступные сервисы:
@@ -259,6 +259,33 @@
         * `--yandexquery-access` — [{{ yq-full-name }}](../../query/concepts/index.md);
         * `--websql-access` — [{{ websql-full-name }}](../../websql/concepts/index.md).
 
+
+
+    
+    1. Чтобы включить [передачу логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md), укажите параметры при создании кластера:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster create <имя_кластера> \
+           ...
+           --service-account <идентификатор_сервисного_аккаунта> \
+           --log-enabled \
+           --log-command-center-enabled \
+           --log-greenplum-enabled \
+           --log-pooler-enabled \
+           --log-folder-id <идентификатор_каталога>
+        ```
+
+        Где:
+
+        * `--service-account` — идентификатор сервисного аккаунта.
+        * `--log-enabled` — включает передачу логов.
+        * `--log-command-center-enabled` — передача логов Yandex Command Center.
+        * `--log-greenplum-enabled` — передача логов {{ GP }}.
+        * `--log-pooler-enabled` — передача логов [менеджера подключений](../concepts/pooling.md).
+        * `--log-folder-id` — идентификатор каталога, лог-группу которого нужно использовать.
+        * `--log-group-id` — идентификатор лог-группы, в которую будут записываться логи.
+
+            Укажите только одну из настроек: `--log-folder-id` либо `--log-group-id`.
 
 
 - {{ TF }} {#tf}
@@ -305,8 +332,8 @@
         network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
         zone                = "<зона_доступности>"
         subnet_id           = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-        assign_public_ip    = <публичный_доступ_к_хостам_кластера>
-        deletion_protection = <защита_кластера_от_удаления>
+        assign_public_ip    = <разрешить_публичный_доступ_к_хостам_кластера>
+        deletion_protection = <защитить_кластер_от_удаления>
         version             = "<версия_Greenplum>"
         master_host_count   = <количество_хостов_мастеров>
         segment_host_count  = <количество_хостов_сегментов>
@@ -327,8 +354,8 @@
         }
 
         access {
-          data_lens    = <доступ_из_{{ datalens-name }}>
-          yandex_query = <доступ_из_Yandex_Query>
+          data_lens    = <разрешить_доступ_из_{{ datalens-name }}>
+          yandex_query = <разрешить_доступ_из_Yandex_Query>
         }
 
         user_name     = "<имя_пользователя>"
@@ -336,7 +363,7 @@
 
         security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
       }
-      ```
+     ```
 
 
 
@@ -382,6 +409,36 @@
 
       {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
+  1. Чтобы включить [передачу логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md), укажите параметры:
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
+        ...
+        service_account_id="<идентификатор_сервисного_аккаунта>"
+        logging {
+          enabled                = <включить_передачу_логов>
+          command_center_enabled = <передавать_логи_Yandex_Command_Center>
+          greenplum_enabled      = <передавать_логи_{{ GP }}>
+          pooler_enabled         = <передавать_логи_менеджера_подключений>
+          folder_id              = "<идентификатор_каталога>"
+        }
+      }
+      ```
+
+      Где:
+
+      * `service_account_id` — идентификатор сервисного аккаунта.
+      * `logging` — настройки передачи логов:
+
+          * `enabled` — включение передачи логов: `true` или `false`.
+          * `command_center_enabled` — передача логов Yandex Command Center: `true` или `false`.
+          * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
+          * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
+          * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
+          * `log_group_id` — идентификатор лог-группы, в которую будут записываться логи.
+
+              Укажите только одну из настроек: `folder_id` либо `log_group_id`.
+
 
   1. Проверьте корректность файлов конфигурации {{ TF }}:
 
@@ -410,12 +467,12 @@
           "config": {
             "version": "<версия_{{ GP }}>",
             "access": {
-              "dataLens": <доступ_из_{{ datalens-name }}>,
-              "yandexQuery": <доступ_из_Yandex_Query>
+              "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+              "yandexQuery": <разрешить_доступ_из_Yandex_Query>
             },
             "zoneId": "<зона_доступности>",
             "subnetId": "<идентификатор_подсети>",
-            "assignPublicIp": <публичный_доступ_к_хостам_кластера>
+            "assignPublicIp": <разрешить_публичный_доступ_к_хостам_кластера>
           },
           "masterConfig": {
             "resources": {
@@ -443,7 +500,7 @@
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletionProtection": <защита_кластера_от_удаления>,
+          "deletionProtection": <защитить_кластер_от_удаления>,
           "configSpec": {
             "pool": {
               "mode": "<режим_работы>",
@@ -452,14 +509,22 @@
             }
           },
           "cloudStorage": {
-            "enable": <использование_гибридного_хранилища>
+            "enable": <использовать_гибридное_хранилище>
           },
           "masterHostGroupIds": [
             "string"
           ],
           "segmentHostGroupIds": [
             "string"
-          ]
+          ],
+          "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
+          "logging": {
+            "enabled": "<включить_передачу_логов>",
+            "commandCenterEnabled": "<передавать_логи_Yandex_Command_Center>",
+            "greenplumEnabled": "<передавать_логи_{{ GP }}>",
+            "poolerEnabled": "<передавать_логи_менеджера_подключений>",
+            "folderId": "<идентификатор_каталога>"
+          }
         }
         ```
 
@@ -532,6 +597,18 @@
 
             {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
+        * `serviceAccountId` — идентификатор сервисного аккаунта.
+        * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
+
+            * `enabled` — включение передачи логов: `true` или `false`.
+            * `commandCenterEnabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `greenplumEnabled` — передача логов {{ GP }}: `true` или `false`.
+            * `poolerEnabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
+            * `folderId` — идентификатор каталога, лог-группу которого нужно использовать.
+            * `logGroupId` — идентификатор лог-группы, в которую будут записываться логи.
+
+                Укажите только одну из настроек: `folderId` либо `logGroupId`.
+
 
     1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -565,12 +642,12 @@
           "config": {
             "version": "<версия_{{ GP }}>",
             "access": {
-              "data_lens": <доступ_из_{{ datalens-name }}>,
-              "yandex_query": <доступ_из_Yandex_Query>
+              "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+              "yandex_query": <разрешить_доступ_из_Yandex_Query>
             },
             "zone_id": "<зона_доступности>",
             "subnet_id": "<идентификатор_подсети>",
-            "assign_public_ip": <публичный_доступ_к_хостам_кластера>
+            "assign_public_ip": <разрешить_публичный_доступ_к_хостам_кластера>
           },
           "master_config": {
             "resources": {
@@ -598,7 +675,7 @@
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletion_protection": <защита_кластера_от_удаления>
+          "deletion_protection": <защитить_кластер_от_удаления>
           "config_spec": {
             "pool": {
               "mode": "<режим_работы>",
@@ -607,14 +684,22 @@
             }
           },
           "cloud_storage": {
-            "enable": <использование_гибридного_хранилища>
+            "enable": <использовать_гибридное_хранилище>
           },
           "master_host_group_ids": [
             "string"
           ],
           "segment_host_group_ids": [
             "string"
-          ]
+          ],
+          "service_account_id": "<идентификатор_сервисного_аккаунта>",
+          "logging": {
+            "enabled": "<включить_передачу_логов>",
+            "command_center_enabled": "<передавать_логи_Yandex_Command_Center>",
+            "greenplum_enabled": "<передавать_логи_{{ GP }}>",
+            "pooler_enabled": "<передавать_логи_менеджера_подключений>",
+            "folder_id": "<идентификатор_каталога>"
+          }
         }
         ```
 
@@ -686,6 +771,18 @@
             Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
 
             {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
+        * `service_account_id` — идентификатор сервисного аккаунта.
+        * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
+
+            * `enabled` — включение передачи логов: `true` или `false`.
+            * `command_center_enabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
+            * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
+            * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
+            * `log_group_id` — идентификатор лог-группы, в которую будут записываться логи.
+
+                Укажите только одну из настроек: `folder_id` либо `log_group_id`.
 
 
     1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:

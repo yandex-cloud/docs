@@ -380,9 +380,10 @@
            --restore-only=<список_БД_и_таблиц_для_восстановления> \
            --zone-id=<зона_доступности> \
            --subnet-id=<идентификатор_подсети> \
-           --assign-public-ip=<публичный_доступ_к_кластеру> \
+           --assign-public-ip=<разрешить_публичный_доступ_к_кластеру> \
            --master-host-group-ids=<идентификаторы_групп_выделенных_хостов_для_хостов-мастеров> \
-           --segment-host-group-ids=<идентификаторы_групп_выделенных_хостов_для_хостов-сегментов>
+           --segment-host-group-ids=<идентификаторы_групп_выделенных_хостов_для_хостов-сегментов> \
+           --service-account <идентификатор_сервисного_аккаунта>
         ```
 
 
@@ -420,6 +421,7 @@
 
         * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
         * `--assign-public-ip` — флаг, который указывается, если кластеру требуется доступ из интернета.
+        * `--service-account` — идентификатор сервисного аккаунта.
 
 
 - REST API {#api}
@@ -442,7 +444,7 @@
           "config": {
             "zoneId": "<зона_доступности>",
             "subnetId": "<идентификатор_подсети>",
-            "assignPublicIp": <публичный_доступ_к_хостам_кластера>
+            "assignPublicIp": <разрешить_публичный_доступ_к_хостам_кластера>
           },
           "masterResources": {
             "resourcePresetId": "<класс_хостов>",
@@ -467,7 +469,15 @@
           ],
           "segmentHostGroupIds": [
             "string"
-          ]
+          ],
+          "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
+          "logging": {
+            "enabled": "<включить_передачу_логов>",
+            "commandCenterEnabled": "<передавать_логи_Yandex_Command_Center>",
+            "greenplumEnabled": "<передавать_логи_{{ GP }}>",
+            "poolerEnabled": "<передавать_логи_менеджера_подключений>",
+            "folderId": "<идентификатор_каталога>"
+          }
         }
         ```
 
@@ -510,6 +520,18 @@
 
             {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
+        * `serviceAccountId` — идентификатор сервисного аккаунта.
+        * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
+
+            * `enabled` — включение передачи логов: `true` или `false`.
+            * `commandCenterEnabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `greenplumEnabled` — передача логов {{ GP }}: `true` или `false`.
+            * `poolerEnabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
+            * `folderId` — идентификатор каталога, лог-группу которого нужно использовать.
+            * `logGroupId` — идентификатор лог-группы, в которую будут записываться логи.
+
+                Укажите только одну из настроек: `folderId` либо `logGroupId`.
+
 
     1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -546,7 +568,7 @@
           "config": {
             "zone_id": "<зона_доступности>",
             "subnet_id": "<идентификатор_подсети>",
-            "assign_public_ip": <публичный_доступ_к_хостам_кластера>
+            "assign_public_ip": <разрешить_публичный_доступ_к_хостам_кластера>
           },
           "master_resources": {
             "resource_preset_id": "<класс_хостов>",
@@ -571,7 +593,8 @@
           ],
           "segment_host_group_ids": [
             "string"
-          ]
+          ],
+          "service_account_id": "<идентификатор_сервисного_аккаунта>"
         }
         ```
 
@@ -613,6 +636,9 @@
             Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
 
             {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
+        * `service_account_id` — идентификатор сервисного аккаунта.
+
 
 
     1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:

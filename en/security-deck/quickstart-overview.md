@@ -13,17 +13,27 @@ description: This section describes how to get started with {{ sd-name }} and ma
 
 To get started with {{ sd-name }} in {{ yandex-cloud }}:
 
-1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its [status](../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
 
 {{ sd-name }} includes the following modules: {{ atr-name }}, Data Security Posture Management (DSPM), Cloud Infrastructure Entitlement Management (CIEM), and Compliance Portal.
 
-To connect any of these modules, go to the [{{ sd-name }} interface]({{ link-sd-main }}) and click **Connect** next to the module description. You will then be able to learn more about the tool's features and terms of use.
+To connect any of these modules, go to the [{{ sd-name }}]({{ link-sd-main }}) and click **Connect** next to the module description. You will then be able to learn more about the tool's features and terms of use.
 
 ## Configuring {{ sd-name }} {#configure-sd}
 
-The resources of {{ sd-full-name }} modules are located in folders. From the list of available folders, you need to select a folder to store the {{ sd-full-name }} resource modules in.
+By default, collected data and {{ sd-full-name }} module resources will reside in a folder you select. To get started, specify where to store the data by selecting a folder from the list of available folders:
+
+{% list tabs group=instructions %}
+
+- {{ sd-name }} UI {#cloud-sd}
+
+  1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
+  1. In the left-hand panel, select ![sliders](../_assets/console-icons/sliders.svg) **{{ sd-name }} settings**.
+  1. Under **Default storage**, select a folder to store {{ sd-name }} data by default.
+
+{% endlist %}
 
 To get started, assign [roles](./security/index.md) required to work with {{ sd-name }}.
 
@@ -49,16 +59,6 @@ To get started with the {{ dspm-name }} module, follow the guides on how to [cre
 
 To get started with the {{ ciem-name }} module, follow the guides for [viewing](./operations/ciem/view-permissions.md) and [revoking](./operations/ciem/revoke-permissions.md) accesses.
 
-
-## Required roles {#required-roles}
-
-To work with {{ sd-name }}, assign the required [roles](./security/index.md) to the user for each module. The list of required roles may depend on your organization's security policies.
-
-| Module | Service setup role | User role |
-| --- | --- | --- |
-| {{ atr-name }} | `access-transparency.admin` for organization | `access-transparency.viewer` for organization |
-| Data Security Posture Management ({{ dspm-name }}) | `dspm.admin` for individual resource | `dspm.inspector` for organization |
-| Cloud Infrastructure Entitlement Management ({{ ciem-name }}) | `organization-manager-viewer` for organization | `organization-manager-viewer` for organization |
 
 ## What's next {#whats-next}
 

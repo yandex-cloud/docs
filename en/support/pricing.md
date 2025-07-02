@@ -12,7 +12,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=a1e4dbe0c722#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=a1e4dbe0c722#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -21,14 +21,14 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 ## Prices for the Russia region {#prices}
 
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [vat.md](../_includes/vat.md) %}
 

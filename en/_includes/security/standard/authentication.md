@@ -5,17 +5,23 @@
 
 In {{ yandex-cloud }}, identification, authentication, and access control is performed by [{{ iam-full-name }} ({{ iam-short-name }})](../../../iam/) and [{{ org-full-name }}](../../../organization/).
 
-The platform works with three categories of users:
+The platform works with three categories of accounts:
 
-* [Yandex accounts](../../../iam/concepts/users/accounts.md#passport): Accounts in Yandex ID.
+* [Yandex accounts](../../../iam/concepts/users/accounts.md#passport): Accounts in Yandex ID, including {{ yandex-360 }}.
 * [Federated accounts](../../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
 * [Service accounts](../../../iam/concepts/#sa): Accounts that can be used by programs to manage resources.
 
-Yandex ID and federated accounts are authenticated in their own systems. {{ yandex-cloud }} has no access to the passwords of these account users and only authenticates service accounts using {{ iam-short-name }}.
+Yandex ID and federated accounts are authenticated in their own systems. {{ yandex-cloud }} has no access to the passwords of these account users and only authenticates service accounts using {{ iam-short-name }}. For Yandex ID and {{ yandex-360 }} accounts, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 
 User access to cloud resources is regulated by [roles](../../../iam/concepts/access-control/roles.md). {{ yandex-cloud }} services may provide different levels of granularity while granting permissions: in some cases, a role can be assigned directly to a service resource, in other cases, permissions are only granted at the level of the folder or cloud where the service resource is located.
 
 This ensures interaction of different categories of resources, roles, and users in the {{ yandex-cloud }} infrastructure. Access to resources is managed by {{ iam-short-name }}. {{ iam-short-name }} controls each request and makes sure that all operations with resources are only run by users who have the appropriate permissions.
+
+{% note info %}
+
+When using {{ yandex-cloud }} together with {{ yandex-360 }}, follow the {{ yandex-360 }} [security best practices]({{ link-yandex }}/support/yandex-360/business/admin/ru/security/security-recommendations): add recovery information to Yandex ID, indicate your phone number for account recovery and notifications, and [configure]({{ link-yandex }}/support/yandex-360/business/admin/ru/admin-audit-log) audit logs.
+
+{% endnote %}
 
 ### Identity federations {#federations}
 
@@ -114,7 +120,7 @@ The best approach to account management, in terms of security, is using identity
 
 **Guides and solutions to use:**
 
-Remove all the accounts that have a Yandex ID from your organization, except those on the list of allowed exceptions.
+Remove all the accounts that have a Yandex ID from your organization, except those on the list of allowed exceptions. For the remaining Yandex ID accounts, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 
 #### 1.3 The cookie lifetime in a federation is less than 6 hours {#cookie-timeout}
 
@@ -153,7 +159,7 @@ In the [identity federation](../../../organization/concepts/add-federation.md) s
 
 **Guides and solutions to use:**
 
-Set the **Cookie lifetime** to 6 hours (21600 seconds) or less.
+Set **Cookie lifetime** to 6 hours (21600 seconds) or less.
 
 ### Access management {#access-control}
 
@@ -183,7 +189,7 @@ Remove the group access permissions from the accounts that do not require them.
 
 #### 1.5 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, {{ roles-auditor }} {#min-privileges}
 
-The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service. You can see the list of all service roles in the [{{ yandex-cloud }} roles reference](../../../iam/roles-reference.md).
+The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service. You can see the list of all service roles in the [{{ yandex-cloud }} roll reference](../../../iam/roles-reference.md).
 
 Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
 
@@ -492,7 +498,7 @@ Follow the principle of least privilege and [assign to the service account](../.
   1. Repeat the steps for other folders.
   1. Go to the **Access permissions** tab at the cloud and folder levels.
 
-  Organization-level access permissions can be viewed only in the CLI.
+  To view organization-level access permissions, you need to use the CLI.
 
 - Performing a check via the CLI {#cli}
 
@@ -1805,7 +1811,7 @@ For example, to tag resources which handle personal data under Federal Law No. F
 
   The example below shows how to check if there is a label to a [{{ vpc-full-name }}](../../../vpc/) cloud network. You can perform similar checks for other resource labels.
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. In the [management console]({{ link-console-main }}), select your folder.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Check it for labels.
 

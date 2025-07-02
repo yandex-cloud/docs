@@ -39,7 +39,6 @@ description: На странице представлен список прак�
 * [{#T}](./object-storage-to-ydb.md)
 * [{#T}](./dp-mch-data-exchange.md)
 * [{#T}](./data-transfer-direct-to-mch.md)
-* [{#T}](./elasticsearch-to-opensearch.md)
 * [{#T}](./gatsby-static-website.md)
 * [{#T}](./objs-mmy-migration.md)
 * [{#T}](./sqoop-mmy.md)

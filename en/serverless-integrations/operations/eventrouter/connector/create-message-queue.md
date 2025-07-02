@@ -16,16 +16,16 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
   1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select `{{ message-queue-full-name }}`.
-  1. Under **message settings{{ message-queue-name }}**:
+  1. Under **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_ymq_base_options_title }}**:
 
       * Select a folder and a [message queue](../../../../message-queue/concepts/queue.md).
       * Select a [service account](../../../../iam/concepts/users/service-accounts.md) with permissions to read from the message queue.
 
-  1. (Optional) Click ![image](../../../../_assets/console-icons/plus.svg) **Message grouping settings** and specify the following:
+  1. Optionally, click ![image](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_title }}** and specify:
 
-      * **Visibility timeout**: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period in hours during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 12 hours. The default value is 0.
-      * **Group size**: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 12. The default value is 10.
-      * **Poll timeout**: Maximum time in milliseconds during which {{ er-name }} is grouping messages before sending them from the source to the rule. The values may range from 0 to 20 seconds. The default value is 10 seconds.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_visibility_timeout_title }}**: [Time period](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) in hours during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values range from 0 to 12 hours. The default value is 0.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_batch_size_title }}**: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 12. The default value is 10.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_polling_timeout_title }}**: Maximum time in milliseconds {{ er-name }} takes to group messages before sending them from the source to the rule. The values may range from 0 to 20 seconds. The default value is 10 seconds.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
@@ -52,7 +52,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
         --queue-arn <queue_ARN> \
         --service-account-id <service_account_ID> \
         --visibility-timeout <visibility_timeout> \
-        --batch-size <group_size> \
+        --batch-size <batch_size> \
         --polling-timeout <poll_timeout> \
         --name <connector_name> \
         --description "<connector_description>" \
@@ -114,7 +114,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
   To create a [connector](../../../concepts/eventrouter/connector.md) for {{ message-queue-name }}:
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {

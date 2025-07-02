@@ -84,6 +84,11 @@ description: Из статьи вы узнаете, как работать с {
 * [Удалить метку](eventrouter/bus/label-delete.md)
 * [{#T}](eventrouter/bus/delete.md)
 
+### Отправка событий в шину {#bus-deliver-data}
+
+* [{#T}](eventrouter/bus/data-put.md)
+* [{#T}](eventrouter/bus/data-send.md)
+
 ### Получение информации о коннекторе {#connector-get-info}
 
 * [{#T}](eventrouter/connector/get-list.md)
@@ -91,9 +96,10 @@ description: Из статьи вы узнаете, как работать с {
 
 ### Управление коннектором {#connector-control}
 
+* [{#T}](eventrouter/connector/create-timer.md)
+* [{#T}](eventrouter/connector/create-api-eventrouter.md)
 * [{#T}](eventrouter/connector/create-yds.md)
 * [{#T}](eventrouter/connector/create-message-queue.md)
-* [{#T}](eventrouter/connector/create-timer.md)
 * [{#T}](eventrouter/connector/update.md)
 * [Добавить метку](eventrouter/connector/label-add.md)
 * [Изменить метку](eventrouter/connector/label-update.md)

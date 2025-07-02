@@ -1,5 +1,6 @@
 # Разработка функций в Functions Framework и их развертывание в {{ serverless-containers-full-name }}
 
+
 [Functions Framework](https://cloud.google.com/functions/docs/functions-framework) от Google Cloud — это открытый контракт и набор реализующих его библиотек с [открытым исходным кодом](https://ru.wikipedia.org/wiki/Открытое_программное_обеспечение) на различных языках программирования. Фреймворк позволяет разрабатывать [функции](../../functions/concepts/function.md) в стиле программирования [FaaS](https://ru.wikipedia.org/wiki/Функция_как_услуга) (Function as a service), которые могут обрабатывать HTTP-запросы или [CloudEvents](https://cloudevents.io/).
 
 Фреймворк Functions Framework позволяет создавать функции и запускать их в [контейнерах](../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }} без использования сервиса [{{ sf-full-name }}](../../functions/index.yaml). Написанные этим способом функции можно переносить между различными платформами, такими как [Cloud Run](https://cloud.google.com/run), [Cloud Run functions](https://cloud.google.com/functions), [Knative](https://knative.dev/docs/) и [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), а также между этими платформами и вашей локальной машиной разработки.

@@ -16,6 +16,22 @@ To perform a database query, [establish](create-connection.md#connect-db) or [ac
 
 You can view your executed queries [in query history](history.md) and [save them as templates](templates.md).
 
+## Pagination {#pagination}
+
+You can use pagination in the query editor to manage result outputs. With pagination, you can:
+
+* Switch between pages:
+  * ![](../../_assets/console-icons/chevrons-left.svg): First page
+  * ![](../../_assets/console-icons/chevron-left.svg): Previous page
+  * ![](../../_assets/console-icons/chevron-right.svg): Next page
+  * ![](../../_assets/console-icons/chevrons-right.svg): Last page
+
+* Select the number of rows displayed per page. To do this, click the field with the number of rows (between the arrows) and select the appropriate limit.
+
+* Get the total number of rows by clicking **Total rows**.
+
+Each action you take with pagination re-runs the query and is logged in the [query history](../concepts/index.md#query-log).
+
 ## Multi-queries {#multiple-queries}
 
 In the query editor, you can use multi-queries, enabling you to run multiple queries as a single batch.

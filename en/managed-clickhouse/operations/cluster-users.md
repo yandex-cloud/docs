@@ -47,7 +47,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
 
 - CLI {#cli}
@@ -129,12 +129,20 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-  1. Enter the database username and password.
+  1. Enter a database user name.
 
-      {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+      {% include [user-name](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+  1. Select how to set a password:
+
+      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Enter your own password. The password must be from 8 to 128 characters long.
+
+      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using {{ connection-manager-name }}.
+
+      To view the password, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab on the cluster page and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
   1. Select one or more databases that the user should have access to:
      1. Click ![image](../../_assets/console-icons/plus.svg) and select a database from the drop-down list.
@@ -167,9 +175,16 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
      --settings=<list_of_{{ CH }}_settings_for_user>
   ```
 
-  Where `--permissions` is a list of DBs the user must have access to.
+  Where:
 
-  {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+  * `--cluster-name`: Cluster name.
+  * `--password`: User password. The password must be from 8 to 128 characters long.
+
+      You can also generate a password using {{ connection-manager-name }}. To do this, specify `--generate-password` instead of `--password=<password>`.
+
+      To view the password, select the cluster you need in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+  * `--permissions`: List of DBs the user must have access to.
 
   For more information about [quotas](../concepts/settings-list.md#quota-settings) and [query-level settings](../concepts/settings-list.md#user-level-settings), see [{#T}](../concepts/settings-list.md).
 
@@ -211,7 +226,13 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
         }
         ```
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+        {% include [user-name](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+        The password must be from 8 to 128 characters long.
+
+        You can also generate a password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `password = "<password>"`.
+
+        To view the password, select the cluster you need in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
         If you create a cluster with the help of {{ TF }} at the same time as creating a user, specify a link to the new cluster's name instead of cluster ID in the `yandex_mdb_clickhouse_user` resource:
 
@@ -405,12 +426,20 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
-  1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
+  1. Select how to set a new password:
 
-  {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Enter your own password. The password must be from 8 to 128 characters long.
+
+      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using {{ connection-manager-name }}.
+
+  1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
+
+  To view the new password, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab on the cluster page and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+  To view passwords, you need the `lockbox.payloadViewer` role.
 
 - CLI {#cli}
 
@@ -426,7 +455,13 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
      --password=<new_password>
   ```
 
-  {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+  The password must be from 8 to 128 characters long.
+
+  You can also generate a new password using {{ connection-manager-name }}. To do this, specify `--generate-password` instead of `--password=<new_password>`.
+
+  To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+  To view passwords, you need the `lockbox.payloadViewer` role.
 
   You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -449,7 +484,17 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
         }
         ```
 
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+        The password must be from 8 to 128 characters long.
+
+        You can also generate a new password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `password = "<new_password>"`.
+
+        To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+        {% note info %}
+
+        If the old password was generated, you cannot regenerate it using {{ TF }} due to provider limitations.
+
+        {% endnote %}
 
     1. Make sure the settings are correct.
 
@@ -489,9 +534,20 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             Here only one parameter is specified: `password`.
 
-        * `password`: New user password.
+        * `password`: New password. The password must be from 8 to 128 characters long.
 
-            The password must be from 8 to 128 characters long.
+           You can also generate a password using {{ connection-manager-name }}. To do this, edit the contents of the `data` field:
+
+           ```bash
+           {
+             "updateMask": "generatePassword",
+             "generatePassword": true
+           }
+           ```
+
+           To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+           To view passwords, you need the `lockbox.payloadViewer` role.
 
         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
@@ -536,9 +592,26 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             Here only one parameter is specified: `password`.
 
-        * `password`: New user password.
+        * `password`: New password. The password must be from 8 to 128 characters long.
 
-            The password must be from 8 to 128 characters long.
+           You can also generate a password using {{ connection-manager-name }}. To do this, edit the contents of the `d` parameter:
+
+           ```bash
+           {
+             "cluster_id": "<cluster_ID>",
+             "user_name": "<username>",
+             "update_mask": {
+               "paths": [
+                 "generate_password"
+               ]
+             },
+             "generate_password": true
+           }
+           ```
+
+           To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+           To view passwords, you need the `lockbox.payloadViewer` role.
 
         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
@@ -698,7 +771,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure user permissions to access certain databases:
@@ -998,7 +1071,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -1108,7 +1181,7 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the `mych` cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter `ro-user` as the DB username and `Passw0rd` as the password.

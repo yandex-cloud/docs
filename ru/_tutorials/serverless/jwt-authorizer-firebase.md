@@ -1,5 +1,6 @@
 # Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-full-name }} и аутентификацией в Firebase
 
+
 В этом руководстве вы узнаете, как реализовать аутентификацию и авторизацию в вашем веб-приложении на основе протоколов [OAuth 2.0](https://oauth.net/2/) и [OpenID Connect](https://openid.net/connect/). Для аутентификации будут использованы [Google OAuth](https://developers.google.com/identity/protocols/oauth2) и [Firebase](https://firebase.google.com/docs). Авторизация будет выполняться на стороне [{{ api-gw-name }}](../../api-gateway/) с помощью JWT-авторайзера. Веб-приложение будет состоять из:
 * Внешнего сервиса аутентификации Firebase.
 * Простого REST API, развернутого в виде {{ api-gw-name }}.

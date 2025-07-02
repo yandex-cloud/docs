@@ -6137,8 +6137,21 @@ default:
         field_person-id: Payer
     yacloud_billing:
       alb:
+        button_add-route: Add route
+        button_backend-group-create: Create backend group
+        label_backend-group: Backend group
         label_backends: Backends
+        label_certificate: Certificates
+        label_http-router: HTTP router
+        label_listeners: Listeners
         label_max-timeout: Maximum timeout, sec.
+        label_new-backend: New backend
+        label_new-virtual-host: New virtual host
+        label_session-affinity: Session affinity
+        label_session-affinity-mode: Affinity mode
+        label_target-groups: Target groups
+        label_virtual-hosts: Virtual hosts
+        section_allocation-settings: Allocation
       backup:
         button_attach-instance-submit: Attach
         label_instances: Virtual machines
@@ -9287,6 +9300,8 @@ default:
         button_create-bus: Create bus
         button_create-connector: Create connector
         button_create-rule: Create rule
+        button_send-event: Send event
+        button_submit: Send
         label_additional-parameters: Additional parameters
         label_buses: Buses
         label_connector-source: Source
@@ -9669,7 +9684,10 @@ default:
           popup-action_label_cancel-msg: Cancel job
         label_history-server: History Server
       speechkit-common:
+        brand-voice_51nd8: Brand Voice
+        brand-voice_create-dataset_option_title_record-audio_jvUMz: Record audio files
         brand-voice_create-dataset_option_title_upload-zip_nFtBR: Download ZIP archive
+        brand-voice_section_title_voice-usage_15pws: Use of voice
         button_create-dataset_nLanW: Create a dataset
         button_create-voice_nkMBz: Create voice
       speechkit:
@@ -11182,6 +11200,7 @@ default:
               title: Transformer
     yc-eventrouter:
       dynamic-forms:
+        event_service_name: EventRouter API
         template_connector_batch_options_batch_size_title: Batch size
         template_connector_batch_options_polling_timeout_title: Polling timeout, ms
         template_connector_batch_options_title: Batch message settings

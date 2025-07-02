@@ -861,9 +861,13 @@ items:
     href: public-talks.md
   - name: История изменений
     href: release-notes/index.md
+  - name: Вопросы и ответы
+    items:
+      - name: Общие вопросы о моделях
+        href: qa/index.md
+      - name: AI-ассистенты
+        href: qa/ai-assistant.md
   - name: Решение проблем
     items:
-      - name: Вопросы и ответы
-        href: qa/index.md
       - name: Коды ошибок
         href: troubleshooting/error-codes.md

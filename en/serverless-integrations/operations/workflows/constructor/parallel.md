@@ -12,13 +12,14 @@ The Parallel control step executes multiple branches (sequences of steps) concur
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** section on the left side of the screen, drag the ![parallel-step-icon](../../../../_assets/serverless-integrations/parallel-step-icon.svg) **Parallel** element to desired workflow location in the constructor window.
+  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** section on the left side of the screen, drag the ![parallel-step-icon](../../../../_assets/serverless-integrations/parallel-step-icon.svg) **Parallel** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
-  1. In the workflow schema window, click the added **Parallel** section to select it.
+  1. In the workflow schema window, click the new **Parallel** section to select it.
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
+      1. Set the number of concurrent branches in the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_parallel-step-concurrency-field }}** field. For example, if you set it to `2` while a total of 5 branches were added, no more than 2 randomly selected branches will be executed simultaneously.
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. {% include [integrations-step-output-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-output-tab.md) %}
   1. To add a new execution branch:
