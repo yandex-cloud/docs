@@ -155,8 +155,9 @@
     - {{ yandex-cloud }} CLI {#cli}
 
       ```bash
-      SECRET=$(yc lockbox payload get --id <идентификатор_секрета>)
+      SECRET=$(yc lockbox payload get --id <имя_или_идентификатор_секрета>)
       ```
+      Используйте либо параметр `--id`, либо параметр `--name`.
 
       Подробнее о команде `yc lockbox payload get` читайте в [справочнике CLI](../../cli/cli-ref/lockbox/cli-ref/payload/get.md).
 
