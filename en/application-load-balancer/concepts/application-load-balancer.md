@@ -21,7 +21,7 @@ For the load balancer to work correctly:
 
 * Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md), e.g., any incoming connections from subnets [hosting the load balancer](#lb-location) or from at least one of its security groups.
 
-For information on how to configure security groups for the Ingress controller and Gateway API, see [{#T}](../tools/k8s-ingress-controller/security-groups.md).
+For information on how to configure security groups for the ingress controller and Gateway API, see [{#T}](../tools/k8s-ingress-controller/security-groups.md).
 
 ## Load balancer location and its internal IP addresses {#lb-location}
 
@@ -48,8 +48,8 @@ To correctly distribute the load across backends, add a permission for incoming 
 > 
 > | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
 > | --- | --- | --- | --- | --- |
-> | Inbound | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.1.0/24` |
-> | Inbound | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.2.0/24` |
+> | Ingress | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.1.0/24` |
+> | Ingress | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.2.0/24` |
 
 ## Autoscaling and resource units {#lcu-scaling}
 

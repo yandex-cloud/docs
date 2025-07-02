@@ -56,11 +56,9 @@ For more information about creating a backup manually, see [Managing backups](..
 
 * Backups of [local](storage.md) and [network](storage.md) storage devices are stored in a separate {{ objstorage-name }} bucket and take up no space in the cluster storage. If there are N GB of free space in the cluster, the first N GB of backups are stored free of charge.
 
-* Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) are stored in the same {{ objstorage-name }} bucket as the regular data. The cost of using Object Storage considers both the space used by the backups and the space used by the data itself.
+* Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) are stored in the same {{ objstorage-name }} bucket as the regular data. The cost of using {{ objstorage-name }} considers both the space used by the backups and the space used by the data itself.
 
     For more information, see [Pricing policy](../pricing.md#rules-storage).
-
-* Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) contain only the increment, i.e., the history of changes to data chunks for the last {{ mch-backup-retention }} days. Backups of data that has not been modified are provided by {{ objstorage-name }}.
 
 * Backups are stored as binary files and encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 

@@ -10,6 +10,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 ## What goes into the cost of using {{ alb-name }} {#rules}
 
 When using the {{ alb-name }} service, you only pay for the actual compute resources consumed by active load balancers.

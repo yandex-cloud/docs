@@ -10,11 +10,15 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {{ mrd-name }} also creates automatic daily backups. You can [set the backup start time](#set-backup-window):
 
-## Restoring clusters from backups {#restore}
+## Restoring a cluster from a backup {#restore}
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
 
 If you chose the **local-ssd** disk type when restoring the cluster from a backup, add at least two hosts per shard.
+
+
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mrd.editor }}](../../iam/roles-reference.md#managed-redis-editor) role or higher to your {{ yandex-cloud }} account for the backup folder and the new cluster folder.
+
 
 {% list tabs group=instructions %}
 

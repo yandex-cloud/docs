@@ -2,63 +2,79 @@
 
 ### Changes in version {{ security-standard-current-version }} {#current-version}
 
+Publication date: 16/06/2025.
+
+* **Updated the following items**:
+    * Updated the [{#T}](../../../security/standard/authentication.md) section with new best practices for using {{ yandex-cloud }} with {{ yandex-360 }}.
+    * In [{#T}](../../../security/standard/authentication.md#yandex-id-accounts), added a recommendation to set up 2FA for existing Yandex ID accounts.
+    * In [{#T}](../../../security/standard/network-security.md#vpc-sg):
+        * Changed the title from `{{ vpc-name }} has at least one security group`.
+        * Improved recommendations for using security groups.
+    * In [{#T}](../../../security/standard/audit-logs.md#os-level), added a recommendation to increase the logging level inside VMs to `VERBOSE`.
+    * In [{#T}](../../../security/standard/audit-logs.md#app-level), added a recommendation to enable audit log collection in an unmanaged DBMS.
+    * In [{#T}](../../../security/standard/audit-logs.md#data-plane-events), added a recommendation to enable all data events related to modifying operations for the specified list of services.
+* Removed item **4.6 For critical data, MDB encryption with {{ kms-short-name }} is used**. The following items in [{#T}](../../../security/standard/encryption.md) have been renumbered accordingly.
+
+
+### Changes in version 1.4.0 {#version-1-4-0}
+
 Publication date: 08/04/24.
 
 * Deleted **3.20 Side-channel attacks in {{ sf-name }} are addressed** due to the minimum level of risk.
 
 * **Added the following items**:
-    * [{#T}](../../../security/standard/network-security.md#use-cloud-desktop).
-    * [{#T}](../../../security/standard/network-security.md#use-yandex-browser).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#antivirus).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#security-specialist-certificate).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#app-container-registry).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#vip-containers).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#api-gateway-access-managment).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#networking).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#using-own-domain).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#websocket).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#inter-cloud-services).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#authorization).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#auth-context).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#api-logs).
-    * [{#T}](../../../security/standard/audit-logs.md#access-transparency-enabled).
-    * [{#T}](../../../security/standard/app-security.md#keep-safe-cr-settings).
-    * [{#T}](../../../security/standard/app-security.md#app-sws-lists).
+    * 2.7 Employees use {{ cloud-desktop-full-name }} for remote access.
+    * 2.8 Secure Yandex Browser is used for remote access to {{ cloud-desktop-name }}.
+    * 3.1 Antivirus protection is used.
+    * 3.7 The corporate {{ yandex-cloud }} users have the {{ yandex-cloud }} Certified Security Specialist certification.
+    * 3.29 Requirements for application protection in {{ container-registry-full-name }} are met.
+    * 3.30 Privileged containers are not used in {{ cos-full-name }}.
+    * 3.40 Access management in {{ api-gw-name }} is configured.
+    * 3.41 Networking is configured in {{ api-gw-name }}.
+    * 3.42 Recommendations for using custom domains are followed.
+    * 3.43 Recommendations for using Websocket are followed.
+    * 3.44 API gateway interaction with {{ yandex-cloud }} services is configured.
+    * 3.46 Authorization in the API gateway is configured.
+    * 3.47 Authorization context is used.
+    * 3.48 Logging is on.
+    * 5.9 {{ sd-name }} {{ atr-name }} is on for inspection of {{ yandex-cloud }} employees actions with your infrastructure.
+    * 6.2 When creating a registry in {{ container-registry-full-name }}, keep the safe registry settings by default.
+    * 6.14 Trusted and unwanted IP addresses are grouped into lists.
 
-* Under **3. Secure virtual environment configuration**:
-    * Renamed the [{#T}](../../../security/standard/virtualenv-safe-config.md#functions) subsection (formerly `{{ sf-name }} and {{ api-gw-full-name }}`).
-    * Added the [{#T}](../../../security/standard/virtualenv-safe-config.md#api-gateway) section (items 3.40 - 3.48).
+* **In section 3. Secure virtual environment configuration**:
+    * Renamed the **{{ sf-full-name }}** subsection (formerly `{{ sf-name }} and {{ api-gw-full-name }}`).
+    * Added the **{{ api-gw-full-name }}** section (items 3.40 - 3.48).
     * Changed the numbering of some items in this section due to adding new subsections and items.
     
 * **Updated the following items**:
-    * In [{#T}](../../../security/standard/authentication.md#min-privileges), added commands for checks via the CLI in PowerShell.
-    * In [{#T}](../../../security/standard/authentication.md#sa-key-rotation), added commands for checks via the CLI in PowerShell.
-    * In [{#T}](../../../security/standard/authentication.md#sa-key-rotation), added automatic scripts for checks via the CLI in Bash and PowerShell.
-    * In [{#T}](../../../security/standard/authentication.md#privileged-users), added commands for checks via the CLI in PowerShell.
-    * In [{#T}](../../../security/standard/authentication.md#mdb-auth), added a recommendation on using {{ lockbox-full-name }} generated secrets.
-    * In [{#T}](../../../security/standard/authentication.md#resourses), extended the description of the resource model and recommendation on how to use it.
-    * In [{#T}](../../../security/standard/authentication.md#public-access), added commands for checks via the CLI in PowerShell.
-    * In [{#T}](../../../security/standard/authentication.md#key-usage-control), added commands for checks via the CLI.
-    * In [{#T}](../../../security/standard/network-security.md#firewall), updated the description of the principle of using custom VM disk images (the [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system) principle).
-    * Renumbered items in [{#T}](../../../security/standard/network-security.md#outgoing-access) (formerly `3.19`) and [{#T}](../../../security/standard/network-security.md#recursive-resolvers) (formerly `2.8`).
-    * Renumbered an item in [{#T}](../../../security/standard/virtualenv-safe-config.md#bucket-logs) (formerly `3.9`), clarified the description of bucket operation logging in {{ at-short-name }}, fixed punctuation.
-    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#db-console-access) (formerly `3.17`), extended the command for checks in Bash, and added a command for checks in PowerShell.
-    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#function-access-and-env) (formerly `3.19`), clarified the recommendation on storing secrets and sensitive data in {{ lockbox-full-name }} and accessing DB cluster hosts from a function.
-    * In [{#T}](../../../security/standard/virtualenv-safe-config.md#acl-container-registry), added commands for checks via the CLI in PowerShell.
-    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#k8s-security) (formerly `3.31`) and updated the link to the recommendations in [{#T}](../../../security/standard/kubernetes-security.md).
-    * Renumbered item [{#T}](../../../security/standard/virtualenv-safe-config.md#security-updates) (formerly `3.35`) and added a link to [security bulletins](../../../security/security-bulletins/index.md).
-    * In [{#T}](../../../security/standard/encryption.md#at-rest), added the check of encrypted VM disks via the CLI and the guide for replacing unencrypted disks with encrypted ones, added a link to the [key rotation](../../../kms/operations/key.md#rotate) concept in the corporate information security policy.
-    * In [{#T}](../../../security/standard/encryption.md#alb-https):
+    * In **1.5 Service roles are used instead of primitive ones: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, {{ roles-auditor }}**, added commands for checks via the CLI in PowerShell.
+    * In **1.10 Periodic rotation of service account keys is performed**, added commands for checks via the CLI in PowerShell.
+    * In **1.14 There are no cloud keys in clear text in the VM metadata service**, added automatic scripts for checks via the CLI in Bash and PowerShell.
+    * In **1.17 Privileged roles are assigned only to trusted administrators**, added commands for checks via the CLI in PowerShell.
+    * In **1.18 Strong passwords are set for local users of managed databases**, added a recommendation on using generated {{ lockbox-full-name }} secrets.
+    * In **1.20 The correct resource model is used**, extended the description of the resource model and recommendation on how to use it.
+    * In **1.21 There is no <q>public access</q> to resources in the organization**, added commands for checks via the CLI in PowerShell.
+    * In **1.25 The date of the last service account authentication and the last use of the access keys in {{ iam-full-name }} are tracked**, added commands for checks via the CLI.
+    * In **2.1 For cloud objects, a firewall or security groups are used**, updated the description of the principle of using custom VM disk images (the [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system) principle).
+    * Renumbered items **2.9 Outgoing internet access is controlled** (formerly `2.7`) and **2.10 DNS queries are not provided to third-party recursive resolvers** (formerly `2.8`).
+    * Renumbered item **3.11 Logging of actions with buckets is enabled in {{ objstorage-name }}** (formerly `3.9`), clarified the description of bucket operation logging in {{ at-short-name }}, fixed punctuation.
+    * Renumbered item **3.19 Access from the management console is disabled on managed databases** (formerly `3.17`), extended the command for checks in Bash, and added a command for checks in PowerShell.
+    * Renumbered item **3.21 Access permissions, secrets and environment variable management, and connection to the DBMS are configured for functions** (formerly `3.19`), clarified the recommendation on storing secrets and sensitive data in {{ lockbox-full-name }} and accessing DB cluster hosts from a function.
+    * In **3.28 ACL configured by IP addresses for {{ container-registry-full-name }}**, added commands for checks via the CLI in PowerShell.
+    * Renumbered item **3.34 {{ managed-k8s-full-name }} security recommendations are used** (formerly `3.31`) and updated the link to the recommendations in **{{ k8s }} security requirements**.
+    * Renumbered item **3.38 Established security update process** (formerly `3.35`) and added a link to [security bulletins](../../../security/security-bulletins/index.md).
+    * In **Encryption at rest**, added the check of encrypted VM disks via the CLI and the guide for replacing unencrypted disks with encrypted ones, added a link to the [key rotation](../../../kms/operations/key.md#rotate) concept in the corporate information security policy.
+    * In **4.3 {{ alb-full-name }} uses HTTPS**:
         * Fixed the link to [Listener setup description](../../../application-load-balancer/concepts/application-load-balancer.md#listener) in the {{ alb-full-name }} tutorials.
         * Fixed the link to the {{ alb-full-name }} HTTPS listener [guide](../../../application-load-balancer/tutorials/tls-termination/index.md).
         * Added a command for checks via the CLI in PowerShell.
-    * In [{#T}](../../../security/standard/encryption.md#secrets-lockbox), shortened the listed of secret storage services and the description of how to use them in {{ TF }} and the management console.
-    * In [{#T}](../../../security/standard/encryption.md#secrets-scanning), rearranged the list of cloud secrets for detection.
-    * In [{#T}](../../../security/standard/audit-logs.md#events), shortened the listed of SIEM systems for which {{ yandex-cloud }} audit log export solutions are ready.
-    * In [{#T}](../../../security/standard/audit-logs.md#data-plane-events), replaced the list of supported services with a link to [{#T}](../../../audit-trails/concepts/events-data-plane.md).
-    * Due to a new item in [6. Application protection](../../../security/standard/app-security.md), renumbered items 6.2 - 6.13.
-    * In [{#T}](../../../security/standard/app-security.md#use-sws), clarified the threat models {{ sws-full-name }} provides protection from.
-    * In [{#T}](../../../security/standard/app-security.md#use-arl), clarified the definition of Advanced Rate Limiter (ARL).
+    * In **4.13 The organization uses {{ lockbox-full-name }} to securely store secrets**, shortened the listed of secret storage services and the description of how to use them in {{ TF }} and the management console.
+    * In **4.16 There is a guide for cloud administrators on handling compromised secrets**, rearranged the list of cloud secrets for detection.
+    * In **5.2 {{ at-full-name }} events are exported to SIEM systems**, shortened the list of SIEM systems for which {{ yandex-cloud }} audit log export solutions are ready.
+    * In **5.8 Data events are monitored**, replaced the list of supported services with a link to [{#T}](../../../audit-trails/concepts/events-data-plane.md).
+    * Added a new item to **6. Application protection** and renumbered items 6.2 to 6.13.
+    * In **6.10 {{ sws-full-name }} security profile is used**, clarified the threat models {{ sws-full-name }} provides protection from.
+    * In **6.12 Advanced Rate Limiter is used**, clarified the definition of Advanced Rate Limiter (ARL).
 
 ### Changes in version 1.3 {#version-1-3}
 
@@ -163,3 +179,4 @@ Publication date: 25/09/23.
     * 9.6 Artifacts within a pipeline can be signed using Cosign, a third-party command line utility.
     * 9.7 Artifacts are checked when deployed in {{ managed-k8s-full-name }}.
     * 9.8 Ready-made secure pipeline blocks are used.
+

@@ -1,1 +1,1 @@
-Optionally, in the **Timeout, ms** field, set the maximum execution time for the current step.
+Optionally, in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.common_timeout_view_spec_layout_title }}** field, set the maximum execution time for the current step.

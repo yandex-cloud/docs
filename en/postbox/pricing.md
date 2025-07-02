@@ -12,7 +12,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=d41eb2e392e8#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=d41eb2e392e8#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -27,6 +27,8 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 By default, {{ postbox-name }} has quotas (e.g., on the number of emails you send), which you can increase by requesting support. For more information, see [{#T}](concepts/limits.md).
 
 {% endnote %}
+
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [not-charged-postbox.md](../_includes/pricing/price-formula/not-charged-postbox.md) %}
 

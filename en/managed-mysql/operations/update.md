@@ -908,6 +908,26 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
 {% endlist %}
 
+### {{ connection-manager-name }} {#conn-man}
+
+If integration with {{ connection-manager-name }} is not enabled in the cluster, activate **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. It is available only in the [management console]({{ link-console-main }}).
+
+The following will be created for each database user:
+
+* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) with information about the database connection.
+
+* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) with the user password. Storing passwords in {{ lockbox-name }} ensures their security.
+
+  The connection and secret will be created for each new database user. To view all connections, select the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
+
+  You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
+
+  {% note info %}
+
+  You can use {{ connection-manager-name }} and secrets you create there free of charge.
+
+  {% endnote %}
+
 ## Moving a cluster {#move-cluster}
 
 {% list tabs group=instructions %}

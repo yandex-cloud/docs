@@ -12,6 +12,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 ## What goes into the cost of using {{ serverless-containers-name }} {#rules}
 
 In {{ serverless-containers-name }}, you pay for the number of container invocations, computing resources allocated for the application, downtime of [provisioned instances](concepts/container.md#provisioned-instances), and outgoing traffic.

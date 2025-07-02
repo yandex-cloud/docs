@@ -61,6 +61,21 @@
 | Продолжительность | ≤ 15 секунд |
 | Тишина в начале и в конце | 100–200 миллисекунд |
 
+## Как записать аудио через браузер {#console-record}
+
+1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с сервисом.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+1. На панели слева нажмите **{{ ui-key.yacloud.speechkit-common.brand-voice_51nd8 }}**.
+1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**.
+1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-dataset_nLanW }}** ⟶ **{{ ui-key.yacloud.speechkit-common.brand-voice_create-dataset_option_title_record-audio_jvUMz }}**.
+1. Выберите данные для записи: нажмите **Использовать готовый шаблон** или **Загрузить собственные тексты**.
+1. В строке с нужным текстом нажмите **Записать аудио** ⟶ **Записать**, а затем прочитайте текст вслух.
+1. Нажмите кнопку ![circle-play](../../../_assets/console-icons/circle-play.svg), чтобы прослушать результат.
+1. Если запись не содержит посторонних звуков, фраза записана полностью, и ее хорошо слышно, нажмите ![floppy-disk](../../../_assets/console-icons/floppy-disk.svg) **Сохранить**. Чтобы повторить запись, нажмите ![floppy-disk](../../../_assets/console-icons/arrow-rotate-left.svg) **Записать заново**.
+1. Запишите аудио для остальных текстов.
+1. В блоке **{{ ui-key.yacloud.speechkit-common.brand-voice_section_title_voice-usage_15pws }}** ознакомьтесь с [условиями использования сервиса {{ speechkit-name }}](https://yandex.ru/legal/cloud_terms_speechkit) и подтвердите, что ознакомлены.
+1. Подтвердите, что имеете письменное согласие лица, чей голос используется на аудиозаписи, на использование данной аудиозаписи для создания и использования синтеза речи.
+1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**, чтобы запустить создание голоса.
 
 ## Как загрузить готовый датасет {#zip}
 
@@ -68,14 +83,18 @@
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
 1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**.
 1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-dataset_nLanW }}** и выберите **{{ ui-key.yacloud.speechkit-common.brand-voice_create-dataset_option_title_upload-zip_nFtBR }}**.
-1. Перетащите ZIP-архив в область загрузки и нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**.
+1. Перетащите ZIP-архив в область загрузки.
 
-ZIP-архив с датасетом для дообучения должен содержать:
+   ZIP-архив с датасетом для дообучения должен содержать:
+   
+   * Аудиозаписи в формате WAV.
+   * Таблицу в формате [TSV](https://ru.wikipedia.org/wiki/TSV) в кодировке UTF-8, содержащей текстовые расшифровки аудиозаписей из архива. Таблица должна состоять из двух колонок без заголовков:
+      * имя файла с аудиозаписью, на которой диктор произносит текст;
+      * строка, содержащая дословную расшифровку аудиозаписи.
 
-* Аудиозаписи в формате WAV.
-* Таблицу в формате [TSV](https://ru.wikipedia.org/wiki/TSV) в кодировке UTF-8, содержащей текстовые расшифровки аудиозаписей из архива. Таблица должна состоять из двух колонок без заголовков:
-   * имя файла с аудиозаписью, на которой диктор произносит текст;
-   * строка, содержащая дословную расшифровку аудиозаписи.
+1. В блоке **{{ ui-key.yacloud.speechkit-common.brand-voice_section_title_voice-usage_15pws }}** ознакомьтесь с [условиями использования сервиса {{ speechkit-name }}](https://yandex.ru/legal/cloud_terms_speechkit) и подтвердите, что ознакомлены.
+1. Подтвердите, что имеете письменное согласие лица, чей голос используется на аудиозаписи, на использование данной аудиозаписи для создания и использования синтеза речи.
+1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**, чтобы запустить создание голоса.
 
 Если вы используете [тексты](https://storage.yandexcloud.net/doc-files/ml/brand_voice_lite_text_example.tsv) от команды {{ speechkit-name }}, в начало каждой строки добавьте название файла с соответствующей аудиозаписью и удалите строку с заголовком таблицы.
 

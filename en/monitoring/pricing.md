@@ -10,7 +10,9 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-## What goes into the cost of {{ monitoring-short-name }} {#rules}
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
 At present, you will be charged for writing custom metrics via the [{{ monitoring-short-name }} API](api-ref/index.md) and writing any metrics via the [{{ prometheus-name }} Remote API](operations/prometheus/index.md), as well as reading any metrics via the [{{ monitoring-short-name }} API](api-ref/index.md).
 

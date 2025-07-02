@@ -10,7 +10,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {{ mpg-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window) and [retention period](#set-backup-retain).
 
-## Restoring clusters from backups {#restore}
+## Restoring a cluster from a backup {#restore}
 
 Point-in-Time Recovery (PITR) technology allows you to restore the cluster state to any point in time in the interval from the creation of the oldest full backup to the archiving of the most recent write ahead log (WAL). For more information, see [Backups](../concepts/backup.md).
 
@@ -22,6 +22,10 @@ When restored to the current state, the new cluster will match the state of:
 
 * Existing cluster at the time of recovery.
 * Deleted cluster at the time of archiving the most recent WAL.
+
+
+Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mpg.editor }}](../../iam/roles-reference.md#managed-postgresql-editor) role or higher to your {{ yandex-cloud }} account for the backup folder and the new cluster folder.
+
 
 {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
 

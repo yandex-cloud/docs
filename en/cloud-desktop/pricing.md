@@ -7,6 +7,8 @@ editable: false
 # {{ cloud-desktop-full-name }} pricing policy
 
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 ## What goes into the cost of using {{ cloud-desktop-name }} {#rules}
 

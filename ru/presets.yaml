@@ -6153,8 +6153,21 @@ default:
         field_person-id: Плательщик
     yacloud_billing:
       alb:
+        button_add-route: Добавить маршрут
+        button_backend-group-create: Создать группу бэкендов
+        label_backend-group: Группа бэкендов
         label_backends: Бэкенды
+        label_certificate: Сертификаты
+        label_http-router: HTTP-роутер
+        label_listeners: Обработчики
         label_max-timeout: Максимальный таймаут, с
+        label_new-backend: Новый бэкенд
+        label_new-virtual-host: Новый виртуальный хост
+        label_session-affinity: Привязка сессий
+        label_session-affinity-mode: Режим привязки
+        label_target-groups: Целевые группы
+        label_virtual-hosts: Виртуальные хосты
+        section_allocation-settings: Размещение
       backup:
         button_attach-instance-submit: Привязать
         label_instances: Виртуальные машины
@@ -9309,6 +9322,8 @@ default:
         button_create-bus: Создать шину
         button_create-connector: Создать коннектор
         button_create-rule: Создать правило
+        button_send-event: Отправить событие
+        button_submit: Отправить
         label_additional-parameters: Дополнительные параметры
         label_buses: Шины
         label_connector-source: Источник
@@ -9691,7 +9706,10 @@ default:
           popup-action_label_cancel-msg: Отменить задание
         label_history-server: History Server
       speechkit-common:
+        brand-voice_51nd8: Brand Voice
+        brand-voice_create-dataset_option_title_record-audio_jvUMz: Записать аудиофайлы
         brand-voice_create-dataset_option_title_upload-zip_nFtBR: Загрузить ZIP-архив
+        brand-voice_section_title_voice-usage_15pws: Использование голоса
         button_create-dataset_nLanW: Создать датасет
         button_create-voice_nkMBz: Создать голос
       speechkit:
@@ -11204,6 +11222,7 @@ default:
               title: Трансформер
     yc-eventrouter:
       dynamic-forms:
+        event_service_name: API EventRouter
         template_connector_batch_options_batch_size_title: Размер группы
         template_connector_batch_options_polling_timeout_title: Таймаут опроса, мс
         template_connector_batch_options_title: Настройки группирования сообщений

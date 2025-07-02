@@ -1,2 +1,2 @@
-* **Path**: Relative path to the integration that will be added to {{ api-gw-name }} URL. Specify variables in curly braces, e.g., `/static/{function_id}`. For more information, see the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) specification.
-* **HTTP method**: Method that will be used to work with the integration.
+* **{{ ui-key.yc-serverless-apigw.dynamic-forms.path_name }}**: Integration relative path to add to the {{ api-gw-name }} URL. Remember to wrap variables in braces, e.g., `/static/{function_id}`. For more information, see the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) specification.
+* **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_method_name }}**: Method to use to work with the integration.

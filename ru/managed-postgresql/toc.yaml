@@ -193,6 +193,8 @@ items:
             href: concepts/using-deprecated-instances.md
       - name: Планирование топологии кластера
         href: concepts/planning-cluster-topology.md
+      - name: Высокая доступность кластера
+        href: concepts/high-availability.md
       - name: Сеть в {{ mpg-name }}
         href: concepts/network.md
       - name: Квоты и лимиты

@@ -96,9 +96,28 @@ Make sure that your [clouds](../../../resource-manager/concepts/resources-hierar
 * Refer to [this guide](https://docs.google.com/document/d/1yYwHorzkwXwIUGeG3n_K6Zo-07BVYowZJL7q2bAgVR8/edit?usp=sharing) on using the UserGate NGFW in the cloud.
 * Use NGFW in [active-passive](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/network-sec/checkpoint-2VM_active-active/README.md) mode.
 
-#### 2.2 {{ vpc-name }} has at least one security group {#vpc-sg}
+#### 2.2 In {{ vpc-name }}, a security group is created; the default security group is not used {#vpc-sg}
 
-To apply security groups to your cloud objects in {{ vpc-name }}, make sure there is at least one security group. You can also create a [default security group](../../../vpc/concepts/security-groups.md#default-security-group) that will be assigned to cloud objects when connecting to [subnets](../../../vpc/concepts/network.md#subnet) if they have no security group. Make sure that each network has at least one security group.
+A *security group* (SG) is a resource created at the [cloud network](../../../vpc/concepts/network.md#network) level. Once created, a [security group](../../../vpc/concepts/security-groups.md) can be used in {{ yandex-cloud }} [services](../../../vpc/concepts/security-groups.md#security-groups-apply) to control network access to an object it applies to.
+
+A *default security group* (DSG) is created automatically while creating a [new cloud network](../../../vpc/concepts/network.md#network). The default security group has the following properties:
+
+* It will allow any network traffic, both egress and ingress, in the new cloud network.
+* It applies to traffic passing through all subnets in the network where the DSG is created.
+* It is only used if no security group is explicitly assigned to the object yet.
+* You cannot delete the DSG: it is deleted automatically when deleting the network.
+
+The default security group is a convenient but insecure mechanism that automatically allows all network traffic (incoming and outgoing) for your network objects. While simplifying the initial setup, such openness creates significant risks:
+
+* Attackers can get access to resources through public interfaces.
+* Uncontrolled traffic makes your network more vulnerable to DDoS attacks and port scanning.
+* The DSG remains active until you assign another security group to the object.
+
+We recommend you to [create](../../../vpc/operations/security-group-create.md) a security group of your own with [rules](../../../vpc/concepts/security-groups.md#security-groups-rules) explicitly allowing only the traffic you need (e.g., `HTTP/HTTPS` for web servers or `SSH` for administration) and assign this group to your cloud [objects](../../../vpc/concepts/security-groups.md#security-groups-apply) ([VMs](../../../compute/concepts/vm.md), [{{ k8s }} clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster), etc.) to override the DSG.
+
+This is important because without your rules cloud resources remain open to all and any connections from the internet, whereas security groups of your own enable the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access), thus reducing the attack surface.
+
+You can combine security groups by assigning up to five groups per object for more flexible access control.
 
 {% list tabs group=instructions %}
 
@@ -107,7 +126,7 @@ To apply security groups to your cloud objects in {{ vpc-name }}, make sure ther
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to each cloud and then to each folder and each {{ vpc-name }}.
   1. Go to **Security groups**.
-  1. If at least one security group for each {{ vpc-name }} or the default security group is found, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. If at least one security group is found for each {{ vpc-name }} network in addition to the default security group, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -251,7 +270,7 @@ We recommend that you only allow access to your cloud infrastructure through con
   * To make sure you are using DDoS protection at the application level:
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
       1. Make sure you have security profiles created.
       1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -302,7 +321,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 **Guides and solutions to use:**
 
-* [How to create a security profile in {{ sws-name }}](../../../smartwebsecurity/operations/profile-create.md)
+* [How to create a security profile in {{ sws-name }}](../../../smartwebsecurity/operations/profile-create.md).
 * All [materials](../../../vpc/ddos-protection/index.md) about DDoS protection in {{ yandex-cloud }}.
 
 #### 2.6 Protected remote access is used {#secure-access}
@@ -358,7 +377,7 @@ Use this service to:
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to check for the presence of [desktops](../../../cloud-desktop/concepts/desktops-and-groups.md).
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. If the list contains at least one created desktop, the recommendation is fulfilled; otherwise, proceed to "Guides and solutions to use".
 

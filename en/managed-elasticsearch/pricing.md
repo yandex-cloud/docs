@@ -20,9 +20,9 @@ In this section, you can find the {{ mes-name }} pricing [policy](#rules) and [e
 
 ## Cluster status {#running-stopped}
 
-Prices are applied differently depending on the cluster status:
+Prices apply differently depending on the cluster status:
 
-* For a `Running` cluster, you pay for both the computing resources and your storage size.
+* For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
@@ -30,7 +30,7 @@ Prices are applied differently depending on the cluster status:
 
 ## What goes into the cost of using {{ mes-short-name }} {#rules}
 
-The {{ mes-name }} usage cost is based on:
+The {{ mes-name }} usage cost includes:
 
 * {{ ES }} edition in use.
 
@@ -44,11 +44,11 @@ The {{ mes-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources and {{ ES }} edition used. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For vCPU and RAM prices, see [Prices](#prices).
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources and the {{ ES }} edition in use. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
 You can select a host class both for hosts with the `Data node` role and those with the `Master node` role.
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ ES }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You do not pay for the time when the {{ ES }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -60,18 +60,18 @@ You pay for the following:
 
   * Backups are stored free of charge as long as the combined size of the data in the cluster and all backups is smaller than the selected storage size.
 
-  * When performing automatic backups, {{ mes-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
+  * When performing automatic backups, {{ mes-short-name }} does not create a new copy; instead, it saves the changes from the previous backup. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
-  * The number of hosts in a cluster does not affect the storage volume and, consequently, the free volume of backups.
+  * The number of hosts in a cluster does not affect the storage size and, consequently, the backup size that is free of charge.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
 
 ### Example of cluster cost calculation {#example}
 
-The cost of using a cluster with the following parameters for 30 days:
+This is an example of calculating the cost of using a cluster with the following properties for 30 days:
 
 * **Hosts** with the `Data node` role: Three hosts of the `s2.micro` class: 2 × 100% vCPU, 8 GB RAM.
-* **Hosts** with the `Master node` role: Three hosts of the `s2.micro` class: 2 × 100% vCPU, 8 GB RAM.
+* **Hosts** with the `Master node` role: Three `s2.micro` hosts: 2 × 100% vCPU, 8 GB RAM.
 * **Storage**: 100 GB of network HDD storage.
 
 The cost is calculated as follows:
@@ -84,7 +84,7 @@ The cost is calculated as follows:
 
 Where:
 * 3: Number of hosts.
-* 2: Number of vCPUs
+* 2: Number of vCPUs.
 * $0.013440: Cost of using 100% vCPU per hour.
 * 8: Amount of RAM per host (in GB).
 * $0.016800: Cost of using 1 GB of RAM at 100% vCPU per hour.
@@ -94,10 +94,10 @@ Where:
 > Total: $699.289600, cost of using the cluster for 30 days.
 
 Where:
-* 720: Number of hours in 30 days
+* 720: Number of hours in 30 days.
 * $0.967680: Cost of operation of all hosts per hour.
-* 100: Amount of network HDD storage (in GB)
-* $0.025600: Cost of using 1 GB of network HDD storage per month
+* 100: Amount of network HDD storage (in GB).
+* $0.025600: Cost of using 1 GB of network HDD storage per month.
 
 
 

@@ -7,30 +7,37 @@ description: Data Security Posture Management, or {{ dspm-name }}, is a {{ sd-na
 
 [Data Security Posture Management]({{ link-sd-main }}dspm/), or {{ dspm-name }}, helps quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely actions to protect it from unauthorized access or leaks, such as configuring [access policies](../../storage/concepts/policy.md), anonymizing data, etc.
 
-With proper integration, {{ dspm-name }} can work in leak prevention mode and prevent transferring or saving confidential information.
-
 ## Scanning for sensitive information {#scanning}
 
-{{ dspm-name }} scans _data sources_ for sensitive information in buckets.
+{{ dspm-name }} scans _data sources_ for sensitive information in buckets. You can run a scan once or on a schedule.
 
-Before you start scanning, select a data source and specify the _data categories_ to search for. 
+To run scans for sensitive information, use a [service account](../../iam/concepts/users/service-accounts.md).
+
+To [create a scan](../operations/dspm/create-scan.md), the user must have the `dspm.editor` [role](../../security-deck/security/dspm-roles.md#dspm-editor) for the folder [specified](../quickstart-overview.md#configure-sd) in the {{ sd-name }} settings as the default storage as well as the `iam.serviceAccounts.user` [role](../../iam/security/index.md#iam-serviceAccounts-user) for the service account that will run the scan.
+
+{% include [sa-scan-roles-warning](../../_includes/security-deck/sa-scan-roles-warning.md) %}
+
+Before you start scanning, select a data source and specify the _data categories_ to search for.
 
 ### Data source {#data-source}
 
-A data source contains information on the bucket to scan, along with additional settings.
+A data source contains information about the _resources_ to scan, i.e., buckets, [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), and [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), as well as additional settings.
 
-For example, you can set the scan scope for a data source, `All files` or `Files by template`. If you select `Files by template`, you can use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression) to set the criteria which the names of the files to scan must or must not match.
+When you add folders and clouds to a data source, all buckets in the selected clouds and/or folders will be scanned. In this case, DSPM will scan both the buckets that already exist in these clouds and folders and any other buckets added to them by the time the scan is run. 
 
-You can create multiple data sources for a single bucket, each with its own scan scope settings.
+You can set the following scan scopes for a data source:
+
+{% include [datasource-filetypes](../../_includes/security-deck/datasource-filetypes.md) %}
+
+You can add multiple buckets, folders, and/or clouds as well as create multiple resource groups with different scan scope settings in a single data source at once. You can also add a bucket to multiple data sources with different scan scope settings at the same time.
 
 ### Data categories {#data-categories}
 
-When setting up a new scan, you can specify the category of data to search for. You can select all the available categories at once or any of them separately.
+When setting up a new scan, you can specify the category of data to search for. You can select all the available categories at once or any combination of them.
 
 Data categories available for scanning:
 
-* `Personal data`: Full names, phone numbers, email addresses, document numbers, IP addresses, etc.
-* `Secrets`: Cloud access keys, passwords, tokens, SSH keys, etc.
+{% include [scan-data-types](../../_includes/security-deck/scan-data-types.md) %}
 
 To create data sources, set up and run scans, and view scan results, the user must have the appropriate [roles](../security/index.md).
 

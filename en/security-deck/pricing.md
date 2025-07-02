@@ -8,10 +8,12 @@ editable: false
 
 
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 The applicable {{ sd-name }} pricing depends on the module you are using:
 
 * [Cloud Infrastructure Entitlement Management ({{ ciem-name }}) module](concepts/ciem.md) is free of charge.
-* For [Data Security Posture Management ({{ dspm-name }}) module](concepts/dspm.md), see [{{ dspm-name }}](#dspm-rules) below.
+* [For {{ dspm-name }})](concepts/dspm.md), see [below](#dspm-rules).
 * For [{{ atr-name }}](concepts/access-transparency.md), see [{{ atr-name }}](#atr-rules) below.
 
 ## What goes into the cost of using {{ sd-name }} {#rules}

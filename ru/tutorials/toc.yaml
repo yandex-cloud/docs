@@ -190,7 +190,7 @@ items:
             href: security/encrypt/aws-encryption-sdk.md
           - name: Шифрование с помощью Google Tink
             href: security/encrypt/google-tink.md
-      - name: Шифрование для бакета {{objstorage-name }} на стороне сервера
+      - name: Шифрование для бакета {{ objstorage-name }} на стороне сервера
         href: security/server-side-encryption.md
       - name: Шифрование секретов в {{ TF-full }}
         href: security/terraform-secret.md

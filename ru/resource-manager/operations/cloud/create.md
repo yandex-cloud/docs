@@ -5,9 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание нового облака
 
-[При регистрации](../../../billing/quickstart/index.md#create_billing_account) для вас будет автоматически создано [облако](../../concepts/resources-hierarchy.md#cloud) с именем `cloud-<Яндекс_ID>`. После того как вы привязали платежный аккаунт, вы сможете создать дополнительное облако.
+[После регистрации](../../../billing/quickstart/index.md#create_billing_account) в {{ yandex-cloud }} и создания [организации](../../../organization/concepts/organization.md) вы создадите свое первое [облако](../../concepts/resources-hierarchy.md#cloud). Если вам потребуется дополнительное облако, вы сможете создать его, следуя этой же инструкции.
 
-Чтобы создать дополнительное облако:
+Чтобы создать облако:
 
 {% list tabs group=instructions %}
 

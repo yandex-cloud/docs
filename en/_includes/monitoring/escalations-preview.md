@@ -6,6 +6,6 @@ Escalations are at the [Preview](../../overview/concepts/launch-stages.md) stage
 * Maximum calls per minute: 5
 * Maximum calls per calendar month: 10
 
-To get access to escalations or change the limits, [contact support]({{ link-console-support }}).
+To change these limitations, [contact support]({{ link-console-support }}).
 
 {% endnote %}

@@ -12,15 +12,15 @@ The Fail control step terminates a workflow execution with an error. If the step
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** section on the left side of the screen, drag the ![octagon-xmark](../../../../_assets/console-icons/octagon-xmark.svg) **Fail** element to desired workflow location in the constructor window.
+  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_management-group-label }}** section on the left side of the screen, drag the ![octagon-xmark](../../../../_assets/console-icons/octagon-xmark.svg) **Fail** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
-  1. In the workflow schema window, click the added **Fail** section to select it.
+  1. In the workflow schema window, click the new **Fail** section to select it.
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
 
-      1. In the **Error text** field, enter the error message that will terminate a workflow execution.
+      1. In the **{{ ui-key.yacloud.serverless-workflows.workflow-viewer_error-message-label }}** field, enter the error message that will terminate a workflow execution.
 
 {% endlist %}
 

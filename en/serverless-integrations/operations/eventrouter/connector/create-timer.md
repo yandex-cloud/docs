@@ -15,12 +15,12 @@ description: Follow this guide to create a timer in {{ er-name }}.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
-  1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select **Timer**.
-  1. Under **Timer settings**, specify:
+  1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select `{{ ui-key.yc-eventrouter.dynamic-forms.timer_name }}`.
+  1. Under **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_base_options_title }}**, specify:
 
-      * In the **Cron expression** field, a schedule for generating events, in [cron expression](../../../concepts/eventrouter/connector.md#cron-expression) format.
-      * In the **Time zone** field, a time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional parameter.
-      * In the **Data** field, a message sent to the bus if the timer fires in the `payload` field. This is an optional parameter.
+      * In the **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_cron_expression_title }}** field, an event generation schedule, in [cron expression](../../../concepts/eventrouter/connector.md#cron-expression) format.
+      * In the **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_timezone_title }}** field, a time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional parameter.
+      * In the **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_payload_title }}** field, a message that goes to the bus if the timer goes off in the `payload` field. This is an optional parameter.
 
   1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -140,7 +140,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter connector list

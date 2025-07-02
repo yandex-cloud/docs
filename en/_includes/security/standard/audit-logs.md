@@ -130,6 +130,8 @@ To describe events to be searched for in audit logs, we recommend using [Sigma](
 
 To get the exact time of OS- and application-level events, configure clock synchronization by following [this guide](../../../compute/tutorials/ntp.md).
 
+We additionally recommend to increase the logging level inside virtual machines to at least [`VERBOSE`](https://en.wikipedia.org/wiki/Verbose_mode).
+
 {% list tabs group=instructions %}
 
 - Manual check {#manual}
@@ -141,6 +143,14 @@ To get the exact time of OS- and application-level events, configure clock synch
 #### 5.6 Audit logs are collected at the application level {#app-level}
 
 Customers may collect events that occur at the level of applications deployed on {{ compute-short-name }} resources on their own. For example, save application logs to files and transfer them to a SIEM system using the tools listed in the subsection above.
+
+Enable audit log collection in your unmanaged DBMS:
+
+* Enable logging of all authentication actions (successful and failed).
+* Activate logging of data modification operations (`INSERT`, `UPDATE`, `DELETE`).
+* Configure logging of schema modification operations (`ALTER`, `CREATE`, `DROP`).
+* Record permission and privilege changes.
+* Configure events to track queries.
 
 {% list tabs group=instructions %}
 
@@ -166,6 +176,24 @@ Currently, {{ vpc-short-name }} network traffic event logs (Flow Logs) can only 
 
 A [data event audit log](../../../audit-trails/concepts/format-data-plane.md) is a JSON object with a record of events related to {{ yandex-cloud }} resources. Data event monitoring makes it easier for you to collect additional events from cloud services and, as a result, effectively respond to security incidents in clouds. This also helps you ensure your cloud infrastructure meets regulatory requirements and industry standards. For example, you can keep track of your employees' access permissions to sensitive data stored in [buckets](../../../storage/concepts/bucket.md).
 
+You need to enable collection of data event audit logs individually for each [supported service](../../../audit-trails/concepts/control-plane-vs-data-plane.md#data-plane-events).
+
+We recommend to enable **all events** for [{{ iam-full-name }}](../../../audit-trails/concepts/events-data-plane.md#iam) and [{{ dns-full-name }}](../../../audit-trails/concepts/events-data-plane.md#dns), as well as all **all events** for the following services, if used:
+
+* [{{ certificate-manager-full-name }}](../../../audit-trails/concepts/events-data-plane.md#certificate-manager)
+* [{{ compute-full-name }}](../../../audit-trails/concepts/events-data-plane.md#compute)
+* [{{ kms-full-name }}](../../../audit-trails/concepts/events-data-plane.md#kms)
+* [{{ lockbox-full-name }}](../../../audit-trails/concepts/events-data-plane.md#lockbox)
+* [{{ mch-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mch)
+* [{{ managed-k8s-full-name }}](../../../audit-trails/concepts/events-data-plane.md#managed-service-for-kubernetes)
+* [{{ mmg-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mmg)
+* [{{ mmy-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mmy)
+* [{{ mpg-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mpg)
+* [{{ mrd-full-name }}](../../../audit-trails/concepts/events-data-plane.md#mrd)
+* [{{ objstorage-full-name }}](../../../audit-trails/concepts/events-data-plane.md#objstorage)
+* [{{ sws-full-name }}](../../../audit-trails/concepts/events-data-plane.md#sws)
+* [{{ websql-full-name }}](../../../audit-trails/concepts/events-data-plane.md#websql)
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -179,22 +207,22 @@ A [data event audit log](../../../audit-trails/concepts/format-data-plane.md) is
 
 {% endlist %}
 
-#### 5.9 The {{ sd-name }} Access Transparency module is enabled to check actions {{ yandex-cloud }} employees take in your infrastructure {#access-transparency-enabled}
+#### 5.9 {{ atr-name }} {{ sd-name }} is on for inspection of {{ yandex-cloud }} employees actions with the infrastructure {#access-transparency-enabled}
 
-All actions of the {{ yandex-cloud }} staff are captured and monitored via [bastion hosts](../../../tutorials/routing/bastion.md), which log operations on resources handling user data.
+All {{ yandex-cloud }} employees' actions are logged and monitored with the help of [bastion hosts](../../../tutorials/routing/bastion.md) – recorders of operations with the user data processing resources.
 
-With [Access Transparency](../../../security-deck/concepts/access-transparency.md), you can verify the reasons for provider access to your infrastructure. For example, support engineers may need to run additional IT system diagnostics or perform software updates. ML models analyze these actions. {{ yagpt-name }} integrated into Access Transparency generates access event summaries for enhanced visibility. Suspicious sessions are automatically sent to the {{ yandex-cloud }} security teams for review.
+With [{{ atr-name }}](../../../security-deck/concepts/access-transparency.md), you can check why your infrastructure was accessed by the provider's employees. For example, the reasons may include additional IT system diagnostics by support engineers or software updates. ML models analyze these actions. Integrated into {{ atr-name }}, {{ yagpt-name }} generates access event summaries to improve visibility. Suspicious sessions are automatically sent to the {{ yandex-cloud }} security teams for review.
 
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![CloudCheck](../../../_assets/console-icons/cloud-check.svg) **Access Transparency**.
-  1. If you are prompted to enable Access Transparency, it means the module is not active; proceed to _Guides and solutions to use_.
+  1. In the left-hand panel, select ![CloudCheck](../../../_assets/console-icons/cloud-check.svg) **{{ atr-name }}**.
+  1. If you are prompted to enable {{ atr-name }}, it means the module is not active yet; proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
 **Guides and solutions to use:**
 
-Click **Connect** to activate the `Access Transparency` module.
+Click **Connect** to activate the `{{ atr-name }}` module.
