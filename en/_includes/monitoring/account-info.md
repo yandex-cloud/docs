@@ -1,1 +1,1 @@
-Specify a {{ yandex-cloud }} account as the recipient of email notifications. This can be the owner's account or an [additional one](../../iam/concepts/index.md/#accounts), e.g., a federated account or Yandex ID, created specifically for this purpose.
+Specify a {{ yandex-cloud }} account as the recipient of email notifications. This can be the owner's account or an [additional one](../../iam/concepts/index.md#accounts), e.g., a federated account or Yandex ID, created specifically for this purpose.

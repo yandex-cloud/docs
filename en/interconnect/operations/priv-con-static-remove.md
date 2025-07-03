@@ -22,6 +22,7 @@ You need the [cic.editor](../security/index.md#cic-editor) role to run this oper
       ```bash
       yc cic private-connection remove-static-routes --help
       ```
+      
   1. Remove static routes from your private connection:
 
       ```bash

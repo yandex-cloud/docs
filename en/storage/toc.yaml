@@ -308,6 +308,8 @@ items:
         href: tutorials/mgp-config-server-for-s3.md
       - name: Migrating databases from Google BigQuery to {{ mch-name }}
         href: tutorials/bigquery-to-clickhouse.md
+      - name: '{{ objstorage-name }} integration with Nextcloud'
+        href: tutorials/integrate-nextcloud.md
   - name: Concepts
     items:
       - name: Overview

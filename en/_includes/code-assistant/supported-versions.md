@@ -1,1 +1,0 @@
-The {{ ca-name }} plugin is now available for [Visual Studio Code](https://code.visualstudio.com/), [VSCodium](https://vscodium.com/), and [JetBrains IDE](https://www.jetbrains.com/ides/) versions 2025.1, 2024.3, 2024.2, and 2024.1. {#supported-versions}

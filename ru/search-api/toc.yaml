@@ -147,5 +147,7 @@ items:
     items:
       - name: Коды ошибок
         href: reference/error-codes.md
+      - name: Заголовки для диагностики ошибок
+        href: api-ref/support-headers.md
       - name: Регионы поиска
         href: reference/regions.md

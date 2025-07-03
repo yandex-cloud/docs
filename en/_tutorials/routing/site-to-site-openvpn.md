@@ -19,7 +19,7 @@ To create a tunnel between two subnets:
 1. [Create the VMs you want to connect](#create-target-vm).
 1. [Create a gateway VM](#create-vm-gateway).
 1. [Set up a VPN server](#create-vpn-server).
-1. [Configure network traffic rules](#network-settings).
+1. [Configure network traffic permissions](#network-settings).
 1. [Get the administrator password](#get-admin-password).
 1. [Create an OpenVPN remote user account](#configure-openvpn).
 1. [Configure the OpenVPN gateway on the second subnet](#configure-second-end-of-the-tunnel).
@@ -68,7 +68,7 @@ To connect cloud resources to the internet, make sure you have a [network](../..
   1. Click **Add subnet**.
   1. Specify the subnet name, e.g., `ovpn-left`.
   1. Select an [availability zone](../../overview/concepts/geo-scope.md) from the drop-down list.
-  1. Specify the subnet CIDR: `10.128.0.0/24`.
+  1. Enter the subnet CIDR: `10.128.0.0/24`.
   1. Click **Create subnet**.
   1. Repeat steps 2 to 6 to create the second subnet. Name it `ovpn-right` and specify its CIDR: `10.253.11.0/24`.
 
@@ -80,7 +80,8 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, select an image for the VM.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for the `ovpn-left` subnet.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -109,7 +110,8 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, select an image for the VM.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for the `ovpn-right` subnet.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -140,7 +142,8 @@ Create a VM to run the VPN server:
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, specify `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for the `ovpn-left` subnet.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -174,7 +177,7 @@ Create a VM to run the VPN server:
 
 {% endlist %}
 
-## Configure network traffic rules {#network-settings}
+## Configure network traffic permissions {#network-settings}
 
 {% include [openvpn-network-settings](../_tutorials_includes/openvpn-network-settings.md) %}
 

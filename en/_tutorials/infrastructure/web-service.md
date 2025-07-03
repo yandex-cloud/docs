@@ -79,9 +79,10 @@ Create a VM you will use to test whether your web service is accessible from the
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+    1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin).
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -232,9 +233,10 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your VMs.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+    1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select [Drupal 10](/marketplace/products/yc/drupal-8).
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -281,9 +283,10 @@ Create an IPSec gateway to provide secure access to your cloud resources.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create your VM.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+    1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu).
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -294,7 +297,7 @@ Create an IPSec gateway to provide secure access to your cloud resources.
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
         * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn`.

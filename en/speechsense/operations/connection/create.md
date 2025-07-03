@@ -7,6 +7,12 @@ description: You can upload a two-channel audio or text chat to {{ speechsense-n
 
 You can upload [two-channel audio](#create-audio-connection), [single-channel audio](#create-one-channel-audio-connection), or a [chat](#create-chat-connection) with text messages to a {{ speechsense-name }} connection. To create a connection, you need either the `{{ roles-speechsense-admin }}` or `{{ roles-speechsense-editor }}` role for the space.
 
+{% note info %}
+
+You cannot delete a connection from a project, but you can [delete a project](../project/delete.md) or [delete a space](../space/delete.md).
+
+{% endnote %}
+
 ## Creating a connection for two-channel audio {#create-audio-connection}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).

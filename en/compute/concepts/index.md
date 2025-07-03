@@ -13,6 +13,12 @@ All resources in {{ compute-short-name }} break down into three types:
 
 In addition, when creating VMs, {{ compute-short-name }} uses resources of other services, such as subnets and folders.
 
+{% note tip %}
+
+To quickstart with {{ compute-short-name }}, see the tutorial on how to create a VM using a [simple form](../quickstart/simple-form-vm.md).
+
+{% endnote %}
+
 ## Basic resources {#basic-resource}
 
 {{ compute-short-name }} allows you to create VMs and attach disks to them.

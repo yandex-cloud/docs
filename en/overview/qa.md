@@ -87,7 +87,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 ### Developer tools {#developer-tools}
 
-* [{{ ca-full-name }}](../code-assistant/qa.md)
+* [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/qa)
 * [{{ cos-full-name }}](../cos/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 

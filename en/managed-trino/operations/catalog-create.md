@@ -61,35 +61,35 @@ To tailor the settings, select the connection type: [{{ connection-manager-name 
 
     {% cut "Available parameters" %}
 
-    * `async`: Whether to use asynchronous mode, `true` or `false`.
+    * `async`: Use of asynchronous mode, `true` or `false`.
 
-    * `buffer_queue_variation`: How many times the buffer can be filled before its size is increased.
+    * `buffer_queue_variation`: How many times the buffer can be filled up before its size is increased.
 
-    * `buffer_size`: Buffer size, increases to `max_buffer_size` when overflow occurs.
+    * `buffer_size`: Buffer size, increases to `max_buffer_size` on overflow.
 
     * `client_name`: Client name.
 
-    * `compress`: Whether to compress data in a server response, `true` or `false`.
+    * `compress`: Data compression in the server response, `true` or `false`.
 
-    * `compress_algorithm`: Which algorithm to use when compressing data. The possible values are: [BROTLI](https://en.wikipedia.org/wiki/Brotli), [BZ2](https://en.wikipedia.org/wiki/Bzip2), [DEFLATE](https://en.wikipedia.org/wiki/Deflate), [GZIP](https://en.wikipedia.org/wiki/Gzip), [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)), [SNAPPY](https://en.wikipedia.org/wiki/Snappy_(compression)), [XZ](https://en.wikipedia.org/wiki/XZ_Utils), [ZSTD](https://en.wikipedia.org/wiki/Zstd), or `NONE`.
+    * `compress_algorithm`: Data compression algorithm. The possible values are: [BROTLI](https://en.wikipedia.org/wiki/Brotli), [BZ2](https://en.wikipedia.org/wiki/Bzip2), [DEFLATE](https://en.wikipedia.org/wiki/Deflate), [GZIP](https://en.wikipedia.org/wiki/Gzip), [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)), [SNAPPY](https://en.wikipedia.org/wiki/Snappy_(compression)), [XZ](https://en.wikipedia.org/wiki/XZ_Utils), [ZSTD](https://en.wikipedia.org/wiki/Zstd), or `NONE`.
 
     * `compress_level`: Data compression level.
 
     * `connect_timeout`: Maximum server connection timeout, in milliseconds.
 
-    * `decompress`: Whether to decompress data in a client request, `true` or `false`.
+    * `decompress`: Decompressing data in client request, `true` or `false`.
 
-    * `decompress_algorithm`: Which algorithm to use when decompressing data. The possible values are: [BROTLI](https://en.wikipedia.org/wiki/Brotli), [BZ2](https://en.wikipedia.org/wiki/Bzip2), [DEFLATE](https://en.wikipedia.org/wiki/Deflate), [GZIP](https://en.wikipedia.org/wiki/Gzip), [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)), [SNAPPY](https://en.wikipedia.org/wiki/Snappy_(compression)), [XZ](https://en.wikipedia.org/wiki/XZ_Utils), [ZSTD](https://en.wikipedia.org/wiki/Zstd), or `NONE`.
+    * `decompress_algorithm`: Data decompression algorithm. The possible values are: [BROTLI](https://en.wikipedia.org/wiki/Brotli), [BZ2](https://en.wikipedia.org/wiki/Bzip2), [DEFLATE](https://en.wikipedia.org/wiki/Deflate), [GZIP](https://en.wikipedia.org/wiki/Gzip), [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)), [SNAPPY](https://en.wikipedia.org/wiki/Snappy_(compression)), [XZ](https://en.wikipedia.org/wiki/XZ_Utils), [ZSTD](https://en.wikipedia.org/wiki/Zstd), or `NONE`.
 
-    * `decompress_level`: Data compression level after decompression.
+    * `decompress_level`: Data decompression level.
 
     * `failover`: Maximum number of attempts to connect to replicas if the server is unavailable.
 
-    * `load_balancing_policy`: Algorithm for selecting replicas for connection.
+    * `load_balancing_policy`: Replica selection algorithm for connection.
         
-        * `firstAlive`: Forwards the request to the first available replica.
-        * `random`: Forwards the request to a random replica.
-        * `roundRobin`: Applies the [Round-robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) policy to select a replica for the request.
+        * `firstAlive`: Request goes to the first available replica.
+        * `random`: Request goes to a random replica.
+        * `roundRobin`: Applies the [Round-robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) policy to select a replica.
 
     * `max_buffer_size`: Maximum buffer size.
 
@@ -97,35 +97,35 @@ To tailor the settings, select the connection type: [{{ connection-manager-name 
 
     * `product_name`: Product name in `User-Agent`.
 
-    * `read_buffer_size`: Read buffer size, in bytes. By default, equals to `buffer_size`. When the buffer is full, the size is increased to the `max_buffer_size` value.
+    * `read_buffer_size`: Read buffer size, in bytes. The default value is `buffer_size`. When the buffer is full, the size gets increased to `max_buffer_size`.
 
     * `request_buffering`: Request buffering mode.
 
-        * `RESOURCE_EFFICIENT`: Provides moderate performance with minimal CPU and memory utilization. This mode employs only the buffer size, without using the queue.
-        * `PERFORMANCE`: Maximizes performance by actively utilizing CPU and memory.
-        * `CUSTOM`: Allows you to manually adjust buffering settings to balance resource utilization and desired performance.
+        * `RESOURCE_EFFICIENT`: Provides moderate performance with minimum use of CPU and RAM. This mode relies only on the buffer size, no queue is used.
+        * `PERFORMANCE`: Maximizes performance by actively utilizing CPU and RAM.
+        * `CUSTOM`: Allows manual buffering settings to balance out resource utilization and desired performance.
 
     * `request_chunk_size`: Request chunk size, in bytes.
 
     * `response_buffering`: Response buffering mode.
 
-        * `RESOURCE_EFFICIENT`: Provides moderate performance with minimal CPU and memory utilization. This mode employs only the buffer size, without using the queue.
-        * `PERFORMANCE`: Maximizes performance by actively utilizing CPU and memory.
-        * `CUSTOM`: Allows you to manually adjust buffering settings to balance resource utilization and desired performance.
+        * `RESOURCE_EFFICIENT`: Provides moderate performance with minimum use of CPU and RAM. This mode relies only on the buffer size, no queue is used.
+        * `PERFORMANCE`: Maximizes performance by actively utilizing CPU and RAM.
+        * `CUSTOM`: Allows manual buffering settings to balance out resource utilization and desired performance.
 
     * `server_time_zone`: Serve time zone.
 
-    * `use_server_time_zone`: Whether to use the server time zone, `true` or `false`.
+    * `use_server_time_zone`: Use of the server time zone, `true` or `false`.
 
-    * `use_server_time_zone_for_dates`: Whether to use the server time zone when processing `Date` values, `true` or `false`.
+    * `use_server_time_zone_for_dates`: Use of the server time zone when processing the `Date` values, `true` or `false`.
 
-    * `use_time_zone`: What time zone to use, i.e., `Europe/Amsterdam`. Applies if `use_server_time_zone` equals `false`.
+    * `use_time_zone`: What time zone to use, i.e., `Europe/Amsterdam`. Applies if `use_server_time_zone` is `false`.
 
-    * `write_buffer_size`: Write buffer size, in bytes. By default, equals `buffer_size`. When the buffer is full, the size is increased to the `max_buffer_size` value.
+    * `write_buffer_size`: Write buffer size, in bytes. By default, equals `buffer_size`. When the buffer is full, the size gets increased to `max_buffer_size`.
 
     {% endcut %}
 
-  * **Additional settings**: Provide in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/clickhouse.html).
+  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/clickhouse.html).
 
 - On-premise
 
@@ -140,19 +140,19 @@ To tailor the settings, select the connection type: [{{ connection-manager-name 
 
   {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-  * **Additional settings**: Provide in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/delta-lake.html).
+  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/delta-lake.html).
 
 ### Hive connector {#hive}
 
   {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-  * **Additional settings**: Provide in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/hive.html).
+  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/hive.html).
 
 ### Iceberg connector {#iceberg}
 
   {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-  * **Additional settings**: Provide in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/iceberg.html).
+  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/iceberg.html).
 
 ### Oracle connector {{ preview-stage }} {#oracle}
 
@@ -160,7 +160,7 @@ To tailor the settings, select the connection type: [{{ connection-manager-name 
   * **URL**: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>`. `SID`: Oracle system ID.
   * **Username**: Username for connecting to the Oracle DB.
   * **Password**: User password for connecting to the Oracle DB.
-  * **Additional settings**: Provide in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/oracle.html).
+  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/oracle.html).
 
 ### {{ PG }} connector {#pg}
 
@@ -177,14 +177,14 @@ To tailor the settings, select the connection type: [{{ connection-manager-name 
       1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
   * **Database**: DB name in the {{ PG }} cluster.
-  * **Additional settings**: Provide in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/postgresql.html).
+  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/postgresql.html).
 
 - On-premise
 
   * **URL**: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
   * **Username**: Username for connecting to the {{ PG }} DB.
   * **Password**: User password for connecting to the {{ PG }} DB.
-  * **Additional settings**: Provide in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/postgresql.html).
+  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/postgresql.html).
 
 {% endlist %}
 
@@ -194,18 +194,18 @@ To tailor the settings, select the connection type: [{{ connection-manager-name 
   * **URL**: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
   * **Username**: Username for connecting to the Microsoft SQL Server DB.
   * **Password**: User password for connecting to the Microsoft SQL Server DB.
-  * **Additional settings**: Provide in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/sqlserver.html).
+  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/sqlserver.html).
 
 ### TPC-DS connector {#tpc-ds}
 
-TPC-DS connector has no required settings.
+The TPC-DS connector has no required settings.
 
-To tailor additional settings, provide them in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/tpcds.html).
+You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/tpcds.html).
 
 ### TPC-H connector {#tpc-h}
 
-TPC-H connector has no required settings.
+The TPC-H connector has no required settings.
 
-To tailor additional settings, provide them in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/tpch.html).
+You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/tpch.html).
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

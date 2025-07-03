@@ -13,14 +13,14 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
 
 {% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+{% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
 When you use {{ ydb-name }} in serverless mode, you are billed for each request made to the database. Users do not have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as recovery from a backup, are charged extra.
 
@@ -31,10 +31,10 @@ When using {{ ydb-name }} in Serverless mode, you pay for the following:
 * Amount of stored data, including service data, such as indexes.
 * Additional user operations, such as recovery from a backup.
 
-Other consumed resources to be additionally paid for:
+The following resources are paid additionally:
 
 * Space used in {{ objstorage-full-name }} to store on-demand backups.
-* Volume of outgoing traffic from {{ yandex-cloud }} to the internet.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
 
 {% include [pricing-gb-size](../_includes/pricing/pricing-gb-size.md) %}
 

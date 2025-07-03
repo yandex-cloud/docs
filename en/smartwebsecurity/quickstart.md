@@ -71,7 +71,7 @@
     1. Enter the address of the domain your web application is in, e.g., `example.com`.
     1. Click **{{ ui-key.yacloud.common.continue }}**.
     1. Select the connection type used by your application. We recommend the secure **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.https_qWPJb }}** protocol.
-    1. If you use [{{ certificate-manager-name }}](../../certificate-manager/) and have added your domain certificate to it, select it from the list. 
+    1. If you use [{{ certificate-manager-name }}](../certificate-manager/) and have added your domain certificate to it, select it from the list. 
     1. If not using {{ certificate-manager-name }}, click **{{ ui-key.yacloud.common.create }}** → **{{ ui-key.yacloud.certificate-manager.CertificateField.userCertificate_bChXn }}**.
        1. Enter a name for the certificate.
        1. Copy or upload the private key, certificate, and intermediate certificate chain as a file in PEM format.

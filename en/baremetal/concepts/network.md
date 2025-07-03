@@ -80,6 +80,20 @@ To set up network connectivity between {{ baremetal-name }} [servers](./servers.
 
 You can [look up](../operations/servers/get-info.md) the MAC addresses of the {{ baremetal-name }} server network interfaces on the server information page under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** and **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**.
 
+## {{ baremetal-full-name }} network traffic billing when communicating with other {{ yandex-cloud }} services {#traffic-pricing-pecs}
+
+### {{ vpc-full-name }} {#vpc-traffic}
+
+{% include [bms-vpc-traffic](../../_includes/baremetal/bms-vpc-traffic.md) %}
+
+### {{ objstorage-full-name }} {#storage-traffic}
+
+{% include [bms-s3-free-traffic](../../_includes/baremetal/bms-s3-free-traffic.md) %}
+
+### {{ backup-full-name }} {#backup-traffic}
+
+{% include [bms-backup-free-traffic](../../_includes/baremetal/bms-backup-free-traffic.md) %}
+
 #### See also {#see-also}
 
 * [{#T}](./network-restrictions.md)

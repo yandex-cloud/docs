@@ -4,4 +4,4 @@
 
 * {% include [Field Service Account](../../fields/yds/ui/service-account-source.md) %}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.security_groups.title }}** — выберите облачную сеть, в которой будет размещен эндпоинт. Управлять сетями можно в сервисе [Virtual Private Cloud](../../../../vpc/).
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.security_groups.title }}** — выберите облачную сеть, в которой будет размещен эндпоинт. Управлять сетями можно в сервисе [{{ vpc-name }}](../../../../vpc/).

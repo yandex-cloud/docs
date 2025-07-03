@@ -4,7 +4,7 @@
 
 Example of setting up IP network connectivity as part of {{ interconnect-name }}:
 
-![interconnect](../../_assets/interconnect/interconnect.svg)
+
 
 In this example, the customer has the following resources:
 
@@ -15,12 +15,11 @@ The task is to ensure the IP network connectivity between the customer on-premis
 
 Such a task will require:
 
-* Establishing one, or better yet, two [trunks](./trunk.md) (for fault tolerance).
-* Establishing a [private connection](./priv-con.md) in each [trunk](./trunk.md).
-* Configuring a [point-to-point subnet](./priv-con.md#priv-address) and organizing [BGP connectivity](./priv-con.md#bgp-peering) in each [private connection](./priv-con.md). {{ interconnect-name }} will not work without BGP connectivity.
+
+
 * Creating a [Routing Instance](../../cloud-router/concepts/routing-instance.md) in the cloud folder.
 * Adding a `private connection` to `Routing Instance`.
-* On the {{ yandex-cloud }} virtual network side, [adding a set of subnet IP prefixes](../../cloud-router/tutorials/ri-prefixes-upsert.html) from a specific virtual network in `Routing Instance`, which will be announced towards the client equipment via BGP.
+* On the {{ yandex-cloud }} virtual network side, [adding a set of subnet IP prefixes](../../cloud-router/tutorials/ri-prefixes-upsert.md) from a specific virtual network in `Routing Instance`, which will be announced towards the client equipment via BGP.
 * On the client infrastructure side, via BGP, a set of IP prefixes of subnets with client resources must be announced through the client side of the `private connection`.
 
 Once these steps are complete, IP connectivity should be established between the client's infrastructure resources and cloud resources in {{ yandex-cloud }}, thus enabling IP traffic exchange between them.

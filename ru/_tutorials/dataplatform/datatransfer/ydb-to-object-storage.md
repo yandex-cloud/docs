@@ -82,7 +82,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Создайте](../../../ydb/operations/crud.md/#web-sql) в базе данных {{ ydb-name }} таблицу `seasons`:
+1. [Создайте](../../../ydb/operations/crud.md#web-sql) в базе данных {{ ydb-name }} таблицу `seasons`:
 
     ```sql
     CREATE TABLE seasons
@@ -186,7 +186,7 @@
 - Вручную {#manual}
 
     1. [Удалите бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-    1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md/#delete-db).
+    1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
     1. Если вы создавали сервисный аккаунт, [удалите его](../../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}

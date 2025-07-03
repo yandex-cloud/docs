@@ -20,7 +20,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-  1. Enter a name for the disk. Follow these naming requirements:
+  1. Enter a name for the disk. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -100,6 +100,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
        block_size = <block_size>
        type       = "network-ssd-nonreplicated"
        zone       = "<availability_zone>"
+       kms_key_id = "<KMS_key_ID>"
      }
      ```
 
@@ -111,9 +112,16 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
      * `size`: Non-replicated disk size, which must be a multiple of 93 GB.
      * `block_size`: Block size in bytes (minimum storage unit on the disk). The maximum disk size depends on the specified block size. By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
      * `type`: Disk type. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
-     * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
+     * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md)
+     * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an [encrypted](../../concepts/encryption.md) disk. This is an optional parameter.
 
-     For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+
+     For more information about `yandex_compute_disk` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
@@ -156,7 +164,7 @@ You can only create a disk in an existing disk placement group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-  1. Enter a name for the disk. Follow these naming requirements:
+  1. Enter a name for the disk. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 

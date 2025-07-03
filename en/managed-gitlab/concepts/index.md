@@ -32,7 +32,7 @@ When creating an instance, you specify:
 
 ## {{ GLR }} {#runners}
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application which executes {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on [{{ compute-name }} VMs](../../compute/concepts/vm.md).
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application which executes {{ GL }} [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on [{{ compute-name }} VMs](../../compute/concepts/vm.md).
 
 You can get started with {{ GLR }} in the following ways:
 

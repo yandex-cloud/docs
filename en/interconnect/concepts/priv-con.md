@@ -4,11 +4,12 @@ A private connection is a logical link of your on-prem infrastructure to a virtu
 
 Here is an example of using two private connections to set up fault-tolerant IP connectivity:
 
-![topology](../../_assets/cloud-router/ri-topology-3.svg)
+
 
 {% note warning %}
 
-However, you cannot set up multiple private connections to a single cloud network at the same [point of presence](./pops.md). For redundancy purposes, you can set up multiple private connections per cloud network in different [points of presence](./pops.md).
+However, you cannot set up multiple private connections to a single cloud network at the same [point of presence](./pops.md).
+
 
 {% endnote %}
 
@@ -88,4 +89,3 @@ This scenario also assumes you do not have your own equipment at the point of pr
 * [{#T}](../tutorials/trunk-priv-add.md)
 * [{#T}](../tutorials/priv-add.md)
 * [{#T}](../tutorials/priv-del.md)
-* [{#T}](../tutorials/cic-with-ngfw.md)

@@ -87,7 +87,7 @@ description: Из статьи вы узнаете, какими материа�
 
 ### Инструменты разработчика {#developer-tools}
 
-* [{{ ca-full-name }}](../code-assistant/qa.md)
+* [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/qa)
 * [{{ cos-full-name }}](../cos/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 

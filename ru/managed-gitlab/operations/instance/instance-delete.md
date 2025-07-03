@@ -38,6 +38,10 @@ description: Следуя данной инструкции, вы сможете
 
   Подробнее о команде читайте в [справочнике CLI](../../cli-ref/instance/delete.md).
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Delete](../../api-ref/Instance/delete.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Delete](../../api-ref/grpc/Instance/delete.md).
+
 {% endlist %}
 
 Если вы удалили инстанс, но хотите его восстановить, обратитесь в [техническую поддержку]({{ link-console-support }}). Для удаленного инстанса автоматически создается [резервная копия](../../concepts/backup.md), которая хранится в течение двух недель.

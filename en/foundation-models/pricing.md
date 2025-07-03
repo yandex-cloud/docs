@@ -12,6 +12,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 {% include [not-charged-foundation-models](../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}

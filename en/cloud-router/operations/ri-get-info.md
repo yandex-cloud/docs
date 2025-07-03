@@ -46,61 +46,10 @@ You need the [cloud-router.viewer](../security/index.md#cloudrouter-viewer) role
 
       Result:
 
-      ```yml
-      id: cf3jqdc4gjpxig******
-      name: routing-instance
-      description: '-'
-      folder_id: b1gqf2hjizv2jw******
-      region_id: ru-central1
-      vpc_info:
-        - vpc_network_id: enp0qpdijf4h2p******
-          az_infos:
-            - manual_info:
-                az_id: ru-central1-a
-                prefixes:
-                  - 10.128.11.0/24
-                  - 10.128.12.0/24
-                  - 10.128.13.0/24
-            - manual_info:
-                az_id: ru-central1-b
-                prefixes:
-                  - 10.129.21.0/24
-                  - 10.129.22.0/24
-                  - 10.129.23.0/24
-            - manual_info:
-                az_id: ru-central1-d
-                prefixes:
-                  - 10.130.31.0/24
-                  - 10.130.32.0/24
-                  - 10.130.33.0/24
-        - vpc_network_id: enp3vifnkc6l4******
-          az_infos:
-            - manual_info:
-                az_id: ru-central1-a
-                prefixes:
-                  - 172.16.1.0/24
-                  - 172.16.2.0/24
-                  - 172.16.3.0/24
-            - manual_info:
-                az_id: ru-central1-b
-                prefixes:
-                  - 172.16.11.0/24
-                  - 172.16.12.0/24
-                  - 172.16.13.0/24
-            - manual_info:
-                az_id: ru-central1-d
-                prefixes:
-                  - 172.16.21.0/24
-                  - 172.16.22.0/24
-                  - 172.16.23.0/24
-      cic_private_connection_info:
-        - cic_private_connection_id: euuiog88zphgsq******
-        - cic_private_connection_id: euucr7p47329kq******
-      status: ACTIVE
-      ```
+
 
       Where:
-      * `id`: Routing instance ID.
+      * `id`: ID of the routing instance.
       * `name`: RI name.
       * `description`: RI description.
       * `folder_id`: ID of the cloud folder the RI was created in.

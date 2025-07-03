@@ -12,6 +12,7 @@ description: This page presents all the guides on how to use {{ foundation-model
 * [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/async-request.md)
 * [{#T}](./yandexgpt/function-call.md)
+* [{#T}](./batch/create.md)
 
 ## Step-by-step guides for {{ yandexart-name }} {#yandexart}
 
@@ -32,9 +33,11 @@ description: This page presents all the guides on how to use {{ foundation-model
 * [{#T}](./assistant/create-with-searchindex.md)
 * [{#T}](./assistant/create-with-labels.md)
 * [{#T}](./assistant/request-chunked-response.md)
+* [{#T}](./assistant/rephraser.md)
 
 ## Step-by-step guides on managing {{ foundation-models-name }} resources {#resources}
 
+* [{#T}](./resources/create-dataset.md)
 * [{#T}](./resources/create-dataset-gpt.md)
 * [{#T}](./resources/create-dataset-classifier.md)
 

@@ -67,7 +67,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
 
      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Create a subnet named `usergate-subnet-{{ region-id }}-d` in the `{{ region-id }}-d` availability zone:
+  1. Create the `usergate-subnet-{{ region-id }}-d` subnet in the `{{ region-id }}-d` availability zone:
 
      ```bash
      yc vpc subnet create usergate-subnet-{{ region-id }}-d \
@@ -110,28 +110,28 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
      }
      ```
 
-     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resource descriptions in the {{ TF }} provider documentation.
+     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) descriptions in the {{ TF }} provider documentation.
      
-  1. Make sure your configuration files are correct.
+  1. Make sure the configuration files are correct.
 
-     1. In the terminal, navigate to your configuration file directory.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If your configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy your cloud resources.
+  1. Deploy the cloud resources.
   
-     1. Once your configuration is correct, run this command:
+     1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. When asked to confirm the changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -201,7 +201,8 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
@@ -213,7 +214,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
       {% note info %}
 
-      These settings will suffice for the gateway functional testing. For the production environment, use these UserGate [official recommendations](https://www.usergate.com/products/usergate-vm).
+      These settings will suffice for the gateway functional testing. For the production environment, use the UserGate [official recommendations](https://www.usergate.com/products/usergate-vm).
 
       {% endnote %}
 
@@ -224,7 +225,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, specify a username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `usergate-firewall`.
@@ -331,17 +332,17 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
         terraform plan
         ```
 
-     If your configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy your cloud resources.
+  1. Deploy the cloud resources.
   
-     1. Once your configuration is correct, run this command:
+     1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. When asked to confirm the changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -351,7 +352,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
 ## Set up the UserGate NGFW {#admin-console}
 
-Open the UserGate NGFW admin console at `https://<UserGate_VM_public_IP_address>:8001` and log in with the default credentials: `Admin` for username and `utm` for password.
+Open the UserGate NGFW admin console at `https://<UserGate_VM_public_IP_address>:8001` and log in with the default credentials: `Admin` / `utm`.
 
 Once you log in, the system will prompt you to change the default password and update the OS.
 
@@ -362,10 +363,10 @@ Configure UserGate NGFW:
 1. In the top menu, select **Settings**.
 1. In the left menu, navigate to **Network** ⟶ **Zones**.
 1. Click the `Trusted` zone.
-1. Click **Access control**, then enable **Administration console**. Click **Save**.
+1. Click **Access control**, enable **Administration console**, and click **Save**.
 1. In the left menu, navigate to **Network** ⟶ **Interfaces**.
 1. Click the `port0` network interface.
-1. On the **General** tab, in the **Zone** field, select `Trusted` from the list. Click **Save**.
+1. On the **General** tab, select `Trusted` in the **Zone** field and click **Save**.
 1. In the left menu, click **Network policies** ⟶ **Firewall**.
 1. Click the `Allow trusted to untrusted` preset rule.
 1. Navigate to the **Destination** tab and disable the `Untrusted` zone. Click **Save**.
@@ -386,7 +387,7 @@ We recommend using the `Block to botnets`, `Block from botnets`, and `Example bl
 1. Navigate to the **Source** tab and change the source zone from `Untrusted` to `Trusted`. 
 1. Navigate to the **Destination** tab and disable the `Untrusted` zone.
 1. Click **Save**.
-1. Enable the rule by selecting it and clicking **Enable** at the top of the screen.
+1. Enable the selected rule by selecting it and clicking **Enable** at the top of the screen.
 
 Add more rules to enhance security:
 
@@ -402,7 +403,7 @@ Add more rules to enhance security:
    1. Navigate to the **Source** tab and select `Trusted`.
    1. Click **Service**.
    1. Click **Add**.
-   1. Select `Quick UDP Internet Connections` and click **Add** and then **Close**.
+   1. Select `Quick UDP Internet Connections`, click **Add**, and then **Close**.
    1. Click **Save**.
 
 1. Add the second blocking rule:
@@ -416,11 +417,11 @@ Add more rules to enhance security:
    1. Navigate to the **Source** tab and select `Trusted`.
    1. Click **Applications**.
    1. Click **Add** ⟶ **Add applications**.
-   1. Select `Microsoft Update` and click **Add**.
-   1. Select `WinUpdate` and click **Add** and then **Close**.
+   1. Select the `Microsoft Update` app and click **Add**.
+   1. Select the `WinUpdate` app, click **Add**, and then **Close**.
    1. Click **Save**.
 
-You can add more traffic filtering rules. When doing that, avoid combining services and applications in the same rule; otherwise, it might not trigger.
+You can also add more traffic filtering rules. Avoid combining services and applications in the same rule. Doing so may make the rule inoperable.
 
 
 ## Configure subnet routing {#subnet-routing}
@@ -435,7 +436,7 @@ Create a [static route](../../vpc/concepts/routing.md):
   1. In the list of services, select **{{ vpc-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
   1. Click **Create**.
-  1. Specify the route table name meeing the following requirements:
+  1. Specify the route table name Follow these naming requirements:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
@@ -550,13 +551,13 @@ Create a [static route](../../vpc/concepts/routing.md):
 
   To create a route table with [static routes](../../vpc/concepts/routing.md):
 
-  1. Describe the resources you want to create in the terraform configuration file:
+  1. In the configuration file, describe the parameters of resources you want to create:
 
-     * `name`: Route table name. Meeting the following requirements:
+     * `name`: Route table name. Use the following name format:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `network_id`: Route table network ID.
+     * `network_id`: ID of the network to host the table.
      * `static_route`: Static route description:
         * `destination_prefix`: Destination CIDR block.
         * `next_hop_address`: gateway VM internal IP address serving as the next hop for the [allowed](../../vpc/concepts/network.md#subnet) traffic.
@@ -574,32 +575,32 @@ Create a [static route](../../vpc/concepts/routing.md):
      }
      ```
 
-     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource and specify its network ID in the `netword id` field, e.g. `network_id = "${yandex_vpc_network.lab-net.id}"`.
+     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `netword id` field, e.g., `network_id = "${yandex_vpc_network.lab-net.id}"`.
 
      For more information about the `yandex_vpc_route_table` {{ TF }} resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
   1. Make sure your configuration files are correct.
 
-     1. In the terminal, navigate to your configuration file directory.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```hcl
         terraform plan
         ```
 
-     If your configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy your cloud resources.
+  1. Deploy the cloud resources.
 
-     1. Once your configuration is correct, run this command:
+     1. If the configuration does not contain any errors, run this command:
 
         ```hcl
         terraform apply
         ```
 
-     1. When asked to confirm the changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         Terraform will create your resources in the specified folder. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+        This will create all the resources you need in the specified folder. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
         ```bash
         yc vpc route-table list
@@ -615,7 +616,7 @@ To test the firewall, we will create a test web service and check whether we can
 
 ### Set up a test VM {#test-vm-prepare}
 
-1. [Create](../../compute/operations/vm-create/create-linux-vm) a Linux-running VM in the `usergate-subnet-{{ region-id }}-d` subnet and enable the [serial console](../../compute/operations/serial-console/index.md) in its settings.
+1. [Create](../../compute/operations/vm-create/create-linux-vm) a VM from a public Linux image in the `usergate-subnet-{{ region-id }}-d` subnet and enable the [serial console](../../compute/operations/serial-console/index.md) in its settings.
 1. Connect to the VM by running the following [CLI](../../compute/operations/serial-console/connect-cli.md) command:
 
    ```bash

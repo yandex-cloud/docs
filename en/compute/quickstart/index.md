@@ -1,16 +1,13 @@
 ---
-title: Getting started with {{ compute-full-name }}
-description: This guide describes how you can create and set up a VM instance or an instance group.
+title: How to get started with {{ compute-full-name }}
+description: Follow this guide to create and configure a VM instance or an instance group.
 ---
 
 # Getting started with {{ compute-name }}
 
-Select the guide to explore:
+{% include [compute-description](../../_includes/compute/compute-description.md) %}
 
-* {{ compute-name }}
-
-    * [Creating a Linux VM](quick-create-linux.md)
-
-* {{ ig-name }}
-
-    * [Creating an instance group](ig.md)
+To get started, select the relevant guide:
+* [Simple Linux VM creation](simple-form-vm.md)
+* [Advanced Linux VM creation](quick-create-linux.md)
+* [Creating an instance group](ig.md)

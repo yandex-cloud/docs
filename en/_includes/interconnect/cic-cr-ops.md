@@ -31,7 +31,7 @@ Getting a list of trunk operations | — | [Description](../../interconnect/oper
 Creating a direct trunk | [Description](../../interconnect/tutorials/trunk-priv-add.md) | [Description](../../interconnect/operations/trunk-create.md#direct)
 Updating trunk parameters | Yes | [Description](../../interconnect/operations/trunk-update.md)
 Updating trunk capacity | [Description](../../interconnect/tutorials/trunk-capacity-change.md) | Not supported
-Deleting a trunk | [Description](../../interconnect/tutorials/trunk-del.html) | [Description](../../interconnect/operations/trunk-delete.md)
+Deleting a trunk | [Description](../../interconnect/tutorials/trunk-del.md) | [Description](../../interconnect/operations/trunk-delete.md)
 
 
 ## Private connection {#prc}

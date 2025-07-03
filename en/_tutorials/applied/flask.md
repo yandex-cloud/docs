@@ -215,7 +215,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
 ## Create and set up a virtual machine {#create-setup-vm}
 
 A [virtual machine](../../compute/concepts/vm.md) is similar to a server in cloud infrastructures. In {{ yandex-cloud }}, you can create VMs with varying hardware specifications in terms of [performance](../../compute/concepts/performance-levels.md), RAM, and [disk space](../../compute/concepts/disk.md#maximum-disk-size); they can also run on various [operating systems](../../compute/concepts/image.md#public).
-
+ 
 This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) VM.
 
 1. Create a virtual machine:
@@ -230,6 +230,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
       1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+      1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -243,7 +244,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
           * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field: `yc-user`.
           * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `sftp-server`.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mywebserver`.
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
     - CLI {#cli}
@@ -618,7 +619,7 @@ To use templates in the app, you can use the [`render_template()`](https://flask
     ...
     ```
 
-    The link uses the [`url_for()`](https://flask.palletsprojects.com/en/latest/api/#flask.url_for) helper function​​​ to generate the URL for the file location. The first argument means the link references a static file; the second argument specifies the path to the file in the static file subdirectory.
+    The link uses the [`url_for()` helper function](https://flask.palletsprojects.com/en/latest/api/#flask.url_for) to generate the URL for the file location. The first argument means the link references a static file; the second argument specifies the path to the file in the static file subdirectory.
 
     Save and close the `index.html` file.
 
@@ -1044,7 +1045,7 @@ Create a new Flask route with a view function that will process a new HTML templ
     * `'post'`: `post()` view function.
     * `post_id`: Variable with the `post['id']` value used by the view function. 
 
-    The `post['id']` function returns a valid URL for each post title based on the post ID.
+    The `url_for()` function returns a valid URL for each post title based on the post ID.
 
     Save and close the `index.html` file.
 

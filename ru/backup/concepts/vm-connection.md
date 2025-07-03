@@ -80,8 +80,6 @@ description: Из этой статьи вы узнаете, какие вирт
 
 - Виртуальная машина {#vm}
 
-  * [Astra Linux SE 1.7 «Воронеж»](/marketplace/products/astralinux/alse)
-  * [Astra Linux SE 1.7 «Орел»](/marketplace/products/astralinux/alse-orel)
   * [CentOS 7](/marketplace/products/yc/centos-7)
   * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
   * [CentOS Stream](/marketplace/products/yc/centos-stream-8)
@@ -113,7 +111,7 @@ description: Из этой статьи вы узнаете, какие вирт
 
 - Виртуальная машина {#vm}
 
-  * [Kosmos VM 2022 на базе Windows Server Datacenter 2022](/marketplace/products/fotonsrv/kosmosvm2022)
+    * [Kosmos VM 2022 на базе Windows Server Datacenter 2022](/marketplace/products/fotonsrv/kosmosvm2022)
   * [Kosmos VM 2019 на базе Windows Server Datacenter 2019](/marketplace/products/fotonsrv/kosmosvm2019)
   * [Kosmos VM 2016 на базе Windows Server Datacenter 2016](/marketplace/products/fotonsrv/kosmosvm2016)
   * [Kosmos VM RDS (5 лицензий)](/marketplace/products/fotonsrv/kos-5-rds)

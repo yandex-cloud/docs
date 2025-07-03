@@ -7,7 +7,7 @@ A security profile may include:
 * Basic rules for simple traffic filtering based on specified conditions.
 * Smart Protection rules for automatic protection against DDoS attacks with machine learning and behavior analysis algorithms.
 * WAF profile rules for protection from application vulnerability exploits. Currently, you can connect the [OWASP Core Rule Set](https://owasp.org/www-project-modsecurity-core-rule-set/) (CRS) that blocks many known threats, such as SQL and command injections, cross-site scripting, and others.
-* Built-in [{{ captcha-full-name }}](../smartcaptcha) to run [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) checks against bots and spam.
+* Built-in [{{ captcha-full-name }}](../../smartcaptcha/) to run [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) checks against bots and spam.
 * IP address filtering lists to allow or block requests from specified IP addresses.
 
 An ARL profile contains rules for limiting the number of requests to the protected resource based on various conditions.

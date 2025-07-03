@@ -51,6 +51,10 @@
 
   Подробнее о команде читайте в [справочнике CLI](../../cli-ref/instance/stop.md).
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Stop](../../api-ref/Instance/stop.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Stop](../../api-ref/grpc/Instance/stop.md).
+
 {% endlist %}
 
 ## Запустить инстанс {#start-instance}
@@ -101,5 +105,9 @@
   ```
 
   Подробнее о команде читайте в [справочнике CLI](../../cli-ref/instance/start.md).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Start](../../api-ref/Instance/start.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Start](../../api-ref/grpc/Instance/start.md).
 
 {% endlist %}

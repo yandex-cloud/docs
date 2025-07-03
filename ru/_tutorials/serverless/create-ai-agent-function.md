@@ -428,7 +428,7 @@ AI-агент — это программный помощник на базе �
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите сервисный аккаунт `function-sa`.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `MODEL_NAME` — [URI модели](/foundation-models/concepts/yandexgpt/models#generation) генерации текста {{ foundation-models-full-name }}.
+             * `MODEL_NAME` — [URI модели](../../foundation-models/concepts/yandexgpt/models.md#generation) генерации текста {{ foundation-models-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
                 

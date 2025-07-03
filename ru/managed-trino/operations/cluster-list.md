@@ -277,6 +277,88 @@ description: Вы можете запросить детальную инфор�
 
 {% endlist %}
 
+### Получить подробную информацию об операции {#get-operations-info}
+
+1. [Получите список операций](#get-operations) для кластера.
+1. Скопируйте идентификатор нужной операции.
+1. Получите подробную информацию об операции:
+
+    {% list tabs group=instructions %}
+
+    - CLI {#cli}
+
+        {% include [cli-install](../../_includes/cli-install.md) %}
+
+        {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+        Выполните команду:
+
+        ```bash
+        yc operation get <идентификатор_операции>
+        ```
+
+        Результат:
+
+        ```text
+        id: trcippp3rvn7********
+        description: Update Managed Trino cluster
+        created_at: "2025-06-11T10:36:37.278776Z"
+        created_by: ajejut7dk2dp********
+        modified_at: "2025-06-11T10:36:37.278776Z"
+        done: true
+        metadata:
+          '@type': type.googleapis.com/yandex.cloud.trino.v1.UpdateClusterMetadata
+          cluster_id: c9q3jaob16gp********
+        response:
+          '@type': type.googleapis.com/yandex.cloud.trino.v1.Cluster
+        ...
+        ```
+
+    - REST API {#api}
+
+        1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+            {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+        1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-operation }}/operations/<идентификатор_операции>'
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Operation/get.md#yandex.cloud.operation.Operation).
+
+    - gRPC API {#grpc-api}
+
+        1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+            {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+        1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+        1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/operation/operation_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                    "operation_id": "<идентификатор_операции>"
+                    }' \
+                {{ api-host-operation }}:{{ port-https }} \
+                yandex.cloud.operation.OperationService.Get
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation).
+
+    {% endlist %}
+
 ## См. также {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

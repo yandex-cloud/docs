@@ -12,7 +12,7 @@ Trunks are mainly used for:
 
 {% note warning %}
 
-Customers can have one or more trunks set up at a single [point of presence](./pops.md). However, you cannot set up multiple [private connections](./priv-con.md) to a single cloud network through different trunks at the same point of presence. To ensure fault tolerance, we recommend setting up multiple (at least two) trunks, one at each [point of presence](./pops.md).
+Customers can have one or more trunks set up at a single [point of presence](./pops.md). However, you cannot set up multiple [private connections](./priv-con.md) to a single cloud network through different trunks at the same point of presence. 
 
 
 {% endnote %}
@@ -35,7 +35,7 @@ If you need to, you can group multiple physical ports into a single bundle using
 
 ## Physical connection topologies {#links}
 
-{{ yandex-cloud }} equipment supports the following physical connection options:
+{{ yandex-cloud }} equipment supports the following physical link options:
 
 * [Direct customer connection](#direct-link): Connection of your own equipment at the point of presence directly to the {{ yandex-cloud }} equipment.
 * [Connection via a telecom provider](#sp-link): You have no equipment of your own at the point of presence and use the services of a telecom provider to set up a connection to the {{ yandex-cloud }} equipment.
@@ -146,6 +146,5 @@ At the trunk level, {{ yandex-cloud }} equipment uses reception and transmission
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/trunk-priv-add.md)
-* [{#T}](../tutorials/trunk-pub-add.md)
 * [{#T}](../tutorials/trunk-capacity-change.md)
 * [{#T}](../tutorials/trunk-del.md)

@@ -1,4 +1,4 @@
-# Setting up network connectivity in a {{ baremetal-full-name }} subnet
+# Establishing network connectivity in a {{ baremetal-full-name }} private subnet
 
 If you set up routing for a [private subnet](../../baremetal/concepts/network.md#private-subnet) and assigned it a [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), the network interfaces of [{{ baremetal-name }} servers](../../baremetal/concepts/servers.md) connected to this subnet will get IP addresses from the range specified in the subnet’s CIDR settings via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol).
 
@@ -8,7 +8,7 @@ This is because the DHCP server becomes part of a private subnet only once the s
 
 {% note info %}
 
-If the server OS is installed from [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}) images, IP address acquisition via DHCP is enabled by default on all physical interfaces of this server.
+If the server OS is installed from [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}) images, all physical interfaces on this server are configured to use DHCP for IP address assignment by default.
 
 {% endnote %}
 
@@ -16,7 +16,7 @@ To learn more about networks in {{ baremetal-full-name }}, see [{#T}](../../bare
 
 In this tutorial, you will learn how to manually disable DHCP on a network interface from a {{ baremetal-name }} server private subnet and assign it a static IP address. You will also learn to re-enable DHCP on the server's network interface after routing is enabled in this subnet.
 
-In this example, you will use {{ baremetal-name }} servers running Linux Ubuntu 24.04 LTS. If using another OS, you will need to follow the same steps, but the way you configure network interfaces may differ. For instructions on configuring network interfaces in other operating systems, refer to the relevant OS tutorials.
+In this example, you will use {{ baremetal-name }} servers running Linux Ubuntu 24.04 LTS. If using another OS, you will follow the same steps, but the way you configure network interfaces may differ. For network interface configuration steps in other operating systems, refer to the relevant OS tutorials
 
 To configure network connectivity in a {{ baremetal-full-name }} subnet:
 
@@ -27,7 +27,7 @@ To configure network connectivity in a {{ baremetal-full-name }} subnet:
 1. [Create a VRF segment and enable routing in the private subnet](#setup-vrf).
 1. [Enable DHCP on the network interfaces](#re-enable-dhcp).
 
-See also [How to cancel a server lease](#clear-out).
+See also [How to cancel server lease](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -45,11 +45,11 @@ Create a private subnet in the `{{ region-id }}-m3` [server pool](../../baremeta
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
-  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `subnet-m3`.
+  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.
   1. Without enabling the **{{ ui-key.yacloud.baremetal.title_routing-settings }}** option, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
 {% endlist %}
@@ -61,7 +61,7 @@ Create a private subnet in the `{{ region-id }}-m3` [server pool](../../baremeta
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
@@ -70,13 +70,13 @@ Create a private subnet in the `{{ region-id }}-m3` [server pool](../../baremeta
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3`, which you created earlier.
+     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3` you created earlier.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}** in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the server: `server-m3-1`.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `server-m3-1`.
   1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
   1. Similarly, lease one more server named `server-m3-2` in the `{{ region-id }}-m3` server pool.
 
@@ -90,7 +90,7 @@ Getting servers ready and installing operating systems on them may take up to 45
 
 ## Manually configure the network interfaces {#setup-interfaces}.
 
-As the DHCP server is disabled in the `subnet-m3` private subnet, the {{ baremetal-name }} servers you created were not assigned internal IP addresses, and there is no network connectivity between them.
+Since the DHCP server is disabled in the `subnet-m3` private subnet, the {{ baremetal-name }} servers you created have no internal IP addresses assigned or network connectivity established.
 
 At this stage, you will connect to the servers and modify the settings of their network interfaces linked to the private subnet by disabling DHCP and assigning them static IP addresses.
 
@@ -102,22 +102,22 @@ No public IP addresses were assigned to the servers, so you cannot connect to th
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
+  1. Next to `server-m3-1`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   
-      You will see an authentication line in the KVM console terminal window that opens:
+      The KVM console terminal window will open, showing a login prompt:
       
       ```
       server-m3-1 login:
       ```
 
-      If you do not see this line, try [restarting](../../baremetal/operations/servers/server-stop-and-start.md#restart) the server.
+      If you do not see this prompt, try [restarting](../../baremetal/operations/servers/server-stop-and-start.md#restart) the server.
 
       Perform all further actions described in this step in the KVM console terminal:
 
       1. Specify `root` for the username and press **ENTER**.
-      1. Paste the password received when leasing the server in the password input line and press **ENTER**. Note that when typing or pasting a password in Linux, the characters you enter are not displayed on the screen.
+      1. Paste the password received when leasing the server in the password input line and press **ENTER**. Note that when typing or pasting a password in Linux, the characters you enter will not appear on the screen.
 
           {% include [kvm-paste-tip](../../_includes/baremetal/kvm-paste-tip.md) %}
 
@@ -129,7 +129,7 @@ No public IP addresses were assigned to the servers, so you cannot connect to th
           root@server-m3-1:~# _
           ```
 
-          If you did not save the server administrator password, you can create a new password following this [guide](../../baremetal/operations/servers/reset-password.md) or [reinstall](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) the server OS.
+          If you did not save the server administrator password, you can create a new password following [this guide](../../baremetal/operations/servers/reset-password.md) or [reinstall](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) the server OS.
       1. View a list of the server’s network interfaces and find the interface connected to the private subnet:
 
           ```bash
@@ -161,18 +161,18 @@ No public IP addresses were assigned to the servers, so you cannot connect to th
           ```bash
           nano /etc/netplan/50-cloud-init.yaml
           ```
-      1. In the file that opens, edit the network interface settings:
+      1. In the file, edit the network interface settings:
 
           ```yaml
           network:
             version: 2
             ethernets:
-              ... # This example shows only the configuration of the interface you need to set up
+              ... # This example shows only the configuration of the interface you need to set up.
               etx2:
                 match:
                   macaddress: "00:02:09:35:fd:31"
-                dhcp4: false # Here, opt out of using DHCP
-                addresses: # Set the interface static IP address in this section
+                dhcp4: false # Here, opt out of using DHCP.
+                addresses: # Set the interface static IP address in this section.
                   - 192.168.1.101/24
                 set-name: "etx2"
           ```
@@ -207,7 +207,7 @@ No public IP addresses were assigned to the servers, so you cannot connect to th
               inet 192.168.1.101/24 brd 192.168.1.255 scope global etx2
           ```
 
-          The network interface is configured to use the `192.168.1.101` static IP address in the private subnet named `subnet-m3`.
+          The network interface is configured to use the `192.168.1.101` static IP address in `subnet-m3`.
   1. Similarly, configure the `server-m3-2` network interface by assigning it the `192.168.1.102/24` static IP address in the netplan settings.
 
 {% endlist %}
@@ -220,11 +220,11 @@ By reconfiguring the network interfaces of the servers in the private subnet, yo
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
+  1. Next to `server-m3-1`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   1. Authenticate as the `root` user in the KVM console terminal with the password you saved when leasing the server.
-  1. In the KVM console terminal, run the `ping` command to check you can access `server-m3-2` by its IP address, `192.168.1.102`:
+  1. In the KVM console terminal, run the `ping` command to make sure you can access `server-m3-2` by its IP address, `192.168.1.102`:
 
       ```bash
       ping 192.168.1.102 -c 5
@@ -251,7 +251,7 @@ By reconfiguring the network interfaces of the servers in the private subnet, yo
 
 ## Create a VRF segment and enable routing in the private subnet {#setup-vrf}
 
-To activate the DHCP server in the private subnet, create a virtual network segment (VRF) and enable routing in the subnet by linking it to this VRF.
+To enable the DHCP server in the private subnet, create a virtual network segment (VRF) and enable routing in the subnet by linking it to that VRF.
 
 
 ### Create a virtual network segment (VRF) {#create-vrf}
@@ -260,10 +260,10 @@ To activate the DHCP server in the private subnet, create a virtual network segm
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
-  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF segment: `my-vrf`.
+  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, name your VRF segment: `my-vrf`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
 
 {% endlist %}
@@ -274,7 +274,7 @@ To activate the DHCP server in the private subnet, create a virtual network segm
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}**.
   1. In the `subnet-m3` row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
@@ -290,11 +290,11 @@ To activate the DHCP server in the private subnet, create a virtual network segm
 
 ## Enable DHCP on the network interfaces {#re-enable-dhcp}
 
-After you enabled routing in the private subnet and connected it to the VRF segment, a DHCP server started automatically in this subnet. To allow network interfaces of your {{ baremetal-name }} servers to obtain IP addresses via DHCP, you need to enable DHCP in their configuration.
+After you enabled routing in the private subnet and connected it to the VRF segment, a DHCP server starts automatically in this subnet. To allow network interfaces of your {{ baremetal-name }} servers to obtain IP addresses via DHCP, you need to enable DHCP in their configuration.
 
 {% note info %}
 
-The DHCP server that serves the VRF-enabled private subnets can only assign IP addresses to physical interfaces of known (trusted) {{ baremetal-name }} servers. Therefore, you cannot assign IP addresses from a private subnet to containers or VMs running on your server.
+The DHCP server that serves VRF-enabled private subnets can only assign IP addresses to physical interfaces of trusted {{ baremetal-name }} servers. Therefore, you cannot assign IP addresses from a private subnet to containers or VMs running on your server.
 
 {% endnote %}
 
@@ -304,7 +304,7 @@ The DHCP server that serves the VRF-enabled private subnets can only assign IP a
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   1. Authenticate as the `root` user in the KVM console terminal with the password you saved when leasing the server. Perform all further actions described in this step in the KVM console terminal:
@@ -320,12 +320,12 @@ The DHCP server that serves the VRF-enabled private subnets can only assign IP a
           network:
             version: 2
             ethernets:
-              ... # This example shows only the configuration of the interface connected to the private subnet
+              ... # This example shows only the configuration of the interface connected to the private subnet.
               etx2:
                 match:
                   macaddress: "00:02:09:35:fd:31"
-                dhcp4: true # Here, enable DHCP
-                # Comment out or delete the addresses section
+                dhcp4: true # Here, enable DHCP.
+                # Comment out or delete the addresses section.
                 # addresses:
                 #   - 192.168.1.101/24
                 set-name: "etx2"
@@ -368,11 +368,11 @@ Make sure the servers retained network connectivity after obtaining IP addresses
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   1. Authenticate as the `root` user in the KVM console terminal with the password you saved when leasing the server.
-  1. In the KVM console terminal, run the `ping` command to check you can access `server-m3-2` by the IP address you saved in the previous step, e.g., `192.168.1.3`:
+  1. In the KVM console terminal, run the `ping` command to make sure you can access `server-m3-2` by the IP address you saved in the previous step (`192.168.1.3` in our example):
 
       ```bash
       ping 192.168.1.3 -c 5

@@ -71,7 +71,7 @@
     1. Введите адрес домена, на котором находится ваше веб-приложение, например, `example.com`.
     1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
     1. Выберите тип соединения, которое используется в вашем приложении. Рекомендуем выбрать защищенный протокол **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.https_qWPJb }}**.
-    1. Если вы используете сервис [{{ certificate-manager-name }}](../../certificate-manager/) и добавляли в него сертификат вашего домена, выберите его из списка. 
+    1. Если вы используете сервис [{{ certificate-manager-name }}](../certificate-manager/) и добавляли в него сертификат вашего домена, выберите его из списка. 
     1. Если вы не используете {{ certificate-manager-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}** → **{{ ui-key.yacloud.certificate-manager.CertificateField.userCertificate_bChXn }}**.
        1. Введите произвольное имя сертификата.
        1. Скопируйте или загрузите файлом приватный ключ, сертификат и цепочку промежуточных сертификатов в формате PEM.

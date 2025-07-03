@@ -345,5 +345,3 @@ There are no limits for {{ metadata-hub-full-name }}.
 ### {{ websql-full-name }} {#websql}
 
 {% include [websql-limits](../../_includes/websql-limits.md) %}
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -74,7 +74,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% endlist %}
 
-### Фильтр таблиц {#additional-settings}
+### Фильтр таблиц {#filter-settings}
 
 {% list tabs group=instructions %}
 
@@ -100,11 +100,19 @@ description: Из статьи вы узнаете, как задать наст
 
       Имена включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в {{ GP }}. Двойные кавычки внутри имени таблицы не поддерживаются. Внешние кавычки используются только как разделители и будут удалены при обработке путей.
 
+{% endlist %}
+
+### Расширенные настройки {#additional-settings}
+
+- Консоль управления {#console}
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.strong_consistency.title }}** — при включении {{ data-transfer-name }} выполнит дополнительные действия с источником для обеспечения [консистентности снапшота](#snapshot-consistency).
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}** — схема, которая будет использоваться для размещения служебных объектов трансфера.
 
-    Имя схемы должно соответствовать правилам именования идентификаторов в {{ GP }}. Двойные кавычки в имени схемы не поддерживаются.
+      Имя схемы должно соответствовать правилам именования идентификаторов в {{ GP }}. Двойные кавычки в имени схемы не поддерживаются.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.disable_gpfdist.title }}** — отключает использование [утилиты](../../../../managed-greenplum/operations/gpfdist/connect.md) `gpfdist` для трансферов из {{ GP }} в {{ GP }}.
 
 {% endlist %}
 

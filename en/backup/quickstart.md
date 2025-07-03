@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of VM backup resources includes:
 * Fee for VM [computing resources](../compute/concepts/vm-platforms.md) and [disks](../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../compute/pricing.md)).
-* Fee for protected VMs and backup storage (see [{{ backup-full-name }} pricing](./pricing.md)).
+* Fee for backed up VMs and backup retention (see [{{ backup-full-name }} pricing](./pricing.md)).
 
 ## Create your infrastructure {#deploy-infrastructure}
 
@@ -40,7 +40,7 @@ You can use an existing [cloud network](../vpc/concepts/network.md#network) and 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM connected to {{ backup-name }}.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. Follow these naming requirements:
+  1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
@@ -144,6 +144,7 @@ To activate the service, you need _at least_ the `backup.editor` [role](security
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../compute/concepts/image.md) with a [supported OS](./concepts/vm-connection.md#os), e.g., [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}** and **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, set the preferred VM parameters.

@@ -49,9 +49,6 @@ links:
   - title: Cloud Video
     description: Video hosting and online streaming
     href: video/
-  - title: '{{ ca-name }}'
-    description: AI-driven developer assistant that provides code autocompletion
-    href: code-assistant/
   - title: Compute Cloud
     description: Virtual machines and disks
     href: compute/

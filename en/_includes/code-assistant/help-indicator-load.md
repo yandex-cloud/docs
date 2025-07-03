@@ -1,1 +1,0 @@
-When generating a suggestion, the ![image](../../_assets/code-assistant/loading.svg) loading icon will appear to the left of the editable code. If generation stops or there is no result, you will see the ![image](../../_assets/code-assistant/chat_crossed.svg) (no suggestion) icon.
