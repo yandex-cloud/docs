@@ -6,7 +6,7 @@ description: Follow this guide to install Policy Reporter.
 # Installing Policy Reporter
 
 
-[Policy Reporter](https://kyverno.github.io/policy-reporter/) is designed for working with Kyverno policy results: [PolicyReports](https://kyverno.io/docs/policy-reports/). It also supports such tools as Falco, jsPolicy, Kube Bench, and Trivy. Policy Reporter provides graphical visualization of results. For long-term storage or further uploading to the SIEM system, results can be exported to external storage, e.g., [{{ objstorage-full-name }} (S3)](../../../storage/) or [{{ yds-full-name }}](../../../data-streams/).
+[Policy reporter](https://kyverno.github.io/policy-reporter/) is designed for working with Kyverno policy results: [PolicyReports](https://kyverno.io/docs/policy-reports/). It also supports such tools as Falco, jsPolicy, Kube Bench, and Trivy. Policy Reporter provides graphical visualization of results. For long-term storage or further uploading to the SIEM system, results can be exported to external storage, e.g., [{{ objstorage-full-name }} (S3)](../../../storage/) or [{{ yds-full-name }}](../../../data-streams/).
 
 {% note warning %}
 
@@ -47,7 +47,7 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
-1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Policy Reporter](/marketplace/products/yc/policy-reporter) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Policy reporter](/marketplace/products/yc/policy-reporter) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `policy-reporter-space`. If you leave the default namespace, Policy Reporter may work incorrectly.
    * **Application name**: Specify the application name.

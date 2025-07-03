@@ -4,6 +4,6 @@ description: Follow this guide to set up network connectivity between a private 
 canonical: '{{ link-docs }}/tutorials/routing/bm-vrf-and-vpc-interconnect'
 ---
 
-# Setting up network connectivity between {{ baremetal-name }} and {{ vpc-full-name }} subnets using {{ interconnect-full-name }}
+# Establishing network connectivity between {{ baremetal-name }} and {{ vpc-full-name }} private subnets with the help of {{ interconnect-full-name }}
 
 {% include notitle [bm-vrf-and-vpc-interconnect](../../_tutorials/routing/bm-vrf-and-vpc-interconnect.md) %}

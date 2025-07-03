@@ -2,9 +2,9 @@
 
 [{{ interconnect-full-name }}](../../interconnect/index.yaml)-based network connectivity in {{ baremetal-full-name }} enables access to [CIDRs](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) of private {{ vpc-name }} subnets in a cloud infrastructure and/or CIDRs of private subnets in an on-prem infrastructure.
 
-In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a [private {{ baremetal-full-name }} subnet](../../baremetal/concepts/network.md#private-network) and a {{ compute-full-name }} [VM instance](../../compute/concepts/vm.md) located in a subnet of a {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network).
+In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a private {{ baremetal-full-name }} [subnet](../../baremetal/concepts/network.md#private-network) and a {{ compute-full-name }} [VM](../../compute/concepts/vm.md) located in a subnet of a {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network).
 
-Similarly, you can set up network connectivity with your on-prem resources located in private subnets in your own network infrastructure.
+Similarly, you can set up network connectivity with your on-prem resources located in private subnets within your own network infrastructure.
 
 You can use {{ interconnect-full-name }} free of charge as part of integration with {{ baremetal-full-name }}.
 
@@ -12,13 +12,13 @@ You can see the solution architecture in the diagram below:
 
 ![bm-vrf-and-vpc-interconnect](../../_assets/tutorials/bm-vrf-and-vpc-interconnect.svg)
 
-To set up network connectivity between {{ baremetal-full-name }} and {{ vpc-full-name }} subnets using {{ interconnect-full-name }}:
+To set up network connectivity between {{ baremetal-name }} and {{ vpc-name }} subnets using {{ interconnect-name }}:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a cloud infrastructure](#setup-infrastructure).
 1. [Request a routing instance](#request-routing-instance).
 1. [Create a private connection](#create-private-connection).
-1. [Check network connectivity](#check-connectivity).
+1. [Test network connectivity](#check-connectivity).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -35,16 +35,18 @@ The cost of supporting an infrastructure for network connectivity between {{ bar
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
+{% include [bms-vpc-private-over-cic-free-traffic](../../_includes/baremetal/bms-vpc-private-over-cic-free-traffic.md) %}
+
 
 ## Create a cloud infrastructure {#setup-infrastructure}
 
-Create the {{ yandex-cloud }} infrastructure you are going to set up for network connectivity.
+Create the {{ yandex-cloud }} infrastructure you will use to set up network connectivity.
 
-To configure {{ interconnect-name }} in {{ baremetal-name }}, you will need a private routable [subnet](../../baremetal/concepts/network.md#private-subnet) and a [VRF segment](../../baremetal/concepts/network.md#vrf-segment) in {{ baremetal-name }}, a [cloud network](../../vpc/concepts/network.md#network) with one or more {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet), as well as a routing instance with one or more [announced](../../interconnect/concepts/priv-con.md#prc-announce) prefixes of private {{ vpc-short-name }} subnets.
+To configure {{ interconnect-name }} in {{ baremetal-name }}, you will need a private routable [subnet](../../baremetal/concepts/network.md#private-subnet) and a [VRF segment](../../baremetal/concepts/network.md#vrf-segment) in {{ baremetal-name }}, a [cloud network](../../vpc/concepts/network.md#network) with one or more {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet), as well as a routing instance with at least one [announced](../../interconnect/concepts/priv-con.md#prc-announce) {{ vpc-short-name }} private subnet prefix.
 
-To check network connectivity, you will need a {{ baremetal-name }} server and a {{ compute-name }} VM instance.
+To check network connectivity, you will need a {{ baremetal-name }} server and a {{ compute-name }} VM.
 
-### Create a VRF segment and a private {{ baremetal-name }} subnet {#setup-vrf}
+### Create a VRF segment and a {{ baremetal-name }} private subnet {#setup-vrf}
 
 Create a virtual network segment (VRF) and a private subnet in the `{{ region-id }}-m3` [server pool](../../baremetal/concepts/servers.md#server-pools):
 
@@ -52,11 +54,11 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Create a virtual routing and forwarding segment:
         1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
-        1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF segment: `my-vrf`.
+        1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, name your VRF segment: `my-vrf`.
         1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. Create a private subnet:
         1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
@@ -115,7 +117,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Create a cloud network:
 
       1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -148,9 +150,9 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create the infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the VM image you need. Here is an example: [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an appropriate VM image, Here is an example: [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -167,11 +169,12 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 
 {% endlist %}
 
-## Request a routing instance {#request-routing-instance}
 
-To set up network connectivity between {{ baremetal-name }} subnets, {{ vpc-name }} subnets, and/or on-prem subnets, you will need a routing instance. You can create a routing instance by [contacting]({{ link-console-support }}/tickets/create) support.
+## Create a routing instance {#request-routing-instance}
 
-If your folder already has [{{ interconnect-name }}](../../interconnect/index.yaml) network connectivity (VPC-to-On-Prem) configured, you can either use the existing routing instance or request an additional routing instance for standalone network connectivity.
+To set up network connectivity between {{ baremetal-name }} subnets, {{ vpc-name }} subnets, and/or on-prem subnets, you need to create a `Routing Instance` resource. To create a `Routing Instance`, [contact]({{ link-console-support }}/tickets/create) support.
+
+If your folder already has [{{ interconnect-name }}](../../interconnect/index.yaml) network connectivity (VPC-to-On-Prem) configured, you can either use the existing `Routing Instance` or request a new additional `Routing Instance` to be created for standalone network connectivity.
 
 ### Make sure you have a routing instance in your folder {#check-for-ri}
 
@@ -191,7 +194,7 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
         yc cloudrouter routing-instance list
         ```
 
-        If your default folder already has a routing instance, the command will output the following:
+        If your folder already includes a routing instance, the command will output the following:
 
         ```text
         +----------------------+------------------+--------+-----------------------+
@@ -203,9 +206,9 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
 
     {% endlist %}
 
-1. If you already have a routing instance, you may skip the next step and [proceed](#create-private-connection) creating a private connection.
+1. If you already have a routing instance, you may skip the next step and [proceed](#create-private-connection) to creating a private connection.
 
-    If you do not have a routing instance or you want to build additional standalone network connectivity, request a new routing instance.
+    If you do not have a routing instance or you want to build additional dedicated network connectivity, request a new routing instance.
 
 ### Request a new routing instance {#request-ri}
 
@@ -214,14 +217,12 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
 Fill out your request as follows:
 
 ```text
-Subject: [CIC for BareMetal] Adding a routing instance.
+Subject: [CIC for BareMetal] Creating a routing instance.
 
 Request text:
-Please, add a routing instance.
+Please create a routing instance in the specified cloud folder with the following parameters:
 
-Connection settings:
-folder_id: <catalog_ID>
-region_id: {{ region-id }}
+folder_id: <folder_ID>
 
 vpc:
   vpc_net_id: <network_ID>
@@ -233,15 +234,14 @@ vpc:
 
 Where:
 * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-* `region_id`: [Region](../../overview/concepts/region.md) ID.
 * `vpc_net_id`: Cloud network [ID](../../vpc/operations/network-get-info.md).
 * `vpc_subnets`: List of [announced](../../interconnect/concepts/priv-con.md#prc-announce) address prefixes for each [availability zone](../../overview/concepts/geo-scope.md). For example, for the {{ vpc-short-name }} subnet you created earlier, you will specify `{{ region-id }}-b: [192.168.11.0/24]`.
 
-    It is allowed to announce address prefixes with [aggregation](../../interconnect/concepts/priv-con.md#agg-subnets).
+    You may announce [aggregated](../../interconnect/concepts/priv-con.md#agg-subnets) address prefixes.
 
 {% note info %}
 
-It may take up to 24 hours for the support to create a routing instance. As the result, you will be able to get the ID of the new routing instance by running the `yc cloudrouter routing-instance list` [{{ yandex-cloud }} CLI](../../cli/index.yaml) command.
+It may take up to 24 hours for the support to create a routing instance. After that, you will be able to get the ID of the new routing instance by running the `yc cloudrouter routing-instance list` [{{ yandex-cloud }} CLI](../../cli/index.yaml) command.
 
 {% endnote %}
 
@@ -251,36 +251,36 @@ Once the routing instance has been created in your folder, create a [private {{ 
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 
-## Check network connectivity {#check-connectivity}
+## Test network connectivity {#check-connectivity}
 
-As soon as the status of the new private connection changes to `Ready`, network connectivity will be established between the {{ baremetal-name }} and {{ vpc-short-name }} subnets, and you will be able to start checking it.
+As soon as the status of the new private connection changes to `Ready`, network connectivity between the {{ baremetal-name }} and {{ vpc-short-name }} subnets will be established, and you can start checking it.
 
 A network connectivity check assumes that:
 * The process of setting up a private connection to cloud networks has been successfully completed (the connection status is `Ready`).
-* [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) traffic is allowed by the local firewall on the {{ baremetal-name }} server.
+* The local firewall on the {{ baremetal-name }} server allows [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) traffic.
 * The routing table in the {{ baremetal-name }} server OS contains a route to the CIRD of the subnet the VM resides in.
 * The [security group](../../vpc/concepts/security-groups.md) assigned to the VM [network interface](../../compute/concepts/network.md) allows ICMP traffic.
 
-### Check network connectivity from the private {{ baremetal-name }} subnet to the private {{ vpc-short-name }} subnet {#check-bms-to-vm}
+### Test network connectivity between a private {{ baremetal-name }} subnet and a private {{ vpc-short-name }} subnet {#check-bms-to-vm}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the row with the `server-m3` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Next to `server-m3`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   
-      You will see an authentication line in the KVM console terminal window that opens:
+      The KVM console terminal window will open, showing a login prompt:
       
       ```
       server-m3 login:
       ```
 
-      If you do not see this line, try [restarting](../../baremetal/operations/servers/server-stop-and-start.md#restart) the server.
+      If you do not see this prompt, try [restarting](../../baremetal/operations/servers/server-stop-and-start.md#restart) the server.
 
   1. In the KVM console terminal, specify `root` for the username and press **ENTER**.
-  1. Paste the password generated when leasing the server in the password input line and press **ENTER**. Note that when typing or pasting a password in Linux, the characters you enter are not displayed on the screen.
+  1. Paste the password generated when leasing the server in the password input line and press **ENTER**. Note that when typing or pasting a password in Linux, the characters you enter will not appear on the screen.
 
       {% include [kvm-paste-tip](../../_includes/baremetal/kvm-paste-tip.md) %}
 
@@ -292,14 +292,14 @@ A network connectivity check assumes that:
       root@server-m3:~# _
       ```
 
-      If you did not save the server administrator password, you can create a new password following this [guide](../../baremetal/operations/servers/reset-password.md) or [reinstall](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) the server OS.
+      If you did not save the server administrator password, you can create a new password following [this guide](../../baremetal/operations/servers/reset-password.md) or [reinstall](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) the server OS.
   1. In the KVM console terminal, run the `ping` command to make sure you can access `sample-vm` by its [internal](../../compute/concepts/network.md#internal-ip) IP address:
 
       ```bash
       ping <VM_internal_IP_address> -c 5
       ```
 
-      You can find out the VM's internal IP address in the [management console]({{ link-console-main }}) under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** on the VM information page.
+      You can find the VM internal IP address in the [management console]({{ link-console-main }}) under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** on the VM information page.
 
       Result:
 
@@ -320,7 +320,7 @@ A network connectivity check assumes that:
 
 {% endlist %}
 
-### Check network connectivity from the private {{ vpc-short-name }} subnet to the private {{ baremetal-name }} subnet {#check-vm-to-bms}
+### Test network connectivity between a private {{ vpc-short-name }} subnet and a private {{ baremetal-name }} subnet {#check-vm-to-bms}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
 1. In the terminal, run the `ping` command to make sure you can access `server-m3` by its private IP address:
@@ -329,7 +329,7 @@ A network connectivity check assumes that:
       ping <server_private_IP_address> -c 5
       ```
 
-      You can find out the private IP address of the {{ baremetal-name }} server in the [management console]({{ link-console-main }}) under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server information page.
+      You can find the private IP address of the {{ baremetal-name }} server in the [management console]({{ link-console-main }}) under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server information page.
 
       Result:
 
@@ -354,18 +354,18 @@ To stop paying for the resources you created:
 
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 1. You cannot delete a {{ baremetal-name }} server. Instead, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the server lease renewal.
-1. Delete the private connection if you need to:
+1. Delete the private connection if you no longer need it:
 
     {% list tabs group=instructions %}
 
     - Management console {#console} 
     
       1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-      1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and select the `my-vrf` VRF segment.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+      1. In the left-hand panel, click ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and select `my-vrf`.
       1. Under **Private connection to cloud networks**, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **Disable connection**.
       1. In the window that opens, confirm the deletion.
 
-      As the result, the connection status will change to `Deleting`. Once all links are deleted, the connection will disappear from the list.
+      The connection status will change to `Deleting`. Once all links are deleted, the connection will disappear from the list.
 
     {% endlist %}

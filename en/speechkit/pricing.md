@@ -21,6 +21,8 @@ To calculate the cost of speech [synthesis](https://yandex.cloud/en/prices?state
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 ## What goes into the cost of using {{ speechkit-short-name }} {#rules}
 
 ### Using speech synthesis {#rules-tts}

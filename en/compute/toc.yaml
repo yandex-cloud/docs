@@ -5,7 +5,9 @@ items:
     items:
       - name: Overview
         href: quickstart/index.md
-      - name: Creating a Linux VM
+      - name: Simple Linux VM creation
+        href: quickstart/simple-form-vm.md
+      - name: Advanced Linux VM creation
         href: quickstart/quick-create-linux.md
       - name: Creating an instance group
         href: quickstart/ig.md
@@ -379,13 +381,13 @@ items:
             href: operations/dedicated-host/running-host-vms.md
           - name: Configuring access permissions for a dedicated host group
             href: operations/dedicated-host/access.md
-      - name: Reserved instance pools
+      - name: Reserved VM pools
         items:
-          - name: Creating a reserved instance pool
+          - name: Creating a reserved VM pool
             href: operations/reserved-pools/create-reserved-pool.md
-          - name: Updating a reserved instance pool
+          - name: Updating a reserved VM pool
             href: operations/reserved-pools/update-reserved-pool.md
-          - name: Deleting a reserved instance pool
+          - name: Deleting a reserved VM pool
             href: operations/reserved-pools/delete-reserved-pool.md
           - name: Managing instances in a pool
             href: operations/reserved-pools/manage-pool-vms.md
@@ -606,6 +608,8 @@ items:
           Delivering USB devices to a virtual machine or {{ baremetal-name }}
           server
         href: tutorials/usb-over-ip.md
+      - name: '{{ objstorage-full-name }} integration with Nextcloud'
+        href: tutorials/integrate-nextcloud.md
   - name: Concepts
     items:
       - name: Resource relationships

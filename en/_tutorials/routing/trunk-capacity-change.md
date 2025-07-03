@@ -4,8 +4,6 @@ In this tutorial, we will change the capacity of a trunk.
 
 You can change the trunk capacity for the following entities:
 * [Direct trunk](../../interconnect/concepts/trunk.md)
-* [Partner trunk](../../interconnect/concepts/trunk.md#partner-link) 
-
 
 ### Contacting support to change the trunk capacity {#trunk-ticket}
 

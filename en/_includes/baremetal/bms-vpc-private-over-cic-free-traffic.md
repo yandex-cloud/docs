@@ -1,0 +1,1 @@
+Traffic transmitted via [{{ interconnect-full-name }}](../../interconnect/index.yaml) between private {{ baremetal-full-name }} and {{ vpc-full-name }} addresses in either direction is not billable.

@@ -23,7 +23,7 @@ Data size, TB | Connection capacity | Label
 12,360            | 40 Gbps          | 40-gbps
 15,450            | 50 Gbps          | 50-gbps
 30,900            | 100 Gbps         | 100-gbps
-61,800            | 200 Gbps         | 200-gbps
+
 
 {% note info %}
 

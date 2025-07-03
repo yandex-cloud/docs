@@ -10,6 +10,7 @@ To implement a fault-tolerant Nextcloud configuration, you will need a domain fo
 
 {% endnote %}
 
+
 To deploy Nextcloud in {{ yandex-cloud }} and connect an {{ objstorage-name }} bucket:
 
 1. [Get your cloud ready](#before-you-begin).

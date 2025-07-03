@@ -69,6 +69,8 @@ items:
             href: operations/assistant/create-with-labels.md
           - name: Getting intermediate response generation results
             href: operations/assistant/request-chunked-response.md
+          - name: Paraphrasing the queries using the model
+            href: operations/assistant/rephraser.md
   - name: Concepts
     items:
       - name: About {{ foundation-models-full-name }}
@@ -109,8 +111,12 @@ items:
         items:
           - name: Overview
             href: concepts/assistant/index.md
+          - name: Source files
+            href: concepts/assistant/files.md
           - name: Search indexes
             href: concepts/assistant/search-index.md
+          - name: Paraphrasing queries
+            href: concepts/assistant/rephraser.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: API references

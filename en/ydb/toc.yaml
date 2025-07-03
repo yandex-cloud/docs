@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Connecting to a database using the {{ ydb-short-name }} CLI
         href: operations/connection.md
-      - name: Managing databases
+      - name: Database management
         href: operations/manage-databases.md
       - name: Migrating a database to a different availability zone
         href: operations/migration-to-an-availability-zone.md
@@ -35,7 +35,7 @@ items:
         href: tutorials/connect-from-cf-nodejs.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
-      - name: Developing a skill for Alice and a website with authorization
+      - name: Creating a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: >-
           Migrating a database from {{ mmy-full-name }} using {{
@@ -97,11 +97,11 @@ items:
         href: tutorials/mmy-to-yds.md
       - name: '{{ PG }} change data capture and delivery to {{ DS }}'
         href: tutorials/mpg-to-yds.md
-      - name: Interactive debugging of {{ sf-name }} functions
+      - name: Interactive debugging of {{ sf-name }}
         href: tutorials/serverless-live-debug.md
       - name: Locking {{ TF }} states using {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
-      - name: Building a custom integration in {{ api-gw-name }}
+      - name: Developing a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md

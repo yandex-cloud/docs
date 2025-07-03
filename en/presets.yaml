@@ -77,7 +77,6 @@ default:
   brand-voice-premium-name: SpeechKit Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
-  ca-name: Code Assistant
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
   captcha-name: SmartCaptcha
@@ -279,9 +278,6 @@ default:
   link-auth-logout: https://auth.yandex.cloud/logout
   link-azure-ad: https://azure.microsoft.com/en-us/services/active-directory/
   link-base64: https://en.wikipedia.org/wiki/Base64
-  link-ca-jb-repository: https://proxy.src.yandexcloud.net/proxy/plugin/jetbrains/stable
-  link-ca-vscode: >-
-    https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-cloud-calculator: /prices#calculator
   link-cloud-communications: https://console.yandex.cloud/folders?openSettings=communications
@@ -828,6 +824,7 @@ default:
   yc-compute-instance: yc compute instance
   yc-dp: yc dataproc
   yc-dt: yc datatransfer
+  yc-gl: yc managed-gitlab
   yc-install-path: /yandexcloud-yc/install.sh
   yc-k8s: yc managed-kubernetes
   yc-mdb-af: yc managed-airflow
@@ -1233,6 +1230,7 @@ default:
         c100:
           highfreq-v3|string: ₸9.5040
           preemptible:
+            highfreq-v3|string: ₸8.80
             v2|string: ₸1.7280
             v3|string: ₸1.5660
           preemptible|string: ₸1.7510
@@ -1268,6 +1266,7 @@ default:
       ram:
         highfreq-v3|string: ₸1.7280
         preemptible:
+          highfreq-v3|string: ₸1.60
           v2|string: ₸0.3780
           v3|string: ₸0.3780
         preemptible|string: ₸0.6180
@@ -2941,6 +2940,7 @@ default:
         c100:
           highfreq-v3|string: ₽1.9008
           preemptible:
+            highfreq-v3|string: ₽1.76
             v2|string: ₽0.3456
             v3|string: ₽0.3132
           preemptible|string: ₽0.3502
@@ -2976,6 +2976,7 @@ default:
       ram:
         highfreq-v3|string: ₽0.3456
         preemptible:
+          highfreq-v3|string: ₽0.32
           v2|string: ₽0.0756
           v3|string: ₽0.0756
         preemptible|string: ₽0.1236
@@ -4644,6 +4645,7 @@ default:
         c100:
           highfreq-v3|string: $0.015840
           preemptible:
+            highfreq-v3|string: $0.014667
             v2|string: $0.002880
             v3|string: $0.002610
           preemptible|string: $0.002918
@@ -4679,6 +4681,7 @@ default:
       ram:
         highfreq-v3|string: $0.002880
         preemptible:
+          highfreq-v3|string: $0.002667
           v2|string: $0.000630
           v3|string: $0.000630
         preemptible|string: $0.001030
@@ -5498,6 +5501,7 @@ default:
         v3|number: 0.041667
     requests:
       async:
+        v3|number: 0.208333
         v3|string: $0.208333
       day:
         v1|string: $3.999998
@@ -5506,6 +5510,7 @@ default:
         v1|pricingRate:
           1|string: $2.999999
       sync:
+        v3|number: 3.999998
         v3|string: $3.999998
   sku|USD|security_deck:
     access_transparency:
@@ -6665,6 +6670,18 @@ default:
           entities:
             label_title: Clouds and services
             label_type: Type
+          proposals_page:
+            type_Error: Application error
+          proposals:
+            button_confirm: Accept the offer
+            label_from-archive: Archive
+            label_from-current: Active
+            label_title: Offers
+            tariff_accepted-title: Applied
+            tariff_activating-title: Applying
+            tariff_available-title: Available
+            tariff_blocked-title: Available via the support service
+          switch_proposals: Offers
       common:
         columns:
           column_id: Identifier
@@ -10369,6 +10386,8 @@ default:
                 form:
                   greenplum:
                     GpSourceAdvancedSettings:
+                      disable_gpfdist:
+                        title: Use direct reading from segments
                       service_schema:
                         title: Service object schema
                       strong_consistency:
@@ -10897,10 +10916,14 @@ default:
                       on_premise:
                         title: Custom installation
                     PostgresSource:
+                      advanced_settings:
+                        title: Advanced settings
                       connection:
                         title: Connection settings
                       object_transfer_settings:
                         title: Schema migration
+                      table_filter:
+                        title: Table filter
                       title: Endpoint parameters
                     PostgresSourceAdvancedSettings:
                       collapse_inherit_table:

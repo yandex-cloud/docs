@@ -12,7 +12,7 @@
 `billing.datasphereCommunityBindings.count` | 100 ||
 || Number of [{{ speechsense-name }} instances](../../speechsense/quickstart.md) linked to a single billing account 
 `billing.speechsenseSpaceBindings.count` | 100 ||
-|| Number of [{{ tracker-name }} instances](../../tracker/) linked to a single billing account 
+|| Number of [{{ tracker-name }} instances]({{ link-tracker-cloudless }}) linked to a single billing account 
 `billing.trackerBindings.count` | 5 ||
 |#
 

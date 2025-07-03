@@ -100,8 +100,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * `--container-runtime`: [containerd](https://containerd.io/) runtime environment.
      * `--preemptible`: Flag you set for [preemptible](../../../compute/concepts/preemptible-vm.md) VMs.
      * `--public-ip`: Flag you set if the {{ managed-k8s-name }} node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels`: Node group [cloud labels](../../concepts/index.md/#node-labels). You can specify multiple labels separated by commas.
-     * `--node-labels`: Node group [{{ k8s }} labels](../../concepts/index.md/#node-labels).
+     * `--template-labels`: Node group [cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
+     * `--node-labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
      * `--version`: {{ k8s }} version on the {{ managed-k8s-name }} group nodes.
      * `--node-name`: {{ managed-k8s-name }} node name template. The name is unique if the template contains at least one of the following variables:
 

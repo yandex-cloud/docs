@@ -61,12 +61,13 @@
 1. В подразделе **Общие**, в поле ввода **JDBC URL**, укажите следующий путь:
 
     ```text
-    jdbc:ydb:grpcs://grpc.yandex-query.cloud.yandex.net:2135/<folder_id>?saFile=<path_to_auth_key_file.json>
+    jdbc:ydb:grpcs://grpc.yandex-query.cloud.yandex.net:2135/<folder_id>?saFile=<path_to_auth_key_file.json>&useQueryService=false
     ```
 
     Где:
     - `folder_id` — идентификатор каталога, в котором будут выполняться запросы к {{ yq-full-name }}.
     - `path_to_auth_key_file.json` — путь к файлу с авторизованным ключом.
+    - `useQueryService` — режим подключения. {{yq-full-name}} поддерживает только режим `useQueryService=false`.
 
     ![](../../_assets/query/dbeaver-yandex-query-connection.png)
 

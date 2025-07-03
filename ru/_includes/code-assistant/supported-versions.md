@@ -1,1 +1,0 @@
-Плагин {{ ca-name }} доступен для [Visual Studio Code](https://code.visualstudio.com/), [VSCodium](https://vscodium.com/) и [IDE от JetBrains](https://www.jetbrains.com/ides/) версий 2025.1, 2024.3, 2024.2 и 2024.1. {#supported-versions}

@@ -29,14 +29,8 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
 
       Result:
 
-      ```text
-      +----------------------+--------------------+----------------------------+------------------+----------+
-      |          ID          |        NAME        | POINT OF PRESENCE ID (POP) | TRANSCEIVER TYPE | CAPACITY |
-      +----------------------+--------------------+----------------------------+------------------+----------+
-      | cf3td**********nufvr | customer-name-m9   | ru-msk-m9-0                | 10GBASE-LR       | 1 GBPS   |
-      | euuvd**********jl5sh | customer-name-ost  | ru-msk-ost-0               | 10GBASE-LR       | 1 GBPS   |
-      +----------------------+--------------------+----------------------------+------------------+----------+
-      ```
+
+
 
   1. Get information about the trunk by specifying its ID obtained in the previous step:
 
@@ -47,21 +41,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
 
       Result:
 
-      ```yml
-      - id: cf3td**********nufvr
-        name: trunk-m9
-        description: Trunk M9
-        cloud_id: b1g7a**********kd23p
-        folder_id: b1gqf**********jiz2w
-        region_id: ru-central1
-        created_at: "2025-03-25T10:54:46Z"
-        single_port_direct_joint:
-          transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
-          port_name: 25GE1/0/12
-        point_of_presence_id: ru-msk-m9-0
-        capacity: CAPACITY_1_GBPS
-        status: ACTIVE
-      ```
+
 
       Where:
       * `id`: Trunk ID.

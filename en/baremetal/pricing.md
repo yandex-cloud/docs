@@ -8,6 +8,8 @@ editable: false
 
 
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 In {{ baremetal-name }}, you pay for leasing a server of a [certain configuration](concepts/server-configurations.md). A leased server is billable for the entire lease period, whether it is on or off.
 
 The monthly prices are based on 720 hours per month.
@@ -18,7 +20,7 @@ The monthly prices are based on 720 hours per month.
 
 
 
-All prices are per month and do not include VAT.
+All prices are per month and net of VAT.
 
 {% include [usd-servers.md](../_pricing/baremetal/usd-servers.md) %}
 
@@ -44,4 +46,19 @@ All prices below do not include VAT.
 {% include [usd-subnets](../_pricing/baremetal/usd-subnets.md) %}
 
 
-^1^ The price per month is provided for reference only, assuming a 720-hour (30-day) month. The cost per hour is used in {{ billing-name }} calculations.
+^1^ The price per month is provided for reference only, assuming a 720-hour (30-day) month. The price per hour is used in {{ billing-name }} calculations.
+
+
+### {{ baremetal-full-name }} network traffic billing when communicating with other {{ yandex-cloud }} services {#traffic-pricing-pecs}
+
+#### {{ vpc-full-name }} {#vpc-traffic}
+
+{% include [bms-vpc-traffic](../_includes/baremetal/bms-vpc-traffic.md) %}
+
+#### {{ objstorage-full-name }} {#storage-traffic}
+
+{% include [bms-s3-free-traffic](../_includes/baremetal/bms-s3-free-traffic.md) %}
+
+#### {{ backup-full-name }} {#backup-traffic}
+
+{% include [bms-backup-free-traffic](../_includes/baremetal/bms-backup-free-traffic.md) %}

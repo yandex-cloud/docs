@@ -871,3 +871,5 @@ items:
     items:
       - name: Коды ошибок
         href: troubleshooting/error-codes.md
+      - name: Заголовки для диагностики ошибок
+        href: api-ref/support-headers.md

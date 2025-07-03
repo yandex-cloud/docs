@@ -82,7 +82,7 @@ Set up your infrastructure:
 
 ## Prepare the test data {#prepare-data}
 
-1. [Create](../../../ydb/operations/crud.md/#web-sql) the `seasons` table in the {{ ydb-name }} database:
+1. [Create](../../../ydb/operations/crud.md#web-sql) the `seasons` table in the {{ ydb-name }} database:
 
     ```sql
     CREATE TABLE seasons
@@ -186,7 +186,7 @@ Delete the other resources depending on how they were created:
 - Manually {#manual}
 
     1. [Delete the {{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
-    1. [Delete the {{ ydb-name }} database](../../../ydb/operations/manage-databases.md/#delete-db).
+    1. [Delete the {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#delete-db).
     1. If you created a service account, [delete it](../../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}

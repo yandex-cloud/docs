@@ -32,7 +32,7 @@ items:
             href: operations/servers/rescue-boot.md
           - name: Переустановить ОС сервера
             items:
-              - name: Переустановить ОС из образа Marketplace
+              - name: Переустановить ОС из образа {{ marketplace-short-name }}
                 href: operations/servers/reinstall-os-from-marketplace.md
               - name: Переустановить ОС из своего ISO-образа
                 href: operations/servers/reinstall-os-from-own-image.md

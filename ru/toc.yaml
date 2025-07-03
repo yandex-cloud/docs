@@ -41,8 +41,6 @@ items:
     href: quota-manager/index.yaml
   - name: Cloud Video
     href: video/index.yaml
-  - name: '{{ ca-name }}'
-    href: code-assistant/index.md
   - name: Compute Cloud
     href: compute/index.yaml
   - name: Container Registry

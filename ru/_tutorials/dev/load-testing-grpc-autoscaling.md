@@ -206,7 +206,7 @@
 
    В столбце `ADDRESS` должен появиться IP-адрес. В противном случае балансировщик не создался или создался некорректно — проверьте логи [пода](../../managed-kubernetes/concepts/index.md#pod) `yc-alb-ingress-controller-*`.
 
-1. Если вы не устанавливали [ExternalDNS c плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), [создайте](../../dns/operations/resource-record-create.md) в {{ dns-name }} [A-запись](../../dns/concepts/resource-record.md#a-a), указывающую на публичный адрес балансировщика. При использовании ExternalDNS c плагином для {{ dns-name }} запись создастся автоматически.
+1. Если вы не устанавливали [ExternalDNS с плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), [создайте](../../dns/operations/resource-record-create.md) в {{ dns-name }} [A-запись](../../dns/concepts/resource-record.md#a-a), указывающую на публичный адрес балансировщика. При использовании ExternalDNS c плагином для {{ dns-name }} запись создастся автоматически.
 
 
 ## Настройте горизонтальное автомасштабирование подов {#configure-autoscaling}

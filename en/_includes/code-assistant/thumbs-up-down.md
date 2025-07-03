@@ -1,1 +1,0 @@
-Click ![image](../../_assets/console-icons/thumbs-up.svg) or ![image](../../_assets/console-icons/thumbs-down.svg) in the bottom-right corner of the AI assistant's response.

@@ -57,7 +57,7 @@ Next-Generation Firewall используется для защиты и сег�
 * плата за использование {{ network-load-balancer-name }} (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за использование функций (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
-* плата за использование [CheckPoint NGFW](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
+* плата за использование [CheckPoint NGFW]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
 
 ### Необходимые квоты {#required-quotes}
 

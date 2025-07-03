@@ -13,12 +13,14 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=fa8a272b5f0e#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=fa8a272b5f0e#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ mgl-name }} {#rules}
 
@@ -28,7 +30,7 @@ When using {{ mgl-name }}, you pay for:
 
 Other consumed resources to be additionally paid for:
 * The space used in {{ objstorage-full-name }} to store backups.
-* Volume of outgoing traffic from {{ yandex-cloud }} to the internet.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
 
 In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</sup> bytes.
 
@@ -42,7 +44,7 @@ The minimum billing unit is one hour; e.g., you will be charged for 2 hours when
 
 ### Disk space usage {#rules-storage}
 
-You pay for the following:
+You are charged for the following:
 * Data storage allocated for your instance.
 * Size of backups stored in {{ objstorage-name }}.
 

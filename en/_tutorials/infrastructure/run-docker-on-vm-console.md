@@ -2,7 +2,7 @@
 1. [Create a registry in {{ container-registry-name }}](#create-registry).
 1. [Create a service account](#create-sa).
 1. [Create your {{ compute-name }} VM](#create-vm).
-1. [Build and upload the Docker image to {{ container-registry-name }}](#create-image).
+1. [Build and push the Docker image to {{ container-registry-name }}](#create-image).
 1. [Upload the Docker image to the VM](#run).
 1. [Check the result](#check-out).
 
@@ -52,7 +52,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a service account {#create-sa}
 
-Create a [service account](../../iam/concepts/users/service-accounts.md) and assign it the `{{ roles-cr-puller }}` [role](../../iam/concepts/access-control/roles.md) for the previously created registry:
+Create a [service account](../../iam/concepts/users/service-accounts.md) and assign to it the `{{ roles-cr-puller }}` [role](../../iam/concepts/access-control/roles.md) for the registry created earlier:
 
 {% list tabs group=instructions %}
 
@@ -126,6 +126,7 @@ Create a VM with a public IP address and link the service account you created to
 - Management console {#console}
 
   1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you are not sure which one to choose, leave the default.
   1. Optionally, under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the required boot [disk](../../compute/concepts/disk.md) [type](../../compute/concepts/disk.md#disks-types) and size.
@@ -338,14 +339,14 @@ Create a VM with a public IP address and link the service account you created to
 After creating the VM, [build and upload the Docker image to {{ container-registry-name }}](#create-image). 
 
 
-## Build and upload the Docker image to {{ container-registry-name }} {#create-image}
+## Build and push the Docker image to {{ container-registry-name }} {#create-image}
 
 {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
 
 {% include [create-image](../_tutorials_includes/run-docker-on-vm/create-image.md) %}
 
 
-## Upload the Docker image to the VM {#run}
+## Push the Docker image to the VM {#run}
 
 {% include [run](../_tutorials_includes/run-docker-on-vm/run.md) %}
 

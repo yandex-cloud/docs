@@ -115,7 +115,7 @@ The dialog page displays the following information:
 * Semantic analysis of the conversation on the **{{ ui-key.yc-ui-talkanalytics.projects.sumarization }}** tab.
 * [Tags](../../concepts/tags.md) assigned to the dialog.
 
-To learn more, see [{#T}](../../concepts/dialogs.md#details).
+For more information, see [{#T}](../../concepts/dialogs.md#details).
 
 ## Editing dialog metadata {#edit-dialog-metadata}
 
@@ -261,7 +261,7 @@ When editing the dialog metadata, remember to provide all keys; otherwise, their
 
 {% endnote %}
 
-Use the [TalkService/Upload](../../api-ref/grpc/Talk/upload.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}.
+To edit audio metadata, use the [TalkService/Upload](../../api-ref/grpc/Talk/upload.md) call. To edit chat metadata, use the [TalkService/UploadText](../../api-ref/grpc/Talk/uploadText.md) call. Send a request, e.g., using {{ api-examples.grpc.tool }}.
 
 The example uses demo data.
 

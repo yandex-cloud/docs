@@ -280,6 +280,7 @@ To use the examples:
           {
             "folderId": "<folder_ID>",
             "modelUri": "gpt://<folder_ID>/yandexgpt-lite/latest",
+            "instruction": "You are an internal corporate documentation assistant. Answer politely. If the information is not in the documents below, don't make up your answer.",
             "tools": [
               {
                 "searchIndex": {

@@ -1,0 +1,1 @@
+Traffic transmitted between {{ baremetal-full-name }} and [{{ backup-full-name }}](../../backup/index.yaml) is free of charge.

@@ -42,8 +42,6 @@ description: В разделе представлена история изме�
   * [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
   * [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin)
   * [CentOS Stream](/marketplace/products/yc/centos-stream-8)
-  * [Astra Linux SE 1.7 «Воронеж»](/marketplace/products/astralinux/alse)
-  * [Astra Linux SE 1.7 «Орел»](/marketplace/products/astralinux/alse-orel)
 * Добавлена поддержка образов с {{ oslogin }}:
   * [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
   * [Ubuntu 18.04 LTS OS Login](/marketplace/products/yc/ubuntu-1804-lts-oslogin)

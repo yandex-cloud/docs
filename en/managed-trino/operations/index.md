@@ -18,7 +18,7 @@ description: In this article, you will learn how to work with {{ mtr-full-name }
 
 ## {{ TR }} catalogs {#catalogs}
 
-* [Getting a list of {{ TR }} catalog in a cluster](catalog-list.md)
+* [Getting a list of {{ TR }} catalogs in a cluster](catalog-list.md)
 * [Creating a {{ TR }} catalog](catalog-create.md)
 * [Updating a {{ TR }} catalog](catalog-update.md)
 * [Deleting a {{ TR }} catalog](catalog-delete.md)

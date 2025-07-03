@@ -109,9 +109,7 @@ Settings for target audio tracks. ||
 Input audio track index (one-based). ||
 || src_lang | **string**
 
-Source track language in any of the following formats:
-* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
-* two-letter code according to ISO 639-1
+Source track language represented as a three-letter code according to ISO 639-2/T.
 Track language will be deduced automatically if not provided.
 In the latter case the deduction accuracy is not guaranteed.
 For better performance please do specify the source track language when possible. ||
@@ -123,9 +121,7 @@ For better performance please do specify the source track language when possible
 ||Field | Description ||
 || dst_lang | **string**
 
-Required field. Target language in any of the following formats:
-* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
-* two-letter code according to ISO 639-1 ||
+Required field. Target language represented as a three-letter code according to ISO 639-2/T. ||
 || label | **string**
 
 Required field. Track label to be displayed on the screen during video playback. ||
@@ -137,9 +133,7 @@ Required field. Track label to be displayed on the screen during video playback.
 ||Field | Description ||
 || dst_lang | **string**
 
-Required field. Target language in any of the following formats:
-* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
-* two-letter code according to ISO 639-1 ||
+Required field. Target language represented as a three-letter code according to ISO 639-2/T. ||
 || label | **string**
 
 Required field. Track label to be displayed on the screen during video playback. ||
@@ -178,7 +172,7 @@ Required field. Input track settings. ||
 Input audio track index (one-based). ||
 || src_lang | **string**
 
-Source track language (three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3).
+Source track language represented as a three-letter code according to ISO 639-2/T.
 It will be deduced automatically if not provided.
 In the latter case the deduction accuracy is not guaranteed.
 For better performance please do specify the source track language when possible. ||
@@ -436,7 +430,7 @@ Summarization result. ||
 Input audio track index (one-based). ||
 || src_lang | **string**
 
-Source track language (three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3).
+Source track language represented as a three-letter code according to ISO 639-2/T.
 Either provided in transcoding settings earlier or automatically deduced. ||
 |#
 

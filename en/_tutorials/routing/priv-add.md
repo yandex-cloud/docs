@@ -5,28 +5,9 @@ To add a private connection to an existing trunk, create a [new support ticket](
 ### Contacting support for a new private connection {#priv-ticket}
 
 Follow this request format:
-```s
-Subject: [CIC] Add a new private connection to an existing trunk.
 
-Request text:
-Please add a new private connection to an existing trunk.
-Connection settings:
 
-trunk_id: euus5dfgchu2********
-vlan_id: 101
-ipv4_peering:
-  peering_subnet: 192.168.10.0/30
-  peer_ip: 192.168.10.1
-  cloud_ip: 192.168.10.2
-  peer_bgp_asn: 65001
-  #cloud_bgp_asn: {{ cic-bgp-asn }}
-vpc:
-  vpc_net_id: enpdffqsg8r2********
-    vpc_subnets:
-      {{ region-id }}-a: [10.60.192.0/21]
-      {{ region-id }}-b: [10.60.200.0/21, 10.60.220.0/24]
-      {{ region-id }}-d: [10.60.208.0/20]
-```
+
 
 Where:
 
@@ -38,7 +19,7 @@ Where:
 * `peer_bgp_asn`: Customer endpoint [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) in ASPlain format. This value is selected by the customer.
 * `vpc_net_id`: ID of the {{ vpc-full-name }} network for a private connection.
 * `vpc_subnets`: List of IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). The resources in these subnets will only be accessible through your private connection. These prefixes will be announced over BGP from {{ yandex-cloud }} to the customer endpoint.
-* `folder_id` (optional): Folder to store private connection monitoring metrics. If left empty, monitoring metrics will be stored in the folder you specified when creating the trunk.
+* Optionally, `folder_id`: By default, private connection monitoring metrics will be saved to the folder specified when creating the trunk. If required, you can explicitly specify the folder to save private connection monitoring metrics to.
 
 ### Support team's response to your ticket {#priv-ticket-resp}
 

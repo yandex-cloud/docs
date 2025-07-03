@@ -92,7 +92,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
       }
       ```
 
-      For more information about the `yandex_resourcemanager_folder` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      For more information about the `yandex_resourcemanager_folder` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. Make sure the configuration files are correct.
 
@@ -116,7 +116,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
          terraform plan
          ```
 
-         If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+         If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
    1. Deploy the cloud resources.
 
@@ -126,7 +126,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
          terraform apply
          ```
 
-      1. Confirm the creation of the resources: in the terminal, type `yes` and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
       This will create the folder in the specified cloud. You can check the new folder and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -148,9 +148,10 @@ Repeat these steps to create a second folder named `site-b`.
 
   1. In the [management console]({{ link-console-main }}), select `site-d`.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cisco CSR` and select a [Cisco CSR](/marketplace/products/yc/cisco-csr) public image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, go to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -164,7 +165,7 @@ Repeat these steps to create a second folder named `site-b`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router-d`.
@@ -202,7 +203,6 @@ Repeat these steps to create a second folder named `site-b`.
       The router name at the beginning of the command line should change to `cisco-router`.
 
 {% endlist %}
-
 
 ### Create a user with administrator privileges {#create-user}
 
@@ -299,7 +299,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
 ### Check the SSH connection to the router {#test-ssh}
 
-1. Log in to the router over SSH by running this command in your computer terminal:
+1. Log in to the router via SSH by running this command in your computer terminal:
 
    ```bash
    ssh -i <private_key_file_path> test-user@<router_public_IP_address> 

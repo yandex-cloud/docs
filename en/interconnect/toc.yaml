@@ -16,7 +16,7 @@ items:
         href: operations/trunk-create.md
       - name: Updating trunk parameters
         href: operations/trunk-update.md
-      - name: Getting a list of trunk operations
+      - name: Getting information about operations in a trunk
         href: operations/trunk-operations.md
       - name: Deleting a trunk
         href: operations/trunk-delete.md
@@ -45,38 +45,22 @@ items:
         href: tutorials/index.md
       - name: Creating a direct trunk and a private connection in it
         href: tutorials/trunk-priv-add.md
-      - name: Creating a direct trunk and a public connection in it
-        href: tutorials/trunk-pub-add.md
       - name: Adding a private connection to a trunk
         href: tutorials/priv-add.md
       - name: Changing VPC IP prefixes in a routing instance
         href: tutorials/ri-prefixes-upsert.md
-      - name: Adding a public connection to a trunk
-        href: tutorials/pub-add.md
       - name: Updating trunk capacity
         href: tutorials/trunk-capacity-change.md
       - name: Deleting a private connection
         href: tutorials/priv-del.md
-      - name: Deleting a public connection
-        href: tutorials/pub-del.md
       - name: Deleting a trunk
         href: tutorials/trunk-del.md
-      - name: Integrating with a corporate DNS service
-        href: tutorials/dns-integration.md
-      - name: >-
-          Configuring {{ interconnect-name }} access to cloud networks behind
-          NGFWs
-        href: tutorials/cic-with-ngfw
-      - name: >-
-          Setting up network connectivity between {{ baremetal-name }} and {{
-          vpc-name }} subnets
-        href: tutorials/bm-vrf-and-vpc-interconnect.md
   - name: Concepts
     expanded: true
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Overview of operations
+      - name: Operation overview
         href: operations/cic-cr-ops.md
       - name: Terminology
         href: concepts/terms.md

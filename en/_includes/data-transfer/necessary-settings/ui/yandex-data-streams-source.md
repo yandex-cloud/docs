@@ -4,4 +4,4 @@
 
 * {% include [Field Service Account](../../fields/yds/ui/service-account-source.md) %}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.security_groups.title }}**: Select a cloud network you want to place your endpoint in. You can manage cloud networks in [Virtual Private Cloud](../../../../vpc/).
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.security_groups.title }}**: Select a cloud network you want to place your endpoint in. You can manage cloud networks in [{{ vpc-name }}](../../../../vpc/).

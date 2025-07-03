@@ -5,6 +5,10 @@ description: This section contains {{ maf-name }} release notes.
 
 # {{ maf-full-name }} release notes
 
+## May 2025 {#may-2025}
+
+The **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** section was added to the management console.
+
 ## November 2024 {#nov-2024}
 
 Added an option to select a [configuration](concepts/index.md#presets) (vCPUs and RAM) for each cluster component when [creating](operations/cluster-create.md) or [editing](operations/cluster-update.md) it.

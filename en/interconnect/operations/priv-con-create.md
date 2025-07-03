@@ -26,8 +26,8 @@ You need the [cic.editor](../security/index.md#cic-editor) role to run this oper
   1. Create a private connection:
 
       ```bash
-      yc cic private-connection create --name prc-m9 \
-        --description "Private connection #1 via M9" \ 
+      yc cic private-connection create --name prc-pop1 \
+        --description "Private connection #1 via POP-1" \ 
         --trunk-id cf3td**********nufvr \
         --vlan-id 125 \
         --ipv4-peering peering-subnet=192.168.10.0/30,peer-ip=192.168.10.1,cloud-ip=192.168.10.2,peer-bgp-asn=65202 \
@@ -44,9 +44,9 @@ You need the [cic.editor](../security/index.md#cic-editor) role to run this oper
 
       ```text
       id: cca59**********dvjir
-      name: prc-m9
+      name: prc-pop1
       folder_id: b1gqf**********jiz2w
-      region_id: ru-central1
+      region_id: {{ region-id }}
       trunk_connection_id: cf3td**********nufvr
       vlan_id: "125"
       ipv4_peering:

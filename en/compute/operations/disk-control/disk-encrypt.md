@@ -17,23 +17,7 @@ description: Follow this guide to encrypt a disk.
   1. [Create](../image-create/create-from-disk.md) an image of the disk you want to encrypt.
   1. Create an encrypted disk from the image:
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create an encrypted disk.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks.label_title  }}**.
-      1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-      1. Enter a name for the disk.
-
-          {% include [name-format](../../../_includes/name-format.md) %}
-
-      1. Select the same [availability zone](../../../overview/concepts/geo-scope.md) that contained the source disk.
-      1. Set the disk parameters, such as [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
-      1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the image you created earlier from the list below. Use the filter to find the image.
-      1. Under **{{ ui-key.yacloud.compute.disk-form.section_encryption }}**:
-
-          * Select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**.
-          * In the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field, select the [key](../../../kms/concepts/key.md) you created earlier. To [create](../../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
-
-      1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+      {% include [encryption-disk-from-image-withoutnotes](../../../_includes/compute/encryption-disk-from-image-withoutnotes.md) %}
 
       {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
 
@@ -232,12 +216,12 @@ description: Follow this guide to encrypt a disk.
       * `source_disk`: Unencrypted disk ID.
       * `name`: Name of the encrypted disk you are creating.
 
-     For more information about `yandex_compute_disk` properties, see [this Terraform article]({{ tf-provider-resources-link }}/yandex_compute_disk).
+     For more information about `yandex_compute_disk` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
+     {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
 
   1. [Delete](../image-control/delete.md) the image.
   1. [Delete](../disk-control/delete.md) the unencrypted disk.
@@ -262,7 +246,7 @@ description: Follow this guide to encrypt a disk.
 {% endlist %}
 
 
-### See also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](../../concepts/encryption.md)
 * [{#T}](../snapshot-control/snapshot-encrypt.md)

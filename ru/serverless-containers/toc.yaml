@@ -397,6 +397,8 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: ListOperations
                 href: triggers/api-ref/Trigger/listOperations.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

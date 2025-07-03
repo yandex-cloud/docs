@@ -62,7 +62,7 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
      name: ri1-preprod
      description: Routing instance 1
      folder_id: b1gqf**********jiz2w
-     region_id: ru-central1
+     region_id: {{ region-id }}
      cic_private_connection_info:
        - cic_private_connection_id: cf3td**********nufvr
      status: ACTIVE
@@ -74,9 +74,9 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
       * `name`: Routing instance name.
       * `description`: Routing instance description.
       * `folder_id`: ID of the cloud folder the routing instance was created in.
-      * `region_id`: Cloud region the routing instance was created in.
+      * `region_id`: Region of the cloud the routing instance was created in.
       * `cic_private_connection_info`: List of private connections in this routing instance.
-      * `status`: Resource state. Target state: `ACTIVE`. When being updated, it may be in the `UPDATING` state.
+      * `status`: Resource state. The target state is `ACTIVE`. When being updated, it may be in the `UPDATING` state.
       * `created_at`: Date and time of resource creation.
       * `async`: Running the operation in asynchronous mode. This is the recommended mode for all operations that involve changes to resources.
 

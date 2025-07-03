@@ -257,6 +257,8 @@ items:
         href: archive/copy-files-from-object-storage.md
       - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
         href: archive/backup-baremetal.md
+      - name: '{{ objstorage-name }} integration with Nextcloud'
+        href: archive/integrate-nextcloud.md
   - name: Development and testing
     items:
       - name: All tutorials
@@ -425,7 +427,7 @@ items:
             href: routing/mikrotik.md
       - name: VPNs
         items:
-          - name: Setting up network connectivity with IPsec gateways
+          - name: Establishing network connectivity with the help of IPsec gateways
             items:
               - name: Solution architecture
                 href: routing/ipsec/index.md
@@ -543,7 +545,7 @@ items:
                 href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
           - name: Working with DNS
             items:
-              - name: Integrating with a corporate DNS zone
+              - name: Integration with a corporate DNS zone
                 href: container-infrastructure/custom-dns.md
               - name: DNS autoscaling based on cluster size
                 href: container-infrastructure/dns-autoscaler.md
@@ -577,7 +579,7 @@ items:
                 href: container-infrastructure/k8s-fluent-bit-logging.md
               - name: Setting up Gateway API
                 href: container-infrastructure/gateway-api.md
-              - name: Setting up the {{ alb-name }} ingress controller
+              - name: Setting up an {{ alb-name }} ingress controller
                 href: container-infrastructure/alb-ingress-controller.md
               - name: Logging settings for {{ alb-name }} ingress controllers
                 href: container-infrastructure/alb-ingress-controller-log-options.md
@@ -1258,8 +1260,8 @@ items:
           vpc-name }} subnets
         href: routing/bm-vrf-and-vpc-interconnect.md
       - name: >-
-          Setting up network connectivity between {{ baremetal-name }} and
-          on-prem subnets using {{ interconnect-name }}
+          Establishing network connectivity between {{ baremetal-name }} and
+          on-prem subnets with the help of {{ interconnect-name }}
         href: routing/bms-cic-onprem.md
         hidden: true
       - name: >-

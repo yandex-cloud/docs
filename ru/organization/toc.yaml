@@ -185,6 +185,8 @@ items:
         href: diagnostics.md
       - name: Ошибки в федерациях, работающих по протоколу SAML 2.0
         href: saml-diagnostics.md
+      - name: Ошибки при работе с пулами пользователей
+        href: userpool-diagnostics.md
       - name: Ошибки аутентификации с аккаунтом на Яндексе
         href: yandex-id-diagnostics.md
   - name: Управление доступом

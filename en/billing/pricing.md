@@ -100,7 +100,7 @@ The following services are always free of charge:
 * [{{ org-full-name }}](../organization/pricing.md)
 * {{ preview-stage }} [{{ cloud-registry-full-name }}](../cloud-registry/pricing.md)
 * {{ preview-stage }} [{{ video-full-name }}](../video/pricing.md)
-* {{ preview-stage }} [{{ ca-full-name }}](../code-assistant/pricing.md)
+* {{ preview-stage }} [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/pricing)
 * [{{ forms-full-name }}]({{ link-forms-cloudless }})
 * [{{ iam-full-name }}](../iam/pricing.md)
 * {{ preview-stage }} [{{ mtr-full-name }}](../managed-trino/pricing.md)

@@ -5,6 +5,23 @@ description: This page presents {{ speechsense-full-name }} release notes.
 
 # {{ speechsense-full-name }} release notes
 
+## May 2025 {#0525}
+
+#### Changes in tags
+
+Dictionary tags now use a greater distance. A key phrase may contain no more than five extra words between the keywords.
+
+#### Changes in connections
+
+* You can now [edit](../operations/connection/edit.md) an existing connection and add new metadata to it.
+* A new connection type is now available: [single-channel audio](../operations/connection/create.md#create-one-channel-audio-connection) with [audio splitting option](../operations/data/upload-data-split.md).
+
+## April 2025 {#0425}
+
+You can now [edit dialog metadata](../operations/data/manage-dialogs.md#edit-dialog-metadata).
+
+Added [integration with {{ datalens-full-name }}](../operations/external-integrations/create-datalens-connection.md). You can now create reports with even more detailed analytics.
+
 ## March 2025 {#0325}
 
 {{ speechsense-name }} can now analyze dialogs not only in Russian, but also in Kazakh, or a Russian-Kazakh combination. With this in mind, the required `language` field has been added to [new connections](../operations/connection/create.md). The metadata of dialogs uploaded via such connections must contain the codes of potential dialog languages. If a dialog contains Kazakh speech, the service will recognize the audio and make a Russian transcript for further analysis.

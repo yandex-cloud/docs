@@ -23,7 +23,7 @@ version_id | Идентификатор [версии функции](../../../f
 ----|----
 resource_id | Идентификатор функции
 version_id | Идентификатор версии функции
-resource_type | Тип ресурса. Значение всегда `function`.
+resource_type | Тип ресурса. Значение всегда `function`
 
 Имя метрики<br/>Тип, единицы измерения | Описание
 --- | ---
@@ -76,15 +76,15 @@ version | Идентификатор версии функции
 Метка | Значение
 ----|----
 trigger | Идентификатор триггера
-type | Тип активации триггера: `incoming` или `request`.
+type | Тип сущности
 
-Имя метрики<br/>Тип, единицы измерения | Описание<br/>Метки
---- | ---
-`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, ошибки/с | Частота возникновения ошибок доступа при обработке вызовов функции.
-`serverless.triggers.error_per_second`<br/>`DGAUGE`, ошибки/с | Частота возникновения ошибок при обработке вызовов функции.
-`serverless.triggers.execution_time_milliseconds`<br/>`IGAUGE`, вызовы/мс | Гистограмма распределения частоты вызова функции по времени обработки запроса.<br/>Интервалы времени обработки запроса представлены в метке `bin`.
-`serverless.triggers.inflight`<br/>`DGAUGE`, вызовы | Количество одновременно выполняющихся вызовов функции.
-`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | Частота возникновения событий, после которых срабатывает триггер.
+Имя метрики<br/>Тип, единицы измерения | Тип сущности | Описание<br/>Метки
+--- | --- | ---
+`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы функции.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок доступа при обработке вызовов функции.
+`serverless.triggers.error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы функции.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок при обработке вызовов функции.
+`serverless.triggers.execution_time_milliseconds`<br/>`IGAUGE`, вызовы/мс | <ul><li>`request` — вызовы функции.</li></ul> | Гистограмма распределения частоты вызова функции по времени обработки запроса.<br/>Интервалы времени обработки запроса представлены в метке `bin`.
+`serverless.triggers.inflight`<br/>`DGAUGE`, вызовы | <ul><li>`request` — вызовы функции.</li></ul> | Количество одновременно выполняющихся вызовов функции.
+`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для {{ message-queue-full-name }}.</li><li>`message_queue` — события, после которых сработал триггер для {{ message-queue-full-name }}.</li></ul> | Частота возникновения событий, после которых срабатывает триггер.
 
 ## Метрики подключений к БД {#db-connections}
 

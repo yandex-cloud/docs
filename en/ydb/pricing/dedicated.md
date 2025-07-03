@@ -1,10 +1,10 @@
 ---
-title: Pricing policy for the {{ ydb-full-name }} mode with dedicated instances
-description: "In this tutorial, you will learn about\_the pricing policy for the {{ ydb-full-name }} mode with dedicated instances."
+title: Pricing policy for {{ ydb-full-name }} with dedicated instances
+description: "In this tutorial, you will learn about\_the pricing policy for {{ ydb-full-name }} with dedicated instances."
 editable: false
 ---
 
-# Pricing policy for the {{ ydb-name }} mode with dedicated instances
+# Pricing policy for {{ ydb-name }} with dedicated instances
 
 
 
@@ -13,34 +13,34 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
 
 {% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+{% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
 ## What goes into the cost of using {{ ydb-name }} {#rules}
 
-When using {{ ydb-name }} in dedicated mode, you pay for the following:
+When using {{ ydb-name }} in dedicated-instance mode, you pay for the following:
 * Type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
 * [Computing resources](../concepts/resources.md#resource-presets) allocated to the DB.
 
-Other consumed resources to be additionally paid for:
+The following resources are paid additionally:
 * Space used in {{ objstorage-full-name }} to store on-demand backups.
-* Volume of outgoing traffic from {{ yandex-cloud }} to the internet.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
 
 {% include [pricing-gb-size](../_includes/pricing/pricing-gb-size.md) %}
 
 ### Using computing resources {#rules-hosts-uptime}
 
-The cost is calculated for each hour of VM operation in accordance with its class. Exact class characteristics are given in [{#T}](../concepts/index.md).
+The cost is calculated for each hour of VM operation as per its class. For detailed class specifications, see [{#T}](../concepts/index.md).
 
-The minimum billing unit is one hour; for example, you will be charged for 2 hours when using a VM for 90 minutes (1.5 hours).
+The minimum billing unit is one hour; for example, you will be charged for two hours when using a VM for 90 minutes.
 
 ### Disk space usage {#rules-storage}
 
@@ -54,13 +54,13 @@ You pay for the following:
 
   {% endnote %}
 
-The price covers one month of use. The minimum billing unit is 1 GB per hour (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
+The price covers one month of use. The minimum billing unit is 1 GB/hr (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
 
-{{ ydb-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ ydb-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

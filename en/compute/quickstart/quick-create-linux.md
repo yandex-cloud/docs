@@ -10,17 +10,23 @@ keywords:
   - vm
 ---
 
-# Creating a Linux VM
+# Advanced Linux VM creation
 
 Create a Linux [VM](../concepts/vm.md) in the {{ yandex-cloud }} management console using {{ compute-name }} and connect to it.
 
-{% include [role-note](../../_includes/compute/role-note.md) %}
+{% note tip %}
+
+To quickstart with {{ compute-short-name }}, see the tutorial on how to create a VM using a [simple form](simple-form-vm.md).
+
+{% endnote %}
 
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin-linux](../../_includes/compute/before-you-begin-linux.md) %}
 
 ## Create a VM {#create-vm}
+
+{% include [role-note](../../_includes/compute/role-note.md) %}
 
 {% include [create-instance-via-console-linux](../_includes_service/create-instance-via-console-linux.md) %}
 
