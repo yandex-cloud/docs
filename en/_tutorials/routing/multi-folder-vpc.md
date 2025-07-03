@@ -55,7 +55,7 @@ The infrastructure support costs include:
 
 ### Configure access permissions {#roles}
 
-Configure [access rights for the folder](../../resource-manager/operations/folder/set-access-bindings.md):
+Configure [folder access permissions](../../resource-manager/operations/folder/set-access-bindings.md):
 
 * To create networks and manage subnets, assign the `vpc.admin` or the `vpc.privateAdmin`, `vpc.publicAdmin`, and `vpc.securityGroups.admin` roles to the service account or user.
 * To create and manage VMs, assign the `vpc.user` and `compute.admin` roles for the folder to the service account or user.
@@ -387,6 +387,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following settings:
 
   1. In the [management console]({{ link-console-main }}), select `net-folder`.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:

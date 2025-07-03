@@ -22,9 +22,9 @@ To add a subnet with DHCP settings:
 * [Create a subnet](#create-subnet).
 * [Test the network](#check-config).
 
-If you no longer need the infrastructure, [delete](#clear-out) the created resources.
+If you no longer need the resources you created, [delete](#clear-out) them.
 
-## Prepare your cloud environment {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -37,9 +37,7 @@ The infrastructure support cost includes:
 * Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for VM disk storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-
-
+* Fee for {{ yandex-cloud }} outbound internet traffic (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 ## Create a subnet {#create-subnet}
 
@@ -51,7 +49,7 @@ To create a new subnet with DHCP settings, follow these steps:
 
   To create a subnet:
   1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
-  1. Click the `ad-network` name.
+  1. Click `ad-network`.
   1. Click **Add subnet**.
   1. Fill out the form:
       * Enter the subnet name: `test-subnet-1`. Select the availability zone: `{{ region-id }}-a`.
@@ -111,11 +109,12 @@ To check the configuration, create a VM and connect to it via RDP:
     
     - Management console {#console}
 
-      1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` tab and select the **Windows Server** image. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
+      1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+      1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` tab and select the **Windows Server** image. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) to create your VM in.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
 
           * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
           * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -228,7 +227,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 1. Check if there is a connection to the `yantoso.net` domain controller. 
 
-    To do this, run this command:
+    To do this, run the following command:
 
     ```
     ping ad-vm-a

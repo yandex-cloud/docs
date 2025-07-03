@@ -19,7 +19,7 @@ The infrastructure deployment cost for this IPsec gateways-based solution includ
 
 ### Create an SSH keypair {#create-ssh-keys}
 
-To connect to a [VM](../../../compute/concepts/vm.md) over SSH, you need a keypair with the public key located on the VM, and the private key kept by the user. This method is more secure than password authentication.
+To connect to a [VM](../../../compute/concepts/vm.md) over SSH, you will need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than password authentication.
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
@@ -27,9 +27,9 @@ To create a keypair:
 
 {% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
 
-## Set up a cloud site {#cloud-setup}
+## Set up your cloud site {#cloud-setup}
 
-In this step, you will reserve two static IP addresses for IPsec gateways and set up your {{ yandex-cloud }} infrastructure, including IPsec gateways, two VMs, and a network with two subnets.
+At this stage, you will reserve two static IP addresses for IPsec gateways and create and set up an infrastructure for your site in {{ yandex-cloud }}: an IPsec gateway, two VMs, and a network with two subnets.
 
 ### Set up a cloud network {#setup-cloud-net}
 
@@ -100,7 +100,8 @@ In this step, you will reserve two static IP addresses for IPsec gateways and se
 
 #### Create the main IPsec gateway VM {#create-cloud-gw}
 
-1. On the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. On the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `IPsec instance` and select a public [IPsec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../../overview/concepts/geo-scope.md) where the main IPsec gateway will reside.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -124,9 +125,9 @@ In this step, you will reserve two static IP addresses for IPsec gateways and se
         * Upload the [previously created](#create-ssh-keys) public SSH key or paste its contents into the appropriate field.
         * Click **{{ ui-key.yacloud.common.add }}**.
 
-        This will add the SSH key to your organization user profile.
+        The system will add the SSH key to your organization user profile.
 
-        If, due to restrictions, you cannot add SSH keys to your profile, the system will save the key to the VM user profile.
+        If adding SSH keys by users to their profiles is disabled in the organization, the public SSH key will be saved only to the new VM's user profile.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cloud-gw`.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -286,16 +287,16 @@ To set up the gateway, use the IP addresses, username, and SSH key of the `cloud
     * **{{ ui-key.yacloud.compute.instances.create.field_key }}**: Public SSH key
     * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}**: `vm-b`
 
-## Set up a remote site {#remote-setup}
+## Set up your remote site {#remote-setup}
 
-In this step, you will set up a remote data center infrastructure,. including an IPsec gateway, a VM, a network, and a subnet.
+At this stage, you will create and set up an infrastructure for a remote site of a typical corporate data center. It will include an IPsec gateway, a VM, a network, and a subnet.
 
 ### Set up a remote network {#setup-remote-net}
 
 #### Create a network with a subnet {#remote-net}
 
-1. Create the `remote-net` [network](../../../vpc/operations/network-create.md) with the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option disabled.
-1. In the `remote-net` network, [create a subnet](../../../vpc/operations/subnet-create.md) for the `remote-gw` IPsec gateway and `vm-1` VM with the following settings:
+1. [Create a network](../../../vpc/operations/network-create.md) named `remote-net`. with the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option disabled.
+1. In the `remote-net` network, manually [create a subnet](../../../vpc/operations/subnet-create.md) to connect the `remote-gw` remote IPsec gateway and a VM named `vm-1` with the following parameters:
 
     * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-1`
     * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`
@@ -346,7 +347,8 @@ In this step, you will set up a remote data center infrastructure,. including an
 
 Create a VM you will use as a remote IPsec gateway.
 
-1. On the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. On the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `IPsec instance` and select a public [IPsec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../../overview/concepts/geo-scope.md) where the remote IPsec gateway will reside.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -372,11 +374,11 @@ Create a VM you will use as a remote IPsec gateway.
         * Upload the [previously created](#create-ssh-keys) public SSH key or paste its contents into the appropriate field.
         * Click **{{ ui-key.yacloud.common.add }}**.
 
-        This will add the SSH key to your organization user profile.
+        The system will add the SSH key to your organization user profile.
 
         If, due to restrictions, you cannot add SSH keys to your profile, the system will save the key to the VM user profile.
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `remote-gw`. The name should meet the following requirements:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `remote-gw`. Follow these naming requirements:
 
     {% include [name-format](../../../_includes/name-format.md) %}
 

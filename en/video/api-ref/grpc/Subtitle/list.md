@@ -79,9 +79,7 @@ Token for getting the next page. ||
 ID of the subtitle. ||
 || language | **string**
 
-Subtitle language in any of the following formats:
-* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
-* two-letter code according to ISO 639-1 ||
+Subtitle language represented as a three-letter code according to ISO 639-2/T. ||
 || label | **string**
 
 Subtitle caption to be displayed on screen during video playback. ||

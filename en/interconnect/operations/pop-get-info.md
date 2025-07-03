@@ -23,19 +23,10 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
 
       Result:
 
-      ```text
-      +----------------+-------------+
-      |       ID       |  REGION ID  |
-      +----------------+-------------+
-      | ru-msk-m9-0    | ru-central1 |
-      | ru-msk-nord-0  | ru-central1 |
-      | ru-msk-ost-0   | ru-central1 |
-      | ru-msk-std-0   | ru-central1 |
-      | ru-msk-tehno-0 | ru-central1 |
-      +----------------+-------------+
-      ```
+
 
       Where:
+      
       * `ID`: Point of presence ID.
       * `REGION ID`: Cloud region containing the point of presence.
 

@@ -21,7 +21,7 @@ To create a {{ mtr-name }} cluster, your {{ yandex-cloud }} account needs the fo
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
 
-Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the cluster service account. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
+Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the cluster's [service account](../../iam/concepts/users/service-accounts.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
 For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
@@ -50,7 +50,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
-    1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add the required [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](../../backup/concepts/vm-connection.md).
+    1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add the required [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. Optionally, enable cluster deletion protection.

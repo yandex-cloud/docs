@@ -61,12 +61,13 @@ After that, follow these steps:
 1. In the **JDBC URL** input field of the **General** subsection, specify the following path:
 
     ```text
-    jdbc:ydb:grpcs://grpc.yandex-query.cloud.yandex.net:2135/<folder_id>?saFile=<path_to_auth_key_file.json>
+    jdbc:ydb:grpcs://grpc.yandex-query.cloud.yandex.net:2135/<folder_id>?saFile=<path_to_auth_key_file.json>&useQueryService=false
     ```
 
     Where:
     - `folder_id`: ID of the folder in which queries to {{ yq-full-name }} will be run.
     - `path_to_auth_key_file.json`: Path to authorized key file.
+    - `useQueryService`: Connection mode. {{yq-full-name}} supports `useQueryService=false` connection mode only.
 
     ![](../../_assets/query/dbeaver-yandex-query-connection.png)
 

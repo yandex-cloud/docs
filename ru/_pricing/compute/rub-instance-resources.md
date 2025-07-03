@@ -27,8 +27,8 @@
 | 1 GPU | {{ sku|RUB|compute_gpu.vm.gpu.gpu-standard.t4i|string }} | {{ sku|RUB|compute_gpu.vm.gpu.gpu-standard.preemptible.t4i|string }} | - | - |
 | RAM (за 1 ГБ) | {{ sku|RUB|compute_gpu.vm.ram.gpu-standard.t4i|string }} | {{ sku|RUB|compute_gpu.vm.ram.gpu-standard.preemptible.t4i|string }} | - | - |
 | **Intel Ice Lake (Compute Optimized)** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
-| 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.highfreq-v3|string }} | - | − | − |
-| RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.highfreq-v3|string }} | - | − | − |
+| 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.highfreq-v3|string }} | {{ sku|RUB|compute.vm.cpu.c100.preemptible.highfreq-v3|string }} | − | − |
+| RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.highfreq-v3|string }} | {{ sku|RUB|compute.vm.ram.preemptible.highfreq-v3|string }} | − | − |
 | **AMD EPYC™** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
 | 100% vCPU | {{ sku|RUB|compute_gpu.vm.cpu.c100.gpu-standard.v3|string }} | {{ sku|RUB|compute_gpu.vm.cpu.c100.gpu-standard.preemptible.v3|string }} | − | − |
 | 1 GPU Nvidia A100 | {{ sku|RUB|compute_gpu.vm.gpu.gpu-standard.v3|string }} | {{ sku|RUB|compute_gpu.vm.gpu.gpu-standard.preemptible.v3|string }} | − | − |

@@ -69,7 +69,7 @@
 
 ## Настройте DNS-запись для Ingress-контроллера {#connecting-certs-manager}
 
-Если вы используете [ExternalDNS c плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), настраивать DNS-запись не нужно — она создается автоматически. В противном случае:
+Если вы используете [ExternalDNS с плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), настраивать DNS-запись не нужно — она создается автоматически. В противном случае:
 1. Узнайте [IP-адрес](../../vpc/concepts/address.md) Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
 
    ```bash

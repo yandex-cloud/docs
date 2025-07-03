@@ -50,6 +50,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
       * `DESCRIPTION`: Description of the command type performed in the operation. 
 
   1. If you need more details about the operation, get them by its ID:
+  
     ```text
     yc operation get al457**********njn6p
     ```

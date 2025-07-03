@@ -100,8 +100,8 @@ description: Следуя данной инструкции, вы сможете
      * `--container-runtime` — среда запуска контейнеров [containerd](https://containerd.io/).
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels` — [облачные метки](../../concepts/index.md/#node-labels) группы узлов. Можно указать несколько меток через запятую.
-     * `--node-labels` — [{{ k8s }}-метки](../../concepts/index.md/#node-labels) группы узлов.
+     * `--template-labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
+     * `--node-labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
      * `--version` — версия {{ k8s }} на узлах группы {{ managed-k8s-name }}.
      * `--node-name` — шаблон имени узлов {{ managed-k8s-name }}. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 

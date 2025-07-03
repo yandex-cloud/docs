@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Установка {{ GL }} Agent
 
 
-Приложение [{{ GL }} Agent](/marketplace/products/yc/gitlab-agent) используется для подключения [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) к {{ GL }}. Вы можете развернуть приложение как в [инстансе](../../../managed-gitlab/concepts/index.md#instance) [{{ mgl-full-name }}](../../../managed-gitlab/), так и в standalone-инстансе {{ GL }}.
+Приложение [{{ GLA }}](/marketplace/products/yc/gitlab-agent) используется для подключения [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) к {{ GL }}. Вы можете развернуть приложение как в [инстансе](../../../managed-gitlab/concepts/index.md#instance) [{{ mgl-full-name }}](../../../managed-gitlab/), так и в standalone-инстансе {{ GL }}.
 
 {{ GL }} Agent позволяет:
 * Работать с кластерами {{ managed-k8s-name }}, находящимися за NAT.
@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [{{ GL }} Agent](/marketplace/products/yc/gitlab-agent) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [{{ GLA }}](/marketplace/products/yc/gitlab-agent) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `gitlab-agent-space`). Если вы оставите пространство имен по умолчанию, {{ GL }} Agent может работать некорректно.
    * **Название приложения** — укажите название приложения, например `gitlab-agent`.

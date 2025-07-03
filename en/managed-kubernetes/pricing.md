@@ -13,12 +13,14 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the {{ yandex-cloud }} [calculator](https://yandex.cloud/en/prices?state=f05a4ab8c08f#calculator) or check the prices in this section.
+To estimate your service costs, use [our calculator](https://yandex.cloud/en/prices?state=f05a4ab8c08f#calculator) on the {{ yandex-cloud }} website or see the pricing below.
 
 
 {% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md#master) and outgoing traffic.
 

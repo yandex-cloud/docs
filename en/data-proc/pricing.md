@@ -14,6 +14,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ dataproc-name }} {#rules}
 
 The total cost of using {{ dataproc-name }} includes:
@@ -80,11 +82,6 @@ The cost is calculated as follows:
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-
-All prices below do not include VAT.
-
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 

@@ -60,7 +60,7 @@
 
 1. Подготовьте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ yandex-cloud }}:
     1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будут создаваться ресурсы кластера.
-    1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../compute/security/index.md/#compute-editor) и [alb.editor](../../application-load-balancer/security/index.md/#alb-editor) на каталог.
+    1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [alb.editor](../../application-load-balancer/security/index.md#alb-editor) на каталог.
     1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для сервисного аккаунта в формате JSON.
 1. Если в вашем каталоге еще нет [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-name }}, [создайте](../../vpc/operations/network-create.md) ее. Также [создайте](../../vpc/operations/subnet-create.md) и подсеть.
 1. Инфраструктуре создаваемого кластера будет автоматически назначена [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию, которая создается вместе с сетью. [Добавьте](../../vpc/operations/security-group-add-rule.md) в эту группу следующие правила для _входящего_ трафика:

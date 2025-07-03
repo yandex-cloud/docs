@@ -77,7 +77,6 @@ default:
   brand-voice-premium-name: SpeechKit Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
-  ca-name: Code Assistant
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
   captcha-name: SmartCaptcha
@@ -283,9 +282,6 @@ default:
   link-auth-logout: https://auth.yandex.cloud/logout
   link-azure-ad: https://azure.microsoft.com/ru-ru/services/active-directory/
   link-base64: https://ru.wikipedia.org/wiki/Base64
-  link-ca-jb-repository: https://proxy.src.yandexcloud.net/proxy/plugin/jetbrains/stable
-  link-ca-vscode: >-
-    https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-cloud-calculator: /prices#calculator
   link-cloud-communications: https://console.yandex.cloud/folders?openSettings=communications
@@ -1249,6 +1245,7 @@ default:
         c100:
           highfreq-v3|string: "9,5040\_₸"
           preemptible:
+            highfreq-v3|string: "8,80\_₸"
             v2|string: "1,7280\_₸"
             v3|string: "1,5660\_₸"
           preemptible|string: "1,7510\_₸"
@@ -1284,6 +1281,7 @@ default:
       ram:
         highfreq-v3|string: "1,7280\_₸"
         preemptible:
+          highfreq-v3|string: "1,60\_₸"
           v2|string: "0,3780\_₸"
           v3|string: "0,3780\_₸"
         preemptible|string: "0,6180\_₸"
@@ -2957,6 +2955,7 @@ default:
         c100:
           highfreq-v3|string: "1,9008\_₽"
           preemptible:
+            highfreq-v3|string: "1,76\_₽"
             v2|string: "0,3456\_₽"
             v3|string: "0,3132\_₽"
           preemptible|string: "0,3502\_₽"
@@ -2992,6 +2991,7 @@ default:
       ram:
         highfreq-v3|string: "0,3456\_₽"
         preemptible:
+          highfreq-v3|string: "0,32\_₽"
           v2|string: "0,0756\_₽"
           v3|string: "0,0756\_₽"
         preemptible|string: "0,1236\_₽"
@@ -4660,6 +4660,7 @@ default:
         c100:
           highfreq-v3|string: "0,015840\_$"
           preemptible:
+            highfreq-v3|string: "0,014667\_$"
             v2|string: "0,002880\_$"
             v3|string: "0,002610\_$"
           preemptible|string: "0,002918\_$"
@@ -4695,6 +4696,7 @@ default:
       ram:
         highfreq-v3|string: "0,002880\_$"
         preemptible:
+          highfreq-v3|string: "0,002667\_$"
           v2|string: "0,000630\_$"
           v3|string: "0,000630\_$"
         preemptible|string: "0,001030\_$"
@@ -5514,6 +5516,7 @@ default:
         v3|number: 0.041667
     requests:
       async:
+        v3|number: 0.208333
         v3|string: "0,208333\_$"
       day:
         v1|string: "3,999998\_$"
@@ -5522,6 +5525,7 @@ default:
         v1|pricingRate:
           1|string: "2,999999\_$"
       sync:
+        v3|number: 3.999998
         v3|string: "3,999998\_$"
   sku|USD|security_deck:
     access_transparency:
@@ -6681,6 +6685,18 @@ default:
           entities:
             label_title: Облака и сервисы
             label_type: Тип
+          proposals_page:
+            type_Error: Ошибка применения
+          proposals:
+            button_confirm: Принять предложение
+            label_from-archive: Архивные
+            label_from-current: Действующие
+            label_title: Предложения
+            tariff_accepted-title: Применено
+            tariff_activating-title: Применяется
+            tariff_available-title: Доступно
+            tariff_blocked-title: Доступно через обращение в поддержку
+          switch_proposals: Предложения
       common:
         columns:
           column_id: Идентификатор
@@ -10393,6 +10409,8 @@ default:
                 form:
                   greenplum:
                     GpSourceAdvancedSettings:
+                      disable_gpfdist:
+                        title: Использовать прямое чтение с сегментов
                       service_schema:
                         title: Схема служебных объектов
                       strong_consistency:
@@ -10921,10 +10939,14 @@ default:
                       on_premise:
                         title: Пользовательская инсталляция
                     PostgresSource:
+                      advanced_settings:
+                        title: Расширенные настройки
                       connection:
                         title: Настройки подключения
                       object_transfer_settings:
                         title: Перенос схемы
+                      table_filter:
+                        title: Фильтр таблиц
                       title: Параметры эндпоинта
                     PostgresSourceAdvancedSettings:
                       collapse_inherit_table:

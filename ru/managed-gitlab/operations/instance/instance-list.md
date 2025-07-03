@@ -44,6 +44,10 @@
 
     Подробнее о команде читайте в [справочнике CLI](../../cli-ref/instance/list.md).
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [List](../../api-ref/Instance/list.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/List](../../api-ref/grpc/Instance/list.md).
+
 {% endlist %}
 
 ## Получить детальную информацию об инстансе {#get}
@@ -119,6 +123,10 @@
     Имя и идентификатор инстанса можно запросить со [списком инстансов в каталоге](instance-list.md#list).  
 
     Подробнее о команде читайте в [справочнике CLI](../../cli-ref/instance/get.md).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Get](../../api-ref/Instance/get.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Get](../../api-ref/grpc/Instance/get.md).
 
 {% endlist %}
 

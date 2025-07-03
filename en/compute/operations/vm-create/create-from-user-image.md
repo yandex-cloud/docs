@@ -23,6 +23,7 @@ Make sure the image you upload has the `READY` status.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
@@ -120,7 +121,7 @@ Make sure the image you upload has the `READY` status.
      ```
 
      Where:
-     * `--name`: VM name. Follow these naming requirements:
+     * `--name`: VM name. The naming requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 

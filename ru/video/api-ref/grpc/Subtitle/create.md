@@ -32,9 +32,7 @@ Create a new subtitle.
 ||Field | Description ||
 || language | **string**
 
-Subtitle language in any of the following formats:
-* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
-* two-letter code according to ISO 639-1 ||
+Subtitle language represented as a three-letter code according to ISO 639-2/T. ||
 || label | **string**
 
 Contains the subtitle label (or title) that will be displayed on screen during video playback.
@@ -168,9 +166,7 @@ ID of the subtitle. ||
 ID of the subtitle. ||
 || language | **string**
 
-Subtitle language in any of the following formats:
-* three-letter code according to ISO 639-2/T, ISO 639-2/B, or ISO 639-3
-* two-letter code according to ISO 639-1 ||
+Subtitle language represented as a three-letter code according to ISO 639-2/T. ||
 || label | **string**
 
 Subtitle caption to be displayed on screen during video playback. ||

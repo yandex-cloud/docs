@@ -795,7 +795,7 @@
 
 ## Убедитесь в доступности приложений через L7-балансировщик {#verify-setup}
 
-1. Если вы не устанавливали [ExternalDNS c плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), [добавьте A-запись в зону](../../dns/operations/resource-record-create.md) вашего домена. В поле **Значение** укажите публичный IP-адрес L7-балансировщика {{ alb-name }}. При использовании ExternalDNS c плагином для {{ dns-full-name }} запись создастся автоматически.
+1. Если вы не устанавливали {% if region == "ru" or region == "int" %}[ExternalDNS с плагином для {{ dns-name }}](/marketplace/products/yc/externaldns){% else %}ExternalDNS с плагином для {{ dns-name }}{% endif %}, [добавьте A-запись в зону](../../dns/operations/resource-record-create.md) вашего домена. В поле **Значение** укажите публичный IP-адрес L7-балансировщика {{ alb-name }}. При использовании ExternalDNS c плагином для {{ dns-full-name }} запись создастся автоматически.
 
 1. Проверьте работу балансировщика:
 

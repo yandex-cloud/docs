@@ -1,4 +1,4 @@
-Чтобы создать виртуальную машину из публичного образа [DSVM](/marketplace/products/f2e4v304qn35mhilnsbc):
+Чтобы создать виртуальную машину из публичного образа[DSVM](/marketplace/products/yc/dsvm):
 
 {% list tabs group=instructions %}
 

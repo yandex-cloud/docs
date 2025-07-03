@@ -12,6 +12,8 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 The cost of using {{ cdn-name }} is based on:
 * Amount of outbound traffic from CDN servers, including traffic requested from user resources on {{ yandex-cloud }}, e.g., {{ compute-full-name }} [virtual machines](../compute/concepts/vm.md). Inbound traffic to the CDN servers from {{ yandex-cloud }} services and resources or from the internet is free of charge.
 * Paid features enabled for your resources, such as [origin shielding](concepts/origins-shielding.md) and [log export](concepts/logs.md).

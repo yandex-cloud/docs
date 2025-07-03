@@ -45,7 +45,7 @@ description: Вы можете запросить детальную инфор�
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.list](../api-ref/Cluster/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.List](../api-ref/Cluster/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -67,7 +67,7 @@ description: Вы можете запросить детальную инфор�
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/List](../api-ref/grpc/Cluster/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.List](../api-ref/grpc/Cluster/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -119,7 +119,7 @@ description: Вы можете запросить детальную инфор�
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -140,7 +140,7 @@ description: Вы можете запросить детальную инфор�
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -202,7 +202,7 @@ description: Вы можете запросить детальную инфор�
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.listOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -223,7 +223,7 @@ description: Вы можете запросить детальную инфор�
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -253,13 +253,42 @@ description: Вы можете запросить детальную инфор�
 
     {% list tabs group=instructions %}
 
+    - CLI {#cli}
+
+        {% include [cli-install](../../_includes/cli-install.md) %}
+
+        {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+        Выполните команду:
+
+        ```bash
+        yc operation get <идентификатор_операции>
+        ```
+
+        Результат:
+
+        ```text
+        id: eknltph9cc00********
+        description: Create Managed Airflow cluster
+        created_at: "2025-06-22T19:14:23.845821Z"
+        created_by: ajejut7dk2dp********
+        modified_at: "2025-06-22T19:20:52.764531Z"
+        done: true
+        metadata:
+          '@type': type.googleapis.com/yandex.cloud.airflow.v1.CreateClusterMetadata
+          cluster_id: c9qfqkvobk9r********
+        response:
+          '@type': type.googleapis.com/yandex.cloud.airflow.v1.Cluster
+        ...
+        ```
+
     - REST API {#api}
 
         1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        1. Воспользуйтесь методом [Operation.get](../api-ref/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -278,7 +307,7 @@ description: Вы можете запросить детальную инфор�
 
         1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-        1. Воспользуйтесь вызовом [OperationService/Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -288,7 +317,7 @@ description: Вы можете запросить детальную инфор�
                 -proto ~/cloudapi/yandex/cloud/operation/operation_service.proto \
                 -rpc-header "Authorization: Bearer $IAM_TOKEN" \
                 -d '{
-                      "operation_id": "<идентификатор_операции>"
+                        "operation_id": "<идентификатор_операции>"
                     }' \
                 {{ api-host-operation }}:{{ port-https }} \
                 yandex.cloud.operation.OperationService.Get

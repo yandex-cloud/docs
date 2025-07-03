@@ -13,7 +13,7 @@ In this section, you can find the {{ mkf-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=285af0b6c6a6#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=285af0b6c6a6#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 
@@ -23,9 +23,11 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## Cluster status {#running-stopped}
 
-Prices are applied differently depending on the cluster status:
+Prices apply differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -67,7 +69,7 @@ There are different ways to calculate the cost depending on the [host type](./co
 
 
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You are not paying for the time when a broker host or {{ ZK }} is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You are not paying for the time when a broker host or {{ ZK }} is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -78,11 +80,11 @@ You pay for the storage allocated for DB clusters.
     * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) for clusters with three or more broker hosts in increments of 93 GB.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
 
 ### Example of cluster cost calculation {#example}
 
-The cost of using a cluster with the following parameters for 30 days:
+This is an example of calculating the cost of using a cluster with the following properties for 30 days:
 
 * **{{ KF }} broker hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **Storage for {{ KF }} broker hosts**: 100 GB of network HDD storage per broker host.
@@ -115,10 +117,6 @@ CVoS discount is only available for certain types of resources. A dash in the re
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-All prices below do not include VAT.
-
 
 Host prices are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 

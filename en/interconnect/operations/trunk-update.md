@@ -36,36 +36,13 @@ You need the [cic.editor](../security/index.md#cic-editor) role to run this oper
 
       ```bash
       yc cic trunk-connection update cf3td**********nufvr \
-        --new-name my-new-m9-trunk \
+        --new-name my-new-trunk-name \
         --async
       ```
 
       Result:
 
-      ```text
-      id: cf3td**********nufvr
-      description: Trunk M9
-      created_at: "2025-03-27T09:43:00.880696489Z"
-      created_by: bfbud**********v7dfn
-      modified_at: "2025-03-27T09:43:00.969837738Z"
-      done: true
-      metadata:
-        '@type': type.googleapis.com/yandex.cloud.cic.v1.UpdateTrunkConnectionMetadata
-        trunk_connection_id: cf3td**********nufvr
-      response:
-        '@type': type.googleapis.com/yandex.cloud.cic.v1.TrunkConnection
-        id: cf3td**********nufvr
-        name: my-new-m9-trunk
-        description: Trunk M9
-        folder_id: yc.vpc.cic.api.internal-resources
-        region_id: ru-central1
-        single_port_direct_joint:
-          transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
-          port_name: 25GE1/0/12
-        point_of_presence_id: ru-msk-m9-0
-        capacity: CAPACITY_10_GBPS
-        status: ACTIVE
-      ```
+
 
 {% endlist %}
 

@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
 
    * API {#api}
 
-      Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md).
+      Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService.Read](../../logging/api-ref/grpc/LogReading/read.md).
 
    {% endlist %}
 
@@ -259,7 +259,7 @@ description: Следуя данной инструкции, вы сможете
 
    * API {#api}
 
-      Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md).
+      Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService.Read](../../logging/api-ref/grpc/LogReading/read.md).
 
    {% endlist %}
 

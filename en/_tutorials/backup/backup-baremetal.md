@@ -19,7 +19,7 @@ To connect an existing server to {{ backup-name }}:
 1. [Install the {{ backup-name }} agent](#agent-install).
 1. [Link the server to a backup policy](#assign-policy).
 1. [Run the backup process](#execute-policy).
-1. [Restore your server from backup](#server-recovery).
+1. [Restore your server from the backup](#server-recovery).
 
 See also [How to cancel a lease and delete resources](#clear-out).
 
@@ -33,22 +33,24 @@ The infrastructure support cost includes:
 * Server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 * Fee for the {{ baremetal-name }} server connected to {{ backup-name }} and the backup size (see [{{ backup-full-name }} pricing](../../backup/pricing.md)).
 
+{% include [bms-backup-free-traffic](../../_includes/baremetal/bms-backup-free-traffic.md) %}
+
 ## Create a service account {#prepare-service-account}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to lease a {{ baremetal-name }} server in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to lease a {{ baremetal-name }} server.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md). The naming requirements are as follows:
+  1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md). Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `backup.editor` and `baremetal.editor` roles to the service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. To select the service account you created earlier, click the row with its name.
+  1. Select the service account you created by clicking the row with its name.
   1. In the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Select an encryption algorithm and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -81,9 +83,9 @@ To activate {{ backup-name }}, you need _at least_ the `backup.editor` [role](..
 {% endlist %}
 
 After activation, the system automatically creates the following backup policies:
-* `Default daily`: Daily incremental backup with the last 15 backups retained.
-* `Default weekly`: Weekly incremental backup with the last 15 backups retained.
-* `Default monthly`: Monthly incremental backup with the last 15 backups retained.
+* `Default daily`: Daily incremental backup with the latest 15 backups retained.
+* `Default weekly`: Weekly incremental backup with the latest 15 backups retained.
+* `Default monthly`: Monthly incremental backup with the latest 15 backups retained.
 
 ## Lease a test server {#server-lease}
 

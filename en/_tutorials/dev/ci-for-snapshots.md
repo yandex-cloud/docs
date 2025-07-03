@@ -8,7 +8,7 @@ To configure continuous integration (CI) for VM [disk snapshots](../../compute/c
 1. [Configure the test application VM](#configure-vm): Install a web server and test application components on the VM. Write a test application reversing words in a text sent to the server.
 1. [Check how the application works](#test-app): Send a test request to check whether the server settings are correct.
 1. [Create a VM disk snapshot](#create-snapshot): Create a disk snapshot that CI will use to create new VMs.
-1. [Create a VM with {{ GL }}](#create-gitlab-vm): Create a [{{ GL }}](https://about.gitlab.com/) VM with a repository to store CI settings and a test script.
+1. [Create a {{ GL }} VM](#create-gitlab-vm): Create a [{{ GL }} VM](https://about.gitlab.com/) with a repository to store CI settings and a functional testing script.
 1. [Configure {{ GL }}](#configure-gitlab): Create a file repository and get configuration parameters.
 1. [Configure Runner](#configure-runner): Set up a tool for performing tasks.
 1. [Configure CI](#configure-ci): Specify the required command and testing parameters.
@@ -39,8 +39,9 @@ Create a VM where you will install a web server, your test application, and its 
 1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts) public image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) your VM will reside in.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these settings:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
@@ -287,8 +288,9 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
 1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [{{ GL }}](/marketplace/products/yc/gitlab) image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) your VM will reside in.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these settings:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
@@ -468,7 +470,7 @@ Now you need to configure CI.
      stage: build
      variables:
        snapshot_name: test-app-snap
-       folder_id: <catalog_ID>
+       folder_id: <folder_ID>
        subnet_name: <subnet_name>
      script:
        - export instance_name="ci-tutorial-test-app-$(date +%s)"

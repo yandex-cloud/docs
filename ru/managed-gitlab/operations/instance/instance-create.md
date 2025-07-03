@@ -21,6 +21,10 @@ description: Из статьи вы узнаете, как создать инс
 
   {% include [instance-create-cli](../../../_includes/managed-gitlab/instance-create-cli.md) %}
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/Instance/create.md).
+
 {% endlist %}
 
 {% include [HTTPS info](../../../_includes/managed-gitlab/note-https.md) %}

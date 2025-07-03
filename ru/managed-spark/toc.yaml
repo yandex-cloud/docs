@@ -8,6 +8,20 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
+      - name: Создание кластера
+        href: operations/cluster-create.md
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
+      - name: Удаление кластера
+        href: operations/cluster-delete.md
+  - name: Концепции
+    items:
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Классы хостов
+        href: concepts/instance-types.md
       - name: Кластеры
         items:
           - name: Информация об имеющихся кластерах
@@ -30,8 +44,12 @@ items:
         href: tutorials/index.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: tutorials/airflow-automation.md
-  - name: Квоты и лимиты
-    href: concepts/limits.md
+  - name: Концепции
+    items:
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Классы хостов
+        href: concepts/instance-types.md
   - name: Управление доступом
     href: security.md
   - name: Правила тарификации

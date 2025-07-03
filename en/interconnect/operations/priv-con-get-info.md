@@ -23,7 +23,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
 
   1. Get a list of private connections in the specified folder:
 
-     ```bash
+      ```bash
       yc cic private-connection list --folder-id b1gqf2hjizv2jw******
       ```
 
@@ -51,7 +51,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
       id: euuiog88zphgsq******
       name: customer-name-prc1
       folder_id: b1gqf2hjizv2jw******
-      region_id: ru-central1
+      region_id: {{ region-id }}
       trunk_connection_id: euuqqctbrflq3i******
       vlan_id: "1531"
       ipv4_peering:
@@ -59,7 +59,7 @@ You need the [cic.viewer](../security/index.md#cic-viewer) role to run this oper
         peer_ip: 10.211.10.1
         cloud_ip: 10.211.10.2
         peer_bgp_asn: "64515"
-        cloud_bgp_asn: "200350"
+        cloud_bgp_asn: "{{ cic-bgp-asn }}"
       ```
 
       Where:

@@ -31,8 +31,6 @@ On VMs and {{ baremetal-name }} servers , the {{ backup-name }} agent is availab
 
 - VM {#vm}
 
-  * [Astra Linux SE 1.7 Voronezh](/marketplace/products/astralinux/alse)
-  * [Astra Linux SE 1.7 Orel](/marketplace/products/astralinux/alse-orel)
   * [CentOS 7](/marketplace/products/yc/centos-7)
   * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
   * [CentOS Stream](/marketplace/products/yc/centos-stream-8)
@@ -64,7 +62,7 @@ On VMs and {{ baremetal-name }} servers , the {{ backup-name }} agent is availab
 
 - VM {#vm}
 
-  * [Kosmos VM 2022 based on Windows Server Datacenter 2022](/marketplace/products/fotonsrv/kosmosvm2022)
+    * [Kosmos VM 2022 based on Windows Server Datacenter 2022](/marketplace/products/fotonsrv/kosmosvm2022)
   * [Kosmos VM 2019 based on Windows Server Datacenter 2019](/marketplace/products/fotonsrv/kosmosvm2019)
   * [Kosmos VM 2016 based on Windows Server Datacenter 2016](/marketplace/products/fotonsrv/kosmosvm2016)
   * [Kosmos VM RDS (5 licenses)](/marketplace/products/fotonsrv/kos-5-rds)

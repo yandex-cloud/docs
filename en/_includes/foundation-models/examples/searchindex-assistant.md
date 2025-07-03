@@ -34,7 +34,8 @@ def main():
         files.append(file)
 
     # Creating an index for full-text search through the uploaded files.
-    # In this example, the maximum fragment size is set to 700 tokens, with a 300-token overlap.
+    # This example sets the chunk size
+    # of up to 700 tokens, with a 300-token overlap.
     operation = sdk.search_indexes.create_deferred(
         files,
         index_type=TextSearchIndexType(
@@ -54,7 +55,10 @@ def main():
 
     # Creating an assistant for the Latest {{ gpt-pro }} model.
     # It will use the search index tool.
-    assistant = sdk.assistants.create("yandexgpt", tools=[tool])
+    assistant = sdk.assistants.create(
+        "yandexgpt", 
+        instruction = "You are an internal corporate documentation assistant. Answer politely. If the information is not in the documents below, don't make up your answer.", 
+        tools=[tool])
     thread = sdk.threads.create()
 
     input_text = input(
@@ -73,10 +77,10 @@ def main():
         # Displaying the response.
         print("Response: ", result.text)
 
-        # Displaying some of the attributes of the _citations_ property: information about the used fragments created from source files.
-        # 
-        # To display the entire contents of the _citations_ property, run this command: print(result.citations)
-        # 
+        # Displaying some of the _citations_ property attributes: information
+        # about utilized chunks created from the source files.
+        # To display the entire contents of the _citations_ property,
+        # run this command: print(result.citations).
         count = 1
         for citation in result.citations:
             for source in citation.sources:
@@ -105,7 +109,7 @@ def main():
             'Enter your question to the assistant ("exit" to end the dialog): '
         )
 
-    # Deleting things you no longer need.
+    # Delete everything you no longer need.
     search_index.delete()
     thread.delete()
     assistant.delete()

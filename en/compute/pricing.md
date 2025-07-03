@@ -177,7 +177,7 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ compute-name }} provides two types of CVoS: on vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ compute-name }} provides two types of CVoS: on vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

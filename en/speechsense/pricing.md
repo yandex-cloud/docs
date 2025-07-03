@@ -20,6 +20,12 @@ To calculate the cost of analytics for [text](https://yandex.cloud/en/prices?sta
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ speechsense-name }} {#rules}
 
 When analyzing audio recordings of dialogs, the cost of using {{ speechsense-name }} depends on the duration of two-channel audio files. The billing unit is a one-second segment of two-channel audio.

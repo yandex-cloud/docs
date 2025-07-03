@@ -31,7 +31,6 @@ The cost of the UserGate gateway infrastructure includes:
 * Fee for using [UserGate NGFW](/marketplace/products/usergate/ngfw).
 * Fee for a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-
 ## Create a cloud network with a subnet {#create-network}
 
 Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) in the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
@@ -110,28 +109,28 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
      }
      ```
 
-     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resource descriptions in the {{ TF }} provider documentation.
+     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) descriptions in the {{ TF }} provider documentation.
      
   1. Make sure the configuration files are correct.
 
-     1. In the terminal, navigate to your configuration file directory.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy your cloud resources.
+  1. Deploy the cloud resources.
   
-     1. Once your configuration is correct, run this command:
+     1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. When asked to confirm changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -152,7 +151,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Specify the security group name: `usergate-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `usergate-network`.
-  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using steps below:
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
    
      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
      | --- | --- | --- | --- | --- | --- |
@@ -167,9 +166,9 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**. In the window that opens:
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field, specify a single port or a range of ports open for inbound or outbound traffic.
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic over any protocol.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the scope of the rule:
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR blocks of traffic’s source or destination subnets. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}**: Rule will apply to the current or the selected security group VMs..
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: The rule will apply to a range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDRs and masks of subnets traffic will move to/from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}**: The rule will apply to the current or selected security group VMs.
          
         1. Click **{{ ui-key.yacloud.common.save }}**.
    
@@ -305,28 +304,28 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
      }
      ```
 
-     For more information about the `yandex_vpc_security_group` resource, see the {{ TF }} provider [documentation]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more information about `yandex_vpc_security_group`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
      
   1. Make sure the configuration files are correct.
 
-     1. In the terminal, navigate to your configuration file directory.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy your cloud resources.
+  1. Deploy the cloud resources.
   
-     1. Once your configuration is correct, run this command:
+     1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. When asked to confirm changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -380,7 +379,8 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `UserGate NGFW` and select a public [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
@@ -404,7 +404,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, specify a username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `usergate-proxy`.
@@ -512,24 +512,24 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
      
   1. Make sure the configuration files are correct.
 
-     1. In the terminal, navigate to your configuration file directory.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy your cloud resources.
+  1. Deploy the cloud resources.
   
-     1. Once your configuration is correct, run this command:
+     1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. When asked to confirm changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -608,7 +608,7 @@ Add more rules to enhance security:
    1. Select the `WinUpdate` app, click **Add**, and then **Close**.
    1. Click **Save**.
 
-You can add more traffic filtering rules. When doing that, avoid combining services and applications in the same rule; otherwise, it might not trigger.
+You can also add more traffic filtering rules. Avoid combining services and applications in the same rule. Doing so may make the rule inoperable.
 
 ### Set up content filtering rules {#content-rules}
 
@@ -634,7 +634,7 @@ You can add more rules to enhance security:
    1. Type `Social media` in the search bar, click **Add**, and then **Close**.
    1. Click **Save**.
 
-You can add more content filtering rules. When doing that, avoid adding multiple settings to the same rule; otherwise, it might not trigger.
+You can also add more content filtering rules. Avoid combining multiple parameters in the same rule. Doing so may make the rule inoperable.
 
 ### Set up SSL inspection {#ssl}
 
