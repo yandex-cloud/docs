@@ -1,8 +1,8 @@
 # Running Apache Hive jobs
 
-[Hive](https://hive.apache.org/) is a tool for accessing data storage in the Hadoop ecosystem. It allows you to work with data in different formats and DBMS's using an SQL-like query language. It is mainly used for working with data in HDFS, HBase, S3-compatible storage, and relational databases.
+[Hive](https://hive.apache.org/) is a tool for accessing data storage in the Hadoop ecosystem. It allows you to work with data in different formats and DBMS's using an SQL-like query language. It is mainly used for working with data in HDFS, HBase, S3-compatible storage, and relational DBMS’s.
 
-You can run Hive jobs from the [{{ yandex-cloud }}](#run-hive-job-cli) CLI and directly on the server using the [Hive CLI](#hive-shell).
+You can run Hive jobs from the [{{ yandex-cloud }} CLI](#run-hive-job-cli) and directly on the server using the [Hive CLI](#hive-shell).
 
 {% include [get-logs-info](../../../_includes/data-processing/note-info-get-logs.md) %}
 
@@ -15,7 +15,7 @@ You can run Hive jobs from the [{{ yandex-cloud }}](#run-hive-job-cli) CLI and d
 There are two ways to send an SQL query to Hive:
 
 * [In the job run command](#sql-in-cli).
-* [In the {{ objstorage-name }}](#sql-from-objstorage) object the {{ dataproc-name }} cluster service account has read access to.
+* [In the {{ objstorage-name }} object](#sql-from-objstorage) the {{ dataproc-name }} cluster service account has read access to.
 
 The query execution result is saved to an {{ objstorage-full-name }} bucket linked to the cluster together with the service output.
 
@@ -25,7 +25,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
 
 1. {% include [tutorials-basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
-1. [Create a {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) cluster with the following settings:
+1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md) with the following settings:
 
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
@@ -33,7 +33,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
         * `MAPREDUCE`
         * `SPARK`
         * `YARN`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you created earlier.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket for the processing results.
     * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**: Enable this option to access hosts of all subclusters.
 
@@ -55,7 +55,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
          STORED AS PARQUET LOCATION 's3a://yc-mdb-examples/dataproc/example01/set01';"
     ```
 
-    {% cut "Example of response to query" %}
+    {% cut "Example of a response to a query" %}
 
     ```bash
     done (14s)
@@ -76,7 +76,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
 
     {% endcut %}
 
-1. Make sure the table was successfully created. To do this, request the number of flights by month:
+1. Make sure the table was successfully created by querying the number of flights by month:
 
     ```bash
     {{ yc-dp }} job create-hive \
@@ -85,7 +85,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
        --query-list="SELECT Month, COUNT(*) FROM flights GROUP BY Month;"
     ```
 
-    {% cut "Example of response to query" %}
+    {% cut "Example of a response to a query" %}
 
     ```bash
     done (34s)
@@ -112,11 +112,11 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
     dataproc/clusters/<cluster_ID>/jobs/<Hive_job_ID>
     ```
 
-    The job ID is specified in the YC CLI job execution command output and in the API response to the job execution.
+    You can find the job ID in the YC CLI job execution command output and in the API response to the job execution.
 
-1. Download the `driveroutput.000000000` file containing the answer to your query.
+1. Download the `driveroutput.000000000` file containing the response to your query.
 
-    {% cut "Example of response to query" %}
+    {% cut "Example of a response to a query" %}
 
     ```bash
     Init job c9quejacclo3******** at Wed Dec  4 05:15:40 UTC 2024
@@ -149,7 +149,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
 
     {% endcut %}
 
-    If there are errors when executing the query, information about them will also be saved to the `driveroutput.000000000` file.
+    If the query runs with errors, the `driveroutput.000000000` file will contain this information as well.
 
 ### Providing an SQL query in an {{ objstorage-name }} object {#sql-from-objstorage}
 
@@ -166,7 +166,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
         STORED AS PARQUET LOCATION 's3a://yc-mdb-examples/dataproc/example01/set01';
     ```
 
-1. [Upload](../../../storage/operations/objects/upload.md) the `create-table.sql` file to the source data bucket.
+1. [Upload](../../../storage/operations/objects/upload.md) the `create-table.sql` file to the input data bucket.
 
 1. Run this command:
 
@@ -177,7 +177,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
       --query-file-uri="s3a://<input_data_bucket_name>/create-table.sql"
     ```
 
-    {% cut "Example of response to query" %}
+    {% cut "Example of a response to a query" %}
 
     ```bash
     done (8s)
@@ -202,7 +202,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
     SELECT Month, COUNT(*) FROM flights GROUP BY Month;
     ```
 
-1. Upload the `get-data.sql` file to the source data bucket.
+1. Upload the `get-data.sql` file to the input data bucket.
 1. Run this command:
 
     ```bash
@@ -212,7 +212,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
       --query-file-uri="s3a://<input_data_bucket_name>/get-data.sql"
     ```
 
-    {% cut "Example of response to query" %}
+    {% cut "Example of a response to a query" %}
 
     ```bash
     done (37s)
@@ -237,11 +237,11 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
     dataproc/clusters/<cluster_ID>/jobs/<Hive_job_ID>
     ```
 
-    The job ID is specified in the YC CLI job execution command output and in the API response to the job execution.
+    You can find the job ID in the YC CLI job execution command output and in the API response to the job execution.
 
-1. Download the `driveroutput.000000000` file containing the answer to your query.
+1. Download the `driveroutput.000000000` file containing the response to your query.
 
-    {% cut "Example of response to query" %}
+    {% cut "Example of a response to a query" %}
 
     ```bash
     Init job c9q2gha5hocg******** at Wed Dec  4 06:56:45 UTC 2024
@@ -273,7 +273,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
 
     {% endcut %}
 
-    If there are errors when executing the query, information about them will also be saved to the `driveroutput.000000000` file.
+    If the query runs with errors, the `driveroutput.000000000` file will contain this information as well.
 
 ## Working with jobs in the Hive CLI {#hive-shell}
 
@@ -281,14 +281,14 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
-1. [Create a {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) cluster with the following settings:
+1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md) with the following settings:
 
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `HIVE`
         * `SPARK`
         * `YARN`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you created earlier.
     * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**: Enable this option to access hosts of all subclusters.
 
 ### Running jobs using the Hive CLI {#run-job-hive-shell}
@@ -330,13 +330,13 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
     Time taken: 0.043 seconds, Fetched: 1 row(s)
     ```
 
-1. Request the number of flights by month:
+1. Query the number of flights by month:
 
     ```sql
     SELECT Month, COUNT(*) FROM flights GROUP BY Month;
     ```
 
-    {% cut "Example of response to query" %}
+    {% cut "Example of a response to a query" %}
 
     ```text
     Query ID = root_20200119195338_28049b67-4de9-4568-a4c4-3bbe********

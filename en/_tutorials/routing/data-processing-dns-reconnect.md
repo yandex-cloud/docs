@@ -2,7 +2,7 @@
 
 You may need to recreate a cluster to install software updates, transfer the load across clusters, move clusters from one availability zone to another, or perform other operations.
 
-This tutorial describes how to set up DNS to quickly switch network traffic over to new [host FQDNs](../../data-proc/concepts/network.md#hostname) when recreating a {{ dataproc-name }} cluster. For the current name of the cluster master host, a network alias (CNAME record) is created in {{ dns-full-name }}. Recreating the cluster switches the CNAME record to the master host's new name.
+This tutorial describes how to set up DNS to quickly switch network traffic over to new [host FQDNs](../../data-proc/concepts/network.md#hostname) when recreating a {{ dataproc-name }} cluster. For the current name of the cluster master host, a network alias (CNAME record) is created in {{ dns-full-name }}. When you recreate the cluster, the CNAME record changes to the master host's new name.
 
 To set up DNS for your {{ dataproc-name }} cluster:
 
@@ -16,9 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -41,14 +41,14 @@ Set up the infrastructure:
 
     1. In `data-proc-network`, [create a security group](../../vpc/operations/security-group-create.md) named `data-proc-security-group` with the following rules:
 
-        * One rule for inbound and another one for outbound control plane traffic:
+        * One rule for incoming and another one for outgoing service traffic:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
 
-        * Rule for outbound HTTPS traffic:
+        * Rule for outgoing HTTPS traffic:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
@@ -62,9 +62,9 @@ Set up the infrastructure:
         * [storage.uploader](../../storage/security/index.md#storage-uploader)
         * [storage.viewer](../../storage/security/index.md#storage-viewer)
 
-    1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
+    1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
 
-    1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) of any suitable configuration with the following settings:
+    1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) in any suitable configuration with the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`.
@@ -76,7 +76,7 @@ Set up the infrastructure:
 - {{ TF }} {#tf}
 
     1. If you do not have {{ TF }} yet, [set up and configure](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) it.
-    1. [Download the provider settings file](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. [Download the file with provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
     1. Download the [data-proc-dns-connect.tf](https://github.com/yandex-cloud-examples/yc-data-proc-reconnect-network/blob/main/data-proc-dns-connect.tf) configuration file to the same working directory.
 
         This file describes:
@@ -88,7 +88,7 @@ Set up the infrastructure:
         * [Security groups](../../vpc/concepts/security-groups.md).
         * Service account for operations with cloud resources.
         * Service account for bucket management.
-        * Static access key required to grant the service account the required permissions for the bucket.
+        * Static access key required to grant the service account permissions for the bucket.
         * Bucket to store job dependencies and results.
         * {{ dataproc-name }} cluster.
 
@@ -99,14 +99,14 @@ Set up the infrastructure:
         * `os_sa_name`: Name of the service account for bucket management.
         * `bucket`: Bucket name.
 
-    1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider’s resources and data sources.
+    1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -147,7 +147,7 @@ Create the resources:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -172,7 +172,7 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 - Manually {#manual}
 
     1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md) and create a new one with [identical settings](#deploy-infrastructure).
-    1. [Change the DNS record](../../dns/operations/resource-record-update.md) you created [earlier](#dns-record) and specify the FQDN of the master host of the newly created cluster in the **{{ ui-key.yacloud.dns.label_records }}** parameter.
+    1. [Change the DNS record](../../dns/operations/resource-record-update.md) you created [earlier](#dns-record) and specify the FQDN of the master host of the new cluster in the **{{ ui-key.yacloud.dns.label_records }}** parameter.
 
 - {{ TF }} {#tf}
 
@@ -183,7 +183,7 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Apply the changes:
 
@@ -196,13 +196,13 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create a cluster:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    1. [Get the FQDN](../../data-proc/operations/connect.md#fqdn) of the master host of the newly created {{ dataproc-name }} cluster.
+    1. [Get the FQDN](../../data-proc/operations/connect.md#fqdn) of the master host of the new {{ dataproc-name }} cluster.
     1. In the `data-proc-dns-connect.tf` file, specify this variable:
 
         * `dataproc_fqdn`: FQDN of the cluster master host.
@@ -213,7 +213,7 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Apply the changes:
 
@@ -240,7 +240,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 - Manually {#manual}
 
     1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
-    1. If you reserved public static IP addresses for the clusters, release and [delete them](../../vpc/operations/address-delete.md).
+    1. If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
     1. [Delete the subnet](../../vpc/operations/subnet-delete.md).
     1. [Delete the route table](../../vpc/operations/delete-route-table.md).
     1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

@@ -116,6 +116,11 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [postbox-limits](../../_includes/postbox/postbox-limits.md) %}
 
 
+### {{ cloud-shell-full-name }} {#cloud-shell}
+
+{% include [cloud-shell](../../_includes/console/cloud-shell-limits.md) %}
+
+
 ### {{ video-full-name }} {#video}
 
 {% include [video-limits](../../_includes/video-limits.md) %}
@@ -236,6 +241,12 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
+
+### {{ mtr-full-name }} {#mtr}
+
+{% include [mtr-limits.md](../../_includes/managed-trino/limits.md) %}
+
+
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
@@ -298,6 +309,11 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [search-api-limits](../../_includes/search-api-limits.md) %}
 
 
+### {{ sd-full-name }} {#sd}
+
+{% include [sd-limits](../../_includes/security-deck/sd-limits.md) %}
+
+
 ### {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
@@ -316,6 +332,13 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 ### {{ sws-full-name }} {#sws}
 
 {% include [smartwebsecurity-limits](../../_includes/sws-limits.md) %}
+
+
+### {{ ca-full-name }} {#ca}
+
+#### Квоты {#ca-quotas}
+
+{% include [ca-limits](../../_includes/ca-limits.md) %}
 
 
 ### {{ speechkit-full-name }} {#speechkit}

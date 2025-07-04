@@ -13,11 +13,16 @@
 
 1. В блоке **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
-   1. Выберите тип инстанса. После создания инстанса можно [изменить его тип](../../managed-gitlab/operations/instance/instance-update.md) на более производительный.
+   1. Выберите [тип инстанса](../../managed-gitlab/concepts/index.md#config). После создания инстанса можно [изменить его тип](../../managed-gitlab/operations/instance/instance-update.md) на более производительный.
    1. Укажите [зону доступности](../../overview/concepts/geo-scope.md). После создания инстанса изменить его зону доступности невозможно.
    1. Укажите [подсеть](../../vpc/concepts/network.md#subnet), в которой будет размещен инстанс. Технические ограничения {{ yandex-cloud }} временно не позволяют выбрать подсеть с диапазоном адресов `192.168.0.0/24`.
+   1. Выберите [группу безопасности](../../vpc/concepts/security-groups.md) или создайте новую:
 
-      Для инстанса будет использована [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group) для выбранной [сети](../../vpc/concepts/network.md#network). Если после создания инстанса не получится открыть веб-интерфейс {{ GL }}, [настройте](../../managed-gitlab/operations/configure-security-group.md) группу безопасности так, чтобы правила разрешали входящий и исходящий трафик с нужных портов и IP-адресов.
+      1. Нажмите кнопку **{{ ui-key.yacloud.component.network-subnet-select.button_create-security-group }}**.
+      1. Введите имя и описание группы безопасности. Правила для группы безопасности вы сможете добавить позже в сервисе **{{ vpc-name }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+      {% include [sg-notes](sg-notes.md) %}
 
    1. Выберите размер [диска](../../compute/concepts/disk.md). После создания инстанса размер его диска [можно увеличить](../../managed-gitlab/operations/instance/instance-update.md).
    1. Укажите [доменное имя инстанса](../../compute/concepts/network.md#hostname) — для него будут автоматически созданы нужные DNS-записи в домене `.gitlab.yandexcloud.net`.

@@ -1,6 +1,6 @@
 # Running jobs from remote hosts that are not part of the {{ dataproc-name }} cluster
 
-This guide describes how to use the [spark-submit utility](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications) to run Spark jobs in the {{ dataproc-name }} cluster from hosts that are not part of the {{ dataproc-name }} cluster.
+This tutorial describes how to use the [spark-submit utility](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications) to run Spark jobs in the {{ dataproc-name }} cluster from hosts that are not part of the cluster.
 
 {% note info %}
 
@@ -16,8 +16,8 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
 - Image version 1.4
 
-  1. [Create a VM](../../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 16.04 LTS.
-  1. To provide network access to the {{ dataproc-name }} cluster hosting the created VM, [set up security groups](../../../data-proc/operations/connect.md#configuring-security-groups) for the cluster.
+  1. [Create a VM](../../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 16.04 LTS.
+  1. To provide network access to the {{ dataproc-name }} cluster hosting this VM, [set up security groups](../../../data-proc/operations/connect.md#configuring-security-groups) for the cluster.
   1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
 
       ```bash
@@ -54,7 +54,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
      {% note info %}
 
-     You only need the `spark-python` package to run PySpark jobs.
+     You need the `spark-python` package only to run PySpark jobs.
 
      {% endnote %}
 
@@ -82,8 +82,8 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
 - Image version 2.0
 
-  1. [Create a VM](../../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 LTS.
-  1. To provide network access to the {{ dataproc-name }} cluster hosting the created VM, [set up security groups](../../../data-proc/operations/connect.md#configuring-security-groups) for the cluster.
+  1. [Create a VM](../../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 20.04 LTS.
+  1. To provide network access to the {{ dataproc-name }} cluster hosting this VM, [set up security groups](../../../data-proc/operations/connect.md#configuring-security-groups) for the cluster.
   1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
 
      ```bash
@@ -120,7 +120,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
      {% note info %}
 
-     You only need the `spark-python` package to run PySpark jobs.
+     You need the `spark-python` package only to run PySpark jobs.
 
      {% endnote %}
 
@@ -154,7 +154,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
 - Spark job
 
-  1. Run a job using the command:
+  1. Run a job using this command:
 
      ```bash
      sudo -u sparkuser spark-submit \
@@ -292,7 +292,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
              main()
      ```
 
-  1. Copy the `month_stat.py` file to the cluster's master host:
+  1. Copy the `month_stat.py` file on the cluster's master host:
 
      ```bash
      sudo -E scp month_stat.py <username>@<cluster_host_FQDN>:~/month_stat.py
@@ -309,7 +309,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
           month_stat.py
      ```
 
-  1. The result of running the application will be exported to HDFS on the cluster. You can list the resulting files using the command:
+  1. The result will be exported to HDFS on the cluster. You can list the files you got using this command:
 
      ```bash
      ssh <username>@<cluster_host_FQDN> "hdfs dfs -ls /tmp/month_stat"

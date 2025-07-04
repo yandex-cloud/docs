@@ -1,6 +1,6 @@
 You can save data from a [{{ dataproc-full-name }} cluster](../../../data-proc/concepts/index.md) to a [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) using a separate [{{ metastore-full-name }} cluster](../../../metadata-hub/concepts/metastore.md) to store table metadata. Thus you can access the saved data from a different {{ dataproc-name }} cluster that has access to the bucket and is connected to the same {{ metastore-name }} cluster.
 
-To set up shared use of tables with two {{ dataproc-name }} clusters through {{ metastore-name }}:
+To set up shared use of tables by two {{ dataproc-name }} clusters through {{ metastore-name }}:
 
 1. [Connect {{ dataproc-name }} to {{ metastore-name }}](#connect).
 1. [Create a test table](#create-table).
@@ -35,25 +35,25 @@ Set up your infrastructure:
     1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign the `dataproc.agent` and `dataproc.provisioner` roles to it.
     1. {% include [basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
     1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`.
-    1. In the `dataproc-network` network, [create a subnet](../../../vpc/operations/subnet-create.md) in any availability zone.
+    1. In `dataproc-network`, [create a subnet](../../../vpc/operations/subnet-create.md) in any availability zone.
     1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet you created.
     1. [Create two {{ dataproc-name }} clusters](../../../data-proc/operations/cluster-create.md) named `dataproc-source` and `dataproc-target` in any [suitable host configuration](../../../data-proc/concepts/instance-types.md) with the following settings:
 
-        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
             * `SPARK`
             * `YARN`
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
-        * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. Required for PySpark jobs and integration with {{ metastore-name }}.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. It is required for PySpark jobs and integration with {{ metastore-name }}.
         * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data.
         * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
 
     1. If the cloud network uses [security groups](../../../vpc/concepts/security-groups.md), [add](../../../vpc/operations/security-group-add-rule.md) the following rule for outgoing traffic to the {{ dataproc-name }} cluster security group:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-metastore }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-metastore }}`
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 - {{ TF }} {#tf}
 
@@ -69,9 +69,9 @@ Set up your infrastructure:
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [NAT gateway](../../../vpc/concepts/gateways.md) and route table required for {{ dataproc-name }}.
-        * [Security groups](../../../vpc/concepts/security-groups.md) required for the {{ dataproc-name }} clusters.
-        * Service account required for the {{ dataproc-name }} cluster.
-        * Service account required to create buckets in {{ objstorage-name }}.
+        * [Security groups](../../../vpc/concepts/security-groups.md) for the {{ dataproc-name }} clusters.
+        * Service account for the {{ dataproc-name }} cluster.
+        * Service account to create buckets in {{ objstorage-name }}.
         * Buckets for input and output data.
         * Two {{ dataproc-name }} clusters.
 
@@ -80,7 +80,7 @@ Set up your infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `input-bucket`: Name of the input data bucket.
         * `output-bucket`: Name of the output data bucket.
-        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. To learn more, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
+        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -88,7 +88,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -100,7 +100,7 @@ Set up your infrastructure:
 
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
-1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) in the `dataproc-network` network.
+1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) in `dataproc-network`.
 
 1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the {{ dataproc-name }} cluster settings.
 
@@ -116,7 +116,7 @@ In the `dataproc-source` cluster, create a test table named `countries` and uplo
 
     1. Prepare a script file:
 
-        1. Create a local file named `create-table.py` and copy the following script to it:
+        1. Create a local file named `create-table.py` and paste the following script to it:
 
             {% cut "create-table.py" %}
 
@@ -139,7 +139,7 @@ In the `dataproc-source` cluster, create a test table named `countries` and uplo
             # Creating a dataframe
             df = spark.createDataFrame([('Australia', 'Canberra', 7686850, 19731984), ('Austria', 'Vienna', 83855, 7700000)], schema)
 
-            # Writing the dataframe to a bucket as a _countries_ table
+            # Writing the dataframe to a bucket as a countries table
             df.write.mode("overwrite").option("path","s3a://<output_bucket_name>/countries").saveAsTable("countries")
             ```
 
@@ -167,7 +167,7 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
 
     1. Prepare a script file:
 
-        1. Create a local file named `obtain-table.py` and copy the following script to it:
+        1. Create a local file named `obtain-table.py` and paste the following script to it:
 
             {% cut "obtain-table.py" %}
 
@@ -182,10 +182,10 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
 
             spark.catalog.listDatabases()
 
-            # Getting the _countries_ table metadata from Metastore
+            # Getting the countries table metadata from Metastore
             df = spark.sql("describe extended countries")
 
-            # Requesting data from the _countries_ table
+            # Requesting data from the countries table
             df = spark.sql("select * from countries")
 
             # Testing table-to-bucket transfer
@@ -194,8 +194,8 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
 
             {% endcut %}
 
-        1. In the script, specify the name of the output bucket the CSV file with the `countries` table will be saved to.
-        1. [Upload](../../../storage/operations/objects/upload.md#simple) the `obtain-table.py` file to the source data bucket’s `scripts` folder.
+        1. In the script, specify the name of the output bucket where the CSV file with the `countries` table will be saved.
+        1. [Upload](../../../storage/operations/objects/upload.md#simple) the `obtain-table.py` file to the input data bucket’s `scripts` folder.
 
     1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/obtain-table.py`.
     1. Wait for the job to complete and make sure the output bucket contains the `csv` folder with a table in CSV format.

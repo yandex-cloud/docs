@@ -203,7 +203,7 @@
             - name: deploy-latest
               env:
                 TMP_PATH: ./tmp
-                YC_AUTHORIZED_KEY_JSON: $not_var{{ secrets.authorized-key }}
+                YC_AUTHORIZED_KEY_JSON: ${{ secrets.<название_секрета> }}
                 YC_FOLDER_ID: <идентификатор_каталога>
                 YC_FUNCTION_NAME: cicd-test
                 YC_FUNCTION_RUNTIME: nodejs22

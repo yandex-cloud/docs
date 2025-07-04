@@ -30,4 +30,4 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите кнопку ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-synthesis.label_button_playback }}**, чтобы синтезировать речь.
 1. Чтобы скачать результат, нажмите ![arrow-down-to-line](../../_assets/console-icons/arrow-down-to-line.svg).
 
-{{ speechkit-name }} Playground предоставляет базовые возможности синтеза речи. Более гибкие настройки синтеза доступны только через [API](#tts-quickstart).
+{{ speechkit-name }} Playground предоставляет базовые возможности синтеза речи. Более гибкие настройки синтеза доступны только через [API](../quickstart/tts-quickstart-v3.md).

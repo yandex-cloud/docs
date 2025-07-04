@@ -28,3 +28,4 @@ You can assign a role for a cloud or folder.
 If a network and subnet are in different folders, the `vpc.publicAdmin` role is checked for the folder where the network is located.
 
 {% endnote %}
+
