@@ -2,7 +2,7 @@
 
 [Apache Spark](https://spark.apache.org/) is a distributed processing framework for unstructured and semi-structured data and a part of the Hadoop project ecosystem.
 
-In this section, we provide a simple example that demonstrates how to use the Spark interface for Scala and Java in {{ dataproc-name }}. In the example, we use Spark to count the number of times each word is seen in a short text.
+In this section, we provide a simple example that demonstrates how to use the Spark interface for Scala and Java in {{ dataproc-name }}. In the example, we use Spark to count the number of times each word appears in a short text.
 
 ## Getting started {#before-you-begin}
 
@@ -10,15 +10,15 @@ In this section, we provide a simple example that demonstrates how to use the Sp
 
 1. {% include [basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
-1. [Create a {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) cluster with the following settings:
+1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md) with the following settings:
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
-    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you created earlier.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket for the processing results.
 
 ## Create a Spark job {#create-job}
 
@@ -80,7 +80,7 @@ In this section, we provide a simple example that demonstrates how to use the Sp
 
 1. Wait for the [job status](../../../data-proc/operations/jobs-spark.md#get-info) to change to `Done`.
 
-1. [Download from the bucket](../../../storage/operations/objects/download.md) and review the files with the results from the bucket:
+1. [Download](../../../storage/operations/objects/download.md) the files with the results from the bucket and review them:
 
     {% cut "part-00000" %}
 

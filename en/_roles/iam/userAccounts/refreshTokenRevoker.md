@@ -1,1 +1,1 @@
-The `iam.userAccounts.refreshTokenRevoker` role enables revoking federated users’ refresh tokens. To use this role, you need to assign it for an [organization](../../../organization/concepts/organization.md).
+The `iam.userAccounts.refreshTokenRevoker` role enables revoking federated users’ [refresh tokens](../../../iam/concepts/authorization/refresh-token.md). To use this role, you need to assign it for an [organization](../../../organization/concepts/organization.md).

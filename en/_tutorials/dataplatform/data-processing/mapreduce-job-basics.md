@@ -2,9 +2,9 @@
 
 {% include [MapReduce](../../../_includes/data-processing/mapreduce-intro.md) %}
 
-In this article, we use a simple example to show how MapReduce works in {{ dataproc-name }}. We will use MapReduce to compute the population of the world's 500 largest cities based on a set of data on the cities.
+In this article, we use a simple example to show how MapReduce works in {{ dataproc-name }}. We will use MapReduce to compute the population of the world's 500 largest cities based on the cities dataset.
 
-To run MapReduce on Hadoop, we use the Streaming interface. At the same time, the data preprocessing (map) and the final output computation (reduce) stages use programs that read data from a standard program input (`stdin`) and write their output to a standard output (`stdout`).
+To run MapReduce on Hadoop, we use the Streaming interface. At the same time, the data preprocessing (map) and the final output computation (reduce) stages use programs that read data from a standard program input (`stdin`) and write their result to a standard output (`stdout`).
 
 ## Getting started {#before-you-begin}
 
@@ -12,19 +12,19 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
 1. {% include [basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
-1. [Create a {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) cluster with the following settings:
+1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md) with the following settings:
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `MAPREDUCE`
         * `YARN`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
-    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you created earlier.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket for the processing results.
 
 ## Create a MapReduce job {#create-job}
 
-1. [Download](http://download.geonames.org/export/dump/cities500.zip) an archived CSV file with a dataset on the cities and [upload it to the input data bucket](../../../storage/operations/objects/upload.md).
+1. [Download](http://download.geonames.org/export/dump/cities500.zip) an archived CSV file with the cities dataset and [upload it to the input data bucket](../../../storage/operations/objects/upload.md).
 1. Upload Python files to the input data bucket: `mapper.py`, which contains the code for data preprocessing (map stage), and `reducer.py`, which contains the code for the final computations (reduce stage):
 
     `mapper.py`
@@ -71,7 +71,7 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
 1. Wait for the [job status](../../../data-proc/operations/jobs-mapreduce.md#get-info) to change to `Done`.
 
-1. [Download from the bucket](../../../storage/operations/objects/download.md) and review the file with the result from the bucket:
+1. [Download](../../../storage/operations/objects/download.md) the file with the result from the bucket and review it:
 
     `part-00000`
 

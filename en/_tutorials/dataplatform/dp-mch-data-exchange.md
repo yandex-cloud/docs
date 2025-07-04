@@ -13,10 +13,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ dataproc-name }} cluster fee: Using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
-* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* NAT gateway fee (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ dataproc-name }} cluster fee: using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* {{ mch-name }} cluster fee: using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -35,12 +35,12 @@ Set up your infrastructure:
     1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet you created.
     1. If using security groups, [create a security group](../../vpc/operations/security-group-create.md) named `dataproc-sg` in `dataproc-network` and add the following rules to it:
 
-        * One rule for inbound and another one for outbound service traffic:
+        * One rule for incoming and another one for outgoing service traffic:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-security-group }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-security-group }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`)
 
         * Rule for outgoing HTTPS traffic:
 
@@ -67,14 +67,14 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`.
 
-    1. [Create a {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) cluster of any suitable configuration with the following settings:
+    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md) with the following settings:
 
-        * With public access to cluster hosts.
+        * Public access to cluster hosts: Enabled.
         * Database: `db1`.
         * User: `user1`.
 
     
-    1. If using security groups in your {{ mch-name }} cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connecting to the cluster.
+    1. If using security groups in your {{ mch-name }} cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connections to the cluster.
 
 
 - {{ TF }} {#tf}
@@ -90,10 +90,10 @@ Set up your infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * NAT gateway and route table required for {{ dataproc-name }}.
-        * [Security groups](../../vpc/concepts/security-groups.md) required for the {{ dataproc-name }} and {{ mch-name }} clusters.
-        * Service account required for the {{ dataproc-name }} cluster.
-        * Service account required to create buckets in {{ objstorage-name }}.
+        * NAT gateway and route table for {{ dataproc-name }}.
+        * [Security groups](../../vpc/concepts/security-groups.md) for the {{ dataproc-name }} and {{ mch-name }} clusters.
+        * Service account for the {{ dataproc-name }} cluster.
+        * Service account to create buckets in {{ objstorage-name }}.
         * Buckets for input and output data.
         * {{ dataproc-name }} cluster.
         * {{ mch-name }} cluster.
@@ -103,7 +103,7 @@ Set up your infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `input_bucket`: Name of the input data bucket.
         * `output_bucket`: Name of the output data bucket.
-        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. To learn more, see [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
+        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
         * `ch_password`: {{ CH }} user password.
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -112,7 +112,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -127,7 +127,7 @@ Set up your infrastructure:
 ### Create a table in the {{ mch-name }} cluster {#prepare-mch}
 
 1. [Connect to the {{ mch-name }} cluster's database](../../managed-clickhouse/operations/connect/clients.md) named `db1` as `user1`.
-1. Add test data to the database. As an example, a simple table is used with people's names and ages.
+1. Add test data to the database. As an example, we use a simple table with people's names and ages.
 
     1. Create a table:
 
@@ -165,7 +165,7 @@ Set up your infrastructure:
 
 1. Prepare a script file:
 
-    1. Create a local file named `ch-to-dataproc.py` and copy the following script to it:
+    1. Create a local file named `ch-to-dataproc.py` and paste the following script to it:
 
         {% cut "ch-to-dataproc.py" %}
 
@@ -199,14 +199,14 @@ Set up your infrastructure:
     1. Specify the following in the script:
 
         * {{ mch-name }} cluster ID.
-        * `user1` user password.
+        * `user1` password.
         * Output bucket name.
 
-    1. In the input bucket, create a directory named `scripts` and [upload](../../storage/operations/objects/upload.md#simple) the `ch-to-dataproc.py` file to it.
+    1. In the input bucket, create a folder named `scripts` and [upload](../../storage/operations/objects/upload.md#simple) the `ch-to-dataproc.py` file to it.
 
 1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/ch-to-dataproc.py`.
 
-1. Wait for the job to complete and make sure the output bucket's `csv` directory contains the source table.
+1. Wait for the job to complete and make sure the output bucket's `csv` folder contains the source table.
 
 {% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
@@ -214,7 +214,7 @@ Set up your infrastructure:
 
 1. Prepare a script file:
 
-    1. Create a local file named `dataproc-to-ch.py` and copy the following script to it:
+    1. Create a local file named `dataproc-to-ch.py` and paste the following script to it:
 
         {% cut "dataproc-to-ch.py" %}
 
@@ -260,16 +260,16 @@ Set up your infrastructure:
     1. Specify the following in the script:
 
         * {{ mch-name }} cluster ID.
-        * `user1` user password.
+        * `user1` password.
 
-    1. In the input bucket, create a directory named `scripts` and [upload](../../storage/operations/objects/upload.md#simple) the `dataproc-to-ch.py` file to it.
+    1. In the input bucket, create a folder named `scripts` and [upload](../../storage/operations/objects/upload.md#simple) the `dataproc-to-ch.py` file to it.
 
 1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/dataproc-to-ch.py`.
 
 1. Wait for the job to complete and make sure the data has been transferred to {{ mch-name }}:
 
     1. [Connect to the {{ mch-name }} cluster's database](../../managed-clickhouse/operations/connect/clients.md) named `db1` as `user1`.
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM people;

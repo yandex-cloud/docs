@@ -2,7 +2,7 @@
 
 [Apache Hive](https://hive.apache.org/) is a system for managing large distributed datasets that is built on Hadoop and uses the SQL query language.
 
-In this article, a simple example demonstrates how Hive is used in {{ dataproc-name }} for data analysis. In the example below, we use Hive to analyze the population of the largest cities in Russia.
+In this article, a simple example demonstrates how you can use Hive in {{ dataproc-name }} for data analysis. In the example below, we use Hive to analyze the population of the largest cities in Russia.
 
 ## Getting started {#before-you-begin}
 
@@ -10,15 +10,15 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 
 1. {% include [tutorials-basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
-1. [Create a {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) cluster with the following settings:
+1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md) with the following settings:
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
         * `HIVE`
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
-    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket for the processing results.
 
 ## Create a Hive job {#create-job}
 
@@ -46,7 +46,7 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 
     {% endcut %}
 
-    The file shows the population of Russia's largest cities with over a million inhabitants based on 2021 estimates (rounded).
+    The file shows the population of Russia's largest cities with over a million inhabitants based on the 2021 census (rounded).
 
 1. Create a file with SQL queries named `cities.sql` and upload it to the input data bucket:
 

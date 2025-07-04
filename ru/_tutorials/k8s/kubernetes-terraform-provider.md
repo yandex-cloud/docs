@@ -37,18 +37,18 @@
    На этом шаге файл не должен содержать настройки провайдера `kubernetes`. Они будут добавлены [позднее](#apply-kubernetes-provider).
 
 1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-1. Скачайте в ту же рабочую директорию файл конфигурации [managed-k8s-infrastructure.tf](https://github.com/yandex-cloud-examples/yc-mk8s-terraform-provider-for-k8s/blob/main/terraform-manifests/managed-k8s-infrastructure.tf).
+1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf).
 
    В этом файле описаны:
 
    * сеть;
    * подсеть;
    * две группы безопасности — для кластера и группы узлов;
-   * облачный сервисный аккаунт с ролями `k8s.clusters.agent`, `vpc.publicAdmin`, `load-balancer.admin` и `container-registry.images.puller`;
+   * облачный сервисный аккаунт с ролями `k8s.clusters.agent`, `k8s.tunnelClusters.agent`, `vpc.publicAdmin`, `load-balancer.admin` и `container-registry.images.puller`;
    * кластер {{ managed-k8s-name }};
    * группа узлов {{ k8s }}.
 
-1. Укажите значения переменных в файле `managed-k8s-infrastructure.tf`.
+1. Укажите значения переменных в файле `k8s-cluster.tf`.
 1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
    ```bash
@@ -300,6 +300,111 @@
    ```
 
    {{ TF }} удалит все ресурсы, созданные в текущей конфигурации.
+
+## Пример подготовки постоянного тома с помощью {{ TF }} {#example}
+
+Подготовьте для кластера {{ managed-k8s-name }} [постоянный том](../../managed-kubernetes/concepts/volume.md#persistent-volume). Используйте для этого конфигурационный файл:
+
+{% cut "pv-pvc.tf" %}
+
+```hcl
+resource "yandex_compute_disk" "pv_disk" {
+  name = "pv-disk"
+  zone = "ru-central1-a"
+  size = 10
+  type = "network-ssd"
+}
+
+resource "kubernetes_storage_class" "pv_sc" {
+  metadata {
+    name = "pv-sc"
+  }
+  storage_provisioner = "disk-csi-driver.mks.ycloud.io"
+
+  parameters = {
+    "csi.storage.k8s.io/fstype" = "ext4"
+  }
+
+  reclaim_policy      = "Retain"
+  volume_binding_mode = "WaitForFirstConsumer"
+}
+
+resource "kubernetes_persistent_volume" "my_pv" {
+  metadata {
+    name = "my-pv"
+  }
+  spec {
+    capacity = {
+      storage = "10Gi"
+    }
+    access_modes       = ["ReadWriteOnce"]
+    storage_class_name = "pv-sc"
+    persistent_volume_source {
+      csi {
+        driver        = "disk-csi-driver.mks.ycloud.io"
+        volume_handle = yandex_compute_disk.pv_disk.id
+      }
+    }
+  }
+}
+
+resource "kubernetes_persistent_volume_claim" "my_pvc" {
+  metadata {
+    name = "my-pvc"
+  }
+  spec {
+    access_modes = ["ReadWriteOnce"]
+    resources {
+      requests = {
+        storage = "5Gi"
+      }
+    }
+    storage_class_name = "pv-sc"
+    volume_name        = "my-pv"
+  }
+}
+```
+
+{% endcut %}
+
+В файле `pv-pvc.tf` описаны:
+
+* [Диск](../../compute/concepts/disk.md) {{ compute-name }}, который используется как хранилище для `PersistentVolume`:
+  
+    * Имя — `pv-disk`.
+    * Зона доступности — `ru-central1-a`.
+    * Размер диска — 10 ГБ.
+    * Тип диска — `network-ssd`.
+
+* Пользовательский [класс хранилища (StorageClass)](../../managed-kubernetes/operations/volumes/manage-storage-class.md):
+
+    * Имя — `pv-sc`.
+    * Поставщик хранилища — `disk-csi-driver.mks.ycloud.io`.
+    * Тип файловой системы — `ext4`.
+    * Политика переиспользования — `Retain`. Объект `PersistentVolume` не будет удален после удаления связанного с ним объекта `PersistentVolumeClaim`.
+    * Режим присоединения тома — `WaitForFirstConsumer`. `PersistentVolume` и `PersistentVolumeClaim` будут связаны только тогда, когда под запросит том.
+
+    [Подробнее о параметрах класса хранилища](https://kubernetes.io/docs/concepts/storage/storage-classes/).
+
+* Объект `PersistentVolume`:
+
+    * Имя — `my-pv`.
+    * Размер — 10 ГБ.
+    * Режим доступа — `ReadWriteOnce`. Читать и записывать данные в этот объект `PersistentVolume` могут только поды, расположенные на одном и том же узле. Поды на других узлах не смогут получить доступ к этому объекту.
+    * Класс хранилища — `pv-sc`. Если не указать, будет использоваться класс хранилища по умолчанию.
+    * Источник данных — диск `pv-disk`.
+
+    [Подробнее о параметрах PersistentVolume](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+
+* Объект `PersistentVolumeClaim`:
+
+    * Имя — `my-pvc`.
+    * Режим доступа — `ReadWriteOnce`. Читать и записывать данные в этот объект `PersistentVolume` могут только поды, расположенные на одном и том же узле. Поды на других узлах не смогут получить доступ к этому объекту.
+    * Запрашиваемый размер хранилища — 5 ГБ.
+    * Класс хранилища — `pv-sc`. Если не указать, будет использоваться класс хранилища по умолчанию.
+    * Имя тома — объект `PersistentVolume`, с которым будет связан объект `PersistentVolumeClaim`.
+
+  [Подробнее о параметрах PersistentVolumeClaim](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).  
 
 #### См. также {#see-also}
 

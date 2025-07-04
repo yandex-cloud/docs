@@ -25,7 +25,7 @@
 
           ```
           Authorization: Bearer <IAM-токен>
-          x-folder-id <идентификатор_каталога>
+          x-folder-id: <идентификатор_каталога>
           ```
 
 - Сервисный аккаунт {#service-account}

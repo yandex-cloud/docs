@@ -14,10 +14,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
 * {{ dataproc-name }} cluster fee (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* NAT gateway fee (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
@@ -28,8 +28,8 @@ The support cost includes:
 
    1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`, without subnets.
    1. [Create a subnet](../../../vpc/operations/subnet-create.md) named `dataproc-subnet-b` in the `{{ region-id }}-b` availability zone.
-   1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `dataproc-subnet-b` subnet.
-   1. [Create a security group](../../../vpc/operations/security-group-create.md) named `dataproc-security-group` in the `dataproc-network` network.
+   1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for `dataproc-subnet-b`.
+   1. [Create a security group](../../../vpc/operations/security-group-create.md) named `dataproc-security-group` in `dataproc-network`.
    1. [Configure the security group](../../../data-proc/operations/cluster-create.md#change-security-groups).
    1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-sa` with the following roles:
 
@@ -42,9 +42,9 @@ The support cost includes:
    1. [Grant the `dataproc-sa` service account](../../../storage/operations/buckets/edit-acl.md) the `FULL_CONTROL` permission for `dataproc-bucket`.
    1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md#create) with the following parameters:
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `dataproc-cluster`
-      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_version }}**: `2.1`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `dataproc-cluster`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_version }}**: `2.1`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
 
          * `HDFS`
@@ -53,30 +53,30 @@ The support cost includes:
          * `TEZ`
          * `YARN`
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-b`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `dataproc-bucket`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-b`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `dataproc-bucket`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
       * **{{ ui-key.yacloud.mdb.forms.section_subclusters }}**: Master, one subcluster named `Data` and one subcluster named `Compute`.
 
    1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md#create-cluster) with the following parameters:
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `dataproc-kafka`
-      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
-      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `3.5`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-b`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`
-      * **Subnet**: `dataproc-subnet-b`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `dataproc-kafka`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `3.5`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-b`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
+      * **Subnet**: `dataproc-subnet-b`.
 
-   1. [Create a {{ KF }} topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) with the following parameters:
+   1. [Create an {{ KF }} topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) with the following parameters:
 
       * **Name**: `dataproc-kafka-topic`.
-      * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
-      * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `1`
+      * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`.
+      * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `1`.
 
-   1. [Create a {{ KF }} user](../../../managed-kafka/operations/cluster-accounts.md#create-user) with the following parameters:
+   1. [Create an {{ KF }} user](../../../managed-kafka/operations/cluster-accounts.md#create-user) with the following parameters:
 
       * **Name**: `user1`.
       * **Password**: `password1`.
@@ -96,11 +96,11 @@ The support cost includes:
       * [Network](../../../vpc/concepts/network.md#network).
       * [NAT gateway](../../../vpc/concepts/gateways.md) and route table required for {{ dataproc-name }}.
       * [Subnet](../../../vpc/concepts/network.md#subnet).
-      * [Security group](../../../vpc/concepts/security-groups.md) required for the {{ dataproc-name }} and {{ mkf-name }} clusters.
-      * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ dataproc-name }} cluster.
+      * [Security group](../../../vpc/concepts/security-groups.md) for the {{ dataproc-name }} and {{ mkf-name }} clusters.
+      * [Service account](../../../iam/concepts/users/service-accounts.md) for the {{ dataproc-name }} cluster.
       * Service account for managing the {{ objstorage-full-name }} bucket.
       * [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md).
-      * [Static access key](../../../iam/concepts/authorization/access-key.md) required to grant the service account the required permissions for the bucket.
+      * [Static access key](../../../iam/concepts/authorization/access-key.md) required to grant the service account permissions for the bucket.
       * {{ dataproc-name }} cluster.
       * {{ mkf-name }} cluster.
       * {{ KF }} user.
@@ -109,7 +109,7 @@ The support cost includes:
    1. Specify the following in the `kafka-and-data-proc.tf` file:
 
       * `folder_id`: Cloud folder ID, same as in the provider settings.
-      * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. To learn more, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
+      * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -117,7 +117,7 @@ The support cost includes:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -129,7 +129,7 @@ The support cost includes:
 
 ## Create PySpark jobs {#create-jobs}
 
-1. On a local computer, save the following scripts:
+1. On your local computer, save the following scripts:
 
    {% cut "`kafka-write.py`" %}
 
@@ -248,7 +248,7 @@ The support cost includes:
 
    {% endcut %}
 
-1. [Get the {{ KF }}](../../../managed-kafka/operations/connect/index.md#get-fqdn) host FQDN and specify it in each script.
+1. [Get the {{ KF }} host FQDN](../../../managed-kafka/operations/connect/index.md#get-fqdn) and specify it in each script.
 1. [Upload](../../../storage/operations/objects/upload.md) the prepared scripts to the bucket root.
 1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) for writing a message to the {{ KF }} topic. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the `s3a://dataproc-bucket/kafka-write.py` script path.
 1. Wait for the [job status](../../../data-proc/operations/jobs-pyspark.md#get-info) to change to `Done`.

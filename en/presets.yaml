@@ -77,6 +77,7 @@ default:
   brand-voice-premium-name: SpeechKit Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
+  ca-name: Code Assistant
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
   captcha-name: SmartCaptcha
@@ -7738,6 +7739,8 @@ default:
           label_serverless-containers: Serverless Containers
           label_serverless-functions: Cloud Functions
           label_vpc: Virtual Private Cloud
+        network-subnet-select:
+          button_create-security-group: Create group
         password-input:
           label_button-enter-manually: Enter manually
           label_button-generate: Generate
@@ -8575,6 +8578,7 @@ default:
             field_max-unavailable: Max group size reduction
             field_min-size: Minimum number of nodes
             field_node-labels: Node labels
+            field_node-taints: Node taints
             field_node-version: Kubernetes version
             field_scale-size: Number of nodes
             field_scale-type: Type

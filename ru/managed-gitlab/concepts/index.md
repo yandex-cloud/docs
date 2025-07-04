@@ -17,7 +17,16 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
 ## Конфигурация инстанса {#config}
 
 При создании инстанса указываются:
-* Тип инстанса — [количество ядер (vCPU) и объем памяти (RAM)](../../compute/concepts/vm-platforms.md). После создания инстанса можно [изменить его тип](../operations/instance/instance-update.md) на более производительный.
+* Тип инстанса — [количество ядер (vCPU) и объем памяти (RAM)](../../compute/concepts/vm-platforms.md). Доступные типы инстансов:
+
+  | Тип            | Вычислительные ресурсы |
+  |----------------|------------------------|
+  | s2.micro       | 2 vCPU, 8 ГБ RAM       |
+  | s2.small       | 4 vCPU, 16 ГБ RAM      |
+  | s2.medium      | 8 vCPU, 32 ГБ RAM      |
+  | s2.large       | 16 vCPU, 64 ГБ RAM     |
+
+  После создания инстанса можно [изменить его тип](../operations/instance/instance-update.md) на более производительный.
 * [Подсеть](../../vpc/concepts/network.md#subnet).
 
   {% include [GL CIDR Warning](../../_includes/managed-gitlab/cidr-note.md) %}
@@ -53,7 +62,17 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
     * 8 vCPU, 64 ГБ RAM.
     * 16 vCPU, 128 ГБ RAM.
 
-    {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}  
+    {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
+
+## {{ GL }} Pages {#pages}
+
+{{ GL }} Pages — инструмент для публикации статических сайтов на основе файлов, расположенных в репозитории {{ GL }}. Сайты разворачиваются по заданиям {{ GL }} CI/CD. {{ GL }} Pages работает с генераторами статических сайтов и обычными файлами HTML, CSS и JavaScript.
+
+{{ GL }} Pages позволяет использовать собственные домены и сертификаты SSL/TLS, а также настраивать доступ к сайтам.
+
+[Подробнее в официальной документации {{ GL }}](https://docs.gitlab.com/user/project/pages/).
+
+{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
 
 ## Примеры использования {#examples}
 

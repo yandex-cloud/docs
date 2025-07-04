@@ -2,7 +2,7 @@
 
 [Apache Spark](https://spark.apache.org/) is a distributed processing framework for unstructured and semi-structured data and a part of the Hadoop project ecosystem.
 
-In this section, we provide a simple example that demonstrates how to use [PySpark](https://spark.apache.org/docs/latest/api/python/), the Spark interface for Python, in {{ dataproc-name }}. In the example, we use PySpark to count the number of times each word is seen in a short text.
+In this section, we provide a simple example that demonstrates how to use [PySpark](https://spark.apache.org/docs/latest/api/python/), the Spark interface for Python, in {{ dataproc-name }}. In the example, we use PySpark to count the number of times each word appears in a short text.
 
 ## Getting started {#before-you-begin}
 
@@ -10,21 +10,21 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
 1. {% include [basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
-1. [Create a {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) cluster with the following settings:
+1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md) with the following settings:
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
-    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you created earlier.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket for the processing results.
 
 ## Create a PySpark job {#create-job}
 
 1. {% include [sample-txt](../../../_includes/data-processing/tutorials/sample-txt.md) %}
 
-1. Upload a file with the Python code of the analysis program:
+1. Upload a file with the analysis program code in Python:
 
     1. Copy and save to the `word_count.py` file:
 
@@ -66,7 +66,7 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
         {% endcut %}
 
-    1. [Upload](../../../storage/operations/objects/upload) the `word_count.py` file to the source data bucket.
+    1. [Upload](../../../storage/operations/objects/upload) the `word_count.py` file to the input data bucket.
 
 1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark#create) with the following parameters:
 
@@ -78,7 +78,7 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
 1. Wait for the [job status](../../../data-proc/operations/jobs-pyspark.md#get-info) to change to `Done`.
 
-1. [Download from the bucket](../../../storage/operations/objects/download.md) and review the files with the results from the bucket:
+1. [Download](../../../storage/operations/objects/download.md) the files with the results from the bucket and review them:
 
     {% cut "part-00000" %}
 

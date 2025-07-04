@@ -30,14 +30,14 @@ The support cost includes:
 
     1. In `data-proc-network`, [create a security group](../../vpc/operations/security-group-create.md) named `data-proc-security-group` with the following rules:
 
-        * One rule for inbound and another one for outbound control plane traffic:
+        * One rule for incoming and another one for outgoing service traffic:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
 
-        * Rule for outbound HTTPS traffic:
+        * Rule for outgoing HTTPS traffic:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
@@ -60,9 +60,9 @@ The support cost includes:
         * [storage.uploader](../../storage/security/index.md#storage-uploader)
         * [storage.viewer](../../storage/security/index.md#storage-viewer)
 
-    1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
+    1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
 
-    1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) of any suitable configuration with the following settings:
+    1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) in any suitable configuration with the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}**: `{{ ui-key.yacloud.forms.label_form-list }}`.
@@ -84,7 +84,7 @@ The support cost includes:
         * Security group.
         * Service account to work with cluster resources.
         * Service account for bucket management.
-        * Static access key required to grant the service account the required permissions for the bucket.
+        * Static access key required to grant the service account permissions for the bucket.
         * Bucket to store job dependencies and results.
         * {{ dataproc-name }} cluster.
 
@@ -92,19 +92,19 @@ The support cost includes:
 
     1. In the configuration file, specify all the relevant parameters.
 
-    1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider’s resources and data sources.
+    1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
-        1. Run the command to view the planned changes:
+        1. Run this command to view the intended changes:
 
             ```bash
             terraform plan
@@ -137,7 +137,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 - Manually {#manual}
 
     1. [Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
-    1. If you reserved public static IP addresses for the clusters, release and [delete them](../../vpc/operations/address-delete.md).
+    1. If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
     1. [Delete the subnet](../../vpc/operations/subnet-delete.md).
     1. [Delete the route table](../../vpc/operations/delete-route-table.md).
     1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).
