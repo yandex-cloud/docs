@@ -34,14 +34,6 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
-  1. [Настройте](operations/configure-security-group.md) группу безопасности по умолчанию для обеспечения доступа к инстансу {{ mgl-name }}.
-
-      {% note warning %}
-
-      От настройки группы безопасности зависит работоспособность и доступность инстанса {{ mgl-name }}.
-
-      {% endnote %}
-
 {% endlist %}
 
 ## Создайте инстанс {#instance-create}

@@ -1,6 +1,6 @@
 # Transferring metadata between {{ dataproc-name }} clusters using {{ metastore-name }}
 
-You can migrate metadata between [{{ dataproc-full-name }} clusters](../../../data-proc/concepts/index.md) with a Hive DBMS. First, you need to export metadata from a cluster, then import it into a different one using [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
+You can transfer metadata between [{{ dataproc-full-name }} clusters](../../../data-proc/concepts/index.md) with the Hive DBMS. First, you need to export metadata from a cluster, then import it into a different one using [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
 
 To transfer metadata between {{ dataproc-name }} clusters:
 
@@ -45,60 +45,60 @@ Set up your infrastructure:
     1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`.
     1. In this network, [create a subnet](../../../vpc/operations/subnet-create.md) named `dataproc-subnet`.
     1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet you created.
-    1. [Create](../../../vpc/operations/security-group-create.md) a `dataproc-security-group` with the following rules:
+    1. [Create a security group](../../../vpc/operations/security-group-create.md) named `dataproc-security-group` with the following rules:
 
         {% cut "Security group rules" %}
 
         #|
-        || **What service requires the rule** | **Why the rule is required** | **Rule settings** ||
-        || {{ dataproc-name }} | For incoming service traffic
+        || **Target service for the rule** | **Rule purpose** | **Rule settings** ||
+        || {{ dataproc-name }} | For incoming service traffic.
         |
         * Port range: `{{ port-any }}`
         * Protocol: `Any`
         * Source: `Security group`
         * Security group: `Self` ||
-        || {{ dataproc-name }} | For incoming traffic to allow access to NTP servers for time syncing
+        || {{ dataproc-name }} | For incoming traffic, to allow access to NTP servers for time syncing.
         |
         * Port range: `123`
         * Protocol: `UDP`
         * Source: `CIDR`
         * CIDR blocks: `0.0.0.0/0` ||
-        || {{ dataproc-name }} | For incoming traffic, to connect from the internet via SSH to subcluster hosts with public access
+        || {{ dataproc-name }} | For incoming traffic, to connect from the internet via SSH to subcluster hosts with public access.
         |
         * Port range: `22`
         * Protocol: `TCP`
         * Source: `CIDR`
         * CIDR blocks: `0.0.0.0/0` ||
-        || {{ metastore-name }} | For incoming client traffic
+        || {{ metastore-name }} | For incoming client traffic.
         |
         * Port range: `30000-32767`
         * Protocol: `Any`
         * Source: `CIDR`
         * CIDR blocks: `0.0.0.0/0` ||
-        || {{ metastore-name }} | For incoming load balancer traffic
+        || {{ metastore-name }} | For incoming load balancer traffic.
         |
         * Port range: `10256`
         * Protocol: `Any`
         * Source: `Load balancer health checks` ||
-        || {{ dataproc-name }} | For outgoing service traffic
+        || {{ dataproc-name }} | For outgoing service traffic.
         |
         * Port range: `{{ port-any }}`
         * Protocol: `Any`
         * Source: `Security group`
         * Security group: `Self` ||
-        || {{ dataproc-name }} | For outgoing HTTPS traffic
+        || {{ dataproc-name }} | For outgoing HTTPS traffic.
         |
         * Port range: `{{ port-https }}`
         * Protocol: `TCP`
-        * Destination type: `CIDR`
+        * Destination: `CIDR`
         * CIDR blocks: `0.0.0.0/0` ||
-        || {{ dataproc-name }} | For outgoing traffic to allow access to NTP servers for time syncing
+        || {{ dataproc-name }} | For outgoing traffic, to allow access to NTP servers for time syncing.
         |
         * Port range: `123`
         * Protocol: `UDP`
         * Source: `CIDR`
         * CIDR blocks: `0.0.0.0/0` ||
-        || {{ dataproc-name }} | For outgoing traffic to allow {{ dataproc-name }} cluster connections to {{ metastore-name }}
+        || {{ dataproc-name }} | For outgoing traffic, to allow {{ dataproc-name }} cluster connections to {{ metastore-name }}.
         |
         * Port range: `{{ port-metastore }}`
         * Protocol: `Any`
@@ -110,7 +110,7 @@ Set up your infrastructure:
 
     1. [Create two {{ dataproc-name }} clusters](../../../data-proc/operations/cluster-create.md) named `dataproc-source` and `dataproc-target` with the following settings:
 
-        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
 
             * `HDFS`
@@ -121,7 +121,7 @@ Set up your infrastructure:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: Zone where `dataproc-subnet` resides.
-        * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. Required for PySpark jobs and integration with {{ metastore-name }}.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: `spark:spark.sql.hive.metastore.sharedPrefixes` with the `com.amazonaws,ru.yandex.cloud` value. It is required for PySpark jobs and integration with {{ metastore-name }}.
         * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `dataproc-bucket`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
@@ -143,16 +143,16 @@ Set up your infrastructure:
         * [NAT gateway](../../../vpc/concepts/gateways.md) and route table required for {{ dataproc-name }}.
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [Security group](../../../vpc/concepts/security-groups.md) for {{ dataproc-name }} and {{ metastore-name }}.
-        * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ dataproc-name }} cluster.
+        * [Service account](../../../iam/concepts/users/service-accounts.md) for the {{ dataproc-name }} cluster.
         * Service account required to create an {{ objstorage-name }} bucket.
-        * [Static access key](../../../iam/concepts/authorization/access-key.md) required to create a [{{ objstorage-full-name }}](../../../storage/concepts/bucket.md) bucket.
+        * [Static access key](../../../iam/concepts/authorization/access-key.md) to create a [{{ objstorage-full-name }}](../../../storage/concepts/bucket.md) bucket.
         * Bucket.
         * Two {{ dataproc-name }} clusters.
 
     1. Specify the following in the `metastore-import.tf` file:
 
         * `folder_id`: Cloud folder ID, same as in the provider settings.
-        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. To learn more, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
+        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -160,7 +160,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -174,7 +174,7 @@ Set up your infrastructure:
 
 In the `dataproc-source` cluster, create a test table named `countries`:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Open the `dataproc-source` cluster page.
 1. Click the **Zeppelin Web UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 1. Select **Notebook**, then select ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
@@ -225,9 +225,9 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
     ssh ubuntu@<master_host_FQDN>
     ```
 
-    You can learn how to get the FQDN [here](../../../data-proc/operations/connect.md#fqdn).
+    [Learn how to get the FQDN](../../../data-proc/operations/connect.md#fqdn).
 
-1. Create a backup and save it in the `metastore_dump.sql` file:
+1. Create a backup and save it to the `metastore_dump.sql` file:
 
     ```bash
     pg_dump --data-only --schema public postgres://hive:hive-p2ssw0rd@localhost/metastore > metastore_dump.sql
@@ -246,10 +246,10 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 
 1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`
-    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`
-    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`
-    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`.
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`.
+    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`.
+    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
 
 1. [Add](../../../data-proc/operations/cluster-update.md) to the `dataproc-target` cluster settings the `spark:spark.hive.metastore.uris` property with the following value: `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}`.
 

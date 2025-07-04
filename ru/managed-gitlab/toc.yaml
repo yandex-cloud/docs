@@ -107,6 +107,8 @@ items:
             href: cli-ref/instance/start.md
           - name: stop
             href: cli-ref/instance/stop.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

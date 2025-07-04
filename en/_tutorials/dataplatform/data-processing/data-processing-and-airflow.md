@@ -5,9 +5,9 @@ With {{ maf-full-name }}, you can create a [Directed Acyclic Graphs (DAG)](../..
 
 1. Create a {{ dataproc-name }} cluster.
 1. Create and run a [PySpark job](../../../data-proc/concepts/jobs.md).
-1. Delete a {{ dataproc-name }} cluster.
+1. Delete the {{ dataproc-name }} cluster.
 
-With a DAG like this, a cluster's lifetime is short. Since the cost of {{ dataproc-name }} resources [depends on their usage time](../../../data-proc/pricing.md), you can use resources with higher capacity in the cluster and quickly handle a larger amount of data at no additional cost.
+With a DAG like this, a cluster is short-lived. Since the cost of {{ dataproc-name }} resources [depends on their usage time](../../../data-proc/pricing.md), you can use resources with higher capacity in the cluster and quickly process a larger amount of data at no additional cost.
 
 In this DAG, a {{ dataproc-name }} cluster is created without using Hive. In the example below, a [{{ metastore-full-name }} cluster](../../../metadata-hub/concepts/metastore.md) is used for storing table metadata. The saved metadata can then be used by another {{ dataproc-name }} cluster.
 
@@ -27,21 +27,21 @@ The support cost includes:
 
 * {{ maf-name }} cluster fee: Computing resources of the cluster components (see [{{ AF }} pricing](../../../managed-airflow/pricing.md)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* {{ dataproc-name }} cluster fee: Using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* {{ dataproc-name }} cluster fee: using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
 
 The example below illustrates two scenarios. Select the one you find most relevant:
 
-* **High security level**. This is a recommended scenario, as it respects the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access). The scenario entails the following:
+* **High security level**. This is a recommended scenario, as it respects the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access). This scenario entails the following:
 
    * Splitting access permissions across different service accounts. You have to create a separate service account for each cluster and assign it only those roles required for this account's cluster to function.
    * Using multiple buckets for different tasks and storing different data in separate buckets. For example, the results of running a PySpark job get written to one bucket, and logs, to another.
    * Setting up security groups. This way, you can restrict traffic and grant access only to authorized resources.
 
-* **Simplified setup** This scenario implies a lower security level:
+* **Simplified setup**. This scenario implies a lower security level:
 
    * Using a single service account with more privileges than required.
    * Storing all data in a single bucket but in different folders.
@@ -90,7 +90,7 @@ The example below illustrates two scenarios. Select the one you find most releva
       This will automatically create three subnets in different availability zones.
 
    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `data-processing-network-{{ region-id }}-a` subnet.
-   1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in the `data-processing-network` network. Add the following rules to the group:
+   1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in `data-processing-network`. Add the following rules to the group:
 
       * For incoming client traffic:
 
@@ -105,7 +105,7 @@ The example below illustrates two scenarios. Select the one you find most releva
          * Protocol: `Any`
          * Source: `Load balancer health checks`
 
-   1. For the {{ maf-name }} and {{ dataproc-name }} clusters, create a security group named `airflow-sg` in the `data-processing-network` network. Add the following rules to the group:
+   1. For the {{ maf-name }} and {{ dataproc-name }} clusters, create a security group named `airflow-sg` in `data-processing-network`. Add the following rules to the group:
 
       * For incoming service traffic:
 
@@ -125,7 +125,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
          * Port range: `{{ port-https }}`
          * Protocol: `TCP`
-         * Destination type: `CIDR`
+         * Destination: `CIDR`
          * CIDR blocks: `0.0.0.0/0`
 
       * For outgoing traffic, to allow {{ dataproc-name }} cluster connections to {{ metastore-name }}:
@@ -135,14 +135,14 @@ The example below illustrates two scenarios. Select the one you find most releva
          * Destination: `Security group`
          * Security group: `metastore-sg` (`From list`)
 
-   1. [Create a {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) cluster with the following parameters:
+   1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
       * **Service account**: `metastore-agent`
       * **Network**: `data-processing-network`
       * **Subnet**: `data-processing-network-{{ region-id }}-a`
       * **Security group**: `metastore-sg`
 
-   1. [Create a {{ maf-name }}](../../../managed-airflow/operations/cluster-create.md) cluster with the following parameters:
+   1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
 
       * **Service account**: `airflow-agent`
       * **Availability zone**: `{{ region-id }}-a`
@@ -166,17 +166,17 @@ The example below illustrates two scenarios. Select the one you find most releva
 
    1. [Create a cloud network](../../../vpc/operations/network-create.md) named `data-processing-network`.
 
-      This automatically creates three subnets in different availability zones and a security group.
+      This will automatically create three subnets in different availability zones and a security group.
 
    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `data-processing-network-{{ region-id }}-a` subnet.
-   1. [Create a {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) cluster with the following parameters:
+   1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
       * **Service account**: `my-editor`
       * **Network**: `data-processing-network`
       * **Subnet**: `data-processing-network-{{ region-id }}-a`
       * **Security group**: Default group in `data-processing-network`
 
-   1. [Create a {{ maf-name }}](../../../managed-airflow/operations/cluster-create.md) cluster with the following parameters:
+   1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
 
       * **Service account**: `my-editor`
       * **Availability zone**: `{{ region-id }}-a`
@@ -195,7 +195,7 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
 * High security level
 
-   1. Create a local file named `create-table.py` and copy the following script to it:
+   1. Create a local file named `create-table.py` and paste the following script to it:
 
       {% cut "create-table.py" %}
 
@@ -218,17 +218,17 @@ For a PySpark job, we will use a Python script that creates a table and is store
       # Creating a dataframe
       df = spark.createDataFrame([('Australia', 'Canberra', 7686850, 19731984), ('Austria', 'Vienna', 83855, 7700000)], schema)
 
-      # Writing the dataframe to a bucket as a _countries_ table
+      # Writing the dataframe to a bucket as a countries table
       df.write.mode("overwrite").option("path","s3a://<bucket_for_PySpark_job_output_data>/countries").saveAsTable("countries")
       ```
 
       {% endcut %}
 
-   1. In `<bucket_for_PySpark_job_source_code>`, create a `scripts` folder and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
+   1. In `<bucket_for_PySpark_job_source_code>`, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
 
 * Simplified setup
 
-   1. Create a local file named `create-table.py` and copy the following script to it:
+   1. Create a local file named `create-table.py` and paste the following script to it:
 
       {% cut "create-table.py" %}
 
@@ -251,13 +251,13 @@ For a PySpark job, we will use a Python script that creates a table and is store
       # Creating a dataframe
       df = spark.createDataFrame([('Australia', 'Canberra', 7686850, 19731984), ('Austria', 'Vienna', 83855, 7700000)], schema)
 
-      # Writing the dataframe to a bucket as a _countries_ table
+      # Writing the dataframe to a bucket as a countries table
       df.write.mode("overwrite").option("path","s3a://<bucket_for_jobs_and_data>/countries").saveAsTable("countries")
       ```
 
       {% endcut %}
 
-   1. In `<bucket_for_jobs_and_data>`, create a `scripts` folder and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
+   1. In `<bucket_for_jobs_and_data>`, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
 
 {% endlist %}
 
@@ -267,7 +267,7 @@ A DAG will have multiple vertices that form a sequence of consecutive actions:
 
 1. {{ maf-name }} creates a temporary lightweight {{ dataproc-name }} cluster whose settings are set in the DAG. This cluster automatically connects to the previously created {{ metastore-name }} cluster.
 1. When the {{ dataproc-name }} cluster is ready, a PySpark job is run.
-1. Once the job is executed, the temporary {{ dataproc-name }} cluster is deleted.
+1. Once the job is complete, the temporary {{ dataproc-name }} cluster is deleted.
 
 To prepare a DAG:
 
@@ -276,7 +276,7 @@ To prepare a DAG:
 * High security level
 
    1. [Create an SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Save the public part of the key: you will need it to create a {{ dataproc-name }} cluster.
-   1. Create a local file named `Data-Processing-DAG.py`, copy the following script to it and insert your infrastructure data in variables:
+   1. Create a local file named `Data-Processing-DAG.py`, paste the following script to it and substitute the variables with your infrastructure data:
 
       {% cut "Data-Processing-DAG.py" %}
 
@@ -313,7 +313,7 @@ To prepare a DAG:
           create_spark_cluster = DataprocCreateClusterOperator(
               task_id='dp-cluster-create-task',
               cluster_name=f'tmp-dp-{uuid.uuid4()}',
-              cluster_description='A temporary cluster for running a PySpark job orchestrated by {{ maf-name }}',
+              cluster_description='Temporary cluster for running a PySpark job orchestrated by {{ maf-name }}',
               ssh_public_keys=YC_DP_SSH_PUBLIC_KEY,
               service_account_id=YC_DP_SA_ID,
               subnet_id=YC_DP_SUBNET_ID,
@@ -327,7 +327,7 @@ To prepare a DAG:
               computenode_disk_type='network-ssd',
               computenode_disk_size=200,
               computenode_count=2,
-              computenode_max_hosts_count=5,  # The number of data handling subclusters will be automatically scaled up if the load is high.
+              computenode_max_hosts_count=5,  # The number of data-handling subclusters will automatically scale up if the load is high.
               services=['YARN', 'SPARK'],     # A lightweight cluster is being created.
               datanode_count=0,               # Without data storage subclusters.
               properties={                    # With a reference to a remote Metastore cluster.
@@ -374,7 +374,7 @@ To prepare a DAG:
 * Simplified setup
 
    1. [Create an SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Save the public part of the key: you will need it to create a {{ dataproc-name }} cluster.
-   1. Create a local file named `Data-Processing-DAG.py`, copy the following script to it and insert your infrastructure data in variables:
+   1. Create a local file named `Data-Processing-DAG.py`, paste the following script to it and substitute the variables with your infrastructure data:
 
       {% cut "Data-Processing-DAG.py" %}
 
@@ -393,7 +393,7 @@ To prepare a DAG:
       YC_DP_AZ = 'ru-central1-a'
       YC_DP_SSH_PUBLIC_KEY = '<public_part_of_SSH_key>'
       YC_DP_SUBNET_ID = '<subnet_ID>'
-      YC_DP_SA_ID = '<ID_of_my_editor_service_account>'
+      YC_DP_SA_ID = '<ID_of_my-editor_service_account>'
       YC_DP_METASTORE_URI = '<IP_address>'
       YC_BUCKET = '<bucket_for_jobs_and_data>'
 
@@ -410,7 +410,7 @@ To prepare a DAG:
           create_spark_cluster = DataprocCreateClusterOperator(
               task_id='dp-cluster-create-task',
               cluster_name=f'tmp-dp-{uuid.uuid4()}',
-              cluster_description='A temporary cluster for running a PySpark job orchestrated by {{ maf-name }}',
+              cluster_description='Temporary cluster for running a PySpark job orchestrated by {{ maf-name }}',
               ssh_public_keys=YC_DP_SSH_PUBLIC_KEY,
               service_account_id=YC_DP_SA_ID,
               subnet_id=YC_DP_SUBNET_ID,
@@ -424,7 +424,7 @@ To prepare a DAG:
               computenode_disk_type='network-ssd',
               computenode_disk_size=200,
               computenode_count=2,
-              computenode_max_hosts_count=5,  # The number of data handling subclusters will be automatically scaled up if the load is high.
+              computenode_max_hosts_count=5,  # The number of data-handling subclusters will automatically scale up if the load is high.
               services=['YARN', 'SPARK'],     # A lightweight cluster is being created.
               datanode_count=0,               # Without data storage subclusters.
               properties={                    # With a reference to a remote Metastore cluster.
@@ -465,7 +465,7 @@ To prepare a DAG:
 
       It may take a few minutes to upload a DAG file from the bucket.
 
-   1. To run a DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
+   1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
 {% endlist %}
 
@@ -475,14 +475,14 @@ To prepare a DAG:
 
 * High security level
 
-   1. To monitor task execution results, click the DAG name. The results are displayed in the **Grid** tab.
+   1. To monitor task execution results, click the DAG name. You can find the results in the **Grid** tab.
    1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that a {{ dataproc-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
    1. Make sure your `<bucket_for_PySpark_job_output_data>` now contains a folder named `countries` with the `part-00000-...` file. The data from the created table is now stored in the {{ objstorage-name }} bucket and the table metadata is stored in the {{ metastore-name }} cluster.
    1. Make sure there are PySpark job logs in `<bucket_for_collecting_Spark_logs>`.
 
 * Simplified setup
 
-   1. To monitor task execution results, click the DAG name. The results are displayed in the **Grid** tab.
+   1. To monitor task execution results, click the DAG name. You can find the results in the **Grid** tab.
    1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that a {{ dataproc-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
    1. Make sure there is a folder named `countries` with the `part-00000-...` file in `<bucket_for_jobs_and_data>`. The data from the created table is now stored in the {{ objstorage-name }} bucket and the table metadata is stored in the {{ metastore-name }} cluster.
    1. Make sure there are PySpark job logs in `<bucket_for_jobs_and_data>`. These logs are written to the `dataproc`, `user`, and `var` folders.

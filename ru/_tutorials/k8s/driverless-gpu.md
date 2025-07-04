@@ -32,7 +32,12 @@
 
 1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
 
-1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) на платформе с GPU и включите опцию **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}**. Укажите группы безопасности, подготовленные ранее.
+1. [Создайте группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-create.md) с настройками:
+   * **{{ ui-key.yacloud.compute.instances.create.section_platform }}** — перейдите на вкладку **GPU** и выберите подходящую платформу.
+   * **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}** — выберите опцию.
+   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности.
+   * **{{ ui-key.yacloud.k8s.node-groups.create.field_node-taints }}** — укажите [taint-политику](../../managed-kubernetes/concepts/index.md#taints-tolerations) `nvidia.com/gpu=true:NoSchedule`.
+
 
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -57,6 +62,14 @@
     {% note info %}
 
     Для платформы группы узлов {{ managed-k8s-name }} `{{ a100-epyc }}` (`gpu-standard-v3`) используйте [версию драйвера `515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
+
+    {% endnote %}
+
+    GPU Operator будет установлен с параметрами по умолчанию. Подробнее о параметрах см. в [официальной документации](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#common-chart-customization-options).
+
+    {% note tip %}
+
+    Вы можете посмотреть значения параметров в конфигурационном файле `values.yaml` Helm-чарта. Для этого скачайте архив Helm-чарта командой `helm pull --untar nvidia/gpu-operator`.
 
     {% endnote %}
 

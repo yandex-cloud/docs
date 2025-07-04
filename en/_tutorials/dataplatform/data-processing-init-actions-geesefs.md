@@ -3,7 +3,7 @@
 
 In {{ dataproc-full-name }}, you can use [initialization actions](../../data-proc/concepts/init-action.md) to configure hosts.
 
-With them, you can automate the installation and setup of [GeeseFS](../../storage/tools/geesefs.md), the software enabling {{ dataproc-full-name }} cluster hosts to mount {{ objstorage-full-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
+With these actions, you can automate the installation and setup of [GeeseFS](../../storage/tools/geesefs.md), the software enabling {{ dataproc-full-name }} cluster hosts to mount {{ objstorage-full-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
 
 To set up GeeseFS:
 
@@ -18,9 +18,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ dataproc-name }} cluster fee (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
-* NAT gateway fee (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -36,9 +36,9 @@ Set up your infrastructure:
 
   1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
 
-  1. Grant the service account read access to the bucket. To do this, use one of the following methods:
+  1. Grant the service account read access to the bucket by using one of the following methods:
 
-      * [Set up the bucket's ACL](../../storage/operations/buckets/edit-acl.md) and grant `READ` access to the service account.
+      * [Set up the bucket ACL](../../storage/operations/buckets/edit-acl.md) and grant `READ` permission to the service account.
 
           The service account will get read access only to the specified bucket.
 
@@ -86,7 +86,7 @@ Set up your infrastructure:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
   1. Create the required infrastructure:
 
@@ -98,7 +98,7 @@ Set up your infrastructure:
 
 ## Prepare the initialization action {#prepare-init-scripts}
 
-1. Create the initialization action file named `geesefs_mount.sh` taking two positional arguments: the name of the {{ objstorage-name }} bucket and the host's file system directory where you are going to mount it.
+1. Create an initialization action file named `geesefs_mount.sh` taking two positional arguments: the name of the {{ objstorage-name }} bucket and the host's file system directory where you are going to mount it.
 
     ```bash
     #!/bin/bash
@@ -123,7 +123,7 @@ Set up your infrastructure:
     ${BOOT_SCRIPT}
     ```
 
-1. [Upload](../../storage/operations/objects/upload.md) the `geesefs_mount.sh` file to the previously created {{ objstorage-name }} bucket.
+1. [Upload](../../storage/operations/objects/upload.md) the `geesefs_mount.sh` file to the {{ objstorage-name }} bucket you created earlier.
 
 ## Create a cluster that will use the initialization action {#create-cluster}
 
@@ -135,9 +135,9 @@ Set up your infrastructure:
 
   * In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select `2.0`.
   * In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the service account you [previously created](#before-you-begin).
-  * In the **{{ ui-key.yacloud.mdb.forms.config_field_initialization-action }}** field, click **{{ ui-key.yacloud.mdb.forms.button_add-initialization-action }}** and set the script parameters:
+  * In the **{{ ui-key.yacloud.mdb.forms.config_field_initialization-action }}** field, click **{{ ui-key.yacloud.mdb.forms.button_add-initialization-action }}** and set the action parameters:
 
-      * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}** field, specify the path to the script file in the bucket, such as:
+      * In the **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}** field, specify the path to the action file in the bucket, such as:
 
           ```http
           s3a://<bucket_name>/geesefs_mount.sh
@@ -152,11 +152,11 @@ Set up your infrastructure:
 
   * In the **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** field, select the [previously created](#before-you-begin) bucket.
 
-  * In the **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** menu, enable **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** in the settings. This will enable you to connect to subcluster hosts without an intermediate virtual machine.
+  * In the **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** menu, enable **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** in the settings to connect to subcluster hosts without an intermediate virtual machine.
 
 - {{ TF }} {#tf}
 
-  1. In the `data-processing-init-actions-geesefs.tf` file, set the value for this variable as follows: `create_cluster` = `1`.
+  1. In the `data-processing-init-actions-geesefs.tf` file, set the variable value as follows: `create_cluster` = `1`.
 
   1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -164,7 +164,7 @@ Set up your infrastructure:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
   1. Create the required infrastructure:
 
@@ -174,7 +174,7 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Check {#check-availability} bucket availability.
+## Check bucket availability {#check-availability}
 
 1. After the cluster status changes to **Alive**, [connect](../../data-proc/operations/connect.md#data-proc-ssh) over SSH to any of its hosts as the `ubuntu` user.
 

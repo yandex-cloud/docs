@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ dataproc-name }}  cluster fee (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
-* NAT gateway fee (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -39,7 +39,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Select **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. This will create a [network](../../vpc/concepts/network.md#network) with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -180,7 +180,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
       spark:spark.driver.cores : 1
       ```
 
-      {% cut "The available properties are listed in the official documentation for the components" %}
+      {% cut "Available properties from the official documentation for the components" %}
 
       * [Flume 1.8.0](https://flume.apache.org/releases/content/1.8.0/FlumeUserGuide.html#flume-properties)
       * [Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml)
@@ -198,7 +198,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
       {% endcut %}
 
    1. Select the created bucket in the **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** field.
-   1. Select a network for the cluster.
+   1. Select the network for the cluster.
    1. Enable **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** to access the [web interfaces of {{ dataproc-name }} components](../../data-proc/concepts/interfaces.md).
    1. Configure subclusters: no more than one main subcluster with a **{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}** host and subclusters for data storage or computing.
 
@@ -226,7 +226,7 @@ The {{ dataproc-name }} cluster you created will be added to your {{ ml-platform
 ## Run your computations on the cluster {#run-code}
 
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
-1. In the cell, insert the code to compute. For example:
+1. In the cell, insert the code to compute, e.g.:
 
    ```python
    #!spark --cluster <cluster_name>
@@ -256,7 +256,7 @@ The {{ dataproc-name }} cluster you created will be added to your {{ ml-platform
    df.repartition(1).write.option("header", True).csv("s3://<bucket_name>/")
    ```
 
-1. Run the cells. To do this, select **Run** ⟶ **Run Selected Cells** or press **Shift** + **Enter**.
+1. Run the cells by selecting **Run** ⟶ **Run Selected Cells** or pressing **Shift** + **Enter**.
 
 The file will appear in the bucket. To view bucket contents in the {{ jlab }}Lab interface, create and activate an [S3 connector](../../datasphere/operations/data/s3-connectors.md) in your project.
 

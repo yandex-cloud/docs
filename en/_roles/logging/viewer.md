@@ -6,3 +6,4 @@ Users with this role can:
 * View info on [access permissions](../../iam/concepts/access-control/index.md) assigned to Cloud Logging resources.
 * View info on log exports.
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+   

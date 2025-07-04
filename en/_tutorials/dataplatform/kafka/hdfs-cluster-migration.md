@@ -4,7 +4,7 @@
 Subclusters of each {{ dataproc-name }} cluster reside in the same [cloud network](../../../vpc/concepts/network.md#network) and [availability zone](../../../overview/concepts/geo-scope.md). You can migrate a cluster to a different availability zone. The migration process depends on the cluster type:
 
 * The following describes how to migrate HDFS clusters.
-* For information on migrating [lightweight clusters](../../../data-proc/concepts/index.md#light-weight-clusters), follow the [tutorial](../../../data-proc/operations/migration-to-an-availability-zone.md).
+* For information on migrating [lightweight clusters](../../../data-proc/concepts/index.md#light-weight-clusters), check [this guide](../../../data-proc/operations/migration-to-an-availability-zone.md).
 
 {% include [zone-d-host-restrictions](../../../_includes/mdb/ru-central1-d-broadwell.md) %}
 
@@ -14,7 +14,7 @@ To migrate an HDFS cluster:
 1. [Copy the data to the new cluster](#copy).
 1. [Delete the initial cluster](#delete).
 
-Before you begin, [create a subnet](../../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating the cluster.
+To get started, [create a subnet](../../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating the cluster.
 
 
 ## Required paid resources {#paid-resources}
@@ -46,7 +46,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
       export DATAPROC_CLUSTER_ID=<cluster_ID>
       ```
 
-      You can request the ID with the [list of clusters in the folder](../../../data-proc/operations/cluster-list.md#list).
+      You can get the ID with the [list of clusters in the folder](../../../data-proc/operations/cluster-list.md#list).
 
    1. Import the initial cluster settings into the {{ TF }} configuration:
 
@@ -68,7 +68,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
       * Delete the `created_at`, `host_group_ids`, `id`, and `subcluster_spec.id` parameters.
       * Change the availability zone in the `zone_id` parameter.
       * In the `subnet_id` parameters of the `subcluster_spec` sections, specify the ID of the new subnet created in the required availability zone.
-      * Change the SSH key format in the `ssh_public_keys` parameter. Source format:
+      * Change the SSH key format in the `ssh_public_keys` parameter. Initial format:
 
          ```hcl
          ssh_public_keys = [
@@ -95,7 +95,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -116,18 +116,18 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    {% note info %}
 
-   Until you have completed the migration, do not run any operations or jobs modifying the HDFS files and directories you are copying.
+   Do not run any operations or jobs modifying the HDFS files and directories you are copying until the migration is completed.
 
    {% endnote %}
 
 1. [Connect via SSH](../../../data-proc/operations/connect.md#data-proc-ssh) to the master host of the initial cluster.
-1. Get a list of directories and files to be copied to the new cluster:
+1. Get a list of directories and files to copy to the new cluster:
 
    ```bash
    hdfs dfs -ls /
    ```
 
-   Instead of the `/` symbol, you can specify the directory you need.
+   You can specify the directory you need instead of `/`.
 
 1. To test copying data to the new {{ dataproc-name }} cluster, create test directories:
 
@@ -136,7 +136,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    hdfs dfs -mkdir /user/test
    ```
 
-   In the example below, only the `/user/foo` and `/user/test` test directories are copied for demonstration purposes.
+   In the example below, only the `/user/foo` and `/user/test` test directories are copied.
 
 1. Connect via SSH to the master host of the new cluster.
 1. Create a file named `srclist`:
@@ -145,22 +145,22 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    nano srclist
    ```
 
-1. Add to it a list of directories intended for migration:
+1. Add to it a list of directories to migrate:
 
    ```text
    hdfs://<initial_cluster_FQDN>:8020/user/foo
    hdfs://<initial_cluster_FQDN>:8020/user/test
    ```
 
-   In the command, specify the FQDN of the master host of the initial cluster. For information on how to obtain an FQDN, read the [tutorial](../../../data-proc/operations/connect.md#fqdn).
+   In the command, specify the FQDN of the master host of the initial cluster. Learn how to get an FQDN in [this tutorial](../../../data-proc/operations/connect.md#fqdn).
 
-1. Put the `srclist` file into the `/user` HDFS directory:
+1. Place the `srclist` file to the `/user` HDFS directory:
 
    ```bash
    hdfs dfs -put srclist /user
    ```
 
-1. Create a directory to copy the data to. In the example, it is the `copy` directory, nested in `/user`.
+1. Create a directory to copy the data to. In this example, it is the `copy` directory nested in `/user`.
 
    ```bash
    hdfs dfs -mkdir /user/copy
@@ -177,15 +177,15 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    As a result, all directories and files specified in the `srclist` will be copied to the `/user/copy` directory.
 
-   If copying a large volume of data, use the `-m <maximum_simultaneous_copies>` flag in the command to limit network bandwidth consumption. For more information, see the [DistCp documentation](https://hadoop.apache.org/docs/r3.2.2/hadoop-distcp/DistCp.html#Command_Line_Options).
+   If you need to copy a large volume of data, use the `-m <maximum_simultaneous_copies>` flag in the command to limit network bandwidth consumption. For more information, see the [DistCp documentation](https://hadoop.apache.org/docs/r3.2.2/hadoop-distcp/DistCp.html#Command_Line_Options).
 
-   You can view the data volume you copy in the HDFS web interface. To open it:
+   You can check the data volume you copy in the HDFS web interface. To open it:
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the initial cluster name.
    1. On its page, in the **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** section, click the **HDFS Namenode UI** link.
 
-   The **DFS Used** field states the initial cluster's data volume in HDFS.
+   The **DFS Used** field shows the initial cluster's data volume in HDFS.
 
 1. Make sure the data is copied:
 
@@ -197,4 +197,4 @@ This way you can copy all the data you need. To do this, specify the required di
 
 ## Delete the initial cluster {#delete}
 
-By following [this guide](../../../data-proc/operations/cluster-delete.md).
+Learn how to do this in [this tutorial](../../../data-proc/operations/cluster-delete.md).
