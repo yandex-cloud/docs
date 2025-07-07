@@ -35,6 +35,8 @@ items:
         items:
           - name: Создание сервисного аккаунта
             href: operations/sa/create.md
+          - name: Просмотр сервисных аккаунтов каталога
+            href: operations/sa/list-get.md
           - name: Изменение сервисного аккаунта
             href: operations/sa/update.md
           - name: Назначение роли сервисному аккаунту

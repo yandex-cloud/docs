@@ -80,18 +80,22 @@ items:
             href: operations/user-pools/edit-userpool.md
           - name: Удалить пул пользователей
             href: operations/user-pools/delete-userpool.md
-          - name: Добавить пользователя
-            href: operations/user-pools/add-user.md
-          - name: Изменить данные пользователя
-            href: operations/user-pools/edit-user.md
-          - name: Активировать пользователя
-            href: operations/user-pools/activate-user.md
-          - name: Деактивировать пользователя
-            href: operations/user-pools/deactivate-user.md
-          - name: Сбросить пароль пользователя
-            href: operations/user-pools/reset-user-password.md
-          - name: Удалить пользователя
-            href: operations/user-pools/delete-user.md
+          - name: Управление пользователями
+            items:
+              - name: Добавить пользователя
+                href: operations/user-pools/add-user.md
+              - name: Изменить данные пользователя
+                href: operations/user-pools/edit-user.md
+              - name: Активировать пользователя
+                href: operations/user-pools/activate-user.md
+              - name: Деактивировать пользователя
+                href: operations/user-pools/deactivate-user.md
+              - name: Сбросить пароль пользователя
+                href: operations/user-pools/reset-user-password.md
+              - name: Удалить пользователя
+                href: operations/user-pools/delete-user.md
+      - name: Управление доменами
+        items:
           - name: Добавить домен
             href: operations/user-pools/add-domain.md
           - name: Подтвердить домен

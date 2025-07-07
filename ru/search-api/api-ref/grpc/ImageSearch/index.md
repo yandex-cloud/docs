@@ -12,4 +12,5 @@ A set of methods for searching of images using the Yandex Images.
 #|
 ||Method | Description ||
 || [Search](search.md) |  ||
+|| [SearchByImage](searchByImage.md) |  ||
 |#

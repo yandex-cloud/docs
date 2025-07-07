@@ -1,234 +1,234 @@
 ---
-title: How to re-install an OS on a {{ baremetal-name }} server from your ISO image
-description: Follow this tutorial to install and re-install a {{ baremetal-full-name }} server OS from your ISO image.
+title: How to reinstall an OS on a {{ baremetal-name }} server using a custom ISO image
+description: In this tutorial, you will learn how to install and reinstall a {{ baremetal-full-name }} server OS using a custom ISO image.
 ---
 
-# Re-installing an OS from your ISO image
+# Reinstalling an OS from a custom ISO image
 
-{{ baremetal-full-name }} allows users to install and re-install a server OS from their own ISO images. In this way, you can install [Linux](https://en.wikipedia.org/wiki/Linux) or [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) on a server. However, if the OS being installed requires a license, you must use your own one.
+{{ baremetal-full-name }} allows you to install and reinstall a server OS from a custom ISO image. This way, you can install [Linux](https://en.wikipedia.org/wiki/Linux) or [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) operating systems on your server. Note that if the OS you want to install requires a license, you must provide your own license.
 
-When installing or re-installing an OS from your ISO image, you can freely redistribute the disk space available on the server.
+When installing or reinstalling an OS from your ISO image, you can freely redistribute the available disk space on the server.
 
-Fault-tolerant disk partitioning requires experience and understanding of [RAID](https://en.wikipedia.org/wiki/RAID) and/or [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) technologies, so we recommend opting for OS installation from a public [{{ marketplace-full-name }}](/marketplace) image and using the installation method in this tutorial only if you need to make significant changes that are not available when installing from {{ marketplace-name }}.
+Creating fault-tolerant disk configurations requires experience and understanding of [RAID](https://en.wikipedia.org/wiki/RAID) and/or [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) technologies. We recommend using [{{ marketplace-full-name }}](/marketplace) public OS images instead, resorting to this installation method only if you need customizations beyond {{ marketplace-name }} options.
 
-For example, you may need installation from your ISO image if the required OS is not available in {{ marketplace-name }}, or if you need a non-standard disk partitioning configuration, [UEFI](https://en.wikipedia.org/wiki/UEFI)/SecureBoot mode, root encryption, or other settings not available when installing from a {{ marketplace-name }} image.
+For example, you might need to install from your own ISO image if the required OS is not available in {{ marketplace-name }}, or you need a custom disk partitioning layout, [UEFI](https://en.wikipedia.org/wiki/UEFI)/SecureBoot mode, root encryption, or other options unavailable through {{ marketplace-name }} image deployment.
 
 {% note warning %}
 
-Incorrect disk partitioning or RAID configuration can result in reduced or no fault tolerance, unexpected lack of free space on partitions, or inability to start the server.
+Incorrect disk partitioning or RAID configuration can lead to the loss of fault tolerance, unexpected partition space shortages, and server boot failures.
 
 {% endnote %}
 
-This guide provides an example of installing [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu_version_history) 24.04 in UEFI mode on a [BA-i201-H server](../../concepts/server-configurations.md) with four HDDs from your own ISO image in [RAID10] disk configuration (https://en.wikipedia.org/wiki/Nested_RAID_levels#RAID_10) with LVM.
+This guide demonstrates how to install [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu_version_history) 24.04 in UEFI mode on a [BA-i201-H server](../../concepts/server-configurations.md) with four HDDs using a custom ISO image and [RAID10](https://en.wikipedia.org/wiki/Nested_RAID_levels#RAID_10) disk configuration with LVM.
 
-## Run the server from your own ISO image in UEFI mode {#boot-from-image}
+## Boot the server from your custom ISO image in UEFI mode {#boot-from-image}
 
-To create a {{ baremetal-name }} image from your ISO image and run the server from it:
+To create a {{ baremetal-name }} image from your ISO image and deploy it on the server:
 
-1. [Download](https://releases.ubuntu.com/24.04.1/ubuntu-24.04.1-live-server-amd64.iso) the required OS image to your local computer.
-1. [Upload](../image-upload.md#upload-file) the downloaded ISO image to [{{ objstorage-full-name }}](../../../storage/index.yaml) and [create](../image-upload.md#create-image) a {{ baremetal-name }} image from it.
+1. [Download](https://releases.ubuntu.com/24.04.1/ubuntu-24.04.1-live-server-amd64.iso) the required ISO OS image to your local computer.
+1. [Upload](../image-upload.md#upload-file) the ISO image to [{{ objstorage-full-name }}](../../../storage/index.yaml) and [create](../image-upload.md#create-image) a {{ baremetal-name }} image from it.
 1. [Connect](./server-kvm.md) to the server's KVM console.
 
     {% note info %}
 
-    You will perform all further actions in the KVM console window.
+    All following steps will be performed in the KVM console.
 
     {% endnote %}
-1. In the KVM console window, in the top menu, select **Media** → **Virtual Media Wizard...** or click the CD icon. In the window that opens:
+1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
 
-    1. In the **CD/DVD Media1** section, click **Browse** and select the previously uploaded ISO image of the OS in the `user-iso` directory.
+    1. In the **CD/DVD Media1** section, click **Browse** and select the previously uploaded ISO OS image in the `user-iso` directory.
     1. Click **Connect CD/DVD**.
-    1. Check the **Status** section for the **Virtual CD 1** device to make sure the **Connected To** field now indicates the path to the ISO image you selected and click **Close**.
+    1. Check the **Virtual CD 1** device **Status** section to make sure the **Connected To** field now shows your selected ISO path, then click **Close**.
 
-    Depending on the server settings, you may need to force selection of bootable media or `UEFI` mode in [BIOS](https://en.wikipedia.org/wiki/BIOS). For example, on a server with a `BA-i201-H` configuration, you must boot from a CD drive in UEFI mode to install an OS in UEFI mode.
-1. To start a server from the selected ISO image:
+    Depending on your server configuration, you may need to manually select the boot device or enable `UEFI` mode in [BIOS](https://en.wikipedia.org/wiki/BIOS). For instance, on a server with the `BA-i201-H` configuration, you must boot from a CD drive in UEFI mode for UEFI-based OS installations.
+1. To boot the server from the selected ISO image:
 
-    1. Click **Reboot to cdrom** in the top-right corner of the KVM console.
-    1. While the server is loading, press **F11** or **Del** on the [POST](https://en.wikipedia.org/wiki/Power-on_self-test) screen. The following message will appear on the screen: `Entering Setup...`.
-    1. Wait until the BIOS system menu opens and use the **←** and **→** keys to navigate to the **Security** section.
-    1. Using the **↑** and **↓** keys, select `UEFI: AMI Virtual CDROM0 1.00` in the **Boot Override** section and press **Enter**.
+    1. Click **Reboot to CD-ROM** in the top-right corner of the KVM console.
+    1. During server boot, press **F11** or **Del** when the [POST](https://en.wikipedia.org/wiki/Power-on_self-test) screen appears. You will see the following message: `Entering Setup...`.
+    1. Wait for the BIOS menu to appear, then use the **←** and **→** keys to navigate to the **Security** section.
+    1. In the **Boot Override** section, use the **↑** and **↓** keys to select `UEFI: AMI Virtual CDROM0 1.00`, then press **Enter**.
 
-        The server will restart again and boot from the virtual CD drive in `UEFI` mode.
+        The server will restart and boot from the virtual CD drive in `UEFI` mode.
 
     {% include [bios-settings-warning](../../../_includes/baremetal/bios-settings-warning.md) %}
 
 ## Configure the basic OS settings {#basic-setup}
 
-At this stage, you will configure the basic settings for the OS being installed. Perform all the above actions in the KVM console terminal window:
+In this step, you will configure the basic settings for the OS installation. Perform all following actions in the KVM console:
 
 1. In the [GRUB](https://en.wikipedia.org/wiki/GNU_GRUB) bootloader menu, select **Try or Install Ubuntu Server** and press **Enter**.
 1. Select the system language:
 
     ![01](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/01.png)
 
-    Navigate through the menu items using the **↑** and **↓** keys.
-1. Select your keyboard layout, move the cursor to **Done**, and press **Enter**. Depending on the selected layout, you may need to set a keyboard shortcut to switch the input language.
+    Use the **↑** and **↓** keys to navigate the menu.
+1. Choose your keyboard layout, select **Done**, and press **Enter**. Depending on the selected layout, you may need to configure a keyboard shortcut for switching input languages.
 1. Select the server installation option, either full or minimal:
 
     ![02](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/02.png)
 
-1. Configure the network interface settings. By default, it is enough to leave [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) for all interfaces:
+1. Configure network interfaces. The default configuration uses [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) for all network interfaces:
 
     ![03](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/03.png)
 
-1. If required, configure a proxy and a mirror address for repositories to install OS packages.
+1. If needed, configure a proxy and repository mirror address for OS package installation.
 
-    For example, when using Ubuntu, you can specify the following mirror address: `http://mirror.yandex.ru/ubuntu`. Usually, you do not have to make any edits.
+    For instance, you can use the following mirror address for Ubuntu systems: `http://mirror.yandex.ru/ubuntu`. In most cases, though, no configuration changes are needed.
 
-1. Select the **Custom storage layout** option. To do this, move the cursor to this menu item and press **Space**.
+1. Select the **Custom storage layout** disk partitioning option. To do this, navigate to this menu item and press **Space**.
 
     ![04](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/04.png)
 
-    We do not recommended using the default option the Ubuntu installer offers, i.e., installing the system on a single drive. This option does not provide fault tolerance, and if the disk selected for system files fails, you will need to re-install the OS at the very least.
+    We recommended against using the default Ubuntu installer option of installing the system on a single drive. Such configuration is not fault tolerant, and the system disk failure will require at minimum a full OS reinstallation.
 
-## Partition your disks and create the RAID10 arrays {#setup-storage}
+## Partition your disks and create RAID10 arrays {#setup-storage}
 
 {% note alert %}
 
-When partitioning disks, the partitions will be formatted. This will result in the loss of all data stored on the disks. Before proceeding, make sure you have a backup of all important files stored on the server.
+During disk partitioning, the created partitions will be automatically formatted. This operation will erase all existing data on the disks. Before you proceed, make sure you have backups of all important server files.
 
 {% endnote %}
 
-Disk partitioning is the most important stage of installing an OS. Disk subsystem performance, data storage reliability, server fault tolerance, and redundancy restoration speed in the event of failure all boil down to ensuring partitioning is correct and you selected the right partition configuration.
+Proper disk partitioning is critical for OS installation, affecting disk subsystem performance, data storage reliability, server fault tolerance, and recovery speed in failure scenarios.
 
-At this stage, you can create any disk configuration, from repeating the partitioning proposed when installing the OS from a {{ marketplace-name }} image to setting up LVM with encryption.
+At this step, you can create any disk configuration, from basic {{ marketplace-name }} OS installer defaults to advanced LVM with encryption.
 
-You will create the following partitions to continue installing the OS:
+Before proceeding with OS installation, create the following partitions:
 
-* `/`: OS кoot partition.
-* `/boot`: Partition for the OS boot files.
+* `/`: Root partition.
+* `/boot`: Boot partition.
 * `swap`: Swap partition.
-* `/home`: Partition for user home folders.
+* `/home`: User home partition.
 * `/srv`: Service data partition.
-* `ESP`: `UEFI` system partition with a size of `1` GB.
+* `ESP`: `1` GB `UEFI` system partition.
 
-    If you boot the server in `Legacy` mode, this will create a `BIOS grub spacer` system partition of `300` MB instead of the `ESP` partition.
+    If you boot the server in `Legacy` mode, the system will create a `300` MB `BIOS grub spacer` system partition instead of the `ESP` partition.
     
     {% note info %}
 
-    There is no need to manually create the `ESP` and `BIOS grub spacer` system partitions: they appear on the disk automatically when you select it as the primary or additional boot device.
+    The `ESP` and `BIOS grub spacer` system partitions are created automatically when you select the disk as a primary or secondary boot device during installation.
 
     {% endnote %}
 
-To create a `RAID10`-level fault-tolerant disk array, you need at least four disks or disk partitions. RAID arrays are usually created from partitions of disk devices, so you first need to repartition all disks and create a partition table on each of them:
+To create a `RAID10` fault-tolerant disk array, you need at least four disks or partitions. If you plan to create a RAID array using disk partitions, first you need to prepare the disks by creating a partition table and defining equally sized partitions on each disk:
 
-1. If the server already has an OS installed and the disks have already been partitioned, remove the current partitioning. If you rented the server without an operating system and have not installed the OS on it yet, skip this step and proceed to the next one.
+1. If the server has an OS installed and the disks already have partitions, remove all existing partitions. If the server was provisioned without an OS and you have not installed one yet, skip this step and proceed to the next one.
 
-    1. In the **AVAILABLE DEVICES** section, delete all disk partitions and RAID arrays on the server.
+    1. In the **AVAILABLE DEVICES** section, remove all existing disk partitions and RAID arrays on the server.
 
-        To do this, use the **↑** and **↓** keys to select a partition or RAID, press **Enter**, select `DELETE` in the menu that appears, and confirm the deletion.
+        Use the **↑** and **↓** keys to select a partition or RAID, press **Enter**, then choose `DELETE` from the menu that appears and confirm the deletion.
 
-        To delete all partitions on the disk, move the cursor to the line with this disk’s name, press **Enter**, select `Reformat`, and confirm the deletion.
-    1. Repeat the previous step for all partitions, disks, and RAID arrays displayed in the **AVAILABLE DEVICES** section.
+        To delete all partitions on a disk, select the line containing this disk’s name, press **Enter**, then select `Reformat` and confirm the deletion.
+    1. Repeat the previous step for all partitions, disks, and RAID arrays listed under **AVAILABLE DEVICES**.
 
-        As a result, you should only have disk devices with unallocated disk space (`free space`) in the **AVAILABLE DEVICES** section:
+        After completing these steps, the **AVAILABLE DEVICES** section should only show disks with unallocated space, e.g., `free space`:
 
         ![05](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/05.png)
 1. Select your boot disks:
 
-    1. Using the **↑** and **↓** keys, select any disk and press **Enter**.
-    1. In the additional menu that appears on the right, select `Use As Boot Device` and press **Enter**.
+    1. Using the **↑** and **↓** keys, select the disk you want to boot from, then press **Enter**.
+    1. In the menu that appears on the right, select `Use As Boot Device` and press **Enter**.
 
         ![06](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/06.png)
 
-        To install the bootloader, you must mark one disk as bootable, but to ensure fault tolerance, we recommend selecting at least two boot disks.
+        To install the bootloader, you must mark at least one disk as bootable. For fault tolerance, we recommend marking at least two disks.
 
     1. Select another disk, press **Enter**, and select `Add As Another Boot Device`.
-1. Create an identical set of partitions on each disk based on the expected disk space consumption. In this example, three separate partitions are created on the disks:
+1. Create matching partition layouts on all disks, sized according to the expected storage requirements. In this example, we will create three partitions on each disk:
 
     1. Partition the first disk:
 
-        1. Select the **free space** line of the first disk in the list, press **Enter**, and select `Add GPT Partition` in the additional menu that appears.
-        1. In the form that opens, in the **Size:** field, set the size of the first partition to create: `4G`.
+        1. For the first disk in the list, select the **free space** entry, press **Enter**, then select `Add GPT Partition` from the menu that appears.
+        1. In the **Size:** field of the dialog that appears, specify the size of the first partition: `4G`.
         1. In the **Format:** field, select `Leave unformatted`.
         1. Move the cursor to **Create** and press **Enter**.
-        1. Repeat the previous steps to create two more partitions on the first disk: one `2 GB` in size, the other occupying all the space left after the first two partitions.
-    1. Partition the remaining three server disks in the same way: the partition sizes on all four disks must match.
+        1. Repeat the process to create two additional partitions: one `2 GB` partition and the other using all remaining available space.
+    1. Use the process described above to partition the remaining three disks. The partition layouts on all four disks must be the same.
 
     ![07](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/07.png)
-1. Build RAID arrays from the partitions created in the previous step:
+1. Build RAID arrays using the partitions created in the previous step:
 
-    1. Move the cursor to the **Create software RAID (md)** menu item and press **Enter**. In the form that opens:
+    1. Navigate to **Create software RAID (md)** in the menu and press **Enter**. In the dialog that opens:
 
         1. In the **RAID Level:** field, select `10`.
-        1. Use the **Space** key to mark `4 GB` partitions on all four disks.
+        1. Use the **Space** key to mark `4 GB` partitions on each disk.
         1. Move the cursor to **Create** and press **Enter**.
 
         ![08](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/08.png)
 
-    1. Similarly, create a `10`-level RAID array of `2-GB` partitions and then, a `10`-level RAID array of the largest partitions.
-1. Create partitions for the server file system in the RAID arrays you got:
+    1. Repeat the steps to create the second RAID `10` array using `2-GB` partitions and, finally, the third RAID `10` array using the remaining largest partitions.
+1. Create filesystem partitions within your newly configured RAID arrays:
 
-    1. Create a `swap` partition:
+    1. Create the `swap` partition:
 
-        1. Move the cursor to the `md0` RAID array of `8 GB`, press **Enter**, and select `Format` from the menu that appears.
-        1. In the form that opens, select `swap` in the **Format:** field.
+        1. Select the `md0` `8 GB` RAID array, press **Enter**, and select `Format` from the menu that appears.
+        1. In the dialog that opens, select `swap` in the **Format:** field.
         1. Move the cursor to **Done** and press **Enter**.
 
-    1. Create a `/boot` partition:
+    1. Create the `/boot` partition:
 
-        1. Move the cursor to the `md1` RAID array of `4 GB`, press **Enter**, and select `Format` from the menu that appears.
-        1. In the form that opens, leave `ext4` in the **Format:** field; in the **Mount:** field, select `/boot`.
+        1. Select the `md1` `4 GB` RAID array, press **Enter**, and select `Format` from the menu that appears.
+        1. In the dialog that opens, leave the **Format** field set to `ext4` and select `/boot` in the **Mount:** field.
         1. Move the cursor to **Done** and press **Enter**.
 
         ![09](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/09.png)
 
-1. From the `md2` RAID array built from the largest partitions, create a `vg0` LVM group:
+1. Use the `md2` RAID array composed of your largest partitions to create a `vg0` LVM group:
 
     1. Create an LVM group:
 
-        1. Move the cursor to the **Create volume group (LVM)** menu item and press **Enter**.
-        1. In the form that opens, use **Space** to mark the `md2` array in the **Devices:** field.
+        1. Navigate to **Create volume group (LVM)** in the menu and press **Enter**.
+        1. In the dialog that opens, navigate to the `md2` array in the **Devices:** field and press **Space** to select it.
         1. Move the cursor to **Create** and press **Enter**.
     1. Create an `lv-root` logical volume for the root partition:
 
         ![10](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/10.png)
 
-        1. Under **AVAILABLE DEVICES**, in the section with the `vg0` device, move the cursor to the **free space** line, press **Enter**, and select `Create Logical Volume` in the menu that opens.
-        1. In the **Name:** field, enter `lv-root`.
-        1. In the **Size:** field, set the volume size to `100G`.
-        1. In the **Format:** field, leave the `ext4` value; in the **Mount:** field, leave the `/` value.
+        1. In the `vg0` section under **AVAILABLE DEVICES**, select **free space** and press **Enter**, then select `Create Logical Volume` from the menu that opens.
+        1. In the **Name:** field, specify `lv-root`.
+        1. In the **Size:** field, specify the volume size as `100G`.
+        1. Leave the **Format:** field set to `ext4` and the **Mount:** field set to `/`.
         1. Move the cursor to **Create** and press **Enter**.
 
         ![11](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/11.png)
 
-    1. Create logical volumes in the same way:
-        * `lv-home`, `512 GB` in size with a `/home` mount point for user home folders.
-        * `lv-srv`, `1 TB` in size with an `/srv` mount point for service data.
+    1. Repeat the steps to create the following logical volumes:
+        * `lv-home`: `512 GB` logical volume mounted at `/home` for user directories.
+        * `lv-srv`: `1 TB` logical volume mounted at `/srv` for service data.
     
         ![12](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/12.png)
 
-    You can use the space left unallocated in the `vg0` LVM group to expand existing logical volumes or create new ones later. 
+    The remaining unallocated space in the `vg0` LVM volume group can be used to expand existing logical volumes or create additional volumes when needed. 
 
 ### Alternative disk partitioning options {#alternative-partitioning}
 
-The above disk partitioning is an example. In each case, you need to partition disk space based on the projected usage scenarios for the server. In addition, disk partitioning will vary depending on the boot mode set on the server: `Legacy` or `UEFI`.
+The disk partitioning scheme shown above is just an example. Disk partitioning should always be tailored to the projected server usage patterns. Furthermore, disk partitioning requirements differ between server boot modes: `Legacy` or `UEFI`.
 
-Here are some other possible server disk partitioning configurations:
+Let’s consider some other disk partitioning configurations:
 
 {% list tabs %}
 
 - Option 1
 
-  Partitioning similar to that created by the {{ baremetal-name }} installer from the {{ marketplace-name }} image (`Legacy` boot mode):
+  Disk layout identical to that created by the {{ marketplace-name }} {{ baremetal-name }} installer in `Legacy` boot mode:
 
   ![13](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/13.png)
 
 - Option 2
 
-  Partitioning similar to that created by the {{ baremetal-name }} installer from the {{ marketplace-name }} image (`UEFI` boot mode):
+  Disk layout identical to that created by the {{ marketplace-name }} {{ baremetal-name }} installer in `UEFI` boot mode:
 
   ![14](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/14.png)
 
 - Option 3
 
-  Partitioning with the root partition in an LVM group with encryption created in the `RAID10` array:
+  Setting up partitioning with the root filesystem in the LVM logical volume, encrypted and hosted on a `RAID10` array:
 
   ![15](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/15.png)
 
   {% note info %}
 
-  Partition encryption can have a number of downsides, such as reduced server performance, the need to enter the encryption key at each restart (or having a correctly configured [TPM](https://en.wikipedia.org/wiki/Trusted_Platform_Module) module in the server), and irreversible data loss if the key is lost.
+  Partition encryption can have a number of downsides, such as reduced server performance, the need to enter an encryption key on every restart, and irreversible data loss if the key is lost. To avoid entering an encryption key on every boot, you can configure a [TPM](https://en.wikipedia.org/wiki/Trusted_Platform_Module) (Trusted Platform Module) on the server.
 
   {% endnote %}
 
@@ -236,38 +236,38 @@ Here are some other possible server disk partitioning configurations:
 
 ## Installing system files {#installation}
 
-Once you have created the required disk partitioning on your server, you can start installing the system files.
+Once you completed disk partitioning on your server, you can proceed with system installation.
 
 {% note alert %}
 
-Up to this point, you have not yet physically made any changes to the server's disk structure, and you can cancel the OS installation process without losses. Continuing the installation will result in the deletion of all data on the disks and the physical creation of new partitions.
+Up to this point, no disk modifications have been made yet, so you may safely abort the OS installation without data loss. Proceeding with installation will permanently erase all existing data on the target disks and physically create new partition structures.
 
 {% endnote %}
 
-1. To continue the installation, move the cursor to **Done** and press **Enter**.
+1. To proceed, move the cursor to **Done** and press **Enter**.
 
-    In the **Confirm destructive action** form that appears, click **Continue** to confirm your consent to format the disks.
-1. Set the hostname, create the first user, configure SSH if required, and install additional software:
+    In the **Confirm destructive action** dialog that appears, click **Continue** to confirm disk formatting.
+1. Specify the hostname, create the primary user account, configure SSH access if needed, and install additional software:
 
     ![16](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/16.png)
 
-    Wait for the installation of the OS files on the server to complete.
+    Wait for the operating system installation to complete.
 
 1. {% include [disconnect-kvm-cd](../../../_includes/baremetal/disconnect-kvm-cd.md) %}
-1. To restart the server to the new OS, move the cursor to **Reboot Now** and press **Enter**:
+1. To boot into the new OS, select **Reboot Now** and press **Enter**:
 
     ![17](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/17.png)
 1. Configure the server to boot in UEFI mode:
 
-    1. While the server is booting, press **F11** or **Del** on the POST screen. The following message will appear on the screen: `Entering Setup...`.
-    1. Wait until the BIOS system menu opens and use the **←** and **→** keys to navigate to the **Boot** section.
+    1. While the server is booting, press **F11** or **Del** on the POST screen. You will see the following message: `Entering Setup...`.
+    1. Wait for the system BIOS menu to appear, then navigate to the **Boot** section using the **←** and **→** keys.
     1. Select **1st Boot Device**, press **Enter**, and select `UEFI: Built-in EFI Shell`.
-    1. Select **UEFI Boot Drive BBS Priorities** and press **Enter**. In the menu that opens:
+    1. Select **UEFI Boot Drive BBS Priorities** and press **Enter**. In the menu that opens, do the following:
 
-        1. In the **1st Device** field, press **Enter** and select any of the `UEFI OS` fields.
+        1. In the **1st Device** field, press **Enter** and select any of the `UEFI OS` values.
         1. Press **Esc** to return to the previous menu.
-    1. Make sure the value in the **1st Boot Device** field has changed to `UEFI OS`.
-    1. Use the **←** and **→** keys to navigate to the **Save & Exit** section.
+    1. Make sure the value of the **1st Boot Device** field has changed to `UEFI OS`.
+    1. Navigate to the **Save & Exit** section, using the **←** and **→** keys.
     1. Select **Save Changes and Reset**, press **Enter**, and confirm the action by pressing **Yes**.
 
-As a result, the server will boot into the new OS in UEFI mode.
+The server will now boot into the new operating system using UEFI mode.

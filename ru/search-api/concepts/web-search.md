@@ -13,7 +13,7 @@ description: В данном разделе вы узнаете об особе�
 
 ## Формат тела запроса {#parameters}
 
-Имена полей тела запроса различаются в [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/): в REST API используется [CamelCase](https://ru.wikipedia.org/wiki/CamelCase), в gPRC API — [snake_case](https://ru.wikipedia.org/wiki/Snake_case).
+{% include [rest-grpc-fields-differ](../../_includes/search-api/rest-grpc-fields-differ.md) %}
 
 {% list tabs group=instructions %}
 

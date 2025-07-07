@@ -1,6 +1,6 @@
 ---
 title: How to update a server in {{ baremetal-full-name }}
-description: Follow this guide to update the name or description of your {{ baremetal-full-name }} server.
+description: In this tutorial, you will learn how to update your {{ baremetal-full-name }} server’s name and description.
 ---
 
 # Updating a server

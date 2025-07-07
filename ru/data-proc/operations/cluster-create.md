@@ -120,7 +120,12 @@ description: Следуя данной инструкции, вы сможете
 
         {% endnote %}
 
-     * Публичная часть [SSH-ключа](../../glossary/ssh-keygen.md) в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}**. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * Способ подключения к кластеру {{ dataproc-name }}:
+
+        * **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** — с помощью [SSH-ключей](../../glossary/ssh-keygen.md).
+        * **{{ ui-key.yacloud.mdb.forms.config_field_os-login }}** — с помощью [{{ oslogin }}](../../organization/concepts/os-login.md).
+
+       Если вы выбрали доступ по SSH-ключу, в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** укажите его публичную часть. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * Сервисный аккаунт, которому нужно разрешить доступ к кластеру {{ dataproc-name }}.
      * Зона доступности для кластера {{ dataproc-name }}.
      * (Опционально) [Свойства компонентов кластера](../concepts/settings-list.md).
@@ -273,6 +278,13 @@ description: Следуя данной инструкции, вы сможете
 
      * `--services` — список [компонентов](../concepts/environment.md), которые вы хотите использовать в кластере {{ dataproc-name }}. Если не указать этот параметр, будет использоваться набор по умолчанию: `yarn`, `tez`, `spark`.
      * `--ssh-public-keys-file` — полный путь к файлу с публичной частью [SSH-ключа](../../glossary/ssh-keygen.md), который будет использоваться для доступа к хостам кластера {{ dataproc-name }}. Как создать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
+
+        {% note info %}
+
+        Чтобы подключаться к кластеру по [{{ oslogin }}](../../organization/concepts/os-login.md), вместо `--ssh-public-keys-file` укажите в команде параметр `--oslogin`.
+
+        {% endnote %}
+
      * `--subcluster` — параметры подкластеров {{ dataproc-name }}:
        * `name` — имя подкластера {{ dataproc-name }}.
        * `role` — роль подкластера {{ dataproc-name }}: `masternode`, `datanode` или `computenode`.
@@ -588,6 +600,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% endnote %}
 
+     Чтобы подключаться к кластеру по [{{ oslogin }}](../../organization/concepts/os-login.md), вместо `ssh_public_keys` укажите поле `oslogin` со значением `true`.
+
      Чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}, добавьте в описание кластера {{ dataproc-name }} поле `ui_proxy` с значением `true`:
 
      ```hcl
@@ -656,6 +670,13 @@ description: Следуя данной инструкции, вы сможете
 
     * Список компонентов в параметре `configSpec.hadoop.services`.
     * Публичную часть [SSH-ключа](../../glossary/ssh-keygen.md) в параметре `configSpec.hadoop.sshPublicKeys`.
+
+      {% note info %}
+
+      Чтобы подключаться к кластеру по [{{ oslogin }}](../../organization/concepts/os-login.md), вместо `configSpec.hadoop.sshPublicKeys` передайте в запросе `configSpec.hadoop.osloginEnabled: true`.
+
+      {% endnote %}
+
     * Настройки подкластеров {{ dataproc-name }} в параметре `configSpec.subclustersSpec`.
   * Зону доступности кластера {{ dataproc-name }} в параметре `zoneId`.
   * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} в параметре `serviceAccountId`.
@@ -675,7 +696,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-После того как кластер {{ dataproc-name }} перейдет в статус **Running**, вы можете [подключиться](connect.md) к хостам подкластеров {{ dataproc-name }} с помощью указанного SSH-ключа.
+После того как кластер {{ dataproc-name }} перейдет в статус **Running**, вы можете [подключиться](connect.md) к хостам подкластеров {{ dataproc-name }}.
 
 ## Создайте копию кластера {{ dataproc-name }} {#duplicate}
 
@@ -722,7 +743,7 @@ description: Следуя данной инструкции, вы сможете
   1. Измените скопированную конфигурацию так, чтобы из нее можно было создать новый кластер {{ dataproc-name }}:
      * Укажите новое имя кластера {{ dataproc-name }} в строке `resource` и параметре `name`.
      * Удалите параметры `created_at`, `host_group_ids`, `id` и `subcluster_spec.id`.
-     * Измените формат [SSH-ключа](../../glossary/ssh-keygen.md) в параметре `ssh_public_keys`. Исходный формат:
+     * Если вы подключаетесь к кластеру с помощью [SSH-ключа](../../glossary/ssh-keygen.md), измените его формат в параметре `ssh_public_keys`. Исходный формат:
 
        ```hcl
        ssh_public_keys = [

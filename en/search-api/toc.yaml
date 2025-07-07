@@ -91,6 +91,8 @@ items:
                     href: api-ref/grpc/ImageSearch/index.md
                   - name: Search
                     href: api-ref/grpc/ImageSearch/search.md
+                  - name: SearchByImage
+                    href: api-ref/grpc/ImageSearch/searchByImage.md
               - name: Operation
                 items:
                   - name: Overview
@@ -121,6 +123,14 @@ items:
                     href: api-ref/GenSearch/index.md
                   - name: Search
                     href: api-ref/GenSearch/search.md
+              - name: ImageSearch
+                items:
+                  - name: Overview
+                    href: api-ref/ImageSearch/index.md
+                  - name: Search
+                    href: api-ref/ImageSearch/search.md
+                  - name: SearchByImage
+                    href: api-ref/ImageSearch/searchByImage.md
               - name: Operation
                 items:
                   - name: Overview

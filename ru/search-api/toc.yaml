@@ -7,10 +7,14 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Поиск в синхронном режиме
+      - name: Текстовый поиск в синхронном режиме
         href: operations/web-search-sync.md
-      - name: Поиск в отложенном режиме
+      - name: Текстовый поиск в отложенном режиме
         href: operations/web-search.md
+      - name: Поиск изображений по текстовому описанию
+        href: operations/search-images.md
+      - name: Поиск изображений по изображению
+        href: operations/search-images-by-pic.md
       - name: Мобильная выдача
         href: operations/v2-mobile.md
       - name: API v1
@@ -18,21 +22,27 @@ items:
           - name: Общий порядок подключения
             href: operations/workaround.md
             hidden: true
+            stage: preview
           - name: Тестирование запросов
             href: operations/test-request.md
             hidden: true
+            stage: preview
           - name: Аутентификация в API
             href: operations/auth.md
             hidden: true
+            stage: preview
           - name: Запрос лимитов
             href: operations/request-limits.md
             hidden: true
+            stage: preview
           - name: Выполнение поисковых запросов
             href: operations/searching.md
             hidden: true
+            stage: preview
           - name: Мобильная выдача
             href: operations/mobile.md
             hidden: true
+            stage: preview
   - name: Концепции
     items:
       - name: Обзор
@@ -45,6 +55,8 @@ items:
         href: concepts/html-response.md
       - name: Генеративный ответ
         href: concepts/generative-response.md
+      - name: Поиск изображений
+        href: concepts/image-search.md
       - name: API v1
         items:
           - name: Текстовый поиск
@@ -52,17 +64,21 @@ items:
               - name: GET-запросы
                 href: concepts/get-request.md
                 hidden: true
+                stage: preview
               - name: POST-запросы
                 href: concepts/post-request.md
                 hidden: true
+                stage: preview
           - name: Поиск по картинкам
             items:
               - name: GET-запросы
                 href: concepts/pic-search.md
                 hidden: true
+                stage: preview
               - name: Формат ответа
                 href: concepts/pic-response.md
                 hidden: true
+                stage: preview
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -91,6 +107,8 @@ items:
                     href: api-ref/grpc/ImageSearch/index.md
                   - name: Search
                     href: api-ref/grpc/ImageSearch/search.md
+                  - name: SearchByImage
+                    href: api-ref/grpc/ImageSearch/searchByImage.md
               - name: Operation
                 items:
                   - name: Overview
@@ -121,6 +139,14 @@ items:
                     href: api-ref/GenSearch/index.md
                   - name: Search
                     href: api-ref/GenSearch/search.md
+              - name: ImageSearch
+                items:
+                  - name: Overview
+                    href: api-ref/ImageSearch/index.md
+                  - name: Search
+                    href: api-ref/ImageSearch/search.md
+                  - name: SearchByImage
+                    href: api-ref/ImageSearch/searchByImage.md
               - name: Operation
                 items:
                   - name: Overview

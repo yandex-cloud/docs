@@ -824,6 +824,7 @@ default:
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
   ya-360: Яндекс 360 для бизнеса
+  ya-oauth-url: https://oauth.yandex.ru
   yagpt-full-name: YandexGPT API
   yagpt-max-tokens: "8\_192"
   yagpt-name: YandexGPT
@@ -8480,6 +8481,7 @@ default:
             column_last-auth: Дата последней аутентификации
             column_name: Имя
             column_roles: Роли в каталоге
+            label_title: Сервисные аккаунты
             popup-confirm_button_delete: Удалить
           switch_dashboard: Дашборд каталога
           switch_service-accounts: Сервисные аккаунты
@@ -9083,6 +9085,7 @@ default:
           config_field_form-bucket-type: Формат указания бакета
           config_field_initialization-action: Пользовательские скрипты
           config_field_network: Сеть
+          config_field_os-login: Доступ по OS Login
           config_field_password: Пароль
           config_field_properties: Свойства
           config_field_public-keys: SSH-ключ
@@ -12103,7 +12106,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.23
+        tag: v0.2.24
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -12154,7 +12157,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.7.1
+        tag: v0.7.2
     yc_gitlab-agent:
       helmChart:
         name: >-

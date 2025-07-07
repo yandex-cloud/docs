@@ -53,5 +53,6 @@ description: "Сервисный аккаунт\_— аккаунт, от име
 
 #### См. также {#see-also}
 
-- [{#T}](../../quickstart-sa.md)
-- [Авторизация от имени сервисного аккаунта](../authorization/index.md#sa)
+* [{#T}](../../quickstart-sa.md)
+* [{#T}](../../operations/sa/list-get.md)
+* [Авторизация от имени сервисного аккаунта](../authorization/index.md#sa)

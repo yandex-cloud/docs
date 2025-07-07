@@ -9,6 +9,8 @@ description: '{{ atr-name }} — это один из модулей серви�
 
 {% include [access-transparency-attach-ba-notice](../../_includes/security-deck/access-transparency-attach-ba-notice.md) %}
 
+Для управления подпиской {{ atr-name }} необходима роль `access-transparency.subscriptionManager`. Чтобы указать платежный аккаунт при подключении {{ atr-name }}, потребуется роль `access-transparency.billingProvider`. Обе роли включены в `access-transparency.admin` и `access-transparency.editor`. Подробнее см. в разделе [{#T}](../security/access-transparency-roles.md).
+
 Основные функции {{ atr-name }}:
 
 * Сбор и анализ данных о действиях инженеров {{ yandex-cloud }}, произведенных с ресурсами организации.

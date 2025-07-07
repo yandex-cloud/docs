@@ -7,7 +7,7 @@ description: Из этой статьи вы узнаете, как измени
 
 {% note info %}
 
-Изменить данные организации может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Роли](../security/index.md#admin).
+Изменить данные организации может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Роли](../security/index.md#add-role).
 
 {% endnote %}
 

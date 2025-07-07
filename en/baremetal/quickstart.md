@@ -58,7 +58,7 @@ Lease your first physical server and connect to it. All the leased server's reso
 - KVM console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the server belongs to.
-  1. From the list of services, select **{{ baremetal-name }}**.
+  1. In the list of services, select **{{ baremetal-name }}**.
   1. In the row with the server you need, click ![image](../_assets/console-icons/ellipsis.svg) and select **KVM console**.
 
 - Linux/macOS {#linux-macos}
