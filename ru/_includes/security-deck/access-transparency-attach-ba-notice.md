@@ -1,3 +1,3 @@
 Чтобы подключить и использовать сервис {{ atr-name }}, ваша [организация](../../organization/quickstart.md) должна быть привязана к [платежному аккаунту](../../billing/concepts/billing-account.md). Чтобы привязать организацию к платежному аккаунту, воспользуйтесь [инструкцией](../../billing/operations/change-organization.md).
 
-Когда к организации будет привязан платежный аккаунт, выберите его в модуле [{{ atr-name }}]({{ link-sd-main }}transparency/). Это действие может выполнить только пользователь, обладающий [ролью](../../billing/security/index.md#billing-accounts-owner) `billing.accounts.owner`.
+Когда к организации будет привязан платежный аккаунт, выберите его в модуле [{{ atr-name }}]({{ link-sd-main }}transparency/).

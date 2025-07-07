@@ -16,6 +16,6 @@ text message: Permission Denied; status: 403; description: Permission Denied;
 
 {% note info %}
 
-Процесс добавления ролей для аккаунтов внутри организации описан на странице [**Управление доступом**](../../../organization/security/index.md#admin).
+Процесс добавления ролей для аккаунтов внутри организации описан на странице [**Управление доступом**](../../../organization/security/index.md#add-role).
 
 {% endnote %}

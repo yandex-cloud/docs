@@ -17,10 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Выберите пользователя, которого хотите назначить администратором. При необходимости воспользуйтесь строкой поиска.
 
-  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите одну из [ролей](../../iam/concepts/access-control/roles.md):
-
-      * `organization-manager.admin`.
-      * `organization-manager.organizations.owner`.
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите [роль](../../iam/roles-reference.md#organization-manager-admin) `organization-manager.admin`.
 
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
@@ -40,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
       Где: 
       
-      * `--role` — идентификатор роли. Укажите одну из ролей: `organization-manager.admin` или `organization-manager.organizations.owner`.
+      * `--role` — идентификатор роли. Укажите роль `organization-manager.admin`.
       * `--subject` — идентификатор пользователя.
 
       Например, назначьте роль администратора для организации с идентификатором `bpf3crucp1v2********`:
@@ -70,7 +67,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `organization_id` — [идентификатор](./organization-get-id.md) организации.
-      * `role` — укажите одну из ролей: `organization-manager.admin` или `organization-manager.organizations.owner`. Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
+      * `role` — укажите роль `organization-manager.admin`. Для одной роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
       * `userAccount:<идентификатор_пользователя>` — идентификатор аккаунта пользователя на Яндексе.
 
       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
@@ -85,7 +82,7 @@ description: Следуя данной инструкции, вы сможете
 
   Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/UpdateAccessBindings](../api-ref/grpc/Organization/updateAccessBindings.md) и передайте в запросе:
 
-  * Идентификатор [роли](../../iam/concepts/access-control/roles.md) `organization-manager.admin` или `organization-manager.organizations.owner` в параметре `roleId` для REST API или `role_id` для gRPC API.
+  * Идентификатор [роли](../../iam/roles-reference.md#organization-manager-admin) `organization-manager.admin` в параметре `roleId` для REST API или `role_id` для gRPC API.
   * Идентификатор и тип пользователя в блоке `subject`.
 
 {% endlist %}

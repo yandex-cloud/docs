@@ -2,7 +2,7 @@
 
 Управление доступом в {{ yandex-cloud }} построено на политике [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC). Чтобы предоставить пользователю определенные права или доступ к ресурсу, нужно назначить ему соответствующие роли.
 
-Каждая роль состоит из набора разрешений, описывающих допустимые операции с ресурсом. Пользователь может назначить роли только с теми разрешениями, которые имеются у него самого. Например, чтобы назначить роль [владельца организации](#admin), пользователь должен сам обладать этой ролью, а роли администратора для этого недостаточно.
+Каждая роль состоит из набора разрешений, описывающих допустимые операции с ресурсом. Пользователь может назначить роли только с теми разрешениями, которые имеются у него самого. Например, чтобы назначить роль [владельца организации](#organization-manager-organizations-owner), пользователь должен сам обладать этой ролью, а роли администратора для этого недостаточно.
 
 Если у ресурса есть дочерние ресурсы, то все разрешения от родительского ресурса будут унаследованы дочерними ресурсами. Например, если вы назначите пользователю роль администратора организации, в которой находится облако, то все разрешения этой роли будут действовать для облака и всех вложенных ресурсов этого облака.
 
@@ -80,18 +80,75 @@
 
 {% include [organizationmanager-passportUserAdmin](../../_roles/organization-manager/passportUserAdmin.md) %}
 
+#### organization-manager.oauthApplications.auditor {#organization-manager-oauthApplications-auditor}
+
+{% include [organizationmanager-oauthApplications-auditor](../../_roles/organization-manager/oauthApplications/auditor.md) %}
+
+#### organization-manager.oauthApplications.viewer {#organization-manager-oauthApplications-viewer}
+
+{% include [organizationmanager-oauthApplications-viewer](../../_roles/organization-manager/oauthApplications/viewer.md) %}
+
+#### organization-manager.oauthApplications.editor {#organization-manager-oauthApplications-editor}
+
+{% include [organizationmanager-oauthApplications-editor](../../_roles/organization-manager/oauthApplications/editor.md) %}
+
+#### organization-manager.oauthApplications.usersAdmin {#organization-manager-oauthApplications-usersAdmin}
+
+{% include [organizationmanager-oauthApplications-usersAdmin](../../_roles/organization-manager/oauthApplications/usersAdmin.md) %}
+
+#### organization-manager.oauthApplications.admin {#organization-manager-oauthApplications-admin}
+
+{% include [organizationmanager-oauthApplications-admin](../../_roles/organization-manager/oauthApplications/admin.md) %}
+
+#### organization-manager.samlApplications.auditor {#organization-manager-samlApplications-auditor}
+
+{% include [organizationmanager-samlApplications-auditor](../../_roles/organization-manager/samlApplications/auditor.md) %}
+
+#### organization-manager.samlApplications.viewer {#organization-manager-samlApplications-viewer}
+
+{% include [organizationmanager-samlApplications-viewer](../../_roles/organization-manager/samlApplications/viewer.md) %}
+
+#### organization-manager.samlApplications.editor {#organization-manager-samlApplications-editor}
+
+{% include [organizationmanager-samlApplications-editor](../../_roles/organization-manager/samlApplications/editor.md) %}
+
+#### organization-manager.samlApplications.usersAdmin {#organization-manager-samlApplications-usersAdmin}
+
+{% include [organizationmanager-samlApplications-usersAdmin](../../_roles/organization-manager/samlApplications/usersAdmin.md) %}
+
+#### organization-manager.samlApplications.admin {#organization-manager-samlApplications-admin}
+
+{% include [organizationmanager-samlApplications-admin](../../_roles/organization-manager/samlApplications/admin.md) %}
+
+#### organization-manager.userpools.auditor {#organization-manager-userpools-auditor}
+
+{% include [organizationmanager-userpools-auditor](../../_roles/organization-manager/userpools/auditor.md) %}
+
+#### organization-manager.userpools.viewer {#organization-manager-userpools-viewer}
+
+{% include [organizationmanager-userpools-viewer](../../_roles/organization-manager/userpools/viewer.md) %}
+
+#### organization-manager.userpools.editor {#organization-manager-userpools-editor}
+
+{% include [organizationmanager-userpools-editor](../../_roles/organization-manager/userpools/editor.md) %}
+
+#### organization-manager.userpools.usersAdmin {#organization-manager-userpools-usersAdmin}
+
+{% include [organizationmanager-userpools-usersAdmin](../../_roles/organization-manager/userpools/userAdmin.md) %}
+
+#### organization-manager.userpools.admin {#organization-manager-userpools-admin}
+
+{% include [organizationmanager-userpools-admin](../../_roles/organization-manager/userpools/admin.md) %}
+
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-### Назначить пользователя администратором организации {#admin}
+### Назначить пользователя администратором организации {#add-admin}
 
-Чтобы дать пользователю права на управление организацией, [назначьте](#add-role) ему одну из ролей:
-
-* `organization-manager.admin`;
-* `organization-manager.organizations.owner`.
+Чтобы дать пользователю права на управление организацией, [назначьте](#add-role) ему роль `organization-manager.admin`.
 
 ### Назначить роль пользователю {#add-role}
 
@@ -233,7 +290,7 @@
 
 Если вы хотите запретить пользователю доступ к ресурсу, отзовите у него соответствующие роли на этот ресурс и на ресурсы, от которых наследуются права доступа. Подробнее об управлении доступом в {{ yandex-cloud }} читайте в документации [{{ iam-full-name }}](../../iam/concepts/access-control/index.md).
 
-Отозвать роль может пользователь с ролью администратора `organization-manager.admin` или владельца `organization-manager.organizations.owner` организации. О том, как назначить пользователю роль, читайте в разделе [Роли](#admin).
+Отозвать роль может пользователь с ролью администратора `organization-manager.admin` или владельца `organization-manager.organizations.owner` организации. О том, как назначить пользователю роль, читайте в разделе [Роли](#add-role).
 
 {% list tabs group=instructions %}
 

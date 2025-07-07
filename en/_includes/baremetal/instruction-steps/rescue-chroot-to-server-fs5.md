@@ -1,4 +1,4 @@
-After performing all the required actions in the server’s file system, exit the environment you created.
+After completing all required operations in the server’s filesystem, exit the recovery environment.
 
 ```bash
 exit

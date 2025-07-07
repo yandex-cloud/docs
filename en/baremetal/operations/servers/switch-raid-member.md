@@ -1,21 +1,21 @@
 ---
-title: How to replace a defective disk in a {{ baremetal-full-name }} server RAID array
-description: Follow this guide to replace a defective disk in a {{ baremetal-name }} server RAID array.
+title: How to replace a failed disk in a {{ baremetal-full-name }} server’s RAID array
+description: In this tutorial, you will learn how to replace a failed disk in a {{ baremetal-name }} server’s RAID array.
 ---
 
 # Replacing a disk in a RAID array
 
-If there is a RAID array disk failure on a {{ baremetal-name }} server, you must stop using the disk, [remove](#remove-from-raid) the defective disk from the array, [request](#request-swap) support to replace the physical drive on the server, and then [add](#add-to-raid) the new disk to the RAID array.
+If a disk in a {{ baremetal-name }} server’s RAID array fails, stop using it, [remove](#remove-from-raid) it from the array, [request](#request-swap) a replacement drive from support, and [add](#add-to-raid) the new disk to the array.
 
 {% note info %}
 
-This guide does not apply to disk failures in `RAID 0` arrays. Such arrays are not fault-tolerant, so if one of the disks fails, all the array data will be lost and the array will have to be completely rebuilt.
+This guide does not apply to disk failures in `RAID 0` arrays. Such arrays are not fault-tolerant; a single disk failure results in complete data loss and requires full array reconstruction.
 
-This guide is based on a standard RAID 10 partitioning with four HDDs for Ubuntu 24.04. If your configuration is different or the partitioning has been modified, change the following steps according to your configuration.
+This guide covers a standard RAID10 configuration with four HDDs under Ubuntu 24.04. If your setup differs from this standard configuration, adjust the following steps accordingly.
 
 {% endnote %}
 
-## Remove the defective disk from the RAID array {#remove-from-raid}
+## Remove the failed disk from the RAID array {#remove-from-raid}
 
 1. Connect to the server over SSH:
 
@@ -23,8 +23,8 @@ This guide is based on a standard RAID 10 partitioning with four HDDs for Ubuntu
     ssh root@<server_public_IP_address>
     ```
 
-    You can also connect to the server through the [KVM console](./server-kvm.md) using your username and password.
-1. Get information about the RAID array's current disk and partition layout:
+    You can also access the server via the [KVM console](./server-kvm.md) using your username and password.
+1. Check the current disk and partition layout in the RAID array:
 
     ```bash
     cat /proc/mdstat
@@ -45,9 +45,9 @@ This guide is based on a standard RAID 10 partitioning with four HDDs for Ubuntu
           8380416 blocks super 1.2 256K chunks 2 near-copies [4/3] [U_UU]
     ```
 
-    The above example shows a RAID array consisting of three partitions: `md1` (disk partitions `sdb2` and `sda2`), `md2` (disk partitions `sdb3` and `sda3`), and `md3` (disk partitions `sdb4` and `sda4`). The command output indicates a failure in the `sdb` disk: it has `(F)` next to its name.
+    As shown, the RAID array consists of three RAID partitions: `md1` composed of `sdb2` and `sda2` disk partitions (on physical disks `sdb` and `sda`, respectively), `md2` composed of `sdb3` and `sda3` disk partitions, and `md3` composed of `sdb4` and `sda4` disk partitions. The command output shows that the `sdb` disk has failed, indicated by the `(F)` flag next to its name.
 
-    Additionally, you can get information about the roles of the RAID array partitions:
+    Additionally, you can check the role of each partition in the RAID array:
 
     ```bash
     lsblk
@@ -91,12 +91,12 @@ This guide is based on a standard RAID 10 partitioning with four HDDs for Ubuntu
       └─md3   9:3    0  3.6T  0 raid10 /
     ```
 
-    In the above example:
+    In our example:
     * `md1`: `/boot` partition.
     * `md2`: `SWAP` partition.
-    * `md3`: `/` partition with the root file system.
+    * `md3`: `/` root partition.
     
-1. Let's assume the `/dev/sdb` disk is down. Remove the `/dev/sdb` disk's partitions from the RAID array's partitions:
+1. Assume the `/dev/sdb` disk has failed. Detach the `/dev/sdb` disk's partitions from the RAID array:
 
     ```bash
     mdadm /dev/md1 --remove /dev/sdb2
@@ -104,13 +104,13 @@ This guide is based on a standard RAID 10 partitioning with four HDDs for Ubuntu
     mdadm /dev/md3 --remove /dev/sdb4
     ```
 
-    The `mdadm` utility will not allow you to remove a disk from a RAID array if it considers it operational or if the action can cause the array failure. In which case you will be notified that the device is busy:
+    The `mdadm` utility prevents disk removal from a RAID array if the disk is still operational or if removal can cause array failure, triggering a `Device busy` error:
 
     ```text
     mdadm: hot remove failed for /dev/sdb2: Device or resource busy
     ```
 
-    If this is the case, tentatively mark the disk as defective and retry the removal:
+    In this case, first mark the disk as failed before retrying the removal:
 
     ```bash
     mdadm /dev/md1 --fail /dev/sdb2
@@ -121,7 +121,7 @@ This guide is based on a standard RAID 10 partitioning with four HDDs for Ubuntu
     mdadm /dev/md3 --remove /dev/sdb4
     ```
 
-1. Get the defective disk's ID:
+1. Get the failed disk's ID:
 
     ```bash
     fdisk -l
@@ -141,21 +141,21 @@ This guide is based on a standard RAID 10 partitioning with four HDDs for Ubuntu
     ...
     ```
 
-    Save the defective disk's ID (`Disk identifier`): you will need it to report the problem to tech support.
+    Save the `Disk identifier` value for your support ticket.
 
-## Request physical replacement of the disk {#request-swap}
+## Request physical disk replacement {#request-swap}
 
-[Create](../../../support/overview.md#response-time) a disk replacement request to support stating the {{ baremetal-name }} server's and defective disk's IDs.
+[Submit](../../../support/overview.md#response-time) a disk replacement ticket to technical support, including your {{ baremetal-name }} server ID and failed disk ID.
 
-Wait for the data center engineers to replace the defective disk.
+Wait for data center engineers to replace the failed disk.
 
 ## Add the new disk to your RAID array {#add-to-raid}
 
-Once the physical drive is replaced on the server, you must partition the drive and add it to the existing RAID array.
+After the physical drive replacement, partition the new disk and add it to the existing RAID array.
 
-1. Use the `gdisk` utility to set the partition table type: `GPT` or `MBR`. Install `gdisk` for your server's OS if needed.
+1. Use the `gdisk` utility to specify the partition table type: `GPT` or `MBR`. If needed, install `gdisk` on your server’s operating system.
 
-    Run the command stating the ID of the RAID array's remaining operational disk:
+    Run the following command, specifying the ID of the remaining operational disk in the RAID array:
 
     ```bash
     gdisk -l /dev/sda
@@ -189,7 +189,7 @@ Once the physical drive is replaced on the server, you must partition the drive 
 
     {% endlist %}
 
-1. Copy the partition table layout from the RAID array's remaining operational disk to the new disk:
+1. Copy the partition table layout from the remaining operational disk in the RAID array to the new disk:
 
     {% list tabs group=partition_table_type %}
 
@@ -208,7 +208,7 @@ Once the physical drive is replaced on the server, you must partition the drive 
           ```text
           The operation has completed successfully.
           ```
-      1. Recover the partition table from the copy to the new disk:
+      1. Restore the partition table from the backup copy to the new disk:
 
           ```bash
           sgdisk --load-backup=table /dev/sdb
@@ -229,11 +229,11 @@ Once the physical drive is replaced on the server, you must partition the drive 
 
           ```text
           The operation has completed successfully.
-          ```          
+          ```
 
     - MBR {#mbr}
 
-      If the source disk uses a MBR partition table:
+      If the source disk uses an MBR partition table:
 
       1. Copy the partition table:
 
@@ -242,9 +242,9 @@ Once the physical drive is replaced on the server, you must partition the drive 
           ```
 
           Where:
-          * `/dev/sda`: RAID array's remaining source disk to copy the partition table from.
-          * `/dev/sdb`: Target (new) disk to copy the partition table to from the source disk.
-      1. If the partitions are not displayed after copying, re-read the partition table:
+          * `/dev/sda`: The remaining operational disk in the RAID array used as the partition table template.
+          * `/dev/sdb`: The new disk that will receive the partition table copy from the source disk.
+      1. If new partitions are not visible after copying, reload the partition table:
 
           ```bash
           sfdisk -R /dev/sdb
@@ -252,7 +252,7 @@ Once the physical drive is replaced on the server, you must partition the drive 
 
     {% endlist %}
 
-1. Add the disk to the RAID array by adding the corresponding disk partitions to the RAID partitions one by one. The mapping between these partitions was done earlier in [{#T}](#remove-from-raid).
+1. Add the disk to the RAID array by sequentially adding each of its partitions to their corresponding RAID components. The correspondence between disk partitions and RAID components was described earlier in [{#T}](#remove-from-raid).
 
     Run the following commands:
 
@@ -262,7 +262,7 @@ Once the physical drive is replaced on the server, you must partition the drive 
     mdadm /dev/md3 --add /dev/sdb4
     ```
 
-    Once a disk is added to the array, synchronization begins, its speed depending on disk size and type (`ssd`/`hdd`).
+    Once added to the array, the disk begins synchronizing. The sync speed depends on the disk capacity and type: `ssd` or `hdd`.
 
     Result:
 
@@ -272,7 +272,7 @@ Once the physical drive is replaced on the server, you must partition the drive 
     mdadm: added /dev/sdb4
     ```
 
-1. Make sure the new disk is added to the RAID array:
+1. Make sure the new disk has been successfully added to the RAID array:
 
     ```bash
     cat /proc/mdstat
@@ -294,7 +294,7 @@ Once the physical drive is replaced on the server, you must partition the drive 
 
     unused devices: <none>
     ```
-1. Install the Linux OS bootloader on the new disk:
+1. Install the Linux bootloader on the new disk:
 
     ```bash
     grub-install /dev/sdb

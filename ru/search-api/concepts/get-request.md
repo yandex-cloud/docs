@@ -1,7 +1,6 @@
 ---
 title: GET-запросы через API v1 сервиса {{ search-api-full-name }}
 description: В данной статье описаны особенности использования и формат GET-запросов при обращении к сервису {{ search-api-name }} через интерфейс API v1.
-noIndex: true
 ---
 
 # GET-запросы

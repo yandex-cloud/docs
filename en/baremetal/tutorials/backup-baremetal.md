@@ -1,6 +1,6 @@
 ---
-title: How to set up automatic backups in {{ backup-full-name }} for {{ baremetal-name }} servers
-description: Follow this guide to configure {{ baremetal-name }} server backups in {{ backup-full-name }}.
+title: How to set up automatic {{ baremetal-name }} server backups in {{ backup-full-name }}
+description: Follow this tutorial to configure {{ baremetal-name }} server backups in {{ backup-full-name }}.
 canonical: '{{ link-docs }}/tutorials/archive/backup-baremetal'
 ---
 

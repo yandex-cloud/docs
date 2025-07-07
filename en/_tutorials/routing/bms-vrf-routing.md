@@ -10,7 +10,7 @@
 
 To implement fault tolerance, two or more routers are grouped into a single virtual router acting as the default gateway for the associated network segments. VRRP enables creating a virtual IP address which is shared among the grouped routers to increase the gateway availability.
 
-This tutorial provides an example of setting up a high-availability proxy server configuration on {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md), where proxying functions are configured symmetrically on two or more [HAProxy](https://en.wikipedia.org/wiki/HAProxy) nodes and a virtual IP address is generated and shared among these nodes using [Keepalived](https://keepalived.org/).
+This tutorial provides an example of setting up a high-availability proxy server configuration on {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md), with symmetric proxying across two or more [HAProxy](https://en.wikipedia.org/wiki/HAProxy) nodes and [Keepalived](https://keepalived.org/) handling virtual IP address assignment and failover.
 
 ## Solution architecture {#solution-overview}
 
@@ -22,11 +22,11 @@ In `subnet-m3`, you will create two {{ baremetal-name }} servers, `master-server
 
 In `subnet-m4` of the `{{ region-id }}-m4` server pool, you will create a {{ baremetal-name }} server named `client-server-m4`, which will serve as a client when using the virtual IP address created in the `{{ region-id }}-m3` pool.
 
-This solution fully demonstrates the operation of an isolated client VRF segment with the [OSI](https://en.wikipedia.org/wiki/OSI_model) L3 routing between the `{{ region-id }}-m3` and `{{ region-id }}-m4` server pools as well as the L2-level operation of the broadcast VRRP in the `{{ region-id }}-m3` server pool.
+This solution fully demonstrates the operation of an isolated client VRF segment with the [OSI](https://en.wikipedia.org/wiki/OSI_model) L3 routing between the `{{ region-id }}-m3` and `{{ region-id }}-m4` server pools as well as the L2 operation of the broadcast VRRP in the `{{ region-id }}-m3` server pool.
 
 {% note info %}
 
-At L2 of the OSI network model, broadcasting works only within one server pool and only for a group of servers in the same network.
+At OSI L2, broadcasting works only within one server pool and only for a group of servers in the same network.
 
 {% endnote %}
 
@@ -47,11 +47,11 @@ See also [How to cancel server lease](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of the proposed solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+The cost of this solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 ## Create a virtual routing and forwarding segment {#create-vrf}
 
-To link several private subnets at the L3 level of the OSI network model, you need to group them into a virtual network segment (VRF).
+To enable OSI L3 communication between private subnets, group them into a virtual network segment (VRF).
 
 Create a new VRF segment:
 
@@ -59,29 +59,29 @@ Create a new VRF segment:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
-  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the VRF segment: `vrrp-vrf`.
+  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, name your VRF segment: `vrrp-vrf`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
 
 {% endlist %}
 
 ## Create private subnets {#create-subnetworks}
 
-Create two private subnets in different [server pools](../../baremetal/concepts/servers.md#server-pools) and add them to the VRF segment you created earlier:
+Create two private subnets in different [server pools](../../baremetal/concepts/servers.md#server-pools) and add them to your VRF segment:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
-  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `subnet-m3`.
+  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.
   1. Enable **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
-  1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select the previously created VRF segment, `vrrp-vrf`.
+  1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select `vrrp-vrf`.
   1. In the **{{ ui-key.yacloud.baremetal.field_CIDR }}** field, specify `172.28.1.0/24`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. Similarly, create a private subnet named `subnet-m4` in the `{{ region-id }}-m4` server pool with the `172.28.2.0/24` CIDR.
@@ -112,11 +112,11 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `master-server-m3`.
   1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
-  1. Similarly, lease two more servers: one named `backup-server-m3` in the `{{ region-id }}-m3` server pool and another one named `client-server-m4` with the `subnet-m4` subnet in the `{{ region-id }}-m4` server pool.
+  1. Similarly, lease two more servers: one named `backup-server-m3` in the `{{ region-id }}-m3` server pool and another one named `client-server-m4` with `subnet-m4` in the `{{ region-id }}-m4` server pool.
 
 {% endlist %}
 
-On the page with a list of {{ baremetal-name }} servers that opens, you will see information about all the servers you created. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field of the table, copy the server public IP addresses as you will need them to connect to the servers over SSH.
+On the page with a list of {{ baremetal-name }} servers that opens, you will see information about all the servers you created. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field of the table, copy the server public IP addresses, as you will need them to connect to the servers over SSH.
 
 {% note info %}
 
@@ -126,17 +126,17 @@ Getting servers ready and installing operating systems on them may take up to 45
 
 ## Configure Keepalived on the servers of the {{ region-id }}-m3 pool {#setup-keepalived}
 
-At this step, you will install, configure, and run [Keepalived](https://keepalived.org/) on the servers created in the `{{ region-id }}-m3` pool.
+You will now install, configure, and run [Keepalived](https://keepalived.org/) on the servers created in the `{{ region-id }}-m3` pool.
 
 Follow the steps below to configure both servers, `master-server-m3` and `backup-server-m3`.
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the server over SSH by using the server’s public IP address you saved in the previous step. 
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the server over SSH by using the server's public IP address you saved in the previous step.
 1. Install Keepalived by running this command:
 
     ```bash
     sudo apt update && sudo apt install keepalived -y
     ```
-1. View the list of the server’s network interfaces:
+1. View a list of the server's network interfaces:
 
     ```bash
     ip a
@@ -155,13 +155,13 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
            valid_lft forever preferred_lft forever
     ```
 
-    In the command output, find an interface with an IP address in the `172.28.1.0/24` range allocated for the private subnet named `subnet-m3`. In the example above, such an interface has the `etx2` ID. You will need the interface ID in later steps to configure Keepalived.
+    In the command output, find an interface with an IP address in the `172.28.1.0/24` range allocated for `subnet-m3`. In the example above, such an interface has the `etx2` ID. You will need the interface ID in later steps to configure Keepalived.
 1. Create a Keepalived configuration file:
 
     ```
     sudo nano /etc/keepalived/keepalived.conf
     ```
-1. Add the following configuration into the file you created:
+1. Add the following configuration to the file:
 
     {% list tabs %}
 
@@ -222,14 +222,14 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
     * `state`: Server state, `MASTER` or `BACKUP`.
     * `interface`: ID of the network interface where the virtual IP address will be used. In the example above, it is `etx2`.
     * `virtual_router_id`: Unique VRRP ID for the group of virtual routers. This value must be the same for all servers in the group.
-    * `priority`: Priority that allows you to set the master and backup nodes. Set a server’s priority to `100` to make it the master node or to `90` to make it the backup one.
+    * `priority`: Priority that allows you to set the master and backup nodes. Set the server's priority to `100` to make it the master node or to `90` to make it the backup one.
     * `advert_int`: Interval between state announcements in seconds.
-    * `authentication`: Section with authentication settings to provide security. Contents of this section must be the same for all servers in a group.
-    * `virtual_ipaddress`: Virtual IP address that the current node will manage. Virtual IP address requirements:
+    * `authentication`: Section with authentication settings to provide security. Its contents must be the same for all servers in the group.
+    * `virtual_ipaddress`: Virtual IP address the current node will manage. Make sure your virtual IP address meets the following requirements:
 
-        * It must belong to the CIDR range allocated for the virtual subnet where you created the server group.
-        * It must be unused.
-        * All servers in the group must have the same address.
+        * It belongs to the CIDR range allocated for the virtual subnet where you created the server group.
+        * It is unused.
+        * It is the same for all servers in the group.
     * `preempt`: Enables the server to change its state to `MASTER` if it has a higher priority than the current master in the group.
 1. Restart Keepalived:
 
@@ -286,7 +286,7 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
 
 1. Make sure the virtual IP address was added to the network interface of the server with the `Master` role:
     1. [Connect](../../compute/operations/vm-connect/ssh.md) to `master-server-m3` over SSH.
-    1. View the configuration of the network interface assigned to the `subnet-m3` private subnet.
+    1. View the configuration of the network interface assigned to `subnet-m3`.
 
         ```bash
         ip a
@@ -309,7 +309,7 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
 
         The network interface received an additional virtual IP address specified in Keepalived settings: `172.28.1.254/32`.
 
-1. Send [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) requests from the `subnet-m4` private subnet to make sure the virtual IP address in the `subnet-m3` private subnet is available:
+1. Send [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) requests from `subnet-m4` to make sure the virtual IP address in `subnet-m3` is available:
 
     1. [Connect](../../compute/operations/vm-connect/ssh.md) to `client-server-m4` over SSH.
     1. Run this command:
@@ -333,14 +333,14 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
         rtt min/avg/max/mdev = 0.211/0.260/0.312/0.033 ms
         ```
 
-        The command you have used sends and receives packages of an increased size. All packages were delivered in full.
+        This command sends and receives large packets. All packets were successfully delivered.
 
-1. Make sure the Keepalived load balancer works correctly:
+1. Make sure the Keepalived load balancer works properly:
 
     1. [Connect](../../compute/operations/vm-connect/ssh.md) to `client-server-m4` over SSH.
     1. In a separate terminal window, [connect](../../compute/operations/vm-connect/ssh.md) to `master-server-m3` over SSH.
 
-        Move terminal windows so that you see contents of both windows at the same time.
+        Arrange the terminal windows so you can see both at the same time.
     1. In the terminal window with the `client-server-m4` session, run `ping` once again without a retry limit:
 
         ```bash
@@ -353,11 +353,11 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
         sudo systemctl stop keepalived
         ```
         
-        When it stops, observe the terminal window with the `client-server-m4` session. If the virtual IP address was shared successfully, ICMP requests should switch to the backup host almost seamlessly without interrupting the running `ping` command.
+        When it stops, watch the terminal window with the `client-server-m4` session. If the virtual IP address was shared successfully, ICMP requests should switch to the backup host almost seamlessly without interrupting the running `ping` command.
         
         {% note info %}
 
-        A minor loss of 1 to 3 packages is acceptable, which may happen when the timer for selecting a new group `MASTER` is triggered and the server is assigned the virtual IP address.
+        A minor loss of 1 to 3 packets is acceptable, which may happen when the timer for new group `MASTER` election triggers and the system reassigns the virtual IP address.
 
         {% endnote %}
 
@@ -375,7 +375,7 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
         58 packets transmitted, 55 received, 5.17241% packet loss, time 58368ms
         rtt min/avg/max/mdev = 0.185/0.271/0.326/0.035 ms
         ```
-    1. In the terminal window with the `master-server-m3` session, run Keepalived using this command:
+    1. In the terminal window with the open `master-server-m3` session, run Keepalived using this command:
 
         ```bash
         sudo systemctl start keepalived
@@ -393,16 +393,16 @@ Follow the steps below to configure both servers, `master-server-m3` and `backup
 
         ```text
         ...
-        # Logging the transition to MASTER when Keepalived stopped on the initial master node
+        # Logging the transition to MASTER as Keepalived stops on the original master node
         Feb 19 07:08:07 backup-server-m3 Keepalived_vrrp[2752]: (M3_2) Entering MASTER STATE
 
-        # Logging the transition to BACKUP when resuming Keepalived on the initial master node.
+        # Logging the transition to BACKUP when resuming Keepalived on the original master node.
         Feb 19 07:08:31 backup-server-m3 Keepalived_vrrp[2752]: (M3_2) Master received advert from 172.28.1.2 with higher priority 100, ours 90
         Feb 19 07:08:31 backup-server-m3 Keepalived_vrrp[2752]: (M3_2) Entering BACKUP STATE
         ...
         ```
 
-        As you can see from the service log and comments, `backup-server-m3` was promoted to the master node when Keepalived was stopped on `master-server-m3`. After resuming Keepalived on `master-server-m3`, the server reclaimed its master role and `backup-server-m3`, again, became the backup node.
+        As you can see from the service log and comments, `backup-server-m3` was promoted to the master node after Keepalived stopped on `master-server-m3`. After resuming Keepalived on `master-server-m3`, the server reclaimed its master role and `backup-server-m3`, again, became the backup node.
 
 ## How to cancel server lease {#clear-out}
 

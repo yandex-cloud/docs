@@ -139,6 +139,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](assign-role-for-sa.md).
-* [{#T}](set-access-bindings.md).
-* [{#T}](../../concepts/users/service-accounts.md#sa-key).
+* [{#T}](list-get.md)
+* [{#T}](assign-role-for-sa.md)
+* [{#T}](set-access-bindings.md)
+* [{#T}](../../concepts/users/service-accounts.md#sa-key)

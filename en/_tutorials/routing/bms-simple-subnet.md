@@ -1,4 +1,4 @@
-# Establishing network connectivity in a {{ baremetal-full-name }} private subnet
+# Setting up network connectivity in a {{ baremetal-full-name }} subnet
 
 If you set up routing for a [private subnet](../../baremetal/concepts/network.md#private-subnet) and assigned it a [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), the network interfaces of [{{ baremetal-name }} servers](../../baremetal/concepts/servers.md) connected to this subnet will get IP addresses from the range specified in the subnet’s CIDR settings via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol).
 
@@ -35,7 +35,7 @@ See also [How to cancel server lease](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of the proposed solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+The cost of this solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 ## Create a private subnet {#create-subnet}
 
@@ -50,7 +50,7 @@ Create a private subnet in the `{{ region-id }}-m3` [server pool](../../baremeta
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.
-  1. Without enabling the **{{ ui-key.yacloud.baremetal.title_routing-settings }}** option, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
+  1. Without enabling **{{ ui-key.yacloud.baremetal.title_routing-settings }}**, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
 {% endlist %}
 
@@ -130,7 +130,7 @@ No public IP addresses were assigned to the servers, so you cannot connect to th
           ```
 
           If you did not save the server administrator password, you can create a new password following [this guide](../../baremetal/operations/servers/reset-password.md) or [reinstall](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) the server OS.
-      1. View a list of the server’s network interfaces and find the interface connected to the private subnet:
+      1. View a list of the server's network interfaces and find the interface connected to the private subnet:
 
           ```bash
           ip a

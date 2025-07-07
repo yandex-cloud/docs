@@ -23,7 +23,7 @@
 
     {% endnote %}
     
-    Рекомендуем ознакомиться с [инструкцией для самостоятельной смены владельца в облаках](../../../resource-manager/concepts/resources-hierarchy.md#owner) и с [инструкцией для самостоятельной смены владельца в организациях](../../../organization/security/index.md#admin).
+    Рекомендуем ознакомиться с [инструкцией для самостоятельной смены владельца в облаках](../../../resource-manager/concepts/resources-hierarchy.md#owner) и с [инструкцией для самостоятельной смены владельца в организациях](../../../organization/security/index.md#add-role).
     
     {% note alert %}
     

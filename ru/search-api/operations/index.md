@@ -7,4 +7,6 @@ description: Пошаговые инструкции по выполнению �
 
 * [{#T}](./web-search-sync.md)
 * [{#T}](./web-search.md)
+* [{#T}](./search-images.md)
+* [{#T}](./search-images-by-pic.md)
 * [{#T}](./v2-mobile.md)

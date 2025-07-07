@@ -1,8 +1,8 @@
 # Access management in {{ baremetal-full-name }}
 
-{{ yandex-cloud }} users can only perform the operations on resources that are allowed by the roles assigned to them. As long as a user has no roles assigned, all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. As long as a user has no roles assigned, all operations are forbidden.
 
-To allow access to {{ baremetal-name }} resources, assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
+To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md), access to {{ baremetal-name }} resources, assign them the roles from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
 
 {% note info %}
 
@@ -10,7 +10,7 @@ For more information about role inheritance, see [Inheritance of access permissi
 
 {% endnote %}
 
-## Which roles exist in the service {#roles-list}
+## What roles exist in this service {#roles-list}
 
 In {{ baremetal-name }}, you can manage access using both service and primitive roles.
 
@@ -44,4 +44,4 @@ In {{ baremetal-name }}, you can manage access using both service and primitive 
 
 ## See also {#see-also}
 
-[Hierarchy of {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md) resources
+[Hierarchy of {{ yandex-cloud }} resources](../../resource-manager/concepts/resources-hierarchy.md)

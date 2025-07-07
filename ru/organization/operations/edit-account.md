@@ -9,7 +9,7 @@ description: Из этой статьи вы узнаете, как удалит
 
 {% note info %}
 
-Удалить или исключить аккаунт может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Роли](../security/index.md#admin).
+Удалить или исключить аккаунт может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Роли](../security/index.md#add-role).
 
 {% endnote %}
 

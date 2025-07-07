@@ -1,29 +1,29 @@
-# Configuring OPNsense firewall in high availability cluster mode on {{ baremetal-full-name }} servers
+# Configuring an OPNsense firewall in high availability cluster mode on {{ baremetal-full-name }} servers
 
-This solution allows configuring an [OPNsense](https://opnsense.org/) perimeter firewall on {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md). Apart from being the main gateway and a [stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall), OPNsense will also function as a [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) server in a highly available configuration.
+This solution allows configuring [OPNsense](https://opnsense.org/) as a perimeter firewall on {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md). Apart from being the main gateway and a [stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall), OPNsense will also function as a highly available [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) server.
 
-The idea of this solution is that only the OPNsense [firewall](https://en.wikipedia.org/wiki/Firewall_(computing)) servers are connected to the internet, thus ensuring a secure network segment behind them.
+The core of this solution is to ensure that only the OPNsense [firewall](https://en.wikipedia.org/wiki/Firewall_(computing)) servers have internet access, thus ensuring a secure network segment for your internal systems.
 
-The solution must be fault-tolerant, so a [high availability cluster](https://en.wikipedia.org/wiki/High-availability_cluster) is the proposed configuration. To achieve gateway fault tolerance, the Common Address Redundancy Protocol ([CARP](https://docs.freebsd.org/en/books/handbook/advanced-networking/#carp)) is used.
+To ensure fault tolerance, this solution uses a [high availability cluster](https://en.wikipedia.org/wiki/High-availability_cluster). To keep the gateway highly available, the proposed configuration uses the Common Address Redundancy Protocol ([CARP](https://docs.freebsd.org/en/books/handbook/advanced-networking/#carp)).
 
-For the secure network segment clients to automatically get IP addresses and the correct gateway address, the solution employs an ISC DHCPv4 server in a high-availability configuration. With OPNsense, the list of DHCP addresses can be replicated between the cluster servers with the Master and Backup roles.
+To provide automatic IP addressing and correct gateway assignment for clients in the protected network segment, this approach uses a highly available ISC DHCPv4 server. OPNsense supports replicating the DHCP address pool between Master and Backup servers.
 
-Solution diagram:
+You can see the solution architecture in the diagram below:
 
 ![opnsense-failover-cluster](../../_assets/tutorials/opnsense-failover-cluster.svg)
 
 * [Public {{ baremetal-name }} subnet](../../baremetal/concepts/network.md#public-network) of the `{{ region-id }}-m4` [server pool](../../baremetal/concepts/servers.md#server-pools).
-* [Private {{ baremetal-name }} subnet](../../baremetal/concepts/network.md#private-subnet): `opnsense-private-subnet-m4`.
-* Two {{ baremetal-name }} servers within the OPNsense cluster: `opnsense-master` and `opnsense-backup`. This guide uses OPNsense firewall version `25.1`.
-* One {{ baremetal-name }} server, `vmware-esxi` running the VMware [ESXi](https://en.wikipedia.org/wiki/VMware_ESXi) virtualization platform. This guide uses ESXi hypervisor version `7.0U3g`.
-* The `vmware-esxi` server runs a VM instance named `opnsense-tester-vm`. This guide uses a [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) VM created without a graphical user interface (GUI).
-* [Installation server](https://en.wikipedia.org/wiki/Jump_server), `jump-server`, required for configuring your OPNsense and ESXi servers and accessing their private IP addresses.
+* {{ baremetal-name }} [private subnet](../../baremetal/concepts/network.md#private-subnet): `opnsense-private-subnet-m4`.
+* Two {{ baremetal-name }} servers within the OPNsense cluster: `opnsense-master` and `opnsense-backup`. The configuration examples in this tutorial use OPNsense `25.1`.
+* One {{ baremetal-name }} server running the VMware [ESXi](https://en.wikipedia.org/wiki/VMware_ESXi) virtualization platform: `vmware-esxi`. This tutorial uses ESXi `7.0U3g`.
+* VM running on the `vmware-esxi` server: `opnsense-tester-vm`. This tutorial uses a [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) VM without a graphical user interface (GUI).
+* [Jump server](https://en.wikipedia.org/wiki/Jump_server) used to configure OPNsense and ESXi servers and access their private IP addresses: `jump-server`.
 
-    The installation server must have a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) and a [web browser](https://en.wikipedia.org/wiki/Web_browser). To make the configuration process easier for you, in this guide, the role of the installation server will be played by a {{ baremetal-name }} server booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
+    The jump server must have a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) and a [web browser](https://en.wikipedia.org/wiki/Web_browser). To make the configuration process easier for you, this tutorial uses a {{ baremetal-name }} server as the jump server, booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
 
     {% note info %}
 
-    As an alternative to the Rescue CD, you can use a VPN connection to access the private IP addresses of your servers from outside the private subnet. Using a VPN connection on OPNsense servers requires configuring a static route to a network segment outside of the current private subnet.
+    As an alternative to the Rescue CD, you can use a VPN connection to access the private IP addresses of your servers from outside the private subnet. To use a VPN connection on OPNsense servers, you will need to configure a static route to the network segment outside the current private subnet.
 
     {% endnote %}
 
@@ -31,7 +31,7 @@ To configure your OPNsense firewall in high availability cluster mode on {{ bare
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create your boot images in {{ baremetal-name }}](#create-images).
-1. [Create a private {{ baremetal-name }} subnet](#create-subnet).
+1. [Create a {{ baremetal-name }} private subnet](#create-subnet).
 1. [Lease {{ baremetal-name }} servers](#rent-servers).
 1. [Configure an OPNsense high availability cluster](#setup-opnsense).
 1. [Install a hypervisor and create a virtual machine](#setup-esxi).
@@ -52,23 +52,23 @@ The cost of the proposed solution includes:
 
 ## Create your boot images in {{ baremetal-name }} {#create-images}
 
-The OPNsense firewall and ESXi hypervisor will be installed on your {{ baremetal-name }} servers from the custom {{ baremetal-name }} boot images you will prepare before you begin deploying the infrastructure.
+You will use custom {{ baremetal-name }} boot images to install OPNsense and ESXi on your {{ baremetal-name }} servers. Make sure to configure these images before you start deploying your infrastructure.
 
 ### Upload the software ISO images to {{ objstorage-full-name }} {#upload-isos}
 
-To create the infrastructure proposed by this solution, you will need [ISO images](https://en.wikipedia.org/wiki/Optical_disc_image) with distributions to install OPNsense and VMware ESXi on your servers.
+To build the infrastructure described in this solution, you will need [ISO images](https://en.wikipedia.org/wiki/Optical_disc_image) with distributions to install OPNsense and VMware ESXi on your servers.
 
 {% note info %}
 
-{{ yandex-cloud }} does not provide distributions of these software products; you should purchase them yourself.
+{{ yandex-cloud }} does not provide these software distributions; you should purchase them yourself.
 
 {% endnote %}
 
-Upload the OPNsense and ESXi distribution images to your [{{ objstorage-name }}](../../storage/index.yaml) bucket:
+Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}](../../storage/index.yaml) bucket:
 
-1. If you have no {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) yet, [create](../../storage/operations/buckets/create.md) a bucket with limited access.
-1. Upload the images to your bucket via the [management console](../../storage/operations/objects/upload.md), [AWS CLI](../../storage/tools/aws-cli.md), or [WinSCP](../../storage/tools/winscp.md). In {{ objstorage-name }} terms, the uploaded image files are _objects_.
-1. [Get links](../../storage/operations/objects/link-for-download.md) to the images you uploaded. Use these links when creating the boot images in {{ baremetal-name }}.
+1. If you have no {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) yet, [create](../../storage/operations/buckets/create.md) one with limited access.
+1. Upload the images to your bucket using the [management console](../../storage/operations/objects/upload.md), [AWS CLI](../../storage/tools/aws-cli.md), or [WinSCP](../../storage/tools/winscp.md). Within {{ objstorage-name }}, uploaded images are classified as _objects_.
+1. [Get links](../../storage/operations/objects/link-for-download.md) to the images you uploaded. Use these links when creating your boot images in {{ baremetal-name }}.
 
 ### Create your boot images in {{ baremetal-name }} {#create-image}
 
@@ -76,33 +76,33 @@ Upload the OPNsense and ESXi distribution images to your [{{ objstorage-name }}]
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you are going to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
   1. Click **{{ ui-key.yacloud.baremetal.label_load-image }}**.
-  1. Enter a name for your OPNsense image. Follow these naming requirements:
+  1. Name your OPNsense image. Follow these naming requirements:
 
        {% include [name-format](../../_includes/name-format.md) %}
 
-  1. (Optional) Add a description for the image.
-  1. Paste the link to the OPNsense image you got in {{ objstorage-name }}.
+  1. Optionally, provide a description for the image.
+  1. Paste the OPNsense image link you got in {{ objstorage-name }}.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-image }}**.
   1. Similarly, create an ESXi boot image.
 
 {% endlist %}
 
-## Create a private {{ baremetal-name }} subnet {#create-subnet}
+## Create a {{ baremetal-name }} private subnet {#create-subnet}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m4` server pool.
-  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the subnet: `opnsense-private-subnet-m4`.
-  1. Without enabling the **{{ ui-key.yacloud.baremetal.title_routing-settings }}** option, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
+  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `opnsense-private-subnet-m4`.
+  1. Without enabling **{{ ui-key.yacloud.baremetal.title_routing-settings }}**, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
 {% endlist %}
 
@@ -112,7 +112,7 @@ Upload the OPNsense and ESXi distribution images to your [{{ objstorage-name }}]
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m4` server pool.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
@@ -122,18 +122,18 @@ Upload the OPNsense and ESXi distribution images to your [{{ objstorage-name }}]
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
-      1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `opnsense-private-subnet-m4`, which you created earlier.
+      1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `opnsense-private-subnet-m4` you created earlier.
       1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}** in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the server: `opnsense-master`.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `opnsense-master`.
   1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
   1. Similarly, lease one more server named `opnsense-backup` in the `{{ region-id }}-m4` server pool.
-  1. Similarly, lease two more servers named `vmware-esxi` and `jump-server` in the `{{ region-id }}-m4` server pool. But select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** when filling the lease form.
+  1. Similarly, lease two more servers named `vmware-esxi` and `jump-server` in the `{{ region-id }}-m4` server pool. Still, when filling in the lease form, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**.
 
 {% endlist %}
 
 {% note info %}
 
-It may take up to 20 minutes to get the servers ready. During this time, the servers will have the `Provisioning` status, then switching to `Ready`.
+It may take up to 20 minutes to provision the servers. During this time, the servers will have the `Provisioning` status, then switching to `Ready`.
 
 {% endnote %}
 
@@ -146,7 +146,7 @@ Configuring a high availability cluster involves installing the OPNsense firewal
 
 {% note tip %}
 
-To save time, you can run the OPNsense installation on your `opnsense-master` and `opnsense-backup` servers in two different browser windows at the same time. On both of these servers, the installation is performed in the same way.
+To save time, you can run the OPNsense installation on your `opnsense-master` and `opnsense-backup` servers in two different browser windows at the same time, as the installation steps are the same for both.
 
 {% endnote %}
 
@@ -160,7 +160,7 @@ To save time, you can run the OPNsense installation on your `opnsense-master` an
       1. Click **Connect CD/DVD**.
       1. Check the **Status** section for the **Virtual CD 1** device to make sure the **Connected To** field now gives the path to the image you selected, and click **Close**.
 1. To boot the server up from the selected image, click **Reboot to cdrom** in the top-right corner of the KVM console.
-1. Wait for the server to boot up and for the OPNsense interactive shell to initialize – this can take up to ten minutes.
+1. Wait for the server to boot up and for the OPNsense interactive shell to initialize. This can take up to ten minutes.
 
     When the initialization is complete, the terminal screen in the KVM console will prompt you for authentication:
 
@@ -175,9 +175,9 @@ To save time, you can run the OPNsense installation on your `opnsense-master` an
     {% include [kvm-paste-tip](../../_includes/baremetal/kvm-paste-tip.md) %}
 1. In the **Keymap Selection** window, keep the default value, `Continue with default keymap`, and press **Enter**.
 1. In the action selection dialog box, select `Install (ZFS)` and press **Enter**.
-1. Under **ZFS Configuration**, select `mirror` and press **Enter**.
-1. In the next window dedicated to selecting block devices to create a virtual RAID array, use the **up and down arrows** and **space** to select the server HDDs or SSDs, e.g., `sda0` and `sda1`. Press **Enter**.
-1. In the potential data loss alert window, confirm you agreement to modify the partition table. Use the **up and down arrows** to select `YES` and press **Enter**.
+1. In the **ZFS Configuration** window, select `mirror` and press **Enter**.
+1. In the next window listing available block devices, use the **up and down arrow keys** to move through and **spacebar** to select the server HDDs or SSDs, e.g., `sda0` and `sda1`, to include in the virtual RAID array. Press **Enter**.
+1. When prompted with a warning about potential data loss, confirm that you agree to modify the partition table: use the **left and right arrow keys** to highlight `YES` and press **Enter**.
 
     This will start OPNsense installation on the server.
 
@@ -199,7 +199,7 @@ To save time, you can run the OPNsense installation on your `opnsense-master` an
 
 ### Pre-configure your OPNsense servers {#opnsense-basic-config}
 
-Before proceeding to configure the OPNsense cluster, pre-configure the network interfaces of both your OPNsense servers:
+Before you proceed with setting up the OPNsense cluster, pre-configure the network interfaces of both your OPNsense servers:
 
 1. [Connect](../../baremetal/operations/servers/server-kvm.md) to the OPNsense server's KVM console.
 
@@ -208,24 +208,24 @@ Before proceeding to configure the OPNsense cluster, pre-configure the network i
 1. Authenticate as the `root` user with the password you set when installing the server. If you have not set any custom password for the `root` user, the default one is `opnsense`.
 
     If authenticated successfully, you will see a text menu of basic server settings with a list of possible actions.
-1. Make sure that network interfaces are set up in the system:
+1. Make sure the network interfaces are properly configured:
 
     {% note info %}
 
-    Depending on the {{ baremetal-name }} server configuration, it can be equipped with `Intel` or `Mellanox` network cards. While the OS kernel automatically configures network interfaces for `Intel` cards, configuring network interfaces for `Mellanox` cards may involve additional steps.
+    {{ baremetal-name }} server can be equipped with either `Intel` or `Mellanox` network cards, depending on the configuration. While the OS kernel automatically configures `Intel` network interfaces, configuring `Mellanox` network interfaces may involve additional steps.
 
     {% endnote %}
 
-    1. Type in `8` (`Shell` option) and press **Enter** to open the OS terminal.
-    1. Check for the network interfaces:
+    1. Type `8` (the `Shell` option) and press **Enter** to open the OS terminal.
+    1. Check for available network interfaces:
 
         ```bash
         ifconfig
         ```
 
-        If the command output features network interfaces with the `LAN` and `WAN` descriptions (`description`), no additional actions are required. 
+        If the command output shows the `LAN` and `WAN` interface descriptions (`description`), there is no need for additional configuration. 
 
-        For example:
+        Here is an example:
 
         ```text
         igb0: flags=1008843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST,LOWER_UP> metric 0 mt
@@ -249,7 +249,7 @@ Before proceeding to configure the OPNsense cluster, pre-configure the network i
             nd6 options=23<PERFORMNUD,ACCEPT_RTADV,AUTO_LINKLOCAL>
         ```
 
-        In the example above, the `igb0` and `igb1` network interfaces have the descriptions `LAN` and `WAN`, respectively, and IP addresses assigned. In which case you can proceed to the next step.
+        In the example above, the `igb0` and `igb1` network interfaces have the `LAN` and `WAN` descriptions, respectively, and IP addresses assigned. This means you can proceed to the next step.
 
         {% cut "**What to do if the output features no `LAN` and `WAN` interfaces with addresses assigned.**" %}
 
@@ -263,13 +263,13 @@ Before proceeding to configure the OPNsense cluster, pre-configure the network i
             ```text
             mlx4en_load="YES"
             ```
-        1. Save the changes and close the file. To do this, press the **Esc + Enter** key combination and type `a` in the window that opens.
+        1. Save the changes and close the file. To do this, press **Esc + Enter** and type `a` in the window that opens.
         1. Reboot the system:
 
             ```bash
             reboot
             ```
-        1. Wait for the system to reboot, authenticate, and go to the OS terminal.
+        1. Wait for the reboot to complete, log in, and open the OS terminal.
         1. Re-run the `ifconfig` command to make sure the required network interfaces are now available in your system. The `Mellanox` interfaces will have the following IDs: `mlxen0` and `mlxen1`.
 
         {% endcut %}
@@ -281,7 +281,7 @@ Before proceeding to configure the OPNsense cluster, pre-configure the network i
         ```
 1. Configure the server LAN interface:
 
-    1. Type `2` (`Set interface IP address` option) and press **Enter**:
+    1. Type `2` (the `Set interface IP address` option) and press **Enter**:
 
         ```text
         1 - LAN (igb0 - static, track6)
@@ -310,19 +310,19 @@ Before proceeding to configure the OPNsense cluster, pre-configure the network i
         Enter the subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) prefix, e.g., `24`.
     1. `For a WAN, enter the new LAN IPv4 upstream gateway address. For a LAN, press <ENTER> for none`:
 
-        Press **Enter** not to set the gateway address.
+        Press **Enter** to skip setting the gateway address.
     1. `Configure IPv6 address LAN interface via WAN tracking? [Y/n]`:
 
-        Enter `n` not to configure an IPv6 address via the Track Interface function.
+        Enter `n` to skip configuring the IPv6 address using Track Interface.
     1. `Configure IPv6 address LAN interface via DHCP6? [y/N]`:
 
-        Enter `n` not to configure getting an IPv6 address via DHCP6.
+        Enter `n` to skip configuring the IPv6 address via DHCP6.
     1. `Enter the new LAN IPv6 address. Press <ENTER> for none`:
 
-        Press **Enter** not to set the IPv6 address.
+        Press **Enter** to skip setting the IPv6 address.
     1. `Do you want to enable the DHCP server on LAN? [y/N]`:
 
-        Enter `n` not to configure the DHCP server. You will configure the DHCP server later via the web interface.
+        Enter `n` to skip configuring the DHCP server. You will configure it later via the web interface.
     1. `Do you want to change the web GUI protocol from HTTPS to HTTP? [y/N]`:
 
         Enter `y` to use HTTP to access the server configuration web interface.
@@ -330,7 +330,7 @@ Before proceeding to configure the OPNsense cluster, pre-configure the network i
 
         Enter `y` to use default settings to access the server configuration web interface.
 
-    The OPNsense server settings will be updated; you can configure the OPNsense servers and cluster further via the web interface at the specified addresses:
+    Your OPNsense server settings will be updated, and you can then further configure the OPNsense servers and cluster via the web interface at the specified addresses:
 
     {% list tabs group=host_type %}
 
@@ -354,7 +354,7 @@ Before proceeding to configure the OPNsense cluster, pre-configure the network i
 
     {% cut "Additional settings for connection to the web interface via VPN." %}
 
-    1. Type in `8` (`Shell` option) and press **Enter** to open the OS terminal.
+    1. Type `8` (the `Shell` option) and press **Enter** to open the OS terminal.
     1. Configure the static route to the VPN segment of the network:
 
         {% list tabs group=host_type %}
@@ -400,22 +400,22 @@ Before proceeding to configure the OPNsense cluster, pre-configure the network i
 
     {% endcut %}
 
-This concludes the OPNsense server pre-configuration procedures. To further configure the servers and cluster, access the web interface.
+The OPNsense server pre-configuration is now complete. To further configure the servers and cluster, access the web interface.
 
 ### Set up an OPNsense server cluster {#opnsense-cluster-config}
 
-To set up an OPNsense server cluster, you need an installation server (_jump server_) with a graphical user interface and access to the private subnet the cluster hosts are connected to. 
+To set up an OPNsense server cluster, you need a jump server with a graphical user interface and access to the private subnet to which the cluster hosts are connected. 
 
-To make the configuration process easier for you, in this guide, the role of this installation server will be played by a `jump-server` server leased earlier and booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
+To make the configuration process easier for you, this tutorial uses a previously leased server, `jump-server`, as the jump server, booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
 
 {% include [kvm-console-actions-notice](../_tutorials_includes/opnsense-failover-cluster/kvm-console-actions-notice.md) %}
 
-1. [Start](../../baremetal/operations/servers/rescue-boot.md#boot-up) `jump-server` from the Rescue CD by selecting the default boot option, `Boot SystemRescue using default options`, from the SystemRescue main menu.
+1. [Start](../../baremetal/operations/servers/rescue-boot.md#boot-up) `jump-server` from the Rescue CD by selecting the default boot option, `Boot SystemRescue using default options`, in the SystemRescue main menu.
 
-    Running SystemRescue will launch the SystemRescue OS terminal in the KVM console.
+    Running SystemRescue will launch the SystemRescue terminal in the KVM console.
 
-1. To start the SystemRescue GUI, run the `startx` command in the SystemRescue OS terminal.
-1. As the `opnsense-private-subnet-m4` private subnet has no DHCP server yet, configure the network interface manually:
+1. Run `startx` in the SystemRescue terminal to start the GUI.
+1. As `opnsense-private-subnet-m4` has no DHCP server yet, configure the network interface manually:
 
     1. Look up the MAC address of the `jump-server` network interface connected to the private subnet.
 
@@ -431,7 +431,7 @@ To make the configuration process easier for you, in this guide, the role of thi
     1. In the settings window that opens, go to the **IPv4 Settings** tab and select `Manual` in the **Method** field.
     1. Under **Addresses**, click **Add**. In the **Address** field, enter `192.168.1.20`; in the **Netmask** field, `24`.
     1. Click **Save**.
-1. Make sure that network access to the OPNsense servers is now available. To do this, click the terminal icon in the bottom-left corner of the screen; in the window that opens, run this command:
+1. Make sure you can now connect to the OPNsense servers via the network. To do this, click the terminal icon in the bottom-left corner of the screen; in the window that opens, run this command:
 
     ```bash
     ping 192.168.1.252 -c3
@@ -469,8 +469,8 @@ To make the configuration process easier for you, in this guide, the role of thi
 
         {% endlist %}
 
-    1. On the authentication page, enter `root` for username and use the password you set when installing the server. If you had not set a password for the `root` user, the default one is `opnsense`.
-    1. Specify the high availability cluster settings:
+    1. On the authentication page, enter `root` for username and use the password you set when installing the server. If you have not set any custom password for the `root` user, the default one is `opnsense`.
+    1. Configure your high availability cluster:
 
         1. In the main menu, go to the high availability cluster settings: `System` → `High Availability` → `Settings`.
         1. In the **Synchronize all states via** field, select the `LAN` interface.
@@ -489,18 +489,18 @@ To make the configuration process easier for you, in this guide, the role of thi
 
             {% endlist %}
 
-        1. In the **Remote System Username** field, enter `root` for username.
+        1. In the **Remote System Username** field, specify `root`.
 
             {% note info %}
 
-            For synchronization purposes, you can create additional users on OPNsense servers in the `System` → `Access` section of the main menu.
+            For synchronization purposes, you can create additional users on OPNsense servers under `System` → `Access`.
 
             {% endnote %}
 
-        1. In the **Remote System Password** field, enter the password to the account you specified above.
+        1. In the **Remote System Password** field, enter the password of the account you specified above.
         1. In the **Services** field, select the services for synchronization. Click `Select All` to select all services, which is a good option to demonstrate what the solution can do.
         1. Click **Apply** to save and apply the changes.
-    1. Specify the CARP virtual IP settings:
+    1. Configure your CARP virtual IP address:
 
         1. In the main menu, go to the virtual IP address settings: `Interfaces` → `Virtual IPs` → `Settings`.
         1. Click ![square-plus](../../_assets/console-icons/square-plus.svg) to add a new virtual IP address and do the following in the window that opens:
@@ -533,10 +533,10 @@ To make the configuration process easier for you, in this guide, the role of thi
     1. Configure the DHCP server in the private subnet:
 
         1. In the main menu, go to the DHCP settings: `Services` → `ISC DHCPv4` → `LAN`.
-        1. Turn on **Enable DHCP server on the LAN interface**.
+        1. Check **Enable DHCP server on the LAN interface**.
         1. In the **Range** field, specify the range of private subnet IP addresses available for clients through your DHCP server, e.g., **from** `192.168.1.100` **to** `192.168.1.199`.
-        1. In the **DNS servers** field, specify the domain name server addresses that will be issued to your clients, e.g., `77.88.8.8`.
-        1. In the **Gateway** field, specify the IP address for the CARP interface you configured earlier: `192.168.1.254`.
+        1. In the **DNS servers** field, specify the domain name server addresses that your clients will get, e.g., `77.88.8.8`.
+        1. In the **Gateway** field, specify the IP address of the CARP interface you configured earlier: `192.168.1.254`.
         1. In the **Default lease time (seconds)** field, specify the lease period for the provided IP address, in seconds, e.g., `3600`.
         1. In the **Failover peer IP** field:
 
@@ -557,17 +557,17 @@ To make the configuration process easier for you, in this guide, the role of thi
 
     {% note info %}
 
-    With OPNsense in cluster mode, firewall settings should first be changed on the `Master` host. The `Backup` host will get the updated parameters through change synchronization.
+    With OPNsense in cluster mode, configure firewall settings on the `Master` host first. The `Backup` host will get the updated parameters through change synchronization.
 
     {% endnote %}
 
     1. In your web browser address bar, enter the server address: `http://192.168.1.252`.
     1. In the main menu, go to the high availability cluster settings: `System` → `High Availability` → `Status`.
-    1. Scroll down the list of services and click ![arrow-rotate-right](../../_assets/console-icons/arrow-rotate-right.svg) under **Synchronize and reconfigure all** (`Restart all services`).
+    1. Scroll down the list of services and click ![arrow-rotate-right](../../_assets/console-icons/arrow-rotate-right.svg) next to **Synchronize and reconfigure all** (`Restart all services`).
 
     {% note warning %}
 
-    Change synchronization also restarts the services.
+    Synchronizing changes also triggers service restarts.
 
     {% endnote %}
 
@@ -579,7 +579,7 @@ To make the configuration process easier for you, in this guide, the role of thi
 
       1. In your web browser address bar, enter the Master server address: `http://192.168.1.252`.
       1. In the main menu, go to the virtual IP address settings: `Interfaces` → `Virtual IPs` → `Status`.
-      1. On the **Addresses** tab, view the **Status** column to make sure the server got the `Master` role.
+      1. In the **Addresses** tab, check the **Status** column to make sure the server got the `Master` role.
 
           {% include [carp-restart-notice](../_tutorials_includes/opnsense-failover-cluster/carp-restart-notice.md) %}
 
@@ -589,7 +589,7 @@ To make the configuration process easier for you, in this guide, the role of thi
 
       1. In your web browser address bar, enter the Backup server address: `http://192.168.1.253`.
       1. In the main menu, go to the virtual IP address settings: `Interfaces` → `Virtual IPs` → `Status`.
-      1. On the **Addresses** tab, view the **Status** column to make sure the server got the `Backup` role.
+      1. In the **Addresses** tab, check the **Status** column to make sure the server got the `Backup` role.
 
           {% include [carp-restart-notice](../_tutorials_includes/opnsense-failover-cluster/carp-restart-notice.md) %}
 
@@ -597,9 +597,9 @@ To make the configuration process easier for you, in this guide, the role of thi
 
     {% endlist %}
 
-This concludes the bulk of the high availability cluster configuration procedures.
+You have now completed the key steps in configuring your high availability cluster.
 
-Further configuration may involve creating firewall rules. However, for the purposes of this guide, it is enough to have a basic set of rules plus automatically generated NAT rules that will allow your clients to access the internet, i.e., allow traffic to flow through the firewall between the LAN and WAN interfaces.
+Further configuration may involve creating firewall rules. However, for the purposes of this tutorial, it is enough to have a basic set of rules plus automatically generated NAT rules that will allow your clients to access the internet, i.e., allow traffic flow through the firewall between the LAN and WAN interfaces.
 
 
 ## Install a hypervisor and create a virtual machine {#setup-esxi}
@@ -616,10 +616,10 @@ Further configuration may involve creating firewall rules. However, for the purp
       1. Click **Connect CD/DVD**.
       1. Check the **Status** section for the **Virtual CD 1** device to make sure the **Connected To** field now gives the path to the image you selected, and click **Close**.
 1. To boot the server up from the selected image, click **Reboot to cdrom** in the top-right corner of the KVM console.
-1. Wait for the server to boot up and for the ESXi installer's interactive shell to initialize, start the installation process, and accept the terms and conditions of the license agreement (EULA).
-1. Select the server disk to install the hypervisor on and the preferred keyboard layout.
+1. Wait for the server to boot up and for the ESXi installer's interface to initialize, start the installation, and accept the EULA terms and conditions.
+1. Select the server disk for the hypervisor installation and the preferred keyboard layout.
 1. Set the `root` user password for access to the hypervisor settings.
-1. To start the ESXi installation, confirm your agreement to modify the partition table.
+1. To start the ESXi installation, confirm that you agree to modify the partition table.
 1. Wait for the installation to complete and press **Enter** to restart your server.
 1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens:
 
@@ -627,12 +627,12 @@ Further configuration may involve creating firewall rules. However, for the purp
       1. Click **Close**.
 1. Wait for the hypervisor to start and configure the network settings as follows:
 
-    1. To go to settings, press **F2** and enter the `root` user password you set during the installation.
+    1. To open the settings, press **F2** and enter the `root` user password you set during installation.
 
-        If no password was set during the installation, by default you log in to the `root` user account without any password.
+        If you set no password, you can log in to the `root` account without a password by default.
     1. In the main settings menu, select `Configure Management Network`.
     1. In the menu that opens, select `IPv4 Configuration`.
-    1. Use the **space** key to select `Set static IPv4 address and network configuration` and specify the following:
+    1. Press the **Spacebar** to select `Set static IPv4 address and network configuration`, and then specify the following:
 
         * **IPv4 Address**: Any free IP address that is part of the `opnsense-private-subnet-m4` private subnet and is not in the range of addresses available for clients through the OPNsense DHCP server, e.g., `192.168.1.50`.
         * **Subnet Mask**: [Subnet mask](https://en.wikipedia.org/wiki/Subnet), `255.255.255.0`.
@@ -643,88 +643,88 @@ Further configuration may involve creating firewall rules. However, for the purp
 
 ### Create a VM {#create-vm}
 
-To create and configure VMs, you need an installation server (_jump server_) with a graphical user interface and access to the private subnet with a hypervisor connected. 
+To create and configure VMs, you need a jump server with a graphical user interface and access to the private subnet with a hypervisor connected. 
 
-To make the configuration process easier for you, in this guide, the role of this installation server will be played by a `jump-server` server leased earlier and booted into recovery and diagnostics mode from a [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
+To make the configuration process easier for you, this tutorial uses a previously leased server, `jump-server`, as the jump server, booted into recovery and diagnostics mode from the [Rescue CD](../../baremetal/operations/servers/rescue-boot.md).
 
 {% include [kvm-console-actions-notice](../_tutorials_includes/opnsense-failover-cluster/kvm-console-actions-notice.md) %}
 
-1. [Start](../../baremetal/operations/servers/rescue-boot.md#boot-up) `jump-server` from the Rescue CD by selecting the default boot option, `Boot SystemRescue using default options`, from the SystemRescue main menu.
-1. To start the SystemRescue GUI, run the `startx` command in the SystemRescue OS terminal.
+1. [Start](../../baremetal/operations/servers/rescue-boot.md#boot-up) `jump-server` from the Rescue CD by selecting the default boot option, `Boot SystemRescue using default options`, in the SystemRescue main menu.
+1. Run `startx` in the SystemRescue terminal to start the GUI.
 1. In the bottom-right corner, click the **Firefox** icon to open the web browser.
 1. Download to the server an ISO image of the OS you want installed on your VM.
 
     {% note info %}
 
-    For the purposes of this guide, the VM will be running [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) without a GUI (`Server install image`).
+    In this tutorial, your VM will be running [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) without a GUI (`Server install image`).
 
     {% endnote %}
 
 1. In the address bar, enter the hypervisor address, e.g., `https://192.168.1.50/`.
 1. On the authentication page, enter `root` for username and use the password you set when installing ESXi.
-1. Download the image of the OS you want installed on your VM to the hypervisor file storage:
+1. Upload the image of the OS you want installed on your VM to the hypervisor file storage:
 
     1. In the left-hand main menu, select **Storage**.
     1. In the window that opens, select `datastore1`.
-    1. In the menu at the top, click **Datastore browser** and do the following in the window that opens:
+    1. In the top menu, click **Datastore browser** and do the following in the window that opens:
 
         1. Click **Create directory** and create one named `ISO`.
         1. Select the new `ISO` directory and click **Upload**.
         1. In the window that opens, select the ISO image you downloaded earlier.
 
             By default, downloaded files are saved to `/Home/Downloads/`.
-        1. Wait for the image to download and click **Close** in the bottom-right corner of the window.
+        1. Wait for the image to upload and click **Close** in the bottom-right corner of the window.
 1. Create a virtual machine:
 
     1. In the left-hand main menu, select **Virtual Machines** and click **Create / Register VM**.
     1. In the **Select creation type** window, select `Create a new virtual machine` and click **Next**.
-    1. Do the following in the **Select a name and guest OS** window:
+    1. In the **Select a name and guest OS** window:
 
         1. In the **Name** field, enter a name for the new VM, e.g., `opnsense-tester-vm`.
         1. In the **Guest OS family** field, select `Linux`.
         1. In the **Guest OS version** field, select `Ubuntu Linux (64-bit)`.
         1. Click **Next**.
     1. In the **Select storage** window, select `datastore1` and click **Next**.
-    1. In the **Customize setting** window, do the following on the **Virtual Hardware** tab:
+    1. In the **Customize setting** window, configure the **Virtual Hardware** tab as follows:
 
-        1. In the **CPU** field, select the number of vCPUs you want to allocate to your VM, e.g., `4`.
-        1. In the **Memory** field, select the amount of RAM you want to allocate to your VM, e.g., `8 GB`.
-        1. In the **Hard disk 1** field, select the hard disk volume you want to allocate to your VM, e.g., `50 GB`.
+        1. In the **CPU** field, select the number of vCPUs to allocate to your VM, e.g., `4`.
+        1. In the **Memory** field, select the amount of RAM to allocate to your VM, e.g., `8 GB`.
+        1. In the **Hard disk 1** field, select the amount of disk space to allocate to your VM, e.g. `50 GB`.
         1. In the **CD/DVD Drive 1** field, select `Datastore ISO file`. In the window that opens, select the image you downloaded earlier.
-        1. Leave other parameters as they are and click **Next**.
-    1. In the **Ready to complete** window, check the parameters of the new VM and click **Finish** to create it.
-    1. In the left-hand main menu, select **Virtual Machines**. Select the `opnsense-tester-vm` VM.
-    1. In the window that opens, click ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) **Power on** or the ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) icon in the VM preview window.
-    1. Click the VM preview window and expand it to full screen.
-    1. Go through the operating system installation procedure by selecting the preferred language, keyboard layout, installation type, etc. You can leave all settings at their defaults: this will be enough to test the solution within the scope of this guide.
+        1. Leave other settings as they are and click **Next**.
+    1. In the **Ready to complete** window, check the settings of the new VM and click **Finish** to create it.
+    1. In the left-hand main menu, click **Virtual Machines** and select `opnsense-tester-vm`.
+    1. In the window that opens, click ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) **Power on** or ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) in the VM preview window.
+    1. Click the VM preview window and maximize it.
+    1. Follow through the OS installation procedure after selecting the preferred language, keyboard layout, installation type, etc. You can leave all settings at their defaults: this will be enough to test the solution within the scope of this tutorial.
 
-        On the network settings screen, make sure that the VM was assigned a private IP address on the `opnsense-private-subnet-m4` subnet from the range specified in the OPNsense DHCP server settings.
+        On the network settings screen, make sure the VM got a private IP address on the `opnsense-private-subnet-m4` subnet from the range specified in the OPNsense DHCP server settings.
         
-        On the **Profile configuration** screen, set the name and password of the user who will have access to the VM.
+        On the **Profile configuration** screen, set up user credentials for accessing the VM.
     1. Once the installation is complete, click **Reboot Now**.
 
 ## Test the solution {#test-solution}
 
-The solution will be tested using a VM created earlier on a server running VMware ESXi.
+To test the solution, we will use a VM created earlier on a server running VMware ESXi.
 
 The successful test criteria are as follows:
 * The VM gets an IP address in the local network from the DHCP server created in the OPNsense cluster.
-* The VM is able to access the internet through the OPNsense firewall.
+* The VM can connect to the internet through the OPNsense firewall.
 
 ### Check whether the client got an IP address from the DHCP server {#check-dhcp-lease}
 
 1. [Connect](../../baremetal/operations/servers/server-kvm.md) to the `opnsense-master` server's KVM console.
-1. Authenticate to the OPNsense server as the `root` user with the password you set when installing the server.
-1. Type in `8` (`Shell` option) and press **Enter** to open the OS terminal.
+1. Log in to the OPNsense server as the `root` user with the password you set when installing the server.
+1. Type `8` (the `Shell` option) and press **Enter** to open the OS terminal.
 1. Run this command:
 
     ```bash
     tcpdump -i <interface_ID> -pvn port 67 and port 68
     ```
 
-    Where `<interface_ID>` is the ID of the server network interface connected to the `opnsense-private-subnet-m4` private subnet, e.g., `igb0`.
+    Where `<interface_ID>` is the ID of the server network interface connected to `opnsense-private-subnet-m4`, e.g., `igb0`.
 
-    With the `tcpdump` command, you can listen to the network interface to visualize how the DHCP protocol works.
+    The `tcpdump` command listens on the network interface to visually demonstrate how the DHCP protocol works.
 
     Result:
 
@@ -791,7 +791,7 @@ The successful test criteria are as follows:
 
     {% list tabs %}
 
-    - Client's requests for an IP address
+    - Client's request for an IP address
 
       ```text
       0.0.0.0.68 > 255.255.255.255.67:     BOOTP/DHCP, Request
@@ -814,17 +814,17 @@ The successful test criteria are as follows:
 
     {% endlist %}
 
-### Check that your VM has internet access {#check-internet}
+### Check internet connectivity from your VM {#check-internet}
 
-1. [Start](../../baremetal/operations/servers/rescue-boot.md#boot-up) `jump-server` from the Rescue CD by selecting the default boot option, `Boot SystemRescue using default options`, from the SystemRescue main menu.
+1. [Start](../../baremetal/operations/servers/rescue-boot.md#boot-up) `jump-server` from the Rescue CD by selecting the default boot option, `Boot SystemRescue using default options`, in the SystemRescue main menu.
 1. Start the SystemRescue GUI by running the `startx` command.
 1. In the bottom-right corner of the GUI screen, click the **Firefox** icon to open the web browser.
 1. In the address bar, enter the hypervisor address, e.g., `https://192.168.1.50/`.
 1. On the authentication page, enter `root` for username and use the password you set when installing ESXi.
-1. In the left-hand main menu, select **Virtual Machines**. Select the `opnsense-tester-vm` VM.
-1. In the window that opens, click ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) in the VM preview box and expand it to full screen. Do the following in the VM terminal window:
+1. In the left-hand main menu, click **Virtual Machines** and select `opnsense-tester-vm`.
+1. In the window that opens, click ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) in the VM preview box and maximize it. In the VM terminal window:
 
-    1. To authenticate, enter the username and password you set when creating the VM.
+    1. To log in, enter the username and password you set when creating the VM.
     1. Make sure the VM has an IP address assigned:
 
         ```bash
@@ -849,8 +849,8 @@ The successful test criteria are as follows:
                 valid_lft forever preferred_lft forever
         ```
 
-        The `ens160` network interface got from the DHCP server the IP address `192.168.1.153`.
-    1. Install the `net-tools` and `traceroute` packages:
+        The `ens160` network interface got the `192.168.1.153` IP address from the DHCP server.
+    1. Install `net-tools` and `traceroute`:
 
         ```bash
         sudo apt install net-tools traceroute
@@ -889,7 +889,7 @@ The successful test criteria are as follows:
         3 packets transmitted, 3 packets received, 0% packet loss
         round-trip min/avg/max = 2.252/2.323/2.363 ms
         ```
-    1. Check the route through to any external address, e.g., `1.1.1.1`:
+    1. Trace the route to any external IP address, e.g., `1.1.1.1`:
 
         ```bash
         traceroute -n 1.1.1.1

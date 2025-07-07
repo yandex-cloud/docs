@@ -55,6 +55,9 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./user-pools/deactivate-user.md)
 * [{#T}](./user-pools/reset-user-password.md)
 * [{#T}](./user-pools/delete-user.md)
+
+## Управление доменами {#manage-domains}
+
 * [{#T}](./user-pools/add-domain.md)
 * [{#T}](./user-pools/validate-domain.md)
 * [{#T}](./user-pools/delete-domain.md)
